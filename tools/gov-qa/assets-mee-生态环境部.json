@@ -1,0 +1,2031 @@
+{
+ "A_考卷": [
+  {
+   "source": "mee",
+   "id": "1779997",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132996.shtml",
+   "question": "《挥发性有机物无组织排放控制标准》（GB37822-2019）是否适用于单一厂房的企业或项目？如适用，在何处设置监控点？",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB37822-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1779995",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132994.shtml",
+   "question": "“无防渗漏措施的坑塘沟渠”存贮废水是否等同于“渗坑”排污？",
+   "cited_hits": [
+    {
+     "name": "环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "行政主管部门移送适用行政拘留环境违法案件暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776180",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130217.shtml",
+   "question": "建设项目如何界定是否属于海洋工程范畴，以及是否需要同步参考海洋工程环评导则?",
+   "cited_hits": [
+    {
+     "name": "防治海洋工程建设项目污染损害海洋环境管理条例",
+     "lib_no": "防治海洋工程建设项目污染损害海洋环境管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776170",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130207.shtml",
+   "question": "海上风电项目，风机桩基的防腐方式由外加电流阴极保护变更为牺牲阳极保护方式，是否为重大变动。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设项目环境保护管理条例",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发环评管理中部分行业建设项目重大变动清单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776168",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130205.shtml",
+   "question": "在《饮食业油烟排放标准》（GB18483-2001）6.6小节的计算公式中，请问“n－折算的工作灶头数”中的工作灶头，是指监测时正在使用的灶头，还是指全部的灶头？",
+   "cited_hits": [
+    {
+     "name": "饮食业油烟排放标准",
+     "lib_no": "GB 18483-2001",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB18483-2001"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776167",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130204.shtml",
+   "question": "如何设置工业排气筒高度？",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 16297—1996"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776164",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130201.shtml",
+   "question": "燃煤锅炉的基准含氧量如何确定？《关于部分供热及发电锅炉执行大气污染物排放标准有关问题的复函》（环函〔2014〕179号）文中的锅炉是否包括45.5MW以上的燃煤热水锅炉？",
+   "cited_hits": [
+    {
+     "name": "火电厂大气污染物排放标准",
+     "lib_no": "GB 13223-2011",
+     "weak": false
+    },
+    {
+     "name": "火电厂大气污染物排放标准",
+     "lib_no": "GB 13223-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "锅炉大气污染物排放标准",
+    "关于部分供热及发电锅炉执行大气污染物排放标准有关问题的复函",
+    "GB 13271—2014",
+    "GB 13223—2011",
+    "GB13223—2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776163",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130200.shtml",
+   "question": "RTO装置出口废气污染物排放浓度是否要考虑含氧量？",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 37822—2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776162",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130199.shtml",
+   "question": "VOCs无组织废气是否需要收集治理？",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    },
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 37822—2019",
+    "GB 37822—2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776161",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130198.shtml",
+   "question": "汽车年检中OBD检验项目规定是否合理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "汽油车污染物排放限值及测量方法（双怠速法及简易工况法）",
+     "lib_no": "GB 18285-2018",
+     "weak": false
+    },
+    {
+     "name": "柴油车污染物排放限值及测量方法（自由加速法及加载减速法）",
+     "lib_no": "GB 3847-2018",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 18285—2018",
+    "GB 3847—2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776160",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130197.shtml",
+   "question": "汽车年检不合格后，是否必须到指定的M站维修？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于建立实施汽车排放检验与维护制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776158",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130195.shtml",
+   "question": "换热站水泵的噪声监测应该执行哪个标准？",
+   "cited_hits": [
+    {
+     "name": "社会生活环境噪声排放标准",
+     "lib_no": "GB 22337-2008",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工业企业厂界环境噪声排放标准",
+    "噪声法",
+    "GB22337-2008",
+    "GB 12348-2008"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776156",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130193.shtml",
+   "question": "公司所购买的制冷设备是成套设备，所用制冷剂属于《中国受控消耗臭氧层物质清单》中所列消耗臭氧层物质（ODS）或氢氟碳化物（HFCs）。公司与第三方签订维保合同，负责制冷设备的日常维护保养及制冷剂充装。公司在使用消耗臭氧层物质过程中是使用成套的",
+   "cited_hits": [
+    {
+     "name": "消耗臭氧层物质管理条例",
+     "lib_no": "消耗臭氧层物质管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国受控消耗臭氧层物质清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776149",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130186.shtml",
+   "question": "公司计划生产的新产品副产《中国受控消耗臭氧层物质清单》中所列消耗臭氧层物质或氢氟碳化物，将副产的消耗臭氧层物质或氢氟碳化物用作公司其他产品的原料，以原料用途使用，不直接排放，是否符合《消耗臭氧层物质管理条例》有关规定。",
+   "cited_hits": [
+    {
+     "name": "消耗臭氧层物质管理条例",
+     "lib_no": "消耗臭氧层物质管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776142",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130179.shtml",
+   "question": "关于全国碳排放权交易市场发电、钢铁、水泥和铝冶炼行业重点排放单位名录制定、《企业温室气体排放核算与报告指南 发电设施》《企业温室气体排放核查技术指南 发电设施》等核算指南、核查指南和碳排放配额分配清缴等相关问题，应当去哪级生态环境部门咨询？",
+   "cited_hits": [
+    {
+     "name": "碳排放权交易管理暂行条例",
+     "lib_no": "碳排放权交易管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776140",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130177.shtml",
+   "question": "《地下水污染健康风险评估工作指南》附录H“部分有毒有害指标的饮用水标准”中，部分因子参考标准取值中与《生活饮用水卫生标准》（GB 5749-2022）中的标准限值不一致，如指南附录H中一氯二溴甲烷单位为μg/L，标准值为0.1；而对照GB ",
+   "cited_hits": [
+    {
+     "name": "生活饮用水卫生标准",
+     "lib_no": "GB 5749-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "地下水污染健康风险评估工作指南",
+    "GB 5749-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776136",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130173.shtml",
+   "question": "1.监测地下水中金属类指标时，《地下水环境监测技术规范》（HJ 164-2020）和《地下水质量标准》（GB/T 14848-2017）均未明确金属类指标是监测溶解态还是总量。《水质65种元素的测定 电感耦合等离子体质谱法》（HJ 700-",
+   "cited_hits": [
+    {
+     "name": "地下水质量标准",
+     "lib_no": "GB/T 14848-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "水质65种元素的测定 电感耦合等离子体质谱法",
+    "地下水环境监测技术规范",
+    "GB/T 14848-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776134",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130171.shtml",
+   "question": "我司一家无机盐精细化工企业，根据《环境监管重点单位名录管理办法》的要求，被列入土壤污染重点监管名单，我司能否提出以下申请：1.退出土壤重点监管单位名录；2.若不能退出，能否在土壤隐患自查报告中对有毒有害物质进行简化管理。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土壤污染防治法",
+     "lib_no": "土壤污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "环境监管重点单位名录管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776132",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130168.shtml",
+   "question": "土壤初步调查项目中，地下水是否有必要检测跟土壤一样的45项，其中包括GB36600-2018中的VOCs27项和SVOCs11项，这些项目部分是没有限值标准要求，强制要求区域所有企业土壤调查必测这些指标，这个是否合理？就个别专家提出的以上意",
+   "cited_hits": [
+    {
+     "name": "地下水质量标准",
+     "lib_no": "GB/T 14848-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设用地土壤污染状况调查技术导则",
+    "GB/T 14848 - 2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776122",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130158.shtml",
+   "question": "《危险废物贮存污染控制标准》(GB18597-2023)中的暂时贮存和实时贮存量不应超过3吨该如何理解？贮存点是否也要设立贮存分区标志？",
+   "cited_hits": [
+    {
+     "name": "危险废物贮存污染控制标准",
+     "lib_no": "GB 18597-2023",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB18597-2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776120",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130156.shtml",
+   "question": "根据《危险废物贮存污染控制标准》(GB18597-2023)规定，贮存易产生粉尘、VOCs、酸、有毒有害大气污染物和刺激性气味气体的危险废物贮存库，应设置气体收集装置和气体净化设施;气体净化设施的排气筒高度应符合GB16297要求。项目产生",
+   "cited_hits": [
+    {
+     "name": "挥发性有机物无组织排放控制标准",
+     "lib_no": "GB 37822-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 37822-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776105",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130141.shtml",
+   "question": "目前对放射性固体废物进行处理、贮存是否需要获得许可才可进行？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国核安全法",
+     "lib_no": "核安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776101",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130137.shtml",
+   "question": "手机、家用电器产生的电磁辐射是否适用《电磁环境控制限值》？",
+   "cited_hits": [
+    {
+     "name": "移动通信终端电磁辐射暴露限值",
+     "lib_no": "GB 21288-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电磁环境控制限值",
+    "GB 8702-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776098",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130134.shtml",
+   "question": "《电力设施保护条例》规定500千伏架空电力线路保护区为20米，在位于此距离以内的民房居住是否对人体健康有危害？",
+   "cited_hits": [
+    {
+     "name": "电力设施保护条例",
+     "lib_no": "电力设施保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电磁环境控制限值",
+    "GB8702-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776092",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130128.shtml",
+   "question": "如何判定开展环境影响评价的规划范围和文件形式？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发<编制环境影响报告书的规划的具体范围（试行）>和<编制环境影响篇章或说明的规划的具体范围（试行）>的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776090",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130126.shtml",
+   "question": "产业园区规划环境影响跟踪评价开展的条件？",
+   "cited_hits": [
+    {
+     "name": "规划环境影响评价条例",
+     "lib_no": "规划环境影响评价条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强产业园区规划环境影响评价工作的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776089",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130125.shtml",
+   "question": "产业园区规划发生调整或修订时是否需要重新开展规划环评？",
+   "cited_hits": [
+    {
+     "name": "规划环境影响评价条例",
+     "lib_no": "规划环境影响评价条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强产业园区规划环境影响评价工作的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776080",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130116.shtml",
+   "question": "《建设项目环境影响报告表编制技术指南（生态影响类）（试行）》中“排放国家、地方环境空气质量标准中有标准限值要求的特征污染物”，环境空气质量标准是否包含《环境影响评价技术导则 大气环境》（HJ2.2-2018）附录D等技术导则和参考资料？",
+   "cited_hits": [
+    {
+     "name": "工业企业设计卫生标准",
+     "lib_no": "GBZ 1-2010",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南（生态影响类）（试行）",
+    "环境空气质量标准",
+    "环境影响评价技术导则 大气环境",
+    "前苏联居住区标准",
+    "环境影响评价技术导则 制药建设项目"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776070",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130106.shtml",
+   "question": "《环境影响评价技术导则 生态影响》(HJ 19-2022)6.1.2 e）中“湿地”的范围如何界定？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "环境影响评价技术导则 生态影响"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776060",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130096.shtml",
+   "question": "建设项目环境影响后评价备案应报哪级环评审批权限部门？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776051",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130087.shtml",
+   "question": "依法需要填报排污登记表的企业事业单位和其他生产经营者是否需要开展自行监测？",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "mee",
+   "id": "1791255",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202601/t20260116_1140857.shtml",
+   "question": "关于伪造机动车检验报告情节严重判定咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于机动车排放检验机构伪造排放检验结果或出具虚假排放检验报告情节严重判定标准的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1779996",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132995.shtml",
+   "question": "已获得相关资质认证的背散射人体安检设备能否在地铁大规模使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对X射线人体安检设备辐射安全管理相关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1779994",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132993.shtml",
+   "question": "关于苯胺分析方法问题（《土壤和沉积物 13种苯胺类和2种联苯胺类化合物的测定 液相色谱-三重四极杆质谱法》实施后，土壤调查或其他土壤相关检测是否可继续沿用参照《土壤和沉积物 半挥发性有机物的测定 气相色谱-质谱法》）？",
+   "cited_hits": [],
+   "cited_missing": [
+    "土壤和沉积物 半挥发性有机物的测定 气相色谱-质谱法",
+    "土壤和沉积物 13种苯胺类和2种联苯胺类化合物的测定 液相色谱-三重四极杆质谱法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1779993",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132992.shtml",
+   "question": "《饮食业环境保护技术规范》（HJ554-2010）间距问题？",
+   "cited_hits": [],
+   "cited_missing": [
+    "饮食业环境保护技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1779992",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132991.shtml",
+   "question": "《水质石油类和动植物油类的测定 红外分光光度法》（HJ 637-2018）中，采用标准曲线的回归方程计算油类或石油类浓度是否可行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水质石油类和动植物油类的测定 红外分光光度法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776191",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130228.shtml",
+   "question": "“国家重点监控单位”“重点排污单位”“环境监管重点单位”的关系？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强和改进环境统计工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776190",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130227.shtml",
+   "question": "环境监管重点单位中需要进行环境信息依法披露的主体包括哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业环境信息依法披露管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776189",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130226.shtml",
+   "question": "产排污系数手册的有效版本？如何使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "排放源统计调查产排污核算方法和系数手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776188",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130225.shtml",
+   "question": "每年我国及各省份水、大气、固体废物等污染排放数据在哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国生态环境统计年报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776187",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130224.shtml",
+   "question": "建设项目废水不直接外排，是否需要申请主要污染物总量指标？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目主要污染物排放总量指标审核及管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776186",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130223.shtml",
+   "question": "《建设项目主要污染物排放总量指标审核及管理暂行办法》中生物质发电厂具体指哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776185",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130222.shtml",
+   "question": "火电建设项目可替代总量指标能否来源于其他行业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目主要污染物排放总量指标审核及管理暂行办法",
+    "关于进一步优化环境影响评价工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776184",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130221.shtml",
+   "question": "技改项目“十四五”之前取得的主要污染物总量指标是否仍然有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目主要污染物排放总量指标审核及管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776183",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130220.shtml",
+   "question": "区域削减与总量指标关系？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强重点行业建设项目区域削减措施监督管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776182",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130219.shtml",
+   "question": "生物多样性观测中，底栖大型无脊椎动物的空壳是否可以纳入“物种数”和“个体数”统计？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生物多样性观测技术导则 淡水底栖大型无脊椎动物"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776181",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130218.shtml",
+   "question": "《防治海洋工程建设项目污染损害海洋环境管理条例》第十一条规定，“下列海洋工程的环境影响报告书，由国家海洋主管部门核准……（四）潮汐电站、波浪电站、温差电站等海洋能源开发利用工程……”。海洋能源开发利用工程（如海上风电、海上光伏）由哪级生态环",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境部审批环境影响评价文件的建设项目目录（2019年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776179",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130216.shtml",
+   "question": "海水淡化工程环评类别如何界定?",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776178",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130215.shtml",
+   "question": "生态环境敏感区内的海水养殖围堰余坝拆除工程如何界定评价等级?",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 海洋生态环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776177",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130214.shtml",
+   "question": "位于海岛的建设项目，不涉及围填海或疏浚，编制环境影响报告书是否需执行海洋相关技术导则。",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 海洋生态环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776172",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130209.shtml",
+   "question": "根据《环境影响评价技术导则 海洋生态环境》(HJ1409-2025)评价等级判定:“依托现有入海排污口排放废水的，且未新增排放污染物的建设项目，评价等级为三级”。这里的未新增排放污染物，指的是未增加新的因子还是量?",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 海洋生态环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776169",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130206.shtml",
+   "question": "《恶臭污染物排放标准》（GB 14554）中，臭气浓度执行标准中排气筒高度分别为15m、25m、35m等，实际建设中，企业排气筒高度有不在这些高度中的情况，请问如何解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "恶臭污染物排放标准",
+    "GB 14554-93"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776166",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130203.shtml",
+   "question": "如何设置锅炉烟囱高度？如何理解《锅炉大气污染排放标准》（GB13271-2014）4.5条款？",
+   "cited_hits": [],
+   "cited_missing": [
+    "锅炉大气污染物排放标准",
+    "GB 13271—2014",
+    "GB 13271—2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776165",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130202.shtml",
+   "question": "《工业炉窑大气污染综合治理方案》（环大气〔2019〕56号）中规定的工业炉窑的排放浓度是实测浓度还是折算浓度？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工业炉窑大气污染综合治理方案",
+    "工业炉窑大气污染物排放标准",
+    "GB 9078—1996"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776159",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130196.shtml",
+   "question": "水泥行业控制氮氧化物超低排放，是不是只能采用SCR的脱硝技术？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进实施水泥行业超低排放的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776155",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130192.shtml",
+   "question": "请问《消耗臭氧层物质管理条例》（以下称《条例》）第三条中的“使用”包不包括“冷库”？冷库的经营或使用单位是否需要根据《条例》有关规定办理使用配额许可证或备案手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国受控消耗臭氧层物质清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776152",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130189.shtml",
+   "question": "《关于严格控制氢氟碳化物化工生产建设项目的通知》（环办大气〔2024〕22号）规定：各地不得新建、扩建附件1所列用作制冷剂、发泡剂等受控用途的HFCs化工生产设施（不含生产过程中附带产生HFCs的化工生产设施，即副产设施）。其中受控用途指哪",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于消耗臭氧层物质的蒙特利尔议定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776150",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130187.shtml",
+   "question": "仅购买《中国受控消耗臭氧层物质清单》中所列消耗臭氧层物质或氢氟碳化物，提纯或混配后作为电子特气、混合制冷剂销售和使用，是否需要办理生产配额许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国受控消耗臭氧层物质清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776148",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130185.shtml",
+   "question": "当前我国电力二氧化碳排放因子相关工作进展如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布2021年电力二氧化碳排放因子的公告",
+    "关于发布2022年电力二氧化碳排放因子的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776147",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130184.shtml",
+   "question": "我国碳足迹管理体系建设进展如何？其中产品碳标识认证制度的建设进展如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立碳足迹管理体系的实施方案",
+    "实施方案",
+    "温室气体 产品碳足迹 量化要求和指南",
+    "产品碳足迹核算标准编制工作指引",
+    "GB/T 24067-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776143",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130180.shtml",
+   "question": "我国碳普惠进展如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "大型活动碳中和实施指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776141",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130178.shtml",
+   "question": "《建设用地土壤污染风险管控和修复监测技术导则》（HJ25.2-2019）6.2.2.4条款规定，一般情况下采样深度应在监测井水面下0.5m以下。对于低密度非水溶性有机物污染，监测点位应设置在含水层顶部；对于高密度非水溶性有机物污染，监测点位",
+   "cited_hits": [],
+   "cited_missing": [
+    "地块土壤和地下水中挥发性有机物采样技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776139",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130176.shtml",
+   "question": "某场地地下水遭受含挥发酚和氯苯工业废水的污染，挥发酚和氯苯污染为该场地特征污染物，该场地地下水等级定为为4类，检测对比区域地下水挥发酚含量为0.5μg/L、氯苯含量为0.4μg/L（达Ⅰ类标准），那本区域的环境基线挥发酚、氯苯限值是按地下水",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境损害鉴定评估技术指南环境要素第1部分：土壤和地下水",
+    "GB/T 39792.1—2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776138",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130175.shtml",
+   "question": "对某一垃圾填埋场的修复治理工程进行评估，但场地内缺少地下水监测井，按照《污染地块地下水修复和风险管控技术导则》（HJ25.6-2019）中要求，必须在场地内部设立三个监测井，是否有解决方法。",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染地块地下水修复和风险管控技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776137",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130174.shtml",
+   "question": "若项目根据地下水导则判断属于一级预测，但是该项目废水不连续排放且量小，包气带厚度也很厚，是否还需要设置非正常工况下必须做地下水一级预测？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 地下水环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776133",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130169.shtml",
+   "question": "如果在土壤修复的过程中，在基坑底部或侧壁发现之前土壤污染状况调查尚未发现的污染物或污染区域，请问是必须根据环办土壤〔2019〕63号要求补充开展土壤污染状况调查并重新评审，还是参照《污染地块风险管控与土壤修复效果评估技术导则（试行）》（HJ",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设用地土壤污染状况调查、风险评估、风险管控及修复效果评估报告评审指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776131",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130167.shtml",
+   "question": "在进行建设用地土壤污染调查时，如地块地下水中也需要进行《土壤环境质量 建设用地土壤污染风险管控标准》（GB 36600-2018）基本45项的同步监测，其中氯甲烷这一挥发性有机物参数无对应国标分析方法，水质挥发性有机物常用分析方法《水质 挥",
+   "cited_hits": [],
+   "cited_missing": [
+    "水质挥发性有机物的测定吹扫捕集/气相色谱-质谱法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776130",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130166.shtml",
+   "question": "《危险废物识别标志设置技术规范》 （HJ 1276-2022）中的“一物一码”，是一类物质一码，还是盛装危废的容器一个一码？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物识别标志设置技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776129",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130165.shtml",
+   "question": "废弃的水性漆产品包装桶、废弃的水性漆生产原料包装桶是否属于危险废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776128",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130164.shtml",
+   "question": "报废机动车拆解过程产生的机油过滤器是否属于危险废物？危险废物代码是？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776127",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130163.shtml",
+   "question": "热镀锌过程中产生的锌灰、废助镀剂、浮渣、底渣是否属于《国家危险废物名录（2025年版）》中的危险废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）",
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776126",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130162.shtml",
+   "question": "《危险废物豁免管理清单》中的“金属制品机械加工行业珩磨、研磨、打磨过程，以及使用切削油或者切削液进行机械加工过程中产生的属于危险废物的含油金属屑”归类为《国家危险废物名录（2025年版）》中的900-200-08和900-006-09两类废",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776125",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130161.shtml",
+   "question": "受到有毒有害物质污染的土壤是否可以依据《危险废物鉴别标准 通则》（GB 5085.7-2019）判断其属于危险废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物鉴别标准 通则",
+    "危险废物鉴别标准",
+    "危险废物鉴别技术规范",
+    "GB 5085.7-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776124",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130160.shtml",
+   "question": "农药行业用于处理高含盐废水的三效蒸发装置产生的盐是否都是危险废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）",
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776123",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130159.shtml",
+   "question": "按照《危险废物鉴别技术规范》(HJ 298-2019）采集8个样品开展鉴别，超过《危险废物鉴别标准 易燃性鉴别》（GB 5085.4-2007）和《危险废物鉴别标准  毒性物质含量鉴别》（GB5085.6-2007）限值的样品数各为2个，即",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物鉴别技术规范",
+    "危险废物鉴别标准 易燃性鉴别",
+    "危险废物鉴别标准  毒性物质含量鉴别",
+    "危险废物鉴别标准 易燃性鉴别",
+    "GB 5085.4-2007",
+    "GB5085.6-2007"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776121",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130157.shtml",
+   "question": "《危险废物填埋污染控制标准》（GB18598-2019）要求的渗滤液调节池废水排放口对应的一类污染物排放标准是指原生渗滤液的原始浓度限值还是渗滤液处理后的浓度限值？如果是指的渗滤液处理后的浓度限值，那么是渗滤液单独处理后的浓度限值还是渗滤液",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物填埋污染控制标准",
+    "GB18598-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776118",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130154.shtml",
+   "question": "根据《关于进一步加强重金属污染防控的意见》（环固体〔2022〕17号），重点防控的重金属污染物是铅、汞、镉、铬、砷、铊和锑，并对铅、汞、镉、铬和砷五种重点重金属污染物排放量实施总量控制。重点行业包括重有色金属矿采选业（铜、铅锌、镍钴、锡、锑",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强重金属污染防控的意见",
+    "国民经济行业分类（GB/T 4754-2017）",
+    "GB/T 4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776115",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130151.shtml",
+   "question": "《环境γ辐射剂量率测量技术规范》（HJ 1157-2021）中的“5.5结果计算”与《辐射环境监测技术规范》（HJ 61-2021）中的“8.6.1环境γ辐射空气吸收剂量率监测中宇宙射线响应值的扣除”均有对“环境γ辐射剂量率结果修正”的计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境γ辐射剂量率测量技术规范",
+    "辐射环境监测技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776114",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130150.shtml",
+   "question": "现行注册核安全工程师试行分专业考试，考生应如何选择报考专业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年注册核安全工程师执业资格全国统一考试的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776111",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130147.shtml",
+   "question": "核医学科产生的放射性废液暂存时间超过10个半衰期，监测结果满足解控水平要求，能否经审管部门认可后，按GB18871中8.6.2规定的方式排放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于核医学标准相关条款咨询的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776110",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130146.shtml",
+   "question": "核医学科设置单独排风系统的区域是否均需要在本建筑物屋顶处设置单独的排气口？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于核医学标准相关条款咨询的复函",
+    "核医学辐射防护与安全要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776107",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130143.shtml",
+   "question": "《核医学辐射防护与安全要求》（HJ1188-2021）关于人流、物流的要求是否适用于粒籽源植入项目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "核医学辐射防护与安全要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776106",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130142.shtml",
+   "question": "与屏蔽室相邻的CT模拟定位机房居留因子的取值。",
+   "cited_hits": [],
+   "cited_missing": [
+    "放射治疗辐射安全与防护要求",
+    "放射治疗辐射安全与防护要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776104",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130140.shtml",
+   "question": "我国的电磁环境质量标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布国家环境质量标准<电磁环境控制限值>的公告",
+    "电磁环境控制限值",
+    "直流输电工程合成电场限值及其监测方法",
+    "电磁环境控制限值",
+    "GB 8702-2014",
+    "GB 39220-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776103",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130139.shtml",
+   "question": "我国电磁环境质量标准与国际标准相比处于什么水平？",
+   "cited_hits": [],
+   "cited_missing": [
+    "电磁环境控制限值",
+    "直流输电工程合成电场限值及其监测方法",
+    "GB 8702-2014",
+    "GB 39220-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776102",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130138.shtml",
+   "question": "电磁波应用越来越丰富，电磁环境越来越复杂，如何判断电磁辐射水平是否满足标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "电磁环境控制限值",
+    "GB 8702-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776100",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130136.shtml",
+   "question": "输变电建设项目环境影响报告表应按照污染影响类还是生态影响类进行编制？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发<建设项目环境影响报告表>内容、格式及编制技术指南的通知",
+    "建设项目环境影响报告表（生态影响类）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776099",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130135.shtml",
+   "question": "对于高层楼房阳台附近的输电线路，监测人员应在哪些点位开展监测？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 输变电",
+    "交流输变电工程电磁环境监测方法（试行）",
+    "直流输电工程合成电场限值及其监测方法",
+    "GB 39220-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776097",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130133.shtml",
+   "question": "输电线路线下的房屋是否属于电磁环境敏感目标？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发<输变电建设项目重大变动清单（试行）>的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776096",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130132.shtml",
+   "question": "通信基站建成后是否需要进行电磁辐射环境监测？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发<通信基站环境保护工作备忘录>的通知",
+    "移动通信基站电磁辐射环境监测方法",
+    "5G移动通信基站电磁辐射环境监测方法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776095",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130131.shtml",
+   "question": "基站选址建设中，与民宅的距离是否有规定?",
+   "cited_hits": [],
+   "cited_missing": [
+    "电磁环境控制限值",
+    "GB8702—2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776094",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130130.shtml",
+   "question": "架空输电线路预测模式是否需要电磁环境贡献值叠加现状值？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 输变电",
+    "环境影响评价技术导则 输变电"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776093",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130129.shtml",
+   "question": "如何确定输变电改扩建项目声环境影响预测评价量？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 输变电"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776091",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130127.shtml",
+   "question": "产业园区规划环评的开展范围、对象、审查级别和责任主体怎么确定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强产业园区规划环境影响评价工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776088",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130124.shtml",
+   "question": "位于环境质量不达标区域的产业园区，其规划环评如何考虑区域环境质量限期达标方案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "规划环境影响评价技术导则 产业园区"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776087",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130123.shtml",
+   "question": "规划环境影响现状评价引用数据资料时段，如何界定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "规划环境影响评价技术导则 总纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776086",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130122.shtml",
+   "question": "项目环评引用规划环评现状环境监测数据和生态环境调查内容，时效性如何界定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化环境影响评价工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776085",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130121.shtml",
+   "question": "《污染影响类建设项目重大变动清单（试行）》（环办环评函〔2020〕688号）中提出“生产、处置或储存能力增大30%及以上的”，所有项目均需要考虑这三种情形的变化吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776084",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130120.shtml",
+   "question": "《污染影响类建设项目重大变动清单（试行）》（环办环评函〔2020〕688号）中提到“废气主要排放口”如何确定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "污染影响类建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776083",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130119.shtml",
+   "question": "《高速公路建设项目重大变动清单（试行）》中“原线路长度”如何理解把握？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发环评管理中部分行业建设项目重大变动清单的通知",
+    "高速公路建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776082",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130118.shtml",
+   "question": "《港口建设项目重大变动清单（试行）》是否适用于液体化工码头项目重大变动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发环评管理中部分行业建设项目重大变动清单的通知",
+    "港口建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776081",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130117.shtml",
+   "question": "编制环境影响报告表的等级公路项目是否需要设置噪声专项评价?",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响报告表编制技术指南（生态影响类）（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776078",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130114.shtml",
+   "question": "《建设项目环境影响报告表编制技术指南（生态影响类）（试行）》中“环境敏感区是指《建设项目环境影响评价分类管理名录》中针对该类项目所列的敏感区”，应如何理解？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）",
+    "建设项目环境影响报告表编制技术指南（生态影响类）（试行）",
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776077",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130113.shtml",
+   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）要求编制环境影响报告书的项目评价等级提高一级的行业如何界定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776076",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130112.shtml",
+   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）5.5评价基准年如何界定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776075",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130111.shtml",
+   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）对环境空气补充监测布点数量如何要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 大气环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776074",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130110.shtml",
+   "question": "改扩建项目地表水评价等级如何判定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 地表水环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776073",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130109.shtml",
+   "question": "建设项目的地下水环境敏感程度应根据项目评价范围还是占地范围判定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 地下水环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776072",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130108.shtml",
+   "question": "如何开展包气带污染调查？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 地下水环境"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776071",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130107.shtml",
+   "question": "金属矿选矿项目的土壤环境影响评价项目类别如何确定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 土壤环境（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776069",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130105.shtml",
+   "question": "《环境影响评价技术导则 生态影响》（HJ 19-2022）6.1.2 e）中“土壤影响范围”具体指什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 生态影响",
+    "环境影响评价技术导则 土壤环境（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776068",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130104.shtml",
+   "question": "涉及风景名胜区的建设项目，其生态影响评价等级如何判定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立以国家公园为主体的自然保护地体系的指导意见",
+    "国家级自然公园管理办法（试行）",
+    "环境影响评价技术导则 生态影响",
+    "环境影响评价技术导则 生态影响"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776067",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130103.shtml",
+   "question": "水生生态的一级评价，是否必须开展现状调查，如果引用资料能够满足现状调查要求，是否可只引用资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 生态影响"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776066",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130102.shtml",
+   "question": "如何判断建设项目评价范围内是否分布有《环境影响评价技术导则 生态影响》（HJ 19-2022）中提到的“重要生境”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境影响评价技术导则 生态影响",
+    "陆生野生动物重要栖息地名录（第一批）",
+    "国家重点保护水生野生动物重要栖息地名录（第一批）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776065",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130101.shtml",
+   "question": "环境风险评价中M值如何结合行业及生产工艺进行分值判定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境风险评价技术导则",
+    "重点监管危险化工工艺目录（2013年完整版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776064",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130100.shtml",
+   "question": "改扩建项目如何开展环境风险评价，计算Q值时要不要考虑现有工程的危险物质？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境风险评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776063",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130099.shtml",
+   "question": "如何确定建设项目的地表水环境敏感程度分级？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境风险评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776062",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130098.shtml",
+   "question": "风险评价中周围500米的人口是否包括企业工人？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境风险评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776059",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130095.shtml",
+   "question": "煤炭中转、集运中心的建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776058",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130094.shtml",
+   "question": "油田内部新建单井出油管线的建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776057",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130093.shtml",
+   "question": "含平板玻璃原片生产的特种玻璃制造建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录(2021版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776056",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130092.shtml",
+   "question": "燃煤掺烧生活垃圾、污泥等废弃物进行发电（含热电联产）的建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776055",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130091.shtml",
+   "question": "生活垃圾填埋场项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776054",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130090.shtml",
+   "question": "同时涉及水库和引水工程的建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776053",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130089.shtml",
+   "question": "含城市桥梁、隧道的支路建设项目，如何判断环评类别？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776052",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130088.shtml",
+   "question": "《建设项目环境影响评价分类管理名录（2021年版）》说明部分中第2条“名录中涉及规模的，均指新增规模”，应该如何理解？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776050",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130086.shtml",
+   "question": "如何明确自来水厂的排污许可管理类别，《固定污染源排污许可分类管理名录（2019年版）》通用工序中的“水处理”是指自来水厂产生的污水处理量，还是包含了原水的处理量？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776049",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130085.shtml",
+   "question": "《固定污染源排污许可分类管理名录（2019年版）》正文第七条的适用范围是指哪类行业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mee",
+   "id": "1776048",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130084.shtml",
+   "question": "《固定污染源排污许可分类管理名录（2019年版）》中的“、”表示什么作用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776047",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130083.shtml",
+   "question": "在对排污许可管理类别进行判定时，备用锅炉的规模是否算在合计出力中？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776046",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130082.shtml",
+   "question": "什么类型的粘土砖瓦及建筑砌块制造企业，实行排污许可重点管理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776044",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130080.shtml",
+   "question": "环境应急处置过程中，应急空间中的应急废水处置后执行什么排放标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "城镇污水处理厂污染物排放标准",
+    "地表水环境质量标准",
+    "GB 18918-2002",
+    "GB 3838-2002"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776043",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130079.shtml",
+   "question": "如何界定突发环境事件的范围？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家突发环境事件应急预案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776042",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130078.shtml",
+   "question": " 突发环境事件如何分级？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家突发环境事件应急预案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1791251",
+   "url": "http://www.mee.gov.cn/hdjl/lyxd/202601/t20260116_1140853.shtml",
+   "question": "关于十三五期间环保政策文件是否有效的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境部行政规范性文件制定和管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1775637",
+   "url": "http://www.mee.gov.cn/hdjl/lyxd/202510/t20251016_1129699.shtml",
+   "question": "我是一名基层环保工作者，想问问生态环境部门的依法分类处理信访诉求清单什么时候能出台？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境领域依法分类处理信访诉求清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1775635",
+   "url": "http://www.mee.gov.cn/hdjl/lyxd/202510/t20251016_1129697.shtml",
+   "question": "每年全国及各省份水、大气、固体废物等污染排放数据在哪里能查询到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国生态环境统计年报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1775634",
+   "url": "http://www.mee.gov.cn/hdjl/lyxd/202510/t20251016_1129696.shtml",
+   "question": "最近看新闻，相关部门在推进美丽乡村建设，我国幅员辽阔，各地地理环境、气候条件差异较大，“美丽”乡村该用什么标准衡量和评判呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "美丽乡村建设实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "mee",
+   "id": "1776176",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130213.shtml",
+   "question": "哪些项目需定量分析工程前后的泥沙输运变化以及冲淤变化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776175",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130212.shtml",
+   "question": "项目同时排放温排水及其他污染物，温排水评价等级为1级，其他污染物评价等级为3级。项目评价时段宜选择夏季和冬季(已包含3级的“任何一季”)，还是取其中最高等级(1级)作为评价等级后，确定评价时段为四季(包含1级评价的春、秋两季，和温(冷)排水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776174",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130211.shtml",
+   "question": "海洋项目现状调查的监测因子是否要包括《环境影响评价技术导则 海洋生态环境》(HJ1409-2025)6.2.2.4 中“常规因子一般包括:pH、水温、盐度、悬浮物、化学需氧量、溶解氧、无机氮、活性磷酸盐、石油类、硫化物、挥发性酚、重金属(铜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776173",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130210.shtml",
+   "question": "根据《环境影响评价技术导则 海洋生态环境》(HJ1409-2025)桥梁工程对海洋生态环境的影响类型包括:①入海河口(湾口)宽度束窄，②线性水工构筑物轴线长度两类。桥梁桥墩结构在不同高度上对入海河口(海湾)宽度的束窄程度存在差异，如何判定实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776171",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130208.shtml",
+   "question": "根据海洋导则，建设项目涉及(临时或永久占用、穿越等)重要敏感区的，评价等级应提高一级。不投加饵料的海水养殖项目，判定评价等级为3级，不占用、穿越生态红线，但评价范围内有生态红线，请问是否需要提级?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776157",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130194.shtml",
+   "question": "《中国受控消耗臭氧层物质清单》备注栏中：自2010年1月1日起，除特殊用途外，全面禁止生产和使用。这里的特殊用途是指什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776154",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130191.shtml",
+   "question": "消耗臭氧层物质和氢氟碳化物的销售、使用单位，以及从事含消耗臭氧层物质和氢氟碳化物的制冷设备、制冷系统或者灭火系统的维修、报废处理等经营活动的单位如何进行备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776153",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130190.shtml",
+   "question": "公司计划建设聚偏氟乙烯（PVDF）全产业链生产项目，产业链中包含有1,1-二氟乙烷（R152a）和1,1-二氟-1-氯乙烷（R142b）两个中间品。这两个中间品均列入到《中国受控消耗臭氧层物质清单》（公告2021年 第44号）中，公司就这两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776151",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130188.shtml",
+   "question": "购买一氟甲烷、三氟甲烷、五氟乙烷等列入《关于严格控制氢氟碳化物化工生产建设项目的通知》（环办大气〔2024〕22号，以下简称《通知》）附件2受控氢氟碳化物名单的化学品，提纯后作为电子气体刻蚀剂受控用途进行销售和使用，未增加相应受控用途氢氟碳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776146",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130183.shtml",
+   "question": "全国低碳日的时间是如何确定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776145",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130182.shtml",
+   "question": "为什么要设置全国温室气体自愿减排交易市场，何时启动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776144",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130181.shtml",
+   "question": "关于拓展温室气体自愿减排交易项目方法学覆盖范围？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776135",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130172.shtml",
+   "question": "地下水指标的检测方法是否可以使用非《地下水质量标准》（GB/T 14848 - 2017）中推荐的生态环境监测方法标准？例如，亚硝酸盐使用《水质 无机阴离子（F-、Cl-、NO2-、Br-、NO3-、PO43-、SO32-、SO42-）的测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776119",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130155.shtml",
+   "question": "新化学物质环境管理备案是否属于生态环境行政许可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776117",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130153.shtml",
+   "question": "针对日本福岛核污染水排海，我国海洋辐射环境监测的安排是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776116",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130152.shtml",
+   "question": "《环境空气中氡的测量方法》（HJ 1212-2021）5.3.5.3节的探测下限计算公式中换算因子w的具体含义是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776113",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130149.shtml",
+   "question": "关于民用核安全设备特种工艺人员考试，是否有官方培训？是否收费？聘用单位扣押个人费用是否合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776112",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130148.shtml",
+   "question": "1.从事个人剂量监测的机构需要具备什么样的资质？\n2.生态环境部是否发布从事个人剂量监测机构的推荐名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776109",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130145.shtml",
+   "question": "对《关于规范放射性同位素与射线装置豁免备案管理工作的通知》（环办辐射﹝2018﹞49号）中对已完成豁免备案产品的销售、使用活动可免于辐射安全监管的进一步解释。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776108",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130144.shtml",
+   "question": "经内镜逆行胰胆管造影（ERCP）属于几类射线装置？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776079",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130115.shtml",
+   "question": "《建设项目环境影响报告表编制技术指南（生态影响类）（试行）》中“排放国家、地方环境空气质量标准中有标准限值要求的特征污染物时，引用建设项目周边5千米范围内近3年的现有监测数据”，其中，周边5千米指的是厂界外延周边5千米，还是指项目中心点外5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776061",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130097.shtml",
+   "question": "如果《建设项目环境风险评价技术导则》（HJ 169-2018）中MDI物质的CAS号不同，但分子式、分子结构相同，是否可采用导则中临界量进行判定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776045",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130081.shtml",
+   "question": "依法实行排污许可管理的企业事业单位和其他生产经营者，适用相关行业排污许可证申请与核发技术规范中“单独排入城镇集中污水处理设施的生活污水仅说明去向”的，申请取得排污许可证时是否还需要填写废水间接排放口信息、废水排放标准信息表以及自行监测要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1776041",
+   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130077.shtml",
+   "question": "如何对突发环境事件进行分级响应？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mee",
+   "id": "1775636",
+   "url": "http://www.mee.gov.cn/hdjl/lyxd/202510/t20251016_1129698.shtml",
+   "question": "根据“十四五”城市黑臭水体整治环境保护行动方案，到2025年县级城市建成区黑臭水体基本消除，目前这项工作进展的怎么样了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

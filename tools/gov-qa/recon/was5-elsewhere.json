@@ -1,0 +1,113 @@
+{
+ "why": "拿 WAS5 模式去各部委试，看能否复用同一套取数方式",
+ "sites": [
+  {
+   "name": "住房和城乡建设部",
+   "url": "https://www.mohurd.gov.cn/was5/web/search",
+   "status": 404,
+   "len": 548,
+   "ctype": "text/html",
+   "is_json": false,
+   "head": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c"
+  },
+  {
+   "name": "住房和城乡建设部",
+   "url": "https://www.mohurd.gov.cn/was5/web/search/",
+   "status": 404,
+   "len": 548,
+   "ctype": "text/html",
+   "is_json": false,
+   "head": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c"
+  },
+  {
+   "name": "国家市场监督管理总局",
+   "url": "https://www.samr.gov.cn/was5/web/search",
+   "status": 404,
+   "len": 548,
+   "ctype": "text/html; charset=utf-8",
+   "is_json": false,
+   "head": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c"
+  },
+  {
+   "name": "国家市场监督管理总局",
+   "url": "https://www.samr.gov.cn/was5/web/search/",
+   "status": 404,
+   "len": 548,
+   "ctype": "text/html; charset=utf-8",
+   "is_json": false,
+   "head": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c"
+  },
+  {
+   "name": "国家卫生健康委员会",
+   "url": "http://www.nhc.gov.cn/was5/web/search",
+   "status": 412,
+   "len": 3516,
+   "ctype": "text/html; charset=utf-8",
+   "is_json": false,
+   "head": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\""
+  },
+  {
+   "name": "国家卫生健康委员会",
+   "url": "http://www.nhc.gov.cn/was5/web/search/",
+   "status": 412,
+   "len": 3543,
+   "ctype": "text/html; charset=utf-8",
+   "is_json": false,
+   "head": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\""
+  },
+  {
+   "name": "应急管理部",
+   "url": "https://www.mem.gov.cn/was5/web/search",
+   "status": 200,
+   "len": 711,
+   "ctype": "text/html;charset=UTF-8",
+   "is_json": false,
+   "head": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>TRSWAS5.1</title>\r\n<style "
+  },
+  {
+   "name": "应急管理部",
+   "url": "https://www.mem.gov.cn/was5/web/search/",
+   "status": 404,
+   "len": 711,
+   "ctype": "text/html;charset=UTF-8",
+   "is_json": false,
+   "head": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>TRSWAS5.2</title>\r\n<style "
+  },
+  {
+   "name": "人力资源和社会保障部",
+   "url": "http://www.mohrss.gov.cn/was5/web/search",
+   "status": 200,
+   "len": 711,
+   "ctype": "text/html;charset=UTF-8",
+   "is_json": false,
+   "head": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>TRSWAS5.1</title>\r\n<style "
+  },
+  {
+   "name": "人力资源和社会保障部",
+   "url": "http://www.mohrss.gov.cn/was5/web/search/",
+   "status": 200,
+   "len": 988,
+   "ctype": "text/html",
+   "is_json": false,
+   "head": "<script>function a(a){function n(){for(var a={wQzOV:_0x649a(\"0x4\"),iTyzs:function(a,n){return a+n}},n=a[_0x649a(\"0x5\")]["
+  },
+  {
+   "name": "生态环境部(对照)",
+   "url": "https://www.mee.gov.cn/was5/web/search",
+   "status": 200,
+   "len": 711,
+   "ctype": "text/html;charset=UTF-8",
+   "is_json": false,
+   "head": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>TRSWAS5.1</title>\r\n<style "
+  },
+  {
+   "name": "生态环境部(对照)",
+   "url": "https://www.mee.gov.cn/was5/web/search/",
+   "status": 404,
+   "len": 711,
+   "ctype": "text/html;charset=UTF-8",
+   "is_json": false,
+   "head": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>TRSWAS5.2</title>\r\n<style "
+  }
+ ]
+}

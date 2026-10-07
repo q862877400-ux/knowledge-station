@@ -1,0 +1,174 @@
+{
+ "why": "扩采部委问答前，找出三家真实数据接口（列表页是 JS/接口驱动）",
+ "sites": {
+  "生态环境部": [
+   {
+    "url": "https://www.mee.gov.cn/hdjl/",
+    "status": 200,
+    "len": 76377,
+    "apis": [
+     ").addEventListener(",
+     "../images/hjb251010_query.js",
+     "../images/jquery-3.7.1.min.js",
+     "../images/jquery-migrate-3.4.0.min.js",
+     "../images/jquery.SuperSlide.2.1.1.js",
+     ".ajaxCjwtList",
+     ".ajaxCjwtPage",
+     ".ajaxLyxdList",
+     ".ajaxLyxdPage",
+     ".zhiBiaoCjwtList",
+     ".zhiBiaoLyxdList",
+     "/searchnew/?searchword=",
+     "/searchnew/@UTF-8?searchword=",
+     "/was5/web/search"
+    ],
+    "scripts": [
+     "../images/jquery-3.7.1.min.js",
+     "../images/jquery-migrate-3.4.0.min.js",
+     "../images/MEPC_mobile_v2020.js",
+     "../images/scrollbar.js",
+     "../images/respond.src_v2019.js",
+     "../images/jquery.SuperSlide.2.1.1.js",
+     "../images/hjb251010_query.js",
+     "../images/hjb251010_paging.js"
+    ],
+    "pager_hint": false
+   },
+   {
+    "url": "https://www.mee.gov.cn/hdjl/cjwt/",
+    "status": 200,
+    "len": 49389,
+    "apis": [
+     ").addEventListener(",
+     "+(currentPage+1)+",
+     "+countPage+",
+     "../../images/hjb251010_query.js",
+     "../../images/jquery-3.7.1.min.js",
+     "../../images/jquery-migrate-3.4.0.min.js",
+     "../../images/jquery.SuperSlide.2.1.1.js",
+     ".ajaxList",
+     ".ajaxPage",
+     ".ajaxPageCover",
+     "/searchnew/?searchword=",
+     "/searchnew/@UTF-8?searchword=",
+     "/was5/web/search",
+     "ajaxList"
+    ],
+    "scripts": [
+     "../../images/jquery-3.7.1.min.js",
+     "../../images/jquery-migrate-3.4.0.min.js",
+     "../../images/MEPC_mobile_v2020.js",
+     "../../images/respond.src_v2019.js",
+     "../../images/jquery.SuperSlide.2.1.1.js",
+     "../../images/hjb251010_query.js",
+     "../../images/hjb251010_paging.js",
+     "/images/jiucuo.js"
+    ],
+    "pager_hint": false
+   },
+   {
+    "url": "https://www.mee.gov.cn/hdjl/zxly/",
+    "status": 200,
+    "len": 30094,
+    "apis": [
+     ").addEventListener(",
+     "../images/jquery.SuperSlide.2.1.1.js",
+     "/images/jquery-3.7.1.min.js",
+     "/images/jquery-migrate-3.4.0.min.js",
+     "/searchnew/?searchword=",
+     "/searchnew/@UTF-8?searchword=",
+     "http://permit.mee.gov.cn/permitExt/defaults/default-index!getInformation.action",
+     "ll_gjjs_list_mian_right",
+     "logoSearchL",
+     "logoSearchLNei",
+     "logoSearchR"
+    ],
+    "scripts": [
+     "/images/jquery-3.7.1.min.js",
+     "/images/jquery-migrate-3.4.0.min.js",
+     "/images/MEPC_mobile_v2020.js",
+     "../images/respond.src_v2019.js",
+     "../images/jquery.SuperSlide.2.1.1.js",
+     "/images/jiucuo.js",
+     "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+     "//gov.govwza.cn/dist/aria.js?appid=ca7cdadfe5c5be7aa82dd83cdf2639b6"
+    ],
+    "pager_hint": false
+   }
+  ],
+  "住房和城乡建设部": [
+   {
+    "url": "https://www.mohurd.gov.cn/",
+    "status": 200,
+    "len": 63873,
+    "apis": [
+     "/cms_files/default/script/jslib/jquery.cookie.js",
+     "/cms_files/default/script/jslib/jquery.js",
+     "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/jquery.PrintArea.js",
+     "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/jquery.SuperSlide.2.1.3.js",
+     "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/jquery.share.min.js",
+     "banner-list",
+     "smLinkList-wrapper"
+    ],
+    "scripts": [
+     "/cms_files/default/script/jslib/jquery.js",
+     "/cms_files/default/script/jslib/jquery.cookie.js",
+     "/cms_files/default/script/layui/layui.all.js",
+     "/cms_files/default/script/layui/layer/layer.js",
+     "/script/webglobal.js",
+     "/plugins/libs/require.js",
+     "/plugins/libs/load.js",
+     "/script/webgray.js"
+    ],
+    "pager_hint": false
+   },
+   {
+    "url": "https://www.mohurd.gov.cn/hdjl/index.html",
+    "status": 404,
+    "len": 548,
+    "apis": [],
+    "scripts": [],
+    "pager_hint": false
+   }
+  ],
+  "国家市场监督管理总局": [
+   {
+    "url": "https://xgzlyhd.samr.gov.cn/gjjly/",
+    "status": 200,
+    "len": 7906,
+    "apis": [
+     "/gjjly/public/mixin/jquery.min.js",
+     "/gjjly/webjars/artery/static/arteryAjaxInterceptor.js"
+    ],
+    "scripts": [
+     "/gjjly/webjars/vue/vue.min.js",
+     "/gjjly/webjars/artery/artery-ui.min.js",
+     "/gjjly/webjars/artery/static/arteryAjaxInterceptor.js",
+     "/gjjly/public/mixin/jquery.min.js",
+     "/gjjly/js/robot.js"
+    ],
+    "pager_hint": false
+   },
+   {
+    "url": "https://www.samr.gov.cn/hd/",
+    "status": 200,
+    "len": 13852,
+    "apis": [
+     "/cms_files/default/script/jslib/jquery.cookie.js",
+     "/cms_files/default/script/jslib/jquery.js"
+    ],
+    "scripts": [
+     "/cms_files/default/script/jslib/jquery.js",
+     "/cms_files/default/script/jslib/jquery.cookie.js",
+     "/cms_files/default/script/layui/layui.all.js",
+     "/cms_files/default/script/layui/layer/layer.js",
+     "/script/webglobal.js",
+     "/plugins/libs/require.js",
+     "/plugins/libs/load.js",
+     "/script/webgray.js"
+    ],
+    "pager_hint": false
+   }
+  ]
+ }
+}

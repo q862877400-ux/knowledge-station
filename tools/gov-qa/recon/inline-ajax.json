@@ -1,0 +1,61 @@
+{
+ "why": "从部委页面内联 JS 里挖列表接口",
+ "pages": [
+  {
+   "label": "生态环境部/互动交流",
+   "url": "https://www.mee.gov.cn/hdjl/",
+   "blocks": [
+    {
+     "len": 7571,
+     "urls": [
+      "/was5/web/search"
+     ],
+     "head": "// 常见问题 参数\n    var interactionParams = {\n        channelid: 232534,\n        keyword: '',\n        orderby: '-DOCRELTIME',\n        perpage: 10,\n        page: 1\n    }\n\n    // 留言选登 参数\n    var leaveWordParams = {\n        channelid: 223015,\n        keyword: '',\n        orderby: '-DOCRELTIME',\n        perpage: 10,\n        page: 1\n    }\n\n    $('.lyxd_submit').click(function (e) {\n        if ($('.lyxd_input').val() != \"\"&& $('.lyxd_input').val().trim()!='输入检索关键字') {\n            leaveWordParams.page = 1\n            leaveWordParams.keyword = $('.lyxd_input').val();\n            queryLyxdList()\n        } else {\n            $('.zhiBiaoLyxdList').show()\n            $('.ajaxLyxdPage').hide()\n            $('"
+    }
+   ],
+   "status": 200,
+   "len": 76377
+  },
+  {
+   "label": "生态环境部/常见问题",
+   "url": "https://www.mee.gov.cn/hdjl/cjwt/",
+   "blocks": [
+    {
+     "len": 2712,
+     "urls": [],
+     "head": "//createPageHTML(20, 0, \"index\", \"shtml\");\n        var currentPage = 0;//所在页从0开始\n        //var headPage = \"index\"+\".\"+\"shtml\";//首页\n        //var tailPage = \"index_\" + (countPage-1) + \".shtml\"//尾页\n        var prevPage = currentPage-1//上一页\n        var nextPage = currentPage+1//下一页\n        var countPage = 20//共多少页\n\n        //document.write(\"共\"+countPage+\"页&nbsp;&nbsp;\");\n        //设置上一页代码\n        if(countPage>1&&currentPage!=0&&currentPage!=1)\n            document.write(\"<a class='' href=\\\"index.shtml\\\" target=\\\"_self\\\">首页</a><a href=\\\"index\"+\"_\" + prevPage + \".\"+\"shtml\\\" target=\\\"_self\\\">上一页</a>\");\n        else if(countPage>1&&currentPage!=0&&currentPage==1)\n            document.write(\"<a clas"
+    },
+    {
+     "len": 1604,
+     "urls": [
+      "index_13919_"
+     ],
+     "head": "var countPage = '20';\n                        countPage = Number(countPage)\n                        //console.log(countPage)\n                        if (countPage < 2) {\n                            $('#anniu').hide();\n                        }\n\n                        var page = 1;\n                        function goto() {\n                            $.ajax({\n                                url: 'index_13919_' + page + '.shtml',\n                                success: function (html) {\n                                    data_html = html;\n                                    page = page + 1;\n                                    $('#div').append('<sun style=\"display:none;\">' + data_html + '</s"
+    },
+    {
+     "len": 3824,
+     "urls": [
+      "/was5/web/search"
+     ],
+     "head": "var interactionParams = {\n            channelid: 232534,\n            keyword: '',\n            orderby: '-DOCRELTIME',\n            perpage: 10,\n            page: 1\n        }\n        $('.hdjl_fl.submits').click(function (e) {\n            if ($('.hdjl_fl.inputs').val().trim() != \"\"&& $('.hdjl_fl.inputs').val().trim()!='输入检索关键字') {\n                interactionParams.page = 1\n                interactionParams.keyword = $('.hdjl_fl.inputs').val();\n                queryList()\n            } else {\n                $('ul#div').show()\n                $('.badoo1').show()\n                $('.ajaxPageCover').hide()\n                $('.ajaxList').hide()\n                $('.ajaxList').html('');\n             "
+    }
+   ],
+   "status": 200,
+   "len": 49389
+  },
+  {
+   "label": "市场监管总局/公众留言",
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/",
+   "blocks": [],
+   "status": 200,
+   "len": 7906
+  },
+  {
+   "label": "市场监管总局/互动",
+   "url": "https://www.samr.gov.cn/hd/",
+   "blocks": [],
+   "status": 200,
+   "len": 13852
+  }
+ ]
+}

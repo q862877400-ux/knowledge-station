@@ -1,0 +1,896 @@
+{
+ "A_考卷": [
+  {
+   "source": "mem",
+   "id": "t20260902_710216.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202609/t20260902_710216.shtml",
+   "question": "关于过渡性救助政策不明朗导致发放过渡性救助款审计认为无依据",
+   "cited_hits": [
+    {
+     "name": "自然灾害救助条例",
+     "lib_no": "自然灾害救助条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "自然灾害情况统计调查制度",
+     "lib_no": "国家防灾减灾救灾委员会办公室 应急管理部关于印发《自然灾害情况统计调查制度》《特别重大自然灾害损失统计调查制度》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家基本公共服务标准2023年版",
+    "国家自然灾害救助应急预案",
+    "国家基本公共服务标准（2023年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260717_676830.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202607/t20260717_676830.shtml",
+   "question": "应急救援员资格鉴定",
+   "cited_hits": [
+    {
+     "name": "应急救援员职业资格管理办法（试行）",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "应急救援员职业资格管理办法（试行）",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260626_609304.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202606/t20260626_609304.shtml",
+   "question": "关于新版《应急救援员国家职业技能标准》的咨询",
+   "cited_hits": [
+    {
+     "name": "应急救援员职业资格管理办法试行",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "应急救援员职业资格管理办法试行",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "应急救援员职业资格管理办法试行",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "应急救援员职业资格管理办法（试行）",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "应急救援员国家职业技能标准",
+    "应急救援员国家职业技能标准",
+    "应急救援员国家职业技能标准",
+    "中华人民共和国职业分类大典（2022 年版）",
+    "国家职业标准编制技术规程（2023年版）",
+    "人力资源社会保障部办公厅、市场监管总局办公厅、国家统计局办公室关于发布检验检测管理工程技术人员等职业信息的通知",
+    "应急救援员国家职业标准",
+    "应急救援员国家职业标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_601978.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_601978.shtml",
+   "question": "商店卖了一瓶8元的自喷漆，应急局要处罚10多万是否合理？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品安全法",
+    "危险化学品目录",
+    "危险化学品目录",
+    "国家安全监管总局办公厅关于印发危险化学品目录（2015版）实施指南（试行）的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_602011.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_602011.shtml",
+   "question": "应急救援职业资格管理办法的施行和矿山兼职救护队培训相关吗？",
+   "cited_hits": [
+    {
+     "name": "应急救援员职业资格管理办法(试行)",
+     "lib_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "矿山救援规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260424_601717.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260424_601717.shtml",
+   "question": "危化品票面经营企业是否需要备案",
+   "cited_hits": [
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_602009.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_602009.shtml",
+   "question": "涉及危化品的生产经营单位是否需要专家评审？",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品重大危险源辨识",
+     "lib_no": "关于对《危险化学品重大危险源辨识》等9项安全生产强制性国家标准实施情况统计分析问卷调查的函",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_602003.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_602003.shtml",
+   "question": "应急演练总指挥由谁担任",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_602012.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_602012.shtml",
+   "question": "应急预案备案",
+   "cited_hits": [
+    {
+     "name": "生产经营单位生产安全事故应急预案备案申报表",
+     "lib_no": "应急管理部办公厅关于印发《生产经营单位生产安全事故应急预案备案申报表》和《生产经营单生产安全事故应急预案备案登记表》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产经营单位生产安全事故应急预案备案登记表",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260417_600645.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260417_600645.shtml",
+   "question": "关于对《加油站作业安全规范》AQ3010-2022中“可燃性物品”判定标准的咨询",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范2018年版",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "加油站作业安全规范",
+    "加油站作业安全规范",
+    "加油站作业安全规范",
+    "GB50016-2014",
+    "GB50016-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260306_596209.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260306_596209.shtml",
+   "question": "应急预案备案需要什么材料和办理流程",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产经营单位生产安全事故应急预案编制导则",
+    "GB/T 29639-2020"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260114_591820.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202601/t20260114_591820.shtml",
+   "question": "机械企业涉及铸造生产，是否需要按照《生产安全事故应急条例》建立应急值班制度？",
+   "cited_hits": [
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家安全监管总局关于印发金属冶炼目录（2015版）的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260109_591320.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202601/t20260109_591320.shtml",
+   "question": "应急物资的储备和管理",
+   "cited_hits": [
+    {
+     "name": "国家防灾减灾救灾委员会办公室关于进一步加强应急抢险救灾物资保障体系和能力建设的指导意见",
+     "lib_no": "国家防灾减灾救灾委员会办公室关于进一步加强应急抢险救灾物资保障体系和能力建设的指导意见",
+     "weak": false
+    },
+    {
+     "name": "国家防灾减灾救灾委员会办公室关于进一步加强应急抢险救灾物资保障体系和能力建设的指导意见",
+     "lib_no": "国家防灾减灾救灾委员会办公室关于进一步加强应急抢险救灾物资保障体系和能力建设的指导意见",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "深化党和国家机构改革方案",
+    "中央应急抢险救灾物资储备管理暂行办法",
+    "第一次全国自然灾害综合风险普查公报",
+    "中央应急抢险救灾物资储备管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20251231_590416.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251231_590416.shtml",
+   "question": "生产安全事故应急预案编制--应急救援协议",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20251211_588301.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251211_588301.shtml",
+   "question": "关于生产安全事故应急救援预案咨询",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251208_587963.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251208_587963.shtml",
+   "question": "预案演练频次",
+   "cited_hits": [
+    {
+     "name": "生产安全事故应急预案",
+     "lib_no": "应急管理部办公厅关于印发《生产经营单位生产安全事故应急预案备案申报表》和《生产经营单生产安全事故应急预案备案登记表》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586170.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586170.shtml",
+   "question": "生产安全事故应急演练频次咨询",
+   "cited_hits": [
+    {
+     "name": "生产安全事故应急预案",
+     "lib_no": "应急管理部办公厅关于印发《生产经营单位生产安全事故应急预案备案申报表》和《生产经营单生产安全事故应急预案备案登记表》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急演练基本规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251029_583549.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251029_583549.shtml",
+   "question": "规模较小的露天非煤矿山企业是否可以与临近的社会救援队伍签订救援协议？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "非煤矿矿山企业安全生产许可证实施办法",
+    "矿山救援规程",
+    "矿山救援规程",
+    "矿山救援规程",
+    "矿山救援规程"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "mem",
+   "id": "t20260910_715731.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202609/t20260910_715731.shtml",
+   "question": "冬春救助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "受灾人员冬春生活救助工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260428_602002.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202604/t20260428_602002.shtml",
+   "question": "预案修订与备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故分类与编码",
+    "GB 6441-2025",
+    "GB 6441-2025"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260331_598659.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260331_598659.shtml",
+   "question": "您好，我咨询一下露天煤矿应急预案备案后组织机构中五职矿长人员有调整，岗位职责不变预案需要专家重新评审备案吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260331_598660.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260331_598660.shtml",
+   "question": "煤矿企业应急预案备案相关事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260331_598670.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260331_598670.shtml",
+   "question": "应急预案修订",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "GB6441-2025"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260331_598662.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260331_598662.shtml",
+   "question": "应急预案修订",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "GB 6441-2025"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260309_596499.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260309_596499.shtml",
+   "question": "关于应急预案修订的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "GB6441-2025"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260305_596099.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202603/t20260305_596099.shtml",
+   "question": "应急预案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260204_594096.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202602/t20260204_594096.shtml",
+   "question": "专项应急预案，是否必须有与之相承接现场处置方案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260129_593429.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202601/t20260129_593429.shtml",
+   "question": "应急预案备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "GB6441-2025"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20260119_592337.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202601/t20260119_592337.shtml",
+   "question": "应急预案编制",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急预案情景构建方法",
+    "应急预案情景构建方法",
+    "GB/T 49761-2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20251225_589878.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251225_589878.shtml",
+   "question": "关于企业专职消防队的应急处置指挥权问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品事故应急救援指挥导则",
+    "典型危险化学品应急处置指导手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20251203_587307.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251203_587307.shtml",
+   "question": "生产安全事故应急预案的修订",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产经营单位生产安全事故应急预案评估指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251212_588424.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251212_588424.shtml",
+   "question": "应急预案备案单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586175.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586175.shtml",
+   "question": "应急预案备案咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251211_588303.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251211_588303.shtml",
+   "question": "请问医院、学校等人员密集场所应急预案，是否需要到应急部门备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586167.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586167.shtml",
+   "question": "公司法人调整预案是否需要重新备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251120_586131.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251120_586131.shtml",
+   "question": "关于企业应急预案问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586169.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586169.shtml",
+   "question": "应急预案评估应按照那个标准执行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "山东省生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251211_588304.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202512/t20251211_588304.shtml",
+   "question": "危险废物处置收集点危废仓储生产安全事故应急预案备案接收部门是生态环境局还是应急管理局？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586166.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586166.shtml",
+   "question": "现场处置方案频次问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急演练基本规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251117_585747.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251117_585747.shtml",
+   "question": "规模较小的非煤露天矿山是否可以视情况减少兼职矿山救援队人员配备",
+   "cited_hits": [],
+   "cited_missing": [
+    "矿山救援规程",
+    "矿山救援规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251121_586165.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202511/t20251121_586165.shtml",
+   "question": "应急预案评估",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产经营单位生产安全事故应急预案评估指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251027_583366.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251027_583366.shtml",
+   "question": "企业现场处置方案演练频次要求怎么理解",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急演练基本规范",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251027_583359.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251027_583359.shtml",
+   "question": "专项应急预案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251030_583964.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251030_583964.shtml",
+   "question": "酒店业的应急预案编制要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产经营单位生产安全事故应急预案编制导则",
+    "社会单位灭火和应急疏散预案编制及实施导则",
+    "生产经营单位生产安全事故应急预案编制导则",
+    "社会单位灭火和应急疏散预案编制及实施导则",
+    "突发事件应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20251027_583358.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251027_583358.shtml",
+   "question": "请问必须由第三方安全咨询机构人员编制应急预案吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251022_566408.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251022_566408.shtml",
+   "question": "生产经营单位开展应急预案演练时，是否必须由法人参加？且法人必须当总指挥么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251017_561835.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251017_561835.shtml",
+   "question": "绿氢加气站应急预案备案部门咨询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251022_566411.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251022_566411.shtml",
+   "question": "木板厂应急预案是否必需专家论证签字，是否必须备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20251022_566412.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202510/t20251022_566412.shtml",
+   "question": "企业含有多个类型的特种设备，如压力容器、压力管道、起重机和电梯等等，每种类型特种设备每年都要做应急演练吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急演练基本规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20250929_560313.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202509/t20250929_560313.shtml",
+   "question": "危险化学品企业演练频次",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急演练基本规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "mem",
+   "id": "t20250925_559491.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202509/t20250925_559491.shtml",
+   "question": "企业现场处置方案演练频次",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急演练基本规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20250925_559490.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202509/t20250925_559490.shtml",
+   "question": "关于重大危险源专项应急预案编制的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "mem",
+   "id": "t20260601_605787.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202606/t20260601_605787.shtml",
+   "question": "应急问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260520_604228.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202605/t20260520_604228.shtml",
+   "question": "安全月主题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260519_604057.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202605/t20260519_604057.shtml",
+   "question": "对民间救援队、志愿者的统一管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260518_603949.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202605/t20260518_603949.shtml",
+   "question": "关于恳请应急管理部在未来国考中设置应急管理、应急技术与管理、智慧应急等应急相关专业岗位的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260213_594875.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202602/t20260213_594875.shtml",
+   "question": "防灾减灾救灾工程职称问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260114_591788.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202601/t20260114_591788.shtml",
+   "question": "留言系统增加不知道归哪个局、增加安委办、去掉红色星号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20260213_594874.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202602/t20260213_594874.shtml",
+   "question": "如何查询原总局历年来评的高级职称名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "mem",
+   "id": "t20250919_558331.shtml",
+   "url": "https://www.mem.gov.cn/hd/gzly/lyhf/202509/t20250919_558331.shtml",
+   "question": "咨询有关所谓的“中国国际救援中心集团有限公司西北应急救援总队”的情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
