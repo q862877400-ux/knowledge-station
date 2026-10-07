@@ -1,0 +1,308 @@
+[
+ {
+  "url": "https://sthjt.sc.gov.cn/",
+  "status": 200,
+  "len": 85106,
+  "hd_links": [
+   [
+    "https://sthjt.sc.gov.cn/sthjt/c260505/newznwd.shtml",
+    "智能问答"
+   ],
+   [
+    "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+    "互动交流"
+   ],
+   [
+    "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+    "回应关切"
+   ],
+   [
+    "https://sthjt.sc.gov.cn/sthjt/c103052/jump.shtml",
+    "领导信箱"
+   ],
+   [
+    "https://sthjt.sc.gov.cn/sthjt/c250403/zmhdzsk_index.shtml",
+    "政民互动常见问题知识库"
+   ]
+  ],
+  "api_hints": [
+   "https://sthjt.sc.gov.cn/sthjt/search/searchfs.shtml",
+   "/sthjt/c100447/list_w.shtml",
+   "https://www.sc.gov.cn/10462/c110462/list_ft.shtml",
+   "/sthjt/kpzxstt/list_w.shtml",
+   "https://www.zg.gov.cn/zgsrmzf/shbjzfxxg278/pc/list.html"
+  ],
+  "script_blocks": [],
+  "sub": [
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c260505/newznwd.shtml",
+    "status": 200,
+    "len": 18715,
+    "hd_links": [
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c260505/newznwd.shtml",
+      "智能问答"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+      "互动交流"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+      "回应关切"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103052/jump.shtml",
+      "领导信箱"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c250403/zmhdzsk_index.shtml",
+      "政民互动常见问题知识库"
+     ]
+    ],
+    "api_hints": [
+     "https://sthjt.sc.gov.cn/sthjt/search/searchfs.shtml",
+     "/sthjt/c100447/list_w.shtml"
+    ],
+    "script_blocks": [],
+    "text": "智能问答"
+   },
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+    "status": 200,
+    "len": 44682,
+    "hd_links": [
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c260505/newznwd.shtml",
+      "智能问答"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+      "互动交流"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+      "回应关切"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103052/jump.shtml",
+      "领导信箱"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c250403/zmhdzsk_index.shtml",
+      "政民互动常见问题知识库"
+     ],
+     [
+      "http://wpa.qq.com/msgrd?v=3&uin=2710387508&site=qq&menu=yes ",
+      "在线咨询"
+     ],
+     [
+      "http://sthjt.sc.gov.cn/eprobot/index.html",
+      "智能问答"
+     ],
+     [
+      "http://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+      "互动交流"
+     ]
+    ],
+    "api_hints": [
+     "https://sthjt.sc.gov.cn/sthjt/search/searchfs.shtml",
+     "/sthjt/c100447/list_w.shtml"
+    ],
+    "script_blocks": [],
+    "text": "互动交流"
+   },
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+    "status": 200,
+    "len": 28335,
+    "hd_links": [
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c260505/newznwd.shtml",
+      "智能问答"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+      "互动交流"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+      "回应关切"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c103052/jump.shtml",
+      "领导信箱"
+     ],
+     [
+      "https://sthjt.sc.gov.cn/sthjt/c250403/zmhdzsk_index.shtml",
+      "政民互动常见问题知识库"
+     ]
+    ],
+    "api_hints": [
+     "https://sthjt.sc.gov.cn/sthjt/search/searchfs.shtml",
+     "/sthjt/c100447/list_w.shtml"
+    ],
+    "script_blocks": [],
+    "text": "回应关切"
+   }
+  ],
+  "name": "四川省生态环境厅"
+ },
+ {
+  "url": "https://sthjj.beijing.gov.cn/",
+  "status": 200,
+  "len": 67397,
+  "hd_links": [
+   [
+    "https://sthjj.beijing.gov.cn/jj/",
+    "智能问答"
+   ],
+   [
+    "https://sthjj.beijing.gov.cn/bjhrb/index/zmhd68/index.html",
+    "政民互动"
+   ]
+  ],
+  "api_hints": [],
+  "script_blocks": [],
+  "sub": [
+   {
+    "url": "https://sthjj.beijing.gov.cn/jj/",
+    "status": 200,
+    "len": 1724,
+    "hd_links": [],
+    "api_hints": [],
+    "script_blocks": [],
+    "text": "智能问答"
+   },
+   {
+    "url": "https://sthjj.beijing.gov.cn/bjhrb/index/zmhd68/index.html",
+    "status": 200,
+    "len": 54964,
+    "hd_links": [
+     [
+      "https://sthjj.beijing.gov.cn/jj/",
+      "智能问答"
+     ],
+     [
+      "https://sthjj.beijing.gov.cn/bjhrb/index/zmhd68/index.html",
+      "政民互动"
+     ],
+     [
+      "https://sthjj.beijing.gov.cn/bjhrb/index/xxgk69/sthjlyzwg/11035622/744063268/index.html",
+      "2026年6月留言统计情况"
+     ]
+    ],
+    "api_hints": [],
+    "script_blocks": [],
+    "text": "政民互动"
+   }
+  ],
+  "name": "北京市生态环境局"
+ },
+ {
+  "url": "https://sthj.sh.gov.cn/",
+  "status": 200,
+  "len": 58288,
+  "hd_links": [],
+  "api_hints": [],
+  "script_blocks": [],
+  "sub": [],
+  "name": "上海市生态环境局"
+ },
+ {
+  "url": "https://sthj.guizhou.gov.cn/",
+  "status": 200,
+  "len": 54403,
+  "hd_links": [
+   [
+    "https://sthj.guizhou.gov.cn/hdjl/",
+    "互动交流"
+   ],
+   [
+    "https://www.guizhou.gov.cn/zmhd/znwz/",
+    "智能问答助手小贵"
+   ],
+   [
+    "https://sthj.guizhou.gov.cn/zwgk/zdlyxx/hjpj/zczqy/zcfw/202208/t20220815_76924931.html",
+    "全国环评技术评估服务咨询平台管理端"
+   ],
+   [
+    "http://iconsult-eia.china-eia.com/login",
+    "全国环评技术评估服务咨询平台 公众端"
+   ],
+   [
+    "https://sthj.guizhou.gov.cn/hdjl/zhishiku/",
+    "常见问题"
+   ]
+  ],
+  "api_hints": [
+   "/sosuo/search.shtml?tenantId=144&tenantIds=&configTenantId=&searchWord=",
+   "https://sthj.guizhou.gov.cn/zwgk/zcwj/search.html?searchWord="
+  ],
+  "script_blocks": [],
+  "sub": [
+   {
+    "url": "https://sthj.guizhou.gov.cn/hdjl/",
+    "status": 200,
+    "len": 24264,
+    "hd_links": [
+     [
+      "https://sthj.guizhou.gov.cn/hdjl/",
+      "互动交流"
+     ],
+     [
+      "https://sthj.guizhou.gov.cn/hdjl/tzxx/",
+      "厅长信箱"
+     ],
+     [
+      "https://sthj.guizhou.gov.cn/hdjl/hygq/",
+      "回应关切"
+     ],
+     [
+      "https://sthj.guizhou.gov.cn/hdjl/zhishiku/",
+      "常见问题知识库"
+     ]
+    ],
+    "api_hints": [
+     "/sosuo/search.shtml?tenantId=144&tenantIds=&configTenantId=&searchWord="
+    ],
+    "script_blocks": [],
+    "text": "互动交流"
+   },
+   {
+    "url": "https://www.guizhou.gov.cn/zmhd/znwz/",
+    "status": 200,
+    "len": 55122,
+    "hd_links": [
+     [
+      "https://www.guizhou.gov.cn/zmhd/",
+      "政民互动"
+     ]
+    ],
+    "api_hints": [
+     "/so/search.shtml?tenantId=&tenantIds=&configTenantId=186&searchWord=",
+     "/so/search.shtml?tenantId=186&tenantIds=&configTenantId=&searchWord="
+    ],
+    "script_blocks": [],
+    "text": "智能问答助手小贵"
+   },
+   {
+    "url": "https://sthj.guizhou.gov.cn/zwgk/zdlyxx/hjpj/zczqy/zcfw/202208/t20220815_76924931.html",
+    "status": 200,
+    "len": 23269,
+    "hd_links": [
+     [
+      "https://sthj.guizhou.gov.cn/hdjl/",
+      "互动交流"
+     ]
+    ],
+    "api_hints": [
+     "/sosuo/search.shtml?tenantId=144&tenantIds=&configTenantId=&searchWord="
+    ],
+    "script_blocks": [],
+    "text": "全国环评技术评估服务咨询平台管理端"
+   }
+  ],
+  "name": "贵州省生态环境厅"
+ }
+]

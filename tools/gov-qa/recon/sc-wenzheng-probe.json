@@ -1,0 +1,14 @@
+[
+ {
+  "url": "https://wz.sc.gov.cn/",
+  "error": "ConnectError"
+ },
+ {
+  "url": "https://wz.sc.gov.cn/wzsc/",
+  "error": "ConnectError"
+ },
+ {
+  "url": "http://wz.sc.gov.cn/",
+  "error": "ConnectError"
+ }
+]

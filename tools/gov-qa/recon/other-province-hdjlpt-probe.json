@@ -1,0 +1,152 @@
+[
+ {
+  "province": "四川",
+  "dept": "生态环境厅",
+  "dom": "sthjt.sc.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "四川",
+  "dept": "应急管理厅",
+  "dom": "yjt.sc.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "北京",
+  "dept": "生态环境局",
+  "dom": "sthjj.beijing.gov.cn",
+  "status": 404,
+  "len": 552,
+  "gd_platform": false,
+  "cookies": [
+   "lcid",
+   "__jsluid_s"
+  ]
+ },
+ {
+  "province": "北京",
+  "dept": "应急管理局",
+  "dom": "yjglj.beijing.gov.cn",
+  "status": 404,
+  "len": 552,
+  "gd_platform": false,
+  "cookies": [
+   "lcid",
+   "__jsluid_s"
+  ]
+ },
+ {
+  "province": "上海",
+  "dept": "生态环境局",
+  "dom": "sthj.sh.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "上海",
+  "dept": "应急管理局",
+  "dom": "yjgl.sh.gov.cn",
+  "error": "ConnectError"
+ },
+ {
+  "province": "浙江",
+  "dept": "生态环境厅",
+  "dom": "sthjt.zj.gov.cn",
+  "status": 200,
+  "len": 55976,
+  "gd_platform": false,
+  "cookies": [
+   "aliyungf_tc"
+  ]
+ },
+ {
+  "province": "浙江",
+  "dept": "应急管理厅",
+  "dom": "yjglj.zj.gov.cn",
+  "error": "ConnectError"
+ },
+ {
+  "province": "安徽",
+  "dept": "生态环境厅",
+  "dom": "sthjt.ah.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": [
+   "__jsluid_s"
+  ]
+ },
+ {
+  "province": "安徽",
+  "dept": "应急管理厅",
+  "dom": "yjt.ah.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": [
+   "__jsluid_s"
+  ]
+ },
+ {
+  "province": "福建",
+  "dept": "生态环境厅",
+  "dom": "sthjt.fujian.gov.cn",
+  "status": 200,
+  "len": 2,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "辽宁",
+  "dept": "生态环境厅",
+  "dom": "sthj.ln.gov.cn",
+  "status": 404,
+  "len": 9578,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "吉林",
+  "dept": "生态环境厅",
+  "dom": "sthjt.jl.gov.cn",
+  "status": 404,
+  "len": 204,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "贵州",
+  "dept": "生态环境厅",
+  "dom": "sthj.guizhou.gov.cn",
+  "status": 404,
+  "len": 548,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "宁夏",
+  "dept": "生态环境厅",
+  "dom": "sthjt.nx.gov.cn",
+  "status": 404,
+  "len": 1658,
+  "gd_platform": false,
+  "cookies": []
+ },
+ {
+  "province": "天津",
+  "dept": "生态环境局",
+  "dom": "sthj.tj.gov.cn",
+  "status": 404,
+  "len": 33712,
+  "gd_platform": false,
+  "cookies": []
+ }
+]
