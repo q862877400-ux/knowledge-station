@@ -2,6 +2,14 @@
  "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
  "n_lib_names": 8917,
  "sources": {
+  "ah-st-安徽省生态环境厅·问答知识库": {
+   "n_items": 145,
+   "可当考卷(A_点名且在我们库)": 23,
+   "补料清单(B_点名但不在库)": 37,
+   "无依据(C_没点名)": 85,
+   "可定位率(点过名的条目占比)": "60/145",
+   "在库率(点名文件命中占比)": "28/92"
+  },
   "gd-amr-广东省市场监督管理局": {
    "n_items": 6134,
    "可当考卷(A_点名且在我们库)": 1185,

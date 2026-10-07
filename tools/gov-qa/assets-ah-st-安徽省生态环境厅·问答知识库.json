@@ -1,0 +1,1587 @@
+{
+ "A_考卷": [
+  {
+   "source": "ah-st",
+   "id": "123302061",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123302061.html",
+   "question": "您好，想咨询一下，关于危险废物处置的问题，单位年产出危废约20吨，需要处置的单位具备哪些资质？经营许可证上的，经营方式是否必须包含“处置”这一项业务？有没有相关规定，若有，在哪里可查？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "122822281",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122822281.html",
+   "question": "企业使用热风式咖啡烘焙机（IMF咖啡烘焙机）通过天然气燃烧供热进行咖啡生豆烘焙，请问咖啡烘焙机属于工业炉窑还是锅炉？燃烧废气要执行什么排放标准？",
+   "cited_hits": [
+    {
+     "name": "大气污染物综合排放标准",
+     "lib_no": "GB 16297-1996",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工业炉窑大气污染综合治理方案",
+    "GB16297-1996"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122779431",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122779431.html",
+   "question": "在阜阳颍州区想开一家餐饮店，看中一处位置：临街的一幢居民楼一楼商铺（楼上是住宅，共6层楼），主要经营小吃（炒菜、水饺）。该楼一楼商铺没有专门的排烟管道，准备安装油烟净化设备后向路边排放。是否可以？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122583041",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122583041.html",
+   "question": "环评文件审批时限是多少？",
+   "cited_hits": [
+    {
+     "name": "建设项目环境保护管理条例",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122583021",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122583021.html",
+   "question": "危险废物经营许可证分级审批权限如何界定？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "122442091",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442091.html",
+   "question": "饮用水水源保护区内允许从事网箱养殖吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122236251",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122236251.html",
+   "question": "是不是所有建设项目都要办理环评手续？",
+   "cited_hits": [
+    {
+     "name": "环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设项目环境保护管理条例",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）",
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122236231",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122236231.html",
+   "question": "首次申请或重新核发危险废物经营许可证，应该如何办理？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险废物经营许可证申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "122236221",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122236221.html",
+   "question": "哪些项目需要省生态环境厅预审？",
+   "cited_hits": [
+    {
+     "name": "淮河流域水污染防治暂行条例",
+     "lib_no": "淮河流域水污染防治暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安徽省淮河流域水污染防治条例",
+    "巢湖流域水污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741981",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741981.html",
+   "question": "反映环境污染问题办理时限有何规定？",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于改革信访工作制度依照法定途径分类处理信访问题的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729901",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729901.html",
+   "question": "哪些情形可以认定为生态环境轻微违法违规行为？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生态环境轻微违法违规行为免罚清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377831",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377831.html",
+   "question": "危险废物经营单位终止从事收集、贮存、处置危险废物经营活动的，应当什么时候提出注销申请？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121377821",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377821.html",
+   "question": "危险废物经营单位，需要延期贮存危险废物，应该如何办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121377801",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377801.html",
+   "question": "申请延长危险废物贮存期限报告有无专门格式？",
+   "cited_hits": [
+    {
+     "name": "危险废物贮存污染控制标准",
+     "lib_no": "GB 18597-2023",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377681",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377681.html",
+   "question": "危险废物经营许可证分级审批权限如何界定？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121377661",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377661.html",
+   "question": "危险废物经营单位哪些情况下需重新申请领取危险废物经营许可证？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121377641",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377641.html",
+   "question": "首次申请或重新核发危险废物经营许可证，应该如何办理？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险废物经营许可证申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121282771",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282771.html",
+   "question": "符合哪些条件才能领到排污许可证？",
+   "cited_hits": [
+    {
+     "name": " 排污许可管理条例 ",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121282741",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282741.html",
+   "question": "是不是所有排污单位均要排污许可证？",
+   "cited_hits": [
+    {
+     "name": " 排污许可管理条例 ",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录 （ 2019 年版 ） "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121225721",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121225721.html",
+   "question": "什么样的单位需要申领排污许可证？",
+   "cited_hits": [
+    {
+     "name": " 排污许可管理条例 ",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "固定污染源排污许可分类管理名录 （ 2019 年版 ） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121208981",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121208981.html",
+   "question": "环评文件审批时限是多少？",
+   "cited_hits": [
+    {
+     "name": " 建设项目环境保护管理条例 ",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121208861",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121208861.html",
+   "question": "建设单位未及时办理环评手续有什么法律责任？",
+   "cited_hits": [
+    {
+     "name": "环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121181451",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181451.html",
+   "question": "是不是所有建设项目都要办理环评手续？",
+   "cited_hits": [
+    {
+     "name": " 环境保护法 ",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 环境影响评价法 ",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 建设项目环境保护管理条例 ",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （ 2021 年版 ） ",
+    "建设项目环境影响评价分类管理名录（ 2021 年版）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "ah-st",
+   "id": "123314861",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123314861.html",
+   "question": "领导您好，建筑垃圾综合利用破碎成骨料项目的排污许可管理类别是什么，依据什么来进行判定。",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源排污许可分类管理目录（2019版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "123167841",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123167841.html",
+   "question": "我公司从事低度酒系列产品和茶类饮料产品的生产和销售，拟建设低度酒柔性生产线一条，达产后预计年产2400吨低度酒系列产品和茶类饮料产品，其中发酵工艺类产品年均生产量960吨，包含400吨发酵酒和560吨发酵茶，本项目应编制环评报告书还是报告表",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "123166701",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123166701.html",
+   "question": "我公司原料为PET片材，加工工艺为，吸塑-冲切，吸塑时加热温度约160，请问下这类项目需要做环评报告表吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "123062121",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123062121.html",
+   "question": "我司纯水制备系统使用自来水和工艺清洗回收水做为原水，进行制备超纯水，请问这种情况下纯水制备系统产出的废离子交换树脂是否需要通过危废鉴定，才能做为一般废管理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "123046671",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123046671.html",
+   "question": "固定源挥发性有机物综合排放标准第6部分其他行业（DB34 4812.6-2024），2024年8月1日实施。该标准4.1 挥发性有机物排放的基本污染物项目执行表 1 规定的排放限值中，汽车整车制造污染物 苯系物 未备注苯系物b，其余行业苯系",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定源挥发性有机物综合排放标准第6部分其他行业（DB34 4812.6-2024）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122996441",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122996441.html",
+   "question": "根据《国家危险废物名录》，未破损的废危废铅酸电池在运输过程中属于豁免环节，运输公司是否还需要在省固废系统中提供运输轨迹？能否明确豁免的具体行为，以及还需应做的具体措施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025版）",
+    "废铅蓄电池危险废物经营单位审查和许可指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122765061",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122765061.html",
+   "question": "现需对企业的《固定污染源排污登记表》进行变更登记，是否只需要在“全国排污许可证管理平台-首页-业务办理-排污登记-登记变更”中完成修改和提交？线下是否需要向哪些部门完成备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "排污许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "122737951",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122737951.html",
+   "question": "我想请问我们单位年危废产生量超过30吨，省厅是否有文件要求不能选择小微企业处置？如有，请问在哪可以查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展小微企业危险废物收集试点的通知",
+    "关于继续开展小微企业危险废物收集试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122682381",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122682381.html",
+   "question": "我司生产过程中产生的一般工业废弃物原处置方式为焚烧处置，现有相关单位可对我司废弃物进行再次利用，请问该单位是否需具备相关资质，我司更改废弃物处置方式需办理何种环保手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "固废法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122657791",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122657791.html",
+   "question": "请教一下专家：一.30L以下的天然气蒸汽发生器在2025年1月1日之后是否属于锅炉？二.此蒸汽发生器废气排放执行什么标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "锅炉大气污染物排放标准",
+    "锅炉大气污染物排放标准",
+    "安徽省人民政府关于印发安徽省空气质量持续改善行动方案的通知",
+    "GB13271-2014",
+    "GB13271-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122592411",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122592411.html",
+   "question": "我公司从事一般工业固废废物收集，收来的一般工业固废经人工分拣后对外出售，不进行加工处置，需要办理环评手续吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "122583051",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122583051.html",
+   "question": "什么是生态环境损害？生态环境损害赔偿由哪个部门负责索赔？谁承担赔偿责任？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境损害赔偿制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122442051",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442051.html",
+   "question": "是不是所有环评文件都需要生态环境部门审批？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122174901",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122174901.html",
+   "question": "近年来，安徽省生物多样性保护方面是否出台了重要文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强生物多样性保护的意见",
+    "关于进一步加强生物多样性保护的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122174841",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122174841.html",
+   "question": "建设项目穿越生态保护红线审查程序是什么，省生态环境厅承担的职责是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省建设项目不可避让生态保护红线论证建议联合审查组关于印发〈建设项目不可避让生态保护红线论证意见审查程序〉的通知",
+    "建设项目不可避让生态保护红线论证意见审查程序"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122174831",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122174831.html",
+   "question": "生态保护红线内允许开展哪些活动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部 生态环境部 国家林业和草原局关于加强生态保护红线管理的通知（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742001",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742001.html",
+   "question": "我省有哪些行业温室气体排放单位纳入碳排放报告与核查管理范围？纳入的标准是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "碳排放权交易管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121741971",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741971.html",
+   "question": "反映环境污染问题都可以领取举报奖励吗？具体有什么规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境违法行为有奖举报办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729911",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729911.html",
+   "question": "对于列入生态环境监督执法正面清单的企业，生态环境部门有哪些激励措施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强生态环境监督执法正面清单管理推动差异化执法监管的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729641",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729641.html",
+   "question": "被督察对象何时才能知晓督察结果?",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729631",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729631.html",
+   "question": "对督察发现的重大问题将如何处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729621",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729621.html",
+   "question": "通过哪些渠道了解省生态环境保护督察相关情况？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729611",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729611.html",
+   "question": "督察进驻期间，如何向省生态环境保护督察组反映生态环境问题？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729601",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729601.html",
+   "question": "安徽省生态环境保护督察有哪些程序？一般持续多长时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729591",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729591.html",
+   "question": "开展安徽省生态环境保护督察如何批准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729581",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729581.html",
+   "question": "安徽省生态环境保护督察的开展频次是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121729561",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729561.html",
+   "question": "安徽省生态环境保护督察有哪些形式？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中央生态环境保护督察工作规定",
+    "安徽省生态环境保护督察工作实施办法",
+    "安徽省生态环境保护督察工作实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377691",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377691.html",
+   "question": "危险废物经营许可证需要变更法人名称、变更法定代表人、变更住所应该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物经营许可证变更申请"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377671",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377671.html",
+   "question": "换发危险废物经营许可证，应该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险废物经营许可证申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377611",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377611.html",
+   "question": "如何办理放射性同位素豁免事宜？",
+   "cited_hits": [],
+   "cited_missing": [
+    "放射性同位素与射线装置安全和防护管理办法",
+    "基本标准",
+    "基本标准",
+    "基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377591",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377591.html",
+   "question": "哪些情况下淮河巢湖流域重污染行业项目可以免于预审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377581",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377581.html",
+   "question": "哪些项目需要省生态环境厅预审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价文件分级审批规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377491",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377491.html",
+   "question": "辐射安全许可证持证单位法定代表人变更可以在营业执照单位法定代表人变更之前吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "放射性同位素与射线装置安全许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "ah-st",
+   "id": "121181501",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181501.html",
+   "question": "如何判断建设项目环境影响报告表是否应向省生态环境厅申报？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境厅建设项目环境影响评价文件审批目录（ 2019 年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121181491",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181491.html",
+   "question": "如何判定建设项目应编制环境影响报告书还是报告表？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录 （ 2021 年版） "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176521",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176521.html",
+   "question": "证明材料有何具体要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省生态环境厅关于做好进口废五金类废物加工利用企业认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176511",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176511.html",
+   "question": "危险废物跨省转移申请书是否需要企业盖章？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安徽省工业危险废物跨省转移申请书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "ah-st",
+   "id": "123254941",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/123254941.html",
+   "question": "请问我们公司环评上将静电除油设备排出的油水混合物定义为废矿物油，代码900-214-08，混合物中水占比较大，请问企业可以自行建立一个油水分离设施，然后仅将分离出来的油当作危废处理吗？废水检测达标后排放。如果可行的话，应该走哪些流程进行申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122623451",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122623451.html",
+   "question": "辐射安全许可证注销流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122604391",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122604391.html",
+   "question": "请问建筑工地拆下来的废旧建筑模板能否作为生物质气化炉的原料使用？废旧建筑模版破碎料经生物质气化炉热解气化后产生的生物燃气能否用于锅炉燃烧产生蒸汽？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122583031",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122583031.html",
+   "question": "环评文件审批主要有哪些流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122442081",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442081.html",
+   "question": "排污许可怎么申领登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122442061",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442061.html",
+   "question": "建设项目应在什么时候完成环评审批（备案）手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122442041",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442041.html",
+   "question": "辐射安全许可证重新核发申请材料中要特别注意哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122442031",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122442031.html",
+   "question": "网上可以申报辐射安全许可证吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122313991",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122313991.html",
+   "question": "跨省转出危险废物如何申请办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122313981",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122313981.html",
+   "question": "危险废物跨省转移联单如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122313951",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122313951.html",
+   "question": "我省生态文明建设示范创建现在获得国家级、省级称号有多少个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122313941",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122313941.html",
+   "question": "目前，我省生态文明建设示范创建包括哪些类型？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122236241",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122236241.html",
+   "question": "申请注销危险废物经营许可证材料应包括哪些内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122175351",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122175351.html",
+   "question": "安徽省生物多样性保护富集区域在哪些地方？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122174891",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122174891.html",
+   "question": "安徽省生态环境厅政务服务事项办理所需材料和要求在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "122174871",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/122174871.html",
+   "question": "安徽省生态环境厅政务服务窗口在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742081",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742081.html",
+   "question": "室内环境中VOCs污染物有哪些来源？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742071",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742071.html",
+   "question": "VOCs中有哪些是恶臭气体?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742061",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742061.html",
+   "question": "日常生活中常见的VOCs有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742051",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742051.html",
+   "question": "什么是VOCs？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742041",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742041.html",
+   "question": "O3和VOCs、PM2.5、雾霾有关系吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742021",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742021.html",
+   "question": "臭氧（O3）是什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121742011",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121742011.html",
+   "question": "为什么夏季晴空万里时，还会显示有空气污染？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741991",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741991.html",
+   "question": "我省已全面实施10年内车辆环保免上线检验改革，哪些车辆符合条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741961",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741961.html",
+   "question": "如何进行生态环境违法行为举报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741951",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741951.html",
+   "question": "自动监测设备开展比对监测的频次有哪些要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741941",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741941.html",
+   "question": "自动监测设备在污染物排放期间发生故障时应当怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121741931",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121741931.html",
+   "question": "新增重点排污单位在完成自动监测设备安装后还应履行哪些程序？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729941",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729941.html",
+   "question": "重点排污单位安装的自动监测设备及其附属设施应当满足哪些要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729931",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729931.html",
+   "question": "重点排污单位应当在哪些污染物排放口安装自动监测设备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729921",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729921.html",
+   "question": "哪些单位应当安装自动监测设备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729661",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729661.html",
+   "question": "什么是行政执法“三项制度”？行政执法“三项制度”对于解决群众反映强烈的“执法不规范不严格不公正不文明”问题有什么作用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121729651",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121729651.html",
+   "question": "什么是“双随机、一公开”监管，对企业有什么意义？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377891",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377891.html",
+   "question": "多枚Ⅱ类放射源装配在一个罐体中使用，总活度超过Ⅰ类放射源下限，这些放射源连同罐体一起回收时，运输前需要办理Ⅰ类放射源运输前备案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377841",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377841.html",
+   "question": "申请注销危险废物经营许可证材料应包括哪些内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377791",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377791.html",
+   "question": "提交危险废物跨省转移申请后是否三天就可以出结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377771",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377771.html",
+   "question": "危险废物转入我省需要来办手续吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377741",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377741.html",
+   "question": "移出人需要重新提出危险废物跨省转移申请的情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377731",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377731.html",
+   "question": "跨省转出危险废物如何申请办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377721",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377721.html",
+   "question": "危险废物跨省转移联单如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377711",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377711.html",
+   "question": "有固体废物污染治理经历技术人员的证明材料实施告知承诺制，是否意味着行政机关不核实相关材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377701",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377701.html",
+   "question": "办理危险废物经营许可证需要变更法人名称、法定代表人、住所，当天能拿到许可证吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377621",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377621.html",
+   "question": "直接从事放射性物品运输的工作人员是否需要开展个人剂量监测？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377601",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377601.html",
+   "question": "预审主要考察项目的哪些内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377561",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377561.html",
+   "question": "辐射安全许可证重新核发申请材料中要特别注意哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377551",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377551.html",
+   "question": "仅仅遗失了辐射安全许可证正本，也需要按照法定流程登报公告后办理补发吗，可以凭副本原件直接补发一份吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377541",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377541.html",
+   "question": "辐射安全许可证延续提供的监测报告时效性？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377531",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377531.html",
+   "question": "办理辐射安全许可证注销的时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377521",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377521.html",
+   "question": "提出申请辐射安全许可证延续的时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377511",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377511.html",
+   "question": "网上可以申报辐射安全许可证吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121377501",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121377501.html",
+   "question": "辐射安全许可证核发申请材料中要特别注意哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325891",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325891.html",
+   "question": "辐射工作场所地点改变与辐射安全许可证持证单位地址变更的区别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325881",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325881.html",
+   "question": "如果许可证遗失了，能够办理部分变更吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325871",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325871.html",
+   "question": "辐射安全许可证注销与部分变更的区别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325861",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325861.html",
+   "question": "辐射安全许可证部分变更与重新申请的区别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325851",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325851.html",
+   "question": "非密封放射性物质转让审批有没有时效性？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325841",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325841.html",
+   "question": "放射性药品及原料转让审批有没有时效性？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325831",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325831.html",
+   "question": "放射性同位素省外转移备案什么时间来办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325821",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325821.html",
+   "question": "全国核技术利用辐射安全申报系统上有四个异地使用的步骤，应该怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325811",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325811.html",
+   "question": "放射源收贮需要多少时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121325801",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121325801.html",
+   "question": "放射源收贮收费么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121282831",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282831.html",
+   "question": "放射源收贮前企业需要做什么准备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121282821",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282821.html",
+   "question": "排污单位的主体责任和义务有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121282811",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282811.html",
+   "question": "排污许可企业用户名密码记不住了，邮箱又填错了，怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121282791",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282791.html",
+   "question": "排污许可证领证后怎么做？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121282761",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121282761.html",
+   "question": "排污许可怎么申领登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121225711",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121225711.html",
+   "question": "环评文件在什么情况需要重新报批？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121225701",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121225701.html",
+   "question": "环评文件批复的有效期限有多长？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121208971",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121208971.html",
+   "question": "环评文件审批主要有哪些流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121181471",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181471.html",
+   "question": "建设项目应在什么时候完成环评审批（备案）手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121181461",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181461.html",
+   "question": "是不是所有环评文件都需要生态环境部门审批？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121181441",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181441.html",
+   "question": "省生态环境厅政务服务事项办理所需材料和要求在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "121181421",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/121181421.html",
+   "question": "省生态环境厅政务服务窗口在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176791",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176791.html",
+   "question": "常见的环境污染有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176691",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176691.html",
+   "question": "每年的世界环境日在哪一天?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176551",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176551.html",
+   "question": "申报材料中缺少排污许可证。 &nbsp;",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176541",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176541.html",
+   "question": "如何判断建设项目是否具备试生产条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176531",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176531.html",
+   "question": "领取未加盖公章",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176501",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176501.html",
+   "question": "申请转让的放射性元素超出辐射安全许可证范围。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176491",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176491.html",
+   "question": "建设项目环评登记表材料无项目水土保持方案批复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176481",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176481.html",
+   "question": "有的单位自行编制辐射类建设项环评报告表。 &nbsp;",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176471",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176471.html",
+   "question": "部分建设项目缺少公众参与合订本。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176461",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176461.html",
+   "question": "报送建设项目材料时，未提供环评文件全本网上公示证明材料。 &nbsp;",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176451",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176451.html",
+   "question": "有的单位报送建设项目材料时，未提供该项目环评文件全本网上公示证明材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "ah-st",
+   "id": "119176441",
+   "url": "https://sthjt.ah.gov.cn/zmhd/wdzsk/119176441.html",
+   "question": "公众参与调查表合订本未加盖公章，无组织者签名及联系电话等。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

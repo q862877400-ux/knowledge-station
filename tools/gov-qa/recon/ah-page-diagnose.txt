@@ -1,0 +1,28 @@
+
+=== 第 1 页：链接 10，去重 10 ===
+  成功 10 / 未解析 0
+
+=== 第 5 页：链接 10，去重 10 ===
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742081.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742071.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742061.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742051.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742041.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742021.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742011.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121742001.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121741991.html
+  成功 1 / 未解析 9
+
+=== 第 10 页：链接 10，去重 10 ===
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377601.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377591.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377581.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377561.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377551.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377541.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377531.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377521.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377511.html
+  未解析 [200] https://sthjt.ah.gov.cn/zmhd/wdzsk/121377501.html
+  成功 0 / 未解析 10

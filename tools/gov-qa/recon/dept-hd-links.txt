@@ -1,0 +1,84 @@
+
+=== https://sthj.ln.gov.cn/ [200] ===
+  · 政民互动 -> https://sthj.ln.gov.cn/sthj/zmhd/index.shtml
+  · 厅长信箱 -> https://sthj.ln.gov.cn/sthj/zmhd/tzxx--zxly/index.shtml
+  · 咨询服务 -> https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml
+  [子页 政民互动] 200 len=49903 https://sthj.ln.gov.cn/sthj/zmhd/index.shtml
+      · 政民互动 -> https://sthj.ln.gov.cn/sthj/zmhd/index.shtml
+      · 厅长信箱 -> https://sthj.ln.gov.cn/sthj/zmhd/tzxx--zxly/index.shtml
+      · 咨询服务 -> https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml
+      · 回应关切 -> https://sthj.ln.gov.cn/sthj/zmhd/hygq/index.shtml
+      api: ['/search/pcRender', '/eportalmsg/js/admin/msgBoard/portlet/listMsg.js']
+  [子页 厅长信箱] 200 len=60118 https://sthj.ln.gov.cn/sthj/zmhd/tzxx--zxly/index.shtml
+      · 政民互动 -> https://sthj.ln.gov.cn/sthj/zmhd/index.shtml
+      · 厅长信箱 -> https://sthj.ln.gov.cn/sthj/zmhd/tzxx--zxly/index.shtml
+      · 咨询服务 -> https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml
+      api: ['/search/pcRender', '/eportalmsg/js/admin/msgBoard/portlet/listMsg.js']
+  [子页 咨询服务] 200 len=52410 https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml
+      · 政民互动 -> https://sthj.ln.gov.cn/sthj/zmhd/index.shtml
+      · 厅长信箱 -> https://sthj.ln.gov.cn/sthj/zmhd/tzxx--zxly/index.shtml
+      · 咨询服务 -> https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml
+      · 历史咨询服务 -> http://sthj.ln.gov.cn/zmhd/zxly/lszxfw/
+      · 历史咨询服务 -> https://sthj.ln.gov.cn/sthj/zmhd/zxly/lszxfw/index.shtml
+      api: ['/search/pcRender', '/eportalmsg/js/admin/msgBoard/portlet/listMsg.js']
+
+=== https://sthjt.ah.gov.cn/ [200] ===
+  · 互动交流 -> https://sthjt.ah.gov.cn/zmhd/index.html
+  · 政策解读咨询 -> https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710371&action=list
+  · 厅长信箱 -> https://sthjt.ah.gov.cn/zmhd/zxts/index.html
+  · 回应关切 -> https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710431&action=list
+  [子页 互动交流] 200 len=30487 https://sthjt.ah.gov.cn/zmhd/index.html
+      · 互动交流 -> https://sthjt.ah.gov.cn/zmhd/index.html
+      · 我要咨询 -> https://sthjt.ah.gov.cn/zmhd/zxts/index.html
+      · 污染源管理办法咨询 -> https://sthjt.ah.gov.cn/content/article/123502741
+      · 关于项目拆分，环评批复问题的咨询 -> https://sthjt.ah.gov.cn/content/article/123374511
+      · 问答知识库 -> https://sthjt.ah.gov.cn/content/column/26703211
+      · 回应关切 -> https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710441&action=list
+  [子页 政策解读咨询] 200 len=60447 https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710371&action=list
+      · 互动交流 -> https://sthjt.ah.gov.cn/zmhd/index.html
+      · 政策解读咨询 -> https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710371&action=list
+      api: ['/site/search/6788031']
+  [子页 厅长信箱] 200 len=19226 https://sthjt.ah.gov.cn/zmhd/zxts/index.html
+      · 互动交流 -> https://sthjt.ah.gov.cn/zmhd/index.html
+      · 污染源管理办法咨询 -> https://sthjt.ah.gov.cn/content/article/123502741
+      · 关于项目拆分，环评批复问题的咨询 -> https://sthjt.ah.gov.cn/content/article/123374511
+      · 废旧灭火器处理咨询 -> https://sthjt.ah.gov.cn/content/article/123319961
+
+=== https://sthjt.nx.gov.cn/ [200] ===
+  · 互动交流 -> https://sthjt.nx.gov.cn/yqhy/
+  · 热点回应 -> https://sthjt.nx.gov.cn/yqhy/rdhy/
+  · 厅长信箱 -> https://app.12345.nx.gov.cn/cns-bmfw-webrest/pages/Leader/service_openlist?emailFlag=7&deptGuid=46166aa4-792c-4f05-a315-abd04c14f4ff
+  · 互动咨询 -> https://app.12345.nx.gov.cn/cns-bmfw-webrest/pages/Leader/service_openlist?emailFlag=29&deptGuid=46166aa4-792c-4f05-a315-abd04c14f4ff
+  · 厅长信箱 -> https://sthjt.nx.gov.cn/yqhy/tzxx/
+  · 互动咨询 -> https://sthjt.nx.gov.cn/yqhy/hdzx/
+  [子页 互动交流] 200 len=64065 https://sthjt.nx.gov.cn/yqhy/
+      · 互动交流 -> https://sthjt.nx.gov.cn/yqhy/
+      · 厅长信箱 -> https://sthjt.nx.gov.cn/yqhy/tzxx/
+      · 互动咨询 -> https://sthjt.nx.gov.cn/yqhy/hdzx/
+      · 热点回应 -> https://sthjt.nx.gov.cn/yqhy/rdhy/
+      api: ['/nxsearch/search.html?code=17f86938306&tenantId=181&searchWord=']
+  [子页 热点回应] 200 len=31413 https://sthjt.nx.gov.cn/yqhy/rdhy/
+      · 互动交流 -> https://sthjt.nx.gov.cn/yqhy/
+      · 厅长信箱 -> https://sthjt.nx.gov.cn/yqhy/tzxx/
+      · 互动咨询 -> https://sthjt.nx.gov.cn/yqhy/hdzx/
+      · 热点回应 -> https://sthjt.nx.gov.cn/yqhy/rdhy/
+      api: ['/nxsearch/search.html?code=17f86938306&tenantId=181&searchWord=', '/irs/front/search']
+  [子页 厅长信箱] 200 len=3653 https://app.12345.nx.gov.cn/cns-bmfw-webrest/pages/Leader/service_openlist?emailFlag=7&deptGuid=46166aa4-792c-4f05-a315-abd04c14f4ff
+
+=== https://sthjt.jl.gov.cn/ [200] ===
+  · 解读回应 -> https://sthjt.jl.gov.cn/zcjd/
+  [子页 解读回应] 200 len=26159 https://sthjt.jl.gov.cn/zcjd/
+      · 政民互动 -> https://sthjt.jl.gov.cn/zmhd/
+      · 解读回应 -> https://sthjt.jl.gov.cn/zcjd/
+      · 热点回应 -> https://sthjt.jl.gov.cn/zcjd/rdhy/
+      api: ['https://intellsearch.jl.gov.cn/search/index.html', 'http://125.32.96.149:8081/was5/web/search?channelid=226700']
+
+=== https://sthjt.zj.gov.cn/ [200] ===
+  · @国家留言 -> http://www.gov.cn/hudong/index.htm
+  [子页 @国家留言] 200 len=22712 http://www.gov.cn/hudong/index.htm
+      · 人民群众留言入口 -> https://liuyan.www.gov.cn/hudong/atwls/rmqz.htm
+      · 企业、个体工商户留言入口 -> https://liuyan.www.gov.cn/hudong/atwls/qygth.htm
+      · 政务服务留言入口 -> https://tousu.www.gov.cn/zwfw/index.htm
+      · 回应关切 -> https://www.gov.cn/hudong/hygq/lyhf/
+      · 治理中小企业回款难，相关部门有回应 -> https://www.gov.cn/hudong/202609/content_7082213.htm
+      api: ['//sousuo.www.gov.cn/sousuo/search.shtml?code=17da70961a7&dataTypeId=14&searchWord=', '//sousuo.www.gov.cn/sousuo/search.shtml?code=17da70961a7&dataTypeId=107&searchWord=']

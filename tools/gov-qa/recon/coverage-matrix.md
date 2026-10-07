@@ -1,6 +1,6 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **36844** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **36989** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
@@ -8,6 +8,8 @@
 | 湖南省 | 4379 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 28 |
 | 北京市 | 409 | people-liuyan-fid 245、people-liuyan-df 142、people-liuyan-prov 22 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
+| 安徽省 | 173 | ah-st 145、people-liuyan-prov 28 |
+| 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
 | 山西省 | 36 | people-liuyan-prov 36 |
 | 内蒙古自治区 | 36 | people-liuyan-prov 36 |
 | 辽宁省 | 36 | people-liuyan-prov 36 |
@@ -18,10 +20,8 @@
 | 上海市 | 28 | people-liuyan-prov 28 |
 | 江苏省 | 28 | people-liuyan-prov 28 |
 | 浙江省 | 28 | people-liuyan-prov 28 |
-| 安徽省 | 28 | people-liuyan-prov 28 |
 | 广西壮族自治区 | 28 | people-liuyan-prov 28 |
 | 海南省 | 28 | people-liuyan-prov 28 |
-| 四川省 | 28 | people-liuyan-prov 28 |
 | 河北省 | 24 | people-liuyan-prov 24 |
 | 重庆市 | 24 | people-liuyan-prov 24 |
 | 山东省 | 22 | people-liuyan-prov 22 |
@@ -33,7 +33,6 @@
 | 宁夏回族自治区 | 18 | people-liuyan-prov 18 |
 | 贵州省 | 15 | people-liuyan-prov 15 |
 | 青海省 | 15 | people-liuyan-prov 15 |
-| （未归属） | 15 | sc-st 15 |
 | 天津市 | 14 | people-liuyan-prov 14 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
 | 新疆维吾尔自治区 | 5 | people-liuyan-prov 5 |
@@ -72,6 +71,7 @@
 | gd-zfcxjst | 177 |
 | gd-hsa | 173 |
 | gd-dara | 155 |
+| ah-st | 145 |
 | mee | 145 |
 | people-liuyan-df | 142 |
 | gd-coop | 133 |
