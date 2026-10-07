@@ -9,6 +9,19 @@
 |---|---|---|---|---|
 | `mee` | **生态环境部** | **接口** | 163 条 | `GET https://www.mee.gov.cn/was5/web/search?channelid=232534&perpage=100&page=N` |
 | `mem` | **应急管理部** | 静态列表 | 60 条 | `https://www.mem.gov.cn/hd/gzly/hdhdly/` + `index_1..9.shtml` |
+| `hunan-st` | **湖南省生态环境厅** | **接口** | **3813 条** | 湖南全省统一互动平台 `https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie`，`deptId` 在各厅 `hdjl_index.js` 里（生态=`c0fc18f4…`） |
+| `hunan-yj` | **湖南省应急管理厅** | **接口** | **538 条** | 同上平台，`deptId=5c247692…`；**湖南其他厅局 = 复制薄适配器填 deptId 即可** |
+| `people-liuyan` | **人民网领导留言板·部委** | **接口+签名** | 30 条（首日） | `POST /v1/threads/list/bw`（`showUnAnswer=0`=只要已办理）+ `/v1/threads/content`（`dataType=9`=官方答复）；签名 `md5(路径+param+md5(appCode)[:16])`，算法与验证见 `adapters/_liuyan_common.py` 头注 |
+
+### ⚠ people-liuyan 的两个未决问题（2026-10-09 实测记录）
+
+1. **403 限流**：请求过密后返回 **403 + 2.3KB HTML 拦截页**（不是 JSON）。
+   今天侦察+试采频率偏高，尾段触发了。**下次全量跑把 `PAUSE` 提到 3-5s、
+   批次控制在几百条以内**，403 出现就停，等一会儿再跑（页面上无验证码，疑似 IP 计数冷却）。
+2. **翻页深度存疑**：正式采集扫到 54 条后光标耗尽（`lastItem` 空 / `hasData` 异常值）。
+   这可能真的是"单次查询流就这么多"，也可能是**轻度限流把第 3 页打成了空页**——
+   两者当时分不清（证据 `recon/liuyan-sitewide-cursor.txt` 只有 403 复现，无干净对照）。
+   **别把 30 条当平台总量**——平台留言总量以百万计，等限流冷却后用 2.5s+ 间隔重新走光标。
 
 ## 二、已侦察、**接口没拿下**（下一个人接着做）
 
@@ -95,6 +108,8 @@
 | `dig-hd-pages.py/.json` | 第二轮：命中站的栏目页挖掘 + 浙江 was5 响应判定 + 直连/代理对照 |
 | `dig2-js.py/.json` | 第三轮：湖南 `hdjl_*.js` / 广东应急 `config.js` / 福建 `gzcy` 挖掘 |
 | `hunan-verify.py/.json` | ★ 湖南统一平台两厅 deptId + 答复覆盖率验证（抽样 100/100 有答复）|
+| `liuyan-js-fetch*.py` / `liuyan-js/` | 人民网留言板 JS 包下载与签名算法定位（`app.*.js` 里 `md5(路径+param+secret)`）|
+| `liuyan-typeid-map.txt` 等 `liuyan-*.txt` | ★ 留言板参数语义实测：`showUnAnswer` 是过滤器（0=只要已办理）、`typeId` 是留言分类、`fid` 版块页多为提交入口（全站流才有答复）、`dataType=9`=官方答复 |
 
 ## 七、412/405 的定性纪律（业主 2026-10-09 口诀）
 
@@ -113,7 +128,7 @@
 
 | 现成物 | 核过没有 | 与本模块的关系 | 结论 |
 |---|---|---|---|
-| [Fissify/Message-Board-for-Leaders](https://github.com/Fissify/Message-Board-for-Leaders) | ✅ 已核（repo + README 原文） | 人民网领导留言板 Selenium 爬虫；README 自述**仅限学术非商业**、无开源许可证文件；**中央部委板块字段不含答复内容**（只有留言对象/标题/时间/内容），省市板块才含答复与满意度 | 不抄它的 Selenium 方案（1000 条/小时，慢）；**若把领导留言板立为来源**：走留言板自身的列表接口、借它的字段口径（回复单位/满意度 → extra）、核许可后注明出处 |
+| [Fissify/Message-Board-for-Leaders](https://github.com/Fissify/Message-Board-for-Leaders) | ✅ 已核（repo + README 原文） | 人民网领导留言板 Selenium 爬虫；README 自述**仅限学术非商业**、无开源许可证文件；**中央部委板块字段不含答复内容**（只有留言对象/标题/时间/内容），省市板块才含答复与满意度 | **✅ 已按"借思路不抄代码"改造落地（2026-10-09，业主拍板）**：`adapters/people_liuyan.py` 走留言板自身接口（Selenium 方案弃用，速度约为其 2 倍），沿用其字段口径，**把部委板块的答复补上**；出处与"数据归人民网"的声明写在 `adapters/_liuyan_common.py` 头注 |
 | `Tanh-wink/NCPQA`（转述） | ⚠ 未核（转述自调研材料） | 疫情政务问答竞赛的**检索模型**代码，不是采集工具 | 与本模块无重叠，无轮子问题 |
 | 领导留言板商业/学术数据集（2011–2025 dump、37 万条部委留言等） | ⚠ 未核 | 第三方整理的结构化留言数据 | **许可证与新鲜度未核之前不进核心语料**；可当"补料候选清单"的交叉参考 |
 | 人民网领导留言板本体（liuyan.people.com.cn） | 常识渠道 | 中央+地方留言聚合平台（媒体运营） | 登记为**候选来源**；答复是"办理答复"，与官网站方编辑的常见问题**权威形态不同**，优先级低于官网原文；采纳时单独立适配器 |

@@ -1,0 +1,6299 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-yj",
+   "id": "09236239c8b54b5bbf23e7722ca5f926",
+   "url": null,
+   "question": "粮食清理工艺是否满足跨楼层共用一套除尘器的条件。",
+   "cited_hits": [
+    {
+     "name": "粮食加工、储运系统粉尘防爆安全规范",
+     "lib_no": "GB 17440-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB17440-2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "43fd2f03f283485b820f20e5e5013717",
+   "url": null,
+   "question": "应急管理部门特种作业操作证相关事宜",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "63086401729b4d67b21f4217c417b208",
+   "url": null,
+   "question": "危险化学品行政许可",
+   "cited_hits": [
+    {
+     "name": "机动车运行安全技术条件",
+     "lib_no": "GB 7258-2017",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国大气污染防治法",
+     "lib_no": "大气污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "轻型汽车污染物排放限值及测量方法(中国第六阶段)",
+    "重型柴油车污染物排放限值及测量方法(中国第六阶段)",
+    "国务院办公厅关于推动成品油流通高质量发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7f9660ee86a6488abbd67643297b62ab",
+   "url": null,
+   "question": "电工证复审",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "92626de488b2424d8a1bfec7502570d4",
+   "url": null,
+   "question": "关于胺基化危险工艺特种作业人员取证事宜",
+   "cited_hits": [
+    {
+     "name": "安全生产考试机构和考试点管理规定",
+     "lib_no": "应急管理部关于印发《安全生产考试机构和考试点管理规定》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "59d0abea56874c18a6d9c9fa6569f2ae",
+   "url": null,
+   "question": "烟花爆竹许可证经营管理",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "烟花爆竹生产经营安全规定",
+    "烟花爆竹生产经营安全规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "decd66c69e9c4cf6bfcd71bf68592506",
+   "url": null,
+   "question": "M100车用甲醇燃料安全生产许可咨询",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（2015版）",
+     "lib_no": "中华人民共和国应急管理部等10部门公告（2026年第3号）：将3-氯丙炔等5种化学品纳入《危险化学品目录（2015版）》",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品分类信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cc424bb43162451da4de623de0abeae9",
+   "url": null,
+   "question": "请问，烟花爆竹批发公司可以跨县市向烟花爆竹零售店销售吗？",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d4938b74ba2449a789b59fa2175e2fb2",
+   "url": null,
+   "question": "关于明确年产90万吨露天采石场安全标准及许可条件的咨询信",
+   "cited_hits": [
+    {
+     "name": "爆破安全规程",
+     "lib_no": "GB 6722-2014",
+     "weak": false
+    },
+    {
+     "name": "爆破安全规程",
+     "lib_no": "GB 6722-2014",
+     "weak": false
+    },
+    {
+     "name": "爆破安全规程",
+     "lib_no": "GB 6722-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "小型露天采石场安全管理与监督检查规定",
+    "小型露天采石场安全管理与监督检查规定",
+    "安全设施设计",
+    "搬迁保证金与租金支付协议",
+    "安全生产许可证",
+    "安全设施设计",
+    "GB6722-2014",
+    "GB6722-2014",
+    "GB6722-2014"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0773d2dd321e401caa07bc1d54fb2c81",
+   "url": null,
+   "question": "金属非金属矿产资源地质勘探（坑探、钻探）的安全生产监督管理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "金属与非金属矿产资源地质勘探安全生产监督管理暂行规定",
+    "金属与非金属矿产资源地质勘探安全生产监督管理暂行规定",
+    "金属与非金属矿产资源地质勘探安全生产监督管理暂行规定",
+    "金属与非金属矿产资源地质勘探安全生产监督管理暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3258dc3777b4430689dea542769e618e",
+   "url": null,
+   "question": "关于制冷量大于58KW的冷冻机操作人员是否要取得制冷与空调作业证",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录（征求意见稿）",
+    "特种作业目录",
+    "特种作业目录",
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "da1dd7367fbe4f02af9581f81c02aabf",
+   "url": null,
+   "question": "他生产经营单位全生产管理机构或者配备专职安全生产管理人员设置问题",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产合格证",
+    "安全生产合格证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3fe5c7ce6abf45469feff3c0bd829937",
+   "url": null,
+   "question": "烟花爆竹零售",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0c9ad3ad72e247f48fd947338ebd091a",
+   "url": null,
+   "question": "特种作业从业满十年，是否能申请延期复审",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9a9aedcf4ead4241a70a13097d3095f4",
+   "url": null,
+   "question": "工业生产设备的安装由哪个部门负责监管",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "建设工程安全生产管理条例",
+     "lib_no": "建设工程安全生产管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设工程安全生产管理条例",
+     "lib_no": "建设工程安全生产管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故报告和调查处理条例",
+     "lib_no": "生产安全事故报告和调查处理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4322edd308ac4f8a94a212d80dbecee1",
+   "url": null,
+   "question": "关于加油站是否需要填报安全生产费用提取和使用统计上报系统的问题咨询",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fa284fc28a03436b8e93d8dc9377de36",
+   "url": null,
+   "question": "特种作业证复审",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b36b023dd5ec463a8a3686b29fea3180",
+   "url": null,
+   "question": "关于电梯井是否应纳入有限空间管理的咨询",
+   "cited_hits": [
+    {
+     "name": "工贸企业有限空间作业安全规定",
+     "lib_no": "中华人民共和国应急管理部令（第13号）工贸企业有限空间作业安全规定",
+     "weak": false
+    },
+    {
+     "name": "工贸企业有限空间作业安全规定",
+     "lib_no": "中华人民共和国应急管理部令（第13号）工贸企业有限空间作业安全规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fbeb55f5e8fe4fa4b35554dcfa3c87d4",
+   "url": null,
+   "question": "低压电工作业证如何申请复审?",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7864761ce2c84482b38320877689062a",
+   "url": null,
+   "question": "特种操作证复审",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8d9c4bf7b68e44e38c1dd69c2e89009c",
+   "url": null,
+   "question": "特种作业",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2761bed75758467b9f9c5ce6b4aeb5d5",
+   "url": null,
+   "question": "关于独立共享电化学储能电站的安全生产费提取标准",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a77d417332024ba9a3f1a002e9f1bba7",
+   "url": null,
+   "question": "小型危化企业分管生产和分管技术负责人的学历要求",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e275da3fe3e547978ec540e4eea9e303",
+   "url": null,
+   "question": "企业安全投入费用计算",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国职业病防治法",
+     "lib_no": "职业病防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cd10b3d03def44e3ab5be15f11441f4c",
+   "url": null,
+   "question": "安全评价师证在国家人力资源部网站可查，但安全生产协会注册不了。在湖南可以用吗？",
+   "cited_hits": [
+    {
+     "name": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "lib_no": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "人力资源社会保障部关于公布国家职业资格目录的通知",
+    "人力资源社会保障部办公厅关于做好水平评价类技能人员职业资格退出目录有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "71072ebd08e3482086a397310a6a681a",
+   "url": null,
+   "question": "低压电工证是否可以进行高处作业",
+   "cited_hits": [
+    {
+     "name": "低压电工作业人员安全技术培训大纲和考核标准",
+     "lib_no": "应急管理部关于印发《低压电工作业人员安全技术培训大纲和考核标准》等6个培训大纲和考核标准的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "59b61e3a0b714fd8ae45280e6d50032b",
+   "url": null,
+   "question": "《安全生产法》适用问题",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "be533fd672ca444db318dbf47df8c884",
+   "url": null,
+   "question": "中国安全生产协会频发的《安全评价师》证书现在还能使用吗？",
+   "cited_hits": [
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    },
+    {
+     "name": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "lib_no": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "应急管理部关于认真贯彻落实&lt;安全评价检测检验机构管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "505a82f0d7f64d3bbbcd86db69ee978e",
+   "url": null,
+   "question": "中国安全生产协会频发的《安全评价师》证书现在还能使用吗？",
+   "cited_hits": [
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    },
+    {
+     "name": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "lib_no": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "应急管理部关于认真贯彻落实&lt;安全评价检测检验机构管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cd5a782efde946749eaa8f1919ff0a70",
+   "url": null,
+   "question": "铸造企业安全管理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "冶金企业和有色金属企业安全生产规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "301c968f308c4898bc59a68e1460a185",
+   "url": null,
+   "question": "关于亚硒酸钠",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（2015版）",
+     "lib_no": "中华人民共和国应急管理部等10部门公告（2026年第3号）：将3-氯丙炔等5种化学品纳入《危险化学品目录（2015版）》",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2aceed4ef840460f8aa38e8f3c288b00",
+   "url": null,
+   "question": "企业三级安全教育谁负责组织的疑惑",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "46c22e750b6247be9e7054a2de5c8f2f",
+   "url": null,
+   "question": "家具制造企业安全生产标准化考评",
+   "cited_hits": [
+    {
+     "name": "冶金等工贸企业安全生产标准化基本规范评分细则",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "评分细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "875af9c0e9e64fb29664353a6f858162",
+   "url": null,
+   "question": "关于纺织公司年度安全投入计划的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "管理办法",
+    "管理办法",
+    "管理办法",
+    "管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1a10b8b857d14e0f9daa67f7e838797e",
+   "url": null,
+   "question": "您好，现咨询外省安全评价机构在湖南设立分支机构相关事宜，盼答复",
+   "cited_hits": [
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    },
+    {
+     "name": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "lib_no": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "weak": false
+    },
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "应急管理部关于认真贯彻落实安全评价检测检验机构管理办法的通知",
+    "湖南省网上中介服务超市管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "37dbf5f2f3b24ee4b79dc36e636bd2cb",
+   "url": null,
+   "question": "特种工上岗证的考试与培训",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省物价局湖南省财政关于核定特种作业人员考试收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6be2c420a7ba4bdbbd10bf8c60b580ca",
+   "url": null,
+   "question": "铸造企业安全预评价",
+   "cited_hits": [
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    },
+    {
+     "name": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "lib_no": "应急管理部关于进一步加强安全评价机构监管的指导意见",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院关于第三批清单规范国务院部门行政审批中介服务事项的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9e5488207cfa4feea19113061f75e082",
+   "url": null,
+   "question": "化工企业特殊作业",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业操作证",
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "18605eb615ec4674aa0981aab027e83d",
+   "url": null,
+   "question": "工贸企业安全管理部可以兼顾其他职责吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法释义",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7d9046fbbc754e1e937412fdced470ab",
+   "url": null,
+   "question": "焊工只持有湖南应急管理厅颁发的特种作业操作证能否作为该焊工可进行压力钢管、压力容器焊接的凭证",
+   "cited_hits": [
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2b57731bafd6408cbcdca5267151030a",
+   "url": null,
+   "question": "执法问题",
+   "cited_hits": [
+    {
+     "name": "行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于适用&lt;中华人民共和国民事诉讼法&gt;若干问题的意见",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "依法登记领取营业执照的个人独资企业分支机构能否成为被行政处罚的当事人"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "948ca35d754c4fbeae72393a47ddac44",
+   "url": null,
+   "question": "关于湖南应急管理厅的特种作业操作证（熔化焊接与热切割作业）考试",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "06efaf802e854225b298c0cc12a02557",
+   "url": null,
+   "question": "关于湖南应急管理厅的特种作业操作证（熔化焊接与热切割作业）考试",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bdd370333c9f4a9d840bdd8caece59d4",
+   "url": null,
+   "question": "怎样认定企业粉尘涉爆",
+   "cited_hits": [
+    {
+     "name": "工贸企业粉尘防爆安全规定",
+     "lib_no": "中华人民共和国应急管理部令（第6号)工贸企业粉尘防爆安全规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eeb0286cd51042ccbe7249481b779053",
+   "url": null,
+   "question": "怎样鉴定一个企业，达到粉尘涉爆企业？",
+   "cited_hits": [
+    {
+     "name": "工贸企业粉尘防爆安全规定",
+     "lib_no": "中华人民共和国应急管理部令（第6号)工贸企业粉尘防爆安全规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e454b55a17f949aaacade8aa63dedfc7",
+   "url": null,
+   "question": "危险化学品经营许可的咨询",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1b7672f6e02942b7ad83b0f862dfa279",
+   "url": null,
+   "question": "关于建设项目安全设施“三同时”原则咨询",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理暂行办法",
+    "建设项目安全设施“三同时”监督管理办法",
+    "暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "46cfc0a281c5403f84d420af23747280",
+   "url": null,
+   "question": "危险化学品经营许可证咨询",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "831011291c964d9784fbd0d556ec92dd",
+   "url": null,
+   "question": "临时用电作业相关问题",
+   "cited_hits": [
+    {
+     "name": "危险化学品企业特殊作业安全规范",
+     "lib_no": "GB 30871-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB30871-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "50db178e54bd4146b1ca2968ba5b2404",
+   "url": null,
+   "question": "危化品仓储人员是否需要取得危化品仓库保管人员证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6dea85c736d2427eb657d8570d6bd471",
+   "url": null,
+   "question": "化工工艺可靠性来源有哪些",
+   "cited_hits": [
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d96858b65b2a4dcfab775c8dd0177a15",
+   "url": null,
+   "question": "已取得高压电工和低压电工证，还需要取得防爆电工证吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家安全监管总局&lt;关于做好特种作业(电工)整合工作有关事项&gt;的通知",
+    "特种作业目录（征求意见稿）",
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "206d6733fdfd4d93918c9d8155c9f580",
+   "url": null,
+   "question": "化工产品安全评估",
+   "cited_hits": [
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南（试行）",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南（试行）",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品建设项目安全监督管理办法",
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "539a58fb00f74e67a3ebb02d44ab1b3f",
+   "url": null,
+   "question": "化工工艺安全可靠性验证",
+   "cited_hits": [
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南（试行）",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "070e3ff4fdd74405a1307249e6b2ed31",
+   "url": null,
+   "question": "安全生产主要负责人、安全管理人员的培训合格与考核合格有什么区别？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "edfd5a5188544a88b6bc5f4506b9ccfb",
+   "url": null,
+   "question": "危险化学品仓储要求咨询",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "506e7d87099f40679a7fcafcabf1d90a",
+   "url": null,
+   "question": "安全设备和安全设施的区别",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e466f42a8d6342c1b835c29883926806",
+   "url": null,
+   "question": "关于低压电工复审的过期的问题",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f7560abb3df84931bc2a805bca21055e",
+   "url": null,
+   "question": "小件危险品货物暂存的问题咨询了解",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法",
+    "危险化学品仓库储存通则",
+    "建筑防火通用规范",
+    "危险货物道路运输规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fc2a2b383ef142afa1a2da3f85068ac2",
+   "url": null,
+   "question": "焊工证的有效期限",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "660ec54301234f03bb219d9fdc0fbe22",
+   "url": null,
+   "question": "关于我司是否需要开展应急预案咨询",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cd209a2a6ffc48cb888602f2ddf96ff3",
+   "url": null,
+   "question": "危化品易制毒证明",
+   "cited_hits": [
+    {
+     "name": " 易制毒化学品管理条例 ",
+     "lib_no": "易制毒化学品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "16ec31076d7044b5a5adbba4c09dc0aa",
+   "url": null,
+   "question": "关于基层职责边界问题",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2bdc77d827bd437987bdd3aecdd5d33b",
+   "url": null,
+   "question": "应急管理部门和行业主管部门对工贸八大行业安全监管职责问题",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 湖南省安全生产条例 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a0987b50fa95425a8b01f44d875a0ba9",
+   "url": null,
+   "question": "特种作业焊工证件问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证",
+    "特种设备安全管理和作业人员证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "358de02b5f124e6582e9b16bfe88f135",
+   "url": null,
+   "question": "应急厅考取的低压电工证与人社厅的电工证的区别",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "474807efa4d14719a4a3c2d5a67d9519",
+   "url": null,
+   "question": "香料香精的制造的监管是否属于危险化学品监管范围",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（ 2015版）",
+     "lib_no": "中华人民共和国应急管理部等10部门公告（2026年第3号）：将3-氯丙炔等5种化学品纳入《危险化学品目录（2015版）》",
+     "weak": false
+    },
+    {
+     "name": "危险化学品目录（2015版）实施指南（试行）",
+     "lib_no": "应急管理部办公厅关于修改《危险化学品目录（2015版）实施指南（试行）》涉及柴油部分内容的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f3c807d320874561833dc8dc71e6c95d",
+   "url": null,
+   "question": "危险化学品生产和经营单位主要负责人和安全管理人员资格证",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e239fda560c747799fc1f8d806c0fcbc",
+   "url": null,
+   "question": "危化品",
+   "cited_hits": [
+    {
+     "name": "易制毒化学品管理条例",
+     "lib_no": "易制毒化学品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3dc037cbdf2b4b8bb92705cb0bdda647",
+   "url": null,
+   "question": "高速服务区加油站安全距离问题",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "汽车加油加气加氢站技术标准",
+    "GB50156-2021"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fa2e686850774947b6fe4a5ff329aef5",
+   "url": null,
+   "question": "高速服务区加油站建设项目安全间距执行标准",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "汽车加油加气加氢站技术标准",
+    "GB50156-2021"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "99177cf7e8c7462999412f9730332c93",
+   "url": null,
+   "question": "对特种作业人员行政处罚适用",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国特种设备安全法",
+     "lib_no": "特种设备安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全监察条例",
+     "lib_no": "特种设备安全监察条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b25ed6e7ccf14b8984c7d280e7edb055",
+   "url": null,
+   "question": "安全费用提取",
+   "cited_hits": [
+    {
+     "name": " 企业安全生产费用提取和使用管理办法 ",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7054aa7e998a4390b86c5b4c845a5b8d",
+   "url": null,
+   "question": "咨询企业消防系统维保事宜",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5d74d8e0547f427aaedcd4d5f79bc44f",
+   "url": null,
+   "question": "《危险化学品经营许可证》经营范围中“柴油【闭杯闪点≤60℃】”变更为“柴油”",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "18579139acf741fc800d8ed20650ffea",
+   "url": null,
+   "question": "生物柴油是否属于危险化学品",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（2015版）实施指南（试行）",
+     "lib_no": "应急管理部办公厅关于修改《危险化学品目录（2015版）实施指南（试行）》涉及柴油部分内容的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ad31cb93b22e43599ff26d8151a91972",
+   "url": null,
+   "question": "丙二类仓库是否可以存放锂电池",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "锂离子电池工厂设计标准",
+    "GB50016-2014",
+    "GB51377-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4e437325857248a8b41b581dd7cf733d",
+   "url": null,
+   "question": "一人重伤是否构成安全生产事故",
+   "cited_hits": [
+    {
+     "name": "生产安全事故报告和调查处理条例",
+     "lib_no": "生产安全事故报告和调查处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e1eb5d5c8c314956a9393a2411db2b30",
+   "url": null,
+   "question": "请问三级安全教育如何界定？",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "65b7029eb08c4724ac9c89fb7e46a20b",
+   "url": null,
+   "question": "工贸企业使用、储存液化天然气监管事宜",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "城镇燃气安全管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "24f73a063fff443995cecf416e9835ca",
+   "url": null,
+   "question": "安全生产经营问题（配备注册安全工程师的相关问题）",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "非煤矿矿山企业安全生产许可证实施办法",
+    "注册安全工程师管理规定",
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "90d76e55188f41c6a7535cc5b3b6f8ab",
+   "url": null,
+   "question": "防爆电机",
+   "cited_hits": [
+    {
+     "name": "工贸企业粉尘防爆安全规定",
+     "lib_no": "中华人民共和国应急管理部令（第6号)工贸企业粉尘防爆安全规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "粉尘防爆安全规程",
+    "饲料加工系统粉尘防爆安全规程",
+    "粉尘防爆安全规程",
+    "工贸行业重大生产安全事故隐患判定标准（2017版）",
+    "GB 15577-2018",
+    "GB 19081-2008",
+    "GB 15577-2018"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a0590d27ca214f2ebabb9aa221b3ae0a",
+   "url": null,
+   "question": "危化品使用",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "易制毒化学品管理条例",
+     "lib_no": "易制毒化学品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ef4ad395a1d44bea84875e0829e99d0d",
+   "url": null,
+   "question": "工贸行业建设项目是否需要开展“安全三同时”",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法",
+    "建设项目安全设施“三同时”监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7c0c347ad83f482daf19778b20ff5f66",
+   "url": null,
+   "question": "您好！地上冷库属于有限空间吗？网上查了不属于，地方应急局有限空间专家解答模糊，如果属于，一天进出冷库拿货、取货算作业的话，按作业审批程序增加好大的工作量。",
+   "cited_hits": [
+    {
+     "name": "冷库设计规范",
+     "lib_no": "GB 50072-2010",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "水果气调库贮藏通则",
+    "苹果采收与贮运技术规范",
+    "胡萝卜贮藏与运输",
+    "水果气调库贮藏通则",
+    "GB 50072—2010"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ca357f49b4744a8ab44ec04b02a037ff",
+   "url": null,
+   "question": "水性涂料是否危化品，销售水性涂料是否需要办理特许经营许可证",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9e7e57421d60416d83eef2dace6e2105",
+   "url": null,
+   "question": "应急预案备案",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "生产安全事故应急条例",
+     "lib_no": "生产安全事故应急条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "关于进一步加强直管行业生产经营单位应急预案管理工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d7e0dc7a12684b92a492ef4c90d39603",
+   "url": null,
+   "question": "咨询安全生产投入比例事宜",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d728ed09f7f34e42807793234491bc2f",
+   "url": null,
+   "question": "企业购买安全生产责任险是否可以列为安全生产支出",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fc09b5902e774d81bceea0771701211b",
+   "url": null,
+   "question": "电工证复审日期有效期",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5a08e42c32f2449ea6f0f8661c331ad9",
+   "url": null,
+   "question": "咨询应急管理综合行政执法技术检查员和社会监督员",
+   "cited_hits": [
+    {
+     "name": "应急管理综合行政执法技术检查员和社会监督员工作规定（试行）",
+     "lib_no": "应急管理部   司法部关于印发《应急管理综合行政执法技术检查员和社会监督员工作规定（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2c10e0deeb0d4e2cbddafa2204655114",
+   "url": null,
+   "question": "危险化学品生产企业安全生产许可证办理",
+   "cited_hits": [
+    {
+     "name": "危险化学品目录（2015版）实施指南（试行）",
+     "lib_no": "应急管理部办公厅关于修改《危险化学品目录（2015版）实施指南（试行）》涉及柴油部分内容的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品目录（2015版）",
+     "lib_no": "中华人民共和国应急管理部等10部门公告（2026年第3号）：将3-氯丙炔等5种化学品纳入《危险化学品目录（2015版）》",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "化学品物理危险性鉴定与分类管理办法",
+    "危险化学品登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bc31ef48ebdc4b5399a434413d440f77",
+   "url": null,
+   "question": "二级安全标准化创建如何复审（咨询省应急管理厅）",
+   "cited_hits": [
+    {
+     "name": "企业安全生产标准化建设定级办法",
+     "lib_no": "应急管理部关于印发《企业安全生产标准化建设定级办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2934265be77149aeb1446025f09d6964",
+   "url": null,
+   "question": "其他经济组织安全生产费提取标准",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2678ceafce6e487d82349ff99fb19366",
+   "url": null,
+   "question": "涉及危险化学品的工贸企业安全评价范围",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d1b98dd0fd634ca39364dc2bd1b53ff5",
+   "url": null,
+   "question": "关于国家安监总局第20号令的第四十七条的规定",
+   "cited_hits": [
+    {
+     "name": "安全生产许可证条例",
+     "lib_no": "安全生产许可证条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ed3d6669afda4365996b20f452fd2b0f",
+   "url": null,
+   "question": "冶金等工贸企业安全生产标准化创建",
+   "cited_hits": [
+    {
+     "name": "企业安全生产标准化基本规范",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    },
+    {
+     "name": "冶金等工贸企业安全生产标准化基本规范评分细则",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产标准化基本规范",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    },
+    {
+     "name": "冶金等工贸企业安全生产标准化基本规范评分细则",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产标准化基本规范",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T33000-2016",
+    "GB/T33000-2016",
+    "GB/T33000-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1d021bb7c94541baba3788e82dfb18bd",
+   "url": null,
+   "question": "关于原国安总局第39号令的规定",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "小型露天采石场安全管理与监督检查规定",
+    "安全生产行为行政处罚办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e6d2e81e26d94242b6d0b211646b85d5",
+   "url": null,
+   "question": "关于企业安全生产标准化达标评审",
+   "cited_hits": [
+    {
+     "name": "企业安全生产标准化基本规范",
+     "lib_no": "GB/T 33000-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T33000-2016"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "65b5cd1902194c35afdcb96f018fca05",
+   "url": null,
+   "question": "安全生产方面有关持证上岗的规定文件",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家安全监管总局关于修改〈生产经营单位安全培训规定〉等11件规章的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d87b87015ac64471b30b66b6fd648555",
+   "url": null,
+   "question": "国安总局36号令",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法",
+    "危险化学品使用量的数量标准（2013年版）",
+    "建设项目安全设施“三同时”监督管理办法",
+    "建设项目安全设施“三同时”监督管理办法",
+    "建设项目安全设施“三同时”监督管理办法",
+    "特种作业目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b6e7af8d97424da1be8743712feb980d",
+   "url": null,
+   "question": "建议在省应急管理厅网站提供全部的安全生产标准下载",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法（2017修订）",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a69e5a905d6347d288a4b7949d625ccd",
+   "url": null,
+   "question": "一般企业安全现状评价需要专家评审么？",
+   "cited_hits": [
+    {
+     "name": "安全生产许可证条例",
+     "lib_no": "安全生产许可证条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法",
+    "建设项目安全设施“三同时”监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "13dfca640945445db8bcea3a6f2fd789",
+   "url": null,
+   "question": "电工证的考取",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ce69442f4b464bff8c9769839de25d28",
+   "url": null,
+   "question": "电工操作证失效",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7168d07c0669486183fa8fc40dc76a5b",
+   "url": null,
+   "question": "关于柴油零售经营是否需要《危险化学品经营许可证》的疑问",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-yj",
+   "id": "b8cf357cd629452792901ec2f57a7130",
+   "url": null,
+   "question": "天心区银桂苑消防管道没水，居民楼地面一楼密闭车库夜间充电，消防部门不作为",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产委员会办公室关于移交长沙市天心区银桂苑小区消防隐患举报的函",
+    "重大火灾隐患整改通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "11959d27b4ab435aac1557e0a1a0f1e6",
+   "url": null,
+   "question": "自建房垮塌，存在群死群伤的风险，可造成重大安全事故。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产委员会办公室关于交办澧县澧阳镇解放路一小区安全隐患的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9d7871c4b75c49f8acfba6ab92d67932",
+   "url": null,
+   "question": "危险化学品从业人员操作证怎么获取",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产培训机构基本条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "49711729140f46ceb21b6697e389cfd6",
+   "url": null,
+   "question": "危险化学品企业主要负责人如果有危险物品安全（危险化学品）类的注册安全工程师证，可不可以不用考《安全生产知识和管理能力考核合格证》",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产知识和管理能力考核合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9a7fb00d88a54b7aa301ce1dec066fc8",
+   "url": null,
+   "question": "关于安全工程师怎么申请进市专家库途径",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省应急管理专家管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3ce78d7879a34db98e1b2c49b5f54ac1",
+   "url": null,
+   "question": "关于危化品生产企业主要负责人取证的学历专业问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产培训考试发证实施细则",
+    "普通高等学校本科专业目录",
+    "职业教育专业目录（专科）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bb1ee6810b784453974cae489aa6e7e2",
+   "url": null,
+   "question": "咨询：销售过氧乙酸内镜消毒液是否需危险化学品经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "消毒管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2ee7ca1891ff4d5ea13f24b3e92bbbc2",
+   "url": null,
+   "question": "关于咨询金属非金属露天矿山的加工区域是否需要单独编制安全设施设计的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "非煤矿山建设项目安全设施设计编写提纲 第2部分：金属非金属露天矿山建设项目安全设施设计编写提纲",
+    "建设项目安全设施“三同时”监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "139a532201594558b9742892ce00fc97",
+   "url": null,
+   "question": "充电桩安全生产领域行业监管责任划分问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委等部门关于进一步提升电动起草充电基础设施服务保障能力的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "980a7f2c2057414bbadbdae2daed4dd6",
+   "url": null,
+   "question": "关于加油站监理事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5a87ef2635124a87bbed988ddcb71a8e",
+   "url": null,
+   "question": "特种作业",
+   "cited_hits": [],
+   "cited_missing": [
+    "事关6个培训大纲和考核标准，答记者问→"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "01aa586d8cb3499bb2acba1f0c555b46",
+   "url": null,
+   "question": "关于咨询露天矿山的工业广场是否需要单独编制验收评价报告的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法",
+    "非煤矿山建设项目安全设施设计编写提纲 第2部分：金属非金属露天矿山建设项目安全设施设计编写提纲",
+    "国家安监总局关于印发金属非金属矿山建设项目安全评价报告编写提纲的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9de6992b279b49ef985709c22909be90",
+   "url": null,
+   "question": "安全设施设计重大变更",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家矿山安全监察局关于进一步加强非煤矿山安全生产行政许可工作的通知",
+    "安全设施设计",
+    "安全设施设计"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "890768f7699c4362b5d4c199a2dfb5fa",
+   "url": null,
+   "question": "高级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3fa4ec1af531458eb76c7801e7de6038",
+   "url": null,
+   "question": "烟花爆竹生产企业沾染易制爆危险化学品的包装物是不是易制爆危险化学品",
+   "cited_hits": [],
+   "cited_missing": [
+    "易制爆危险化学品名录（2017年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "28f8866902e84292986391f7c675eecc",
+   "url": null,
+   "question": "61周岁未退休电工师傅，电工证超龄过期如何复审",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于渐进式延迟法定退休年龄的办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f459810f3b97496f9d82dd3bee43a578",
+   "url": null,
+   "question": "露天矿山二级安全生产管理体系标准化",
+   "cited_hits": [],
+   "cited_missing": [
+    "金属非金属矿山安全标准化规范露天矿山实施指南",
+    "露天矿山安全标准化评分办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "10378622a91a4ee9873572ac3e607eab",
+   "url": null,
+   "question": "化学、化工、安全等相关专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品企业重点人员安全资质达标导则（试行）",
+    "普通高等学校本科专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "11831ea11ab7453fa475169ddabc9ac7",
+   "url": null,
+   "question": "国民经济行业分类如何界定工贸和化工行业类别",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急管理部办公厅关于修订&lt;冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准（试行）&gt;的通知",
+    "国民经济行业分类"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2925a68cc0d945e8bfd0f6fdcd976d6f",
+   "url": null,
+   "question": "安全管理人员证",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产培训管理办法",
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "04ed585c20f1450da518ebadccc34bb4",
+   "url": null,
+   "question": "关于烟花爆竹经营零售专店许可申请的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹零售店（点）安全技术规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "088d0f81ff8e466ba9a21029c0b549ca",
+   "url": null,
+   "question": "咨询特种作业操作证",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录",
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cd87cbf9779448619981d18258482754",
+   "url": null,
+   "question": "关于我省醇基燃料使用安全安全管理办法",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑防火通用规范",
+    "湖南省安全生产委员会关于加强醇基燃料安全监管的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7d2d1145034247bcb3f6def4ec963e5d",
+   "url": null,
+   "question": "电力重大安全隐患咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "重大电力安全隐患判定标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a7550d228c4541948ca3c6742a9b668a",
+   "url": null,
+   "question": "餐饮用醇基液体燃料（俗称环保油）",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品实施目录指南",
+    "危险化学品安全条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "87bd992dd0f144078d3ddf68e49703b2",
+   "url": null,
+   "question": "关于咨询应急管理厅登高架设作业和住建厅架子工适用范围的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录",
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3914328685d7468790127ff15bc39425",
+   "url": null,
+   "question": "关于山坡型露天采石场，扩建成凹陷型后，能否完成安全设施设计批复？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强非煤矿山安全生产行政许可工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "85d5bc890471493881170a6c27ec9da5",
+   "url": null,
+   "question": "特种作业操作证",
+   "cited_hits": [],
+   "cited_missing": [
+    "高压电工作业人员安全技术培训大纲及考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3289fc95fcae4523bf31299969154676",
+   "url": null,
+   "question": "关于烟花爆竹零售店混业经营问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹零售店（点）安全技术规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e2511b7005dd472c878e52662bb6a84d",
+   "url": null,
+   "question": "咨询业务",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产条例",
+    "全国安全生产专项整治三年行动计划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "398e617c2a414da3b807a74a8f581871",
+   "url": null,
+   "question": "中级注册安全工程师怎么升高级？标准是什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "394a48ea07504b6ebce0f8454d9e7c46",
+   "url": null,
+   "question": "工贸企业中涉及使用危险化学品，办理工贸企业“三同时”时，是否需要提供规划部门许可的意见",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省应急管理厅关于进一步加强全省工贸行业生产经营单位建设项目安全设施“三同时”监督管理的意见",
+    "危险化学品建设项目安全监督管理办法",
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eb8689de14ae4e1fa50cfe73d1cff4a4",
+   "url": null,
+   "question": "安全生产许可证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "非煤矿矿山企业安全生产许可证实施办法",
+    "国家安全监管总局办公厅关于印发非煤矿矿山企业安全生产许可证申请书等10种文书格式的通知",
+    "非煤矿矿山企业安全生产许可证实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8f0b73d124594d2985ce94597d1c263c",
+   "url": null,
+   "question": "涉及涂料、粘合剂、油漆助剂产品的常压反应是否是危险化工工艺？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局关于公布第二批重点监管危险化工工艺目录和调整首批重点监管危险化工工艺中部分典型工艺的通知",
+    "调整的首批重点监管危险化工工艺中的部分典型工艺",
+    "国家安全监管总局关于公布首批重点监管的危险化工工艺目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "98a8e2ee462e4832a5449a9d8e72631b",
+   "url": null,
+   "question": "重点监管危险化工工艺咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局关于公布首批重点监管的危险化工工艺目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9cf6de0eb67d4014ad961bb4b14f819c",
+   "url": null,
+   "question": "《危险化学品经营（无储存）许可证》办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品经营（无储存）许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "93ef4c088f204d29a18f35a4d072b020",
+   "url": null,
+   "question": "涉及涂料、粘合剂、油漆助剂产品的常压聚丙烯酸酯乳液聚合反应是否是危险化工工艺？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局关于公布首批重点监管的危险化工工艺目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5c90a040166b4937b42b3aee4653a765",
+   "url": null,
+   "question": "关于机制砂石加工企业是否需要办理安全生产许可证的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "非煤矿矿山企业安全生产许可证实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5477db02d22c42a0b6c21c5505f77d39",
+   "url": null,
+   "question": "电工证复审",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全生产监督管理总局令"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bf917cf7dd8845158e5e43bd9fcbe3b2",
+   "url": null,
+   "question": "应急",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹安全与质量",
+    "GB 10631-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "92fc8de7a8474166abee176a30127e9f",
+   "url": null,
+   "question": "安全管理人员证相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国一体化政务服务平台 电子证照 安全生产知识和管理能力考核合格证",
+    "行业类别目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "17d6330be96a470d8bd2ff065b6ebe1a",
+   "url": null,
+   "question": "2024年注册安全工程师报名考试时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024年度专业技术人员职业资格考试重要提示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f75f6371bd344418ba159cad531cbf76",
+   "url": null,
+   "question": "注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d66695720ad4471b85e85af42ffa0897",
+   "url": null,
+   "question": "本次冰冻自然灾害导致人民群众生活和财产受损",
+   "cited_hits": [],
+   "cited_missing": [
+    "三定方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f91da70d863049e591cf8c699be65bfa",
+   "url": null,
+   "question": "关于天然气长输管道企业办理危险化学品经营许可证的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "GB/T4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "973974fef1324abe923d2bf9864aac7c",
+   "url": null,
+   "question": "工贸企业办理安全设施“三同时”事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "进一步加强工贸行业生产经营单位建设项目安全设施“三同时”监督管理的通知",
+    "“三同时”文件",
+    "“三同时”文件",
+    "“三同时”文件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e299611a0571496f948fee48fa4bbc49",
+   "url": null,
+   "question": "参加低压电工证考试提供学信网下载的《教育部学籍在线验证报告》不认可",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部学籍在线验证报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0aa0b6404b584d3ea8853f9bb5d2de2c",
+   "url": null,
+   "question": "尾矿库清库工程项目经理任职资格要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "尾矿库安全监督管理规定",
+    "关于加强非煤矿山安全生产工作的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1de9d2a4cc0e46f0a87ef8daea963222",
+   "url": null,
+   "question": "矿山规模划分与设计资质的匹配性",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整部分矿种矿山生产建设规模标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b656317fa4184a39b5be86c8a6ca09be",
+   "url": null,
+   "question": "关于煤炭产能指标交易时效事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善煤炭产能置换政策的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6f1afc9c3725496c8d918311995d5559",
+   "url": null,
+   "question": "学历、专业问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品企业重点人员安全资质达标导则（试行）",
+    "危险化学品安全专项整治三年行动实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "efdf8c137ab04af5ad64fcd217c90e3b",
+   "url": null,
+   "question": "工贸行业安全监管平台",
+   "cited_hits": [],
+   "cited_missing": [
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3bcbd3cdaebb46869f273fb7235946d3",
+   "url": null,
+   "question": "露天矿山（市面石材）",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省非煤矿山建设项目安全设施设计审查工作指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "79421851285a4b6dbcb694ebdb62cee4",
+   "url": null,
+   "question": "安全生产管理人员资格证",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产知识和管理能力考核合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0815b2f4c4684cccb1c5b3f46aa524e8",
+   "url": null,
+   "question": "精细化工问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "精细化工企业工程设计防火标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8a6b3899e7ca49d196707a88e990d4dd",
+   "url": null,
+   "question": "危化生产企业主要负责人资格认定",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品生产企业安全生产许可证实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "37d510c141814e44a51f4931b77536dc",
+   "url": null,
+   "question": "安全设施三同时",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目安全设施 “三同时”监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f61a25fa3596499ab673c2e2309ece3e",
+   "url": null,
+   "question": "安全生产责任保险",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产责任保险事故预防技术服务规范",
+    "安全生产法释义"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e52db6798bb2464aacdee68b9bb210a0",
+   "url": null,
+   "question": "安全费用咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈企业安全生产费用提取和使用管理办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eb8b9684290d476a9a4426ff778c67a1",
+   "url": null,
+   "question": "危险化学品经营许可证是否可以异地经营？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全生产监督管理总局令（第55号）危险化学品经营许可证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b23f96e4413347f198a0b697505068e3",
+   "url": null,
+   "question": "劳务分包",
+   "cited_hits": [],
+   "cited_missing": [
+    "非煤矿山外包工程安全管理暂行办法",
+    "非煤矿山外包工程安全管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8b331df7bd8c457dbc2ecc6406d3a571",
+   "url": null,
+   "question": "仓库进行乙二醇灌桶需要什么资质？",
+   "cited_hits": [],
+   "cited_missing": [
+    "根据危险化学品经营许可证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bee39e7e041a474aaba569c808b426d3",
+   "url": null,
+   "question": "无主尾矿库",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省防范化解尾矿库安全风险工作实施方案",
+    "湖南省尾矿库专项整治工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f2bc08d29065408285abcfcefd8ce55f",
+   "url": null,
+   "question": "非煤矿山（石灰石）年产量不超过40万吨的小型露天凹陷采石场与居民住宅间隔距离是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "小型露天采石场安全管理与监督检查规定",
+    "小型露天采石场安全管理与监督检查规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e7f2374718f046b7b672e3d0bdc753d3",
+   "url": null,
+   "question": "非煤矿山年产量不超过40万吨的小型露天凹陷采石场与周边的生产生活设施的安全距离不得少于几百米。",
+   "cited_hits": [],
+   "cited_missing": [
+    "小型露天采石场安全管理与监督检查规定",
+    "小型露天采石场安全管理与监督检查规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ead331c7f84749ce820932fbb14a75b7",
+   "url": null,
+   "question": "尾矿库回采报审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省尾矿库专项整治工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9c711b2952c74441b77d43554cd9fadd",
+   "url": null,
+   "question": "尾矿库回采报审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省尾矿库专项整治工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9a3c73e42945433d8c41f2cb124315ec",
+   "url": null,
+   "question": "应急预案评价师",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家职业资格目录",
+    "突发事件应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "19b7631f7305493d9017c5f322f159f2",
+   "url": null,
+   "question": "办厂对于有机溶剂的管理条例",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品安全使用许可证实施办法",
+    "建设项目安全设施 “ 三同时 ” 监督管理办法",
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "60aa4ae2bd51419f89588846a3158787",
+   "url": null,
+   "question": "规范性文件是否失效",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产监督管理局关于烟花爆竹领域贯彻&lt;建设项目安全设施“三同时”监督管理办法&gt;有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3bf128dc8c7644b389c79d90a53779b7",
+   "url": null,
+   "question": "企业自营柴油撬装装置需要做哪些准备工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "14441c707a1c4925b4eca4836b57b516",
+   "url": null,
+   "question": "湖南可能存在个别机构不重视安全培训，建议领导高度重视",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c72c60d91a87400cb3a6429590f82546",
+   "url": null,
+   "question": "安全生产管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b42b14484df04921a6b7cf84b8e7505e",
+   "url": null,
+   "question": "关于特种作业人员安全技术考试收费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于核定特种作业人员资格考试收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d7ea2aac5aa64edcb0f75866ad3489a3",
+   "url": null,
+   "question": "化工项目安全预评价需要的资料清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5f39077be39c48a3b516db06b6b4c32a",
+   "url": null,
+   "question": "咨询安全生产标准化二级轻工类什么时候开始复审",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范和加强企业安全生产二级标准化评审工作的通知",
+    "冶金有色建材机械轻工纺织烟草商贸行业安全监管分类标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "85fb72655e4748e9984280ae3d2e3f79",
+   "url": null,
+   "question": "因灾倒损农村居民住房恢复重建相关政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2021年受灾倒塌、损坏住房恢复重建工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "29274bf617684ce08d519a487cfedab3",
+   "url": null,
+   "question": "乡镇应急执法队伍什么时候配发制服",
+   "cited_hits": [],
+   "cited_missing": [
+    "综合行政执法制式服装和标志管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7691d63040d147c8be8503fa30af9950",
+   "url": null,
+   "question": "关于我省加强危险化学品项目建设管理的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品建设项目安全监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b76ff56fb447493cb3d77089907b23c5",
+   "url": null,
+   "question": "了解注册安全工程师是否具有报考资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部关于降低或取消部分准入类职业资格考试工作年限要求有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e1ac3387b31547a28dc5c794c4e6090f",
+   "url": null,
+   "question": "关于应急广播加装防雷装置建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善全省应急广播体系建设的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "831614a2a57349558c8a00ca5c2530e7",
+   "url": null,
+   "question": "注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "13cfac0646944a2f9bb495bc336f95bc",
+   "url": null,
+   "question": "物业公司二级标准化",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急管理部关于印发&lt;企业安全生产标准化建设定级办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "64301684e2874b369e94e54e654cf8e6",
+   "url": null,
+   "question": "咨询锅炉和配电房方面的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "高压电力用户用电安全",
+    "GB/T31989-2015"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ccec8189f0de478fac4f1176a6773c63",
+   "url": null,
+   "question": "安全生产事故",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故报告和调查条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1a01796c73e24f63a25269c4dc077c6c",
+   "url": null,
+   "question": "乡镇从事森林防灭火的工作的人员，能否享受安全生产监管岗位津贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部 财政部关于实行安全生产监管监察岗位津贴的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f9f29ed963ce414e8a4ec1b2a11c8d2f",
+   "url": null,
+   "question": "已过期的安全生产标准化二级复审如何申报？有哪些程序？",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急管理部关于印发&lt;企业安全生产标准化建设定级办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0fc59f3cad244c7c9e00ef9b0294ecec",
+   "url": null,
+   "question": "桃江县大仑山煤矿去产能关闭推出专项奖补资金的申报、审批和发放情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅关于收回中央工业企业结构调整专项奖补资金的通知",
+    "工业企业结构调整专项奖补资金管理办法",
+    "湖南省财政厅湖南省煤炭管理局关于印发&lt;湖南省小煤矿关闭退出专项奖补资金管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1e9c55e367bc44cba3817f87d70b3dcd",
+   "url": null,
+   "question": "桃江县大仑山煤矿去产能关闭退出专项奖补资金的申报、审批和发放情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅关于收回中央工业企业结构调整专项奖补资金的通知",
+    "工业企业结构调整专项奖补资金管理办法",
+    "湖南省财政厅湖南省煤炭管理局关于印发&lt;湖南省小煤矿关闭退出专项奖补资金管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "99cf67a9fb2740829860c453c6d0673e",
+   "url": null,
+   "question": "釆石场与居民住宅安全间隔距离是多少米？",
+   "cited_hits": [],
+   "cited_missing": [
+    "小型露天采石场安全管理与监督检查规定",
+    "小型露天采石场安全管理与监督检查规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1fa39d52c4a74eb590a296f823544538",
+   "url": null,
+   "question": "企业设置3吨撬装加油装置",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于自用撬装式加油装置安全监管问题的复函",
+    "湖南省应急管理厅办公室关于设置自用撬装式加油装置的复函",
+    "建设项目安全设施“三同时”监督管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6afde23b5ec849f8990237afd0234a99",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师执业资格制度暂行规定",
+    "注册安全工程师执业资格认定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d3c851a9af4b45cb9221ef17585c3839",
+   "url": null,
+   "question": "法人变更",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省应急管理厅行政许可事项服务指南",
+    "湖南省应急管理厅行政许可事项服务指南",
+    "湖南省应急管理厅行政许可事项服务指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ef1f45118e444460b2df7b371e3063c4",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师执业资格制度暂行规定",
+    "注册安全工程师执业资格认定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a03c61a0183d47b0a0a1daeb05cd9775",
+   "url": null,
+   "question": "不涉及化学反应、重大危险源、重点监管危险化工工艺的精细化工企业是否可以只满足《建规》？",
+   "cited_hits": [],
+   "cited_missing": [
+    "精细化工企业工程设计防火标准",
+    "GB51283-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b392d408d9f94d21ab95a9c57eb6d87e",
+   "url": null,
+   "question": "福城花园山体滑坡究竟如何处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发湖南省应急管理厅职能配置、内设机构和人员编制的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ca5df8c0291c4eaa95950eba80c97621",
+   "url": null,
+   "question": "注册安全工程师证考取后几年内不注册是否会失效",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师执业资格制度暂行规定",
+    "注册安全工程师执业资格认定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "115e066c812d4ba283395c1c6fbb7c9a",
+   "url": null,
+   "question": "对于取得非煤矿山安全生产许可证问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "非煤矿矿山企业安全生产许可证实施办法",
+    "安全生产许可证",
+    "安全生产许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "19dc8bf8f2974083993f5dae1a6cf2d9",
+   "url": null,
+   "question": "安全工程师继续教育问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于注册安全工程师恢复注册和执行分类管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b1391c53f10a4307a5bb1da36809948b",
+   "url": null,
+   "question": "安全生产知识及管理能力合格证行业类型填错换证",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产知识和管理能力考核合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "85d563b5060148e1bfe9a42ddca708d6",
+   "url": null,
+   "question": "关于物流运输企业设立内部自用撬装加油装置咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于自用橇装式加油装置安全监管问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "88e10a12286c4c4db17f6799135e0916",
+   "url": null,
+   "question": "电工进网作业许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好特种作业(电工)整合工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9a68a997205f4352b8441cc0dd0abf67",
+   "url": null,
+   "question": "仓库消防标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "仓储物流单位消防安全标准化管理",
+    "仓储场所消防安全管理通则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e53d5cf5a7cb4f8cbf2591afa051d513",
+   "url": null,
+   "question": "电力电缆特种作业培训取证",
+   "cited_hits": [],
+   "cited_missing": [
+    "电工进网操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "47951de65a724a84a7c0f2252b4f60c2",
+   "url": null,
+   "question": "注册安全工程师考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师职业资格考试实施办法",
+    "安全生产技术基础"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bb78c3a8086b41c9a1a15a25724167e1",
+   "url": null,
+   "question": "电工进网作业许可证录入名字与身份证录入错误，且录入错的电工证再去http://cx.saws.org.cn这个网站查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "电工进网作业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0b6daf71df3c40afaa68bef05c4b558a",
+   "url": null,
+   "question": "咨询注册安全工程师继续教育安排",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好注册安全工程师恢复注册有关工作的通知",
+    "关于注册安全工程师恢复注册和执行分类管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bd5e227de4814702a256f8be359fda2b",
+   "url": null,
+   "question": "注册安全工程师重新注册申请---等待初审",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于注册安全工程师恢复注册和执行分类管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "752b00206c364a148cae61a13dc555c4",
+   "url": null,
+   "question": "湖南应急管理体系的材料咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省机构改革方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ceb6ece430b64a80864917fab1b5eb58",
+   "url": null,
+   "question": "注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产监督管理局关于注册安全工程师恢复注册和执行分类管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "57f224ea0549427aaa831d15bb172aaa",
+   "url": null,
+   "question": "注册安全工程师注册工作什么时候启动",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省安全生产监督管理局关于注册安全工程师恢复注册和执行分类管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a515f9aeb81b472aa66773b4a1dbca27",
+   "url": null,
+   "question": "2015年因暂停注安初始注册，现在如何办理注册",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好注册安全工程师恢复注册有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b2b413b9f07a4437aa7eb553a077e988",
+   "url": null,
+   "question": "电工证办理流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "96237b48ac4c4c17a6e665529628d96d",
+   "url": null,
+   "question": "电工证",
+   "cited_hits": [],
+   "cited_missing": [
+    "电工证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "da59b3049dd840d8b7d6f8eb8b929475",
+   "url": null,
+   "question": "咨询，危化品“四必查”最后一条如何查？",
+   "cited_hits": [],
+   "cited_missing": [
+    "行驶证",
+    "道路运输证",
+    "道路运输危险货物安全卡",
+    "危货运输押运员从业资格证",
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-yj",
+   "id": "c522799cc1ae49798c996b3057039fc7",
+   "url": null,
+   "question": "化工自动化仪表操作证在哪里报名培训考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "815b715f1bfa45eab7837290f9f8ef5e",
+   "url": null,
+   "question": "爵士湘小区1栋一单元长期存在消防安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b134bd6c94374c68bc020c538b9026d7",
+   "url": null,
+   "question": "关于咨询2024年9月23日株洲芦淞大桥车祸处理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a500edb4023b468da9c7581b5bc84ff4",
+   "url": null,
+   "question": "湖南荣泰安全环保技术咨询有限公司公司大量使用挂证人员维护资质，违反国家要求，对有风险项目部负责任，请有关部门严查，还行业公平公正的环境",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "431ac603244242769bf432274535f0bd",
+   "url": null,
+   "question": "七氟丙烷气体灭火钢瓶是否需要定期检测？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9a78c87bb44e44a3a3d89abb59a100d7",
+   "url": null,
+   "question": "案例公开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ef4f17f1e2344f45ac8e4e1475380456",
+   "url": null,
+   "question": "特种作业人员考试(高压电工证考试)咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b72bb557429347d79ace80523d5952dd",
+   "url": null,
+   "question": "中级安全工程师，如何初始注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fd239061faa24bff9633ccc3905e32f6",
+   "url": null,
+   "question": "关于加油站辅助服务区新增洗车机、充电桩、光伏发电设备变更分类的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8b4c28ea39484160acdbc0c479dc30f7",
+   "url": null,
+   "question": "低压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0c1b4995e45645cc89aba716bcc4e6f3",
+   "url": null,
+   "question": "2026年初级注册安全工程师开考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8b17516d38b94c3493758bfc4668762b",
+   "url": null,
+   "question": "湖南省初级注册安全工程师考试开考时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "294a3085a14e46fd83624949b19e4f4d",
+   "url": null,
+   "question": "长沙市岳麓区/高新区什么时候可以考电工证初训？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9668a56935e24986b7347617921f1748",
+   "url": null,
+   "question": "新政策前电工证及登高证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ca03b8c7bb8340ff8ea6ce4ddf7f33da",
+   "url": null,
+   "question": "应急预案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4030e01326c849efb2d98a9494719762",
+   "url": null,
+   "question": "考取电工证后，高空作业不必再考高空作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eb28e16bc44b423795d1cf578263fd6f",
+   "url": null,
+   "question": "电工考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "74343a6807e046afac1b52a94ecc71d2",
+   "url": null,
+   "question": "特种作业人员考试（高压电工证考试）咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d1145850678a40859bfcc2bfcfdf72bc",
+   "url": null,
+   "question": "一般企业安全管理员证书个人如何报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "865ae573c1a840d4b5f3307dd8f63e4a",
+   "url": null,
+   "question": "关于2006年取得注册安全工程师执业资格证书且逾期注册的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b9c939b6c4e84d72a7ecd8e37dc8dcb9",
+   "url": null,
+   "question": "高空证和焊工证合并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0b151716d4544876b45dfb54eca8ad96",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "38e2964fd73443a185081e7ad41d0902",
+   "url": null,
+   "question": "关于初级注册安全工程师资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6cda6937d97b43c9b7676f0d72cc0ad9",
+   "url": null,
+   "question": "专家申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "71e5fd3735b4477594c46daa074cbc53",
+   "url": null,
+   "question": "关于电梯管理员证复审问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "98abd07d58994847a5a5079108f349a2",
+   "url": null,
+   "question": "防爆电梯维护保养资源",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d5131e1469cd4e5a87d0510fdd9a081a",
+   "url": null,
+   "question": "关于柴油的的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "fb9dc2fa8cf743339e2a2b38c44cf5cf",
+   "url": null,
+   "question": "网上办理特种作业证（低压电工作业）复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4a05329900d5419da40331dac99a9797",
+   "url": null,
+   "question": "关于湖南省何时建立健全初级注册安全工程师资格制度并举报考试的工作咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2e3841e1bf504daea90560bf0dbebbd9",
+   "url": null,
+   "question": "关于特种作业人员年龄限制相关规定的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ceadd05408da4528bc2919daf703872e",
+   "url": null,
+   "question": "危险化学品经营许可证办理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1435572c1e0544d7a553532a992d8dc0",
+   "url": null,
+   "question": "道路运输企业安全标准化查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "738e94f6639a41568a266130ae1c75d6",
+   "url": null,
+   "question": "安全生产管理人员资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1c53d1e08fc7406f98af2d199d4555e4",
+   "url": null,
+   "question": "请推荐关于考电气试验员证的有资质的培训机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9c36c00e8f444983897d67e7246484db",
+   "url": null,
+   "question": "湖南省“中级注册安全工程师”执业多少年和什么学历要求可以申请高级安全工程师职称？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a9c64e5581b5450eabb1975336b9c062",
+   "url": null,
+   "question": "湖南省初级注册安全工程师报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c9ce7140bc084134aac9ea29299541e2",
+   "url": null,
+   "question": "注册安全工程师继续再教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e45791132e0e493eae1bb200127885c9",
+   "url": null,
+   "question": "安全生产三项人员培训机构资质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2806d20a71cd45f3b2e15c18531c7e63",
+   "url": null,
+   "question": "化工类企业下属销售分公司员工在送资料过程中发生交通事故无责，会被认定为生产安全事故吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "966bdb3185b24798b677b51247bcccf0",
+   "url": null,
+   "question": "加油站油罐超容事件处罚问题的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "71f19d0548944a689dea28affb67b880",
+   "url": null,
+   "question": "关于有限空间作业监护人员证的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b928758174164c0b93972a565b725ae5",
+   "url": null,
+   "question": "安全防护物资内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ca243856ee2a42b0a7bfa31481a45e64",
+   "url": null,
+   "question": "项目类型",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "289f11b76a244d3ea2651ec851947b6f",
+   "url": null,
+   "question": "湖南省洪涝灾害市级数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ab613529815243568a337ba6beb680af",
+   "url": null,
+   "question": "请问因顶楼场地有限，无法安装除尘器，顶楼设备的除尘器能安装在室外的顶楼的天台上吗，算不算跨防火分区呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a65d476ebf814e769ed5fa6080a077d5",
+   "url": null,
+   "question": "请问湖南省应急管理厅的官方新媒体账号是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c77dd27f182a4b21a08afc57c519ec03",
+   "url": null,
+   "question": "带储存设施经营一氧化二氮，试生产期间可以销售吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1c04311472304c52b56639d1ce83d48f",
+   "url": null,
+   "question": "关于危险化学品企业需上线人员定位系统的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "dccaf8ae5d784021948e3c486c6f0a26",
+   "url": null,
+   "question": "建安C3能不能从事工贸企业的生产安全员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5da6d474a21c4bb889295efffd2c70c7",
+   "url": null,
+   "question": "市政项目土石方施工需要进行气体爆破，应向哪个部门备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f8e1c6f05fcf437d8b6610cdc83e5b0b",
+   "url": null,
+   "question": "关于化工企业在原址改建化工项目的安全设施“三同时”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6ce107f9da1f4c2b8d1cc2f738d0ca3a",
+   "url": null,
+   "question": "爬梯子算高处作业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "caccd11b26684065acb5d249d422deb4",
+   "url": null,
+   "question": "已取得高压电工证人员是否还需要取得高处作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a749fa15db1a4b9e8a0a7e481bc33cd9",
+   "url": null,
+   "question": "湖南省内安全管理证书通用问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8c513aafe47a4f20b250fb834ff1e83d",
+   "url": null,
+   "question": "安全管理证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bbeb8db8cff642c9911393d20d448d7b",
+   "url": null,
+   "question": "危险化学品经营单位-安全管理人员取证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f08843dc24b64071999c34dbb92ac69e",
+   "url": null,
+   "question": "施工单位无质量事故证明在哪里开?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "49c9397aa662437bbb37331155b68678",
+   "url": null,
+   "question": "湘乡市的高压电工报名地址在哪呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cf7fc049e4de4fe1b32ced4d58ab9976",
+   "url": null,
+   "question": "关于举办初级注册安全工程师的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3dbe0986d9814dfebe0518d0738d132b",
+   "url": null,
+   "question": "特种作业操作证PVC卡实体证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cde3c4e2461d40ee88858c2b448fef9c",
+   "url": null,
+   "question": "危险化学品经营主要负责人培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a20e88546128400eaf2dcb3a7862e905",
+   "url": null,
+   "question": "中试或试生产期间产出的危险化学品是否可以对外销售？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c6fc41779ec84f25928f8771c872d555",
+   "url": null,
+   "question": "关于在培训机构取证事项的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2179e3a45751483588cefea7e053729e",
+   "url": null,
+   "question": "低压电工培训教材",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d5b0909c63cc46e7821ea23a7489accc",
+   "url": null,
+   "question": "电力电缆作业证是否包含10kV及以下电缆头制作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "00ab281f69a244c4902f8f6e1d5c99e0",
+   "url": null,
+   "question": "关于电工证证书是否有卡片原件的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "818c56bd4cee4536b36c143aed24ee45",
+   "url": null,
+   "question": "7月份高压电工操作证考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f183133999a944c28086d163ca9aec32",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "24c501f5b4564b29836f76bfda4db53a",
+   "url": null,
+   "question": "关于住建部门和应急部门的特种作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "570304f6efae4c7aa6a58617f242760a",
+   "url": null,
+   "question": "关于应急管理津贴的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "dc3a0add9b4c4f8f8467608f4f65c60d",
+   "url": null,
+   "question": "非危化建设项目竣工验收相关疑惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "379af4e9bfb343a8898375d2664f7015",
+   "url": null,
+   "question": "咨询”化工自动控制仪表作业”工种包含范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ba61de6ca6694d43b4964f3478215685",
+   "url": null,
+   "question": "异地初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8bd3a1cd181845f39183256111b8b87a",
+   "url": null,
+   "question": "非煤矿山主要负责人安全资格证换证事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "364839876bec415e8430763012ddf531",
+   "url": null,
+   "question": "高压电工证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "74ba874f5a6d44dc896ce2141fd69e5b",
+   "url": null,
+   "question": "湖南省安全生产事故应急预案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3aa2d932d25641f4bb7a8965f218b4c4",
+   "url": null,
+   "question": "作业证逾期一点，能否复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "80d97fd211de4c14add2bb41329684e8",
+   "url": null,
+   "question": "关于金属冶炼范围的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1aaa8ab6e3bd466cba59b1965fcb23ad",
+   "url": null,
+   "question": "通过微信办理假特种作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bd25dfc20a1e47bf8405cf7b135f094e",
+   "url": null,
+   "question": "申请2000-2023年森林火灾数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "56629172d9e24da0ad0187330b2144ad",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "928b1e72d7a5418195f07137e406c082",
+   "url": null,
+   "question": "高压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eb8972e87ada4367b32ac1ca2cb1acad",
+   "url": null,
+   "question": "低压电工考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b3a7be3de17f4a12a595d418aca7471c",
+   "url": null,
+   "question": "特种作业操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5e683279ea684ad8b3e3d474b36230e7",
+   "url": null,
+   "question": "散装饲料运输车是否需要司机持特种作业操作证上岗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6e68b41000cf406db056852174f7f9b8",
+   "url": null,
+   "question": "低压电工作业复审换证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4799f484a0764161b45b4e631f82f32a",
+   "url": null,
+   "question": "特种作业操作证的复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "02a46785447b4bef92b8542d7dcd6df8",
+   "url": null,
+   "question": "特种作业证即将到复审时限，机构不接复审资料，无法报名复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "18eb619fb4bd41cd864f7aca4d8702cd",
+   "url": null,
+   "question": "换电站是否要执行安全三同时手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1f15df7642a54765b4a209997dc53c57",
+   "url": null,
+   "question": "关于注册安全工程师相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9716e00366d442038908773f9ed92ef7",
+   "url": null,
+   "question": "锅炉房是否属于明火地点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b8f677b634fd4c1b804aa7966af2291a",
+   "url": null,
+   "question": "义务消防队装备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6cb4d84b65ba4246a22288f9b2d8df76",
+   "url": null,
+   "question": "工贸企业重大事故隐患判定标准的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "56fe8c444e634093bfc59e6cacd43aa0",
+   "url": null,
+   "question": "特种作业资格证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9030d1694daf47268f4e20c1827d6729",
+   "url": null,
+   "question": "作业证逾期一点，能否复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d43032c146534fc88eaa39878a9fd827",
+   "url": null,
+   "question": "高压电工作业范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "64ff9976d2e94fa2bcbd551bb4821132",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0d5bb4ab36c6407691cc2f5c89c886b4",
+   "url": null,
+   "question": "白酒分类咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8549eb6c10b54420b06cc57f1380cd01",
+   "url": null,
+   "question": "安全管理人员专业资格咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1276345e076b48a8aa4187491979ac51",
+   "url": null,
+   "question": "医药流通仓储企业中安全管理资格证取证方向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0015605b2d9c4e97bc150a0b268c2f78",
+   "url": null,
+   "question": "请问湖南省工贸行业安全监管信息平台登陆密码怎么找回？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "da1a523600f5487ca251792c2b9c3ff6",
+   "url": null,
+   "question": "请求如何确定石化产品的化学品安全说明书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b99479d682bd483a8b716814206b1968",
+   "url": null,
+   "question": "省重大事故隐患排查专家库是否属实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f6c5747579d84cd38a5956c070acc326",
+   "url": null,
+   "question": "弱电调试作业是否需要持特种作业证(低压电工证)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4e73bc1849fa4ff4917fe54c97fbce9d",
+   "url": null,
+   "question": "厂房内设置AGV自动运输机器人的充电问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5bc0d7fc601a46bf901d893ef65a354d",
+   "url": null,
+   "question": "企业自用油政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "60b9f4243a7e4ca6b1a214f451e79f7a",
+   "url": null,
+   "question": "请依法履职维护国家的三部法律法规，督促整改中建钰和城车位达到国家标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9ebfb2e7c75348cb8f95079d295802c9",
+   "url": null,
+   "question": "危险化学品储存企业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "176e24c9c1c54a71a3157362dc873dfb",
+   "url": null,
+   "question": "生产防火门是否需要行政许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "23b23c8cb4f64e76bde8c08bdf12d8df",
+   "url": null,
+   "question": "请教专家，如何检测污染大气的化学毒物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ced23bdd2b0642ed9c6a08b2e0681658",
+   "url": null,
+   "question": "请问湖南省应急管理厅考的安全管理人员证件可以替代湖南省通信管理局颁发的安全管理人员证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4a431405521a4f8481cd5fb2991f6703",
+   "url": null,
+   "question": "低压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "dbead307514042a2b5d4cdd5da0eda24",
+   "url": null,
+   "question": "怎么申办安全生产培训机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f4610e55c3fc49f393a4d01d053e2c81",
+   "url": null,
+   "question": "医疗机构安装液氧储罐是否需要办理“三同时”手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bde2cae976324c8aacc282caa2087165",
+   "url": null,
+   "question": "安全培训机构资质备案现参考哪个文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e1428083c78447808f3895d8286c3ed4",
+   "url": null,
+   "question": "初级注册安全工程考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e5c77b7997f34e4da7a306d7aaff82ed",
+   "url": null,
+   "question": "申报安全生产培训机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f77f5c99bf9c457187044513e595ccf5",
+   "url": null,
+   "question": "高空作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c869660acf664bdea7ee2a34483a84a5",
+   "url": null,
+   "question": "安全合格证培训要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "84ee085c2dbf467b9db606d2bb67cf2f",
+   "url": null,
+   "question": "生产企业的行政部门没有班组，需要进行三级安全教育中的班组级培训嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "28560a7084b04097ab6b2a4b60304975",
+   "url": null,
+   "question": "三级安全教育培训时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "90bd7f3556224459a52a4c14ae118390",
+   "url": null,
+   "question": "注册安全工程师需要考取安全管理人员证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "775345bad1724819a00d95e8aa9e630e",
+   "url": null,
+   "question": "“医用分子筛制氧机”是否属于危险化学品装置，是否归属危化品管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "89ffcc4ef68647e28d6b449a98fd1d97",
+   "url": null,
+   "question": "关于在小区单元楼电梯内进行消防安全知识宣传的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8258a650f97f4c26bda2ed704c0a1917",
+   "url": null,
+   "question": "低压电工特种作业证书可否网上申请延长复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ec7380fc359742698c33e53751b27d87",
+   "url": null,
+   "question": "关于注册安全工程师注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d820d28f03294cae9cea4311937c6791",
+   "url": null,
+   "question": "注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "68019175fbee4ac3b5241739fa8ae380",
+   "url": null,
+   "question": "请问危险化学品标签一定是生产企业才能在容器上粘贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "889942a609fc4c21828c8450aa9b5cfc",
+   "url": null,
+   "question": "请问危险化学品标签一定是生产企业才能在容器上粘贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2b5684d6e4e646f2ab8a88a0913a1992",
+   "url": null,
+   "question": "湖南省工贸行业安全监管平台",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0a27be595d1a4a1d992d2783f349e9f4",
+   "url": null,
+   "question": "低压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "48ee2cff3e5b4c8d800984918931c4ae",
+   "url": null,
+   "question": "低压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5be07921099c4764b03e64bdd47d3d64",
+   "url": null,
+   "question": "注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "39be624eefd74a43a509fd527b4d0fe9",
+   "url": null,
+   "question": "怎样办理高空作业证及电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c2cefa5274d3480387b5777188c66022",
+   "url": null,
+   "question": "关于公司注销营业执照之后还能不能继续生产产品的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "94ff9ea6ee8645bdba1d66814f9b571f",
+   "url": null,
+   "question": "烟花公司注销后还能生产烟花产品吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b2917b3ea73f4412bbc74bc148a4aa83",
+   "url": null,
+   "question": "特种作业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "508be802b72d4daeb4577a9f1f8be438",
+   "url": null,
+   "question": "中级注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9bc96d2198e84702a79c41d0f228efe5",
+   "url": null,
+   "question": "关于办理高空作业证事宜咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bfba3f86e35e4383938f9369b1184fcb",
+   "url": null,
+   "question": "已取得特种设备检验员（起重机械）资格证，是否还要考取高空作业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "916ad664ec1f499e99f1ae24c06932c4",
+   "url": null,
+   "question": "电工证复审问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ac44bc3791f94ea0b4e5aa139639abc5",
+   "url": null,
+   "question": "危化行业安全管理人员证书如何补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8db180315fc2493b826241b6aefe667b",
+   "url": null,
+   "question": "应急津补贴何时落实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3bb5aef8088344dca310190a9d184296",
+   "url": null,
+   "question": "非煤炭生产经营单位人员可否报考\"煤炭生产经营单位安全生产管理人员--安全生产知识和管理能力考核合格证书\"",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d150b6854a0b4d0b88877a8dd0f435e5",
+   "url": null,
+   "question": "登高证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "648b370cdc004897a0ba8a3aa5991cc8",
+   "url": null,
+   "question": "湖南省2016-2021年份危化品道路运输事故的事故原因数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "064ffe5add1d42cc9cf159ed05284232",
+   "url": null,
+   "question": "请问企业二级安全生产标准化每年的自评报告如何备案，向什么地方备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0af67a6b853643a38de9cc5f698c6aaf",
+   "url": null,
+   "question": "应急津贴补贴事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f93fb58b62244458a9d718d7155687ee",
+   "url": null,
+   "question": "避难场所数量以及面积的统计数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "59912e0a68934e21b47b7e6c0dceb081",
+   "url": null,
+   "question": "使用氨水浓度20%的工贸企业是否需要办理危险化学品使用许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "250a4b93af6e42aa95199919754f926f",
+   "url": null,
+   "question": "安全生产安全管理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6213a222faf04e34a1e9f0710d78b2a5",
+   "url": null,
+   "question": "专职湖南消防职业技能鉴定证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6a73da497fa84d82b53e9f34e9dc64a8",
+   "url": null,
+   "question": "拥有特种设备生产许可证的企业需不需办理安全生产许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ba57bc98a34e450786953eb3f3b6a427",
+   "url": null,
+   "question": "2022年湖南省注册安全工程师考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6e748c83952c4a969984b4d63455c248",
+   "url": null,
+   "question": "关于从事厂棚瓦面维修作业是否需要特种作业资质的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "55d0dc39c1dd44e4a24c8607836b2557",
+   "url": null,
+   "question": "湖南省2021年份因自然灾害死亡（失踪）人数数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "623c223e8dec4f448203d36a328e77e1",
+   "url": null,
+   "question": "员工健康权益和安全生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0af34ceb974e4a25a69bfdca922ddf3b",
+   "url": null,
+   "question": "湖南省灾害数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "61770913313c45ae8f7163cfb13c80af",
+   "url": null,
+   "question": "关于注册考试时间相互冲突的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5ba1bff1e99c4fd2836a912bd989707b",
+   "url": null,
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "48966164c3404abb968de503edbe4d51",
+   "url": null,
+   "question": "特种作业证网上查询信息未更新和网上查询不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b7c364b8a0da470c9f223b8a44469942",
+   "url": null,
+   "question": "关于全额拨款事业单位人员能否从事安全生产行政执法工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "79cbd415e3d3410d9a6843e6e46ea025",
+   "url": null,
+   "question": "安全生产费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "616737f57a6345d28050630abbc7b865",
+   "url": null,
+   "question": "安全生产费用提取和使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "51c4ce899ea147f189dd3a69b8caed8a",
+   "url": null,
+   "question": "可否将次氯酸钠发生器电解食盐水工艺不再纳入属于重点监管的危险化工工艺的电解工艺吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c62811ae72de472bb4d53477cc32eb6e",
+   "url": null,
+   "question": "注安报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "58fa72f26ba0468aac7f873ae4b9f617",
+   "url": null,
+   "question": "机制砂加工厂建设期安全问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b80ba480e9084267b70cca56d8c1bd42",
+   "url": null,
+   "question": "对消防救援工作急需的特殊专业人才，经应急管理部批准年龄可以进一步放宽，原则上不超过28周岁（1993年9月1日以后出生）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9f3558154c3748828d2c0ec8ede8b44e",
+   "url": null,
+   "question": "特种作业操作证件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3711ec1c6fc741f9bd627bbb8dec5057",
+   "url": null,
+   "question": "危化企业管理人员的安全生产证分省级，市级，在娄底市可以报考省级安全证不，娄底市颁发的安全员证全国可以通用不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "900712770c6d4834b9f5f0f4a392d8aa",
+   "url": null,
+   "question": "烟花鞭炮厂系统对接省应急厅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e0970488c1774659946e9d551e8f739a",
+   "url": null,
+   "question": "关于矿山设立内部自用加油装置咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1cff4a2e579c44c3b5ded0f416b63bb6",
+   "url": null,
+   "question": "叉车证什么时候可以考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0e564ff30e6d4246ae9875435b32934f",
+   "url": null,
+   "question": "无违规证明开具流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0de2b9daf4a44eba85b20cd75e3f602a",
+   "url": null,
+   "question": "应急管理津补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "49e8f2d8957c4784a7a1c99f901d3930",
+   "url": null,
+   "question": "2022年初级注册安全工程师报名时间及考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "dae61e6dd0324b56807380e563b84d5d",
+   "url": null,
+   "question": "仅符合危险化学品确定原则的危险化学品是否需要储存在危险化学品专用仓库中？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "88f3c4ecd5fd47baa79263786e823e23",
+   "url": null,
+   "question": "焊工证报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3c348a3ffae8410cbc892021903b310e",
+   "url": null,
+   "question": "关于特种作业证危险化学品安全作业的范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f312b77f0c63421081789d47f4d873b6",
+   "url": null,
+   "question": "关于危险化学品相关许可证的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1fa6a1453a904880b486efb4543b36a2",
+   "url": null,
+   "question": "关于咨询注册安全工程师考试事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8b9a099f234340afab3f2880677bc06e",
+   "url": null,
+   "question": "项目备案如何查询到相关信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bd09e2503c6d465c9da900d6e675b104",
+   "url": null,
+   "question": "建筑施工企业如果想办理煤矿的安全生产许可证，是否可以办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c872d5d85288450094f55465b75b1a64",
+   "url": null,
+   "question": "注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9ac75af6a0b04b38bf809646ec570367",
+   "url": null,
+   "question": "工贸企业所有高处作业是否需要持证上岗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "cd2c9a85c8744a11b5fb5fb3767ac459",
+   "url": null,
+   "question": "320元津补贴事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e47299f7299143aa8a38910c4dd9e91d",
+   "url": null,
+   "question": "电工证信息补录问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b92d86462b6848869bd87ef89ec3dc21",
+   "url": null,
+   "question": "怀化电工特种操作证在哪儿查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "70ae09d3d6a146059f1a0501cc501bb2",
+   "url": null,
+   "question": "高空作业证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f2f5d5abe73245f193e52c2bd03ac4b2",
+   "url": null,
+   "question": "家用低压氦气罐是否属于危险化学品，销售这种产品需要办理哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c3d67f36b5b54879b43cdd53b86ce24a",
+   "url": null,
+   "question": "2022年注册安全工程师继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "971bfdecc23845629a5258efeaaba5eb",
+   "url": null,
+   "question": "焊工证办理太慢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "517e2ecd5456416a8e45f4d4d2db1ed0",
+   "url": null,
+   "question": "关于商品混凝土和预拌混凝土",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c8059b66e7d24a018ce239a8c1f39116",
+   "url": null,
+   "question": "二级消防工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "093472fb874446b89397ca7406fe947d",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "814b6aacc97c49a5ae82531b832219c0",
+   "url": null,
+   "question": "注册安全工程师事务所资质管理办法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c5515c83e2db4da69d133ccfd803abd7",
+   "url": null,
+   "question": "危化品从业人员培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ee063984eaa74572b1a295649fe1331e",
+   "url": null,
+   "question": "证件丢失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9c94d130288e437cb2aae67bc03dd629",
+   "url": null,
+   "question": "本人特种作业操作证是保定市考取的，2022年因疫情原因无法参加考试，证件即将到期，延期复审是否有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2513390ed9084f5b9ee5a395f85192da",
+   "url": null,
+   "question": "关于建筑工程特种作业人员操作证书的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d4a44a968b6a4018bdf2b706a1bcf083",
+   "url": null,
+   "question": "自然灾害数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "57d5efcb440b4b4aae99a524aec9e5b0",
+   "url": null,
+   "question": "电工操作证网上无法查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3ead5427cbdc4552b71cba379e26d662",
+   "url": null,
+   "question": "注册安全工程师和职称是否挂钩，能否出台有关政策说明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "efcf82fe978c41938f903a4d76e6e661",
+   "url": null,
+   "question": "高压电工证无证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "31317a913f6d4df5bf3ee41a693c0875",
+   "url": null,
+   "question": "湖南省初级安全工程师考试具体会开展进行吗？具体什么时候开始呢？企业真的需要这方面的专业人员！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "23cdefc042894f4fa413c729c964d810",
+   "url": null,
+   "question": "焊工操作证过期几年后是可以复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9068c6f31f7b435fb687f16a12da7ebd",
+   "url": null,
+   "question": "自考电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3b7622e8714f4357b087a5b220edec0b",
+   "url": null,
+   "question": "低压电工证网上信息查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ffd917b3d3e245edbb203403e8e85395",
+   "url": null,
+   "question": "安全生产“一会三卡”制度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "854ae0e85c2e45dab34288b449c6dce4",
+   "url": null,
+   "question": "为什么没有看到有电工证的报名渠道？难道非要交钱给培训机构吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "4ee24bcde11748ddae51dea9f46dc0ab",
+   "url": null,
+   "question": "氧气瓶需要防回火装置吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f576271f96ea4c77a98e4275a0f833d8",
+   "url": null,
+   "question": "初级注册安全工程师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ccea2aab2e9144348e8a46978084b71d",
+   "url": null,
+   "question": "省内金属非金属地下矿山安全避险六大系统设计施工单位名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5dbdb206bc2847acbd485fbf2d507728",
+   "url": null,
+   "question": "初级注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0fa981c0ee734c60981620210aea7a6f",
+   "url": null,
+   "question": "2021年度湖南一级建造师资格考试湖南考区停考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f154bdce6b5b489e9f45be6c42475d36",
+   "url": null,
+   "question": "高层住宅入户大厅违规停放电动车的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "10ddf51d03eb4e5d96fc322f68527fb5",
+   "url": null,
+   "question": "关于安全高级工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b4a4ad774ce14e889d2a0f2d9679ccd1",
+   "url": null,
+   "question": "河南灾情志愿活动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "83436b64a5564e619dd93becab300db7",
+   "url": null,
+   "question": "如何申报特种作业考点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "00a7d4a7363f49348c7d866a758a882b",
+   "url": null,
+   "question": "电工特种操作证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "655391a4bdff4ff1a742b0218b7845fc",
+   "url": null,
+   "question": "高压电工证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1ef2cace5d59498d9b9f370291d676a5",
+   "url": null,
+   "question": "关于高压电工证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "da7dea5899324442b0d65566f23b08da",
+   "url": null,
+   "question": "关于明确取得注册安全工程师资格的事业编制工作人员可以参与中级专业技术职称聘任的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "251aaddc61954c30b344027cf3e722d9",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c35e806d228f4022a1c52d77c3364908",
+   "url": null,
+   "question": "危险化学品重大危险源专项检查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a075d58096e6445e90ca75a1545e70f4",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "540a8b5c3f2f4eac99e688ae707c0fa3",
+   "url": null,
+   "question": "我单位之前通过评审发放的安全生产标准化二级证书已到有效期，二级标准化创建工作暂停了，那安全生产标准化二级证书到期复核还正常进行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "85dd9f7a7f4d403f9e5cfe86aba99de6",
+   "url": null,
+   "question": "请问省应急管理厅企业安全生产标准化二级评审工作是不是已经暂停了，如果是暂停了，多久可以可以正常开展业务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "275d61ab86ce4ba19eb64f213a07688a",
+   "url": null,
+   "question": "咨询湖南省具有制造业企业安全生产标准化二级评审资格的单位有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "19ac42aa93ca433b89cbaacc27aba1a4",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9547137153ba426ebcd716a6b3391259",
+   "url": null,
+   "question": "消防重点单位如何认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5f04ce2fce154002a2677e3520ec1591",
+   "url": null,
+   "question": "关于恢复创建安全生产标准化二级企业评审的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c359ac4918794b4dbddfb104987b4fcd",
+   "url": null,
+   "question": "安全生产“一会三卡”制度的具体内容是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e6cca63a19884df185a3031a43967d9e",
+   "url": null,
+   "question": "低压电工考证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "66263b2d523c427d8d667c7c6da8daa4",
+   "url": null,
+   "question": "主要负责人的取证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c3a16b408e4948dab172e1fd7d1e80a3",
+   "url": null,
+   "question": "中级消防设施操作员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d2d1ec141a744edfa999f563b82f9a9d",
+   "url": null,
+   "question": "通过正规学校培训，考核合格领取的电工上岗证网络查询不到记录资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8de261c03cca4505980f4eb1a2ed1864",
+   "url": null,
+   "question": "关于特种作业证书(高处作业和电工作业）的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a6f5e7d8cea44400a2f2b79f7c9e16d0",
+   "url": null,
+   "question": "旧版电工作操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "bbc1b949b0e0423087b6280ed1b454da",
+   "url": null,
+   "question": "通过正常考试获得电工操作证网上查不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8eebaf1ed4c74aa6838c8bba53ed2d51",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "968e1e96938f426ab529e4dc70ae7d7d",
+   "url": null,
+   "question": "湖南省注册安全工程师高级职称申报评审条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8927b838cbab47fda5067e57eaaffed2",
+   "url": null,
+   "question": "长期堵塞消防通道，多次投诉无果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "26e4d4c1c58a4627a79031a01e5ff3e5",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9586e4ea59e44387a1404b5faa090236",
+   "url": null,
+   "question": "湖南消防总队官网不维护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5172c1b1d3bc4d8aabdaa175af9460ab",
+   "url": null,
+   "question": "娄底创成置业有限公司开发的珑璟台项目地下室近距离爆破施工危及及居民安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9d9400bc205d42888ec453559b94a5a0",
+   "url": null,
+   "question": "关于消防维保的内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "49c278fe4a204e268d7c1152cf64e541",
+   "url": null,
+   "question": "关于衡阳市交通安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2ba94a70557345c2825176f17a9e2e2c",
+   "url": null,
+   "question": "违规餐饮消防隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f39973fecd4742a7a7b1467b262ba735",
+   "url": null,
+   "question": "关于特种（继电保护）到期前申请复核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "27fe7f6b9c19437da3ec44ee91074939",
+   "url": null,
+   "question": "关于特种（继电保护）电工证件到期复审的2个问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f7d70d389983414bb74cdf9c5fabfd91",
+   "url": null,
+   "question": "湖南省二级安全标准化现在恢复评审了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5a53d0ef49624d1e929870ef5d4f6d0b",
+   "url": null,
+   "question": "关于湖南省安全生产标准化二级何时恢复评审的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b240ea47db844671bc9908fa300f1f95",
+   "url": null,
+   "question": "我的特种作业证查询不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8094c3df670d458bb7f1f684daa440fe",
+   "url": null,
+   "question": "危险化学品经营许可证经营方式是批发的企业能否做零售业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f5cee2229a6c4be2b1c0da450601cecb",
+   "url": null,
+   "question": "益阳市桃江县人民法院随意听从行政领导指示，未坚守司法底线，司法不公！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a0d927f1a5af4cf78536128394b7d05a",
+   "url": null,
+   "question": "我单位部分消防员的建筑物消防员职业资格证是于2006年由省人社厅职业技能鉴定中心核发，现应急管理部门对单位进行消防检查时，要求消防员持证上岗，这部分人于2006年由省人社厅职业技能鉴定中心核发的建筑物消防员职业资格证是否认可有效。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "190fe692bbe54ebabf17caef133e755a",
+   "url": null,
+   "question": "初级安全工程师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "47407a61b078468688792a37c7976000",
+   "url": null,
+   "question": "2006年湖南省人社厅职业技能鉴定中心核发的建筑物消防员职业资格证现是否仍有效。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "ed1fd6c7674442b5af6734e0c278df7c",
+   "url": null,
+   "question": "电工操作证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e826744e332a45e788594123cf4c916e",
+   "url": null,
+   "question": "贸易公司办理成品油经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "d7b59f884d4c49a0a325d6acffdfb7b5",
+   "url": null,
+   "question": "疫情期间，证件无法办理延期学习",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f4ac341fa3a7481bb665570515ce1e1e",
+   "url": null,
+   "question": "湖南省应急管理厅关于生产风险监测预警系统的企业录入名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0153361b3fa54f269c1c07178d08edfc",
+   "url": null,
+   "question": "湖南省二级安全标准化何时恢复评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "42f26fc5874247b48f63a7994e73555a",
+   "url": null,
+   "question": "关于安全标准化二级评审何时回复的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "5869e044788e4b51bed2d4f6ab19db18",
+   "url": null,
+   "question": "烟花行业的专职安全生产管理人员应该具备注册安全工程师资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1ad54cdcb6e346e3b424bf4810aaa7dd",
+   "url": null,
+   "question": "关于省应急管理厅暂停安全生产标准化二级评审的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "72ba2265b0e2442d908aa20473f7ae54",
+   "url": null,
+   "question": "娄底市焊工作业证有效性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2a87a05e577e47ca9b9f7b19b1141635",
+   "url": null,
+   "question": "申报安全高级工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "667b281ec7804db5aa54348e7605b7d8",
+   "url": null,
+   "question": "娄底市电工操作证培训问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b66c74ec8161430296d3328a14b2cd40",
+   "url": null,
+   "question": "特种作业证件复审记录没有上国家应急管理部网站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6a6c59f499dd4168ac7540b9db436f31",
+   "url": null,
+   "question": "电工证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "65c4728cc03c4c72a6bfd71c16b35b37",
+   "url": null,
+   "question": "我的电工证考了一年了，在省安监局可以查到，但在国网上查不到，求原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e5e20a78a57945859b344ad7db42bf2f",
+   "url": null,
+   "question": "特种作业电工证复审未挂网,安监局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "93af9451091e4bd68e2f43893636b07d",
+   "url": null,
+   "question": "特种作业人员证件如何查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "956a1ac83e45485aa4ce0084f479b7aa",
+   "url": null,
+   "question": "高温补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b04827c651914410a85030f81a4d9c74",
+   "url": null,
+   "question": "采矿许可证到期的矿山已下令停产为何至今仍在生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "eb9efc73d2584fb3aa829afff0ad6fdd",
+   "url": null,
+   "question": "关于注册安全工程师重新注册的事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9dc34afb01a140a197e7d2277fd6dda8",
+   "url": null,
+   "question": "安全工程师延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3d92dd1da9e44eaf917a6ccd3f59803d",
+   "url": null,
+   "question": "注册安全工程师管理系统重新注册时如何选定“金属冶炼”类别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a3851eda1db44767a52e5c0b97d2cbb5",
+   "url": null,
+   "question": "注册安全工程师重新注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a26a9c5150de4f888fdbfc2c0eeabfce",
+   "url": null,
+   "question": "特种作业操作证，电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "7e468dc34847444bb0434007026381b4",
+   "url": null,
+   "question": "进网作业许可证如何复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e913391187d846ef9eb1adc73d08771b",
+   "url": null,
+   "question": "电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6e099f25054241cdb13094c8682574f6",
+   "url": null,
+   "question": "加强基层安监队伍监管执法能力建设，营造长治久安的安全生产局面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e19b05db3bbc4f659c15aa8f335ad46a",
+   "url": null,
+   "question": "跨地复审电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b248ac1ca74b4692ab30847e8d34cb59",
+   "url": null,
+   "question": "电工证补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1cb4f0346244441e98d41de3ff1c0c52",
+   "url": null,
+   "question": "安全生产许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6c384aaf784e4661ad9fe39fcb0de642",
+   "url": null,
+   "question": "电工证日期错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "601fb37209b84b8eb2514ae7cee4c9dd",
+   "url": null,
+   "question": "请问注册安全工程师注册工作什么时候可以开始办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "58d05162bbad4f22bb42f8ab03a2cdc7",
+   "url": null,
+   "question": "湖南阿凡商品现货交易中心有限公司是否取得了危险化学品经营许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a71ab2161cef4c86b7cad8d27e943050",
+   "url": null,
+   "question": "电工证查寻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2ecb331072dc42e0a0b9b5ca8e7eb832",
+   "url": null,
+   "question": "电工特种作业考试参考资料全是错误。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "172ba4b15325421f847535d5426bce11",
+   "url": null,
+   "question": "证件查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "23bdc8abf2c34cf3b904fe815b817f65",
+   "url": null,
+   "question": "特种作业操作证(电工证)复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "590b094530784f9f9135b4859051d438",
+   "url": null,
+   "question": "我本人特种作业电工证真伪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6f3ccedecc5c4e33879cad36c87a21c4",
+   "url": null,
+   "question": "请问清洗幕墙需要办理安全许可证吗？如何办理和申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9056e9bf8190462ba8134216db2e31cb",
+   "url": null,
+   "question": "爆破深孔作业最小安全距离",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0e736f8117c5485e9bb852af19e9117b",
+   "url": null,
+   "question": "高、低压电工做什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "1c69f8b2146c4a189174d45f8787ec01",
+   "url": null,
+   "question": "电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a7418eac1da44d80a73c1e3c5861a616",
+   "url": null,
+   "question": "职业卫生技术服务机构专业技术人员培训合格证变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "6be2a98955414a1483faa5148dac49d3",
+   "url": null,
+   "question": "咨询2017年到期的《安全资格证书》如何换取现在的《考核合格证》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "8cc6d04faae34c62bdbf94f0731ea8c1",
+   "url": null,
+   "question": "电工证查不了了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "a05da20d742e4bb79cef4582f7436465",
+   "url": null,
+   "question": "请问湖南省安监局办公地点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f650195a608c45e58f0d7c9882a09138",
+   "url": null,
+   "question": "焊工证丢失怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "92dd5ab6803d43568925fbe201783038",
+   "url": null,
+   "question": "高低压电工操作证查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "0b768921537346e4a80a34e732f472d6",
+   "url": null,
+   "question": "讲话稿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "b6627650a58a485b91dfa0892619f79f",
+   "url": null,
+   "question": "电工证查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "c947cbc65c704eeb8e3ce1ae0edcbeea",
+   "url": null,
+   "question": "特种作业操作证书怎么查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f5e6c7e4c2d64e88bc0d03ebcced37ce",
+   "url": null,
+   "question": "电工操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "662722b637b14c528a214af1c281ba6b",
+   "url": null,
+   "question": "查找证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "e4272ec8e4e24f7995b92240edb83abb",
+   "url": null,
+   "question": "为什么现在查询不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "f09702b96b084aa3b0d14042f9d6eeb8",
+   "url": null,
+   "question": "高压电工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "775a7ba41ffc49f78acf5b4b875efec5",
+   "url": null,
+   "question": "操作证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "9358ce81e2fc45aaa725a876afbd6ae9",
+   "url": null,
+   "question": "电工证年审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "2d1602f1bae64cdd8e6c1acbfcdb28d2",
+   "url": null,
+   "question": "为什么的电工操作证现在不能网查，上个月还可以网查的呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-yj",
+   "id": "3f916b4b19274ed99fc2cf96531dfbf4",
+   "url": null,
+   "question": "电工证查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

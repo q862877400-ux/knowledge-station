@@ -1,0 +1,6 @@
+/v1/threads/list/bw no-fid: n=50 states={'待回复': 50}
+/v1/threads/list/bw no-fid-noUnAns: n=50 states={'已办理': 50}
+/v1/threads/list no-fid: n=50 states={'待回复': 48, '办理中': 2}
+/v1/threads/list no-fid-noUnAns: n=50 states={'待回复': 48, '办理中': 2}
+/v1/threads/list/df no-fid: n=50 states={'办理中': 4, '待回复': 1, '已办理': 45}
+/v1/threads/list/df no-fid-noUnAns: n=50 states={'已办理': 50}

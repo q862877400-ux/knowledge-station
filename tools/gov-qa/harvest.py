@@ -83,8 +83,26 @@ def main() -> int:
 
     DATA.mkdir(parents=True, exist_ok=True)
     grand_new = 0
+
+    class _Fetcher:
+        """注入给适配器的 HTTP 函数：可调用（=GET，兼容旧适配器）+ .post。
+
+        人民网留言板等站点的列表/详情接口是 POST —— 旧约定只有 `cli.get`，
+        这里包一层让适配器按需取用；旧适配器把 fetch 当函数调，行为不变。
+        """
+
+        def __init__(self, client):
+            self._c = client
+
+        def __call__(self, url, **kw):
+            return self._c.get(url, **kw)
+
+        def post(self, url, **kw):
+            return self._c.post(url, **kw)
+
     with httpx.Client(timeout=40, headers={"User-Agent": UA},
                       follow_redirects=True, trust_env=False) as cli:
+        fetcher = _Fetcher(cli)
         for k in keys:
             mod = adapters.load(k)
             site = mod.SITE
@@ -94,9 +112,11 @@ def main() -> int:
                   f"（已有 {len(done)} 条）", flush=True)
             t0 = time.perf_counter()
             try:
-                rows = mod.harvest(cli.get, limit=args.limit or None)
+                rows = mod.harvest(fetcher, limit=args.limit or None)
             except Exception as e:                                          # noqa: BLE001
-                print(f"    ⛔ 采集失败：{type(e).__name__}: {e}")
+                # ⚠ Windows 控制台常是 GBK：错误消息里别用非 GBK 字符，否则
+                # 这一行自己会 UnicodeEncodeError，把真正的错误吞掉（踩过）
+                print(f"    [采集失败] {type(e).__name__}: {e}")
                 continue
             fresh = [r for r in rows if (r["source"], str(r["id"])) not in done]
             print(f"    取到 {len(rows)} 条，其中**新增 {len(fresh)} 条**"

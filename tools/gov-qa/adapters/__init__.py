@@ -59,6 +59,7 @@ ADAPTERS: dict[str, str] = {
     "hunan-yj": "adapters.hunan_yjt",     # 湖南省应急管理厅（同一平台，已跑通）
     "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
+    "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
 }
 
 #: 用户要能直接 `from adapters import load`

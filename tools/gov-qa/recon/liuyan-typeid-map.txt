@@ -1,0 +1,6 @@
+typeId=1 n=0 states=[] tids=[]
+typeId=2 n=0 states=[] tids=[]
+typeId=3 n=0 states=[] tids=[]
+typeId=4 n=0 states=[] tids=[]
+typeId=5 n=5 states=['待回复', '待回复', '待回复', '待回复', '待回复'] tids=[26211549, 25612934, 25368139, 25219401, 25194373]
+typeId=6 n=0 states=[] tids=[]

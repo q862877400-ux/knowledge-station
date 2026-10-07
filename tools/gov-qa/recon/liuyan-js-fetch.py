@@ -34,9 +34,19 @@ def main() -> int:
         r = c.get(LIST_URL)
         srcs = re.findall(SRC_RE, r.text)
         print(f"index scripts: {len(srcs)}")
+        c_nv = httpx.Client(headers={"User-Agent": UA}, trust_env=False,
+                            timeout=30, follow_redirects=True, verify=False)
         for s in srcs:
             url = s if s.startswith("http") else "https://liuyan.people.com.cn" + s
-            rr = c.get(url)
+            # 归一化：有的 src 写成 `liuyan.people.com.cn.`（尾部点），直连会挂
+            url = re.sub(r"(https://[^/]+?)\.(/|$)", r"\1\2", url)
+            try:
+                rr = c.get(url)
+            except Exception as e:                                          # noqa: BLE001
+                # 直连时个别 people 系域名证书链报自签（本机代理 MITM 所致），
+                # 侦察脚本就地兜底关校验重试一次
+                print(f"  retry(no-verify) {url[:70]} after {type(e).__name__}")
+                rr = c_nv.get(url)
             name = url.rsplit("/", 1)[-1]
             (JS_DIR / name).write_bytes(rr.content)
             text = rr.text
