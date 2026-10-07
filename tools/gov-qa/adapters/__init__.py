@@ -62,6 +62,7 @@ ADAPTERS: dict[str, str] = {
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
     "people-liuyan-df": "adapters.people_liuyan_df",  # 同平台·地方版块（省/市/县全国覆盖，已跑通）
     "people-liuyan-fid": "adapters.people_liuyan_fid",  # 同平台·按 fid 定向深采（广度+深度两段打法）
+    "people-liuyan-prov": "adapters.people_liuyan_prov",  # 按省级 fid 规律逐省采（31 省）
     "gd-st": "adapters.gd_sthj",          # 广东省生态环境厅（hdjlpt，全历史 3329）
     "gd-yj": "adapters.gd_yjgl",          # 广东省应急管理厅（hdjlpt，全历史 179）
     "gd-hr": "adapters.gd_hrss",          # 广东省人社厅（hdjlpt，6120；⚠ 每窗 510 疑截断）

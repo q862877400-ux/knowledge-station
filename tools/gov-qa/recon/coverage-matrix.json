@@ -50,14 +50,59 @@
   },
   "北京市": {
    "people-liuyan-df": 82,
-   "people-liuyan-fid": 75
+   "people-liuyan-fid": 75,
+   "people-liuyan-prov": 2
+  },
+  "天津市": {
+   "people-liuyan-prov": 2
+  },
+  "河北省": {
+   "people-liuyan-prov": 2
+  },
+  "山西省": {
+   "people-liuyan-prov": 2
+  },
+  "内蒙古自治区": {
+   "people-liuyan-prov": 2
+  },
+  "辽宁省": {
+   "people-liuyan-prov": 2
+  },
+  "吉林省": {
+   "people-liuyan-prov": 2
+  },
+  "黑龙江省": {
+   "people-liuyan-prov": 2
+  },
+  "上海市": {
+   "people-liuyan-prov": 2
+  },
+  "江苏省": {
+   "people-liuyan-prov": 2
+  },
+  "浙江省": {
+   "people-liuyan-prov": 2
+  },
+  "安徽省": {
+   "people-liuyan-prov": 2
   }
  },
  "province_totals": {
   "广东省": 31092,
   "湖南省": 4351,
   "国家级（部委）": 242,
-  "北京市": 157
+  "北京市": 159,
+  "天津市": 2,
+  "河北省": 2,
+  "山西省": 2,
+  "内蒙古自治区": 2,
+  "辽宁省": 2,
+  "吉林省": 2,
+  "黑龙江省": 2,
+  "上海市": 2,
+  "江苏省": 2,
+  "浙江省": 2,
+  "安徽省": 2
  },
  "source_totals": {
   "gd-amr": 6134,
@@ -103,8 +148,9 @@
   "gd-gdyjzx": 42,
   "people-liuyan": 37,
   "gd-gdaudit": 36,
-  "gd-jgsw": 34
+  "gd-jgsw": 34,
+  "people-liuyan-prov": 24
  },
- "grand_total": 35842,
- "n_provinces_covered": 3
+ "grand_total": 35866,
+ "n_provinces_covered": 14
 }

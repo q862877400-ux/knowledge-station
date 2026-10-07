@@ -1,0 +1,281 @@
+[
+ {
+  "province": "北京市",
+  "secretary": "539",
+  "governor": "540",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "天津市",
+  "secretary": "541",
+  "governor": "542",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "河北省",
+  "secretary": "543",
+  "governor": "544",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "山西省",
+  "secretary": "545",
+  "governor": "546",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "内蒙古自治区",
+  "secretary": "547",
+  "governor": "548",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "辽宁省",
+  "secretary": "549",
+  "governor": "550",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "吉林省",
+  "secretary": "551",
+  "governor": "552",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "黑龙江省",
+  "secretary": "553",
+  "governor": "554",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "上海市",
+  "secretary": "555",
+  "governor": "556",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "江苏省",
+  "secretary": "557",
+  "governor": "558",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "浙江省",
+  "secretary": "559",
+  "governor": "560",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "安徽省",
+  "secretary": "561",
+  "governor": "562",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "福建省",
+  "secretary": "563",
+  "governor": "564",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "江西省",
+  "secretary": "565",
+  "governor": "566",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "山东省",
+  "secretary": "567",
+  "governor": "568",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "河南省",
+  "secretary": "569",
+  "governor": "570",
+  "confirmed": {
+   "secretary": true,
+   "governor": false
+  }
+ },
+ {
+  "province": "湖北省",
+  "secretary": "571",
+  "governor": "572",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "湖南省",
+  "secretary": "573",
+  "governor": "574",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "广东省",
+  "secretary": "575",
+  "governor": "576",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "广西壮族自治区",
+  "secretary": "577",
+  "governor": "578",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "海南省",
+  "secretary": "579",
+  "governor": "580",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "重庆市",
+  "secretary": "581",
+  "governor": "582",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "四川省",
+  "secretary": "583",
+  "governor": "584",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "贵州省",
+  "secretary": "585",
+  "governor": "586",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "云南省",
+  "secretary": "587",
+  "governor": "588",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "西藏自治区",
+  "secretary": "589",
+  "governor": "590",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "陕西省",
+  "secretary": "591",
+  "governor": "592",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "甘肃省",
+  "secretary": "593",
+  "governor": "594",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "青海省",
+  "secretary": "595",
+  "governor": "596",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "宁夏回族自治区",
+  "secretary": "597",
+  "governor": "598",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ },
+ {
+  "province": "新疆维吾尔自治区",
+  "secretary": "599",
+  "governor": "600",
+  "confirmed": {
+   "secretary": false,
+   "governor": false
+  }
+ }
+]
