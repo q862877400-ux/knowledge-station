@@ -1,0 +1,433 @@
+{
+ "why": "P2 排序诊断第 1 步：量'为什么排不上去'，不改任何东西",
+ "data": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\regression-ingest\\funnel-per-query-before.jsonl",
+ "triage": {
+  "L0": 8,
+  "L1": 72,
+  "L2": 33,
+  "L3": 4
+ },
+ "targets": [
+  {
+   "i": 12,
+   "gold_std": "GB/T 23031.6-2023",
+   "gold_clause": "3.1.3",
+   "query": "搞工程的公司现在连物料采购和后期维修全包，属于啥模式？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts"
+   ]
+  },
+  {
+   "i": 16,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "8.4.5",
+   "query": "矿井打完钻孔后拔掉阀门等水自己喷出来是在测啥？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 17,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "8.4.5",
+   "query": "巷道老渗水，工程师说要打开导水管排空看水压是干嘛？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 21,
+   "gold_std": "GB/T 12918-2023",
+   "gold_clause": "3.5",
+   "query": "加油站加的标着E10含一成酒精的汽油属于哪类油品？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 24,
+   "gold_std": "GB/T 37818-2019",
+   "gold_clause": "3.4",
+   "query": "我按一下绿钮机子自己焊完不用管，这算哪种工法？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 26,
+   "gold_std": "GB/T 36416.2-2018",
+   "gold_clause": "8.1.9",
+   "query": "医院拍片子时，机器照到墙上再弹回来的辐射是什么？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 29,
+   "gold_std": "GB/T 22033-2017",
+   "gold_clause": "2.114",
+   "query": "我想把写好的代码灌进芯片里，手里该拿个啥家伙？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 39,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "query": "在矿井挖煤老往外渗水，拿大泵把土抽干算这种工序吗？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 40,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "query": "盐碱地底下埋100米透水管道排盐，大家管这叫什么？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 41,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "query": "听说打井把地层里的地下水强行抽干，这法子有什么用处？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 50,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.42",
+   "query": "布袋除尘器每次停下来轮流给小隔间吹风抖灰，这叫啥技术？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 60,
+   "gold_std": "GB/T 38115-2019",
+   "gold_clause": "3.2",
+   "query": "我把租来的两百个木栈板直接交接给下家算啥？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 61,
+   "gold_std": "GB/T 38115-2019",
+   "gold_clause": "3.2",
+   "query": "仓库垫板没到期直接转给接手的新租客叫什么名堂？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 64,
+   "gold_std": "GB/T 28688-2012",
+   "gold_clause": "3.4",
+   "query": "轮毂刚浇满那会儿，炉子里突然加大力气顶着是干嘛？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 79,
+   "gold_std": "GB/T 22357-2008",
+   "gold_clause": "5.1.5",
+   "query": "车底两侧能伸出来支在路面上的4条铁脚是啥构件？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 81,
+   "gold_std": "GB/T 15962-2018",
+   "gold_clause": "2.10",
+   "query": "印书机烤箱里一烤就能干透的那种颜料是什么类型？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 82,
+   "gold_std": "GB/T 15962-2018",
+   "gold_clause": "2.10",
+   "query": "烘箱温度要烧到150度才结膜的印刷墨水叫什么？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 88,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "query": "测胶圈粗细前，先加2牛顿持续按住它的力是干啥的？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts"
+   ]
+  },
+  {
+   "i": 89,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "query": "师傅，正式压碎前机器先给样品顶上的力气是干嘛的？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 96,
+   "gold_std": "GB 50755-2012",
+   "gold_clause": "2.1.1",
+   "query": "师傅给我的那叠施工图纸和说明，在你们行业里管这叫啥？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts"
+   ]
+  },
+  {
+   "i": 98,
+   "gold_std": "GB 50755-2012",
+   "gold_clause": "2.1.1",
+   "query": "装修公司收了我3套图纸和厚厚一叠字，这整套东西官方名字是啥？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts"
+   ]
+  },
+  {
+   "i": 111,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "query": "船舱底下排出来的黑油水，要过哪个机器才能排海？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 112,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "query": "机舱角落连着排污管的那个大铁罐子是干嘛用的？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 119,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.1.49",
+   "query": "工人脚底板冻出3道渗血的深口子，在医学上叫什么？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 120,
+   "gold_std": "GB/T 38474-2020",
+   "gold_clause": "3.1",
+   "query": "装修厨房做橱柜时，装在台面中间用来洗菜洗碗的金属大盆到底叫啥？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 121,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "6.3",
+   "query": "天天加班累到吃不下饭还水肿，中医讲的这个脏腑问题究竟是指哪？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 122,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "6.3",
+   "query": "大夫说我是脾上的毛病，经常肚子胀拉稀，这跟胃病算一回事吗？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 123,
+   "gold_std": "GB 11564-2024",
+   "gold_clause": "3.1.2",
+   "query": "夜里路上看前面大卡车尾部发亮的发光贴纸，到底是干嘛用的？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 148,
+   "gold_std": "GB/T 34004-2017",
+   "gold_clause": "5.1.3.26",
+   "query": "燃气警报机从一米高掉地上外壳裂了点，插电还能继续用吗？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 153,
+   "gold_std": "GB/T 38058-2019",
+   "gold_clause": "6.9.2.1.1",
+   "query": "送去检测遥控站时，整套无人机必须处于平时运转状态吗？",
+   "fused_rank": null,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 158,
+   "gold_std": "GB 23394-2024",
+   "gold_clause": "5.9.1",
+   "query": "如果接头不小心被脚手架卡住拽了一下，会不会突然断掉漏气？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 163,
+   "gold_std": "GB/T 34240-2017",
+   "gold_clause": "7.2.5",
+   "query": "前年测完留下的单据堆成山，放够两年可以全扔了吗？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 165,
+   "gold_std": "GB/T 26662-2011",
+   "gold_clause": "7.1",
+   "query": "安检员查这批减速闸出厂单时，到底要核对哪几道电测记录？",
+   "fused_rank": null,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 87,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "query": "量管子直径前，用压头轻轻顶住它的那个劲儿叫什么？",
+   "fused_rank": 29,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 113,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "query": "轮机房里专门把漏油跟废水分开的过滤装置叫什么？",
+   "fused_rank": 22,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 166,
+   "gold_std": "中华人民共和国应急管理部令（第11号）安全生产严重失信主体名单管理办法",
+   "gold_clause": "第二十条",
+   "query": "我递交摘掉黑名单材料都满20天了，为啥官方还没下发结果？",
+   "fused_rank": 22,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 167,
+   "gold_std": "中华人民共和国应急管理部令（第11号）安全生产严重失信主体名单管理办法",
+   "gold_clause": "第二十条",
+   "query": "公司申请解除失信黑榜被驳回了，主管局必须给咱书面答复吗？",
+   "fused_rank": 21,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 55,
+   "gold_std": "GB/T 14264-2024",
+   "gold_clause": "3.235",
+   "query": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？",
+   "fused_rank": 12,
+   "hit_channels": [
+    "vec"
+   ]
+  },
+  {
+   "i": 117,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.1.49",
+   "query": "冬天脚后跟干硬粗糙，还裂开好几道流血口子是啥毛病？",
+   "fused_rank": 10,
+   "hit_channels": [
+    "fts",
+    "vec"
+   ]
+  },
+  {
+   "i": 133,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "4.6.2.8",
+   "query": "我们村这口大泉，上游两公里溶洞水都算它的供水地盘吗？",
+   "fused_rank": 18,
+   "hit_channels": [
+    "vec"
+   ]
+  }
+ ],
+ "channel_hits": {
+  "fts": 13,
+  "vec": 36
+ },
+ "exclusive": {
+  "fts": 4,
+  "vec": 27
+ },
+ "boundary": [
+  "只读已落盘结果；未改代码、未写库。",
+  "这批数据是**入库前**的库（522k 条）；入库后再量一遍看有没有变。"
+ ]
+}

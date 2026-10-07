@@ -1,0 +1,41 @@
+{
+ "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\backups\\knowledge-20261007-102406.db",
+ "n_headline": 120,
+ "tiers": {
+  "L0": {
+   "n": 8,
+   "legal_status": {
+    "effective": 8
+   },
+   "融合里找不到 gold 的条数": 0
+  },
+  "L2": {
+   "n": 33,
+   "legal_status": {
+    "effective": 33
+   },
+   "融合里找不到 gold 的条数": 33
+  },
+  "L3": {
+   "n": 4,
+   "legal_status": {
+    "effective": 4
+   },
+   "融合里找不到 gold 的条数": 0
+  },
+  "L4": {
+   "n": 3,
+   "legal_status": {
+    "effective": 3
+   },
+   "融合里找不到 gold 的条数": 0
+  },
+  "L1": {
+   "n": 72,
+   "legal_status": {
+    "effective": 72
+   },
+   "融合里找不到 gold 的条数": 72
+  }
+ }
+}
