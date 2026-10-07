@@ -1,0 +1,818 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "gd-dfz",
+   "id": "3465642",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3465642",
+   "question": "咨询查阅《全粤村情》（肇庆封开卷）和（茂名信宜卷）事宜\n您好，我们想查阅《全粤村情》（肇庆封开卷）和（茂名信宜卷），请问可以到哪里进行查阅呢？如果我们需要购买纸质版，可以到哪里进行购买？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3452857",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3452857",
+   "question": "《全粤村情》电子版是否会上传至省情数据库\n如题，请问已出版之《全粤村情》，是否会如同其他志书一样，电子版上传至广东省情数据库业务系统，以便市民日常使用和查阅？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3418070",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3418070",
+   "question": "粤港澳大湾区服务贸易数据\n您好！我想咨询粤港澳地区“服务贸易”的相关数据。 广州市, 深圳, 珠海, 佛山, 惠州, 东莞, 中山, 江门, 肇庆, 香港, 澳门等 上次问过类似问题，当时您您反馈过下面内容： “珠三角9市市情可查阅各市出版",
+   "cited_hits": [],
+   "cited_missing": [
+    "粤港澳大湾区城市群年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3384784",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3384784",
+   "question": "粤港澳服务贸易数据\n您好！我想在人民政府办公室的交流群里咨询一下关于粤港澳地区“服务贸易”的相关数据。 请问是否可以提供从2020年至今的服务贸易统计数据？目前（2026年3月）我了解到广东年鉴已更新至2024年，想请问一下2025年的数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴（2025）",
+    "广东年鉴（2026）",
+    "粤港澳大湾区城市群年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3354939",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3354939",
+   "question": "关于迁徙信息查询\n我祖上是从广东迁徙到江西宜春市万载的，具体时间一直无从考证，想看看贵馆这边是否有资料可以查到。这边看到过一页2005年修的《中华大族谱.和平县分谱》86页记载了我的先祖。我的先祖邱惟长支系下的彦礼-复旺-玉山-才兴-义公等",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华丘氏大宗谱.和平县分谱",
+    "中国历代职官别名大辞典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3327297",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3327297",
+   "question": "咨询购买《全粤村情》（河源全卷）事宜\n你们好。我想购买河源各县的整套《全粤村情》，请问应该找哪里呢？我知道地方图书馆有，我是想买一套（不是借阅），谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情",
+    "全粤村情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3275519",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3275519",
+   "question": "录根问祖\n您好，我一直在寻根问祖的路上。但是不懂从什么地方入手，于是想到了省地方志。最早只记得乾隆年间50年搬到清远阳山七拱镇合上村村委会丹竹坑村。在地区的地方找到了几个祖上的名字有林宏进，林宏兴，林宏高，林亚石，林亚金，林石星，林佐这几个",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情",
+    "阳山县人口志",
+    "全粤村情·清远市阳山县卷六"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3255102",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3255102",
+   "question": "寻根问祖\n您好，我一直在寻根问祖的路上。但是不懂从什么地方入手，于是想到了省地方志。我们族谱记载: “太始祖原本姓欧阳，名叫晓公。原配祖母是邓氏，生了两个儿子：长子名叫广宇，次子名叫瑞宇。祖先最早居住在广东省南海县神安司九堡八甲滩头水尾村”",
+   "cited_hits": [],
+   "cited_missing": [
+    "南海县志",
+    "全粤村情.佛山市南海区卷.一"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3179501",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3179501",
+   "question": "年鉴\n您好，请问广东年鉴2024在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3107600",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3107600",
+   "question": "期待方志广东公众号制作一期广东河源连平的短视频\n小编，您好，我是一位广州市民，丈夫是广东河源连平人，每年我都来连平过年。孩子今年16岁了，学校要求过年做一期家乡过年习俗的视频，其实以前小学也做过类似视频。多年前，我与方志广东公众号结缘，在这",
+   "cited_hits": [],
+   "cited_missing": [
+    "连平客家娘酒",
+    "连平鹰嘴蜜桃",
+    "灯塔盆地国家现代农业示范区"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3101548",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3101548",
+   "question": "江门年鉴2019在哪里可以找到呢\n您好，我是一名将毕业的学生，正在撰写江门市民营经济相关的论文，数据方面缺少2018年江门市个体工商户及私营企业数据，是否能提供呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "江门年鉴2019",
+    "江门年鉴2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3074299",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3074299",
+   "question": "广东印记\n省地方志办2024年是否有发布新的《广东印记》视频？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东印记"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3029718",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3029718",
+   "question": "《趣说岭南佳果》\n请问最新出版的儿童绘本《趣说岭南佳果》在广东省情网有发布电子版吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "趣说岭南佳果"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2986067",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2986067",
+   "question": "广州劳工相关史料咨询\n您好！我本人是南京大学的一名学生，之前曾在您这里咨询过相关信息，很有帮助。最近我正在完成“1912——1949的广州港工人群体研究”，主要有关工人群体内部组织情况、工人与民国政府之间的互动，工人运动相关情况等等；请问有",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省志·工会志",
+    "广东省志·劳动志",
+    "广东省志",
+    "广州市志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2983499",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2983499",
+   "question": "广州港史料来源咨询\n您好！我本人是南京大学的一名学生，最近要完成1912——1949年间广东省劳工群体的研究论文，请问有哪些书籍资料当中可以查到相关原始史料呢？或者广州地方史是否有相关内容？如果可以的话，希望您能给出具体的书名，或者是可供查",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省志·工会志",
+    "广东省志·劳动志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2954003",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2954003",
+   "question": "市县年鉴\n是否可能上架郁南县2023年鉴，以供查阅，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "郁南年鉴2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2926119",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2926119",
+   "question": "广东年鉴2023\n您好，请问“广东年鉴2023”是否含有本省经济数据信息？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴（2023）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2869679",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2869679",
+   "question": "康熙广东通志\n请问广东省人民政府地方志办公室2007版金光祖《康熙广东通志》在那个出版社出版？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东历代方志集成"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2845942",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2845942",
+   "question": "广东年鉴2023什么时候出版\n您好，我是一名毕业生，正在撰写关于粤港澳大湾区服务贸易相关的论文，数据方面正缺少广东的2010年和2022年服务贸易进口、出口、进出口数据，能否提供呢？数据仅会作实证分析使用，不会外传，感谢感谢！！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴2023",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2832302",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2832302",
+   "question": "寻根。\n您好，我一直在寻根的路上。但是不懂从什么地方入手，于是想到了省地方志。 我想寻找清朝中晚期的这个地址的现如今大概位置。这个地址是家族谱上留下来的。感谢你们。 广东省广州府南海县山岗司山南堡龙头乡龙鸡社。",
+   "cited_hits": [],
+   "cited_missing": [
+    "南海县志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2818246",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2818246",
+   "question": "广州服务贸易进出口数据\n您好，我是广州的名大学生，因学术研究，需要 2014-2023年以来广州市服务贸易进出口额。广州年鉴中含有此数据，但是目前省情数据库中缺少《广州年鉴2021》和《广州年鉴2023》，导致研究数据有所缺失。请问有这两本",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州年鉴2021",
+    "广州年鉴2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2546930",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2546930",
+   "question": "2021年广东省服务贸易进出口数据\n你好，我是一名大四学生，目前写论文需要用到2021年广东省服务贸易各行业出口额数据，可以提供一下吗，拜托了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2540956",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2540956",
+   "question": "1949年前粤籍电影人名单及相关情况\n您好，想请问贵馆有无1949年前粤籍电影人资料及相关呢？如有，能通过什么途径查询或获得？盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省志·人物卷"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2531323",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2531323",
+   "question": "广东省城市2001-2022历次台风灾害灾情信息\n您好，我是中山大学一名硕士生，目前在做广东省台风对经济影响课题，需要用到广东省城市2001-2022历次台风灾害灾情信息，比如台风造成的直接经济损失，人口伤亡数量，倒塌房屋数，想咨询一下您们",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴",
+    "广东防灾减灾年鉴",
+    "广东年鉴2023",
+    "广东防灾减灾年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2514947",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2514947",
+   "question": "请问最新一期的《广东印记》视频在哪里观看？\n请问最新一期的《广东印记》视频在哪里观看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东印记"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2443283",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2443283",
+   "question": "请问2022年有新制作的《广东印记》系列微视频吗？\n请问2022年有新制作的《广东印记》系列微视频吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东印记"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2384969",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2384969",
+   "question": "2021年“多彩乡村 学史奋进”主题教育实践活动\n请问2021年的多彩乡村，学史奋进活动有没有参与证明呀？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年“多彩乡村 学史奋进”主题教育实践活动工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2367808",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2367808",
+   "question": "关于《广东印记》\n您好，我们是一个致力广东本土特色内容的视频平台，请问关于《广东印记》的内容的转载授权能在哪里申请和沟通？我们希望得到授权后，融合其他的广东本土内容进行宣推，让更多的观众认识广东，了解广东文化。 盼回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东印记"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2346926",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2346926",
+   "question": "地点查询\n请问唐代武则天时期南海（今广东一带）在今天广东省的什么地方？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市志（1980-1990）卷二",
+    "南海县志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2271956",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2271956",
+   "question": "咨询\n1958年7月9日，周恩来总理来广州视察，在广州市长朱光的陪同下接见了民间白蚁防治工作者李始美。请问是否有相关采访、报道、访问等佐证资料可以详细了解此次事件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市志",
+    "广州大事记",
+    "新会名人辞典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2241585",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2241585",
+   "question": "申请方志广东公众号澄海，是怎样靠这只鹅征服世界的转载\n你好，我是澄海100小编，申请转载澄海，是怎样靠这只鹅征服世界的文章",
+   "cited_hits": [],
+   "cited_missing": [
+    "澄海，是怎样靠这只鹅征服世界"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2193372",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2193372",
+   "question": "《广东通志》\n1997年广东省史志办公室誊印的黄佐《广东通志》，由哪个出版社出版，参考文献需要标注。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东通志",
+    "广东历代方志集成"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2182310",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2182310",
+   "question": "金融服务贸易数据\n你好，请问能提供一下2015~2021年的广东省金融服务贸易的进出口数据吗，目前广东年鉴里很多年份的数据都没有，且没有金融服务贸易细分的数据，本人主要是论文研究需要这些数据，麻烦提供一下可以吗，拜托了~",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2138549",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2138549",
+   "question": "咨询\n想异地查阅《全粤村情，佛山市南海区卷》，但是找不到电子版。如果有相关资料，可否提供链接？若无，可否将该书的数字化提上日程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情•南海区卷"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "1053009",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=1053009",
+   "question": "《广东年鉴》内容记述主要采用什么体裁？\n《广东年鉴》内容记述主要采用什么体裁？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于地方综合年鉴编纂出版若干问题的补充规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dfz",
+   "id": "999725",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=999725",
+   "question": "多彩乡村的相关表格\n《2021年“多彩乡村 学史奋进”主题教育实践活动作品信息表》怎么也找不到，推文里说在方志广东和专题网页有，可是也找不到呀！求下载指导，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年“多彩乡村 学史奋进”主题教育实践活动作品信息表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "939739",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=939739",
+   "question": "你好，想请问我省有多少个红色文化村？\n你好，想请问我省有多少个红色文化村？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东红色文化村"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "899817",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=899817",
+   "question": "《全粤村情》\n拟推动地理标志产品的发展，想采购《全粤村情–顺德卷》，了解顺德的风土人情，历史文化，地理环境等。 但在各种渠道都未能找到有该书的发售。 特咨询地方志办公室，请问是否有购买途径？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全粤村情·顺德卷"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "874111",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=874111",
+   "question": "年鉴\n请问东莞市1999年年鉴在哪查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "东莞年鉴",
+    "东莞年鉴",
+    "东莞年鉴",
+    "东莞年鉴·创刊号·1997-2001"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-dfz",
+   "id": "3504477",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3504477",
+   "question": "请问“方志广东”微信公众号会不会开展粉丝互动活动？\n请问“方志广东”微信公众号会不会开展粉丝互动活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3285551",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3285551",
+   "question": "年鉴\n你好，请问这两年的广东省内年鉴不做几等奖评选了吗，前年和去年的评选结果还没有出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3233518",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3233518",
+   "question": "广东省情网能生成某篇内容的微信分享链接吗？\n广东省情网能生成某篇内容的微信分享链接吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3186515",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3186515",
+   "question": "咨询：2024年“多彩乡村 共谱新篇”系列实践活动\n2024年“多彩乡村 共谱新篇”系列实践活动获奖公告已经发布，请问获奖奖状什么时候能够收到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3181978",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3181978",
+   "question": "政策解读信息\n您好，请问广东省人民政府地方志办公室的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3153668",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3153668",
+   "question": "儿童绘本《趣说岭南佳果》相关问题\n请问儿童绘本《趣说岭南佳果》有公开发行吗？哪里可以购买？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3137607",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3137607",
+   "question": "2024年“多彩乡村 共谱新篇”系列实践活动\n领导您好，请问2024年“多彩乡村 共谱新篇”系列实践活动优秀作品的奖状什么时候发送给团队呢？期待您的回复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "3105507",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=3105507",
+   "question": "1949-2015有关房产政策沿革历史\n我是一名大学生，正在和我老师研究有关中华人民共和国房产政策沿革的相关历史，请问在哪里找到全本的广州市志可供研读？非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2917969",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2917969",
+   "question": "省地方志办的招考录用\n您好，请问省地方志办的招考录用信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2915598",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2915598",
+   "question": "广东省人民政府地方志办公室的政策解读信息在哪里查看\n您好，请问广东省人民政府地方志办公室的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2881329",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2881329",
+   "question": "资询\n因毕业论文需要，需要2000和2023年服务贸易和服务外包业务量相关的数据和广东省最新服务外包企业主题分类数据，但是在中国统计年鉴，商务数据中心，广东省统计年鉴，广东省商务厅都没有找到数据，本人承诺数据只做论文需要，所以选择留言，望尽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2838510",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2838510",
+   "question": "2023年多彩乡村实践活动获奖公示\n请问2023年多彩乡村实践活动评选结果什么时候出炉公示？和原计划的活动安排时间相差得有一点点远了呢~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2836257",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2836257",
+   "question": "寻根\n请问嘉庆年初广东广州府化县赤岗村是今天的广州市的哪个地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2801781",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2801781",
+   "question": "2023年多彩乡村\n2023年多彩乡村什么时候出获奖名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2801210",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2801210",
+   "question": "查阅广东省情网的全部栏目\n请问如何查阅广东省情网的全部栏目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2756438",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2756438",
+   "question": "请问在广东省情网哪里能浏览广东的应季美食内容？\n请问在广东省情网哪里能浏览广东的应季美食内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2710835",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2710835",
+   "question": "2022年“多彩乡村 弘扬岭南文化”主题教育实践活动优秀作品、优秀团队及优秀组织单位的通报\n您好，因为在撰写材料的过程中发现2019-2021年多彩乡村主题教育实践活动作品都有在官网进行通报并且发了PDF文件，2022年在官网还未找到。请问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2669256",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2669256",
+   "question": "2022年“多彩乡村 弘扬岭南文化”主题教育实践活动优秀作品、优秀团队及优秀组织单位\n请问名单什么时候公示？在省情网上没有查阅到，那获奖证书何时下发？证书是实体的还是电子版？ 现在2023年多彩乡村的活动已经开始了，2022年的获奖名单还没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2625785",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2625785",
+   "question": "请问广东省情网有发布广东方志类的电子书籍吗？\n请问广东省情网有发布广东方志类的电子书籍吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2569899",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2569899",
+   "question": "新媒体\n请问广东省人民政府地方志办公室对外开设了哪些政务新媒体账号？直接网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2568797",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2568797",
+   "question": "政府信息公开指南\n您好，请问省地方志办公室的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2568091",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2568091",
+   "question": "财政预决算信息\n您好，请问广东省人民政府地方志办公室的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2338851",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2338851",
+   "question": "请问广东省人民政府地方志办公室的2021年政府网站工作年度报表在哪里查看或下载？\n请问广东省人民政府地方志办公室的2021年政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2267045",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2267045",
+   "question": "地方志办公室机构职能信息\n请问广东省人民政府地方志办公室的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2258812",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2258812",
+   "question": "广东方志馆六楼闭架书库有开放吗\n广东省方志馆6楼闭架书库有开放吗？什么时候开放？能进入书库阅读吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2261362",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2261362",
+   "question": "地方志办公室政府信息公开工作年度报告\n请问广东省人民政府地方志办公室的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2142738",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2142738",
+   "question": "了解捐赠书籍相关流程\n本人最近出了一本《继诚公房考略》书籍，拟捐赠一本给贵馆惠存，但不知道贵馆关于捐赠书籍方面的流程，需要办理哪些手续？咨询电话多少？请贵馆提供指引，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2117823",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2117823",
+   "question": "咨询\n请问有开始政务抖音号吗？如果有，麻烦提供下账号名称，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2117590",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2117590",
+   "question": "2021多彩乡村\n上午咨询2021多彩乡村是否出结果，这边回复正在公示，稍后在南方+公布。请问公示在哪里公示的，能否给个公示链接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "2116949",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=2116949",
+   "question": "2021多彩乡村 学史奋进主题教育实践活动\n请问2021多彩乡村 学史奋进主题教育实践活动，出结果了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "1093160",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=1093160",
+   "question": "广东省方志馆预约讲解\n请问如果是团体前往广东省方志馆，团体需满多少人才能够预约讲解？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "992158",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=992158",
+   "question": "地点查询\n想问下广东省人民政府地方志办公室的详细地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "961626",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=961626",
+   "question": "地点查询\n想问下广东省人民政府地方志办公室的详细地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "944678",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=944678",
+   "question": "主题展览相关\n请问今年是否有百年党史相关的主题展览活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "925071",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=925071",
+   "question": "财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "925090",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=925090",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "888213",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=888213",
+   "question": "2020年多彩乡村主题教育实践活动\n您好！非常抱歉打扰到你们的工作！我想请问一下多彩乡村的证书何时可以下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "884618",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=884618",
+   "question": "多彩乡村社会主题实践活动\n不好意思，再次打扰了。我想问一下多彩乡村获奖者领取奖金时是不是需要提供身份证正反面的照片呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dfz",
+   "id": "883705",
+   "url": "http://dfz.gd.gov.cn/hdjlpt/detail?pid=883705",
+   "question": "多彩乡村社会主题实践活动\n您好，我想问一下在多彩乡村社会主题实践活动获奖的作品是可以获得奖金的吗？如果可以获得奖金的话，您们又是怎么进行奖金发放？奖金发放的具体流程是什么呢？打扰了，谢谢回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

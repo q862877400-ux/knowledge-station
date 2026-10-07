@@ -1,0 +1,340 @@
+[
+ {
+  "name": "广东省中医药局",
+  "dom": "szyyj",
+  "base": "https://szyyj.gd.gov.cn",
+  "page": 200,
+  "total": 23,
+  "org": "广东省中医药局"
+ },
+ {
+  "name": "广东省交通运输厅",
+  "dom": "td",
+  "base": "https://td.gd.gov.cn",
+  "page": 200,
+  "total": 40,
+  "org": "广东省交通运输厅"
+ },
+ {
+  "name": "广东省人力资源和社会保障厅",
+  "dom": "hrss",
+  "base": "https://hrss.gd.gov.cn",
+  "page": 200,
+  "total": 510,
+  "org": "广东省人力资源和社会保障厅"
+ },
+ {
+  "name": "广东省人民政府参事室",
+  "dom": "gdcss",
+  "base": "https://gdcss.gd.gov.cn",
+  "page": 200,
+  "total": 8,
+  "org": "广东省人民政府参事室（广东省人民政府文史研究馆）"
+ },
+ {
+  "name": "广东省人民政府发展研究中心",
+  "dom": "gdyjzx",
+  "base": "https://gdyjzx.gd.gov.cn",
+  "page": 200,
+  "total": 7,
+  "org": "广东省人民政府发展研究中心"
+ },
+ {
+  "name": "广东省人民政府国有资产监督管理委员会",
+  "dom": "gzw",
+  "base": "https://gzw.gd.gov.cn",
+  "page": 200,
+  "total": 10,
+  "org": "广东省人民政府国有资产监督管理委员会"
+ },
+ {
+  "name": "广东省人民政府地方志办公室",
+  "dom": "dfz",
+  "base": "https://dfz.gd.gov.cn",
+  "page": 200,
+  "total": 9,
+  "org": "广东省人民政府地方志办公室"
+ },
+ {
+  "name": "广东省代建项目管理局",
+  "dom": "djj",
+  "base": "https://djj.gd.gov.cn",
+  "page": 500,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省住房和城乡建设厅",
+  "dom": "zfcxjst",
+  "base": "https://zfcxjst.gd.gov.cn",
+  "page": 200,
+  "total": 24,
+  "org": "广东省住房和城乡建设厅"
+ },
+ {
+  "name": "广东省体育局",
+  "dom": "tyj",
+  "base": "https://tyj.gd.gov.cn",
+  "page": 200,
+  "total": 8,
+  "org": "广东省体育局"
+ },
+ {
+  "name": "广东省供销合作联社",
+  "dom": "coop",
+  "base": "https://coop.gd.gov.cn",
+  "page": 200,
+  "total": 4,
+  "org": "广东省供销合作联社"
+ },
+ {
+  "name": "广东省信访局",
+  "dom": "gdwsxf",
+  "base": "https://gdwsxf.gd.gov.cn",
+  "page": 200,
+  "total": 11,
+  "org": "广东省信访局"
+ },
+ {
+  "name": "广东省公安厅",
+  "dom": "gdga",
+  "base": "https://gdga.gd.gov.cn",
+  "page": 404,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省农业农村厅",
+  "dom": "dara",
+  "base": "https://dara.gd.gov.cn",
+  "page": 200,
+  "total": 18,
+  "org": "广东省农业农村厅"
+ },
+ {
+  "name": "广东省医疗保障局",
+  "dom": "hsa",
+  "base": "https://hsa.gd.gov.cn",
+  "page": 200,
+  "total": 11,
+  "org": "广东省医疗保障局"
+ },
+ {
+  "name": "广东省卫生健康委员会",
+  "dom": "wsjkw",
+  "base": "https://wsjkw.gd.gov.cn",
+  "page": 200,
+  "total": 89,
+  "org": "广东省卫生健康委员会"
+ },
+ {
+  "name": "广东省发展和改革委员会",
+  "dom": "drc",
+  "base": "https://drc.gd.gov.cn",
+  "page": 200,
+  "total": 8,
+  "org": "广东省发展和改革委员会"
+ },
+ {
+  "name": "广东省司法厅",
+  "dom": "sft",
+  "base": "https://sft.gd.gov.cn",
+  "page": 500,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省商务厅",
+  "dom": "com",
+  "base": "https://com.gd.gov.cn",
+  "page": 200,
+  "total": 33,
+  "org": "广东省商务厅"
+ },
+ {
+  "name": "广东省地质局",
+  "dom": "dzj",
+  "base": "https://dzj.gd.gov.cn",
+  "page": 500,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省审计厅",
+  "dom": "gdaudit",
+  "base": "https://gdaudit.gd.gov.cn",
+  "page": 200,
+  "total": 6,
+  "org": "广东省审计厅"
+ },
+ {
+  "name": "广东省工业和信息化厅",
+  "dom": "gdii",
+  "base": "https://gdii.gd.gov.cn",
+  "page": 200,
+  "total": 10,
+  "org": "广东省工业和信息化厅"
+ },
+ {
+  "name": "广东省市场监督管理局",
+  "dom": "amr",
+  "base": "https://amr.gd.gov.cn",
+  "page": 200,
+  "total": 773,
+  "org": "广东省市场监督管理局"
+ },
+ {
+  "name": "广东省广播电视局",
+  "dom": "gbdsj",
+  "base": "https://gbdsj.gd.gov.cn",
+  "page": 200,
+  "total": 25,
+  "org": "广东省广播电视局"
+ },
+ {
+  "name": "广东省应急管理厅",
+  "dom": "yjgl",
+  "base": "https://yjgl.gd.gov.cn",
+  "page": 200,
+  "total": 36,
+  "org": "广东省应急管理厅"
+ },
+ {
+  "name": "广东省戒毒管理局",
+  "dom": "gdjdj",
+  "base": "https://gdjdj.gd.gov.cn",
+  "page": 500,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省政务服务和数据管理局",
+  "dom": "zfsg",
+  "base": "https://zfsg.gd.gov.cn",
+  "page": 200,
+  "total": 31,
+  "org": "广东省政务服务和数据管理局"
+ },
+ {
+  "name": "广东省教育厅",
+  "dom": "edu",
+  "base": "https://edu.gd.gov.cn",
+  "page": 200,
+  "total": 68,
+  "org": "广东省教育厅"
+ },
+ {
+  "name": "广东省文化和旅游厅",
+  "dom": "whly",
+  "base": "https://whly.gd.gov.cn",
+  "page": 200,
+  "total": 13,
+  "org": "广东省文化和旅游厅"
+ },
+ {
+  "name": "广东省机关事务管理局",
+  "dom": "jgsw",
+  "base": "https://jgsw.gd.gov.cn",
+  "page": 200,
+  "total": 9,
+  "org": "广东省机关事务管理局"
+ },
+ {
+  "name": "广东省林业局",
+  "dom": "lyj",
+  "base": "https://lyj.gd.gov.cn",
+  "page": 200,
+  "total": 21,
+  "org": "广东省林业局"
+ },
+ {
+  "name": "广东省民政厅",
+  "dom": "smzt",
+  "base": "https://smzt.gd.gov.cn",
+  "page": 200,
+  "total": 107,
+  "org": "广东省民政厅"
+ },
+ {
+  "name": "广东省民族宗教事务委员会",
+  "dom": "mzzjw",
+  "base": "https://mzzjw.gd.gov.cn",
+  "page": 200,
+  "total": 0,
+  "org": null
+ },
+ {
+  "name": "广东省水利厅",
+  "dom": "slt",
+  "base": "https://slt.gd.gov.cn",
+  "page": 500,
+  "hdjlpt": false
+ },
+ {
+  "name": "广东省生态环境厅",
+  "dom": "gdee",
+  "base": "https://gdee.gd.gov.cn",
+  "page": 200,
+  "total": 211,
+  "org": "广东省生态环境厅"
+ },
+ {
+  "name": "广东省监狱管理局",
+  "dom": "gdjyj",
+  "base": "https://gdjyj.gd.gov.cn",
+  "page": 200,
+  "total": 14,
+  "org": "广东省监狱管理局"
+ },
+ {
+  "name": "广东省科学技术厅",
+  "dom": "gdstc",
+  "base": "https://gdstc.gd.gov.cn",
+  "page": 200,
+  "total": 12,
+  "org": "广东省科学技术厅"
+ },
+ {
+  "name": "广东省粮食和物资储备局",
+  "dom": "gdgrain",
+  "base": "https://gdgrain.gd.gov.cn",
+  "page": 200,
+  "total": 12,
+  "org": "广东省粮食和物资储备局"
+ },
+ {
+  "name": "广东省统计局",
+  "dom": "stats",
+  "base": "https://stats.gd.gov.cn",
+  "page": 200,
+  "total": 711,
+  "org": "广东省统计局"
+ },
+ {
+  "name": "广东省自然资源厅",
+  "dom": "nr",
+  "base": "https://nr.gd.gov.cn",
+  "page": 200,
+  "total": 106,
+  "org": "广东省自然资源厅"
+ },
+ {
+  "name": "广东省药品监督管理局",
+  "dom": "mpa",
+  "base": "https://mpa.gd.gov.cn",
+  "page": 200,
+  "total": 32,
+  "org": "广东省药品监督管理局"
+ },
+ {
+  "name": "广东省财政厅",
+  "dom": "czt",
+  "base": "https://czt.gd.gov.cn",
+  "page": 200,
+  "total": 18,
+  "org": "广东省财政厅"
+ },
+ {
+  "name": "广东省退役军人事务厅",
+  "dom": "dva",
+  "base": "https://dva.gd.gov.cn",
+  "page": 200,
+  "total": 14,
+  "org": "广东省退役军人事务厅"
+ }
+]

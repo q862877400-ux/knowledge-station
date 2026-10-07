@@ -1,0 +1,2254 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-whly",
+   "id": "3242844",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3242844",
+   "question": "营业性演出许可证办理材料中经纪人社保材料要求\n1.营业性演出经营许可证新办办理材料中经纪人社保材料要求是提供多久的社保证明？ 2.营业性演出经营许可证变更办理材料中经纪人社保材料要求是提供多久的社保证明？",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3170647",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3170647",
+   "question": "旅行社设立业务网点是否需要到县级相关部门备案吗\n旅行社设立业务网点是否需要到县级相关部门备案吗。",
+   "cited_hits": [
+    {
+     "name": "旅行社条例",
+     "lib_no": "旅行社条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "3129629",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3129629",
+   "question": "《娱乐场所管理办法》中定义的解释\n各位领导好。 关于新设游戏厅，我想请问在《娱乐场所管理办法》中第六条、第一点与第三点的解释。请问什么算是居民住宅区内？开发商位于小区底商建造成的商业裙楼中的商铺，商铺走道未与住宅区联通，无需通过小区门禁进入",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3111242",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3111242",
+   "question": "关于1000人以下有舞台、看台的演出活动报批咨询\n关于1000人以下有舞台、看台的演出活动申报中，按法律法规没明确需要递交舞台、看台搭建资质方面的资料。请详细回复并给予明确的答案，需要或者不需要的字样。感谢！",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "3092539",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3092539",
+   "question": "幼儿园在综合商业体外广场演出和培训机构在综合商业体内的演出，是营业性演出吗\n第一，幼儿园在综合商业体外广场演出这是营业性演出吗？第二，校外培训机构在综合商业体内的演出，是营业性演出吗？需要到主管部门进行申请报批吗？",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2872448",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2872448",
+   "question": "文艺表演团体申请营业性演出\n您好，持《营业性演出许可证》的专业文艺表演团体是否可以直接申请在非专业演出场所（如室外的广场）举办营业性演出，表演的演员系文艺表演团体自己内部的演员，还是说需要另外再委托经纪公司才能申请？",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2839287",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2839287",
+   "question": "关于设立娱乐场所\n1、设立娱乐面积和文化部门是否需要召开听证会（场所公示无利害关系人提出） 2、室内游乐园是否需要申请娱乐经营许可",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2829371",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2829371",
+   "question": "游艺场所审批问题\n现有经营者申请设立游艺场所，该场所设立在商品住宅楼中的商业区域，该用地有规划证、规划图均显示该场使用的是商业用地，但没有不动产证明该场所使用商业用地，请问该情况能否通过审批？",
+   "cited_hits": [
+    {
+     "name": "城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市房地产管理法",
+     "lib_no": "城市房地产管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "文化部关于贯彻&lt;娱乐场所管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2753434",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2753434",
+   "question": "社会组织登记\n请问东莞市的社会合唱团团体的组织如何登记呢？",
+   "cited_hits": [
+    {
+     "name": "社会团体登记管理条例",
+     "lib_no": "社会团体登记管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "基金会管理条例",
+     "lib_no": "基金会管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于改革社会组织管理制度促进社会组织健康有序发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2743547",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2743547",
+   "question": "溜冰场属于娱乐场所吗？\n使用大功率音响的播放迪斯科舞曲的溜冰场属于娱乐场所吗？需要办理娱乐场所许可证证？",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2703317",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2703317",
+   "question": "有驻唱歌手以及允许消费者上台唱歌、点唱的酒吧属于娱乐场所吗？\n有以下几点业务向管理部门咨询： 1、每周有驻唱歌手唱歌以及允许消费者上台唱歌，点歌的酒吧属于娱乐场所吗？ 2、若上述第一点属于娱乐场所，需要办理什么证照？ 3、酒吧内有偿提供给消",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2599513",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2599513",
+   "question": "文化馆是否属于楼堂馆所？\n请问文化馆是否属于楼堂馆所？还是技术用房？",
+   "cited_hits": [
+    {
+     "name": "公共文化服务保障法",
+     "lib_no": "公共文化服务保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2559033",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2559033",
+   "question": "游艺娱乐场所是否可以通宵营业？\n你好，游艺娱乐场所是否需要和歌舞娱乐场所一样凌晨两点至早上八点不能营业，可以通宵营业？",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2485679",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2485679",
+   "question": "艺术培训机构借用商场、公共广场举办学生文艺汇演出于营业性演出吗\n私立幼儿园、舞蹈或乐器类艺术培训机构在节假日或者年中、年尾借用商场或者公共广场，自行搭建舞台举办文艺汇演，参演人员均为机构的老师和学生（未成年人），观众为学生家长和过往路人，不",
+   "cited_hits": [
+    {
+     "name": " 营业性 演出 管理 条例 实施 细则 ",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2375761",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2375761",
+   "question": "请问台球室是否属于娱乐场所？是否受《娱乐场所管理办法》监管？\n营业性的台球室是否属于娱乐场所？是否受《娱乐场所管理办法》监管？ 如果不属于，那么开办台球室需要申请营业执照即可吗？",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人民政府办公厅转发省工商局等部门关于做好我省娱乐服务场所审批登记管理工作意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2332806",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2332806",
+   "question": "酒吧是否受《娱乐场所管理办法》进行监管\n根据国家22年颁布的《娱乐场所管理办法》第二条 《条例》所称娱乐场所，是指以营利为目的，向公众开放、消费者自娱自乐的歌舞、游艺等场所。歌舞娱乐场所是指提供伴奏音乐、歌曲点播服务或者提供舞蹈音乐、跳舞场",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人民政府办公厅转发省工商局等部门关于做好我省娱乐服务场所审批登记管理工作意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2277968",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2277968",
+   "question": "酒吧内邀请艺人演唱，不收门票，需要办理国内营业性演出审批许可吗？\n您好！我想请问，如果酒吧里面，邀请了一些艺人进行演唱，但是酒吧并不收门票费，但是会给艺人演唱的报酬，这样的话需要办理举办国内营业性演出审批吗？如果是不给艺人演唱的报酬，又是否",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2184151",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2184151",
+   "question": "咨询\n不提供演出，只提供音乐的酒吧属于不属于娱乐场所？",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2154980",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2154980",
+   "question": "乡镇和农村娱乐场所审批土地问题\n领导您好，我想咨询下乡镇和农村娱乐场所土地性质住宅用途是不是也硬性要求为商用？谢谢~",
+   "cited_hits": [
+    {
+     "name": "城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市房地产管理法",
+     "lib_no": "城市房地产管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "文化部关于贯彻&lt;娱乐场所管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1099817",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1099817",
+   "question": "歌舞娱乐场所是否可以兼营沐足？\n营业执照有沐足和歌舞娱乐经营范围，沐足房和KTV包厢是分区经营的，可以申请娱乐场所经营许可证吗？",
+   "cited_hits": [
+    {
+     "name": "娱乐场所管理条例",
+     "lib_no": "娱乐场所管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1096813",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1096813",
+   "question": "关于上网服务营业场所与幼儿园距离限制的建议\n您好！我是一名普通的深圳市休闲娱乐行业从业者。深圳市的面积很小，中小学非常密集，现在新修订的法规要求幼儿园200米范围内也不能设立上网服务营业场所，这个规定对行业的影响很大，基本上没有新设立的空间",
+   "cited_hits": [
+    {
+     "name": "未成年人保护法",
+     "lib_no": "未成年人保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "未成年人保护法",
+     "lib_no": "未成年人保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1027607",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1027607",
+   "question": "古祠堂修缮咨询\n我们村的祠堂建于1795年，有200多年的历史，因年久失修，属于危房，现村里干部想带领我们全村一起修缮，但在资金上还是有很大出入，所以想咨询一下有没有这方面的政策可以帮扶一下，谢谢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国文物保护法",
+     "lib_no": "文物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1019475",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1019475",
+   "question": "酒吧里面请来的歌舞气氛组，她们的跳舞属于表演吗？需要办理营业性演出许可备案吗？\n酒吧里面请来的歌舞气氛组，她们的跳舞属于表演吗？需要办理营业性演出许可备案吗？",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1013745",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1013745",
+   "question": "受疫情影响想取消旅游，但旅行社不给免费退费\n我司与某旅行社签订了2021.8.12至8.16从深圳去重庆和成都的旅游合同，因目前成都有中风险地区，同时鉴于目前疫情的复杂性，为安全着想，也为了维护政府来之不易的疫情防控成绩，我司想取消本次旅洲",
+   "cited_hits": [
+    {
+     "name": "旅游法",
+     "lib_no": "旅游法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "966711",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=966711",
+   "question": "祠堂壁画\n有村始祖祠堂1894年建,至今己一百多年,近期在修葺中发现祠堂中发现,壁画全部都是由清末岭南绘画大师杨瑞石所主持完成,该祠没有列入文物保护,也没有得到相关部门指引,所以非常焦虑,希得到省文物局专家帮助.盼复",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国文物保护法",
+     "lib_no": "文物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "文物认定管理暂行办法",
+    "广东省城乡规划条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "895134",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=895134",
+   "question": "有舞蹈表演的酒吧属于娱乐场所吗？\n有舞蹈表演的酒吧属于娱乐场所吗？",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "881469",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=881469",
+   "question": "关于艺人经纪公司是否需要取得《营业性演出许可证》\n1. 知悉《营业性演出许可证》是公司举行演出项目所需具备的资质证书，而对于只是从事艺人经纪、代理（不举办演出活动）的经纪公司而言，法律或行政层面是否强制要求取得这个证书，才可以从事相关经纪业",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例实施细则",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "857174",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=857174",
+   "question": "关于演艺人员为商家举办的商业活动进行站台是否需要获得演出批文的问题\n根据《营业性演出管理条例》第十四条“举办营业性演出，应当向演出所在地县级人民政府文化主管部门提出申请。”之规定，营业性演出需要获得文化主管部门批准。现在有些商家为了推销商品",
+   "cited_hits": [
+    {
+     "name": "营业性演出管理条例",
+     "lib_no": "营业性演出管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-whly",
+   "id": "3490052",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3490052",
+   "question": "游艺游戏\n游艺娱乐场所，营运中，为了节省开支成本以及方便管理，在游乐场设备上安装系统读卡器，刷会员卡投电子币，出电子票是否可以？有没有哪条法律法规规定能安装或不能安装？",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "3451856",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3451856",
+   "question": "咨询外资设立互联网上网服务场所的审批具体由哪一级文化旅游单位负责\n外资成立的公司，设立互联网上网服务场所的审批具体由哪一级文化旅游单位负责，外资公司现已注册成立，望尽快回复，方便进行后续互联网上网服务场所设立申请，现找不到对应审批单位。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于进一步规范互联网上网服务场所、娱乐场所有关审批事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3397444",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3397444",
+   "question": "图书资料\n您好。我是全日制专科电子商务专业，专插本全日制本科市场营销专业，后考了非全日制研究生图书情报专业。2025年参加广东省事业单位统考进入本单位，我这种情况可以工作满1年去评审助理馆员吗？还是说只能去评审管理员",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省图书资料专业人员职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3343477",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3343477",
+   "question": "文化和旅游两中心融合工作发展情况\n广东省于2020年开展基层综合性文化服务中心与旅游服务中心融合发展试点工作，由于在贵厅政务公开页面查询不到详细资料，能否告知该项工作自2020年以来的具体发展情况？该项资料将用于学术研究使用，并不用作他途，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省加快推进文化和旅游融合发展三年行动计划（2020-2022）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3307722",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3307722",
+   "question": "本省游艺娱乐场所可以购买其他省份审核的机型机种吗？\n根据《游戏游艺设备管理办法》第15条和文化市场审批业务手册是不是可以认为本省游艺娱乐场所可以购买其他省份审核的机型机种？",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3282108",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3282108",
+   "question": "现在广东省内网吧超时经是否可以处罚？\n根据文化和旅游部的文市发〔2014〕41号文及省文化和旅游厅的粤文旅市〔2018〕39号文，在全省范围内开展上网服务场所管理长效机制试点工作，允许试点地区不对上网服务场所营业时间作出统一规定；允许上网服",
+   "cited_hits": [],
+   "cited_missing": [
+    "转发文化和旅游部关于进一步优化营商环境 推动互联网上网服务行业规范发展的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3261547",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3261547",
+   "question": "开办KTV和学校的距离\n我新开了一家KTV，在3楼，选址前未发现周边有家正在建设的小学，现在装修中发现周边有家正在建设中的小学，从KTV门口到学校规划图中的最近出入口交通距离为260米。KTV的隔壁是一家台球厅，台球厅的应急疏散通道在KTV",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅广东省教育厅关于调整娱乐场所和互联网上网服务营业场所审批有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3216990",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3216990",
+   "question": "25年继续教育\n请问2025年群众文化助理馆员继续教育的公需课可以在哪个网站学习，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布2025年度我省专业技术人员继续教育公需科目学习指南的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3208028",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3208028",
+   "question": "是否需要办理《网络文化经营许可证》咨询\n您好，我司是一家互联网汽车销售公司，现想确认我司具体业务是否需要办理《网络文化经营许可证》。经检索《互联网文化管理暂行规定》规定，企业从事经营性互联网文化活动需经审批并取得《网络文化经营许可证》；《广",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3186910",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3186910",
+   "question": "关于文化艺术类校外培训机构培训人员资质认定问题\n关于文化艺术类校外培训机构培训人员资质认定问题？ 文化艺术类校外培训机构培训人员的教学能力相关证书是指哪些证书？由广州臻美艺术文化有限公司颁发的《中国舞考级教师教学研修合格证书》可否适用。另问",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅 广东省教育厅关于印发&lt;广东省文化艺术类校外培训机构设置标准（试行）&gt;的通知",
+    "广东省教育厅等六部门关于印发非学科类校外培训机构办学许可证审批流程指引（试行）的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "3105045",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3105045",
+   "question": "请问扭蛋机是否属于游戏游艺设备\n我司欲在地铁站等位置经营扭蛋机，扭蛋机系消费者投入硬币或扫码消费后，从扭蛋机中固定几个产品中随机抽出一个任意产品（无返点无抽奖，抽出比例固定并且公示），经查询江苏省文旅厅存在相关回复，该江苏省文旅厅认为该扭蛋",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3084898",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3084898",
+   "question": "1+X职业技能等级证书是否符合教师“教学能力证明”\n广东省文化艺术类校外培训机构设置标准（试行）要求从业人员需要具备“教学能力证明”，教育部实施的“1+X器乐艺术指导职业技能等级证书”能否作为器乐老师的“教学能力证明证明”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅 广东省教育厅关于印发&lt;广东省文化艺术类校外培训机构设置标准（试行）&gt;的通知",
+    "广东省教育厅等六部门关于印发非学科类校外培训机构办学许可证审批流程指引（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3076847",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3076847",
+   "question": "如何申报职称\n新媒体摄影艺术职称需要准备什么材料和流程申报职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省深化艺术专业人员职称制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3070329",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3070329",
+   "question": "广东省文化艺术职称评审（艺术专业）\n职称评审艺术专业二级编导，个人与他人一同编创的作品，本人为排位第一的编导，该作品获奖可算业绩成果条件里独立编导作品所获的奖项吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省艺术专业人员艺术创作类别职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3062197",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3062197",
+   "question": "关于图书资料专业人员职称申报的咨询问题\n您好，我已在学校图书馆工作满三年，学历是全日制专科学校毕业，后经继续教育取得本科毕业证及学位证书，请问此种情况下，我能否直接申请助理级职称？谢谢您的答疑。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省图书资料专业人员职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3051210",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3051210",
+   "question": "蜡染非遗传承人\n想知道如何申请国家级蜡染非遗传承人。我是深圳市户口。师承贵州国家级传承人。想知道流程和细节。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家级非物质文化遗产代表性传承人认定与管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3040134",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3040134",
+   "question": "请问单位成为社会艺术水平考级广东省承办单位需要备案吗？\n尊敬的领导您好，请问单位与中国少年儿童发展服务中心签约，成为中国少年儿童发展服务中心社会艺术水平考级的广东省承办单位，单位需要在广东省文旅厅备案吗？请问有咨询电话吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会艺术水平考级管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "3027685",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3027685",
+   "question": "关于文审游戏机\n十几年前生产的游戏格斗机子现在还能买来用于经营吗？卖家说当时还没文化准入要求，那时候的机子生产出来也没有文审这个规定，所以现在是没有文审二维码的，那这种机子是否还能在市场上流通买卖？是否还能买来在电玩城经营？如果想买来用做经",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2987852",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2987852",
+   "question": "《娱乐经营许可证》过期后还能延续吗？会被文化执法部门定性为无证经营吗？\n你好，请问《娱乐经营许可证》已经过期几个月的情况下，还能办理延续手续吗？还是要重新申请新的《娱乐经营许可证》？《娱乐经营许可证》已经过期的情况下仍开门营业，算是无证经营",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2961152",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2961152",
+   "question": "商铺摆放游艺设备用于经营是否需要备案\n您好，我租赁取得的临街商铺，面积为11.44平方米，商铺门面宽距为2.2米，左右两面墙为5.2米，里面的墙为2.2米，不经营的时候门面是用卷闸关闭的，我租赁的这个商铺摆放游艺设备娃娃机用于经营，是否属于",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法",
+    "娱乐经营许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2953345",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2953345",
+   "question": "想咨询网络文化经营许可证的办理条件\n您好！我们是一家在韶关的网络科技有限公司，公司主营业务是分发其他游戏平台的付费内容，让用户使用我们的平台来购买和游戏相关的电子虚拟资产（比如DLC之类的可下载内容）。我司产品内有发行与游戏相关的虚拟货币。",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化和旅游部办公厅关于调整〈网络文化经营许可证〉审批范围 进一步规范审批工作的通知",
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2936597",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2936597",
+   "question": "我省还设有文物监理丙级的资质吗\n如有丙级资质，其办理条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于文物保护工程资质管理制度改革的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2925636",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2925636",
+   "question": "《广东省文化艺术系列文物博物 群众文化 图书资料 艺术专业职称资格评审工作手册》\n请问最新《广东省文化艺术系列文物博物 群众文化 图书资料 艺术专业职称资格评审工作手册》是哪一年发布，在哪里可以找到，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化艺术系列文物博物 群众文化 图书资料 艺术专业职称资格评审工作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2921076",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2921076",
+   "question": "咨询办理娱乐经营许可证的条件\n您好，如果要在商业中心的商铺中专门经营抓娃娃机、电子游戏机等，是否需要办理娱乐经营许可证，如果要办理的话，对于商铺的面积等有没有特别要求？如果只是把抓娃娃机放在一楼大厅也需要办证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2889807",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2889807",
+   "question": "关于全国重点文物保护单位的保养维护工程验收问题\n全国重点文物保护单位的保养维护工程的验收程序如何？需不需要省级文物主管部门验收？有无相关依据或管理办法？",
+   "cited_hits": [],
+   "cited_missing": [
+    "文物保护工程管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2863277",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2863277",
+   "question": "沐足店包厢内能否兼营歌舞娱乐场所？\n沐足店包厢内能否兼营歌舞娱乐场所？包厢内有唱K功能的是否需要办理娱乐经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法",
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2836445",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2836445",
+   "question": "关于文物博物职称评定工作年限计算问题\n您好，本人硕士毕业后在山东省地市博物馆专业技术岗位工作17个月，尚未进行职称评定及认定，后工作变动至广东省内高校博物馆岗位工作，想咨询三个问题：1.在评定职称时此前在外省的文博工作经历是否可以计入？2.",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省深化文物博物专业技术人才职称制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2813406",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2813406",
+   "question": "关于文化艺术类校外培训机构培训人员资质认定问题\n关于文化艺术类校外培训机构培训人员资质认定问题？ 文化艺术类校外培训机构培训人员的教学能力相关证书是指哪些证书？中国管理科学研究院及其下属单位出具的培训证书，如中国管理科学研究院、中国管理科学",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅 广东省教育厅关于印发&lt;广东省文化艺术类校外培训机构设置标准（试行）&gt;的通知",
+    "广东省教育厅等六部门关于印发非学科类校外培训机构办学许可证审批流程指引（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2812595",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2812595",
+   "question": "关于游戏动漫设计四级职称评定的纸质资料送报单位\n领导您好： 感谢百忙之中您看到这条留言。有些公告文件我智商有限看得比较复杂，打过珠海人社职称办、省文旅厅、粤剧院、省广播电视台一圈的咨询电话之后，并没有得到理想的答案，请求作为发公告的主体单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于开展2023年度文化艺术系列职称评审和认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2788126",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2788126",
+   "question": "关于软考中级高级资格是否可以转系列申报评审图书资料系列同层级职称\n您好！我现在通过全国计算机技术与软件专业技术资格（水平）考试，即所谓的软考，取得中级资格。那么我是否可以，在没有助理馆员职称的情况下，根据软考的中级资格去申请转系列评审，直接",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2023年度职称评审工作的通知",
+    "人力资源社会保障部工业和信息化部关于深化工程技术人才职称制度改革的指导意见",
+    "广东省职称评审管理服务实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2782505",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2782505",
+   "question": "咨询类（国家级文化产业示范园区的申报）\n2023年3月，文化和旅游部发布了全国新一批国家级文化产业示范园区的名单。至今，暂未有关于开启下一批申报创建的通知下发。 故此，向省文旅厅咨询，请问关于下一批最新的国家级文化产业示范园区，什么时候会发",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家级文化产业示范园区（基地）管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2774505",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2774505",
+   "question": "关于设立娱乐场所中居民住宅区的解释\n根据《娱乐场所管理条例》中第七条娱乐场所不得设在下列地点:(一)居民楼、博物馆、图书馆和被核定为文物保护单位的建筑物内;(二)居民住宅区和学校、医院、机关周围;请问1、小区配套的商业楼是否在居民住宅区范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化部关于贯彻&lt;娱乐场所管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2761078",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2761078",
+   "question": "如何申请成为省级文物保护单位\n您好，我这边有一间湛江市级文物保护单位，如果我想将它申请成为广东省级文物保护单位的话，请问这整个流程需要怎样走？需要去哪里申请？需要提交哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于开展第十批广东省文物保护单位申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2736795",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2736795",
+   "question": "有关继续专业技术继续教育\n请问下2023年的群众文化助理馆员专业技术继续教育什么时候开始，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年度广东省文化艺术专业技术人员继续教育专业科目学习指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2724359",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2724359",
+   "question": "社会艺术水平考级采取线上考试的形式进行，文旅部门如何进行予以监管？\n随着科技水平提高，尤其是应对疫情期间开展社会艺术水平考试，区别于传统的线下考试，线上考试逐渐成为新的社会艺术水平考试的形式，但是《社会艺术水平考级管理办法》没有对此有明确的",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会艺术水平考级管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2717389",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2717389",
+   "question": "游艺娱乐设备场所玉学校的具体测量方法\n游艺娱乐设备是否也要按照不能在学校200米范围内经营的相关规定执行，如果需要，那具体详细的测量标准是怎么样的",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2714972",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2714972",
+   "question": "娱乐许可证办理材料\n经咨询，办理歌舞娱乐场所经营许可证需要提交场所产权证明，包括房产证或者政府主管部门核发的证明。但由于目前场所用地是村用地，没有房产证，仅有当地村委会开具的场所使用证明，相关政府部门不愿意核发场所证明，请问是否能用村委会开",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2697310",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2697310",
+   "question": "游艺游戏设备\n请问一下，怎么识别假冒游艺游戏设备？或者怎么识别设备是否属于赌博机？有些动漫城机子扫码后能弹出广东省游戏协会页面，但是实际机型和协会页面在外观形态或者颜色上有点差异，是否就认定是假冒的？是不是正规厂家生产的机型只要外观形态或是",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2691340",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2691340",
+   "question": "职称评审中课题的认定\n您好！请问职称评审中课题是以结项证书或公告的时间为准吗？如2021年6月15日通过图书资料馆员职称（认定），但承担的课题于2021年7月5日收到结项证书，该课题能否作为后期申报副高职称的有效资料？盼复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省图书资料专业人员职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2643624",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2643624",
+   "question": "文物\n一：请问在哪看报考：文物保护工程从业资格信息。 二：非文物从业人员可以报考吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家文物局关于文物保护工程资质管理制度改革的通知",
+    "文物保护工程勘察设计资质管理办法（试行）",
+    "文物保护工程施工资质管理办法（试行）",
+    "文物保护工程监理资质管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2579460",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2579460",
+   "question": "关于娱乐经营许可证更换经营者需要重新设立娱乐场所吗？\n1.之前的经营者已经取得娱乐经营许可经营不善，我现在接手更改场所名称和经营者是否需要重新走一遍设立娱乐场所的程序？2.娱乐经营许可证满两年后申请续证是否需要审核房产证的性质，如果是住宅性",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化部关于贯彻&lt;娱乐场所管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2533599",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2533599",
+   "question": "关于外国投资者设立艺术类校外培训机构\n外国投资者在境内是否可以投资（设立）面向高中生书法舞蹈等艺术类培训机构? 是否会因为外商投资负面清单而需要中外合作办学? 实际执行过程中是否会允许外国投资者设立面向高中生的校外艺术培训机构并办理办学许可",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化艺术类校外培训机构设置标准（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2502649",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2502649",
+   "question": "转系列申报评审现岗位同层级职称\n您好！请问，按照粤人社规[2020]33文有关规定，专业技术人员申报评审现岗位同层级职称时，取得原系列同层级职称后的相关业绩成果可作为有效业绩成果。但《2022年度广东省文化和旅游厅职称评审申报指南（图书资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职称评审管理服务实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2480199",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2480199",
+   "question": "关于新设立线上文化艺术类非学科教育培训机构相关问题\n您好，我想咨询一下现在广东省内新设立线上的文化艺术类非学科教育培训机构。就是这种线上教育机构，主要教授艺术类非学科课程内容的，目前设立的要求，标准是如何的？ 比如设立条件，要求以及所需材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化艺术类校外培训机构设置标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2439059",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2439059",
+   "question": "关于艺术专业职称评审的资历年限问题\n2022年广东省人力资源和社会保障厅印发《关于做好2021年度职称评审工作的通知》里对申报者资历年限的计算方式作出了调整。是否2022年度的艺术类专业职称评审都是遵照省人社厅的这份通知里的年资计算方式进行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 2022年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2439448",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2439448",
+   "question": "《广东省文化艺术类校外培训机构设置标准（试行）》这和文件里面关于教师证书的咨询\n请问广东省文化和旅游厅 广东省教育厅关于印发《广东省文化艺术类校外培训机构设置标准（试行）》的通知中要求培训机构中需要各种有专业教师资格的培训人员。请问这种专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "教师资格证书管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2395390",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2395390",
+   "question": "游戏游艺设备经营范围咨询\n游戏游艺设备分为两类：电子游戏设备和游艺娱乐设备，请问游艺娱乐设备是否也要按照 不能在学校、幼儿园200米直线范围内经营的相关规定。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 游戏游艺设备 管理 办法 ",
+    " 广东省 预防 未成年人 犯罪 条例 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2361295",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2361295",
+   "question": "咨询开办娃娃机专营店事宜\n拟在大型商业综合体内租用一间约130平方米的商铺，用于经营抓娃娃机专营店，拟摆放设备约20-30台。咨询是否需要办理《娱乐经营许可证》，还是仅办理设备的备案就可经营。",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法",
+    "娱乐经营许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2354422",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2354422",
+   "question": "新闻学硕士能否申报初次考核认定图书资料系列中级职称\n本人全日制新闻学专业硕士毕业，于2020年3月社招入职地级市图书馆，此前未获取职称，请问能否在工作满三年后，按照《广东省初次职称考核认定规定》相关要求及《广东省深化图书资料专业人员职称制度",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省初次职称考核认定规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2330616",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2330616",
+   "question": "直播相关业务经营许可问题\n某广州企业与我司进行合作签约，为我司产品提供直播带货推广服务，他们在自己主体的小程序进行直播带货，售卖预包装食品，酒类、零食、服饰、化妆品等等，请问此公司是否需要办理网络文化经营许可证呢？ 因为考虑到没有此类资质，",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化和旅游部办公厅关于调整&lt;网络文化经营许可证&gt;审批范围 进一步规范审批工作的通知",
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2291647",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2291647",
+   "question": "网络游戏运营公司游戏中的道具是否属于虚拟货币？虚拟货币是否需要备案？\n（1）网络游戏公司运营的游戏中存在游戏道具，用户用人民币购买游戏道具，道具只能在一款游戏中使用，该游戏道具是否属于虚拟货币？是否需要按照《文化部、商务部关于加强网络游戏虚",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化和旅游部办公厅关于调整&lt;网络文化经营许可证&gt;审批范围 进一步规范审批工作的通知",
+    "网络文化经营许可证",
+    "网络文化文化许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2279333",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2279333",
+   "question": "旅游资料\n您好，目前我需要写一篇关于旅游的论文，需要一些资料，请问2021年广东省游客接待量、旅游收入、2015年-2021年每年的旅游业综合贡献度和旅游业的增加值（已查阅国民经济和社会发展统计公报和广东年鉴，并未涉及该部分数据）恳请回复，",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国文化文物和旅游统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2236563",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2236563",
+   "question": "图书资料专业人员职称申报\n你好，劳务派遣人员在高职院校图书馆工作满一年，符合助理馆员的申报条件，请问在何处可以申报助理馆员的职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广东省深化高等教育领域简政放权放管结合优化服务改革的实施意见（粤教人〔2017〕5号）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "2233202",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2233202",
+   "question": "职称评定\n2022年新出了艺术专业职称评定中首次出现了艺术管理类的职称评定，如演出制作、艺术运营等，但是参与职称评定需要完成2021年的继续教育，2022年出现的新职称，如何未卜先知在2021年完成继续教育呢？是否有其他的解释或者凭证呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整我省专业技术人员继续教育公需科目学习时间的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2178712",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2178712",
+   "question": "关于申请演出经纪资格证业务\n现在广东演出协会反馈说办理演出经纪资格证业务他们不负责了，由文化和旅游部负责。这个方面现在具体找哪个部门沟通呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化和旅游部办公厅关于组织实施2021年全国演出经纪人员资格认定考试的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2175264",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2175264",
+   "question": "2022年国家美术师何时申报评审\n请问2022年国家美术师职称评审何时开始",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省深化艺术专业人员职称制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2175073",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2175073",
+   "question": "娱乐场所KTV装修前文化部门能否出具娱乐场所设立实地检查表\n为了防止建设投入后不符合文化相关规定造成损失，装修前文化部门能否到我们实地勘察，给我们一个准确的意见，提供一份娱乐场所设立实地检查表，盼回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法",
+    "娱乐场所行政指导申请表",
+    "娱乐场所申请从事娱乐场所经营活动行政指导意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2165168",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2165168",
+   "question": "广东旅游年鉴\n您好！本人因毕业论文需要参考广东旅游年鉴的数据，请问能否提供2011年、2016年、2020年旅游旅游年鉴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东旅游年鉴",
+    " 广东旅游年鉴.&nbsp;2016(总第13期)&nbsp;/&nbsp;广东旅游年鉴编委会编",
+    " 广东旅游年鉴.&nbsp;2011(总第8期)&nbsp;/&nbsp;广东旅游年鉴编纂委员会编 ",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2140689",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2140689",
+   "question": "关于群众文化专业人员中级职称评价标准\n本人从事群众文化工作21年，未取得助理馆员可以直接申报吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省深化同时资料专业专业人员职称制度改革实施方案",
+    "广东省群众文化专业人员职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2140678",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2140678",
+   "question": "2021年广东省图书资料专业中级评审\n您好！我是省属中职学校图书馆工作人员，想请问一下，今年的职称评审大概是什么时候？中职学校图书馆的评审今年改革后是否还是在文化厅评？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于开展2021年度文物博物、图书资料、群众文化专业职称评审和认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2116437",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2116437",
+   "question": "文物监理培训\n福建的监理公司在中山开分公司，能不能在你们这里办理文物的监理培训证书，麻烦告知谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "文物保护工程监理资质管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1884208",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1884208",
+   "question": "跨专业转聘职称。\n您好。想咨询跨专业转评职称的三个问题： ①由于工作调动换了单位，跨专业转评职称，如“艺术系列导演专业”跨专业转评“群众文化系列”，是否是可直接同级别转评（如副高级转评副高级）？还是跨专业转评的，一律按最低级开始起评（如副高",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省职称评审管理服务实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1094708",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1094708",
+   "question": "广东省文博职称评审\n您好广东省内文博职称评审在2020年进行改革，要求在规定日期之前未获得中级职称的人员必须首先完成初级评定。请问，2021年的初级评定如何实施呢？什么时候公布消息呢？到现在没看到通知。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1093524",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1093524",
+   "question": "公寓群楼开设KTV\n您好，咨询一下商业公寓群楼，群楼部分产权纯商业，在群楼处是否能开设KTV？",
+   "cited_hits": [],
+   "cited_missing": [
+    "娱乐场所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "1070489",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1070489",
+   "question": "关于游戏行业文网文的申请\n您好，我公司是一个深圳游戏行业服务的平台，在网站和App中运营游戏，请问需要申请网络文化经营许可证吗？如果需要申请，需要准备哪些资料，去哪里办理？望回复，十分感谢！！",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证",
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1033339",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1033339",
+   "question": "广东的跨省旅游为什么迟迟不开放？\n领导您好： 目前广东疫情已稳定控制，近期国内其他省份也逐步开放跨省旅游，广东作为人口大省，群众旅游需求巨大，为什么还不开放跨省旅游？因为疫情原因，旅游业已遭遇重创，像我们这些旅游业从业人员，目前基本为零收入",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省文化和旅游厅关于进一步做好跨省旅游经营活动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "977018",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=977018",
+   "question": "关于省内社会艺术水平现场考级\n请问哪些网站可以查询到疫情期间省内社会艺术考级的政策文件？汕尾地区目前可以开展社会艺术水平线下考级吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化和旅游部科技教育司关于印发&lt;恢复开展社会艺术水平考级现场考级活动疫情防控措施指南&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "946182",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=946182",
+   "question": "咨询跨省变更营业执照地址后，非棋牌类游戏行业的《网络文化经营许可证》是否能在另一个省份使用\n您好，我们公司在广西，我们是做非棋牌类游戏行业，我们计划把公司地址变更到深圳，想问的是，公司地址变更到深圳后，原来我们公司现有的《网络文化经营许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "945832",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=945832",
+   "question": "如何申请考级教材的考级认证\n在广东文旅厅怎么申请考级教材的认证，该网站上只显示了社会艺术考级的相关信息并非考级教材。",
+   "cited_hits": [],
+   "cited_missing": [
+    "社会艺术水平考级管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "940423",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=940423",
+   "question": "广东省各市2018年人均公共图书馆藏量数据\n你好，由于论文需要获取珠三角地区2018年各市的人均公共图书馆藏量数据，在咨询广东统计局后，其建议是询问文化部门。故想咨询贵部门珠三角各市2018年的公共图书馆藏量情况。请问这些数据应从哪里获取呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东社会统计年鉴",
+    "广东社会统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "928179",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=928179",
+   "question": "文化审批过的产品有外观保护权益吗？\n文化审批过的产品有外观保护权益吗？因为有同行模仿了我们的产品外观",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "871947",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=871947",
+   "question": "广东省星级饭店报告\n您好，本人是华南师范大学的学生，请问省文旅厅是否有提供类似文旅部《全国星级饭店报告》的广东省星级饭店报告的数据可提供查阅分析？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省星级饭店报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "866790",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=866790",
+   "question": "健身课程直播是否要申请网络文化经营许可证\n你好，咨询一下领导，我们公司注册在汕头市，计划开发一个app，主要以健身课程直播，会员点播健身课程。 问题1：是否要申请网络文化经营许可证？ 问题2：申请网络文化经营许可证是找那个部门？（上次咨询回",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "864168",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=864168",
+   "question": "网络文化经营许可证 即将到期，如何安排续期？\n我公司在广东省深圳市，于2018年申请了网络文化经营许可证， 即将于2021-2-7号到期，想要咨询如何办理续期事宜？需要在什么时间之前提出申请？需要准备什么资料？在哪里申请办理？是全网办理？还",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "862675",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=862675",
+   "question": "从事在线直播课程教育，是否需要办理《网络文化经营许可证》？\n在线教育机构的以下业务是否需要办理《网络文化经营许可证》？ （1） 纯直播课是否需要办理网文证 （2） 直播课录下来回看、动画教学片，是否属于互联网文化产品需要办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "861936",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=861936",
+   "question": "广东省地方戏曲剧种普查数据\n您好！老师，我是广州大学的学生，因为我要做广东省地方戏曲剧种的相关研究，希望您能提供一下广东省地方戏曲剧种普查的最新数据，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省地方戏曲剧种普查报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "858228",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=858228",
+   "question": "文网文续期忘记了原登陆账号和密码\n你好，我司文网文需要续期，但之前申请注册为其他同事已离职，没有记录原“全国文化市场技术监管与服务平台”的账号和密码，该平台客服让联系发证机关“广东省文化厅”，请问我该怎么申请找回原账号密码",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证",
+    "营业执照"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "850753",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=850753",
+   "question": "咨询关于《网络文化经营许可证》申请的问题\n您好，我公司是一个深圳这边关于餐厨行业服务的平台，想在App中加入直播功能（直播主要用来：1.厨师求职招聘视频面试 2.商城的直播带货 3.厨师直播教做菜），请问需要申请网络文化经营许可证吗？如果需",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "847672",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=847672",
+   "question": "多个主体参与，如何申请游戏游艺内容核准\n扫码投币类型的格斗游戏机，由游戏主板供应商（广东）提供游戏内容方面支持，生产企业（杭州）负责外壳制造组装，销售企业负责采购成品进行售卖，若申请游戏内容核准，该由哪个主体进行申请？假设由游戏主板供应商申",
+   "cited_hits": [],
+   "cited_missing": [
+    "游戏游艺设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-whly",
+   "id": "845896",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=845896",
+   "question": "腾讯 王者荣耀 违法允许未成年人游戏币交易及防沉迷系统形同虚设\n腾讯公司的王者荣耀游戏违法允许未成年人进行游戏币交易，并且未遵照法律要求设置防沉迷系统。 我小孩只有14岁竟然可以可以通宵游戏并在游戏中消费数千元。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于防止未成年人沉迷网络游戏的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "842742",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=842742",
+   "question": "网络文化经营许可证变更网站域名问题\n网络文化经营许可证（游戏类）变更网站域名如何办理？需要什么材料、去哪里办理？公司注册地为广州天河。",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "826997",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=826997",
+   "question": "商业楼内办理娱乐场所的一些细节问题\n根据规定娱乐场所应该离开中小学校区直线距离200米以外，但200米内是按经营场所为起止点还是以场所所在楼宇的外墙为起止点，例如某商业楼外墙离学校最近150米，但建筑内单层横向宽度为100米，分左右个营业区",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人大对关于&lt;广东省预防未成年人犯罪条例&gt;有关条文的法律咨询函的答复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "816084",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=816084",
+   "question": "备案时经营范围中出现动漫字样是否需要文化许可\n您好！我们公司名叫广州嘉胜科技有限公司，是番禺众多游戏机公司之一，经营范围是“动漫及衍生产品设计服务;游艺用品及室内游艺器材制造;游艺娱乐用品零售;货物进出口（专营专控商品除外）;技术进出口;电",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络文化经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "815620",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=815620",
+   "question": "娱乐场所和学校距离\n领导，您好。现在广东省还在使用直线距离作为衡量娱乐场所和学校的距离标准。而国家和其他省市都在使用步行距离作为衡量标准。步行距离相对直线距离作为标准更加人性化和合理一些。请问广东省什么时候可以用步行距离作为衡量标准呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人大对关于&lt;广东省预防未成年人犯罪条例&gt;有关条文的法律咨询函的答复"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-whly",
+   "id": "3502098",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3502098",
+   "question": "游艺娱乐设备\n为什么有些游艺娱乐设备里面，游戏游艺设备电子标识里面的二维码扫描进去，有些有产品型号，有些没有产品型号呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3472701",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3472701",
+   "question": "广东省第四次全国文物普查市县普查成果（未定级文物）什么时候公布？\n您好！根据国家及省印发的《第四次全国文物普查方案》，2025年6月至2026年6月是此次“四普”的第三阶段，主要任务是依法认定、登记并公布不可移动文物，逐级验收并向社会公布普",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3470134",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3470134",
+   "question": "鉴于上述情况，我方就“茶叶陈化工艺（岭南陈茶）”申报非物质文化遗产项目的具体问题，恳请贵厅\n我司岭南陈茶茶叶（佛山）有限公司拟申报 “茶叶陈化工艺（岭南陈茶）” 区级、省级非遗项目，现就申报事宜咨询，恳请指导。 本技艺源自 1855 年香港",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3430516",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3430516",
+   "question": "咨询文物进境\n欧洲拍卖行取得的一个唐三彩，打算空运发往广州机场，后续不再复出境，属于个人收藏，请问进境有要求吗？需要办理什么证件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3373388",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3373388",
+   "question": "需要谢霆锋3月20/21/22日深圳演唱会报备歌单\n需要谢霆锋3月20/21/22日深圳演唱会报备歌单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3340664",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3340664",
+   "question": "《娱乐场所经营许可证》办理延续是否需提交场所合法使用证明\n《娱乐经营许可证》即将到期需延续， 根据省文旅厅答复“娱乐场所到期延续，无需提交场所合法使用证明，但行政审批部门在日常管理中，可以查验场所合法使用证明。”，如果不需要提交场所合法使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3302361",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3302361",
+   "question": "全运会电子票可以享受指定景区免费入园福利吗？\n您好，请问全运会观赛电子票已经验过票了（银行网点说无法兑纸质票），可以享受指定的全运会免费入园景区福利吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3207346",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3207346",
+   "question": "《神曲》剧组辱华后广州大剧院拒绝退票\n诉求：广州大剧院退还《神曲》演出票至少80%的票额。 原因： 1.《神曲》剧组的一名演员在来华演出前于社交平台上发布辱华言论，事发后剧组无任何公开道歉和声明。各地剧院得知此事后启动退票程序（无锡大剧院、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3089708",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3089708",
+   "question": "猫眼平台违法收取高额退票手续费\n本人于2025年2月12日上午11点18分在猫眼平台购买两张3月9日张学友演唱会门票（订单号：26176374501），购票后1小时内因突发重要行程冲突，立即联系平台申请退款。但客服以“平台规则”为由，要求扣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3084451",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3084451",
+   "question": "广东省各市景区、星级酒店、旅游业从业人员、旅行社数量\n您好，论文需要广东省各市景区、星级酒店、旅游业从业人员、旅行社的数量（2012-2023年的），但是在统计年鉴等资料里都没有找到各个市的数据，可以麻烦您提供一下吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3076090",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3076090",
+   "question": "文网文证年审通知\n请问文网文证年审的通知在哪里查看，我在官网上没找到相关通知内容。年审截止日期是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3054047",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3054047",
+   "question": "广东省文化和旅游厅关于开展2024年度文化艺术系列职称评审和认定工作\n你好，想查询一下，今年广东省文化和旅游厅关于开展2024年度文化艺术系列职称评审和认定工作会包舍影视编剧吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3021171",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3021171",
+   "question": "关于广东省不可移动文物清单公示的请求\n尊敬的文旅局领导： 您好 近期我在做关于广东省历史建筑及古村落的相关课题研究，发现我省文旅局网站没有完整的不可移动文物清单公示，只能零星查到部分内容，对相关研究统计工作以及对民众推广宣传工作造成了极大不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3015697",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3015697",
+   "question": "互联网上网服务营业场所\n请问国资委的物业，无房产证，90年的土地规划许可证用途：粮店，建设规划许可证是：综合楼，现对外以商业用途招租，可以开网吧吗？周边200米无学校",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "3003621",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=3003621",
+   "question": "广东文旅护照\n请问广东文旅护照还能领取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2985529",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2985529",
+   "question": "关于图书资料职称申报年限的咨询问题\n您好，我是2022年申报图书资料专业初级职称。于2023年6月取证，2023年7月颁发电子证。我想请问一下，我评审下一职称（中级），需要取得当前职称后，从事图书资料相关工作满 4 年才能申请下一级职称。那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2971791",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2971791",
+   "question": "消费券\n领到了消费券，进入我的里面没有显示有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2945998",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2945998",
+   "question": "2014年广东省基层综合性文化服务中心建设试点市有哪些\n2015年10月份国务院办公厅发布《关于推进基层综合性文化服务中心建设指导意见》，在此之前2014年文化部要求各省级单位确定2-3个地级市作为本省省级基层综合性文化服务中心建设试点地区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2941226",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2941226",
+   "question": "关于住宿业经营的问题\n我想在深圳市经营住宿业，准备在市场监管局登记为“住宿业”或“其他住宿业”。请问我需要遵守哪些法律法规呢？能否列举告诉我，避免我后期被各相关部门处罚、停业或取缔。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2850117",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2850117",
+   "question": "关于2024年演出经纪人考试广东省考区事宜\n已经公布了2024年全国演出经纪人考试日期，但是没有找到广东省关于这个资格考试报名入口，请问是人事局负责还是文旅厅负责组织呢？想参加考试报名如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2836894",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2836894",
+   "question": "关于填报网络文化经营许可证年报路径\n“文旅中国”app无法找到网络文化经营许可证年报填报入口，请问经营性互联网文化单位年报今年是否更换入口？填报入口如何进去？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2835679",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2835679",
+   "question": "全省旅游一卡通年卡\n请问有没有全省一卡通年卡，旅游景区和展览馆的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2829125",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2829125",
+   "question": "外国文艺表演团体来华进行营业性演出活动的审批\n咨询具体的业务办理流程，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2768952",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2768952",
+   "question": "关于娱乐场所\n领导您好！ 请问广东省关于娱乐场所有无规定不得在医院旁边设立，如果有，有无明确距离规定，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2749333",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2749333",
+   "question": "歌舞娱乐场所变更相关问题\n歌舞娱乐场所因为装修升级改变了原审批包房数量和布局，不改变经营面积的情况下需要办理新设立吗？如办理变更需要重新办理消防安全检查吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2677208",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2677208",
+   "question": "办理出境游许可证条件\n尊敬领导；询问内容，1、出境游许可证开始办理申请时间。2、申请深圳出境游许可证是否有指标要求（例如：深圳市今天是多少个任务）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2634066",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2634066",
+   "question": "职称评审转序列的问题。\n在单位已拿新闻类初级职称（助理记者），因为本单位内的工作岗位及职责变化，要转序列到艺术类的初级职称（四级摄影师）。问题一：转序列后，原来的初级职称（助理记者）在评审条件满足的情况下，能否直接送评中级职称（记者）？问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2531543",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2531543",
+   "question": "2023年社科研究项目\n您好，2023年文旅部社科研究项目，广东省怎么没有发通知，一个星期之后国家就截止了，请问有组织这个活动吗？感谢您的阅读，希望能得到您的回复，比较着急。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2532268",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2532268",
+   "question": "佛山禅城新开娱乐场所幼儿园距离\n我方与2022年6月份在佛山绿地集团环球城租赁278平方经营网吧，在办证过程中未留意马路对面有一家闲置很5-6年的幼儿园，在装修过程中，发现幼儿园于2022年11月份又开始重新装修，准备重新开业。急忙重新找测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2423109",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2423109",
+   "question": "咨询演出经纪人考试广州考区事宜\n请问演出经纪人广州考区要暂缓到几时？能有个准信吗 时间相近、人数更多、防疫压力更大的法考都如期进行了，反而经纪人考试一直在暂缓…",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2415578",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2415578",
+   "question": "导游证退费\n【广东省导考委】考生你好！2021年导游考试退费将于近日（预估9月底）汇入你所报的银行账户，请注意查收。谢谢！ 收到信息说9月底到账为什么现在还没有到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2400840",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2400840",
+   "question": "第四届粤港澳大湾区文化创意设计大赛什么时候出结果？\n您好、请问第四届粤港澳大湾区文化创意设计大赛什么时候出结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2363262",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2363262",
+   "question": "电竞酒店是否需要办理网络文化经营许可证？\n电竞酒店位于市区，周边500米内没有学校。酒店营业执照主营许可项目为住宿服务。现有7个房间，每个房间配置2台电脑提供顾客使用，酒店只经营酒店住宿，且公共区域没有单独设置上网服务区域，该情况是否应当理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2332473",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2332473",
+   "question": "关于广州市社会艺术水平现场考级咨询\n您好，请问目前广州市有中风险地区，在广州市内还可以承办社会艺术水平现场考级活动吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2326669",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2326669",
+   "question": "演出\n您好，我比较喜欢看演出，网传8月份广州国际体育演艺中心有演唱会，请问这情况属实吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2301648",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2301648",
+   "question": "粤书吧合作\n您好，我在揭阳市揭东区玉滘镇办了个公益性的共享书吧，已经运行2年，目前希望把书吧做的更好。看到贵单位在广东推广“粤书吧”，我想咨询看看能不能将我的书吧纳入粤书吧的体系，以提升书吧的服务范围和服务质量，更好的发挥书吧的公益效果。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2269216",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2269216",
+   "question": "导游证退费\n2021年导游证已取消，请问退费是缴费渠道退回，还是要考生自主操作退费，什么时候退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2261611",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2261611",
+   "question": "咨询关于职称认定“群众文化”助理馆员需要什么具体专业\n省文化和旅游厅的领导你好，今年我申请了职称认定《群众文化》助理馆员，已提交了有关材料，但日前被评审委员会退回了，原因是我专业不符。 我是汉语言文学毕业的，因为我没看到相关文件规定，在这想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2245633",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2245633",
+   "question": "广东省何时恢复跨省游\n你好，近期广东疫情已经趋于稳定，我们年前就有考虑五一跟团去新疆旅游，平时没有这么长的假期，但是已经报团了，旅行社现在都在等广东省恢复跨省游的通知才能安排出行。请问五一前会恢复跨省游吗？什么时候能出通知呢？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2219726",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2219726",
+   "question": "关于AAA级景区升级改造报建手续的咨询\n您好！请问AAA级景区升级改造，如重新装修酒店内部，修整动物园和花木园，修建蓄水池，开辟瀑布区等，请问上述项目需要到政府部门报备立项吗？还是我们直接升级改造就行了？感谢万分！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2202252",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2202252",
+   "question": "导游证考试\n我们今年的导游证会取消吗？不让中高风险的考生去考试那钱会不会退回？广东疫情那么严重还要继续举行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2177218",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2177218",
+   "question": "导游证退考退费\n已申请导游证退考，且于2月9日收到退费申请成功的短信，想知道大概什么时候能到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2171586",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2171586",
+   "question": "娱乐场所到幼儿园距离的详细规定\n你好，我们娱乐场所（KTV）到幼儿园直线距离是180米，交通行走距离是230米，我看广东省还没有幼儿园到娱乐场所距离的执行标准，（其他省份是按照交通行走距离计算的），这种情况下我们能不能开设KTV，盼回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2162202",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2162202",
+   "question": "旅行社业务许可证办理条件\n想咨询下旅行社业务许可证办理条件在哪里可以查到呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "2121083",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=2121083",
+   "question": "2021年度图书资料专业职称评审和认定\n您好，刚看到新评审文件，想请教一下。我于2018年12月6日取得助理馆员，看到新评审条件的“资历年限起算时间为本级职称评审年度的1月1日”，馆员的评价条件的学历资质条件“3.取得助理馆员职称后，从事图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1882518",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1882518",
+   "question": "12月18日和19日THE9演唱会\n12月6日广东省文化和旅游厅下发了通知《文化和旅游部办公厅关于积极应对新冠肺炎疫情进一步加强跨省旅游管理工作的通知》（文旅发电〔2021〕214号）精神和《文化和旅游部办公厅关于从严从紧抓好文化和旅游行业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1881852",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1881852",
+   "question": "询问深圳、珠海、佛山、惠州的旅行社数量\n想要询问深圳、珠海、佛山、惠州四座城市的旅行社数量，毕业论文需要用到，谢谢政府工作人员的帮助，你们辛苦了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1088110",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1088110",
+   "question": "关于对低风险无病例区域是否可以组团旅游\n想咨询下关于现在对组团旅游的政策，从文件看是对中高风险及有病例区域采取停止及熔断机制，那对于低风险无病例区域是否可以组团前往旅游活动的，麻烦帮忙看看，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1084397",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1084397",
+   "question": "薛之谦巡演\n请问近期是否有薛之谦巡演的审批呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1068848",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1068848",
+   "question": "网吧与新建幼儿园的距离\n网吧选址距离正在建设的幼儿园不足200米，幼儿园还在挖地基阶，还没建成。 目前网吧选址已租用下来，这种情况该怎么处理？还适用200米周边不得设置网吧的相关法律法规吗？由开业的先后顺序决定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1066912",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1066912",
+   "question": "咨询从事非国有博物馆行业的博物馆人员如何申报职称\n广东省文化和旅游厅： 您好，本人从事非国有博物馆行业已有五年，因热爱文博行业，想长期从事文博行业。目前想咨询关于非国有博物馆如何申报职称，主要是递交至那个相关部门等等。因为确实在申报职称的方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1053310",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1053310",
+   "question": "关于当前疫情状态下的跨省旅游。\n最近打算国庆期间去广东旅游，想请问一下现在疫情对广东的跨省旅游有没有影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1049613",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1049613",
+   "question": "林子闳生日会\n您好，想问下是否有收到关于台湾艺人“林子闳”在广东省内申请举办音乐会的申请表呢？是否有审批？望回复，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1041593",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1041593",
+   "question": "出澳门展品批文办理\n您好，我方有一批艺术展览品需从广东出境至澳门参艺术家作品展, 参展人员为自由艺术家，无企业主体，请问申请省文化厅批文的流程？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1022800",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1022800",
+   "question": "进口文物\n有一个花瓶想要进口，明清时代的，想问一下进口许可证批文备案怎么办理，去哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1018075",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1018075",
+   "question": "关于TFBOYS2021年演唱会咨询\n您好，请问8月份在深圳或者广州会有大型演唱会吗？现在有收到关于TFBOYS八周年演唱会相关场馆的报批吗？谢谢您的答复，万分感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1007234",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1007234",
+   "question": "报考导游证， 毕业证明丢失\n我是（一九届）高星级酒店管理与运营（三水区工业中等专业学校学生）彭衡宇 前段时间报考导游证，学校给的毕业证明不慎被我弄丢，我想先报考，然后再补交毕业证明 恳求同意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "1001651",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=1001651",
+   "question": "广东省科技图书馆闭馆时间过长\n越秀区先烈中路100号广东省科技图书馆闭馆时间过长，一周闭馆两天，而且开馆时间短，严重影响读者学习，现在疫情已平稳，强烈要求并希望尽快恢复之前的开馆时间，一周闭馆一天，开馆时间延长到晚上！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "991029",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=991029",
+   "question": "关于 未成年人保护法 中的幼儿园距离怎么理解\n新修订的《未成年人保护法》第五十八条明确”学校、幼儿园周边不得设置营业性娱乐场所、酒吧、互联网上网服务营业场所等不适宜未成年人活动的场所。“ 国家文化与旅游部，也相关地调整了相关法律法规，不知道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "990750",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=990750",
+   "question": "线上教育和培训平台是否在网络文化经营许可证的范围中？\n您好，咨询下老师。我们公司是软件开发公司，想增加线上教育和培训平台业务，请问线上教育和培训平台是否在网络文化经营许可证的范围中？如果不在网络文化经营许可证的范围内，请问要办理什么证件才能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "981895",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=981895",
+   "question": "《未成年人保护法》第五十八条，幼儿园“周边”200米距离测量标准是什么？\n《全国人民代表大会常务委员会法制工作委员会关于未成年人保护法第五十八条中幼儿园周边不得设置有关场所规定含义理解和适用问题的答复意见》（法工委复〔2021〕2号）明确，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "969480",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=969480",
+   "question": "关于“学校、幼儿园周边不得设置营业性娱乐场所、酒吧、互联网上网服务营业场所”具体的规定如何\n新修订的《未成年人保护法》第五十八条明确”学校、幼儿园周边不得设置营业性娱乐场所、酒吧、互联网上网服务营业场所等不适宜未成年人活动的场所。“ 国家文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "970157",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=970157",
+   "question": "2017-2019年度广东省文化及相关产业统计数据咨询\n您好！我是一名在读研究生，目前做的一个研究需要2017-2019年度的广东省文化及相关产业统计数据，包括：文化及相关产业法人单位从业人员数、文化及相关产业固定资产投资额、文化及相关产业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "933346",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=933346",
+   "question": "高级导游证报考咨询\n本人考取中级导游证已有8年，学历为大专，想问下如果想报考高级导游证，是否需要本科学历才能报考？另外在读本科（明年毕业）是否可以报考？还是说必须要取得本科毕业证才能报考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "931769",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=931769",
+   "question": "网络文化经营许可证延续办理\n网络文化经营许可证延续快到期了，请问延续办理路径请告之，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "931032",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=931032",
+   "question": "祠堂壁画\n我村始祖祠堂建于1894年，现修葺祠堂时发现祠堂内壁画,全部都是清末岭南绘画大师杨瑞石的画,想请教省文物局应该作怎样的保护,盼复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "925015",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=925015",
+   "question": "关于广东文旅护照\n您好，请问还有广东文旅护照可以领吗？或者哪里可以买到？我想用来给班上的小朋友们人手一本，比文化的熏陶从小时候开始，最好能一边游玩一边熏陶。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "925126",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=925126",
+   "question": "资质申请\n我司为建筑行业（建筑工程）甲级设计资质公司，想具体了解申请“文物保护工程勘察设计乙级以下（含乙级）资质”的办事指南，翻看了很多你们的咨询记录还是没有找到满意答案，都是回答得很官方。 烦请逐一详细回答，感激。 问题一：如果我司新申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "924207",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=924207",
+   "question": "咨询网络文化经营许可证状态查询\n您好，我们公司是深圳市的企业，我想查询网络文化经营许可证的状态，找不到查询链接，是否可以提供一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "923673",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=923673",
+   "question": "演出\n您好，我是一名比较喜欢看演出的学生，网传5.19有一场音乐节举办在奥林匹克体育场，请问这情况属实吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "921652",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=921652",
+   "question": "2019年广东省剧院演出数据\n您好，我是一名大学四年级的学生，由于论文数据需要，现向广东省文化和旅游厅请求获得：2019年广东省剧院运营收入（希望数据可以细分为演出票房收入、租场收入、政府补贴收入），非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "919603",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=919603",
+   "question": "咨询数据\n您好，我想咨询一下2018年广东省各市旅游景区数、旅游景区从业人员数以及旅游景区营业收入，查询年鉴未发现这些数据，恳请贵单位予以答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "915575",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=915575",
+   "question": "省文保单位梅县邓仲元旧居，已成危楼，急需抢救性保护文物\n领导好： 省文保单位梅县邓仲元旧居，已成危楼，急需抢救性保护文物。请关注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "912822",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=912822",
+   "question": "关于对古村落的保护\n您好！我想请问我老家，有一处祖屋是祖先清朝所建，至今大约有近两百年的历史，整个小村具有典型的潮汕民居的建筑特点，并且建筑整体仍然是当时所建的材料结构，不是后来重修的，现在整个小村无人居住，建筑也荒废了，每次回去看到这些建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "911264",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=911264",
+   "question": "非遗\n请问，如果想要学习非遗成为非遗传承人需要达到什么要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "907037",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=907037",
+   "question": "广式满州窗\n您好，我是广州商学院的一名学生，因毕业设计需要，想获取下目前广式满州窗保存的数量，渠道以及相关政策，因网上无法找到完整资料，故希望得到文化厅的支持。万分感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "900383",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=900383",
+   "question": "广东省古村落\n您好，我是华南理工大学的一名学生，因学术研究需要，想获取下目前评定的“广东省古村落”名单，因网上无法找到完整资料，故希望得到文化厅的支持。万分感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "894025",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=894025",
+   "question": "旅游规范设计资质申请\n请问旅游规划设计资质得向哪个部门申请，联系方式是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "888898",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=888898",
+   "question": "广东省各市旅游旅游概括\n你好，我是一名学生，要写关于广东省旅游景点的论文，需要广东省各市的旅游A级景点的旅游收入、接待人数、名录、地址等概括，因为在各个市的旅游局官网都找不到数据，所以到此留言寻求，望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "881765",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=881765",
+   "question": "广东省乡村旅游数据\n您好，我是一名在校大学生，正在做一份关于乡村旅游的研究报告，想向贵厅咨询关于2009—2019年广东省各地级市、县级市乡村旅游的收入、游客客流量及消费等数据，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "879243",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=879243",
+   "question": "需要清远市旅游报告（写论文用）\n您好，我是一名大学生。最近在做有关清远旅游市场的调查，需要清远市旅游报告以便数据分析（如2017-2020年的旅游年报，包括各景点接待人数、各景区大概收入等）。在清远市旅游局网站上找不到，在这里也找不到，故留",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "874631",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=874631",
+   "question": "填报网络文化经营许可证年报路径\n请问填报文网文年报的路径是：全国文化市场技术监管与服务平台-运营管理-企业信息上报-新增-填报时间选择2020全年度吗？去年好像是在互动消息那里进去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "868757",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=868757",
+   "question": "网络文化经营许可证年检事宜\n网络文化经营许可证是否需要年检？即2020年度是否需要填报经营性互联网文化单位基本情况年报？如果需要填报的话通知大概会在什么时候下达，在哪能及时查看呢？如果不及时填报会有什么后果吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "857321",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=857321",
+   "question": "怎样申报高雅艺术进校园\n我们在深圳从事黄梅戏有十余年时间，复排出多部黄梅戏的经典剧目,。其中《女驸马》《孟丽君》参加过由国家文化部和安徽省政府联合主办第七、第八届“中国（安庆）黄梅戏艺术节”。想往省里申报黄梅戏进校园的展演活动。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "856505",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=856505",
+   "question": "需要广东旅游视频材料\n我是青岛旅行社的从业人员，准备在山东做广东旅游的推介会想问下有没有官方的旅游视频，如果有请发我邮箱，谢谢 期待您的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "852621",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=852621",
+   "question": "个人收藏恐龙蛋\n个人收藏恐龙蛋需要什么手续才合法？在那个部门办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "849287",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=849287",
+   "question": "导游证\n可以详细介绍一下导游证吗？ 具体什么时候考？ 考哪些内容？ 需要到当地的旅游局登记吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "842703",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=842703",
+   "question": "《网络文化经营许可证》名称变更\n你好！我司主体名称变更完成，在广东政务服务网上申请《网络文化经营许可证变更》，但是上传附件后一直提示添加失败，无法提交，ie11,360极速都不可以。请问怎么解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "825542",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=825542",
+   "question": "医护人员门票能否继续免费到疫情结束？\n自“新冠状”疫情发生至今也有大半年时间有多，虽然，政府相关部门也出台免门票给医护人员减减压，休休整，但现在疫情依然严竣，请问有多少医护人员有时间去观光旅游呢？在此，恳请政府相关部门免门票政策推迟结束，甚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-whly",
+   "id": "819954",
+   "url": "https://whly.gd.gov.cn/hdjlpt/detail?pid=819954",
+   "question": "关于网络文化经营许可证办理的股东审查\n请问办理网络文化经营许可证时，按照什么标准审核公司的股东情况，是否需要向上穿透核查？是否会关注VIE架构及VIE控制层面的上层主体？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

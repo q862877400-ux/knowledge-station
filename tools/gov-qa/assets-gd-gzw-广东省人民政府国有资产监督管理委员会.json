@@ -1,0 +1,728 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gzw",
+   "id": "3159465",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3159465",
+   "question": "国有独资企业经理层设置\n您好，请问国有独资企业能否通过章程取消公司的总经理职务及经理层设置？即国有独资企业能否不设置总经理职务或不设置经理层级？有没有相关的法律法规条文？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院办公厅关于进一步完善国有企业法人治理结构的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3077218",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3077218",
+   "question": "国有资产无偿划转\n国有独资企业是否可以将拥有产权或处置权的实物资产（如房屋、停车场、设备等）无偿划转至政府或行政事业单位。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业国有产权无偿划转管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2202952",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2202952",
+   "question": "广东省省属企业重大事项现执行哪一个规定？\n《广东省省属企业重大事项审核备案暂行办法》（粤国资综合〔2006〕228号）现已废除，请问该办法废除后，省属企业解散、申请破产、改制重组或主辅分离等重大事项执行哪一个最新的规定？是否仍需要参照原《办",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国企业国有资产法",
+     "lib_no": "企业国有资产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业国有资产监督管理暂行条例（2019修订）",
+     "lib_no": "企业国有资产监督管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省省属企业中大事项深化备案暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gzw",
+   "id": "3500095",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3500095",
+   "question": "产权登记\n《国家出资企业产权登记管理暂行办法》第十五条：企业发生产权登记相关经济行为时，应当自相关经济行为完成后 20 个工作日内，在办理工商登记前，申请办理产权登记。这里是指产权登记前置吗，具体哪些经济行为需要产权登记前置？如果外部股东的",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家出资企业产权登记管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3452395",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3452395",
+   "question": "国有资产收购是否必须经过评估？\nA公司是一家国有企业，拟收购一家非国有单位持有的企业股权。根据《企业国有资产评估管理暂行办法》（国务院国资委令第 12 号）相关规定，国有企业收购非国有单位股权属于法定应当实施资产评估的经济行为。 现向贵单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产评估管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3408330",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3408330",
+   "question": "关于国有股东标识问题\n我司拟首次公开发行股票并上市，有一个股东为有限公司类型，该有限公司股东穿透后有四个股东。最大股东为合伙企业，持股比例为50%，合伙企业的普通合伙人即执行事务合伙人为省国资委下属的国有独资公司A控股的有限公司，有限合伙人",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法",
+    "上市公司国有股权监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3394623",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3394623",
+   "question": "国企产权转让问题\n两个不同归属的国企A和B合作，共同出资成立项目公司，合作协议中设置股权回购条款。双方约定，若触发股权回购条款，则由A受让B的股权。此约定是否违反国有资产转让的公开性原则及有关规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3366828",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3366828",
+   "question": "工商变更产权登记问题\n在广东政务服务网-广州市开办企业一网通平台，线上进行工商变更，录入信息后提示产权登记信息有误，提示:未核验到该公司产权登记信息在线客服说是因为股东中有国有企业，需要做产权登记，需要知道产权登记的具体操作步骤",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家出资企业产权登记管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3341062",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3341062",
+   "question": "国有参股企业的国有股东代表如何发表股东意见\n老师您好！《国有企业参股管理暂行办法》第十六条，针对相关事项仅要求“深入研究论证、充分表达国有股东意见”，而未阐明如何发表意见。 请教：国有股东是否必须发表“要求参股企业按照国有资产监督管理有关规",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有企业参股管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3324731",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3324731",
+   "question": "国有房地产企业处置外购住宅的交易渠道\n我司为国有企业，营业范围包含地产开发、物业租赁。因业务需要，从其他开发商购入整栋商业住宅一批，以及从财政购入配建房一批，持有目的均为再次对外销售变现，账务核算按存货处理。此种情况对外处置时是否需要按照国",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法",
+    "关于《企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3294712",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3294712",
+   "question": "民企参与国企混合所有制改革\n您好，民企想参与国有企业混合所有制改革，请问相关信息在哪里公开，有哪些网站可以看到相关信息，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3270011",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3270011",
+   "question": "产权占有单位委托评估\n产权占有单位A拟以其享有的债权对某国有企业B进行债转股，产权占有单位亦为国有企业。请问产权占有单位A可否与B共同委托评估机构？是否必须只能A单独委托？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法",
+    "企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3243880",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3243880",
+   "question": "确认的从事国有产权交易的产权交易机构名单\n请问目前广东省人民政府国有资产监督管理委员会选择确认的可从事国有产权交易的产权交易机构有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产交易监督管理办法",
+    "关于进一步加强企业国有资产交易管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3211880",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3211880",
+   "question": "国企收购民企资产是否需要遵守交易价格格低于评估价的百分之九十需重新批准的规定？\n根据《企业国有资产评估管理暂行办法》第六条第十项的情形，国企收购非国有单位资产应当进行资产评估。即国企收购民企的资产应根据此规定进行评估。 该办法第22条规定，",
+   "cited_hits": [],
+   "cited_missing": [
+    "优化中央企业资产评估管理有关事项的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3117493",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3117493",
+   "question": "国有企业法律顾问申请问题\n您好，请问2025年是否有国有企业法律顾问资格评审？我目前在国有企业担任法务3年半，有法考证书，可以申请嘛？有哪些程序，该准备哪些材料呢？谢谢啦~",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有企业法律顾问管理办法",
+    "国有企业法律顾问职业岗位等级资格评审管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3093000",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3093000",
+   "question": "国企混合所有制改革流程申请咨询\n代表一广东省下属四级国企咨询广东省国资委是否有所属部门受理国企混合所有制改革的相关事项，请说明对接方式和部门名称，感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进省属企业混合所有制改革的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3076457",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3076457",
+   "question": "企业分立聘请评估机构是否需招标\n根据《广东省省属企业国有资产评估管理实施办法》第十八条规定，以下资产评估项目应参照《中华人民共和国招标投标法》等相关法律、法规采用招标方式选聘评估机构：（一）实施核准的评估项目；（二）国有企业（包括国有独资公",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业国有资产评估管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3021198",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3021198",
+   "question": "国有企业产权登记证明\n请问国有企业产权登记证明到哪里出具？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家出资企业产权登记管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2948860",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2948860",
+   "question": "广东省省属企业投资项目负面清单中第十六项资信不佳如何认定\n请问在广东省省属企业投资监督管理办法中的附件广东省省属企业投资项目负面清单中第十六项“禁止与资信不佳的企业开展合作的投资项目。”要如何认定资信不佳。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业投资监督管理办法",
+    "广东省省属企业投资项目负面清单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2894584",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2894584",
+   "question": "关于大专毕业生就业问题\n领导们好： 关于大专毕业生的就业问题我想提下意见，我是一个即将在今年7月毕业的土木工程大专毕业生的家长，孩子是2011年入学的，当年各大院校的土木工程都扩招，今年毕业要找单位了，却发现各大企业，包括各大国企（各施工单",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高校毕业生就业创业十大行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2873776",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2873776",
+   "question": "社招与校招\n各位领导您们好： 留意到国资委网上社招企业数量、人数与校招企业数量、人数不成比例，社招比例很小，校招比例很大，是否是另外有专门的招聘网还是国家有规定比例就是这样？ 希望国有企业能创造更多的就业机会，公开、公平、公正的向外部展示。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高校毕业生就业创业十大行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2813171",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2813171",
+   "question": "请问有没有关于国有企业采购方面的政策及规定\n请问国家和广东省有没有关于国有企业采购方面的政策及规定，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属阳光采购监督指导意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2631508",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2631508",
+   "question": "关于印发《广东省省属企业加强债务管理 严控债务风险暂行办法（2019年修订）》的通知\n省国资委财务处： 根据贵委“《广东省省属企业加强债务管理 严控债务风险暂行办法（2019年修订）》第十八条 规范内部资金拆借，禁止对外资金拆借。.....",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业加强债务管理严控债务风险暂行办法（2019年修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2586390",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2586390",
+   "question": "国有企业设立公司\n国资委同事： 您好，想要咨询一下国有企业出资设立公司的时候是否需要履行如资产评估、国资委备案等的前置程序。 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产评估管理暂行办法",
+    "广东省省属企业国有资产评估管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2586083",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2586083",
+   "question": "关于国有资产评估机构选任\n您好~ 我想咨询，目前广东省关于涉国有企业资产评估机构的选任是否有要求？ 已知目前省国资委以已经取消“省属企业会计师事务所备选库”、“省属企业资产评估及估价机构备选库”以及“广东省国资委系统法律服务专业机构库”。 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业国有资产评估管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2538690",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2538690",
+   "question": "省属国有企业在省外房屋的租金减免事项参照广东省的标准还是房屋当地的标准？\n请问省属国有企业在北京房屋的租金减免事项参照广东省的标准还是北京当地的标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅等8部门关于推动阶段性减免市场主体房屋租金工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2411848",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2411848",
+   "question": "请问2016年的《广东省省属企业薪酬管理办法》还有效吗？\n请问2016年的《广东省省属企业薪酬管理办法》还有效吗？若更新的，是否有公开？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业薪酬管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2232941",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2232941",
+   "question": "关于做好省属企业2022年减免房屋租金有关事项的通知\n请问服务业小微企业是按照什么标准划分？税务还是工信部规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "关于印发中小企业划型标准规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2190975",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2190975",
+   "question": "广东省省属企业担保管理工作规则以及股权让与担保的咨询\n您好，因工作需要，有如下三个问题需咨询： 1.希望取得《广东省省属企业担保管理工作规则》供学习，请问可以通过什么途径取得？ 2.关于非典型担保、股权让与担保，省属国资委层面是否有新出台新",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业担保管理工作规则",
+    "广东省省属企业加强债务管理严控债务风险暂行办法（2019年修订）",
+    "关于加强中央企业融资担保管理工作的通知",
+    "企业国有产权无偿划转管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2183947",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2183947",
+   "question": "《广东省省属企业投资监督管理办法（试行）》是否有效咨询\n您好！因工作项目需要，向您咨询有关广东省人民政府国有资产监督管理委员会2020年03月05日发布的“关于印发《广东省省属企业投资监督管理办法（试行）》的通知，其中的《广东省省属企业投资",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业投资监督管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2147005",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2147005",
+   "question": "国有参股企业境外对外投资\n国有参股企业境外对外投资需要向国资委报备吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业投资监督管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2116985",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2116985",
+   "question": "国有股权转让\n国有股权转让挂牌后，买卖双方成交了，需要去国资委履行报备程序吗，需要准备些什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家出资企业产权登记管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "1072813",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=1072813",
+   "question": "广东国企党建 投稿地址\n广东国企党建 投稿地址",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东国企党建"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "948548",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=948548",
+   "question": "国有企业法律顾问等级资格申请的问题\n你好，请问没有取得企业法律顾问执业资格、法律职业资格、律师资格等法律相关资格但是从事企业法律事务工作的专业人员可以申请国有企业法律顾问三级？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有企业法律顾问职业岗位等级资格评审管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "921459",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=921459",
+   "question": "关于企业内部审计的咨询\n你好，请问广东省省属企业内部审计有无相关的政策文件规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省属企业内部审计工作规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "894220",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=894220",
+   "question": "请问《国企党建》这本杂志是由什么单位主办的？\n拟发表党建论文，请问《国企党建》这本杂志是由什么单位主办的？能提供主办单位的联系电话和邮箱吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国企•党建"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "884818",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=884818",
+   "question": "预备上市公司的国有股权设置问题\n目前客户公司存在国有企业投资入股的情况，客户公司处于准备上市阶段，请问根据关于股份有限公司国有股权管理工作有关问题的通知（财管字[2000]200号）及相关法律法规，客户公司是否需要设置国有股权？若需要，请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "上市公司国有股东标识管理暂行规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gzw",
+   "id": "3475672",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3475672",
+   "question": "国有企业外部董事\n请问国有企业外部董事的经费来源是财政还是企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3181617",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3181617",
+   "question": "政策解读信息\n您好，请问广东省人民政府国有资产监督管理委员会的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3046237",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3046237",
+   "question": "广东省国企名单查询途径\n广东省国企名单查询方法，在http://gzw.gd.gov.cn/未找到查询入口，烦请提供查询步骤，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "3006344",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=3006344",
+   "question": "广新控股2025校园招聘网页功能障碍\n同志您好，向您反映广新控股集团2025年校园招聘网页功能障碍问题，具体表现在： 1. 网页在线填写简历功能无法正常使用，“面试城市”选项无法填写，基本信息一栏无法成功完成。“紧急联系人”一栏与求职意向信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2917007",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2917007",
+   "question": "省国资委招考录用\n您好，请问省国资委的招考录用信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2915095",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2915095",
+   "question": "广东省人民政府国有资产监督管理委员会的政策解读信息在哪里查看\n您好，请问广东省人民政府国有资产监督管理委员会的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2854160",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2854160",
+   "question": "咨询承租广东省国企装修免租期的政策\n广东省国资委，你好： 我想咨询：关于承租广东省省属国企的店铺，对装修免租期有哪些规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2854622",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2854622",
+   "question": "2024年是否有计划开展广东省国有企业法律顾问职业岗位等级资格评审工作\n请问：2024年省国资委是否有计划开展广东省国有企业法律顾问职业岗位等级资格评审工作？盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2848025",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2848025",
+   "question": "博士后经费发放\n经咨询人社厅，2024年省属企业博士后生活补贴预算经费已划拨至国资委，想咨询国资委将经费划拨至省属国企的时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2806078",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2806078",
+   "question": "光伏项目减排量计算请教\n领导： 您好！看到省重点项目】今年开工、今年并网！广东能源肇庆德庆莫村镇光伏复合项目并网发电 的新闻，新闻提到根据可研分析，莫村光伏项目运行期25年，累计可为社会输送绿色电能约18.4亿千瓦时，与相同发电量的火电相比",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2792117",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2792117",
+   "question": "广东省国资委下属上市公司名单\n广东省国资委下属上市公司名单有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2622072",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2622072",
+   "question": "广东省国有企业法律顾问职业岗位等级资格评审工作\n请问今年是否有计划开展广东省国有企业法律顾问职业岗位等级资格评审工作，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2569009",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2569009",
+   "question": "政府信息公开指南\n您好，请问省人民政府国有资产监督管理委员会的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2568102",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2568102",
+   "question": "财政预决算信息\n您好，请问广东省人民政府国有资产监督管理委员会的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2484128",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2484128",
+   "question": "关于广东省两类公司的问题\n您好，请问截至目前广东省设立/试点的两类公司有哪些？盼望您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2403489",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2403489",
+   "question": "2022年度广东省国有企业法律顾问职业岗位等级资格评审工作何时开展？\n2021年的广东省国有企业法律顾问职业岗位等级资格评审工作是2021年4月27日开展的，请问2022年的评选何时开展？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2344621",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2344621",
+   "question": "减租\n尊敬的领导，万分的感谢。我司所提出的投诉都已经妥善的解决。共产党万岁！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2296220",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2296220",
+   "question": "2021年度国有企业法律顾问等级资格证\n您好，请问韶关市的证书是否发放？咨询市国资委表示未收到相关证书~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2268523",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2268523",
+   "question": "国资委机构职能信息\n请问广东省人民政府国有资产监督管理委员会的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2263975",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2263975",
+   "question": "国资委政府信息公开工作年度报告\n请问广东省人民政府国有资产监督管理委员会的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2228502",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2228502",
+   "question": "20022年对于承租国有房屋从事困难行业经营是否有租金减免的安排\n我看到国家发改委今年的文件，对于困难行业有租金减免的政策。请问省国资委有安排吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2211955",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2211955",
+   "question": "省属国企\n请问当前广东省属国企分别有哪几家？这些信息可以从哪里获取，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2193811",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2193811",
+   "question": "2021年国有企业法律顾问岗位资格证进度\n2021年国有企业法律顾问岗位资格已于2021年10月底公示完成，请问现在进度如何？何时能取得证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "2168501",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=2168501",
+   "question": "国有资本投资运营平台\n广东省目前国有资本投资、运营公司有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "1091275",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=1091275",
+   "question": "国资委监管\n请问广发银行股份有限公司是否属于省国资委监管企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "997159",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=997159",
+   "question": "2021年国有企业法律顾问岗位资格证进度\n2021年国有企业法律顾问岗位资格已于2021年5月底报名完成，请问现在进度如何？一般需要多长时间进行公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "928710",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=928710",
+   "question": "国有企业债券发行\n您好，请问具备哪些条件的国有企业才能发行债券？国有企业发行债券的程序有哪些步骤？广东省的国有企业发行债券的依据有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "927259",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=927259",
+   "question": "2020年度或2021年度国有企业法律顾问等级资格申请\n广东省国资委相关领导： 您好，请问2020年度或2021年度国有企业法律顾问等级资格申请工作开始了吗？什么时候可以开始申请呢？一直未在官网上找到相关公告，烦请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "925006",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=925006",
+   "question": "财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "890989",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=890989",
+   "question": "新三板挂牌公司回购国有股东股份是否应当进场交易,是否适用32号令？\n新三板挂牌公司回购国有股东（省属国有企业）股份是否应当进场交易,是否适用32号令？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gzw",
+   "id": "868924",
+   "url": "https://gzw.gd.gov.cn/hdjlpt/detail?pid=868924",
+   "question": "国有企业法律顾问职业岗位等级资格证书颁发情况\n2020年6月16日已对2019年广东省国有企业法律顾问职业岗位等级资格评审通过人员名单进行公示，请问现在该证书的办理进展如何？预计可能在什么时间可以颁发。烦请答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

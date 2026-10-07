@@ -1,0 +1,703 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gdstc",
+   "id": "2815972",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2815972",
+   "question": "省科学进步奖奖励至个人部分需要交个人所得税吗？\n省级以及市级的奖励给到项目贡献个人，是否需要缴纳个人所得税？申报单位拨付给合作单位的个人无发票支出，这些后续审计有无问题？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国个人所得税法",
+     "lib_no": "个人所得税法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2729611",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2729611",
+   "question": "代理销售实验动物需要取得哪些许可\n代理商不从事生产实验动物，也没有动物实验场所，仅代理销售有生产许可资质单位的实验动物，营业执照上必须要取得什么范围的经营许可？是否必须取得生产许可证或使用许可？",
+   "cited_hits": [
+    {
+     "name": "广东省实验动物管理条例",
+     "lib_no": "实验动物管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gdstc",
+   "id": "2991528",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2991528",
+   "question": "广东省工程技术研究中心申报单位要求\n广东省工程技术研究中心申报单位要求是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省科学技术厅关于组织申报2024年度广东省工程技术研究中心的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2974937",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2974937",
+   "question": "2024年广东省工程技术研究中心预计什么时候开始申报？\n2023年的申报在去年的8月4日发出，那么2024年会在近期发布吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省科学技术厅关于组织申报2024年度广东省工程技术研究中心的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2798525",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2798525",
+   "question": "工业和信息化部教育与考试中心颁发的高级工程师证书是否承认\n尊敬的省科技厅领导，您好！ 请问一下，我公司有几位同事通过学习考试取得了由（工业和信息化部教育与考试中心）颁发的计算机辅助设计师高级工程师、人工智能机器视觉应用-高级工程师、中级-网",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省本级专业技术网上申报系统"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2483767",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2483767",
+   "question": "高新技术企业更名\n您好，我司本月份刚办理完成工商变更，变更内容为企业名称，请问，高企这块需要提交什么变更资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "高新技术企业认定管理工作指引",
+    "高新技术企业名称变更申请表",
+    "高新技术企业名称变更申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2333367",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2333367",
+   "question": "海外名师项目申请\n海外名师项目，海外名师必须来广东吗？疫情期间，回国成本较大，是否可以仅进行线上交流？如果可以仅进行线上交流，审核材料有哪些变动。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省科学技术厅（广东省外国专家局）关于发布2022年广东省国际及港澳台人才交流专项的通知",
+    "广东省科学技术厅（广东省外国专家局）关于发布2022年广东省国际及港澳台人才交流专项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1054541",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1054541",
+   "question": "银龄专家的申报截止日期\n请问银龄专家的专项申报截止日期是几号？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省科学技术厅（广东省外国专家局）关于发布2021～2022年广东省国际及港澳台高端人才交流专项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1001685",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1001685",
+   "question": "2021年科技进步奖咨询\n您好，我想咨询广东省科技进步奖的申报流程及时间要求等",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省科学技术厅关于2020年度广东省科学技术奖提名工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gdstc",
+   "id": "3503455",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3503455",
+   "question": "为什么单位管理员无法审核海外名师项目补充材料？\n为什么单位管理员无法审核海外名师项目补充材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3484018",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3484018",
+   "question": "如何查看项目电子签章进度\n项目负责人如何查看项目任务书、申报书电子签章进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3462856",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3462856",
+   "question": "如何填写高企认定申请书的已用Ⅱ类知识产权信息？\n已用Ⅱ类知识产权没有填写功能，单位该如何填写高企认定申请书中的已用Ⅱ类知识产权信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3439628",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3439628",
+   "question": "为什么无法填写单位信息维护的“单位预算编码”？\n为什么无法填写单位信息维护的“单位预算编码”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3418287",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3418287",
+   "question": "注册单位账号，需要选择主管部门，该怎么选择？\n注册单位账号，需要选择主管部门，该怎么选择？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3394029",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3394029",
+   "question": "项目负责人已提交项目绩效报告，显示待二级部门审核，如何确认项目是哪个二级部门审核？\n项目负责人已提交项目绩效报告，显示待二级部门审核，如何确认项目是哪个二级部门审核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3370908",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3370908",
+   "question": "请问在哪里填写技术需求登记表？\n请问在哪里填写技术需求登记表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3359536",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3359536",
+   "question": "咨询项目立项和项目号码\n您好，我2025年申请的广东省自科面上项目《个体偏好与助推工具组合交互影响公众参与碳普惠行为机理研究》已经通过公示，但是现在已经是2026年2月份了，不知道为什么还是没有开始立项，原则上项目的执行时间要从2026年1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3337591",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3337591",
+   "question": "如何修改广东省青年科技创新奖提名书PDF中候选人工作单位意见的联系人和联系电话？\n关于广东省青年科技创新奖提名书PDF，如何修改候选人工作单位意见的联系人和联系电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3311352",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3311352",
+   "question": "技术合同认定登记审批时间是多久？\n技术合同认定登记审批时间是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3292082",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3292082",
+   "question": "专家个人信息完善问题\n在专家个人信息的“项目主持情况”中，为什么资助类别里没有广东省外的类别可选择？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3271460",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3271460",
+   "question": "如何完善专家的个人信息？\n如何完善专家的个人信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3246923",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3246923",
+   "question": "项目负责人如何修改申请书中的项目承担单位？\n项目负责人如何修改申请书中的项目承担单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3230442",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3230442",
+   "question": "为什么找不到省工程技术研究中心申报入口？\n为什么找不到省工程技术研究中心申报入口？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3204215",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3204215",
+   "question": "为什么无法使用“统一身份认证登录”单位财务管理员账号？\n为什么无法使用“统一身份认证登录”单位财务管理员账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3175195",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3175195",
+   "question": "登录问题\n在广东省科技业务管理阳光政务平台使用统一身份认证的个人登录，为什么进入系统后无法选择“申报单位管理员”角色账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3158562",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3158562",
+   "question": "请问2025年高企申报通知大概什么时候会出？\n请问2025年高企申报通知大概什么时候会出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3139553",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3139553",
+   "question": "激活二级部门管理员账号后，为什么无法使用“统一身份认证登录”二级部门管理员账号？\n激活二级部门管理员账号后，为什么无法使用“统一身份认证登录”二级部门管理员账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3117055",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3117055",
+   "question": "单位管理员在哪里核实专家信息？\n单位管理员在哪里核实专家信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3088277",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3088277",
+   "question": "省重点实验室\n1、广东省重点实验室项目（技术攻关类省重点实验室）要求中的“实验室主任拥有高级职称，固定在职研究人员数量不少于30人，作为发明人参与授权发明专利30件及以上”指谁作为发明人参与授权发明专利30件及以上，实验室主任还是 实验室的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3073319",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3073319",
+   "question": "个人信息中通信地址为什么无法修改\n个人信息中通信地址为什么无法修改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3052747",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3052747",
+   "question": "请问各类型基金项目申请书模板在哪里下载?\n请问省基金项目网上申报操作指引、省基金依托单位注册申请操作指引、省基金项目经费使用“负面清单+包干制”制度备案操作指引以及各类型项目申请书模板在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3035515",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3035515",
+   "question": "如何将技术合同将买方信息改为卖方呢？\n如何将技术合同将买方信息改为卖方呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "3016903",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=3016903",
+   "question": "2024年科技进步奖咨询\n您好，我想咨询广东省科技进步奖的申报流程及时间要求等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2946241",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2946241",
+   "question": "系统问题\n广东省自然科学基金面上项目提交后，PDF文本水印仍然有草稿字样。下载的正文模版带有申报书样本水印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2918522",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2918522",
+   "question": "广东省杰青的英文翻译\n”广东省自然科学基金杰出青年项目“的正式英文标注是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2893238",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2893238",
+   "question": "省基础与应用基础研究项目评审专家库入库成功后会有相关的电子证明吗？\n尊敬的相关分管业务的领导，你们好～ 想咨询在省阳光政务平台通过审核后，成功入库省省基础与应用基础研究项目评审专家，会有电子版的入库证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2871735",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2871735",
+   "question": "2023年海外名师项目评审结果\n2023年度海外名师团队项目没看到下文，评审结果不主动公开或反馈给申请人吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2862599",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2862599",
+   "question": "广东省自然科学基金成果中实用新型是否可以用发明专利代替\n广东省自然科学基金项目任务书中成果有“发明专利*2+实用新型*2”，鉴于发明专利更有应用价值，是否可以用“发明专利*4”代替？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2840713",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2840713",
+   "question": "广东省科研项目英文翻译\n请提供“广东省科技计划项目”的英文拼写正式名称，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2784308",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2784308",
+   "question": "广州市白云区生产力促进中心的联系方式\n我在广东省科技业务管理阳光政务平台进行技术合同认定，二级登记点是广州市白云区生产力促进中心。需要获得白云区生产力促进中心的联系方式，进行业务咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2776244",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2776244",
+   "question": "省科技厅备案\n技术合同登记认定，主要流程： 申报单位注册→申报单位添加项目负责人→项目负责人填写申请书→项目负责人上传合同原件及相关附件→登记机构审核批复 想请问申报单位注册的入口在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2753142",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2753142",
+   "question": "高企申报材料咨询\n您好！我司2020年自主研发并申报的发明专利，于2021年取得了发明专利授权证书（以下简称：发明专利成果）。由于时间的因素，我司在2021年高企重新认定申报时，该专利成果没有实施成果转化。请问：1、我司2021年取得的该项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2706103",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2706103",
+   "question": "软件技术开发合同申请免征增值税有金额限定吗？\n想咨询一下技术开发合同是否还有免征增值税的优惠，若有，有没有金额上的限制。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2684676",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2684676",
+   "question": "企业吸收合并后相关资质证照能否承继\n您好，抱歉打扰！我想向您咨询的是，B公司持有实验动物使用许可证，现A公司以吸收合并的方式兼并B公司，B公司注销，此时B公司持有的实验动物使用许可证如何处理？ 是B公司先注销此证照，再由A公司重新申办？抑或",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2660272",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2660272",
+   "question": "2023年广东省工程技术研究中心申报什么时候开始申报\n2023年广东省工程技术研究中心申报什么时候开始申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2621266",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2621266",
+   "question": "合作研发与委托研发的区别\n企业研发项目中部分研发任务需要委托高校研究，企业与高校签订合作协议，委托高校完成研发项目并支付研究费用，成果由企业或者双方共有，合作协议经科技部门登记为“技术开发-委托开发”合同，则该研发项目属于三者中哪一项：自主",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2600502",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2600502",
+   "question": "科技报告的区别\n您好，请问以下广东省科技厅的基金重点项目，要求写国家级与省部级的科技报告，那这两者有什么区别呢？ 如果我写省部级的科技报告，写完之后把材料交给谁呢？ 国家级的科技报告材料又交给谁呀?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2572830",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2572830",
+   "question": "广东省科研项目英文翻译\n请提供“广东省基础与应用基础研究基金项目”的英文拼写正式名称，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2524847",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2524847",
+   "question": "省科协青年人才培育计划是否算省杰青的同层次青年人才项目限项要求\n尊敬的领导， 您好！多有打扰，请多见谅！因为省杰青申请时会有“同层次青年人才计划”限项要求，最近关注到省科协组织的“广东省科协青年科技人才培育计划”。因此，想请问老师，这个人才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2514147",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2514147",
+   "question": "广东省农村科技特派员\n1.请问申报时间段是什么？现在点击后显示该业务目前暂未开通。 2.申报材料中的科技项目申报书是已申报项目还是即将申报的项目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2452000",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2452000",
+   "question": "专利权转让合同认定\n工作人员您好，我有2个专利，已与北京市某公司签订了专利权转让合同，对方已经将转让费转至我校财务处，请问专利权转让合同认定的处理入口在哪，2个专利是否可以一起办理认定？如何办理认定，需要提交哪些材料并享受相关优惠政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2425742",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2425742",
+   "question": "粤澳科技创新联合资助专题申报的咨询\n在专题三：“粤澳科技创新联合资助专题”中需提交的材料清单中第三条“要求全职受聘人员须由广东受聘单位提供全职受聘的有效证明”这里指的是项目负责人还是所有参与项目的人员？学生是否需要开具相关证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2401684",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2401684",
+   "question": "新型研发机构类型\n您好！再请教一个关于新型研发机构类型的问题：广东省新型研发机构的法人性质包括企业、事业单位、民办非企业三种，因为科技厅公布的认定名单里没有此项内容，能否告知如何从名称上进行分类？尤其是如何辨别民办非企业？谢谢回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2389018",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2389018",
+   "question": "高新技术企业认定中介机构条件\n高新技术企业认定中介机构条件中“全年月平均在职职工人数在20人以上”是否含20人？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2361782",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2361782",
+   "question": "技术开发委托合同哪一方进行合同认定登记？\n技术开发委托合同约定知识产权权属归双方所有，那么技术合同认定登记由哪一方申请？由研究开发人（乙方）提出登记申请还是委托人（甲方）提出登记申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2313811",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2313811",
+   "question": "”广东省重点领域研发计划“现代种业”重大专项”的英文全称\n”广东省重点领域研发计划“现代种业”重大专项”的英文全称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2272470",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2272470",
+   "question": "关于广东省科技奖报奖资格的咨询\n您好，请问，去年通过形式审查并正式受理，而且通过了公示期的项目，最后没有获奖，请问这个项目今年可以再重新申报吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2241777",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2241777",
+   "question": "2021年科学技术奖证书领取\n通过新闻得知2021年全省科技创新大会已经召开，并公布了2021年科学技术奖的授奖结果，二等奖未能参加会议，请问证书怎么领取呢？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2219733",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2219733",
+   "question": "众创空间\n问题一：您好，请问可以同时申请广东省众创空间和一二三产业融合众创空间吗？还是只能二选一去认定？ 问题二：认定为一二三产业融合众创空间具体需要具备什么样的条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2182301",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2182301",
+   "question": "关于省重点研发计划项目负责人限项的咨询\n您好，我想咨询关于省重点研发技术项目负责人是否限项的问题，比如参照科技部重点研发技术，我省重点研发计划是否规定在一个申报周期内或者前一个项目未结题，项目负责人不能再作为其他项目作为负责人；作为课题负责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2162374",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2162374",
+   "question": "如何变更单位管理员信息\n如何变更单位管理员信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "2130205",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=2130205",
+   "question": "申报省科技进步奖牵头单位的要求，及需要咨询报奖事宜的联系电话是多少，\n外省企业的子公司能否作为科技进步奖的牵头单位？如果可以做牵头单位，需要参与科技内容的研发过程么？另外，科技进步奖申报方面主管部门联系电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1104399",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1104399",
+   "question": "合同登记备案\n做“技术开发合同”认定是需要项目费用清单，项目方案说明书，合同扫描件，那“技术转让合同”是需要什么资料呢？技术转让合同是不是要技术转让方取得著作权证才可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1092854",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1092854",
+   "question": "无形资产评估备案\n请问事业单位科技成果无形资产评估后是否需要向科技厅进行评估备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1072318",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1072318",
+   "question": "农村科技特派员项目是否属于科技课题\n请问：在职称晋升中，农村科技特派员项目是否可认定为一个科技课题？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1030106",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1030106",
+   "question": "2021 年度粤深联合基金青年基金评审周期是多久？\n2021 年度粤深联合基金青年基金网上填报是2021年8月17日～9月6日，那么评审需要多长时间？基金到账需要多久？项目的执行起始时间统一填写2021年10月1日，是否意味着10月1日就能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "1018977",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=1018977",
+   "question": "合同登记备案\n做“技术开发合同”认定是需要项目费用清单，项目方案说明书，合同扫描件，那“技术转让合同”是需要什么资料呢？技术转让合同是不是要技术转让方取得著作权证才可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "985579",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=985579",
+   "question": "关于科学技术奖的申报事宜\n1.第一完成单位和第一完成人是否要对应？ 2.因完成单位有数量限制，个别完成人没有在对应的单位名列内，但又做了贡献，可否以个人名义参加？ 3.是否一定要提供成果评价证明？ 期待回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "925231",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=925231",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "922188",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=922188",
+   "question": "科技成果登记\n请问是否可以在线申请科技成果登记，申请材料需要什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "911741",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=911741",
+   "question": "申请免征增值税时，须持技术转让、开发的书面合同，到纳税人所在地省级科技主管部门进行认定\n公司提供技术开发服务，想申请免征增值税，税务部门要求：需要纳税人所在地省级科技主管部门进行认定，出审核意见证明文件。所以想咨询科技主管部门出审核意见证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "906966",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=906966",
+   "question": "广东省重点领域研发计划验收的审计单位\n广东省重点领域研发计划（农业方向）我们单位今年准备进行项目验收了，请问一下做验收的审计单位是不是需要省厅指定的事务所才行？具体是哪些是否有名单呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "883161",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=883161",
+   "question": "技术开发合作合同没有买卖方，怎么选择？\n技术开发合作合同没有买卖方，怎么选择？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdstc",
+   "id": "870453",
+   "url": "https://gdstc.gd.gov.cn/hdjlpt/detail?pid=870453",
+   "question": "请问阳光政务平台，项目负责人换了怎么改\n您好，如题，请问怎么更换项目负责人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

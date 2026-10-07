@@ -1,0 +1,802 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gdwsxf",
+   "id": "3176712",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3176712",
+   "question": "关于信访复查\n网上如何申请信访投诉对于回应不满进行复查？具体流程，所需文件，是否可以网上申请复查？",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3095119",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3095119",
+   "question": "如何联系信访处理部门进行信访复查\n本人对于2024年12月24日信访处理意见不服，想要申请复查，但不知道复查所需要的材料、对应部门的联系方式以及地址信息，故在吃咨询。",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2829499",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2829499",
+   "question": "询问\n你好！请问，贵局接到信访，仅会往下级转发，不能转发相应部门单位？哪怕本人明确方向。谢谢！",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2772352",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2772352",
+   "question": "需要信访复查邮寄的地址能否提供一下？需要提供哪些资料？\n你好，请问需要信访复查邮寄的地址能否提供一下？和需要哪些资料一起邮寄过去？",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2507371",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2507371",
+   "question": "我需要邮寄投诉信到广东省信访局\n你好，请问下如何将投诉信邮寄至广东省信访局，我有问题反映及投诉！接收信访内容的部门及地址和收件人麻烦提供一下给我，谢谢",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2407147",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2407147",
+   "question": "关于广东省信访工作条例\n请问广东省信访条例什么时候出台，还是按照目前国家信访工作条例实施？",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2306410",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2306410",
+   "question": "咨询\n广东省信访复查复核办法现在是否仍然有效，还是随着广东省信访条例的被废除一并失效。",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省信访事项复查复核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2301324",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2301324",
+   "question": "信访事项处理意见后期问题是否得到解决\n对于给到信访人的信访处理意见，不能立即解决的，是否要有个处理意见后期问题解决完成度或者问题解决监督、反馈之类的，因为同一事件信访不再次受理，但受理的问题还是没有得到解决。",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2198121",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2198121",
+   "question": "是否可以通过原官方网站信访渠道申请信访复查？\n咨询:通过市级人民政府官网信访渠道，向县一级行政机关提出信访事项后，收到了该机关在该信访渠道网上进行复函，由于对复函事项不服，根据《信访条例》第34条规定，在限期内通过该官网上信访渠道，向该行政",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2171912",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2171912",
+   "question": "规定时间内提交复查申请被告知不予受理\n请问我在规定时间内向佛山市住建局提交了复查申请，但佛山市住建局回复不予受理，我该怎么办？",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2161793",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2161793",
+   "question": "向哪个部门申请信访事项复查？\n请问，信访人应向哪个部门申请信访事项复查？信访事项办理机关是省政府工作部门，我该向省级哪个部门申请信访复查？",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省信访事项复查复核办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1000676",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1000676",
+   "question": "建议\n建议所有的信访事项。通过电子短信传送。让数据多跑腿。让信访干部少跑路。实现全面网办。并进行优化和维护。添加主要诉求界面。方便网友查看诉求。",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gdwsxf",
+   "id": "2453766",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2453766",
+   "question": "咨询\n请问贵单位的“信访案件数量”是否属于依申请公开的范围，其次《广东省信访局政府信息公开目录》无法获取，是否可发送至我的邮箱？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省信访局主动公开基本目录",
+    "广东省信访局主动公开基本目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2325231",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2325231",
+   "question": "中止处理时间\n在信访复查复核过程中，收到“中止告知书”：“复查申请需要中止处理，待有权单位协调处理完成后再恢复处理复查申请“。这个告知书中没有时间说明，请问，这个“有权单位协调处理完成“有没有时间规定的？也就是说，允许最长多少时间恢复复查申",
+   "cited_hits": [],
+   "cited_missing": [
+    "中止告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2263990",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2263990",
+   "question": "信访局政府信息公开工作年度报告\n请问广东省信访局的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省信访局2021年政府信息公开工作年度报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2242151",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2242151",
+   "question": "受疫情严峻影响必需要走访面谈提出复核申请可以延期吗？\n我们在2022年3月份完成了向佛山市退役军人事务局提交的复查申请，答复是建议我们在限期内向广东省退役军人事务厅提出复核，我们必需申请走访面谈复核，按规定疫情严峻可以作为申请延期的理由吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省信访事项复查复核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "940476",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=940476",
+   "question": "你好，请问今年的信访理论研究课题出来了吗？\n你好，请问今年的信访理论研究课题出来了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于申报2021年信访理论研究课题的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gdwsxf",
+   "id": "3504419",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3504419",
+   "question": "撤销本人于2026年9月4日的信访投诉\n撤销本人于2026年9月4日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3479188",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3479188",
+   "question": "撤销本人于2026年7月17日的信访投诉\n撤销本人于2026年7月17日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3452865",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3452865",
+   "question": "本人撤销 2026 年 6 月 15 日信访建议\n撤销 2026 年 6 月 15 日信访建议，因存在错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3430447",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3430447",
+   "question": "撤回本人2026年4月29日信访投诉\n撤回本人2026年4月29日信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3413798",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3413798",
+   "question": "撤回本人2026年4月27日信访投诉\n撤回本人2026年4月27日信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3377286",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3377286",
+   "question": "撤销本人于2026年3月1日的信访投诉\n撤销本人于2026年3月1日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3360054",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3360054",
+   "question": "撤销投诉\n已和学校协商好，现撤销本人2月3日提交的上访申请，非常的感谢广东省信访局，非常感谢国家有那么好的平台为人民服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3345925",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3345925",
+   "question": "撤销投诉社保\n已经与公司协商好，所以撤销我 1月 5日的投诉申请，非常的感谢广东省信访局，非常感谢国家有那么好的平台为人民服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3324526",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3324526",
+   "question": "撤销信访\n本人撤销2025年10月23日的信访申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3297157",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3297157",
+   "question": "撤销信访\n本人撤销2025年11月11日的信访申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3270242",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3270242",
+   "question": "撤回\n请求撤回于本人9月18日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3243593",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3243593",
+   "question": "撤销\n请撤销本人于9月1日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3208589",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3208589",
+   "question": "撤销投诉\n国家信访局转交给广东省信访局的投诉怎么取消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3165643",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3165643",
+   "question": "撤销本人于2025年5月16日的信访投诉\n请撤销本人于2025年5月16日的信访投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3140087",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3140087",
+   "question": "撤销本人于2025年4月13日的信访投诉\n请撤销本人于2025年4月13日的信访投诉，因为已经联系上社保局处理妥当，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3107365",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3107365",
+   "question": "撤销本人2025年3月6日在贵局对广州某公司的投诉\n此前与广州某公司有退款纠纷，向贵局进行了信访投诉。目前相关部门已给予重视，在此对信访局和相关部门工作人员表示由衷感谢，特此申请撤回信访事项，恳请贵局批准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3080680",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3080680",
+   "question": "撤销于2025-1-7的投诉\n发生日期：2025-01-17 事发地：广东省广州市越秀区人民街道 问题类别：教育/其他/其他 撤销投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3060348",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3060348",
+   "question": "广东省网上信访投诉平台的手机验证码 收不到\n您好，广东省网上信访投诉平台投诉反映栏目（https://ts.gdwsxf.gd.gov.cn/）或“广东信访”微信公众号里面的手机号码验证码收不到，无法注册或登录。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3042249",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3042249",
+   "question": "撤销投诉\n您好，我要撤销2024年11月24日在广东省茂名市信访网上的投诉，由于本人没有开通银行卡的手机短信通知，在APP查了几次没有看到报销的钱，后面就没有再查了，11月27日医保局的工作人员联系我，并提供了打款时间，我才查到，早已到账，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "3018148",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=3018148",
+   "question": "撤销\n您好，我想要撤销10月25日的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2986685",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2986685",
+   "question": "如何撤销诉求\n诉求的问题已经解决，如何才能撤销提交的诉求？试过在网上信访平台提交过撤销诉求，但当地信访局来电说无法撤销，想咨询一下要通过什么途径才能撤销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2979487",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2979487",
+   "question": "想要撤销我2024年8月17日在广东信坊网上的投诉\n您好，我要撤销我在2024年8月17日在广东信访网上的投诉，街道办这边现有帮我们拿出方案解决欠薪问题，感谢有如此好的平台！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2944085",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2944085",
+   "question": "想要撤销我2024年7月4日在广东信坊网上的投诉\n您好，我要撤销我在2024年7月4日在广东信访网上的投诉，街道办这边现有帮我们拿出方案解决欠薪问题，感谢有如此好的平台！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2927107",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2927107",
+   "question": "请问为什么无法对江门市网上信访处理结果进行满意度评价？\n请问为什么无法对江门市网上信访处理结果进行满意度评价？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2923487",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2923487",
+   "question": "广东省一体化信访平台操作有误。\n广东省一体化信访平台操作有问题，可以找谁运维？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2915722",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2915722",
+   "question": "广东省信访局的政策解读信息在哪里查看\n您好，请问广东省信访局的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2909046",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2909046",
+   "question": "信访查询码\n你好，请问一下信访查询码忘了，可以通过什么方式可以找回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2906288",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2906288",
+   "question": "撤销我的投诉申请\n已经协商好，所以撤销我 5 月 4 日的投诉申请，非常的感谢广东省信访局，非常感谢国家有那么好的平台为人民服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2904766",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2904766",
+   "question": "如何网上申请信访复查复核\n请问网上如何向广东省人民政府申请信访复查复核？ 请给出邮箱或网址，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2852720",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2852720",
+   "question": "早教投诉撤销\n对方经过街道和市场监督的沟通，已经同意在15号签退款协议，请帮我撤销一下投诉，感谢平台",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2806855",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2806855",
+   "question": "请撤销我的留言谢谢，问题已解决\n请撤销我的留言谢谢，问题已解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2789153",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2789153",
+   "question": "撤销我的投诉申请\n已经协商好，所以撤销我11月29日的投诉申请，非常的感谢广东省信访局，非常感谢国家有那么好的平台为人民服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2771950",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2771950",
+   "question": "撤销我的投诉申请\n已经协商好了，麻烦帮我撤销2023年11月7日申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2726104",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2726104",
+   "question": "撤销2023年9月5日的投诉\n撤销9月5日的投诉建议，已经收到银行的回复，跟银行达成一致的解决方案，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2670905",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2670905",
+   "question": "想要撤销我的建议申请\n您好！我想撤销6.19提出的建议，理由是我认为本人过于单纯，没有考虑周到，没有考虑到这样的事情不能因为本人一个人的理由而影响了大家。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2641422",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2641422",
+   "question": "想要撤销我的建议申请\n您好！我想撤销周末提出的建议，理由是我认为本人过于单纯，没有考虑周到，没有考虑到这样的事情不能因为本人一个人的理由而影响了大家。这是我本人可以解决的事情，就不应该运用公共资源造成恐慌。我的事情已经得到解决，所以想撤回建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2595777",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2595777",
+   "question": "想要撤销我的信访申请\n由于没有保存受理编号，而且申请内容过于不理性，想要撤销申请，带来不便实在抱歉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2569356",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2569356",
+   "question": "政府信息公开指南\n您好，请问省信访局的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2568120",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2568120",
+   "question": "财政预决算信息\n您好，请问广东省信访局的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2523744",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2523744",
+   "question": "笔误更正\n我今天在广东省信访局网上信访提交了信访件，发现“事发地：广东省阳江市市辖区”有误，应更正为“事发地：广东省广州市市辖区”，特此更正。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2435607",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2435607",
+   "question": "查询\n从九月二十六七接受了我的申请之后一直没有给我发查询码对于事情解决的告知书无法查看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2375615",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2375615",
+   "question": "报建进度\n报建几年了，一直还没报出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2382956",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2382956",
+   "question": "劳动与社会保障\n经囯家信访局的介入！该公司答应处理我投诉问题！态度很好！特此感谢信访局！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2334021",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2334021",
+   "question": "广州市现场信投活动日期与时间\n广州市政府的现场信访投诉活动日期与时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2268540",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2268540",
+   "question": "信访局机构职能信息\n请问广东省信访局的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2232853",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2232853",
+   "question": "广东省一体化信访信息系统的登陆问题\n最近经常收到广东省一体化信访信息系统发来的办理信访件的短信，我忘记密码了，但是网面上没有“找回密码”的按键，请问如何登陆？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "2141117",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=2141117",
+   "question": "劳动者技能提升培训补贴\n您好，我已取得2021年广东省二建职业证书，请问能申请劳动者技能提升培训补贴吗？如果能，请问到哪里去申请办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1095930",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1095930",
+   "question": "生育津贴\n2021年1月份生育，申请了报销生产费用（已收到），但是目前未收到生育津贴。前提条件已完成：社保有按时交，也已申请津贴。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1081719",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1081719",
+   "question": "公开广东省信访局的电子邮箱\n请公开信访局的电子邮箱，方便群众发图文等信件页数多的信访内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1074186",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1074186",
+   "question": "让数据多跑腿让群众少跑路\n关于完善信访事项办理的建议。为了能让网友提出建议能够通过，无需纸质传送。为此我建议一律实行网办。这样可以让他们少跑腿，让我们也少跑腿，让数据多跑路。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1065617",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1065617",
+   "question": "生育津贴\n1、休完产假后，生育津贴需和公司社保专员去社保局提交生育津贴申请吗？公司线上可否申请呢？ 2、在住院的时候用农村合作社报销后，公司不能申请生育津贴了吗？提示：您已申请过日期（20210208）项目（难产（剖宫产）(单胎）），不能重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1057932",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1057932",
+   "question": "关于公积金提取的问题\n本人跟丈夫在单位都有缴纳公积金，今年纯商业贷款购买了商品房，已付首付，在九月份还了第一个月的房贷。请问我们两个能否提取公积金，用作抵扣每个月的房贷呢？1、请问要带哪些资料，到哪里办理？2、如果要带购买商品房发票，是首付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "1049217",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=1049217",
+   "question": "关于退休年龄按身份证日期还是按职工档案登记日期问题\n广东省信访办领导好！ A、国家劳社部发[1999]8号文件巜关于制止和纠正违反国家规定办理企业职工提前退休有关问题的通知》＜第二条（二）对职工出生时间的认定，实行居民身份证与职工档案相结合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "966699",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=966699",
+   "question": "请问广东省信访局电话多少？\n请问广东省信访局电话多少？进行电话投诉，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "953540",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=953540",
+   "question": "一个真正的为民平台\n之前有广州信访，我在此APP平台获得过好多满意的回复信访，它能让我及时知道我信访的处理情况，有编号输入查看信防进度，现在平台好象已归入了广东信访，但设置版本好似降级了，信访情况完全不清楚，感觉有点怱您。这点上望能改善，继",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "925329",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=925329",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "925046",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=925046",
+   "question": "财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "916580",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=916580",
+   "question": "关于信访广东省纪委需要预约吗\n你好，请问到广东省人民来访接待厅信访，需要预约吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "895402",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=895402",
+   "question": "接访时间\n咨询广东省接访大厅开放时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "901023",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=901023",
+   "question": "网上信访渠道\n咨询网上信访渠道有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdwsxf",
+   "id": "880370",
+   "url": "https://gdwsxf.gd.gov.cn/hdjlpt/detail?pid=880370",
+   "question": "广东中邮消费金融\n收取高额利息，属于高利贷公司。这边都有收取利息的的截图，借款700月收利息70元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

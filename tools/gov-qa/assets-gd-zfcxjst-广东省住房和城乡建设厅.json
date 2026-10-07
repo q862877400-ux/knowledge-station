@@ -1,0 +1,1929 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-zfcxjst",
+   "id": "3445892",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3445892",
+   "question": "《广东省燃料电池汽车加氢站建设管理暂行办法》部分条文咨询\n“《广东省燃料电池汽车加氢站建设管理暂行办法》第十六条（六）专职安全管理员至少1人，加氢站作业人员每个班次不少于2人，配备检查人员每个班次至少1人。” 问题1：专职安全管理员可以进行",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "《中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种设备生产和充装单位许可规则",
+    "特种设备生产和充装单位许可规则",
+    "市场监管总局关于特种设备行政许可有关事项的公告",
+    "特种设备作业人员考核规则（TSG Z6001-2019）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3402569",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3402569",
+   "question": "关于广东省市政基础设施工程竣工验收技术资料统一用表2019版电缆沟工程表格\n市政线缆电缆沟工程，施工内容主要包含电力和通信的电缆沟、排管、工作井，《广东省市政基础设施工程竣工验收技术资料统一用表》（2019版）表体系中并无相关检验批表格，验",
+   "cited_hits": [
+    {
+     "name": "建筑工程施工质量验收统一标准",
+     "lib_no": "GB 50300-2013",
+     "weak": false
+    },
+    {
+     "name": "混凝土结构工程施工质量验收规范",
+     "lib_no": "GB 50204-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电气装置安装工程 &nbsp;电缆线路施工及验收标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3371937",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3371937",
+   "question": "机电安装企业是否需要持安全生产许可证？\n我们是生产制造企业，已经建成并正常生产。因生产需要，会让外部机电安装公司在厂内进行机电安装、加工的服务，请问进行这些服务是否需要持安全生产许可证？ 根据《安全生产许可条例》，建筑施工企业需要持安全生产",
+   "cited_hits": [
+    {
+     "name": "安全生产许可证条例",
+     "lib_no": "安全生产许可证条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑业企业资质管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3345294",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3345294",
+   "question": "加油加气站内站房、综合楼顶等屋面设置太阳能光伏发电设施是否要进行消防设计审查、验收审查？\n目前很多汽车加油加气站选择在既有站房、综合楼顶等屋面设置太阳能光伏发电设施。站房、综合楼为既有建筑且不属于加油站内的爆炸危险场所。请问针对这些光伏设施",
+   "cited_hits": [
+    {
+     "name": "消防法",
+     "lib_no": "消防法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设工程消防设计审查验收管理暂行规定",
+    "建设工程消防设计审查验收管理暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3306119",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3306119",
+   "question": "附着升降脚手架是否需要办理使用登记牌\n根据《建设工程安全生产管理条例》第三十五条，附着升降脚手架属于自升式架设设施，按规定需办理使用登记证。但广东省的《建筑施工附着式升降脚手架安全技术规程》中，没有提要办理登记牌。想咨询下在广州的项目，使用",
+   "cited_hits": [
+    {
+     "name": "建设工程安全生产管理条例",
+     "lib_no": "建设工程安全生产管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "住房和城乡建设部主管的行政许可事项实施规范",
+    "建筑施工附着式升降脚手架安全技术规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3228631",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3228631",
+   "question": "根据《城市房地产开发经营管理条例》第三十一条如何进行重新核验\n根据《城市房地产开发经营管理条例》第三十一条“商品房交付使用后，购买人认为主体结构质量不合格的，可以向工程质量监督单位申请重新核验。经核验，确属主体结构质量不合格的，购买人有权退",
+   "cited_hits": [
+    {
+     "name": "广东省建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3208249",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3208249",
+   "question": "有关建筑起重设备租赁安拆所需资质问题咨询\n我公司在承接某项目的塔式起重机及施工升降机租赁安拆维保服务时，出现有关资质范围要求的疑问，特此咨询。 项目施工许可证发证机关为：某地住房和城乡建设管理局。 我公司持有住建主管部门颁发的《建筑业企业资",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国特种设备安全法",
+     "lib_no": "特种设备安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑起重机械安全监督管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3155882",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3155882",
+   "question": "粤建房字〔2009〕16号通知有效性\n各位领导好： 关于2009年3月5日发布的广东省建设厅关于做好新修订的《广东省物业管理条例》贯彻实施工作的通知，该通知至今是否有效？ 谢谢。",
+   "cited_hits": [
+    {
+     "name": "广东省建设厅关于做好新修订的&lt;广东省物业管理条例&gt;贯彻实施工作的通知",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2834235",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2834235",
+   "question": "《广东省瓶装液化石油气销售点管理暂行办法》有无废止？\n您好，想咨询《广东省瓶装液化石油气销售点管理暂行办法》有无废止？如已废止，是否有新文件替代？感谢。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "城镇燃气管理条例",
+     "lib_no": "城镇燃气管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省瓶装液化石油气销售点管理暂行办法",
+    "燃气经营许可管理办法",
+    "广东省燃气管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "848397",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=848397",
+   "question": "装修工程消防报建\n房屋产权使用性质为商业用途，如果实际租赁后，用于企业办公，可否进行二次装修消防申报备案，是否一定要到规划部门更改为办公用途后才能进行申报备案，按照理解商业用途包含办公，应该可以进行消防备案的。",
+   "cited_hits": [
+    {
+     "name": "信访条例",
+     "lib_no": "信访条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "565093",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=565093",
+   "question": "关于《汽车加油加气站设计与施工规范》部分内容的疑问\n《汽车加油加气站设计与施工规范》里有一句“橇装式加油装置可用于政府有关部门许可的企业自用、临时或特定场所”就此本人提出几点疑问： 1.“政府有关部门”指的是哪些部门？ 2.“政府有关部门许",
+   "cited_hits": [
+    {
+     "name": "汽车加油加气站设计与施工规范",
+     "lib_no": "GB 50156-2012",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-zfcxjst",
+   "id": "3467509",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3467509",
+   "question": "关于悬挂式干粉灭火系统执行标准问题\n您好： 我想咨询下关于悬挂式干粉灭火装置是否属于《干粉灭火系统设计规范》（GB50347-2004）中规定的干粉灭火系统，是否需要执行《干粉灭火系统设计规范》（GB50347-2004）及《消防设施通用规",
+   "cited_hits": [],
+   "cited_missing": [
+    "消防产品名目录",
+    "干粉灭火系统设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3470211",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3470211",
+   "question": "关于广东省房屋市政工程危险性较大的分部分项工程安全管理的实施细则相关问题的咨询\n针对《广东省住房和城乡建设厅关于房屋市政工程危险性较大的分部分项工程安全管理的实施细则》的附件2（《超过一定规模的危险性较大的分部分项工程范围》），第三条“起重",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于房屋市政工程危险性较大的分部分项工程安全管理的实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3457670",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3457670",
+   "question": "污水处理费征收\n我市有一饮用水生产企业，并未使用污水管网，生产产生污水（经环保部分监测合格）经自建管网排到自然水体。请问该企业仍需缴纳污水处理费吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "污水处理费征收使用管理的实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3452179",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3452179",
+   "question": "关于职称评审\n你好，我持有监理工程师（交通运输工程）资格证书，一直从事建筑工程管理工作，根据《国家职业资格与我省职称的对应关系》文件对应工程师职称，想申报建筑工程管理高级工程师，是否需要先办理转系列/转专业评审，先转成建筑工程管理中级工程师",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于做好2025年度建筑工程技术人才职称评价工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3445183",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3445183",
+   "question": "关于特种作业人员资格证（流动式汽车起重机）问题\n您好： 2026年6月1日实行的《特种作业目录》，第15.4 建筑起重机械司机（汽车起重机）自 2027年6月1日起实施考核。目前，在实际工作中，大量取得由市场监督部门（或行政审批局）核发的Q",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备使用单位落实使用安全主体责任监督管理规定",
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3432542",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3432542",
+   "question": "建设工程质量检测业务范围的疑问\n尊敬的住建厅领导： 对于已取得《建设工程质量检测机构》地基基础专项资质、未取得桥梁及地下工程专项资质的检测机构，能否承接排水箱涵的地基承载力检测项目业务？其依据的方法标准是相同的。 （资质标准中，桥梁及地下工",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程质量检测管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3430664",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3430664",
+   "question": "业绩是如何定级的？如何将C类业绩提升为A类？\n业绩是如何定级的？如何将C类业绩提升为A类？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建筑市场监管公共服务平台办事指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3400299",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3400299",
+   "question": "县级市的“四区”（开发区、工业园区、保税区和重要经济目标区）工业项目中防空地下室的应建范围\n尊敬的省住建厅：粤府办〔2020]27号文第二条第二款：“（二）新建除第（一）项规定和居民住宅以外的其他民用建筑，地面总建筑面积在2000平方米以上",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈关于规范城市新建民用建筑修建防空地下室的意见〉解读",
+    "广东省人民政府公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3373584",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3373584",
+   "question": "关于保障性租赁住房项目是否属于保障性住房范畴\n您好，请问保障性租赁住房项目是否属于保障性住房范畴？是否可以按保障性住房项目享受本税费优惠政策——《财政部 税务总局 住房城乡建设部关于保障性住房有关税费政策的公告》（财政部 税务总局 住房城乡",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 税务总局 住房城乡建设部关于保障性住房有关税费政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3372749",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3372749",
+   "question": "关于建造施工现场特种作业范围咨询\n住建部《住房和城乡建设部关于印发〈建筑施工特种作业人员管理规定〉的通知》（建质〔2008〕75号）中特种作业人员包括：1.建筑电工2.建筑架子工（包括普通脚手架和附着升降脚手架）3.建筑起重司索信号工4.建",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于将建筑桩机工、门式起重机司机和安装拆卸工列为建筑施工特种作业工种的通知",
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3369293",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3369293",
+   "question": "房屋市政工程在办理建筑起重机械使用登记时，需专门配备机械类专职安全生产管理人员\n领导您好！广东省住房和城乡建设厅文件粤建质[2025]269号，广东省住房和城乡建设厅关于落实建筑施工企业、工程项目安全生产管理机构设置及安全生产管理人员配备办",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工企业、工程项目安全生产管理机构设置及安全生产管理人员配备办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3334698",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3334698",
+   "question": "关于建筑施工企业专职安全生产管理人员实施分类管理\n您好，咱省厅于2022年6月1日发布了《关于对建筑施工企业专职安全生产管理人员实施分类管理的通知》，里面谈到了C3（综合）可以从事C1（机械）、C2（土建）。另住建部于近期颁布的《建筑施工企",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工企业、工程项目安全生产管理机构设置及安全生产管理人员配备办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3310783",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3310783",
+   "question": "工程勘察岩土工程专业(岩土工程勘察)乙级\n我司想申报工程勘察岩土工程专业(岩土工程勘察)乙级资质，现聘请了两位注册岩土工程师用于申报资质，其中一位带有一条甲级四库一平台网查AB级勘察项目，另一位带有两条乙级四库一平台网査AB级勘察项目，是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程勘察资质标准",
+    "工程勘察资质标准实施办法",
+    "关于进一步加强建设工程企业资质审批管理工作的通知",
+    "广东省住房和城乡建设厅关于广东省建筑市场监管公共服务平台业绩补录功能升级的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3281720",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3281720",
+   "question": "关于二级建造师（公路工程专业）继续教育问题\n基本情况：2023年取得二级建造师，至今未在企业注册 1、请问是否三年内一定要接受继续教育？ 2、如果三年到期后未接受继续教育，证书会怎样？ 3、在哪个网络平台接受继续教育，需要多少学士？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册建造师管理规定",
+    "广东省建设执业资格注册人员继续教育培训机构基本情况汇总表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3271821",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3271821",
+   "question": "外省建设工程质量检测机构资质怎么入粤备案\n我院建设工程质量检测机构资涵盖检测专项有桥梁及地下工程,钢结构,建筑材料及构配件,主体结构及装饰装修,地基基础,市政工程材料,道路工程，现在入粤备案选项比较单一，请问我们需要怎么选择项目备案，另外除",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程质量检测管理办法",
+    "广东省建设工程质量检测管理实施细则",
+    "建设工程质量检测机构资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3257908",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3257908",
+   "question": "关于结建式人防工程的定义内容的咨询（轨道交通人防工程是否属于结建式人防工程）\n贵厅于2021年印发《结建式人防工程质量监督工作指引》，结合解读内容，文件中人防工程主要分为两种，应建或易地修建防空地下室及结建式人防工程。文件中未给出结建式人防",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民防空工程质量监督管理规定",
+    "广东省住房和城乡建设厅 广东省人民防空办公室关于印发结建式人防工程质量监督工作指引的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3240329",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3240329",
+   "question": "水泥搅拌桩及沥青路面分包业务咨询。\n根据《建设工程质量管理条例》第九章 附则 第七十八条：本条例所称违法分包，是指下列行为：（三）施工总承包单位将建设工程主体结构的施工分包给其他单位的。请问在新建市政道路工程中，软基处理的水泥搅拌桩及沥青路",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准",
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3222989",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3222989",
+   "question": "询问关于江苏省特种作业人员焊工证件是否在广东省允许使用\n江苏省特种作业人员，焊工证件为江苏省住房和城乡建设厅颁发，请问一下证件能否在广东使用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工特种作业人员管理规定",
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3221247",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3221247",
+   "question": "建筑施工项目主要负责人认定的问题\n在建设施工项目中，通常由项目经理负责项目管理工作，总经理负责企业管理工作。在发生生产安全事故后，根据《生产安全事故报告和调查处理条例》的相关规定，应该如何认定事故发生单位主要负责人，是认定项目经理作为主要负",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工企业主要负责人、项目负责人和专职安全生产管理人员安全生产管理规定",
+    "建筑施工企业主要负责人、项目负责人和专职安全生产管理人员安全生产管理规定实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3218334",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3218334",
+   "question": "建筑，市政三级换证\n请问建筑三级，市政三级延期五年证书，聘用建造师是要全国唯一社保嘛？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好有关建设工程企业资质证书换领和延续工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3204197",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3204197",
+   "question": "房屋建筑监理乙级是否可以承接下列工程及其他\n1、二幢7层生产车间（A1、B1）,二幢9层综合楼，二幢1层变电所（设地下水池及泵房），二幢1层门房，框架结构，建筑面积42748.31平方米，（其中生产车间A1面积13251.39m2,建筑高度",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3214147",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3214147",
+   "question": "应急管理局核发的“低压电工作业特种作业操作证”能否在房屋市政建设工程中单独使用？\n你好，请问持有应急管理局核发的“低压电工作业特种作业操作证”能否在房屋市政建设工程中单独作为“建筑电工”的岗位使用？能否从事1千伏以下的临时供电设施搭建、电缆",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工特种作业人员管理规定",
+    "建筑施工特种作业人员考核工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3191119",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3191119",
+   "question": "关于承运液化石油气的危运企业，其司机押运是否需要另外取得送气工证\n鉴于《住房城乡建设部关于修改燃气经营许可证管理办法的通知》（建城规[2019]2 号），《燃气经营许可证管理办法》第五条（六）“企业的主要负责人、安全生产管理人员以及运行、维",
+   "cited_hits": [],
+   "cited_missing": [
+    "燃气经营企业从业人员专业培训考核管理办法",
+    "住房和城乡建设部关于修改燃气经营企业经营许可管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3197824",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3197824",
+   "question": "关于广东省居住建筑节能设计标准中外遮阳设置规范解读\n1、规范第91页，采用内置百叶中空玻璃遮阳，遮挡外窗面积的比例≥25%，具体是什么意思，是否可以理解为外窗2米高，只需在外窗底部0.5米做中间百叶即可，还是整窗都要做百叶？ 2、规范95页",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省居住建筑节能设计标准",
+    "广东省居住建筑节能设计标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3181611",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3181611",
+   "question": "关于既有住宅改建（加装电梯）是否需要满足《建筑设计防火规范》及《建筑防火通用规范》的规定\n领导您好，本人为业主，拟加装电梯的楼宇为10层的高层住宅，电梯设计加装在南面，在楼宇南面为一栋11层的高层住宅，两楼建成于90年代，楼距较窄。而强制性",
+   "cited_hits": [],
+   "cited_missing": [
+    "既有建筑维护与改造通用规范",
+    "建筑防火通用规范",
+    "建筑防火设计规范",
+    "GB 55022-2021",
+    "GB 55037-2022",
+    "GB 50016-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3189624",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3189624",
+   "question": "建筑行业建筑工程乙级工程设计资质延续所需资料及操作流程\n建筑行业建筑工程乙级工程设计资质延续所需资料清单及操作流程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准",
+    "建设工程勘察设计资质管理规定",
+    "建设工程勘察设计资质管理规定实施意见",
+    "关于进一步加强建设工程企业资质审批管理工作的通知",
+    "广东省住房和城乡建设厅关于广东省建筑市场监管公共服务平台业绩补录功能升级的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3170709",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3170709",
+   "question": "广东省建设工程质量检测管理实施细则的注册结构工程师咨询\n尊敬的领导您好，关于《广东省建设工程质量检测管理实施细则》里的相关人员满足《房屋建筑和市政基础设施工程质量检测技术管理规范》，此规范附录A中表A中混凝土结构中需要一级注册结构工程师，而",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程质量检测机构资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3170147",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3170147",
+   "question": "四库业绩补录推送\n本单位多项业绩补录在2024年12月31日提交了申请，并且都通过了，但是三库是更新了，四库是没更新，请问是什么问题呢？①“厂房1、消防水池及泵房工程”，各项业绩已经补录完，而且三库等级是A级的，但是四库都是D级，三库流水号",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建筑市场监管公共服务平台办事指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3150435",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3150435",
+   "question": "环保工程专业承包资质是否可以承接环保项目的机电设备和材料安装工程\n环保工程中的城镇污水处理项目，具有环保工程专业承包资质的企业是否可以承接该项目的机电设备和材料安装工程？（前提条件：不超资资质等级许可的规模等）",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3136046",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3136046",
+   "question": "关于《建筑智能工程施工、检测和验收规范》的规定\n我司在深圳承接了某国有房地产企业的一个智能化项目，项目竣工需要到当地住建主管部门办理竣工备案手续，甲方告知要通过验收必须要委托一家第三方检测机构进行系统检测，然后才能凭检测报告到住建部门办理手",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑智能工程施工、检测与验收规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3138119",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3138119",
+   "question": "防水防腐保温工程专业承包二级资质-变更资质和安证、资质二升一，需要配备的人员数量要求等\n我司广东捷呈建设工程有限公司，拥有防水防腐保温工程专业承包二级资质，目前正在变更工商的法人、股东和地址信息。取得新的营业执照后需要进行资质变更和安全生产",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3119381",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3119381",
+   "question": "工程设计乙级资质延期人员业绩要求\n我公司2024年办理丙级换乙级，2025年六月份资质到期，目前需要办理资质延期。主导专业人员业绩然后考核？是要求提供四库网查业绩？还是按之前的方式提供业绩证明及电话核查方式？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强建设工程企业资质审批管理工作的通知",
+    "广东省住房和城乡建设厅关于广东省建筑市场监管公共服务平台业绩补录功能升级的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3107429",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3107429",
+   "question": "住建部门颁发的水利水电工程专业、公路工程专业、港口与航道工程等专业监理资质是否仍可执业\n根据住建部《建设工程企业资质管理制度改革方案》，水利水电工程专业、公路工程专业、港口与航道工程等专业监理资质取消，其资质要求执行有关行业主管部门规定，已",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部办公厅关于做好有关建设工程企业资质证书换领和延续工作的通知",
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知",
+    "已取消的工程监理企业资质证书换领对照表",
+    "住房城乡建设部办公厅关于做好有关建设工程企业资质证书换领和延续工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3036802",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3036802",
+   "question": "资质吸收合并\n你好，现有两家建筑企业想要吸收合并，有没有业务办理指引？需要考核什么内容？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于办理建设工程企业重组、合并、分立资质核定事项工作要求的复函",
+    "建筑业企业资质标准",
+    "住房城乡建设部关于进一步加强建设工程企业资质审批管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3031261",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3031261",
+   "question": "关于业绩补录\n你好，我们注册地是四川省的设计企业，在广东省内做了很多市政工程设计项目，最近需要将市政业绩补录进相关平台以便和四库平台对接，请问这种情况我公司业绩是应该在广东省平台进行补录还是在四川省平台进行补录，望尽快回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建筑市场监管公共服务平台办事指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3005626",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3005626",
+   "question": "《广东省建筑工程技术人才职称评价改革实施方案》新方案出台时间\n《广东省建筑工程技术人才职称评价改革实施方案》自2019年11月15日起实施，有效期5年，旧方案即将到期，请问新方案何时进行意见征询，何时正式出台？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建筑工程技术人才职称评价标准条件（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2966544",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2966544",
+   "question": "资质升级咨询\n我公司资质为建筑工程施工总承包一级、消防设施工程专业承包二级。目前想将消防设施工程专业承包二级升级为一级，想咨询以下问题： 1、升为一级消防资质的施工业绩是否可以使用公司的建筑工程施工总承包的业绩（总承包工程中的消防设施工程未",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部关于进一步加强建设工程企业资质审批管理工作的通知",
+    "住房城乡建设部办公厅关于进一步加强全国建筑市场监管公共服务平台项目信息管理的通知",
+    "广东省住房和城乡建设厅关于广东省建筑市场监管公共服务平台业绩补录功能升级的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2936788",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2936788",
+   "question": "就专业资质申办问题咨询\n您好，请问《港口与海岸工程专业承包资质》和《航道工程专业承包资质现》现在申办需按什么要求提交资料呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于建设工程企业资质有关事宜的通知",
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2927145",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2927145",
+   "question": "企业业绩与个人业绩\n您好，本人是一级水利建造师带业绩符合三级升二级要求，我从单位离职后，在外省新单位上班，新单位用个人业绩来升资质。请问下，我用了这个业绩，原单位还能用本人在职时的项目业绩升资质吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部关于进一步加强建设工程企业资质审批管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2848162",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2848162",
+   "question": "矿山工程施工总承包办理咨询\n您好，我司想办理矿山工程施工总承包二级资质，现有以下几个问题需要咨询： 1、我司一直聘用不到合适的技术负责人，请问是否一定要提供四库可查询的个人业绩呢？ 2、我司现在着急办理该资质，现在就差技术负责人，人事部一直",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部关于进一步加强建设工程企业资质审批管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2798653",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2798653",
+   "question": "关于施工总承包三级资质增项问题咨询\n你好，请问我司有施工总承包三级资质，想在2024年通过增项方式申请施工总承包二级资质，申请材料里的企业资产、技术负责人需满足资质标准里规定的相应类别二级资质标准要求，其他指标只需满足相应类别三级资质标准要",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于建设工程企业资质有关事宜的通知",
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2787572",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2787572",
+   "question": "电子与智能化工程专业承包资质的条件、流程和资料需要哪些\n需要咨询一下电子与智能化工程专业承包资质办理的相关信息；网络上还没查到有关内容；",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质管理标准",
+    "住房城乡建设部关于简化建筑业企业资质标准部分指标的通知",
+    "住房和城乡建设部办公厅关于建设工程企业资质有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2783312",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2783312",
+   "question": "关于房地产开发资质会计人员要求\n请问办理房地产开发资质，有会计职称证的人员最少需要几个？",
+   "cited_hits": [],
+   "cited_missing": [
+    "房地产开发企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2702340",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2702340",
+   "question": "升资质升甲人员问题\n我单位现有 房建/市政监理乙级资质。 问题一：在满足相关要求后，能否单独申报升级房建监理甲级？； 问题二：升级甲级的人员要求，是满足甲级的人员配置要求方可申请，还是满足已有的乙级人员配置要求方可申请？（由于我司对实施意见",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定",
+    "关于调整工程监理企业甲级资质标准注册人员指标的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2703546",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2703546",
+   "question": "环保工程专业承包、建筑机电安装工程专业承包叁级资质延期\n您好。 我司有环保工程专业承包叁级，建筑机电安装工程专业承包叁级证书上写的是2023年02月09日到期，根据政策自动顺延到2023年12月31日，如果到2023年12月31日后，没有做",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业“证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2659270",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2659270",
+   "question": "关于资质申报中现场管理人员要求\n您好，请问申报增项港口与航道施工总承包二级，还需考核现场管理人员指标吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于建设工程企业资质有关事宜的通知",
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2614196",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2614196",
+   "question": "关于建筑资质升级业绩\n您好：请问我公司有一个业绩是一个楼盘建设项目，其中9#、10#楼是31层，1#及地下室-8#及地下室总面积12.8万平米。在四库是做为偶一个项目录入的，现在我公司建筑工程施工总承包资质二级升一级这个项目能否做为两个指标",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2610004",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2610004",
+   "question": "建筑甲级申请施工总承包一级\n关于建市【2016】226号文件中：除各类别最低等级资质外，取消关于住建造师、中级以上职称人员、持有岗位证书的现场管理人员、技术工人的指标考核。人员指标考核是否适用于建筑甲级申请施工总承包一级？资质申请时上诉的人",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设部关于简化建筑业企业资质标准部分指标的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2583142",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2583142",
+   "question": "广州企业施工总承包叁级资质延期问题\n您好。 我司有叁级总承包资质在2023年9月到期，到期后资质有效期是否自动顺延至2023年12月31日？ 谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业“证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2546998",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2546998",
+   "question": "技术负责人的业绩要求\n您好，咨询关于增项建筑工程施工总承包二级资质及增项市政公用工程施工总承包二级资质，这两项资质的技术负责人的业绩要求分别是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2482099",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2482099",
+   "question": "关于技术工人证书问题\n我司想新申请建筑工程施工总承包二级资质。 1、我司有一批技术工人证书，证书为全国技术工人电子证书的版本：《住房和城乡建设行业技能人员职业培训合格证》，中级防水工，培训考核机构为合作市启翔职业技能培训学校有限公司，查询网",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于在建筑业企业资质审批中认定第一批建筑业企业现场管理人员和技术工人颁证机构名单及其证书名称的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2477571",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2477571",
+   "question": "工程设计市政行业丙级资质是否有效\n根据《国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知》（国发〔2021〕7号），工程设计资质取消丙级，但新的资质标准还没出台，但我公司的工程设计市政行业丙级资质到期，没申请换证，请问市政行业",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2435525",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2435525",
+   "question": "工程造价公司资质办理\n你好，我想注册工程造价咨询公司，其中工程造价资质现有要求吗?专业人员需要多少人？要什么专业人？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2432396",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2432396",
+   "question": "园林绿化资质\n您好，想咨询下园林绿化资质目前是否被取消了，如果需要申请审批部门也是住建厅吗？哪里能查看到最新最新的园林绿化资质的标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2382440",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2382440",
+   "question": "监理资质升级问题\n请问我司具有工程设计资质证书（建筑行业建筑工程甲级），是否可以直接申请相对应监理资质 （房屋建筑工程甲级）资质。不再需要提供业绩？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2322498",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2322498",
+   "question": "办理岩土乙级人员要求\n咨询一下办理岩土乙级人员对毕业证专业要求是否要求对应专业，职称证书专业是高级测量，毕业证专业是信息工程，这是否影响申报",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程勘察设计资质管理规定实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2321812",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2321812",
+   "question": "房地产开发企业资质申办事项\n关于申办房地产开发企业二级资质要求，需要咨询的问题： 1、中级职称“建筑工程造价专业”工程师是否可以作为建筑类的管理人员？是否可以担任工程技术负责人？ 2、如果申办资料不齐全不通过后，是否可以补全资料后再起发起资",
+   "cited_hits": [],
+   "cited_missing": [
+    "房地产开发企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2299295",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2299295",
+   "question": "建筑乙及升级甲级\n尊敬的领导，我司目前具备乙级资质想升级甲级，企业业绩这块之前录入四库平台的信息不全，但是有做过一些中型项目，按标准是具备两项中级企业业绩则符合，请问两项中型业绩需要怎么提供，需要哪些证明材料才属于有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准",
+    "住房城乡建设部办公厅关于进一步推进勘察设计资质资格电子化管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2273333",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2273333",
+   "question": "建筑装修装饰工程专业承包\n建筑装修装饰工程专业承包一级资质 建筑装修装饰工程专业承包二级资质 以上资质分别可以承接多大金额的项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2221637",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2221637",
+   "question": "工程设计专项资质\n请问新的资质征求意见稿中，取消了工程设计专项资质，我们的风景园林设计乙级资质，是不是不能升甲级了，只能改为申请工程设计专业甲级资质呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2220804",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2220804",
+   "question": "关于监理资质申请相关问题\n尊敬领导： 我公司拟申请房屋建筑工程专业和市政公用工程专业监理乙级资质，有如下问题，有空请回复： 1、我司是是新办的，没有丙级资质，是否可以直接申请乙级？ 2、房屋建筑工程专业和市政公用工程专业监理乙级资质要求怎么",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定",
+    "工程监理企业资质管理规定实施意见",
+    "工程监理企业资质管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2210105",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2210105",
+   "question": "见证取样资质\n你好。我咨询一下，工程质量见证取样资质业主办理办法及条件。一般第三方检测机构能否办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程质量检测管理办法",
+    "广东省住房和城乡建设厅关于进一步明确下放建设工程质量检测机构资质核准事项有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2205407",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2205407",
+   "question": "资质问题\n请问工程设计综合甲级资质是否可承接环境工程设计相关专业内容？水质提升项目或水生态修复项目要用什么设计和施工资质？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2173324",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2173324",
+   "question": "工程总承包EPC招标范围\n在广东省内进行工程总承包EPC招标时，是否可以将勘察、方案设计、初步设计、施工图设计均纳入招标范围？",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋建筑和市政基础设施项目工程总承包管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2173399",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2173399",
+   "question": "标准下载\n你好，请问一下《预拌混凝土生产质量管理技术规程》2021版在哪里可以下载，目前网络上没看到下载渠道。",
+   "cited_hits": [],
+   "cited_missing": [
+    "预拌混凝土生产质量管理技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2165017",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2165017",
+   "question": "测量员、施工员\n你好，广东省的测量员、施工员在省住建厅的哪个位置报考，发的证件是广东建设教育协会的吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于推进住房和城乡建设领域施工现场专业人员职业培训工作的通知",
+    "广东省住房和城乡建设厅关于开展我省住房和城乡建设领域施工现场专业人员职业培训试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2140077",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2140077",
+   "question": "找规范\n《建筑施工附着式升降脚手架安全技术规程》DBJ/T 15-233-2021在哪里可以找到",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工附着式升降脚手架安全技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2123150",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2123150",
+   "question": "输变电工程专业承包三级资质\n你好，这次的建筑企业资质证书延期和换证范围不包括建筑业企业三级资质，是不是原资质证书默认继续有效不需要换证了，但是有效期是到今年12月31日到期的，这样会不会影响公司的日常业务，毕竟资质证书上的有效期是到12月3",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业“证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1092127",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1092127",
+   "question": "设计出图专用章是否住建厅发放\n您好，公司为中国电建集团城市规划设计研究院 ，公司新取得三项设计资质，请问设计产品出图专用章是否需要广东省住建厅监制，如何办理，还是企业自己刻制出图专用章。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于取消由“广东省建设厅监制”的工程勘察设计、规划设计出图专用章和工程设计施工图审查专用章的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1082609",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1082609",
+   "question": "建筑企业资质使用范围\n建筑工程施工总承包特级资质加市政公用工程施工总承包一级加机电工程施工总承包一级能否承接所有的一级施工总承包，如水利水电施工总承包，公路工程施工总承包。",
+   "cited_hits": [],
+   "cited_missing": [
+    "施工总承包企业特级资质标准实施办法",
+    "施工总承包企业特级资质标准",
+    "施工总承包企业特级资质标准实施办法",
+    "实施办法",
+    "特级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1064233",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1064233",
+   "question": "新版建筑业企业资质\n新版建筑业企业资质标准在哪里可以下载？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准",
+    "住房城乡建设部关于简化建筑业企业资质标准部分指标的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "889685",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=889685",
+   "question": "有关新批资质的疑问\n你好，我是梅州市的五华县华城建筑工程公司的法人，因刚刚接手新公司，有三个问题想咨询 1、我司现有资质为建筑工程施工总承包三级，此次想请问一下，我公司想新增（市政公用工程施工总承包三级、建筑装修装饰工程专业承包二级、公路工",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "870812",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=870812",
+   "question": "安全生产许可证\n工程试验检测机构需要安全生产许可证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质证书",
+    "安全生产许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "794069",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=794069",
+   "question": "建筑8大员\n你好，请问建筑8大员广东省建设教育协会发证单位的跟建设厅发证单位的有什么区别",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于推进住房和城乡建设领域施工现场专业人员职业培训工作的通知",
+    "广东省住房和城乡建设厅关于开展我省住房和城乡建设领域施工现场专业人员职业培训试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "773211",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=773211",
+   "question": "八大员\n八大员考试在哪儿报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于推进住房和城乡建设领域施工现场专业人员职业培训工作的通知",
+    "广东省住房和城乡建设厅关于开展我省住房和城乡建设领域施工现场专业人员职业培训试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "772951",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=772951",
+   "question": "求2019版广东省市政基础设施工程验收竣工验收资料统一用表表格\n广东省住建厅：你好！ 求《广东省市政基础设施工程竣工验收资料统一用表》（2019版）的电子版表格一份与《广东省市政基础设施工程竣工验收资料统一用表 城市轨道交通分册》（2019",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省市政基础设施工程竣工验收技术资料统一用表",
+    "广东省市政基础设施工程竣工验收技术资料统一用表-城市轨道交通分册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "754837",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=754837",
+   "question": "消防验收与消防备案\n1、根据《建设工程消防监督管理规定》（公安部第119号令）第二十四条第三款“依法不需要取得施工许可的建设工程，可以不进行消防设计、竣工验收消防备案。”，但住房和城乡建设部《建设工程消防设计审查验收管理暂行规定》（2020",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程消防设计审查验收管理暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "619249",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=619249",
+   "question": "广东省劳务分包资质的有关问题\n请问： 1、广东省对施工劳务企业资质是否已取消？ 2、如果未取消，关于劳务分包的相关法律法规或相关规定有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质管理规定",
+    "建筑业企业资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "529528",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=529528",
+   "question": "《 广东省居住小区技术规范》（DBJ15-11-94）是否仍然有效？\n请问广东省建委于1994年3月21日颁布的地方标准《 广东省居住小区技术规范》（DBJ15-11-94）是否仍然有效？因为该标准已经颁布有25年多了，很多内容与现行国家规",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省住房和城乡建设厅关于广东省工程建设地方标准复审结果的公告",
+    " 广东省居住小区技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1208",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1208",
+   "question": "建筑装饰设计乙级资质延期问题\n尊敬的住建厅领导： 我公司有一名人员拥有惠州市人社局考核认定的“给水排水设计工程师”2011年发证，该同志本科专业“给水排水工程”05年毕业、研究生专业“市政工程”08年毕业，有多年建筑装饰设计经验。请问我公司",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑装饰工程设计专项资质标准"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-zfcxjst",
+   "id": "3506575",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3506575",
+   "question": "我公司资质9.14到期，即将到期，安证办理还没办结，不能提交资质延期，烦请帮忙加急处理，申\n我公司为广东致嘉建设工程有限公司，现持有建筑装修装饰工程专业承包二级资质。目前正在办理建筑施工企业安全生产许可证首次申请业务，业务申报流水号：002",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3476834",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3476834",
+   "question": "关于升一级消防设施工程专业承包资质\n领导您好，我单位是消防设施工程专业承包二级资质，我想了解下升一级消防资质的要求。企业业绩如果是二次装修的消防工程有效吗（二次装修是没有规划许可证的，且没有联合验收的竣工验收备案表，没有监理和勘察），二次装",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3334113",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3334113",
+   "question": "关于《工程建设项目招标代理机构管理暂行办法》招标代理登记管理的问题咨询\n《工程建设项目招标代理机构管理暂行办法》中第七条规定：代理机构应当通过其设立登记所在地省级建筑市场监管一体化工作平台，登记本机构及从业人员信息。省级建筑市场监管一体化工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3290423",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3290423",
+   "question": "环保专业承包二级和地基基础专业承包二级升一级相关咨询\n你好，我想问下环保专业承包二级和地基基础专业承包二级升一级在三库需要上传哪些业绩资料？还是说公司代表性业绩工程在四库达到A级且各项指标满足二级升一级标准是否就可以不用在三库上传相关业绩资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3234400",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3234400",
+   "question": "市政总承包二级资质，使用个人业绩申报，是否需要满足资质标准中的累计规模\n市政总承包二级资质标准中，有多个累计指标，如：（1）累计修建城市道路10公里以上；或累计修建城市道路面积50万平方米以上；（2）累计修建城市桥梁面积5万平方米以上；或修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3162345",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3162345",
+   "question": "关于建设工程质量检测机构资质标准中，申报资质时质量检测工作经历的要求\n你好 我想咨询一下 在建设工程质量检测机构资质标准中，技术人员中具有3年以上质量检测工作经历的工程类专业中级及以上技术职称人员不少于60人。 有一位检测人员以前公司是公路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3148124",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3148124",
+   "question": "关于粤人社规〔2025〕4号文对工程师评审对业绩成果的“获奖项目的完成人”如何定义的问题\n《广东省建筑工程技术人才职称评价标准条件》中关于工程师业绩成果条件的要求，第1项写明“市（厅）级以上工程项目奖项获奖项目的完成人”、附录中第2点对于“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3089822",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3089822",
+   "question": "电力总承包二级\n注册输变电可以用中高级电气工程师代替去申请资质吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3084112",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3084112",
+   "question": "建筑企业资质延续咨询\n您好！我企业有建筑工程施工总承包二级资质+市政公用工程施工总承包二级资质，是三级换二级的资质证书，有效期至2025年4月5日到期，请问延续的标准是按照常规的延续办事指南中的三级人员标准么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3079795",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3079795",
+   "question": "如何查询2024年企业申报资质的信息\n如何查询2024年1月-2024年3月之间企业申报资质的结果，企业资质准予行政许可信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "3052244",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=3052244",
+   "question": "资质证书变更\n请问营业执照地址发生变更后，资质证书多久要完成变更，超出时间申请变更是否无法变更？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2982850",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2982850",
+   "question": "关于申请市政总承包二级技术负责人业绩要求\n您好 ： 1、我司新申请市政总承包二级资质，关于技术负责人的业绩年限是否有要求。是否必须是近五年内的业绩，还是只要在四库上可查的，信息齐全，数据等级B级以上就可以。 2、技术负责人业绩要求单项合同2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2944271",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2944271",
+   "question": "资质证书延期\n建筑工程施工总承包由三级换证了二级资质证书，后续延期的话，技术负责人业绩需要考核吗？考核注册人员，工程技术人员，技术工人吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2892758",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2892758",
+   "question": "水利水电施工总承包二级\n您好，我司想申请水利水电施工总承包二级，请问技术负责人业绩是境外的是否认可?境外业绩有什么要求?哪里可以看到相关的办事指南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2875722",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2875722",
+   "question": "关于施工企业三级资质换二级资质\n请问施工企业三级资质换二级资质，它里面所说的一年有效期是不是指换证成功之日起算一年有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2826876",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2826876",
+   "question": "建筑总承包二级延期\n我单位建筑工程总承包二级资质于2024-03-08到期，注册地址在汕头市，请问现在是否可以开始申请延期了? 是否考核工程师和技工，是按二级字标准考核还是三级资质标准考核。技术负责人是否考核业绩现在是否可以开始申请延期了?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2799561",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2799561",
+   "question": "申请资质\n建造师一人有不同专业双证，能否分别计算两个证（人）？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2765356",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2765356",
+   "question": "就施工总承包资质问题咨询\n您好，请问今年12月份到期的施工总承包三级资质的什么时候可以办理延期呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2732766",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2732766",
+   "question": "关于企业项目定级审核的问题\n根据住房城乡建设部关于进一步加强建设工程企业资质审批管理工作的通知建市规〔2023〕3号的第四条’企业业绩应当是在全国建筑市场监管公共服务平台（以下简称全国建筑市场平台）上满足资质标准要求的A级工程项目’。我司企",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2732935",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2732935",
+   "question": "企业资质升级问题\n1、我司资质是：主项建筑幕墙工程专业承包二级，增项钢结构工程专业承包三级，根据国发〔2021〕7号文件决定取消的建设工程企业资质其中钢结构工程专业承包三级需要取消，如我司不计划升级的，那我司资质中的增项钢结构工程专业承包三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2679408",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2679408",
+   "question": "企业资质跨省变更后法人变更\n我单位装饰设计甲级资质跨省变更了，但还未重新核定，发的是一年有效期的资质证书。请问我们资质证书现在能变更法人吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2678392",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2678392",
+   "question": "2022年度建筑工程技术人才职称评价工作的咨询\n咨询问题如下： 一、想问问建筑工程技术人才职称评价是否有通过率的限制要求？如有，在不涉及保密的情况下，请依申请公开。 二、如果没有通过率的限制，那珠海市的评审标准是执行省级标准还是市级标准，相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2665886",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2665886",
+   "question": "资质升级\n你好 1、我们公司建筑施工总承包三级2023年12月31日到期，如果在2023年12月31日前进行升级，升级为建筑施工总承包二级，请问有效期是多久，是5年还是就到2023年12月31日。 2、我们公司有建筑施工总承包三级，想升级为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2644471",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2644471",
+   "question": "有劳务资质的情况办理房建二级资质属于增项还是首次申请？\n您好，公司有施工劳务不分等级资质，没有安全生产许可证，这种情况下申请建筑工程施工总承包二级资质是属于增项还是首次申请呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2625997",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2625997",
+   "question": "关于施工总承包资质申报问题咨询\n请问，在网上申报资质后，还需要提供纸质版审查吗，如需要，是否需要拿到现场或者邮寄呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2582884",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2582884",
+   "question": "港口与航道工程施工总承包二级资质增项-职称证专业问题咨询\n您好，我司要申报港口与航道工程施工总承包二级资质增项，有人员是中级职称专业分别是港航工程、港口土建、港航及市政工程、港航工程及市政工程，以上专业是否可以代替港口与航道工程？ 该设备是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2539672",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2539672",
+   "question": "业务咨询\n直接申请新办建筑工程施工总承包二级资质技术负责人需要提供什么资料？四库应完善哪些数据？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2537430",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2537430",
+   "question": "建筑劳务资质\n目前广东地区（或仅广州与佛山地区）的个体户可以直接从事建筑劳务工作吗？是否还需要什么相关资质许可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2517950",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2517950",
+   "question": "申请市政公用工程施工总承包资质咨询\n您后，申请市政公用工程二级资质职称需满足三级标准要求8人，请问职称专业是否要求齐全，例如一个给排水、1个机电工程、6个道路与桥梁专业职称是否可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2514271",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2514271",
+   "question": "资质顺延\n我司现有一个消防设施工程专业承包二级资质，在2022年12月31日已过期，请问现在该怎样操作资质顺延呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2512340",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2512340",
+   "question": "房地产企业开发资质相关问题\n1、如果二级资质于2022年有效期已办过一次自动顺延，今年还可不可以再办续期？ 2、如现时正在申请一级资质，是否会影响二级资质续期？（现时一级资质审批流程已去到住建部）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2470008",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2470008",
+   "question": "是否能用于机电安装三级升二级\n项目1内容：冷库制冷系统、净化隔断装修及门窗、车间净化空调 项目2内容：冷库建造、改造达到国家级地方验收标准及甲方需求的设计、施工全部内容 项目3内容：冷库设备、材料采购、安装工程、设备系统调试及对甲方人员的技",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2471025",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2471025",
+   "question": "电力工程施工二级资质自动顺延到2023.12.31\n你好，我们公司的电力工程施工二级资质是2023.7月份到期的，现在有文件说到时是自动顺延到2023.12.31号。那到时自动顺延后，电力工程施工二级资质电子版的有效期是不是自动更新到202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2465288",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2465288",
+   "question": "监理资质升级问题\n您好，请问贵部门，若监理资质升级公示不通过后，多久可以重新申报，是否有间隔时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2435501",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2435501",
+   "question": "房地产企业开发资质相关问题\n你好！我司开发的项目已经全部完成竣工备案，后续也不需要开发新项目，现在我司的房地产企业开发资质证书已经到期，请问这种情况还需要更新或者重新核定房地产企业开发资质证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2395220",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2395220",
+   "question": "房地产开发企业资质管理\n在申请房地产开发企业资质时，二级建造工程师、二级造价工程师是否属于有职称的建筑、结构、财务、房地产及有关经济类的专业管理人员中的初级职称人员？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2382024",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2382024",
+   "question": "机场场道工程二级专业承包资质\n您好，想请教机场场道工程二级专业承包资质的申报路径。现已知该资质需向“企业工商注册所在地省级住房城乡建设主管部门提出申请”，后由住建部审批。我司为注册在广州市的企业，想请教我司申报路径应为哪个：1.向广州市住建",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2273109",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2273109",
+   "question": "房地产开发资质在哪里查询\n请问深圳市房地产二级开发资质在网站哪个位置可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2236357",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2236357",
+   "question": "建筑类高级职称申报专业问题咨询\n《广东省建筑工程技术人才职称评价改革实施方案》（粤人社规〔2019〕33号）文件规定，建筑工程技术人才职称设置建筑设计、 建筑施工、 建筑管理、 建筑材料等四个专业。其中建筑设计列明有市政路桥设计专业，建筑施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2206585",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2206585",
+   "question": "人防工程防护设备检测机构资质\n请问广州市检测机构需要申报人防工程防护设备检测机构资质，申报平台和申报流程是怎么样的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2153923",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2153923",
+   "question": "业绩补录\n如何删除业务事项申报里面合同信息中的第一项和施工图审查信息的内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2120186",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2120186",
+   "question": "资质证书延期\n建筑装修装饰工程专业承包一级的资质证书，包含在这次的顺延证书里面吗？不包含的话怎么延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "2121375",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=2121375",
+   "question": "地点查询\n想问下广东省住房和城乡建设局的详细地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1081663",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1081663",
+   "question": "变更建筑业企业安全生产许可证的单位地址\n请问在三库一平台→行政审批事项→建筑施工企业安全生产许可证核发，变更单位地址需要提交“资质证书副本”，请问是提交所有已经变更好的资质证书副本扫描件还是已经变更好单位地址的其中一个资质证书即可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1033321",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1033321",
+   "question": "关于总承包壹级资质年底到了有效期如何申请延期？\n您好，我司有房建和市政总承包壹级资质于2021.12.31到了有效期，请问如何申请延期，需要什么资料，到期多久之前可以申请延期，申请之后，多久能核准延期，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "1025489",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=1025489",
+   "question": "广东省建筑施工安全管理资料统一用表（2021版）\n广东省建筑施工安全管理资料统一用表（2021版）已经发行了吗？有没有发售？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "993166",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=993166",
+   "question": "中级注册安全工程师能否代替安全B证任项目经理\n中级注册安全工程师能否代替安全B证任项目经理，有了中级注册安全工程师，想要担任项目经理是否还需要考取安全B证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "957271",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=957271",
+   "question": "地基基础工程专业承包、建筑机电安装工程专业承包二级升一级相关咨询\n请问： 1、技术负责人年限从什么时候开始计算，是从毕业工作后开始计算 还是从取得职称后开始计算？ 2、主要设备购置发票如果没有是否可以不提供，或者是可以用什么其他资料代替？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "953990",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=953990",
+   "question": "资料员如何报名？\n资料员有网上报名培训考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "949709",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=949709",
+   "question": "广东二级造价工程师怎么注册\n您好，什么时候可以开始注册2020年广东二级造价工程师？注册流程可以在哪里查询？ 盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "922206",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=922206",
+   "question": "你好，请问申报资质升级系统里面要求上传的企业业绩汇总表在哪里下载？\n你好，请问申报资质升级系统里面要求上传的企业业绩汇总表在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "917415",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=917415",
+   "question": "关于广东2020年度二级造价工程师注册事宜\n领导您好，我想咨询一下2020年度二级造价工程师注册大概什么时间能注册呢？望盼为复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "912642",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=912642",
+   "question": "数据寻求\n您好，我是一枚高校学生，想利用2018年或者2019年的广东各市教育用地面积的数据进行课题研究，但是在网站公布的广东省土地利用现状数据中并未发现有这一数据，因此冒昧前来寻求你们的帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "893685",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=893685",
+   "question": "一级建造师、监理工程师、一级消防工程师可以在广东等同于中级职称吗？\n请问下一级建造师、监理工程师、一级消防工程师可以在广东等同于中级职称吗？我看好多省人社厅已经发文可以，有的还可以等同于高级职称，广东这方面的文没找到，不知道可不可以等同于中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "867301",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=867301",
+   "question": "新旧企业资质升级问题\n新旧企业资质升级问题，新旧企业资质想要升级对照哪个文件？现在我们具有市政公用、建筑工程施工总承包二级资质，想要升级到新资质下的甲级怎么准备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "853472",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=853472",
+   "question": "关于脚手架审核资质中中级工程师证专业要求\n我们公司是脚手架分包商，按要求需有不少于5人持有结构、机械、电气专业的中级工程师证； 我们有3人持《建筑电气》、《电力工程》的中工证， 我想确认下《建筑电气》、《电力工程》证属于电气专业吗 ？盼回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "851966",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=851966",
+   "question": "合同\n你好，请问哪里可以考合同管理员证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "848838",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=848838",
+   "question": "外省建筑企业入粤备案\n请问一下武汉市建筑企业进入深圳建筑市场的备案流程是什么样的？是在网上走流程还是要实地走流程?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "817027",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=817027",
+   "question": "咨询类\n住房与城乡建设厅网站找不到造价管理站的入口，我想找到造价管理站的公开的信息价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "795136",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=795136",
+   "question": "建筑施工特种作业人员年审\n你好，我单位有一批建筑施工特种作业人员（建筑起重信号司索工）证书今年8月份到期，因疫情缘故无法进行年审延期。该证书由省住建厅办法，请问疫情期间是否有特殊处理办法，此类情况该如何处理呢。如果仍可以进行年审延期，有哪家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "725340",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=725340",
+   "question": "b证在哪报名\n安全员b证在哪报名，可以自己报名吗？不想让企业帮忙报名，已经有建造师证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "658462",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=658462",
+   "question": "关于起重设备安装工程安全生产许可证申请特种人员要求\n我公司注册地在清远，准备申请安全生产许可证，因起重设备安装工程专业承包资质的安全生产许可证申请中要求提供特种作业操作资格证，咨询辽宁省住房和城乡建设厅颁发的建筑施工特种作业操作资格证（建筑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "658553",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=658553",
+   "question": "机电专包升级无法提供房产证\n我公司计划申请机电专业承包升级，办公场地是租的，但是业主无法提供房产证，房产证还在办理过程中，现在只有一份租赁合同，请问还需要补充什么材料来证明我公司在这里办公？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "619057",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=619057",
+   "question": "咨询\n我是招标代理公司，我们公司代理的综合公园的设计施工一体化项目，还需要风景园林工程设计专项资质吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "617190",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=617190",
+   "question": "机构改革后，规划主管部门是哪个部门？\n1、机构改革后，住建部的城乡规划管理职责划入自然资源部。相应各地方也把规划管理职责划入了自然资源部门，那么，请问城乡规划主管部门是指哪个部门？ 2、根据《城乡规划法》第六十四条 “未取得建设工程规划许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "546567",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=546567",
+   "question": "一建注册问题\n2010年7月全日制本科，英语专业毕业，开始受雇于工程施工类企业从事海外项目工程管理工作。 2016年7月函授本科，土木工程专业毕业。 2018年，2019年两年通过一级建造师考试。 请问此种情况，是否符合注册要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "545624",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=545624",
+   "question": "考建造师要求\n请问考建造师需要买社保吗？如果需要，是需要提供多久的社保证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "535088",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=535088",
+   "question": "二级建造师\n请问，二级建造师执业资格考试科目有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "534486",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=534486",
+   "question": "2019年度网站工作报表\n贵单位的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "532471",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=532471",
+   "question": "2019年通过的一级建造师什么时候可以开始网上初始注册\n2019年通过的一级建造师合格名单已完成公示，什么时候可以开始在建设行业执业资格管理信息系统进行初始注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "529586",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=529586",
+   "question": "请问通过2019年度建筑工程技术人才职称高级职称评审的什么时候出证？\n请问通过2019年度建筑工程技术人才职称高级职称评审的什么时候出证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "524081",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=524081",
+   "question": "住房补贴\n转业干部住房补贴以前规定是发放300个月，至今这个规定是否还在执行？2016年住房补贴改革，对于已领满300个月住房补贴的人员又是怎样规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "522258",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=522258",
+   "question": "关于“工商企业管理”专业能否报考二级建造师并注册的咨询\n您好，19年函授大专“工商企业管理”专业毕业，参加2021年二级建造师考试，如通过，注册时仅提供毕业证的情况下能否顺利注册？望答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "294154",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=294154",
+   "question": "感谢湛江市住建局为我解决难题\n本人2019、10、9向贵厅反映湛江市经济技术开发区金怡城市花园对不购买地下车库的业主，不能临时将小车驾驶进入地下车库接受小孩老人。贵厅高度重视，及时指示湛江市住建局协商处理，湛江市住建局的有关同志尽心尽力去协",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "293327",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=293327",
+   "question": "关于建筑业企业资质“放管服“相关问题\n尊敬的领导 根据广东省住房和城乡建设厅印发建筑业企业等资质管理“放管服”改革试点实施意见的通知粤建规范〔2018〕7号文件，我司在建工程（预计2020年2月初竣工）符合办理“放管服”相关资质，但文件中提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "215860",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=215860",
+   "question": "证书的使用情况\n尊敬的领导：中国建设劳动学会监制，由中国建设劳动学会职业技能考评委员会发证，请问，这种中级技术工可否用于资质申报的有效认定？望回复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "188701",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=188701",
+   "question": "建筑装修设计乙级资质\n建筑装修设计乙级资质中要求的结构工程师可不可以用建筑工程师来替代，电气工程师可不可以用电力及其自动化工程师来替代。因为结构工程师有包含建筑工程师，电力工程师也包含电力及其自动化。工程师可否只提供身份证，毕业证，职称证的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "112793",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=112793",
+   "question": "特种工程（限特殊设备起重吊装）,人员专业\n特种工程（限特殊设备起重吊装）专业承包资质要求具有机械专业中级以上职称人员不少于5人。 您好，按照标准，职称专业只要带机械两个字就行吗？还是职称专业：机械工程师才可以？ 比如机械制造；机械制造工程技",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "110262",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=110262",
+   "question": "一级造价工程师初始注册成功后多久可以转注册\n一个月前我在深圳一家企业初始注册一级造价工程师成功，由于家庭原因，现在需要转到内地工作，可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "5333",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=5333",
+   "question": "注册二级造价师考试\n广东的注册二级造价师考试今年会开考吗， 教材出来没有，大概什么时候考呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "4507",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=4507",
+   "question": "造价咨询甲级资质延续相关问题\n1、 退休人员，不超过60岁，只有养老保险待遇核定表无退休证，造价咨询甲级延续可以算专职专职人员吗？ 2、 造价咨询甲级延续社保证明是否只要提供社保局盖章的缴纳明细表，无需提供社会保险费专用收据，需要提供多长时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "416",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=416",
+   "question": "关于重新注册注销的时间间隔\n中心领导：一级建造师重新注册后不久由于合同分歧导致合同终止，双方同意解除劳动合同，多久可以注销重新注册？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "231",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=231",
+   "question": "C证会取消吗\nC证会取消吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "418",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=418",
+   "question": "建筑劳务资质\n请问建筑劳务资质是否要取消了？具体取消时间有计划表吗？取消了之后建筑劳务公司应如何转型？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "233",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=233",
+   "question": "二级建造师证书需要印制多久\n你好，请问广东二级建造师证书需要印制多久，这个月几号深圳考生能拿到二级建造师证书？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfcxjst",
+   "id": "234",
+   "url": "http://zfcxjst.gd.gov.cn/hdjlpt/detail?pid=234",
+   "question": "二级建造师的继续教育选修的网络班什么时候能重新开班呀？\n二级建造师的继续教育选修的网络班什么时候能重新开班呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

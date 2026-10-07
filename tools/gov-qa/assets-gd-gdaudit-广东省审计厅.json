@@ -1,0 +1,405 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gdaudit",
+   "id": "2683551",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2683551",
+   "question": "审计机关人员工作范围\n审计机关人员能不能参加政府非招标采购工作，如竞争性谈判、单一来源采购和询价采购？审计机关人员能不能参与政府投资工程项目的签证、验收等工程管理工作？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国审计法（2021）",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国国家审计准则",
+    "中华人民共和国国家审计准则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2628991",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2628991",
+   "question": "《审计法》是否适用民企?\n《审计法》是否适用民企?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国审计法实施条例",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2316033",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2316033",
+   "question": "关于被审计单位部分应纳入政府集中采购项目未按规定进行集中采购是否需要移送主管部门进行处理\n在审计项目中发现被审计单位存在部分应纳入政府集中采购的项目未进行集中采购的问题，如保洁物业服务180000元、修缮工程50000元、购置投影仪3200",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gdaudit",
+   "id": "3466688",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3466688",
+   "question": "查询\n审计厅的网站报表在哪里看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年度广东省审计厅政府网站工作年度报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3417616",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3417616",
+   "question": "政府信息公开工作年度报告\n请问在哪里可以查看广东省审计厅2025年的政府信息公开工作年度报告？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省审计厅2025年政府信息公开工作年度报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3496504",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3496504",
+   "question": "查看审计报告\n以前发布的审计报告在哪里可以看",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3343629",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3343629",
+   "question": "咨询\n在哪里查看广东审计整改报告？",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3283087",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3283087",
+   "question": "公务员\n广东省考审计厅招公务员吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "通知公告",
+    "广东省2026年考试录用公务员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3240739",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3240739",
+   "question": "咨询\n在哪里看广东省审计厅的主动公开文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府信息公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3181613",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3181613",
+   "question": "政策解读信息\n您好，请问广东省审计厅的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "政策解读"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2915049",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2915049",
+   "question": "广东省审计厅的政策解读信息在哪里查看\n您好，请问广东省审计厅的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政策解读"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2909928",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2909928",
+   "question": "查阅审计报告\n审计报告在哪里可以看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2866804",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2866804",
+   "question": "《审计专业技术资格规定》提到的“相关审计实践经验”包括哪些？\n请问《审计专业技术资格规定》提到的“相关审计实践经验”包括哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计专业技术资格规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2517785",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2517785",
+   "question": "《党政主要领导干部和国有企事业单位主要领导人员经济责任审计规定》修订的重点内容\n您好！因论文材料需要，请教以下问题：2019年7月，中共中央办公厅、国务院办公厅印发了新修订的《党政主要领导干部和国有企事业单位主要领导人员经济责任审计规定》（",
+   "cited_hits": [],
+   "cited_missing": [
+    "党政主要领导干部和国有企事业单位主要领导人员经济责任审计规定",
+    "党政主要领导干部和国有企业主要领导人员经济责任审计规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2188755",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2188755",
+   "question": "审计人员继续教育\n非单位的审计师职称证书持有人如何进行继续教育？ 如何认定继续教育学时，取得继续教育完成证书？ 没有完成继续教育，是否会影响高一级审计师职称证书的考、评？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省专业技术人员继续教育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2117338",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2117338",
+   "question": "请问2021年公务员考试\n请问2021年广东省公务员考试审计专业类，加考专业科目笔试，考试内容是审计内容、还是会计内容，有具体的指向嘛",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省审计机关2022年考试录用公务员专业科目笔试考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "1076827",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=1076827",
+   "question": "2021年度是否还开展高级审计师的评审工作\n您好，根据往年9月份就开展高级审计师的评审工作，但今年尚未通知，请问今年是否还进行评审？本人2020年参加考试并通过，若2022年才开展评审，会否影响成绩的有效期？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "1054682",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=1054682",
+   "question": "请问2021年是否开展正高级审计师评审？\n请问2021年是否开展正高级审计师评审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gdaudit",
+   "id": "3496025",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3496025",
+   "question": "最新的审计工作报告\n广东2025年的审计工作报告在哪里看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3168473",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3168473",
+   "question": "哪里可以看到审计工作的统计？\n统计数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3124495",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3124495",
+   "question": "审计厅的财政预决算信息\n请问在哪里看审计厅的财政预决算信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3078648",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3078648",
+   "question": "2024年度高级审计师职称评审\n请问2024年度高级审计师评审通知大概什么时候出？往年12月份就出了。现在我单位正在统一组织职称内部初审工作，我在准备评审材料，最好能够和其他专业一起内部审核，一起报送上级主管部门审核，所有想了解一下评审通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3058189",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3058189",
+   "question": "关于选调生\n请问审计厅是否有招聘选调生的计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "3021673",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=3021673",
+   "question": "业务咨询\n哪里可以看到审计厅政务公开方面的统计信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2977926",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2977926",
+   "question": "审计专业人员高级职称评审\n请问在哪里可以看到通过审计专业人员高级职称评审的名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2816342",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2816342",
+   "question": "考试咨询\n领导好，请问即将到来的2024年广东省考是否会有审计专业岗位？如有，笔试是否加考审计专业科？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2794078",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2794078",
+   "question": "广东省审计条例\n听说广东省审计条例正在征求意见，请问是在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2738736",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2738736",
+   "question": "请问哪里可以查看审计工作数据？\n请问哪里可以查看审计工作数据？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2567221",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2567221",
+   "question": "政府信息公开指南\n您好，请问省审计厅的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2513206",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2513206",
+   "question": "考试咨询\n你好，今年招考的审计局岗位中，有“审计专业类职位”、“审计综合类职位”，两种职位都需要进行专业科目考试，还是只有“审计专业类职位”需要进行，“审计综合类职位”不需要考专业科目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2517784",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2517784",
+   "question": "请问审计机关加强对内部审计工作指导的具体措施有哪些？\n学术需要研究需要，请问审计机关加强对内部审计工作指导的具体措施有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2400193",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2400193",
+   "question": "请问每年必审的审计项目有哪些？\n您好，因为科研课题需要，请教一下每年审计机关必审的审计项目有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2269583",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2269583",
+   "question": "审计厅机构职能信息\n请问广东省审计厅的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2264760",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2264760",
+   "question": "审计厅政府信息公开工作年度报告\n请问广东省审计厅的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "2149561",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=2149561",
+   "question": "2021年中级审计师资格审查及证书领取\n2021年 中级审计师成绩已出多日，迟迟未通知资格审查 及 证书领取 相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdaudit",
+   "id": "1019366",
+   "url": "http://gdaudit.gd.gov.cn/hdjlpt/detail?pid=1019366",
+   "question": "网页上会有一些对于普通人的招聘吗\n您好，我是一名外省来广东务工的普通百姓，今年三十五岁。人到中年求职变得越发困难，于是四月份来到广州准备做一名网约车司机等待着上岗证的考试，可在即将考试的六月份出现了疫情。直到前几天刚刚完成考试，滴滴却下架了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

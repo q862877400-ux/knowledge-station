@@ -1,0 +1,952 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gdjyj",
+   "id": "2266771",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2266771",
+   "question": "关于会见问题咨询\n请问服刑人员在监区服刑期间，如近亲属父母不方便会见情况下，可以否委托一名非服刑人员亲属的人作为代理人，这样可否正常进行会见？",
+   "cited_hits": [
+    {
+     "name": "监狱法",
+     "lib_no": "监狱法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1083761",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1083761",
+   "question": "咨询假释政策\n《最高人民法院关于办理减刑、假释案件具体应用法律的补充规定》第六条规定，对本规定所指贪污贿赂罪犯适用假释时，应当从严掌握。请问上述从严掌握是否意味着实践中，贪污贿赂罪或者受贿罪的服刑人员假释的概率很低。",
+   "cited_hits": [
+    {
+     "name": "最高人民法院关于办理减刑、假释案件具体应用法律的补充规定",
+     "lib_no": "最高人民法院关于办理减刑、假释案件具体应用法律的补充规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gdjyj",
+   "id": "3353474",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3353474",
+   "question": "账号和密码\n我的账号不知道是哪个也不知道怎么找回？登录不了账号也就查不了服刑人员的信息也不能给他预存钱！账号怎么找回",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3322499",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3322499",
+   "question": "服刑人员编号和账号密码\n家属入监后多久可以收到入监通知书",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3262707",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3262707",
+   "question": "关于监狱人员顾送款申请凭身份证号及姓名充值的建议\n监狱管理局： 目前看守所已实现顾送款朋友也可以凭身份证和姓名充值，但是目前监狱人员只能备案亲属充值，太麻烦，还要提供监狱人员编码。如果亲属是老年人的或者小孩，就没办法办理线上顾送。要求在粤省",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省监狱罪犯个人钱款管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3098659",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3098659",
+   "question": "入监队期间，会通知家属吗\n亲属投牢了，在入监队期间，监狱会通知家属吗？入监队期间，家属能顾送款进行消费吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3058502",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3058502",
+   "question": "亲哥哥已经转移到监狱了，没有留下转去哪里和服刑编号。不知道怎么查询\n本人亲哥哥已经转移到监狱了，没有留下转去哪里和服刑编号。不知道怎么查询，之前是在阳江市阳西县拘留所呆的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3022065",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3022065",
+   "question": "入监通知书\n入监多久家属才能收到入监通知书",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3010699",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3010699",
+   "question": "没收到服刑人员通知书\n人已经进去三月有余到今日还没收到服刑通知书不知道服刑编码",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2979255",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2979255",
+   "question": "服刑人员罚款怎么交\n1.没收到入监通知书 2.不知道亲人在哪个监狱，不知道服刑人员编码 3.接听亲情电话时很突然，忘记问在哪个监狱了怎么办？ 4.亲情电话怎么预约？服刑人员多久可以打一次电话回家？ 5服刑人员罚款怎么交，去哪里交？多久之内需",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书",
+    " 司法部罪犯会见通信规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2870727",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2870727",
+   "question": "预约会见\n我想预约会见，但是不知道服行编号是多少了怎么办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2733835",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2733835",
+   "question": "羁押人员\n羁押人员收监至今快两个月，家属没有收到通知书",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书",
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2724169",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2724169",
+   "question": "服刑人员信息\n为什么寄回家的《服刑告知书》里没有服刑人员的囚号，只有监狱地址",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2541776",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2541776",
+   "question": "犯人\n已经服刑，查询不到犯人收监详细信息",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2379423",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2379423",
+   "question": "如何得知亲属去了哪个监狱，收不到信件，如何可以查询\n亲属已经去了监狱，但家人一直没有收到信件，无法获知去了哪个监狱，可以咨询哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "入监告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1103374",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1103374",
+   "question": "服刑人员消费限额问题咨询\n领导您好，本人家属现在广东省阳江监狱服刑，由于身负刑事责任，今年开始每月的消费限额变成了100元，工作获得的工资或奖励也没法得到更多消费，目前感到生活较拮据，工作也难有动力。麻烦领导们予以关注，提升消费额度，提供稍",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强罪犯狱内消费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1069282",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1069282",
+   "question": "申请单审核中\n提交了申请那个登录服刑人员账号密码，现在一周了，还是在申请单审核中，不知道密码登录，家属也没有收到账号密码",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1048603",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1048603",
+   "question": "如何知道囚号\n已知服刑人员送去监狱，但没有收到服刑人员的囚号。该怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1034099",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1034099",
+   "question": "入监通知书\n入监通知书是寄给家属还是寄到户籍地址？会根据哪个地址寄出？",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1005554",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1005554",
+   "question": "减刑\n干警您好，请问服刑人员扣分了对减刑有影响吗？有怎么样的影响？会不会不得减刑的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省监狱管理局计分考核罪犯实施细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "990178",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=990178",
+   "question": "没有收到监狱寄送信件\n2021年5月9号咨询当地看守所得知服刑人员迁往韶关监狱，但截至目前一直未收到监狱寄送的信件，也不知道账号密码，无法查询服刑人员编号预存顾送款。如遇服刑人员提供的通信地址不正确，麻烦联系我已存留的通信地址及电话。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "974436",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=974436",
+   "question": "收不到监狱的信不知道账号密码\n收不到监狱寄出来的信，不知道账号密码",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "961534",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=961534",
+   "question": "写信\n寄信地址是通知单上的地址吗？会不会突然换监区就收不到信件了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "944788",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=944788",
+   "question": "有关监狱犯人的医疗保障的具体政策或流程\n相关负责人， 您好，对于你们的以下答复，我想了解一下，监狱医院针对服刑人员患病情况，有相应的医疗保障，能否详细说明一下 这个医疗保障，对于犯人的家属，我们也是很迫切的了解清楚，请体谅。非常感谢！！ 我",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于加强监狱生活卫生管理工作的若干规定",
+    "医疗机构执业许可证",
+    "监狱医疗机构设置和基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "874958",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=874958",
+   "question": "如何了解服刑人员的情况？\n您好！我弟失联近10年，父母为找他操碎了心，母亲因此患上精神分裂症。前两天我爸突然接到邮政人员的电话，说有一份从佛山监狱发来的挂号信，写明是我爸的儿子。由于我爸现不在户籍所在地居住，且年纪较大不知如何处理，该信件几",
+   "cited_hits": [],
+   "cited_missing": [
+    "罪犯入监通知书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gdjyj",
+   "id": "3503519",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3503519",
+   "question": "如何申请假释\n我家人犯了经济行政罪判处1年半，可否申请假释，目前在老弱病残仓服役，如何帮忙申请假释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3470385",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3470385",
+   "question": "家属监区发生变化\n家属入监通知书上有写明监区，过了一段时间后发现粤省事上的监区信息与入监通知书的监区不符，请问以哪个为准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3454692",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3454692",
+   "question": "求职\n我了解带广东省佛山市南海区监狱招聘狱警公告，我是应届毕业生，想了解一下怎么报考呢，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3427111",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3427111",
+   "question": "会见\n我与服刑人员是堂兄弟，我想去探望一下他，需要出示什么证明？还有哪些证件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3419229",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3419229",
+   "question": "1987年间原通信地址为“广东省乐昌坪石田头103信箱之2”的监狱，现在搬迁到哪里了？\n请问1987年间原通信地址为“广东省乐昌坪石田头103信箱之2”的监狱，现在搬迁到哪里了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3401969",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3401969",
+   "question": "求职\n我在丁香网看到了广东省监狱中心医院招聘的合同制超声医生，我对此岗位感兴趣，请问有何渠道可以投递简历？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3376559",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3376559",
+   "question": "请问对在押犯人是否可以安排网络视频开庭\n我代理了一起民事诉讼案件，第三人正在英德监狱服刑。该民事案件已由东北某基层法院受理。为完成开庭，请问监狱是否可以配合人民法院，通知该服刑的当事人通过远程视频方式进行开庭呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3355726",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3355726",
+   "question": "咨询减刑\n同志您好，请问一下贵监狱减刑的间隔期是多少呢，是不是不同罪行的话有不同的间隔期呢，如果有的话请告知一下分别有那些罪行有那些间隔期。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3356252",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3356252",
+   "question": "假释\n朋友因贩毒，判处有期徒刑15年，服刑期间有可能办理假释吗？需要满足哪些条件？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3352578",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3352578",
+   "question": "公务员考试\n广东省监狱管理局招的肇庆的监狱岗，体测是在广州统一考吗，还是在肇庆考，公告什么时候出呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3298227",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3298227",
+   "question": "会见问题\n您好教官，请问服刑人员入监第一个月能会见吗，已经在粤省事上成功预约会见，能按照上面的时间去吗？望解答；入监通知书尚未收到，请问需联系哪个部门拿平递信的单号呢，望回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3295652",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3295652",
+   "question": "写信\n朋友入狱，可以写信吗？要怎么邮寄？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3256917",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3256917",
+   "question": "单位职工被判刑，如何查询在哪所监狱服刑？\n单位职工被依法判处有期徒刑，由于他的情况特殊，无法联系到近亲属了解收监情况，还可以怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3224170",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3224170",
+   "question": "不是直系亲属怎么获得犯人入监通知书跟编号\n朋友判六个月在看守所待三个月转监狱了，由于他没有直系亲属了。他叔伯不会管他的 所以我们朋友想存点钱给他改善一下生活 他从看守所到监狱10天左右了 由于没有他的编号跟入监通知书 那如何存钱给他。该怎么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3194708",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3194708",
+   "question": "收到的如遇通知书，没有服刑人员编号\n亲哥哥已被转到广东省揭阳监狱，已收到入狱通知书，但内容并未告知服刑人员编号，可以帮我查询一下并告知服刑人员编号吗？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3154116",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3154116",
+   "question": "人员招录\n是否可以通过佩戴ok镜满足裸眼视力要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3118686",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3118686",
+   "question": "咨询现场会见，可以面对面吗？\n开放日具体时间。儿媳妇，姑爷，外孙子，这些可以当面会见吗？怎么办理？需要提交什么材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3064887",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3064887",
+   "question": "会见条件\n服刑人员妹妹因婚姻外迁户口，探访需提供什么证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3010343",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3010343",
+   "question": "会见人员中，亲友怎么证明\n作为亲友，想要去会见监狱服刑人员需要办理哪些证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "3002965",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=3002965",
+   "question": "顾送物品\n请问一下现在能否顾送物品，比如衣物，书籍什么的，有什么要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2995094",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2995094",
+   "question": "会见\n您好，请问下视频会见过，然后第一次去现场会见需要带什么证件呢，与服刑人员是妻子跟孩子的关系，还需要录入资料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2954200",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2954200",
+   "question": "查询亲人所在监狱\n家里亲戚，之前拘留在东莞第二看守所。5月20几号法院判刑2年半，之后不知道收监到哪里了，收监后5天不是应该寄送入监通知书。从宣判至今2个月过去了还没收到。也没有任何消息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2943709",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2943709",
+   "question": "查询亲人所在监狱\n不知道他在哪个监狱 家里那个通知书伯母弄丢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2935417",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2935417",
+   "question": "会见问题\n当月在国科服务申请可视电话之后，能否再线下会见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2928754",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2928754",
+   "question": "省考公示\n请问一下2024省考公示完大概什么时候什么形式来通知，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2898039",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2898039",
+   "question": "未收到家属的入监通知书，什么部门负责\n没收到入监通知书，也没有相关部门通知家属",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2897868",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2897868",
+   "question": "服刑人员入监通知书\n服刑人员已移送监狱1月余，仍未收到入监通知书，原因为何？如何查询服刑人员信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2897179",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2897179",
+   "question": "省考体检通知何时发布\n请问，省考体检通知何时发布？或是否由贵单位进行发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2880061",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2880061",
+   "question": "体检能否戴手表\n您好，请问体测能否戴智能手表或者机械表？感谢回答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2861413",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2861413",
+   "question": "关于服刑人员驾驶证换证事项的请求\n尊敬的局长：您好！ 本人的家属在清远监狱服刑，其驾驶证过期（2022年1月）再延期3年（至2025年1月）即将到期，但其那时仍不能出狱，驾驶证过期再延期3年仍未办理换证就要重考。驾驶证换证需要提供体检表，其",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2845951",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2845951",
+   "question": "体检要求\n退伍军人色弱能报考吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2823830",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2823830",
+   "question": "招聘政策\n你好，想问一下参加省考公务员考试报考狱警职位有无视力要求呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2808609",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2808609",
+   "question": "广州新华监狱网站信息\n广州新华监狱的网站及相关导航在本网站（广东省监狱管理局）查询不到，是该监狱未开通网站吗，公众号也没有查询到，请问如何能够像其他监狱一样获取到该监狱的具体公告以及服刑人员查询等入口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2805417",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2805417",
+   "question": "2024年监狱事业单位招聘考试什么时候可以开始报名？\n想咨询一下贵事业单位什么时候可以面相大学应届生开始招聘考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2804772",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2804772",
+   "question": "服刑人员可以申请眼镜验光吗\n因为随着环境和身体状况的影响，之前在家的验光度数已不在适合，严重影响到服刑人员的劳动效率与精神状态。是否可以有其他权衡办法帮助家属解决问题。因为家属已经更换几副眼镜了都不合适，再说家属每次在异地长途跋涉过来顾送也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2803947",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2803947",
+   "question": "我在哪里可以查询监狱的便民服务电话呢？\n我在哪里可以查询监狱的便民服务电话呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2788396",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2788396",
+   "question": "服刑人员编号密码\n你好，我想请问下服刑人员的密码不正确填写了申请单之后有显示序列号，退出后第二天输入序列号查询缺显示申请单不存在是怎么回事呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2769998",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2769998",
+   "question": "关于视频会见未成年人怎么申请\n在押人员子女未成年，怎么为她申请会见、手机视频会见等手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2744371",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2744371",
+   "question": "给服刑人员书信\n我想请问，服刑人员现在还在入监队，还没分监区、监号，可以写信给他吗，没有监区监号能不能收到信。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2719030",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2719030",
+   "question": "现场预约会见\n在网上申请预约亲友现场会见，请问申请人以及会见人员证明资料审核需要多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2691999",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2691999",
+   "question": "罪犯监狱调动申请\n黑龙江省牡丹江监狱异地调动广东省监狱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2675214",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2675214",
+   "question": "查询服刑人员信息\n你好，我需要查询服刑人员信息但不知道账号密码，7月2号已申请序列号三个工作日可凭序列号查询但我7月8号查询还一直显示申请单审核中 。请问申请单需要多久审核完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2668401",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2668401",
+   "question": "无法登陆服刑人员查询帐号和密码\n在深圳监狱通过服刑人员的身份证信息等查到了服刑人员的查询帐号和密码，可是系统一直登陆不进去，说账户密码不对，想给里面的亲属充钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2658265",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2658265",
+   "question": "关于事业单位集中招聘\n请问广东省监狱管理局所属事业单位参加2023年广东省集中招聘高校毕业生笔试后续工作何时开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2569365",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2569365",
+   "question": "政府信息公开指南\n您好，请问省监狱管理局的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2513449",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2513449",
+   "question": "咨询2023年省考监狱警察要求。\n尊敬的广东省监狱管理局您们好:请问报考女子监狱职位代码59900012354149 岗位，体检有视力要求吗？视力达到什么标准才合格呢？考试循序:是笔试→面试→体能测试→体检？还是笔试→体能测试→面试→体检？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2494490",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2494490",
+   "question": "能否申请到户籍所在地监狱服刑？以及如何申请？\n您好，我们有一当事人于2022年9月收到广东省高院二审裁定，有期徒刑十年六个月，一审法院为东莞中院，当事人目前尚未收到执行通知书。想请问：他的户籍在深圳，可否申请到深圳监狱服刑？如果可以，如何提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2472973",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2472973",
+   "question": "服刑监狱查询\n上个星期警察过来抓人，把人带走了，想问下现在关在哪个监狱，我们想去探监。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2433696",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2433696",
+   "question": "可视亲情电话申请\n监狱现在不开放现场会见，听说可以通过视频会见家属，想问一下要怎么申请。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2347810",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2347810",
+   "question": "2022公务员报到\n请问2022年录用的新公务员什么时候政审完？什么时候公示、报道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2295179",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2295179",
+   "question": "请问现在可以现场会面吗\n你好领导们，目前江门监狱可以现场会面吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2227886",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2227886",
+   "question": "2022公务员考试体测和面试大概什么时候开始\n监狱管理局的领导好，我想请问已经延期的2022公务员考试体测和面试什么时候重新开始，现在广东省的疫情也已趋于稳定，多谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2201441",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2201441",
+   "question": "恳请联系教育我的警察\n你好，我是一名刑释人员。在监狱服刑的六年，感激广东省女子监狱人民警察对我的无私帮助，让我迅速走向新生，很想感激广东省女子监狱七监区全体警察，感激女子监狱的很多管理过我的警官。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2170058",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2170058",
+   "question": "2022年广东公务员广东省监狱管理局监狱戒毒管理机关职位\n请问广东省监狱管理局招录的岗位女子监狱二级警长以下，从事监狱管理和教育改造工作，职位代码：59900012254114 ，需要进行体能测试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2154148",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2154148",
+   "question": "收不到监狱寄出来的信，不知道账号密码\n父亲进了英德监狱，暂时还没收到通知书，咨询过相关监狱电话，只有40***的号码，无法绑定，看不到他的详细资料以及情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "2118302",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=2118302",
+   "question": "想去探监父亲，但是我跟我姐都跟他不在同一个户口本上\n想去探监父亲，但是我跟我姐跟他不在同一个户口本上，请问需要什么手续证明才能会见？我们姐弟的出生证明都找不到了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1885300",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1885300",
+   "question": "寄送照片\n我可以寄送照片给服刑人员吗？有没有张数限制？要怎么寄送？地址要怎么写？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1102900",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1102900",
+   "question": "2022年广东公务员招录狱警岗位咨询\n您好： 请问贵单位：女性，全日制专科学历：2015年6月毕业于湖南司法警官职业学院专业：刑事侦查技术（C030301），函授本科学历：2021年1月毕业于国家开放大学专业：法学（B030101），能报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1072768",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1072768",
+   "question": "疫情会见要求\n您好，我想问一下律师会见现在有什么要求？比如出过省的核酸检测需要几天几检？没有出过省的核酸检测需要几天几检？核酸报告是否需要纸质材料？是否需要盖医院红章？行程码和粤康码是否需要打印或者加盖律所公章？还有其他什么要求，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1068896",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1068896",
+   "question": "没号\n您好，我有两个问题想问下，一：今天是10.8日，因为我第一次预约是要去司法局上传资料，资料上传后司法局说我要预约的人没号，这个是什么意思呢？是说已经有人预约过了吗？可是问了身边的亲人，没人预约过他的，还是说他这个月不允许会见呢，二：写",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "1040043",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=1040043",
+   "question": "监狱招录人民警察政策咨询\n尊敬的广东省监狱管理局您好，本人想要咨询一下有关于公务员招警类政策的相关问题，希望能够获得您的解答。本人从小怀揣着警察梦，高考时因为身体条件与警校失之交臂，但是以后还能够通过公务员考试进入公安系统，也能够完成自己的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "995267",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=995267",
+   "question": "退伍军人自主创业，公司可接纳刑满释放人员就业\n本人为武警部队退伍军人，在监狱外墙站岗多年，这是我在部队的职责所在，当时也与监狱有着军民鱼水情。如今已退伍回乡，本人退伍自主创业，创办公司。得知监狱需要为刑满释放的人员安置工作，而我司正是可以接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "984434",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=984434",
+   "question": "省外监狱服刑可否变更到案发地监狱服刑\n我朋友在广东韶关因非法经营被河北省东光县公安局抓获并判刑，现在河北衡水监狱服刑，是否可以申请案发地服刑，也便于亲属探视（上有老下有小），也利于当事人好好改造，争取早日回归社会。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "977705",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=977705",
+   "question": "会见\n您好，我想问下茂名现在去阳江监狱能现场会见吗，需要什么手续，核酸检测有需要吗有要求48小时的检测？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "974331",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=974331",
+   "question": "咨询\n服刑人员密码不记得了，请告知一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "963031",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=963031",
+   "question": "寄相片\n你好，我想请问一下，可以给服刑人员寄照片吗？有规定要怎样格式的照片吗？可以和信件一起寄吗？还是分开寄？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "962165",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=962165",
+   "question": "监狱服刑人员会见\n服刑人员离异，孩子监护权给了服刑人员前妻。服刑人员的孩子能否安排会见，孩子监护人能否作家属申请陪同会见？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "941912",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=941912",
+   "question": "服刑多久可以打电话给家人？为什么同案人服刑一个月当天就可以打电话回家，需要花钱找关系吗？\n服刑多久可以打电话给家人？为什么同案人服刑一个月当天就可以打电话回家，需要花钱找关系吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "931613",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=931613",
+   "question": "2021年还有监狱事业单位公开招聘考试吗？\n2021年还有监狱事业单位公开招聘考试吗？往届生可以参加吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "907679",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=907679",
+   "question": "什么时候能会见？\n您好，请问2021年什么时候能会见呢？我老公进狱快三个月了，一直都没有消息，也没有电话回来，家里人挺担心的！谢谢你！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "900866",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=900866",
+   "question": "能不能申请回广东服刑？\n我弟现在21岁，在重庆未成年人犯管教所已经四年了，现在患有拘禁型精神障碍，在监狱住院治疗，由于刑期还有四年，我们家属难以会见，能不能申请回户籍地服刑？如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "898973",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=898973",
+   "question": "2020年事业单位招聘\n你好，我想问一下，2020年11－12月那个直属监狱事业单位招聘的，有录取公告的吗？，我只看见了入围体检名单，但是没看到录用公告，我现在需要录用公告。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdjyj",
+   "id": "882248",
+   "url": "http://gdjyj.gd.gov.cn/hdjlpt/detail?pid=882248",
+   "question": "缴纳罚金的渠道\n首先，感谢该单位领导对服刑人员及其家属提供的便利渠道，让相隔千里的我们没有了距离与生疏。 对于该单位的服务态度及办事效率我家人及其当事人给予极大的肯定和感激。 在这里，我想咨询一下是否有线上缴纳罚金的渠道（原因如下) 佛山市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

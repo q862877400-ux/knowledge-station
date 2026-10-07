@@ -1,0 +1,3933 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-szyyj",
+   "id": "3493426",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3493426",
+   "question": "中医眼科执业范围\n请问，在中医科及眼科的普通诊所执业，医生的执业证是中医类，资格证是中医眼科专业，在日常工作中是否可以看诊眼病、近视防控业务，开具西医处方药（妥布霉素滴眼液、低浓度阿托品滴眼液）。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3491018",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3491018",
+   "question": "内科执助开中药饮片的权根\n执助是临床内科，带教老师是临床全科还学过西转中,已毕业有证了,那执助可以在这位带教老师指导下开中药饮片吗?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3404261",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3404261",
+   "question": "中医美容\n尊敬的领导： 习近平总书记强调大力发展中西医结合，群众迫切需要内调外治、安全健康的医美服务。中医医师系统学习解剖、皮肤病理与中医辨证，完全具备开展光电、注射项目的专业能力。山东、四川已先行放开，效果良好，可是其他地方卫健委依旧限制",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省卫生和计划生育委员会关于医疗美容主诊医师从业资质及执业的管理办法（试行）",
+    "广东省医疗美容主诊医师资格证书",
+    "广东省医疗美容主诊医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3398027",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3398027",
+   "question": "中西医结合能否重症医学科工作\n注册为中西医结合执业范围，在广东某医院执业，可否从事重症医学科工作？执业范围能否注册为重症医学科？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3390539",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3390539",
+   "question": "中医类别医生在妇幼保健院执业时，开展医疗技术操作、手术操作有无细化的要求？\n请问，在妇幼保健院执业的中医专业、中西医结合专业的医生，在日常工作中能否开展手术操作?是否与 临床类别的医生一样，根据医院的医疗技术授权管理、手术分级授权管理制度予",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省卫生健康专业技术人才职称评价改革实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3368807",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3368807",
+   "question": "开展中医美容业务的资质条件\n请问医院开展中医美容业务医院及从事该业务的医务人员需要什么资质条件？",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省卫生健康委关于进一步加强医疗美容管理的通知",
+    "医疗美容服务管理办法",
+    "卫生部关于印发&lt;美容医疗机构、医疗美容科（室）基本标准（试行）的通知&gt;",
+    "医疗美容服务管理办法",
+    "广东省卫生和计划生育委员会关于医疗美容主诊医师从业资质及执业的管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3353584",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3353584",
+   "question": "具有规定学历的中医执业医师的处方权是否包含非限制类诊疗技术的西医处方权\n根据2022年3月1日实施的中华人民共和国医师法第十四条：中医、中西医结合医师可以在医疗机构中的中医科、中西医结合科或者其他临床科室按照注册的执业类别、执业范围执业。经",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医疗技术临床应用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3281483",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3281483",
+   "question": "中医医术确有专长医师资格证考试\n都需要哪些条件？在哪里报名呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3225366",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3225366",
+   "question": "西学中\n南方医科大学中西医结合医院举办的西学中培养班有在广东省中医药局备案吗？结业证书是颁发的？取得西学中培训证书后在开私人诊所能开中成药丶中药饮片处方吗？",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3215239",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3215239",
+   "question": "中医类别医师执业地点的相关问题咨询\n中医药管理局的各位领导，本人是中医执业医师，执业范围为中医专业（精神），是否可以注册到没有中医诊疗范围的精神病专科医院执业。望函复为盼。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于开展医疗机构医师附条件注册精神卫生专业执业范围有关工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3184865",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3184865",
+   "question": "膏方\n院内协定方制膏需要备案吗？如需备案是否有备案指引及备案相关材料说明？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于加强医疗机构中药制剂管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3046829",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3046829",
+   "question": "中医外科专业的医师能给病人做手术吗\n已考取中医外科专业的主治及以上职称的医师能给病人做手术吗？可以开展常规西医手术吗",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 中华人民共和国中医药法 ",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3031098",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3031098",
+   "question": "开药\n想咨询下，在不带病人情况下，可以去医疗机构开其他医院签字盖章的中药处方单吗？医生可以以病人不在现场未经本人判断及非本医疗机构出具的处方单为由拒绝开药吗？",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2993403",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2993403",
+   "question": "中医医院如何增设“中西医结合”诊疗科目\n中医医院在校验时，检验检查专家认为医院没有设置和开展中西医结合科，所以撤销了“中西医结合”诊疗科目。 但是根据《国家中医药管理局关于规范中医医院与临床科室名称的通知》中的“（三）中医医院临床科室名称不",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2945262",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2945262",
+   "question": "关于中医执业医师的执业范围和科室？\n你好，我是一名中医学专业毕业生，目前是中医执业医师。执业证范围是“中医学”“中医全科医学”。能否在人民医院（二甲）的“内科住院部”、“急诊科”从事临床工作，请问这是否违反了执业医师法的执业范围要求？如果是",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2855538",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2855538",
+   "question": "西医开展中医和康复技术\n1、西医类别的医生是否可以开具中医治疗和康复治疗的医嘱？2、如果进行了西学中培训，是否可以开展？3、护士没有分类别，是否可以执行中医类治疗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国护士条例",
+     "lib_no": "护士条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2839732",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2839732",
+   "question": "中医助理医师（师承）考执业医师的问题\n领导您好： 我是（师承）的中医助理医师， 1.本人是否可以直接报考（师承）执业医师？ 2.或者需要拿到大专学历后再报考具有学历的中医执业医师？ 3.外省的成人大专学历可以正常报考吗？ 4.另外一个请解答",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发&lt; 医师资格考试报名资格规定 （2014版）&gt;的通知",
+    " 传统医学师承和确有专长人员医师资格考核考试办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2744530",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2744530",
+   "question": "中西医结合专业执业医师是否能进行手术操作\n您好！本人中医药大学中西医结合专业毕业，现已取得执医证多年，且取得规培证，想请教中西医结合专业是否能在综合医院的中医科注册并进行中医外科各项手术操作?",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2690651",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2690651",
+   "question": "关于中专学校招收中医专业学生的问题\n根据《中华人民共和国医师法》第九条，参加医师资格的学历条件中，已没有中等医学学历了。就是说，中等专业学校医学专业学历将不能参加医师资格考试了！！ 但广东省教育厅《关于印发2023年中等职业学校招收初中毕业",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2689819",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2689819",
+   "question": "请问是不是有新中医（专长）医师资格证书考，\n是不是有新中医（专长）医师考试开展吗？什么时候报名考试？不是确有专长，是新中医（专长）医师，有这个专业证书考吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    " 广东省卫生和计划生育委员会 广东省中医药局关于中医医术确有专长人员医师资格考核注册管理的实施细则 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2666155",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2666155",
+   "question": "能否在西医院的脊柱外科执业？\n您好，本人中医院校毕业，取得了中医执照。硕士毕业后在山东的西医院骨科工作10年，从事脊柱外科的手术，并取得了骨外科的中级职称。目前在德国攻读医学博士学位即将毕业，想毕业后去广东医院的脊柱外科工作，面临的最大问题",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2617086",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2617086",
+   "question": "中医专业能否从事重症医学？\n我是中医内科的副主任医师，专业是中医学，能否在重症医学科（ICU）从事执业工作？是否超出执业范围？",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2475710",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2475710",
+   "question": "中医执业范围\n各位领导好，西医可以通过西学中取得中医处方权，那么中医师有什么途径或者通过转岗培训去从事医技科室吗，如B超。现在的政策就是人人都可以去学中医，有资格做中医医生，中医医生却只能困守一方。很多省份已经开放岀台中医生可以从事临床科室",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2454963",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2454963",
+   "question": "中医类别执业医师的临床处方权\n中管局领导，关于中医类执业医师在临床的工作中问题，向您请教，法律法规中说按照执业类别执业范围，中医类执业医师可按照执业范围开展工作，并可以采用与其专业相关的西医药技术方法。关于这点，很多单位不是很理解，也很排斥",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "处方管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2450476",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2450476",
+   "question": "中医执业医师执业范围\n尊敬的广东省中医药管路局领导，您好：我是广大中医专业中的一员，新的医师法出台了，其中表明：中医、中西医结合医师可以在医疗机构中的中医科、中西医结合科或者其他临床科室按照注册的执业类别、执业范国执业。但是实际情况是，如果",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2427087",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2427087",
+   "question": "中医师承\n（1）中医师承的跟师学习笔记和读书笔记 有要求纸张格式或固定模板吗？ （2）在私人中医诊所执业的中医师能否做师承指导老师？ （3）取得《传统医学师承出师证书》后要求在医疗机构试用期满一年，考核合格后才能报执业助理医师资格考试。请问",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2381454",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2381454",
+   "question": "在中医综合诊所隔壁开设中西医结合诊所是否合法？\n尊敬的中医药局领导：在中医综合诊所隔壁开设中西医结合诊所是否合法？是否符合《广东省中医药条例》第2章第10条“对社会力量举办只提供传统中医药服务的中医门诊部、诊所，医疗机构设置规划和区域卫生发",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2291119",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2291119",
+   "question": "中医类执业求职困惑！\n你好，新的医师法规定，中医类职业范围，可以在除了中医科，中西结合科执业，但很多单位应聘如今还在卡，执业范围，类别！我目前已经接到三家单位说，中医类，不能考，或者说只能在中医科执业！很难受",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2277544",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2277544",
+   "question": "中医执业医师能否在卫生院从事以西医为主临床诊疗工作\n中医执业医师能否在卫生院从事以西医为主临床诊疗工作？包括：内外科、儿科多发病、常见病的保守治疗，外科清创缝合术、体表肿物切除术等一级外科手术；能否开据西药处方包括抗生素、精二、毒麻药品。谢",
+   "cited_hits": [
+    {
+     "name": "麻醉药品和精神药品管理条例（2016年修订）",
+     "lib_no": "麻醉药品和精神药品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院关于建立全科医生制度的指导意见",
+    "抗菌药物临床应用管理办法",
+    "抗菌药物临床应用指导原则（2015年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2268644",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2268644",
+   "question": "请问取得中医助理医师执业证书的人员,如何申请参加广东省中医医术确有专长人员医师资格考核？\n请问已经取得中医师(士)技术职称且认定为中医助理医师资格的人员,如何申请参加中医医术确有专长人员（国家卫生计生委令第15号）医师资格考核？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2242560",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2242560",
+   "question": "中医医术确有专长报考咨询\n我是从2010年都开始自学中医了，2012年到现在都有中医临床实践开方，我想这应该算中医医术多年实践人员了，请问一下我报考中医医术确有专长医师，中医实践地址一直是在我家里，想咨询一下现在是不是一定要挂构机构实践活动",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2220063",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2220063",
+   "question": "中西医结合执业范围咨询\n------问：尊敬的领导，您好！国家目前大力发展中西医结合。新政策说中西医结合经过培训，可以在临床科室执业。我取得中西医结合执业医师证，研究生读的病理学方向研究生，可以申请在医学检验与病理执业吗？ ------答：",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2219900",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2219900",
+   "question": "执业中医师备案咨询\n你好，我想问一下执业中医师满3年就可以备案了，是吧？我的执业中医师证是2019年9月拿的，注册是2019年12月。我在我们湖南那边了解就说我的已经够3年了（2019年.2020年.2021年）可以备案了。我就想了解一下在",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2208674",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2208674",
+   "question": "中西医结合执业范围咨询\n尊敬的领导，您好！国家目前大力发展中西医结合。新政策说中西医结合经过培训，可以在临床科室执业。我取得中西医结合执业医师证，研究生读的病理学方向研究生，可以申请在医学检验与病理执业吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2157675",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2157675",
+   "question": "中西医结合临床能从事神经介入吗\n本人2014年7月毕业于广州中医药大学中西医临床专业，毕业后一直在东莞市凤岗医院从事脑外科临床工作，晋升中西医结合外科中级后，于2021-7至2022-1到广东省人民医院进修神经外科介入半年，单位说我没有资质",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1096452",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1096452",
+   "question": "民间中医如何申请中医执照\n我老爸现年差不多70岁了，他20岁时跟师学习中医，当时学习完成后一直没有正式行医。一直都只是帮助身边朋友或亲人开方治疗，并且没有正式收过诊金，也没有开设任何形式的诊所。直到最近被相关部门定性为非法行医。现在我爸的朋",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1086036",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1086036",
+   "question": "中医执业范围\n你好，我是一名医师，注册范围是中医，现在在市人民医院工作，属于综合医院，我想问一下我可以从事胃镜室工作吗，进行胃肠镜的操作会不会违规",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强综合医院中医药工作推动中西医协同发展的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "936490",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=936490",
+   "question": "关于中医类别执业医师如何规范增加执业范围的问题\n您好，2017年7月1日施行的《中医药法》明确中医类别医师可以在综合医院、专科医院的非中医临床科室执业，可以运用现代医学技术。请问中医类别皮肤科主治医师或者外科主治医师，是否可以在皮肤科或者整",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院办公厅印发关于加快中医药特色发展若干政策措施的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "869379",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=869379",
+   "question": "广东省2019年度中医专长医师资格考核通过人员名单\n我是一名参加过2019年中医专长医师资格考核的人员.由于考核没有通过,省中医药管理局也没有给出具体的不通过的理由.让我非常迷茫,不知道该不该继续参加下次的考核!所以我申请省局公开”广东省2",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "757272",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=757272",
+   "question": "超范围执业认定再次咨询\n1.中医类别中医专业执业医师，在综合医院急诊科从事急救医学专业临床工作，是否属超范围执业？ 2.中医类别中西医结合专业执业医师，在综合医院心电图室专职从事心电图诊断报告工作（进修过有进修证书，没有专业技术证书），是否",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "卫生部关于中医类别医师可以从事急救工作的批复",
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "750610",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=750610",
+   "question": "中医专业是否可以注册到独立血液透析中心？\n省中医药局: 今日收到贵局对上一条问题的回复，十分感谢！贵局回复内容中无明确回复是否可以注册到独立血液透析中心，请明确告知中医内科能否在独立血液透析中心执业？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "749113",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=749113",
+   "question": "中医执业范围\n请问执业注册证执业范围是中医，可以去综合医院外科工作吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加 强广东省综合医院中医药工作的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "668750",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=668750",
+   "question": "中医诊所备案问题\n领导好，我是一个中医师（已经取得资格证，执业证，全科医学（中医类）主治医师职称证），执业范围已加注全科医学专业，现在想备案一个中医诊所，请问我可以备案申请一个中医（全科类别）诊所吗？我已经咨询过韶关市卫健局中医科及县卫健局",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法",
+    "关于印发中医诊所基本标准和中医（综合）诊所基本标准的通知",
+    "关于下发&lt;医疗机构基本标准（试行）的通知&gt;",
+    "关于下发&lt;医疗机构诊疗科目名录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "617484",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=617484",
+   "question": "请为民间老中医伸张正义！他们不是违法犯罪人员\n随着执业医师法的颁布，一些成名已久的民间老中医成了无证的行医人员！他们由于年代的关系，并没有接受过系统的医学院教育，很多属于家传，或者拜师学艺而成为一方名医，他们行善积德，并且服务一方百姓，也为",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理办法",
+    "实施细则",
+    "中共中央&nbsp;国务院关于促进中医药传承创新发展的意见",
+    "关于促进中医药传承创新发展的若干措施",
+    "中医（专长）医师执业证书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-szyyj",
+   "id": "3478820",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3478820",
+   "question": "我对于中医新专长比较感兴趣\n还想请教一下，如何报考，最好可以线下指导一下，本人微信18718886889",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3415287",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3415287",
+   "question": "内科医生开中药饮片\n你好，我西医内科执业医师，于2022年考取传统医学确有专长证，我看到广东省相关规定，就是通过传统医学师承和确有专长的考试获得了传统医学出师证的可以开中药饮片，这里只说了出师证，我想了解下出师证和传统医学确有专长证是同等效",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录(化药及生物制品)的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3403138",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3403138",
+   "question": "备案制中医诊所药师配置问题\n请问备案制中医诊所无设置药房是否必须配置卫生系统药师？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所基本标准（2023年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3400134",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3400134",
+   "question": "《中医药专业技术人员师承教育协议》\n《中医药专业技术人员师承教育协议》在哪里下载？如何备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家中医药管理局办公室关于印发&lt;传统医学师承关系合同书&gt;等式样的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3386522",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3386522",
+   "question": "一级中医医院有无要求整栋楼设置？\n你好，请问想要申请设置一级中医医院有无要求要整栋楼都纳入设置范围？比如说二层三层能否是月子中心，一层及四到六层设置中医医院呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构基本标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3361687",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3361687",
+   "question": "关于传统医学师承中医老师执业范围的限制要求\n尊敬的领导，您好，我中医老师执业证的执业范围是中医专业，中级职称证是骨科，请问我在三年跟诊期间所写的学习笔记和临床医案也都需要是骨科方向的吗？同时中医老师这三年也只能传授讲解骨科方面的的知识内容吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3346940",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3346940",
+   "question": "中医助理医师后报考专升本还是专科？\n您好，老师。我是非医学硕士毕业，2025年通过广东省传统确有专长考试，2026年参加中医助理医师考试。假如通过中医助理医师考试后，参加成人高考专升本，获取本科毕业证后，能否按学历报考中医执业医师考试？如果",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3343466",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3343466",
+   "question": "中医执业医师报考\n领导老师好！ 有二个问题非常疑惑，想麻烦您帮忙指导一下。 一、想要报考中医执业医师 情况是：我是2023年拿到15号令广东省中医专长医师（新专长）。并在广州注册。 同时使用中医助理医师，报考了省中医药大学的成考中医学专业（",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3338280",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3338280",
+   "question": "第四届说医解药参赛结果\n在哪里可以获取第四届说医解药广东赛区的参赛结果",
+   "cited_hits": [],
+   "cited_missing": [
+    "重磅揭晓！ 第四届全国说医解药科普大赛（广东分赛区） 获奖作品名单正式公布"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3315272",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3315272",
+   "question": "关于现代康复师能否在中医医师指导下开展传统康复项目\n请问我作为持有康复医学治疗技术资格证的现代康复运动医学治疗师，如在具备中医执业医师开具的明确医嘱下且全程在其专业指导下的前提下能否合规开展中药推拿、艾灸等非侵入性传统康复项目？还是一定要考",
+   "cited_hits": [],
+   "cited_missing": [
+    "综合医院康复医学科建设与管理指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3242571",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3242571",
+   "question": "询问临床类别开具中药处方以及学历的问题\n全日制临床大专学历，在广州中医药大学就读的成人业余本科（在2019年入学，因2002年后入学，无法用该学历考取中西医结合医师资格），已考取了临床执业医师资格证（2017年注册的助理医师，2019年注册",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录(化药及生物制品)的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "关于对&lt;转发关于印发第一批国家重点监控合理用药药品目录(化药及生物制品)的通知&gt;的补充通知",
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3231151",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3231151",
+   "question": "备案制中医诊所需要校验吗？\n请问备案制的中医诊所，需要每年校验或年检吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构校验管理办法（试行）",
+    "医疗机构执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3219330",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3219330",
+   "question": "取得保健按摩师职业技能证书可以在中医综合诊所或中西医结合诊所从事按摩工作吗\n根据国家中医药管理局网站互动交流一栏中关于《关于中医康复理疗师证问题》的公开回复显示（来信时间：2022年8月16日，答复时间：2022年8月31日，答复部门：人教",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部、国家中医药管理局关于中医推拿按摩等活动管理中有关问题的通知",
+    "国家中医药管理局关于印发中医养生保健服务规范（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3202409",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3202409",
+   "question": "关于功效相近中药调剂的咨询\n尊敬的领导： 中药饮片存在道地药材和地区习惯用药的问题。比如广西和湖南部分地区常用小通草作通草用（备注：湖南省中药材炮制规范和广西壮族自治区中药材炮制规范均提到）。 对于此类功能相近的中药饮片，如上述所说的大通草",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典",
+    "医院中药饮片管理规范",
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3201233",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3201233",
+   "question": "想咨询下确有专长医师考核（新专长）什么时候公示\n如题，2025年的确有专长医师考核（新专长）资格大概什么时候完成审核，会在官网公示吗，考试时间是几月份呢？感谢～",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理暂行办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3156848",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3156848",
+   "question": "关于专升本的中医医师资格证的报考咨询\n我是广东户口，在广西读专科的学生。我的专科专业是中医康复技术，那么我在广西统招专升本之后的专业是中医学。那我可以在医疗机构一年后，以中医学本科学生的身份去报名中医医师资格证吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发〈医师资格考试报名资格规定（2014版）〉的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3153542",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3153542",
+   "question": "中医（壮医）专业医师可以注册在什么类型的医疗机构？\n医疗机构诊疗科目名录下没有壮医这个诊疗科目，那么中医（壮医）专业医师可以注册在核定了中医科或中西医结合科的医疗机构吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下发&lt;医疗机构诊疗科目名录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3118480",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3118480",
+   "question": "询问西医临床医学执业医师开具中药处方的情况\n情况如下：2015年毕业于韶关学院临床医学专业（全日制大专），2016年12月取得执业助理医师资格证（2017年5月注册），2019年9月取得的执业医师资格证（2019年11月注册）。2019年3",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "关于对&lt;转发关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知&gt;的补充通知",
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3085203",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3085203",
+   "question": "15号令中医医术确有专长人员 师承关系合同书\n领导，您们好。我需要公证15号令中医医术确有专长人员师承关系程序，请问广东省有没有15号令中医医术确有专长人员师承关系合同书模版下载？若有在哪里下载，若是没有，是自行拟写吗？请领导过目解答，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2024年广东省中医医术确有专长人员医师资格考核报名表格 ",
+    "传统医学师承关系合同书（样式）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3079024",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3079024",
+   "question": "请问2024年中医新专长通过人员啥时可以拿到资格证\n领导好! 请问2024年中医新专长通过人员啥时可以拿到资格证？约一个多月前收到卫生局通过告知，但至今没有收到省中医药管理局发的资格证。因本人工作近期可能调动，故咨询，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3066587",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3066587",
+   "question": "广东省确有专长医师考主治医师也要参加广东省基层住院医师线上培训吗？\n你好，请问【广东省确有专长医师】考主治医师也需要参加【广东省基层住院医师线上培训】吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会广东省人力资源和社会保障厅关于做好2025年度卫生专业技术资格考试工作的通知",
+    "广东省卫生健康专业技术人才职称评价改革实施方案",
+    "广东省基层住院医师线上岗位培训合格证书",
+    "住院医师规范化培训合格证书",
+    "基层住院医师线上岗位培训课程实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3058213",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3058213",
+   "question": "中药贴敷治疗是否属于诊疗活动？\n尊敬的领导！您好！我想确认一下，中药贴敷治疗是否属于诊疗活动？开展中药贴敷治疗是否需要专业医务人员进行操作？我已咨询过国家中医药管理局，国局回复是根据《全国医疗服务项目技术规范(2023年版)》内相关规定，中",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国医疗服务项目技术规范（2023年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3019941",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3019941",
+   "question": "中医执业医师获得成人本科学历后能否再次报考执业\n已经获得中医师承类执业医师资格证，后获取中医类本科毕业证，能否以执业医师身份报考具有学历的中医执业医师，即中医师承类执业医师能否报考具有学历的中医执业医师，同等级换类别。",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发〈医师资格考试报名资格规定（2014版）〉的通知 ",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3019488",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3019488",
+   "question": "师承公证需要用到户口本在老家可以用居住证代替么\n师承公证需要用到户口本在老家可以用居住证代替么",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3013196",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3013196",
+   "question": "西学中考取中西结合执业医师资格证后如何在临床执业医师执业范围加注中医类别执业范围？\n领导您好！我是广州市的一位临床执业医师，通过努力，取得了中医类别的中西医结合执业医师证，希望在执业证中增加注册中医类别的执业范围。之前医生同时考取了临床执业",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3004890",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3004890",
+   "question": "本科中医学毕业后几年，今考取执业中医师还可以规培吗？\n尊敬的领导： 请问本科中医学专业毕业后6年在基层社区医院工作，刚考取执业中医师资格，如果晋升主治的话现在还可以参加规培吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立住院医师规范化培训制度的指导意见",
+    "住院医师规范化培训招收实施办法（试行）",
+    "医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3000495",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3000495",
+   "question": "关于中医师承执业医师培训西医西药问题\n尊敬的领导，我已考取中医师承执业医师，同时注意到师承执业医师无法使用普通西医西药，对于基层医疗十分不便。是否能出台政策，组织师承执业医师开展有关西医西药用法的培训，培训合格后能够运用西医西药开展辅助治疗",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医（专长）医师资格证书",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "传统医学师承出师证书",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2983551",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2983551",
+   "question": "中医师承\n单位领导你好！我是药学专科毕业，想往中医师发展，现在市面上很多乱收费的中医师承的机构，也不知道是真是假。想通过正规合法渠道学习中医师承，拿中医助理医师；希望能帮助一下，是在哪里能学习可靠与正规；",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2967050",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2967050",
+   "question": "中医师承\n请问师承的老师带徒弟的数量有限制嘛？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2949253",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2949253",
+   "question": "中医资格证考试报名资格问题\n1、中医学专升本学历是否有资格报考中医资格证 2、如果专升本学历可以报考，专科专业是否有相应要求",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发〈医师资格考试报名资格规定（2014版）〉的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2946797",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2946797",
+   "question": "公共卫生类别参加西学中后是否能考取中医类中西医结合执业证书\n已经考取执业医生资格证书，类别：公共卫生；通过广东省全科医学教育培训中心及培训基地举办的全科医师岗位培训；基础医疗机构工作，参加省级中医药行政部门批准举办的西医学习中医培训班，考核",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知 ",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2937132",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2937132",
+   "question": "中医执业范围\n中医执业范围为中医专业(精神)，这个是加注还是说只能在精神科执业？需要外加中医专业范围吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委办公厅、国家中医药管理局办公室关于中医类别医师从事精神障碍疾病诊断与治疗有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2923151",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2923151",
+   "question": "多久能考执业医师\n尊敬的领导您好： 我想咨询一下，我2024年通过师承取得执业助理医师证，2025年入学广州中医药大学中医学专业成人本科，2028年取得中医学成人本科学历后是否可以直接以该学历报考执业医师证？您的答复对我非常重要，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发〈医师资格考试报名资格规定（2014版）〉的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2916520",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2916520",
+   "question": "中医确有专长医师执业范围\n请问取得《中医（专长）医师资格证书》、医师执业证后，我能开展的执业范围有多广？是不是仅限于报考专长时的特定技术和特定病种？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理暂行办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2892250",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2892250",
+   "question": "中医妇科学专业能否考取中医内科学主治医师？\n您好，我是专硕期间考的中医类别执业医师资格证，本科是中医学专业，硕士是中医妇科学专业，今后想在广东的西医院从事中医内科方面的工作，请问到时候满足年限能够考中医内科学主治吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康专业技术人才职称评价改革实施方案",
+    "广东省卫生健康委办公室关于做好2024年度卫生专业技术资格考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2882294",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2882294",
+   "question": "中医医师执业范围\n中医执业医师，在二级的中医医院上班，目前的执业类别:中医，执业范国:中医专业(精神)，该医生可以在急诊科就诊吗？可以治疗内科相关的疾病吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于医师执业注册中执业范围的暂行规定 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2846641",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2846641",
+   "question": "咨询专长助理考执业\n您好，本人2022年10月份取得的专长助理医师， 本科中医学是2020年1月份入学， 2023年1月份取得本科证。 请问今年可以报执业不？如果不行，是否就以专长的资格申报 即 取得专长助理满5年后。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt; 医师资格考试报名资格规定 （2014版）&gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2827953",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2827953",
+   "question": "确有专长的执业助理医师报考执业医师，能否不提供5年执业期带教老师的执业证与签名？\n原国家卫生计生委、教育部、国家中医药管理局《关于印发《医师资格考试报名资格规定（2014版）》的通知》（国卫医发〔2014〕11号）规定：第六条 学历审核（七",
+   "cited_hits": [],
+   "cited_missing": [
+    " 医师资格考试报名资格规定（2014版） ",
+    "执业助理医师报考执业医师执业期考核证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2813643",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2813643",
+   "question": "重新办理《合同书》公证\n指导老师在带教期间执业所在诊所撤店，是否应重新办理《合同书》公证，若是，则重新办理时还需另外补充其他资料吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法",
+    "合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2804724",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2804724",
+   "question": "咨询西医报考中西医结合执业医师的问题。\n领导，您好！ 按照《医师报名资格规定2014版本》之西学中规定：（已获得临床执业医师或执业助理医师资格的人员，取得省级以上教育行政部门认可的中医专业学历……可以申请参加相同级别的中西医结合执业医师或执",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2791691",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2791691",
+   "question": "外省中医专长证是否可以在广东注册行医\n外省中医专长证是否可以在广东注册行医？如果可以如何注册？如果不认可需要如何才能认可？是否需重新考试，报名条件是否和广东省内中医专长人员一样？因我在外省行医，并没有广东省病例，外省资料是否认可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2791025",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2791025",
+   "question": "关于已取得中医执业医师（师承）如何再报名考有规定学历中医执业医师的问题咨询\n我是基层的一名医生，我2017年通过确有专长考取了中医执业助理医师（师承），2023年考取得了中医执业医师（师承），我在2020年就读了全日大专中医学专业，2023",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈医师资格考试报名资格规定（2014版）〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2789309",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2789309",
+   "question": "中西医结合专业从事妇产科中级考试问题\n本人中西医结合专业，目前在西医院从事妇产科，中级考试一定要在中西医专业里面选吗？从事妇产科的话考中级要选中西医外科、中西医内科还是中西医骨科？能选中医妇科吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部&lt;关于医师执业注册中执业范围的暂行规定&gt;",
+    "医师资格证书",
+    "医师执业证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2775053",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2775053",
+   "question": "能通过何种途径取得合法的中医资质\n尊敬的各位领导及各位工作人员，你们好：有问题想咨询一下：我是2019年取得临床执业医师证书的，目前在民营医院工作，自幼在家人教导及自学中，对中医有一定的了解，打算在条件合适的情况下，返乡开办卫生站，为父老乡",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2728237",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2728237",
+   "question": "2024年中医医术确有专长报名时间\n2024年中医医术确有专长报名时间啥时候公布？中医确有专长报名入口一般在哪里？在广东省中医药管理局上没找到，难道是线下报名？看其他省份是可以网上报名的，广东省的确有专长报名流程具体是怎样",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理暂行办法 ",
+    " 广东省卫生和计划生育委员会 广东省中医药局关于中医医术确有专长人员医师资格考核注册管理的实施细则 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2702971",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2702971",
+   "question": "《传统医学师承关系合同书》\n请问传统医学师承关系合同书在哪里下载？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承关系合同书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2693289",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2693289",
+   "question": "咨询中医加注临床执业范围\n您好，新医师法规定中医可以在临床科室执业，经培训和考核可以使用西医药技术方法，医师经过培训和考核可以增加执业范围。请问中医具体怎么增加临床执业范围，另外具体的考核和培训方式？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 医师执业注册管理办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2683466",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2683466",
+   "question": "中医师承备案\n您好，中医师承是先到公证处公证再去备案吗？深圳市罗湖区备案需要去哪里办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法",
+    "传统医学师承关系合同书",
+    "合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2667544",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2667544",
+   "question": "连续跟师的形式\n提问： 假如地区为汕头或者广州，公证之后，按要求需要有1500个学时，这个学时是否可以通过线上或者线下的形式去实施？届时是否需要有什么证明？或者还是说是一定要要求每周不少于少3个工作日的跟诊时间",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省卫生健康委员会&nbsp;广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2638631",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2638631",
+   "question": "《中医医术确有专长人员医师资格考核注册管理暂行办法》第15号令\n第三十二条 中医（专长）医师通过学历教育取得省级以上教育行政部门认可的中医专业学历的，……可以申请参加中医类别执业医师资格考试。 学历教育可以是本科中药学专业转中医学硕研究生吗",
+   "cited_hits": [],
+   "cited_missing": [
+    " 传统医学师承和确有专长人员医师资格考核考试办法 ",
+    " 中医医术确有专长人员医师考核注册管理暂行办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2624507",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2624507",
+   "question": "什么时候能够参加执业医师考试？\n本人2020年毕业于广州中医药大学中医临床基础专业，获得医学博士学位，因政策约束此学历不能作为执业医师考试凭据，因此同年也获得了师承与确有专长的助理执业医师资格，当年因疫情原因执业医师考试推迟，因此该助理执业",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt; 医师资格考试报名资格规定（2014版） &gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2609143",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2609143",
+   "question": "中医诊所备案\n关于中医诊所备案设置中药房配置药学技术人员是否可聘用参加国家考试的执业中药师，谢谢！ 相关依据：一、2017年国家首次公布的〖国家职业资格目录〗中，执业药师作为准入类职业资格，纳入国家执业资格目录，是针对药学技术人员的唯一准入",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发诊所备案管理暂行办法的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2605202",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2605202",
+   "question": "关于中医（综合）诊所备案条件的几个问题\n中医（综合）诊所备案基本标准（2022年版）规定，三、房屋，诊所建筑面积不少于40平方米，四、设备，其中要求药品柜、纱布罐、高压灭菌设备、处置台等。 请问：1）灸疗中医诊所，备案时，药品柜、高压灭菌设",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医诊所备案管理暂行办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2603400",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2603400",
+   "question": "中医（专长）医师资格证到底该如何注册\n领导您好，我是2021年11月通过中医（专长）医师资格考核，于2022年4月拿到中医（专长）医师资格证，在这一年半的时间里一直在关注如何注册取得执业证进行执业，但是多方询问一直无果。本月又再询问拟执业辖",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理暂行办法 ",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师执业证书",
+    "关于转发国家卫生健康委办公厅 国家中医药管理局办公室关于进一步做好中医（专长）医师电子化注册管理等工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2594735",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2594735",
+   "question": "关于香港执业中医在内地申请中医执照的方法\n已有香港中医执业证，如何在内地申请中医执照的具体办理方法",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈香港和澳门特别行政区医师获得内地医师资格认定管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2590207",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2590207",
+   "question": "香港中医执业证能在内地使用吗？\n您好，想咨询下香港的中医执业资格证能在内地使用吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈香港和澳门特别行政区医师获得内地医师资格认定管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2584932",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2584932",
+   "question": "是否可以以个人名义报名及参加全科医生转岗培训？\n您好，目前已经完成中医住院医师规培化培训，现在基层社区工作，考虑单位暂时没有意向送出去转岗培训，是否可以以个人名义报名及参加中医转岗培训？就像中医规培那样分社会人规培和单位人规培。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省全科医生培训项目实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2574508",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2574508",
+   "question": "中医确有专长考试依据的教材\n您好，中医确有专长考试依据什么教材?是中国中医药出版社2016年出版的《传统医学师承人员出师和确有专长员考核指导》吗? 本版教材与全国中医药行业高等教育十四五规划教材在个别选方用药有出入，故就此咨询请教，谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2564969",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2564969",
+   "question": "2023确有专长考核项目\n您好，今年计划报考确有专长考核，想请问今年除了《中医医疗技术目录》这一外治项目可以报考以外，是否有针对“中医疾病类别”这一内服药方专长的相关考核项目，若有，请问要在哪里下载相关目录，烦请解惑，谢谢您!",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2537489",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2537489",
+   "question": "中医医术确有专长人员医师资格考核条件\n您好，请问想要去考取中医医术确有专长人员医师资格证，通过师承5年的这种方式，对师承者的学历有要求吗？是否需要高中学历以上？然后在与指导医师签订师承合同公证时是否也需要学历要求 ？感谢领导抽空批阅，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 传统医学师承和确有专长人员医师资格考核考试办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2524506",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2524506",
+   "question": "执业医师报考条件\n请问 确有专长人员在2019年09月取得执业助理医师资格证，2020年3月入读成人中医学本科，2020年08月取得执业助理医师执业证，2022年07月取得成人中医学本科毕证书和医学学士学位，请问2023年能参加规定学历执业",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;医师资格考试报名资格规定（2014版）&gt;的 通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2509000",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2509000",
+   "question": "我想查看政府部门印发的粤中医〔2022〕18 号\n您好，我想查看政府部门印发的粤中医〔2022〕18 号《关于印发广东省基层中医药服务能力提升工程“十四五”行动计划实施方案的通知》的文件内容，以深入学习国家政策指导性工作知识。望受理回复，敬",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发广东省基层中医药服务能力提升工程“十四五”行动计划实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2473600",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2473600",
+   "question": "关于《国卫办医函〔2019〕558号》前注册的西医执业医师中成药及中药饮版处方资格的问题\n根据《关于对转发《国家卫生健康委员会办公厅 国家中医药管理局办公室关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）通知》的补充通知》（粤卫",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批重点监控合理用药药品目录（化学及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2458990",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2458990",
+   "question": "备案中医诊所\n取得中医（专长）医师资格证后，可以立即备案个人诊所吗?或者是必须取得执业证后才可备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于转发国家卫生健康委办公厅 国家中医药管理局办公室关于进一步做好中医（专长）医师电子化注册管理等工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2454481",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2454481",
+   "question": "中医（专长）医师报考执业医师\n咨询：同志你好，我之前在省外工作并通过考试取得了中医（专长）医师资格证书，后因个人原因回来广东省发展。请问我取得成人大专中医学学历后可以直接在广东省内参加执业中医师考试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办 法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2453081",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2453081",
+   "question": "传统中医师承跟师笔记\n跟师笔记要求记录那些内容？能否使用电子版记录？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2433622",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2433622",
+   "question": "中医，中西医结合执业医师是否能从事光电仪器以及注射美容的技术操作\n医师法明确中医，中西医结合执业医师可以在临床科室执业，培训考核合格后可以运用西医诊疗技术。那么中医，中西医结合执业医师是否可以从事光电仪器以及注射美容技术的操作呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部办公厅关于印发 &lt;医疗美容项目分级管理目录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2428370",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2428370",
+   "question": "确有专长人员取得执业助理医师执业证书后，报考执业医师。\n考确有专长助理医师，已经在读成人本科相关专业，拿到专长助理医师时还未毕业，注册时毕业证已经发放，到目前注册满两年，请问这种情况 能报考今年的执业医师吗？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;医师资格考试报名资格规定（2014版）&gt;的 通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2422561",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2422561",
+   "question": "博士后规培时间\n你好！我是中医类学硕+学博，今年博士研究生毕业的人员。想参加博士后入站，我想请问以博士后在站期间或出站的身份参加规培的年限是否相同？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医住院医师规范化培训实施办法（试行）",
+    "住院医师规范化培训管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2422169",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2422169",
+   "question": "中西医结合执业范围\n尊敬的领导：您好，我是一名中西医结合的医生，在当地中医院麻醉科从事麻醉工作，请问中西医结合专业可以在广东省执业吗？广东省对于中西医结合执业范围的具体规定是什么？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法",
+    "关于下发 &lt;医疗机构诊疗科目名录&gt;的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2419309",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2419309",
+   "question": "西医学习中医\n您好， 我是临床类别的全科医学执业医师，正学习中医想考中医执业医师，查询到以下内容： “西医学习中医人员已获得临床执业医师或执业助理医师资格的人员，取得省级以上教育行政部门认可的中医专业学历或者脱产两年以上系统学习中医药专业知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2418300",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2418300",
+   "question": "专长中医备案\n你好！我是2018首届《中医（专长）医师资格证书》治疗病证范围是：咳嗽病，哮病。请问我现在可以备案开诊所执业吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2414090",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2414090",
+   "question": "专长医师证和助理执业医师证，可以都注册吗\n我今年取得了助理执业医师证，明天想再考专长医师资格证，如果拥有这两个证，可以都注册吗，考国家执业医师的时间会以哪个证为主呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2413726",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2413726",
+   "question": "中医学学术性硕士是否属于成人高等教育中医类医学专业专科以上学历\n您好，根据《中医住院医师规范化培训实施办法（试行）》第三条：中医住院医师规范化培训对象为：（一）拟从事中医临床医疗工作的中医学类、中西医结合类专业本科及以上学历毕业生；（二）已",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立住院医师规范化培训制度的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2382981",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2382981",
+   "question": "综合医院中医规培\n您好，本人持执业中医师执照，医学科研型硕士+博士毕业，即将入职省内某三甲西医院西医科室，该医院具备西医规培资质，想查询，如果入职该医院西医科室，能否直接于该医院行西医住院医师规范化培训？还是说必须通过委培送至中医院规培？以",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医住院医师规范化培训实施办法（试行）",
+    "住院医师规范化培训管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2381848",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2381848",
+   "question": "确有专长人员取得执业助理医师执业证书后，并取得成人本科中医学专业后，执业医师报考资格\n尊敬的领导： 您好！本人通过确有专长途径后于2019年8月取得执业助理执业证书，2020年3月考取成人大学中医学本科，2022年6月成人本科毕业，根据以下",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2381993",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2381993",
+   "question": "中医学硕考取专博毕业后规培需要几年？\n您好，我是一名中医学术型硕士研究生，想请问一下如若我考取了中医专业型博士并成功毕业后，我还需要规培吗？如果需要规培，是规培几年呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2377727",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2377727",
+   "question": "已经获得住院医师规范化培训证书在基层卫生院工作是否需要全科医师转岗培训呢\n您好，领导，我想咨询并明确一件事，关于培训是否存在重复或者证书互相不认同的问题。 本人已经完成中医住院医师规范化培训，结束后在基层卫生院工作，请问是否还需要参加中医全",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医住院医师规范化培训实施办法（试行）",
+    " 广东省卫生计生委关于印发广东省全科医生培训和产科儿科医师转岗培训项目实施方案的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2363891",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2363891",
+   "question": "关于中医诊所发布医疗广告问题\n您好！ 根据《医疗广告管理办法》第三条规定，“医疗机构发布医疗广告，应当在发布前申请医疗广告审查。未取得《医疗广告审查证明》，不得发布医疗广告”。 根据《广告法》第十九条规定，“广播电台、电视台、报刊音像出版单",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗广告管理办法",
+    "卫生部关于门诊病历登载医疗机构简介等不纳入医疗广告审查范围的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2364717",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2364717",
+   "question": "中医综合诊所是否可以静脉给药\n领导好，本人是通过考试取得的中医执业医师，注册已经满五年，想在东莞市申请一间中医综合诊所，但听说中医综合诊所不能静脉给药，不知广东省卫健委和广东省中医药管理局是否有相关政策文件，请答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发中医诊所基本标准和中医（综合）诊所基本标准的通知",
+    "抗菌药物临床应用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2358659",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2358659",
+   "question": "关于介入等限制类医疗技术，国家有明确的管理规范。\n《神经血管介入诊疗技术临床应用管理规范（2019年版）》明确要求医师的执业范围为外科、内科或医学影像科。黎劭学明显不符合该规范的要求。《中华人民共和国医师法》第十四条规定，医师经相关专业培训",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委办公室关于印发《广东省限制 类技术目录（2019年版）",
+    "广东省卫生健康委办公室关于转发国家限制类技术目录和临床应用管理规范（2022年版）的通知",
+    "医疗技术临床应用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2364711",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2364711",
+   "question": "外省确有专长资格可否报考本省助理医师\n你好，外省取得的确有专长资格可否在本省参加助理医师资格考试？需要什么手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "传统医学医术确有专长证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2364209",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2364209",
+   "question": "关于广东中医（专长）医师注册执业点问题的咨询。\n根据《中医医术确有专长人员医师资格考核注册管理暂行办法》(原国家卫生计生委令第15号)第二十七条规定：中医（专长）医师在其考核所在省级行政区域内执业。中医（专长）医师跨省执业的，须经拟执业所在",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理办法",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师执业证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2363733",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2363733",
+   "question": "广东中医（专长）医师能否跨市注册执业、备案中医诊所，能否省内多点备案执业？\n请问取得广东中医（专长）医师资格证的医师能否在广东省内跨市注册执业、备案中医诊所，能否省内多点备案执业？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师执业证书",
+    "关于印发推进和规范医师多点执业若干意见的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2359234",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2359234",
+   "question": "港澳居民报考内地主治中医师考试\n尊敬的负责人您好 本人2018年取得澳门注册中医师执照，2010年通过内地执业医师资格考试，取得执业医师执照。请问，在满足国家相关要求，即本科学历取得执业医师资格并工作满4年后，能否报考主治医师资格。是否仍需",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委办公室关于做好2022年度卫生专业技术资格考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2359760",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2359760",
+   "question": "请问中医灸疗诊所面积问题\n根据规定，中医诊所最小面积40平米，主要考虑有药柜，诊桌及等候的患者等。 但个体中医灸疗诊所无药柜，每次只能为一位患者提供施灸治疗，即只需一张按摩床及一张椅子。 请问，这类中医灸疗诊所面积是否可以小于40平米，满足",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2358745",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2358745",
+   "question": "获得助理中医师后跨专业考研能否缩短考执业医师年限\n领导好： 根据《医师资格考试报名资格规定（2014版）》第六条（ 一）3“2015年1月1日以后入学的学术学位研究生，其研究生学历不作为报考各类别医师资格的学历依据。”但是根据《中华人民共和",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2360204",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2360204",
+   "question": "中医资格证的区别。\n中医确有专长资格证和中医（专长）医师资格证，有什么区别？ 听说是不是考中医专长医师资格证考过之后直接可以开诊所？ 考到中医专长医师还可以报考中医执业助理医师吗？还是说不需要考职业助理医师，直接考执业医师就行了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "中医医术确有专长人员医师资格考试注册管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2354071",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2354071",
+   "question": "确有专长人员缩短考中医执业医师时间\n大专不是中医专业，专升本也不是中医专业，假如通过确有专长，考取中医执业助理之后，参加成人高考，是报专科还是专升本呢？选什么专业才对呢？这样可以用提升学历后的资格考中医执业医师吗？多少年可以考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委教育部国家中医药管理局关于印发《医师资格考试报名资格规定（2014版）",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2346554",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2346554",
+   "question": "希望尽快出台定向医学生跨县域流动的详细实施方案\n本人系2019级广州中医药大学中医学专业的定向医学生，现于肇庆市某县某卫生院工作。由于家庭原因（配偶及双方父母均在本市另一个县生活工作），想申请本市跨县域流动调动工作单位，符合政策文件粤卫科教",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委等七部门关于进一步做好订单定向医学毕业生就业及使用管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2343083",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2343083",
+   "question": "港籍医师读内地大学，现报考内地中医医师资格的问题\n你好，香港籍医师，硕士毕业于北京中医药大学中医学专业，取得香港中医医师资格并执业3年，现由于种种原因来深圳上班，想考内地的中医医师资格考试：咨询市医师协会报名资格问题，要求向毕业院校提交实习",
+   "cited_hits": [],
+   "cited_missing": [
+    "台湾、香港、澳门居民参加国家医师资格考试实习申请实习表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2341966",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2341966",
+   "question": "助理中医师考研能否缩短考执业医师年限\n尊敬的领导： 您好！我系中药学专业的广东籍在读大学生。有以下问题请教: 1、请问我在山东省通过师承考取中医助理医师证后，是否可以回广东考取中医执业医师证？ 2、根据《医师资格考试报名资格规定（2014版",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委教育部国家中医药管理局关于印发《医师资格考试报名资格规定（2014版）",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2328626",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2328626",
+   "question": "深圳市中医社会规培中途因升学退培怎么处理？\n报考的是深圳市中医院，咨询了深圳市中医院的人事科，说的是因升学退培需要退还所有发放的钱。但是有的地区有的医院因为考公和升学退培是不用退钱的。我没有找到相关的政策文件，请问具体文件是怎么说的呢？感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强广东省中医住院医师规范化培训经费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2325185",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2325185",
+   "question": "优化推广《职场高压状态人群治未病调养指南》等20个“治未病”方案或服务包。\n中医药综合改革示范区实施方案的通知,,粤府办〔2022〕22号文件，中提到“优化推广《职场高压状态人群治未病调养指南》《老年人慢性失眠中医药干预指南》等20个“治未",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医治未病 健康状态分类专家共识",
+    "中医治未病 健康生活方式基本原则专家共识",
+    "疲劳人群的中医“治未病”服务",
+    "睡眠不良人群的中医“治未病”服务",
+    "职场高压状态人群治未病调养指南",
+    "老年人慢性失眠中医药干预指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2324573",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2324573",
+   "question": "2022年中医确有专长考核\n请问考核合格公告没看到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2319981",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2319981",
+   "question": "外省中医专长想考广东省中医助理医师需要什么条件？\n已经取得外省新中医专长证一年以上，由于来广东省工作，现咨询是否可以在广东省报考中医助理医师？如果可以报考需要什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2313267",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2313267",
+   "question": "广东医生多点执业\n请问广东医生多点执业是怎样的流程，需要原单位同意或者告知原单位不？如果不用原单位同意或者告知原单位的话，原单位会否在系统可以得知自己的医生在其他单位多点执业了？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委 广东省中医药局关于进一步规范医师多点执业备案管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2297250",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2297250",
+   "question": "关于通过“大湾区内地城市公立医疗机构招聘港澳中医师试点”面临职称晋升问题的情况\n广东省中医药局于2021年8月31日向社会发布了“大湾区内地城市公立医疗机构招聘港澳中医师试点”公告，通过此试点入职内地公立医疗机构的港澳中医师面临无法报名参加",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部&lt;关于医师执业注册中执业范围的暂行规定&gt;"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2273621",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2273621",
+   "question": "中医诊所咨询\n领导好，请问申请中医诊所，申请条件中“开展中药饮片调剂活动的,至少有1名具备资质的中药技术人员”，具备资质的中药技术人员指的是药剂师还是执业中药师，还是两个证都可以。",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构药事管理规定",
+    "卫生技术人员职务试行条例",
+    "预防医学、全科医学、药学、护理、其他卫生技术等专业技术资格考试暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2271540",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2271540",
+   "question": "中西医执业医师可以注册或多点执业到综合中医诊所吗？（中医诊所有中医科，没有中西医结合科）\n中西医执业医师可以注册或多点执业到综合中医诊所吗？（中医诊所有中医科，没有中西医结合科）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发中医诊所基本标准和中医（综合）诊所基本标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2271681",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2271681",
+   "question": "中西医结合执业范围\n本人中西医专业毕业的，已获得中西医资格证执业证，想将执业证变更或多点执业到中医诊所的时候，被告知执业范围不允许，想请问一下，中西医专业想要到中医诊所工作，中医诊所的执业范围应该包含什么？是要明确写着中西医类别，还是中医类",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发中医诊所基本标准和中医（综合）诊所基本标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2270535",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2270535",
+   "question": "执业医师\n多点执业政策及查询方法",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范医师多点执业备案管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2250197",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2250197",
+   "question": "外省医生应聘广东后高级职称评审问题\n领导你好，我是吉林省在编中医医生，想要报考韶关地区基层事业编，我在吉林省取得了2021年的基层中医副主任医师职称，是通过答辩加评审的方式取得的，但是吉林省的副高级职称在广东不被承认，需要重新评审或者确认，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省跨区域跨单位流动专业技术人才职称重新评审和确认规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2249279",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2249279",
+   "question": "原定于5月14日的中医传统确有专长考试还会如期进行吗\n马上5月份了，已经报名了广东省的中医传统确有专长考试，这个月因为疫情好多考试都通知推迟了，但是传统确有专长考试一直没有通知消息，是否会如期5月14号进行。准考证什么时候下来。",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2238859",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2238859",
+   "question": "疫情情况下中医全科规培生全力支援核酸检测的相关鼓励\n自从新冠疫情爆发以来，我们中医全科规培生响应医院号召，积极参与广州，东莞，深圳等地的核酸检测，他们本院的职工参与抗疫后一般都有相关的奖励措施，类似可未达年限可直接参加主治考试，或者直接晋升",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训考核实施办法（试行）",
+    "住院医师规范化培训合格证书",
+    "中医住院医师规范化培训实施办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2225388",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2225388",
+   "question": "执业信息中专业为中医内科学可否做中医正骨治疗\n您好，我想咨询一下，我在医师电子化注册信息系统中，执业信息那一栏中的专业显示的是中医内科学，我想问一下，如果我给患者做正骨复位治疗，属于我的执业范围么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法",
+    "医师执业证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2228525",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2228525",
+   "question": "成人高考医学类专业的学生报名助理医师资格条件\n您好！ 想咨询两个问题： 1、非医学类专业的本科生，在取得相应中医专业的成人高等学历教育文凭（专科）后，且在医疗机构或保健院工作满1年，是否可以直接报名考中医执业助理医师资格证？ 2、取得相应这",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2207573",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2207573",
+   "question": "西医开中药\n目前取得西医主治医师，并取得成人本科中医专业毕业证，如果开私人西医诊所，是否具有开中药饮片处方权",
+   "cited_hits": [],
+   "cited_missing": [
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2207832",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2207832",
+   "question": "中医专业增加执业范围\n您好，我是中医学七年制本硕连读毕业的医生，硕士研究生阶段专业方向为皮肤科，执业证的执业类别为“中医”，执业范围为“中医专业”。根据今年3月1日开始执行《中华人民共和国医师法》规定：“医师经相关专业培训和考核合格，可以增",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2207868",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2207868",
+   "question": "中药处方权\n你好，我是2021年取得并注册的西医类别执业医师，有广州中医药大学全日制两年成人本科毕业证。因为科室的业务需要想咨询一下，根据最新版的医师法第十四条规定，是否符合开具中药饮片处方资格？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2204284",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2204284",
+   "question": "再问中西医结合医师如何增加执业范围？\n3月4日，在贵局咨询中西医结合医师如何增加呼吸内科专业执业范围，回复为“广东省使用的“医师执业注册联网管理系统”由国家卫生健康委建立和管理，按照国家有关文件要求办理医师执业注册”。询问国家卫健委，各省可",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定",
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2195101",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2195101",
+   "question": "中西医结合执业范围\n尊敬的广东省中医药管路局领导，您好： 我是广大中西医结合专业中的一员，新的医师法出台了，其中表明：中医、中西医结合医师可以在医疗机构中的中医科、中西医结合科或者其他临床科室按照注册的执业类别、执业范围执业。 但是实际情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2189255",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2189255",
+   "question": "请问报考外治技术的推拿技术治疗腹痛，推荐医生的执业范围有规定吗？中医外科或者中医内科可以吗\n请问报考外治技术的毫针技术，推荐医生的执业范围有规定吗？中医外科或者中医内科可以吗，我该找什么样的推荐医师才算符合要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2188721",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2188721",
+   "question": "中西医结合专业执业医师注册为中医专业后，变更注册为中西医结合专业\n大学毕业证为中西医结合专业，医师资格证书为中医类别（中西医结合专业），曾经第一次注册为中医专业并执业，现在想变更注册专业为中西医结合专业，可以吗，需要什么必要条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2189596",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2189596",
+   "question": "西医开中药\n我2021年取得西医内科执业医师资格，之前接受过两年广州中医药大学中医专业成人本科脱产学习并于2008年毕业，请问按新医师法现在可以开中药饮片吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2183651",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2183651",
+   "question": "西医学习中医\n请问西医学习中医培训中设有适宜技术课程，通过该培训后是否可以使用中成药外适宜技术？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2175453",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2175453",
+   "question": "主治医师报考资格\n本人是2021年毕业的中医全科规培医师，目前在海珠区一家二级医院的综合内科工作，但是该医院没有全科范围，所以无法注册全科，只能注册中医内科。所以想咨询下，这种情况下，还能报考全科类别的主治医师吗？中医全科规培证能适用内科主",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省改革完善全科医生培养与使用激励机制实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2177345",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2177345",
+   "question": "2022年中医执业医师考试报名资格问题\n您好！本人于2018年10月取得执业助理医师（师承），2019年9月注册，另外，2018年3月入学广州中医药大学，中医学专业，2021年1月取得本科学历，请问，按照《医师资格考试报名资格规定（2014",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈医师资格考试报名资格规定（2014版）〉的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2175209",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2175209",
+   "question": "可否在2021年中医专长医师资格考核报名截止日期前发布2020年度考核结果？\n如题。2020年度的广东省中医医术确有专长人员医师资格考核的结果至今尚未公布，然而，新的一年（2021年）的报名通知又下来了（截止日期2022年3月18日）。对于",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发2020年度广东省中医医术确有专长人员医师资格考核评议结果的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2175188",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2175188",
+   "question": "中西医结合无法在中医备案诊所执业注册\n您好，我是一名医师，执业类别是中医，执业范围是中西医结合专业。根据《中医诊所备案管理暂行办法》中“个人举办中医诊所的，应当具有中医类别《医师资格证书》并经注册后在医疗、预防、保健机构中执业满三年”的要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发中医诊所基本标准和中医（综合）诊所基本标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2173855",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2173855",
+   "question": "我如何报考中医执业医师\n您好，我是一名具有多年临床经验的西医临床执业医师，我工作后在中医院上班期间热爱中医，随中医大夫学习了不少中医，自学了四大经典，对于中医临床有一定的经验水平，2017年考取了广东省确有专长医师证（这个是旧专长），后来一",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学医术确有专长证",
+    "关于下发&lt;关于医师执业注册中执业范围的暂行规定&gt;的通知",
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "关于对&lt;转发关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知&gt;的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2168874",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2168874",
+   "question": "西医开中药饮片权限\n我现在是一名西医内科执业医师，接受过两年广州中医药大学中医专业成人本科脱产学习并于2008年毕业，请问现在可以开中药饮片吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2161988",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2161988",
+   "question": "不拘一格降人才，让有志于中医事业者皆有机会考中医师执照\n发展中医需要不拘一格降人才。希望自学成才者也可以像中医院校毕业生一样无障碍参加中医师资格考试。想要在中医领域上有大的作为，需要对中医有很大的兴趣和有中医天赋，而能够自学成才者，大多是对",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2152916",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2152916",
+   "question": "报考中医副主任医师的困惑\n尊敬的领导： 您们好！我是一名扎根于农村的基层卫生工作者，自从2006年12月至今一直在村卫生室工作。这些年，通过自己的不断学习，已取得中医主治医师资格，学历也是本科了。每次通过考试，都会促使我更加努力的学习，提高",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委关于做好2020年度卫生系列高级职称评审工作的通知",
+    "基层卫生紧缺专业技术人才副高级职称直接认定工作流程（2020年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2142856",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2142856",
+   "question": "2022年中医师报名资格问题\n您好，我于2017年11月通过确有专长途径取得执业助理中医师，2019年1月注册，于2018年3月就读上海中医药大学中西医结合成人本科学历，于2021年3月毕业，请问我这种情况可以参见2022年的医师资格考试么",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2142789",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2142789",
+   "question": "助理升执业要求材料太过繁琐\n中山市卫生局对于医师考试审核过于严格，苛刻！！本人助理升执业医师！中专毕业！连续两年提交申请都不能通过！我是外省的要求我提交我的学历证明，难道我的毕业证书证明不了我的学历文凭吗？？还有，中专五年考执业，还要求提交",
+   "cited_hits": [],
+   "cited_missing": [
+    "执业助理医师报考执业医师执业期考核证明",
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "国家医学考试中心 国家中医药管理局中医师认证中心关于印发〈医师资格考试考务工作规程（网上报名和资格审核部分）〉的通知",
+    "执业助理医师报考执业医师执业期考核证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2138956",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2138956",
+   "question": "广东省规培结业医生的两个同等对待何时能实施\n我是广东省广州市医疗系统的规培结业医生，在招聘工作及中级岗位竞聘中并没有享受到国家发布的关于两个同等对待政策的落实福利，经反馈医院相关部门并没收到相关消息，请问广东省内医疗卫生系统何时能有政策下发",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实住院医师规范化培训“两个同等对待”政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2138349",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2138349",
+   "question": ",2022年能我能报考中医执业医师吗\n我2018年取得了广东省中医药管理局颁发的[中医(专长)医师资格证],2022年能报考中医执业医师吗?敬请回复,谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2123204",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2123204",
+   "question": "师承地点和时间\n您好，本人对《广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法》（粤中医规〔2020〕1号）的解读有疑惑，希望能够得到解答。 问题1：第八条规定：指导老师的第一执业地点医疗机构及核准",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2120936",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2120936",
+   "question": "2022年广东省中医类主治医师报名条件\n你好，我是一名基层社区卫生服务中心医生，今年准备报考中医类别主治医师，我是08年全日制大专毕业，2016年成人本科毕业，2017年取得执业医师资格证，本来按照往年的规定，用成人本科毕业证，今年已达到报",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2119736",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2119736",
+   "question": "2022年中医执业医师中级考试\n你好，我看到2021年7月7日国家卫健委和中医药局发的( 2021)51号文中写到，中级职称：中医类别主治医师的考试报名条件中并没有强制要求具备规培证。但前几年广东下发的2022年卫生资格考试列明报考中级非基",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2118885",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2118885",
+   "question": "报名资格\n你好，老师。我是一名公共卫生执业医师。受到家庭的影响，热爱中医，也利用工作之余自学中医。现在需要咨询。做为公卫医师，我如何获得资格，能参加中医执业医师考试。能否通过师承或确有专长考取中医执业资格，还是只能通过西学中考中西医执业资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "关于下发&lt;关于医师执业注册中执业范围的暂行规定&gt;的通知",
+    "中医医术确有专长人员医师资格考核报名工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2115073",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2115073",
+   "question": "中医师承3年与5年的区别？\n中医师承3年，出师后有处方权吗？如何获得处方权？ 中医师承5年，出师后有处方权吗？有处方权的情况下，怎么样一路考到正高（正主任医师）？ 感谢领导百忙之中批阅，并抽时间答疑！",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1886104",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1886104",
+   "question": "举办西学中培训班需要具备哪些资质？\n在官网没找到举办西学中培训班的具体实施文件，想了解一下，如果单位有意向举办西学中培训班，单位需要具备什么条件？具体申报培训班的流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批重点监控合理用药药品目录（化学及生物制品）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1102524",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1102524",
+   "question": "报考资格\n西医本科毕业时，曾与科室里的中医同事一起工作数年，并自己使用中医方法解决难治病，多次取得良效。故有了热爱中医，自学中医的习惯。曾有西医执业医师证，已作废。现退休，非常想专心学习、提升中医水平。我如何才能具备报考中医执业助理或医师的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1100751",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1100751",
+   "question": "您好老师，中医执业医师的执业范围，请问您具体的法规条款？\n您好老师，我是中医执业医师，执业证的执业注册是中医专业，现已考取中医皮肤主治医师，我医院单位有美容皮肤科和美容中医科等等诊疗科目，请问日常诊疗当中、中医药为主的情况下，能不能使用激光",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委关于进一步加强医疗美容管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1089465",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1089465",
+   "question": "中医专长医师和助理医师可否同时注册\n你好，请问如果取得了《执业助理医师执业证书》，也取得了《中医（专长）医师资格证书》，能否同时注册中医医师执业，也注册中医（专长）医师执业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下发&lt;关于医师执业注册中执业范围的暂行规定&gt;的通知",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1076957",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1076957",
+   "question": "中医师承\n您好，因为跟的老师多点执业，想请问中医师承教学地点是否可以有多个？如果可以，公证后需要增加的师承教学地点是否还需重新公证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法",
+    "传统医学师承关系合同书",
+    "合同书",
+    "合同书",
+    "合同书",
+    "合同书",
+    "合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1058616",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1058616",
+   "question": "中医药师承\n请问中药师可以参加中医师承妈？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1057064",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1057064",
+   "question": "请问中医（专长）医师执业注册对“健康体检”有何具体项目规定？\n按照广东中医药局“开展中医（专长）医师执业注册工作的通知”文件规定，在申请执业注册登记时，应提供近期6个月内的健康体检报告，以确认身体胜任工作。但文件没有具体规定体检项目。 请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省医师执业注册健康体检表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1048689",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1048689",
+   "question": "两本执业医师证同时注册\n您好： 我在2019年以本科学历取得了中西结合执业医师证，后以研究生学历取得中医执业医师证，请问两本执业医师证是否可以同时行执业注册？是否可以同时注册在不同医疗机构？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1035231",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1035231",
+   "question": "中医执业医师注册问题\n你好,本人2021年在省内中医院完成住院医师规范化培训(期间取得医师证,并在规培医院注册了),规培结束后我考上中医药大学的学硕型研究生,但现在所属的研究生院所无法注册执业医师,请问:1.如果我三年没变更注册或没注册算不",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1017492",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1017492",
+   "question": "关于中医执业医师考中级是否需要规培证？\n你好，我看到2021年7月7日国家卫健委和中医药局发的( 2021)51号文中写到，中级职称：中医类别主治医师: 具各大学本科 学历或学士学位,取得住院医师规范化培训合格证书后从事医疗 执业活动满 2",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委办公室关于做好2021年度卫生专业技术资格考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1015816",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1015816",
+   "question": "关于个人中医诊所备案与医师注册\n根据相关规定中医（专长）医师资格证可以申请个人中医诊所备案。 但是，中医诊所备案表要求填写医师执业证编号， 医师执业注册系统表也要求填写医师执业机构名称及地址， 请问，如果想用广东中医（专长）医师资格证申请个",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医（专长）医师执业证书",
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1010236",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1010236",
+   "question": "所在区域无法进行中医诊所备案\n你好，本人在潮州市枫溪区申请中医诊所备案，由于枫溪区由潮州市设立，不属于广东省划分的行政区域，因此枫溪区卫健局以在中医诊所备案系统中无枫溪区选项为理由告知无法进行备案。而按照广东省行政区域划分，枫溪区所在区域属",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "988597",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=988597",
+   "question": "关于执业范围\n你好，我是中医学七年制毕业，方向是皮肤科，执业证的执业范围是中医学，现已考取中医皮肤与性病学中级职称，请问能不能进行激光美肤相关操作治疗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部办公厅关于印发&lt;医疗美容项目分级管理目录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "964690",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=964690",
+   "question": "师承跟师学习时间是3年可出师还是5年？\n根据粤中医规〔2020〕1号关于印发《广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法》的通知 http://szyyj.gd.gov.cn/zwgk/xxg",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "955669",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=955669",
+   "question": "传统中医确有专长实践操作考核成绩查询\n为什么每年的传统中医确有专长实践操作考核实际分数查询不到呢？既然考核时有10道题，共计100分，怎么考完之后具体分数查不到?在没通过考核的情况下我想查询一下具体分数是多少？想知道自己哪些方面知识欠缺，都",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "949899",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=949899",
+   "question": "传统医学确有专长报考问题\n您好，我是揭阳考生，传统医学确有专长今年已是第二年报考了，技能还是没有通过。为什么每年报名总要提交一大堆证明，这些证明资料难道没有存档吗，每次报名都要找这些证明资料，给我们这些民间的考生增加不少困难，没有单位的我，",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "949785",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=949785",
+   "question": "中医师承准考证\n中医师承的准考证是什么时候发放？我们这里的专长考试的准考证已经发放了，师承的市局说是你们省里统一发放，他们也不知道，能提供一下联系电话吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "948108",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=948108",
+   "question": "师承公证的相关流程\n想知道有哪个文件写明了公证的流程？到公证处和老师公证就可以了吗？后面需不需要去哪里备案啥的 ？去哪里备案呢？假设是在惠州市和师傅公证，那去哪里办呢？还是说公证后好好学习三年后考试就好了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法",
+    "传统医学师承关系合同书",
+    "合同书",
+    "合同书",
+    "合同书",
+    "合同书",
+    "合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "935197",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=935197",
+   "question": "临床执业（助理）医师报考中西医结合专业条件\n本人1999年12月取得临床执业助理医师资格（中专学历），于2020年9月取得临床执业医师资格，另于2018年03月01日入学广州中医药大学（中医学专业），学习形式 业余，于2021年01月25日",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "930669",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=930669",
+   "question": "中西医结合执业问题\n您好！本人中医药大学中西医结合专业毕业，现已取得执医证，想请教几个问题。 1.中西医结合专业在外科科室注册上班吗？ 2.本人倾向于整形外科或者美容外科，请问可以执业吗？ 3.美容外科负责主诊的医师需要取得美容主诊医师证，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下发&lt;医疗机构诊疗科目名录&gt;的通知",
+    "广东省卫生健康委关于进一步加强医疗美容管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "928306",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=928306",
+   "question": "报考执业医师（执业助理医师）\n① 2017年中等职业技术学校毕业的，学的是中医康复保健专业，这专业可以作为报考执业医师（执业助理医师）的资格吗？ ②成人高等学历可作报考资格吗？ ③请问该局咨询报考医师考试相关问题的电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "926481",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=926481",
+   "question": "中医类别执业范围\n您好！请问中医类别执业医师可以从事医学影像，临床麻醉方面的工作吗？可以的话需要经过什么培训考核之类的？中医类别可以考西医执业医师资格证吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下发&lt;医疗机构诊疗科目名录&gt;的通知",
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "885917",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=885917",
+   "question": "师承和确有专长类别的中医执业医师西药处方权\n我是一名工作了十几年的基层乡医，有乡医执业证。 在卫校的中专妇幼卫生专业毕业。由于报考政策改变，08年后不能再报考临床助理医师。为了可以取得执业资格继续行医，跟老师学习后并在其指导下自学中医，已取",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "880465",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=880465",
+   "question": "中医诊所备案\n您好！ 按“中医诊所备案暂行管理办法”，取得中医（专长）医师资格证书者即可举办中医诊所，但为何我到白云区卫生健康局咨询时，却被要求执业满三年才可以举办呢？“办法”不是只对通过考试取得中医执业医师资格者，才要求执业满三年吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师执业证书",
+    "中医（专长）医师执业证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "876606",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=876606",
+   "question": "关于师承和确有专长类别中医执业医师用药问题\n领导好，在贵局网站看到，《师承类别执业中医师不能用西药的帖子》我个人不同意。我查阅了《中医药法》第十六条：经考试取得执业中医师，可以运用现代疗法。我还查阅了《执业医师法》和《处方管理办法》也并未禁",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "874320",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=874320",
+   "question": "规培\n想知道规培政策顺延的意思，是不是比如我请假三个月延迟三个月毕业？还是请假三个月，补回了三个月的阶段轮转，然后继续再顺延三个月，就是延迟6个月才毕业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委关于印发住院医师规范化培训管理办法（试行）的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "870571",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=870571",
+   "question": "异地西学中结业证在广东可以开中药饮片吗？\n您好，在外地（广西中医药大学）获得的西医学习中医结业证（2年），在深圳医院上班可以开中药饮片吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批重点监控合理用药药品目录（化学及生物制品）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "868705",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=868705",
+   "question": "请问，师承类别的执业中医师能不能用西药？\n领导好，如果师承的途径考到了执业中医师，在门诊部，处方能不能开西药？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "865252",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=865252",
+   "question": "2018年度中医专长医师资格证何时能办理执业证\n你好！2018年度中医专长医师咨格证发下来已有3个月，想在当地卫健局注册执业，但当地卫健局回复：省局还没有开通注册系统。请问何时才能办理中医专长执业证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医（专长）资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "862923",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=862923",
+   "question": "师承人员在医疗机构中应当属于何种身份？\n如题。 师承人员跟随导师在医疗机构中学习时，如没有临床学历背景，是否可以直接在导师允许并监督情况下进行实操，还是要等拜师三年后才可实操，若出现意外时应当以何种身份保护自己。 导师为大医院医生，如广东省",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "862468",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=862468",
+   "question": "广东省中医类别执业医师如何加注中医（精神科）\n取得执业医师，执业范围（中医） 问题： 1》在社区卫生服务中心工作，想要通过学习培训，在原有执业范围：中医，的基础上，加注中医（精神科），请问目前适用什么政策规定？ 2》请问，广东省中医精神科转",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生计生委办公厅 国家中医药管理局办公室关于中医类别医师从事精神障碍疾病诊断与治疗有关问题的通知",
+    "关于中医类别医师从事精神障碍疾病诊断与治疗有关问题的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "851370",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=851370",
+   "question": "西医学中医\n我是一名有西医执业资格的医师，目前想学习中医，请问能否通过师承或确有专长考取中医执业资格，还是只能通过西学中考中西医执业资格？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "815086",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=815086",
+   "question": "异地中医特殊专长资格可不可以在广东执业，怎样办理相关手续\n您好，我是陕西人，2019年取得中医特殊专长资格。在广东执业能否办理注册执业资格证。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生和计划生育委员会&nbsp; 广东省中医药局关于中医医术确有专长 人员医师资格考核注册管理的实施细则",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "787983",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=787983",
+   "question": "基层中医师多点执业问题\n我是一名基层公益一类事业单位在编的中医师，有执业证、规培证，中医执业经验4年，中医在编人员是否可以申请多点执业，是否符合相关法规？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生计生委 广东省中医药局关于医师多点执业的管理办法",
+    "医师执业证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "783707",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=783707",
+   "question": "关于中医师承(还没拜师)\n1.师承是否只有5年的了 2.是否要有医院的备案才能报名考试 3.广州中医药大学是否有关于师承的班 4.如果是自己拜师以后应该如何报名考试 5.(还没有拜师)其他详情应该打哪个电话咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法&gt;的通知",
+    "关于开展2019年度广东省中医医术确有专长人员医师资格考核报名工作的通知",
+    " 广东省中医药局关于中医医术确有专长人员医师资格考核有关事项的再次声明 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "775421",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=775421",
+   "question": "确有专长疗效证明医师\n52号令传统医学确有专长提交资料的这条 5.两名以上执业医师出具的证明其掌握独具特色、安全有效的传统医学诊疗技术的材料. 请问出具这证明的执业医师是不是只要是执业医师就行,不管是中医,中西医结合还是西医的执业医师都行",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "776213",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=776213",
+   "question": "关于中医传统医学确有专长报名条件的问题\n关于中医传统医学确有专长考核考试《实施办法》第二条本实施办法适用于本省行政区域内以师承方式学习传统医学或者经多年传统医学临床实践医术确有专长、不具备医学专业学历的人员，参加医师资格考试的相关活动。 本",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "762149",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=762149",
+   "question": "关于中医执业助理考试报名条件中,经省级的市卫生、中医药行政部门确认医术有专长的\n关于中医执业助理考试报名条件里有一条 （2）确有专长人员申请参加中医医师资格考试应具备：依法从事传统医学临床实践5年以上，掌握独具特色、安全有效的传统医学诊疗技",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法&gt;的通知",
+    "传统医学医术确有专长证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "761564",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=761564",
+   "question": "52号令老专长的传统医学确有专长2名执业医师证明材料\n52号令老专长的传统医学确有专长2名执业医师证明材料,举个例子,如果专长填的是石淋病,属于中医内科学,那这两名中医执业医师是不是只要是个人诊所里开内服药的中医师就行,开内服药的中医师就是",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "757114",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=757114",
+   "question": "规培医师执业机构变更\n你好！我是广州中医药大学第一附属医院的一名规培医师，规培期间考取中医执业医师证后注册的主执业机构为广东省中医药局。目前本人因准备于民营中医馆兼职门诊中医师一职，因医师电子化注册系统提示规培医师不允许多点执业，请问是否可",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部关于住院医师规范化培训期间医师执业注册有关问题的批复",
+    "执业医师法",
+    "医师执业注册暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "756858",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=756858",
+   "question": "中医师承\n请问2020年8月份师承合同满3年，可以推迟一年，2021年再参加师承出师考试吗？喜不需要再办理什么手续？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "756031",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=756031",
+   "question": "请问贵局今年5月21号的公告是说老专长么\n请问贵局今年5月21号的公告是说52号令的老专长么,链接 http://szyyj.gd.gov.cn/zwgk/gsgg/content/post_2998284.html 今年的15号令的新专长",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "关于印发&lt;广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法&gt;的通知",
+    "实施办法",
+    "关于开展2020年传统医学师承和确有专长人员医师资格考核考试工作的通知",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "关于对广东省2019年度中医医术确有专长人员医师资格考核报名与审核工作时间调整的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "748759",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=748759",
+   "question": "报考中医执业医师\n本来是临床医学5年本科， 2005年已经取得西医内科执业医师资格。现取得广西医科大学的在职中医研究生文凭，能否在广东报考中医执业医师？本人户籍在深圳。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "715722",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=715722",
+   "question": "中医确有专长医师资格考试\n尊敬的领导你们好，我是一名乡村医生，同时也是一名村干部，由于今年的疫情影响，错过了中医确有专长医师资格考试报名时间，我还可以进行补一次报名吗？万分感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广东省2019年度中医医术确有专长人员医师资格考核报名与审核工作时间安排意见的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "669159",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=669159",
+   "question": "关于取消规培3个月机动月的泣血建议\n各位领导、同志，您们好， 我是一名18届的中医规培生，今年规培不但因疫情延期，根据新的《中医住院医师规范化培训标准》，里面规定培训由原来的33个月增加至36个月，所以今年所有的规培医院都让18届、19届的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医住院医师规范化培训标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "658829",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=658829",
+   "question": "关于中医规培疫情延期的补贴问题\n各位领导、同志，你们好， 我是一名18年入学的中医规培生，今年住院医师规范化培训因疫情延期，根据《广东省中医药局关于做好疫情期间住培工作的通知》，广东省很多中医规培医院因疫情延期1个月到两个月，但是延期期间却",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "622464",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=622464",
+   "question": "关于中医（综合）诊所设置药房的人员要求问题\n所谓的具备资质的药学技术人员是指那些？药店中使用的执业中药师可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生技术人员职务试行条例",
+    "预防医学、全科医学、药学、护理、其他卫生技术等专业技术资格考试暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "621579",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=621579",
+   "question": "执业中医师是否能在综合性医院担任科室负责人？\n本人是广州中医药大学2000年毕业的硕士研究生，曾在三甲医院担任肾内科及血液净化中心负责人12年，任职期间无医疗差错及医疗纠纷。现因从部队转业到地方一级医院，从事相同的专业，有原单位出具的工作证",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "621462",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=621462",
+   "question": "中医诊所相关资质问题\n你好，我想咨询下，我们是药品批发企业，我们的某客户中医诊所的备案证名称是：开发区***中医诊所，而营业执照上名称是：茂名市***医院有限公司开发区分公司，这样可以吗，就是中医诊所备案证与营业执照的名称不一致。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所备案管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "620746",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=620746",
+   "question": "西医本科想转中医，通过何种途径实现\n中山医科大学本科毕业的西医医生，通过何种途径能够合法取得中医的相关执业资格？读西学中班？还是中医确有专长中医师？还有有其它途径，最好在广州能实现，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "619422",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=619422",
+   "question": "中医医术确有专长人员医师资格考试报考咨询\n尊敬的中医药管理局领导，您好，我的亲戚想要参加中医医术确有专长人员资格考核，想咨询以下几个问题： 一、《传统医学师承关系合同书》在哪里可以下载，如何进行公证？ 二、多年中医医术实践者，如何提供中医医",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承关系合同书",
+    "关于印发2019年度广东省中医医术确有专长人员医师资格考核报名表格的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "563303",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=563303",
+   "question": "全日制大专生，咨询住院规培情况\n你好，我是一名全日制大专毕业的，现在已经考取执业中医师。我想进修自己一下，但是在国家政策面前，现在的广东省规培，绝大部门都是全日制本科，剩下小部分的是3+2的临床专业的。我们这些中医类情何以堪？？？想转中医全",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医住院医师规范化培训实施办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "562684",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=562684",
+   "question": "师承考取中医助理后，再考取中医执业医师资格。\n传统医学师承和确有专长人员取得执业助理医师执业证书后，取得国务院教育行政部门认可的成人高等教育中医类医学专业专科以上学历。这个时间是，取得执业助理医师执业证书后才可以报名成人高等教育学习中医学？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "562478",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=562478",
+   "question": "中医医术确有专长医师资格证跨省使用问题\n请问已经在其他省份考取获得中医医术确有专长医师资格证的人员，在广东省内是否可以注册认证？还是说需要重新报名考核？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生和计划生育委员会&nbsp;广东省中医药局关于中医医术确有专长人员医师资格考核注册管理的实施细则",
+    "中医（专长）医师资格证书",
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "560704",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=560704",
+   "question": "禁食野生蝎子，蜈蚣是否对中医疗效产生很大影响\n今年新出台的《野生动物保护法》中写了禁食野生蝎子，蜈蚣，而这些作为中医药药材，以后是否都不能昨晚中医药药材，是否会是中医药疗效大打折扣?如果会，那是否有提出取消禁食这些呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面禁止非法野生动物交易、革除滥食野生动物陋习、切实保障人民群众生命健康安全的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "560581",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=560581",
+   "question": "关于考取执业中医师及初级中医师资格证问题\n从事临床中药药师人员，中药学硕士学历以上，是否能报名执业中医师或初级中医师资格证？若能请告知相关条件，并告知需要什么证明？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;医师资格考试报名资格规定（2014版）&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "550670",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=550670",
+   "question": "中医类别从事美容皮肤科项目\n请问执业类别为中医，执业范围为中西医结合专业，美容主诊医师备案为美容中医科的医师，能否从事美容皮肤科的微创治疗项目，比如射频治疗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生部办公厅关于印发&lt; 医疗美容项目分级管理目录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "550706",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=550706",
+   "question": "中医类别的职业医师能否从事麻醉医师工作\n您好，请问中医类别的职业医师能否从事手术室的麻醉医师工作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下发&lt;医疗机构诊疗科目名录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "549165",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=549165",
+   "question": "关于广东省2020年传统医学师承和确有专长人员医师资格考核考试的开展时间\n请问今年何时开展”广东省2020年传统医学师承和确有专长人员医师资格考核考试”? 往年开展该考试大概是这几个月,目前在省中医药局的网站上并没有相关的信息,请问受疫情影",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省卫生健康委员会 广东省中医药局关于传统医学师承和确有专长人员医师资格考核考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "535337",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=535337",
+   "question": "中医确有专长考核推荐医师条件\n（二）推荐医师。 推荐医师应当为被推荐者长期临床实践所在地级市相关专业中医类别执业医师。请问师承或确有专长的中医师能不能作为推荐医师。谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理办法 ",
+    "广东省卫生和计划生育委员会 广东省中医药局关于中医医术确有专长人员医师资格考核注册管理的实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "533187",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=533187",
+   "question": "目前有适合广东地区使用的拿来预防新冠肺炎的中药方么\n目前有适合广东地区使用的拿来预防新冠肺炎的中药方么",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年冬春季节中医药扶正固本养生保健指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "524028",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=524028",
+   "question": "中医确有专长报名\n港澳台人员是否可以参加多年实践人员确有专长考试？ 2018年报名，被否决的原因是港澳台人员只能以师承形式参加确有专长医师资格考试，但是四十五并没有规定长期在大陆居住并取得大陆居住证的港澳台人员不能以多年实践人员身份参加确有",
+   "cited_hits": [],
+   "cited_missing": [
+    " 中医医术确有专长人员医师资格考核注册管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "523206",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=523206",
+   "question": "关于中医师承\n你好，我想问师承关系合同等相关文件在哪里下载?里面的内容是全部手写，还是只是签名那里手写？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 传统医学师承关系合同书 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "523281",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=523281",
+   "question": "《传统医学医术确有专长证书》2020年报名咨询\n你好，本人去年未通过《传统医学医术确有专长证书》的理论考核，请问关于考核《传统医学医术确有专长证书》2020年的报名在何时开始？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 传统医学医术确有专长证书 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "523094",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=523094",
+   "question": "成人学历报考中医执业医师的条件\n你好，我2018年10月取得师承或确有专长中医执业助理医师执业证，2019年01月取得广州中医药大学中医学专业业余专科毕业证，请问我可以凭此学历报考中医执业医师吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;医师资格考试报名资格规定（2014版）的通知&gt;"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-szyyj",
+   "id": "3513663",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3513663",
+   "question": "师承执业医师考取规定学历的中医主治医师考试的条件\n领导您好，咨询下，今年师承执业医师成绩合格，师承执业助理之前，已有成人专科中药学学历，可否再函授本科中医类学历，用来以后考取规定学历的中医内科主治医师？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3505462",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3505462",
+   "question": "中级\n尊敬的领导您好，我是一名中西医结合专业方向的住院医师，本人资格证和执业证的执业范围均为中西医，本人工作所在的医院的执业范围为中医，规培结业方向为中医，今年是规培结业后满2年，根据广东省最新政策规定，本人今年能否报考中西医或中医的中级职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3397483",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3397483",
+   "question": "2026年广东省中医药管理局拟立项自助项目\n1.请问，2026年广东省中医药管理局拟立项自助项目的名单在哪里可以看到？ 2.请问，2027年的项目申报什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3367582",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3367582",
+   "question": "规培证书遗失补办\n领导，您好！我朋友的中医住院医师规培证书不慎遗失（之前在广东省中医院规培，2024年拿到证书），因网上没有补办流程，故留言互动，还请协助提供补办规培证指引，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3295890",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3295890",
+   "question": "广东省中医药局官网上 广东省中医药基金立项证书在哪里打印？\n广东省中医药局官网上 广东省中医药基金立项证书在哪里打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3189321",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3189321",
+   "question": "请问今年医考的实践技能成绩什么时候出来？\n请问广东省东莞市2025年医考的实践技能成绩什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3171152",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3171152",
+   "question": "2025年东莞市中医实践技能考点在哪\n请问东莞市2025年中医医考的实践技能考点是在东莞市内吗？东莞市有中医的实践技能考场吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "3078294",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=3078294",
+   "question": "项目结题报告书补办\n我在2024年7月11日曾咨询贵单位项目结题报告书遗失补办问题，贵单位回复找项目推荐单位获取。现在问题是项目推荐单位遗失了结题报告书，根本没有给到承办单位和个人。我想咨询一下，能到贵单位补办结题报告书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2682535",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2682535",
+   "question": "广东省中医药科研项目管理系统科研项目书打印\n请问从广东省中医药科研项目管理系统下载的广东省中医药局科研项目合同书或结题书（已生成水印版本），打印出来纸质版没有水印怎么解决？尝试换不同电脑及浏览器、pdf软件都无法解决水印问题，而其他省市项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2583236",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2583236",
+   "question": "请问今年的中医药局科研立项申报什么时候开始申报?\n请问今年的中医药局科研立项申报什么时候开始申报?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2582176",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2582176",
+   "question": "全科转岗证\n请问一下去年考试通过的全科转岗证什么时候可以发放呢？去年12月就说发的，已经推迟了3个月，还没见证，很想早点拿到证，好注册。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2521999",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2521999",
+   "question": "专长医师考核完多久 才会颁发资格证？有短信通知自己考核通过吗？\n感谢领导的回答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2485675",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2485675",
+   "question": "中医师承考试报名程序流程\n您好，我是一名临床医生，因为爱好想报名师承中医，我老师是一名很老的副院长。我经常找不到他，他自己的证件也不一定找到。我已经考过三次的技能，很遗憾还未通过，去年疫情严重，还是网上提交的，当时我老师都被封起来了，我找了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2484748",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2484748",
+   "question": "咨询广东省中医师承的地方政策\n我是5年制大专学历，所学中药学专业，03年入学，08年毕业，现在想咨询在广东能通过师承学习的方式获得助理中医师资格证，从事中医的工作吗？广东省的政策是什么样的，有些什么要求。是否有官方的途径学习。具体流程是怎么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2485037",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2485037",
+   "question": "2021届中医专长医师考核时间\n2021届中医专长医师什么时候考核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2484651",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2484651",
+   "question": "中医住院医师规范化培训\n中医住院医师规范化培训基地有哪些？在哪里看？住院医师规范化培训招生什么时候开始？在哪里可以看到最新的招生信息？在哪里报名？五年制本科中西医临床医学专业是不是只能报考中医住院医师规范化培训？可以报考西医住院医师规范化培",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2477818",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2477818",
+   "question": "可以在二甲中医院申评基层类副主任中医师职称吗取得后能在二甲医院获得聘任及人社局认可吗\n我已经符合申评副主任中医师的条件和资格，请问我能否在现工作单位梅县区中医医院（二甲医院）向省里申评基层类的副主任中医师？ 这职称获得后是不是适用于工作单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2471067",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2471067",
+   "question": "执业资格类别一致的助理医师注册时间可否累计计算。\n领导您好！本人已2018年考取“乡村全科执业助理医师资格证”，于同年12月注册“乡村全科执业助理医师证”。 2022年本人再考取“中医执业助理医师资格证”（现未注册中医执业助理医师证）。 有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2466753",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2466753",
+   "question": "2023年中医医术确有专长报名时间\n您好，请问下2023年中医医术确有专长报名公告什么时候出来呢？考试时间大概定于什么时候？盼复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2456416",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2456416",
+   "question": "传统医学出师考试时间\n例如2022年11月签订传统医学师承合同书跟师三年，是第三年上半年就直接可以报名参加当年出师考试吗？还是等三年合同期满了之后再参加下一年考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2444977",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2444977",
+   "question": "2022年3月拿证的中医（专长）医师注册时间\n请问2022年3月取得中医（专长）医师证的，大概什么时间可以注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2430420",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2430420",
+   "question": "2022年中医确有专长考核时间\n请问2022年中医确有专长时间是什么时候？问了当地主管部门说要等省中医药局通知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2415168",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2415168",
+   "question": "中医师承\n中医师承去哪里找老师，有政府开办的机构吗，找具有师承资质的中医师拜师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2341722",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2341722",
+   "question": "2022年传统医学师承人员《综合理论测试》成绩公布时间\n相关工作人员您好，请问按正常工作流程进度，2022年传统医学师承人员《综合理论测试》成绩的公布时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2312104",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2312104",
+   "question": "中医执业医师技能考试成绩\n请问广东省中医执业医师技能考试成绩多久能公布？又要拖一个月吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2296493",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2296493",
+   "question": "西学中如何报名\n尊敬的领导：您们好，我是一名西医临床专业医生，目前是执业助理，对祖国医学有浓厚兴趣，想系统地学习中医，听闻现在有西学中政策，不知要到哪里报名，注意事项是什么？请百忙中给予回复为盼。 此致敬礼！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2294433",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2294433",
+   "question": "2022年传统医学师承人员临床实践技能考核\n请问今年成功报考中医出师考核的名单什么时候公布呢？还有今年的传统医学师承和确有专长人员医师资格考核考试如期进行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2283835",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2283835",
+   "question": "杏林寻宝\n我想了解一下至今为止杏林寻宝活动自09年举办以来累计梳理的全国中医药特色技术400多项名单，实地走访的名单和已上台表演的项目名单。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2270144",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2270144",
+   "question": "2022年中医医术确有专长人员医师资格考核\n广东省2022年中医医术确有专长人员医师资格考核会如期在广州进行吗？申报材料上交后，如果通知考核，是书面通知还是电话通知？如何知道有没有被批准参加考核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2268398",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2268398",
+   "question": "中医药局机构职能信息\n请问广东省中医药局的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2266523",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2266523",
+   "question": "主治考试\n您好，关于今年广东省报考中医主治医师，乡镇卫生院的医生需要规培的内容。这边想咨询一下，乡镇卫生院报考中医主治医师如果需要规培的话，这边会不会出台相关规定要求单位送全日制本科学历的医师去规培的政策？现在乡镇卫生院毕竟人手紧缺，如果单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2254860",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2254860",
+   "question": "执业证注册咨询\n领导们好，请问医师类别为中医，执业范围为中医专业、全科医学专业，能注册到只有中医科的个人诊所吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2250222",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2250222",
+   "question": "中专学历中西结执业医师，有中医学成人大专，能不能以中医学成人大专报考中西医结合骨伤科主治\n领导，你好。我想问一下;本人为中专学历中西结执业医师，明年就读完中医学成人大专，到时能不能以中医学成人大专学历报考中西医结合骨伤科主治医师？还是要继续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2243643",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2243643",
+   "question": "药材种植有没有正规药材公司回收\n本人在清远连山老家想种植100来亩地药材，暂时找不到合适的药材公司合作种植回收，想请求帮忙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2227363",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2227363",
+   "question": "关于中医全科医师规范化培训协同基地轮转的若干问题\n中管局的领导您好，我是2020级由韶关市下属镇级卫生院委培至东莞市中医院进行全科培训的学员，现为规培通科培训第二年，根据全科医师规培大纲要求，我们将有6个月社区医院/卫生服务中心轮转要求。韶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2218985",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2218985",
+   "question": "2021年9月14号已开展中医（专长）医师执业注册工作，但目前为止还是无法注册？\n2021年9月14号已开展中医（专长）医师执业注册工作，但目前为止还是无法注册，也咨询过中医管理局相关部门，给的答案是注册系统还无法正常运作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2197022",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2197022",
+   "question": "广东中医药大学是否提供承办中医药人才培训课程 ？\n你好，我是四川省宜宾市中医药管理局，我局想联系广东中医药大学能否给我方提供为期5天的有偿中医类的专业培训课程，我方学员40人。不知道具体联系方式，不知贵局可否告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2191160",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2191160",
+   "question": "祈福医院2009年前后三甲中医院等级证明\n因审计需要，需提供祈福医院（曾用名“广州中医药大学祈福医院”）2009年前后第一次通过三甲医院等级证明，劳烦发送至联系邮箱。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2191189",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2191189",
+   "question": "中医执业医师证丢失，记不到编号如何申请补办？\n您好！我是2005年7月毕业的广州中医药大学一名中医临床研究生，于2005年在广州考试取得执业医师资格证（中医），由广东省卫生厅2005年12月16日发证的。由于四川地震等个人原因，2008年不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2191643",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2191643",
+   "question": "中西医结合医师如何增加执业范围？\n3月1日，新医师法正式实施，根据医师法，中西医结合医师可以增加执业范围，本人目前注册为中医类别，执业范围为中西医结合专业，目前在综合医院内科工作，如何增加内科执业范围？ 非常迷茫，因为根据《医师执业范围暂行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2173532",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2173532",
+   "question": "请问2022年科研立项\n什么时候开始申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2130294",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2130294",
+   "question": "请问广东中医（专长）医师，可否在广东省内2个（含）以上地级市注册执业？\n中医（专长）医师执业注册系统完善可以正式注册执业后。请问广东中医（专长）医师，可否在广东省内2个（含）以上地级市注册执业？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2138128",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2138128",
+   "question": "报考中医执业医师有年龄限制吗\n据说,报考中医执业医师须18岁以上 ,不能超过75周岁,真的有这个规定马,请领导回复 謝谢.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2126019",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2126019",
+   "question": "中医执业医师报考\n据说,75岁以上的人,不能报考中医执业医师,不知是否属实.如果确实如此,我对此规定很不理解,能否作一解释 .谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2125305",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2125305",
+   "question": "我的[中医(专长)医师申请注册审核表]已经上传4个月了,未见批复请领导回复当前进度.\n我叫鞠象峥,我的[中医(专长)医师申请注册审核表]已经上传4个月了,未见批复请领导回复当前进度.谢谢.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2124157",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2124157",
+   "question": "住院医师规范化培训申请可以补吗\n您好，我2014年大学本科毕业，2015年参加培训并参加广东省中医住院医师规范化培训理论课程统考课程均已合格，但中途由于单位没通知上报资料申领住院医师规范化合格证，请问现在可以补申领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2122368",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2122368",
+   "question": "【中医医术确有专长---推荐医师资格】\n报名细则写“推荐医师所从事的专业要一致，通常细分到中医临床二级分科 ”，二级分科属于哪些？ 报考妇科-痛经病的内服药方，推荐医师的资格证是内科学方向，也是开内服药方的，请问是否符合规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "2121487",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=2121487",
+   "question": "地址\n你好，请问广东省中医药局的地址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1886556",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1886556",
+   "question": "中医确有专长考核报考\n你好，想问下广东省确有专长考核在什么时候？每个市的通知都会不一样么？梅州市在哪里看相关通知呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1886125",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1886125",
+   "question": "中医注册加注执业类别\n请领导能否像吉林省一样出台中医医生加注临床类别的规定，就像“吉林省关于进一步加强中西医结合工作的相关规定”这样。第七条 具备中医类别执业医师资格的人员，既可以选择在中医类别科室执业，也可以选择在临床类别科室执业。对于选",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1880816",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1880816",
+   "question": "中医（专长）医师注册\n2021.09.14日省中医药局官网发布：关于开展中医（专长）医师注册工作的通知。现在时间过了两个多月都还不能注册，请问什么时候才能注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1878992",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1878992",
+   "question": "非中医类别全科医师怎样才可以进行中医诊疗、开具中药饮片等，谢谢！\n请求帮助：非中医类别全科医师怎样才可以进行中医诊疗、开具中药饮片等，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1100356",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1100356",
+   "question": "考中医确有专长22周岁能否参加\n我今年刚满21周岁，明年可以报名参加中医确有专长考核吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1096802",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1096802",
+   "question": "中级报考\n尊敬的工作人员： 您好！！！ 我本科专业是中西医结合临床，研究生专业是中医骨伤科学；执业医师上执业类别是中医，执业范围没有写。 1、2022年中级考试，特向您咨询我中级医师考试是考中西医结合骨伤科学，还是说可以考中医骨伤科学？ 2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1070513",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1070513",
+   "question": "中医全科规培补贴\n据了解西医全科规培是有全科补贴，部分地区中医全科规培也发了全科补贴，本人目前在广州委培，是中医全科规培，并没有收到全科补贴，发的钱跟中医非全科规培生一样，这是为什么？请问有没有全科补贴的相关文件，标准是什么，同是全科规培待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1029128",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1029128",
+   "question": "新专长医师什么时候考试\n请问今年新专长医师考试开展吗？什么时候报名考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1006421",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1006421",
+   "question": "中医儿科。\n尊敬省中医药局领导，你好！本人家里有小孩脾虚，积食，体型偏瘦小，想上广州看病，但由于路程远，来回费用大，很不方便，阳西属于医联体改革地方，因为从网上知道，省中医院，省妇幼保健院有出色的中医儿科专家，希望省中医药局，是否协调下，派",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1005731",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1005731",
+   "question": "请问2021广东执业医师技能考试什么时候能出成绩？\n因为6月份的疫情，广东的技能考试时间推迟了，但是理论考试时间却照旧，那么请问技能考试什么时候能出成绩呢？出成绩到考理论的时间比较短，希望可以尽早知道成绩，好安心进行后面的复习，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "1005120",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=1005120",
+   "question": "取得公共卫生执业类别的医师资格是否可通过西学中班增加中医类执业范围\n您好，请问取得公共卫生执业类别的医师资格，是否可通过西学中班增加中医类执业范围。还是必须通过师承公正后5年才能增加中医类别执业范围。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "994420",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=994420",
+   "question": "中医确有专长医师资格证什么时候考试\n请问今年的中医确有专长医师资格证什么时候考试？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "947631",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=947631",
+   "question": "中医药文化传播推进行动方案\n您好，我是广东食品药品职业学院的一名学生，也是学校中医协会的一员，看到最近发布的《2021年广东省中医药文化传播推进行动方案》13.推进中医药文化进校园。我们学校有一个社团，叫中医协会，可以开展相关中医药文化进校",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "940075",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=940075",
+   "question": "2021中医规培招生时间\n2021年广东省中医住院医师规范化培训什么时候发布招生简章？招生报名工作开始了吗？ 目前网上还查询不到相关信息，今年的规培招生信息还是在广东省中医住院医师规范化培训管理平台发布吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "934232",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=934232",
+   "question": "广东省中医药管理局科研课题\n请问广东省中医药管理局科研课题什么时候开始申报，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "922480",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=922480",
+   "question": "2021广东省中医规范化培训时间\n请问2021广东省中医规范化培训时间定在什么时候？2019和2020都是4月3号公布，今年是推迟吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "910063",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=910063",
+   "question": "网站打不开\n您好，http://210.76.80.212/这个新网址依然打不开。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "907137",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=907137",
+   "question": "广东已有中医院养生旅游示范基地40家\n尊敬的领导： 您好，我是一名大学生，我在贵网站上看到“广东已有中医院养生旅游示范基地40家”的资讯文章，我想问一下这40家中医药养生旅游示范基地有具体的名单吗？由于现在我在写论文，需要这一份数据。希望领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "907063",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=907063",
+   "question": "关于中医全科转岗培训的问题\n前几年有组织过一次，想咨询下一次组织中医全科转岗培训的时间安排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "895239",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=895239",
+   "question": "科研申报\n请问今年的中医药局科研立项申报什么时候开始申报?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "889635",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=889635",
+   "question": "广东省中医药科研项目管理系统\n你好，广东省中医药科研项目管理系统迁移至云平台，变更后新网址http://210.76.80.212现在依然打不开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "872377",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=872377",
+   "question": "广东省中医药科研项目管理系统\n我想请问广东省中医药科研项目管理系统的网址是什么？以前的那个网址（http://210.21.85.108）一直登陆不上去，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "861898",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=861898",
+   "question": "目前市面上的师承机构如何得知该机构是否合法\n您好，想咨询如“广东中医师承研究中心”“固生堂”之类机构开办中医师承活动是否合法？是否需要检查他们有无办学许可证？ 又如“广东中医师承研究中心”这类机构开办师承活动要求先交5万元才能匹配导师，这是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "813101",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=813101",
+   "question": "中药\n你好，我想咨询有关中药的几个问题？ 1.中药煎煮第一遍之后，药渣可以存放多久，进行第二次煎煮。 2.中药煎煮好了可以放保温杯保存吗，保存时间不能超过几个小时？ 3.中药适合用什么材质的杯子装？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "797516",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=797516",
+   "question": "关于医师资格证的发放\n尊敬的省中医药管理局领导： 省中医药管理局于2019年4月公布了广东省首届专长医师考核通过名单。请问通过考核人员的专长医师证大概何时能够发放至个人。 此致 盼复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "777299",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=777299",
+   "question": "今年新专长医师资格证省考约安排在几月份\n7月份已提交市卫生局报省里，请问约几月份考核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "769996",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=769996",
+   "question": "中医科能否销售西药\n中医诊所只有中医科一个科目，能够销售西药？是否只能销售中成药跟饮片处方？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "655605",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=655605",
+   "question": "中医师承班或西学中班如何报名？\n本人西医生，想报考中医师承或西学中班，如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "619952",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=619952",
+   "question": "中药适宜技术的认定\n本人有祖传中草药秘方（外敷），所制成的药粉专治腰间盘突出、颈椎骨质增生、风湿骨痛等骨症，疗效奇特，一般敷一次就可治愈，所敷部位敷后不再复发。本着继承和弘扬中医药利国利民优良传统之想法，请问申请该药适宜技术认定需要哪些条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "562137",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=562137",
+   "question": "省中医院医师规范化培训登录\n您好，由于个人失误，我在省住院医师规范化培训网址注册登录，以至于无法在省中医住院医师规范化培训网址注册登录，我想问下这两者不是共用的吗？如果不是，我应该怎么样才能在省中医住院规范化培训网站上注册登录呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "561185",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=561185",
+   "question": "申办中西医诊所\n请问申办中西医诊所是向中医药局申请还是向卫健委申请？医师资格证是中西医专业，类别是中医，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "549325",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=549325",
+   "question": "关于广东省中医住院医师规范化培训平台\n广东省中医住院医师规范化培训平台大约几时维护完成并上线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "548736",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=548736",
+   "question": "申请中医诊所许可证的相关部门\n想在中山坦洲镇申请中医诊所，想咨询负责本行政区域的备案或许可证的县级中医药主管部门地址、电话、官网。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "546373",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=546373",
+   "question": "建议广东省举办省级西学中培训班\n新冠肺炎疫情全球紧张，中医药治疗效果显著，目前作为一名热爱中医的西医外科医生经历过西医教育方式发现对祖国医学的传承不足，纵观北京、天津、山东、广西等多省市已经成功举办多届省级西学中班，作为执业于中医药大省的广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "540234",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=540234",
+   "question": "中医确有专长报名\n在《中医医术确有专长人员（多年实践人员）医师资格考核申请表》中有一项“近五年服务人数”。根据《暂行办法》第六条规定，经多年中医医术实践的，申请参加医师资格考核应当同时具备下列条件：一是具有医术渊源，在中医医师指导下从事中医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "539495",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=539495",
+   "question": "已取得我省《传统医学医术确有专长证书》人员报考的问题\n我是已取得我省《传统医学医术确有专长证书》人员，想参加2019年度广东省中医医术确有专长人员医师资格的考核。（粤中医〔2018〕29号，下称《实施细则》第八条 已经按照广东省《传统医学师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "538686",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=538686",
+   "question": "请问在哪里能获取到贵单位的信息公开年报？\n请问在哪里能获取到贵单位的信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "537051",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=537051",
+   "question": "学中医\n你好！我有个女儿今年3岁半，想让她少儿期就开始学中医，请问广东省有专门的学习机构吗？或者其他什么途径可以尽早从娃娃期就学起。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "534274",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=534274",
+   "question": "关于冠肺患者治疗康复过程中加强饮食禁忌的紧急建议\n目前在新闻中发现贵省中医介入冠肺患者的治疗效果勉强，按照笔者治疗非典及20余年临床治疗其他呼吸道病毒性感染的经验，在患者治疗过程中必须要求忌口，具体如下： 1、鸡肉、蛋及糕点等含蛋成份的食品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "533833",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=533833",
+   "question": "再次报考中医确有专长考试可以不再呈交资料证明审核吗？\n本人已报考中医确有专长考试已考三年了，每次都要填写一堆证明和提交一堆证明来审核报名考试，特别是须要提交在职的中医生证明推荐申请和他的医生证件来现场审核，这是对我们传统中医实践人员非常麻烦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "531902",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=531902",
+   "question": "群众献方\n黄芩（或者槲皮），连翘，玫瑰花蕾（或者苦荞麦），金银花，甘草，陈皮 均为适量，熬煮后，加入新鲜柠檬汁，服用。 依据： 1,黄芩甙元、木樨曹素、槲皮素、槲皮万寿菊素、杨梅黄酮、木樨草素-7-葡萄糖苷等8种类黄酮化合物具有抑制HIV病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "531034",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=531034",
+   "question": "群众献方\n尊敬的领导： 您好！ 我的名字叫赖其聪，是广州中医药大学第一附属医院的一名研究生，家叔钻研中医多年，深感疫情严重，自拟抗新冠方一首。毛主席曾号召群众献方，家叔令我将此方献上，希望能为抗疫出一分力！家叔原文如下： 各位中医界的专家学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "529833",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=529833",
+   "question": "关于最新一次的中医新专长报名审核通过率,考核通过率和报考范围\n请告知最新一次的中医新专长报名审核通过率和考核通过率,另外国家新专长政策报考范围是最多可以选3个小项或3个大类的,例如国家政策可以报考3个大类像肺系病类(代码BNF),脾系病类(",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-szyyj",
+   "id": "521301",
+   "url": "http://szyyj.gd.gov.cn/hdjlpt/detail?pid=521301",
+   "question": "研究生规培\n你好，我是某中医药大学研二的学生，目前在协同基地轮科规培，该协同基地所属的主基地拒绝接受协同基的研究生规培，并说研究生不归属他们管。请问1.我们协同基地研究生到底归不归主基地管，2.如果不归属主基地管，谁将给我们发放规培合格证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

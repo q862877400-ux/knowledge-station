@@ -61,13 +61,43 @@ ADAPTERS: dict[str, str] = {
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
     "people-liuyan-df": "adapters.people_liuyan_df",  # 同平台·地方版块（省/市/县全国覆盖，已跑通）
-    "gd-st": "adapters.gd_sthj",          # 广东省生态环境厅（同款 hdjlpt 平台，已跑通）
-    "gd-yj": "adapters.gd_yjgl",          # 广东省应急管理厅（hdjlpt Laravel 接口，已跑通）
-    "gd-hr": "adapters.gd_hrss",          # 广东省人社厅（同平台，年窗 510 条）
-    "gd-jt": "adapters.gd_jt",            # 广东省交通运输厅（同平台）
-    "gd-ws": "adapters.gd_wsjkw",         # 广东省卫健委（同平台）
-    "gd-jy": "adapters.gd_eea",           # 广东省教育厅（同平台）
-    "gd-fg": "adapters.gd_drc",           # 广东省发改委（同平台）
+    "gd-st": "adapters.gd_sthj",          # 广东省生态环境厅（hdjlpt，全历史 3329）
+    "gd-yj": "adapters.gd_yjgl",          # 广东省应急管理厅（hdjlpt，全历史 179）
+    "gd-hr": "adapters.gd_hrss",          # 广东省人社厅（hdjlpt，6120；⚠ 每窗 510 疑截断）
+    "gd-jt": "adapters.gd_jt",            # 广东省交通运输厅（hdjlpt，381）
+    "gd-ws": "adapters.gd_wsjkw",         # 广东省卫健委（hdjlpt，909）
+    "gd-jy": "adapters.gd_eea",           # 广东省教育厅（hdjlpt，513）
+    "gd-fg": "adapters.gd_drc",           # 广东省发改委（hdjlpt，330）
+    "gd-szyyj": "adapters.gd_szyyj",  # 广东省中医药局（年窗 23）
+    "gd-gdcss": "adapters.gd_gdcss",  # 广东省人民政府参事室（年窗 8）
+    "gd-gdyjzx": "adapters.gd_gdyjzx",  # 广东省人民政府发展研究中心（年窗 7）
+    "gd-gzw": "adapters.gd_gzw",  # 广东省人民政府国有资产监督管理委员会（年窗 10）
+    "gd-dfz": "adapters.gd_dfz",  # 广东省人民政府地方志办公室（年窗 9）
+    "gd-zfcxjst": "adapters.gd_zfcxjst",  # 广东省住房和城乡建设厅（年窗 24）
+    "gd-tyj": "adapters.gd_tyj",  # 广东省体育局（年窗 8）
+    "gd-coop": "adapters.gd_coop",  # 广东省供销合作联社（年窗 4）
+    "gd-gdwsxf": "adapters.gd_gdwsxf",  # 广东省信访局（年窗 11）
+    "gd-dara": "adapters.gd_dara",  # 广东省农业农村厅（年窗 18）
+    "gd-hsa": "adapters.gd_hsa",  # 广东省医疗保障局（年窗 11）
+    "gd-com": "adapters.gd_com",  # 广东省商务厅（年窗 33）
+    "gd-gdaudit": "adapters.gd_gdaudit",  # 广东省审计厅（年窗 6）
+    "gd-gdii": "adapters.gd_gdii",  # 广东省工业和信息化厅（年窗 10）
+    "gd-amr": "adapters.gd_amr",  # 广东省市场监督管理局（年窗 773）
+    "gd-gbdsj": "adapters.gd_gbdsj",  # 广东省广播电视局（年窗 25）
+    "gd-zfsg": "adapters.gd_zfsg",  # 广东省政务服务和数据管理局（年窗 31）
+    "gd-edu": "adapters.gd_edu",  # 广东省教育厅（年窗 68）
+    "gd-whly": "adapters.gd_whly",  # 广东省文化和旅游厅（年窗 13）
+    "gd-jgsw": "adapters.gd_jgsw",  # 广东省机关事务管理局（年窗 9）
+    "gd-lyj": "adapters.gd_lyj",  # 广东省林业局（年窗 21）
+    "gd-smzt": "adapters.gd_smzt",  # 广东省民政厅（年窗 107）
+    "gd-gdjyj": "adapters.gd_gdjyj",  # 广东省监狱管理局（年窗 14）
+    "gd-gdstc": "adapters.gd_gdstc",  # 广东省科学技术厅（年窗 12）
+    "gd-gdgrain": "adapters.gd_gdgrain",  # 广东省粮食和物资储备局（年窗 12）
+    "gd-stats": "adapters.gd_stats",  # 广东省统计局（年窗 711）
+    "gd-nr": "adapters.gd_nr",  # 广东省自然资源厅（年窗 106）
+    "gd-mpa": "adapters.gd_mpa",  # 广东省药品监督管理局（年窗 32）
+    "gd-czt": "adapters.gd_czt",  # 广东省财政厅（年窗 18）
+    "gd-dva": "adapters.gd_dva",  # 广东省退役军人事务厅（年窗 14）
 }
 
 #: 用户要能直接 `from adapters import load`

@@ -1,0 +1,51 @@
+[
+ {
+  "name": "企业开办专区",
+  "dom": "amr",
+  "base": "https://amr.gd.gov.cn",
+  "page": 200,
+  "total": 773,
+  "org": "广东省市场监督管理局"
+ },
+ {
+  "name": "信用信息双公示",
+  "dom": "credit",
+  "base": "https://credit.gd.gov.cn",
+  "page": 404,
+  "hdjlpt": false
+ },
+ {
+  "name": "政府数据开放",
+  "dom": "gddata",
+  "base": "https://gddata.gd.gov.cn",
+  "page": 200,
+  "hdjlpt": false
+ },
+ {
+  "name": "建议简化仲裁流程，让老百姓维权更方便",
+  "dom": "lygl",
+  "base": "https://lygl.gd.gov.cn",
+  "page": 404,
+  "hdjlpt": false
+ },
+ {
+  "name": "粤企政策通",
+  "dom": "sqzc",
+  "base": "https://sqzc.gd.gov.cn",
+  "page": 404,
+  "hdjlpt": false
+ },
+ {
+  "name": "-->",
+  "dom": "ysqgk",
+  "base": "https://ysqgk.gd.gov.cn",
+  "page": 404,
+  "hdjlpt": false
+ },
+ {
+  "name": "护照、通行证",
+  "dom": "zwfw",
+  "base": "https://zwfw.gd.gov.cn",
+  "error": "ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"
+ }
+]

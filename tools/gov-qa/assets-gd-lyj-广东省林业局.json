@@ -1,0 +1,3178 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-lyj",
+   "id": "3456222",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3456222",
+   "question": "关于森林防火期和森林高火险期的规定\n根据《森林草原防灭火条例》第二十五条、第三十条的规定，县级以上地方人民政府应当规定森林草原防火期、森林草原高火险期。防火期内在防火区内因特殊情况需要用火的，应当经县级人民政府批准。根据《广东省森林防火条例",
+   "cited_hits": [
+    {
+     "name": "广东省森林防火条例",
+     "lib_no": "森林防火条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省森林防火条例",
+     "lib_no": "森林防火条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省森林防火条例",
+     "lib_no": "森林防火条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "森林草原防灭火条例",
+    "森林草原防灭火条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3392366",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3392366",
+   "question": "公益林调入调出相关业务\n1、公益林调入调出的管理办法是哪个 2、公益林调入调出的开始申请至调整完的流程和整个过程所需的资料 3、公益林完成调整时长需要多长时间 4、公益林调入面积大过调出面积吗？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "国家级公益林管理办法",
+    "广东省生态公益林调整管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3351486",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3351486",
+   "question": "肉鸡养殖设施农业用地项目是否可以占用林地\n省林业局领导同志您好，请问肉鸡养殖设施农业用地项目可以占用林地吗？如果可以，需要如何办理相关手续呢？目前仅有生猪养殖可以占用林地的相关政策，未见有其他畜禽养殖设施农业用地可以占用林地的政策，因此咨询",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范",
+    "使用林地申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3342735",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3342735",
+   "question": "人工培育的兰科植物应该按找什么补偿\n重大工程拟使用地块有大量的兰科植物（国家一级和国家二级）需要迁移。 1、植物为野生的，办理采集证后是否需要按照兰科植物价值补偿土地权益人，按照什么标准赔偿（多数兰科植物未进入市场流通）； 2、土地权益人单",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于规范国家重点保护野生植物采集管理的通知",
+    "国家重点保护野生植物采集证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3330953",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3330953",
+   "question": "用林手续办理\n请问设施农业用地是否可以申请永久用林，以及其可使用林地的种类",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范",
+    "使用林地申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3323366",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3323366",
+   "question": "森林植被恢复费\n建设项目由A单位申请林地，《非税收入缴款通知书》缴费人为A单位。是否可以由B单位（具体实施单位）代缴森林植被恢复费？如果可以，有何注意事项?",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "财政部关于将森林植被恢复费、草原植被恢复费划转税务部门征收的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3285314",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3285314",
+   "question": "使用林地\n根据《自然资源部办公厅国家林业和草原局办公室关于启用2024年度全国国土变更调查和全国森林草原湿地荒漠化普查成果的通知》（2025年9月），现办理使用林地，该地块在2024年数据库地类为非林地，在2020年数据库为林地，是否需要办",
+   "cited_hits": [
+    {
+     "name": "土地调查条例",
+     "lib_no": "土地调查条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "自然资源部办公厅国家林业和草原局办公室关于启用2024年度全国国土变更调查和全国森林草原湿地荒漠化普查成果的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3282230",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3282230",
+   "question": "在合规格人工繁殖场购买的非洲灰鹦鹉个人能合法作为宠物饲养吗？\n在合规格人工繁殖场购买的非洲灰鹦鹉个人能合法作为宠物饲养吗？个人购买需要什么手续？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3252929",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3252929",
+   "question": "护路林采伐\n按照封开县监察委员会要求，现咨询“非林地上护路林更新采伐审批是否林业主管部门进行审批发放林木采伐许可证？”",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3248492",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3248492",
+   "question": "关于苏卡达陆龟饲养\n看见网络上有人售卖陆龟，商家称能配标识卡合法饲养，广东省内个人能否购买带有标识卡的陆龟来当宠物饲养，如赫曼、苏卡达陆龟，不进行售卖和繁殖，只作为个人合法途径购入后自行饲养。",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3215711",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3215711",
+   "question": "公益林调整\n您好！咨询以下问题，烦请悉心解答： 一、国家级公益林（保护等级二级）申请调整应按哪个政策文件执行？审批权是国家林草局还是我省政府？ 二、若需要同时申请调整国家级公益林（保护等级二级）和省级公益林，能否合并编制申请调整方案成果，审",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家级公益林管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3210427",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3210427",
+   "question": "关于广东个人宠物饲养蓝孔雀确认\n我在省林业局2019年的留言中看到回复，蓝孔雀不属于野生保护动物，养殖销售不需要办证。 目前想确认下： 2025年个人做宠物养殖一两个蓝孔雀是否需要办证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3186168",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3186168",
+   "question": "中药饮片蛤蚧销售\n我公司是一家中药饮片经营企业，需要经营中药饮片蛤蚧，蛤蚧是国家二级保护动物，上游中药饮片生产企业有合法来源已生成中药饮片，销售给我们单位也有生产地省级林业部门行政可。请问我们经营中药饮片蛤蚧还需要到省林业部门办理行政许可吗",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人民政府令270号"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3166071",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3166071",
+   "question": "鹦鹉饲养\n和尚鹦鹉和小太阳鹦鹉（绿颊锥尾鹦鹉）个人在有标识卡的情况下，是否能够进行合法饲养？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3146417",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3146417",
+   "question": "《广东省林业局行政执法减免责清单》相关咨询\n尊敬的广东省林业局： 根据《广东省林业局行政执法减免责清单》的表述：初次违法、危害后果轻微并主动按照《广东省被毁林地恢复植被、补种树木标准》恢复植被和林业生产条件且经验收符合标准的可以免处罚，如何",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3143833",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3143833",
+   "question": "政策咨询\n您好，想问下抖音直播间那些带标识卡和芯片的陆龟，个人玩家购买的话合法吗",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3134717",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3134717",
+   "question": "关于IV级保护林地申请用于建设禽类养殖场的用林手续申请步骤\n你好，我父亲于2015年左右在乡下建设了一个禽类养殖场，当时并未办理相关手续，如今养殖场需要翻新修缮，经核查我父亲建设养殖场所使用之土地为IV级保护林地，符合林地利用保护规划，现希",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范",
+    "使用林地申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3086987",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3086987",
+   "question": "新旧森林法的适用\n对于2017年建设的坟墓违法依据和处罚依据是否适用森林法(2009版)第二十三条和第四十四条？森林法(2009版)第四十四条中毁坏株数和毁坏林木价值无法确定时应该如何处罚？对于2002年建设的骨灰楼违法依据和处罚依据应该适",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "国家林业局关于如何适用&lt;森林法实施条例&gt;第四十一条第一款有关规定的函",
+     "lib_no": "森林法(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [
+    "林木价格认定规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3082443",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3082443",
+   "question": "关于红树林破坏的相关问题咨询\n领导您好，我想请问您一下未经许可破坏红树林违反了哪些法律规定，会受到哪些处罚，处罚该由哪些部门作出，我应该怎样补救",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省湿地保护条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3068038",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3068038",
+   "question": "野生动物人工繁育对地类的要求\n野生动物人工繁育申请时候对用地类型有要求吗？如需要时养殖用地，或者建设用地之类，谢谢",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "野生动物人工繁育管理规范总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3026050",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3026050",
+   "question": "建设项目临时使用林地审批要求\n在建设项目申报使用林地许可时，在双方有相关协议的基础上，是否允许委托其他法人单位作为项目申请单位（建设单位）来申报有关手续？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3024347",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3024347",
+   "question": "人工商品林采伐\n1、请问2022年时申请人工商品林采伐杉树，需要符合什么条件才能给予审批。（该人工商品林不在公益林范围。） 2、现在申请人工商品林采伐杉树，需要符合什么条件才能给予审批，什么时候取消的树龄要求？ 3、关于被林业部门把人工种植",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "深化集体林权制度改革方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3018425",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3018425",
+   "question": "饲养绿颊锥尾鹦鹉\n请问当前广东省是否可以合法饲养带标识的绿颊锥尾鹦鹉，作为个人宠物并不进行繁殖售卖等行为，是否要向当地林业局进行报备申请",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2978025",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2978025",
+   "question": "杉树的采伐是否影响公益林\n1、二级国家级公益林是什么标椎？ 2、杉树，种植的人工商品林（杉树）纳入了生态公益林内，能否申请采伐指标？进行抚育和更新性质的采伐?种植多少年能申请？如何申请？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家级公益林区划界定办法",
+    "生态公益林建设导则",
+    "生态公益林建设技术规程",
+    "森林采伐作业规程",
+    "低效林改造技术规程",
+    "森林抚育规程",
+    "国家级公益林管理办法",
+    "GB/T18337.1-2001",
+    "GB/T18337.3-2001",
+    "GB/T15781-2009"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2980694",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2980694",
+   "question": "关于咨询办理林木采伐证相关问题\n您好，请问采伐森林公园范围里的杂竹林是否需要申请办理林木采伐许可证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2970749",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2970749",
+   "question": "请问广东省内个人能否饲养河南标识芯片的陆龟\n请问广东省内个人能否饲养河南标识芯片的陆龟？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2965977",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2965977",
+   "question": "芦丁鸡养殖\n芦丁鸡是属于三有保护动物吗是否可以养殖，养殖目的当宠物销售，如果可以养殖的条件跟证件有哪些。",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2961195",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2961195",
+   "question": "人工培育的金毛狗（需提供人工培育的相关证明材料）\n贵局在之前回复中：“人工培育的金毛狗（需提供人工培育的相关证明材料），不属于野生植物保护、管理的范畴，无需办理行政许可手续。”请教是提供需要怎样的相关证明材料（是人工繁殖及林下种植时的视频吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2960744",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2960744",
+   "question": "大规模种植人工繁殖的二级保护植物金毛狗，几年后采收出售，需要办理审批吗？\n本人个体户，计划大规模林下种植人工繁殖（组培苗是向科研单位购买）的二级保护植物金毛狗，种植时需要办理审批吗？几年后采收出售，需要办理审批吗？如需。如何办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2947691",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2947691",
+   "question": "关于个人饲养未开放的鹦鹉\n1、个人办理野生动物驯养繁殖许可证需要什么条件及需要提供什么资料。2、公司办理野生动物驯养繁殖许可证需要什么条件及需要提供什么资料。3、办理流程。",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2932398",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2932398",
+   "question": "鹦鹉\n汕尾市陆丰市，可以养有标识卡的和尚鹦鹉吗",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2875896",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2875896",
+   "question": "关于林业用地调整为设施农业用地的办理咨询\n关于林地是否可以调整为设施农业用地的问题咨询： 1、林地（乔木林地）是否可以直接调整为设施农业用地，如果可以调整那调整比例或者最大调整面积是多少。 2、如果林地（乔木林地）不能调整为设施农业用地，是",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2870424",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2870424",
+   "question": "广东省内经营冬虫夏草的店铺是否要取得销售许可？\n《中华人民共和国野生植物保护条例》第十八条第二款规定：出售、收购国家二级保护野生植物的，必须经省、自治区、直辖市人民政府野生植物行政主管部门或者其授权的机构批准。请问该法条中所述的经批准如何解",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2865223",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2865223",
+   "question": "建设项目使用林地的使用林地类型中“其他林地”如何界定\n建设项目使用林地的使用林地类型“其他林地”是否包括宜林地和其它无立木林地？",
+   "cited_hits": [
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地可行性报告编制规范",
+    "森林资源规划设计调查技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2863213",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2863213",
+   "question": "人工繁殖鹦鹉问题\n您好，我想咨询一下，我省是否可以办理养殖场，申请相关繁殖和销售标识鹦鹉的证件？（小太阳鹦鹉，和尚鹦鹉）。地点是潮州市",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2849426",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2849426",
+   "question": "关于有”中国野生动物专用标识“ 的野生动物中药饮片药店销售零售问题\n老师： 您好！ 批发企业从中药饮片生产厂家采购的中药饮片熊胆粉、炮穿山甲能否销售给零售药店，这两个品种包装符合药品相关规定且加印有“中国野生动物经营利用管理专用标识”（以下",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2833359",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2833359",
+   "question": "出售冬虫夏草是否需要取得许可？\n《中华人民共和国野生植物保护条例》第十八条第二款规定：出售、收购国家二级保护野生植物的，必须经省、自治区、直辖市人民政府野生植物行政主管部门或者其授权的机构批准。请问该法条中所述的经批准如何解读？冬虫夏草属于",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2831251",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2831251",
+   "question": "请问跨省购销人工培育金毛狗脊是否需要在林业部门办理相关备案审批手续呢？\n请问若需跨省购销人工培育的金毛狗脊，是否需要供应商提供所在省份林业部门核批销售的行政许可？以及是否需要在广东省的林业部门办理相关购销的备案审批手续呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2830753",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2830753",
+   "question": "国有林业企事业单位申请临时使用林地审批手续\n潮州市潮安区苗圃场拟在管辖区内国有林地申请临时使用林地约2.7亩，用于野生动物展览，请问需要报到那级行政部门审批？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2810246",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2810246",
+   "question": "爪哇禾雀（学名：JPadda oryzivora）是否家庭当作宠物饲养？\n爪哇禾雀（学名：JPadda oryzivora），又名禾雀、文鸟、灰芙蓉、白芙蓉、爪哇雀，可以当作宠物笼养鸟吗，允许养在家里吗？合法吗？ 如下是网上看到的信息，如下",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "广东省野生动物保护管理条例",
+    "国家重点保护野生动物名录",
+    "国家林业和草原局关于缺人若干破坏野生动物资源刑事案件犯罪对象有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2806274",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2806274",
+   "question": "赛加羚羊（拉丁文：Saiga tatarica Linnaeus）是高鼻羚羊吗？\n各位老师好！ 赛加羚羊（拉丁文：Saiga tatarica Linnaeus）是高鼻羚羊吗？现在是怎样的管理级别？其制品：赛加羚羊角 是否可以申请专用标识管",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物名录",
+    "关于加强赛加羚羊、穿山甲、稀有蛇类资源保护和规范其产品入药管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2801761",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2801761",
+   "question": "小太阳鹦鹉\n在广东省境内能否个人饲养小太阳鹦鹉？ 在广东省境内能否贩卖、运输小太阳鹦鹉？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2801515",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2801515",
+   "question": "冬虫夏草的销售许可是否需每人一证\n广东局局领导您好： 想咨询一个关于冬虫夏草销售证照的问题。冬虫夏草属于国家二级重点保护野生植物，根据《中华人民共和国野生植物保护条例》第十八条的规定，出售、收购国家二级保护野生植物的，必须经省、自治区、直辖",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2795428",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2795428",
+   "question": "关于国家野生动物办理展览手续\n各位领导你们好，我想在佛山市顺德区办理一个野生动物(象龟)的展览活动。对方公司可以办理国家野生动物(象龟)的展览批文，请问我要办理那些相关的手续",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2792684",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2792684",
+   "question": "当林业违法行为处于持续状态，且跨越旧法和新法的实施期间，应适用旧法还是新法\n在旧法实施期间，当事人未经批准占林建设，至新法实施后仍未整改，违法状态一直持续，请问应适用行为发生时的法律，还是新法？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2786931",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2786931",
+   "question": "关于如何办理出售、购买、利用国家重点保护野生动物及其制品行政许可决定书\n我司是一家中药饮片加工企业，须经营一种蛤蚧（大壁虎）中药材，现已取得上游供应商提供的行政许可决定书，想咨询一下向下游客户销售时，是否也需要办理该行政许可决定书，如果需要",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省人民政府令270号"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2774656",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2774656",
+   "question": "渡鸦是国家保护动物吗？\n请问渡鸦属于国家保护动物吗？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2765308",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2765308",
+   "question": "咨询关于百合竹的进口事宜\n我司是有进出口资格的外贸公司，客户委托我司进口百合竹，但是我司没有进口苗木的资格。请问可以由客户向贵局申请《引进林草种子、苗木检疫审批》，申请成功后，再由我司负责报关的进口事宜吗？请问具体操作是怎样呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2747565",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2747565",
+   "question": "和尚鹦鹉问题\n出售和尚鹦鹉需要办理什么证件？如果无以上证会面临什么行政处罚？和尚鹦鹉的标识和鹦鹉实际情况不一致，标识出生年份是2021年，鹦鹉实际是出生于2023年，这种套用旧标识来出售鹦鹉的行为是否符合法律规定？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2735590",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2735590",
+   "question": "森林法中行政处罚的确认\n《森林法》法律责任一章中的责令限期改正、责令限期恢复植被和林业生产条件、限期在原地或者异地补种毁坏株数一倍以上三倍以下的树木，三种举措，是属于行政处罚，还是行政命令？还是属于其他什么性质？感谢指导",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2677518",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2677518",
+   "question": "爬行宠物豹纹守宫属于国家保护动物吗\n领导您好！请问现在宠物市场上爬宠行业里的豹纹守宫、玉米蛇、黑王蛇、猪鼻蛇属于国家保护动物吗？个人购买饲养繁殖出售需要办理什么证件？求答案，谢谢！！！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例",
+    "国家重点保护野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2603602",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2603602",
+   "question": "林业股权证与林权证的区别是啥？\n如题，林业股权证与林权证的区别是啥？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2572676",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2572676",
+   "question": "林业部门启用三调数据的时间\n您好！我想咨询下目前林业部门是否和国土部门使用的是统一的三调数据？如果还未统一使用不知何时能统一一个数据使用？同时对于林业部门和国土部门有争议的数据不知该以哪个数据为准呢？非常感谢",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2560031",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2560031",
+   "question": "森林法第七十四条规定的第一款“造成林木毁坏”包不包括非林地上的林木？\n森林法》第七十四条规定的第一款“造成林木毁坏”包不包括非林地上的林木。",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2535442",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2535442",
+   "question": "咨询擅自改变林地用途和毁坏林地的区别\n我是乡镇基层执法人员，在执法过程发现有人非法挖山平整土地，现场没有硬底化，地类为一般林地，是应该按照擅自改变林地用途处罚还是毁坏林地处罚，依据是什么？擅自改变林地用途和毁坏林地是如何定性的？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于印发修订后的&lt;林业和草原行政案件类型规定&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2526356",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2526356",
+   "question": "林木种子生产经营许可证有效区域\n《林木种子生产经营许可证》的有效区域为“汕头市”，请问此份证书能在有效区域外能使用吗？能承接其他地区的业务吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "林木种子生产经营许可证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2525472",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2525472",
+   "question": "关于《广东省森林保护管理条例》修订\n您好，2021年12月10日，省局发布《广东省林业局关于公开征求《广东省森林保护管理条例(修订草案征求意见稿)》意见和公平竞争审查初步结论意见的公告 》，请问何时开始施行？若没有施行，是否还以现行《广东省",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省森林保护管理条例(修订草案稿)",
+    "广东省生态公益林条例（征求意见稿）",
+    "广东省森林保护管理条例(修订草案稿)",
+    "广东省森林保护管理条例",
+    "广东省林地保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2506018",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2506018",
+   "question": "北美赤狐和中国本土赤狐的区别\n想购买一只北美赤狐当宠物饲养（咨询过农村部相关人员北美赤狐个人是可以饲养的），但是担心被执法部门将北美赤狐与本土赤狐混淆而被采取措施，所以我需要注意什么吗？在购买过程中卖家有相关许可证是否足够证明呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2479314",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2479314",
+   "question": "关于新旧林木采伐许可证的法律效应咨询\n领导你好，2020年之前的建设项目申请林木采伐许可证的采伐证样式是《广东省林木采伐许可证》，并且落款处有“广东省林业局林木采伐管理专用章”及“发证机关章”，现在取得的建设项目林木采伐证直接就叫做《林木采",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法实施条例",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局办公室关于启用新版全国林业采伐管理系统和采伐许可证的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2477606",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2477606",
+   "question": "鸟翼凤蝶标本交易是否合法\n请问歌利亚鸟翼凤蝶/绿鸟翼凤蝶标本在国内交易是否合法 企业或个人是否可以申请到进口此类标本许可",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国濒危野生动植物进出口管理条例",
+     "lib_no": "濒危野生动植物进出口管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2449976",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2449976",
+   "question": "关于国外林木橄榄科没药属和乳香属植物的引种\n目前想做国外橄榄科没药属commiphora 和乳香属Boswellia 两种属的植物作为经济作物来引进种植，采集乳香做医药美容相关的用途，目前这两个属的植物只在非洲国家分布，国内想要使用必须要依",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国濒危野生动植物进出口管理条例",
+     "lib_no": "濒危野生动植物进出口管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2446502",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2446502",
+   "question": "关于私人饲养小浣熊是否合法\n本人很喜欢养各种宠物，看到小浣熊十分可爱呆萌，所以想养一只，请问是否合法呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2431744",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2431744",
+   "question": "想咨询《使用林地审核同意书》中的“建设用地批准文件”具体是指什么\n您好，现有某采矿企业主要是开采石英砂及其附属砖瓦用粘土矿，目前企业已经获得采矿权并完成土地租赁，取得广东省林业局《使用林地审核同意书》，《使用林地审核同意书》中写道:“项目在",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2416959",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2416959",
+   "question": "关于朱鹮种源引进养殖手续流程办理\n想咨询问题如下： 1、如何才能合法合规的引进朱鹮种源养殖 2、资料齐全的情况下，如何引进朱鹮种源（需要什么手续？什么协议？） 3、是否直接对朱鹮研究中心引进种源？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2365165",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2365165",
+   "question": "可以在生态公益林区开挖路损毁林木吗？\n未经林业部门批准可以在生态公益林区开挖林区道路损毁林木吗？开挖林区道路时损毁多少株林木可追究刑事责任？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理破坏森林资源刑事案件具体应用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理破坏森林资源刑事案件具体应用法律若干问题的解释(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2349905",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2349905",
+   "question": "林木采伐许可证\n领导您好，请问林木采伐许可证里“采伐株数”是采伐的胸径小于5厘米的幼树株数和胸径5厘米以上的乔木株数的总和吗？林木采伐许可证的填写是否有相应的填写规范解释填写内容的含义呢？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "森林采伐作业规程(中华人民共和国行业标准 LYT1646-2005)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2330474",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2330474",
+   "question": "林业和国土地类不一致，经县政府裁决后如何修改林业资源档案的问题\n国土二调为非林地，林业二调为林地，经县级人民镇府裁决，同意以国土二调数据（即为非林地）为准。请问应该怎么修改林业资源档案数据，是在“一张图”年度更新时直接修改还是请示省林业局后",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局森林资源管理司关于启用2020年度森林资源管理“一张图”数据的通知",
+    "广东省森林资源档案管理规定（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2326736",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2326736",
+   "question": "三调数据启用时间\n您好！我想咨询一下目前项目需要使用的用地在国家二调数据中属于果园地，在林业的数据中属于商品林，是不可以使用的，但是在最新的三调数据中均属于果园地，不知道林业部门启用三调数据的相关时间，还有目前是否可以提前施工，是否有相关解",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局森林资源管理司关于启用2020年度森林资源管理“一张图”数据的通知",
+    "建设项目使用林地审核审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2328014",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2328014",
+   "question": "野生动物制品购买许可\n各位领导好，医药企业从供应商购买食蟹猴制品（不使用食蟹猴)进行药品前期研究实验，供应商已有销售许可证，只需要办理购买许可证，在林业局备案即可发货，咨询了市属林业局的工作人员，告知只使用猴制品需办理实验动物使用许可证（广",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2281401",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2281401",
+   "question": "药店能否经营穿山甲，天然麝香，海马等野生动物中药饮片\n你好，请问一下药店批发企业等药品经营企业能否经营有“中国野生动物经营利用管理专用标识”的炮山甲，麝香，熊胆粉等中药饮片，经营企业本身是否需要办理“野生动物经营利用许可证”，经营海马药店批",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2266571",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2266571",
+   "question": "家里直养芦丁鸡违法吗？\n我想咨询下家里自养几只芦丁鸡违法吗？蓝胸鹑是三有动物，但可以这样理解吗？芦丁鸡是一种人工杂交培育的新品种，只能算是有蓝胸鹑的基因，而且经过多年的培养，应该不算是蓝胸鹑，还有人工繁殖合法来源证明指哪些？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2192044",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2192044",
+   "question": "建设工程使用林地审核、审批\n我司新建砂石骨料矿山加工区，加工区建设区域涉及林地已办理项目《使用林地可行性报告》及《伐区调查设计说明书》，并按规定缴纳了森林植被恢复费后取得了广东省林业局批复的《使用林地审核同意书》和县林业局颁发的《广东省林木",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省林地保护管理条例",
+    "使用林地审核同意书",
+    "临时占用林地审批同意书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2177690",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2177690",
+   "question": "关于野生动物宠物利用的问题\n各位领导好，我是一名陆龟养殖户。近年河南鹦鹉养殖已试点开放合法销售作宠物用途，好几个省也陆续推出鹦鹉作为宠物利用的措施。但广东地区目前还没有相关措施推出，鹦鹉及其陆龟人工繁育数量庞大，但多年来一直处于被严格监管且",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2179021",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2179021",
+   "question": "河南开放政策可以繁殖买卖有标识的和尚鹦鹉，广东广州可以购买吗\n如题，河南开放政策可以繁殖买卖有标识的和尚鹦鹉，但是每个地区林业局的政策不一样，现在全国开放买卖吗？那广东广州这个地区可以购买有标识的和尚鹦鹉吗，用途只买观赏，不用来繁殖卖用途可",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "1072916",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=1072916",
+   "question": "河南省试点人工繁育的标识鹦鹉，个人是否可以购买当做宠物饲养？\n你好请问，河南省试点出售人工繁育的四种带标识的（费氏牡丹鹦鹉、绿颊锥尾鹦鹉、和尚鹦鹉、紫腹吸蜜鹦鹉）。广东省深圳市民，长期居住深圳，是否可以购买河南省试点带标识的鹦鹉当做宠物家庭",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "984870",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=984870",
+   "question": "关于建立护林员队伍的法规规定及标准\n现在镇没有护林员，我们希望建立护林员队伍，希望查询一下政策法规上面的支持，例如那项法规规定要建立护林员队伍，以及按照什么量来确定人数，例如多少亩需要一个护林员。",
+   "cited_hits": [
+    {
+     "name": "广东省森林防火条例",
+     "lib_no": "森林防火条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省林业厅关于建设专职护林员队伍的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "895806",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=895806",
+   "question": "注册植物新品种\n你好！我司是一家农业种植花卉的企业，培育改良了花的特性，想请问下关于植物新品种注册是找林业部还是找农业部门。改良植物新品种还能获得补贴吗？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国植物新品种保护条例实施细则（林业部分）",
+     "lib_no": "植物新品种保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "875677",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=875677",
+   "question": "请问自然保护地与自然保护区的区别是什么？\n1、请问自然保护地与自然保护区的区别是什么？ 2、如果项目占用自然保护地或自然保护区，有什么相关法规依据文件参考应该办理哪些工作吗（工作流程）？ 3、审批权限在哪里从哪里查看？ 谢谢答复。",
+   "cited_hits": [
+    {
+     "name": "自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于建立以国家公园为主体的自然保护地体系的指导意见",
+    "广东省环境保护条例",
+    "广东省自然保护区建立和调整管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "855650",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=855650",
+   "question": "不占用红树林保护区范围建设项目的生态补偿费用事宜\n我公司建设项目不占用红树林保护区范围，厂区边界距离保护区最近为2.5km，是否需要进行生态补偿？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "783636",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=783636",
+   "question": "野生动物及其制品销售许可\n我公司在办理野生动物及其制品销售许可（专用标识）时需要提供符合资质的供应商，我想咨询广东省境内哪些是有经营资质的供应商，如何查询？",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "751743",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=751743",
+   "question": "猴\n我们是中科院住粤单位，想在惠州市建立非人灵长类动物的养殖繁育和研究基地，从事养殖、经营和利用恒河猴、食蟹猴、狨猴等动物的活动，请问找哪个部门走审批，怎么联系？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省野生动物保护管理条例",
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定",
+    "广东省人民政府关于取消和调整实施一批省级权责清单事项的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "539704",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=539704",
+   "question": "人工繁殖苏卡达陆龟宠物可以自养吗\n个人如果想养只人工繁殖的苏卡达陆龟做宠物 可以办理驯养证吗？ 广东很多人在养人工繁殖的苏卡达陆龟做宠物 但是都没有驯养证 虽然不是野生的 但是都属于陆龟品种 个人可以养来做宠物吗 苏卡达很可爱 很喜欢它 又",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "533935",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=533935",
+   "question": "关于蜘蛛是否是野生动物\n请问来自国外的宠物捕鸟蛛(非保护名录里)，是否属于野生动物，如何才能判定一种物种是否属于野生动物？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "215929",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=215929",
+   "question": "关于惠州市博罗东山森林公园界定\n1.请问”广东省林业厅监制”，”使用林业地边界桩”可以隨意拔桩吗？如果可以，谁才有权力？要在什么条件下，才可以拔桩？ 2.请问”林业地″可以进行销售买卖吗？可以转为商业用地盖高层大楼吗？ 3.请问惠州市博罗东",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法实施条例",
+     "lib_no": "森林法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省林业厅关于全省建设项目使用林地启用边界桩的通知",
+    "建设项目使用林地审核审批管理办法",
+    "森林公园管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-lyj",
+   "id": "3499493",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3499493",
+   "question": "《《广东省被毁林地恢复植被、补种树木标准和验收办法》》有效期问题\n《《广东省被毁林地恢复植被、补种树木标准和验收办法》》自2021年8月1日实施，有效期5年。现暂未有最新办法公布，请问该办法是否沿用，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局关于恢复植被和林业生产条件、树木补种标准有关问题的通知",
+    "国家林业和草原局关于制定恢复植被和林业生产条件、树木补种标准的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3484718",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3484718",
+   "question": "《广东省林业局行政处罚裁量基准表》裁量标准咨询\n擅自改变林地用途违法行为中，属于较轻裁量档次的处恢复植被和林业生产条件所需费用一倍以下的罚款，不属于从轻、减轻和从重的情况下一倍以下是指什么范围，是指0.1至0.9范围内吗？在一般裁量档次恢复",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局行政处罚裁量权适用规则",
+    "广东省林业局行政处罚裁量基准表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3452268",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3452268",
+   "question": "关于是否需要廷批次用地说明的咨询\n项目已经取得立项文件和预审选址意见书，按批次用地办理农转用，请问申请永久使用林地还需要再提供县级政府出具的批次用地说明书吗？还是凭立项文件和预审选址意见书就可以申请林地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3433505",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3433505",
+   "question": "公益林的建设、保护、管理的资金来源\n《广东省森林保护管理条例》第三十三条：公益林的建设、保护和管理所需经费列入各级财政预算。 请问： 1、广东省内公益林的建设、保护、管理所需资金，是否仅能来源于财政资金？ 2、假设：在符合水土保持要求、不影",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "广东省森林保护管理条例",
+    "广东省森林保护管理条例",
+    "广东省森林保护管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3431582",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3431582",
+   "question": "美国鹧鸪是属于鹧鸪还是石鸡？是否可以养殖销售？\n美国鹧鸪属于石鸡属（Alectoris）物种，其学名chukar表明其为石鸡的一个品种或类型。作为经美国驯化培育的家养特禽，其本身已形成稳定的培育品种，但在野生石鸡属中可能存在不同地理亚种，而",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家畜禽遗传资源目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3410499",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3410499",
+   "question": "《广东省林木林地权属争议调解处理条例》\n《广东省林木林地权属争议调解处理条例》第33条第1款，是属于程序驳回？还是实体驳回？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林木林地权属争议调解处理条例",
+    "广东省林木林地权属争议调解处理条例",
+    "广东省林木林地权属争议调解处理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3386811",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3386811",
+   "question": "使用林地审核同意书失效怎样认定？\n项目于2022年2月17日取得《使用林地审核同意书》{粤（梅）林许准[2022]7号}，批复使用林地面积为1.2855公顷。该项目用地于2023年4月17日取得城镇建设建设用地批复[粤府土审（09）[202",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范",
+    "自然资源部 国家林业和草原局关于进一步做好自然资源要素保障的通知",
+    "国家林业和草原局关于建设项目使用林地准予许可决定书延期有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3371283",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3371283",
+   "question": "林木砍伐手续\n在深圳市自然保护区内办理林木采伐手续，经了解相关文件，根据《国家林业和草原局关于加强“十四五”期间林木采伐管理的通知》第二点，“符合《森林法》第五十五条规定的特殊情况，必须采伐自然保护区范围内林木的，应当由自然保护区管理机构征",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "广东省林业局关于进一步规范林木采伐管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3361357",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3361357",
+   "question": "广东省护林员管理办法（试行）还有效吗？\n广东省护林员管理办法（试行）还有效吗？该制度的施行时间是什么时候？在林业局网站上找不到该制度。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省护林员管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3348778",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3348778",
+   "question": "项目使用林地\n项目办理使用林地获得批复后，因项目设计调整等原因，项目实际占用林地面积需要核减，小于批复面积，是否可以申请退还未占用的林地植被恢复费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅中国人民银行广州分行关于印发&lt;广东省省级非税收入退库管理暂行办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3297653",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3297653",
+   "question": "乡镇政府在省级公益林的负责范围\n乡镇政府在省级公益林补偿资金发放方面负责什么内容；在管理方面方面负责什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省级生态公益林效益补偿资金管理办法",
+    "广东省生态公益林建设管理和效益补偿办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3289674",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3289674",
+   "question": "关于森林采伐涉及到天然林\n供电线行内保护和松材线虫疫木除治涉及为天然林是否可以申请采伐？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "天然林保护修复制度方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3251509",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3251509",
+   "question": "关于一级林地是否可以调整\n一条是原有水库的防汛道路，后来该道路划为一级林地，该道路上没有林木，还是保留原来道路现状，因暴雨冲刷导致原有道路破损严重，需要修复，办理什么措施可以对该道路进行加固和防冲刷，有什么政策可以支持实施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3228151",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3228151",
+   "question": "砍树工作人员是否需要办理上岗证\n请问：工厂园区请人帮忙砍伐厂内若干树木，从事砍树工作的人员是否需要有相关技能的资格证书？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家职业资格目录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3212114",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3212114",
+   "question": "有关采伐限额\n办理征占用林地手续后的采伐，纳入采伐管理吗？有没有相关政策文件支撑",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3190692",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3190692",
+   "question": "公益林管护内容包含什么，管护资金用途\n区县级对于公益林管护的有具体有那些方面？公益林每年下发的管护资金可以用于公益林界定资料丢失的重新收集工作吗？我村有部分被剔除公益林范围，管护资金可以用于核定我村被剔除公益林的范围和原因吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省级生态公益林效益补偿资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3189609",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3189609",
+   "question": "咨询，粤林〔2017〕67号\n根据粤林〔2017〕67号文件要求请问森林消防应急物资储备库，按广东省机关事务管理局关于转发广东省地方标准《党政机关办公用房配置使用规范》的通知，是属于技术业务用房还是服务用房。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林消防队伍装备与森林防火应急物资储备规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3171617",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3171617",
+   "question": "请问以下两个文件是否已印发实施吗？\n《森林草原早期火情处理办法（试行）》是国家林草局印发吗？有正式实施吗？我省有印发相关的政策性文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "森林草原早期火情处理办法（试行）",
+    "关于进一步做好森林草原火情早期处理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3117304",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3117304",
+   "question": "公墓项目是否可以使用公益林\n公墓项目是否需要区分经营性墓地和公益性墓地？能否使用公益林地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态公益林建设管理和效益补偿办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3048138",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3048138",
+   "question": "林业工程师职称评定\n请问明年评定职称，需要发表的论文时间必须是24年1月1日到12.31日嘛?还是在评审时间前发表见刊就可以？谢谢答复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3039175",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3039175",
+   "question": "砍伐指标调配问题\n尊敬的林业厅领导你好，我想咨询下关于砍伐指标调配的问题 ，在汕尾市管辖内的县区和国有林场，他们之间砍伐指标是否可以互相调配？有无相关文件支撑？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于加强“十四五”期间林木采伐管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3029477",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3029477",
+   "question": "行政处罚问题\n根据《广东省林业局行政处罚裁量基准表》擅自改变林地用途，较轻情形是责令限期恢复植被和林业生产条件，可以处恢复植被和林业生产条件所需费用一倍以下的罚款，一倍以下罚款是指什么范围，可以罚款0.01倍甚至更小吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局行政处罚裁量基准表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3016187",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3016187",
+   "question": "被毁林地恢复植被、补种树木标准和验收办法\n是否有关于被毁林地恢复植被、补种树木标准和验收办法政策文件?需要复绿是罚款还是直接恢复就可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整森林植被恢复费征收标准引导节约集约利用林地的通知",
+    "关于调整森林植被恢复费征收标准的通知",
+    "关于调整森林植被恢复费征收标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2998613",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2998613",
+   "question": "关于认定古树保护问题\n我们家有一个树龄1千年的橄榄树，但是现在橄榄树周围有建筑，如果认定成功了，周围的建筑是否需要拆除，如果拆除是否有补偿。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2997478",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2997478",
+   "question": "风景名胜区内同时违法森林法跟风景名胜区条例的时候的执法问题\n在风景名胜区内的林地上的违法违规建设行为应该是由林业部门执法还是生态环境部门执法",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态环境保护综合行政执法事项指导目录（2020年版）",
+    "广东省生态环境厅 广东省自然资源厅 广东省水利厅 广东省农业农村厅 广东省林业局 生态环境保护执法与监管协作机制"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2957415",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2957415",
+   "question": "个人或单位编制建设项目使用林地可行性研究报告/现状调查表是否需要相应林业资质？\n你好，我单位在省内各地有多项业务涉及使用林地，经查询《国务院关于第二批清理规范192项国务院部门行政审批中介服务事项的决定》（国发〔2016〕11号）、国家林业",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业局关于修改部分部门规章的决定",
+    "建设项目使用林地审核审批管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2925312",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2925312",
+   "question": "森林植被恢复费征收\n根据广东省森林资源信息发布系统查询的森林类别为一般公益林（地）以及地类为乔木林。 问题：由于其森林类别为一般公益林（地），森林植被恢复费征收标准是否需按照第（一）款规定征收标准的2倍征收。 注：国家和省级公益林林地，按照",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整森林植被恢复费征收标准引导节约集约利用林地的通知",
+    "关于调整森林植被恢复费征收标准的通知",
+    "关于调整森林植被恢复费征收标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2902822",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2902822",
+   "question": "关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题\n尊敬的领导您好！《广东省营造林工程定额与造价》（DB44/T 773-2010）P3第5.5点利润计算标准为“利润标准小于或等于30%计算”。现在编制营造林项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省营造林定额与造价"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2869445",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2869445",
+   "question": "关于查处擅自改变林地用途行为时应当如何确定恢复植被所需费用的问题\n在适用《中华人民共和国森林法》第七十三条第一款对擅自改变林地用途行为作出恢复植被和林业生产条件所需费用三倍以下的罚款。对于恢复植被所需费用，根据《广东省林业局关于恢复植被和林",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整森林植被恢复费征收标准引导节约集约利用林地的通知",
+    "关于调整森林植被恢复费征收标准的通知",
+    "关于调整森林植被恢复费征收标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2862015",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2862015",
+   "question": "名木古树认定\n1989年，落实华侨政策将七棵百年荔权树归还华侨（具有镇政府、侨联、村委会公章证明）。1991年华侨委托农村亲属全权管理和使用（具有相关的委托证明）。该批荔枝树生长在农村附城，土地性质为村集体所有制。在受托人精心照顾下，现存6",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "古树名木鉴定规范",
+    "古树名木普查技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2853096",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2853096",
+   "question": "关于《广东省营造林工程定额与造价》(DB44/T 773-2010)应用的问题\n根据《广东省营造林工程定额(2010)》中，林地海拔最高与最低差》200m，难度系数调整为1.8，关于生物防火林海拔高度差的问题，生物防火林带是沿山脊分水岭地形",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省营造林工程定额(2010)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2848440",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2848440",
+   "question": "关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题\n根据贵局于2020年3月3日互动交流中《关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题》的回复，珠海市安全文明施工措施费、预算包",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市营造林工程造价综合定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2788516",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2788516",
+   "question": "关于森林督查图斑中所称“森林类别”的确认\n您好，请问森林督查图斑中所称“森林类别”为“一般公益林”，该公益林是否等同于《广东省生态公益林建设管理和效益补偿办法》第二条所称“生态公益林”？以及《广东省生态公益林建设管理和效益补偿办法》是否有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态公益林建设管理和效益补偿办法",
+    "广东省生态公益林建设管理和效益补偿办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2788519",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2788519",
+   "question": "关于《广东省生态公益林建设管理和效益补偿办法》等的若干问题\n问题一：1999年1月1日施行的《广东省生态公益林建设管理和效益补偿办法》现行有效吗？ 问题二：公益林是否仅包括防护林和特种用途林两种？ 问题三：上级下发的森林类别为：一般公益林（",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态公益林建设管理和效益补偿办法",
+    "广东省生态公益林建设管理和效益补偿办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2780812",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2780812",
+   "question": "关于沉香原材料及加工品销售问题\n人工种植的沉香种子、苗木、原料及相关产品的出售、收购、运输，能否在市场进行交易，是否需要办理证明或许可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国野生植物管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2746740",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2746740",
+   "question": "关于人工种植、人工培植的西洋参（花旗参）是否属于濒危物种的问题\n1.人工种植、人工培植的西洋参（花旗参）是否属于中华人民共和国濒危物种进出口管理办公室公告（2023年第1号）（《濒危野生动植物种国际贸易公约》附录中文版）附录的范围。 2.个",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2739501",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2739501",
+   "question": "我可以饲养人工繁殖的鹩哥吗？\n看到网上都说可以养人工繁殖的，想问一下？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2721644",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2721644",
+   "question": "建设项目是否可使用天然林地\n请问对于建设项目是否可使用天然林地有哪些具体规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国天然林保护修复中长期规划（2021-2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2716050",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2716050",
+   "question": "关于生态林如何申请调整为经济林\n请问下生态林如何申请调整为经济林？具体审批流程和涉及哪些部门？怎样查询办理进度？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态公益林调整管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2704595",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2704595",
+   "question": "广东省森林保护管理条例\n《广东省森林保护管理条例》提到：除国防建设、国家重大工程项目建设特殊需要外，禁止占用保护重点区域的天然林林地，哪些地方属于保护重点区域",
+   "cited_hits": [],
+   "cited_missing": [
+    "天然林保护修复制度方案",
+    "全国天然林保护修复中长期规划（2021-2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2697166",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2697166",
+   "question": "业务咨询-森林植被恢复费征收\n您好，地类为“无立木林地”，应当按照《广东省森林植被恢复费征收标准》的哪一档标准征收森林植被恢复费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整森林植被恢复费征收标准引导节约集约利用林地的通知",
+    "关于调整森林植被恢复费征收标准的通知",
+    "森林资源规划设计调查技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2689305",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2689305",
+   "question": "林草产值计算\n您好，广东省林业局： 关于林草产值计算，我有几个问题想和您这边咨询一下：一是大型林草产品交易市场的销售是否纳入到林草产值，应该纳入到年报的那个项目，交易市场的林草产品的产值应该如何计算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "林业草原综合统计调查制度（2022）",
+    "林业产业分类注释"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2656402",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2656402",
+   "question": "建设项目永久和临时占地涉及自然保护区，是否需要缴纳生态补偿费或生态功能损害补偿费？\n建设项目永久和临时占地涉及自然保护区，在自然保护区调整过程中，是否需要缴纳生态补偿费或生态功能损害补偿费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省自然保护区建立和调整管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2616899",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2616899",
+   "question": "滥伐林木案件中的林木价值如何认定？即如何确定被伐树木为多少元每立方米\n能否通过发函询问当地市场的木材加工公司，取当地市场价的平均值作为案件处罚的依据？还是只有发改委出具的价格认证证明才能作为林木价值的判断依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "林木价格认定规则（2020年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2616964",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2616964",
+   "question": "建设项目涉及到省级自然保护区，需要什么程序\n建设项目（旅游景区）涉及到省级自然保护区，需要走哪些流程及做哪些报告？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局关于全部下放建设项目临时占用林地和森林经营单位修筑直接为林业生产服务工程设施占用林地审批权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2611753",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2611753",
+   "question": "林业图斑合法性判断规则\n请问广东省林业图斑合法性判定是否有指导性文件？没有是否会存在过度判读，过度执法",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于开展2023年森林督查工作的通知",
+    "2023年森林督查技术方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2560062",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2560062",
+   "question": "关于私人是否可以自由饲养木纹龟\n您好，有以下三个问题需要咨询： 1.木纹龟不在国家重点保护名录内，亦不在国际贸易公约内，请问是否可以自由饲养？ 2.省内规定的保护动物名录应如何查看？ 3.若木纹龟可自由饲养，后续被纳入国际贸易公约后，已经饲",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省重点保护陆生野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2533320",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2533320",
+   "question": "广东省林业厅关于印发《广东省生态公益林更新改造管理办法》的通知，粤林规 (2017)4号\n关于广东省林业厅关于印发《广东省生态公益林更新改造管理办法》的通知，粤林规 (2017)4号文，2023年1月30日文件失效，想了解一下，这份文件是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业厅关于印发&lt;广东省生态公益林更新改造管理办法&gt;的通知",
+    "生态公益林建设导则",
+    "生态公益林建设技术规程",
+    "森林采伐作业规程",
+    "低效林改造技术规程",
+    "森林抚育规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2382881",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2382881",
+   "question": "关于《广东省营造林工程定额与造价》应用的问题\n您好！市面查到该标准有两本标准：DB44/T772-2010与DB44/T773-2010，现在执行定额标准当中以哪个标准为准？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "营造林工程档案管理规范",
+    "广东省营造林工程定额与造价"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2351869",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2351869",
+   "question": "评广东省林业调查规划资质丙级资质\n评广东省林业调查规划资质丙级资质，可以用外省的林业中级工程师吗？需要几个林业中级林业工程师",
+   "cited_hits": [],
+   "cited_missing": [
+    "职称评审管理暂行规定",
+    "广东省林业调查规划设计单位资质"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2308308",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2308308",
+   "question": "林业有害生物防治服务资质证书如何办理？\n想要取得该资质需要哪些条件呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "林业有害生物防治组织资质"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2272989",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2272989",
+   "question": "关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题\n省营造林定额中的林地清理定额“Z1-2”是否包含林地内原有废旧树木（病害和严重退化树木）砍伐。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省营造林工程定额与造价"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2196133",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2196133",
+   "question": "省级生态林办理临时用地\n因修建珠肇高铁（江机段）工程，线路隧道穿越新会区凌云山（凤山），需要设置施工便道进入隧道，经查询，凌云山林地为省级生态林。请问，办理占用省级生态林需要哪些手续，具体计费标准。感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林公园管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2187024",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2187024",
+   "question": "林业有害生物防治员职业资格认定\n我们单位希望承接林业有害生物防治业务，但省林学会的资质认定需要单位拥有5名以上林业有害生物防治员。但是国家职业资格目录中取消了林业有害生物防治员，现在请问省林业部门：我们员工需要在哪培训学习才能获得林业有害生",
+   "cited_hits": [],
+   "cited_missing": [
+    "林业有害生物防治组织资质"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2182810",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2182810",
+   "question": "绿化造林项目设计和监理收费\n根据广东省林业局关于印发《广东省林业局管理办法》的通知中第二三条：项目调查设计、监理费用的支付参考中国林业工程建设协会《林业行业调查规划项目收费指导意见》执行，经查看《意见》，暂未能找到绿化造林项目设计和监理收费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;林业行业调查规划项目收费指导意见&gt;的通知",
+    "林业行业调查规划项目收费指导意见",
+    "国家发改委、建设部关于印发&lt;建设工程监理与相关服务收费管理规定&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2167085",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2167085",
+   "question": "2021年度的林业工程高级工程师评审\n想咨询一下贵单位，2021年度的林业工程高级工程师评审，什么时候开始受理递交资料呢，请问有受理单位的咨询电话吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局办公室关于做好2021年度工程系列林业专业职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "1041658",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=1041658",
+   "question": "关于2021年度林业工程系列高级职称评审\n想咨询一下贵单位，2021年度的林业工程系列，高级职称评审大概什么时间出评审通知呢？会按照省人社厅的文件执行，推迟到2022年1月份开始吗？ 盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "1035343",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=1035343",
+   "question": "关于生态碳汇林项目\n尊敬的各位领导好： 我想咨询一下关于个人以及企业如何参与到碳汇林，造林项目当中。 在哪里可以申请碳汇测量以及审计。 具体的申请流程是怎样的？ 向哪个部门进行申请，具体申请材料有否？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于碳普惠制核证减排量管理的暂行办法",
+    "广东省林业碳汇碳普惠方法学（2020年修订版）",
+    "广东省发展改革委关于碳普惠制核证减排量管理的暂行办法",
+    "广东省林业碳汇碳普惠方法学（2020年修订版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "962110",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=962110",
+   "question": "咨询三有动物的饲养\n您好，我想饲养一只人工繁育的鹩哥，能办证饲养吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "884283",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=884283",
+   "question": "已取得的林地占用行政许可是否需要变更\n我公司已取得生猪养殖项目林地占用的行政许可，现该项目已出售给另外一家公司，由另外一家公司建设和运营，请问我公司是否需要为该公司办理林地占用许可的变更手续？或该公司是否需要重新办理林地占用许可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目使用林地审核审批管理办法",
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "813749",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=813749",
+   "question": "关于办理梅花鹿养殖\n您好，请问一下现在是否已停止申请办理养殖梅花鹿相关证件了？从6月份至10月份以来，每个月都到当地县的林业局部门咨询，得到的回复都是暂停办理。请问是否有解除暂停办理的时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家畜禽遗传资源目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "811880",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=811880",
+   "question": "如何办理野生动物驯养繁殖许可证（非洲灰鹦鹉）\n饲养物种：非洲灰鹦鹉 咨询问题：1、个人办理野生动物驯养繁殖许可证需要什么条件及需要提供什么资料。2、公司办理野生动物驯养繁殖许可证需要什么条件及需要提供什么资料。3、办理流程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "765922",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=765922",
+   "question": "森林康养基地申请表\n请问怎么申请森林康养基地，申请表在那里下载或者请发送到我的邮箱。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局办公室关于开展2020年省级森林康养基地申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "697628",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=697628",
+   "question": "三有野生动物备案问题\n您好，请问经营利用三有野生动物比如乌梢蛇中药材 ，购进的时候供货商要有检验检疫证明提供，炮制酒乌梢蛇给其他单位，还需要检验检疫，然后和销售合同给林业局备案，才能销售吗？？ 还是采购的时候，拿到供应商给的检验检疫证明，然",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "619766",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=619766",
+   "question": "鹿角的进口\n谢谢上次的回复，是否可以理解为西非马鹿的鹿角进口到中国是不需要办理许可证的？ 这些鹿角是自然脱落的野生的西非马鹿的鹿角，来自波兰。",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "619064",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=619064",
+   "question": "鹿角的进口\n你好，我计划从波兰进口西非马鹿的鹿角到中国，用途是作为宠物狗的啃咬，海关编码是：0507909010。国外通知是非濒危物种，但是这个海关编码是需要办理濒危物种允许进口证明书，想问下是要办濒危物种允许进口证明书，还是非濒危物种允许",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "国家畜禽遗传资源目录（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "561065",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=561065",
+   "question": "梅花鹿及其相关衍生产品现在可以销售吗？\n《国家畜禽遗传资源目录》目前正在征求意见阶段，梅花鹿划归特种兽禽类，5月8日征求意见结束。在此之前，吉林省畜牧业管理局、吉林省市场监督管理厅、吉林省林业和草原局经请示国家农业农村部，同意将梅花鹿在新旧",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家畜禽遗传资源目录",
+    "关于禁止野生动物交易的公告2020年第4号"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "559983",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=559983",
+   "question": "人工饲养的梅花鹿是否可以可以商业用途？\n您好，请问从东北引进的人工饲养的梅花鹿会否可以用在商业餐饮？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省野生动物保护管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "552144",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=552144",
+   "question": "种植国家审定的油茶良种是否有补贴？\n你好！请问在广东承包村民的山地种植油茶树是否有补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 &nbsp;国家林业局关于印发《林业改革发展资金管理办法",
+    "林业改革发展资金（造林补助部分）管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "545742",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=545742",
+   "question": "征占用林地办理条件（涉及Ⅱ级林地）\n根据《广东省林业生态红线划定工作方案》（广东省人民政府办公厅，2014年8月8日）要求：Ⅱ级保护区域，除国家和省、市重点建设项目占用征收外，不得以其他任何方式改变用途。但依据《建设项目使用林地审核审批管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业生态红线划定工作方案",
+    "建设项目使用林地审核审批管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "539583",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=539583",
+   "question": "油茶补贴\n尊敬的省局领导，您们好！我想咨询一下，现在我省种植油茶是否有补贴，标准是多少？据了解，江西省等省份是有种植油茶补贴的。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 &nbsp;国家林业局关于印发《林业改革发展资金管理办法",
+    "林业改革发展资金（造林补助部分）管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "539240",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=539240",
+   "question": "林业规范性文件政策咨询\n《广东省生态公益林调整管理办法（试行）》是不是已经废除了？有了新规《广东省生态公益林调整管理暂行规定》，其批准文号是多少,施行时间是啥时候开始的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省生态公益林调整管理办法（试行）",
+    "广东省生态公益林调整管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "537539",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=537539",
+   "question": "关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题\n1、省营造林定额比较笼统，关于安全文明施工措施费的计费标准未有详细说明，请问编制生态造林工程预算时该如何计取安全文明施工措施费？珠海地区是否可参照执行《广州市营",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省营造林工程定额与造价",
+    "广州市营造林工程综合造价定额",
+    "广东省营造林工程定额与造价",
+    "广州市营造林工程综合造价定额",
+    "广东省营造林工程定额与造价",
+    "广州市营造林工程综合造价定额",
+    "广东省营造林工程定额与造价"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "524073",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=524073",
+   "question": "林业工程技术职称评审\n从事林业方面工作已经六年，但是学历专业是会计的，可以申报林业技术员吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业工程技术人才职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "293531",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=293531",
+   "question": "生猪养殖项目使用宜林地相关程序办理问题\n①林业行业标准《林地分类》（LY/T1812-2009）中无立木林地与宜林地为并列地类，但《森林法实施条例》（2018修正）及森林植被恢复费征收规定中又没有规定无立木林地的分类和森林植被恢复费征收标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整森林植被恢复费征收标准的通知",
+    "国家林业和草原局办公室关于生猪养殖使用林地有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "215518",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=215518",
+   "question": "火灾活立木蓄积损失标准\n请问省里面有没有关于火灾后各树种最新的活立木蓄积损失标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "森林火灾损失评估技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "188680",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=188680",
+   "question": "怎样申请野生动物专用标识\n广州市的中药饮片生产企业，生产什么品种需要野生动物专用标识？ 去哪里申请野生动物及其制品专用标识？需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业局、国家工商行政管理总局关于对利用野生动物及其产品的生产企业进行清理整顿和开展标记试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "112485",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=112485",
+   "question": "广东省梅州市中片生物防火林带建设项目进展情况\n请问领导，广东省梅州市中片生物防火林带建设项目作业设计已经交上去几个月了，不知相关部门批复了没有，还有资金落实了没有，现在市县项目库管理要求所有项目都要入库，不知道这个项目要不要录入市县项目库，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省林业局关于广东省梅州市中片生物防火林带建设项目初步设计的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "110492",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=110492",
+   "question": "公益林历史遗留问题\n我是司前镇温下村内洞村民小组，我小组约（1965亩林地）、大部分种植杉树、混有少量松杂。林地至今没有签订界定书，林农拒绝领取公益林补偿款。林木农户在90年代开始造林，政府为了农户生活水平提高鼓励农户造林，老百姓拥护党扎根",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省森林保护管理条例",
+    "广东省生态公益林建设管理和效益补偿办法",
+    "广东省生态公益林调整管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-lyj",
+   "id": "6637",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=6637",
+   "question": "职称\n2019年 广东省林业工程技术人才职称评价实施方案出台实施吗？在哪里可以查询到。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在工程技术领域实现高技能人才与工程技术人才职业发展贯通的实施方案",
+    "关于做好2018年度工程系列林业专业技术职称申报评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "5344",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=5344",
+   "question": "专业技术资格（职称）信息咨询\n木材科学与技术专业，想申报职称，获取林业工程师职称相关政策，时间，材料，继续教育学时，培训单位等等，打了电话给咨询人员，说网站上很详细，但真心找不到",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2018年度工程系列林业专业技术职称申报评审工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-lyj",
+   "id": "3352298",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3352298",
+   "question": "补偿金查询\n想询问：如何查询广东省生态公益林补偿资金，找不到入口进入查询是没有这项资金补偿了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3145972",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3145972",
+   "question": "咨询\n广东省所有地级市：广州、深圳、珠海、汕头、佛山、韶关、河源、梅州、惠州、汕尾、东莞、中山、江门、阳江、湛江、茂名、肇庆、清远、潮州、揭阳、云浮。请问以上地级市的林业行政执法部门都是什么部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3120414",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3120414",
+   "question": "养蛇\n你好，我这边想要养玉米蛇、王蛇、和牛蛇，我这边需要准备什么资料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3099984",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3099984",
+   "question": "兰花种质资源库申报\n您好，请问广东省能申报省级的花卉种质资源库吗？兰花能否申报国家（或省级）林草种质资源库?如果能一般几月份开始申报或几月份出相关通知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3061404",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3061404",
+   "question": "2024年广东省林业龙头企业申报\n2024年广东省林业龙头企业单位名单还未公示，请问现在处于哪个阶段，需要多久可以公示认定结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3017001",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3017001",
+   "question": "野生动物等级咨询\n问：斑鸠的野生动物保护等级是？斑鸠是国家重点保护动物吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2866908",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2866908",
+   "question": "野生动物咨询\n你好，我想咨询一下2024年野生动物蛇类可以人工养殖吗？蛇类养殖需要办理什么证件手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2857621",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2857621",
+   "question": "建设项目使用林地启用边界桩\n领导好，根据《广东省林业厅关于全省建设项目使用林地启用边界桩的通知》（粤林函[2017]658号）的有关规定，第一条 建设项目使用林地地块工程和长度小于1公里的线状工程，这里的长度小于1公里的线状工程指的是使用林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2844583",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2844583",
+   "question": "变色龙\n哪种变色龙可以个人养殖？ 需要具备什么条件才可以养殖吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2807774",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2807774",
+   "question": "境外野生动物输入\n本人想进口非洲渡鸦蛋！ 用于繁殖、娱乐、和其他生物研究等… 需要办理那些证件呢？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2778157",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2778157",
+   "question": "进口非洲鸵鸟皮需要办证吗？\n请问进口非洲鸵鸟皮需要办理什么证件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2736069",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2736069",
+   "question": "占用水利用地（湿地）建设的业务咨询\n根据2022年10月11日《广东省林业局关于印发〈广东省林业局行政处罚裁量权适用规则〉〈广东省林业局行政处罚裁量基准表〉和〈广东省林业局行政执法减免责清单〉的通知》中的附件2（广东省林业局行政处罚裁量基准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2723787",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2723787",
+   "question": "咨询林业自然保护地违法查处部门\n您好，请问林业自然保护地内存在违法行为，应该由林业部门查处还是由生态环境部门进行查处？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2638531",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2638531",
+   "question": "露天矿山生产建设项目是否需要缴纳生态补偿金？\n露天矿山生产建设项目不占用基本农田、生态公益林、自然保护地等敏感区域，是否需要向地方政府缴纳生态补偿金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2441784",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2441784",
+   "question": "养殖三有野生动物\n以药用为目的养殖蛇类现在广东省內需要办理什么证件才能养殖？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2384828",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2384828",
+   "question": "《广东省营造林工程定额与造价》中规费的计取问题\n现在《广东省营造林工程定额与造价》（DB44/T 773—2010）中的规费应计取哪些项目及相应费率是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2324547",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2324547",
+   "question": "关于《广东省营造林工程定额与造价》（DB44/T 773-2010）应用的问题\n请问第一：《广东省营造林工程定额与造价》（DB44/T 773-2010）中使用的为营业税，2016年5月后为增值税，请问税率是否直接改为增值税率，定额中的消耗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2268080",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2268080",
+   "question": "林业局政府信息公开工作年度报告\n请问广东省林业局的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2251128",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2251128",
+   "question": "造林绿化施工单位资质证书\n请问承接造林工程建设项目（主要包括经济林种植工作及林场改造）的单位是否一定须要广东省林学会颁发的造林绿化施工单位资质证书呢？这个资质证书是硬性条件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2193765",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2193765",
+   "question": "近几年林业方面获得广东省科学技术奖的具体情况\n您好，打扰了，咨询几件事 1.贵省有无在林业方面设立的奖项？ 2.贵省的林业方面近些年来获得科学技术奖的具体情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "1010167",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=1010167",
+   "question": "咨询关于野生保护动物画眉鸟升级为二级野生保护动物的原文件\n你好，请问画眉鸟是在二月份升级为国家二级保护动物吗，我看到的都是流传的文件截图，我想求证一下原文件，如果已经有在养是否在缓冲期内（六月三十日）前放生或者移交当地林业局就可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "924883",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=924883",
+   "question": "2020年财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "925239",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=925239",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "902199",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=902199",
+   "question": "有“中国野生动物经营利用专用标识”的中药饮片经营\n老师：您好 请问已贴有“中国野生动物经营利用管理专用标识”的中药饮片（如羚羊角粉、鹿茸、海马等），经营企业（如药品批发企业或零售药店）是否可以经营，是否需要办理“野生动物经营利用许可证”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "877609",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=877609",
+   "question": "天然林如何界定\n请问天然林如何界定？是否小班卡登记天然萌生的，都按天然林进行管理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "842649",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=842649",
+   "question": "广东省事业单位2020年集中 公开招聘高校应届毕业生\n我想咨询一下该次考试省直单位分数线已公布两个星期了，在林业省直单位的招聘中，资格审查和面试名单是由各省直单位，包括林场和省自然保护区管理局等各自公布和通知，还是由省局统一组织公布，能否请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "800155",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=800155",
+   "question": "关于非保育类动物展览所需手续\n你好，我这边是一个休闲度假村，如果想建设一个区域作为小动物园，饲养展览非保护类的动物（不在cits与我国野保法名录里），除了建设相关的饲养展览笼舍，防逃逸措施，医疗措施，排污措施，无公害处理措施外，我还需要办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "775969",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=775969",
+   "question": "关于森林公园数量的咨询\n您好，目前可以在广东林业网上查询珠三角九市（各市）2017-2019县级以上森林公园设立数量，想咨询一下有2016年各个市县级以上森林公园的数量吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "757598",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=757598",
+   "question": "如何办理濒危物种进口许可证\n我司想进口一批中药材，查询过进口法规，需要办理濒危物种进口许可证才可以通关，请问需要什么资料，是否涉及什么费用，具体流程是怎样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "748076",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=748076",
+   "question": "关于自然教育基地的相关政策\n广东省大力建设自然教育基地，建设自然教育示范省，询问建设相关的投入、补贴政策，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "669780",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=669780",
+   "question": "何时处理我们特种养殖的存栏动物\n国家林业和草原局29号已经出台了相关特种动物退出养殖的文件，请问我们广东省什么时候才开始对我们养蛇户的蛇进行回收处理，我们已经几个月没有收入了，还要不停的投入资金去喂蛇，又没有其它的收入，一家老小还要生活阿，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "657315",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=657315",
+   "question": "林业龙头企业申报\n请问今年林业龙头企业申报的时间是什么时候，通知指南在哪里查询？可否提供具体负责部门的联系方式以便咨询，谢谢！期待您的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "621479",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=621479",
+   "question": "野生动物及其制品销售问题\n对于野生和人工驯养繁殖的国家一级、二级保护动物、三有和CITES附录二动物销售、购买是否需要许可证，需要何种许可证，许可证的申请流程是什么，野生保护动物和人工驯养繁殖的保护动物保护标准是否统一。对于购买上述保护动物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "565344",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=565344",
+   "question": "关于野生动物标识问题\n请问，大壁虎中药材是否需要办理野生动物标识才能销售？如果办理，需要怎样的流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "565307",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=565307",
+   "question": "国家三有野生动物经营利用问题\n生产经营三有品种乌梢蛇，壁虎以及白花蛇中药材或中药饮片的，需要到当地办理经营利用批件吗？还有这三个品种要按标识管理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "562152",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=562152",
+   "question": "自然保护区\n您好： 请问今年的自然保护区有招聘计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "538660",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=538660",
+   "question": "请问在哪里能获取到贵单位的信息公开年报？\n请问在哪里能获取到贵单位的信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "535127",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=535127",
+   "question": "木材运输证\n请问办理木材运输证需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "534658",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=534658",
+   "question": "2019年度网站工作报表\n贵单位的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "534227",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=534227",
+   "question": "造林工程2018年后的信息价是否发布？\n造林工程2018年后的信息价是否发布，更新网址是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "534117",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=534117",
+   "question": "2019年度林业系列职积称资料提交时间是否推迟？\n2019年度林业系列职积称资料提交时间是否推迟？当时是要求2月底要交，现在疫情期间，有没有具体提交 时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "523492",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=523492",
+   "question": "天然麝香流通咨询\n1.请问目前天然麝香能否在药店按处方药凭处方销售。 2.请问天然麝香产品能否在医药批发企业之间进行销售（例如从甲生产厂家销售及外地的乙医药批发企业，由乙类批发企业销售给医院）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "292572",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=292572",
+   "question": "进一步关于珠三角9市森林公园数量的问询\n尊敬的广东省林业局的工作人员，您好！我是暨南大学的一名在校研究生，正在做一项关于粤港澳大湾区城市休闲环境的研究，先前向您咨询了2017年、2018年、2019年3年珠三角9市森林公园数量的统计数据，并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "218955",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=218955",
+   "question": "关于珠三角9市森林公园数量的问询\n尊敬的广东省林业局的工作人员，您好！我是暨南大学的一名在校研究生，正在做一项关于粤港澳大湾区城市休闲环境的研究，现需要2017年、2018年、2019年3年珠三角9市森林公园数量的统计数据，不知是否有相关数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "218913",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=218913",
+   "question": "广东省古树名木专家库\n请问广东省古树名木专家库有建立吗？如果有，专家库都有哪些专家？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "217946",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=217946",
+   "question": "人工繁育国家二级保护野生植物审批（林业类）\n请问广东省内是否允许人工繁育国家二级保护野生植物（林业类）？如果允许，如何办理人工繁育国家二级保护野生植物的生产、经营许可，归口部门和流程是？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "192500",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=192500",
+   "question": "保护区招考\n保护区招考的事还沒有消息吗？今年招考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "113787",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=113787",
+   "question": "关于野生动物标识问题\n请问，用人工驯养的马鹿或梅花鹿角、鹿茸、鹿茸血制成的中药和中药饮片是否要办理野生动物标识才能销售？如果办理，需要怎样流程？如果没有办理相关标识就生产销售，会有怎样处罚？ 因为用的药材是人工驯养，不是野生的马鹿（或梅花鹿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "113713",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=113713",
+   "question": "成立林业专业合作社\n我是河源市国有黎明林场的事业编人员，我林场想成立林业专业种植合作社发展林下经济（种植灵芝及中草药）。关于合作社的各项规定及政策法规不了解。请教了解有关的事项。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "112943",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=112943",
+   "question": "保护区招考\n您好，关于保护区事业单位招聘一事。能否给个确切的答复呢？招聘就招聘，不招聘就不招聘，不要让人悬在半空无休止的等待，这样让人很煎熬呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "111522",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=111522",
+   "question": "生态林和公益林的申请条件\n本单位的基本业务为坚果树生产种植，是否能申请生态林或公益林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "111455",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=111455",
+   "question": "咨询申报“景观绿化类各专业高级工程师职称”的工作经历的条款解读\n本人打算申报2019年景观绿化类各专业高级工程师，其中《林业工程专业技术资格评审条件（试行）》里面有关景观绿化类各专业高级工程师的工作经历要求写道 “1.主要参加过中等以上城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "111161",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=111161",
+   "question": "2019年度工程系列林业专业技术职称评审\n你好。2019年是专技职称评审改革年，省人社厅已经发布《关于做好2019年度职称评审工作》（粤人社发[2019]104号）；但林业局这边还未发布2019年度的工程系列林业专业技术职称评审指引，今年的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "9036",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=9036",
+   "question": "生态林\n农村里面个人的山林可以申请生态林吗？可以的话怎么申请有什么要求什么条件~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "6836",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=6836",
+   "question": "野生动物及其产品经营许可证（鸵鸟预包装食品销售）\n公司名称：深圳鸵小仙食品有限公司 公司类型：有限责任公司 公司行业：快速消费品（食品/饮料/烟酒/日化 ） 公司历程：2019年3月15日正式成立，公司主要从事鸵鸟肉类预包装食品的销售。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "6055",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=6055",
+   "question": "职称评审\n本人1999年华南农业大学园艺系毕业（农学学士），同年7月到肇庆市鼎湖区城市园林卫生管理处任职技术人员，从事城市园林管理技术工作，2000年10月鼎湖区人事局考核认定为助理园艺师。2002年5月调入鼎湖区建设项目办公室工作至今，主",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "6042",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=6042",
+   "question": "广东省古树名木APP\n广东省古树名木APP服务器坏了，APP内容无显示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "5640",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=5640",
+   "question": "承包山地3000-20000亩有何补贴？\n能否指导承包3000-20000亩山地立项及补贴政策？ 仁化县航农农业有限公司法人李剑平13232053322",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "5636",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=5636",
+   "question": "保护区招考\n请问这个月保护区会招考吗？什么时候挂公告？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "5254",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=5254",
+   "question": "报警\n国家生态林被砍伐，广东省森林公安的报警电话号码是多少。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "3051",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=3051",
+   "question": "自然保护区招考时间安排\n请问今年的自然保护区什么时候招考？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2705",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2705",
+   "question": "从广东省外运输蓝孔雀到广东省内事宜\n因蓝孔雀不在国家野生动物保护名录中，请问从湖南省运输蓝孔雀到广东省内，是否不用办理任何证件？如要办理，需要办理什么证件呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2668",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2668",
+   "question": "广东省内养殖销售蓝孔雀事宜\n请问在广东省内养殖销售蓝孔雀需要办理什么证件？需要提供什么材料申请办理？感谢.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2102",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2102",
+   "question": "捕猎售卖野生动物属于违法行为吗？\n听村子里的老人家说我隔壁村有人在山上猎捕狐狸、猫头鹰、山猪等野生动物，一部分拿回家圈养，一部分私下卖给餐馆等，这种行为属于违法吗？要如何举报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "2039",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=2039",
+   "question": "关于在深圳养鸟的规定\n上周我已经留言，但到现在未收到您的回信，我再详细说一遍：我在正规经营的宠物店买了一只海南八哥鸟饲养，我听说八哥鸟现在已成为三有保护动物，我想问下在深圳饲养是否合法合规？另外是否可以带到室外遛鸟？如若不行，需要办理什么证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "1808",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=1808",
+   "question": "关于在深圳家养八哥及出门溜鸟是否合法合规\n您好！ 我在深圳正规的宠物店买了一只海南八哥，我现在想把牠带出门，我听说八哥已经被列为三有保护动物，请问在深圳家养八哥及出门溜鸟是否合法合规？若不合法合规，我该怎么办理手续？另外，我住在龙岗区，请问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "732",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=732",
+   "question": "广东省森林小镇补贴金额及补贴下发时间\n1.对在2018年获得广东省森林小镇称号的乡镇（粤西地区）的补贴金额是多少？ 2.预计补贴下发时间是几月份？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "705",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=705",
+   "question": "广东省森林小镇补贴资金\n于2018年获得广东省森林小镇称号的乡镇，什么时候可以申请到省的补贴资金？需要哪些申请材料以及具申请流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-lyj",
+   "id": "426",
+   "url": "https://lyj.gd.gov.cn/hdjlpt/detail?pid=426",
+   "question": "有没有省林业局办证中心的咨询电话？\n有没有省林业局办证中心的咨询电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

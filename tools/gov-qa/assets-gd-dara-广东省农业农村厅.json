@@ -1,0 +1,1780 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-dara",
+   "id": "3503077",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3503077",
+   "question": "关于宅基地权属争议调处受理部门的政策咨询\n尊敬的省农业厅的领导同志，您好！冒昧借此平台向贵厅咨询业务问题。按照机构改革后的职能设置，宅基地管理职能归农业农村部门行使。根据《土地管理法》第十四条、六十二条和中农发（2019）11号文“农村宅基",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省农业农村厅 广东省自然资源厅关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3160034",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3160034",
+   "question": "生鲜乳收购许可\n请问我的企业在横琴，但是生鲜乳的生产场在省外，是否能够办理生鲜乳收购许可。办理该许可还有什么条件要求吗？",
+   "cited_hits": [
+    {
+     "name": "乳品质量安全监督管理条例",
+     "lib_no": "乳品质量安全监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3087085",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3087085",
+   "question": "关于经营未经检疫生猪行政处罚的咨询\n《动物防疫法》第29条规定了禁止屠宰、经营、运输应当检疫而未经检疫的动物，100条规定了相应处罚。若A销售未经检疫的生猪给用来经营的B，则：1.若双方都明知未检疫，销售方和购买方都要因经营行为被处罚吗？若",
+   "cited_hits": [
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3084962",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3084962",
+   "question": "如何查询动物防疫条件合格证有效期限是多久\n工作中管理供应商资料时不清楚不同地区动物防疫条件合格证有效期限是多久，可以通过什么方式查询呢？",
+   "cited_hits": [
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物防疫条件审查办法",
+    "农业农村部关于印发&lt;动物防疫条件合格证&gt;等样式的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3076864",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3076864",
+   "question": "动物检疫合格证\n在广东省内，凭A市开具的动物检疫合格证（B证），可以运输到B市屠宰吗，例如生猪。",
+   "cited_hits": [
+    {
+     "name": "动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省动物防疫条例",
+    "动物检疫管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3063737",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3063737",
+   "question": "不属于食品的中药材能是食用农产品吗？\n不在《既是食品又是药品的中药材》目录里的中药材，可以是食用农产品吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步规范保健食品原料管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3058476",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3058476",
+   "question": "在农村养殖鸡鸭鹅应该办哪些证以及要按照哪些政策文件要求养殖\n1.在农村养殖鸡鸭鹅应该办理哪些证件？需要准备什么材料，以及到哪里办理？ 2.办理这些证件能否线上办理，办理流程是怎样的？ 3.养殖的土地是否需要备案成养殖项目专用地？ 4.养殖鸡",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国畜牧法",
+     "lib_no": "畜牧法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物防疫条件合格证",
+    "广东省种畜禽生产经营许可证发放和畜禽养殖备案办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3050477",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3050477",
+   "question": "一户一宅业务咨询\n你好，我想询问农户建房一户一宅相关解释，一处宅基地的定义，我家一大一小房子，相隔了一条大概2米的巷子，算一处宅基地还是两处宅基地，可以申请将小的房子拆旧建新吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "韶关市农村住房建设管理条例",
+    "韶关市农村住房建设管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3015538",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3015538",
+   "question": "《广东省休闲渔业管理办法》咨询\n请问休闲渔船违反《广东省休闲渔业管理办法》第十二条第二款第八项规定，夜间开展航行活动，该如何处理？《广东省渔港和渔业船舶管理条例》、《广东省渔业船舶安全生产管理办法》中似乎并无对应罚则。",
+   "cited_hits": [
+    {
+     "name": "海上交通安全法",
+     "lib_no": "海上交通安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "海上交通安全法",
+     "lib_no": "海上交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国海上海事行政处罚规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2873788",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2873788",
+   "question": "关于大型规模化家禽养殖场的年出栏数量定义划分标准咨询\n有没有相关文件，对于大型规模化家禽养殖场的年出栏数量定义划分标准作出了规定",
+   "cited_hits": [
+    {
+     "name": "畜牧法",
+     "lib_no": "畜牧法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "畜禽养殖废弃物资源化利用工作考核办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2810702",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2810702",
+   "question": "关于动物防疫条件合格证变更的咨询\n养猪场经营主体发生变更（租赁关系）的情况下动物防疫条件合格证是否可做相应变更?变更所需提交资料有哪些？如不可变更防疫责任哪方承担?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物防疫条件合格证",
+    "动物防疫条件审查办法",
+    "动物防疫条件审查办法",
+    "动物防疫条件审查申请表",
+    "动物防疫条件审查办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2738528",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2738528",
+   "question": "经营劣质农药判定依据\n公司销售已有工厂出具合格检测报告的电热驱蚊液，近期市场监督管理局抽查发现某批次料体不合格，销售方配合生产方下架问题并召回。请问作为销售方在拿到有合格检测报告的产品会判定产品是合格品，不会再每批送第三方检测，直到被抽查才",
+   "cited_hits": [
+    {
+     "name": "农药管理条例",
+     "lib_no": "农药管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农药管理条例",
+     "lib_no": "农药管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2571796",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2571796",
+   "question": "非农户口能否翻建原有宅基地住房\n尊敬的领导，户口迁到城镇后，能否对原有的农村宅基地住房进行翻建？相关的政策文件是什么？",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农业农村部&nbsp;自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2570907",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2570907",
+   "question": "咨询《关于规范农村宅基地审批管理的通知》粤农农规〔2020〕3号 政策解读\n广东省农业农村厅 广东省自然资源厅《关于规范农村宅基地审批管理的通知》粤农农规〔2020〕3号 “二、依法规范审批管理流程 （一）宅基地分配原则。......经批准",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农业农村部&nbsp;自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2550500",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2550500",
+   "question": "个人如何合法饲养黄缘闭壳龟当宠物（饲养1-2只，不进行繁殖或销售经营）\n黄缘闭壳龟为《濒危野生动植物种国际贸易公约》附录Ⅱ物种（仅限野外种群），其野外种群毫无疑义被列入为国家二级保护野生动物范畴。根据国家农业农村部《关于规范濒危野生动植物种",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2548214",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2548214",
+   "question": "关于受让桑蚕品种权的登记如何办理\n因受让桑蚕品种权，已签订合同，但不知如何办理品种权的登记。根据《根据中华人民共和国植物新品种保护条例》第九条“转让申请权或者品种权的，当事人应当定立书面合同，并向审批机关登记，由审批机关予以公告”。桑蚕的品",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2389545",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2389545",
+   "question": "关于个人如何合法饲养黄缘闭壳龟的问题\n黄缘闭壳龟为《濒危野生动植物种国际贸易公约》附录Ⅱ物种（仅限野外种群），其野外种群毫无疑义被列入为国家二级保护野生动物范畴。根据国家农业农村部《关于规范濒危野生动植物种国际贸易公约附录水生动物物种审批管",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "人工繁育证",
+    "人工繁育证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2264549",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2264549",
+   "question": "咨询首次CATL资质申请流程及其要求\n请问：1、CATL资质申请流程； 2、CATL资质申请的要求的文件（最新有效的文件名和发布日趋。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农产品质量安全检测机构考核办法",
+    "广东省农业厅关于农产品质量安全检测机构考核的实施细则",
+    "关于印发广东省农业厅关于农产品质量安全检测机构考核工作有关文书的通知",
+    "关于进一步优化全省农产品质量安全检测机构考核有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1083265",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1083265",
+   "question": "项目所在地疑似出现红火蚁\n云浮市云城区罗莎污水处理厂外疑似出现红火蚁。污水处理厂原有黑蚂蚁等其他本土蚂蚁栖息，但是今日在污水处理厂大门数十米外发现疑似红火蚁巢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国生物安全法",
+     "lib_no": "生物安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农作物病虫害防治条例",
+     "lib_no": "农作物病虫害防治条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1032199",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1032199",
+   "question": "关于养殖场问题 另由于字数限制，正文最后应该是：如何上传求证。\n您好，由于高州市分界镇正在竞争“新农村建设”，政府人员以此名号到处威逼利诱养殖户紧急关停养殖，并没有作出相应关停、搬迁赔偿。对此，我严重质疑分界镇对禁养区划定缺乏合法合理性，超",
+   "cited_hits": [
+    {
+     "name": "畜禽规模养殖污染防治条例",
+     "lib_no": "畜禽规模养殖污染防治条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "畜禽养殖禁养区划定技术指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "931706",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=931706",
+   "question": "咨询农村养猪污染问题的处理权责？\n关于农村养猪污染问题投诉，是否属于农业和农村管理局的职责范围？农业和农村管理局属下的畜牧股（室）是否有权界定禁养区或非禁养区？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境保护法",
+     "lib_no": "环境保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "畜禽规模养殖污染防治条例",
+     "lib_no": "畜禽规模养殖污染防治条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "畜禽养殖禁养区划定技术指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "920200",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=920200",
+   "question": "农业转基因生物怎么灭活\n一、关于农业转基因生物的灭活问题 《农业转基因生物安全评价管理办法》第三十六条规定：安全等级二、三、四的转基因生物，在废弃物处理和排放之前应当采取可靠措施将其销毁、灭活。请问①农业转基因生物要怎么灭活？是否有相关政策",
+   "cited_hits": [
+    {
+     "name": "农业转基因生物安全管理条例",
+     "lib_no": "农业转基因生物安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农业转基因生物加工审批管理办法",
+    "农业转基因生物进口安全管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "868216",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=868216",
+   "question": "复耕地属于基本农田吗？能否种植果树\n我想租用一块土地进行果树或者其他经济林木种植。土地的性质属于复耕地。但不清楚是否属于基本农田。我可以怎么样确认土地允许种植的作物种类？",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "基本农田保护条例",
+     "lib_no": "基本农田保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-dara",
+   "id": "3499375",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3499375",
+   "question": "宠物食品生产许可（SC认证）审查\n对于宠物食品生产许可（SC认证）审查时，关于霉菌总数一个限量标准值是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "宠物饲料管理办法",
+    "宠物饲料生产企业许可条件",
+    "宠物饲料生产企业许可条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3494152",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3494152",
+   "question": "关于广东省动物疫病补助的问题咨询\n广东省动物疫病补助线上申请后，需要到线下提交纸质材料吗？集团化企业申请动物疫病补助具体需要哪些材料呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省动物疫病强制免疫补助政策改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3475827",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3475827",
+   "question": "冬虫夏草法定属性及冻干工艺加工边界合规性专项咨询函\nFD 真空冷冻干燥工艺合规边界（核心技术问询） 市场大量产品采用 FD 宇航冻干工艺加工冬虫夏草，依据全国科技名词委权威定义，该工艺需将虫草低温冻结至冰点以下，在高真空环境升华脱水；加工后",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 国家税务总局关于发布享受企业所得税优惠政策的农产品初加工范围(试行)的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3450366",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3450366",
+   "question": "关于地理标志使用问题咨询\n您好，我们是直播公司，因审核客户宣传物料时涉及较多地理标志使用问题，希望向您咨询以下问题： 1.产品是农业农村部登记的农产品地理标志产品，但未转换为国家知识产权局认定的地理标志保护产品，生产者还能否继续使用原来的农",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品地理标志登记管理制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3419440",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3419440",
+   "question": "乌龟、中华鳖繁育、经营许可\n请教一下现在“乌龟”和“中华鳖”产品的繁育及经营需要什么资质要求吗？如人工繁育许可、水生野生动物经营许可。",
+   "cited_hits": [],
+   "cited_missing": [
+    "人工繁育国家重点保护水生野生动物名录（第三批）",
+    "中华人民共和国水生野生动物人工繁育许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3363112",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3363112",
+   "question": "农产品质量安全承诺达标合格证管理办法适用范围的咨询\n请问农副产品（稻壳粉）、大米、小麦以及小麦麸皮在其办法范围内吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3352532",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3352532",
+   "question": "农产品质量安全承诺达标合格证管理办法，实施操作方法\n你好，就农产品质量安全承诺达标合格证管理办法，我们是农产品生产加工企业，不太明白要如何操作这个承诺达标合格证，具体要如何操作？请指导，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3342435",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3342435",
+   "question": "农产品质量安全承诺达标合格证管理办法适用范围的咨询\n您好： 关于2025年12月2日发布的农产品质量安全承诺达标合格证管理办法中规定，下列农产品应当实施承诺达标合格证管理： （一）蔬菜（含人工种植的食用菌）； （二）水果； （三）茶鲜叶； ",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3277741",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3277741",
+   "question": "外省调运仔猪、种猪\n广西省的种猪场能否调运仔猪、种猪至广东省内的养殖场吗？若可以双方养殖场需要备案吗？或者是有其他要求吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强生猪及生猪产品调运管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3228976",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3228976",
+   "question": "《动物诊疗机构管理办法》咨询\n《管理办法》中经营动物的集贸市场指活体动物交易市场吗？一般的居民生活区的农贸市场算是上述指的经营动物的集贸市场吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物诊疗机构管理办法",
+    "动物诊疗机构管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3227741",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3227741",
+   "question": "种畜禽生产经营许可证法人变更需要准备的资料\n种畜禽生产经营许可证法人变更需要准备的哪些资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "种畜禽生产经营许可管理办法",
+    "种畜禽生产经营许可审查规范（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3205339",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3205339",
+   "question": "生物菌剂肥料批文申请\n您好!请问生物菌剂肥料批文如何申请，需要准备哪些资料去哪个部门申请，需要多长时间！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "肥料登记管理办法",
+    "肥料登记申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3095266",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3095266",
+   "question": "农村宅基地建设\n尊敬的领导:本人是揭阳市普宁市大坝镇粮田村的一位村民，在2024年12月22号在村委会申请了一户一宅的建房诉求，符合一户一宅建房的相关政策，也在村公告栏上公示了，可至今2025年2月20上级政府还没有给我批复，请问我什么时候",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部 自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3090038",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3090038",
+   "question": "建设项目在国家级水产种质资源保护区河段沿河岸上，需编制水产种质资源保护区影响专题论证报告吗\n某水电站大坝下游存在脱水河段（遇降雨或大坝泄洪河道才有水），根据政策需开展生态流量建设，拟于河道岸边新建引水管道长约800m至坝下，沿岸坡将水流泄放",
+   "cited_hits": [],
+   "cited_missing": [
+    "水产种质资源保护区管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3084251",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3084251",
+   "question": "宠物食品法规适用\n尊敬的领导您好，关于宠物食品的法规适用，有如下两个问题咨询： 1. 其他宠物食品（宠物零食）是否适用于农业部20号文发布的所有要求内容； 2. 宠物食品产品特别宣称含有的某个原料，如：姜黄：消炎解毒，姜黄是否需要在原料组成",
+   "cited_hits": [],
+   "cited_missing": [
+    "宠物饲料管理办法",
+    "宠物饲料标签规定",
+    "宠物饲料标签规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "3055620",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3055620",
+   "question": "高标准农田建设项目资金管理验收的文件依据\n请问2022年度高标准农田建设项目的管理是否按照广东省财政厅、广东省国土资源厅、广东省农业厅联合印发的《广东省高标准基本农田建设省级补助资金管理暂行办法》（粤财农[2012]488号)、《广东省高标",
+   "cited_hits": [],
+   "cited_missing": [
+    "农田建设管理办法",
+    "广东省农业农村厅关于农田建设项目管理实施办法",
+    "广东省农业农村厅关于明确农田建设项目竣工验收工作事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3058922",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3058922",
+   "question": "国务院野生动物保护主管部门核准按照国家 重点保护的野生动物管理的野生动物的名单有哪些？\n经国务院野生动物保护主管部门核准按照国家 重点保护的野生动物管理的野生动物有哪些？ 想问一下浅海长尾鲨属于其中的一种吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约附录水生物种核准为国家重点保护野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3041808",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3041808",
+   "question": "生产、销售磷脂给饲料厂，需要办理哪些行政许可事项\n我们公司精炼食用植物油时会产生副产品大豆磷脂和菜籽磷脂。请问生产、销售大豆磷脂和菜籽磷脂给饲料厂，具体需要办理哪些行政许可事项呢？ “大豆磷脂油”在《饲料原料目录》内，但不在单一饲料目录，“",
+   "cited_hits": [],
+   "cited_missing": [
+    "饲料原料目录",
+    "饲料卫生标准",
+    "饲料标签",
+    "饲料添加剂品种目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3044419",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3044419",
+   "question": "绿色食品认证\n你好，我们公司是广州新鲜派农业科技有限公司，目前公司在广州市白云区人和镇种植有58亩高标准农田的枸杞叶，每天可供600-800斤新鲜枸杞叶，主要销售渠道为周边汤粉店、线上销售和批发市场。想咨询一下枸杞叶是否可以申请绿色食品认证",
+   "cited_hits": [],
+   "cited_missing": [
+    "绿色食品产品适用标准目录",
+    "绿色食品产品适用标准目录",
+    "绿色食品 多年生蔬菜 NY/T 1326-2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2992376",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2992376",
+   "question": "请问执业兽医能否在同一区级范围内的多个养殖场进行备案吗？\n现有文件明确规定，在同一县域内执业兽医能备案多个诊疗机构。现请问在同一县域外内，执业兽医能否备案多个养殖场？",
+   "cited_hits": [],
+   "cited_missing": [
+    "执业兽医与乡村兽医管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2961250",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2961250",
+   "question": "请问怎么办理广东省鱼苗良种场\n请问怎么办理广东省鱼苗良种场需要什么资料呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省级水产原、良种场资格验收申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2927426",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2927426",
+   "question": "关于饲料添加剂原料的生产要求\n您好，想咨询一下通过发酵获得的饲料添加剂原料（某天然色素），对发酵菌株有什么要求吗，是和《食品安全国家标准 食品加工用菌种制剂》（GB 31639-2023）相符即可吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "饲料添加剂安全使用规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2909361",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2909361",
+   "question": "饲料添加剂标签变动是否需要重新办理产品批准文号\n您好！ 1 根据《饲料添加剂产品批准文号管理办法》第十一条的规定，如果产品标签内容中改变除规定的“产品主成分指标改变的”和“产品名称改变的”之外的内容，是不是不用再重新办理批准文号。比如仅改变",
+   "cited_hits": [],
+   "cited_missing": [
+    "饲料添加剂产品批准文号管理办法",
+    "GB 10648-2013饲料标签",
+    "GB 10648-2013饲料标签",
+    "GB 10648-2013",
+    "GB 10648-2013"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2904086",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2904086",
+   "question": "宅基地置换标准\n您好，咨询一个问题：本人因房屋被列为文物建筑，原宅基地无法进行翻新重建，故和政府部门协商，确认可以进行宅基地异地置换安置，以保障群众基本居住需求。那宅基地置换的面积大小问题，按现行的广东省委农办、广东省农业农村厅《转发中央农",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省土地管理条例",
+    "转发中央农村工作领导小组办公室 农业农村部关于进一步加强农村宅基地管理的通知",
+    "关于进一步规范农村宅基地管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2857539",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2857539",
+   "question": "智慧农业基地咨询\n您好，我们是一家从事农业无人机的公司，希望在广东省推广农业无人机的应用，想咨询下广东省内有哪些示范的智慧农业基地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国农业农村信息化示范基地认定办法（修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2817615",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2817615",
+   "question": "关于是否属于养殖业的咨询\n农村家里养了7-8条生猪，卖给市场，未办理营业执照，是否属于养殖业，是否要办理相关养殖手续？如何界定养殖业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农业农村厅种畜禽生产经营许可证发放和畜禽养殖备案办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2815180",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2815180",
+   "question": "关于耳标检测证书，用于农业部认证\n您好，农业部发布的耳标标准---农办牧〔2021〕3号农业农村部办公厅关于印发《牲畜耳标技术规范（修订稿）》《牲畜电子耳标技术规范》的通知。为此我司根据农业部要求正在寻找测试耳标的机构，但苦寻没有合适的机构",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅关于加强牲畜耳标质量和使用管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2651677",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2651677",
+   "question": "物种鉴定\n我司是从事宝石，半宝石生意的，国外供应商最近提供了意大利出产的沙丁珊瑚制品，我司怕是该种红珊瑚属于濒危物种，，此前问了华南野生动物物种鉴定中心，该中心答复是不对私人单位做这种鉴定，想咨询一下可以在哪里做物种鉴定",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "经营利用许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2634012",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2634012",
+   "question": "海马经营\n持有效《药品经营许可证》，且有中药饮片经营范围的药品批发和零售企业，经营（不涉及捕捞养殖生产加工，业务仅限购进与销售）作为中药饮片的线纹海马需要办理《水生野生动物经营利用许可证》吗。如需办理，请告知版石指南链接，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "水生野生动物经营利用许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2594784",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2594784",
+   "question": "非主要农作物登记\n请问非主要农作物品种审定流程如何，在哪里可以查询到呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业植物品种命名规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2588306",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2588306",
+   "question": "非主要农作物种子生产经营许可证\n咨询一下，个体工商户，是否可以向当地农业农村部门申请办理农作物种子生产经营许可证？ 咨询一下，个体工商户，是否可以向当地农业农村部门申请办理农作物种子生产经营许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农作物种子生产经营许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-dara",
+   "id": "2577610",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2577610",
+   "question": "《广东省高标准基本农田建设项目验收规程（试行）》是否还在执行？如被废除，是否有替代规程？\n您好，我想咨询一下《广东省高标准基本农田建设项目验收规程（试行）》是否还执行？我们知道《规程》与《广东省农业农村厅关于明确农田建设项目竣工验收工作事项",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好农田建设等项目机构改革期间工作衔接有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2572462",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2572462",
+   "question": "财政涉农资金\n您好！请问广东省每年财政涉农资金数据应如何查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年预算执行情况和2023年预算草案的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2568516",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2568516",
+   "question": "答疑\n现在农村建房需要办理宅基地批准书和乡村建设规划许可证，请问在已取得集体土地使用证的情况下，是否需要重复办理宅基地批准书，依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部&nbsp;自然资源部关于规范农村宅基地审批管理的通知",
+    "广东省自然资源厅&nbsp;广东省农业农村厅关于疏堵结合坚决遏制农村新增乱占耕地建房行为的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2548303",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2548303",
+   "question": "农光互补项目能否占用高标农田\n请问农光互补项目在做好农业建设方案、不抛慌、不撂慌的情况下，是否可以占用高标农田铺设光伏组件？是否需做到“占补平衡”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农业农村厅关于严格控制非农业建设占用高标准农田的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2550890",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2550890",
+   "question": "高标准农田建设验收标准\n我想咨询下广东省关于高标准农田建设的验收标准中砾石含量有没有明确含量，是否有相关验收标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农业农村厅关于明确农田建设项目竣工验收工作事项的通知",
+    "城镇道路工程施工与质量验收规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2237571",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2237571",
+   "question": "如何对农作物品种进行引种备案\n现有一个通过云南省品种审定的水稻品种，打算引种过来，在深圳一些区域种植。请问我需要准备什么材料，流程是什么样的。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农业农村厅农作物品种审定与评定办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1077910",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1077910",
+   "question": "动物检疫合格证的当日有效是多久？\n我是餐饮单位从业人员，单位采购禽类产品的时候，收到一张动物检疫合格证，上面写的“当日有效”，没有其他备注，请问当日有效是指仅签发日期当天，还是按照签发日期和时间的24小时？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于请求解释检疫证明有效期的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1021071",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1021071",
+   "question": "关于生猪跨省运输非洲猪瘟混检比例\n你好！关于跨省运输种猪广东省为输出地时，目前最新的政策要求是什么？非洲猪瘟病原混检比例还是10混1么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "跨省调运乳用、种用动物产地检疫规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "983560",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=983560",
+   "question": "家庭生猪养殖许可\n农村农户家庭现在可以养殖生猪吗（养殖地点在县农村农业局设定的禁养区域外）或者需要符合什么条件才可以养殖呢，相关政策文件在哪里看？ 农村农户家庭生猪养殖（小于10头）需要办理养殖证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "969628",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=969628",
+   "question": "你好，请问怎么办理无公害农产品产地认证证书，需要什么材料？\n你好，我司已经拥有了无公害农产品认证证书，由于产地证书已经过期，想询问一下如果办理无公害农产品产地认证证书，办理该证书需要什么资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "申请和审查报告",
+    "产地环境检验报告",
+    "产地环境现状评价报告",
+    "产品检验报告",
+    "现场检查报告",
+    "申请和审查报告",
+    "产品证书",
+    "产品检验报告",
+    "现场检查报告",
+    "申请和审查报告",
+    "产品证书",
+    "产品检验报告",
+    "现场检查报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "953694",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=953694",
+   "question": "文件查询\n怎么查询《关于同意广州中科基因服务有限公司等13 家实验室开展非洲猪瘟检测工作的通知》(粤农农函〔2019〕1135 号)这份文件。另外，我想了解一下，广东省目前有多少家具有非洲猪瘟病毒检测的第三方机构。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于同意广州中科基因服务有限公司等13家实验室开展非洲猪瘟检测工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "948418",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=948418",
+   "question": "宅基地审核要求\n土地管理法第62条，农村村民住宅用地，由乡(镇)人民政府审核批准。请问由乡(镇)人民政府审核批准的事项，是指哪些方面。如果乡镇人民政府超过直辖市规定的标准，批准土地，由哪个部门审核监督",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "934281",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=934281",
+   "question": "粤字号使用\n根据贵厅2020年9月23日下发的《关于组织开展“粤字号”农业品牌认定与评价工作的通知》，我司表示不理解。贵厅要求各地市有效期内名牌产品（农业类）（包括本年度到期产品）于10月26日完成填报工作。我司名牌产品于2020年9月到期",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展“粤字号”农业品牌认定与评价工作的通知",
+    "关于加快推进“粤字号”品牌强农的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "938498",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=938498",
+   "question": "你好，请问怎样在线办理无公害农产品认定，需要什么材料？\n你好，请问怎样在线办理无公害农产品认定，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "申请和审查报告",
+    "产地环境检验报告",
+    "产地环境现状评价报告",
+    "产品检验报告",
+    "现场检查报告",
+    "申请和审查报告",
+    "产品证书",
+    "产品检验报告",
+    "现场检查报告",
+    "申请和审查报告",
+    "产品证书",
+    "产品检验报告",
+    "现场检查报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "928607",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=928607",
+   "question": "现代青年农场主计划项目申报\n您好，请问关于现代青年农场主计划项目申报，该项目申报是否还在有效执行中。如有相关的申报时间、公告链接，及申报指南在哪里可以查看，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年广东省高素质农民培育实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "919223",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=919223",
+   "question": "官方兽医检疫证开具事宜\n您好！请问官方兽医开具检疫合格证明时，官方兽医签字是否能用私章代替呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业部关于印发动物检疫合格证明等样式及填写应用规范的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "916163",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=916163",
+   "question": "从本省指定道口运入动物及动物产品，道口盖章的问题\n国产动物产品入粤需要在道口盖章，但是公布这些道口的通告里面只有一个笼统的位置，比如在什么高速上面，在什么国道上面，没有具体的哪个服务区或者具体的位置，很多时候司机根本找不到具体的道口，也没有",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于从本省指定道口运入动物及动物产品的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "892745",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=892745",
+   "question": "广东省内现在养殖虎纹蛙须要办养殖证吗\n我在广东省廉江市养殖虎纹蛙须要办养殖证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家重点保护野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "880228",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=880228",
+   "question": "在增城农村开办养鸡场需要办理什么牌照，怎么办理？\n我们是增城本地人，在农村里开办了几个养鸡场，养了十几年的鸡，由于都是私人养殖，没有办理相关的证件，就停止养殖了一段时间，现在想继续养殖，所以想咨询一下需要办理一些什么牌照，在哪里办理呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "874908",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=874908",
+   "question": "数据咨询\n您好，因研究工作需要，特向贵厅咨询”2005-2019年农业机械总动力“的数据，十分感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东统计年鉴",
+    "广东统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "868518",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=868518",
+   "question": "怎么成为粤字号农业品牌\n您好，我们在梅州市蕉岭县文福镇种植了一百多亩的脐橙。因为梅州的气候，土壤适合种植脐橙，所以我们的脐橙有量有价。我们有自己的果业公司，想请问怎么成为粤字号农业品牌。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织开展“粤字号”农业品牌认定与评价工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-dara",
+   "id": "3483513",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3483513",
+   "question": "天然食材好还是饲料好？\n你好，我看一些教材上专门写饲料知识，请问喂养动物是天然食材好还是饲料好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3429117",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3429117",
+   "question": "关于普通水生动物升级到国家保护动物申请繁育许可证咨询\n想问下关于动胸龟属所有种(除被列入附录Ⅰ的物种，Kinosternon spp.)的繁育许可证咨询，目前状态为待核准，国内管理按一般水生动物管理。 几年前购买人工繁育技术成熟已成规模的动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3409192",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3409192",
+   "question": "关于仔猪补铁的问题\n铁元素是仔猪生长发育不可缺少的微量元素之一，请问怎么给仔猪补铁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3397490",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3397490",
+   "question": "饲料添加剂生产许可证继展需要准备什么资料\n饲料添加剂生产许可证继展需要准备什么资料？？需要发一份模版。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3381601",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3381601",
+   "question": "关于春季生猪常见病防治的问题\n请问春季生猪有哪些常见病？如何防治？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3380704",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3380704",
+   "question": "我是一个做电商的农民，现在自己的芭乐发出去出现运输保险问题想请教一下领导和教授怎么打包保鲜\n我是一个做电商扶持乡村的电商村民，现在我们种植的芭乐白果已经低价滞销但是我们尝试做电商寄出去，但是遇到以下问题 1、我们用纸箱+充气葫芦寄过去都会被",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3361161",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3361161",
+   "question": "广东种子出口香港\n广东公司出口大田用玉米种子到香港需要什么文件？走什么程序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3297338",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3297338",
+   "question": "农药经营许可证如何查询\n我已经办理了农药经营许可证，如何在官网上查询到公示呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3256522",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3256522",
+   "question": "关于中成药中含有人工养殖海马成分，是否需要加贴野生动物保护专用标识的留言\n您好，某药店销售的中成药中，含有海马成分，该海马系人工繁育得到，有合法来源，该制药厂家购进此种海马，用于药用。是否应当重新申领专用标识或继续使用上游供货商标识？用该品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3196203",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3196203",
+   "question": "化肥减量增效示范县\n尊敬的广东省农业农村厅的领导，您好！ 我是中国社会科学院大学的一名博士研究生，非常关注贵省化肥减量增效取得的显著成效。 因科研需要收集贵省（1）2015-2025逐年化肥减量增效示范县名单、果菜茶有机肥替代化肥试点县名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3125323",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3125323",
+   "question": "农机补贴\n24年购买无人机一部，可以个人申请农机补贴嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3089414",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3089414",
+   "question": "捐图书给农村书屋\n你好！ 本人想了解一下农村书屋接受图书捐赠吗？如果接受是怎样的途径？盼回复，谢谢你！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "3085418",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=3085418",
+   "question": "农产品质量安全信用(农安信用)评价AA 级\n农产品质量安全信用(农安信用)评价AA 级找哪家机构弄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2911368",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2911368",
+   "question": "植物新品种权转让\n想咨询一下企业自己进行植物新品种权的转让，需要到哪些网站上办理什么手续？国内企业转至另一国内企业，不涉及外国人及境外资本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2895189",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2895189",
+   "question": "广东符合点对点屠宰企业名单\n需要广东符合点对点屠宰企业名单，我想报备点对点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2863811",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2863811",
+   "question": "人工繁殖的中华草龟（俗称乌龟）个人饲养\n您好，人工繁殖的中华草龟如果个人饲养，当作家庭宠物饲养，需要办理养殖证吗？或者需要办理哪些证件才能合法饲养，另外需要商家出示哪些证件才能证明是人工繁殖品种？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2845170",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2845170",
+   "question": "广东省猪肉定点屠宰厂汇总明细\n想了解最新全省猪肉定点屠宰厂有多少家，在每个市县的分布情况。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2840181",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2840181",
+   "question": "农药广告备案\n您好，想咨询下省外已完成审核的农药广告，在广东省发布是否需广东省农业农村厅备案，如需备案，备案完成到换发广东省批准文号，需要多少个工作日，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2834117",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2834117",
+   "question": "是否有广东省农产品价格具体的月份数据\n我想寻求具体的近三年的鸡肉、豆粨和猪肉（去皮带骨）价格的月份数据，进行论文撰写，目前我仅能找到国家的数据，我论文研究方向是广东省鸡肉价格波动影响因素研究及预测，希望能够取得月份数据，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2798035",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2798035",
+   "question": "茶园认证咨询\n请问绿色茶园和有机茶园的申请渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2793143",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2793143",
+   "question": "检测微量元素水溶肥成分分析\n想贵公司能帮忙鉴定一下微量元素水溶肥的所有成分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2779925",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2779925",
+   "question": "关于农用酵素的问题\n尊敬的领导： 您好！我工厂准备生产的酵素准备使用在蔬菜种植和土壤的改良方面，之前了解到酵素不是肥料，不需要办理肥料登记证。我想咨询：酵素使用在蔬菜种植和土壤的改良方面，需不需要办理什么许可证？如果不需要，是否可以直接使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2758038",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2758038",
+   "question": "蔬菜大棚\n您好！请问陆丰市博美镇鳌峰村可以在基本农田上搭建蔬菜种植大棚吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2749635",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2749635",
+   "question": "农业种植相关问题\n1、关于农业种植有无相关标准和要求，如进行苗木生产，苗木的根部在器皿中，不在土地上栽植，这种属于农业生产吗？ 2、一般农用地上面种植果树、苗木等是否要进行备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2708921",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2708921",
+   "question": "如何进口境外养殖的锦绣龙虾\n我司计划进口活锦绣龙虾（拉丁学名：panulirus ornatus）用于销售食用，均为境外海水养殖。是否需要申请“中国水生野生动物管理专用标识”及“从境外引进水生野生动物物种审批”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2685464",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2685464",
+   "question": "关于针对台风“泰利”造成的农业损失进行救助或补助咨询\n你好，因台风“泰利”过境湛江，造成大量的农作物断根伤叶，农户损失严重，为此，省厅是否有针对因台风导致的农业损失进行救助或补助的政策，若有，请尽快落实，若无，请省厅讨论，能否争取一笔资金，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2650197",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2650197",
+   "question": "关于农田.谷种.肥料补贴\n据村民所说，之前有农田补助款、谷种补助、肥料补助等，现在没有补助了。请问领导什么时候取消了这些补贴的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2631908",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2631908",
+   "question": "现状鱼塘的高标准农田能否建设渔光互补光伏项目\n我公司在吴川备案了渔光互补光伏项目，自然资源局查询是三调是坑塘水面，自然资源局已出具土地合规性文件，我公司已将该鱼塘租赁。该鱼塘是1992年因土壤发酸村集体挖的鱼塘，当时也办理的合法手续。但农业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2630889",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2630889",
+   "question": "黄缘闭壳龟\n你好，现在商业流通的黄缘闭壳龟大多数没有配备标识卡，但是商家可以提供繁育许可证和经营利用许可证的复印件，请问如果没有购销合同，仅有以上复印件，可以家庭饲养1-2只黄缘闭壳龟吗？确定是人工繁育的，而且只是养来当宠物，不作商业用途。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2611216",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2611216",
+   "question": "关于“土壤质地分类”是否存在国标或行标划定的问题\n目前我国主要对土壤质地类型分为砂土、壤土和粘土三大类，请问是否有相关规范文件划定土壤质地类型？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2611808",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2611808",
+   "question": "关于企业招用建档立卡贫困人口税收优惠政策\n我司招用了建挡立卡贫困人员，税务局根据文件要求提供《企业吸纳重点群体就业认定证明》，请问哪个部门可以核实出具？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2609273",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2609273",
+   "question": "种植茶叶政府的优惠（扶助）政策\n拟在肇庆市德庆县投资种植，2000亩的茶园，请问省级政府和地方政府在这方面有何优惠政策或扶助政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2600187",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2600187",
+   "question": "肥料登记证申请\n一个是农用微生物菌剂（GB20287-2006） 另一个是生物有机肥（NY884-2012） 我想办理这两个肥料登记证 需要提前准备什么资料呢？ 或者是否能网上办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2589971",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2589971",
+   "question": "狼尾草品种\n依据中国农业农村部公告第598号文和农业农村部文件《农牧发【2022】7号文》关于狼尾草品种为牧草品种能否确定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2589768",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2589768",
+   "question": "我省有出台水产养殖规模化认定标准吗？\n现在各地级市均有畜禽养殖规模化出台相应的标准。请问，广东省有出台水产养殖规模化的相应标准吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2586461",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2586461",
+   "question": "设施农用地备案\n您好，想咨询一下，在历史已建高标范围内，对于未占用基本农田、耕地地类，实地用途为设施农用地（历史已建未备案），是否可以按相关文件规定申请办理设施农用地备案，进行上图入库呢？（注：已咨询广东省自然资源厅，回复关于高标范围内设施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2572469",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2572469",
+   "question": "物种调查\n如何查询广东特有植物物种",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2572151",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2572151",
+   "question": "农机补贴问题咨询\n我想咨询农机补贴的农机，是需要必须在广东农机补贴APP上的补贴产品查询能查询到的产品，才可以申请补贴吗？还是我在当地或者网上购买的农机都符合申请补贴的标准呢？怎么知道我买的农机符合申请补贴的标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2566840",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2566840",
+   "question": "答疑\n《广东省自然资源厅、广东省农业农村厅关于疏堵结合坚决遏制农村新增乱占耕地建房行为的通知》（粤自然资发【2020】24号）第二项第二条规定：使用原有宅基地进行农村村民住宅建设的，可按规定直接办理乡村建设规划许可。请问这里的原有宅基地指的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2566684",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2566684",
+   "question": "财政预决算信息\n您好，请问广东省农业农村厅的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2566844",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2566844",
+   "question": "政府信息公开指南\n您好，请问省农业农村厅的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2565105",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2565105",
+   "question": "关于百香果台农一号和黄金百香果的品种审定\n请问一下百香果台农一号和黄金百香果的品种审定编号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2562188",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2562188",
+   "question": "《濒危野生动植物种国际贸易公约》附录\n2023年2月23日国家濒管办公布了《濒危野生动植物种国际贸易公约》附录，该附录较前版本收录了部分非我国原产的水生生物（如小麝香龟属所有种），但目前国务院有关部门尚未对新增物种进行核准，请问在附录公布后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2560493",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2560493",
+   "question": "申请获得广东省农业农村厅2018年整体支出绩效自评报告\n贵单位：您好！本人申请获得广东省农业农村厅2018年整体支出绩效自评报告（PDF/word版），仅供学术研究使用。盼早日答复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2549630",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2549630",
+   "question": "请问23年高标设计报备有时限吗\n如题，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2555618",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2555618",
+   "question": "高标准农田图斑\n请问广东省高标准农田图斑是否适用“三调图”？坑塘水面地类是否能列入高标准农田？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2553074",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2553074",
+   "question": "在哪里可以办理《水生野生动物及其产品进出口审批表》？\n请问在哪里可以办理《水生野生动物及其产品进出口审批表》？ 是不是去 广东省农业农村厅 申报？ 请问网站 是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2554093",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2554093",
+   "question": "广东省农业农村厅关于严格控制非农业建设占用高标准农田的通知（粤农农函〔2020〕40号）\n请问《广东省农业农村厅关于严格控制非农业建设占用高标准农田的通知》（粤农农函〔2020〕40号）是否有公开？在哪里可以查到这个文件呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2546459",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2546459",
+   "question": "全国扶贫开发信息系统登录\n全国扶贫开发信息系统登录账号密码是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2543526",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2543526",
+   "question": "关于农村农田水利设施河湖库塘维护补贴的问题\n当前国家在大力推进高标准农田建设，而作为农村农田小型水利设施的河湖库塘，政府方面是否有相关的维修维护资金补贴，如对堤坝的修建维护，底部淤泥的清理等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2542505",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2542505",
+   "question": "动物检疫合格证明事宜\n请问： 动物检疫合格证明（产品B）流水号是系统生成唯一的号码吗？是否按照流水号能查询到动物检疫合格证明中载明内容？如果在广东省动物检疫合格证明 | 公众查询服务系统输入流水号未查询到动物检疫合格证明相关信息，如何证明检",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2540580",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2540580",
+   "question": "外省白条猪在广东销售需要什么资质和要求\n外省白条猪（已宰杀，不是冷鲜肉）在广东销售需要什么资质和要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2523406",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2523406",
+   "question": "农机补贴\n我是基层农村工作人员，有农民朋友问，由于当地指定农机销售点没有所需的农机类型产品，如果在网上购买是否有农机补贴？中小型旋耕机、播种机要怎样才能获得购机补贴，当地没有规定的农机产品农民自主选择购机如何获得购机补贴？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2517791",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2517791",
+   "question": "关于非农专业如何通过培训成为新型职业农民\n尊敬的领导： 你们好！我是一位非农专业的学生，现在想通过农民培训成为新型职业农民，想请问我们该职业的培训时间什么时候开始进行培训、我们的报名渠道以及培训之后在什么时间能够拿到结业证书。 以上 致敬",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2512016",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2512016",
+   "question": "领导，兽医专业技术资格证书包含哪些？\n助理兽医师算不算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2459868",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2459868",
+   "question": "2022年最新的绿色食品认证申请疑问。\n您好，我想咨询一下，目前最新的“绿色食品认证”的申请流程，是否可以线上申请?若暂无线上申请，需要提交什么资料，提交至何处？省中心是否有委托惠州市县级工作机构待物受理？若有，请问如何联系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2429355",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2429355",
+   "question": "职称评审\n请问农业工程的评审的相关资格条件在哪里有文件可以查看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2341206",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2341206",
+   "question": "品种审定\n您好！请问“品种审定”，“品种登记”，“品种权保护”是不同概念么？差异在哪，分别在哪些单位办理？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2340070",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2340070",
+   "question": "茶树新品种审定\n请问从野外发现了一个新的茶树种，经过扦插培育后，想申请登记为新品种保护。请问流程和需要准备的材料有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "2126136",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=2126136",
+   "question": "农业经济高级经济师2021年度职称评审工作\n请问2021年度农业经济高级经济师职称评审工作文件是否发布，在广东省专业技术人员职称管理系统如何选择评审委员会。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1091586",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1091586",
+   "question": "关于乡村工匠专业人才职称相关政策的咨询\n农业农村厅相关经办人： 你好！我是非公农业企业在职人员，负责企业信息化和生产经营工作，常年从事田间信息化建设、农企经营信息化的工作。 问题1：目前我在申报【乡村工匠专业人才中级职称】，根据粤人社规〔2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1061885",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1061885",
+   "question": "证件办理\n请问水域滩涂养殖证和罗非鱼防疫条件合格证如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1057472",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1057472",
+   "question": "政策文件效力咨询\n你好，我想咨询一下，《广东省农业农村厅关于严格控制非农业建设占用高标准农田的通知》（粤农农函〔2020〕40号）这一政策文件是否还有效力，是否已经废止。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "1056046",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=1056046",
+   "question": "产地植物检疫\n非主要农作物繁种申请植物产地检疫证，需要递交什么申请资料，需要非主要农作物种子经营许可证吗，今年刚注册的公司，有自己的审定品种，现在申请登记品种产地检疫去办理经营许可证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "979700",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=979700",
+   "question": "高标农田的认定\n1.高标农田是2014年开始建设的吗？ 2.广州市的高标农田的认定是省农业厅吗？会颁发证书吗？ 3.可以通过什么途径可以查到拟征地是否高标农田？ 4.占用高标准农田而需缴纳高标农田补建费，若需缴纳具体单价又是多少？收费依据是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "954536",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=954536",
+   "question": "《2021—2023年农机购置补贴实施指导意见》问题咨询\n尊敬的广东省农业厅您好：我司目前代理荷兰畜牧业环境控制设备以及饲喂设备，对提升养殖效率，精细化管理有着积极的促进作用，我想了解 1.该政策针对我们这种设备是否满足？ 2.若满足，如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "952352",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=952352",
+   "question": "有机肥料登记证办理\n有公司计划生产有机肥料，想办理登记证，请问是去哪个部门申请，是去地级市还是省厅申请？申请需要哪些资料？流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "933963",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=933963",
+   "question": "绿色食品\n请问绿色食品在哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "932475",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=932475",
+   "question": "村干部不作为应付式\n关以我投诉了！村干部有派人去处理了一下，都是应付式的，你们给出的理由是房主不愿意把废墟清理干净！没有拆的老屋危房也说不是危房！废墟有一米多高下雨时肯定会被雨水冲下来堵住天井的下水道！一米多高的一大堆废墟！！对美丽乡村建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "923176",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=923176",
+   "question": "饲料添加剂生产许可证申报流程和条件\n想了解饲料添加剂生产许可证的申报流程和条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "924730",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=924730",
+   "question": "关于广东省内检疫分销换证事宜\n1:动物检疫证A证在4月11日前未分销完，4月11日后是否还需要换证？ 2:A证4月11日后是否还执行七天内到达目的地要求？ 3:经营批发者每次都提供同一份检疫A证是否有风险？超市是否能收货？ 4:超市收货是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "915860",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=915860",
+   "question": "绿色食品\n您好，我是一名在读大学生，因为一个课题研究的是广东省绿色食品认证情况，我在各大网站都找不到这些数据，目前课题陷入窘境，请问如何获取广东省绿色食品认证名单，这些名单是不公布的吗？如果公布，我怎么获取呢？ 我在此保证会合理使用这些数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "911191",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=911191",
+   "question": "农业科技进步贡献率\n您好！ 我最近在做一个有关科技创新振兴乡村的项目，需要农业科技进步贡献率这一数据，但是在很多官方网站都没有找到相关数据，仅有一些新闻资讯会提到部分年份的贡献率。所以我想咨询一下广东省2010-2020各年的农业科技进步贡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "892715",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=892715",
+   "question": "咨询CATL资质流程及要求\n准备申请广东省CATL资质，请告知相关工作流程和要求。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "883878",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=883878",
+   "question": "关于混合型饲料添加剂原料级别的咨询\n有一个产品既是食品添加剂，同时又在饲料添加剂品种目录中，请问可以直接采购食品级添加剂作为混合型饲料添加剂的生产原料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "879519",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=879519",
+   "question": "微量元素水溶肥备案\n你好！我想咨询一下微量元素水溶肥是否取消许可，改为备案？不知道这个具体怎么办理呢？需要准备什么相关资料，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "875354",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=875354",
+   "question": "2020年广东省生猪产销形势分析\n2020年广东省生猪产销形势分析所有图表均没有对应的数据，可以知晓对应的数据吗？或者有可以查询的渠道吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "867817",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=867817",
+   "question": "申办水产养殖证程序和所需的手续\n你好！该养殖场范围位于《《陆丰市2018~2030养殖水域滩涂规划》》岸上水产可养区范围内,地类为设施农用地，请问申办水产养殖证需要什么手续和程序。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "866864",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=866864",
+   "question": "关于申请水生野生动物驯养繁殖许可证\n水生野生动物驯养繁殖许可证怎么申请，为什么如：广州、深圳、中山、茂名、肇庆等地方已经开放申请办理，并且已经有多个已经成功领到许可证了，而本人所在地潮州为什么还一直不能申办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-dara",
+   "id": "866549",
+   "url": "https://dara.gd.gov.cn/hdjlpt/detail?pid=866549",
+   "question": "关于如何定义高标准农田建设项目工程类型\n请问一个高标准农田建设项目建设内容包含灌溉与排水（整修支渠、斗渠及过水管涵）和田间道路工程（整修机耕路），其中灌溉与排水所占金额比重较大，那么在选定安全生产措施费及其他工程临时工程费费率时该工程的工程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

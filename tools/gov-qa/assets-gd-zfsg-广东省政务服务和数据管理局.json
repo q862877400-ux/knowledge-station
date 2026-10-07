@@ -1,0 +1,3093 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-zfsg",
+   "id": "3314786",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3314786",
+   "question": "评标专家劳务报酬\n根据《广东省综合评标评审专家库评标专家劳务报酬管理办法》第四条 交易项目发起方应当在收到评标专家劳务报酬发票后30日内支付评标专家劳务报酬。问题：1.交易项目发起方不执行该规定，在1.5-2个月后才支付劳务报酬，导致评标专",
+   "cited_hits": [
+    {
+     "name": "广东省实施中华人民共和国招标投标法办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国发票管理办法",
+     "lib_no": "发票管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国增值税法",
+     "lib_no": "增值税法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "评标专家和评标专家库管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2947979",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2947979",
+   "question": "广东省网上中介服务超市适用范围\n“第三条 项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录以外且未达到采购限额标准的中介服务，必须在中介超市选取中介服务机构，法律法规另有规定的除外。”，其中“使用财政性资金”如何界定？财政注",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法实施条例",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2816513",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2816513",
+   "question": "规范文件查询\n《广东省公共数据分类分级指南（第二次征求意见稿）》及《广东省数据资源“一网共享”平台数据资源分类分级指南》这两份文件在哪里能够查询到，能否提供两份文件具体网址供查看",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省公共数据分类分级指南（第二次征求意见稿）",
+    "广东省数据资源“一网共享”平台数据资源分类分级指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1041741",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1041741",
+   "question": "招投标咨询\n我司受招标人广东省南丰强制隔离戒毒所的委托，对广东省南丰强制隔离戒毒所生活污水处理及配套管网工程设计-采购-施工总承包（EPC）依法进行公开招标，现我司对本项目在招标过程中的疑问向贵局咨询以下专业意见： 1、本项目的招投标过程是",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-zfsg",
+   "id": "3460418",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3460418",
+   "question": "业务咨询\n《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》 中“第十六条 评标结束后，评标专家认为所得劳务报酬低于本办法所列标准的，可以向行政监督部门投诉。经行政监督部门核查属实的，交易项目发起方",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3440159",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3440159",
+   "question": "关于广东省综合评标评审专家库评标专家工作单位\n因项目需要，招标人是否可以了解或查询广东省综合评标评审专家库评标专家工作单位情况？",
+   "cited_hits": [],
+   "cited_missing": [
+    "评标委员会和评标方法暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3435503",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3435503",
+   "question": "广东省网上中介服务超市\n请问2026版修订后《广东省网上中介服务超市管理办法》，事业单位使用财政资金的项目能否不通过中介超市选取工程造价公司？能否自行选取有资质的造价公司？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3424076",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3424076",
+   "question": "专家续聘中的同等专业水平\n广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家入库标准的通知粤政数〔2025〕15号（二）从事相关专业领域工作满八年并具有高级职称或者同等专业水平； 前款第（二）项所称的“同等专业水平”，是指取",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家入库标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3419580",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3419580",
+   "question": "广东省综合评标评审专家库专家继聘审核事项\n本人因广东省综合评标评审专家库系统专家身份到期且未及时续聘从而导致无法在系统中提交续聘资料，请问还有其他途径能补续聘资料吗？若不能，是否要重新申请入库？但账号已存在，无法再提交新入库申请。希望能够获",
+   "cited_hits": [],
+   "cited_missing": [
+    "评标专家和评标专家库管理办法",
+    "广东省综合评标评审专家库评标专家入库标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3390699",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3390699",
+   "question": "广东省网上中介服务超市\n2026年2月1日起施行的《广东省网上中介服务超市管理办法》较旧的管理办法少了必须使用中介超市采购的相关规定，请问目前必须进入广东省网上中介服务超市进行采购的项目条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3374158",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3374158",
+   "question": "关于广东省中介服务超市事项清单怎样使用的问题？\n新的广东省中介服务超市管理办法中提到的中介服务事项清单，请问这个清单是给项目业主参考使用的吗？还是划定必须进入中介超市采购的中介服务事项范围？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3373259",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3373259",
+   "question": "广东省中介服务超市\n《广东省网上中介服务超市管理办法》（下称新办法）于2026年2月1日起施行。 请问：1.按照新办法必须进入省中介超市采购服务的范围是什么？还是新办法对进入省超市的范围并未作强制规定，由项目业主自行根据自身实际情进入采购？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3363090",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3363090",
+   "question": "关于中介超市采购相关事宜\n我单位为事业单位，资金来源为财政资金，根据工程项目需求采购技术审查、检测、咨询等服务项目，请问是否必须通过中介超市选取单位？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3353442",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3353442",
+   "question": "广东省综合评标评审专家库评标专家劳务报酬管理办法适用范围\n贵局印发实施的《广东省综合评标评审专家库评标专家劳务报酬管理办法》请问适用于从国资系统专家库中抽取专家进行资产评估吗？专家评审会结束后，是否可以按照办法的第七条给予专家评审费用。 第",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3343906",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3343906",
+   "question": "招标人长时间不支付专家评审费，如何处理\n2025年7月21日，参加某项目的评审，但时至今天尚未收到招标人支付的评审费。请问这种情况下，评委该如何主张自身的权利。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3332367",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3332367",
+   "question": "关于中介超市采购相关事宜\n咨询财政资金未达采购限额的项目代建服务单位是否必须在中介超市采购。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发广东省网上中介服务超市管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3244174",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3244174",
+   "question": "广东省综合评标评审专家库评标专家入库标准\n根据“广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家入库标准的通知”是否从新开放征集申请？1.征集活动申请专家库的网站是那一个。2.或者计划何时征集开始。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家入库标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3229603",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3229603",
+   "question": "广东省综合评标评审专家库评标专家履职考核管理办法咨询\n请问《广东省综合评标评审专家库评标专家履职考核管理办法》中 “第八条 评标专家有下列情形之一的，日常考核每次扣10分，（一）拒绝（包括电话无人接听、直接挂机）参加评标累计10次的”。请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家履职考核管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3229173",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3229173",
+   "question": "广东省综合评标评审专家库评标专家入库标准\n关于2025年7月24日发布的《广东省综合评标评审专家库评标专家入库标准》， 前款第（二）项所称的“同等专业水平”，是指取得国家相关不分级别或者一级执业资格注册证书，同时具有相关专业中级专业技术职称",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家入库标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3203723",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3203723",
+   "question": "关于“评审专家”的劳务酬劳\n粤发改规〔2020〕1号文件现已失效，是否有新的相关文件适用于“评审专家”劳务酬劳？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3182517",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3182517",
+   "question": "广东省中介超市管理办法答疑\n根据《广东省人民政府办公厅关于印发广东省网上中介服务超市管理办法的通知》（粤办函[2020]332号）第三条规定“项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录以外且未达到采购限额标准的中介服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于调整广东省政府采购限额标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3173321",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3173321",
+   "question": "咨询2025年5月21日新发布的省库专家评标劳务报酬标准第七条关于评标时间的计算。\n针对2025年5月21日正式发布的《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》（粤政数【2025】11号），",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3168548",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3168548",
+   "question": "综合评标专家劳务报酬管理办法\n第八条规定，异地评审应该提供在途补助和交通补助。请问同一个地级市不同县市间的评审，例如云浮新兴县的专家到云浮罗定市评审，两地之间也有一百公里左右的距离，是否属于异地评审并享有在途补助。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库评标专家劳务报酬管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3093360",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3093360",
+   "question": "广东省数据资源一网共享平台的网址是什么？\n广东省数据资源一网共享平台的网址是什么？这个平台公众可以进去的吗？或者是只提供政府部门、人员内部使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公共数据管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2993258",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2993258",
+   "question": "关于建设工程专家费回复意见（9.18）之存疑\n有关本人提问之意见回复已收悉，首先非常感谢领导的及时解答！惟对于交通费之制订，仍有存疑，解答中提及的在途补助，个人认为在途补助应属另一项费用，在途补助可理解为开车途中休息，自驾车主车辆的损耗等补",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库专家酬劳管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2990644",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2990644",
+   "question": "关于建设工程专家费\n领导们：你们好！关于广东省建设专家费用标准，我于9月2号向省发改部门反映情况，他们回复有关事宜需向贵单位反映。所以将有关事项再向贵局反映如下： 本人最近参加一异地评标（评标活动：从肇庆端州区到佛山南海评标），其中交通费计",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合评标评审专家库专家酬劳管理办法",
+    "广东省综合评标评审专家库专家酬劳管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2964610",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2964610",
+   "question": "广东省中介超市管理办法答疑\n请问：政法机关委托司法鉴定、检验服务是否必须要上网上中介超市选取？我看全省服务事项“一张清单”好像没说司法鉴定相关。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2906293",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2906293",
+   "question": "关于《广东省政务服务大数据 数据分类分级管理规范》标准事宜咨询\n您好，我在网上看到，广东省政务服务和数据管理局在2020年有出过一份《广东省政务服务大数据 数据分类分级管理规范》标准的征求意见稿，不知道现在是否已经发布了呢？如果发布的话是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省数据资源“一网共享”平台数据资源分类分级指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2740812",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2740812",
+   "question": "关于广东省网上中介服务超市未回复相关邮件的投诉\n您好，我单位为公益二类自收自支事业单位，专门从事司法会计鉴定及专项审计工作。2023年8月1日，我单位在“广东省网上中介服务超市”申请新增“会计师事务所”资格，被平台驳回，理由为“需按照会计师",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1050089",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1050089",
+   "question": "规范文件查阅\n想咨询问下，广东省政务服务数据管理局项目验收管理工作指引文件在哪里可以查询阅读？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政务服务数据管理局政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1029864",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1029864",
+   "question": "关于对粤省心平台的表扬和建议（二）\n继上次在贵单位官网留言《关于对粤省心平台的表扬和建议》后，看到贵局的回复深受感触。感谢贵单位积极采纳市民的意见，让市民体会到参与感。深深的感受到了贵单位为切实办好粤省心平台所付出的努力，谢谢你们的付出！期",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政务服务咨询投诉平台工作指引"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1010277",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1010277",
+   "question": "造价咨询资质问题\n根据国务院文件指示，今年7月1号取消造价资质甲级和乙级，现在执行中未在之前申请过资质的企业，在省中介超市或其他招投标阶段却无法新增造价资质，现省相关部门未指定具体操作细节，导致一大批企业无法享受取消资质带来的便利，后期该如",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于取消工程造价咨询企业资质审批加强事中事后监管的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1005326",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1005326",
+   "question": "专家库名单\n请问数字政府专家库名单这个能从哪里看到呢，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政务服务数据管理局政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "998957",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=998957",
+   "question": "关于《广东省政务信息化服务预算编制标准》的咨询\n您好，我在网上看到咱们广东省2018年出台并发布了《广东省政务信息化服务预算编制标准》，我想咨询一下，这个标准的完整版，可不可以给我的邮箱发一份，我是内蒙古鄂尔多斯市大数据中心一名工作人员，想",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政务信息化服务预算编制标准",
+    "广东省财政厅政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "943348",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=943348",
+   "question": "硬件设备类（包含成熟软件系统）预算价格人日单价是多少？定价标准是什么？\n硬件设备类（包含成熟软件系统）预算价格人日单价是多少？是650元/人日、还是800元/人日？具体的定价标准是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省级政务信息化服务预算编制规范和标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "934299",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=934299",
+   "question": "关于贵局下属“广东省网上中介服务超市”，中介进驻门类里缺乏“档案整理外包行业”的情况\n尊敬的领导您好！ 我司是广州红海人力集团旗下的档案整理外包服务中介，于2011年成立，已经从事了档案整理外包工作十年了，服务了镇街、区、市、省级政府、事业",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省网上中介服务超市管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-zfsg",
+   "id": "3494888",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3494888",
+   "question": "关于专家劳务报酬计算的咨询\n根据《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》第十七条，本办法所称 “网络远程异地评标”，是指以数据电文形式，依托电子交易系统通过远程调度、视频语音实时交互等方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3493775",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3493775",
+   "question": "关于综合评标专家库入库或续聘咨询\n持有三个不同部委的注册监理工程师职业资格证书，其中一个注册监理工程师职业资格证书取得的时间已满六年，但中级职称及另两个注册监理工程师职业资格证书取得时间未满六年，现咨询上述情况是否符合或满足同等专业水平条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3482414",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3482414",
+   "question": "霞山政务中心志愿者指引失当 建议整改并配齐自助机\n本人于2026年7月29日前往湛江市霞山区行政服务中心，向大厅女性志愿者咨询智能自助打印机打印文件，诉求明确。该志愿者没有回应自助机相关问题，反复追问打印文件类型与所属部门，答非所问，还主动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3467872",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3467872",
+   "question": "评标专家酬劳给付标准\n根据粤政数〔2025〕11 号第九条 对负责主持评标工作、参加网络远程异地评标活动的专家，其评标费上浮20%给付。结合贵局2025年7月30日对“评标费上浮20%的理解”的回复意见，请问该条是否可以理解为“只要项目采用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3465161",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3465161",
+   "question": "关于专家劳务费第八条能否同时支付\n广东省综合评标评审专家库评标专家劳务报酬管理办法的通知当中第八条的（一）误工补助和（三）交通补助和在途补助能否同时支付给评标需要回避的专家？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3410975",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3410975",
+   "question": "关于《广东省综合评标评审专家库评标专家劳务报酬管理办法》未明确对于流标项目如何支付专家费\n您好，我想问问我们代理公司一般公开招标的项目，如果评标过程中出现招标失败的情形，但专家评审时间又小于1小时的话，我们应该是按误工补贴去支付这个专家费还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3410052",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3410052",
+   "question": "广东省网上中介服务超市\n1、根据《广东省人民政府办公厅关于印发广东省网上中介服务超市管理办法的通知》（粤办函〔2020〕332号）第三条“ 项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录以外且未达到采购限额标准的中介服务，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3394761",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3394761",
+   "question": "广东省综合评标评审专家库专家继聘审核事项\n本人2025年9月13日评审工作到期，提交了二次资料，广东省综合评标评审专家库系统的结果是：省住房和城乡建设厅复核全部评标专业不通过，之后我打电话到建设厅，工作人员说要我提交业绩，本人从事建筑业二十",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3383606",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3383606",
+   "question": "广东省综合评标评审专家库专家继聘审核事项\n本人因广东省综合评标评审专家库系统专家身份至2026年3月23日后没法续聘，第二次资料已经提交。烦请平台工作人员给予关注及时续聘，希望能够获得专家库续聘，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3383004",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3383004",
+   "question": "请问如何获取《广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》盖章的PDF文件？\n您好，因工作需要，最新的评标专家劳务报酬管理办法盖章版pdf文件是否有公开渠道呢？请问如何获取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3358445",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3358445",
+   "question": "广东省综合评标评审专家库专家继聘审核事项\n本人因广东省综合评标评审专家库系统银行账号没法更新，专家身份至2025年4月24日后没法续聘，后来根据平台指引同步对个人资料进行了修正更新。烦请平台工作人员给予关注，希望能够获得专家库续聘以便工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3359134",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3359134",
+   "question": "关于2026年1月28日发布的广东省网上中介服务超市管理办法相关事宜\n根据办法第二条第二款，“包括各类技术审查、论证、评估、评价、检验、检测、鉴证、鉴定、证明、咨询、试验等”是仅限于列举的服务还是有其他未列举的服务？工程造价以及工程监理属于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3353533",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3353533",
+   "question": "在智慧国资系统中抽取专家召开专家评审会适用于改办法吗\n现有一个项目需要请第三方资产评估机构出具资产评估报告，按照法定要求，1000万以上的项目需要召开专家评审会。我司属于国有企业，召开专家评审会需要在智慧国资系统中抽取专家，请问相关专家的评",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3339216",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3339216",
+   "question": "粤省事数字空间婚姻登记信息显示\n您好！显示2012年11月在深圳市南山民政局办理的离婚登记、2019年3月又做该登记处办理了离婚登记补证业务，那么2022年5月在粤省事上查询个人该部分信息是否可以查到完整的个人相关电子证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3331220",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3331220",
+   "question": "《广东省综合评标评审专家库评标专家劳务报酬管理办法》\n2025年5月印发的《广东省综合评标评审专家库评标专家劳务报酬管理办法》如何下载文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3308710",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3308710",
+   "question": "关于中介超市采购相关事宜\n我司为国企，正在实施的一个项目，资金来源为财政资金，本项目业主单位为市土发中心，我司作为项目的代建单位负责项目的全过程管理，按照代建工作内容，我司以建设单位的名义负责开展招标工作并与中标单位签订合同，这种情况下我司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3279344",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3279344",
+   "question": "关于评标休息时间的理解\n根据《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》（粤政数【2025】11号），第十条“评标期间，负责主持评标工作的专家可以适当组织、统一安排休息时间。累计休息时间0.5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3277896",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3277896",
+   "question": "异地评标与网络远程异地评标的费用支出\n根据《广东省综合评标评审专家库评标专家劳报酬管理办法》粤政数【2025】11号 第八条（三）交通补助和在途补助。异地评标，应当提供交通补助和在途补助。 1.现有一项目全流程线上评标，主场是云浮，副场是韶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3251739",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3251739",
+   "question": "关于印发广东省综合评标评审专家库评标专家入库标准的通知\n根据最新评标专家入库标准，前款第（二）项所称的“同等专业水平”，是指取得国家相关不分级别或者一级执业资格注册证书，同时具有相关专业中级专业技术职称满六年。 问题：因一级执业资格证书与职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3237261",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3237261",
+   "question": "广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家入库标准的通知\n第二条中：前款第(二)项所称的“同等专业水平”是指取得国家相关不分级别或者一级执业资格注册证书，同时具有相关专业中级专业技术职称满六年。执业资格和职称证书有取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3218413",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3218413",
+   "question": "评标费上浮20%的理解\n第九条 对负责主持评标工作、参加网络远程异地评标活动的专家，其评标费上浮20%给付。 负责主持评标工作的专家在评标中应当组织讨论表决、汇总评标情况、起草评标报告，统筹评标工作进度，提高评标效率。 对以上条款能不能理解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3207510",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3207510",
+   "question": "如何理解《广东省综合评标评审专家库评标专家履职考核管理办法的通知》的“拒绝参加评标”定义\n《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家履职考核管理办法的通知》（粤政数〔2025〕13号），第八条 第一款“（一）拒绝（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3195398",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3195398",
+   "question": "请问如何获取《广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》的PDF盖章版文件？\n最新版《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》，于2025年5月21日正式发布，2025年7月1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3181670",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3181670",
+   "question": "政策解读信息\n您好，请问广东省政务服务和数据管理局的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3179401",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3179401",
+   "question": "科学技术奖提名\n您好，请问2024年度广东省科学技术奖提名项目有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3165001",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3165001",
+   "question": "请问如何获取《广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》的PDF盖章版文件？\n最新版《广东省政务服务和数据管理局关于印发广东省综合评标评审专家库评标专家劳务报酬管理办法的通知》，于2025年5月21日正式发布，2025年7月1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3159490",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3159490",
+   "question": "港车北上批核\n我于2025-1-15日已递交资料及付款$540元，申请编号：7272-5011-5600-9052，到现在还在审批中，请问是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3160444",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3160444",
+   "question": "请问政数局业务范围有哪些？\n请问政数局业务范围有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3145348",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3145348",
+   "question": "广东省综合评标评审专家库审核进度\n广东省综合评标评审专家库系统于【2024-07-17 19:28:10】 发布了《广东省综合评标评审专家库专家征集公告》，本人提交资料后，【2024-08-15 15:48】显示通过初审。随后在【2024-",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3133315",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3133315",
+   "question": "数字空间有不动产电子证明，但办理公司注册验证时没有怎么解决\n个人数字空间已领取不动产电子证照，在广东政务服务网办理公司注册使用数字空间验证时又没有不动产电子证照了，怎样添加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3134528",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3134528",
+   "question": "申请粤基座平台电子印章服务对接\n尊敬的广东省政务服务和数据管理局相关负责同志：​ 您好！​ 我代表南京朗赢信息技术有限公司向贵局咨询粤基座平台电子印章服务相关事宜。 我们单位为国家市场监督管理总局下属单位，负责广东省多家检验检测院所的实验室",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3129038",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3129038",
+   "question": "广东统一身份认证平台法人变更后的账户中法人信息修改问题\n我司广东统一认证平台的账户中，法人信息为上一任法定代表人，法定代表人已更换，无法直接修改账户上的法人信息，新法人已通过扫描二维码进行电子营业执照核验并已下载我司电子营业执照，但账户中仍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3089172",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3089172",
+   "question": "申请查看（粤政数函〔2023〕637号）文件，请支持\n您好，因工作需要，申请查看《广东省政务服务数据管理局关于开展2023年数据经纪人申报工作的通知》（粤政数函〔2023〕637号）文件，请支持。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3080819",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3080819",
+   "question": "粤商通能不能出一个鸿蒙版\n粤商通有考虑出一个鸿蒙next的版本吗，现在这个系统上没有粤商通这个app",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3078514",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3078514",
+   "question": "招考录用信息在哪里查看，可以提供下网址吗？\n请问省政务服务和数据管理局的招考录用信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3063195",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3063195",
+   "question": "2024年度广东省大数据工程专业技术人员继续教育专业科目学习指南\n2024年度广东省大数据工程专业技术人员继续教育专业科目学习指南什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3057073",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3057073",
+   "question": "政府信息公开指南\n您好，请问省政务服务数据管理局的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "3041936",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=3041936",
+   "question": "上传身份证正反面失败\n在粤省事小程序申请无犯罪证明，第二个步骤“上传资料”中，无论是拍照还是从相册中选取照片上传身份证正反面，都提示上传失败，请尽快解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2996530",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2996530",
+   "question": "关于在中介超市平台新增服务类型\n你好，我们想在广东省网上中介服务超市平台里面新增一个服务类型：价格咨询，但是这个服务类型是平台里面没有的（是一个新的服务类型），请问需要哪些流程、资料呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2989985",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2989985",
+   "question": "关于评标专家不按照招标文件确定的评标标准和方法进行评标的处理\n根据《广东省综合评标评审专家和评标评审专家库管理办法》第三十三条第一款第（三）项“省专家库评标评审专家有下列情形之一的，视为《评标专家和评标专家库管理暂行办法》（国家发展计划委员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2959700",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2959700",
+   "question": "粤省事办理低保问题\n广东省梅州市梅县区支持粤省事上办理低保吗？粤智助机器上打印的电子户口簿复印件可不可以代替纸的户口本复印件办理低保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2944264",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2944264",
+   "question": "关于申请“高分广东中心”账号的相关事宜\n您好！由于科研工作需要，本人在“高分广东中心”注册账号并根据平台要求拟定了《关于申请高分辨率遥感卫星数据的函》，现已改好公章并完成签名，但目前并不确定是把这封函往哪里发。 网站显示的电话号码为空号，“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2941125",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2941125",
+   "question": "工作单位和户籍地址变更\n因为当时注册时还在上一家单位工作，现在买房了户籍地址变更了，还有工作单位也变更了，但是在广东政务服务网系统不知如何变更工作单位信息？因为现在考职业技能等级证书需要在这里填报信息，系统提示考试报名单位信息与原来注册的单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2937696",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2937696",
+   "question": "数据资产登记\n怎么进行数据资产登记啊，是向哪个机构，入口在哪，需要提前准备什么材料，可以线上申请吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2924372",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2924372",
+   "question": "咨询广东省政数局是否接受企业提供的数据或接口服务\n各位领导好，想咨询广东省政数局是否接受企业提供的数据或接口服务，或者企业能否在开放广东平台发布未使用开放广东数据的应用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2921082",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2921082",
+   "question": "为何粤省事证件升级数字空间后，户口簿只能看自己那一页，升级前可以看所有家庭成员\n为何粤省事证件升级数字空间后，户口簿只能看自己那一页，升级前可以看所有家庭成员的户口本信息，现在如何一次性下载同户主家庭成员的户口本信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2919111",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2919111",
+   "question": "关于举办2024年“数据要素×”大赛的通知 （国数政策〔2024〕53号）进度和报名事咨询\n请问：关于举办2024年“数据要素×”大赛的通知 （国数政策〔2024〕53号），广东省参赛企业的报名事项以及相关要求、参赛细则出来了吗？以及报名参",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2915187",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2915187",
+   "question": "广东省政务服务和数据管理局的政策解读信息在哪里查看\n您好，请问广东省政务服务和数据管理局的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2898528",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2898528",
+   "question": "广东统一身份认证平台法人信息修改问题\n我司广东统一认证平台的账户中，申请人及法人信息均为上一任法定代表人，目前上一任法人已离职，新来一名法人，无法直接修改账户上的法人信息，需要通过二维码扫描进行电子营业执照核验，想请问一下这个是新法人扫码核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2895771",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2895771",
+   "question": "我公司入驻广东省中介超市不成功\n我公司入驻多次提交资料不成功，原因：在形式检查中因资格信息里面工程监理资质树勾选项请在资格证书所列业务范围内勾选。被退回。 我公司均按照资质证书许可经营范围勾选，但是均不成功。也没有技术电话咨询，已经花费1天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2893659",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2893659",
+   "question": "关于国家数据局征集“数据要素×”典型应用案例 申报事项\n国家数据局2月初已发出了《关于征集“数据要素×”典型案例的通知》文件，目前暂未看到广东省数据局有发相应的通知，请问企业如果想要申报的话，省里的申报日期截止什么时候？材料需要递交到哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2885224",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2885224",
+   "question": "数据资产交易\n您好，关于数据资产交易中介，请问如果开展相关业务，是否需要申报相关的行政许可证、备案等，如需要，能通过什么渠道了解办理流程、获取办理材料清单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2878695",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2878695",
+   "question": "国家软考高级证书要不要转换到大数据工程的高级证书\n我通过国家计算机软考高级考试，获得信息系统项目管理师，并且聘请到副高职称，如果我5年之后申请大数据工程正高的证书，我是不是需要把信息系统项目管理师证书先转换到大数据工程的高级工程师证书？以后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2877472",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2877472",
+   "question": "了解粤省事的全面介绍及功能\n想要了解粤省事的全面介绍及相关功能，方便基层政务服务部门加大宣传和指引群众使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2876557",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2876557",
+   "question": "广东省政数局专家库入库申请\n请问广东省政务服务和数据管理局专家库现在可以申请入库吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2859851",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2859851",
+   "question": "广东省综合评标评审专家库专家登录界面异常\n您好！我的综合评标评审专家库专家登录界面异常，登录后就直接跳转到“入库征集活动”界面，点击”关于优化省综合评标评审专家库专家常态化征集管理的公告“又提示”用户权限不足“，上面显示的状态是正常的，不像",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2858111",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2858111",
+   "question": "数据交易流程\n咨询广东数据交易所数据交易办理流程，如何上架产品、如何购买产品及用户注册等事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2853227",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2853227",
+   "question": "关于大数据职称评审\n本人目前取得的是另一项工程师职称，19年以来，从事大数据相关类工作，参与市数字政府十四五规划编制，参与市政府办公平台建设，有取得软件著作，能否申报大数据高级职称？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2852145",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2852145",
+   "question": "外籍人员注册和认证广东省统一身份认证平台的问题\n我司法人为外国国籍，有效证件为护照。因办理企业资质业务需要，需要为外籍人员在省统一身份认证平台进行注册，现在因为外籍身份问题在统一平台网站显示证件信息核验不通过无法注册，请问怎么办理外籍人员注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2844007",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2844007",
+   "question": "关于国家数据局征集“数据要素×”典型应用案例 申报事项\n国家数据局2月初已发出了《关于征集“数据要素×”典型案例的通知》文件，目前暂未看到广东省数据局有发相应的通知，请问企业如果想要申报的话，省里的申报日期截止什么时候？材料需要递交到哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2834700",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2834700",
+   "question": "广东省综合评标评审专家库入库申请事宜\n广东省公共资源交易平台在2024-01-17 09:26:31发布了《广东省综合评标评审专家库入库申请工作指南》，明确了广东省综合评标评审专家库面向全省常态化征集综合评标评审专家。而广东省综合评标评审专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2827461",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2827461",
+   "question": "大数据职称认定问题\n我现在有网络工程师与电子工程师，今年也将申报机电类的职称贯通，请问下我今年用网络工程师的证书去广东省政务服务和数据管理局认定为大数据工程师，政策上有影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2818204",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2818204",
+   "question": "咨询招标代理服务是否必须在省网上中介服务超市采购的问题\n你好。根据《广东省人民政府办公厅关于印发广东省网上中介服务超市管理办法的通知》（粤办函[2020]332号）第三条规定“项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2812191",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2812191",
+   "question": "广东省综合评标专家申报工作\n您好，请问2024年广东省综合评标专家申报工作大概什么时候会上网公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2809192",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2809192",
+   "question": "港車北上 駕駛證更新\n你好 請問我剛換了內地駕駛證，港車北上已經通過的。如何把新駕駛證給你們更新內容呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2806416",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2806416",
+   "question": "广东省大数据工程技术人才职称申报\n1.具体申报流程怎么操作，去哪里交材料？有相关联系电话吗？ 2.评审委员会是哪个，什么时间评审？ 3.之前有其他专业 的职称证书，可以评同一级别的大数据职称吗，比如有环境监测副高级职称，可以评大数据副高职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2799351",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2799351",
+   "question": "申请文件公开\n申请查看《广东省政务服务数据管理局关于开展2023年数据经纪人申报工作的通知》（粤政数函〔2023〕637号）文件，想要了解数据经纪人的申报要求及申报工作安排情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2796255",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2796255",
+   "question": "评审专家酬劳\n我司为招标代理单位，某项目在广州市公共资源交易中心评标后，在支付专家费阶段，财务反馈税务部门要求提供身份证复印件代开发票、但是我司无评标专家联系方式，无法联系专家提供身份证复印件用以支付专家费。 现已联系交易中心，交易中心反馈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2783763",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2783763",
+   "question": "关于综合库评标专家终审的问题\n领导您好！我申请的综合库评标专家库于今年8月17过了初审并按要求递交了纸质资料，11月22日终审显示审核不通过。但是我在系统上看不到不通过的原因。打电话咨询也一直处于没人接电话的状态。望领导帮忙查询一下是什么原",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2728196",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2728196",
+   "question": "未邮寄答复意见纸质版\n申请编号：888124202308200001，问号：2023年50号政府信息公开申请纸质版答复意见没有邮寄到本人在申请中指定的地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2714544",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2714544",
+   "question": "评审专家酬劳\n粤发改规〔2020〕1号中规定，珠三角6市以外的其他市的远程异地评标评审和本地评标评审，参照异地评标评审支付交通补助（其中，自驾车参照相邻市的标准包干）。本地评标评审抽取的本地专家在本地区开车车程最远也在30分钟内，也要按照相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2707190",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2707190",
+   "question": "粤省事\n尊敬的领导 您好！ 麻烦请教一下，我们是开锁公司，想加入粤省事小程序的开锁便民服务里面。有两个问题 1、是加入平台需要什么资质、跟材料 2、是跟哪个部门联系 昐复 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2704960",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2704960",
+   "question": "建议备案、许可类业务界面增加查询入口\n不知道现在政府服务网或者其他政府平台有没有方便查询可以公开查询的备案、许可类信息？为了便于查询，建议在有关备案、许可类业务业务办理的页面上增加公开查询的链接/入口，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2698121",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2698121",
+   "question": "广东省中介服务超市的范围\n广东省航道系统下属公益二类事业单位是否适宜通过中介超市采购？满足中介超市服务采购的项目是否必须到中介超市采购？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2683172",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2683172",
+   "question": "请问《广东政务服务网办件过程数据采集规范》 (GDZW 0013-2020）在哪获取？\n广东省政务服务数据管理局政务信息公开上只查找到GDZW 0013-2019版本的，可以给个GDZW 0013-2020版本的下载链接吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2680792",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2680792",
+   "question": "广东省数字政府专家资源池专家征集启事\n广东省数字政府专家资源池专家征集启事，请问去哪个网址申请加入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2672077",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2672077",
+   "question": "粤商通APP如何变更管理员\n原来的管理员离职，希望变更管理员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2667936",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2667936",
+   "question": "申请查看《省级政务信息化服务预算编制规范和标准(试行)》文件\n我先向广东省政务服务数据管理局申请查看《省级政务信息化服务预算编制规范和标准(试行)》文件，能否发至我的邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2655141",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2655141",
+   "question": "综合评标专家库终审时间\n本人于2022年8月提交了广东省综合评标专家库终审材料，经查询系统显示目前还处于终审阶段，请问终审需要多长时间？何时才能办结？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2654721",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2654721",
+   "question": "请问粤商通移动政务服务平台的标准规范是否发布\n请问粤商通移动政务服务平台的标准规范是否发布，在哪里可以下载到，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2632311",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2632311",
+   "question": "省电子证照系统更新结束时间\n因需要网上办理补贴，现受省电子证照系统更新影响无法使用。 想了解，具体省电子证照系统更新结束时间?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2626293",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2626293",
+   "question": "广东省政务服务数据管理局是否独立出去由副厅级转为正厅级单位？\n广东省政务服务数据管理局是否由省政府挂牌独立出去，由副厅级转为正厅级单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2618073",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2618073",
+   "question": "中介超市管理办法答疑\n请问：《广东省网上中介服务超市管理办法》第三条“项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录以外且未达到采购限额标准的中介服务，必须在中介超市选取中介服务机构，法律法规另有规定的除外”中的“使用财政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2614947",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2614947",
+   "question": "生育登记\n生育登记已经签发，但是在粤省事数字空间没看到，也已经反馈，也没有给我一个答复一直处理中，这个生育登记急用的，感觉你们的处理方式很拖拉，我现在就是希望能不能给我尽快马上解决，我是真急用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2616393",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2616393",
+   "question": "广东省综合评标评审专家库审核进度慢\n本人于2022年4月份申请广东省综合评标评审专家入库。同年10月，终审显示，通过一个专业，另一专业待有关部门核审。之后（至目前），待核审专业又变为“未审核”状态。现在已经距申请入库十几个月过去了，想通过情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2607908",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2607908",
+   "question": "打卡签到\n我在考科目二，需要使用粤学车扫码跳转到粤签到进行打卡人脸识别认证，前个星期都可以，然后到现在一直不通过，说是人脸无法通过检测。希望能帮我处理下，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2605858",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2605858",
+   "question": "证件类型无法修改\n之前系统登记的是台湾居民往来大陸通行证，现在因为要办理医保有申请台湾居民居住证，但系統无法修改，请问如何处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2603295",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2603295",
+   "question": "建造师延期，广东省建设执业资格注册管理信息系统\n广东省建设执业资格注册管理信息系统，一级和二级建造师证过期后，可否办理延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2597320",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2597320",
+   "question": "数字政府专家\n我已申请成本为广东省数字政府专家资源池专家，并获得短信通知，请问在系统中哪里能看得到专家身份，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2586177",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2586177",
+   "question": "南海区小学入学报名咨询\n桂城街道的本底户籍，小区分配的有一所公办小学，报名的时候可以选择报分配的公办小学，同时参加附近的一所公办小学的摇号吗？ 最终选择一家注册，如果摇中了，就选择摇中的学校注册，这样可行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2579440",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2579440",
+   "question": "粤省事无法申领实体居住证\n3月1号在粤省事申领居住证，有一项是否办理实体居住证的选项，我打了勾，也填了邮寄地址，到现在都一直没有消息，重新在粤省事申领实体居住证提示“请求错误，未查询到流动人口基本信息”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2578029",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2578029",
+   "question": "企业电子公章\n请问广东省佛山市的企业可以通过什么途径申领企业电子公章？尝试登陆广东省公安厅查询，但无法找到申领入口。请解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2577379",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2577379",
+   "question": "建议广东政务服务网逐步“去微信化”，促进互联网市场“百花齐放”保障百姓选择多样化\n广东政务服务网的登陆页面中的“其他登录方式”着重突出了“粤省事”登录，实则为粤省事“微信小程序”扫码登陆与，本人建议既然粤省事有独立版app为何不同时支持ap",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2577191",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2577191",
+   "question": "粤商通提示数据中心接口获取企业信息异常，导致所有相关业务无法办理，因业务开展需要比较急迫\n粤商通提示数据中心接口获取企业信息异常，导致所有相关业务无法办理，因业务开展需要比较急迫，多次预约走访当地多家政务中心均无法解决，希望平台数据管理机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2569359",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2569359",
+   "question": "政府信息公开指南\n您好，请问省政务服务数据管理局的政府信息公开指南在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2568547",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2568547",
+   "question": "财政预决算信息\n您好，请问广东省政务服务数据管理局的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2568487",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2568487",
+   "question": "粤省事电子户口簿无法查询，没有查询入口\n本人于2022年2月15日办理户口迁入广州市，至今无法通过粵省事小程序添加关联居民户口簿，系统提示“暂无可关联卡片”。本人符合证照关联条件，且本周有急事需要用到该电子户口簿，又已经于2023年3月14",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2567204",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2567204",
+   "question": "关于粤省事数字空间显示的婚姻信息问题\n粤省事数字空间目前显示的婚姻状态（是否有结婚证/离婚证）能显示哪些省份登记的信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2560871",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2560871",
+   "question": "申请获得广东省科学技术厅2017-2021（五年）的部门整体支出绩效自评报告\n贵单位：您好！本人申请获得广东省政务服务数据管理局2017-2021年（五年）的部门整体支出绩效自评报告（PDF/word版），仅供学术研究使用（若没有相关报告，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2551711",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2551711",
+   "question": "户口本电子户口簿缺失，无法关联\n本人于2022年3月28日办理户口迁入广州市，至今无法通过粵省事小程序添加关联居民户口簿，系统提示“广东暂无可关联卡片”。本人居民户口簿是由广东省签发的，符合证照关联条件，请给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2546994",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2546994",
+   "question": "入库“经济类”专家的条件\n我想咨询一下入广东省综合评标评审专家和评标评审专家库“经济类”专家的条件，要求哪种类别专业的职称证书或执业证书？如中级经济师满足6年（取得中级专业技术职称且取得时间不少于6年），可否申请入库？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2540005",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2540005",
+   "question": "接入广州工程建设项目联合审批平台\n您好，我的客户是公众服务行业企业，当前的信息建设项目有接入工程建设项目联合审批平台的需求，请问能在哪里查询接入方案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2536216",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2536216",
+   "question": "广东政务服务网（个人中心--我的信息中的职业信息错误无法改正）\n在广东政务服务网，“个人中心”--“我的信息”中显示本人的个人职业信为“个体经营者”是错误信息，本人实际职业信息应该为“专业技术人员”！为改正此错误信息，本人已经多次使用“我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2533209",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2533209",
+   "question": "在粤省事线上办理居住证一直处于审核中状态\n2022年9月30日在粤省事上提交了居住证申请材料，至今一直为审核中状态。有劳跟进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2531843",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2531843",
+   "question": "粤省事及i深圳无法关联电子户口本，且户籍信息不显示\n本人通过粤省事小程序以及i深圳添加关联居民户口簿时，系统提示“广东暂无可关联卡片”。 本人居民户口簿符合证照关联条件，曾经一直成功关联着，近日登陆粤省事小程序以及i深圳显示户口簿电子证照异",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2523594",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2523594",
+   "question": "人脸识别不通过\n粤信签粤省事人脸识别一直不能识别成功，但其他需要人脸识别的比如银行卡绑定的人脸识别可以用，就粤信签，粤省事不行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2517735",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2517735",
+   "question": "粤省事关联居民户口簿的信息是迁入前的，迁入后的信息未更新到。\n您好，我在2019年迁入广州，居民户口簿、身份证都已经更换为广州，最近在粤省事查找、关联我的居民户口簿的时候，显示可关联的证件仍旧是我在旧居民户口簿信息，请问我要如何处理才能关联",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2516967",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2516967",
+   "question": "粤省事无法关联电子户口本、台湾通行证\n您好，我目前是深圳的集体户口，在粤省事小程序上无法关联户口簿。而台湾通行证原本是已关联的状态，目前正在办理新的签注，但是昨晚突然变成无法关联（无相关证照）。请问能否帮我解决这两个问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2516528",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2516528",
+   "question": "《变改名字后》新变改的名字无法实名验证\n领导您好，本人最近变改名字 但是新变改的名字微信无法实名验证，显示证件号码或名字有误，粤省事关联不了户口本等等。新身份证信息也上传至公安网。请帮我更新 粤省事 以及广东政务服务网账号名字。 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2515988",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2515988",
+   "question": "粤省事中核酸检测结果显示的规则到底是什么\n2022年12月单位中核酸检测阳性的同事，七天之后核酸检测阳性的记录自动消除；2023年1月检测阳性的同事，超过七天也还显示阳性，请问核酸检测结果显示规则到底是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2509199",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2509199",
+   "question": "生育登记\n在粤省事提交生育登记于2022年12月21日已通过核实，至今一直显示电子证照在制作中带签发，请问多久可以电子证照签发完成，小孩准备出生比较急？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2504212",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2504212",
+   "question": "健康码无故被赋红码\n健康码无故被赋红码，12.26开始每天致电12345热线，至今未能解除红码，给本人工作生活造成很大影响。请相关部门速回复及解决问题！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2489865",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2489865",
+   "question": "在“广东省行政执法信息公示平台”上公示的行政处罚如何撤消？需要什么资料？\n我公司在“广东省行政执法信息公示平台”上有一条3月份的行政处罚的记录被公示，请问如何撤消？需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2489605",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2489605",
+   "question": "集体户口小孩电子户口本如何查询\n集体户口如何查询小孩的电子户口本，并关联至本人的粤省事上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2488987",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2488987",
+   "question": "网上中介服务超市网站无法访问\n自2022年12月10日起，广东省网上中介服务超市网站https://zjcs.gdggzy.org.cn/就无法访问，是网站系统后台在维护吗，还是锁了我司ip",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2486344",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2486344",
+   "question": "粤省事关联不了户口\n本人通过粵省事小程序添加关联居民户口簿时，系统提示“广东暂无可关联卡片”。本人居民户口簿是由广东省签发的，符合证照关联条件，请给予解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2482944",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2482944",
+   "question": "关于市电力公司接入政数局接口\n市电力公司如何接入数据接口获取身份认证、营业执照、不动产信息、电子签章等信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2481684",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2481684",
+   "question": "专职律师执业网上申请审核数据更新、时限问题\n2022年11月10日通过广东政务服务网上省司法厅的专职律师执业申请处提交材料并填写信息，当日（11月10日）单位通过内审，产生了流水号1573580。按照程序，审核部门在时限内审核完成后应短信通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2474652",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2474652",
+   "question": "粤康码显示三天三检三不\n今年内我还没去过深圳，健康码显示我去了深圳，要求三天三检三不，我的行程码显示只去过广州，目前广州各地核酸点都撤走了很多，做核酸很麻烦，并且健康码出了问题打电话给12345也无法接通人工服务，麻烦解决一下这个问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2467499",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2467499",
+   "question": "扫码加入团体码能不能不用下载app？\n因为工地需要管理大量建筑工人，但是每次邀请工人加入时都需要引导下载app，工人数一多就特别麻烦，而且工人有些文化水平不高，不懂操作，需要手把手教，增加接触风险，希望增加直接扫码加入的简易操作。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2466569",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2466569",
+   "question": "粤省事上无法关联电子户口簿\n本人通过粤省事小程序添加关联居民户口簿时，系统提示“广东暂无可关联卡片”。 本人居民户口簿是由广东省签发的，符合证照关联条件，曾经一直成功关联着，2022年5月户口簿迁入广州后，登陆粤省事小程序就至今无法关联上，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2459189",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2459189",
+   "question": "老婆户口已经迁入我名下，但是粤省事的户口本信息并没有她\n老婆户口已经迁入我名下，但是粤省事的户口本信息并没有她 她自己的粤省事账号也无法关联户口本证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2451183",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2451183",
+   "question": "统一身份认证平台 对接问题\n我们给客户做的网站想要对接统一身份认证平台，请问我们怎么去申请及需要申请的提供什么东西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2444828",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2444828",
+   "question": "健康码无故被赋黄码\n本人长期居住在潮州市，近两年未曾到过广州市白云区同德街道。在本周，本人已经三次被广州市白云区同德街道赋黄码。本人是银行职员，这种情况已经严重影响正常的工作和生活，投诉及申诉均未得到问题解决。盼请给予更正，解除本人与广州该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2441350",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2441350",
+   "question": "广东省政务信息化项目管理办法\n您好，请问《广东省省级政务信息化项目管理办法》可以发送我邮箱一份么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2436537",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2436537",
+   "question": "粤省事无法关联电子户口本\n您好，本人户口已迁移至集体户口，但是粤省事无法关联本人户口簿，麻烦尽快处理一下谢谢！辛苦您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2433519",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2433519",
+   "question": "创建人和管理员无法编辑团体码成员的备注，无法删除成员\n之前没发现这个问题，今天早上想编辑管理成员，发现无法正常编辑和删除，太耽误事了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2427048",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2427048",
+   "question": "账号基本信息修改申请人\n您好，我司需要对省统一身份认证平台账号基本信息中“申请人”信息进行修改，但原“申请人”已离职，且无法联系上，无法进行扫码面部识别来更换“申请人”，请问有何办法可进行“申请人”变更？ 注：此帐号不做注销处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2424775",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2424775",
+   "question": "查询小孩的核酸记录提示已实名绑定\n最近学校要求提供核酸记录时，有几个家长都出现这个情况，导致无法查看以及提供，请问该如何解决这个情况。 出现的问题是： 点击核酸检测想查看核酸记录时，弹出提示：该家庭成员通过承诺书进行实名绑定，平台为保护其个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2420186",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2420186",
+   "question": "小孩核酸检测系统提示要实名认证，现无法登陆，登陆失败\n小孩核酸检测无法正常查询，系统提示无该身份信息记录，一直提示实名认证，小孩人脸识别认证失败，粤省事小程序，公众号不能查看小孩核酸检测结果及疫苗接种记录请技术部门帮忙解决在此真诚的感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2419377",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2419377",
+   "question": "粤省事无法关联居民户口簿、信息未更新\n本人已重新在户政更新户口信息，粤省事中未更新，同时也无法关联居民户口簿，麻烦辛苦处理，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2415378",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2415378",
+   "question": "加入粤康码团体码是否有隐私泄露风险？\n本人咨询： 1.加入所在单位生成的粤康码团体码，是否有个人隐私泄露风险？ 2.请主管部门详细告知，团体码的管理员具体能看到本人粤省事中的哪些信息，请一一列出，或者截图举例？重点是，是否能看到本人的场所码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2409612",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2409612",
+   "question": "二孩的生育登记证明无法在粤省事中关联出来\n二孩的生育登记证明无法在粤省事中关联出来，现在办理证件手续急需，麻烦紧急处理，多谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2404618",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2404618",
+   "question": "粤省事关联户口簿时显示无证照\n本人近期办理不动产业务，不动产中心以粤省事无法查询本人户口簿无法收单暂缓办理业务，但涉及贷款等后续事项的时效问题，请求尽快更新户口簿信息得以顺利办理业务。 通过粤省事小程序添加关联居民户口簿时，系统提示“广东暂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2404771",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2404771",
+   "question": "办理多证合一的时候，需要修改联系人电话，如何修改？\n办理特色服务，多证合一的时候，企业需要填写权限确认，需要联系人电话，但是原本的手机号收不到短信，不用了，如何修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2395844",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2395844",
+   "question": "团体码增加查询成员是否完成三天两检功能\n团体码为相关单位管理人员及成员配合政府开展疫情防控工作方面减负增效效果显著，方便管理员及时掌握成员健康情况，但是使用时发现，团体码的成员管理里只能查看成员最近一次核酸记录，设置防疫要求里也只能针对最近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2395253",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2395253",
+   "question": "关于粤省事场所码应用\n您好：我们是深圳出租车公司，当前防疫工作任务重，我们在应用省省事APP场所码管理出租车的扫码记录时，有两个应用上的意见，希望能予以解决。1，望能增加管理员，最好3名，这样企业可以调班进行管理场所码。2，场所码的统计数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2387826",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2387826",
+   "question": "对接贵局的健康码和行程码相关的系统平台接口\n请问经省级行业主管部门审批并对接贵局的健康码和行程码，使用接口怎么收费，费用多少？深圳市找哪个行政主管部门申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2382447",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2382447",
+   "question": "儿童粤康码实人认证不了，无法加入团体码\n儿童粤康码实人认证不了，无法加入团体码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2377966",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2377966",
+   "question": "变更身份注册信息\n你好，我粤省事的注册用的是港澳台居住证号码，我想变更用回乡证号码注册可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2358484",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2358484",
+   "question": "居民养老资格认证通过不了\n按照指引在粤省事里为他人办理居民养老资格认证人脸识别成功后出现“人脸身份验证说明”无法进行下一步，正常应该人脸识别后显示成功认证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2361088",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2361088",
+   "question": "户籍认证\n办不了户籍认证，粤省事系统一直显示在维护，已经两天了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2349290",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2349290",
+   "question": "在政务服务网上统一认证登录异常\n登录惠州政务服务预约时，扫完码人脸识别后显示：统一认证登录异常，本次登陆操作失败，请再次尝试。如需协助，请联系系统管理员。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2350777",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2350777",
+   "question": "如何报名参加政数学院的培训课程\n数字政府领域的公司如何报名参加政数学院的课程呢？ 第一期是否能够中途插班？ 第一期的课程是否会网上公开发布？发布渠道是？ 第二期是否可以提前预约报名？如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2331506",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2331506",
+   "question": "关于粤省事小程序升级支持长期免密登录的建议\n贵单位您们好，目前粤康码使用频率比较高，而目前粤省事只支持30天免密登录。这对老人来说，比较不便，例如出门在外的老人的手机30天免密登录到期了，恰恰在场所排队出示粤康码的时候会突发需要登录，但老人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2331399",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2331399",
+   "question": "关于对粤省心小程序的建议\n首先非常感谢贵单位提供的粤省心小程序，平台非常好用，先点个大赞和表扬。目前粤省心工单进度节点功能只能显示“您的诉求已提交(受理中)”一项，无法具体显示已到哪个部门哪个环节处理中。因此我有个意见，即对工单进度查询功能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2324336",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2324336",
+   "question": "香港身份办理内地个人营业执照\n请问香港身份持港澳通行证在内地办理个体户营业执照流程是什么，去咨询了说是可以网上办理但是在粤商通app办理到设立登记填写基本信息时，证件类型只有居民身份证不能选择港澳通行证或其他证件，请问是需要带上材料到现场进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2327089",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2327089",
+   "question": "粤省心的建议\n一、修复粤省心官网不能提交诉求的bug。粤省心官网选择咨询，输入完诉求内容后提交诉求提示缺少信息项，无法提交诉求，建议排查咨询投诉建议等功能是否能正常提交。 二、粤省心显示问题。1.粤省心官网中的进度查询功能，输入编号和手机号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2326731",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2326731",
+   "question": "粤省事未成年人查看核酸和疫苗\n粤省事能否充分考虑市民需求，照顾隐私初心可嘉，但是连父母都不可以查看未成年子女的核酸和疫苗，政府又要求公共场所出示核酸，这不矛盾吗？严重影响出行。粤省事应该识别让父母可以查看无法实人认证的子女的核酸及疫苗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2324875",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2324875",
+   "question": "电子居住证签注后还显示过期\n你好！我的居住证已经到现场签注完成，实体证已经更新有效期，在粤居码的电子居住证上也显示了最新的有效期，但是在粤省事上查询时，还是显示过期（有效期未更新）这是怎么回事？快一个月了，在粤省事上还是显示过期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2317406",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2317406",
+   "question": "粤省事关联不了户口\n粤省事小程序无法关联居民户口簿 内容： 本人通过粤省事小程序添加关联居民户口簿时，系统提示“广东暂无可关联卡片”。 本人居民户口簿是由广东省签发的，符合证照关联条件，曾经一直成功关联着，2022年5月户口簿迁入后，登陆粤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2317354",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2317354",
+   "question": "关于粤康码转码规则\n请问粤康码绿码转为红码或者黄码是根据什么规则判定的？是由谁负责判定的？相关文件在哪里可以找到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2314531",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2314531",
+   "question": "粤省事APP支持扫场所码打卡\n目前粤省事APP不支持扫场所码打卡（通过其他人也同样验证），但目前（深圳）的防疫策略包括扫场所码打卡，已无单纯的出示粤康码的场景。为更好地进行防疫常态化生活，请务必支持粤省事APP扫场所码打卡。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2313718",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2313718",
+   "question": "粤省事不能添加驾驶证\n粤省事添加驾驶证时，一直显示“系统业务繁忙，请稍后再试。”已经确认过网络没有问题，隔了很久再试还是不行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2309366",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2309366",
+   "question": "关于将【广东人社APP】功能全部并入【粤省事APP】的建议\n广东人社APP是人社厅多年前开发的手机人社服务软件。粤省事APP是集人社服务、公安服务、卫生健康服务等一系列内容于一体的最新手机政务服务软件。粤省事APP包含了广东人社APP的关键",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2303383",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2303383",
+   "question": "进出口收发货人备案在那个窗口办理\n进出口收发货人备案在那个窗口办理，原来在单一窗口办理，但现在在那里备案呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2294582",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2294582",
+   "question": "我办理了单程证后，粤省事和粤康码怎么变更\n你好，我是深圳居民陈国英，我2017年办理了投靠香港亲属的单程证，现持港澳居民来往内地通行证回大陆暂住。我在内地居住时注册了粤省事和粤康码，一直沿用至今，生活中没有什么障碍。但由于疫苗接种我用港澳居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2285988",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2285988",
+   "question": "粤省事App的团体码希望能提供克隆功能\n建议： 团队创建人可以克隆团体，这样当需要创建一个当前团体的子集合时，不需要进行重复的加入团体操作。 场景：还是学校，创建了一个包含班级全体学生和共同居住人的团体后，还需要创建一个只包含学生的团体。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2285056",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2285056",
+   "question": "电子居住证\n怎样在3粤省事申请电子居住证流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2283431",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2283431",
+   "question": "电子身份证\n您好，我入户了广州，办理了广州市身份证，为什么粤省事电子身份证关联不了，更换社保卡照片依旧是以前的身份证照片，麻烦解决！谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2281135",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2281135",
+   "question": "增加团体扫场馆码的功能\n目前粤省事APP内已有团体码可以由老师代表学生亮码，但没有扫场馆码的功能，即某个老师管理的班上的学生团体，可以通过扫某场馆的码或由场馆工作人员反向扫码后，老师一人扫码可以代表整个班学生全部扫码成功进行打卡，减少学生持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2275324",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2275324",
+   "question": "如何导出团体码成员的健康数据\n请粤省事APP中的团体码成员的健康数据，要以在导出到电脑里面吗？怎样导呢，在手机里查找，确实不方便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2268546",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2268546",
+   "question": "政务服务数据管理局机构职能信息\n请问广东省政务服务数据管理局的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2263994",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2263994",
+   "question": "政务服务数据管理局政府信息公开工作年度报告\n请问广东省政务服务数据管理局的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2263955",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2263955",
+   "question": "关于儿子的核酸信息查询不到\n政府：我儿子4-30日的核酸检测报告在粤省事还能查询出来，5-1号之后，上学前核酸及学校核酸都查询不出来，粤省事提醒说人脸认证，认证还是通过不出来。请问，这种情况怎么处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2261126",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2261126",
+   "question": "关于广东政务服务网的实名核验和信息匹配问题！\n原企业已有五级（L3级）的账号实名核验用的为组织机构代码，目前广东政务服务网办理市级各项目申请时却是统一社会信用代码，导致信息不一致和不匹配！而企业也无法通过数字证书进行在线修改！拨打省政务服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2255871",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2255871",
+   "question": "2022·人工智能创新应用大赛\n人工智能创新应用大赛是真的吗，赛道奖金8000000那个，官网左上角有AI DEV logo，而且参赛还要充500人民币进去做保证。 这是链接：http://www.aidev396.com/ 我就是想问问这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2255226",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2255226",
+   "question": "中介服务超市选取中介服务机构相关问题\n1、《广东省网上中介服务超市管理办法》第三条说，项目业主使用财政性资金购买中介服务事项清单以内、政府集中采购目录以外且未达到采购限额标准的中介服务，必须在中介超市选取中介服务机构。请问：使用财政性资金1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2250266",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2250266",
+   "question": "变更姓名后粤省事人脸识别显示证件号或姓名有误\n本人于2022年3月办理变更姓名，身份证信息也已上传至公安网，新身份证已拿，微信、支付宝都已修改为新姓名，但扫码粤省事、粤信签、广东政务服务网人脸识别显示证件号或姓名有误。退出删除小程序重新登录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2242824",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2242824",
+   "question": "账户信息中的邮箱怎么更正?\n您好，请问怎么修正广东政务服务网个人账户下绑定的邮箱？不知道为什么我的账户会绑定一个陌生的邮箱，我从来都没有操作过。现在找不到解绑邮箱的方法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2235757",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2235757",
+   "question": "如何导出场所二维码打卡后台数据\n如何导出场所二维码打卡后台数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2234260",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2234260",
+   "question": "粤省事无法关联居民户口本\n您好，本人户口已迁移至集体户口，但是粤省事无法关联本人户口簿，麻烦尽快处理一下谢谢！辛苦您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2229871",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2229871",
+   "question": "律师会见预约无法办理\n2022年3月29日之前在粤省事平台上可正常办理律师预约会见，自4月6日起，进入预约界面后显示“系统维护，请稍后再试”，我个人律师身份信息也无法显示，手动录入律师执业信息后进入下一个界面，一直显示“系统维护“，无法办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2220786",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2220786",
+   "question": "粤康码读取API\n我司为应对疫情开发了一款防疫防控消毒门禁，需要通过扫码”粤康码“识别用户健康码信息，不知道读取健康码信息开发平台在哪个网站上。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2218379",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2218379",
+   "question": "疫苗\n今天打了疫苗，粤省事中没有更新数据，怎么办理？找医院说他们已经上传，找谁解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2213499",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2213499",
+   "question": "户口注销后的健康码情况\n你好，我因取得香港永久居民身份，最近需注销深圳户口从深圳返回香港，户口注销后还需几日的时间办理一次性港澳通行证。请问户口注销（身份证同时注销）是否会对目前的健康码有影响？目前我的健康码关联的是内地身份证。或者是否可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2206175",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2206175",
+   "question": "粤康码黄码\n本人未离开过陆河县，陆河县不是风险区，但是我多次被赋黄码，黄码原因是封控区未做核酸。根据村委反馈是我的身份证关联到广州电信号码，但那个号码已经10年多未用，致电广州电信查询也说早已解绑。也曾致电问题号码机主本人，机主粤康码为绿码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2194015",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2194015",
+   "question": "防疫网格检测员如何导出本场所打卡人员数据\n粤省事里面的内容，防疫网格检测员如何导出本场所打卡人员数据，包含健康码是否正常等，以备存档给健康委备查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2188708",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2188708",
+   "question": "外国人进入公共场所 无法进行“粤康码”的公共场所码快速打卡？\n我公司外国人，已申领粤康码(GHC)，但用手机扫码“粤康码”的公共场所码快速打卡时失败, 提示微信实名认证绑定的不是身份证号码(实际绑定的是护照号码) ,使用录入信息时, 选择《",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2180397",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2180397",
+   "question": "关于粤省事微信小程序的问题\n粤省事微信小程序办理居住证业务的时候，申报居住登记身份证正面反面按照要求上传，但是一直显示上传失败，是怎么回事的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2178071",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2178071",
+   "question": "健康码\n因未参加珠海核酸大排查，导致健康码变黄，人在外省核酸后结果为阴性，健康码还是不能及时更新，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2177815",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2177815",
+   "question": "为什么不出独立应用程序\n作为一个不使用微信的人，你们强制商场门口扫码打卡，强迫使用微信。我被迫把自己的个人数据交给微信实名认证。我不信任微信可以保管好我的个人数据。为什么不使用独立应用程序。腾讯是给了你们多少钱。非要使用微信作为唯一的接口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2172320",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2172320",
+   "question": "广东省居住证\n我公司是东莞公司，我2019年一入职就被派往杭州项目，直到2021年10月25日回到东莞公司工作，社保公司已交2年多，我2021年11月1日在公司附件东城涡岭租房居住，但一直无法在粤省事APP申请居住证，一直显示身份证上传失败",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2171076",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2171076",
+   "question": "香港入境人员一码通申报信息中回乡证号码有误\n我和孩子（5岁）于2022年2月11日从深圳湾口岸入境，如今正在福田华强北亚朵酒店隔离。 在口岸入境海关健康申报时，因疏忽将孩子回乡证号码输入错误一个数字，因此一码通也只能沿用错误的回乡证号码继续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2169912",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2169912",
+   "question": "公共场所码相关疑虑与建议\n我在出入小区时，被要求扫公共场所码。其中有诸多不便及可预想的疑虑： 场所码为微信小程序码，这限制了申报渠道。我本人常用银联里的粤康码，相对微信来说方便快捷。同时我的一部手机因型号老旧，微信版本不支持扫小程序码，这使",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2167540",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2167540",
+   "question": "《广东省省级政务信息化项目管理办法（试行）》\n你好，请问《广东省省级政务信息化项目管理办法（试行）》可以申请公开吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2162190",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2162190",
+   "question": "粤省事查询特种设备作业人员证信息有误\n我是深圳市市场监督管理局的工作人员，现收到大量的投诉反映粤省事查询特种设备作业人员证信息有误，通过粤省事进行纠错时反馈是深圳市市场监管局数据没有更新。经核实，数据已更新，已推送到电子证照库，但粤省事查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2160770",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2160770",
+   "question": "微警实名认证不了\n在微警实名认证不了导致我i深圳也实名不了，那里显示系统未包含该身份信息，然后查了之后发现港澳通行证的有效期还是旧证的，没有更新，而且也无法手动更新。除此之外我还查了微信的实名认证信息，微信的实名认证的港澳通行证的有效期是最",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2157250",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2157250",
+   "question": "请问2020年还有没有开展大数据认证企业入库的相关工作？\n你好，在网上看到贵局在2017年有开展建立大数据企业库的工作，我司（国新健康保障服务（广东）有限公司）目前为省内多个政府部门开展大数据分析服务，所以请问贵局今年（2022年）是否还有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2155908",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2155908",
+   "question": "疫情防控信息更新不及时和无法删除离职人员（疫情防控）\nhttp://zfsg.gd.gov.cn/hdjl/yst/content/post_3559660.html 粤商通：员工健康 只有收集企业员工信息功能，无法删除离职员工信息。员工健",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2151424",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2151424",
+   "question": "人脸识别不通过\n手机上的“粤省事”“粤信签”“粤商通“要人脸识别都是提示“未能通过人脸检测”通不过，9月初以前可以人脸识别，后来就一直是人脸识别不了，请求解决和帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2146811",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2146811",
+   "question": "事业单位怎么进行实名核验升级广东政务网的账号\n我们是深汕特别合作区的事业单位（医院），需要在广东政务网办理业务，由于电子营业执照（事业单位没有营业执照）和网银（非工商银行和建设银行）都无法办理升级，所以我们只能通过现场核验来升级，但是深汕合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2146749",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2146749",
+   "question": "加入粤省事平台\n尊敬的领导 您好！ 麻烦请教一下，我们开发一个平台，想加入到粤省事小程序是里城市特色服务栏目里面。有两个问题 1、是加入平台需要什么资质、跟材料 2、是跟哪个部门联系 昐复 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2145656",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2145656",
+   "question": "退役军人电子卡关联问题\n在粤省事上 退役军人电子卡关联总是提示系统繁忙 请问这个系统板块是什么情况？ 能不能正常使用的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2140572",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2140572",
+   "question": "集体户口无法关联粤省事，显示广东暂无可关联卡片\n集体户口无法关联粤省事，显示广东暂无可关联卡片？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2123129",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2123129",
+   "question": "未能通过人脸检测\n手机上的“粤省事”“粤信签”“粤商通“要人脸识别都是提示“未能通过人脸检测”通不过，9月初以前可以人脸识别，后来就一直是人脸识别不了，请求解决和帮助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2121664",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2121664",
+   "question": "防疫行程数据严重不符\n您好，我是即将参加公务员考试的考生。近期接到公安、公务员考试组织单位电话，说我11号在东莞大朗停留了5小时以上，数据来源是政数局，情况与事实严重不符！并由此影响我即将参加的省考。 我10号晚上从惠州抵达深圳（前几个月都",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "2119407",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=2119407",
+   "question": "外籍人士GHC健康码异常\n外籍人士最后一次入境是2019年，此后没有再出境，一直留在广东深圳。但是期间护照过期，使用了新护照，新护照并没有出入境记录。但是由于疫情要求，外籍人士已经用新护照多次进行核酸检测，并打了2针 科兴疫苗，目前在约第三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1884358",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1884358",
+   "question": "个人申请城乡医保审核中导致异地无法参保如何取消\n本人户口在潮州，因11月29日在粤省事个人申请办理了潮州城乡居民参保登记，服务事项流水号167331499，进度待审核中。现因了解到在本人目前居住工作地湛江麻章可以参保，但因该事项影响，导致无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1885129",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1885129",
+   "question": "国际旅行健康码不显示疫苗接种信息\n在我的粤康码可以查询到疫苗接种信息，但是在国际旅行健康码这个程序里查不到任何疫苗接种信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1883986",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1883986",
+   "question": "粤省事无法关联居民户口簿\n本人户口已迁移至集体户口，但是粤省事无法关联本人户口簿，麻烦尽快处理一下谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1103897",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1103897",
+   "question": "关于异地就医备案申请\n您好，本人公司在佛山，并购买了佛山社保，但由于近两年持续在广州工作，因此需要一“常驻异地工作人员”身份办理异地就医备案，已有公司开具的异地工作单位证明。然而点击“开始办理”后，无法选择佛山市所缴纳的职工社保，只有户籍地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1103170",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1103170",
+   "question": "粤省事关联不到本人户口簿\n粤省事关联不到本人户口簿，在粤省事反馈过多次，没有解决。想知道原因，是集体户口关联不到吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1877985",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1877985",
+   "question": "粤省事小程序-监所服务-出所退款-如何更换银行卡/如何解绑银行卡？\n求解答：在粤省事小程序-监所服务-出所退款，如何更换银行卡或如何解绑银行卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1101526",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1101526",
+   "question": "广东省数字政府移动政务服务平台（粤系列）管理办法\n《广东省数字政府移动政务服务平台（粤系列）管理办法》公开了吗？没有找到全文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1094503",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1094503",
+   "question": "粤康码数据及时上报国家卫健委平台\n粤康码数据及时上报国家卫健委平台，国家政务服务平台无粤康码里面核酸检测结果记录，北京健康宝不已常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1095075",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1095075",
+   "question": "出生登记只能录入一个人\n由于双胎，登录粤省事操作出生登记的时候，录入一个小孩的信息后，再录入第二个小孩的信息时候，系统显示：跟随入户的一方有正在办理的户籍业务，不能重复申请。系统不能同时录入第二个小孩的信息，请问可以有改动的吗？还是必须等到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1089712",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1089712",
+   "question": "人脸识别功能\n您好，请问如何关闭人脸识别登录功能，比如登录粤省事、登录广东政务服务网，如何能关闭不通过人脸识别登录的方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1085859",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1085859",
+   "question": "关于广东省网上中介服务超市的联系人及联系方式\n我司是外省企业，在办理入驻广东省网上中介超市的时候遇到退回的情况，但是我司是装饰设计资质，并无回复信息所说的需要注册人员及执业章的人员。同时回复留的咨询电话一直无人接听，因此想咨询广东省中介超市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1083607",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1083607",
+   "question": "居住证\n为什么粤省事查不了居住证登记了多久，申报登记居住又说已经登记过，当时租房，房东已经拿过身份证去街道办登记了，目前已经有半年，想办居住证又说居住登记未满半年。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1081905",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1081905",
+   "question": "粤信签刷脸后出现不认识的账号\n粤信签刷脸后出现不认识的账号，关联的手机号不是我的，是不是身份被盗用了？如何救济？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1078945",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1078945",
+   "question": "关于广东政务服务中的时限\n您好。请问广东政务服务网上事项的承诺办结时限，若事项依法需要听证、招标、拍卖、检验、检测、鉴定和专家评审的，所需时间是否不计算在承诺办结时限中？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1079188",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1079188",
+   "question": "外籍人员入境无法使用粤康码申报\n外籍人员进行居家隔离时要求使用粤康码进行健康申报，生成绿码。这位外籍的微信目前因为换了新护照无法使用旧微信中的实名认证，无法进行粤康码的激活，这种情况如何申报，能够用别的方式替代申报或者进行微信实名认证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1077672",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1077672",
+   "question": "高龄老人津贴申请有关问题——信息填写错误，导致当地居委接收不到申请信息\n您好，我想咨询一下，我在帮爷爷奶奶，在粤省事上申请高龄老人津贴的时候，由于户口本上没有写清属于哪个居委，我把“平西社区”错填成“平北社区”，导致现在申请虽然通过，但是平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1077166",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1077166",
+   "question": "粤康码、核酸信息、疫苗信息数据接口问题\n当前我公司应深圳湾海关邀请，给该部门设置门禁系统，该系统需要有粤康码、核酸信息、疫苗信息三项数据信息。 故咨询该三项数据接口应该向那个单位申请，需要提供那些信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1070086",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1070086",
+   "question": "健康码个人信息保护\n您好！在使用健康码的过程中，想咨询您几个问题，有关于个人信息方面的。 首先，健康码为疫情防控会收集什么信息，是否有公民的位置信息等敏感信息？在疫情防控常态化的当下，政府会如何处理已经收集到市民的个人信息呢，是否会采取一定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1066187",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1066187",
+   "question": "投诉茂名12345网站长时间无法打开\n本人于2021年3月13日通过电话投诉人为噪音问题，当时接听人员告知，投诉结果可通过PC端登陆网站查询，但茂名12345网站至今无法打开。怀疑该网站处于无人维护的状态，请省政数局领导彻查！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1061899",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1061899",
+   "question": "广东政务服务网中广州市天河区建设项目相关行政许可审批存在重大纰漏违反国家广东省及广州市规定\n广东政务服务网中广州市天河区建设项目相关行政许可审批存在重大纰漏，违反国家、广东省及广州市规定。 事实包括： 1）政府投资项目可行性研究报告审批清单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1058834",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1058834",
+   "question": "错误将粤省事绿码变黄码\n2014至2017年我在福建厦门工作，自从2017年5月份已经回到广东省，至今未离开过广东省（9月10日我在云安区人民医院验完核酸检测为阴性。且已经完成2针新冠疫苗接种），且近期我只在云浮市范围内工作。最近福建厦门的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1055287",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1055287",
+   "question": "关于粤康码接口\n您好。我们是一家软件开发商，现在碰到很多客户的需求就是要能自动读取客户穗康码或者登记客户穗康码，因为现在基本做法都是人工操作，导致人力成本过高，想问下贵局穗康码有无公共开发接口，需要的数据也很简单，就是根据个人身份证读取个人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1046799",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1046799",
+   "question": "粤省心问题\n一、关于工单进度主动提醒功能问题。上次提了粤省心增加主动提醒工单进度和附件功能的建议，贵单位答复将在8月底上线，目前未看到该功能。 二、粤省心工单丢失的问题。之前的工单大部分丢失，只能查看到个别工单。 三、粤省心导入工单收不到验",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1045536",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1045536",
+   "question": "关于广东省统一身份认证平台实名核验问题\n本人注意到，目前广东省统一身份认证平台的实名核验功能支持个人网银证书核验（仅L2），目前支持的银行是中国工商银行和中国建设银行，但是本人还发现，这两个银行目前开U盾是一个很麻烦的事情，不少网点服务人员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1039891",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1039891",
+   "question": "变更姓名后粤省事人脸识别显示证件号或姓名有误\n本人于2021年6月办理变更姓名，身份证信息也已上传至公安网，新身份证已拿，微信、支付宝都已修改为新姓名，但扫码粤省事、粤信签、广东政务服务网人脸识别显示证件号或姓名有误。退出删除小程序重新登录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1040040",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1040040",
+   "question": "粤省事小程序无法关联居民户口簿\n本人通过粤省事小程序添加关联居民户口簿时，系统提示“广东暂无可关联卡片”。 本人居民户口簿是由广东省签发的，符合证照关联条件，曾经一直成功关联着，2021年6月30日户口簿迁入一人后，登陆粤省事小程序显示户口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1037900",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1037900",
+   "question": "居住证\n居住证重新办理，新的证件已经拿到一个月了，但是粤省事，广东政务服务网上面的居住证信息仍然是旧的已经过期的居住证信息，已经严重影响到我办理其他业务的进度。期间打12345反映过好几次，都没有解决，希望相关部门尽快处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1037682",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1037682",
+   "question": "关于解决黄码变绿码的问题\n本人是广东职业技术学院一名专任老师，也是一名党员，深知疫情防控的重要性。现在想反映的问题是：本人暑假回老家河南新乡，7月15号至8月28号期间未成离开过新乡。新乡市属于低风险地区，奈何26号凌晨广东粤康码成黄码。上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1033523",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1033523",
+   "question": "外国人无法进行“粤康码”的公共场所码快速打卡？\n发现有外国人，已申领粤康码，但用手机扫码“粤康码”的公共场所码快速打卡时失败。 1.外国人的“粤康码”是否不能快速打卡？ 2.公共场所检测员能否扫外国人的“粤康码”并识别？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1029549",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1029549",
+   "question": "中介服务超市的中介服务事项清单\n2020年底颁布的广东省网上中介服务超市管理办法规定，业主使用财政性资金购买中介服务事项清单以内、集采目录以外且未达采购限额的中介服务，必须在中介超市选取中介服务机构。实际操作中，很多项目业主无法明确自己的中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1027258",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1027258",
+   "question": "请问广东省数字政府相应的标准规范文件在哪里下载\n请问广东省数字政府相应的标准规范文件在哪里下载？相关标准文件是否为公开文件？下载地址在哪里？例如《广东省数字政府标准规范文件GDZW0030.1-2020》《 广东省政务大数据 数据治理 第1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1026317",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1026317",
+   "question": "外省黄码多次反应都说尽快回复，始终未回复\n8月13日我的粤康码显示外省黄码，按要求将本人资料传回河南省疫情防控指挥部，8月14日河南省以及全国数据中心已将我的健康码调回绿码。 8月15日，16日17日分别拨打020-12345热线，均说已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1022379",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1022379",
+   "question": "咨询 粤康码数据对接\n您好： 我司是广州某建筑集团下属科技公司，自研劳务用工系统，现针对后疫情情况想通过工人身份证号码信息同步获取穗康码或粤康码颜色、疫苗注射情况、核酸情况数据，以便我司对建筑工人进行更科学更合理更高效的疫情保障工作，因为工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1017381",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1017381",
+   "question": "中介超市政策调整时间节点不合理\n关于调整测绘和工程造价咨询类中介服务机构入驻标准的通知 ----------------------- 以上是广东省网上中介服务超市2021年8月2日发布的通知，测绘资质现在分为甲乙丙四个级别，2021年年底",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1012459",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1012459",
+   "question": "粤省事上医保余额无法正常显示\n粤省事上医保账户余额无法显示，点击会出现“未查询到医保账号余额信息”。之前是可以显示出数字的，现在不行了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1010807",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1010807",
+   "question": "如何重新绑定粤康码上的手机号码\n你好，最近我换了澳门的电话号码，想重新在粤康码上绑定新电话登录，请问该如何操作，请回邮件或电话，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1008929",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1008929",
+   "question": "广东省建筑行业统一身份认证平台\n请问：广东省建筑行业统一身份认证平台 属于哪个部门管理呢？为什么实名认证需要手持身份证照片呢？这个系统会不会那我们的手持身份证的照片作恶呢？网上查也查不出来这个系统做什么的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1004531",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1004531",
+   "question": "粤康码无法接入省外接种疫苗信息\n2021年4月5月在湖北省分别接种了新冠疫苗的第一针剂和第二针剂，7月份来深工作，每次查验疫苗接种数据都是空白，非常不方便，请问这个事情要如何处理？贵局有没有通过接入国家政务一体化数据，带出外省的疫苗接种情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "1004693",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=1004693",
+   "question": "粤康码存在安全漏洞，请修改\n领导好，我们现在用的粤省事里面的粤康码，给我们出行带来很多方便，但是有些单位需要我们提供截图，我的粤康码用微信手机扫了下，里面能显示我的身份证号码前两位和后两位，显示出我用的手机品牌信息和电话号码（中间4位是屏蔽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "998344",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=998344",
+   "question": "我的个人信息与公安数据不对等\n广东省政务服务数据管理局，我的个人信息为什么婚姻状况是离婚？依据是哪里取的，我在公安系统查过了，数据无误是未婚呢~！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "978576",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=978576",
+   "question": "政务短信平台的短信是哪里发出来的\n我以经办人的身份为公司申请了营业执照料，但是，法人的手机从营业执照办理成功那一天起，就一直收到【政务短信平台】发来的各种下载”粤商通“APP、在线刻章完成等短信骚扰，也接到各种骚扰的电话；由于法人的联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "994414",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=994414",
+   "question": "关于在使用粤省心小程序的问题\n最近，省政务服务数据管理局上线了粤省心便民小程序，本人在使用过程中遇到以下几个疑惑，和提几个建议，如下： 一、关于公开意向和信息保密的问题。在使用咨询中的其他咨询、投诉、求助中的其他求助、建议中的其他建议、表扬",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "987744",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=987744",
+   "question": "无犯罪记录证明办理进度无推进\n本人因工作需要，于2020年9月13日在粤省事上申请开具“无犯罪记录证明”，申请于2020年9月16日审核通过并转为待寄出阶段，如今是2021年七月，过了8个多月，近九个月，证明仍然处于待寄出阶段，毫无推进、毫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "984393",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=984393",
+   "question": "婚姻数据未更新\n家里亲戚是八几年在深圳结的婚，在查询政务数据时获取不到婚姻状况，办很多事都不方便，这种情况应该怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "984024",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=984024",
+   "question": "疫苗注射信息有误\n本人5月27日前往广州市洪桥街疫苗注射点，经身体检查后，医生判断暂时不适合打疫苗，当时没有注射疫苗就离开了。但此后粤康码和穗康码都显示本人已经注射第一剂疫苗，致使现在无法正常打疫苗。经12345以及向省卫健委反映，均未能解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "983726",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=983726",
+   "question": "关于广东政务服务网无法显示咨询投诉的问题\n你好，近日登录广东政务服务网-个人中心-我的事务-咨询投诉，发现我的诉求无法显示，即使是选择了某一时间段也是显示暂无数据，请核查相关问题，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "982759",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=982759",
+   "question": "新冠疫苗接种记录\n您好！ 我的同事深圳大学特聘教授胡强去年12月在武汉就接种了新冠灭活疫苗（证明请见以下文件），但是接种记录却一直无法显示在粤康码上。请问需要通过哪种渠道和方式可以将胡老师的疫苗接种记录显示在他的粤康码上呢？ 多谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "979963",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=979963",
+   "question": "粤省事无法关联户口本\n你好，我的粤省事无法关联户口本，而且粤省事上显示的户口信息有误，麻烦帮忙解决，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "979046",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=979046",
+   "question": "使用港澳居民往来内地通行证接种疫苗信息与粤康码不匹配\n您好：使用港澳居民居住证登记接种新冠疫苗，但是粤康码和穗康码均以港澳居民来往大陆通行证登记。请问怎么把接种疫苗信息和健康码匹配？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "978370",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=978370",
+   "question": "粤康码神兽\n我打的是一针的康希诺疫苗，不需要再打第二针，为什么不显示金色的神兽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "976930",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=976930",
+   "question": "电子户口卡\n您好，我想问一下电子户口卡关联了，但是只显示本人的，小孩也是一起迁入进来的，没有看到小孩的电子户口卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "975047",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=975047",
+   "question": "统一身份认证平台 对接问题\n我们给体育彩票管理中心做的网站和小程序应用希望采用统一身份认证平台，请问如何对接？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "971802",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=971802",
+   "question": "政务账号\n我司蜗牛药房连锁（广东）有限公司，在变更名称后，办理《药品经营许可证》等相关证件时，在广东政务网不能读取之前办理的许可证证号，不能申请变更。在咨询行政审批的技术人员与12315工作人员后，说，我司的政务网账号里面的组织机构代码错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "968475",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=968475",
+   "question": "穗康码，粤康码\n小孩的穗康码人脸识别的时候，显示系统未包含该身份信息是怎么回事呢事呢？每次都无法实名认证，导致进出地铁站无法进入出。关联小孩子的穗康码。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "964741",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=964741",
+   "question": "千里带儿在天津求医，因黄码拒收入院\n我们的孩子患有先天性胆道闭锁，孩子在广东省妇幼保健院做了葛西手术，但是目前孩子6个月，病情不稳定，我们6.4号凭着在广东省云浮市做的核酸结果和粤康码坐飞机带孩子去天津配型评估，行亲体肝移植手术。6.4下午",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "959994",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=959994",
+   "question": "疫苗信息无法与穗康码同步\n你好，我的第二针疫苗接种信息至今无法同步我的穗康码。查询了12345，和我第一针医院登记了我的港澳回乡证号码，第二针登记的是我的港澳居住证号码有关。 12345反馈给穗康码工作专班，他们无法修改这个信息，让我联系广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "959070",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=959070",
+   "question": "关于穗康码事宜\n广州市民，已成年，正在苏州上大学，户籍在广州，现在苏州已经打了两针新冠疫苗，如何才能让自己的穗康码显示金色，让其穗康码附加信息显示已打两针疫苗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "954384",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=954384",
+   "question": "粤政易申请\n您好，广东省事业单位想申请接入粤政易怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "945568",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=945568",
+   "question": "接种Coronavirus disease-19（2019冠状病毒病）疫苗\n非粤籍、非常住广东省（双非）的人士可以在广东省境内预约接种2019冠状病毒病疫苗吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "939839",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=939839",
+   "question": "用户穗康码对接\n我们是做住建实名制管理系统的技术开发公司，目前广东负责佛山市南海区、江门鹤山市的住建劳务工人实名制管理系统的开发及维护。现在根据局方的要求，需要针对建筑工地进出人员进行疫情管理，需要知道人员是否存在感染风险，以及了解到工人是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "942431",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=942431",
+   "question": "数字身份证在深圳北站26号窗口不给使用\n5.8中午去深圳北站送人，因时间匆忙未带身份证，经向26号窗口工作人员出示粤省市的数字身份证，得到回答是这东西没用的，不允许通过，因临近乘车时间无法去忘带身份证柜台办理手续，但粤省市人口的数字身份证在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "938968",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=938968",
+   "question": "粤政易什么时候开放给企业注册\n我们是受广东省及广州市注册会计师协会监管的会计师事务所，也是广州市财政局财政监督检查定点服务单位之一，由于现时基本所有行政事业单位都使用粤政易进行工作交流或信息传送，而我们作为第三方审计单位在对行政事业单位提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "940477",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=940477",
+   "question": "你好，我正在做政务服务类的课题研究，想问下广东2020年度一共有多少政务服务办件数？\n你好，我正在做政务服务类的课题研究，想问下广东2020年度一共有多少政务服务办件数？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "933196",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=933196",
+   "question": "二级造价师证书显示\n领导你好，我想咨询一下粤省事APP里面的二级造价师证书关联后，查看详情那里总是显示不出来电子证书，尝试很多次也是不行，望盼回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "932872",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=932872",
+   "question": "一岁幼儿无法完成人脸识别获取粤康码\n一岁幼儿无法完成人脸识别，不会按指示眨眼睛，无法获取粤康码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "930205",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=930205",
+   "question": "互联网背景下广东省政务服务跨部门协同（本科论文研究）\n您好！我是来自南昌大学大四毕业生，本科毕业论文的方向是关于广东省政务服务跨部门协同研究，老师建议就此论文研究进行访谈，对广东省跨部门协同工作向您提出几个问题，希望您抽出宝贵时间回复！非常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "924180",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=924180",
+   "question": "微信粤省事内功能不能使用\n进入粤省事后，使用出示居民身份电子凭证，进入人脸识别验证中，显示因账号注册情况无法提供服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "922063",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=922063",
+   "question": "婚姻状态更新问题\n你好， 之前我已经在这边咨询过，因为我的婚姻状态没有更新导致我在深圳住建局这边状态显示还是已婚状态。 之前贵局已经回复：在国家数据库查到了我的离婚数据，并且说将会采用该数据。 但是现在在粤省事等平台都还是查不到我的离婚证，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "924628",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=924628",
+   "question": "港澳居住證上傳問題\n纠錯單號:320210329719813，本人早前3月7號已經上傳居住資料但是還未收到更新，已經去了橫琴派出所諮詢兩次，派出所警員說核實已經上載完成，麻煩跟進一下更新上傳我的居住證資料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "925331",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=925331",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "925050",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=925050",
+   "question": "财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "922532",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=922532",
+   "question": "政务服务类的课题研究\n你好，我正在做政务服务类的课题研究，想问下2020年全年广东一共有多少政务服务办件数？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "921485",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=921485",
+   "question": "粤商通企业法人信息填错\n粤商通企业法人信息填错，该如何修改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "921656",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=921656",
+   "question": "市内移居后电子居民身份证和户籍卡无法关联\n现在是身份证无法关联，户口本还是旧的，一直没更新，提交纠错反馈了也没有进展，这个要怎么处理？或者找哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "920358",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=920358",
+   "question": "房屋证明\n1.粤省事可以查询到房产信息，但是无法显示电子版房屋产权证书，建议是否能提供电子版房屋产权证证书； 2.建议推动省内各地市的自来水、煤气、电力公司承认粤省事证件查询结果，并可依据此查询结果办理部分业务。如用房产查询信息替代房产产权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "918962",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=918962",
+   "question": "关于粤政易系统的注册、人员新增处理\n2020年通过邮件成功申请粤政易分级管理员账号，但是没有被告知登录密码，仅能通过短信登录。 因工作需要进行人员新增操作，遇到2个问题：一是工作单位不具备政务外网、内网环境，无法通过更改hosts登录统一身",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "919216",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=919216",
+   "question": "粤康码健康申报\n2020年8月12日0时起，持有效期内病毒核酸检测阴性证明的旅客，自澳门入境中国（内地）时，不再实施医学观察。常住广东省的人士可以在粤康码上进行14天的健康申报。对于经由广东省各口岸入境后前往其他省、自治区、直辖市的人士，是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "919654",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=919654",
+   "question": "关于互动交流的咨询\n你好，在各级政府网站留言咨询时，会跳转至广东政务服务网统一登陆，并填写昵称、邮箱、职业、地址，其中，姓名，和手机号码无法填写也无法变更。因广东政务网通过刷脸认证，并且绑定了各种证件，请问如果这样的话，接收信件的部门能否查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "917983",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=917983",
+   "question": "粤省事申办准生证，居住信息无法按照修改内容更新\n在粤省事小程序上申请办理准生证时，根据本人当前居住信息对系统显示的内容进行更正修改。但是，在领取的准生证上居住信息并没有根据所提交的修改信息进行更新，还是保留了系统原有的旧信息内容，请问这个是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "915674",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=915674",
+   "question": "中直驻粤单位如何申请粤政易账号\n因工作需要，中直驻粤单位（央企）需要注册粤政易账号，应当向什么组织申请建立？具体流程及相关要求在何处可以获取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "915114",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=915114",
+   "question": "电子社保卡照片跟实体金融社保卡没对应，医保电子凭证参保地错误\n网上更大平台，包括粤省事APP，i深圳APP，银行APP，微信，支付宝上面的医保电子参保凭证的参保地都是显示之前旧的参保地广州，没法切换最新的深圳。电子社保上的照片跟新的实体金融",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "911075",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=911075",
+   "question": "违建\n2020年12月广东省高州市文笔路三区34号201方因楼下装修违建，窗户超高，严重影响生活。经双方沟通无效。已多次拨打12345市长热线。未能及时解决问题。多次以时限为由。拖塌工作。城管部门上门执法确认该违建行为，执法未能到位。效果强",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "907224",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=907224",
+   "question": "关于粤码码接入\n您好，由于疫情问题依旧存在，公共场所出入“通行道闸”上集成粤康码识别（绿码开闸），以便于管理公共场（如医院需求最多）所通行的人员。请问，粤康码是否有接口可以开放对接，通过什么流程（那可以下载模板）和渠道获得？也看了咋们的一些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "901515",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=901515",
+   "question": "我迁户口后身份证和户口本都做了更改，但粤省事可关联的证件依旧是迁户口前的，要如何更正？\n您好，我在去年年底已经将户口签到深圳了，户口页、身份证都已经更换为深圳的了，但我尝试在粤省事查找、关联我的证件的时候，显示可关联的证件仍旧是我在梅州时的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "899855",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=899855",
+   "question": "粤省事社保缴费状态为暂停缴费\n我是公司社保经办人员，近期有部分职员反映粤省事社保缴费状态为暂停缴费，但实际公司是每月正常为他们购买社保的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "900511",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=900511",
+   "question": "粤政易是否可以开支持龙芯芯片的UOS系统版本\n目前粤政易客户端适配UOS系统的，只有飞腾和鲲鹏两种CPU芯片，但是单位配置的电脑是龙芯的，建议尽快再开一个适配的版本，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "897883",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=897883",
+   "question": "粤政易是否可以开一个适用于UOS系统的版本\n单位换了一批UOS系统的电脑，但是该系统无法使用粤政易app，对工作带来极大不便，建议开通粤政易的UOS系统版本，或者像微信那样做一个网页简单板，方便使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "893387",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=893387",
+   "question": "粤省事更新不了身份证\n粤省事原身份证过期，新身份证更新覆盖不了原身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "890024",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=890024",
+   "question": "已多次反映因字库问题导致发改委无法办理业务\n我村（广东省阳江市阳春市松柏镇沙㙟村民委员会）需要办理光伏业务，因发改委系统里没有㙟这个字库，导致业务无法办理，请加急处理！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "892403",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=892403",
+   "question": "与深圳市政府合作的报废汽车回收项目添加入粤省事“公共服务”栏\n格林美（深圳）循环科技有限公司与深圳市政府达成了合作，协助深圳市政府进行报废汽车回收计划，目前请求加入粤省事小程序中的公共服务栏目，为市民提供便捷服务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "891651",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=891651",
+   "question": "关于粤康码数据接口申请的问题\n你好，我查看其他问题里，你们的答复中提到的“省级行业主管部门”是指哪个部门？例如我的项目的甲方是市级政府部门，业务内容是在线提交入园预约时核验粤康码，我司是负责系统开发的软件公司，那我需要找的是省经信局还是哪个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "889194",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=889194",
+   "question": "户籍数据信息不一致\n本人母亲于2019年将户籍迁入广州，近期于黄浦区办理购房相关事宜。但黄浦区不动产登记中心显示本人及母亲的户籍信息与户口簿不一致，其数据来源为广东省政务数据管理局。遂至户籍所在地海珠区公安办证大厅查询，发现公安系统内母亲与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "887206",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=887206",
+   "question": "深圳市工商年报如何登陆\n你好，我现在要申报深圳市公司的工商年报，显示是目前是L2,需要到L4才能登陆，法人已经通过粤省事升级了信用等级4，系统还是显示目前l2，还是登陆不了，怎么办呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "886392",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=886392",
+   "question": "婚姻状态的数据未更新，影响个人房贷办理\n本人去年已离婚，上个月在深圳市民政局查册结果是“离婚” 然后，深圳市住建部反馈，本人的婚姻状态仍是“离婚” 本人已投诉深圳市民政局、广东省民政厅，他们的反馈都是我的婚姻状态数据已更新至系统，需要联系你",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "884939",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=884939",
+   "question": "粤康码目前是否支持接口对接？\n我们是技术团队，准备给广东的事业单位（学校）安装对接粤康码接口对接的设备，他们不知道怎么申请健康码数据对接，让我们来咨询一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "884663",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=884663",
+   "question": "电子居民身份证无法关联\n1月28日提交的纠错申请，至现在2月3日还没有任何进展 纠错单号：320210128876739 感觉在平台里面申请处理希望渺茫，希望在这里能得到解决，还请能找到无法关联的根本原因，不然肯定会有流失部分存在这类问题的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-zfsg",
+   "id": "882837",
+   "url": "https://zfsg.gd.gov.cn/hdjlpt/detail?pid=882837",
+   "question": "粤省事社保缴费历史明细表为什么不能像以前那样打印？\n以前粤省事的基层减负服务专区里面的社保服务里面的社保清单开具中，打印出来的信息可以显示医保失业等信息，为什么现在取消这项业务？改为更麻烦的要去网站上打印医保方式？失业还不知道去哪里打印？粤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

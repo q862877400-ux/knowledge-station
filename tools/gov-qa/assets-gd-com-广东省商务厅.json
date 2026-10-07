@@ -1,0 +1,3550 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-com",
+   "id": "3478013",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3478013",
+   "question": "禁限技术\n企业向境外客户销售设备，作为售后服务可能会提供相关技术培训，如果培训资料以及培训内容可能涉及限制出口技术，是否也应当按照《技术进出口管理条例》相关法律规定，先申请《技术出口许可意向书》，再签订设备销售合同，签订合同后再申请许可证？",
+   "cited_hits": [
+    {
+     "name": "技术进出口管理条例",
+     "lib_no": "技术进出口管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "禁止出口限制出口技术管理办法",
+    "中国限制出口技术出口申请书",
+    "技术出口许可意向书",
+    "技术出口许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3201293",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3201293",
+   "question": "中国港投资企业批准证书副本申请\n因在职企业需要申请中港车在港的道路许可证，需要中国港投资企业批准证书副本申请，操作期间有疑问需要咨询了解，谢谢",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3151186",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3151186",
+   "question": "查找智能手机细分品类（如5G手机、折叠屏手机）的产量和出口占比数据\n咨询一下广东省智能手机出口类型结构，智能手机出口主要有什么机型、什么品牌，占比多少，出口的是高端机还是低端机型，又或者是5G手机还是什么别的手机，为我写广东省智能手机出口的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国海关统计条例",
+     "lib_no": "海关统计条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3152104",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3152104",
+   "question": "数据求取\n您好，我是一名国际经济与贸易的大四毕业生，因写作广东省方便面出口贸易现状分析论文的需要，希望您能够提供2015-2023年广东省出口不同方便面（如油炸方便面，非油炸方便面）的详细数据，我已试图在海关统计网和广东统计年鉴查询无法搜索",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国海关统计条例",
+     "lib_no": "海关统计条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2778695",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2778695",
+   "question": "特许经营备案的相关问题\n请问，特许人第一次与被特许人签订《特许经营合同》后已完成了特许经营备案的，后续与其他加盟商签订特许经营合同的，是否还需到当地商务部门进行特许经营备案？",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商业特许经营备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2762777",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2762777",
+   "question": "广州企业进出口权办理流程及资料\n您好，我想咨询下企业办理进出口权的流程是什么？需要哪些条件和哪些手续，大概需要多久能办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国对外贸易法",
+     "lib_no": "对外贸易法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2664512",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2664512",
+   "question": "商业特许经营授权\n您好，请问在商业特许经营中，有资质的特许人能否授权它的子公司（没有进行特许经营备案的）与加盟商签署特许经营协议？若可以进行授权，收费是否也可以由被授权人（即子公司）进行收取？ 谢谢解答！",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2647851",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2647851",
+   "question": "特许经营备案\n已提供两店一年营业执照，租房合同，进货单，还需要什么材料",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省商务厅关于印发商业特许经营备案操作指南（试行）的通知",
+    "商业特许经营备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2588019",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2588019",
+   "question": "单用途预付卡备案问题咨询\n您好！请问个体工商户发行单用途预付卡是否需要备案？若个体工商户发行单用途预付卡没有备案，是否需要承担相应行政处罚后果？",
+   "cited_hits": [
+    {
+     "name": "侵害消费者权益行为处罚办法",
+     "lib_no": "侵害消费者权益行为处罚办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2405452",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2405452",
+   "question": "关于对《外商投资准入特别管理措施（ 负面清单）》中有关规定的疑问\n根据国家发展和改革委员会和商务部联合签发的《外商投资准入特别管理措施（ 负面清单）》的有关规定，中药饮片的蒸、 炒、 炙、 煅等炮制技术的应用及中成药保密处方产品的生产行业禁",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2348736",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2348736",
+   "question": "2021年7月12日《深化“证照分离”改革进一步激发市场主体发展活力工作实施方案》\n文中第三项：在全国范围内的改革举措…中的第七小项: （七）报废机动车回收（拆解）企业资质认定。 1.改革方式：优化审批服务。 2.具体改革举措：不再将注册资",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "深化“证照分离”改革进一步激发市场主体发展活力工作实施方案",
+    "报废机动车回收拆解企业技术规范",
+    "GB 22128-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2327907",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2327907",
+   "question": "关于申请成立报废汽车拆解回收有限公司需要什么条件\n1.成立这个公司是先办营业执照还是先在商务厅备案审批通过后才可办理营业执照？ 2.商务厅备案需要提交那些资料？ 3.另外需要在公安部门备案？ 4.每个县市允许有几家这样的企业？",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "报废机动车拆解环境保护技术规范",
+    "营业执照"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2312273",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2312273",
+   "question": "加盟\n1.加盟签订特许合同，什么是特许合同？有人加盟都要签特许合同吗？ 2.加盟后去哪里报备？商务主管部门？具体指哪里？ 3.去报备需要准备什么资料？ 4.加盟有什么特殊的政策要求？",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省商务厅关于印发商业特许经营备案操作指南（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2295416",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2295416",
+   "question": "申请梅州市经营报废汽车回收拆解\n拆解经营场地面积是否必须10000平方米就可以符合标准",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "报废机动车拆解环境保护技术规范",
+    "报废机动车回收拆解企业技术规范",
+    "报废机动车拆解环境保护技术规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2122852",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2122852",
+   "question": "报废机动车拆解要求\n你好，请问机动车报废，能否跨市或跨省进行报废拆解？",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "机动车登记规定",
+     "lib_no": "机动车登记规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1085954",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1085954",
+   "question": "咨询：征信企业、信用评级企业是否能够100%外资持股？\n您好，想咨询一下，目前政策下的实操，征信企业、信用评级企业是否能够100%外资持股？以目前2020外商投资准入负面清单中，没有对征信业务、信用评级业务进行限制，但是不了解在目前的实操情",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1076870",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1076870",
+   "question": "阿里巴巴旗下深圳市递四方速递有限公司涉嫌违反商务部《单用途商业预付卡管理办法》的问题\n您好， 根据商务部信访办建议，反映如下问题: 2021年六月，阿里巴巴旗下深圳市递四方速递有限公司以承接中欧铁路转运等名义向线上用户大量收取转运费预付卡充",
+   "cited_hits": [
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "单用途商业预付卡管理办法",
+    "单用途商业预付卡行业分类表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1067381",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1067381",
+   "question": "外商投资企业性质\n您好，我公司现时为内资性质的企业，注册地址是江门市蓬江区；经营出租客运、汽车租赁服务。我公司拟引入一名香港投资企业股东，国内企业占20%股权、外资企业占80%股权，变更为中外合资。请问：1、企业办理变更手续是否要在江门市商",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1047803",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1047803",
+   "question": "医疗机构注销\n您好，请问医疗机构设立的时候是广东省商务厅出的批准设立文书，现在医疗机构拟注销，是否要再向省商务厅申请批准注销文件呢？",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1038145",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1038145",
+   "question": "关于商业特许经营备案，“两自一年”问题？\n您好，特许经营备案的要求：从事特许经营活动应当拥有至少2个直营店，并且经营时间超过1年。 请问母公司本身就是一家直营店并且经营1年以上，另外还有一家由母公司法人开设的一家个体工商户直营店，经营1年以",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省商务厅关于印发商业特许经营备案操作指南（试行）的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "1008355",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1008355",
+   "question": "深圳宜友供应链管理有限公司 未按照约定送达货物\n我在Shopee的订单从6月15号从他们平台发货到菲律宾，至今货物不知道在哪里，我订单也没了，店铺也因为买家收不到货投诉被封掉，申请售后也一直拖来拖去，一个推卸一个人，跟踢皮球一样，现在他们企",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国电子商务法",
+     "lib_no": "电子商务法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国邮政法",
+     "lib_no": "邮政法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "快递暂行条例",
+     "lib_no": "快递暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1004358",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1004358",
+   "question": "公司违法从事特许经营活动\n公司违法从事特许经营活动，怎么举报？",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1003223",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1003223",
+   "question": "外商投资信息报告\n根据《外商投资信息报告办法》：“第九条 外国投资者股权并购境内非外商投资企业，应在办理被并购企业变更登记时通过企业登记系统提交初始报告。”请问这个报告主体是并购方还是被并购方，如果被并购方是境外企业，是否需要报送被并购企业",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "954539",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=954539",
+   "question": "外资企业进行清算流程\n你好。请问外资企业进行清算是否需要商务部门或其他部门进行审批？具体的清算流程是什么？",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "949064",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=949064",
+   "question": "外商投资国际货物运输代理企业设立分公司是否需要商务厅审批\n根据《外商投资国际货物运输代理企业管理办法》，外商投资国际货物运输代理企业申请设立分公司的，应向总公司所在地省级商务主管部门提出申请，由总公司所在地省级商务主管部门在征得拟设立分公司",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "945177",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=945177",
+   "question": "请问拍卖行业公司的设立及判定\n您好，请问如想设立一家企业自建小程序经营线上竞拍业务，是否属于拍卖行业，是否需要企业申请取得从事拍卖业务许可的核准或拍卖企业分公司申请取得从事拍卖业务许可的核准？如需，请问如何从零开始设立一家相关公司？是先取得",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国拍卖法",
+     "lib_no": "拍卖法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "拍卖管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "927230",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=927230",
+   "question": "投诉有关预付卡充值不开票的问题\n事由：我一直都是中豪酒店的会员，且多次充值消费，但一直都未索要发票。最近由于个人原因向酒店索要发票，酒店拒开，并称“充值卡享受打折，不予开具发票”，（该酒店为了吸引客户，推出消费会员卡，预付500元以上才能享",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "913025",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=913025",
+   "question": "投诉广东鱿鱼加油突然中止服务预付卡无法使用\n2020年在广东鱿鱼加油注册了账号，并充值600元，目前还有400多。 这个是捆绑在微信公众号里使用的。目前突然停止服务。充值的钱无法使用。 致电重庆商务委，反馈广东的充值用户是充值在广东公司的，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "912764",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=912764",
+   "question": "格鲁吉亚一带一路商务馆向广东省商务厅提出担任其中国境内代表机构业务主管单位申请书\n广东省商务厅： 本组织 格鲁吉亚一带一路商务馆（Belt and Road Georgian Business House ）于2017年12月8日在格鲁吉亚",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国境外非政府组织境内活动管理法",
+     "lib_no": "境外非政府组织境内活动管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "境外非政府组织在粤活动领域和项目目录、业务主管单位名录（2019）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "913138",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=913138",
+   "question": "外商投资信息报告\n老师您好，境外企业收购境内企业，使其转变为外商独资企业的情况下，填写外商投资信息报告时，有如下问题想向您确认：(1) 本次交易不涉及国有资产，请问是否必须填写股权/资产评估值？（2）如果需要，请问本项的依据是否是《关于外国",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "896566",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=896566",
+   "question": "商业特许经营备案后是否需要持续保有2个以上直营店\n《商业特许经营管理条例》第七条第二款规定，特许人从事特许经营活动应当拥有至少2个直营店，并且经营时间超过1年。请问特许人商业特许经营备案通过后，是否需要持续保有2个以上直营店？如果备案通过后",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "895735",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=895735",
+   "question": "国外法人公司收购内资企业股权\n香港公司收购国内企业股权，如有涉及跨境结算，是否先要在商务部门进行审批备案后再到市场局进行变更，请尽快回复，谢谢。",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "886671",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=886671",
+   "question": "关于特许经营的问题\n在广州经历了加盟骗局，然后去工商举报，当地工商不会告知去广州市市场监督管理局举报，你们不觉得你们政务安排很乱？你们监管，他们执法？他们在执法过程中出现不作为行为我找广东省市场监督管理局举报，说你们的业务范围，不在他们职责",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "884498",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=884498",
+   "question": "佛山伏息健康科技有限公司未进行特许经营备案就实行特许经营行为。\n2020年10月9日，佛山伏息健康科技有限公司与本人签署【伏息肩颈康护连锁店加盟合同】，由本人向佛山伏息公司支付加盟金29100元，佛山伏息公司授予本人使用“佛息肩颈”品牌，并",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "879394",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=879394",
+   "question": "加盟\n加盟是否可以仅加盟产品，不适用特许方的商标。即开一家店，使用特许方的产品，同时售卖其他产品，并且不适用特许方的商标与品牌。",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "865991",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=865991",
+   "question": "广州市家美餐饮管理有限公司（猫熊煮茶）违法违规(商业特许经营管理条例)\n2020年8月18日，广州家美餐饮管理有限公司，商标（猫熊煮茶），违反了《商业特许经营管理条例》第七条，第八条，第十二条，第十三条，第十四条，第二十一条，第二十二条，第",
+   "cited_hits": [
+    {
+     "name": "商业特许经营管理条例",
+     "lib_no": "商业特许经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-com",
+   "id": "3510859",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3510859",
+   "question": "省内二手车出口企业名单\n考虑投资拓展二手车出口业务，需要找到广东省内具有二手车出口资质的业务洽谈合作，但无从获得具备二手车出口资质的企业名单，遂希望省厅能提供最新具备二手车出口资质的企业名单或者查找方式？ 本人已经通过省厅网站以及其他线上途",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门关于二手车出口有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3496234",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3496234",
+   "question": "两用物项出口相关咨询\n1、镁合金制结构件(测绘仪器底壳)是否要满足不在1C228限制内才可无需出口许可证出口呢？ 2、吸盘天线底座内钕铁硼磁铁含氧化镝、氧化钆要办理出口许可证吗？ 3、上述两个物品在商务部业务系统统一平台做出口业务咨询被退回",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国两用物项出口管制清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3460742",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3460742",
+   "question": "参考25年粤贸全球展会名单，26年2月实际参展；但26年更新展会清单没有，是否仍能申请补贴\n参考2025年“粤贸全球”广东商品境外展览项目表，第36项，中国国际贸易促进委员会化工行 业分会组团的“俄罗斯涂料展览会”。我公司遵循惯例，报名参加",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于2026业务年度开拓国际市场项目入库申报的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3445523",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3445523",
+   "question": "2026年企业国外参加展会补贴事宜\n想咨询一下2026年企业在国外参加展会是否有补贴？具体要求是什么？企业应该如何申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于2026业务年度开拓国际市场项目入库申报的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3426656",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3426656",
+   "question": "关于二手车出口企业备案\n未找到二手车出口企业备案的申请入口，是否有详细的指引呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门关于二手车出口有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3409265",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3409265",
+   "question": "2025年对外投资合作统计年报问题\n您好，请问2025年对外投资合作统计年报中，境外企业基本情况（FDIN2表）填报时外币折算汇率的官方依据是什么？是否必须采用商务部业务系统统一平台通知的附件公布的各种货币对美元折算率（是截止2024年12",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度",
+    "各种货币对美元内部统一折算率表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3386781",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3386781",
+   "question": "出口事宜\n您好， 我们想了解一下数控机床的出口条件，尤其是5轴加工中心，是否有特殊出口要求限制。 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部 海关总署公布2026年度&lt;两用物项和技术进出口许可证管理目录&gt;"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3334531",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3334531",
+   "question": "购车\n您好，我旧车是15年的，请问我26年1月1号去买车开发票，能享受国家汽车置换补贴吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等8部门办公厅关于印发&lt;2026年汽车以旧换新补贴实施细则&gt;的通知",
+    "二手车销售统一发票",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3310936",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3310936",
+   "question": "二手汽车出口新规中的车辆生产企业《售后维修服务确认书》制式要求问题\n1. 2025年11月11日《关于进一步加强二手车出口管理工作的通知》中提及的应由车辆生产企业出具的《售后维修服务确认书》是否有制式模板可供参考？ 2. 车辆生产企业出具的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强二手车出口管理工作的通知",
+    "售后维修服务确认书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3303980",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3303980",
+   "question": "2023年广东省各地级市的电子商务交易额和农村电商的电商交易额\n尊敬的领导您好，我是一名大四本科生，由于写论文需要数据做支撑，我的论文内容是对比各市的电子商务销售额和农村电商交易额（或者销售额），来分析广东省各市的电子商务发展情况，所有需要",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国电子商务发展报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3292734",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3292734",
+   "question": "广东统计年鉴\n你好，想问问2008至2020年广东统计年鉴里对外经济里，分国家实际使用外资金额在哪里呢。只有签订合同数，没有分国家实际使用外资金额。我看前几年分国家实际使用外资金额和签订合同数是归在分国别外商直接投资里的，但是2008至20",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3294857",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3294857",
+   "question": "金银熔炼设备含有石墨备配件\n您好 我要咨询我们金银熔炼设备含有石墨备配件，这个设备和石墨能不能一起出口 这个配件是设备上一个小配件用，还是需要申请许可 怎么申请许可",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3291101",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3291101",
+   "question": "远红外摄像头出口限制\n您好。关于远红外摄像头出口是否有限制？是否有明确的法规相关文件资料说明车载的红外摄像头不受限制？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年度两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3283052",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3283052",
+   "question": "食用香精中含有少量洋茉莉醛，如小于5%的含量，是否属于两用物项管理范畴内。\n按照国家公布两用物项目录，洋茉莉醛属于易制毒产品，海关编码为2932930000，目录中并未提及其制品属于两用物项，同时海关编码中也未提交其纯度要求，请问食用香精中",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3284262",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3284262",
+   "question": "请问出口一批硫酸钡到印尼，是否需要申请两用物项许可\n如题，如需要申请两用物项出口许可，请告知如何申请，所需时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录",
+    "两用物项和技术出口许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3278287",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3278287",
+   "question": "商务部025第57号和61号对境外相关稀土物项（钇、铕）--出口管制适用性问题咨询\n政策来源： 商务部、海关总署025第57号和61号 公布对境外相关稀土物项实施出管制的决定: 境内出口经营者出口公告所列两用物项，应当在出口报关时按照要求填",
+   "cited_hits": [],
+   "cited_missing": [
+    "填报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3270770",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3270770",
+   "question": "广东电子电器制造企业关于稀土物项出口管制咨询\n一、介绍： 1、敝司是广州制造企业，生产产品：电动机-压缩机，应用在家/商用空调上，出口货物和技术有：压缩机、定子、转子、电动机和货物设计、生产或使用的技术； 二、描述： 1、敝司压缩机中的内部",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项出口管制清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3261791",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3261791",
+   "question": "新考取的拍卖师是否可以申请拍卖经营批准证书\n尊敬的省商务厅领导： 本人于今年11月即将取得拍卖师证书，根据《拍卖法》的相关管理规定，申请《拍卖经营批准证书》其中一个条件是，至少有1名拍卖师，那请问像我这种刚刚考取的拍卖师，是否可以用来申请《",
+   "cited_hits": [],
+   "cited_missing": [
+    "拍卖管理办法",
+    "中华人民共和国拍卖师执业资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "3260943",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3260943",
+   "question": "关于“活性炭是否属于两用物项”的问题咨询\n请问活性炭是否属于两用物项？出口到韩国，是否需要办理《两用物项和技术出口许可证》？",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录",
+    "两用物项和技术出口许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3261836",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3261836",
+   "question": "货物成分有纳米光触媒出口监管要求\n洗衣液出口成分里面含有纳米光触媒(二氧化钛成分含量为1-2%)，请问出口是否需要管制，需要两用物项许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3237545",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3237545",
+   "question": "二手汽出口许可证办理手续\n请问如果办理二手汽车出口许可证及资质，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门关于二手车出口有关事项的公告",
+    "道路机动车辆生产企业及产品公告",
+    "商务部等5部门关于二手车出口有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3233079",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3233079",
+   "question": "境外再投资报告相关问题\n请问：注销境外再投资企业需要如何报告，是否需要提交《境外中资企业再投资报告表》注销申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资终止报告表",
+    "企业境外投资注销确认函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3233447",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3233447",
+   "question": "2025年境外展会清单\n1. 2025年境外展会目录清单，在哪里查看？怎样可以查询到有关办公文具类的境外展会清单？2. 有关办公文君类的境外展会有哪些可以申请补贴的？ 3.2025年可申请补贴境外展会目录清单，在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025业务年度开拓国际市场项目入库申报咨询的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3225017",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3225017",
+   "question": "醋酸纤维\n我想知道广东省使用醋酸纤维的纺织品企业和进口醋酸纤维的企业名称，我是重庆的外贸公司重庆五矿工程技术有限公司",
+   "cited_hits": [],
+   "cited_missing": [
+    "自动进口许可管理货物目录（2025年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3219296",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3219296",
+   "question": "跨国公司设立地区总部认定\n广东省商务厅关于印发《广东省鼓励跨国公司设立地区总部办法（修订版）》的通知粤商务规字〔2021〕3号 跨国公司设立地区总部认定条件中“境外母公司资产总额不低于2亿美元。服务业企业设立地区总部的，境外母公司资产总额不",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省第四批跨国公司地区总部/总部型机构申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3215547",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3215547",
+   "question": "粤贸全球\n我司参与了慕尼黑展览的2025年1月亚洲户外展，看到是在2025年粤贸全球可以申请补贴的展览项目。请问一下该项补贴政策什么时候出来呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2925业务年度开拓国际市场项目入库申报咨询的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3200273",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3200273",
+   "question": "二手汽车出口申请备案条件以及流程\n二手汽车出口备案申请要具备什么样子的条件，公司需要满足什么条件才能申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门关于二手车出口有关事项的公告",
+    "道路机动车辆生产企业及产品公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3173270",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3173270",
+   "question": "恳请加大参展补贴：咨询第九届中俄博览会政策\n广东省商务厅负责同志： 您好！ 我是广东长兴半导体科技有限公司的莫小姐。我单位计划参加第九届中国-俄罗斯博览会（7.7-7.10/俄罗斯）。 当前外需疲软、成本高企，国际市场开拓异常艰难。 参加中",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3161891",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3161891",
+   "question": "参展补贴\n尊敬的省商务厅领导： 您好！当前国际形势复杂严峻，企业经营面临诸多挑战。在此背景下，非常感谢政府体谅企业难处，通过 “粤贸全国” 鼓励企业拓展国内市场，以 “粤贸全球” 支持企业进军国际市场，这极大地增强了企业发展的信心与动力。 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3145813",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3145813",
+   "question": "汽车经销商信息备案\n我公司有意拓展汽车销售业务，关于销售资质的问题希望能得到解答： 《汽车销售管理办法》中规定汽车经销商应当在全国汽车流通信息管理系统里进行备案，请问“经销商”的范围应如何理解？是否所有参与汽车销售的企业都需要备案，包括二级",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车销售管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "3143798",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3143798",
+   "question": "特许经营备案直营店所属地疑问\n若企业两间直营店均在同一市区，那么以后加盟店所在地可以是全国区域内吗？直营店的所在地会影响特许经营备案的哪个程序呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于商业特许经营备案的操作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3144040",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3144040",
+   "question": "广东省老字号\n领导您好，广东省2024年组织申报了第一批广东老字号，1、想询问关于第二批广东老字号的申报预计会在什么时候？ 2、广东老字号是否每隔2年组织申报一次？ 3、申报广东老字号企业成立时间或者品牌成立时间是否必须满足30年？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东老字号认定管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3140026",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3140026",
+   "question": "企业直接境外投资与再投资的问题咨询\n您好，我司于2012年设立了香港公司并获得《企业境外投资证书》。2014年，该香港公司以自有资金设立了一家美国公司，也已经取得《企业境外投资证书》。但我司目前不慎遗失美国公司的《企业境外投资证书》，想咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3136841",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3136841",
+   "question": "广东省著名建材品牌品牌出海有补贴吗？\n您好商务厅领导： 请问如果是广东省著名商标建材产品，出海在东南亚国家开设专卖店、参加展会，开拓海外市场，请问有没有相关政府相关补贴扶持政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于印发2025年中央外经贸发展专项资金（促进对外投资合作事项）申报指南的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3139125",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3139125",
+   "question": "拟设立境外投资公司（不开展实质经营）的，ODI程序为备案还是核准？\n烦请贵单位工作人员答复以下问题： 1、我是广东省内一家民营企业的员工，想咨询如果我们公司拟在境外设立一个投资公司仅用于进行海外投资的，短期内不开展实质生产经营的，需要办理O",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "广东省境外投资管理办法实施细则",
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3138507",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3138507",
+   "question": "单用途预付卡发售与购买疑问\n您好，我公司预备发售单用途预付卡，有如下疑问：《单用途商业预付卡管理办法》第二条第二款“本办法所称单用途商业预付卡（以下简称单用途卡）是指前款规定的企业发行的，仅限于在本企业或本企业所属集团或同一品牌特许经营体系",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）",
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3133125",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3133125",
+   "question": "数据求取\n您好，我是一名国际经济与贸易的大四毕业生，因写作广东省纺织服装企业跨境电商出口发展的机遇和挑战分析论文的需要，希望您能够提供2019-2024年广东省纺织服装跨境电商出口额、主要出口国家、出口产品结构的相关数据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对社会公众提供海关统计服务有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3125408",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3125408",
+   "question": "粤贸全球\n我想咨询一下，今年的展会，如韩国KES展，只有目录名单内的组团办展的单位才能有补贴吗？通过中国国际贸易促进委员会电子信息行业分会的企业可以申请补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3122265",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3122265",
+   "question": "询问\n您好！请问怎么查询广东省制造业对外投资的情况呀？我是一名大四的学生，正在做相关的研究可以联系我中国号码，中国号码也是我是微信",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3118030",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3118030",
+   "question": "广东省置换补贴\n福建厦门提车上牌是广东省潮州市可以享受广东省2025年置换补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3102246",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3102246",
+   "question": "2025年汽车以旧换新补贴政策过渡期\n您好，我是2024年12月在汕头买的车，新车发票也是12月份开的，但是是2025年1月份上牌以及转让2017年购买的旧车，我这种情况能否继续申请25年的补贴，需要在哪里申请，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "二手车销售统一发票",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3100961",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3100961",
+   "question": "单用途预付卡备案\n我司有家政业务，用户在网上下单预约保洁阿姨上门提供保洁服务。部分用户认为某个保洁阿姨服务质量好，想让保洁阿姨长期提供服务。我司拟推出多次服务的商品，如48次卡，即用户一次性支付48次服务的费用，有需要时即预约保洁阿姨上门服",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3088096",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3088096",
+   "question": "家装“焕新”补贴产品\n点击云闪付APP，家装厨卫“焕新”是还没开始的，请问，家装“焕新”补贴产品，什么时候开始上线？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年度家装厨卫“焕新”工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3081281",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3081281",
+   "question": "数据资料\n你好！我是来自韩山师范学院的学生，现由于毕业论文数据需要，想向省厅寻求帮助（希望能得到帮助🥺）。急需要2019-2023年揭阳市揭东区军埔村电商发展的电商销售额、企业数量和从业人员数量等资料！在网上找了很久很久都没找齐，不知道是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国电子商务发展报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3068869",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3068869",
+   "question": "关于“对锑等物项实施出口管制”的问题咨询\n出口的阻燃剂产品中，三氧化二锑含量98%及以下的，是不是可以不用去商务部门申请？如果需要申请，如何申请流程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3060446",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3060446",
+   "question": "关于粤贸全球之外的展会支持政策咨询\n你好，对于粤贸全球名单以外的展会，政府这边有支持吗，有具体的政策或者限制要求吗，需要在哪里查询，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于做好2025年“粤贸全球”广东商品境外展览平台相关工作的通知”"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3057266",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3057266",
+   "question": "进出口合同备案登记\n请问技术进出口合同是否只需要商务局登记即可享受税收优惠政策，是否需要在商务局登记后，再去科技局认定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于影视等出口服务适用增值税零税率政策的通知）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3046774",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3046774",
+   "question": "2025年境外展会补贴申请\n1、2025年可申请补贴境外展会目录清单，在哪里查看？申请补贴需要准备的资料明细，在哪里查看？ 2、我们作为境外展会主办方的合作单位，组织企业出展，若我们参加的2025年展会不在可补贴展会名单内，如何将其加入补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3034573",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3034573",
+   "question": "境外展会补贴申请，除了省级可以申请，市级可以的吗？\n境外展会补贴申请，除了省级可以申请，市级可以的吗？ 申请补贴需要准备的资料明细，在哪里可以看？可以知晓？ 如果所参加的境外展会，不在可补贴展会名单内，省级和市级都不能申请补贴，是吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3029915",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3029915",
+   "question": "关于广东省汽车置换补贴\n请问，家里老车符合置换条件，在户口时间也符合。然后现在过户的话，有限制条件吗？过户直系亲属同一户口地址，只要有过户发票也符合置换条件吧？",
+   "cited_hits": [],
+   "cited_missing": [
+    "二手车销售统一发票",
+    "实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3017612",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3017612",
+   "question": "企业境外投资中的中方出资实际币种和金额有变化\n你好！企业境外投资中的“中方境内现金出资实际币种和金额”原来是包括三个币种（含人民币）和金额，投资总额是澳元显示。请问由于商业计划有变，其中一个币种需要超过原定金额，但是总体仍在投资总额内，是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "3009654",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3009654",
+   "question": "咨询广东省数字服务贸易数据\n你好，我是中大在校研究生，想咨询广东省是否有统计 数字服务贸易总额相关的数据呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3005803",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3005803",
+   "question": "咨询一下2024年国内外展会的补贴政策\n咨询一下2024年国内外展会的补贴政策，是否有相关明细",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2989028",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2989028",
+   "question": "补贴\n企业国外参展了，请问申请补贴的条件，需要资料，操作流程以及是所有展会都可以申请补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024业务年度开拓国际市场项目入库申报指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2960607",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2960607",
+   "question": "汽车旧车换新补贴政策\n2009年的排放标准为国四的，且在7月25日《若干措施》的通知印发前登记在本人名下的的燃油乘用车，是否符合这次报废标准？如不符合是否与《汽车以旧换新补贴实施细则》第二条和《汽车以旧换新补贴问答手册（第2批）》第2点相违",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加力支持大规模设备更新和消费品以旧换新的若干措施",
+    "汽车以旧换新补贴实施细则",
+    "汽车以旧换新补贴问答手册（第2批）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2948864",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2948864",
+   "question": "产品是否属于出口管制货物\n您好！由于本年海关税则调整，在“发光二极管”项下新增了一项涉及国家的出口管制要求的“氮化镓外延片”，而海关税则以及相关文件中我找不到对这项“氮化镓外延片”的定义和要求。故请帮忙判断以下产品是否属于国家出口管制的货物",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2899934",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2899934",
+   "question": "关于办理废旧汽车拆解资质所需专业人员及数量要求\n办理废旧汽车拆解所需专业人员是否为：1、废旧汽车拆解工；2、电工操作证；3、安全管理员证；4、动力蓄电池回收处置专业人员；5、新能源电车拆解工。如是以上资质，请问每个资质证书各需多少名？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "GB22128-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2875677",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2875677",
+   "question": "2024年参加外国展会还有补贴可以申请吗？\n2024年参加外国展会还有补贴可以申请吗？具体在哪里申请，需要什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于做好2024年“粤贸全球”广东商品境外展览平台相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2864810",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2864810",
+   "question": "办理汽车出口资质材料有哪些？\n想申请汽车出口资质 请问在哪里办理及需要哪些材料及手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门关于二手车出口有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2847708",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2847708",
+   "question": "供港冻鸡出口配额有关事项\n您好，我是一名外贸业务员，想咨询一下供港冻鸡出口配额在哪里申请，有没有相关操作指引以及出口商的资质需求。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "出口许可证管理货物目录（2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2840949",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2840949",
+   "question": "企业如何申报《广东老字号认定》？\n1、已经看过2024年2月18日施行的《广东老字号认定管理办法》仅是提到每2年申报一次， 但没有具体可以申报的时间，指引，或者申报的网址入口，能提供申报时间，或者网址入口吗？ 2、现在的广东老字号是否等同以",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东老字号认定管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2818938",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2818938",
+   "question": "服务贸易数据\n按服务贸易12大类（运输、旅游、通讯、建筑、保险、金融、计算机信息、专利、版税与特许、其他商业服务、人文与休闲、政府服务等）分的服务贸易出口的详细数据从哪里找？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2817676",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2817676",
+   "question": "境外展会补贴申请\n2023年参加境外展会，请问办理补贴申请的各项文件资料具体是什么，补贴政策是否有变动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于做好2023年“粤贸全球”广东商品境外展览平台相关工作的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2802717",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2802717",
+   "question": "广东省报废机动车回收拆解企业场地的建设要求，是否必须要满足标准规范最低经营面积要求\n您好，我想咨询下，广东省报废机动车回收拆解企业场地的建设要求，对应标准《报废机动车回收拆解企业技术规范》（GB22128-2019），企业所在地区（地级市）",
+   "cited_hits": [],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "GB22128-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2734166",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2734166",
+   "question": "广东省跨境电商数据\n您好，因学习原因，向您申请2019-2023上半年广东省跨境电商进出口贸易额及占比、跨境电商主要出口市场份额、跨境电商主要出口产品交易额等相关数据，十分紧急，望您在百忙之中予以帮助，感激不尽！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对社会公众提供海关统计服务有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2685340",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2685340",
+   "question": "跨境电商补贴\n您好领导，我想咨询一下广东政府有没有出台关于中小型企业入驻跨境电商平台的专项补贴呢？如果有的话是一个怎样的政策呢？还请领导或相关人员看到咨询后解答下，谢谢你们，辛苦了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进跨境电商高质量发展的若干政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2676564",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2676564",
+   "question": "单用途商业预付卡业务\n请问企业申请的“单用途预付卡企业备案”有限期是多少？申请成功后，是否长期有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）",
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2610912",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2610912",
+   "question": "2023年国外参展或观展是否有补贴，流程有哪些，需要什么条件及文件\n我们公司今天计划去国外参展，听说有展位费用有补贴，具体是怎么样的，需要哪些资质和文件？有哪些流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省商务厅关于做好2023年“粤贸全球”广东商品境外展览平台相关工作的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2604633",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2604633",
+   "question": "因学术需要，请问2022年广东省对东盟外商投资额\n因学术需要，请问2022年广东省对东盟外商投资额是否可以公开",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2536201",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2536201",
+   "question": "广东省高技术产业的外商直接投资的相关数据\n请问可以提供近十年内广东省高技术产业的外商直接投资的相关数据，包括实际使用金额之类的",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2527184",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2527184",
+   "question": "广东省2005-2021年实际利用外资情况\n您好，我是一名大四学生，因写毕业论文的需要，想向贵部门获得广东省2005-2021年实际利用外资的数据，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2498865",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2498865",
+   "question": "关于广东省服务进出口分项目统计数据公开\n请问在广东省商务厅哪里可以查询到广东省2010年-2020年服务进出口分项目统计数据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2475432",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2475432",
+   "question": "一次性提货券是否认定为单用途预付卡，是否受兑付时间影响？兑换特定商品如何认定？\n您好，广东省及广州市暂未出台单用途预付卡管理相关地方性规定或条例，《江苏省预付卡管理办法》已对“一次性兑付特定商品或者服务”的预付卡凭证进行排除，《上海市单用途",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2467937",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2467937",
+   "question": "对外贸易者经营备案\n外贸易经营者备案登记表需要注销吗？如果需要注销，具体去哪注销。",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外贸易经营者备案登记办法",
+    "对外贸易经营者备案登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2402967",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2402967",
+   "question": "供港活猪出口配额有关事项\n请问什么时候会发布申请2023年供港活猪出口配额有关事项的通知？企业是否可以直接在中国商务部网站上点击农产品的出口配额上申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "供港鲜活冷冻商品管理暂行办法",
+    "关于供应港澳鲜活冷冻商品主动配额管理暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2391401",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2391401",
+   "question": "备案登记表\n公司已经在税务，工商局注销完成，对外贸易经营者备案登记表需要注销吗？如果需要注销，具体去哪注销。",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外贸易经营者备案登记办法",
+    "对外贸易经营者备案登记表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2387196",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2387196",
+   "question": "粤办函（20200）274号文执行问题\n请问粤办函（20200）274号文中第（六）点指出政府针对家电以旧换新的补贴是怎么补贴执行，有没有具体的执行方法介绍通知?",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发广东省加大力度持续促进消费若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2378605",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2378605",
+   "question": "向境外公司收购其在华商标是否需进行境外投资备案\n您好，我司为在中国大陆设立的公司，现计划向境外公司收购其持有的中国商标，收购对价约2亿美元，并将支付至对方的境外账户，现想咨询贵单位，该次交易是否需到贵单位进行境外投资备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2322288",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2322288",
+   "question": "关于《企业境外投资证书》的变更和境外中资企业报到登记\n1、企业已就新设境外子公司取得了《企业境外投资证书》、且已在境外完成了子公司工商登记后，发生企业名称变更（即证载“投资主体”），原《企业境外投资证书》是否需要变更及相关依据？如未及时变更",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资证书",
+    "境外投资管理办法",
+    "境外投资管理办法",
+    "境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2321843",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2321843",
+   "question": "再生资源回收\n设立注册一家再生资源回收公司，回收生产性废旧金属，申请营业执照后是否需要备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "再生资源回收管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2313373",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2313373",
+   "question": "广州的外资企业要在俄罗斯进口泥煤需要手续批文呢？\n你好： 我们公司是外资企业进出口贸易公司在广州，我们公司现在需要在俄罗斯进口泥煤土销售，我们公司有进出口经营权，那么我们要进口前需要办理哪方面资质才可以进口呢？如果要有资质的话，要如何去申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "自动进口许可管理货物目录（2022年）",
+    "进口许可证管理货物目录（2022年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2311606",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2311606",
+   "question": "全面落实取消二手车限迁政策\n022年5月31日，国务院印发《关于印发扎实稳住经济一揽子政策措施的通知》，要求全面取消二手车限迁政策，在全国范围取消对符合国五排放标准小型非营运二手车的迁入限制，完善二手车市场主体登记注册、备案和车辆交易登记管",
+   "cited_hits": [],
+   "cited_missing": [
+    "扎实稳住经济的一揽子政策措施",
+    "广东省贯彻落实国务院&lt;扎实稳住经济的一揽子政策措施&gt;实施方案",
+    "广东省大气污染防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2302524",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2302524",
+   "question": "家电下乡补贴\n您好，为响应国务院一揽子经济政策，请问2022年家电下乡政策何时落地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于印发广东省贯彻落实国务院扎实稳住经济一揽子政策措施实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2294724",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2294724",
+   "question": "全面取消二手车限迁政策，广州是否会跟进？如跟进何时实施？\n2022年5月31日，国务院发布：全面取消二手车限迁政策，在全国范围取消对符合国五排放标准小型非营运二手车的迁入限制，完善二手车市场主体登记注册、备案和车辆交易登记管理规定。 广州是",
+   "cited_hits": [],
+   "cited_missing": [
+    "扎实稳住经济的一揽子政策措施",
+    "广东省贯彻落实国务院&lt;扎实稳住经济的一揽子政策措施&gt;实施方案",
+    "广东省大气污染防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2290123",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2290123",
+   "question": "广东省国五排放二手车何时实现跨域全省范围自由流通？\n您好，近日看到国务院颁发的通知《国务院关于印发扎实稳住经济一揽子政策措施的通知》， 上面有关国五排放标准的二手流通措施，和在2021-10-21省府网站有互动交流商务厅回应的咨询《广东二手",
+   "cited_hits": [],
+   "cited_missing": [
+    "扎实稳住经济的一揽子政策措施",
+    "广东省贯彻落实国务院&lt;扎实稳住经济的一揽子政策措施&gt;实施方案",
+    "广东省大气污染防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2279126",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2279126",
+   "question": "外商投资房地产企业\n如果某外商投资企业从事购买普通住宅并出租给关联企业，是否属于房地产业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2269222",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2269222",
+   "question": "东莞市对外贸易情况\n为了完善论文对东莞市加工贸易的研究，想申请查找2016-2021东莞市加工贸易占比情况，以及外商投资情况，具体主要外商投资国家有哪几个？麻烦知道的领导们给个渠道，感激不尽。",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2224211",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2224211",
+   "question": "毕业论文数据\n你好，因毕业论文需要，想要查询广东省服务业外资来源相关数据以及各区域服务业利用外资资金相关数据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2185743",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2185743",
+   "question": "2011-2020年广东省高技术产业实际利用外资情况\n您好，我是一名大学生，在论文研究的过程中需要使用到2011-2020年广东省高技术产业实际利用外资情况，在查找了广东省统计年鉴及一系列数据后，均未能找到这一项数据，在广东省统计局寻求帮助",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2183221",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2183221",
+   "question": "2001年到2011年外商直接投资额\n您好，本人是一名学生，因毕业论文需要，希望获取2001年到2011年外商直接投资额。只能查到2012年之后的数据。另外可否提供2001年到2021年广东的技术密集型和资本密集型产品的出口额。不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2182470",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2182470",
+   "question": "服务贸易额\n请问2021年广东省服务贸易额是多少或如何查询，因毕业论文需要，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2174653",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2174653",
+   "question": "关于进口研发用物品“白名单”制度\n尊敬的张厅长，您好！我是港澳企业的一名员工。我司目前有一批研发用途物品（体外诊断试剂研发用品）需要从香港进关。但是，一直都在补充材料，但是到现在都过不了关。刚刚看到《广东省人民政府印发关于推进广东自贸试验区",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府印发关于推进广东自贸试验区贸易投资便利化改革创新若干措施的通知",
+    "取得国外标准认证或注册的非医用口罩/医疗物资生产生产企业清单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "2170569",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2170569",
+   "question": "境外中资企业报到登记表模板在哪里可以获取？\n境外中资企业报到登记表模板在哪里可以获取？",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "企业境外投资证书",
+    "企业境外机构证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2166888",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2166888",
+   "question": "各市对外直接投资额\n尊敬的广东省商务厅领导，您好！由于毕业论文课题数据需要，现需查询2015-2019年广东省各市对外直接投资额的数据。但查询各数据库无果，特向您请求这部分数据发至邮箱。如能提供，不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度",
+    "广东省商务厅政府信息公开指南",
+    "广东省商务厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2160418",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2160418",
+   "question": "毕业论文数据\n你好，请问怎么查到2010-2020年广东服务贸易以及运输服务贸易进出口数据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2119691",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2119691",
+   "question": "报废机动车回收拆解资质要求\n您好，请问报废机动车回收拆解企业： 1.人员需要齐备什么证件才能上岗？ 2.对持证的人员数量有要求吗？如果有，分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "报废机动车回收拆解企业技术规范",
+    "GB 22128-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1886040",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1886040",
+   "question": "澳门对广东省分行业投资数据\n您好，我是一名在读研究生，经查询过广东省统计年鉴，澳门统计年刊，咨询过广东省统计局，均未能查到澳门对广东省分行业的投资数据，想咨询贵厅是否能够提供相关数据，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1103354",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1103354",
+   "question": "东南亚十国具体国家以及其他国家对广东的外商直接投资额\n你好，因毕业论文需要，请问有没有东南亚十国具体国家以及其他国家对广东的外商直接投资额数据呀？现在看到的只有外商直接投资总额，没有具体国家的。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1091158",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1091158",
+   "question": "恒大农牧兑换卡无法兑换！\n恒大农牧现在更名为翠林农牧，以前得兑换卡无法兑换；要求开放兑换或退款；深圳市市场监督管理局福田监管局不受理！",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1078817",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1078817",
+   "question": "数据求取\n您好！请问有没有“计算机、通信和其它电子设备制造业”和“信息传输、软件和其它信息技术服务业”的“外商直接投资金额”这个数据，统计口径为“规模以上”，时间为2019年。数据是用来做学术研究的，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1069326",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1069326",
+   "question": "投诉深圳市飞速国际货运代理有限公司\n2021年8月15日通过微信联系投书对象进行国际快件运输代理服务并承诺7个工作日到达，8月20日投诉对象通过ups国际快递公司将快件从香港寄往加拿大，到今2021年10月8日快件仍未到达，期间向ups进行",
+   "cited_hits": [],
+   "cited_missing": [
+    "国际货运代理企业备案（暂行）办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1057190",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1057190",
+   "question": "预付卡管理\n你好，我们是一家进口牛奶品牌在大中华地区的总代理，现公司拟在电商平台抖音发行年兑付卡，即一年内可兑付我品牌24提奶或其他数量的产品，经过咨询了解这个属于提货券，不属于预付卡，我是否可以理解为该劵不适用管理办法，即无需向商务厅备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1053883",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1053883",
+   "question": "外派劳务\n深圳地区企业可否从事外派劳务合作，如何办理《对外劳务合作经营资格证书》",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省对外贸易经济合作厅 广东省工商行政管理局关于对外劳务合作经营资格的管理办法",
+    "对外劳务合作经营资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1050061",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1050061",
+   "question": "关于发行单用途商业预付卡备案\n你好，我公司是一家酒店管理公司（注册资本2000万，资产总额超过5000万），营业执照经营范围主要有：一般项目：酒店管理；餐饮管理；体育竞赛组织；社会经济咨询服务；企业管理咨询；信息咨询服务（不含许可类信息咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）",
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1046834",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1046834",
+   "question": "2019年广东省对非洲的对外直接投资额有多少？\n你好，百度，知乎，微博等都找不到数据图表，所以我来求助了，非常抱歉打扰了，实在找不到数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1036508",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1036508",
+   "question": "境内企业在香港注册公司\n我公司是一家外商投资公司，现在计划在香港注册一家公司，请问需要到哪些部门办理手续，需要提供什么资料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "境外投资备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1004180",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1004180",
+   "question": "境外投资备案\n您好，我有一些问题想咨询： 1、广东省深圳市的对外投资事宜有客服电话进行咨询吗？ 2、公司A是公司B（广东省境内公司）新设成立在香港的境外公司，现在公司C（境内公司）要投资公司A，是需要公司B提交投资备案申请呢？还是需要公司C",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "995709",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=995709",
+   "question": "关于企业境外投资证书的问题\n你好； 我们有一家顾问单位，企业已经办理了《企业境外投资证书》，现在公司的名字发生了变更，从有限责任公司变更为股份有限公司了。企业是否需要重新办理新的《企业境外投资证书》，或者是否需要重新做备案。",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "企业境外投资证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "991796",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=991796",
+   "question": "通过ODI在香港设立的公司进行减资需要提供的资料和需要办理的手续\n领导好： 有一个问题需要咨询：我公司之前通过ODI方式在香港全资设立了一间公司。现在公司的发展战略有调整，要对香港公司进行减资，并将减资的资金汇回境内的投资主体。想了解一下对",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "广东省商务厅关于发布境外投资管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "987482",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=987482",
+   "question": "境内企业在境外设立的子公司计划免费转让给境外公司，请问国内需要办理哪些手续？\n您好，有个问题想要咨询一下： 我们企业在广东省内，早前在加拿大设立了一家全资子公司，原计划用于境外技术合作。但由于合作未能达成，该家子公司一直未有实际经营，因此公",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "990421",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=990421",
+   "question": "广东省再生物资回收经营许可备案事宜咨询\n您好，我是嘉吉迈拓金属贸易上海有限公司的员工，该司注册于上海市徐汇区淮海中路999号，公司经营范围包括：贱金属、铁矿石、钢材及其制品的批发、进出口、佣金代理（拍卖除外）及其他相关配套业务。目前公司希望",
+   "cited_hits": [],
+   "cited_missing": [
+    "再生资源回收管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "983896",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=983896",
+   "question": "加工贸易项下白银出口管理如何办理？是否是广东省审批？\n加工贸易项下白银出口是否要求出口企业必须在国营贸易企业名单内？不需要的话，加工贸易白银出口许可证是否只需要在商务部业务系统统一平台申报就可以了？审核机关是否为广东省商务厅？上报之后应该联",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部业务系统统一平台",
+    "商务部办公厅关于加工贸易项下白银出口审批业务实行网上办理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "961739",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=961739",
+   "question": "服务贸易数据\n您好，我是一名在读研究生，因研究需要，可否直接告知2010年及2014年广东省服务贸易进出口详细数据（广东年鉴无2010年数据）",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "961150",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=961150",
+   "question": "广东省服务贸易进出口数据\n你好，我是一名在读研究生，因为毕业论文需要广东省2014-2019年服务贸易按部门划分的进出口数据（运输、旅游、建筑、保险服务、金融服务、计算机和信息服务、知识产权使用费、个人文化和娱乐服务、维护和维修服务、加工服",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "949923",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=949923",
+   "question": "二手车经营主体备案\n根据《二手车流通管理办法(2017修正)》第三十条规定：建立二手车交易市场经营者和二手车经营主体备案制度。凡经工商行政管理部门依法登记，取得营业执照的二手车交易市场经营者和二手车经营主体，应当自取得营业执照之日起2个月内",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府2012年行政审批制度改革事项目录（第一批）",
+    "关于取消二手车经营主体备案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "921585",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=921585",
+   "question": "境外投资备案\n1.我们是一家设立在东莞的企业，2017年分别以新设、通过子公司（境外的）受让第三方股权方式取得了几个境外子公司的股权，该等子公司用途均为投资平台公司或销售平台，请问本企业是否需要就取得该等子公司股权办理商务审批手续？目前我们",
+   "cited_hits": [],
+   "cited_missing": [
+    "境外投资管理办法",
+    "企业境外投资证书",
+    "境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "920695",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=920695",
+   "question": "粤贸全国\n粤贸全国要在今年举行100场线上线下的活动， 这100场活动的清单是什么？我们怎么能参加这些活动？参加这些活动， 有哪些激励政策？我现在查不到相关的政策，可以告知政策的具体文件名和实施部门吗？我们是深圳市的企业，在深圳商务网站上，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展粤贸全国工作积极开拓国内市场的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "919151",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=919151",
+   "question": "车展\n我们企业发展在揭阳市普宁市打造一个新车汽车城，集新车销售、售后、上牌、二手车置换、提档、休闲娱乐于一体的汽车商业圈。现在目前已经在开始启动，第一期基础建设已经做好，现阶段开始招商。前期计划将以节假日定期举办车展的活动来预热场地，想看下",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新能源汽车免征车辆购置税有关政策的公告",
+    "关于稳定和扩大汽车消费若干措施的通知",
+    "商务部等12部门关于提振大宗消费重点消费促进释放农村消费潜力若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "915525",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=915525",
+   "question": "近5年广东省国有企业和民营企业对外直接投资的企业数量\n尊敬的领导您好，打扰您一下，因论文写作需要，可否公开一下近5年广东省国有企业对外直接投资的企业数量和广东省民营企业对外直接投资的企业数量，谢谢您。",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "911682",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=911682",
+   "question": "单用途商业预付卡备案\n如果企业是广州市分公司资质的酒店，是单一酒店发行储值卡，且该储值卡产品仅限在该单一酒店使用，是否还需要备案？或者单张储值卡的金额限制在多少以内，就无需备案？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "911496",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=911496",
+   "question": "单用途商业预付卡备案条件\n您好，想咨询酒店申请单用途商业预付卡备案，除了“单用途商业预付卡管理办法（试行）”http://www.mofcom.gov.cn/article/swfg/swfgbh/201303/20130300062950",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-com",
+   "id": "905626",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=905626",
+   "question": "急求2008年至2019年的对外投资（境外投资）数据\n本人因毕业论文，需要是可以有具体到对各个国家的对外投资投资数据，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "905848",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=905848",
+   "question": "关于2018-2019年外商直接投资数据的咨询\n您好！我是暨南大学的学生，因毕业论文研究需要，想咨询2018、2019年惠州市、佛山市、肇庆市的外商直接投资-实际使用金额。（1）查阅过《广东统计年鉴》和各地级市的统计年鉴，发现上述三市201",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "902333",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=902333",
+   "question": "关于2003-2020广东省各市对外直接投资额统计数据的咨询\n尊敬的广东商务厅领导： 您好，我是广东财经大学一名在读硕士，近期我们课题组正在进行一项关于“双向FDI 对广东经济的影响研究”，但是遍寻资料库，也没有找到2003-2020广东省",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外直接投资统计制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "902290",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=902290",
+   "question": "对于被要求退回汽车置换补贴的投诉\n按佛山市府办2020.1.29印发[2020]3号文件《佛山市人民政府办公室关于印发佛山市促进汽车市场消费升级若干措施（试行）的通知》，对消费者“在本市注册登记的汽车销售企业购买‘国六’汽车给予补助”，我于",
+   "cited_hits": [],
+   "cited_missing": [
+    "佛山市人民政府办公室关于印发佛山市促进汽车市场消费升级若干措施（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "891133",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=891133",
+   "question": "2018、2019年分方式利用外资数据\n您好，我想咨询一下是否有广东省2018、2019年分方式利用外资的数据。（合资型、独资型、合作经营、外商投资股份制等外资）谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "880318",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=880318",
+   "question": "数据查询\n您好！本人因写论文需要广东省2010年到2019年的服务贸易进口和出口数据，以及服务贸易的进出口数据总额。 我已查过广东年鉴，但没找到。烦请告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴",
+    "广东年鉴2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "877000",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=877000",
+   "question": "《关于开展培育诚信消费示范商圈（步行街）活动的通知》在哪里可以查阅\n想进一步了解省商务厅、省市场监督管理局《关于开展培育诚信消费示范商圈（步行街）活动的通知》（粤商务秩字〔2019〕1号）的具体内容，目前在官网查不到，请问这则通知可以公开吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展培育诚信消费示范商圈（步行街）活动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "876157",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=876157",
+   "question": "东莞市威格汽车销售服务有限公司不退还订金\n本人于2020年9月21日在该店支付了人民币10000元订金【大写：人民币壹万元整】。由于对该品牌车辆驾乘舒适度（未提供试驾）及精品加装等定价存疑，决定取消购车计划。本人于2020年9月26日致电并",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车销售管理办法",
+    "广东省人民政府关于开展市县市场监管综合执法工作的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "870270",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=870270",
+   "question": "服务贸易进出口数据\n你好，我是一名经济学学生，我需要广东省2000-2018年服务贸易进出口数据，但是查询《广东统计年鉴》并未查询到相关记录，请问在哪里可以查询到，或者是这个数据没有统计？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴",
+    "广东年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "869127",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=869127",
+   "question": "广东省旅游服务贸易数据查询\n您好~我是一名大四学生，正在写关于广东省旅游服务贸易论文。我在广东年鉴的目录栏里没找到有关广东服务贸易出口额以及广东旅游服务贸易进口额数据，请问这些数据应该在《广东年鉴》哪个目录下寻找？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东年鉴2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "866718",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=866718",
+   "question": "《商务领域一次性塑料制品使用、回收报告办法（试行）》疑问\n您好，有以下问题咨询，盼复，感谢！ 1. 对于超市（零售企业），其所经营的超市商品到家服务，是否同时需按“外卖企业报告”的内容执行。 2. 目前无法获悉报告系统平台的上报渠道，企业总",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务领域一次性塑料制品使用、回收报告办法（试行）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-com",
+   "id": "3503825",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3503825",
+   "question": "能赴港工作的劳务公司名称\n计划赴港做电工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3497320",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3497320",
+   "question": "关于供港冷冻猪肉出口配额的申请\n供港冷冻猪肉是否需要申请出口配额，如需要，怎样申请，请给一个明确流程指引",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3478364",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3478364",
+   "question": "粤贸全国展会补贴申报指引\n根据《广东省商务厅关于2026年“粤贸全国”活动目录的公示》（https://com.gd.gov.cn/zwgk/gggs/content/mpost_4852274.html），2026广州医疗与健康产业博览会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3366413",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3366413",
+   "question": "关于申请二手车出口企业资质及了解相关要求的咨询函\n关于申请二手车出口企业资质及了解相关要求的咨询函 我计划以流通企业的身份进行申报。针对《公告》中要求的“具有汽车销售或贸易经验”、“具备二手车鉴定评估能力，雇佣至少3名鉴定评估专业人员”等条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3354428",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3354428",
+   "question": "广东省2026年品牌方大家电（热水器）以旧换新\n想咨询广东省2026年品牌方大家电（热水器）以旧换新入库流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3325202",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3325202",
+   "question": "关于钢铁出口许可证\n想咨询一下，这个2026年的新管制钢铁许可证，我如果作为一个厂家，寻找代理出口公司帮忙代理出口，这个钢铁许可证是不是代理出口公司要办的呢？每一次出口这个商品都要办一次还是说办一次可以用很久比如一年？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3311851",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3311851",
+   "question": "境外直接投资备案信息查询\n请问目前商务厅有对境内企业的境外直接投资备案信息进行公开公示吗，如果有的话，可以怎么查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3293236",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3293236",
+   "question": "作为个人如何可以查询到某个企业是否注册在南沙自贸区内？\n作为个人如何可以查询到某个企业是否注册在南沙自贸区内？是空工商执照还是哪里？目前对广东自贸区的划分片区比较零散，想了解企业是否注册在自贸区内可以有什么途经？南沙区企业全生命周期综合服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3283320",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3283320",
+   "question": "境外再投资咨询\n《境外投资管理办法》（2009）于2009年5月1日起施行，该办法要求境外再投资需要履行备案程序，《境外投资管理办法》（2014）改为境外再投资需要事后报告。请问：一家境外中资企业于2009年5月1日之前实施了境外再投资，未",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3282227",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3282227",
+   "question": "关于“出口手机成套散件（含手机电池）是否属于两用物项”的问题咨询\n根据商务部 海关总署公告2025年第58号公告，公告自2025年11月8日起正式实施，针对：锂电池相关物项及有关设备，提出了出口管制要求。我们企业计划在11月出口手机成套散件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3266649",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3266649",
+   "question": "关于2024年9-12月开拓国际市场展会项目资金拨付\n之前在平台业务咨询 说的是9月份会把款拨付至企业账上，现在拨付进度到哪里了？有没有渠道或者电话可以直接查到我司的具体进度情况？有没有拨付失败的提醒通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3269143",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3269143",
+   "question": "2025年是否还进行绿色商场评价审核\n依据《绿色商场》（GB/T38849-2020）、《绿色商场创建评价指标（试行）》，商场拟申请绿色商场创建，2024年商务部、广东省均未下发绿色商场评价通知，商务部绿色流通服务系统（https://em",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3268277",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3268277",
+   "question": "商务部2025年第58号公告对砂磨机实施出口管制相关问题\n1.商务部 海关总署公告2025年第58号对能量密度大于等于300wh/kg的可充放电锂离子电池实施出口管制，1.小于该标准的锂离子电池不在出口管制范围内。2.应用于小于该标准的锂离",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3268731",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3268731",
+   "question": "请问出口一批粘土石墨坩埚，其中成分石墨占50%，需要办理两用物项许可证和出口许可证吗？\n请问出口一批粘土石墨坩埚，货物成分：石墨50%，高岭土18%，白羊岭8%，高铝石10%，金属硅7%，碳化硅5%，高硼玻璃粉2%。其中成分石墨占50%，需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3268817",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3268817",
+   "question": "关于商务部 海关总署公告2025年第58号 执行细节咨询\n您好，我司是研发生产锂电池制造装备的企业，想就国家刚发布的商务部海关总署公告2025年第58号做一些咨询： 1、一、锂电池相关物项 （二）3B901.a．用于制造可充放电锂离子电池的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3259248",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3259248",
+   "question": "“粤贸全球”、“粤贸全国”展会名单咨询\n依据政策依据《关于打造“ 三城一岛”产业增长极加快发展新质生产力若干举措》（穗埔府规〔2025〕3 号，以下简称《举措》）【第三十条】指南，“粤贸全球”展会指广东省商务厅公布的扶持年度的“‘粤贸全球’",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3252582",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3252582",
+   "question": "2026年香港玩具展粤贸全球补贴\n你好！我司要参展2026年香港玩具展，到时申请粤贸全球补贴，我司是个体户没有海关备案能申请吗？如果我司升级为个人独资，营业执照有货物进出口，有海关备案可以申请这个补贴吗？还需要什么资料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3250078",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3250078",
+   "question": "粤贸全球\n您好，如若我司参加2025年第十届国际博览会（物流供应链）展会在希腊（10月18日至10月20日），是否能申请补贴呢？因为根据了解很多中国汽车品牌也会参加比如大通、比亚迪之类的。如果在名录里没有该展会，那是否能重新报备这个展会呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3244990",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3244990",
+   "question": "请问怎么查询有在商务部备案过的，有做出国打工业务的名单和电话？\n请问怎么查询有在商务部备案过的，有做出国打工业务的名单和电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3232265",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3232265",
+   "question": "汽车置换补贴\n关于汽车补贴政策，要求旧车转让和购买新车，今年购买了一台新车，转让了一辆旧汽车，但过了没多久（还在2025年）就把旧车重新购入，即旧车重新回购，这种是否符合汽车补贴政策的要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3220900",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3220900",
+   "question": "关于咨询汽车以旧换新补贴事宜\n尊敬商务厅领导： 您好！ 我想反馈一个事情，本人在佛山购买一辆新汽车，申请以旧换新国补。粤换新系统提示今日10:00开始发劵，我9:58开始准备提前定位好佛山，10点进去系统，一直显示打不开，好不容易进去，会自",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3221043",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3221043",
+   "question": "外贸发展专项资金（中小）网络管理应用\n您好，我司准备26年4月会参加一个中东的展会，已经确认并预定好了展会，想提前了解符合什么条件才可以申请这个补贴，以及流程、提交什么资料，网络上没有查询到很明确的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3213243",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3213243",
+   "question": "2025年境外展会补贴俄罗斯工程机械展CTT 5.23-5.29申请\n你好， 2025俄罗斯工程机械展CTT 5.23-5.29,能申请2025年境外展会补贴吗？什么时候开始申请？它并未出现“2025 年“粤贸全球”广东商品境外展览平台列表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3208333",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3208333",
+   "question": "汽车置换补贴\n本人有湖南牌照旧车（2017年购买上牌），准备近期在湖南转让出售，在广东购买新能源新车，请问可以获得广东省置换补贴吧？还有，先买新车还是先卖旧车有要求吗？置换补贴是购车人完全个人申请还是需要汽车4S店的辅助？在最近一两个月内，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3203181",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3203181",
+   "question": "再生资源回收经营者备案\n广州市南沙区的再生资源公司，在哪里查询再生资源回收经营者备案信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3201260",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3201260",
+   "question": "非商用车皮卡车汽车置换新能源轿车置换补贴\n我名下有一台非商用皮卡车想要置换成新能源轿车，是否符合广东省的汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3199808",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3199808",
+   "question": "2024年出口信用保险\n请问，《广东省商务厅关于做好2024业务年度促进投保出口信用保险项目资金管理工作的通知》（粤商务贸函[2024]131号）中“企业类项目。鼓励在我省（不含深圳，下同）登记注册的外贸企业……”文件规定的“外贸企业”是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3199085",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3199085",
+   "question": "关于广州国补的开始时间\n您好： 6月底广州国补匆匆结束，最近有新闻表示7月广东国补即将上线，想询问下有无7月广州国补开始时间或信息，后续我在哪里可以第一时间接收相关消息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3193074",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3193074",
+   "question": "粤贸全国\n请问粤贸全国的补贴标准在哪里可以查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3187927",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3187927",
+   "question": "车行新车销售备案\n车行新车销售怎么备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3189825",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3189825",
+   "question": "东莞汽车以旧换新政策\n东莞市汽车以旧换新政策目前6月14日暂停了！那6月14号以后的客户还有机会享受吗？很多客户现在都不敢办手续…在等待新政策，如果政策会延续，时间节点会不会空档？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3189110",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3189110",
+   "question": "广东电脑国补\n你好，广东国补还会继续进行吗？国补领取通道什么时候可以能开启？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3185960",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3185960",
+   "question": "购车补贴问题\n我名下有2辆车,如果我买两台新能源车的话，请问我能够在2025年两台车分别享受一次报废补贴和一次置换补贴吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3182763",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3182763",
+   "question": "关于汽车置换补贴\n请问目前这种情况，汽车置换补贴会提前结束吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3180249",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3180249",
+   "question": "广东省空调补贴\n当前各购物平台的空调购买补贴取消了吗？怎么都看不到了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3179285",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3179285",
+   "question": "关于广东省家电国补\n想买一台手机发现国家补贴没有了，根据国家发改委规定，不是手机国补政策原计划持续至2025年12月31日吗？何时能恢复，有何最新通知吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3181247",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3181247",
+   "question": "政策解读信息\n您好，请问广东省商务厅的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3166776",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3166776",
+   "question": "申请对外劳务合作经营资格\n广东政务服务网站上的申请材料清单中有一项：相关管理人员在有对外劳务合作经营资格的企业从事对外劳务合作业务的工作履历证明、学历证书、资格证书等复印件。请问：学历证书、资格证书具体指的是哪种学历证书、资格证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3167924",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3167924",
+   "question": "展览公司投标\n我们是一家展览公司，想咨询一下26年境外展会 展览公司的投标流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3168973",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3168973",
+   "question": "境外展会申请补贴，组展单位\n尊敬的省商务厅领导，您好： 我司是北京中咨时代国际展览有限公司，工作内容为海外医疗展会组织方。全球如韩国KIMES，泰国，印尼，德国MEDICA等知名医疗展在中国的官方代理，且有很多广东省的医疗企业客户。致力于协",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3156333",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3156333",
+   "question": "数据求取\n需要对广东省“以旧换新”政策的实施效果进行定量建模和分析，所以需要以下： 1.收集2023年1月至今广东省绿色节能家电的月销售数据（如空调、冰箱、洗衣机等）的数据。 2.除广东省总体外，还要有以地级市划分，收集各地家电销量、居民参",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3153130",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3153130",
+   "question": "数据获取\n需要对广东省“以旧换新”政策的实施效果进行定量建模和分析，所以需要以下： 1.收集2023年1月至今广东省绿色节能家电的月销售数据（如空调、冰箱、洗衣机等）的数据。 2.除广东省总体外，还要有以地级市划分，收集各地家电销量、居民参",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3156639",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3156639",
+   "question": "TEMU拟联合举办新能源汽车出海研讨会，诚邀商务厅指导支持\n为加快推动广东新能源汽车企业通过跨境电商平台出海，TEMU 希望在广东省商务厅的指导与支持下，联合举办“新能源汽车跨境出海研讨会”，邀请本地新能源整车及零部件企业、外贸服务机构、电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3153226",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3153226",
+   "question": "一个人两部车可以享受不同补贴吗?\n请认真留意我的问题,我是名下有2辆车,都是2012年6月30日前注册的,我可以在半年内,车辆A享受国家报废补贴,车辆B享受置换补贴吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3152533",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3152533",
+   "question": "广州家装焕新云闪付8.5折\n自从今年5月1日开始从11点发放优惠券，系统显示已获得资格，每天准点进入都是显示额度已抢完。请问去年领了家装补贴并支付了全款并开具发票，由于装修格局有变化，如需退回小部分装修材料的补贴，需如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3149080",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3149080",
+   "question": "广东省绿色家电数据\n您好！我们有一项课程作业需要对广东省“以旧换新”政策的实施效果进行定量建模和分析，所以需要以下数据： 1.收集2023年1月至今广东省绿色节能家电的月销售数据（如空调、冰箱、洗衣机等）的数据 2.除广东省总体外，还要有以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3149254",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3149254",
+   "question": "一个人在一个自然年能否享受报废和置换补贴各一次?\n我名下有2辆车,都是2012年6月30日前的,请问我能够在2025年同时享受一次报废补贴和一次置换补贴?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3137267",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3137267",
+   "question": "关于汽车置换补贴政策咨询\n海南人在广州工作生活： 2024年8月在海南省以旧车辆A置换购买了新车辆B，并已在2024年12月领取海南省2024年置换补贴18000元: 今年因为家庭人口多，希望在2025年6月在广东省将B车置换增购7座C车辆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3131478",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3131478",
+   "question": "支持绝代佳人(JDJR）汽车项目落户广东（由国有投资机构牵头股权投资）\n习总书记在今年参加两会代表团审议时强调 经济大省要挑大梁为全国发展大局作贡献。要把握好挑大梁的着力点，在推动科技创新和产业创新融合上打头阵，在推进深层次改革和高水平开放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3125448",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3125448",
+   "question": "广东以旧换新促销费政府补贴\n我2021年1月在云浮某店买家私总金额12177，订单在2021年1月已付定金3000元，至今未提货，现在准备结余款9177元并提货，能否享受现在的广东以旧换新促销费政府补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3119113",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3119113",
+   "question": "关于汽车的国家政策和以旧换\n你好，现在旧车符合置换条件， 我想咨询下旧车过户有限制吗？可以夫妻之间过户或者过户给同一户口的直系亲属可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3122389",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3122389",
+   "question": "2023和2024年的广东省服务外包有关数据\n因为毕业论文需求，可以提供一下2023和2024年广东省服务外包离岸外包具体市场执行额和市场分布吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3115753",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3115753",
+   "question": "家装以旧换新无全屋净水设备补贴\n领导们好，我是白云区的净水商家，公司是四上企业，公司以经营全屋净水产品为主，24年家装厨卫以旧换新也参与了补贴活动，11月12月两个月的业绩是1025万，但是今年家装厨卫类没有全屋净水产品的补贴呢，全屋净水设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3108463",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3108463",
+   "question": "抖音广东省家装焕新补贴无法解绑\n抖音商城广东家装焕新补贴领取后没有设置解绑界面，导致领取后无法解绑，向企业客服反映后仍旧无法解决，有恶意占用国补资格嫌疑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "3081882",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=3081882",
+   "question": "关于电动车的国家政策和以旧换新\n你好，2025年线下准备购买电动车，关于国家补贴如何去申请呢，到时候进行减免，如何依旧以旧换新的新政策又是如何的呢？望答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2996892",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2996892",
+   "question": "怎样加入商务厅组织的企业参展\n您好，请问商务厅是不是组织国内企业出国参展，请问怎样加入企业出国参展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2972405",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2972405",
+   "question": "关于特许经营的问题\n1.母公司有取得商业特许经营备案，能否通过授权将“特许经营”权限授予子公司，子公司在外省开展特许经营活动，以子公司名义作为特许人招收加盟商是否合法。 2、子公司开展特许经营活动是否可认定为二级特许（分特许）或代理特许？子",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2955864",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2955864",
+   "question": "查阅海外仓相关政策文件\n《关于推动跨境电商海外仓高质量发展若干措施的通知》（粤商务电函〔2023〕110号）在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2938778",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2938778",
+   "question": "广东省老字号品牌\n您好，我发现网上并没有公布广东省的老字号品牌名单，只有中华老字号名单，是否会有公布公示出来呢，因为学位论文想研究地方老字号方向的，所以想来问一下下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2923090",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2923090",
+   "question": "省外经贸运行监测系统样本企业名单\n您好，请问在哪里能看到2024年广东省外经贸运行监测系统样本企业名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2915735",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2915735",
+   "question": "广东省商务厅的政策解读信息\n您好，请问广东省商务厅的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2888631",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2888631",
+   "question": "汽车以旧换新补贴实施细则\n请问广东省关于《汽车以旧换新补贴实施细则》的具体实施细则大概什么时候出台？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2859622",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2859622",
+   "question": "如何修改广交会证件参展证个人资料中的企业广交会编码\n本人更换了公司，现需激活参展证，但是原来参展证已遗失，请问到新公司如何办理新证？两家企业都是属于广东省交易团，新公司已有摊位号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2839344",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2839344",
+   "question": "境外再投资备案\n您好，想咨询如果境外再投资设立的是平台公司或者项目公司（比如特殊目的SPV公司），未有实际的生产经营业务，是否仍需做再投资备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2833805",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2833805",
+   "question": "境外展会补贴申请\n已基本确定2024年10月参加境外展会，请问办理补贴申请的各项文件资料具体是什么，哪里可以查询到具体信息，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2784575",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2784575",
+   "question": "外经贸发展专项资金\n外经贸发展专项资金(推动服务贸易创新发展事项) 申报指南，2023年度的申报大概几时通知? 另外。我公司为境外公司(属于我司关联公司) 提供技术研发服务，并取得研发服务费、咨询服务费，想咨询下，这种情况，符合2022年申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2776429",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2776429",
+   "question": "正规出国劳务派遣公司有哪些\n你好，请问广东正规的出国劳务派遣公司有哪些呢？家人想到香港工作，想问有哪些渠道呢？可以提供这些公司的地址跟电话吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2752550",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2752550",
+   "question": "深圳市和广州市跨境电商产业园区名单\n您好，因本人经济学专业论文研究需要，请问是否可以提供深圳市和广州市跨境电商产业园区的名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2722788",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2722788",
+   "question": "广东省级开发区数量及名单\n请问截至2023年8月底，广东省共有多少个省级开发区？或可以在哪里查询相关数据。未见广东省商务厅对此有相关披露。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2701034",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2701034",
+   "question": "2023年国外参展补贴，什么时候可以申请，是明年吗\n我公司在国外申请参展了，看到了境外展览有补贴可以申请，请问申请补贴的时间是什么时候？需要到明年才能申请吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2701047",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2701047",
+   "question": "香港是否执行国内的出口政策\n7月31日，新颁发了两个关于无人机及相关物项出口的政策，产品在国内到香港需要申请出口许可证件。那么，从香港出口到其他国家时，也需要按照内地的政策要求申请出口许可证件吗？还是按照香港的政策规定走？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2685305",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2685305",
+   "question": "广东省外经贸运行检测系统\n请问广东省外经贸运行检测系统的账号是如何注册的呢？企业注册有什么要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2631794",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2631794",
+   "question": "进口贴息政策\n请问国家和广州市的进口贴息政策，是否可以一起申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2620546",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2620546",
+   "question": "境外业务合同备案与数据报送问题\n我司一家信息科技公司，现有计算机软件著作权，与境外企业签订一下三类合同，计算机软件著作权许可使用协议、技术服务协议（针对软件进行维护等）、客服服务合同（针对软件问题咨询、解答等），以上业务是否需要在商务局进行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2611562",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2611562",
+   "question": "内资转港澳台投资\n公司已在工商完成变更登记，公司性质从内资变成了港澳台投资非独资。想咨询一下后续需要来商务部或者外经贸这边做中资转外资的登记备案工作吗？具体的办事流程和所需资料是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2576839",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2576839",
+   "question": "服务贸易\n您好，请问厅里是否有关于数字服务贸易方面的研究，服务贸易十二大类中有哪些属于数字服务贸易？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2566699",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2566699",
+   "question": "财政预决算信息\n您好，请问广东省商务厅的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2560499",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2560499",
+   "question": "申请获得广东省商务厅2019、2020年的整体支出绩效自评报告\n贵单位：您好！本人申请获得广东省商务厅2019、2020年的整体支出绩效自评报告（PDF/word版），仅供学术研究使用。盼早日答复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2484223",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2484223",
+   "question": "赴境外参展或商务洽谈\n近期省商务厅是否有组织外贸企业商务包机（舱）赴境外参展或商务洽谈？企业如何参加这类组织包机活动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2419966",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2419966",
+   "question": "请问2021年粤贸全球补贴何时落实\n2021年参加了粤贸全球展会，深圳补贴50%，一年过去了，请问补贴何时能发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2404412",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2404412",
+   "question": "云展会申请补贴展会合同一定要电子合同吗？\n云展会申请补贴展会合同一定要电子合同吗？纸质打印的合同是否可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2322232",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2322232",
+   "question": "广东省单用途商业预支卡备案\n我司为餐饮行业，现要办理广东省单用途商业预支卡备案，流程和材料在省商务厅网站查询不到，需要明示相关流程及材料准备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2308427",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2308427",
+   "question": "关于二手车出口企业资质申请\n你好，请问广东省内目前二手车出口资质申请的流程，在政务平台只看到2019年的要求，现在企业是否还可以继续申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2278598",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2278598",
+   "question": "特许经营备案\n你好，我司已经营一个商业特许经营品牌，已在系统提交资料供贵局审查，请问一般审查期限是多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2272064",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2272064",
+   "question": "医用一次性外科手术衣如何申请白名单\n您好，我司是生产一次性无纺布外科手术衣（无菌）的企业，目前已经取得了国内药监局颁发的产品注册证、CE证书、EN13795检测报告。因外贸业务需要，现需要申请加入商务部白名单。 请问相关的流程是什么呢？ 需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2262870",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2262870",
+   "question": "广东省有公物拍卖资质的企业有哪些\n向贵厅咨询一下，请问广东省有公物拍卖资质的企业有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2262775",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2262775",
+   "question": "佛山公司违法从事特许经营活动，怎么举报？\n尊敬的领导，你好。我是广州的一家餐饮企业主，我在前几年，加盟了佛山市南海区的一家餐饮品牌，收了我一笔加盟费。 但是现在我才发现，这家餐饮品牌并没有在特许经营管理系统备案就违法从事特许经营活动，招收加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2267994",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2267994",
+   "question": "商务厅机构职能信息\n请问广东省商务厅的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2262695",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2262695",
+   "question": "商务厅政府信息公开工作年度报告\n请问广东省商务厅的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2256241",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2256241",
+   "question": "生产性服务贸易进出口数据\n在广东省统计年鉴的对外经济篇没有找到服务贸易的相关数据，请问在哪可以找到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2249283",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2249283",
+   "question": "毕业论文数据\n您好。因为写毕业论文，所以需要2010年到2021年广东省机电产品出口贸易方式占比、出口国家以及出口结构占比的相关数据。麻烦请告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2223538",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2223538",
+   "question": "广东省绿色商场创建怎么申报？\n商务厅网站上未查询到绿色商场创建的申报方法，请问绿色商场创建是由市商务局上报还是商场自己可以线上申报评审？申报国家绿色商场是不是要先被评为省绿色商场才可以申报国家级的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2155132",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2155132",
+   "question": "商业特许经营备案\n你好，我司已经营一个商业特许经营品牌，现在要新增特许经营品牌，请问如何操作？商务部“商业特许经营系统”新增品牌后，没有可以编辑和提交资料的入口，请问这个要如何处理，可以咨询谁？希望尽快处理，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2146449",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2146449",
+   "question": "申请外国人来华邀请函需要提交什么材料\n请问申请邀请函需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2122783",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2122783",
+   "question": "关于保税区跨境电商仓库设立分装分拣膳食补充品咨询\n尊敬的领导您好，兹有我斑斓贸易（广州）有限公司，我司拟计划从中国台湾/新西兰进口膳食补充营养品，符合对应营养品属性要求，HS编码均在《跨境电子商务零售进口商品清单（2019年版）》中，维生素",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2124345",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2124345",
+   "question": "反倾销调查案件\n您好，我是一名专科应届毕业生。由于毕业论文需要广东遭受国外反倾销调查案件等资料的支撑，故冒昧打扰。请问截止到2021年，国外反倾销调查涉及广东企业的案件数量以及产品品种的数量可以在哪些文件进行查询？贵厅是否提供这个统计数据呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2117181",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2117181",
+   "question": "有关“特许人以其设立的多个经营场所作为直营店“ ，请问这个具体指那种类型呢？\n您好！ 有关两店一年的证明材料问题 问：特许人的直营店可以以分公司、子公司、经营者的个体户的形式存在；请问《条例》第七条第二款提到的“特许人以其设立的多个经营场所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2119450",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2119450",
+   "question": "咨询进口许可证的所需资料及流程\n咨询进口许可证的所需资料及流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "2116690",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=2116690",
+   "question": "国际货运代理纠纷\n我于2021年7月和8月委托深圳市航晨通国际物流有限公司从深圳运输个人物品（共2箱）至英国，并支付了运输款共计2455元。 2021年7月委托的货物丢失，该公司不能提供证明货物丢失的凭证，坚持不退运费和不赔偿货物价值（35",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1094011",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1094011",
+   "question": "广东省B2B跨境电商出口额及主要商品\n你好，因学习研究需要，需要2015-2020年广东省跨境电商B2B出口额及出口主要产品数额，还望给予回复，先谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1086846",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1086846",
+   "question": "报废汽车回收拆解资质\n请问 1、现在还可以办理报废汽车回收拆解方面的资质么？ 2、对于广东省内设立这方面的企业，经营范围方面有没有规定经营范围字眼上的要求？ 3、是只能线上受理 还是可以线下提交？ 4、注册资本在不同的网站查询到不同的结果 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1082762",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1082762",
+   "question": "广东链上汽车科技有限公司，在无商务部备案情况下，大肆收取保证金且不予开具发票！\n1：广东链上汽车科技有限公司，没有在商务部商业特许经营管理处备案，就在各地大肆骗取经销商加盟，收取加盟费，该公司根本就没有加盟条件。 2：该公司合作协议内，没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1076494",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1076494",
+   "question": "合同方未按规定履行合同内容\n首先，关于年度销售目标：合同上并没有写明具体金额，当事人双方口头约定为200万人民币。 其次，2.当事人双方约定的品牌实际上主要只有大自然品牌，其他品牌甲方要求不低于1000平方米才予以发货，并且该要求并未在合同",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1073263",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1073263",
+   "question": "粤贸全球线上展会2021年“移动电子线上展览会”开展时间\n有主展单位找到我司说可以参加粤贸全球线上展会2021年“移动电子线上展览会”，说这是政府扶持项目有展会补贴，但是我司去广东省商务厅发布的开展时间是2021年10月，主展单位说时间有调",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1072960",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1072960",
+   "question": "港口企业名录\n您好，请问如何查询广东省港口企业的名录呀，拜托了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1067010",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1067010",
+   "question": "广交会线上如何参加和报名？\n你好！我们是一家位于广东省普宁市的生产+贸易的企业，年出口额1000万美元，之前没有参加过广交会，想请问一下第130届广交会的参展方法是如何，请问有联系方式吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1067368",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1067368",
+   "question": "广东省会展业\n本人由于论文写作的需要，需要收集２０１６－２０２０年间广东省会展业的发展数据，请问在哪里可以查询？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1061854",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1061854",
+   "question": "《邀请函（PU）》\n您好，我想咨询一下办理商贸签证需要的《邀请函（PU）》怎么申请?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1058528",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1058528",
+   "question": "投诉4s店\n​你好，我是任先生，我想来实名举报一家4s店。地址是广东省东莞市塘厦镇林村的名爵4s店。七月末，我去了店里看车，戚店员进行接待。过程中，店员告知需交了一笔“诚意金”500元，店员表明这笔如果谈不成可以退。交了诚意金后，店员过了一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1057275",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1057275",
+   "question": "增加口岸业务\n您好、我有一批粤澳客运两地车牌要增加口岸业务，只有拱北口岸一个、现在需要增加口岸进出入关，要从什么部门出文件才可以做增加口岸。谢谢回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1055801",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1055801",
+   "question": "《广东省防控境外输入工作专班关于进一步加强水运口岸疫情防控工作的通知》是否已公开\n老师，您好！ 由于工作需要，我们需要了解《广东省防控境外输入工作专班关于进一步加强水运口岸疫情防控工作的通知》，以便及时配合相关部门做好疫情防控。但是，我们没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1038203",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1038203",
+   "question": "投诉铂德（深圳）科技有限公司对专卖店不负责，不退押金！\n我20年12月左右开了铂德电子烟专卖店，开店前业务和省区经理曾当面说，要交5000押金到公司，是为防止窜货等行为，不开了就可以退！按铂德公司设计装修开业后，业务便不再回任何消息，也不接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1035454",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1035454",
+   "question": "成品油零售（不含危险化学品）是否需要办理许可证\n成品油零售（不含危险化学品）是否需要办理许可证，前提是工商变更已通过了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1026108",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1026108",
+   "question": "关于特许经营中的母子公司的经营范围包含“特许经营体系”的问题\n你好。在看特许经营备案中， 要求母公司经营范围应包含特许经营体系、控股子公司也要包含特许经营体系。 但是在实操中，工商的经营范围选择中没有包含“特许经营体系”这个字眼的选项可选。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1026584",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1026584",
+   "question": "邀请外国人来我公司工作，需要提交什么资料。\n如果我公司需要邀请外国人来我们公司工作，我们公司需要具备哪些条件，哪些资料。然后邀请外国人来我公司需要提交什么资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1023195",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1023195",
+   "question": "17家受害跨境电商企业请求商务厅的帮助\n您好！我们是广州的跨境电商企业，因注册公司时，中介仿造了房东的签名，导致我们所有公司被工商锁住，在有确凿证据和口供的情况下，工商不去追究中介的责任，反而要对我们这些中小企业每家罚款5-50万人民币。我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1024089",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1024089",
+   "question": "疫情期酒店价格虚增\n珠海市寰庭酒店作为隔离酒店，往期价格与现疫情爆发作为隔离酒店期价格差异较大，且居住环境较差，房间内长期潮湿，完全没有所谓的星级酒店的设施和环境，居住隔离期酒店人员告知无选择酒店和房间，现场管理很混乱根本没有所谓的标准人员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1022320",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1022320",
+   "question": "广东省招商引资政策了解\n我们是一家互联网上市公司，先了解一下广东省对于互联网企业的招商引资，有没有什么优惠政策，另外如果计划拿地建设，有没有可能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1020918",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1020918",
+   "question": "投诉广州弘盛企业管理有限公司对加盟商家不负责，不扶持加盟商，不退加盟费用，\n您好，我于2021年4月17日加盟了广州弘盛企业管理有限公司旗下的“我很芒”品牌的奶茶店，当时加盟的时候吹嘘的非常好，什么开店扶持，网络推广，用专业的大数据软件帮忙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1018933",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1018933",
+   "question": "废钢贸易\n我公司拟在广东省新建子公司开展废钢贸易业务，想了解下地方都有哪些的税收优惠政策/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1015514",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1015514",
+   "question": "办理商业特许经营备案\n公司是广州市内资民营企业，行业是服务业，想咨询办理商业特许经营备案的相关部门以及地址。特许人是指自然人还是法人还是一家公司？直营店是指由特许人拥有的店铺包括全资拥有和控股拥有，其中提到的控股是指股权必须要超过51%吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "1010666",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=1010666",
+   "question": "如何办理非机电产品自动进口许可证\n我司需要从国外进口橄榄油，第1次操作，请问是需要办理非机电产品自动进口许可证后才能进口是吗？那是有没有流程可以提供给我们企业如何去办理这个证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "999954",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=999954",
+   "question": "外资确认统计事宜\n我司“广东阳江海陵湾液化天然气有限责任公司”以利润再投资形式引入外资，2020年底前就到账，且以提交资料报商务部备案，回复意见为：无年检利润不予以统计。请问需要再补充什么资料方可确认通过并计入统计数据，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "997145",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=997145",
+   "question": "市场监督管理局根据国际货物运输代理管理规定第四条为由，建议找贵部门处理\n本人2021.4.28委托 众享（深圳）供应链有限公司 ， 运输一批货物到日本亚马逊仓，对方承诺15天到仓。但到到目前为止无法运到，并无法给予确切时间和处理办法一拖再拖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "991329",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=991329",
+   "question": "入境人员居家隔离申请流程\n入境人员如符合相关居家隔离条件，请问如何申请居家隔离，向谁申请，流程是怎样的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "987287",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=987287",
+   "question": "商业特许经营备案\n尊敬的领导： 关于商业特许经营备案欲请教下列问题： 1.同一家公司是否可以同时申请两个品牌的商业特许经营备案？还是需要等第一个品牌的备案获批后才能申请第二个品牌的备案？ 2.我司仅第三方供应商采购化妆品并销售，不实际生产化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "977190",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=977190",
+   "question": "微小型外贸公司出口到一带一路国家有何优惠政策\n您好，我们计划办一家公司，做外贸，没有工厂，纯贸易企业，国家近年来一直倡导一路一带，我想请问出口到一带一路国家有何优惠政策，包括国内的以及出口目的国家的，麻烦您告知一下相关信息或者查询地址或者查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "964526",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=964526",
+   "question": "三来一补，来料加工牌照还可以申请吗？\n新办公司，现在还可以申请三来一补，来料加工牌照吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "958808",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=958808",
+   "question": "关于企业防控物资白名单申请中的产品名称问题\n请问关于企业防控物资白名单申请中的产品名称问题，国家医疗器械注册证上的是“一次性使用医用口罩”，然后EN14683检测报告和欧代注册所有资料翻译为“Non-Sterile Medical Face",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "957734",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=957734",
+   "question": "防疫物资白名单申请进度\n你好！我是深圳金准生物，关于防疫物资白名单申请资料深圳市商务局回复在5月21日提交至省厅，请问省厅现在的审核进度，有没有提交至上一级部门？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "954212",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=954212",
+   "question": "省商务厅发布家政服务七项省级地方标准在哪可查看下载？\n请问省商务厅发布家政服务集中发布的《家政服务 企业信用评价》《家政服务 企业信用管理体系》《家政服务 家政服务员信用信息管理规范》《家政服务 合同管理规范》《家政服务 家政服务机构标准体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "948753",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=948753",
+   "question": "防疫物资白名单\n您好！我是深圳市金准生物医学工程有限公司。我公司于2021年4月30日提交申请了白名单资料，但是在5月14日最新公布的白名单企业中未有本公司，现在急切想知道具体审核和流程到哪一步了。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "945196",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=945196",
+   "question": "单用途预付卡备案\n您好，请问奶茶店发放储值卡，充值后可享受折扣，这类情形是否属于单用途预付卡？如果属于，请问是属于哪一类，如何办理备案呢（未搜索到单用途预付卡的办事指南）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "938502",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=938502",
+   "question": "你好，请问怎样在线办理出口许可证核发？\n你好，请问怎样在线办理出口许可证核发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "932535",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=932535",
+   "question": "佛山地区设立典当行\n商务部门是否有指标？ 查询网站资料见只有17年发布的设立指南，设立的推荐机关有规定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "930463",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=930463",
+   "question": "制造业出口数据\n请问有广东省制造业出口数据吗？写论文需要！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "928649",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=928649",
+   "question": "关于国家中药材生产扶持项目申报\n中药材种植为基础的乡村旅游项目，可向国家经济贸易委员申报项目包括： √ 野生药材资源保护和野生药材变家种家养的科研开发及成果推广应用; √ 中药材种植养殖先进技术的研究和推广应用; √ 大宗、紧缺品种的中药材",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "925257",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=925257",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "924898",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=924898",
+   "question": "2020年财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "923188",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=923188",
+   "question": "投诉DHL\n各位领导好，本人从广州寄了一个件去美国，发的是DHL，现在件丢了，商家不给处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "907195",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=907195",
+   "question": "商务局专项资金补贴\n我司东莞市华慕鞋类产品研发服务有限公司，于2020年7月申报中央2020年度外经贸发展专项资金补助，申请已通过。广东省商务局2020年12月已将补助资金拨付给东莞市财政局，但现在东莞财政局并未拨付给企业，请问这项补助，企",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "908017",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=908017",
+   "question": "单用途商业预付卡备案表变更主体的审核时间是多久？\n单用途商业预付卡备案表变更主体的审核时间是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "905682",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=905682",
+   "question": "省内现有单用途商业预付卡备案企业多少家？\n经查询，贵厅在2014年7月21日发布的《我省单用途商业预付卡备案企业名单》一文中公布截至2014年6月，我省已备案单用途商业预计卡发卡企业共125家。 7年过去，广东省内现有单用途商业预付卡备案企",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "908313",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=908313",
+   "question": "中央财政2020年度外经贸发展专项资金（推动服务贸易创新发展事项）补贴\n我司东莞市华慕鞋类产品研发服务有限公司，于2020年8月申报中央财政2020年度外经贸发展专项资金（推动服务贸易创新发展事项）补贴并通过，省商务厅于2020年12月14",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "906602",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=906602",
+   "question": "归国人员隔离酒店住宿条件餐饮卫生标准极低多次协调申请调换酒店无果\n我一行四人爱人儿子5岁女儿14月于3月13日下午抵达白云机场后服从安排上大巴驱车2.5小时抵达开平市雅都酒店开始隔离。入住当晚便与酒店负责人取得联系反映房间内卫生状况差，不许",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "907382",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=907382",
+   "question": "中华老字号\n你好，请问打算申请中华老字号流程怎么做，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "906124",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=906124",
+   "question": "查询白名单进度\n我司是“广东煜隆生物科技医疗有限公司”，我司已于3月初提交了非医用白名单申请，请问审核通有结果吗？非常着急，盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "900592",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=900592",
+   "question": "粤贸全球\n我们是芊植化妆品工厂，收到广东省商务厅印发的关于“粤贸全球”的通知，请问怎么参与此次活动？听说参加展会，可以享受政府补贴，请问具体该怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "892313",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=892313",
+   "question": "纺织品制造商编码（MID）\n我公司需要申请纺织品制造商编码（MID），请问该如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "889647",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=889647",
+   "question": "请问2021年汽车下乡补贴政策什么时候落地\n如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "891110",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=891110",
+   "question": "符合人文关怀特殊人群条件转居家隔离\n领导你好，我们多次向珠海12345及酒店工作组反应带一岁宝宝符合四类人文关怀条件想申请转居家隔离，被拒绝。理由一时一样没有标准。不肯为我们提交申请。广州天河区已得知我们求助，根据流程应该向隔离当地防疫工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "889730",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=889730",
+   "question": "新冠试剂盒出口白名单进度查询\n您好，我司是深圳市梓健生物科技有限公司，于2021年01月29日号向深圳市南山区商务局提交了相关材料，想查询一下我司的材料目前是否来到省商务厅？或者省厅是否已经递交至北京？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "883616",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=883616",
+   "question": "商务部白名单更改+新增进展\n我们公司是深圳市爱康试剂有限公司。我司近期一共提交了两次资料：于一个月前提交了关于公司英文名称更改的资料，于上周提交了关于新增新冠病毒抗原检测试剂的资料。 但截止于2021年2月2日，我们公司英文名称还没有改过来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "881346",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=881346",
+   "question": "成品油零售经营资格审批\n成品油零售经营资格审批请问办理需要什么资料，办理是否需要达到什么条件，办理部门及办理地址在哪里，办理时间需要多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "877554",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=877554",
+   "question": "火车站里的食物的物价太贵\n我在广州南站吃了一顿冬菇木耳鸡饭套餐46元，我吃下来完全不觉得值46元，鸡肉很柴，其他的东西都是用装它们的容器显得很高级，我了解到在一个一线城市的物价应该比我这个来自乡下地方的物价贵得多，但这并不是车站，机场附近的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "872532",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=872532",
+   "question": "新冠试剂盒出口白名单进度查询\n您好，我司是深圳市梓健生物科技有限公司，于2020年12月30日号向深圳市南山区商务局提交了相关材料，想查询一下我司的材料目前是否来到省商务厅？或者省厅是否已经递交至北京？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "868288",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=868288",
+   "question": "深圳市百强国际货运代理有限公司 未按照约定时间送达货物 国际空派服务拖延了2个月\n2020年10月底咨询了一批货的运费到英国的，最后确认走空运+派送到客人地址，时效10天左右，预计2020年11月14日可以送到。 2020年11月3日，该货",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-com",
+   "id": "867762",
+   "url": "https://com.gd.gov.cn/hdjlpt/detail?pid=867762",
+   "question": "酒店隔离定价和应急保障\n上一份投诉回复中酒店隔离收费与平时收费并不一致，肇庆碧桂园平日只有330元左右，周边同品牌同档次隔离酒店也才300元左右，为啥肇庆现在要定458？有没有定价依据和定价标准？另外关于快递，因为酒店供餐时间不准，分量和口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

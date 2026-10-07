@@ -1,0 +1,4387 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-czt",
+   "id": "2560639",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2560639",
+   "question": "继续教育、会计从业证到期\n您好，之前由于工作原因，20-21年继续教育没有做，登录财政网只能做21年的继续教育，20年做不了，请问可以补吗？继续教育是否影响中级会计报考？如果不能补，需要怎么做？ 还有本人的会计从业资格证于2021年到期，是",
+   "cited_hits": [
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2558066",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2558066",
+   "question": "会计从业资格证过期\n您好，请问会计从业资格证过期了，现在已经不办理相关业务了，那会计证还可以继续使用吗？还是需要重新考取初级会计资格证呢？",
+   "cited_hits": [
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2447558",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2447558",
+   "question": "会计从业资格证补办\n请会计从业资格证不小心遗失了，可以进行补办吗？如果可以，需要在哪里补办？",
+   "cited_hits": [
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2167700",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2167700",
+   "question": "2007年至今 就业资金使用明细情况咨询\n您好 想咨询各市的就业资金使用情况。在网站查询到2021年的数据 http://czt.gd.gov.cn/ztjj/fpzjzczl/zjfp/content/post_3299223.html。",
+   "cited_hits": [
+    {
+     "name": "预算法",
+     "lib_no": "预算法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079825",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079825",
+   "question": "关于技校报考注册会计师\n尊敬的广东省财政厅： 您好！ 我想咨询技校的高级技工毕业证书能否报考注册会计师？ 期待您的回复。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国注册会计师法",
+     "lib_no": "注册会计师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "878292",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=878292",
+   "question": "广东省政府采购网投标-供应商所需要具备的要求\n您好，是这样，我们希望了解一下，在广东省政府采购网上参与投标时，供应商所需要具备的要求。例如对信誉、注册资本等，有没有明确的要求，如果有的话，还请将要求发送给电子邮箱或者电话沟通联系，谢谢",
+   "cited_hits": [
+    {
+     "name": "政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "政府采购法实施条例",
+     "lib_no": "政府采购法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "政府采购促进中小企业发展管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "878293",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=878293",
+   "question": "资产评估资质怎么办理\n你好，我们公司是只有价格评估资质，现在要转型增加资产评估资质，请问办理资产评估需要什么条件，还有办理资质的费用",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国资产评估法",
+     "lib_no": "资产评估法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国资产评估法",
+     "lib_no": "资产评估法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "资产评估行业财政监督管理办法",
+    "资产评估行业财政监督管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-czt",
+   "id": "3451978",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3451978",
+   "question": "省级财政科研项目资金管理监督办法咨询\n您好，想咨询项目资金管理监管的相关问题：广东省重点领域研发计划项目结题后产生的结余资金，其后续使用与管理情况是否需由项目承担单位主动向主管部门报送相关材料，接受监督审查？烦请予以明确，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于改革完善省级财政科研经费使用管理的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3433962",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3433962",
+   "question": "非税票据\n2025年12月18日，根据省财政厅非税收入票据管理要求，自即日起，三项岗位人员考试缴费主体为个人，所开具票据抬头仅限考生本人，不得使用单位名称。请帮忙确认以上信息的准确性",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部办公厅关于印发电子〈非税收入一般缴款书〉有关业务规范和技术标准（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3429079",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3429079",
+   "question": "咨询广东省人力资源和社会保障厅 广东省财政厅关于印发广东省会计人员职称评价标准条件的通知\n是不是考过中级经济师或者中级经济，从事会计师工作5年，也不能考高级会计师了。单位出证明可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于2026年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3428647",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3428647",
+   "question": "在校大学生取得初级会计证的继续教育问题\n想问一下，25年大二取得初级会计证，在校期间还需要进行会计的继续教育吗？非财会专业的。另外是否还需要进行相关的信息采集？感谢回答",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于做好2025年度会计专业技术人员继续教育工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3410517",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3410517",
+   "question": "关于初级会计师考试报名条件\n您好，我是一名在校学生，就读于经济学类专业，希望明年能在广东省报考初级会计考试。据说在校大学生必须提供高中毕业证，但我由于个人原因（无高中或同层次学校的就读经历，以高中同等学力参加高考报考大学）无法提供高中毕业证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2026年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3377953",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3377953",
+   "question": "高级会计师论文收录网站要求\n请问申请高级会计师所发表的论文，在知网、万方、维普这些网站收录的都可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发广东省会计人员职称评价标准条件的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3366146",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3366146",
+   "question": "会计信息采集中关于《会计专业工作简历表》填写问题\n信息采集中《会计专业工作简历表》是只填在职的工作还是前面的工作也要填？",
+   "cited_hits": [],
+   "cited_missing": [
+    "会计专业工作简历表",
+    "会计专业工作简历表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3356679",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3356679",
+   "question": "正高级会计师的评审要的的专著问题\n评审正高级会计师，主编出版的会计、审计教材算不算专著？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计人员职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3319438",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3319438",
+   "question": "2025年会计继续教育学分折抵\n请问2025年通过税务师考试科目（涉税相关法律），还可以抵扣2025年会计继续教育专业课学分吗？目前在会计人员统一服务平台上面没有看到这个科目的选项，只有一科财务与会计。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于做好2025年度会计专业技术人员继续教育工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3247093",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3247093",
+   "question": "高级会计评审\n请问高级会计师评审什么时候有结果，可以通过什么途径查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于开展2024年度高（正高）级会计师职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3155492",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3155492",
+   "question": "2024年继续教育可以补吗\n2024年考的初会，可以补5年的继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于明确2024年度广东省会计专业技术人员继续教育专业科目学习有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3148212",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3148212",
+   "question": "关于省级财政科研项目资金管理的政策咨询\n根据广东省财政厅 广东省审计厅关于印发《省级财政科研项目资金管理监督办法（2023年修订）》粤财规〔2023〕3号文件中第三十二条“项目完成任务目标并通过综合评价验收，且项目承担单位和项目负责人无不良",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅广东省审计厅关于印发《省级财政科研项目资金管理监督办法（2023年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3128778",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3128778",
+   "question": "请问广东省2025年会计副高级职称评审什么时候开始报名？\n请问广东省2025年会计副高级职称评审什么时候开始报名？往年都已经开始了，其他省份也好多都开始了",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人力资源和社会保障厅 广东省财政厅关于印发广东省会计人员职称评价标准条件的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3097652",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3097652",
+   "question": "广东省是否有出台专家咨询费管理办法或专家劳务费管理办法?目前按什么标准执行?\n您好！请问广东省是否有出台专家咨询费管理办法或专家劳务费管理办法?目前需要按什么标准执行?期盼答复，祝您生活愉快，谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于省直机关统一岗位津贴后有关经费使用管理的补充通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "3089645",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3089645",
+   "question": "资产清查属于政府集中采购范围吗\n事业单位资产清查需要集中采购吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于印发〈广东省政府集中采购目录及标准（2020年版）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3082208",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3082208",
+   "question": "注册会计师注册申请\n您好，请问注册会计师注册申请的条件中“在中国境内从事审计业务工作2年以上者”这个审计业务工作2两年起算时间需要在取得合格证后起算吗？在取得合格证之前的审计工作年限可否算入",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册会计师注册办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "3062217",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3062217",
+   "question": "《会计专业工作简历表》在哪里下载\n《会计专业工作简历表》在哪里下载，没找到，请说一下，学习。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年初、高级会计资格考试报名有关信息采集事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3052695",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3052695",
+   "question": "中国政府采购登记审核\n请问变更企业资料是否需要人员齐全？人员的职称有专业要求吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购代理机构管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3039934",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3039934",
+   "question": "评标专家应急劳务费\n你好，请问政府采购2个小时内补抽的专家是应急专家吗？应急专家有应急劳务费200元吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于修订广东省政府采购评审专家劳务报酬标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3031629",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3031629",
+   "question": "省级财政科研项目中，工会经费是否可以列支在直接人力资源成本费里？\n省级财政科研项目中，单位为承担项目科研人员缴纳工会经费是否可以列支在直接人力资源成本费里？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省审计厅关于印发〈省级财政科研项目资金管理监督办法（2023年修订）〉"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "3012681",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3012681",
+   "question": "关于专门面向中小企采购的咨询\n“专门面向中小企业采购的项目，采购文件应明确该项目或者采购包专门面向中小企业采购，并将“供应商(货物制造商/服务承接商/工程承建商)属于中小企业”作为资格条件。” 其中针对专门面向中小企业采购的项目，可否由大型",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购促进中小企业发展管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3001096",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3001096",
+   "question": "中小企业声明函\n请问采购人进行非专门面向中小企业采购的项目投标时，我司的控股股东为大企业的情形下，《中小企业声明函》还需要填写跟提交吗？该如何填写我司的企业类型呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购促进中小企业发展管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2975327",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2975327",
+   "question": "电子大卖场上的采购属于什么采购类型\n假设某行政单位需要采购复印纸（集采项目），经广东采购云平台上的电子卖场上选三家合要求的供应商进行询价，采购的总价在一万元以内，最后从报价最低的公司采购了货物。这个行为属于什么采购类型？政府采购里面的询价吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于印发〈广东省政府采购集中采购目录及标准（2020年版）〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2976871",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2976871",
+   "question": "《关于我省实施小微企业普惠性税收减免政策的通知》是否延用有限问题\n《广东省财政厅 国家税务总局广东省税务局关于我省实施小微企业普惠性税收减免政策的通知》中第三条为“本通知执行期限为2019年1月1日至2021年12月31日。”，请问目前是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 税务总局关于进一步支持小微企业和个体工商户发展有关税费政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2926567",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2926567",
+   "question": "资产评估服务收费标准\n现在执行的资产评估服务收费标准是哪个文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放开部分服务价格意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2886501",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2886501",
+   "question": "广东省社会团体会费统一票据的收款人和复核人\n广东省社会团体会费统一票据的收款人和复核人是否可以为同一人，如果不想为同一人，在广东省财政电子票据管理系统中怎么设置。（在税控系统中都可以设置）",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政票据管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2860053",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2860053",
+   "question": "招标代理机构\n招标代理机构在广东省财政厅网站那里备案？请写一下流程，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购代理机构管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2855761",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2855761",
+   "question": "如何开具广东省行政事业单位资金往来结算票据\n科研事业单位是否可以开具？如何开具？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部关于印发〈行政事业单位资金往来结算票据使用管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2833403",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2833403",
+   "question": "高会论文\n请问一下，2024年最新的高级会计师论文这块的要求是这么样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计人员职称评价标准条件"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2818112",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2818112",
+   "question": "2024初级会计考试\n考完复核 没有中专毕业证 但有能证明中专已读完的证明可以吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于2024年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2747993",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2747993",
+   "question": "申请开具捐赠专用收据\n我单位是省民政厅注册的民办非企业，开办地在深圳。现收到企业的捐款需要开专用收据，要到省财政厅办理吗？需要哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政票据申领登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2686377",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2686377",
+   "question": "关于差旅费报销相关问题\n出差到省外，在省外的交通费用是凭票报销，还是按市内交通费实行包干办法，按出差自然天数每天都可以按80元包干报销？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省直党政机关和事业单位差旅费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2646786",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2646786",
+   "question": "高会评审结果\n请问：2022年度高级会计师评审进展如何？预计什么时候可以公布？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2548935",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2548935",
+   "question": "继续教育是否影响中级会计考试\n您好，初级会计证是在湖南考取，2023年前的继续教育也在湖南完成。现在换工作到广州，准备报考中级会计考试，是否需要调档至广州？省外报考中级会计有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于2023年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2410292",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2410292",
+   "question": "票据业务咨询\n您好 请问省非税收入(电子)票据不盖章是否有效 是否会影响财务报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部关于修改&lt;财政票据管理办法&gt;的决定",
+    "广东省财政票据管理办法（2022年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2395965",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2395965",
+   "question": "粤财行（2014）67号文件中关于“常驻地”的解释\n你好，我想咨询一下：粤财行（2014）67号文件《省直党政机关和事业单位差旅费管理办法》第二条中关于“常驻地”的解释，是指天河区、越秀区、海珠区、荔湾区、白云区五个行政区吗？还是有其他解释",
+   "cited_hits": [],
+   "cited_missing": [
+    "省直党政机关和事业单位差旅费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2370162",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2370162",
+   "question": "在哪打印《健康申报承诺书》\n请问在哪里可以下载打印《健康申报承诺书》附件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2022年度全国会计专业技术资格考试防疫须知",
+    "健康申报承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2362387",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2362387",
+   "question": "被选聘专家后能退库吗\n申请政府采购评审专家，并已被选聘为专家，现在办理退库处理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购评审专家管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2346369",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2346369",
+   "question": "如何加入政府性融资担保体系\n你好，请问持有融资性担保业务许可的融资担保机构，如何加入政府性融资担保体系。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府性融资担保、再担保机构绩效评价指引",
+    "中国银保监会等七部门关于做好政府性融资担保机构监管工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2294785",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2294785",
+   "question": "参加会计改革与发展“十四五”规划网络知识竞赛折算继续教育学分\n你好领导同志，参加《关于开展会计改革与发展“十四五”规划网络知识竞赛的通知》（财办会〔2022〕11号），要哪里申请折算抵扣继续教育学分？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部办公厅关于开展会计改革与发展“十四五”规划网络知识竞赛的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2283403",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2283403",
+   "question": "广东省财政厅线上考试什么时候出成绩\n广东省财政厅5.22线上考试什么时候出成绩？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅所属单位2022年公开招聘工作人员线上笔试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2242627",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2242627",
+   "question": "粤财社〔2014〕128号文是否还有在执行\n你好：请问粤财社〔2014〕128号文是否还有在执行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省省级劳动力培训转移就业专项资金管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2242903",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2242903",
+   "question": "关于非营利组织免税资格期满复审的问题\n我单位是省级社会组织，无业务主管单位，于2017年6月13日获得第十一批“非营利组织免税资格”，现已快到期。经查阅广东省财政厅、广东省社会组织管理局网站，未见到2022年免税资格认定相关公告，请问我单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 税务总局关于非营利组织免税资格认定管理有关问题的通知",
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定",
+    "广东省财政厅 国家税务总局广东省税务局关于省级权责清单事项调整实施的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2221358",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2221358",
+   "question": "资产评估如何收费\n请问现在资产评估如何收费，是否还是执行粤价〔2010〕142号这个标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放开部分服务价格意见的通知",
+    "关于资产评估收费有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2202697",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2202697",
+   "question": "关于广东省省直行政事业单位国有资产对外出租出借管理暂行办法\n第十四条 省直行政事业单位经审批同意出租出借的资产，除涉及国家秘密，短期、临时性出租，以及国家法律法规规定不得进行公开交易外，必须进入省公共资源交易平台进行公开招租（以下简称进场交",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈广东省省直行政事业单位国有资产对外出租出借管理暂行办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2204288",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2204288",
+   "question": "初级会计准考证未打印，什么时候补开打印通道呢？\n初级会计准考证未打印，什么时候补开打印通道呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于2022年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2189874",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2189874",
+   "question": "关于广东省行政事业单位资金往来结算票据的有关问题\n请问广东省行政事业单位资金往来结算票据还有手写版？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省行政事业单位资金往来结算票据"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2187188",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2187188",
+   "question": "广东省基本公共卫生服务补助资金\n对同时参与日常诊疗工作和基本公共卫生服务的在职在编人员绩效工资中是否应该同时领取日常诊疗工作和基本公共卫生服务两部分绩效。本人现领取绩效工资中，基本公共卫生服务部分未有体现，此种情况是否合理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省卫生健康委关于印发广东省基本公共卫生服务补助资金管理实施细则的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170544",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170544",
+   "question": "高级会计评审\n2019年通过高级会计考试，成绩三年有效，三年包括2019年吗？三年评审是2019.2020.2021还是从2020开始起算，2020.2021.2022？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国会计专业技术高级资格考试成绩合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2124806",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2124806",
+   "question": "科技特派员经费问题\n广东省农村科技特派员第二批的经费省农科院的已经到账，请问其他单位的经费什么时间到账?急需经费开展工作呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅关于安排2021年度省科技创新战略专项资金（第二批农村科技特派员等）项目资金的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2126012",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2126012",
+   "question": "报考2022年初级会计证前需要信息采集吗\n您好！报考2022年初级会计证前需要信息采集吗？如果需要，请问采集信息的网站是？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅 广东省人力资源和社会保障厅关于2022年度全国会计专业技术资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1090188",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1090188",
+   "question": "专家聘任\n你好，我想咨询一下，首次获得评审专家资格后，聘期为多长？聘任到期后如何办理续聘？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购评审专家管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "1085812",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1085812",
+   "question": "2021年7月1日非全日制大专毕业，2021年9月参加中级会计考试，全部通过后能否取得中级\n我2021年7月1日拿到非全日制大专毕业证，9月参加中级会计考试，三科全部通过后，能否拿到中级会计职称资格证书？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1082069",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1082069",
+   "question": "2021年高级会计师评审时间\n2021年高级会计师评审什么时候开始，评审通知什么时候下发，评审高级会计师还需要答辩吗。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1081302",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1081302",
+   "question": "中级会计证领取及复核时间\n你好，我今年考了中级考试，成绩已经合格。考试报名表没有打印，请问还有补打印的通道吗？另外什么时候开始复核？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079307",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079307",
+   "question": "中级会计师考试过了以后在领证前还需要做什么呢\n2021年中级会计师考过了，在领证前需要做什么，或者需要关注什么网址",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079965",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079965",
+   "question": "中级考后审核\n中级考后审核其中一条需要提供会计专业工作简历表，如果已在单位离职了，盖不了公章，可以用会计年审年数代替吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1080199",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1080199",
+   "question": "中级\n你好，请问中级考试完成并通过后，在哪里可以看到2021年的资格审核的时间及要求？谢谢你。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1080258",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1080258",
+   "question": "初级会计证领取\n已可以查询考试成绩合格单了，什么时候可以领证书？是邮寄给我们手上还是我们需要备什么资料到哪里领取证书的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于我省2021年度会计中级资格考后资格复核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1072305",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1072305",
+   "question": "非财会专业人士是否能担任单位出纳？\n非财会专业人士，也不具备相关财会证书，是否能担任单位出纳？",
+   "cited_hits": [],
+   "cited_missing": [
+    "会计基础工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "1058491",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1058491",
+   "question": "工程服务商未取得工程资质能否入驻广东省采购智慧云平台为供应协议商？\n请问工程服务商未取得工程资质能否入驻广东省采购智慧云平台为供应协议商？入驻广东省采购智慧云平台为供应协议商的工程商有一部分无工程资质也能入驻！请回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东政府采购智慧云平台电子卖场供应商征集公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1061451",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1061451",
+   "question": "粤财规〔2019〕5号《广东省财政厅 广东省审计厅关于省级财政科研项目资金的管理监督办法》\n您好！ 关于印发《广东省财政厅 广东省审计厅关于省级财政科研项目资金的管理监督办法》的通知 粤财规〔2019〕5号。项目的承担单位是企业的，参与单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省财政厅&nbsp;广东省审计厅关于省级财政科研项目资金的管理监督办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1048835",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1048835",
+   "question": "请问广东省级财政资金项目专家费咨询标准按什么文件执行？\n广东省省级财政资金项目支出的专家咨询费目前按照《中央财政科研项目专家咨询费管理办法》（财科教【2017】128号）执行，在项目验收审计的过程中，要求提供广东省提出的标准，咨询过一级部门",
+   "cited_hits": [],
+   "cited_missing": [
+    "中央财政科研项目专家咨询费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1047657",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1047657",
+   "question": "关于外商投资企业财证登记证\n请问：外商投资企业财政登记证是否已取消？是什么时候取消的？若取消了，有相关政策发布出来吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部关于废止部分规章和规范性文件的决定",
+    "外商投资企业财政登记管理办法",
+    "财政部办公厅关于进一步加强外商投资企业财政登记管理工作有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1043692",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1043692",
+   "question": "继续教育\n你好，想问下大学在校生不是会计专业，今年考过初级会计的今年需要继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "会计专业技术人员继续教育规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1032614",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1032614",
+   "question": "咨询广东省是否有出台省级政科研项目专家咨询费管理办法？目前按什么标准执行？\n您好！中央在2017年出台了《中央财政科研项目专家咨询费管理办法》（财科教〔2017〕128号），其他如河南省、江苏省等也出台了相应省级财政科研项目专家咨询费管理办",
+   "cited_hits": [],
+   "cited_missing": [
+    "中央财政科研项目专家咨询费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1007249",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1007249",
+   "question": "不按招标文件公示的合同签署\n《招标投标法》《政府采购法》等规定都明确，招标人和中标人按照招标文件和中标人的投标文件订立合同，不得再行订立背离合同的标的、价款、质量、履行期限等合同实质性内容的其他协议。但是，在中标后，发现招标文件公示的合同不",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购货物和服务招标投标管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "994379",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=994379",
+   "question": "垃圾处理费使用票据\n按规定，自7月1日后垃圾处理费划转税务部门征收后，仍应使用财政票据，那么向缴费人开具的财政票据应由哪个部门向财政局领购？是税务部门、业务主管部门还是代征单位？急！盼回复解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部关于土地闲置费、城镇垃圾处理费划转税务部门征收的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "991016",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=991016",
+   "question": "高中助学金发放\n到现在为止，我高中的助学金还没打到我的农行卡内，请问这是怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省学生资助资金管理实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "947792",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=947792",
+   "question": "广东省省管政府还贷高速公路车辆通行费专用收据\n请问收到的“广东省省管政府还贷高速公路车辆通行费专用收据”没有盖章，是否可以作为合规的票据？若要盖章是盖发票专用章还是收款章？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政票据管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "939899",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=939899",
+   "question": "关于差旅费报销相关问题\n出差乘坐飞机、火车、轮船等交通工具的，从驻地到机场等地交通费用是凭票报销还是按市内交通费实行包干办法，即按出差自然天数每人每天80元包干报销，亦或者不能再报销？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于省直党政机关和事业单位差旅费管理问题的补充通知",
+    "省直党政机关和事业单位差旅费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "939031",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=939031",
+   "question": "个人健康信息申报表\n你好！关于2021年初级会计《个人健康信息申报表》在哪里可以下载打印？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省会计专业技术资格考试办公室关于广东省2021年度全国会计专业技术资格考试疫情防控要求的通知",
+    "个人健康信息申报表（2021）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "938459",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=938459",
+   "question": "民间非营利组织免税资格认定\n我们是广东省致福公益促进会，属于省级非营利组织，由于2020年12月税务局要求上交备案资料，我们于2020年12月2日提交了税务局要求的补充资料。并向税务局提交的2020年非营利组织免税资格认定备案，目前并未收到",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定",
+    "广东省财政厅 国家税务总局广东省税务局关于省级权责清单事项调整实施的公告",
+    "财政部 税务总局关于非营利组织免税资格认定管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "917873",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=917873",
+   "question": "关于差旅费报销的问题咨询\n我单位为国有独资企业，按照本单位差旅费制度，一般管理人员出差可选择高铁二等座，如果某一次出差二等座已全部售完，购买了一等座票，事后按照二等座金额报销，是否可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省直党政机关和事业单位差旅费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "877235",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=877235",
+   "question": "民间非营利组织免税资格认定\n你好。我单位（广东省广东技术师范大学教育发展基金会）于2020年7月份批准设立，为慈善组织。现准备申报免税资格，请问2020年度民间非营利组织免税资格认定什么时候开始，会在哪些网站发布通知呢？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于调整实施一批省级权责清单事项的决定",
+    "广东省财政厅 国家税务总局广东省税务局关于省级权责清单事项调整实施的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-czt",
+   "id": "3499562",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3499562",
+   "question": "2025年高会证书何时发放\n2025年高会评审通过且已公示通过，请问何时可以领取高会证书，领取的时候需要提供什么资料吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3470803",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3470803",
+   "question": "向广东省财政厅咨询\n请问，单位开具的发票是否属于会计凭证、原始凭证？请及时作出答复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3458465",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3458465",
+   "question": "继续教育学分抵扣问题及考后流程\n2026年初级考试通过后，是否需要进行考后资格审核，如果需要应该如何进行并且审核大概需要多久？然后审核通过后多久可以拿到证书以及成绩合格证明？在哪里拿证书？是否可以通过邮件领取？其实是考试当年继续教育学分抵扣",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3430584",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3430584",
+   "question": "如果在广东省广州市参加中级会计资格考试\n本人在全国会计人员统一服务管理平台，注册了信息，人员信息也采集了，但是，所属地是天津，因为我的户口是天津的，而且在天津工作了多年，但是目前人在广东省广州市，工作地也在广东省广州市，我不想回所属地参加考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3336893",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3336893",
+   "question": "会计继续教育学学分抵免\n我在2025年通过了注册会计师审计和战略科目，但是当时没有留意到需要完成信息采集，发现继续教育没有自动抵免，现在已经完成了信息采集，请问如何进行补充学分抵免？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3303694",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3303694",
+   "question": "2025中级会计成绩合格单下载\n2025年中级会计考试什么时候审核完成，审核完成后多久可以下载成绩合格单，以及证书发放注意事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3286141",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3286141",
+   "question": "中级会计考试通过考后资格审查问题\n您们好，请问中级会计考试通过后还需要考后资格审查吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3278528",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3278528",
+   "question": "2025年度会计继续教育，为什么到现在还不能远程学习教育？\n2025年度会计继续教育，为什么到现在还不能远程学习教育？“广东省会计信息服务平台”上至今没有2025年远程教育的内容可以学习呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3267502",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3267502",
+   "question": "高级会计报考问题\n2025年下半年已调到广东省工作，2025年已在山东省济南市报名过，本次报名是否需要办理相关学籍转入广东省，还是可以直接报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3260811",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3260811",
+   "question": "继续教育\n本人在2025年3.4月份左右通过全国会计人员统一服务管理平台采集，但是在继续教育记录中，一直未能显示2013年至2018年继续教育，望能解决，或者能在那个渠道可以解决这个问题，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3232140",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3232140",
+   "question": "决算草案\n7月29日，省人大已批准关于广东省2024年省级决算的决议，请问《广东省人民政府关于我省2024年省级决算草案的报告》在哪个栏目可以查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3213078",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3213078",
+   "question": "2025年初级会计通过了，领取证书时需要提供哪些资料？\n当时未打印报名信息表，现在登录全国会计人员统一服务平台后，未找到可以打印的地方，是否会影响证书领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3204233",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3204233",
+   "question": "继续教育学分抵扣问题\n你好，我在2025年初的时候参加了会计法律法规答题知识活动获得了抵扣学分，这个学分在全国会计平台上有体现也显示2025年的继续教育已完成，但是在广东省地方平台没有获取到对应学分，导致在地方平台的教育显示未完成。这个要怎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3196829",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3196829",
+   "question": "2025年度会计初级资格考后资格复核\n你好，我在2025年度会计初级资格考试中成绩已通过，请问今年是否仍需要在线上进行考后资格复核？如果需要是什么时候，在哪个网站上进行？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3189060",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3189060",
+   "question": "2025初级会计信息表\n2025年初级会计考试信息表没有打印，出成绩后资格审核有渠道补打印吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3181742",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3181742",
+   "question": "专项债信息查询\n比如说，我要查询专项债或者一般债的发行前披露，发行计划，请问从哪个途径进入？ 为何在首页网站上搜索，基本都是资讯类信息，能够有专门板块提供入口，提供便民服务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3179693",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3179693",
+   "question": "关于粤财规〔2023〕3号《广东省财政厅 广东省审计厅关于省级财政科研项目资金管理办法》\n请问该管理办法中的第三十二条项目验收通过后的结余资金能否用于其他项目实验室场地费支出。盼回复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-czt",
+   "id": "3137062",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3137062",
+   "question": "会计人员信息采集中必须提供学信网证明吗？\n在全国会计人员统一服务管理平台的会计人员信息采集中，已提供学历学位证，还必须需要提供学信网的证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3106221",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3106221",
+   "question": "广东省会计服务平台完成的会计继续教育是否同步至全国会计人员统一服务平台\n25年1月份在全国会计人员统一服务平台做了信息采集，但截止目前，在广东省会计服务平台完成的2013-2024年全部会计继续教育记录一直没有同步至全国平台，请问会计继续教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3076388",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3076388",
+   "question": "会计继续教育信息采集成功后是否需要进行会计继续教育信息调转\n会计继续教育信息采集成功后是否需要进行会计继续教育信息调转，后续还需要什么操作吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3070064",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3070064",
+   "question": "2025年会计资格考试信息采集\n请问报名参加2025年中级会计资格考试的考生，去年已经在广东省会计信息服务平台完成信息采集，今年需要像报考初级、高级考试的考生一样在全国统一平台进行信息采集吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3048504",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3048504",
+   "question": "高级会计师评审最新标准文件\n请问高级会计师评审最新标准文件什么时候出？到时会在本网站公布吗？在那里能更快查看最新高级会计师评审最新标准文件？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3046700",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3046700",
+   "question": "24年在广东省平台做了信息采集，还需要在全国统一的平台上做信息采集吗？\n24年在广东省平台做了信息采集，还需要在全国统一的平台上做信息采集吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3036959",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3036959",
+   "question": "继续教育\n我想请问一下我是23年取得的初级会计证书，然后24年才毕业的，这种情况下，我还需要进行24年的继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3025647",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3025647",
+   "question": "24年中级会计成绩复核和证件领取\n24年中级会计成绩复核和证件领取啥时候出通知呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "3001481",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=3001481",
+   "question": "2024年无法登录继续教育用户\n登录广东省会计信息服务平台继续教育，一直出现证件号过手机号码有误，没有输入错误，并且已在人社网成功采集信息了，还是无法登录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2999625",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2999625",
+   "question": "高级会计师评审\n请问参加高级会计师的评审条件是需要中级会计师聘任满5年还是取得中级会计师证书满5年？学历为本科。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2995265",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2995265",
+   "question": "高级会计师\n请问，我2020年10月拿到中级会计的资格证，本科学历，是不是2024年就能参加高级会计师考试？高级会计师评审需填写自评表，自评表的分数不到60分可以吗？自评分数会对评审结果造成多大的影响？比例多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2992292",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2992292",
+   "question": "初级证书\n2024年会计初级纸质证书什么时候发放，怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2974767",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2974767",
+   "question": "初级会计证考试咨询\n你好！我住佛山市禅城区，我想了解.初级会计怎么报名？什么时候报名？什么时候考试？考试地点在那（最近考点）？报考费等信息，盼回复谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2973695",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2973695",
+   "question": "2024年广东省高级会计合格成绩何时传送到继续教育\n2024年广东省高级会计合格成绩何时传送到继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2971604",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2971604",
+   "question": "会计继续教育\n尊敬的领导，您好： 我是一位大四的应届毕业生，今年申请2024年初级会计继续教育折算分数的审核通过；我在2021年通过初级会计的考试，2021年的继续教育系统自动折算；我想问一下：2022年和2023年（本人还在大学就读），这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2969720",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2969720",
+   "question": "2024年高级会计师实务考试成绩合格，广东省专业技术人员继续教育管理系统什么时候可以查询\n本人2024年高级会计师实务考试成绩合格，广东省专业技术人员继续教育管理系统什么时候可以查询到继续教育证书？因为2024年会计专技人员继续教育文件写明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2966234",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2966234",
+   "question": "高级会计师评审问题\n您好！我有两个问题需要咨询的。第一，评审高级会计师的论文，是否需要不超过评审5年内进行？例如，我2027年可以评审高级会计师职称，论文是在2025年发表的，是否要求在5年内评上，不然论文无效？论文有时间要求吗？ 第二，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2959260",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2959260",
+   "question": "继续教育\n您好，我2022年8月拿到初会证书，2024年7月大学毕业，请问我什么时候开始继续教育呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2956525",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2956525",
+   "question": "24年初级会计证电子版什么时候可以查询\n24年初级会计证电子版8月底可以查询到吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2953029",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2953029",
+   "question": "2023年会计继续教育公需课部分未完成，会有影响吗？以后年度可以补学吗？\n2023年会计继续教育公需课部分未完成，会有影响吗？以后年度可以补学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2948549",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2948549",
+   "question": "中级会计证书查询\n请问哪里可以查询我的中级会计职称证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2942058",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2942058",
+   "question": "2023年会计继续教育公需课部分未完成，可以补学吗？\n2023年会计继续教育公需课部分未完成，可以补学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2941676",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2941676",
+   "question": "会计复核2024年初级\n2024年初级会计复核流程及方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2936813",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2936813",
+   "question": "2023年高级会计师电子证书如何发放？\n2023年高级会计师评审通过，且公示期工作已结束，请问何时能查询电子证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2934282",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2934282",
+   "question": "初级会计报名表信息填错\n你好，请问初级会计资格报名表中的学历层次大专填成了高中，是否影响考后资格审核？能否修改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2929361",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2929361",
+   "question": "2024年初级会计考后审核时间\n请问2024初级会计考后审核时间大概什么时候进行？报名信息表补打的网站是哪里呢？茂名市是线上审核还是现场审核？审核需要携带什么资料 有相关通知发布了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2929042",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2929042",
+   "question": "初级会计领证\n会计考试成绩出来后，要准备什么领取会计证。毕业证不在身边该怎么办。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2917927",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2917927",
+   "question": "请问没有从事会计工作，也没有初级会计证，持中级经济师报考中级会计，需要进行会计人员信息集采\n请问没有从事会计工作，也没有初级会计证，持中级经济师报考中级会计，需要进行会计人员信息集采吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2910144",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2910144",
+   "question": "继续教育\n2023年拿证，2024年继续教育什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2907430",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2907430",
+   "question": "2025年初级会计报考条件\n本人户籍地在湖北，目前在东莞虎门工作，请问可以在当地报考2025年的会计初级考试吗，可以报考的条件是有哪些呢，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2903903",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2903903",
+   "question": "中级会计报考条件及考后审核相关事宜\n1.自学考试专科学历（自考专科学历）学信网可查询，是否符合报考条件？ 2.如需报考2024年度的中级会计职称，是不是必须要具备专科学历，且必须是在2019年前毕业才算是符合报考条件？ 3.（具备大学专科学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2896841",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2896841",
+   "question": "会计继续教育\n您好，我2023的会计继续教育学习比较晚，因时间不够，没学习完成。应该如何处理？可以补学吗？（公需课学习完成，专业课未学完。）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2891836",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2891836",
+   "question": "错过初级会计审核\n错过2023年初级考后资格审核怎么解决呢，是否可以再次审核?成绩还有用吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2883074",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2883074",
+   "question": "初会报名信息表\n1.请问24级的初会报名信息表能补打吗？ 2.当初在信息表上，不小心把毕业证书编号给填错了，在考试通过之后，会影响拿证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2875524",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2875524",
+   "question": "中级会计职称报考资格及考后资格审核要求\n2020年全日制本科毕业，2020年5月从事会计工作，可以报考2024年中级会计吗？若可以报考，考后资格审核需要审核哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2875632",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2875632",
+   "question": "如何查询2015年度领取的初级会计职称证书编号\n你好，我尝试在“全国会计资格评价”网站和“中国人事考试网”的查询不到我在2015年领取的初级会计职称证书相关信息，请问在哪个网站可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2869981",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2869981",
+   "question": "评审专家在信息变更期间能否被正常抽取？\n您好！，请问评审专家已选聘入库，需要作信息变更，在信息变更待审核期间，是否被正常抽取？？还是说变更审核通过后才允许正常抽取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2865359",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2865359",
+   "question": "继续教育调转\n请问下我想把会计继续教育从江西调转到广东省请问下是直接江西那边填了人员调转，广东省这边还需要操作什么吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2849351",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2849351",
+   "question": "医疗票据报销联遗失怎么补办\n我2019年在中山大学附属一医院东院就诊后将原始发票遗失，现发我当时投保的商业医疗险可以报销，但保险公司审核后要求提供住院发票的报销联复印件加盖医保局公章就可报销，请问怎么才能获得此复印件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2850244",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2850244",
+   "question": "24初级会计考生更改姓名\n在报考初级会计时，使用旧名报考，参加考试时也是旧名。如果成绩达标后，取得证书时已经更换了名字，是否影响成绩有效性。若不影响考后复核时应带齐哪些资料，证明身份。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2846599",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2846599",
+   "question": "补报\n24年初级会计师资格证还可以补报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2842014",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2842014",
+   "question": "24初级考试报名信息表补打\n24初级考试报名信息表忘记打印了，可以补打吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2839319",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2839319",
+   "question": "广东省财政电子票据管理系统登录问题\n广东省财政电子票据管理系统登录页面验证码部分绑定的手机号如何更改，具体更改步骤是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2835082",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2835082",
+   "question": "2023年高会评审佐证材料是否需要全部打印盖章后再扫描？\n2023年高会评审佐证材料是原件的彩色扫描件，是否仍然需要打印出来，单位核实后盖章，再扫描？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2829217",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2829217",
+   "question": "参加高级会计师考试年限咨询\n请问大学专科毕业，是需要拿到中级会计师资格满10年后才可以参加高级会计师考试吗？还是参加评审时工作年限满10年就好了呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2826836",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2826836",
+   "question": "中级证书领取\n2023年的中考会计证书什么时候领取，怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2825149",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2825149",
+   "question": "报考24年高级会计师考试费付款后如何获取发票\n报考24年高级会计师考试费付款后如何获取发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2813237",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2813237",
+   "question": "初级会计报名信息填错\n您好，在报名时太紧张把毕业时间填错，学位证编号未填。是否会影响拿证？采集信息什么时间截止？谢谢解惑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2807181",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2807181",
+   "question": "2024年初级会计跨省异地考试\n本人在中山工作，本科学历，非会计人员，户口（户籍）均在外省，2024年的初级会计考试是否能选择在中山市考试?此考试异地考试有无限制条件？如有条件，是何种条件才能在中山市考试，是否需要什么证明或者证件?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2803620",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2803620",
+   "question": "会计人员属地关系调转\n我是湖北枣阳人，19年在枣阳考的初级会计证。现在湖北财政厅在确认会计人员信息以及继续教育情况。2019-2023年，我都已参加湖北省的继续教育，并且合格。湖北枣阳财政厅通知我，一直是在惠州工作，需要会计信息进行调转。 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2795256",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2795256",
+   "question": "省外报考2024初级会计\n您好，本人户口（身份证）在省外，现居广州市工作，本科学历，能否在广州当地报考2024年初级会计考试，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2793527",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2793527",
+   "question": "2023年度高级会计师评审\n请问一下，2023年度高级会计师评审通告大概什么时候发布？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2784889",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2784889",
+   "question": "2023年中级会计证书领取时间、电子版什么时候可以出来\n2023年中级会计证书什么时候可以领取、电子版什么时候可以出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2781873",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2781873",
+   "question": "证书\n请问2023年考过的初级证书是什么时候可以拿到呢？还有继续教育还没拿到证书要继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2773712",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2773712",
+   "question": "2024年初级报名\n1.请问2024年初级报名时间什么时候可以出通知？ 2.会计信息采集的地方是广东省其他城市的，是否可以在广东省任意一个地方报名2024年初级？ 3.会计信息采集的地方是广东省其他城市的，是否可以在广东省任意一个地方完成2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2767446",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2767446",
+   "question": "中级考后审核资料\n11月6号开始考后资料审核，请问材料清单中的工作经历证明材料是什么样的资料呢？附件没有表格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2766202",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2766202",
+   "question": "中级成绩复核什么时候\n你好，我想问一下，广东省的中级成绩复核是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2761864",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2761864",
+   "question": "2024年会计中级报名\n您好，因之前报名参加成人全日制大专，今年刚拿到这个大专证，但是学历是成人全日制的。截止到今年继续教育已经有4年了，请问下可以报名参加2024年中级会计考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2756650",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2756650",
+   "question": "继续教育用户登录\n您好，我之前在广东省会计信息服务平台-信息采集 注册的手机号已经注销，但是在该平台未更改手机号，导致现在无法登录了，请问要如何更改绑定的手机号呢？或者通过何种方式能够登录系统呢？感谢您的回复!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2750508",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2750508",
+   "question": "继续教育\n您好，请问我今年拿到初级会计证，需要做采集什么吗？需要什么资料？请问是明年开始继续教育吗？如果拿到证没有从事会计工作，是否需要每年参加继续教育？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2742735",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2742735",
+   "question": "中级考后资格复核\n本人在瓷砖店从事会计工作满4年，非全日本科学历，社保没有挂钩在瓷砖店购买。请问会影响中级考后的资格复核吗，社保是必须挂钩瓷砖店购买才可以顺利拿证吗，瓷砖店可以出具4年的工作证明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2738088",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2738088",
+   "question": "会计职称\n2007年取得会计初级资格证，就等于有初级职称吗？ 2019年会计职称改革后，取得会计初级资格证，就等于有初级职称吗？ 中高级呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2731663",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2731663",
+   "question": "高级会计咨询\n高级会计报考是否需要提供继续教育资料，提交格式是什么，论文是否需要答辩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2728760",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2728760",
+   "question": "会计金银榜\n财政部不公布会计资格考试金银榜了，看到云南甘肃财政厅会自己公布，请问广东财政厅有这个计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2724750",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2724750",
+   "question": "电子卖场\n提交后需要申请找回账号资料后多久才能审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2720094",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2720094",
+   "question": "关于跨省办理2023年初级职称继续教育的问题\n你好，我是2022年在山西太原考的会计初级职称证，目前回到广东省河源市和平县，我想问下我的2023年继续教育可以选择山西的吗？还是需要调转回广东省，要是调转的话具体有哪些操作流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2709886",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2709886",
+   "question": "中级会计考试报名表打印\n你好！ 请问23年第一次报名中级考试的考生需要打印《2023年度全国会计专业技术中级资格考试网上报名考生信息表》吗？如果需要打印，在职人员需要公司在报名信息表上盖章吗？ 因为我司申请盖章人事需要审核官网通知，所以如果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2702257",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2702257",
+   "question": "会计继续教育\n您好，请问2023年度的会计继续教育几时开始，几时发文？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2697312",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2697312",
+   "question": "2023年会计继续教育什么时候开始？\n你好，请问2023年广东省会计继续教育什么时候开始？目前广东会计信息服务平台上继续教育还没有课程可以选择。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2692538",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2692538",
+   "question": "高级会计师报考问题\n请问2019年9月通过的中级会计师，能否报考2024年的高级会计师考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2682372",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2682372",
+   "question": "初级会计证\n中专跟高中毕业证没有，有成人大专毕业证可以报考初级会计证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2675963",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2675963",
+   "question": "23年初会电子证领取\n您好，我已通过23年初级会计资格审核，请问初会电子证书最快什么时候发放？望答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2671463",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2671463",
+   "question": "中级会计师\n请问中级会计师报名表中毕业时间写错了怎么办呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2664968",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2664968",
+   "question": "2023年通过初级免继续教育\n您好，我今年通过了2023年会计初级考试还没领证，继续教育是不是免做？申请免继续教育应该做什么手续？望答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2662097",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2662097",
+   "question": "广东省非税收入一般缴款书付款人为个人\n员工个人垫付，付款人为个人抬头可以在所属公司进行报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2660311",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2660311",
+   "question": "初会资格审核\n初会通过了，但是高中毕业证不见了怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2654077",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2654077",
+   "question": "2023年初级会计考试复核\n请问2023年6月13日刚刚出来成绩，什么时候开始复核？需要哪些资料？还需要到那个地址去复核？这些不太懂，想咨询一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2653381",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2653381",
+   "question": "初级会计考后审核\n广东省初级会计考试成绩已过，报考时在职填写了工作单位，现已离职，而且还没有重新入职，考后审核单位盖章必须回原公司盖章吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2644095",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2644095",
+   "question": "会计继续教育\n想问问在校大学生考过初级职称需要进行会计的继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2632250",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2632250",
+   "question": "2022年高级会计考试成绩合格证\n您好！ 2022年度参加了高级会计师考试，成绩合格，并已完成考后审核。 原来报考、考后审核时登录的网址目前显示已失效，请问现在可以去哪个网站或平台查询到相关考试成绩和下载考试成绩合格证明呢？ 盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2630695",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2630695",
+   "question": "广东省医疗门诊收费票据（纸质）未体现校验码应如何查验\n广东省医疗门诊收费票据（纸质）未体现校验码应如何查验？ 医院开局的收费票据右上角只要no.号码，票据号码和开票日期，并未有校验码，这种纸质门诊收费票据应如何查验？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2629773",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2629773",
+   "question": "关于中级会计报考资格\n我是2017年全日制本科毕业，在会计师事务所工作5年，目前已离职（有离职证明），请问今年是否可以报考中级？如果通过考试是否能用毕业证和离职证明通过资格审核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2627263",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2627263",
+   "question": "初级会计继续教育问题\n在2022年，通过考试，取得了初级会计资格证书，我想问一下2023年需要参加会计的继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2619779",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2619779",
+   "question": "继续教育\n2019年领取会计初级证书，2019年9月参加成人高考，2022年领取会计专业的本科证书，期间没有参加继续教育，应该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2615575",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2615575",
+   "question": "关于初级会计专业考试\n在深圳报名的初级会计考试时候会计信息报名表忘记打印了，可以补打吗？具体怎么补打呢会影响领证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2610306",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2610306",
+   "question": "会计继续教育\n您好！我是2022年广州番禺区的考生，2023年3月份取得纸质证书，想问一下，继续教育是在哪个网站完成？什么时候开始？有没有短信通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2605991",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2605991",
+   "question": "会计从业资格证过期没年审\n会计从业资格证过期没年审可以怎样补回？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2602317",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2602317",
+   "question": "中级会计考试\n你好，我想问问，我出来工作已满7年，我得大专毕业日期是2020-12-20日，今年我可以报考中级会计么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2596453",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2596453",
+   "question": "考试折算继续教育学分\n请问参加税务师考试可以折算为继续教育学分吗，如果可以，是否税务师5门都可以，会自动抵扣继续教育还是需要自己申请，怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2595338",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2595338",
+   "question": "中级职称考试\n您好，请问我是2022年在湖北通过中级实务和财管2门课程，今年到深圳工作，打算报考经济法，请问今年可以直接在深圳参加考试吗？因为湖北那边是当年通过一门就可以不用继续教育，所以还没有参加过继续教育，不知道影响在深圳考试不，请问资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2588656",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2588656",
+   "question": "如何加入政府采购平台\n请问哪里有详细的介绍如何加入政府采购平台。步骤以及所需资料。最后有咨询热线。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2585102",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2585102",
+   "question": "继续教育\n请问会计审计类专业大学本科毕业一年了，没有获得会计类的证的，目前待业没有工作的，需要完成会计继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2580917",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2580917",
+   "question": "初级会计继续教育\n大学生在校需要进行初级会计继续教育吗？如果不需要，要在广东省会计信息服务平台进行申请用大学成绩抵消吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2578739",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2578739",
+   "question": "中级会计职称考试报考资格\n1.具有大学本科会计专业学士学位，7年工作经历，但从事工作与会计不相关，是否可以报考中级会计职称考试？ 2.若可以报考，通过后是否需要继续教育 3.是否符合初级会计报考资格？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2577471",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2577471",
+   "question": "会计从业资格证已过期\n从业资格证时间到了换证时间了，没来得及换，怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2571999",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2571999",
+   "question": "粤港澳大湾区个人所得税\n请问2021年，2022年申请细则出来没有，2021年的应该在2022年申请的，但是现在已经2023年了，还是没有开放申请，请问具体什么时间会公布政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2542286",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2542286",
+   "question": "广东财政电子票据全面推开了吗？\n广东财政电子票据全面推开了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2539294",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2539294",
+   "question": "2023年会计考试报名网址\n2023年会计考试报名网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2538471",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2538471",
+   "question": "会计考试报考\n您好 请问在校生可以凭居住证报考居住地的考点吗 具体怎么报考呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2528020",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2528020",
+   "question": "国库开放支付时间\n您好，这边想了解一下2023年国库开放支付的时间，盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2520183",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2520183",
+   "question": "2022年中级会计资格证书发放\n2022年中级会计资格证书通过什么方式领取，何时能领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2519605",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2519605",
+   "question": "会计\n请问2022年初级证书怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2516998",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2516998",
+   "question": "供应商注册类型填错了\n供应商注册类型填错了，导致注册后是自然人不是公司，现在既不能修改也不能注销，更不能重新注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2513433",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2513433",
+   "question": "2023年初级会计需要提前采集信息吗？录错了该如何改？\n你好，请问2023年初级会计需要提前信息采集吗？不小心采集到错误信息该怎么更改？如：我是在校生，没有工作，但在注册时不小心选了在工作中，这该怎么改过来呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2512803",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2512803",
+   "question": "关于咨询中级会计师异地报名考试事宜\n本人所在公司地址在西安，缴纳社保也同在西安，但由于工作原因调派在珠海上班，想请问是否能在珠海报名参加2023年度中级会计师考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2509156",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2509156",
+   "question": "请问2022年初级证书怎么领取？\n请问2022年初级证书怎么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2509610",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2509610",
+   "question": "2022初级会计证什么时候发放\n广东佛山2022初级会计证什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2510754",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2510754",
+   "question": "会计从业资格证书\n请问网上还能查询的到会计从业资格证书的编号吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2511197",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2511197",
+   "question": "2023年初级会计报名时间\n请问老师，2023年初级会计广东省报名时间是什么时候？麻烦老师解答一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2508771",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2508771",
+   "question": "2023年高级会计师实务考试报名时间\n请问2023年高级会计师实务考试报名时间从什么时候开始到什么时候结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2508058",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2508058",
+   "question": "2022会计中级延考考试考后复核时间\n2022会计中级延考考试考后复核时间，成绩已出，什么时候可以复核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2504605",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2504605",
+   "question": "2022年中级会计证书\n什么时候发放2022年中级会计证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2503123",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2503123",
+   "question": "会计师证查验\n2014年拿证的初级会计师，在这个网站可不可以查验，查验流程怎么样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2481477",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2481477",
+   "question": "电子票据\n电子票据显示”已开红票“是否还能作为报销凭证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2482150",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2482150",
+   "question": "广东省非税收统一票据（电子）\n开具广东省非税收统一票据的分组编码跟分组名称需要填写的是什么内容的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2482569",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2482569",
+   "question": "请问初会继续教育在哪里进行呢\n请问会计继续教育在哪里进行呢，没找到路径，实在财政官网吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2476636",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2476636",
+   "question": "22年会计继续教育抵免\n22年注会通过一门，怎么抵免会计继续教育，如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2474765",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2474765",
+   "question": "电子票据开具格式\n非税收入统一票据（电子）是否有PDF格式的文件呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2472434",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2472434",
+   "question": "关于初级会计师报名与信息采集的问题\n老师您好，我想咨询一下，报名初级会计师考试前要做的信息采集录入，这一项工作开始前有两项选择：1、从事会计工作；2、有会计资格证书；但是我本人又是会计小白，也未从事相关工作，今年想报考初级会计师提升自己，想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2466526",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2466526",
+   "question": "初级会计证书领取\n您好，请问一下广州地区的初级证书是以电子证书下发还是纸质版证书呢？如果是纸质版证书领取，请问什么时候可以领取？是否可以采用邮寄方式？还是要本人到现场取证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2456964",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2456964",
+   "question": "如何查询公司是否有注册过智慧云账号\n您好，请问如何查询企业是否有注册过智慧云平台？如果直接重新注册，系统识别到以前注册过是否会显示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2444576",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2444576",
+   "question": "关于入驻智慧云平台是否有年限要求\n对于入驻成为广东省采购智慧云平台的供应商，是否有年限要求，是不是要求公司成立满三年！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2429111",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2429111",
+   "question": "2022年中级会计资格考试可以复查吗？\n2022年中级会计资格考试成绩什么时候可以复查，流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2426589",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2426589",
+   "question": "广东省公益事业损赠专用收据\n请问，我公司损赠了一笔教育基金，对方用手写版广东省公益事业损赠专用收据，交款人统一社会信用代码是否一定要写上，没写上可以作为正常票据入账号，票据是否盖单位的公章。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2421991",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2421991",
+   "question": "2022初级会计证书什么时候领取\n2022年初级会计证书什么时候领取，是电子版还是纸质版？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2413319",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2413319",
+   "question": "2022年高级会计师考试金银榜什么时候会公布？通过哪里可以查询到？\n请问高级会计师考试的金银榜是依据什么标准确定的？2022年高级会计师考试金银榜什么时候会公布？通过哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2411386",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2411386",
+   "question": "请提供供应商入库需提供的资料信息和办理端口地址\n如题，感谢您抽空回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2411025",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2411025",
+   "question": "如果2022年通过全国会计专业技术资格考试（初级），可以不参加今年的会计继续教育吗？\n如果2022年通过全国会计专业技术资格考试（初级），可以不参加今年的会计继续教育吗？ 如果可以不参加，是直接不参加就行吗？还是需要在哪里提交资料或申请？ ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2382852",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2382852",
+   "question": "请问初级会计证书的领取时间及途径是什么？\n请问初级会计证书的领取时间及途径是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2383339",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2383339",
+   "question": "2022年初级会计什么时候考后审核？需要哪些资料？\n领导您好，初级会计报名信息表忘记打印了怎么办？去哪里进行考后审核？可以网上办理吗？需要准备哪里资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2381950",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2381950",
+   "question": "领取初级会计证\n请问2022年初级会已经顺利通过考试。并取得合格分数。领取初级会计证之前需要准备哪些资料，需要做哪些领取前的准备事项？怎么领取初级会计证？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2369290",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2369290",
+   "question": "22 年初级会计报名表补打印\n报名时，没有下载和打印22年初级会计报名表，现在怎么补打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2369642",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2369642",
+   "question": "2022年初级会计考试什么时候能有成绩出来\n2022年初级会计考试什么时候能有成绩出来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2360755",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2360755",
+   "question": "会计从业资格证丢了，怎么补？\n会计从业资格证不小心遗失了，如何补？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2353646",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2353646",
+   "question": "社保卡可以替代身份证进考场吗\n您好！广东会计初级考试可以用社保卡替代身份证原件进场吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2331122",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2331122",
+   "question": "2022年继续教育\n2022年继续教育什么开始开课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2322321",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2322321",
+   "question": "初会线上退费流程\n因为现在在广东省外，如何线上退费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2322732",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2322732",
+   "question": "初级会计考场能否更改\n你好，我想请问广东省初级会计考试是否还有更改考点的可能？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2316189",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2316189",
+   "question": "关于暑期省外返粤参加初级会计考试的疫情政策\n学生暑假从省外老家返回广州参加初级会计考试的疫情政策是怎样的，是否需要三天两检等等措施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2287734",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2287734",
+   "question": "初级会计证遗失如何补办\n初级会计证遗失如何补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2263603",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2263603",
+   "question": "2021年中级会计师纸质证书什么时候能领取\n请问2021年中级会计师纸质证书什么时候才能领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2251667",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2251667",
+   "question": "初级会计的准考证打印是否延期了？\n目前初级会计职称考试延期，那原定于今天打印准考证的时间，是否也会推迟，具体推迟到什么时候打印呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2245851",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2245851",
+   "question": "省级财政科研项目资金管理办法咨询\n您好！ 我想咨询一下省级财政科研项目资金管理办法中劳务费和人员费的区别是什么？高校发放给参与项目的学生的补助属于劳务费还是人员费？ 还有，出版/文献/信息传播/知识产权事物费中的“专业通信费”是指什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2247073",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2247073",
+   "question": "如何申购会费票据\n请问如何申购社会团体会费统一票据，手写的那种，需要什么资料以及到哪里申购，谢谢~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2248418",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2248418",
+   "question": "2022年初会是否延期\n2022年初级会计考试会延期嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2239128",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2239128",
+   "question": "报名成功，且报名时间结束后，怎么查询已报名的科目\n报名缴费成功，且报名时间结束后，忘记报考了哪些科目，怎么查询已报名的科目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2228143",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2228143",
+   "question": "报名结束，怎样补打中级会计职称报名信息表\n你好，在佛山这边报考了2022年的中级会计职称，报名结束后忘记打印报名信息表了，还可以通过怎样的方式补打？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2225076",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2225076",
+   "question": "CPA（注册会计师）与会计职称互认\n你好，之前看到有说CPA要与会计职称互认，广东省或深圳市有出台具体的政策说明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2213374",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2213374",
+   "question": "咨询2021年高会评审结果公布时间\n请问：2021年高级会计师评审进展如何？预计什么时候可以公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2199589",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2199589",
+   "question": "非税票据开具\n2022年3月10日报考了二级建造师并缴费，如何开具报名费票据，根据里面提示需扫缴费通知书的二维码，但是现在无法查看缴费通知书了，咨询电话打了很多次都无人接听。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2197941",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2197941",
+   "question": "初级已缴费，未有报名状态\n初级会计报名的时候已经缴费成功了，也有缴费凭条。但是一直查询不到报名状态，显示未查到报考信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2190707",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2190707",
+   "question": "初级考试考后审核可以修改信息吗\n初级考试考后审核可以修改报名信息表错误的信息嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2181885",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2181885",
+   "question": "不符合信息采集人员条件还可以报考吗\n我想报考2022年度中级会计师，没有过专门的会计工作经验，今天尝试进行考前信息采集办理，回复不属于信息采集对象。但是我取得了中级经济师证书（工商管理专业），所以不进行信息采集我还可以报考2022年度中级会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2175354",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2175354",
+   "question": "会计报中级条件与取证条件\n本人2016年取得网络本科学历，2017年左右也取得学士学位，想问问报考会计中级考试能不能报，最主要的问题是：当考试合格后，要提供什么资料才可以拿到证书，因为我没有继续教育很多年了，拿证书时要提供“继续教育学习证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2176693",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2176693",
+   "question": "继续教育对拿会计中级职称有影响吗？\n您好！2012年以来，2015、2016、2017、2021四年没有继续教育，对2022年拿会计中级职称有影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2172573",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2172573",
+   "question": "中级拿证\n你好，我想问问2021年一次性考过三科，如果查询自己的资料没有问题可以顺利拿证？什么时候可以拿证？在哪里拿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2172638",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2172638",
+   "question": "中级会计报名\n你好！距离中级考试报名时间还有20多天，但是我准备离职，报名时工作单位是否可以不填写？还是必须填写？如考证成功后是否必须要有工作单位方可领证？望告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2172674",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2172674",
+   "question": "会计从业资格证\n会计从业资格证书丢失了，请问能怎么证明已通过考试并获得证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2173108",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2173108",
+   "question": "2022年中级职称报名咨询\n本科毕业于2019年6月，7月参加工作，从事会计工作满4年，也就是到2023年7月，那今年2022年是否可以参加中级考试（2科），待明年考1科，是否可行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170655",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170655",
+   "question": "中级会计师可以评中级职称吗？\n你好，今年参加中级会计师资格考试，通过了，等于中级职称吗？有没文件依据？因为我们单位需要提供中级职称证书，才可以聘任，请问有没文件依据提供我们呢！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170906",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170906",
+   "question": "2022年深圳初级会计信息报名表忘记打印了可以补打吗\n在深圳报名的2022年初级会计信息报名表忘记打印了，可以补打吗？在哪里可以补打？没有打印会影响到考试和领证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170909",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170909",
+   "question": "2022年会计初级报名时间\n2022年会计初级报名时间是什么时候？怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2171566",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2171566",
+   "question": "初级会计\n您好，我原先在广西考取了会计从业资格证，现在在广州市工作，今年1月已报名初级考试，请问我是否需要 会计证迁移？如果不迁移，初级考试通过的话，去哪里领取初级证书？广西还是广州？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2169509",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2169509",
+   "question": "信息表打印通道\n报考成功后在家里无法打印，回单位重新登录就没有显示打印信息表的通道。补打的时候能否明确指导一下如何进去打印，或者在打印准考证通道旁边设置一个信息表打印通道？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170197",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170197",
+   "question": "初级会计报名\n初级会计考试时，外省户籍人员需要提供居住证吗，考试时需提供哪些证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170308",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170308",
+   "question": "初级会计考试\n您好，请问如何查询自己的考试报名是否成功，以及报名时没有选择考点，会影响报名成功吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2170376",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2170376",
+   "question": "2022年初级会计准考证和报名信息表忘记打印\n2022年初级会计准考证和报名信息表忘记打印，请问还可以补打印吗，具体信息通知要到各地财政部的官网查看吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2169789",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2169789",
+   "question": "继续教育\n13年考的会计从业资格证，16年毕业考的初级会计职称，一直忘了做继续教育，可以补吗？会影响2022年报考中级吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2168877",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2168877",
+   "question": "怎么确认初级会计职称考试报名有没成功？\n怎么确认初级会计职称考试报名有没成功？已经缴费和打印了报名表，但未有印象自己是否有点确认报名，请问在哪能查询到是否有报名成功？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2166411",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2166411",
+   "question": "初级会计考生信息表及回执表\n请问，初级会计考生信息表及回执表忘打印如何处理？是否会影响后续考试及考试成绩审核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2166608",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2166608",
+   "question": "信息采集\n深圳考初级需要信息采集吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2166627",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2166627",
+   "question": "中级会计职称报名条件\n本人本科毕业后于2017年7月至2018年8月从事会计工作，无社保记录；后考取硕士研究生，2020年6月已取得硕士学位，现想咨询2017年7月这段工作经历是否符合中级报名条件中“硕士学位，且一年从事会计工作经历”。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2164433",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2164433",
+   "question": "2022年忘记打印初级会计报名信息表\n你好，我们班有人忘记打印报名信息表，报名的网址已经进不去了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2164612",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2164612",
+   "question": "初级会计师报名问题\n你好 我在报考初级会计证 可是我的生日日期填错了 请问能改吗 如果能改需要做什么和需要那些证件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2146904",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2146904",
+   "question": "会计继续教育\n请问2022年的会计继续教育什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2140151",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2140151",
+   "question": "2022年中级职称报名\n您好，2020年6月份本科毕业，同时取得管理学学士学位和法学（辅修）学士学位，能报名参加2022年的中级会计职称考试吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2140765",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2140765",
+   "question": "初级会计报名\n初级会计报名成功，发现民族信息搞错了，怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2140888",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2140888",
+   "question": "信息采集影响中级审核吗？\n信息采集影响中级审核吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2125620",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2125620",
+   "question": "继续教育\n我2015年从事会计辞职回家带孩子，今年又继续从事会计工作，想继续教育，如何 办理？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2125568",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2125568",
+   "question": "会计继续教育\n你好，我想请问一下，我是2021年通过会计初级考试的，目前在财务岗工作，请问2021年还需要进行继续教育吗？还是初级成绩可以自动抵扣继续教育？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2130897",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2130897",
+   "question": "中级考试\n请问，我之前在深圳会计管理信息平台做的会计信息采集，现在在惠州上班，在惠州报考中级考试，会影响中级考试资格审核吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2124829",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2124829",
+   "question": "2021年中级会计电子证书\n您好！请问一下2021年会计中级电子证书预计什么时候可以查询，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2125249",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2125249",
+   "question": "关于中级会计职称电子证书开通查询和纸质证书发放问题\n您好， 请问中级会计职称电子证书什么时候开通查询？ 纸质证书什么时候发放呢？ 谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2121429",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2121429",
+   "question": "关于地方政府参股公司办理国有股权管理的问题\n请问广东省内地方人民政府（县政府）财政部门出资设立的国资公司，该国资公司参股的股份有限公司拟办理国有股权管理（国有股东标识）是否由省财政厅批准？还是由市或县财政部门批准也行？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2121990",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2121990",
+   "question": "中级会计师职称证\n2021年中级会计师职称考试成绩已合格，已递交考后审核资料，什么时候能下发电子证书和纸质证书呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2120932",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2120932",
+   "question": "会计继续教育\n您好，我想问一下为什么我的继续教育课程已经听完了然后显示的是审核不通过，我不在财务岗，选择的工作单位是待业，请问这样影响我报考22年的初级会计职称考试吗？盼回复，谢谢你！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "2114932",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=2114932",
+   "question": "继续教育\n在校大学生20年取得初会证书，还没毕业，21年需要继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1879123",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1879123",
+   "question": "中级会计报考\n您好，请问我是19年6月全日制本科毕业，但在18年6月至19年6月（即大四）有从事会计工作实习经历。 若参加明年2022年中级考试，那么18年6月至2022年6月，即从事会计工作满4年了。 是否满足报名参加中级会计资格考试的条",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1103615",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1103615",
+   "question": "报考中级\n2017年7月毕业，2022年可以报考中级考试吗，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1101581",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1101581",
+   "question": "新旧网\n在旧网已经注册选聘。新网是不是还要重新注册？，不然查不到信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1099464",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1099464",
+   "question": "关于当年会计初级证书\n我想问下我当年取得的初级证书的继续教育，一个是专业课，一个是公需课，这个证书是不是可以抵扣专业课方面的，这个专业课就不用去做任何申请，然后只需要对公需课进行继续教育就可以吗？还是说专业课方面也需要做个抵扣申请，公需课正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1088339",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1088339",
+   "question": "2021年的会计继续教育\n2021年在广州中级考过了二科，那本年的会计继续教育还需要参加吗？还是财政系统会自动完成本年的继续教育？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1086037",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1086037",
+   "question": "入驻成为供应商\n入驻成供应商之后，后续需要什么操作才可以开始使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1086637",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1086637",
+   "question": "如何获得财政发票电子版\n财政发票开具之后，请问如何获取电子版发票？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1086523",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1086523",
+   "question": "继续教育\n我是今年21年重新升学全日制本科，在20年毕业，也是在20年拿到初级会计证书，我想请问一下，在校生是不用完成继续教育吗，要是不用的话，怎么把今年的继续教育改成已完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1086393",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1086393",
+   "question": "错过初级会计审核\n错过了会计审核怎么办呢，2021年初级会计还有补审吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1084893",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1084893",
+   "question": "中级会计职称报考资格.\n现在没了中专毕业证书，大专毕业证是非全日制毕业已经有10年，并且有从事会计工作，请问这样的条件可以报名吗？考试合格后可以拿证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1085567",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1085567",
+   "question": "关于继续教育及中级报考问题\n想咨询一下本人去年忘记进行继续教育了，请问能否进行补做？如不能的话是否今年如常进行继续教育就可以了？另外想咨询一下，像我去年中断了一年的继续教育，是否影响我报考明年的中级会计考试？（学历、从业年限等其他条件均符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079505",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079505",
+   "question": "关于广东省政府采购评审专家纸质或电子证书或聘书\n希望广东省政府采购评审专家能发放纸质或电子证书或聘书，增加专家们的获得感和认同感。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1080080",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1080080",
+   "question": "装修采购\n1、采购计划未备案能即时补录吗？ 2、350万左右的装修工程，可以选择什么采购方式？能选择“以项目形式采购，委托集中采购机构组织实施”吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079185",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079185",
+   "question": "关于报名导游证考试查不到缴费记录\n我报名了导游证考试，现在想找回缴费记录用于开票据，但是上广东公共服务支付平台查找不到我的记录，请问这是为什么！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079788",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079788",
+   "question": "中级会计考试发票打印\n怎样才能获得我曾经在2019年、2020年报考的中级会计考试报名相关费用发票？急，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079150",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079150",
+   "question": "初级会计领取疑问\n请问2021年5月初级会计专业技术初级资格证书的纸质证书什么时候颁发？ 在广州哪颁发和查询呢？ 颁发时需要什么手续呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079287",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079287",
+   "question": "会计证书\n你好！请问2021年初级会计证纸质版证书什么时候能出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079502",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079502",
+   "question": "请问2021年会计中级资格考试报名信息表可以补打吗？在哪里找衔接？\n现在需要考后审核，在网页上搜到会计中级资格考试报名信息表补打途径如下：http://58.56.20.38:81/ksbm/usercxbmb21z29.jsp，但打开网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079963",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079963",
+   "question": "会计领证时间\n2021年5月份考过的初级什么时候可以领到纸制证书，领证地点是在审核资质的地方吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1079363",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1079363",
+   "question": "继续教育\n您好，我想咨询一下，我是2020年取得初级会计职称的，今年还未报名参加继续教育，请问我要怎么报名参加继续教育？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1080313",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1080313",
+   "question": "继续教育\n继续教育完成，但是未发送至平台怎么处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1080421",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1080421",
+   "question": "会计继续教育\n你好，我是2017年在安徽拿的初级证书，后来到广东。会计继续教育之前图省事，就一直都在安徽省继续教育网站上做的，一直做到2020年。请问之前在安徽网上做的继续教育，广东省是否承认，是否可以在广东继续教育网站补上以前年份的继续教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1076237",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1076237",
+   "question": "中级会计证书领取流程\n2021年通过中级会计职称考试，需要审核之后再领取证书吗？如何领取证书的，具体流程是怎样的？中级会计职称考试通过可以申请补贴的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1076244",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1076244",
+   "question": "深圳中级会计师考后审核事项\n因为本人目前在香港，2021年考试成绩已过，请问深圳是能否网上审核或者委托他人提交审核资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1075823",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1075823",
+   "question": "请问广州市2019年取得初级会计证书，现离职去外省，需要转出吗？\n请问广州市2019年取得初级会计证书，现从广州市离职去外省，需要转出到外省吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1076307",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1076307",
+   "question": "2021年度全国会计专业技术中级资格考试成绩合格之后怎样申请资格审核？\n你好，本人已经通过了2021年度全国会计专业技术中级资格考试全部科目，我是在广州市参加的考试，请问现在要怎样申请资格审核？怎样领取证书？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1074037",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1074037",
+   "question": "21年初级会计电子证书查验及下载\n2021年5月份考过的初级什么时候可以下载电子版证书并可以证书查验呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1069528",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1069528",
+   "question": "关于中级会计的报考资格问题\n你好，我是2019年大学本科毕业的会计人员，现从事会计工作2年时间，我个人的计划是中级会计证书分两年考完。 1.我能否在毕业第三年（2022年）开始报考？毕业第四年（2023年）考完剩余科目？ 2.关于中级会计资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1067236",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1067236",
+   "question": "继续教育\n我想咨询一下，如果我是在广州拿到的初级会计证，我可以在东莞这边继续教育吗，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1064794",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1064794",
+   "question": "初级证书领取\n广东省已经启用电子证书，对于21年考过初级的考生是只有电子证书，还是纸质和电子证书皆有？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1064523",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1064523",
+   "question": "初会考试报名\n初会考试报名还未开始，找不到在哪里注册，还是要等报考开始，才会有注册的界面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1063208",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1063208",
+   "question": "继续教育\n您好，我今年3月份拿到的初级会计证书，现在没有从事会计相关的工作，请问我今年需要参加会计的继续教育吗。如果如要参加，应如何操作呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1051354",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1051354",
+   "question": "初级会计职称资格证发放问题\n想请问一下，通过了2021年5月的初级会计师职称资格考试，并通过了资料复核阶段后，还需要进行什么操作吗？请问资格证书是什么时候发放到考生本人呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1051502",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1051502",
+   "question": "继续教育\n请问在校期间获取了初级会计职称后，是拿到毕业证之后才开始继续教育还是正式从事会计工作之后才进行？如果毕业之后没有从事会计工作需要继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1049590",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1049590",
+   "question": "请问今年通过了高级会计师实务考试，是否可以免会计继续教育，如果是具体要怎么操作？\n请问今年通过了高级会计师实务考试，是否可以免会计继续教育，如果是具体要怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1049468",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1049468",
+   "question": "关于评审专家资料修改的问题咨询\n领导您好，已选聘的评审专家 提交修改申报专业，未审核通过前，是不是系统将不会抽取参与评标？核查时间大概多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1049642",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1049642",
+   "question": "CA解码抽专家如何办理？\n你好，CA解码抽专家如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1048301",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1048301",
+   "question": "高级会计审计考试能异地报考吗？\n目前在上海生活。马上要去广东的话，那能在广东报考高级会计考试吗？符合广东省高级会计考试的报名条件。还有，如果考试通过，评审的话如果到时候又回上海工作了，能到上海进行评审吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1048484",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1048484",
+   "question": "中级会计报考工作年限\n会计工作年限是到报名当年的12月31日，那非全日制大专也是到报名当年的12月31日吗，我是17年非全日制大专毕业的，18年拿到了（证书上面的毕业时间是17年12月的毕业证）21年已考了一科，明年准备报考22年剩余两科。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1049628",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1049628",
+   "question": "初级会计师证异地迁移\n初级会计师证快要过期了，怎样去续签，证书是外省考的，能直接在广州办理续签吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1047161",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1047161",
+   "question": "2021年初级会计证书\n2021年初级会计考过了的，电子证书要什么时候才出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1047212",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1047212",
+   "question": "职称报考\n外籍人士可以考取初级会计师或者是中级会计师吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1041278",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1041278",
+   "question": "审核通过查询\n请问初级会计审核是否通过再哪里查询结果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1038974",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1038974",
+   "question": "2021年9月份广东的中级考试的核酸检测是需要72小时还是48小时？\n2021年9月份广东的中级考试的核酸检测是需要72小时还是48小时？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1034514",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1034514",
+   "question": "初级会计名字变更问题\n报名初级会计考试完以后改了名字，对领取证书有影响吗，要提供哪些更正名字资料才能领取证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1035498",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1035498",
+   "question": "视同继续教育操作流程\n你好，我2019年在校期间拿到初级会计证书，2021年6月毕业，现在办理视同教育要怎么操作？ 等待回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1036140",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1036140",
+   "question": "继续教育\n以前年度继续教育不再办理补学补登。我是2016年开始继续教育的，2016-2019都有办理，2020年漏办理了，2021年已办，2020年断办的有什么影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1034968",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1034968",
+   "question": "继续教育\n我是2020年考取的初级会计证，2021年拿到证书，请问继续教育应该从什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1033778",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1033778",
+   "question": "2021初级会计电子证书放出时间\n请问2021年会计初级证书什么时候可以下载呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1034239",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1034239",
+   "question": "咨询已通过2020年初级考试，如何申领补贴！\n你好！本人通过2020年的初级会计职称考试，今年3月份已拿到证书。在广东人社进行“失业保险技能补贴申请”时间，需要输入16位的职业资格（技能登记）证书编号，但是会计证书上只有一个14位的管理号。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1034790",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1034790",
+   "question": "学费缴纳，发票在哪里补打\n在广东财政缴纳了学费，发票在哪里补打",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1033201",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1033201",
+   "question": "继续教育\n2020年会计继续教育错过了时间，今年可以补2020年的继续教育吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1033282",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1033282",
+   "question": "会计继续教育\n《会计专业技术人员继续教育规定》（三）参加国家教育行政主管部门承认的中专以上会计类专业学历（学位）教育，通过当年度一门学习课程考试或考核的，折算为90学分；这里的一门学习课程指会计类吗？《政治经济学》算吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1033884",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1033884",
+   "question": "关于会计继续教育问题\n在广东省会计信息服务平台参加继续教育有那么多公司，我应该选择哪一个去学习，为什么价格也不一样的，我买课程学完后到时能不能查到我的继续教育的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1031996",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1031996",
+   "question": "初级会计继续教育\n2020年九月份考到的初级会计证，2021还是一名大三实习生，是否需要继续教育，还是毕业后再继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1032026",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1032026",
+   "question": "继续教育\n您好！我想请问一下2021年度会计继续教育专业课一直审核未完成是什么原因呀？从7.11就学习完了到现在一直显示审核未完成，行政区域是梅州市梅县区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1028907",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1028907",
+   "question": "会计人员信息采集\n今年通过初级会计考试，未领证，是否需要会计人员进行信息采集，有无时间规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1028067",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1028067",
+   "question": "政府采购评审专家入库\n请问现在还可以注册成为政府采购评审专家吗？http://www.gdgpo.gov.cn/gdgpms/ums/homepage.action?jumpUrl=%2Fsms%2FspeReg%2Fedit.do在这个网",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1028431",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1028431",
+   "question": "政府采购评审专家系统无法上传文件\n政府采购评审专家系统无法上传文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1031218",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1031218",
+   "question": "会计继续教育\n您好，我在申请会计继续教育时系统提示我要完善工作信息，但是我是省本级的，工作在深圳，后面提交的时候提示说“所属行政区划与所填写的工作单位不在同一个地市，请重新选择所属的行政区划!”，但是我在行政区域那里并没有找到深圳市，请问需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1027612",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1027612",
+   "question": "继续教育的信息采集填写问题\n您好，2020年9月在广西南宁取得了初级会计职称，在今年填写信息采集进行继续教育过程中，发现行政区划只能选择考取证书的省份(广西辖区)无法选择户口所在地，因此我选择南宁辖区后审核不通过，请问我需要怎么填写信息，以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1027158",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1027158",
+   "question": "注册好成为供应商，怎样展示产品\n公司注册好成为供应商，怎样展示公司产品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1026208",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1026208",
+   "question": "关于中级会计考试异地报考\n您好，请问一下，如果第一年在广州过了一科，由于公章调动，第二年可能要回到湖南，那么剩下的两科可以在湖南报考吗，这样成绩是会合并的吗，有没有影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1025771",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1025771",
+   "question": "初会考后继续教育问题\n你好，今年初会考试通过了，还没发证，请问需要信息采集和继续教育申报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1020531",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1020531",
+   "question": "如何退出广东省政府性融资担保机构\n请问已经进入广东省政府性融资担保机构的名单，如何申请退出？在网站上没有找到相关资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1018167",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1018167",
+   "question": "考取初级当年继续教育问题\n我今年考取了会计初级，还没发证。考证当年继续教育不是免了？要怎么操作，在哪个网操作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1016787",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1016787",
+   "question": "继续教育\n你好，我把今年的继续教育学习完后发现显示平台教育情况发送失败，我按照它提示去填写基础信息，但是我选择我“专业系列”时按了“会计专业”，单位那里就不显示了；然而我不选择专业系列或者选择其他那些专业，单位才显示出来，那应该怎么解决呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1011425",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1011425",
+   "question": "初级复审通过后领证问题\n2021初级会计线上复审通过，请问哪里，什么时候能查询到电子证件？纸质证件怎么发放？线上复审没有要我们填写收件地址等信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1011053",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1011053",
+   "question": "中级会计职称考试\n想请问一下2021年09月考试会不会因为疫情取消？盼回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1008721",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1008721",
+   "question": "政府采购代理机构信息维护\n请问一下政府采购代理机构信息维护审核需要几个工作日？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1010599",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1010599",
+   "question": "咨询关于本科第三年报考中级成绩是否有效\n你好，我是本科2018级毕业的，今年报考广东地区的中级会计职称考试，发现报考成功了，但是今年是本科毕业的第三年，明年才是第四年，如果今年通过了其中两门，明年再通过剩下的一门，这样可以拿证吗？第三年的考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1009705",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1009705",
+   "question": "支付成功，报名系统仍显示未缴费\n微信支付成功，报名系统仍显示未缴费，支付平台查询缴费结果说未对账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1009189",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1009189",
+   "question": "会计继续教育\n在职人员在读 业余本科-财务管理（成教） 三年期间，是否可以视同继续教育，不再另行参加继续教育学习？如果可以，是否需要每年在系统上提交视同申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1009256",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1009256",
+   "question": "会计继续教育\n请问几年没有进行继续教育，初级会计证书还有效吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1006584",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1006584",
+   "question": "会计\n1、会计继续教育变更信息的时候为什么一直弹出:电子邮箱已绑定其他用户，请检查！可是电子邮箱确实是我的，是被别人盗用绑定了吗？我这边可以怎么检查呢？ 2、还有我的工作单位是在深圳，之前是在广州，是否需要在深圳会计信息网重新注册账号和信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1007545",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1007545",
+   "question": "姓名变更考试\n本人3月报名参加2021年中级会计职称考试，5月变更了姓名身份信息，3月报考是用的旧名字，可能会导致无法参加考试，请问相关信息要去哪里变更？是在打印准考证之前变更还是之后变更？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1007642",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1007642",
+   "question": "初级会计补贴\n你好，请问20年在广州考过初级，有什么补贴可以领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1007851",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1007851",
+   "question": "2021年高级会计师评审时间\n请问我省2021年高级会计师什么时间评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1008354",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1008354",
+   "question": "继续教育\n您好，本人之前考过会计从业资格证书并领取了，2021年考过了会计初级（证书未领取），请问2021年需要继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1005159",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1005159",
+   "question": "关于招标代理机构的综合信用评价结果查询方式\n根据《政府采购代理机构管理暂行办法》（财库【2018】2号）第十二条规定，“采购人应当根据项目特点、代理机构专业领域和综合信用评价结果，从名录中自主择优选择代理机构。”但我在本平台的代理机构栏目中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1005468",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1005468",
+   "question": "关于政府采购代理机构开展业务是否需要在市级财政部门备案\n我司为2021年新成立的政府采购代理公司，目前已经在广东省政府采购网和中国政府采购网上进行代理机构权限登记，并已经通过审核。为开展本市政府采购代理业务，我司是否需要在本市财政部门、本县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1007356",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1007356",
+   "question": "社保缴费数据查询\n社保缴费的数据，每个月单位缴费和个人缴费的明细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1005047",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1005047",
+   "question": "关于注册国企采购人多少天能通过审核，审核会通过什么信息发布\n请问注册国企采购人多少天能通过审核？审核会通过哪里的信息发布？为什么初期注册(未审核状态)登陆显示不存在该账号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1003557",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1003557",
+   "question": "今天在采购专家系统修改了申报专业，需要重新审核，请问多久才能审核完毕\n我是采购专家库的入库专家，今天在采购专家系统修改了申报专业，发现需要重新审核，请问多久才能审核完毕的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1002862",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1002862",
+   "question": "关于2017年新能源汽车地方补贴\n领导们好!我在2017年购买的长安牌本本新能源汽车!购买时销售说需要车主先垫付新能源车的地方补贴.现在都2021年了!我想了解一下这个补贴什么时候能下发?或者在什么地方能查询进度?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001277",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001277",
+   "question": "继续教育\n2021年的继续教育要怎么添加课程，专业课学习资源那里没有的选",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001387",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001387",
+   "question": "视同继续教育\n你好，我是2020年通过会计初级资格考试，然后初级会计证是2021年3月财政局邮寄给我。请问我是今年可以视同继续教育吗？在哪里可以查到自己视同继续教育的资格呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "999878",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=999878",
+   "question": "我在广东省政府采购网申请了专家，在新出的专家桌面系统还需要注册的么？\n我在广东省政府采购网申请了专家，那在广东省综合评标评审专家库-专家桌面系统还需要重现申请注册的么？以后的这个专家桌面系统会替代广东省政府采购网的专家系统么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1000627",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1000627",
+   "question": "高级会计师考试成绩审核\n根据2020年高级会计师报考的文件，本通知所述工作年限计算截止日期为2021年12月31日。全日制本科毕业，2016年4月取得注册会计师证书，从事会计师工作9年，2020年12月报考高级会计师，从事会计师职责的时间是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001118",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001118",
+   "question": "审核通过后会计证申领问题\n请问，审核通过后，会计证书问题在哪里可以查询，或者哪里可以下载电子版证书，或者有没有短信通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1000774",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1000774",
+   "question": "初级会计\n请问今年初级考后审核之后要等多久才能领取证书？我需要留意哪里的通知？还是会有短信通知？请问证书是否能代替今年的继续教育，我需要如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001749",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001749",
+   "question": "会计信息服务平台专业课资源问题\n财政厅工作人员：您好。 我在进行2021年会计继续教育过程中，已经完成了公需课程，但是专业课程一直没有资源上架，也没有面授课程相关资源公布出来，请问专业课程要如何进行？盼回复具体操作流程，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001441",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001441",
+   "question": "会计中级，高级考试报名条件\n你好，中级，高级考试报名条件中的大专或本科学历，如果取得大学本科学历，但不是会计专业的，能否报名呢，还是这个学历有规定专业限制的呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "1001431",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=1001431",
+   "question": "初级领证\n初级递交资料进行复核后，广东会计信息服务平台会在官网上出具复核结果的通知吗？还是由当地的会计考试办来联系通知会计合格人员前来领证呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "999591",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=999591",
+   "question": "继续教育\n您好，今年初级过了，还需要自己申请继续教育吗？因为我申请后一直不通过，麻烦您回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "999145",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=999145",
+   "question": "政府采购评审专家劳务费是否需要开具发票\n政府采购项目随机抽取的评审专家，在评审工作完成后按相关规定取得的劳务费用是否需要开具发票？如果需要，发票应该由采购方开具还是由专家本人开？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "998852",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=998852",
+   "question": "继续教育\n从哪可以参加继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "998586",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=998586",
+   "question": "初级会计证书编号查询\n请问，初级会计证书编号在哪可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "999301",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=999301",
+   "question": "初级会计考后审核结果及证书领取\n考后审核资料已经提交，审核结果什么时候可以出？证书什么时候可以领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "999226",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=999226",
+   "question": "高一学业水平考试重复缴费如何申请退费\n由于学业水平考试报名缴费系统原因，导致重复缴费，如何申请退出重复缴费的费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "997464",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=997464",
+   "question": "初级会计证书申领\n我的资料已经复核了，请问什么时候可以领证书？怎么领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "997721",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=997721",
+   "question": "初级会计师证审核后问题\n请问初级会计师证审核通过后如何去领取证书，可否快递寄送，领取时间是以何种方式知晓，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "998053",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=998053",
+   "question": "初级会计证书什么时候可以领\n初级会计证书什么时候可以领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "996267",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=996267",
+   "question": "考核及评审\n已选聘为政府采购网的评审专家还需要进行系统里面的专项考试吗？为何入库接近一年一直未接到参与评审的通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "996827",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=996827",
+   "question": "报告中级会计条件\n您好！大专函授毕业，毕业证时间2017年1月，从事会计工作8年，可以报考中级会计吗？考后审核是否需要有中专毕业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "997023",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=997023",
+   "question": "初级会计\n请问初级会计网上审核通过后，要怎么申领证书呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "990383",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=990383",
+   "question": "关于中级会计考试能报考时间\n本人学历是非全日制大专在读，毕业证需到2023年7月份以后才能拿到，若一直从事财务工作已经有9年时间了。请问我这个情况，几时才能报考中级职称考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "987327",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=987327",
+   "question": "继续教育\n请问，我往年的继续教育记录为什么查询不到了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981965",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981965",
+   "question": "查询初中级成绩\n就是查询成绩不能像注册会计师那样只有自己登录查询吗？因为只要有身份证号就可以查询，有时候很不方便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981512",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981512",
+   "question": "初级会计\n您好，想问一下过几天初级会计考后审核，但是现在发现高中毕业证丢失了，可以拿在校大学生证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981199",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981199",
+   "question": "如何申请进入评审专家库\n已注册评审专家库，但无法上传身份证等其他资料，无法申请，请问是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981193",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981193",
+   "question": "2021年广州市中级会计职称考试能否如期举行？\n在当前广州疫情情况与对未来疫情变化的预判下，想了解2021年广州市中级会计职称考试能否如期举行？广大考生殷切盼望该考试能顺利举行，希望相关部门能充分考虑民意，争取不取消考试。倘若非取消不可，能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981129",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981129",
+   "question": "关于初级会计考后审核问题\n你好，问题一：请问南海区初级会计考后审核是否改为线上审核了？ 问题二：请问报名信息表没有填写工作单位，是否需要盖单位公章？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "981088",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=981088",
+   "question": "初级会计考后审核问题\n您好，我是本科在校大学生，高中毕业证不知道放哪了，考后审核可以使用在校的学生证进行学历证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "980994",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=980994",
+   "question": "关于非全日制大专报考中级资格条件\n你好，本人学历是非全日制大专，毕业证是2020年9月拿的，财务工作已经有5年时间了。请问我这个情况，能正常报考2022年的中级职称考试吗？（具备大学专科学历，从事会计工作满5年可以报考会计中级资格）请问从事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "980927",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=980927",
+   "question": "企业如果想参加市政医疗设备批量集中采购需要具备哪些条件\n尊敬的市政领导，我想咨询一下，如果企业想参与市政医疗设备（医用内窥镜）批量集中采购需要满足怎么条件，如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "980391",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=980391",
+   "question": "2021初级会计职称成绩复核\n你好！请问我2021年初级会计职称考试经济法基础59分，初级会计实务82分。能申请成绩复核嘛？复核的对象是双科都60分以上的嘛（这个我感觉不是很公平，用什么保证60分于以下不会有错误）？那59分就不能复核了嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "978284",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=978284",
+   "question": "初级会计领证\n疫情原因在深圳的考生推迟初级考试，后面考试通过，考生报名表上的工作单位不是现在工作单位，初级考试复核，考试报名表需要盖章吗？如果需要，盖的是哪个公司的公章？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "978157",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=978157",
+   "question": "需要对接广东省财政电子票据管理系统的企业需要具备什么资质\n需要对接广东省财政电子票据管理系统的企业需要具备什么资质？以便从事该项业务。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "978256",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=978256",
+   "question": "初会复核资料\n如果高中的毕业证书找不到，是否可以用大学在读证明？还是需要其他的资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "977973",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=977973",
+   "question": "考后复核地点\n请问初级会计考试我是在花都考区的，那我的考后复核是不是属于花都考区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "978100",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=978100",
+   "question": "中级报考条件\n本人学历是非全日制大专在读，毕业证已在2020年6月份拿到，财务工作已经有4年（到明年5年） 请问我这个情况，能正常报考2022年的中级职称考试吗？ 就是年限是按工作年限来的还是按拿到毕业证后开始算的？如能报考的话，学历那块要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "978186",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=978186",
+   "question": "在初级会计报名信息表中，不小心把毕业证编号填写了学士学位证编号，会影响考后资格审核吗？\n本人2017年毕业，今天补打了初级会计报名信息表，发现报名表中的毕业证编号那栏错误填写了学士学位证编号，请问会影响考后资格审核吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "977915",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=977915",
+   "question": "2021年初级会计考后审核时间\n请问2021年初级会计什么时候进行考后审核，审核需要哪些资料了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "977902",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=977902",
+   "question": "关于2021年初级会计考后审核\n深圳市2021年初级会计考后审核所提供资料是否需要单位盖公章？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "977895",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=977895",
+   "question": "关于初级资格考后复核问题\n我报名考试区是云浮市，报名点名称是罗定市报名点，考后复核是回哪里复核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "977929",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=977929",
+   "question": "广州审核网上审核还需要报名表吗?在校大学生需要学校盖章吗\n广州出快审核还需要报名表吗？在校大学生需要盖章吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "972983",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=972983",
+   "question": "中级报考资格\n本人自考本考，毕业10年了，初级已考过。从事会计工作1年，可以报考中级吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "973073",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=973073",
+   "question": "初级会计报名信息表\n你好 我想问下 我的初级考生信息表忘记打印了，请问可以重新进行补打吗？还有就是我从上个单位离职了，信息表上还是以前那个单位，盖公章可以用新单位的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "973781",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=973781",
+   "question": "关于考后审核是否能在网上审核\n因现如今广州疫情严重，请问是否会安排网上审核，审核完成证书是否采用邮寄形式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "972687",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=972687",
+   "question": "2021年初级会计资格审核时间的确认\n你好！我想了解一下2021年初级会计职称的资料复核时间出来了吗？一般是在什么时候可以去审核呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "972574",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=972574",
+   "question": "请问：之前漏了打印初级考生信息表，现在初级过了，什么时候可以补打印，在哪里打印？\n问题1：之前漏了打印初级考生信息表，现在初级过了，什么时候可以补打印，在哪里打印？问题2 ：领证一定要盖单位章吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969283",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969283",
+   "question": "初会通过，高中毕业证丢失如何通过考后审核\n2021初级会计考试通过，广东地区需考后审核，高中毕业证原件丢失，应该怎么证明学历？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969563",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969563",
+   "question": "2021年初级会计职称考试\n考试通过 忘记打印报名信息表怎么办 还会开放补打时间吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969709",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969709",
+   "question": "初级会计审核\n广东肇庆市考生2021年初级会计报名信息表忘记打印，什么时候开放信息表补打通道？是在广东财政厅通知还是肇庆市财政局通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969737",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969737",
+   "question": "初级会计报名信息表\n初级会计报名信息表的补打印通道什么时候开放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969850",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969850",
+   "question": "初会报名信息表\n忘了打印初会报名信息表怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969899",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969899",
+   "question": "2021年初级会计成绩复核\n你好，我需要复核2021初级会计成绩，请问如何申请办理？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969914",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969914",
+   "question": "初级会计领证问题\n大学在读生，高中毕业证不见了怎么办？可以用大学在读证明领吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "970356",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=970356",
+   "question": "2021初级会计复核\n您好，我想询问一下2021初级会计成绩可以复核吗？如何申请呢？疫情期间可以网上申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "970381",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=970381",
+   "question": "初级会计信息报名表\n什么时候开通补打印初级会计信息报名表的通道？在哪可以查询呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969728",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969728",
+   "question": "关于初级会计审核\n您好，我想问一下，之前报名的时候填写的信息，毕业院校那一栏，我写的是XX中学，但是毕业证上面盖的章是XX市XX区XX中学，这样审核是否会通过？麻烦解答，谢谢~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969993",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969993",
+   "question": "初级会计审核\n请问初级会计考过了，但我信息表上填的是技校学校高技的，审核会不会不通过，我看网上都说高技不是学历但等同于大专。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "970069",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=970069",
+   "question": "初级会计\n你好，2021年我在广州市番禺区考了初级会计并已通过考试，但我是一位待业人员，目前没有居住证，想咨询一下领取初级会计职称证书的时候需要居住证吗？如果需要，现在办居住证可以吗？(不可以补之前日期的，只可以近期申请)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969278",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969278",
+   "question": "2021年初级会计证领取流程\n您好。我想问下2021年广东省初级会计证的领取流程是怎么样的，会不会给通过考试的考生发信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969946",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969946",
+   "question": "咨询初级会计考后审核\n您好！请问东莞这边初级会计考后审核需要哪些资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "969919",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=969919",
+   "question": "2021年东莞市初级会计证书领取\n你好，请问初级会计成绩合格后，该如何领取证书，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "968471",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=968471",
+   "question": "初级会计领证\n2021年初级会计领证时间和流程，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "968551",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=968551",
+   "question": "关于报考中级资格条件\n本人学历是非全日制大专在读，毕业证需到2022年7月份以后才能拿到，财务工作已经有9年时间了。请问我这个情况，能正常报考2022年的中级职称考试吗？如能报考的话，学历那块要怎么填写？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "967409",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=967409",
+   "question": "初级会计职称成绩公布时间\n您好，我是今年初级会计职称考试学生，准考证上写着成绩15号前公布，而12.13.14号为端午节假期，所以想请问一下今年的成绩公布时间，因为很期待所以比较着急，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "961425",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=961425",
+   "question": "初级会计职称的继续教育问题\n您好，请问我是2019年参加考试，2020年拿到的证书，是不是在校期间是无需进行继续教育呢？我今年6月份即将毕业，请问继续教育是从今年算起吗？我是不是在今年就需要继续教育？继续教育是否可以网上完成学分呢？还有因为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "954220",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=954220",
+   "question": "报考初级会计职称\n不是本地户口，在广州工作没有社保和暂住证不清楚报考初级会计证需要提供什么，不清楚在广州初级证有什么补贴。可否异地报考，什么时间报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "941478",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=941478",
+   "question": "会计继续教育\n2020年考过会计初级。请问一下正在自考专科和本科的会计专业也需要继续教育吗？请问怎么操作呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "940024",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=940024",
+   "question": "中级会计报名信息表\n1、报名信息表忘记打印，可从哪里下载打印。 2、报名信息表的单位盖章和会计专业工作简历表的单位盖章必须要一致吗？ 3、在A公司满足工作4年的条件，并获取会计专业工作简历表的单位盖章（A公司），后辞职，到B公司，报名信息表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "935419",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=935419",
+   "question": "中级准考证\n倪浩，2021年中级会计职称报名考试了，但忘记打印准考证，可以补打吗？不可以的话，是不是不能参加考试了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "934672",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=934672",
+   "question": "根据企业工会的财务人员可以由企业财务人员兼任吗？\n请问根据《工会会计制度》第四条等规定，大型国有企业的工会其会计人员可以由企业财务部门人员兼任吗？即“一套人马两块牌子”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "919773",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=919773",
+   "question": "如何成为政府采购印刷定点供应商\n您好! 请问成为政府采购印刷定点供应商有什么条件?具体如何操作? 谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "906141",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=906141",
+   "question": "代理机构注册\n作为代理机构，请问现在新开通了广东省政府采购智慧云平台我已经注册，那旧的广东省政府采购网（http://www.gdgpo.gov.cn/）还需要登记注册吗？如果需要注册，那我提交注册资料已经一个星期，为什么还不审批？审批期限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "898972",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=898972",
+   "question": "会计从业资格证有效期到期\n你好，我想咨询一下会计从业资格证有效期过期了还能去换证吗？需要怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "899354",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=899354",
+   "question": "信息采集\n去年中级考过了两门，今年还需要再考1门。 想咨询下： 1、只有工作年限增加1年，其他信息全都没有更改时，信息采集是否还需要变更？ 2、如工作年限增加1年，需要更改信息，那是不是工作证明是不是也要重新上传？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "892138",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=892138",
+   "question": "报考中级对继续教育有要求吗\n我2019年取得初级会计证，没有参加过继续教育，对今年报考中级和注册会计师有影响吗？如果考试成绩合格了会不会因为没有继续教育而导致成绩作废？另外我的户籍不在广州，但在广州工作，是否可以在广州报考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "891149",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=891149",
+   "question": "个人信息安全\n尊敬的领导您好： 广东省会计信息服务平台https://kj.czt.gd.gov.cn/ywbl 中“业务办理-继续教育-会计人员”版块是仅输入姓名和身份证号码即可查询每年的个人教育信息，很多旁人容易知道身份证号码，查询结果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "886111",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=886111",
+   "question": "继续教育\n2020年度的公需课是不能补学了吗？ 没有完成是不是2020年度的继续教育没用了？ 怎么补救呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "886648",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=886648",
+   "question": "关于09年-18年广东省各城市财政在节能环保上的支出\n您好，因学术研究需要，在广东统治上09年-16年左右都是只有广东省的财政节能环保支出明细，没有详细到个每个城市，请问可以将09年-18年广东省各城市财政在节能环保上的支出发到我邮箱吗，非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "875121",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=875121",
+   "question": "学费缴纳 支付成功，却显示未缴费\n微信交学费成功之后，缴费单显示未缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "875718",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=875718",
+   "question": "教资报名重复缴费如何退费\n1月14号报名教师资格证是因为网络原因重复缴费了，请问会退回一份费用吗？什么时候退呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "872753",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=872753",
+   "question": "罚没财物\n国家财政部2020年出台了《罚没财物管理办法》（财税【2020】54号）。广东省是否有出台罚没财物管理办法（条例）？或者细则？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "873623",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=873623",
+   "question": "农业保险保费补贴\n请问广东的农业保险保费补贴四级比例的详细数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "872572",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=872572",
+   "question": "2013-2017年广东省对县级财政转移支付的数据\n由于研究生论文需要，请问可以通过什么途径获取2013-2017年广东省对县级财政转移支付的数据（分别包括一般性转移支付、专项转移支付、税收返还的金额），谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "870228",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=870228",
+   "question": "电工中级证未退报名费\n10.13报名中级电工证，但照片不符合，报名失败，要我重新报名，并承诺30个工作日内给予退款。后来又报了一次才成功，但第一次的退款，至今三个月了还没收到。账单上的客服电话一直打不通，联系相关老师没有给予回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "871197",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=871197",
+   "question": "2021年初级会计报名信息表\n2021年的初级会计报名信息表忘记打印怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "866773",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=866773",
+   "question": "2020年初级会计证什么时候领取\n2020年初级会计证什么时候领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "866819",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=866819",
+   "question": "中级会计考试非税发票打印\n您好，我2020年参加了中级会计考试，报名了三科；但是报名界面无法打印，请问如何才能获取？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "867411",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=867411",
+   "question": "申请公开《广东省政府投资基金管理实施办法（试行）》（粤财预〔2016〕178号）文件\n您好： 现本人向贵厅申请公开《广东省政府投资基金管理实施办法（试行）》（粤财预〔2016〕178号）文件并告知是否现行有效。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "866562",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=866562",
+   "question": "广东省省级非税收入缴款通知书页面无法输入交款人统一社会信用代码\n广东省非税收入票据（电子）页面左上角，要求填交款人统一社会信用代码，在非税系统开具非税电子票的时候却无法输入交款人统一社会信息代码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-czt",
+   "id": "865813",
+   "url": "https://czt.gd.gov.cn/hdjlpt/detail?pid=865813",
+   "question": "关于2020继续教育公需课完成的确认\n尊敬的老师，您好！ 请问2020年12月31日当天完成公需课30学分，算完成吗？如果不算的话，请问有什么补救方法？以及影响？谢谢老师！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

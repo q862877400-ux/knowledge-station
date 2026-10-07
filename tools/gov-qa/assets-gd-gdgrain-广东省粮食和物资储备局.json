@@ -1,0 +1,834 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-gdgrain",
+   "id": "3121760",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3121760",
+   "question": "转圈粮问题\n我司与粮食加工厂合作，对储备粮进行加工生产，二者皆为独立法人机构。我司将储备粮稻谷销售给加工厂生产为成品粮，或将储备大米销售给加工厂再配方加工生产为新的成品粮产品，然后我司再向加工厂购回其加工生成产品，请问这批粮食是否属于“转圈",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 粮食",
+     "lib_no": "GB 2715-2016",
+     "weak": false
+    },
+    {
+     "name": "食品安全国家标准 粮食",
+     "lib_no": "GB 2715-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "政府储备成品粮油安全储藏技术要点"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2813019",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2813019",
+   "question": "储备粮会计账务处理\n储备粮轮换过程中，收到客户的逾期费或违约金，会计账务怎样处理？这部分收入是否要缴纳税金？",
+   "cited_hits": [
+    {
+     "name": "增值税暂行条例实施细则",
+     "lib_no": "增值税暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "增值税暂行条例",
+     "lib_no": "增值税暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2632911",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2632911",
+   "question": "省级储备粮代储资格申请条件及程序\n省级储备粮代储资格申请条件及程序，相关的文件",
+   "cited_hits": [
+    {
+     "name": "行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省省级储备粮管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2388170",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2388170",
+   "question": "关于《粮油仓储管理办法》第五条的理解问题\n《粮油仓储管理办法》第五条，县级以上地方人民政府粮食行政管理部门负责本行政区域的粮油仓储监督管理工作。那么在市辖区A区的中央储备粮S市直属库有限公司（营业执照登记机关：S市A区市场监督管理局），其粮",
+   "cited_hits": [
+    {
+     "name": "中央储备粮管理条例",
+     "lib_no": "中央储备粮管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "粮食仓储管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "1050126",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=1050126",
+   "question": "储备粮公司可以质押股权吗？\n你好，在处理业务中我们遇到一个问题，粮食储运公司属于国有独资企业、公益类企业、仅作为政府粮食储备企业，不得从事经营类业务吗？企业重组过程中需要申请并购贷款，需要将公司股权质押给银行，这样股权质押合法合规吗？有没有",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省粮食安全保障条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "921332",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=921332",
+   "question": "变更粮食收购许可证\n你好，企业如何在线办理变更粮食收购许可证？",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "粮食收购许可证",
+    "粮食收购许可证",
+    "粮食收购许可证",
+    "粮食收购许可证",
+    "粮食收购许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "848417",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=848417",
+   "question": "公司准备开发助农项目，大米，黄豆等的公益性售卖，合规性咨询\n根据《粮食流通管理条例》，有如下疑问： 1，此为新业务，公司拟打算第一批售卖300t以上大米成品粮，需要向公司所在地广东省粮食局进行购进，及销售去向的报备吗？如果需要，通过什么途径",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省发展改革委广东省粮食局关于实施粮食经营者最低和最高库存量标准的规定",
+    "广东省粮食应急预案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "757415",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=757415",
+   "question": "委托合规性，及第一次作为粮食销售者，最低和最高库存量标准\n1，若我司电子商务公司委托大米生产商生产大米，加贴我司商标，我司需要申请哪些资质，满足行为合规？此行为可以定义为——粮食收购者吗？ 2，若我司作为销售大米的经营者，第一次售卖大米，也",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于实施粮食经营者最低和最高库存量标准的规定",
+    "广东省粮食应急预案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "552128",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=552128",
+   "question": "政策\n你好，请问下现在卖新粮和卖陈粮在政策上有什么不一样吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "551676",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=551676",
+   "question": "税费\n卖粮的过程中收粮部门是否收取税费？",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国增值税暂行条例",
+     "lib_no": "增值税暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国增值税暂行条例",
+     "lib_no": "增值税暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "535124",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=535124",
+   "question": "粮食收购\n请问申请从事粮食收购业务应具备什么条件？",
+   "cited_hits": [
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司登记管理条例",
+     "lib_no": "公司登记管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "粮食流通管理条例",
+     "lib_no": "粮食流通管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "粮食收购资格审核管理办法",
+    "广东省粮食收购许可管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-gdgrain",
+   "id": "3475506",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3475506",
+   "question": "成品粮（大米）、食用植物油出库问题\n承储单位在进行政府储备成品粮（大米）、食用植物油出库，是不是不管储存时间长短、普查报告是否在有效期内，都必须重新扦样检测，出具出库报告才能出库，不可以使用原有检测报告替代？如果同一仓库分多次间隔较久出库，",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮食质量安全监管办法",
+    "广东省粮食和物资储备局关于进一步加强政府粮油储备质量安全管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3468046",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3468046",
+   "question": "关于执行粤粮监【2026】24号“政府粮油储备需每年开展逐货位检验不少于2次”的问题\n粤粮监【2026】24号中提到：“政府粮油储备需每年开展逐货位检验不少于2次，且检验频次不包括入库验收检验”。 因逐货位检验时间一般为每年3月份和9月份，",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府粮油储备质量安全管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3442037",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3442037",
+   "question": "关于粮油质量检验员是否需要持证上岗等相关问题\n1.粮油质检员是否需要持证上岗？ 2.根据《广东省粮食和物资储备局关于进一步改善基层职工工作生活条件推动行业高质量发展的通知》，发放质检作业津贴是否要求质检作业人员必须持有证书？ 3.用人单位只",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步改善基层职工工作生活条件推动行业高质量发展的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3394839",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3394839",
+   "question": "关于成品粮逐货位检验的问题\n粤粮监〔2026〕24号文件 《广东省粮食和物资储备局关于进一步加强政府粮油储备质量安全管理的通知》，第四条：规范检验报告有效期管理粮食质量安全检验报告有效期为自签发之日起6个月。政府储备原粮销售时，最近1次抽检",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府储备粮油质量检查扦样检验管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3278360",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3278360",
+   "question": "储备粮是否能计提存货跌价准备\n请问目前关于自主轮换轮换部分的储备粮，都是由企业自负盈亏的，是否可以计提存货跌价准备？",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮食企业执行会计准则有关粮油业务会计处理指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3179409",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3179409",
+   "question": "粮食储存\n您好，请问一个粮食仓房中最多能储存多少原粮？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府储备粮食仓储管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3168214",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3168214",
+   "question": "关于地方储备粮储存年限的问题\n请问储存年限是以原粮收获年份计算还是按入库时间计算？如2024年6月入库的2023年收获的晚籼稻，如果按2年需轮换的话，那2025年需要轮换了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府储备粮食仓储管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3110587",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3110587",
+   "question": "《国家政策性粮食租仓管理办法》中关于向每个租用库点派驻不少于2名在职人员的租仓库点\n1.关于租仓静态储备和租仓自主轮换储备粮的监管，省局是否有文件规定，一定要派驻驻点人员驻库监管； 2.根据《国家政策性粮食租仓管理办法》（征求意见稿）第十五",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家政策性粮食租仓管理办法",
+    "政府储备粮食仓储管理办法",
+    "粮油仓储管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3081268",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3081268",
+   "question": "关于成品油生产日期的咨询\n请问省粮储局2022年印发的《广东省地方成品粮油储备管理细则（试行）》以及2024年印发的《政府粮油质量安全管理办法》均提到：“采购的食用植物油应为近期新加工的产品”，里面的“近期新加工”应该如何定义？以哪个时间节",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府储备粮食质量安全管理办法",
+    "粮食质量安全监管办法",
+    "政府粮油储备质量安全管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3052343",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3052343",
+   "question": "关于储备冻猪肉专仓（堆）管理的相关问题\n由于储备冻猪肉数量较小，委托相关企业代储冻猪肉时，代储企业在其自有冻库里面划出部分地方专堆存放代储的冻猪肉，并在该堆储备肉前方悬挂标识卡明示，这是否符合储备冻猪肉专仓（堆）管理的规定",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省省级储备冻猪肉管理办法 （ 2021 年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2923130",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2923130",
+   "question": "企业代储\n您好，请问省级储备粮是否可以委托具备条件的企业代储？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省粮食安全保障条例",
+    "广东省省级储备粮管理办法",
+    "广东省省级储备粮代储管理实施细则",
+    "广东省省级储备粮代储管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2801913",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2801913",
+   "question": "粮油仓储企业备案管理问题\n尊敬的领导：若企业已于2018年已经完成粮油仓储设施主体建设工作，且建库过程使用了部分中央资金，但由于历史原因企业目前仍未完成建筑主体工程竣工验收工作，但已取得建筑物不动产权证并且通过消防验收。2023年11月企业",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有粮油仓储物流设施保护办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2760340",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2760340",
+   "question": "关于熏蒸用正压式空气呼吸器充装相关问题\n粮库熏蒸用正压式空气呼吸器（设计工作压力30Mpa，试验压力50Mpa，爆破压力102Mpa），是属于气瓶还是压力容器？粮库工作人员如果自行进行气体充装，是否需要考取充装作业证？如果需要，是考取项目移",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备目录",
+    "特种设备作业人员监督管理办法",
+    "特种设备作业人员证",
+    "特种设备作业人员考核规则",
+    "气瓶充装人员考试大纲",
+    "工业空气呼吸器安全使用维护管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2581162",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2581162",
+   "question": "如何申报广东省粮食应急保障企业\n您好，请问如何申报广东省粮食应急保障企业？联系哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省粮食应急保障企业管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2579798",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2579798",
+   "question": "关于《广东省粮食安全保障条例》的解读\n第十七条 县级以上人民政府的政府储备粮，由本级人民政府直属粮库储存，需要委托其他具备条件的粮食企业承储的，应当通过招标的方式确定。本条的有关规定是否适用于代储企业？也就是说，储备粮承储主体（一般就是粮食",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省粮食安全保障条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2567971",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2567971",
+   "question": "省级储备肉承储点申请条件及程序\n我是冷库从业人员，想咨询一下申请为省级储备肉承储点的条件是什么，申请程序是什么",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省级储备冻猪肉管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2361138",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2361138",
+   "question": "关于粮食储存年限的问题\n根据《政府储备粮食仓储管理办法》第四十一条“粮食储存年限以当季收获新粮（进口粮采购回国后）首次入仓，形成政府储备保管货位并建立专卡当月起算”规定和《粮油仓储管理办法》第二十条“在常规储存条件下，粮油正常储存年限一般为",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省粮食和物资储备局 广东省财政厅 中国农业发展银行广东省分行关于进一步加强地方储备粮轮换管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2286453",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2286453",
+   "question": "粮油行业AAA级、AA级、A级信用等级\n广东省粮食和物资储备局： 您好！ 我司想申报粮油行业AAA级、AA级、A级信用等级，据了解，现阶段业务申请由贵局具体落实，想咨询下业务申请的途径及流程，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮食企业信用监管办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2272068",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2272068",
+   "question": "关于动态成品粮粮权归属的问题\n2021年新出台的《省级储备粮自主轮换储备管理实施细则》未载明粮权归属地方政府，而2022年印制的《广东省粮食和物资储备部门物资储备统计报表制度》附表中明确“社会协议储备（代储）：企业出资购买物资，并负责仓储保",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省级储备粮代储管理实施细则",
+    "广东省粮食和物资储备部门物资储备统计报表制度"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2236231",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2236231",
+   "question": "关于粮食熏蒸营养补助问题\n你恏！ 现在粮食储备行业关于熏蒸后营养补助发放标准有没有具体文件或者相关规定？现在我们因为主管部门说没有相关文件规定，所以不签名批准发放熏蒸营养补助合理吗？我们广东省可不可以出一份文件来规定粮食熏蒸营养补助标准，让",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整粮食熏蒸杀虫人员解毒营养品津贴的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "544882",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=544882",
+   "question": "关于《省级储备粮管理动态管理的实施细则》法规条文的理解与适用\n1.《省级储备粮管理动态管理实施细则》第四条“动态储备粮粮权属于省人民政府”，请问此处“粮权”如何理解？是指”所有权“，还是”使用权“或者是”管理权“？权利何时转移？ 2.《省级",
+   "cited_hits": [],
+   "cited_missing": [
+    "省级储备粮管理动态管理实施细则（暂行）",
+    "省级储备粮管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "225",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=225",
+   "question": "关于咨询地方储备粮储存年限问题\n根据《粮油仓储管理办法》（2009年12月29日中华人民共和国国家发展和改革委员会令第5号公布）中第四章 第二十条“在常规储存条件下，粮油正常储存年限一般为小麦5年，稻谷和玉米3年，食用油脂和豆类2年”，储存",
+   "cited_hits": [],
+   "cited_missing": [
+    "(粮油仓储管理办法)解读"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "224",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=224",
+   "question": "企业申请注销粮食收购许可应提交什么资料？\n企业申请注销粮食收购许可应提交什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮食收购许可证",
+    "粮食收购许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "223",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=223",
+   "question": "企业是否可凭外租仓申请广东省省级储备粮代储资格？\n企业是否可凭外租仓申请广东省省级储备粮代储资格？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省省级储备粮管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "227",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=227",
+   "question": "《粮食收购许可证》的有效期是多久？\n《粮食收购许可证》的有效期是多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "粮食收购资格审核管理办法",
+    "粮食收购许可证"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-gdgrain",
+   "id": "3494415",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3494415",
+   "question": "咨询广东省粮食科学研究所粮油仓储管理员职业技能等级认定报名事宜\n您好，我想咨询【广东省粮食科学研究所 粮油仓储管理员（仓储管理员·粮油方向）2026年度职业技能等级认定开班、报名登记相关事宜】。 请问今年后续是否还会开设认定班次？当前社会考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3481289",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3481289",
+   "question": "关于执行粤粮监【2026】24号 “政府粮油储备需每年开展逐货位检验不少于2次” 的问题\n粤粮监【2026】24号中提到：“政府粮油储备需每年开展逐货位检验不少于2次，且检验频次不包括入库验收检验”。有如下几个问题需要向您明确。 一、4月后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3387157",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3387157",
+   "question": "请问26年是否会有农产品食品检验员的职业技能等级认定安排\n领导好，我是一名粮库的检验员，想问一下今年是否会有农产品食品检验员（粮油质量检验员方向）的职业技能等级认定安排，如果有大概会在几月份开展？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3354466",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3354466",
+   "question": "广东省级政府储备粮食入库和出库必检项目\n领导您好！我是粮食企业质量管理人员，我想了解目前最新的省级政府储备粮食出入库必检项目是否还是依据22年下发的文件执行？有无新变化或调整？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3288597",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3288597",
+   "question": "药品储备目录\n药品储备目录23年版抗甲流药物就一个，请问是否有新版？是否有纳入新的抗甲流药。能否提供负责人联系方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3278682",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3278682",
+   "question": "关于职业技能证书人社认可的是否全国粮食行业认可？\n领导好，我想问一下关于职业技能证书人社认可的是否全国粮食行业认可的问题，由于广东省内近年来少举办仓储管理员（粮油保管员）证书的考试，前段时间我在云南省那边考了个中级保管员，这个证书是人社认可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3272154",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3272154",
+   "question": "请求提供广东省2014-2023年历年来稻谷需求量等数据\n您好！由于论文写作需要，需查询广东省2014-2023年历年来稻谷需求量、稻谷加工业数量、大米加工业数量、稻谷加工年产量、大米加工年产量的数据，但在中国粮食统计年鉴、中国粮食和物资储",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3250525",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3250525",
+   "question": "粮库省平台对接时问题\n粮库省平台按文档对接后，遇到签名验证失败问题，问题无法解决，应当咨询哪个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3240348",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3240348",
+   "question": "粮食标准品\n请问贵司是否有玉米、大豆、稻谷这三个品种的粮食毒素（呕吐毒素、玉米赤霉烯酮、黄曲霉B1、赭曲霉）标准品可供粮食储存单位校准仪器，或者有推荐的标准品采购机构可供购买。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3150524",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3150524",
+   "question": "国家粮食和物资储备局办公室关于开展“全谷物 好营养 更健康”案列申报\n尊敬的领导： 您好！ 我公司了解到国家粮食和物资储备局正在征集“国家粮食和物资储备局办公室关于开展“全谷物 好营养 更健康”和“少吃油 吃好油 更健康”案例征集工作的通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3081636",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3081636",
+   "question": "关于咨询地方储备粮轮换费用问题\n你好，请问广东省地方储备粮轮换费用补贴标准根据什么制定？有无相关规章制度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3058718",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3058718",
+   "question": "广东国储供应链股份有限公司\n请问广东国储供应链股份有限公司是贵单位的下属企业吗，因我司仓储的业务需要跟其合作，需要了解其个体的股权关系，请帮忙确认，谢谢！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "3003807",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=3003807",
+   "question": "关于粮油质量检验员问题的咨询\n您好！请问粮油质量检验员已经取消了吗？ 我咨询过好多第三方培训机构，都说人社认证的粮油质量检验员已经没有了，但可以报考农产品食品检验员--食品检验员，我是从事粮食储备工作的，主要业务是稻谷、大米，请问报考农产品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2982386",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2982386",
+   "question": "2023年度政府网站工作年度报表链接\n可否提供下本网站2023年度政府网站工作年度报表链接。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2922480",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2922480",
+   "question": "广东省粮食和物资储备局关于进一步改善 基层职工工作生活条件推动行业 高质量发展的通知\n广东省粮食和物资储备局文件 粤粮人〔2023〕115号 广东省粮食和物资储备局关于进一步改善 基层职工工作生活条件推动行业 高质量发展的通知 这文件发布后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2917719",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2917719",
+   "question": "省粮食和储备局的招考录用\n您好，请问省粮食和储备局的招考录用信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2915191",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2915191",
+   "question": "广东省粮食和物资储备局的政策解读信息在哪里查看\n您好，请问广东省粮食和物资储备局的政策解读信息在哪里查看，可以提供下网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2886447",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2886447",
+   "question": "广东省粮食作物消费情况\n工作人员您好！我是一名农业管理专业的研二的学生，想向贵单位咨询有关广东省粮食作物消费情况，用于研究我省粮食效率的论文写作。现需贵单位提供2010到2022年的相关数据：粮食消费量、口粮产量、口粮消费、饲料用粮、工业及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2855481",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2855481",
+   "question": "广东省粮食和物资储备局年报告\n最新广东省粮食和物资储备局工作年报在哪里浏览？有网址链接吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2777263",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2777263",
+   "question": "社会人士如何报考贵单位颁发的仓储管理员等级证书\n贵单位为人社局备案的仓储管理员等级证书的社会评价机构，我在贵单位官网的信息公告栏中没看到仓储管理员等级证书的报名信息和报名渠道，请问社会人士如何报考贵单位颁发的仓储管理员证书？报考信息一般是什",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2721062",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2721062",
+   "question": "粮食风险基金\n请问储备粮库设备升级、粮库建设维护等费用，可以纳入粮食风险基金支出吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2667101",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2667101",
+   "question": "《粮食质量安全监管办法》政策解读\n您好！请问《粮食质量安全监管办法》中第十七条其中”检验报告随货同行，检验报告有效期为3个月，超过有效期的，应当重新检验并出具报告”。例如我们在粮食出入库期间，我们的检验报告刚好到期了，那么我们是不是还需要请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2354709",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2354709",
+   "question": "关于《粮食流通管理条例》法规条文的理解问题\n2021年修订印发的《粮食流通管理条例》（2004年国务院令第407号公布，2021年国务院令第740号第三次修订）第二章第九条明确从事粮食收购的企业应当向收购地的县级人民政府粮食和储备行政管理部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2304654",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2304654",
+   "question": "储备费用利息补贴计算\n储备粮利息费用补贴是按实际库存计算还是按规模数量计算呢？成品粮油的费用利息补贴又是怎样计算呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2304858",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2304858",
+   "question": "费用补贴\n储备成品粮油的管理费用补贴应按实际数量计算，还是只要达到90%以上库存规模任务数量时，可按任务数量来计算呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2267376",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2267376",
+   "question": "粮食和物资储备局机构职能信息\n请问广东省粮食和物资储备局的机构职能信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2261652",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2261652",
+   "question": "粮食和物资储备局政府信息公开工作年度报告\n请问广东省粮食和物资储备局的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "2240433",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=2240433",
+   "question": "关于企业发放职称补贴的问题\n你恏！我们储备公司是国有企业，为了提高员工的积极性，公司内部决定，有初级职称的员工没有补助50元，中级的每月100元，高级的每月200元。这样合不合理？可以发放吗？需不需要经上级监管部门批准才能发放？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "968438",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=968438",
+   "question": "《关于进一步加强地方储备粮轮换管理的通知》部分条文的解读\n《广东省粮食和物资储备局 广东省财政厅 中国农业发展银行广东省分行关于进一步加强地方储备粮轮换管理的通知》（粤粮调〔2020〕167号）第六条“轮入的储备粮原则上应为当年或上一年生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "920510",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=920510",
+   "question": "粮食产量\n你好，因毕业论文分析需要，请问去年我省粮食产量是多少，同比增长了多少呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "916430",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=916430",
+   "question": "证书丢失，补办单位联系方式\n我2016年在广州考了粮油检验员四级证书，不慎被公司丢失，现想补办，求可以补办单位的联系方式和补办方法，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "538653",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=538653",
+   "question": "请问在哪里能获取到贵单位的信息公开年报？\n请问在哪里能获取到贵单位的信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "534609",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=534609",
+   "question": "2019年度网站工作报表\n贵单位的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-gdgrain",
+   "id": "226",
+   "url": "https://gdgrain.gd.gov.cn/hdjlpt/detail?pid=226",
+   "question": "关于取消省级储备粮代储资格认定，取消后企业如何申请储备粮代储?\n关于取消省级储备粮代储资格认定，取消后企业如何申请储备粮代储?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
