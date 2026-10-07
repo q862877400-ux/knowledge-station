@@ -2,6 +2,14 @@
  "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
  "n_lib_names": 8917,
  "sources": {
+  "gd-yj-广东省应急管理厅": {
+   "n_items": 179,
+   "可当考卷(A_点名且在我们库)": 62,
+   "补料清单(B_点名但不在库)": 81,
+   "无依据(C_没点名)": 36,
+   "可定位率(点过名的条目占比)": "143/179",
+   "在库率(点名文件命中占比)": "83/270"
+  },
   "hunan-st-湖南省生态环境厅": {
    "n_items": 3813,
    "可当考卷(A_点名且在我们库)": 608,

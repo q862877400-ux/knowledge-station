@@ -61,6 +61,7 @@ ADAPTERS: dict[str, str] = {
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
     "people-liuyan-df": "adapters.people_liuyan_df",  # 同平台·地方版块（省/市/县全国覆盖，已跑通）
+    "gd-yj": "adapters.gd_yjgl",          # 广东省应急管理厅（hdjlpt Laravel 接口，已跑通）
 }
 
 #: 用户要能直接 `from adapters import load`

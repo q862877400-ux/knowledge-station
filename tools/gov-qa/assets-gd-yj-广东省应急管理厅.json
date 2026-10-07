@@ -1,0 +1,2405 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-yj",
+   "id": "3493001",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3493001",
+   "question": "注册安全工程师配备\n金属冶炼行业按安全管理人员的15%比例配置注册安全工程师，请问这里的安全管理人员包含哪些人？兼职安全管理人员是否纳入基数进行计算？主要负责人是否纳入基数计算？分管安全负责人是否纳入计算？",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3484925",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3484925",
+   "question": "电工证的报考问题\n您好，我是来自广东省河源市27届毕业的大学生，我有以下四个问题想要咨询： 1.我的大学专业是医学技术类，能否报考电工证？ 2.电工证的报考流程是怎么样的？需要去哪里报名？ 3.是否只能在户籍地报考？若在同省内其他城市能否报",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3472356",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3472356",
+   "question": "电工证上写的2026年9月24日前换证，按照新规该如何？\n请问低压电工证上写的已在2023年7月5日在广州应急管理局完成复审，请于2026年9月24日前进行换装。按照2026年6月1日发布的新规，我是要等到2029年9月24日前换证呢？还是",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3395375",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3395375",
+   "question": "水上加油船（站）经营船用柴油、船用燃料油是否需申请办理危险化学品经营许可证\n船用燃料油是否属于船用柴油，船用燃料油是否属于危险化学品，水上加油船（站)）经营船用柴油、船用燃料油是否需申请办理危险化学品经营许可证？",
+   "cited_hits": [
+    {
+     "name": "车用柴油",
+     "lib_no": "GB 19147-2009",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "B5柴油",
+    "船用燃料油"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3386786",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3386786",
+   "question": "关于高处作业是否能继续使用“三点式”安全带\n日常高处作业时，是否能使用“三点式”安全带？还是必须使用“全身式五点安全带”？只看到建筑行业有相关的要求，其他行业（例如：轻工）是否也有类似的要求？",
+   "cited_hits": [
+    {
+     "name": "高处作业分级",
+     "lib_no": "GB 3608-2025",
+     "weak": false
+    },
+    {
+     "name": "坠落防护 安全带",
+     "lib_no": "GB 6095-2021",
+     "weak": false
+    },
+    {
+     "name": "坠落防护装备的选择、使用和维护",
+     "lib_no": "GB 23468-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T 3608-2025",
+    "GB 6095-2021",
+    "GB 23468-2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3376736",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3376736",
+   "question": "关于安全生产费用使用和列支问题\n请问企业从业人员包括但不限于专兼职安全管理人员在开展安全检查、安全教育培训等与安全直接相关工作过程中产生的会议、交通、住宿、就餐等费用是否可列入安全生产费？",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3371265",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3371265",
+   "question": "焊工证复审\n本人特种作业操作证焊接与热切割作业！于2023-06-30初领，应复审日期2026-06-29 ！！根据新规管理法，2026-06-29前要复审吗？谢谢！",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3370720",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3370720",
+   "question": "安全生产费用使用范围\n施工单位从业人员在安全检查、安全教育培训、取证等与安全直接相关工作过程中产生的交通、住宿、就餐等费用可否列入安全生产费支出？",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3359905",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3359905",
+   "question": "询问证件\n请问一下低压电工证、高压电工证、高空作业证可以同时报考吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3359145",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3359145",
+   "question": "低压电工证复审\n我的证上面写5月16日前进行复审，复审报名是去在中华人民共和国应急管理部的公众号上查询培训机构然后去报名吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3349034",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3349034",
+   "question": "初级注册安全工程师怎么注册\n你好，我是外地，我想咨询一下广东的初级注册安全工程师在那个平台注册？外省考取的初级注册安全工程师证书是否也可以在广东注册使用。",
+   "cited_hits": [
+    {
+     "name": "安全生产法律法规",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省初级注册安全工程师注册管理办法",
+    "广东省初级注册安全工程师注册管理办法",
+    "广东省初级注册安全工程师注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3337703",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3337703",
+   "question": "低压电工证复审\n我有一个低压电工证，初领日期为2023-09-04，有效期为2023-09-04到2029-09-03，上面的应复审日期为2026-09-03，我是否需要在2026-09-03前完成复审，还是按照新规定到期换证呢？期待您们的",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3301618",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3301618",
+   "question": "空调制冷剂的相关问题\n目前，家用空调使用普遍，空调制冷剂已属于人民群众日常生产生活所需，请问空调制冷剂是否属危险化学品？经营空调制冷剂的商家或个人是否需要取得应急管理部门颁发的危险化学品经营许可证？",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品目录",
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3297977",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3297977",
+   "question": "关于《广东省应急管理部门行政执法免行政处罚清单》咨询答复的再次咨询\n您好，此前咨询答复称“根据《工贸企业重大事故隐患判定标准》第三条规定，‘未对承包单位、承租单位的安全生产工作统一协调、管理，或者未定期进行安全检查的’，构成重大事故隐患，不",
+   "cited_hits": [
+    {
+     "name": "工贸企业重大事故隐患判定标准",
+     "lib_no": "中华人民共和国应急管理部令（第10号）工贸企业重大事故隐患判定标准",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "工贸企业重大事故隐患判定标准",
+     "lib_no": "中华人民共和国应急管理部令（第10号）工贸企业重大事故隐患判定标准",
+     "weak": false
+    },
+    {
+     "name": "工贸企业重大事故隐患判定标准",
+     "lib_no": "中华人民共和国应急管理部令（第10号）工贸企业重大事故隐患判定标准",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省应急管理部门行政执法免行政处罚清单",
+    "免处罚清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3249164",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3249164",
+   "question": "轻伤事故需要上报应急管理部门吗\n您好！请问公路工程项目施工现场轻伤事故需要上报应急管理部门吗？谢谢！",
+   "cited_hits": [
+    {
+     "name": "生产安全事故报告和调查处理条例",
+     "lib_no": "生产安全事故报告和调查处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3233454",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3233454",
+   "question": "工贸企业安全生产费用提取办法\n本集团单位属下有火力发电企业、供冷企业、建材等企业，关于这些企业安全生产费用提取和使用方面，火力发电企业可以直接参照《企业安全生产费用提取和使用管理办法》执行，供冷企业和建材企业等不在《企业安全生产费用提取和使",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "&lt;企业安全生产费用提取和使用管理办法&gt;解读"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3202097",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3202097",
+   "question": "咨询在广州，东莞报考电工职业技能等级证书渠道，方式\n1.广州东莞地区有哪些比较正规公正的第三方学习机构 2.报考电工职业技能等级证书的条件 3.报考电工职业技能等级证书的方式",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3198648",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3198648",
+   "question": "作业票关联问题\n1.办理动火作业票A时关联临时用电作业票A1，根据粤应急办函[2025]3号及GB 30871-2022文件要求，临时用电票A1中需填写动火作业票A编号，但由于动火作业票A填写内容中存在错误，需撤销重新办理动火作业票B，其作",
+   "cited_hits": [
+    {
+     "name": "危险化学品企业特殊作业安全规范",
+     "lib_no": "GB 30871-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 30871-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3187617",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3187617",
+   "question": "关于矿山专职安全管理人员的任职问题\n尊敬的领导，您们好，请问矿山的专职安全管理人员（经培训考试后取得合格证）能否任命为矿山的安全副总、安全副矿长、安全总监或者安全部门负责人等安全相关的行政职务，会不会涉嫌兼职问题？如既是专职安全管理人员又是",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3177241",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3177241",
+   "question": "免水洗手液（含酒精，非医用消毒剂）\n你好，不好意思，再次咨询一下，谢谢上次的答复！ 我们是一家生产和销售免水洗手液（含酒精）的企业，我们的产品是购买酒精，再加入非危险化学品的溶剂进行稀释，然后再销售的，主要是用于出口，请问是否需要办理《危险",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3174713",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3174713",
+   "question": "免水洗手液（含酒精，非医用消毒剂）\n你好，我们是一家生产和销售免水洗手液（含酒精）的企业，我们的产品是购买酒精加入非危险化学品的溶剂进行稀释，然后再销售的，主要是用于出口，请问是否需要办理《危险化学品生产企业安全生产许可证》和《危险化学品经",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品目录",
+    "危险化学品安全生产许可证实施办法",
+    "危险化学品安全生产许可证实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3100133",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3100133",
+   "question": "加油站埋地油罐的操作井是否属于受限空间？\n目前部分专家和基层应急管理部门认定加油站埋地油罐的操作井属于受限空间。然而，GB30871-2022中对受限空间的定义为：“进出受限，通风不良，可能存在易燃易爆、有毒有害物质或缺氧，对进入人员的身体",
+   "cited_hits": [
+    {
+     "name": "危险化学品企业特殊作业安全规范",
+     "lib_no": "GB 30871-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 30871-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3098304",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3098304",
+   "question": "高处作业\n火电厂冷却塔筒壁施工，在平台上高处作业的工人，用不用办理高处作业证？",
+   "cited_hits": [
+    {
+     "name": "高处作业分级",
+     "lib_no": "GB 3608-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录",
+    "GB/T3608-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3069500",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3069500",
+   "question": "关于广东初级注册安全工程师相关问题\n您好，想咨询下以下为问题： 1.广东初级注册安全工程师可以注册吗？注册地址是哪里？ 2.取得初级注册安全工程师证后，需要每年进行再培训吗？ 3.取得初级注册安全工程师证后，是否还要取得安全管理人员证？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3067024",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3067024",
+   "question": "（安全生产管理人员证和主要负责人证）相关法律法规文件指引\n请问关于 安全生产管理人员证和主要负责人证 的考试，有无相关的文件规定或法律指引，例如：按照文件编号: XXX-XXX-《XXXX安全法》第XX条规定：定期对从业人员进行安全知识培训",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省安全生产条例",
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3059371",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3059371",
+   "question": "对《烟花爆竹零售店（点）安全技术规范》部分内容的咨询\n尊敬的省厅领导，年底将至，又到了烟花爆竹经营旺季。对于《烟花爆竹零售店（点）安全技术规范》中4.1选址d）不应设置在居民集中居住小区内。“居民集中居住小区”这个概念应该如何定义？包含哪些",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "烟花爆竹零售店（点）安全技术规范",
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹零售店点安全技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3054692",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3054692",
+   "question": "咨询 电工操作证如何办理\n咨询 电工操作证如何办理？在哪里可以报名",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3044761",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3044761",
+   "question": "烟花爆竹零售店（点）外部安全距离\n应急管理部公布了行业标准《烟花爆竹零售店（点）安全技术规范（AQ4128-2019）》，该标准对烟花爆竹零售店（点）的选址及外部距离、面积和存放限量、平面布置、建筑结构、经营行为、安全管理等作出了规定。 但",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "烟花爆竹经营许可实施办法",
+    "烟花爆竹零售店点安全技术规范",
+    "铁路运输安全保护条例",
+    "高速铁路安全防护管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3038395",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3038395",
+   "question": "关于企业安全生产费用提取和使用管理办法条文的解释\n根据《企业安全生产费用提取和使用管理办法》财资〔2022〕136号，第十九条规定，完善、改造和维护安全防护设施设备支出（不含“三同时”要求初期投入的安全设施），包括施工现场临时用电系统、洞口",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3008563",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3008563",
+   "question": "低压电工上岗证作业咨询\n持有低压电工上岗证，无高空作业证，是否可以在2米以上高处进行低压电工作业，低压电工上岗证是否包含证件允许作业种类范围内的高处作业资质？谢谢！",
+   "cited_hits": [
+    {
+     "name": "低压电工作业人员安全技术培训大纲和考核标准",
+     "lib_no": "应急管理部关于印发《低压电工作业人员安全技术培训大纲和考核标准》等6个培训大纲和考核标准的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录",
+    "高压电工作业人员安全技术培训大纲及考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2954186",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2954186",
+   "question": "关于低压电工证与高处作业证的重复办理\n我司维修人员持低压电工证，如需登高作业需要重复办理或持有高处作业证吗？",
+   "cited_hits": [
+    {
+     "name": "低压电工作业人员安全技术培训大纲和考核标准",
+     "lib_no": "应急管理部关于印发《低压电工作业人员安全技术培训大纲和考核标准》等6个培训大纲和考核标准的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2936208",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2936208",
+   "question": "中级注册安全工程师证书\n从业建筑工程管理取得建筑施工安全专业中级注册安全工程师证书，在施工企业、监理企业不重视和明确此证书使用的情况下，请问省应急管理厅对此专业证书在建筑企业资质管理方面有否相关的政策和规定。谢谢领导！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2917908",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2917908",
+   "question": "安管员考证年龄限制\n请问危险化学品生产单位的安全生产管理人员复审或报考有年龄限制吗？如，男性满60周岁，女性满50周岁是否还能继续复审？",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产培训管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2864760",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2864760",
+   "question": "100-300人的工贸企业应配置多少名专职安全生产管理人员\n在《安全生产法》和《广东省安全生产管理条例》中有提到安全管理机构配置和人员配置的要求，但安全管理人员具体配置多少，没有找到明确的答案，请帮忙解惑。",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2856293",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2856293",
+   "question": "咨询\n请咨询：《生产安全事故应急预案管理办法》（应急部令第2号） 第二十一条“矿山、金属冶炼企业和易燃易爆物品、危险化学品的生产、经营（带储存设施的，下同）、储存、运输企业，”。这里所指的危险化学品经营（带储存设施的，下同）企业与危险化学品",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2813923",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2813923",
+   "question": "汕头市潮南区销售烟花爆竹相关\n您好，请问在广东市汕头市潮南区销售烟花爆竹需要取得什么相关文件？还有进货渠道方面，是需要向指定机构进货吗？如果是的话，请问哪些是指定的进货机构？ 如果可以自由选择进货渠道，那请问怎样解决运输问题？",
+   "cited_hits": [
+    {
+     "name": "烟花爆竹安全管理条例",
+     "lib_no": "烟花爆竹安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省烟花爆竹经营许可实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2801233",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2801233",
+   "question": "化工自动化仪表控制未复审但还在有效期还可以复审吗\n化工自动化仪表控制作业证，取证时间2019.10.18日至2025.10.17日，原复审日期2022.10.17日，至今2023.12.19日未复审，请问一下还可以重新参加复审吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2788815",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2788815",
+   "question": "关于分管安全负责人的任职资格\n1）根据《危险化学品安全专项整治三年行动实施方案》，涉及两重点一重大的企业必须设置分管安全负责人？能否直接跳过分管负责人这个层面，只有主要负责人、注册安全工程师、专职安全管理人员、安全部？ 2）分管安全负责人是",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省危险化学品安全专项整治三年行动实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2776597",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2776597",
+   "question": "电工证能从事登高作业吗？\n想问下已经持有电工证了从事登高作业还需要在考取高处作业证吗",
+   "cited_hits": [
+    {
+     "name": "低压电工作业人员安全技术培训大纲和考核标准",
+     "lib_no": "应急管理部关于印发《低压电工作业人员安全技术培训大纲和考核标准》等6个培训大纲和考核标准的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "高压电工作业人员安全技术培训大纲及考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2771357",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2771357",
+   "question": "危险化学品经营许可证申请\n您好，我想问一下危险化学品经营许可证申请书有模版资料吗，我司需要变更经营地址。",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2764144",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2764144",
+   "question": "《安全生产许可证》更新\n领导您好，我公司属于危险化学品生产企业，在办理《安全生产许可证》更新问题时，因主要负责人这一项被延误至今。 我公司情况如下：主要负责人由总经理担任，负责公司内部全面工作的管理；有化工类专业，大专以上的学历证明。 我想",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法释义",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省安全生产条例",
+    "关于全面加强危险化学品安全生产工作的意见",
+    "危险化学品生产企业安全生产许可证实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2763234",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2763234",
+   "question": "低压电工证复审\n我的低压电工证，显示12月7号前应复审，那我去报名考试，那考试的时间是什么时候呢？是要考试时间在12月7号之前吗？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国应急管理部公告",
+     "lib_no": "中华人民共和国应急管理部公告（2026年第8号）：批准4项行业标准",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2745475",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2745475",
+   "question": "在广东省内开展非煤矿山安全评价工作，预评价与验收评价是否可为同一单位？\n请问：如题，目前在广东省内开展非煤矿山安全评价工作，是继续参照《广东省安全生产监督管理局关于金属非金属矿山和尾矿库建设项目安全设施“三同时”监督管理实施办法》（广东省安",
+   "cited_hits": [
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    },
+    {
+     "name": "安全评价检测检验机构管理办法",
+     "lib_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产检测检验机构管理规定",
+    "安全评价机构管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2738253",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2738253",
+   "question": "关于《危险化学品经营许可证管理办法》第三条的理解\n《危险化学品经营许可证管理办法》第三条第二款规定“从事下列危险化学品经营活动，不需要取得经营许可证(一)依法取得危险化学品安全生产许可证的危险化学品生产企业在其厂区范围内销售本企业生产的危险",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2692096",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2692096",
+   "question": "电力安装企业已取得高压电工作业持证人员是否还需要取得“”高处作业证“方可继续高处安装工作？\n作为承装修试电力安装企业已取得高压电工作业持证人员，是否还需要取得”高处作业证“方可继续高处安装工作？多年前考取电工证培训考核内容中，已包含了登高安",
+   "cited_hits": [
+    {
+     "name": "低压电工作业人员安全技术培训大纲和考核标准",
+     "lib_no": "应急管理部关于印发《低压电工作业人员安全技术培训大纲和考核标准》等6个培训大纲和考核标准的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "高压电工作业人员安全技术培训大纲及考核标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2689991",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2689991",
+   "question": "特种作业操作证持证上岗情况\n我想咨询下，机动车维修点的维修人员从事焊接工作是否需要持有焊工证",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2676139",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2676139",
+   "question": "关于涉及”两重点一重大“的精细化工项目采用何种防火规范问题的咨询\n根据应急管理部、国家发展改革委、工业和信息化部和市场监管总局于2022年6月10日发布的“关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知 ”（应急（2022",
+   "cited_hits": [
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南（试行）",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    },
+    {
+     "name": "危险化学品生产建设项目安全风险防控指南（试行）",
+     "lib_no": "关于印发《危险化学品生产建设项目安全风险防控指南（试行）》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "精细化工企业工程设计防火标准",
+    "精细化工企业工程设计防火标准",
+    "GB51283-2020",
+    "GB51283-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2658164",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2658164",
+   "question": "主要负责人与注册安全工程师能否为同一人\n请问：同一单位的主要负责人同时也是注册安全工程师时，能否一人同时担任？注册安全工程师担任安全管理人员时还要考取安全管理人员证书吗？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2628907",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2628907",
+   "question": "关于兼任的管理人员安全管理责任咨询\n您好！想咨询一下关于企业兼任的管理人员的安全职责和责任的问题。 背景：因公司管理架构的原因，我司个别高管和业务部门的管理人员（并非专职安全管理人员）是上级公司（不同法人公司）的高管或管理人员兼任的，上级公",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2628581",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2628581",
+   "question": "LNG的经营范围咨询\n您好，关于液化天然气的经营销售资质，是否适用广东省燃气管理条例，还是参照《危险化学品安全管理条例》要求，取得对应的危险化学品资质和危险货物运输资质即可。在对应的品种内，是否可以向本省其他地市的企业贸易销售，没有地域位置",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城镇燃气管理条例",
+     "lib_no": "城镇燃气管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2622305",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2622305",
+   "question": "特种作业\n激光切割和等离子切割属于特种作业吗？是否需要办理特种作业操作证才能上岗",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2571235",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2571235",
+   "question": "安全负责人同时担任项目负责人\n我目前是一家企业分公司的安全部负责人，然后再同时兼任一个建设项目的负责人，请问可以吗？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2561653",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2561653",
+   "question": "化工生产企业的办公室人员新入职与再培训学时要求\n化工生产企业的办公室人员（行政、人事、财务、营销），这些员工平时都不入进入危化区区域，是否需要进行新员工入职三级培训（厂级、车间级、班组级）吗？是否可以只进行厂级培训？因为这些办公室人员没有部",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2539666",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2539666",
+   "question": "是否属于无证操作\n您好！请教您一下，工厂里配电房抄表、操作中央空调、空压机、纯水生产设备和废水废气处理的人员没有电工操作证属于无证违规操作吗？请指教，谢谢！",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家安全监管总局&lt;关于做好特种作业(电工)整合工作有关事项&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2534957",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2534957",
+   "question": "电工证超过复审日期\n初领日期是2019.07.24,复审日期2022.07.24,有效期至2025.07.24 现在我依然没复审，请问是否依然有效，是否能依然复审，还是说必须重考？",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2526791",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2526791",
+   "question": "证书\n安全生产知识和管理能力考核合格证在有效期内，是否还需要每年复审换新证？",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "安全生产知识和管理能力考核合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2512257",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2512257",
+   "question": "危险化学品柴油无仓储批发许可证\n我想资讯一下危险品无仓储柴油类批发经营许可证还能审批吗？",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2388908",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2388908",
+   "question": "四令三制与GB30871动火安全作业票\n根据广东省《四令三制》要求，化工企业动火作业时，需办理动火令，并且动火令必须由主要负责人审批。 请问办理动火安全作业票是否需要主要负责人审批？还是动火安全作业票执行GB30871标准，施行分级审批（二",
+   "cited_hits": [
+    {
+     "name": "危险化学品企业特殊作业安全规范",
+     "lib_no": "GB 30871-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB30871-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2372097",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2372097",
+   "question": "低压高压电工证如何保考申领\n低压高压电工证报考申领",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国特种作业操作证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2293097",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2293097",
+   "question": "安全总监及注册安全工程师能否认为专职安全生产管理人员\n1、请问企业安全总监是否可算作企业专职安全生产管理人员？ 2、注册安全工程师是否仍需考取安全生产管理人员证书才算是专职安全生产管理人员？安全工程师证书能否代替安全生产管理人员证书？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法释义",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2190226",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2190226",
+   "question": "危险化学品生产企业主要负责人的任职条件\n根据 国务院安全生产委员会关于印发《全国安全生产专项整治三年行动计划》的通知（安委〔2020〕3号）文件（第41页）规定，新入职的主要负责人必须具备化学、化工、安全等相关专业大专及以上学历或化工类中级",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "全国安全生产专项整治三年行动计划",
+    "危险化学品安全专项整治三年行动实施方案",
+    "关于全面加强危险化学品安全生产工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2188459",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2188459",
+   "question": "植物油、碳氢油的审批规范\n你好，我想咨询一下，植物油、碳氢油设计是已那个个规范，两个产品都是新型环保燃料油！",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险化学品目录(2015版)",
+     "lib_no": "中华人民共和国应急管理部等10部门公告（2026年第3号）：将3-氯丙炔等5种化学品纳入《危险化学品目录（2015版）》",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "石油库设计规范",
+    "国家安全监管总局办公厅关于新型燃料油安全监管有关问题的复函"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-yj",
+   "id": "3498648",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3498648",
+   "question": "重大隐患判定标准\n新颁布的AQ3067-2026中有以下条文： 5.1.2 涉及“两重点一重大”生产装置或储存设施的企业（加油站除外）主要负责人，主管生产、设备、技术、安全的负责人，专职安全生产管理人员不具备化学、化工、安全等相关专业大专及",
+   "cited_hits": [],
+   "cited_missing": [
+    "化工和危险化学品生产经营企业重大生产安全事故隐患判定准则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3465288",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3465288",
+   "question": "初级注册安全工程师注册后的执业问题\n我们公司是危险化学品生产企业，专职安全管理人员如果已经取得广东省的初级注册安全工程师资格证，并已经在珠海市进行了注册，那原来持有的《安全生产知识与管理能力考核合格证》还需不需要去复审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局 人力资源社会保障部关于印发&lt;注册安全工程师分类管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3455750",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3455750",
+   "question": "关于安全生产责任保险额度的咨询\n尊敬的工作人员， 依据《广东省安全生产责任保险实施方案》（粤应急规〔2021〕2号）安责险保险合同约定的保险金额，涉及人员死亡的，每人累计赔偿限额不得低于上一年度事故发生地所在地级以上市城镇居民人均可支配收入",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产责任保险实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3446892",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3446892",
+   "question": "咨询企业如何开具近3年安全施工记录和无事故记录\n公司是广州天河区的，需要开具公司近3年安全施工记录和无事故记录，需要提交什么材料，是否可以线上办理，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发信用报告代替企业无违法违规证明改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3439826",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3439826",
+   "question": "熔化焊接与热切割作业证还需要高处作业吗？\n熔化焊接与热切割作业证还需要高处作业吗？如果不需要，有哪一条规定条文对此有说明？谢谢！我在网上查询，说是不再需要，但找不到具体的条文，在审批焊接作业时，领导还是坚持要高空作业证，导致审批无法继续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3342803",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3342803",
+   "question": "中级注册安全工程师（继续教育问题）\n领导好，本人在现单位工作一年和证件已注册执业一年，经协商即将离职。 （1）请问本人离职前，还需要参加继续教育培训吗（2024年考取的注安证，本人未找到下家工作单位，预计未来待业半年一年左右） （2）注销后",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3331571",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3331571",
+   "question": "地质勘查工作的安全问题咨询\n固体矿产地质勘查工作中，需要进行新增坑探的工作。新增的坑探初步规划如下：从原有的斜井下到标高约-40m处（可直接到达），再自斜井端部掘进578m的平硐；由于尚处于地质勘查阶段，该平硐未有具体的设计。该平硐是参照《",
+   "cited_hits": [],
+   "cited_missing": [
+    "金属与非金属矿产资源地质勘探安全生产监督管理暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3326458",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3326458",
+   "question": "关于咨询安全培训教师任职资格专业认定相关事宜\n您好！本人是一名持有“数控铣床操作工三级/高级技能”职业资格证书（2010年发证）的专业技术人员，现计划在省内安全培训机构申请“高处作业”或“焊接与热切割作业”类别的理论教师任职资格。 根据我省",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全培训机构基本条件规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3326123",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3326123",
+   "question": "请问怎样办理企业近三年无出现安全事故的证明文件\n请问怎样办理企业近三年无出现安全事故的证明文件呢？可以的话麻烦具体流程和需要资料也告知，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发信用报告代替企业无违法违规证明改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3309009",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3309009",
+   "question": "初级注册安全工程师\n请问初级注册安全工程师开通注册了吗？每年的继续教育要怎么学呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3306061",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3306061",
+   "question": "中级安全工程师（离职）咨询\n应急厅领导你们好！ 本人计划25年12月底离职，暂时未找到下家上班单位（三个月或六个月无业期），请问我的中级注安证在原单位已注册，是不是办理注销？还是办理其它？ 感谢应急厅领导解答。",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3305099",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3305099",
+   "question": "注册安全工程师聘用\n职工考取注册安全工程师后，企业是否一定要聘用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "国家职业资格目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3301252",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3301252",
+   "question": "咨询《广东省应急管理部门行政执法免行政处罚清单》\n《广东省应急管理部门行政执法免行政处罚清单》中免除罚第11项，“涉及2处以下一般事故隐患,属初次违法，该行为未导致生产安全事故发生或发生生产安全事故的现实危险,情节轻微，7日内整改完毕的。”",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理部门行政执法免行政处罚清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3298780",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3298780",
+   "question": "高处作业和免罚情况\n1、在工厂离地面2米以上高空换灯泡、维修和爬到货车顶部盖雨布（工厂的货车和员工）等工作是否属临时 性作业无需持证？ 2、工厂从业人员只有8-15人，未安排安全生产教育、培训和未如实告知有关的安全生产事项，但未发生安 全生",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理部门行政执法免行政处罚清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3271940",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3271940",
+   "question": "角磨机切割办理动火作业时需要持电焊及热切割作业证吗\n角磨机切割办理动火作业时需要持电焊及热切割作业证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3253900",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3253900",
+   "question": "安全生产费用提取的问题\n您好，我想咨询关于燃气经营企业（经营天然气汽车加气站、氢气加氢站）的安全生产费用提取比例是按哪个标准来执行？ 《企业安全生产费用提取和使用管理办法》文件内也未明确提出关于燃气经营企业的安全生产费用提取。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物品名表",
+    "危险化学品目录",
+    "危险货物品名表",
+    "危险化学品目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3243414",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3243414",
+   "question": "关于“中级注册安全工程师证书”替代“金属非金属矿山安全生产知识和管理能力考核合格证”的问题\n应急管理相关部门下发的相关通知已经明确：凭“中级注册安全工程师证书”可以免考试申领“金属非金属矿山安全生产知识和管理能力考核合格证”。 针对“中级注",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局 人力资源社会保障部关于印发&lt;注册安全工程师分类管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3241555",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3241555",
+   "question": "关于企业安全管理人员配备\n生产油墨的化工企业，总人数15人，主要负责人化工专业，取得生产知识和管理能力考核合格，配备1名中级注册安全工程师（化工安全）并在该企业注册，注册安全工程师任职企业安全部门负责人，请问还需要另外配备1名取得生产知识和",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3220601",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3220601",
+   "question": "咨询特种作业人员持证上岗问题\n未持有应急管理部门颁发的合法有效低压电工作业证或高压电工作业证，但持有住房和城乡建设部门颁发的合法有效建筑电工操作资格证的人员，在广东省建筑及市政工程施工现场从事建筑电工作业期间，如应急管理部门检查建筑及市政工",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑施工特种作业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3213146",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3213146",
+   "question": "动火作业\n请问： 1.粤应急办函【2025】9号附录“动火安全作业票填写模版”中“动火前，岗位当班班长”是指作业所在区域日常管理区域人员的班长?还是指本次特殊作业施工人员所属班组的班长？ 2.粤应急办函【2025】9号附录“动火安全作业票填",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品企业动火作业安全要点"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3171647",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3171647",
+   "question": "矿山注册安全工程师及专职技术人员的任职问题\n1、请问矿山配备的注册安全工程师是否可以任职为矿山的安全总监或者安全部门负责人？如果可以，那么注安师是否算矿山专职安全管理人员？既是注安师又是安全总监或安全部门负责人会不会涉嫌兼职？ 2、矿山配备",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3171842",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3171842",
+   "question": "加油站更新管道\n您好，请问加油站更新地下管道，是否需要做三同时。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于印发〈广东省应急管理厅危险化学品建设项目安全监督管理实施细则〉的通知",
+    "广东省应急管理厅危险化学品建设项目安全监督管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3131271",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3131271",
+   "question": "广东省初级注册安全工程师资格且安全生产知识和管理能力考核合格能否任专职安全管理员\n取得广东省初级注册安全工程师资格（化工安全）且安全生产知识和管理能力考核合格，可以在广东省任危化企业专职安全管理员吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3129903",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3129903",
+   "question": "烟花爆竹经营许可证\n申请烟花爆竹证经营许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产监督管理局烟花爆竹经营许可实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3116558",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3116558",
+   "question": "电工证取证范围\n问题1：我们公司现在有保全的人员，日常要进去设备内部维修设备，不对里面的强电等进行改造或接线之类的，只进行信号线的调整、维修机械等，但是维修期间，整个设备是不断电的，仍然保持220V及以上电压。请问这种情况下的作业是否需要考",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业人员安全技师培训考核管理规定（修订草案）（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3087538",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3087538",
+   "question": "咨询\n《广东省突发事件总体应急预案》最新版发布时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省突发事件总体应急预案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3071228",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3071228",
+   "question": "合成革企业建设配套危险化学品回收装置的安全生产监管问题\n我公司为合成革生产企业，因生产的废水中含有DMF（一种危险化学品），为回收利用，我公司拟建设配套蒸馏塔，从废水中回收DMF供内部使用。请问此种情况是否需要办理危险化学品生产许可证？国家",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于冶金等工贸行业安全监管工作有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3047885",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3047885",
+   "question": "取得了2024年初级注册安全工程师执业证书，还需要注册吗？ 艺术设计专业本科能考中级注安吗\n本人取得了2024年初级注册安全工程师执业证书，还需像二级建造师的要求那样再注册吗； 普通全日制本科，是建筑院校，但是是艺术设计专业，文学学士学位，",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3021329",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3021329",
+   "question": "新建LNG储存的建设项目的安全监管及行政执法责任部门\n本人于10月29日提交了主题所述的业务咨询，贵厅在10月30日进行了答复，但明显答非所问。 根据《危险化学品建设项目安全监督管理办法》规定，此类项目安全监督只能由国家安全生产监督管理总局",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于印发危险化学品建设项目安全监督管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3003380",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3003380",
+   "question": "关于安全工程师后续教育\n请问关于中级注册安全工程师，在哪里可以参与后续教育培训课程啊？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2990214",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2990214",
+   "question": "企业落实值班值守制度\n我想咨询是否有法律法规或者标准规范规定化工企业落实的值班值守制度怎么做制定？以下情况是否根据企业实际情况制定？ 1.值班应配备多少人员力量 2.值班人员身份资质 3.值班人员该怎样开展巡查",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2963723",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2963723",
+   "question": "广东省新建非金属露天矿基建期是否可以由建设方自行施工？相关依据是什么？\n请问广东省新建非金属露天矿基建期是否可以由建设方自行施工？相关依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目安全设施“三同时”监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2960778",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2960778",
+   "question": "可燃性粉尘界定\n本企业生产石墨粉电镀材料，现开展内部危险源辨识，按《爆炸危险环境电力装置设计规范》GB50058-2014附录E，以及工贸行业重点可燃性粉尘目录（2015版），并没有把石墨粉列为可燃性粉尘，但根据原材料安全技术说明书，该石墨",
+   "cited_hits": [],
+   "cited_missing": [
+    "工贸行业重点可燃性粉尘目录（2015版）",
+    "工贸行业可燃性粉尘作业场所工艺设施防爆技术指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2938539",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2938539",
+   "question": "如何申请电工操作证6年审一次\n言内容 我现在已经从事电工做作多年，请问如何申请电工操作证6年审一次？需要怎样申请？需要那些材料？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化特种作业人员延期复审办事程序的公告",
+    "特种作业操作证核发（变更）申请表",
+    "广州市特种作业操作证延长复审时间申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2910595",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2910595",
+   "question": "关于企业安全生产管理人员配备数量的要求\n你好，想咨询一下工贸行业的安全管理人数配置有要求吗？例如2000人以上的公司需要配备多少名安全管理人员？是否能提供相关的法律法规依据，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于冶金有色建材机械轻工纺织烟草商贸等行业企业贯彻落实国务院〈通知〉的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2906362",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2906362",
+   "question": "咨询\n《广东省轻工行业主要负责人考试合格证》的发证机构为“广东省安全生产考试机构”，发证机构是否属于行政主管部门或政府部门？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于印发非高危行业生产经营单位主要负责人与安全生产管理人员安全生产培训和考核大纲的通知",
+    "广东省应急管理厅关于开展非高危生产经营单位主要负责人和安全生产管理人员线上考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2903826",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2903826",
+   "question": "安全生产管理人员证\n1．广东省轻工行业主要负责人考试合格证发证机构是广东省安全生产考试机构颁发的吗？广东省安全生产考试机构属于行政主管部门吗？2．根据《应急管理厅关于开展非高危生产经营单位主要负责人和安全生产管理人员线上考核工作的通知》 2",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于印发非高危行业生产经营单位主要负责人与安全生产管理人员安全生产培训和考核大纲的通知",
+    "广东省应急管理厅关于开展非高危生产经营单位主要负责人和安全生产管理人员线上考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2899392",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2899392",
+   "question": "可燃气体检测器选型\n生产油漆的危化品企业，选择检测甲烷（CH4）的可燃气体探测器是否符合要求，如不符合，是重大隐患吗？？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "化工和危险化学品生产经营单位重大生产安全事故隐患判定标准（试行）",
+    "石油化工可燃气体和有毒气体检测报警设计标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2843477",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2843477",
+   "question": "主要负责人考取中级注册安全工程师\n您好，我是我们单位的主要负责人也是法人代表，2023年刚刚考取了中级注册安全工程师。根据《注册安全工程师分类管理办法》（安监总人事〔2017〕118号）第十四条规定，取得注册安全工程师职业资格证书并经注册的",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2839956",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2839956",
+   "question": "广东省是否有相关规定明确哪些化工项目可以不进入化工园区\n如：《山东省化工投资项目管理规定》第十二条 2625有机肥料及微生物肥料制造、2682化妆品制造、291中类橡胶制品业（2911轮胎制造除外），以及《建设项目环境影响评价分类管理名录》",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于“十四五”推动石化化工行业高质量发展的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2826891",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2826891",
+   "question": "询问初级注册安全工程师什么时候开始考试\n2024年度何时开考",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步实施我省初级注册安全工程师职业资格制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2787714",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2787714",
+   "question": "初级注册安全工程师开考\n尊敬的领导： 有看到贵厅于11月17日发布的文件有关于初级注册安全工程师开考的一些指导意见，但文件没有明确2024年的开考时间以及学习教材，建议尽快出台相关文件进行明确，个人觉得2023年12月公布比较适宜，以便有意",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步实施我省初级注册安全工程师职业资格制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2786211",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2786211",
+   "question": "关于工贸企业有限空间相关问题的咨询\n您好！我司最近计划对原有的有限空间进行更新识别，针对有限空间的识别问题存在几点疑问，还盼指导回复： 1. 工贸企业有限空间判断依据是什么，是否经过企业风险辨识确认其无易燃易爆、有毒有害气体以及无缺氧窒息风",
+   "cited_hits": [],
+   "cited_missing": [
+    "有限空间作业安全指导手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2782703",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2782703",
+   "question": "注册安全工程师报考学历\n请问，中共中央党校经济管理本科学历能报考中级注册安全工程师吗，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2746235",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2746235",
+   "question": "关于广东省安全生产条例中安全生产岗位检查要求的解析\n你好，《广东省安全生产条例》第十四条“生产经营单位应当具备有关法律、行政法规和国家标准或者行业标准规定的安全生产条件；不具备安全生产条件的，不得从事生产经营活动。 生产经营单位应当制定安全",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2741841",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2741841",
+   "question": "一般办公场所报考安全员\n如题，我司在黄埔区观虹路12号有一办公地点，面积为150平方米，常驻人员为6人，公司要求参加广州当地安全员考试、并获取安全员资格，咨询学习及考试的报名途径",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于开展非高危生产经营单位主要负责人和安全生产管理人员线上考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2737406",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2737406",
+   "question": "安全管理人员人数要求\n你好，想咨询一下工贸行业的安全管理人数配置有要求吗？例如1000人以上的公司至少需要多少名安全管理人员？是否能提供相关的法律法规",
+   "cited_hits": [],
+   "cited_missing": [
+    "冶金企业和有色金属企业安全生产规定",
+    "机械制造企业安全生产标准化规范",
+    "烟草企业安全生产标准化规范 第 1 部分：基础管理规范",
+    "国家安全监管总局关于冶金有色建材机械轻工纺织烟草商贸等行业企业贯彻落实国务院《通知",
+    "珠海经济特区安全生产条例",
+    "省属企业贯彻落实省委省政府关于推进安全生产领域改革发展实施意见的具体办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2732354",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2732354",
+   "question": "2023版广东省安全生产条例条款咨询\n第37条里有说“有限空间作业、火灾爆炸危险区域或者管廊上的动火作业的，应当制定作业方案，经安全生产管理机构负责人、安全生产分管负责人或者主要负责人审批后开具安全作业票证。”而粤应急函〔2020〕196 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产条例",
+    "广东省安全生产条例",
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2726339",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2726339",
+   "question": "加油站是否可以由2个不同行业设计资质的单位分别设计？\n当加油站建设项目由2个不同行业设计资质的单位分别设计，其中具备化工石化医药行业设计资质的单位仅负责工艺专业及安全设施设计专篇的设计，剩余设计内容由另外一家具备建筑行业设计资质的单位完成。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅危险化学品建设项目安全监督管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2721705",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2721705",
+   "question": "关于特种作业目录里的制冷与空调作业上岗证问题\n请问，特种作业的制冷与空调作业的特种作业上岗操作证有取消了吗？我咨询了培训机构说广东现在没有这个证的考核培训了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于全省“三项岗位”人员培训机构和考试点名单的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2718100",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2718100",
+   "question": "你好！我想咨询关于中级注册安全工程师的有关问题\n你好，我是广东粤剧院的一名事业编人员，近期我考取了中级注册安全工程师之后，按照有关文件政策是不需要评定即视为具备安全工程工程师职称是吗？那需要我用人单位进行申报？还是直接由用人单位聘用就可以了",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "广东省人力资源和社会保障厅 广东省应急管理厅关于印发〈广东省安全工程技术人才职称评价标准条件〉的通知",
+    "国家职业资格目录",
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2698593",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2698593",
+   "question": "《广东省安全生产条例》\n领导，您好，想咨询一下，省人社厅属于《广东省安全生产条例》中负有安全生产监督管理职责的部门吗?还是说属于负有行业领域管理职责的单位？盼复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省党政部门及中央驻粤有关单位安全生产工作职责"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2680478",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2680478",
+   "question": "企业安全生产费用是否要逐月使用支出\n你好，我向咨询一下关于公司的安全生产费用，我们公司是已经逐月计提了。因为我们是小公司，所以安全费用不是每个月都有支出。 那我们是不是一定要每个月都要有安全费用的支出？ 安全费用支出后，只开收据行不行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 应急部关于印发&lt;企业安全生产费用提取和使用管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2683415",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2683415",
+   "question": "如何在应急管理局网上查询该企业无重大安全事故\n单位因业务需要，需应急管理局证明该单位近一年内无重大安全事故，怎么样查询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发信用报告代替企业无违法违规证明改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2662961",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2662961",
+   "question": "安全生产检验检测 资质办理事项\n您好， 请问安全生产检验检测 资质办理，具体找那个部门，需要提交什么资料？可以提供下联系方式和线下联系对接地址吗 ？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全生产检测检验机构资质认可"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2661309",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2661309",
+   "question": "23年应届生招聘消防员的条件和渠道\n你好，我是一名23年应届生，目前在实习期，24年毕业，我想问一下怎么加入消防员",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家综合性消防救援队伍消防员招录办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2648657",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2648657",
+   "question": "关于找不到电工证指定的培训机构\n尊敬的政务工作人员： 你好！我想请问一下低压电工证的指定培训机构的清单在哪，建议清晰明了的罗列在主页，方便学生和社会各界英才来学习考证培训！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省应急管理厅关于全省“三项岗位”人员培训机构和考试点名单的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2631478",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2631478",
+   "question": "关于安全工程师注册和分专业的问题\n您好！ 我想问一下以前2006考的注安是没有分专业的，这个不分对证书没有什么影响吧 另外关于注册问题，是否一定要注册，以前曾注册过但过期了。如果没有办理注册有啥影响",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2612927",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2612927",
+   "question": "危险化学品使用量的数量标准\n希望了解：危险化学品安全使用许可适用行业目录及危险化学品使用量的数量标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品安全使用许可证实施办法",
+    "危险化学品使用量的数量标准（2013年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2607596",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2607596",
+   "question": "未发生安全生产事故和无违反安全生产法律法规的记录 证明\n公司怎么办理广州市海珠区安全生产监督管理局颁发 的未发生安全生产事故和无违反安全生产法律法规的记录 证明 （广东海珠区的）",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发信用报告代替企业无违法违规证明改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2603136",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2603136",
+   "question": "咨询安全工程师建筑工程专业继续教育\n安全工程师建筑专业继续教育的网站",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2597954",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2597954",
+   "question": "综合应急预案演练\n您好： 我想请问：安全生产综合性应急预案演练和综合应急预案演练有区别吗？综合性和综合应急演练具体要如何做（即：编写方案时需要的如何做）？有相关的规范和要求吗？最好能具体点。 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "应急管理部关于修改〈生产安全事故应急预案管理办法〉的决定",
+    "应急管理部关于修改〈生产安全事故应急预案管理办法〉的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2571346",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2571346",
+   "question": "对涉及“两重点一重大”生产装置和储存设施的企业，主要负责人学历要求\n对涉及“两重点一重大”生产装置和储存设施的企业，新入职的主要负责人和主管生产、设备、技术、安全的负责人及安全生产管理人员必须具备化学、化工、安全等相关专业大专及以上学历或化",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高等学校本科专业目录",
+    "普通高等学校高等职业教育（专科）专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2546808",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2546808",
+   "question": "企业安全生产费用提取和使用管理办法的执行问题\n我公司是惠州长联新材料科技有限公司，是使用部分丙烯酸酯原料生产聚丙烯酸酯乳液的印花粘合剂制作纺织品衣物印花胶浆的公司，按今年执行的修订的财政部和应急管理部136号文件附件《企业安全生产费用提取和",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 应急部关于印发&lt;企业安全生产费用提取和使用管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2508653",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2508653",
+   "question": "关于柴油取消闪点，纳入危化品，涉及到经营的企业，需要办理经营许可证的相关咨询\n2023年1月1日起，柴油取消闪点，统一纳入危化品。有经营行为的企业，要办理危险化学品经营许可证。请问：水上加油站，需要办理《危险化学品经营许可证》吗？盼复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2507918",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2507918",
+   "question": "想咨询下专业是否符合要求\n关于危险化学品安全专项整治三年行动实施方案，硕士学历的材料物理与化学是否符合担任危险化学品企业生产、主要负责人的学历专业要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省危险化学品安全专项整治三年行动实施方案",
+    "普通高等学校本科专业目录",
+    "普通高等学校高等职业教育（专科）专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2484884",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2484884",
+   "question": "关于总局88号令第三十三条应急预案演练次数的咨询\n老师您好！总局88号令《应急预案管理办法》第33条提到“生产经营单位．.，每半年至少组织一次现场处置方案演练。”例如我单位现场处置方案共有22个。请问以上法规是指我单位每半年至少从这22个现",
+   "cited_hits": [],
+   "cited_missing": [
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法",
+    "生产安全事故应急预案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2485485",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2485485",
+   "question": "关于我省安全技术人才中级职称评审事宜\n我省人社厅下发的《粤人社规〔2021〕7号文》中包含了安全技术人才工程师的评审条件，其中说明了注册安全工程师相当于工程师，但我省至今只开展了安全层面高级职称评审，是否可以认为我省不开展安全层面工程师评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2460033",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2460033",
+   "question": "2022年广东消防面向社会招录消防员的时间\n想要咨询2022年及历年广东消防面向社会招录消防员的时间及条件，我朋友是1998年9/30日出生的，是火箭军退役士兵，服役2年，今年刚退伍，想咨询明年应招消防员的话，按照今年的条件，能否有报名资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家综合性消防救援队伍消防员招录办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2424556",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2424556",
+   "question": "广东省应急管理厅安全生产资格考试网络培训管理办法\n三项岗位人员”线上培训课程（初次网络培训）在培训内容方面有更详细的大纲吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业人员安全技术培训大纲和考核标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2402602",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2402602",
+   "question": "两储罐物料对调储存需要办理什么手续？\n我司属于精细化工企业，现想将A储罐停用，将A储罐的醋酸丁酯储存在B储罐内，而B储罐原来储存的乙酸乙酯不再储存，这种更改后我司储罐区就不构成重大危险源了，请问这种情况需要办理什么手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品重大危险源监督管理暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2371811",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2371811",
+   "question": "高压电工证能从事低压作业吗？\n请问只持高压电工证书，可以从事低压作业工作吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好特种作业(电工)整合工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2327672",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2327672",
+   "question": "特种作业考场申请 问题\n我想申请特种作业考试点（考场），想咨询下流程是怎样的？ 听朋友说写申请到市局但批复要省里批复？",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全培训机构基本条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2322042",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2322042",
+   "question": "2022年安全工程专业高级职称评审\n您好，尊敬的应急厅领导。请问2022年安全工程专业高级职称评审什么时候开始，相关通知是在贵厅网站发布，还是省人力资源厅网站发布？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全工程技术人才职称评价标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2278234",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2278234",
+   "question": "证件查询\n您好，想咨询一下 广东省广州市 安全生产许可证（金属非金属露天矿山采掘施工作业）如何通过该证书编号查询真伪？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于在自由贸易试验区开展“证照分离”改革全覆盖试点的通知",
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2268081",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2268081",
+   "question": "咨 询文件有效性\n请问：《广东省安全生产监督促管理局关于冶金等行业生产经营单位建设项目安全设施及职业卫生“三同时”工作的指引》（粤安监管四【2016】18号文现时还可以使用吗？（其文后注明有效期为三年，现已过期）。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产监督促管理局关于冶金等行业生产经营单位建设项目安全设施及职业卫生“三同时”工作的指引",
+    "广东省应急管理厅金属冶炼建设项目安全设施“三同时”监督管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2247494",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2247494",
+   "question": "主要负责人化工类及以上职称认定\n《 全国安全生产专项整治三年行动计划》要求，自2020年5月起，对涉及“两重点一重大”生产装置和储存设施的企业，新入职的主要负责人和主管生产、设备、技术、安全的负责人及安全生产管理人员必须具备化学、化工、安全",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法",
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2191443",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2191443",
+   "question": "请问新安法颁布实施后，《广东省安全生产条例》有没有相应修订计划？\n国家新的安全生产法于2021年9月1日实施，《广东省安全生产条例》最新修订时间为2017年，请问是否有修订计划或更新版本？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2186208",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2186208",
+   "question": "参加应急预案评审的专家的条件是什么\n现很多地方应急预案评审，据说都是要拿到中级注册安全工程师资格证5年后的注安师，才能以专家身份参加应急预案评审。而在取证之前虽然参加安全生产工作多年时间，但取证未够5年，就不能以专家身份参加评审，想问下是否",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省安全生产监督管理局关于印发〈生产安全事故应急预案管理办法〉实施细则的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "2171706",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2171706",
+   "question": "注册安全工程师考试\n请问：2022年注册安全工程师是否有安排考试？具体什么时候？报名条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2155573",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2155573",
+   "question": "生产经营单位生产安全事故应急预案备案\n现在查应急预案备案登记表上已没有写明“自备案登记日起三年有效”。生产经营单位生产安全事故应急预案备案还需要每三年进行吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省突发事件应急预案管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-yj",
+   "id": "3419587",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3419587",
+   "question": "高级职称评审\n尊敬的领导，咨询一下2025年度安全工程高级职称评审工作什么时候开展？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3394616",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3394616",
+   "question": "关于加快推进广东省初级安全工程师注册事宜咨询\n尊敬的广东省应急管理厅，广东省初级安全工程师注册管理办法于2026年3月1日实施，3月中旬在广东省政务网上线初级安全工程师注册模块，但一直到今天（即2026年4月2日）广东省政务服务网初级安全工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3388218",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3388218",
+   "question": "电工证过期未复审是否可以补复审\n本人高压电工证初领用时间是2016年7月，于2019年7月前经过复审，和2022年7月换新证。 2025年7月26日前未复审，是否可以按国家新规 电工证小于1年未复审，可以办理补复审，无需重新考试领证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-yj",
+   "id": "3329083",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3329083",
+   "question": "特种作业证件补办\n网上怎么补办焊工证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3312227",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3312227",
+   "question": "安全工程师执业资格丢失补办\n尊敬的领导： 您好！我的注册安全工程师执业资格不慎丢失，现已回山东工作(在清远市阳山县工作过)，需变更注册，找不到执业资格证证件，需要怎么办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3312373",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3312373",
+   "question": "广东省初级注册安全工程师什么时候可以注册？如何注册？\n您好，广东省初级注册安全工程师注册管理办法征求意见稿已经过去半年了，请问什么时候发布？广东省初级注册安全工程师要什么时候才可以注册使用，另外注册的网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3267982",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3267982",
+   "question": "广东省初级注册安全工程师管理办法\n你好，广东省初级注册安全工程师已开考两年了，请问下初级注册安全管理办法什么时候可以出台，现在很多企业都不任可初级注册安全工程师，恳请相关部门能尽快出台该管理办法，让安全队伍从业人才能实现自身的价值，为社会安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3260468",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3260468",
+   "question": "高压电工作业人员、电气试验作业人员、电力电缆作业人员、资格证书职业职业范围\n高压电工作业人员、电气试验作业人员、电力电缆作业人员均可从事试验，是否均可从事电缆耐压试验、局放波试验项目内容？能否明确划上述工种可从事试验项目类型？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3112894",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3112894",
+   "question": "四令三制\n在“四令三制”文件中的“生产区域”具体指的是哪里？气体充装区算不算生产区域？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3109939",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3109939",
+   "question": "请问广东省应急管理厅第五届应急专家什么时候申报？\n请问广东省应急管理厅第五届应急专家什么时候申报？有哪些渠道可以知道申报消息？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3106415",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3106415",
+   "question": "异地取证后续继续教育和换证如何进行\n请问韶关市金属冶炼单位主要负责人，在清远市报名参加了金属冶炼单位主要负责人初始教育培训班并考试取证。后续继续教育和换证可以在韶关市进行吗，还是需要在清远市参加继续教育和换证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3094138",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3094138",
+   "question": "2024年考试通过中级注册安全工程师考试人员，什么时间可以注册？\n2024年考试通过中级注册安全工程师考试人员，什么时间可以注册？目前系统提示无法注册，是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3078170",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3078170",
+   "question": "危险化学品登记证补办\n危险化学品登记证遗失要怎么补办？需要什么材料？有补办机关单位的联系方式吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "3043355",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=3043355",
+   "question": "第十二届广东省安全知识竞赛暨粤港澳安全知识竞赛广东选拔赛分组联赛奖状\n您好，当时分组安全知识竞赛分组联赛时候，提到过安全知识达人会有盖章的纸质版奖状。组委会说过决赛后会发出，想请问一下具体提供收货地址和相关信息的途径，还有发出的时间能否告知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2998101",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2998101",
+   "question": "六大系统的施工单位是否要备案\n请问六大系统的施工单位在开展业务时，是否需要到当地应急局备案？如果要，有没有相关的文件要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2994018",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2994018",
+   "question": "重点监管的化工工艺\n尊敬的领导：： 请问常压下生产水性苯乙烯-丙烯酸酯共聚乳液、醋酸乙烯酯-丙烯酸酯共聚乳液、丙烯酸酯共聚乳液、醋酸乙烯聚合乳液属于重点监管的化工工艺吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2947858",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2947858",
+   "question": "关于专职安全管理人员配备\n根据安全生产法，普通企业人数超过100人以上应当配备专职安全生产管理人员，特种设备法规定企业应当配备专职特种设备管理人员，职业病防治法规定企业应当配备专职职业健康管理人员，请问这几类专职人员是并到专职的安全生产管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2937411",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2937411",
+   "question": "广东省2024年有初级注册安全工程师的考试安排吗\n广东省2024年初级注册安全工程师的考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2902436",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2902436",
+   "question": "环卫、绿化行业是否属于《生产经营单位安全培训规定》中的工矿商贸行业？\n环卫、绿化行业是否属于《生产经营单位安全培训规定》中的工矿商贸行业？新员工入职是否需要三级安全教育培训？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2897330",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2897330",
+   "question": "关于《中华人民共和国安全生产法》中“三管三必须”的职责认定？\n一、根据《国务院安全生产委员会成员单位安全生产工作职责分工的通知》（安委〔2015〕5号）精神：“一、负有安全监管职责的行业主管部门要按照“管行业必须管安全、管业务必须管安全、管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2887384",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2887384",
+   "question": "防洪防汛应急响应信息发布\n广东省防洪防汛防台应急响应信息信息通过什么渠道发布？ 怎么才能第一时间获取防洪防汛防台应急响应及关闭信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2846042",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2846042",
+   "question": "取得人事考试的注册安全师证后是否还需要在应急部门办理注册证？\n取得人事考试的注册安全师证后是否还需要在应急部门办理注册证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2834066",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2834066",
+   "question": "广东省安全生产专题视频\n广东省录制了安全生产专题的培训视频，请问在哪里可以下载、观看、学习？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2806455",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2806455",
+   "question": "企业安全生产标准化建设定级\n企业安全生产标准化建设定级的自评报告可以委托第三方机构编制吗？第三方机构需要什么资质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2780198",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2780198",
+   "question": "如何申请电工操作证6年审一次？\n我现在已经从事电工做作多年，请问如何申请电工操作证6年审一次？需要怎样申请？需要那些材料？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2778007",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2778007",
+   "question": "注册安全工程师暂停注册\n咨询：我的证书注册在原来的单位，现在我从原来的单位离职了，想中止注册，但在注安师的网站上没有找到中止注册的项目，只有变更注册。所以想咨询下我应该怎么办理中止注册。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2776108",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2776108",
+   "question": "广东省第三届应急管理优秀宣传作品征集展播活动获奖名单\n“广东省第三届应急管理优秀宣传作品征集展播活动获奖名单”请问这个活动没有奖状吗？或者电子奖状链接吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2737125",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2737125",
+   "question": "特种作业操作证作业范围咨询\n你好，想咨询以下问题，盼回复。 1、在工厂内部安装、调试中央空调和家用类型的空调，作业人员是否需要持有《制冷与空调操作证》？ 2、作业人员持有《高处作业操作证》安装中央空调和家用类型的空调，是否还需要持有《制冷与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2544098",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2544098",
+   "question": "安全生产管理人员证\n想了解安全生产管理人员证和主要负责人证在哪里报名哪里考试，什么时候报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2481136",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2481136",
+   "question": "广东省第三届应急管理优秀宣传作品征集展播\n想了解一下关于这个活动的个人作品提交，在“广东应急管理”公众号上暂时没有找到自行报送的途径，请问该活动什么时候开通报送途径呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2441775",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2441775",
+   "question": "关于有限空间特种作业证咨询\n1.有限空间在哪报名 2.有限空间报名流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2420947",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2420947",
+   "question": "中级注册安全工程师注册变更\n如何办理中级注册安全工程师注册变更手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2410214",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2410214",
+   "question": "普法线上马拉松\n普法线上马拉松加错队伍了，怎么退队，然后把队长转给其他人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2229750",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2229750",
+   "question": "咨询企业的开具无安全事故证明\n公司在广州增城的，需要什么条件能开具，向哪个部分申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "2154574",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=2154574",
+   "question": "应急预案的评审\n《广东省安全生产监督管理局关于〈生产安全事故应急预案管理办法〉的实施细则》（粤安监应急〔2017〕9号）第二十四条 参加应急预案评审的人员应当包括熟悉所评审企业行业工作特点，且具备安全生产及应急管理专业知识的专家。参与评审的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-yj",
+   "id": "558142",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt/detail?pid=558142",
+   "question": "电工操作证考试什么时候可以开考\n现在疫情基本已经得到控制了 学校也在陆陆续续开学了，复工复产都在有有序开展，唯独特种岗位考试始终没有消息，好像复工复产与特种考试无关一样。 特种岗位考试看似无关紧要，可是无证上岗出了事故可就是大问题了，考试也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

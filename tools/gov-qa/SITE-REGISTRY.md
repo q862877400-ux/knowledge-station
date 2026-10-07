@@ -13,6 +13,7 @@
 | `hunan-yj` | **湖南省应急管理厅** | **接口** | **538 条** | 同上平台，`deptId=5c247692…`；**湖南其他厅局 = 复制薄适配器填 deptId 即可** |
 | `people-liuyan` | **人民网领导留言板·部委** | **接口+签名** | 30 条（首日） | `POST /v1/threads/list/bw`（`showUnAnswer=0`=只要已办理）+ `/v1/threads/content`（`dataType=9`=官方答复）；签名 `md5(路径+param+md5(appCode)[:16])`，算法与验证见 `adapters/_liuyan_common.py` 头注 |
 | `people-liuyan-df` | **人民网领导留言板·地方** | **接口+签名** | 通道已验证，批量待采 | `POST /v1/threads/list/df`，与部委流同构；**`extra.pForumNames` 自带省→市→县归属**（实测样例 `["河北省","衡水市"]`）⇒ 一条流全国省市县覆盖，按它分省归档即可。⚠ 403 限流阈值很敏感（见下） |
+| `gd-yj` | **广东省应急管理厅** | **接口（Laravel CSRF）** | **179 条（全历史）** | `POST /hdjlpt/letter/pubList`：先 GET 落地页拿 `XSRF-TOKEN` cookie，POST 带 `X-XSRF-TOKEN` 头；**时间窗服务端限 1 年** ⇒ 按 365 天窗翻历史；**列表自带问答全文**（reply 含点名依据，A 类率 35%）。广东其他厅局应是各自 hdjlpt 实例（site_id 实测被服务端忽略），按厅域名复用本模式 |
 
 ### ⚠ people-liuyan 的三个未决问题（2026-10-07 实测记录）
 
