@@ -82,6 +82,23 @@ class TestEnumSplit:
         # 「第X条」正文里的「一、二、」子项：法令切分器不受影响
         assert [a[0] for a in split_law_text(ARTICLE_DOC)] == ["第一条", "第二条", "第三条"]
 
+    # --- 2026-10-07 补两种形态（全量入库暴露的另两类失败件）---
+
+    def test_halfwidth_paren_form(self):
+        """半角 `(一)` 做**顶层编号**：老规范（《保护海底电缆规定》）如此。"""
+        t = "(一) 保护海底电缆是重要措施。\n\n(二) 舰船锚泊要避开禁区。\n"
+        assert [a[0] for a in split_law_enum_text(t)] == ["一", "二"]
+
+    def test_markdown_heading_prefix(self):
+        """编号在 markdown 标题里：`## 二、爱卫会的组织`（《爱国卫生运动委员会…规定》如此）。"""
+        t = "## 二、爱卫会的组织\n\n中央和各级爱卫会……\n\n## 三、附则\n\n本规定自发布之日起施行。\n"
+        assert [a[0] for a in split_law_enum_text(t)] == ["二", "三"]
+
+    def test_fullwidth_paren_still_not_split(self):
+        """**全角 `（一）` 是子项**，不许被当成条款（否则一条法规会被切碎）。"""
+        t = "一、总则\n\n（一）第一项子内容；\n\n（二）第二项子内容；\n\n二、分则\n\n另有规定。\n"
+        assert [a[0] for a in split_law_enum_text(t)] == ["一", "二"]
+
 
 class TestEndToEnd:
     def test_enum_doc_ingests(self):

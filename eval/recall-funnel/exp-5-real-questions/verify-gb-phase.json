@@ -1,0 +1,93 @@
+{
+ "why": "国标阶段核对（目标 ②③ 的国标半）",
+ "db_before_real": {
+  "doc_meta": 6797,
+  "clause_revision": 522021,
+  "clause_vec": 522021,
+  "mandatory_gb_docs": 268,
+  "gb_family_docs": 6410
+ },
+ "db_after_trial": {
+  "doc_meta": 7569,
+  "clause_revision": 606873,
+  "clause_vec": 606873,
+  "mandatory_gb_docs": 1024,
+  "gb_family_docs": 7166
+ },
+ "delta": {
+  "doc_meta": 772,
+  "clause_revision": 84852,
+  "clause_vec": 84852,
+  "mandatory_gb_docs": 756,
+  "gb_family_docs": 756
+ },
+ "gb_docs_ingested_this_run": 756,
+ "gb_clause_stats": {
+  "median": 61,
+  "min": 1,
+  "max": 1859,
+  "total": 83077
+ },
+ "journal_status_counts": {
+  "standard_exists": 39,
+  "duplicate": 264,
+  "ok": 720
+ },
+ "mismatch": [],
+ "mismatch_n": 0,
+ "samples": [
+  {
+   "std_no": "GB 26687-2011",
+   "name": "复配食品添加剂通则 第1号修改单",
+   "clauses": 1,
+   "head": [
+    {
+     "no": "前置1",
+     "text": "《复配食品添加剂通则》（GB 26687 - 2011）第 1 号修改单 本修改单经中华人民共和国卫生部于 2012 年 3 月 15日第 4号公告批准"
+    }
+   ]
+  },
+  {
+   "std_no": "GB 4789.42-2016",
+   "name": "食品安全国家标准 食品微生物学检验 诺如病毒检验",
+   "clauses": 61,
+   "head": [
+    {
+     "no": "1",
+     "text": "1 范围 本标准规定了食品中诺如病毒( )的实时荧光 检测方法。 本标准适用于贝类 生食蔬菜 胡萝卜 瓜 坚果等硬质表面食品 草莓 西红柿 葡萄等软质水"
+    },
+    {
+     "no": "2",
+     "text": "2 设备和材料 除微生物实验室常规灭菌及培养设备外 其他设备和材料如下"
+    },
+    {
+     "no": "2.1",
+     "text": "2.1 实时荧光 仪。"
+    }
+   ]
+  },
+  {
+   "std_no": "GB 50157-2013",
+   "name": "地铁设计规范",
+   "clauses": 1859,
+   "head": [
+    {
+     "no": "1.0.1",
+     "text": "1.0.1 为使地铁工程设计达到安全可靠，功能合理，经济适用，节能环保，技术先进，制定本规范。"
+    },
+    {
+     "no": "1.0.2",
+     "text": "1.0.2 本规范适用于最高运行速度不超过 100km/h、采用常规电机驱动列车的钢轮钢轨地铁新建工程的设计。"
+    },
+    {
+     "no": "1.0.3",
+     "text": "1.0.3 地铁应布设在城市客运量大的主要客运通道上。"
+    }
+   ]
+  }
+ ],
+ "boundary": [
+  "只读；条款数只证明'切出来了'，不等于内容与 PDF 逐字一致。",
+  "`mandatory_gb_docs` 按 standard_no 前缀判，是全库口径不是本次口径。"
+ ]
+}

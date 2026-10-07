@@ -5,7 +5,7 @@
  "copy_db": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data\\database\\knowledge.db",
  "real_size_gb": 2.395,
  "copy_size_gb": 2.395,
- "seconds": 17.8,
+ "seconds": 19.9,
  "counts_real": {
   "doc_meta": 6797,
   "clause_revision": 522021

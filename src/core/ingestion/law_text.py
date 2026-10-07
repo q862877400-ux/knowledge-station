@@ -31,9 +31,16 @@ _LAW_NO = re.compile(r"^(第[一二三四五六七八九十百千零]+条)")
 _CHAPTER_HEAD = re.compile(r"^第[一二三四五六七八九十百千]+[章节编]\s*.*$")
 
 #: 「一、二、三、」编号（2026-10-07：部分司法解释/规定不用「第X条」）。
-#: 只匹配**行首**且编号后紧跟「、」或「.」——「(一)」这类带全角括号的子项不匹配。
-_LAW_ENUM_SPLIT = re.compile(r"(?=^[ \t]*[一二三四五六七八九十百]+[、.．])", re.M)
-_LAW_ENUM_NO = re.compile(r"^[ \t]*([一二三四五六七八九十百]+)[、.．]\s*")
+#: 只匹配**行首**（允许 `## ` 这类 markdown 标题前缀）的编号，两种形态都认：
+#:  · `一、` / `一.`（顿号或点号）；
+#:  · `(一)`（**半角**圆括号 —— 老规范如《保护海底电缆规定》用它做顶层编号）。
+#: ⚠ **全角 `（一）` 不匹配**：它在条文体里是**子项**（实测《人民检察院办理行政执法机关
+#: 移送涉嫌犯罪案件的规定》正文里就是全角子项），必须留在所属条目里。
+_LAW_ENUM_SPLIT = re.compile(
+    r"(?=^[ \t]*(?:#{1,6}[ \t]*)?(?:[一二三四五六七八九十百]+[、.．]|\([一二三四五六七八九十百]+\)))",
+    re.M)
+_LAW_ENUM_NO = re.compile(
+    r"^[ \t]*(?:#{1,6}[ \t]*)?(?:([一二三四五六七八九十百]+)[、.．]|\(([一二三四五六七八九十百]+)\))\s*")
 
 
 _GB_SPLIT = re.compile(r"(?=^\s*[A-Za-z]?\d+[．.]\d+(?:[．.]\d+)?(?![\d.])(?:\s+[^0-9]|[一-鿿(（A-Za-z]))", re.M)
@@ -112,9 +119,13 @@ def split_law_enum_text(text: str) -> list[tuple[str, str]]:
         m = _LAW_ENUM_NO.match(p)
         if not m:
             continue
+        # 两个分支：`一、` 落在 group(1)，`(一)` 落在 group(2)
+        num = m.group(1) or m.group(2)
+        if not num:
+            continue
         body = _LAW_ENUM_NO.sub("", p, count=1).strip()
         if body:
-            out.append((m.group(1), body))
+            out.append((num, body))
     return out
 
 
