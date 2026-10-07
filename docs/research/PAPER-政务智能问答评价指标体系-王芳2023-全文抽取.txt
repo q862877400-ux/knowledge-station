@@ -1,0 +1,1788 @@
+098
+政务智能问答系统评价指标体系
+构建与测评问题编制
+Developing an Evaluation Index System and Its Testing Questions for 
+Government Intelligent Q&A Systems
+王芳
+1,2 
+魏中瀚
+3 
+连芷萱
+1,2
+WANG Fang	
+WEI Zhonghan	
+LIAN Zhixuan
+（1.南开大学商学院信息资源管理系，天津，300071；2.南开大学网络社会治理研究中心，天津，300072；3.科学技术部信息中心，北京，100862 / 1. Department of Information 
+Resources Management, Business School, Nankai University, Tianjin，300071; 2. Center for Network Society Governance, Nankai University, Tianjin, 300072；3. Information 
+Center of Ministry of Science and Technology，Beijing，100862）
+摘要：[ 目的/ 意义]
+[ 目的/ 意义] 智能问答系统正成为提供公共服务的重要设施。通过评价可以促进政务智能问答系统建设，降低用户行政负担。[ 研
+[ 研
+究设计/ 方法]
+究设计/ 方法] 基于文献调研、理论分析和案例研究，构建政务智能问答系统评价指标体系，并运用专家调查和AHP 法确定了指标权重；
+根据政务热点咨询问题编制了与问题解决质量维度配套的测试问题集；对我国30个省级政府网站智能问答系统进行了实际测评。[ 结
+[ 结
+论/ 发现]
+论/ 发现] 政务智能问答系统评价指标体系包含问题解决质量、服务交互质量、基础建设质量3个维度以及高频问题解答率、同义问题解
+答率、交互次数等18个细化指标；测试题集包括高频、同义、错误、省略、英文五大类问题。实际评价证明了指标体系和测试题集的可用
+性和有效性。[ 创新/ 价值]
+[ 创新/ 价值] 从降低行政负担视角出发构建政务智能问答系统评价指标体系，运用文本挖掘技术构建测评问题集，并通
+过实际测评证明其可用性。
+关键词：问答系统；政府网站；语义理解能力；智能问答；测评问题；智能客服
+中图分类号：G203　DOI：10.13366/j.dik.2023.06.098
+引用本文：王芳，魏中瀚，连芷萱. 政务智能问答系统评价指标体系构建与测评问题编制[J]. 图书情报知识，2023，40（6）：98-111.（Wang 
+Fang, Wei Zhonghan, Lian Zhixuan. Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A 
+Systems[J].Documentation, Information & Knowledge,2023,40（6）：98-111.）
+Abstract: [Purpose/Significance] Intelligent question and answer（Q&A）system is becoming an important facility for public services 
+delivery. The purpose of this study is to promote the construction of government intelligent Q&A systems by evaluation, and reduce the 
+administrative burden of citizens. [Design/Methodology] Firstly, based on literature research, theoretical analysis and case study, an 
+evaluation indicator system for government intelligent Q&A system was constructed, and the indicator weight was determined by expert 
+survey and AHP method. Secondly, a testing question set for problem solving quality was developed based on the hot consultation issues. 
+Finally, 30 provincial government Q&A systems in China were evaluated with the indicator system and the matched questions. [Findings/
+Conclusion] The evaluation index system of government intelligent question and answering system includes three dimensions, namely, the 
+quality of problem solving, the quality of service interaction, and the quality of infrastructure construction, as well as 18 refined indicators, 
+such as the rate of high-frequency question answering, the rate of synonymous question answering, and the number of interactions. The 
+testing question set includes five categories of questions: high-frequency, synonymous, error, ellipsis, and English ones. The practical 
+evaluation proves the usability and effectiveness of the indicator system and testing questions set. [Originality/Value] This study 
+constructs an evaluation index system for government intelligent Q&A systems from the perspective of reducing administrative 
+burden, compiles testing question sets using text mining technique, and proves their usability through an actual evaluation.
+Keywords:  Q&A system; Government website; Capability of semantics understanding; Intelligent Q&A; Testing questions; Intelligent 
+customer service 
+[ 基金项目] 本文系国家社会科学基金重大项目“基于数据共享与知识复用的数字政府智能化治理研究”（20ZDA039）的研究成果之一。（This is an outcome of the Major Project 
+"Research on Intelligent Governance of Digital Government Based on Data Sharing and Knowledge Reuse "（20ZDA039）supported by National Social Science Foundation of 
+China.）
+[ 通讯作者] 王芳（ORCID：0000-0002-2655-9975），博士，教授，研究方向：知识发现、政府信息资源管理、电子政务，Email:wangfangnk@nankai.edu.cn。（Correspondence should be 
+addressed to WANG Fang, Email:wangfangnk@nankai.edu.cn, ORCID:0000-0002-2655-9975）
+[ 作者简介] 魏中瀚（ORCID：0000-0002-4035-4458），硕士，研究方向：政府信息资源管理、电子政务，Email:57696782@qq.com；连芷萱（ORCID：0000-0003-0878-9344），博士研究生，
+研究方向：电子政务、智能问答，Email:1120201115@mail. nankai.edu.cn。
+1　引言
+随着数字政府建设的深化，越来越多的行政部门
+开始采用人工智能（AI）技术改善公共服务
+[1-3]。截至
+2022年3月底，全国各省级政府门户网站或隶属的政
+务网站均已依托AI技术设置自动问答系统
+[4-5]（港澳台
+除外，下同）。初步调研发现，各省级政府网站的智能
+问答系统表现参差不齐，超过半数的客服无法有效答
+复随机测试问题，延长了用户等待时间。根据行政负
+担理论，采用智能问答技术的目的是提高行政效率，
+降低公众承受的行政负担，但是“数字政府并不必然
+会降低行政负担，甚至在某些情况下还会加重一些群
+体的行政负担”
+[6]。政务问答系统语义理解能力的不足，
+影响了问答服务的智能化水平，在一定程度上给用户
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+099
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+带来新的行政负担。为了提高行政效率，有必要对政
+务智能问答系统展开评价研究，了解其存在的问题，
+并提出应对策略。
+目前，一些研究在政府问答系统测评方面进行了
+探索。其中，大部分研究以答案的准确率
+[7]、召回率、重
+复率等指标来衡量系统性能，有助于提高预设答案与
+问题的匹配能力，但是并不能引导提高系统理解用户
+需求的能力。如果知识库中的预设答案与问题应用场
+景的契合程度较低，即使是高精度的问答匹配能力也
+无法满足用户的主观需求。另外，现有研究提出的准
+确率、答案定性分类等指标虽然能够在一定程度上反
+映政务问答系统的语义理解能力，但是尚未形成系统
+性的评价指标体系与测评题目。为此，本文基于理论
+分析、文献回顾以及典型案例研究，提取与政府网站智
+能问答系统相关的评价指标，建立一套面向语义理解
+能力的评价指标体系，同时构建配套测试问题集，并
+通过对我国省级政府网站智能问答系统的实际评价检
+验指标体系和测试题集的有效性。
+2　理论基础与文献回顾
+2.1ﾠ行政负担理论
+行政负担是指公民在与政府互动过程中面临的
+学习成本、心理成本和合规成本，在一些情况下，这
+种负担被用作政策工具
+[8-10]。20世纪70年代，学术界
+开始将行政负担与“官僚主义遭遇”（bureaucratic 
+encounters）结合起来
+[11]。近年来行政负担被阐述为
+个人与行政组织交互时
+[9,12]产生的繁重体验
+[13]。其中，
+学习成本指公民为了享受某项行政服务不得不学习该
+服务相关的程序、文本等，如“如何获取该服务”，可以
+通过目标人群对某个项目缺乏了解的情况推断出来
+[9]；
+心理成本是指公民在享受政府服务时的不适感，如参
+加某个不受欢迎的福利项目
+[9]、没有便利设施的等候空
+间
+[14]、被认为没有价值的个人等待时间
+[15]，以及行政
+人员服务水平或态度带来的困惑、焦虑、沮丧、愤怒等；
+合规成本指用户因使用政府服务不得不付出请假、通
+勤等成本，比如参与面谈、培训所付出的时间成本
+[16]。
+Schaffer和Huang在行政负担理论的基础上提出“准
+入理论”
+[17-18]，将公民获得行政服务的“门槛”过程化，
+论述了包括申请、交互、等待、审批等多个步骤和“准
+入”的组织规则。
+行政负担会加剧社会不平等，繁琐程序会破坏政
+治效力和公民参与，为了降低行政负担，政策制定者
+需要降低目标对象的学习和合规成本，并以最小的心
+理成本构建互动
+[8]。廖福崇提出通过简政放权、放管结
+合、优化服务来消解行政负担
+[8]。为了减轻个人与行政
+组织交互过程中承受的行政负担，一些政府机构在其
+网站上设置了智能客服作为改善公共服务的辅助手
+段。但是此类设置是否真正降低了行政负担，还是又
+增加了新的数字负担，这还依赖于智能问答服务的质
+量，尤其是基于系统语义理解能力的对话质量和问题
+解决能力。因此，根据行政负担理论和门户网站的“准
+入”流程，可以从中“逆推”出一些评价指标，如系统
+的问题解决能力、性能、智能、界面设计，以及信息的准
+确性等。
+2.2ﾠ政务信息服务质量评价
+政务智能问答本质上是一种政务信息服务。信息
+服务是一种通过研究用户、组织用户、组织服务将有价
+值的信息传递给用户，最终帮助用户解决问题的服务
+活动
+[19]。一些研究通过对信息服务要素的拆解建立相
+应的评价体系，如胡昌平
+[20]借助ISO9000质量标准建
+立了信息服务技术质量认证指标体系，包括服务技术
+条件与设施质量、服务过程质量、服务效用质量三个维
+度，分别评价信息服务的基础建设、系统交互与信息质
+量三个方面。政务信息服务是指政府部门通过官方媒
+体、政府网站、行政许可中心、图书馆、档案馆多种渠道
+满足公众信息需求的活动，包括信息告知、主动信息公
+开、依申请公开、数据开放等方式。王芳等构建了地方
+政府网站信息公开的评价指标体系，包括公开内容、
+公开方式、监督保障、信息安全、信息组织、信息表达方
+式、互动交流等七个维度
+[21]；之后又从用户视角构建
+了政府数据质量评价指标体系，包含数据源、数据集、
+数据环境三大维度和可靠性、规范性、真实性、准确性、
+适配性等15个指标
+[22]。
+2.3ﾠ智能问答系统测评研究
+问答服务广泛应用于电子商务、知识社区、医疗健
+康等场景，主要包括以机器智能为主的智能问答和以
+人类智能为主的社区问答两大类。政务智能问答系统
+的主要功能是为公众提供政务信息咨询服务，其评价
+
+100
+不仅涉及信息服务质量评价、智能问答系统测评，而且
+也有必要借鉴社区问答系统（例如知乎）评价和电商
+平台智能客服评价的相关研究成果。
+（1 ）智能问答系统测评
+“智能问答系统”测评研究最早可追溯至上世纪50
+年代的“图灵测试”
+[23]。经过半个世纪的发展，针对智
+能系统的测评可分为问题解决能力、回复质量、用户易
+用性、场景适用性四个方面。
+在问题解决能力方面，1999年举办的TREC（文本检
+索会议）首次引入“问答测评”（简称QAtrack）环节以
+测评检索系统的问题解决能力。QAtrack将MRR（Mean 
+Reciprocal Rank,是将标准答案在系统给出结果中的排
+序取倒数作为它的准确度，再对所有问题取平均得到
+的指标）、准确率（Accuracy）、置信权重分数（CWS）
+作为主要评价指标。吴友政等据此建立了汉语问答系
+统测评平台（简称EPCQA），采用MRR、事例召回率、
+事例准确率、片段召回率以及片段准确率等指标来测
+评问答系统的性能
+[24]。Noraset等基于维基百科知识
+库构建了能够回答泰语问题的问答系统“WabiQA”，
+主要指标有准确率、召回率以及F1值
+[25]。
+在回复质量方面，问答系统评价常常借用机器
+翻译的评价指标。例如2002年IBM研发的BLEU系统
+以词重叠度来测评回复生成质量，认为回复语句与
+参考答案之间的词语共现次数越多则回复生成质量
+越高
+[26]。在BLEU基础上改进的METEOR系统，运用
+WordNet计算特定的序列匹配、同义词、词根和词缀、
+释义之间的匹配关系作为测评指标
+[27]。在词重叠度的
+基础上，也有学者通过计算词、句相似度来测评回复生
+成质量，如Greedy Matching、Embedding Average、
+Vector Extrema等基于词向量的方法
+[28]和句子语义相
+似度方法
+[29]。
+在用户易用性方面，腾讯AI Lab的李菁等人构建了
+一个大规模人工标注中文对话数据集，而后邀请专业人
+员根据系统回复的相关性、连贯性、信息性、趣味性等指
+标对文本数据进行五级评分
+[30]。Roque等借助可用性
+测试量表，邀请17位医护人员与患者对智能问答系统
+所回复的伤口处理相关信息质量进行评价，指标主要包
+括学习性、效用性、记忆性、容错性以及满意性
+[31]。
+在场景适用性方面，Diekema等对航天工程问答
+系统进行了多维度评价，指标包括系统性能（速度、
+可靠性）、答案质量（完整性、精确性、相关性等）、数据
+库内容（数据源质量、规模、时效性）、用户交互（文本
+理解能力、问题格式化能力等）和用户期望
+[32]。顾丽燕
+等根据用户满意度、运营状况、智能水平和技术先进性
+4个维度对不同的智能客服机器人进行了场景对应评
+价，其中用户满意度指标包含问题解决率以及答案满
+意率，两指标均需用户主观评价
+[33]。
+（2 ）电子商务智能客服相关研究
+电子商务智能客服得到较为深入的研究，尤其是
+用户视角的实证研究，可以为政务智能问答服务评价
+提供借鉴。王旭勇从客服管理投入的视角构建了企业
+智能客服评分指标体系，包括客服服务投入程度、客服
+服务知识管理水平、新型技术应用等维度
+[34]。宋双永等
+提出智能客服在解决客户高频业务问题的同时，也需
+要提供类人服务以提高客户整体满意度，包括用户情
+感检测、用户情感安抚、情感生成式语聊、客服服务质
+检、会话满意度预估和智能人工入口
+[35]。宋倩茜与马双
+发现，随着技术的不断升级，人工智能在反应速度、回
+答问题的准确性上有很大提升，在功能价值和体验价
+值方面与人工客服的差距正在变小，但在给予顾客情
+感价值方面仍有较大差距
+[36]。吴薇等发现拟人化、AI精
+确性、AI灵活性、AI及时性和AI可靠性可提升消费者
+的认知满意度或服务绩效确认
+[37]。吴继飞等发现，消费
+者认为智能客服在不确定性高的需求状态下更缺乏能
+力，进而导致智能客服厌恶效应，通过赋予智能客服应
+对不确定性能力的策略，可以有效削弱厌恶效应
+[38]。
+（3 ）社区问答服务测评
+社区问答平台的回复者主要是掌握专业知识的个
+人，目前也在尝试使用智能客服，其信息质量受到问
+题本身及回复者等多方面因素影响。社区问答研究中
+关于回复信息质量的评价指标对于本研究有一定的借
+鉴意义，比如：李翔宇等
+[39]构建的社区问答回复质量
+评价指标体系中的内容维度与认知应用维度；沈洪洲
+等
+[40]发现文本长度、情感强度、标记数量三个指标与用
+户满意度正相关；沈旺等
+[41]提出的社会化问答信息可
+信度评价模型包含的信息源、信息内容和结构、媒介三
+个维度。Zhu等
+[42]针对Answerbag构建的回复质量评
+价指标体系，包含简明性、易读性、完整性、相关性、真
+实性、文明性和信息量七个指标；鲍时平
+[43]从文献中
+归纳出社会化问答平台质量评价体系，包含平台设计、
+平台运行、信息内容、信息服务四个维度和16个三级
+指标。
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+101
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+2.4ﾠ政务智能问答系统的语义理解能力  
+智能问答系统可分为开放领域问答系统和限定
+领域问答系统
+[44]。开放型智能问答系统不限制对话主
+题范围，如ChatGPT、“小度”聊天机器人、科大讯飞
+聊天机器人等；而限定领域问答系统则主要为提问者
+解决特定领域的问题，如订票助手、电商客服等。与
+ChaGPT等聊天机器人相比，限定领域问答系统对于
+专业性和准确性都有更高的要求。政务智能问答系统
+是一类针对公共服务事项的限定领域问答系统。例如，
+哥伦比亚政府采用FAQ文档库、本体扩展词、语义网以
+及EuroWordNet等技术为公众提供政务咨询
+[45]；广州
+市政府信息化中心推出的智能服务机器人云平台系
+统，可以实现多轮会话以及模糊问题引导
+[46]。
+政府网站的目标用户覆盖面广泛，受教育水平、信
+息素养以及对政府事务的了解程度各不相同。为降低
+用户使用政府网站智能问答系统的行政负担，需要不
+断提高系统的语义理解能力。智能问答系统涉及自然
+语言理解（NLU）、状态跟踪器、对话策略、自然语言生
+成（NLG）等技术
+[47]。其中，NLU是体现问答系统语言
+与逻辑智能的关键，其下游任务有检索、问答等
+[48-49]。
+NLU技术包括共指消解、命名实体识别、文本推理、情
+感感知、知识推理等多种任务
+[50]。在政务智能问答实践
+中，用户的知识背景与表达习惯存在个体差异，最终
+输入到问答系统的语句具有明显的口语化特征
+[51]。这
+些口语化的语言表达不一定符合逻辑和语法规则，而
+且掺杂了许多无用词汇，为智能问答系统的答疑制造
+了障碍。
+衡量系统是否真正理解用户意图的最直接标准是
+在接收用户信息后能否通过反馈答案达到用户的指定
+目标
+[52]。政府网站智能客服系统的主要目的是理解和
+满足用户的政务咨询需求，因此需要具备同义文本理
+解、上下文感知、自动纠错、多语种翻译等能力。王友奎
+等
+[4]采用模拟用户的方法，利用测试关键词与问句对
+我国政府网站问答系统的知识储备进行了测评，发现
+整体上仍处于起步和摸索阶段。为了进一步评估政府
+网站智能问答系统的语义理解能力，本研究依据系统
+对不同类型语言问题的解答情况来判断其语义理解能
+力。由于各网站后台对所采用的自然语言理解技术进
+行了加密管理，无法得到具体的技术细节，因此本文
+将按照语言学规则编制相应问题，通过不同类型的问
+题测试结果反推政府网站智能客服的语义理解能力。
+3　 政府网站智能问答系统评价指标体
+系构建
+评价指标体系的构建过程一般包含指标提取、指
+标体系构建、指标权重确定、评价测试四个阶段。政府
+网站智能问答系统的评价指标来源主要为文献分析和
+案例研究。首先，对相关文献和理论进行分析，从中提
+取相关指标（见表1 ）；其次，对省级政府门户网站的
+智能问答系统进行初步调查，根据试用体验选择3个
+系统进行案例分析，提取可用指标；再次，借助德尔菲
+法，根据各指标内涵进行取舍合并和归纳分层；第四，
+运用AHP层次分析法、专家调查、小组讨论等方法确定
+各指标权重；第五，构建部分指标的测试题集；最后，
+对指标体系进行评价测试。
+3.1ﾠ政务智能问答系统评价相关指标提取
+3.1.1 文献指标提取
+通过文献分析初步选取24个指标，根据指标的隶属
+关系将其划分为系统、信息、用户三大类，如表1所示。
+3.1.2 案例指标提取
+为进一步贴合政务咨询的应用场景，对现有30个
+省级政府网站的智能问答系统进行试用体验，对表现
+优异的系统进行案例分析，将其服务功能转化为评价
+指标。根据准入理论，按照“使用前-使用中-使用后”
+的顺序记录试用体验。依据试用结果，选取上海（政务
+助理小申）、浙江（智能客服小浙）、广东（智能问答平
+台）三个便捷性高、服务意识强的系统作为典型案例。
+通过对案例系统试用记录进行编码分析提取评价指
+标，如表2所示。
+3.2ﾠ基于行政负担理论的指标分析
+政府利用数字技术的目的是通过自动化、智能化、
+替代等具体方式降低公民行政负担，但如果技术使用
+不当也会导致行政负担不降反升
+[6]。为降低用户使用
+政务智能问答系统的学习成本，系统需要快速、准确地
+理解用户含糊、不完整或不准确的提问；为降低用户
+因使用系统的合规成本，需要尽可能缩短系统反应时
+间，提高交互效率；为降低用户的负面情绪与心理成
+本，需要通过友好、人性化的交互设计和富有情感的信
+息表达改善用户体验。基于行政负担理论对评价指标
+进行分析和归纳，结果如表3所示。其中，上下文感知、
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+
+102
+表1ﾠ文献指标提取
+Table 1 Extracting Indicators from Literature
+层次
+维度
+指标名称
+指标释义
+指标来源
+系统
+问题解答
+准确率
+系统正确解答的问题数/ 全部提问的问题数
+吴友政等
+[24]，顾丽燕等
+[33]
+召回率
+正确回复的问题数/ 知识库全部正确问题数
+TREC QA Track，吴友政等
+[24]
+MRR
+标准答案在系统给出的排序结果中的位置倒数
+TREC QA Track，吴友政等
+[24]
+交互次数
+系统完成用户提问所产生的回复次数
+吴友政等
+[24]，顾丽燕等
+[33]
+系统性能
+丰富性
+系统后台答案知识库的丰富性
+王友奎等
+[4]，赵一鸣& 刘炫彤
+[53]
+移动性
+系统能否适用于不同的设备终端
+裴雷等
+[54]
+稳定性
+系统与用户交互过程中能否稳定运行、无卡顿情况
+鲍时平
+[43]
+安全性
+系统在交互服务过程中能否保障用户隐私
+鲍时平
+[43]
+响应时间
+系统完成用户提问所耗费的时间
+裴雷等
+[54]
+系统智能
+推荐功能
+系统能否根据用户关键词进行问题推荐
+赵一鸣& 刘炫彤
+[53]，裴雷等
+[54]
+多轮交互能力
+系统能否针对上下文语境，准确回复用户省略式的提问
+岳世峰等
+[55]，陈健鹏等
+[29]
+意图识别能力
+系统能否根据输入的关键词准确识别用户意图
+Liu 等
+[28]，顾丽燕等
+[33]
+识别错字能力
+系统能否识别并自动纠正用户问题中的错别字
+裴雷等
+[54]
+系统拟人化
+系统与用户交互过程中是否友好、能否展现出人性化的语气
+吴薇等
+[37]
+外观设计
+界面设计
+系统界面设计的美观程度
+王芳等
+[21]，王芳等
+[56]
+信息
+信息内容
+准确性
+系统给出的答案是否正确
+胡千代& 王芳
+[22]，沈旺等
+[41]
+完整性
+系统给出的答案是否完整
+胡千代& 王芳
+[22]，李翔宇等
+[39]
+信息效用
+时效性
+系统给出的答案是否为最新内容
+Diekema 等
+[32]，沈旺等
+[41]
+有用性
+系统给出的答案是否能够为用户所用
+李翔宇等
+[39]，裴雷等
+[54]
+信息形式
+有序性
+系统给出的答案是否组织有序
+沈旺等
+[41]
+简明性
+系统给出的答案是否简洁明了
+李翔宇等
+[39]
+信息源
+权威性
+系统给出的答案是否具备权威性
+胡千代& 王芳
+[22]，沈旺等
+[41]
+用户
+用户感知
+答案满意率
+用户满意的问题数/ 用户提问的问题数
+Aoki
+[2]，顾丽燕等
+[33]
+用户交互
+交流反馈
+用户与系统的交流及信息反馈情况
+胡千代& 王芳
+[22]，王芳等
+[56]
+表2ﾠ案例指标提取
+Table 2 Extracting Indicators from Cases
+编码
+指标名称
+指标释义
+提取说明
+直观感受
+（使用前）
+具备使用
+说明
+系统是否为用户提供使
+用说明及字数规范
+该项功能在用户使用前为其建立了可靠的心理预期。试想，若没有具体的使用规范，
+用户随意输入的问题形式极有可能令系统无法识别，从而导致回复成功率降低。
+地区导航
+功能
+系统是否为用户
+提供了选择具体地区街
+道的功能
+普适性的回复虽然为用户提供了答案，但对于部分具体地区的事务办理可能无法奏
+效，只有通过该功能才能将用户引入其所属的具体辖区，继而为其提供具有针对性的
+政务事项解决方案。
+热点服务
+功能
+系统是否具备高频提问
+事项以及常用功能
+部分系统为用户在问答界面设置了常问事项、热点问题等热点服务功能，该功能可能
+使用户在不提问的情况下能够直接找到对应的问题解决方案，大大提升了系统的
+便利程度。
+终端
+兼容性
+系统能否支持
+PC 端、手机端多端
+正常使用
+当前移动端上网已成为我国居民的主要上网方式，如果不能为移动端用户建立适配的
+网站智能客服系统不仅使受众群体数量大打折扣，也将违背智能客服随时随地为用户
+答疑的设计初衷。
+问答交互
+（使用中）
+输入联想
+功能
+系统能否根据用户关键
+词进行问题推荐补全
+输入联想功能可在用户输入关键词时自动提供多个备选方案供用户选择，当用户无法
+准确描述问题时，通过该功能可以实现精准提问，该指标可体现智能客服的便利性。
+转接人工
+服务
+系统能否在无法回答时
+将用户引入人工服务
+转接人工能力可使客服系统将无法给予回复的用户引导至人工服务，为用户答疑添上
+双重保险。
+服务反馈
+（使用后）
+使用意见
+反馈
+系统是否为用户提供了
+意见反馈渠道
+只有广泛听取用户的使用意见，才能在此基础上对智能客服统加以改进，从而更好地
+服务于公众。
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+103
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+C2
+人
+工
+支
+持
+同义理解、自动纠错、多语种翻译等指标反映了系统的
+语义理解能力。
+3.3ﾠ指标分层
+用户向智能问答系统提问的过程实质上是人机交
+互的过程，因此对问答系统的评价应该在关注语义理
+解能力的同时，关注用户体验。将所提取的指标进行
+整合、取舍和分层，最终形成以降低用户行政负担为目
+标的“问题解决质量”“服务交互质量”与“基础建设
+质量”三大维度，如图1所示。其中，“问题解决质量”
+最为核心，旨在降低用户的合规成本，对应了回复信
+息的质量与效率；“服务交互质量”对应用户与客服的
+交互过程，用于衡量系统的交互能力，旨在降低用户
+的学习成本和心理成本；“基础建设质量”用于衡量系
+统建设情况，旨在降低用户的学习成本、心理成本和合
+规成本。其中，B1问题解决质量与B3基础建设质量都
+需要系统的语义理解能力给予支撑。
+3.4ﾠ指标权重确立
+权重可以有效衡量各指标对于评价总目标的贡献
+程度，体现评价的价值导向作用
+[56]。本文结合层次分
+析法（AHP）和专家调查法确定一级指标和二级指标
+的权重，三级指标权重则通过案例分析与小组讨论予
+以分配。
+3.4.1 专家调查
+运用层次分析法（AHP）建立指标递阶层次结构，
+通过 Saaty 的“1-9 标度法”构建判断矩阵，邀请相关
+专家对各层次要素进行两两比较评分。评分专家来自
+高校电子政务或信息系统领域、政府信息化或业务部
+门以及互联网企业产品业务领域。共计发放专家调查
+表 24份，收回20份。利用在线分析软件SPSSPRO对
+20位专家构建的80个判断矩阵进行一致性检验，有
+14位专家的评分通过了一致性检验，通过率达70%，
+表明由此确定的权重值可行性较高。
+3.4.2 权重计算
+以14份有效调查结果计算指标权重。首先，计算
+14位专家权重评分的算术平均值，得到层次单排序结
+果。通过加权得到最终的层次总排序计算结果，如附
+录1所示。三级指标涉及特定领域的问题与功能，在专
+家尚未对实际政务问答系统案例进行分析时，难以对
+细化指标权重做出合理赋值，所以采用案例分析与小
+组讨论的方式确定三级指标的权重。在此过程中，3名
+讨论小组成员均为南开大学政府大数据课题组成员，
+该课题组具备15年以上电子政务领域的理论研究基
+表3ﾠ基于行政负担理论的指标分析
+Table 3 Indicator Analysis Based on the Theory of Administrative Burden
+消除行政负担类型
+指标名称
+指标释义
+与行政负担的关系
+降低学习成本
+问题解决率
+系统能够成功回答用户问题的概率
+负相关
+政务信息丰富性
+系统后台储备政务知识的容量
+负相关
+上下文感知能力
+系统能否结合上下文语境回答用户的连续发问
+负相关
+同义理解能力
+系统能否正确回答用户同义不同形的问题
+负相关
+自动纠错能力
+系统能否自动识别用户提问中的错误表达并给予正确答复
+负相关
+多语种翻译能力
+系统能否正确回答多种语言类型的问题
+负相关
+完整性
+系统所给的答案是否能够包含完整的政务事项
+负相关
+降低服从成本
+交互次数
+系统提供完整信息服务需要与用户进行的互动次数
+正相关
+响应间隔
+系统收到用户指令发出回复所需的时间
+正相关
+降低心理成本
+系统拟人化
+系统提供信息服务的语气以及交互性
+负相关
+界面设计
+系统的界面设计是否符合用户审美
+负相关
+规范性
+系统所提供的信息排列组织是否整洁有序
+负相关
+A 政府网站智能客服评价体系
+C1
+问
+题
+解
+决
+率
+C2
+解
+答
+效
+率
+B1问题解决质量
+B2服务交互质量
+B3基础建设质量
+C4
+共
+情
+服
+务
+C7
+功
+能
+建
+设
+C8
+系
+统
+性
+能
+C3
+信
+息
+质
+量
+C3
+效
+果
+评
+价
+C9
+界
+面
+设
+计
+图1ﾠ政府网站智能问答系统评价维度
+Fig.1 Evaluation Dimensions of the Intelligent Q&A Systems on 
+Government Websites
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+
+104
+础与实践调查经历。在正式讨论之前，3名小组成员分
+别挑选了10个省级政府网站中的智能客服系统进行
+深度试用体验，结合专业知识根据不同的表达习惯对
+五种类型的问题进行初步测试，同时记录各系统的附
+加功能情况。在试用结束后，3人将试用情况汇总，进
+入集体讨论环节。讨论结果认为应当结合系统的实际
+表现与问题类型出现的频率，对C1对应的五个三级指
+标进行权重确定，讨论过程如表4所示：
+考虑到纠偏能力以及交互回复能力虽然能更好地
+体现系统语义理解能力，但在实际的案例体验中小组
+成员发现多数系统语义理解能力不强，若将错误型、省
+略型问题权重设置过高将拉低整体测评水平。最终，将
+C1的三级指标权重做如下排序：高频型问题>同义型
+问题>错误型问题>省略型问题=英文型问题。同时，通
+过对不同问题个数的设置进行指标权重的区分：共设
+置问题100个，其中高频型问题60个，同义问题20个，
+错误式问题10个，省略式问题5个，英文问题5个。
+在指标C3“信息质量”中，基于目的性和效用性
+原则，3位成员均认为信息完整性远比信息规范性重
+要，外加在本研究中完整性指标比规范性指标更具可
+测性，故将完整性权重设置为80%，规范性权重设置
+为20%。
+在指标C7“功能建设”中，小组成员认为“地区
+导航”与“热点服务”分别有利于用户具体化、便利化
+解决问题，故两者权重可划为等同，而具备使用说明
+对于用户使用系统起到重要的引导作用，可以减少用
+户的试错成本，其重要性同样不可忽视。输入联想功
+能虽然可以帮助用户快速输入问题，但该功能属于“锦
+上添花”型功能，系统若不具备，用户可以手动录入。
+基于上述考虑，作者将“具备使用说明”
+“地区导航”
+“热
+点服务”三者权重均设置为30%，“输入联想功能”设
+置为10%。
+在指标C8“系统性能”中，运行稳定性强的系统
+可以保障用户的交互体验，终端兼容性强的系统可以
+允许用户在移动设备中进行提问，二者难分伯仲，故
+将其权重均设置为50%。
+最后，二级指标C2、C4、C5、C6、C9下各仅包含
+一个三级指标，故直接继承上级指标权重。由此，全部
+指标权重设立完成，形成完整的政府网站智能问答系
+统评价指标体系，共计3个一级指标，9个二级指标和
+18个三级指标，如表5所示。
+4　测评问题的编制
+如表5所示，问题解决质量是问答系统评价的首
+要目标，而语义理解能力则是提高问答系统问题解决
+质量的关键所在。在进行实际测评的过程中，问题解
+决质量维度的指标主要通过构建测试题集进行客观评
+分。为了从同义文本理解、自动纠错、上下文感知、多语
+种翻译等多个方面测评智能客服的语义理解能力，构
+建五种不同类型的问题，包括高频问题、同义问题、错
+误式问题、省略式问题和英文问题五类。服务交互质量
+和基础建设质量两个维度的评分主要是评分者在测评
+过程中，通过观察、测试和分析比较进行评分。
+4.1ﾠ高频问题的编制
+本文将“高频问题集”定义为含有高频政务事项
+主题词的标准化问句集合。因无法获取各系统后台的
+知识库数据，也难以穷尽公民的全部咨询事项，因此
+通过获取高频政务事项主题词的方式构建政务咨询问
+题，从对高频问题的解答质量来推断系统知识库储备
+的丰富程度。高频问题集的制作思路如下。
+首先，使用八爪鱼数据采集软件，爬取山东、江苏、
+上海、贵州等26个省级政府网站的公民留言板、市长
+邮箱共7,632条原始数据，剔除空值及字符数小于3的
+表4ﾠ小组讨论分析过程
+Table 4 The Process of Group Discussion and Analysis
+问题类型
+判断依据
+讨论结果
+标准型问题
+政务名词具备高度专有性，同时部分网站又为用户提供了标准的提问方式
+该类型问题比重第一
+同义型问题
+用户使用的疑问词或疑问语序存在差异，会导致问题发生同义变化
+该类型问题比重第二
+错误型问题
+由于输入错误概率以及连续发问的概率小于正常提问概率，部分系统存在引导或提示功能
+该类型问题比重第三
+省略型问题
+政务网站智能客服的任务指向属性，系统多是直接向用户给予答案，多轮交互的情形较少
+该类型问题比重第四
+英文问题
+相比国内用户的使用频率，外国用户使用系统的频率相对较小
+该类型问题比重第四
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+105
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+文本后，保留7,021条数据。随后利用“微词云”在线
+分词工具对7,021条数据进行分词处理并构建词库。与
+此同时，选取23个具备问题推荐模块的政府网站智能
+客服系统，通过人工下载的方式获取全部推荐问题文
+本，进行分词处理并构建词库。通过人工筛选的方式
+去除无实义动词和名词。将两个词库中的高频政务词
+语进行对比，重复率接近75%。由此判断，政府网站上
+公民留言的高频问题与智能客服推荐的用户常问问题
+具备较高相似度，利用公民留言的政务词语进行问题
+编制具备代表性和一定的补充作用。
+按照词频将最高频的60个主题词作为问题构建
+的关键词。随后，将60个关键词作为查找项分别在国
+务院提出的全国高频政务服务事项清单、济南市100
+项高频事务清单等7份高频政务事项清单中进行对比，
+重合率接近88%，以此对高频词选择结果进行二次验
+证。提取高频事项清单中的对应事项，改编成高频问
+题集，排名前21的高频问题见表6。
+4.2ﾠ同义问题编制
+因不同用户存在知识水平与表达方式的差异，外
+加部分系统不能提供规范的提问句式，因此有必要模
+拟这类应用场景进行同义问题的编制。根据用户对咨
+询事务描述的清晰程度进行同义改写，将其划分为表
+述清晰、表述欠妥、表述模糊三个等级：
+（1 ）表述清晰的问题：表现为用户可以明确具体
+的办理事项，同时能够用精简的语言表述自己的咨询
+需求，上文中编制的标准化高频问题均属此类。然而
+在实际中，用户往往因用词习惯不同，易将同义不同
+形的术语或概念使用到提问中，但其目的均是对相同
+问题进行发问
+[57]。在政务事项中，该现象主要集中在
+政务名词或动词的同义替换方面，如：Q1:“怎样申领
+建筑施工企业安全生产许可证？”与Q2:“怎样申领建
+筑施工企业安许证？”，两问句的区别在于“安全许可
+证”与“安许证”，后者为前者简称，两者形异义同。再
+表5ﾠ政府网站智能问答系统评价指标体系
+Table 5 The Evaluation Index System for Intelligent Q&A Systems on 
+Government Websites
+一级指标
+二级指标
+三级指标
+重要性排序
+问题解决质量
+（0.748）
+问题解决率
+（0.408）
+高频问题（0.245）
+1
+同义问题（0.082）
+4
+错误问题（0.041）
+7
+省略问题（0.020）
+12
+英文问题（0.020）
+12
+解答效率
+（0.101）
+交互次数（0.101）
+3
+信息质量
+（0.239）
+完整性（0.191）
+2
+规范性（0.048）
+6
+服务交互质量
+（0.125）
+共情服务
+（0.040）
+互动人性化（0.040）
+8
+人工支持
+（0.058）
+转接人工服务
+（0.058）
+5
+效果评价
+（0.027）
+使用意见反馈
+（0.027）
+9
+基础建设质量
+（0.127）
+功能建设
+（0.057）
+具备使用说明
+（0.017）
+14
+地区导航（0.017）
+14
+热点服务（0.017）
+14
+输入联想（0.006）
+18
+系统性能
+（0.054）
+运行稳定性（0.027）
+9
+终端兼容性（0.027）
+9
+界面设计
+（0.016）
+界面美观程度
+（0.016）
+17
+表6ﾠ排名前21的高频问题汇编表
+Table 6 The Top 21 High-frequency Questions
+序号
+问题
+1
+如何补缴住房公积金？
+2
+如何进行养老保险关系转移？
+3
+怎样查询个人社保信息？
+4
+医保定点机构有哪些？
+5
+如何办理异地就医结算备案？
+6
+生育津贴申领条件是什么？
+7
+如何进行工作调动户口迁移？
+8
+最近有哪些公共就业服务专项活动？
+9
+如何申领居民身份证？
+10
+住院医疗费用怎么报销？
+11
+申请国家助学贷款需要什么条件？
+12
+参保职工增员如何进行申报？
+13
+房屋租赁登记备案
+14
+如何开具无犯罪记录证明？
+15
+技校毕业证书查询核验
+16
+怎样申领建筑施工企业安全生产许可证？
+17
+怎样申领失业保险金？
+18
+怎样申领一次性创业补贴？
+19
+小微企业怎样申领吸纳高校毕业生社保补贴？
+20
+如何成为注册会计师？
+21
+二级建造师注册资格认定变更注册
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+
+106
+如Q3：“如何补交住房公积金？”与Q4:“如何补缴住
+房公积金？”，两者的差别在于实义动词“补交”与“补
+缴”形异义同。
+（2 ）表述欠妥的问题：表现为用户知悉要办理的
+政务事项，但用词构句欠妥。例如Q5：“非机动车如何
+登记？”与Q6：“电动自行车如何登记？”，Q5的“非
+机动车”与Q6的“电动自行车”为包含关系，但用户可
+能会根据自身实际情况使用“电动自行车”进行提问。
+（3 ）表述模糊的问题：表现为用户仅仅明了自身
+问题，但无法清晰表达该问题对应的政务事项。如Q7：
+“如何对流动人员的人事档案进行接收？”与Q8：“本
+科毕业后去英国留学，学生档案将如何保管？”，与
+Q7相比，Q8的提问者难以将留学人员与流动人员对
+应，其次，学生档案与人事档案的表述相比不够正式。
+在此类表述不清晰的问题中，用户易引入无用词汇，
+从而可能导致问答系统的识别错误。通过构建此类问
+题恰好能测试智能问答系统的精准识别能力。
+依据上述三种规则对问题进行同义改编，因不同
+系统存在差异，在进行系统测试时，尽量保持各类型
+问题数量与比例的均衡。
+4.3ﾠ错误式问题编制
+错误问题的输入是为了测试智能客服对于错误文
+本的自动校对能力，包括对文本的自动查错与自动纠
+偏。借鉴刘亮亮
+[58]对中文文本错误的分类，以逆向思
+维对正确问题进行错误式改编。刘亮亮认为中文文本
+在问答系统中容易出现四类错误，分别为：替换错误、
+多字错误、缺字错误以及标点错误。替换错误指文本中
+的某个字被同音或形似字符替代的错误，多字错误指
+输入过程中某个字重复输入导致的错误，缺字错误则
+指少字或词导致文本不完整的错误，标点错误则指标
+点用法不当的错误。经试用体验并结合用户输入习惯
+可知，前三种错误在实际的键盘输入过程中较为常见，
+最后一种标点错误虽时有出现，但由于问答系统对该
+类型错误的感知性较低，故针对前三种错误类型各设
+置3道改编问题，对最后一种错误类型仅设置1道问
+题，共编制10道错误式问题。
+4.4ﾠ省略式问题编制
+省略式问题指连续发问、无错误的中文问题，设
+置该类问题是为了测试问答系统的多轮交互能力。部
+分用户在使用过程中存在连续追问的情形，但由于个
+人表达习惯差异，用户容易对追问语句进行省略式输
+入。其中，零形回指的情形最为常见。零形回指是一种
+在语义上在前文已出现所指对象，而在形式上却无实
+在词语的回指形式，是汉语中重要的回指形式之一
+[59]。
+例如Q1：“今天上海的天气怎么样？”与Q2：“那明
+天的怎么样呢？”，两问句建立在衔接语境当中，问句
+Q2采用零形回指，指代的先行词是Q1中出现的上海
+天气，故Q2的完整形式应是：“那明天上海的天气怎
+么样呢？”。要想在该提问方式下获得正确答复，要求
+智能问答系统具备上下文语境分析的能力，通过对Q1
+与Q2的综合语义理解，正确识别用户意图。
+因政务事项咨询中实义动词至关重要，因此不采
+用零形回指指代谓语，而只以指代主语与指代宾语的
+方式构建省略式问题。现针对两种方式各举一例：针
+对“省略主语”构建问题Q3：“退役士兵有哪些优待政
+策？”与 Q4：“有哪些安置条例？”。针对“省略宾语”
+构建问题Q5：“补办身份证的条件是什么？”与Q6：“应
+当去哪里办理呢？”。
+4.5ﾠ英文问题编制 
+编制英文问题的目的是测试智能客服的英文理解
+能力。虽然中文问题文本字符数较短，但翻译成对应
+英文问题后，文本字符数超出部分问答系统的字数限
+制，无法进行测试。为保障测试的一致性，提取中文问
+题中的主题词，对60个主题词进行翻译，最终以包含
+政务主题词的英文短语形式进行提问。
+基于上述规则构建的问题实例详见附录2。
+5　评价指标体系检验
+为了检验评价指标体系的可用性，于2022年3月
+15日至16日对能够正常运行的30个省级政府网站的
+智能问答系统进行统一测评。交互服务质量与基础建
+设质量由课题组两位成员依据评分细则进行独立评
+分，问题解决质量则由两位评分人运用测试题集进行
+独立评分，之后进行一致性信度检验，并通过协商得
+到最终评分结果。受篇幅影响，本研究只简要报告测
+评结果作为指标体系可用性的检验，详细的测评过程
+另文发表
+[60]。
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+107
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+经过整体测评，在满分为5分的情况下，30个省级
+政府网站智能问答系统最终得分位于[0.86，4.10]区间
+之内，平均得分为2.73，中位数为2.72，以3分为及格
+线，仅有9地系统达标，不及三分之一（见图2 ）。其中，
+上海市以4.10分的成绩位居第一，浙江省以4.07分的
+成绩次之。上述评价表明结果，本研究所构建的政府
+网站智能问答系统评价指标体系区分度良好，可以反
+映政府网站智能问答系统的实际情况，具有较强的可
+用性。
+6　结论、讨论与展望
+优质的政府网站智能客服系统能够更好地理解公
+民的政务服务需求，降低咨询服务过程中的行政负担
+和人工成本。本文通过理论回顾、文献分析与案例研
+究，构建了政府网站智能客服评价指标体系，并基于
+专家调查法和层次分析法确定了指标权重。该评价指
+标体系包括问题解决质量（问题解决率、解答效率、信
+息质量）、服务交互质量（共情服务、人工支持、效果评
+价）、基础建设质量（功能建设、系统性能、界面设计）3
+个一级指标，9个二级指标和18个三级指标，并运用专
+家调查法和试测评确定了指标权重。该指标体系反映
+了提高政府网站语义理解能力、降低用户行政负担的
+评价导向。
+同时，针对“问题解决率”指标，本研究依据政府
+网站常问问题和高频问题推荐，根据用户的表达方式
+及输入习惯，通过同义、错误、省略、英文转换等四种方
+式的改写，编制对应的问题，用于测试系统的语义理
+解能力。对我国30个省级政府网站智能问答系统的评
+价结果表明，该评价指标体系与测评问题与政府网站
+的应用场景相适应，能够较为精准地定位现有政府网
+站智能问答系统在实践中面临的语义理解问题。
+需要讨论的是，本研究开始于2021年9月，在论
+文修改完成之后刚好赶上ChatGPT大热。ChatGPT强
+大的对话能力对政府网站的智能问答系统提出了挑
+战，同时也对本研究构建的政府网站智能问答系统评
+价指标体系的适用性提出了考验，但目前看来并不会
+影响该指标体系对政府网站智能对话系统的应用价
+值。首先，与面向通用领域的聊天机器人ChatGPT不
+同，政务智能问答系统是一种面向特定公共服务领域
+的机器人，所面临的用户问题具有显著的领域特征，
+对回复的专业准确性和效率都有更高的要求，而通用
+聊天机器人的优势则主要在于语言生成，而非专业知
+识。其次，由于每个地方政府在法规政策和隐性知识
+积累上具有极大的不同，如果将依据大规模语料训练
+的ChatGPT应用于地方政府网站或部门网站，则还需
+要专门语料加以训练。考虑到每一种特定的政策法规
+并不具有大规模特点，因此面向通用领域的聊天机器
+人未必适用于地方政府网站。第三，本研究所构建的评
+价指标体系对于ChatGPT也是适用的，因为ChatGPT
+的评价也需要对其问题解决率、解答效率、信息质量、
+共情服务、人工支持、效果评价、功能建设、系统性能、
+界面设计进行评价和优化。最后，考虑到评价指标体
+系主要以评价结果、交互质量和基础建设为评价内容，
+它对非政府网站的智能问答系统评价也具有适用性。
+未来，随着政府网站智能问答系统性能的提升，
+相关的评价研究工作应加强指标的细化，比如在问
+题解决质量方面加入MRR 评价指标，在均能正确回
+复的问答系统中凸显差距，实现优中选优的目的。除
+此之外，研究者可选取更多的测试问题并进行更多样
+式的改写，也可采取众包的测试方法对受测系统进行
+更加全面的认知。通过精细化测评，推动政府网站的
+智能问答系统向着更具智能化、人性化和个性化的方
+向发展。
+5.00
+4.00
+3.00
+2.00
+1.00
+0.00
+基础建设质量
+服务交互质量
+问题解决质量
+上
+海
+浙
+江
+北
+京
+重
+庆
+广
+西
+福
+建
+吉
+林
+黑
+龙
+江
+内
+蒙
+古
+贵
+州
+甘
+肃
+海
+南
+山
+东
+江
+苏
+辽
+宁
+宁
+夏
+青
+海
+陕
+西
+西
+藏
+天
+津
+四
+川
+新
+疆
+河
+南
+安
+徽
+广
+东
+江
+西
+河
+北
+湖
+北
+湖
+南
+山
+西
+图2ﾠ省级政府网站智能问答服务整体得分排名
+Fig.2 Score Ranking of Intelligent Q&A Services on Provincial 
+Government Websites
+作者贡献说明
+王芳：研究选题及思路制定，指导研究环节，论文修改定稿；
+魏中瀚：研究方案设计，数据获取、标注与分析，实验开展，论文撰写及修改；
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+
+108
+连芷萱：参与研究方案设计，数据获取与标注，论文修改。
+支撑数据
+支撑数据由作者自存储，E-mail:wangfangnk@nankai.edu.cn。
+1. 王芳，魏中瀚，连芷萱. 测试题集.txt. 测评问题数据集.
+2. 王芳，魏中瀚，连芷萱. 测评结果.xlsx.30个省级政府网站的智能问答系统测评结果.
+参考文献
+[1] 
+Alawneh A, Al-Refai H, Batiha K. Measuring User Satisfaction from E-Government Services:Lessons from Jordan[J]. Government Information 
+Quarterly,2013,30（3）：277-288.
+[2] 
+Aoki N. An Experimental Study of Public Trust in AI Chatbots in the Public Sector[J]. Government Information Quarterly, 2020, 37（4）：1-10.
+[3] 
+Arendsen R, Peters O, ter Hedde M, et al. Does E-Government Reduce the Administrative Burden of Businesses? An Assessment of Business-
+to-Government Systems Usage in the Netherlands[J]. Government Information Quarterly,2014,31（1）：160-169.
+[4] 
+王友奎, 张楠, 赵雪娇. 政务服务中的智能问答机器人：现状、机理和关键支撑[J]. 电子政务, 2020（2）：34-45.（Wang, Youkui, Zhang Nan, Zhao 
+Xuejiao. Intelligent Question-answering Chatbots in Government Services: Status, Mechanisms, and Key Support [J]. E-Government, 2020（2）：
+34-45.）
+[5] 
+搜狐- 天津.2022数据赋能政府治理”评价指数发布，“成渝双城经济圈”势头强劲[EB/OL].（2021-12-20）[ 2022-06-11]. https://3g.k. 
+sohu. com/t/n611346354?serialId=5e31e1e9b574c173a3daf5a3380db33e&showType=.（Sohu city-Tianjin. 2022 Data Enabling Government 
+Governance" Evaluation Index Was Released, "Chengdu-Chongqing Twin Cities Economic Circle" Had the Strong Momentum of 
+Development[EB/OL].（2021-12-20）[ 2022-06-11]. https://3g.k.sohu.com/t/n611346354?serialId=5e31e1e9b574c173a3daf5a3380db33e&show
+Type=.）
+[6] 
+马亮. 数字政府如何降低行政负担?[J]. 行政管理改革, 2022（9）：4-12.（Ma Liang. How Can Digital Government Reduce Administrative Burden?[J]. 
+Administrative Reform, 2022（9）：4-12.）
+[7] 
+李焱冬. 人工智能在电子政务建设中的实例应用初探[J]. 电子政务, 2008（5）：87-93.（Li Yandong. An Initial Exploration of the Practical Application 
+of Artificial Intelligence in E-government Construction [J]. E-Government, 2008（5）：87-93.）
+[8] 
+廖福崇. 消解行政负担：“放管服”改革推进机制的案例研究[J]. 中国行政管理,2022（7）：102-109.（Liao Fuchong. Reducing Administrative 
+Burden:Case Study of "Delegating Administrative Power,Upgrading Regulation and Improving Service" Reform and it's Mechanism in China[J]. 
+Chinese Public Administration,2022（7）：102-109.）
+[9] 
+Moynihan D P,Herd P,Ribgy E. Policymaking by Other Means: Do States Use Administrative Barriers to Limit Access to Medicaid?[J]. 
+Administration & Society, 2016, 48（4）：497-524.
+[10] Herd P, DeLeire T, Harvey H, et al. Shifting Administrative Burden to the State:The Case Study of Medicaid Take-up[J]. Public Administration 
+Review, 2013, 73（s1）：S69-S81.
+[11] Kahn R L,Katz D,Gutek B. Bureaucratic Encounters—An Evaluation of Government Services[J]. The Journal of Applied Behavioral Science, 
+1976, 12（2）：178-198.
+[12] Moynihan D, Herd P, Harvey H. Administrative Burden: Learning,Psychological,and Compliance Costs in Citizen-State Interactions[J]. Journal 
+of Public Administration Research and Theory,2015,25（1）：43-69.
+[13] Burden B C, Canon D T, Mayer K R, et al. The Effect of Administrative Burden on Bureaucratic Perception of Policies: Evidence from Election 
+Administration[J]. Public Administration Review, 2012, 72（5）：741-751.
+[14] Joe S .Welfare Application Encounters: Subordination, Satisfaction, and the Puzzle of Client Evaluations [J]. Administration & Society,1999,31
+（1）：50-94.
+[15] Lipsky M. Street-Level Bureaucracy: Dilemmas of the Individual in Public Services（30th Anniversary Expanded Edition）[M]. New York:Russell 
+Sage,2010：93-99.
+[16] Wolfe B,Scrivner S. The Devil May Be in the Details:How the Characteristics of SCHIP Programs Affect Take-up[J]. Journal of Policy Analysis 
+and Management,2005,24（3）：499-522.
+[17] Schaffer B B,Wen-hsien H. Distribution and the Theory of Access[J]. Development and Change,1975,6（2）：13-36.
+[18] Larsson K K. Digitization or Equality: When Government Automation Covers Some, but not All Citizens[J]. Government Information Quarterly, 
+2021, 38（1）：1-10.
+[19] 魏瑞斌, 杨阳. 基于“科技信息服务五要素模型”的科技信息服务模式研究――以陕西省科学技术情报研究院为例[J]. 情报工程, 2017, 3
+（5）：12-20.（Wei Ruibin, Yang Yang. Research on the Technology Information Service Model Based on the "Five Elements Model of Technology 
+Information Service": A Case Study of Shaanxi Institute of Science and Technology Information [J]. Information Engineering, 2017, 3（5）：12-
+20.）
+[20] 胡昌平, 辛春华, 张立. 信息服务的社会监督――信息服务的技术质量监督[J]. 情报学报,2001（1）：18-25.（Hu Changping, Xin Chunhua, Zhang 
+Li. Social Supervision of Information Services—Technological Quality Supervision in the Information Services[J]. Journal of the China Society 
+for Scientific and Technical Information,2001（1）：18-25.）
+[21] 王芳, 王向女, 周平平. 地方政府网站信息公开能力评价指标体系的构建与应用[J]. 情报科学,2011,29（3）：406-411.（Wang Fang, Wang Xiangnv, 
+Zhou Pingping.Construction and Application of Evaluation Index System on Information Disclosure Capability of Local Government Websites [J]. 
+Information Science, 2011,29（3）：406-411.）
+[22] 胡千代, 王芳. 政府数据质量评价指标体系构建研究[J]. 科技情报研究,2021,3（3）：17-34（Hu Qiandai,Wang Fang. Constructing an Evaluation 
+Indicator System for Government Data Quality[J]. Scientific Information Research,2021,3（3）：17-34.）
+[23] Turing A M. Computing Machinery and Intelligence[J]. Mind, 1950, 59（236）：433-460.
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+109
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+[24] 吴友政, 赵军, 段湘煜, 等. 问答式检索技术及评测研究综述[J]. 中文信息学报,2005,19（3）：1-13.（Wu Youzheng, Zhao Jun, Duan Xiangyu,et 
+al. Research on Question Answering & Evaluation: A Survey[J]. Journal of Chinese Information Processing, 2005,19（3）：1-13.）
+[25] Noraset T, Lowphansirikul L, Tuarob S. WabiQA: A Wikipedia-based Thai Question-answering System[J]. Information Processing & 
+Management, 2021, 58（1）：102431.
+[26] Papineni K, Roukos S, Ward T, et al. BLEU: A Method for Automatic Evaluation of Machine Translation[C]//Proceedings of the 40th Annual 
+Meeting on Association for Computational Linguistics-ACL '02. Philadelphia,Pennsylvania. Morristown,NJ,USA: Association for Computational 
+Linguistics,2001：311-318.
+[27] Banerjee S, Lavie A. METEOR: An Automatic Metric for MT Evaluation with Improved Correlation with Human Judgments[C]//Proceedings of 
+the ACL Workshop on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Summarization. Ann Arbor, Michigan, USA. 
+NJ: Association for Computational Linguistics, 2005：65-72.
+[28] Liu C W, Lowe R, Serban I V, et al. How not to Evaluate Your Dialogue System: An Empirical Study of Unsupervised Evaluation Metrics for 
+Dialogue Response Generation[C]//Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing. Austin, 
+Texas,USA.NJ:Association for Computational Linguistics,2016：2122–2132.
+[29] 陈健鹏, 马建辉, 王怡君. 基于多轮交互的人机对话系统综述[J]. 南京信息工程大学学报,2019,11（3）：256-268 .（Chen Jianpeng, Ma Jianhui, 
+Wang Yijun. A Survey of Human-Computer Dialogue System Based on Multiple-round Interaction[J]. Journal of Nanjing University of Information 
+Science & Technology,2019,11（3）：256-268.）
+[30] 李菁, 张海松, 宋彦. 面向非任务型对话系统的人工标注中文数据集[J]. 中文信息学报,2019,33（3）：17-24.（Li Jing, Zhang Haisong, Song Yan. 
+A Chinese Corpus for Non-Task-Oriented Dialogue Systems with Five-Grade Manual Annotations[J]. Journal of Chinese Information 
+Processing,2019,33（3）：17-24.）
+[31] da Silva Lima Roque G,Roque de Souza R,Araújo do Nascimento J W,et al. Content Validation and Usability of a Chatbot of Guidelines for 
+Wound Dressing[J]. International Journal of Medical Informatics,2021,151：104473. 
+[32] Diekema A R, Yilmazel O, Liddy E D. Evaluation of Restricted Domain Question-Answering Systems[C]//Proceedings of the Conference on 
+Question Answering in Restricted Domains, Barcelona, Spain. NJ:Association for Computational Linguistics,2004：2-7.
+[33] 顾丽燕, 望俊成, 高腾, 等. 智能客服系统测评分析[J]. 中国科技资源导刊,2019,51（2）：75-80.（Gu Liyan, Wang Juncheng, Gao Teng, et al. 
+Comparative Analysis on Intelligent Customer Service System[J]. China Science & Technology Resources Review,2019,51（2）：75-80.）
+[34] 王旭勇. 基于熵权法的智能客服评分方法研究[J]. 电脑编程技巧与维护, 2023（2）：121-123,134.（Wang Xuyong. Research on Intelligent Customer 
+Service Scoring Method Based on Entropy Weighting Method [J]. Computer Programming Skills and Maintenance, 2023（2）：121-123,134.）
+[35] 宋双永, 王超, 陈成龙, 等. 面向智能客服系统的情感分析技术[J]. 中文信息学报,2020,34（2）：80-95.（Song Shuangyong, Wang Chao, Chen 
+Chenglong, et al. Sentiment Analysis for Intelligent Customer Service Chatbots[J]. Journal of Chinese Information Processing,2020,34（2）：80-
+95.）
+[36] 宋倩茜, 马双. 电商平台智能客服与人工客服的顾客感知价值对比研究[J]. 商展经济,2022（22）：38-40.（Song Qianqian, Ma Shuang. A Comparative 
+Study of the Customer Perceived Value of Intelligent Customer Service and Manual Customer Service on E-Commerce Platforms[J]. Trade 
+Fair Economy,2022（22）：38-40.）
+[37] 吴薇, 向丹, 李阳. 电商情境下智能客服持续使用意愿影响研究[J]. 重庆理工大学学报（社会科学）,2023,37（3）：36-51.（Wu Wei,Xiang Dan, 
+Li Yang. A Study on the Factors that Influence Consumers' Continuance Intention to Use Artificial Intelligence Chatbots in an E-Commerce 
+Context[J]. Journal of Chongqing University of Technology（Social Science）,2023,37（3）：36-51.）
+[38] 吴继飞, 朱翊敏, 刘颖悦, 等. 智能客服厌恶效应的诱因、心理机制与边界研究[J/OL]. 南开管理评论（2022-07-01）[2023-04-05].https://kns.
+cnki.net/kcms/detail/12.1288.f.20220629.1011.008.html.（Wu Jifei, Zhu Yimin, Liu Yingyue, et al.Research on the Causes, Psychological 
+Mechanisms, and Boundaries of the Aversion Effect of Intelligent Customer Service [J/OL]. Nankai Management Review（2022-07-01）[2023-
+04-05]. https://kns.cnki.net/kcms/detail/12.1288.f.20220629.1011.008.html.）
+[39] 李翔宇, 陈琨, 罗琳. FWG1法在社会化问答平台答案质量评测体系构建中的应用研究[J]. 图书情报工作,2016,60（1）：74-82.（Li Xiangyu, Chen 
+Kun, Luo Lin. An Empirical Study on Construction Answer Quality Evaluation System for Social Q&A Platform Based on FWG1 Method[J]. 
+Library and Information Service,2016,60（1）：74-82.）
+[40] 沈洪洲, 史俊鹏, 马巧慧. 社会化问答社区回答内容质量影响特征研究――以“知乎”为例[J]. 情报杂志, 2020, 39（10）：169-175.（Shen 
+Hongzhou, Shi Junpeng, Ma Qiaohui. Research on Influential Features of the Answer Quality in Social Q&A Community: Taking "Zhihu" as an 
+Example [J]. Journal of Intelligence,, 2020, 39（10）：169-175.）
+[41] 沈旺, 康霄普, 王佳馨, 等. 用户视角下社会化问答社区信息可信度评价研究[J]. 图书情报工作, 2018, 62（17）：104-111.（Shen Wang, Kang 
+Xiaopu, Wang Jiaxin, et al. Research on the Evaluation of Information Credibility of Social Q&A Community Based on Users' Perspective [J]. 
+Library and Information Service, 2018, 62（17）：104-111.）
+[42] Zhu Z, Bernhard D, Gurevych L. Amulti-dimensional Model for Assessing the Quality of Answers in Social Q&A Sites[R]. Technical Report TUD-
+CS-2009-0158, 2009.
+[43] 鲍时平. 用户感知视角下社会化问答平台服务质量评价体系构建研究[D]. 合肥：安徽大学, 2020：34-36.（Bao Shiping. Research on the Const- 
+ruction of Service Quality Evaluation System of Socialized Question Answering Platform from the Perspective of User Perception[D]. Hefei: 
+Anhui University, 2020：34-36.）
+[44] 岳世峰, 林政, 王伟平, 等. 智能回复系统研究综述[J]. 信息安全学报,2020,5（1）：20-34.（Yue Shifeng, Lin Zheng, Wang Weiping, et al. Research 
+on Intelligent Reply System: A Survey[J]. Journal of Cyber Security,2020,5（1）：20-34.）
+[45] Beltrán Gómez A, Melo González L. Question Answering Systems in E-government: A Proposal for the Colombian Context[C]//Proceedings of 
+the International Conference on Advances in Information Processing and Communication Technology-IPCT. Rome, Italy, 2014：111-115.
+[46] 周斐, 李锦芝. 基于人工智能的广州市政府智能服务机器人云平台设计及应用[J]. 数字技术与应用,2018,36（12）：120-122.（Zhou Fei, Li Jinzhi. 
+Design and Application of Guangzhou Government Intelligent Service Robot Cloud Platform Based on Artificial Intelligence[J]. Digital Technology 
+and Application,2018,36（12）：120-122.）
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+
+110
+附录1
+Appendix 1
+层次总排序权重计算（保留三位小数）
+Calculation of Total Hierarchical Ranking Weights
+（Calculating to Three Decimal Places）
+A
+权重值
+B1 问题解决质量
+0.748
+B2 服务交互质量
+0.125
+B3 基础建设质量
+0.127
+B1
+层次权重值
+C1 问题解答率
+0.546
+C2 解答效率
+0.135
+C3 信息质量
+0.319
+B1
+层次权重值
+C1 问题解答率
+0.408
+C2 解答效率
+0.101
+C3 信息质量
+0.239
+B2
+层次权重值
+C4 共情服务
+0.321
+C5 人工支持
+0.465
+C6 效果评价
+0.214
+B2
+层次权重值
+C4 共情服务
+0.040
+C5 人工支持
+0.058
+C6 效果评价
+0.027
+B3
+层次权重值
+C7 功能建设
+0.448
+C8 系统性能
+0.430
+C9 界面设计
+0.122
+B3
+层次权重值
+C7 功能建设
+0.057
+C8 系统性能
+0.054
+C9 界面设计
+0.016
+[47] Dale R. The Return of the Chatbots[J]. Natural Language Engineering,2016,22（5）：811-817.
+[48] 郭艳华, 周昌乐. 自然语言理解研究综述[J]. 杭州电子工业学院学报, 2000（1）：58-65.（Guo Yanhua, Zhou Changle. The Summary of Natural 
+Language Understanding[J]. Journal of Hangzhou Institute of Electronic Engineering, 2000（1）：58-65.）
+[49] 钟义信. 自然语言理解的全信息方法论[J]. 北京邮电大学学报,2004,27（4）：1-12.（Zhong Yixin. Comprehensive Information Based Methodology 
+for Natural Language Understanding[J]. Journal of Beijing University of Posts and Telecommunications, 2004,27（4）：1-12.）
+[50] Storks S, Gao Q, Chai J Y. Recent Advances in Natural Language Inference: A Survey of Benchmarks,Resources,and Approaches[EB/OL].
+[2022-11-20]. https://arxiv.org/abs/1904.01172.pdf.
+[51] 马健, 张珏成. 对机器自然语言理解本质的认识[J]. 宁夏大学学报（自然科学版）, 2003（3）：265-268.（Ma Jian, Zhang Yucheng . Understanding 
+the Essence of Machine Natural Language Understanding [J]. Journal of Ningxia University（Natural Science Edition）, 2003（3）：265-268.）
+[52] 谢炯坤. 面向人机互动的自然语言理解的研究[D]. 合肥：中国科学技术大学,2014：3.（Xie Jiongkun. Research on Human-Computer Interaction- 
+Oriented Natural Language Understanding[D]. Hefei: University of Science and Technology of China, 2014：3.）
+[53] 赵一鸣, 刘炫彤. 中外文搜索引擎自然语言问答能力的比较与评价研究[J]. 情报科学,2020,38（1）：67-74.（Zhao Yiming, Liu Xuantong. Comparison 
+and Evaluation of Natural Language Question Answering Ability of Chinese and Foreign Search Engines[J]. Information Science,2020,38（1）：
+67-74.）
+[54] 裴雷, 廖小琴, 孙建军. 基于SERVQUAL 的搜索引擎服务质量评价体系研究[J]. 情报科学,2016,34（1）：104-109.（Pei Lei, Liao Xiaoqin, Sun 
+Jianjun. Research on Service Quality Evaluation System of Search Engine Based on SERVQUAL[J]. Information Science,2016,34（1）：104-109.） 
+[55] 岳世峰, 林政, 王伟平, 等. 智能回复系统研究综述[J]. 信息安全学报,2020,5（1）：20-34.（Yue Shifeng, Lin Zheng, Wang Weiping, et al. Research 
+on Intelligent Reply System: A Survey[J]. Journal of Cyber Security,2020,5（1）：20-34.）
+[56] 王芳, 张百慧, 杨灵芝, 等. 基于大数据应用的政府治理效能评价指标体系构建研究[J]. 信息资源管理学报, 2020, 10（2）：17-28.（Wang Fang, 
+Zhang Baihui, Yang Lingzhi, et al. Research on the Construction of Indicator System for Evaluating the Governance Efficiency of Government 
+Based on Big Data Application [J]. Journal of Information Resources Management, 2020, 10（2）：17-28.）
+[57] 张云中, 柳迪. 面向同义词环的社会化标签同义关系发现研究[J]. 情报科学, 2020,38（9）：23-29.（Zhang Yunzhong, Liu Di. Research on Synonymy 
+Discovery of Social Tags Oriented to Synonymy Ring[J]. Information Science,2020,38（9）：23-29.）
+[58] 刘亮亮, 王石, 王东升, 等. 领域问答系统中的文本错误自动发现方法[J]. 中文信息学报,2013,27（3）：77-83.（Liu Liangliang, Wang Shi, Wang 
+Dongsheng, et al. Automatic Text Error Detection in Domain Question Answering[J]. Journal of Chinese Information Processing,2013,27（3）：
+77-83.）
+[59] 黄娴, 张克亮. 汉语零形回指研究综述[J]. 中文信息学报,2009,23（4）：10-15.（Huang Xian, Zhang Keliang. Zero Anaphora in Chinese-the State 
+of Art[J]. Journal of Chinese Information Processing,2009,23（4）：10-15.）
+[60] 王芳, 魏中瀚, 连芷萱, 等. 基于语义理解力的我国省级政府网站智能问答服务质量评价研究[J]. 科技情报研究,2023,5（3）：67-84.（Wang 
+Fang, Wei Zhonghan, Lian Zhixuan, et al. A Semantic Understanding Oriented Evaluation of the Intelligent Q&A Services on Chinese Provincial 
+Government Websites in China Based on Semantic Understanding [J]. Scientific and Technological Information Research, 2023, 5（3）：67-84.）
+附录2
+Appendix 2
+测评问题改编实例
+Case of Testing Questions Adaptation
+问题1：如何补缴住房公积金？
+同义改编- 同义词替换
+同义改编- 动宾/ 定宾拆分
+同义改编- 现状描述
+如何补交住房公积金？
+如何补齐原先漏交的住房公积金？
+单位未足额缴纳职工住房公积
+金怎么办？
+情
+报
+︑信
+息
+与
+共
+享
+ﾠ/ﾠIntelligence, Information & Sharing
+
+111
+2023
+年
+第
+6
+期
+/
+第
+40
+卷
+/
+总
+第
+216
+期
+（收稿日期：2023-01-02）
+错误改编- 错写
+错误改编- 漏写
+错误改编- 多写
+错误改编- 标点错误
+如何补缴住房公基金？
+如何补房公积金？
+如何补缴住浇筑房公积金？
+如何补缴住房公积金！
+英文改编- 翻译问题
+省略改编- 问题1
+省略改编- 问题2
+Housing provident fund
+咨询住房公积金相关问题？
+如何补缴？
+问题2：医保定点机构有哪些？
+同义改编- 同义词替换
+同义改编- 动宾/ 定宾拆分
+同义改编- 现状描述
+定点就医机构有哪些？
+哪些机构是可以定点看病的？
+请问哪里看病可以刷医保卡？
+错误改编- 错写
+错误改编- 漏写
+错误改编- 多写
+错误改编- 标点错误
+医宝定点机构有哪些？
+医保定机构有哪些？
+医保定点机点击构有哪些？
+医保定点机构有哪些！
+英文改编- 翻译问题
+省略改编- 问题1
+省略改编- 问题2
+Medical insurance
+咨询医保相关问题
+定点机构有哪些？
+政
+务
+智
+能
+问
+答
+系
+统
+评
+价
+指
+标
+体
+系
+构
+建
+与
+测
+评
+问
+题
+编
+制
+Developing an Evaluation Index System and Its Testing Questions for Government Intelligent Q&A Systems
+[13] 汪青松. 信任机制演进下的金融交易异变与法律调整进路――基于信息哲学发展和信息技术进步的视角[J]. 法学评论,2019,37（5）：82-94.
+（Wang Qingsong.Financial Transaction Variation under the Evolution of Trust Mechanism and Ways of legal Adjustment:Based on Development of 
+Information Philosophy and Progress of Information Technology[J].Law Review,2019,37（5）：82-94.）
+[14] 华劼. 区块链技术与智能合约在知识产权确权和交易中的运用及其法律规制[J]. 知识产权,2018（2）：13-19.（Hua Jie.The Application and 
+Legal Regulation of Blockchain Technology and Smart Contract in Intellectual Property Rights Confirmation and Transaction[J].Intellectual 
+Property,2018（2）：13-19.）
+[15] 江小涓. 数字时代的技术与文化[J]. 中国社会科学,2021（8）：4-34，204.（Jiang Xiaojuan.Technology and Culture in the Digital Age[J].Social 
+Sciences in China,2021（8）：4-34，204.）
+[16] 李晓华, 王怡帆. 数据价值链与价值创造机制研究[J]. 经济纵横,2020（11）：54-62,2.（Li Xiaohua, Wang Yifan. Data Value Chain and the Mechanism 
+of Value Creation[J]. Economic Review Journal, 2020（11）：54-62,2.）
+[17] 大数据技术标准推进委员会. 数据资产管理实践白皮书（6.0版）[EB/OL].[2023-01-24].https://mp.weixin.qq.com/s/N9hjG7Ht3Ko4zs85NtLO6Q.
+（Big Data Technology and Standard Committee.Data Asset Management Practice White Paper（Version 6.0）[EB/OL].[2023-01-24].https://
+mp.weixin.qq.com/s/N9hjG7Ht3Ko4zs85NtLO6Q.）
+[18] 高书生. 国家文化数字化战略: 背景与布局[J]. 河北师范大学学报（哲学社会科学版）,2022,45（5）：11-18.（Gao Shusheng.National Cultural 
+Digitization Strategy:Background and Framework[J].Journal of Hebei Normal University（Philosophy and Social Sciences）,2022,45（5）：11-
+18.）
+[19] 深圳文化产权交易所. 数据超市丨全国文化大数据交易中心业务标准术语和定义解析：交易标的篇[EB/OL].[2022-07-29].https://mp.weixin.
+qq.com/s/hJ-UJrPggiZLmQGiXCoqHg.（Shenzhen Culture Assets And Equity Exchange. Data Supermarket | National Cultural Big Data Trading 
+Center Business Standard Terminology and Definition Analysis:Trading Target Article[EB/OL].[2022-07-29].https://mp.weixin.qq.com/s/hJ-
+UJrPggiZLmQGiXCoqHg.）
+[20] 中国资产评估协会. 资产评估专家指引第9号――数据资产评估[EB/OL].[2020-01-09].http://www.cas.org.cn/pub/cas/docs/2020-01/ 20200 
+109165641186518 .pdf.（China Appraisal Society.Asset Appraisal Expert Guide No.9-Data Asset Appraisal[EB/OL].[2020-01-09].http://www.cas.
+org.cn/pub/cas/docs/2020-01/20200109165641186518.pdf.）
+[21] 黎建, 骆冉, 刘涛, 等. 国家文化大数据体系建设研究[J]. 广播电视信息,2021,28（4）：95-99.（Li Jian, Luo Ran, LiuTao, et al. Research on the 
+Construction of National Cultural Big Data System[J].Radio & Television Information,2021,28（4）：95-99.）
+[22] 郭全中. 我国文化大数据体系建设研究[J]. 中国编辑,2020（12）：54-57.（Guo Quanzhong.Research on the Construction of China's Cultural Big 
+Data System[J].Chinese Editors Journal,2020（12）：54-57.）
+[23] 魔王酱. AI 炼丹黑魔法：当开源艺术家遇见HiiiMeta! [EB/OL].[2023-01-29]. https://zhuanlan.zhihu.com/p/584958306.（Chen Dingyuan.AI Alchemy 
+Black Magic: When Open Source Artists Meet HiiiMeta! [EB/OL].[2023-01-29]. https://zhuanlan.zhihu.com/p/584958306.）
+上接第148页
