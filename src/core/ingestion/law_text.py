@@ -30,6 +30,11 @@ _LAW_SPLIT = re.compile(r"(?=第[一二三四五六七八九十百千零]+条)")
 _LAW_NO = re.compile(r"^(第[一二三四五六七八九十百千零]+条)")
 _CHAPTER_HEAD = re.compile(r"^第[一二三四五六七八九十百千]+[章节编]\s*.*$")
 
+#: 「一、二、三、」编号（2026-10-07：部分司法解释/规定不用「第X条」）。
+#: 只匹配**行首**且编号后紧跟「、」或「.」——「(一)」这类带全角括号的子项不匹配。
+_LAW_ENUM_SPLIT = re.compile(r"(?=^[ \t]*[一二三四五六七八九十百]+[、.．])", re.M)
+_LAW_ENUM_NO = re.compile(r"^[ \t]*([一二三四五六七八九十百]+)[、.．]\s*")
+
 
 _GB_SPLIT = re.compile(r"(?=^\s*[A-Za-z]?\d+[．.]\d+(?:[．.]\d+)?(?![\d.])(?:\s+[^0-9]|[一-鿿(（A-Za-z]))", re.M)
 _GB_HEAD = re.compile(r"^\s*([A-Za-z]?\d+[．.]\d+(?:[．.]\d+)?)\s*(.*)$", re.S)
@@ -79,6 +84,37 @@ def split_law_text(text: str) -> list[tuple[str, str]]:
             continue
         body = _LAW_NO.sub("", p, count=1).strip()
         out.append((m.group(1), (chapter_ctx + "\n" + body).strip() if chapter_ctx else body))
+    return out
+
+
+def split_law_enum_text(text: str) -> list[tuple[str, str]]:
+    """按「一、二、三、」切分法规文本（**部分司法解释/规定不用「第X条」**）。
+
+    2026-10-07 新增。触发场景：业主那批 LawRefBook 法规里，有 39 件**全是司法解释**
+    （《人民检察院办理行政执法机关移送涉嫌犯罪案件的规定》等）用的是
+
+        一、对于行政执法机关移送检察机关的涉嫌犯罪案件……
+        二、人民检察院控告检察部门审查……
+
+    而 :func:`split_law_text` 只认「第X条」⇒ 一条都切不出 ⇒ 入库报
+    "未识别到任何'第X条'条文"（实测 39 件全部如此）。
+
+    **只在「第X条」一条都没切出来时才调用**（调用方 `ingest_law_text` 保证），
+    所以不会把「第X条」正文里的「一、二、」子项误当成条款。
+
+    层级：(一)(二) 这类**不匹配**（编号前是全角括号），仍留在所属条目正文里。
+    """
+    text = re.sub(r"\r\n", "\n", text)
+    text = re.sub(r"[ \t]+", " ", text)
+    parts = [p.strip() for p in _LAW_ENUM_SPLIT.split(text) if p.strip()]
+    out: list[tuple[str, str]] = []
+    for p in parts:
+        m = _LAW_ENUM_NO.match(p)
+        if not m:
+            continue
+        body = _LAW_ENUM_NO.sub("", p, count=1).strip()
+        if body:
+            out.append((m.group(1), body))
     return out
 
 
@@ -147,6 +183,10 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     doc_id = f"doc_{ULID()}"
     articles = split_law_text(text)
     if not articles:
+        # 2026-10-07：司法解释/规定常用「一、二、三、」而不是「第X条」。
+        # 放在「第X条」之后 ⇒ 正常法律不受影响，只有切不出条文时才启用。
+        articles = split_law_enum_text(text)
+    if not articles:
         articles = split_gb_text(text)
     if not articles and fallback_single_clause:
         # 政府网站的**公告/通知**常常没有"第X条"（一句到几段就是全文）。
@@ -156,7 +196,8 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
         if body:
             articles = [("全文", body)]
     if not articles:
-        return {"status": "error", "message": "未识别到任何'第X条'条文"}
+        return {"status": "error",
+                "message": "未识别到任何条文（已试「第X条」、「一、二、三、」、GB 风格条款号）"}
 
     clause_type = clause_doc_type or doc_type
     models: list[ClauseRevisionModel] = []
