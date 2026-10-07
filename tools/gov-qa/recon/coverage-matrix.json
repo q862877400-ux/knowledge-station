@@ -51,45 +51,45 @@
    "people-liuyan": 37
   },
   "北京市": {
+   "people-liuyan-df": 112,
    "people-liuyan-fid": 107,
-   "people-liuyan-df": 82,
    "people-liuyan-prov": 14
   },
   "山西省": {
-   "people-liuyan-prov": 20
+   "people-liuyan-prov": 28
   },
   "内蒙古自治区": {
-   "people-liuyan-prov": 20
+   "people-liuyan-prov": 28
   },
   "辽宁省": {
-   "people-liuyan-prov": 20
+   "people-liuyan-prov": 28
+  },
+  "黑龙江省": {
+   "people-liuyan-prov": 28
+  },
+  "上海市": {
+   "people-liuyan-prov": 28
+  },
+  "江苏省": {
+   "people-liuyan-prov": 28
+  },
+  "浙江省": {
+   "people-liuyan-prov": 28
+  },
+  "安徽省": {
+   "people-liuyan-prov": 28
   },
   "吉林省": {
-   "people-liuyan-prov": 18
+   "people-liuyan-prov": 26
+  },
+  "福建省": {
+   "people-liuyan-prov": 20
+  },
+  "江西省": {
+   "people-liuyan-prov": 20
   },
   "河北省": {
    "people-liuyan-prov": 16
-  },
-  "黑龙江省": {
-   "people-liuyan-prov": 12
-  },
-  "上海市": {
-   "people-liuyan-prov": 12
-  },
-  "江苏省": {
-   "people-liuyan-prov": 12
-  },
-  "浙江省": {
-   "people-liuyan-prov": 12
-  },
-  "安徽省": {
-   "people-liuyan-prov": 12
-  },
-  "福建省": {
-   "people-liuyan-prov": 12
-  },
-  "江西省": {
-   "people-liuyan-prov": 12
   },
   "广西壮族自治区": {
    "people-liuyan-prov": 12
@@ -102,6 +102,9 @@
   },
   "四川省": {
    "people-liuyan-prov": 12
+  },
+  "山东省": {
+   "people-liuyan-prov": 10
   },
   "云南省": {
    "people-liuyan-prov": 10
@@ -130,9 +133,6 @@
   "新疆维吾尔自治区": {
    "people-liuyan-prov": 5
   },
-  "山东省": {
-   "people-liuyan-prov": 4
-  },
   "河南省": {
    "people-liuyan-prov": 4
   },
@@ -144,23 +144,24 @@
   "广东省": 31104,
   "湖南省": 4363,
   "国家级（部委）": 242,
-  "北京市": 203,
-  "山西省": 20,
-  "内蒙古自治区": 20,
-  "辽宁省": 20,
-  "吉林省": 18,
+  "北京市": 233,
+  "山西省": 28,
+  "内蒙古自治区": 28,
+  "辽宁省": 28,
+  "黑龙江省": 28,
+  "上海市": 28,
+  "江苏省": 28,
+  "浙江省": 28,
+  "安徽省": 28,
+  "吉林省": 26,
+  "福建省": 20,
+  "江西省": 20,
   "河北省": 16,
-  "黑龙江省": 12,
-  "上海市": 12,
-  "江苏省": 12,
-  "浙江省": 12,
-  "安徽省": 12,
-  "福建省": 12,
-  "江西省": 12,
   "广西壮族自治区": 12,
   "海南省": 12,
   "重庆市": 12,
   "四川省": 12,
+  "山东省": 10,
   "云南省": 10,
   "西藏自治区": 10,
   "陕西省": 10,
@@ -170,7 +171,6 @@
   "青海省": 7,
   "天津市": 6,
   "新疆维吾尔自治区": 5,
-  "山东省": 4,
   "河南省": 4,
   "湖北省": 4
  },
@@ -187,11 +187,11 @@
   "hunan-yj": 538,
   "gd-jy": 513,
   "gd-gdii": 486,
+  "people-liuyan-prov": 485,
   "gd-czt": 462,
   "gd-mpa": 437,
   "gd-tyj": 398,
   "gd-jt": 381,
-  "people-liuyan-prov": 351,
   "gd-dva": 346,
   "gd-szyyj": 334,
   "gd-zfsg": 331,
@@ -206,9 +206,9 @@
   "gd-dara": 155,
   "mee": 145,
   "gd-coop": 133,
+  "people-liuyan-df": 112,
   "people-liuyan-fid": 107,
   "gd-gdjyj": 98,
-  "people-liuyan-df": 82,
   "gd-dfz": 78,
   "gd-gdwsxf": 78,
   "gd-gdstc": 74,
@@ -221,6 +221,6 @@
   "gd-gdaudit": 36,
   "gd-jgsw": 34
  },
- "grand_total": 36225,
+ "grand_total": 36389,
  "n_provinces_covered": 31
 }
