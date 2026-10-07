@@ -1,6 +1,6 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **36829** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **36844** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
@@ -33,6 +33,7 @@
 | 宁夏回族自治区 | 18 | people-liuyan-prov 18 |
 | 贵州省 | 15 | people-liuyan-prov 15 |
 | 青海省 | 15 | people-liuyan-prov 15 |
+| （未归属） | 15 | sc-st 15 |
 | 天津市 | 14 | people-liuyan-prov 14 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
 | 新疆维吾尔自治区 | 5 | people-liuyan-prov 5 |
@@ -86,3 +87,4 @@
 | people-liuyan | 37 |
 | gd-gdaudit | 36 |
 | gd-jgsw | 34 |
+| sc-st | 15 |

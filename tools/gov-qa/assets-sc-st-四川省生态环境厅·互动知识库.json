@@ -1,0 +1,166 @@
+{
+ "A_考卷": [
+  {
+   "source": "sc-st",
+   "id": "b0847c54b6484d6e933d1880c1dba208",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250408/2026/7/22/b0847c54b6484d6e933d1880c1dba208.shtml",
+   "question": "贮存点是否也要设立贮存分区标志？",
+   "cited_hits": [
+    {
+     "name": "危险废物贮存污染控制标准",
+     "lib_no": "GB 18597-2023",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB18597-2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "3c8e8f16376f44888192b627be4cca39",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250408/2026/9/18/3c8e8f16376f44888192b627be4cca39.shtml",
+   "question": "危险废物经营单位变更法定代表人并办理了工商登记，危险废物经营许可证应如何变更？",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sc-st",
+   "id": "f91f84d24c2c4c59b82a28293ff9ca07",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250404/2026/6/10/f91f84d24c2c4c59b82a28293ff9ca07.shtml",
+   "question": "《中华人民共和国生态环境法典》生效时间是？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国生态环境法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "4616a4489d38497c975245b2f7fdd109",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250404/2026/7/31/4616a4489d38497c975245b2f7fdd109.shtml",
+   "question": "哪些建设项目需要编制环境影响报告书、报告表或填报登记表？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（ 2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "4c9cce44f3e54ad5a1da33c802c30e47",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250404/2026/9/18/4c9cce44f3e54ad5a1da33c802c30e47.shtml",
+   "question": "为什么在填环评登记表时，找不到我们的行业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "3653cc1cdfa94cc9b0621fd15ba9f9b5",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250408/2026/5/12/3653cc1cdfa94cc9b0621fd15ba9f9b5.shtml",
+   "question": "热镀锌过程中产生的锌灰、废助镀剂、浮渣、底渣是否属于《国家危险废物名录（2025年版）》中的危险废物？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025年版）",
+    "国家危险废物名录（2025年版）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sc-st",
+   "id": "8c3d013aa87e42959f7ca0b33bd98954",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250405/2026/4/8/8c3d013aa87e42959f7ca0b33bd98954.shtml",
+   "question": "2026年国际生物多样性日主题是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "850c31e5cf134f059dab2b832a3e5c76",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250405/2026/5/16/850c31e5cf134f059dab2b832a3e5c76.shtml",
+   "question": "目前，我省有几个市（州）已整体被生态环境部命名为生态文明建设示范区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "86535b29a5004e5a83d35cf229eeb172",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250405/2026/8/6/86535b29a5004e5a83d35cf229eeb172.shtml",
+   "question": "全省生态保护红线划定面积最大的市（州）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "6d81d5eae6fa4444a41f827e9bf98910",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250406/2026/6/5/6d81d5eae6fa4444a41f827e9bf98910.shtml",
+   "question": "近地面的臭氧（03）是如何形成的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "b85b2a889f4641d384c553837c92df8b",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250406/2026/6/8/b85b2a889f4641d384c553837c92df8b.shtml",
+   "question": "臭氧在全年什么时段浓度最高？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "556aef74845a4a45a06a5fc6a4be4a6a",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250406/2026/8/19/556aef74845a4a45a06a5fc6a4be4a6a.shtml",
+   "question": "03和VOC、PM2.5、雾霾有关系吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "2cb402a5768a4494bcc5f346e18e8df0",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250407/2026/4/13/2cb402a5768a4494bcc5f346e18e8df0.shtml",
+   "question": "核磁共振有辐射吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "9982775f23504bc7b5acd4f636c67185",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250407/2026/5/14/9982775f23504bc7b5acd4f636c67185.shtml",
+   "question": "医院里的射线装置对周围的人和环境有危害吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sc-st",
+   "id": "73c95d1a45ad4eac86ed01289e6b32f5",
+   "url": "https://sthjt.sc.gov.cn/sthjt/c250407/2026/8/6/73c95d1a45ad4eac86ed01289e6b32f5.shtml",
+   "question": "地铁站、机场的X射线行李安检机是否安全？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

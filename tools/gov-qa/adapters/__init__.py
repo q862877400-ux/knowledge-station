@@ -57,6 +57,7 @@ from typing import Callable
 ADAPTERS: dict[str, str] = {
     "hunan-st": "adapters.hunan_sthjt",   # 湖南省生态环境厅（统一互动平台，已跑通）
     "hunan-yj": "adapters.hunan_yjt",     # 湖南省应急管理厅（同一平台，已跑通）
+    "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
