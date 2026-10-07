@@ -1,14 +1,14 @@
 {
- "total": 37073,
+ "total": 37153,
  "by_level": {
   "无归属链": 35832,
-  "省+市+县": 60,
+  "省+市+县": 140,
   "省级": 899,
   "省+市/区": 282
  },
  "distinct_provinces": 31,
- "distinct_city_pairs": 24,
- "distinct_county_triples": 20,
+ "distinct_city_pairs": 33,
+ "distinct_county_triples": 59,
  "by_source": {
   "gd-amr": {
    "无归属链": 6134
@@ -117,6 +117,9 @@
   "gd-gdjyj": {
    "无归属链": 98
   },
+  "gz-st": {
+   "省+市+县": 80
+  },
   "gd-dfz": {
    "无归属链": 78
   },
@@ -180,31 +183,31 @@
   ],
   "省+市+县": [
    {
-    "source": "jl-st",
+    "source": "gz-st",
     "chain": [
-     "吉林省",
-     "延边朝鲜族自治州",
-     "延吉市"
+     "贵州省",
+     "毕节市",
+     "织金县"
     ],
-    "dept": "吉林省生态环境厅"
+    "dept": "贵州省生态环境厅"
    },
    {
-    "source": "jl-st",
+    "source": "gz-st",
     "chain": [
-     "吉林省",
-     "长春市",
-     "绿园区"
+     "贵州省",
+     "贵阳市",
+     "白云区"
     ],
-    "dept": "吉林省生态环境厅"
+    "dept": "贵州省生态环境厅"
    },
    {
-    "source": "jl-st",
+    "source": "gz-st",
     "chain": [
-     "吉林省",
-     "长春市",
-     "南关区"
+     "贵州省",
+     "贵阳市",
+     "南明区"
     ],
-    "dept": "吉林省生态环境厅"
+    "dept": "贵州省生态环境厅"
    }
   ],
   "省级": [

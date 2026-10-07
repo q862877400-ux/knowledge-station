@@ -1,6 +1,6 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **37073** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **37153** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
@@ -9,6 +9,7 @@
 | 北京市 | 409 | people-liuyan-fid 245、people-liuyan-df 142、people-liuyan-prov 22 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
 | 安徽省 | 173 | ah-st 145、people-liuyan-prov 28 |
+| 贵州省 | 95 | gz-st 80、people-liuyan-prov 15 |
 | 吉林省 | 94 | jl-st 60、people-liuyan-prov 34 |
 | 辽宁省 | 60 | people-liuyan-prov 36、ln-st 24 |
 | 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
@@ -31,7 +32,6 @@
 | 陕西省 | 18 | people-liuyan-prov 18 |
 | 甘肃省 | 18 | people-liuyan-prov 18 |
 | 宁夏回族自治区 | 18 | people-liuyan-prov 18 |
-| 贵州省 | 15 | people-liuyan-prov 15 |
 | 青海省 | 15 | people-liuyan-prov 15 |
 | 天津市 | 14 | people-liuyan-prov 14 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
@@ -76,6 +76,7 @@
 | people-liuyan-df | 142 |
 | gd-coop | 133 |
 | gd-gdjyj | 98 |
+| gz-st | 80 |
 | gd-dfz | 78 |
 | gd-gdwsxf | 78 |
 | gd-gdstc | 74 |

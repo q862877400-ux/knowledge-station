@@ -1,0 +1,40 @@
+  天津 https://sthj.tj.gov.cn/ [200] len=182124 无指纹
+  天津 https://sthj.tj.gov.cn/hdjl/ [404] len=33712 无指纹
+  天津 https://sthj.tj.gov.cn/zmhd/ [404] len=33712 无指纹
+  天津 https://sthj.tj.gov.cn/hdjl/tzxx/ [404] len=33712 无指纹
+  天津 https://sthj.tj.gov.cn/zmhd/tzxx/ [404] len=33712 无指纹
+  上海 https://sthj.sh.gov.cn/ [200] len=58288 无指纹
+  上海 https://sthj.sh.gov.cn/hdjl/ [404] len=548 无指纹
+  上海 https://sthj.sh.gov.cn/zmhd/ [404] len=548 无指纹
+  上海 https://sthj.sh.gov.cn/hdjl/tzxx/ [404] len=548 无指纹
+  上海 https://sthj.sh.gov.cn/zmhd/tzxx/ [404] len=548 无指纹
+  北京 https://sthjj.beijing.gov.cn/ [200] len=67397 无指纹
+  北京 https://sthjj.beijing.gov.cn/hdjl/ [404] len=553 无指纹
+  北京 https://sthjj.beijing.gov.cn/zmhd/ [404] len=553 无指纹
+  北京 https://sthjj.beijing.gov.cn/hdjl/tzxx/ [404] len=553 无指纹
+  北京 https://sthjj.beijing.gov.cn/zmhd/tzxx/ [404] len=553 无指纹
+  浙江 https://sthjt.zj.gov.cn/ [200] len=55976 无指纹
+  浙江 https://sthjt.zj.gov.cn/hdjl/ [200] len=55976 无指纹
+  浙江 https://sthjt.zj.gov.cn/zmhd/ [200] len=55976 无指纹
+  浙江 https://sthjt.zj.gov.cn/hdjl/tzxx/ [200] len=55976 无指纹
+  浙江 https://sthjt.zj.gov.cn/zmhd/tzxx/ [200] len=55976 无指纹
+  福建 https://sthjt.fujian.gov.cn/ [200] len=126896 无指纹
+  福建 https://sthjt.fujian.gov.cn/hdjl/ [200] len=2 无指纹
+  福建 https://sthjt.fujian.gov.cn/zmhd/ [200] len=2 无指纹
+  福建 https://sthjt.fujian.gov.cn/hdjl/tzxx/ [200] len=2 无指纹
+  福建 https://sthjt.fujian.gov.cn/zmhd/tzxx/ [200] len=2 无指纹
+  宁夏 https://sthjt.nx.gov.cn/ [200] len=124571 无指纹
+  宁夏 https://sthjt.nx.gov.cn/hdjl/ [404] len=1658 无指纹
+  宁夏 https://sthjt.nx.gov.cn/zmhd/ [404] len=1658 无指纹
+  宁夏 https://sthjt.nx.gov.cn/hdjl/tzxx/ [404] len=1658 无指纹
+  宁夏 https://sthjt.nx.gov.cn/zmhd/tzxx/ [404] len=1658 无指纹
+  云南 https://sthjt.yn.gov.cn/ → ConnectError
+  云南 https://sthjt.yn.gov.cn/hdjl/ → ConnectError
+  云南 https://sthjt.yn.gov.cn/zmhd/ → ConnectError
+  云南 https://sthjt.yn.gov.cn/hdjl/tzxx/ → ConnectError
+  云南 https://sthjt.yn.gov.cn/zmhd/tzxx/ → ConnectError
+  陕西 https://sthjt.shaanxi.gov.cn/ [200] len=71403 无指纹
+  陕西 https://sthjt.shaanxi.gov.cn/hdjl/ [404] len=548 无指纹
+  陕西 https://sthjt.shaanxi.gov.cn/zmhd/ [404] len=548 无指纹
+  陕西 https://sthjt.shaanxi.gov.cn/hdjl/tzxx/ [404] len=548 无指纹
+  陕西 https://sthjt.shaanxi.gov.cn/zmhd/tzxx/ [404] len=548 无指纹

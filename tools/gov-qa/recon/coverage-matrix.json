@@ -59,6 +59,10 @@
    "ah-st": 145,
    "people-liuyan-prov": 28
   },
+  "贵州省": {
+   "gz-st": 80,
+   "people-liuyan-prov": 15
+  },
   "吉林省": {
    "jl-st": 60,
    "people-liuyan-prov": 34
@@ -128,9 +132,6 @@
   "宁夏回族自治区": {
    "people-liuyan-prov": 18
   },
-  "贵州省": {
-   "people-liuyan-prov": 15
-  },
   "青海省": {
    "people-liuyan-prov": 15
   },
@@ -150,6 +151,7 @@
   "北京市": 409,
   "国家级（部委）": 242,
   "安徽省": 173,
+  "贵州省": 95,
   "吉林省": 94,
   "辽宁省": 60,
   "四川省": 43,
@@ -172,7 +174,6 @@
   "陕西省": 18,
   "甘肃省": 18,
   "宁夏回族自治区": 18,
-  "贵州省": 15,
   "青海省": 15,
   "天津市": 14,
   "西藏自治区": 14,
@@ -214,6 +215,7 @@
   "people-liuyan-df": 142,
   "gd-coop": 133,
   "gd-gdjyj": 98,
+  "gz-st": 80,
   "gd-dfz": 78,
   "gd-gdwsxf": 78,
   "gd-gdstc": 74,
@@ -229,6 +231,6 @@
   "ln-st": 24,
   "sc-st": 15
  },
- "grand_total": 37073,
+ "grand_total": 37153,
  "n_provinces_covered": 31
 }

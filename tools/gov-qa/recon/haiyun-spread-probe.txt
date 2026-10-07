@@ -1,0 +1,44 @@
+== ① 试 haiyun 主机 ==
+  黑龙江 https://haiyun.hlj.gov.cn/IGI/ → ConnectTimeout
+  黑龙江 https://haiyun.hlj.gov.cn/ → ConnectTimeout
+  辽宁 https://haiyun.ln.gov.cn/IGI/ → ConnectError
+  辽宁 https://haiyun.ln.gov.cn/ → ConnectError
+  内蒙古 https://haiyun.nmg.gov.cn/IGI/ → ConnectError
+  内蒙古 https://haiyun.nmg.gov.cn/ → ConnectError
+  河北 https://haiyun.hebei.gov.cn/IGI/ → ConnectError
+  河北 https://haiyun.hebei.gov.cn/ → ConnectError
+  山东 https://haiyun.sd.gov.cn/IGI/ → ConnectError
+  山东 https://haiyun.sd.gov.cn/ → ConnectError
+  安徽 https://haiyun.ah.gov.cn/IGI/ → ConnectError
+  安徽 https://haiyun.ah.gov.cn/ → ConnectError
+  湖北 https://haiyun.hb.gov.cn/IGI/ → ConnectError
+  湖北 https://haiyun.hb.gov.cn/ → ConnectError
+  湖南 https://haiyun.hn.gov.cn/IGI/ → ConnectError
+  湖南 https://haiyun.hn.gov.cn/ → ConnectError
+  江西 https://haiyun.jx.gov.cn/IGI/ → ConnectError
+  江西 https://haiyun.jx.gov.cn/ → ConnectError
+  陕西 https://haiyun.sn.gov.cn/IGI/ → ConnectError
+  陕西 https://haiyun.sn.gov.cn/ → ConnectError
+
+== ② 厅局站内搜平台指纹 ==
+  辽宁 https://sthj.ln.gov.cn/ [200] len=126693 指纹: {'contextPath': 1}
+      /sthj/zmhd/index.shtml
+      /sthj/zmhd/tzxx--zxly/index.shtml
+      /sthj/zmhd/yjzj/index.shtml
+      /sthj/zmhd/yshjjb/index.shtml
+      /sthj/zmhd/zcjd/2024110710564873668/index.shtml
+  黑龙江 https://sthjt.hlj.gov.cn/ → ConnectTimeout
+  贵州 https://sthj.guizhou.gov.cn/ [200] len=54403 指纹: {}
+      https://sthj.guizhou.gov.cn/hdjl/
+      https://sthj.guizhou.gov.cn/hdjl/tzxx/wyxx/
+      https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/
+      https://sthj.guizhou.gov.cn/hdjl/tzxx/xxxz/
+      https://sthj.guizhou.gov.cn/hdjl/zhishiku/
+  天津 https://sthj.tj.gov.cn/ [200] len=182124 指纹: {}
+      ./ZMHD5922/MYZJ683/
+      ./ZMHD5922/ZMLJL3913/
+      ./ZMHD5922/wdk/
+      https://sthj.tj.gov.cn/ZMHD5922/
+  河北 https://hbepb.hebei.gov.cn/ [200] len=49541 指纹: {}
+      /hbepb/hdjl/lyzx/zxxz/
+      /hbepb/hdjl/tzxx/tzxz/

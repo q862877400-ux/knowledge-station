@@ -1,0 +1,975 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-st",
+   "id": "27741426",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27741426",
+   "question": "你好，我是一名企业环保从业人员，有个关于参照危废管理的固体废弃物的运输问题向生态环境厅咨询。具体问题是：1 A为产生参照危废管理的固体废弃物的项目，B为能够提取固体废弃物中的有价金属（非危废）的项目，且A、B为同一法人单位；2A、B两个项目",
+   "cited_hits": [
+    {
+     "name": "固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险废物鉴别标准 通则",
+    "国家危险废物名录",
+    "国家危险废物名录",
+    "国家危险废物名录（2025版）",
+    "危险废物转移管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27699553",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27699553",
+   "question": "您好，我是一名白酒企业环保工作者。想咨询以下问题：我们的排污许可证载明了雨水排口，但未明确执行标准。白酒企业的雨水排口应该执行什么标准？我们企业紧挨着赤水河（地表水二类）。",
+   "cited_hits": [
+    {
+     "name": "排污单位自行监测技术指南 总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "污水综合排放标准",
+    "发酵酒精和白酒工业水污染物排放标准",
+    "酒类制造业水污染物排放标准",
+    "排污许可证申请与核发技术规范 酒、饮料制造工业",
+    "排污单位自行监测技术指南 酒、饮料制造"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27642258",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27642258",
+   "question": "您好，我们这边有个水库修建完成投入运行后就划定成了水源地保护区，但是该项目目前还未完善土地手续，在办理土地手续过程中，自然资源部门要求提供生态环境部门出具同意该项目占用水源地保护区的意见。想请问一下，该水库本身作为该水源地保护区的主体，这种",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省水污染防治条例",
+    "贵州省水污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27595631",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27595631",
+   "question": "贵州省生态环境厅： 我公司2017年编制的项目环境影响报告书，贵厅于2018年5月31日予以批复（黔环审2018—52号）。 报告书中项目不设置大气防护距离，卫生防护距离确定为厂界外100m。根据现场调查，需要对卫生防护距离内南侧范围的30",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家电投集团贵州务正道1000kt／a氧化铝工程变更环境影响报告书",
+    "国家电投集团贵州务正道1000kt／a氧化铝工程变更环境影响报告书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27584303",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27584303",
+   "question": "省厅领导：您好！ 我司规模化养猪场养殖结构调整，存栏量及出栏量均达到环境影响报告书编制要求，养猪场由环境登记表调整为环境影响报告书，污水厌氧发酵熟化的沼液、粪渣沼堆在堆肥发酵棚中渣肥发酵后作为粪肥用于农田果林等综合利用，不设排污口。粪渣、沼",
+   "cited_hits": [
+    {
+     "name": "排污许可管理条例",
+     "lib_no": "排污许可管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "排污许可管理办法",
+    "排污许可管理办法",
+    "国民经济行业分类",
+    "固定污染源排污许可分类管理名录（2019年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27578738",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27578738",
+   "question": "如题，请问抽水蓄能项目上库坝体及库盆能否占用饮用水源二级保护区。",
+   "cited_hits": [
+    {
+     "name": "关于〈水污染防治法〉中饮用水水源保护有关规定进行法律解释有关意见的复函",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "关于＜水污染防治法＞中饮用水水源保护有关规定进行法律解释有关意见的复函",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [
+    "关于饮用水水源二级保护区内排污类建设项目管理的复函",
+    "关于饮用水水源二级保护区内建设项目有关问题的复函",
+    "关于答复全国集中式饮用水水源地环境保护专项行动有关问题的函",
+    "关于饮用水水源二级保护区内建设项目有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27571604",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27571604",
+   "question": "拟新建殡仪馆项目，计划处置医院手术及其他医学服务过程中产生的废弃的人体组织、器官。经查询《医疗废物分类名录》（2021年版）、《国家危险废物名录》（2021年版）该物质属于危险废）。请问是要按照医疗废物报批环境影响评价报告书还是按照殡仪馆建",
+   "cited_hits": [
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）",
+    "医疗废物分类目录",
+    "医疗废物分类目录",
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27563604",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27563604",
+   "question": "咨询问题如下：1、饮用水水源保护区核心区是否可以建设“饮用水水库扩容项目”；2根据《饮用水水源保护区污染防治管理规定》（2010年12月22日修正版）中“第十一条 饮用水地表水源各级保护区及准保护区内均必须遵守下列规定 一、禁止一切破坏水环",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "饮用水水源保护区污染防治管理规定",
+    "饮用水水源保护区污染防治管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27503875",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27503875",
+   "question": "您好： 请问拆解废旧铅蓄电池需要什么资质？ 国家和贵州有哪些具体的政策文件规定？ 企业办理相关手续需要哪些条件？ 谢谢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险废物经营许可证",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险废物经营许可证管理办法",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家危险废物名录（ 2021 年版）",
+    "废铅酸蓄电池回收技术规范",
+    "贵州省 “十四五”危险废物集中处置设施建设规划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27356000",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27356000",
+   "question": "1.贵州农用地土壤污染修复治理效果评估报告应根据哪些规范编制，因为建设用地可以根据《污染地块风险管控于土壤修复效果评估技术导则（试行）》进行编制，而未查到农用地的相关规范，另外湖南省出了《农用地土壤重金属污染修复治理效果评价技术规范》，是否",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土壤污染防治法",
+     "lib_no": "土壤污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "耕地污染治理效果评价准则",
+    "省农业农村厅省生态环境厅关于做好受污染耕地安全利用工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27331416",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27331416",
+   "question": "我校（安顺市平坝区夏平驾驶员培训学校）于2012年经平坝区交通运输局批准建设，2013年5月建设竣工后经平坝区交通运输局验收合格，发给了《道路运输经营许可证》，办理了《工商营业执照》，2013年至2021年多次向生态环境部门申请办理环评手续",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水法",
+     "lib_no": "水法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省红枫、百花湖饮用水源保护区域界(试行)",
+    "贵州省红枫湖百花湖水资源环境保护条例",
+    "贵州省红枫湖百花湖水资源环境保护条例",
+    "环境保护部关于饮用水水源二级保护区内排污类建设项目管理的复函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27307986",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27307986",
+   "question": "项目环评已获批并且已经取得批复函，现在准备建设项目，但建设主体发生了变动，其他内容没有变动，请问原环评报告是否需要去批复单位履行主体变更的手续？是否需要重新报批环评手续？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "环境影响评价法",
+     "lib_no": "环境影响评价法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-st",
+   "id": "27772108",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27772108",
+   "question": "你好！关于危废管理，请指导，情况如下： 我单位是火电企业，按照相关法律法规取得了排污许可证，危废管理规范，建设有可追溯系统。我单位还有风电场开发（同一法人，同一公司名称），距离现有火电项目10公里左右，风电场配套建设一座升压站，升压站有单独",
+   "cited_hits": [],
+   "cited_missing": [
+    "生态环境法典",
+    "危险废物转移管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27755152",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27755152",
+   "question": "根据HJ 75-2017要求，每季度需要对CEMS开展比对监测，根据标准中310 比对监测的定义：用参比方法与正常运行的CEMS的准确度进行抽检，参比方法监测按照GB/T 16157-1996进行，其中颗粒物、烟温、流速、含湿量需要进行移动",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源烟气（SO₂、NOx、颗粒物）排放连续监测技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27748518",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27748518",
+   "question": "根据《环境空气质量标准》GB 30952026，“41环境空气功能区分类环境空气功能区分为两类：一类区为国家公园、自然保护区、自然公园和其他需要特殊保护的区域；”。请问II级保护林地及天然林是否属于标准中提到的“其他需要特殊保护的区域”？是",
+   "cited_hits": [],
+   "cited_missing": [
+    "环境空气质量标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27719300",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27719300",
+   "question": "当前贵州省生态环境类职称评审，仅认可州级及以上立项项目，日常监测等核心履职工作均不计入业绩。基层环保人员岗位以实务为主，无立项渠道、州级项目资源稀缺，多数人长期无项目可报，导致实干实绩无法体现，严重挫伤一线人员积极性，与“重实绩、破四唯”的",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省工程系列生态环境类专业技术职务任职资格申报评审条件（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27704506",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27704506",
+   "question": "项目使用原材料主要为高温铝液（850℃左右），加入铁、镁、铜、锰等其他金属以及精炼剂、清渣剂等，搅拌、扒渣、精炼及浇注生产铝合金棒，请问项目是否属于管理名录中二十九、有色金属冶炼和压延加工业-64、有色金属合金制造中的其他利用单质金属混配重",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27679015",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27679015",
+   "question": "1咨询一下烟气季度比对检验工作开展，一年开展四次，四次覆盖四个季度，其中季度之间时间间隔大于90天是否正常也，比如2025年1月10日开展季度比对检验工作，第二次5月15日开展，期间间隔四个月左右是否合理也。",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源烟气（SO2，NOX，颗粒物） 排放连续监测技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27660236",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27660236",
+   "question": "项目为新建二级公路，长度为0484km，本项目起点平交搭接国道，路线终点止于工业园区，与工业园区1号路起点顺接。经核实本项目用地不涉及占用永久基本农田、永久基本农田核实处置成果、生态保护红线，涉及占用部分城镇开发边界、耕地保有量，不涉及占用",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录",
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27650734",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27650734",
+   "question": "生活垃圾焚烧发电厂在正常运行期间经过焚烧炉焚烧生活垃圾，焚烧烟气经过烟气处理设施处理后烟气达标排放，在焚烧炉停炉期间，垃圾储仓的恶臭气体将经过活性炭除臭装置处理后达标排放，活性炭除臭装置在吸附恶臭气体后会定期进行更换，所更换下来的除臭系统废",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2025版）",
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27631671",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27631671",
+   "question": "请问贵厅以下问题：1贵州省所属排污单位安装的烟气排放连续监测系统CEMS，在日常运维时，是否必须准备高、中、低浓度的标气？只准备高浓度的标气，在进行标定时，用高浓度的标气稀释成中、低浓度的标气再进行标定是否可以？2根据《HJ75-2017》",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源烟气（SO2、NOX、颗粒物）排放连续监测技术规范",
+    "贵州省污染物排放自动监测设备管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27627785",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27627785",
+   "question": "请问贵厅，贵州省所属排污单位安装的烟气排放连续监测系统CEMS，在通标气标定的时候，是进行全系统标定还是所谓的半程标定？在环保验收的时候，是进行全系统标定还是所谓的半程标定？在日常维护的时候，是进行全系统标定还是所谓的半程标定？在环保检察的",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定污染源烟气（SO2，NOX，颗粒物） 排放连续监测技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27617506",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27617506",
+   "question": "《建设项目环境影响评价分类管理名录（2021年版）》中规定，农产品基地项目（含药材基地）涉及环境敏感区的，应办理环评报告表。但何为药材基地，却没有明确界定。因此，想咨询下省厅有关领导，名录中提到的药材基地，应按照什么（面积？种植类型？化肥使",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "建设项目环境影响评价分类管理名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27588762",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27588762",
+   "question": "您好，我想咨询一下农村供水工程从河道取水，经过净水厂处理后供周边农村居民饮用，请问根据《环评名录》是属于自来水的生产和供应还是引水工程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27558929",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27558929",
+   "question": "《贵州省水污染防治条例》第二十八条第一款规定，在饮用水水源二级保护区内禁止新建、改建、扩建有污染的建设项目。 问题：该款中表述的“有污染的建设项目”是否包括饮用水水源二级保护区内的农村居民为满足住房需求而开展的建房活动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省水污染防治条例",
+    "关于答复全国集中式饮用水水源地环境保护专项行动有关问题的函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27553390",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27553390",
+   "question": "尊敬的生态环境厅领导， 您好，根据《建设项目环境影响评价分类管理名录（2021年版）》（生态环境部令第16号）、《国民经济行业分类》（GBT4754-2017）及2019年修改单、“大规模储能系统”列入D4420电力供应—行业分类；分类管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录(2021年版)",
+    "电磁环境控制限值",
+    "GB 8702-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27548633",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27548633",
+   "question": "厅长您好 关于医院的环评编制问题 我想咨询下，医院的原先床位数已经超过500张，并已做相关环评和验收工作，目前项目需要改扩建，改扩建的床位数350张，根据建设项目分类管理名录指出--新建、扩建住院床位500张及以上的需要做报告书，那我这次改",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27543091",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27543091",
+   "question": "贵州省有没有限制污水厂使用次氯酸钠药剂。污水处理厂在经过生化处理后，最终排放前，投加次氯酸钠溶液对污水进行消毒是否被允许。有没有具体限制。",
+   "cited_hits": [],
+   "cited_missing": [
+    "城镇污水处理厂污染物排放标准",
+    "GB18918-2002"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27490889",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27490889",
+   "question": "根据《中华人民共和国水污染防治法》第六十六条、《贵州省水污染防治条例》、《贵州省饮用水水源环境保护办法》等对二级水源保护区的要求，二级保护区禁止新建、改建、扩建排放污染物的建设项目。 某风电项目部分风机、集电线路（塔基）、新建道路占用二级保",
+   "cited_hits": [],
+   "cited_missing": [
+    "风电场项目能否占用饮用水地二级保护区"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27437616",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27437616",
+   "question": "因为研究需要，需要查询《贵阳开阳生活垃圾焚烧发电项目环境影响评价报告书》，正常情况下网站上会有各个项目的受理公示，可我翻遍了整个生态环境厅和市环境保护局都没有发现。 只能看到《贵阳开阳生活垃圾焚烧发电项目环境影响评价公众参与公示》，但内容已",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省生态环境厅关于支持实施“强省会”行动有关行政审批权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27388885",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27388885",
+   "question": "您好，我是一名在校大学生，由于论文需要，想咨询一下《贵州省生态环境监测监察执法垂直管理制度改革实施方案》是什么时候印发的，什么时候实施的？期盼您的回复，祝您工作顺利",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省生态环境监测监察执法垂直管理制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27373951",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27373951",
+   "question": "你好，我是企业，营业执照已办理，营业执照上可从事污水方面的业务，那么请问一下做污水处理厂的运营维护需要些什么资质证书?还有污水处理服务企业资质证书是在你们环境厅办理吗？谢谢回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于取消和下放一批行政审批项目的决定",
+    "环境污染治理设施运营资质许可管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27336073",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27336073",
+   "question": "请问饮用水源准保护区、二级保护区是否可以规模化养殖？有哪些标准和依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省水污染防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27309209",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27309209",
+   "question": "企业生活污水经企业内部三级化粪池处理后，能不能接入政府在农村修建的污水处理管网？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省农村生活污水处理污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27308964",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27308964",
+   "question": "花冠路和解放路交界处相隔500米的两处融创工地夜间施工，尤其是夜间12点以后，挖掘机彻夜施工，非常扰民，多次向12345反映但未能解决，希望能停止夜间尤其是12点以后的施工。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省环境噪声污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27305656",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27305656",
+   "question": "尊敬的环保厅领导： 贵阳地铁三号线Q区6械平台有二处施工处，距离密集生活区不到十米的位置天天钻地，地底每日爆破两次，周边的的居民多达1548户。我们天天向12345投诉但肯本没效果，最多是到了10点他们还在施工，打了电话半小时后会停而于。根",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省环境噪声污染防治条例",
+    "贵阳市综合行政执法办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27303607",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27303607",
+   "question": "在贵州省黔东南州榕江县古州镇山水榕城旁边有一建筑工地，早上不到7点就开始产生噪音污染，持续扰民，很久了",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省环境噪声污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27299645",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27299645",
+   "question": "您好！我单位有一项目为塑料管的生产项目，工艺为原料、上料、加热、挤出成型、冷却、切割、检验。过程中会产生不合格产品及边角废料，我单位对产生不合格产品及边角废料进行破碎后作为原材料使用，这样属不属于《分类管理名录》（2021）里的“53 塑料",
+   "cited_hits": [],
+   "cited_missing": [
+    "分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27295192",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27295192",
+   "question": "定制家具加工中的封边,打孔等加工工艺是否纳入切割不进行评价管理？。 “其他（仅分割、组装的除外；年用非溶剂型低VOC含量涂料10吨以下的除外）”中，家具过程中涉及封边、打孔、工艺是否属于“仅分割、组装的”；封边工艺（使用环氧树脂粒子）等产生",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设项目环境影响评价分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27293833",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27293833",
+   "question": "我单位现有一食用菌项目，工艺流程为粉碎原料、发酵、生物质锅炉高温杀菌、接种、培育、栽培、冷藏后出售。根据《分类管理名录》（2021版），该项目涉及种植，属于一、农业 01、林业 02，而项目所在地刚好不属于水土流失重点预防区和重点治理区，因",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于生物质锅炉等项目环评类别判定事宜的复函",
+    "高污染燃料目录",
+    "固定污染源排污许可分类管理名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27291312",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27291312",
+   "question": "习总书记重视生态建设，固废信息管理系统的使用正在推进，我是一家小诊所，听说使用固废系统，得交系统维护费和购买设备等费用上万元，想咨询一下是真的还是谣言。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推进全省医疗废物可追溯信息化管理工作的通知",
+    "关于加快推进全省医疗废物可追溯信息化管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27289554",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27289554",
+   "question": "您好，我想要咨询贵省是否印发《贵州省生态环境机构监测监察执法垂直管理制度改革实施方案》的文件？如果有印发该文件能否告知该文件的获取渠道？但如果该文件印发却未公开发布，不知能否麻烦你们口头告诉文件的印发日期。本人是中国人民大学的研究生，承诺该",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省生态环境机构监测监察执法垂直管理制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27288885",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27288885",
+   "question": "厅长，您好！ 我是基层综合行政执法人员，在执行《贵州省环境噪声污染防治条例》第二十三条 商业经营场所和营业性文化娱乐场所安装使用产生噪声的设备、设施的，应当按照规定配置有效的噪声污染防治设施，防止环境噪声污染。第四十七条 违反本条例第二十三",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省环境噪声污染防治条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-st",
+   "id": "27288863",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27288863",
+   "question": "某氧化铝生产项目，2012年建成80万吨/年，当时已经获得环评批复，目前需要扩建30万吨/年的生产线，是否还需要对新增生产线申请办理新的环境影响报告。",
+   "cited_hits": [],
+   "cited_missing": [
+    "环评法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27286260",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27286260",
+   "question": "木担坝煤矿为谦并重组保留煤矿，丶兼并重组后为60万吨／年，原30万吨/年的环评报告为省环保厅批准，现编制完60万吨/年的环评报告后向遵义市环保局咨询报告的评审批复时吿诉我矿该报告就在遵义局评审并下批复。请问60万吨/年的煤矿环评报告遵义市局",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省省级生态环境部门审批环境影响评价文件的建设项目目录（2021年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27280944",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27280944",
+   "question": "美的林城时代美桐苑3栋1-2楼为商铺，3楼以上为住户。根据大气污染防治法第81条第2款之规定，禁止在商住综合楼内与居住层相邻的商业楼层内新建、改建、扩建产生油烟、异味、废气的餐饮服务项目。但美桐苑3栋2楼商铺在与居住层相邻的楼层开展中餐经营",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵阳市综合行政执法办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-st",
+   "id": "27709102",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27709102",
+   "question": "企业概况：针对一个新建有色金属矿山企业，其采选尾矿库拟一并建设并投入使用，尾矿库作为配套工程选址距离采选矿约5km。 现状：1、根据发改部门答复，企业采选矿内容属于《国务院关于发布政府核准的投资项目目录（2016 年本）的通知》中需要发改部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27612359",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27612359",
+   "question": "您好！我是来自甘肃兰州的大学生，在甘肃省GIS制图大赛上我们选取了题为《贵州省生态建设专题图集》的地图制作。当我寻找铜仁市2024年9月的AQI空气指数数据时并没有找到官方的数据来源，因此向贵厅资讯希望得到解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27607531",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27607531",
+   "question": "领导，您好，我公司是一家大型火电厂，场内有2套烟气排放在线监测系统，目前一直是第三方进行维护，向和您问一下如果我们公司自主运维，都需要哪些资质呀？ 还有就是，在贵州省生态环境厅官方网站上，为查询到热线电话，可否告知一下，谢谢啦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27499884",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27499884",
+   "question": "您好，我们是西固区绿萌空间环保技术咨询服务部，长期关注企业环境合规，经过绿萌空间环保对全国排污许可证管理平台（公开端）水泥行业梳理，截至2023年6月14日，贵省共有 2家排污许可证到期未更新， 贵州贵鑫科技环保建材有限公司有效期2020-",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27454293",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27454293",
+   "question": "贵州省生态环境厅： 您好。 我们是上海闵行区青悦环保信息技术服务中心（在上海市闵行区民政局正式注册成立的民办非企业单位，以下简称“上海青悦”），上海青悦是一家长期关注并推动排污许可制度落实的环保组织。 根据《排污许可管理条例》第二十三条 排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27432576",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27432576",
+   "question": "目前环评编制工作工程中有专家或评估中心要求补充项目与贵州省生态红线叠图，以反应相关位置关系，现有“三线一单”公众应用平台申请叠图的时候基本只有跟管控单元叠图的，无生态红线叠图，希望厅里开通与贵州省生态红线叠图的申请应用平台。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27426783",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27426783",
+   "question": "请问在贵州省内建设低浓度瓦斯发电项目是否须办理排污许可证或固定污染源排污登记呢？ 盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27416053",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27416053",
+   "question": "你好领导 这家洗车场环保不达标，洗车场存在汽车油污，泥土等污染 没修污水处理池，这样排污会照成机油固废流入，破坏环境， 没有达到排污一级标准。 附加一句他说他们有关系，和黑社会一样，请领导严格处理这家洗车场 洗车场名字叫瑞浩达，洗完车路面会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27407376",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27407376",
+   "question": "贵州省生态环境厅： 您好。 我们是上海闵行区青悦环保信息技术服务中心（在上海市闵行区民政局正式注册成立的民办非企业单位，以下简称“上海青悦”），上海青悦是一家长期关注并推动排污许可制度落实的环保组织。 上海青悦在对贵地区排污企业自行监测信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27396498",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27396498",
+   "question": "您好，在本单位网站上哪里可以找到关于环境保护的文件？方便的话提供一下网址，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27373082",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27373082",
+   "question": "《排污许可管理条例》（中华人民共和国国务院令第736号）中第二章第六条：排污单位应当向其生产经营场所所在地设区的市级以上地方人民政府生态环境主管部门（以下称审批部门）申请取得排污许可证。排污单位有两个以上生产经营场所排放污染物的，应当按照生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27360879",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27360879",
+   "question": "你好，我是贵州省兴仁市潘家庄镇王家寨村四关寨组的村民赵永恩，我位于贵州省兴仁市潘家庄镇王家寨村四关襄组旧屋基的一宗土地，被母猪山地质灾害治理项目部征用来进行灾害治理和明煤开采，一直未得到补偿，项目部为了推进进度取煤，不顾我的利益和反对多次在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27355011",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27355011",
+   "question": "尊敬的领导您好，想了解一下咱们贵州本地的烟气运维企业名单，希望可以提供，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27332697",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27332697",
+   "question": "X生态环境厅： 您好。 我们是上海闵行区青悦环保信息技术服务中心（在上海市闵行区民政局正式注册成立的民办非企业单位，以下简称“上海青悦”），是一家长期关注减污降碳的环保组织。 《中华人民共和国环境保护法》第五十三条 公民、法人和其他组织依法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27326762",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27326762",
+   "question": "领导您好，我们是一个酒旅、文旅、博旅三位一体的综合性企业，有一个公益性博物馆，是国家3A景区，贵州省科普示范基地，贵州省科普教育基地，遵义市文保单位，常年进行表演性生产，向游客、学生免费科普赤水河流域酒文化，每日产生酿酒废水20方，建有污水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27322686",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27322686",
+   "question": "我单位是中药制药企业，在办理环评时主管保护局对我项目环境影响评价执行标准的复函要求执行《中药类制药工业水污染物排放标准》（GB21906-2008）表2排放标准限值和《污水综合排放标准》（GB8978-1996）三级（进入城市污水处理厂）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27321467",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27321467",
+   "question": "废水经过深化处理达到地标水三类水质可以回收利用用于灌溉果林不？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27321138",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27321138",
+   "question": "该企业建设在七眼桥镇六三一国储旁边，主要以生产有机肥为主。公司旁边有散居户200余户及七眼桥二铺中学。由于该公司采用非密闭好氧发酵的方式生产有机肥，特别在翻动有机肥的时候，就会产生很大的臭味四处扩散，严重影响周边居民生产及学校学生身心健康。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27321121",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27321121",
+   "question": "您好，请问如何获取贵单位2020年财政决算和2021年财政预算，麻烦提供一下网址方便查询，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27321013",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27321013",
+   "question": "您好，我想要了解一下贵州省安顺市普定县的水土流失情况和预防措施，如果可以的话，请给我一些资料，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27319647",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27319647",
+   "question": "您好，我想咨询一下省生态环境厅有没有备案有辐射检测资质的相关企业，如果有的话希望可以给一个公示的网址，如果没有，麻烦告知一下在哪里可以找到有辐射监测机构资质的单位名单，望回复，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27315970",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27315970",
+   "question": "村寨旁边的煤炭中转场堆放大量煤炭，由此产生的大量煤灰被吹到村里，家里都被煤灰污染，地里的菜表面附着大量煤灰，对我们生活造成严重影响，对我们的生命健康造成威胁，煤矿公司至今没有采取任何消除源头的措施。希望你们能为我们老百姓解决这个问题，还大家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27314901",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27314901",
+   "question": "厅长您好，关于环境影响报告表编制指南（污染影响类）中“表一 专项评价设置原则表”地表水专项设置类别中”新增废水直排的污水集中处理厂“，这句话指的是新增废水量还是新增废水排口的污水处理厂，如果只是增加废水排放量，需不需要设置专项评价。编制指南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27313454",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27313454",
+   "question": "请问铝锭通过添加金属镁、结晶硅进行重熔，再经过模具进行浇铸、冷却、成型，属于名录中的哪个类别，是否应当编制环境影响报告书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27311840",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27311840",
+   "question": "请问，驾校训练场地对水环境有哪些污染物排放？生活污水已排入政府的污水处理站，厨房油烟、气已安装油烟净化器处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27309825",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27309825",
+   "question": "要求纠正安顺市生态环境局平坝分局（以下简称平坝环保分局）关停我校位于夏云镇湖新村（原茶场村）大坝组的教学训练场的准行政决定。 2021年8月11日我夏平驾校向平坝区交通运输局申请报备《道路运输经营许可证》，平坝环保分局以[2021]37号《",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27304141",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27304141",
+   "question": "尊敬的贵州生态环境厅厅长： 您好！ 我是家住在贵州省黔西县谷里镇青龙煤矿瓦斯发电站旁边的一名普通百姓，以前我家附近都是田地和树林，生活清静平凡。但自2014年贵州省黔西县谷里镇青龙煤矿瓦斯发电站建成运营以来，一天24小时不间断运行所产生的噪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27303648",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27303648",
+   "question": "习水河起源于习水县寨坝镇乌梢丘，全长150KM，经程寨、过官渡、出长沙，在合江三江口汇入赤水河后入长江。属长江二级支流。 现因大坡镇罗家坝村属地段流域管理不善，村领导班子欺上瞒下，不管不顾，任之放之，对违法排污源头未履行监管职责。非法排污对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27302957",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27302957",
+   "question": "这是一封来自习水河流域养育的人民群众们的一封求助信 在2021年6月19日早上，习水河流域大坡镇罗家坝村段河里鱼虾被非法排污全部毒死，6月25日，习水河流域大坡镇罗家坝村段众多村民分别向大坡镇人民政府、习水县人民政府多种方式向各级政府、各相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27301331",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27301331",
+   "question": "尊敬的厅长： 我思南县江岸名都一组团一号楼全体业主向你投诉思南农商行化粪池粪水长期向小区渗冲（农商行位置高于小区），造成小区居民无法正常生活，我小区居民多次向该行董事长及管理人员反映，他们自持财大气粗，置之不理，请厅长在百忙中督促该行尽快处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27299900",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27299900",
+   "question": "一年多了 每次过来 厂里面都是答应好好的 操音说好一个月整好的 现在一个多月了还在有 真的要求对这个厂进行罚款 要不然每次都是表面功夫 只要把你们打发走了然后就当没得发生一样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27295375",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27295375",
+   "question": "尊敬的领导好： 我是从86年出生就生活在遵义市播州区影山湖街道火车站社区农寨组的，遵义铝厂也差不多是86年建厂的，从2017年开始，铝厂扩建，建了自己的变压器站，离我家就一条马路的距离，每天我们能听到刺耳的声音，不分白天晚上，才听到声音的一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27286904",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27286904",
+   "question": "德江县白果坨湿地公园，乌江沿线11个污水集中处理的一体化设备投入3年多，到现在还是将污直排，没有经过处理。对乌江造成污染，同时周边的臭味更严重。项目投入近4年一直没有正常运行，仅仅用下塔坪一个点来敷衍上级检查。现在连敷衍的示范点都已经停了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-st",
+   "id": "27285829",
+   "url": "https://sthj.guizhou.gov.cn/hdjl/tzxx/xjgs/?id=27285829",
+   "question": "化工厂离家近，我家到化工厂两百米&nbsp; 马路对面&nbsp; &nbsp;白天晚上冒出来的烟&nbsp; 直接能感受得到自己家像在厂里面一样。希望领导能够帮我们老百姓处理一下。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -58,6 +58,18 @@ def _load_done(path: Path) -> set[tuple[str, str]]:
     return done
 
 
+def _safe(s: str) -> str:
+    """把字符串转成当前控制台能打印的形式（非 GBK 字符替换掉，绝不抛异常）。
+
+    Windows 控制台默认 GBK；答复里出现下标/特殊符号（PM₂.₅ 等）时直接 print 会崩，
+    把整个采集任务带下去——所以打印一律走这里。
+    """
+    enc = sys.stdout.encoding or "utf-8"
+    try:
+        return s.encode(enc, "replace").decode(enc, "replace")
+    except Exception:                                                       # noqa: BLE001
+        return s.encode("ascii", "replace").decode("ascii")
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--site", default="all", help="站点 key（见 --list），或 all")
@@ -123,8 +135,10 @@ def main() -> int:
                   f"（用时 {time.perf_counter()-t0:.0f}s）", flush=True)
             if args.dry_run:
                 for r in fresh[:3]:
-                    print(f"      · {(r['question'] or '')[:60]}")
-                    print(f"        {(r['answer'] or '')[:80]}")
+                    # ⚠ 预览要按**控制台编码**安全输出：答复里常有下标字符（如 PM₂.₅ 的 ₂），
+                    #   直接 print 会 UnicodeEncodeError 把整个采集弄崩（2026-10-07 贵州实测）
+                    print("      · " + _safe((r["question"] or "")[:60]))
+                    print("        " + _safe((r["answer"] or "")[:80]))
             else:
                 if fresh:                     # 0 新增时不建空文件（403 空跑会留垃圾）
                     with out_path.open("a", encoding="utf-8") as fh:

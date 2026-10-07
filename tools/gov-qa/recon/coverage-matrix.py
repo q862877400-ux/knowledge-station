@@ -16,7 +16,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 DATA = HERE.parent / "data"
 
-PROVINCE_PREFIX = {"gd-": "广东省", "hunan-": "湖南省", "sc-st": "四川省", "ah-st": "安徽省", "ln-st": "辽宁省", "jl-st": "吉林省"}
+PROVINCE_PREFIX = {"gd-": "广东省", "hunan-": "湖南省", "sc-st": "四川省", "ah-st": "安徽省", "ln-st": "辽宁省", "jl-st": "吉林省", "gz-st": "贵州省"}
 NATIONAL = {"mee", "mem", "people-liuyan"}
 
 #: 什么才算省级名（部委流的 pForumNames 装的是部委名，别混进来）
