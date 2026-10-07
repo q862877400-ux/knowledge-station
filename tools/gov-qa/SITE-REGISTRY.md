@@ -13,7 +13,7 @@
 | `hunan-yj` | **湖南省应急管理厅** | **接口** | **538 条** | 同上平台，`deptId=5c247692…`；**湖南其他厅局 = 复制薄适配器填 deptId 即可** |
 | `people-liuyan` | **人民网领导留言板·部委** | **接口+签名** | 30 条（首日） | `POST /v1/threads/list/bw`（`showUnAnswer=0`=只要已办理）+ `/v1/threads/content`（`dataType=9`=官方答复）；签名 `md5(路径+param+md5(appCode)[:16])`，算法与验证见 `adapters/_liuyan_common.py` 头注 |
 
-### ⚠ people-liuyan 的两个未决问题（2026-10-09 实测记录）
+### ⚠ people-liuyan 的两个未决问题（2026-10-07 实测记录）
 
 1. **403 限流**：请求过密后返回 **403 + 2.3KB HTML 拦截页**（不是 JSON）。
    今天侦察+试采频率偏高，尾段触发了。**下次全量跑把 `PAUSE` 提到 3-5s、
@@ -104,31 +104,31 @@
 | `was5-capacity.json` | WAS5 的容量（两个频道的 `recordCount`、`perpage` 上限）|
 | `probe-mohurd-samr.json` | 住建部 / 市监的入口侦察 |
 | `was5-elsewhere.json` | ⚠ **一条作废的测试**（忘带 `channelid`，含对照，见 README 坑 3）|
-| `probe-provinces.py/.json` | 2026-10-09 省级站批量侦察（43 站 WAS5 指纹 + 问答栏目链接 + channelid）|
+| `probe-provinces.py/.json` | 2026-10-07 省级站批量侦察（43 站 WAS5 指纹 + 问答栏目链接 + channelid）|
 | `dig-hd-pages.py/.json` | 第二轮：命中站的栏目页挖掘 + 浙江 was5 响应判定 + 直连/代理对照 |
 | `dig2-js.py/.json` | 第三轮：湖南 `hdjl_*.js` / 广东应急 `config.js` / 福建 `gzcy` 挖掘 |
 | `hunan-verify.py/.json` | ★ 湖南统一平台两厅 deptId + 答复覆盖率验证（抽样 100/100 有答复）|
 | `liuyan-js-fetch*.py` / `liuyan-js/` | 人民网留言板 JS 包下载与签名算法定位（`app.*.js` 里 `md5(路径+param+secret)`）|
 | `liuyan-typeid-map.txt` 等 `liuyan-*.txt` | ★ 留言板参数语义实测：`showUnAnswer` 是过滤器（0=只要已办理）、`typeId` 是留言分类、`fid` 版块页多为提交入口（全站流才有答复）、`dataType=9`=官方答复 |
 
-## 七、412/405 的定性纪律（业主 2026-10-09 口诀）
+## 七、412/405 的定性纪律（业主 2026-10-07 口诀）
 
 **反爬 412/405 先用真浏览器试一次** —— 能过就说明是反爬，不是地址错；
 有些站专门防受控浏览器（消防局就是）⇒ 那时无头/受控浏览器一律没用，
 只能人工抄 / 找移动端接口 / 如实登记为未做。
 
-实测案例（2026-10-09）：`sthj.gansu.gov.cn` 对 httpx 一律 412，
+实测案例（2026-10-07）：`sthj.gansu.gov.cn` 对 httpx 一律 412，
 真浏览器里首页完全正常加载（图片/配置/接口全 200）⇒ 412 = 程序化请求被拦，
 站本身没死，**值得用浏览器把它的问答接口挖出来**。
 
-## 八、现成项目对照（不造轮子台账，2026-10-09）
+## 八、现成项目对照（不造轮子台账，2026-10-07）
 
 > 业主裁定（2026-09-19）：有现成的 ⇒ 读它抄它；只能从零设计并长期维护 ⇒ 不做。
 > 本节回答"这个模块是不是在造轮子"。
 
 | 现成物 | 核过没有 | 与本模块的关系 | 结论 |
 |---|---|---|---|
-| [Fissify/Message-Board-for-Leaders](https://github.com/Fissify/Message-Board-for-Leaders) | ✅ 已核（repo + README 原文） | 人民网领导留言板 Selenium 爬虫；README 自述**仅限学术非商业**、无开源许可证文件；**中央部委板块字段不含答复内容**（只有留言对象/标题/时间/内容），省市板块才含答复与满意度 | **✅ 已按"借思路不抄代码"改造落地（2026-10-09，业主拍板）**：`adapters/people_liuyan.py` 走留言板自身接口（Selenium 方案弃用，速度约为其 2 倍），沿用其字段口径，**把部委板块的答复补上**；出处与"数据归人民网"的声明写在 `adapters/_liuyan_common.py` 头注 |
+| [Fissify/Message-Board-for-Leaders](https://github.com/Fissify/Message-Board-for-Leaders) | ✅ 已核（repo + README 原文） | 人民网领导留言板 Selenium 爬虫；README 自述**仅限学术非商业**、无开源许可证文件；**中央部委板块字段不含答复内容**（只有留言对象/标题/时间/内容），省市板块才含答复与满意度 | **✅ 已按"借思路不抄代码"改造落地（2026-10-07，业主拍板）**：`adapters/people_liuyan.py` 走留言板自身接口（Selenium 方案弃用，速度约为其 2 倍），沿用其字段口径，**把部委板块的答复补上**；出处与"数据归人民网"的声明写在 `adapters/_liuyan_common.py` 头注 |
 | `Tanh-wink/NCPQA`（转述） | ⚠ 未核（转述自调研材料） | 疫情政务问答竞赛的**检索模型**代码，不是采集工具 | 与本模块无重叠，无轮子问题 |
 | 领导留言板商业/学术数据集（2011–2025 dump、37 万条部委留言等） | ⚠ 未核 | 第三方整理的结构化留言数据 | **许可证与新鲜度未核之前不进核心语料**；可当"补料候选清单"的交叉参考 |
 | 人民网领导留言板本体（liuyan.people.com.cn） | 常识渠道 | 中央+地方留言聚合平台（媒体运营） | 登记为**候选来源**；答复是"办理答复"，与官网站方编辑的常见问题**权威形态不同**，优先级低于官网原文；采纳时单独立适配器 |

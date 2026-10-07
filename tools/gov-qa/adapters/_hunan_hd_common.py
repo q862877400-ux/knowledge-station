@@ -1,6 +1,6 @@
 """湖南全省统一互动平台（hd.hunan.gov.cn）· 共用采集基座。
 
-## 接口（2026-10-09 从湖南省生态环境厅 `hdjl_index.js` 挖出并实测）
+## 接口（2026-10-07 从湖南省生态环境厅 `hdjl_index.js` 挖出并实测）
 ```
 GET https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie
     ?data={"pageNum":N,"pageSize":M,"sortMap":{"createTime":"desc"},

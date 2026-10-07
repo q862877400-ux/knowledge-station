@@ -1,6 +1,6 @@
 """湖南统一互动平台（hd.hunan.gov.cn）验证：deptId + 答复覆盖率 + 状态分布。
 
-发现的接口（湖南生态 hdjl_index.js 挖出，2026-10-09）：
+发现的接口（湖南生态 hdjl_index.js 挖出，2026-10-07）：
   GET https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie
       ?data={"pageNum":N,"pageSize":M,"sortMap":{"createTime":"desc"},
              "params":{"deptId":"<32位hex>", "phone":"","searchCode":"","status":"","siteNo":"","siteUrl":""}}

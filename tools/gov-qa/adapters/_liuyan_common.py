@@ -9,7 +9,7 @@
  · 其中央部委板块**不抓答复**；本基座把答复补上了（详情接口 `dataType==9` 条目）。
  · ⚠ 采集的语料用于内部评测/研究，对外使用时注明来源人民网领导留言板。
 
-## 接口（2026-10-09 从 app.*.js 逆向 + 抓包双验证）
+## 接口（2026-10-07 从 app.*.js 逆向 + 抓包双验证）
 ```
 POST https://liuyan.people.com.cn/v1/threads/list/bw        # 部委版块流（bw=部委）
      body = {"appCode":"PC42ce3bfa4980a9","token":"","signature":"<md5>",

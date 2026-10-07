@@ -1,6 +1,6 @@
 """人民网领导留言板 · JS 包下载与签名算法挖掘。
 
-已知（2026-10-09 浏览器实捕）：
+已知（2026-10-07 浏览器实捕）：
   POST https://liuyan.people.com.cn/v1/threads/list/bw
   body = {"appCode":"PC42ce3bfa4980a9","token":"…","signature":"<32hex>",
           "param":"{\\"fid\\":\\"5062\\",\\"showUnAnswer\\":1,\\"typeId\\":5,

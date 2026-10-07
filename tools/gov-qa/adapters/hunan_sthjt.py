@@ -1,6 +1,6 @@
 """适配器：**湖南省生态环境厅**（湖南全省统一互动平台 hd.hunan.gov.cn）。
 
-## 站点事实（2026-10-09 实测，证据 recon/hunan-verify.json）
+## 站点事实（2026-10-07 实测，证据 recon/hunan-verify.json）
  · 官网互动页 `https://sthjt.hunan.gov.cn/sthjt/hdjl/index.html` 是壳，
    列表由 `/sthjt/xhtml/js/hdjl_index.js` 调**全省统一平台**接口拉取；
  · `deptId = c0fc18f40e604da3a01460d02d731d45`（写死在该 JS 里）；

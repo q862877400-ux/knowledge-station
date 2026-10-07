@@ -1,6 +1,6 @@
 """适配器：**湖南省应急管理厅**（湖南全省统一互动平台 hd.hunan.gov.cn）。
 
-## 站点事实（2026-10-09 实测，证据 recon/hunan-verify.json）
+## 站点事实（2026-10-07 实测，证据 recon/hunan-verify.json）
  · 与湖南省生态环境厅**同一平台、同一接口**，只是 `deptId` 不同
    （写死在 `https://yjt.hunan.gov.cn/yjt/xhtml/js/hdjl_index.js`）；
  · `deptId = 5c24769298304cac9387087d8dd21334`；
