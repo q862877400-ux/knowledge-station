@@ -71,6 +71,23 @@
    ],
    "cited_missing": [],
    "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "24879945",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24879945",
+   "question": "建议增设红绿灯\n内容：北京市顺义区李桥镇后桥车站，位于通顺路东西两侧，通顺路中间有隔离石，两个公交车站之间仅有一个小道口连通，虽然画了人行横道线，但是南北向车辆很少有减速或停车让行，后桥车站承接人流量较多，且还有很多中小学生，安全隐患较大。",
+   "cited_hits": [
+    {
+     "name": "道路交通信号灯设置与安装规范",
+     "lib_no": "GB 14886-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB14886-2016"
+   ],
+   "has_clause_no": false
   }
  ],
  "B_补料": [
@@ -317,6 +334,17 @@
    "cited_missing": [
     "声环境质量标准",
     "GB3096-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25304329",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25304329",
+   "question": "北京市顺义俸伯地铁停车位\n本人长期在俸伯站P+R通勤，该站仅309个P+R车位，每工作日早7:00前即满，7点后无位可停，被迫使用高价停车场或违停，通勤成本高且不便。恳请相关部门：扩容现有P+R、新增平价换乘车位、或将北侧420个便民车场纳",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市机动车停车条例"
    ],
    "has_clause_no": false
   }
