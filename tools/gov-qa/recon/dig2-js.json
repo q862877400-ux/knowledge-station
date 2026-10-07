@@ -1,0 +1,159 @@
+[
+ {
+  "label": "湖南生态·hdjl_common.js",
+  "url": "https://sthjt.hunan.gov.cn/sthjt/xhtml/js/hdjl_common.js",
+  "status": 200,
+  "len": 1082,
+  "hint_lines": []
+ },
+ {
+  "label": "湖南生态·hdjl_index.js",
+  "url": "https://sthjt.hunan.gov.cn/sthjt/xhtml/js/hdjl_index.js",
+  "status": 200,
+  "len": 5607,
+  "hint_lines": [
+   "$.ajax({",
+   "url: url,",
+   "$.ajax({",
+   "url: url,"
+  ]
+ },
+ {
+  "label": "湖南生态·hdjl_lm.js",
+  "url": "https://sthjt.hunan.gov.cn/sthjt/xhtml/js/hdjl_lm.js",
+  "status": 200,
+  "len": 1155,
+  "hint_lines": []
+ },
+ {
+  "label": "湖南应急·hdjl_common.js",
+  "url": "https://yjt.hunan.gov.cn/yjt/xhtml/js/hdjl_common.js",
+  "status": 200,
+  "len": 1082,
+  "hint_lines": []
+ },
+ {
+  "label": "湖南应急·hdjl_index.js",
+  "url": "https://yjt.hunan.gov.cn/yjt/xhtml/js/hdjl_index.js",
+  "status": 200,
+  "len": 5605,
+  "hint_lines": [
+   "$.ajax({",
+   "url: url,",
+   "$.ajax({",
+   "url: url,"
+  ]
+ },
+ {
+  "label": "湖南应急·hdjl_lm.js",
+  "url": "https://yjt.hunan.gov.cn/yjt/xhtml/js/hdjl_lm.js",
+  "status": 200,
+  "len": 1155,
+  "hint_lines": []
+ },
+ {
+  "label": "广东应急·留言统计页",
+  "url": "https://yjgl.gd.gov.cn/hd/lytj/index.html",
+  "status": 200,
+  "len": 46779,
+  "contexts": [
+   "xt/javascript\" src=\"/js/main.js\"></script>\n<script type=\"text/javascript\" src=\"/js/side_nav.js\"></script>\n<script>\n\tvar channelId= \"21926\";\n\tvar parentId= \"21918\";\n</script>\n</head>\n<body class=\"page_gray\">\n\t<div class=\"banner banner_main boxMo\">"
+  ]
+ },
+ {
+  "label": "广东应急·hdjlpt config.js",
+  "url": "https://yjgl.gd.gov.cn/hdjlpt/static/core/js/config.js",
+  "status": 200,
+  "len": 5633,
+  "hint_lines": [
+   "postEditURL : function(id,type){",
+   "modURL : function(c, a){",
+   "methodURL : function(url){",
+   "jsonpURL : function(url){",
+   "readnewsURL : function(id){",
+   "UEditorURL : function(){"
+  ]
+ },
+ {
+  "label": "广东应急·hdjlpt index/common.js",
+  "url": "https://yjgl.gd.gov.cn/hdjlpt/static/index/js/common.js",
+  "status": 200,
+  "len": 6007,
+  "hint_lines": []
+ },
+ {
+  "label": "福建生态·公众参与页",
+  "url": "https://sthjt.fujian.gov.cn/gzcy/",
+  "status": 200,
+  "len": 50017,
+  "links": [
+   "国务院 -> http://www.gov.cn/",
+   "生态环境部 -> https://www.mee.gov.cn/",
+   "省政府 -> https://www.fujian.gov.cn/",
+   "繁体版 -> javascript:StranBody()",
+   "闽政通 -> javascript:;",
+   "政企直通车 -> https://zqztc.fujian.gov.cn/",
+   "首页 -> /",
+   "概况信息 -> /gkxx/",
+   "政务公开 -> /zwgk/",
+   "互动交流 -> /gzcy/",
+   "办事服务 -> https://zwfw.fujian.gov.cn/province-dept/index?type=2&siteUnid=0034802CDA6EB54E6975312187BD9AEA&randomNum=0.8091622866359283",
+   "专题专栏 -> /ztzl/",
+   "省厅领导 -> /gkxx/stld/",
+   "机构职能 -> /gkxx/jgzn/",
+   "省厅环境要闻 -> /zwgk/sthjyw/",
+   "媒体报道 -> /zwgk/mtbd/",
+   "公告公示 -> /zwgk/gsgg/",
+   "统计数据 -> /zwgk/sjfb/",
+   "政策法规 -> /zwgk/flfg/",
+   "政策解读 -> /zwgk/wjjd/",
+   "财政资金 -> /zwgk/ghjh/",
+   "人事信息 -> /zwgk/rsxx/",
+   "业务信息 -> /zwgk/ywxx/",
+   "政府信息公开 -> /zwgk/zfxxgkzl/zfxxgkzn/",
+   "规划计划 -> /zwgk/ghjh1/",
+   "厅长信箱 -> /gzcy/tzxx/",
+   "在线访谈 -> /gzcy/zxft/",
+   "民意征集 -> /gzcy/zqyj/",
+   "网上调查 -> /gzcy/wsdc/",
+   "政务问答 -> /aisp/ff8080816e59baf3016e5e6e16cb3f38/chat/index.html",
+   "长者模式 -> javascript:;",
+   "退出长者模式 -> javascript:;",
+   "无障碍浏览 -> javascript:;",
+   "厅长信箱 -> http://sthjt.fujian.gov.cn/gzcy/tzxx/",
+   "互动交流知识库 -> ./tzxx/hbcs/",
+   "网上投诉 -> ./tzxx/wsts/",
+   "网上咨询 -> ./tzxx/wyzx/",
+   "在线访谈 -> ./zxft/",
+   "深入贯彻落实生态环境法典、持续提升生态环境法治水平 -> ./zxft/fthz_gb/202609/t20260918_7215062.htm",
+   "访谈汇总 -> ./zxft/fthz_gb/",
+   "锚定美丽中国省域先行区建设目标，谋划推进“十五五”生态环境保护工作 -> ./zxft/fthz_gb/202607/t20260723_7191229.htm",
+   "加快推进生态环境监测数智化转型发展 -> ./zxft/fthz_gb/202607/t20260715_7178229.htm",
+   "守牢核安全防线 护航福建核能高质量发展 -> ./zxft/fthz_gb/202604/t20260422_7130206.htm",
+   "更多&gt; -> ./zxft/fthz_gb/",
+   "民意征集 -> ./zqyj/",
+   "更多&gt; -> ./zqyj/",
+   "网上调查 -> ./wsdc/",
+   "更多&gt; -> ./wsdc/",
+   "生态环境部 -> http://www.mee.gov.cn/",
+   "生态环境部信息中心 -> http://www.chinaeic.net/",
+   "内蒙古自治区环保厅 -> http://sthjt.nmg.gov.cn/",
+   "青海省生态环境厅 -> http://sthjt.qinghai.gov.cn/",
+   "云南省生态环境厅 -> http://sthjt.yn.gov.cn/index.html",
+   "四川省生态环境厅 -> http://sthjt.sc.gov.cn/",
+   "贵州省生态环境厅 -> http://sthj.guizhou.gov.cn/",
+   "广东省生态环境厅 -> http://gdee.gd.gov.cn/",
+   "湖南省生态环境厅 -> http://sthjt.hunan.gov.cn/",
+   "湖北省生态环境厅 -> http://sthjt.hubei.gov.cn/",
+   "河南省生态环境厅 -> http://sthjt.henan.gov.cn/",
+   "山东省生态环境厅 -> http://www.sdein.gov.cn/"
+  ]
+ },
+ {
+  "label": "福建生态·20230412sthjt.js",
+  "url": "https://sthjt.fujian.gov.cn/images/20230412sthjt.js?v=1.11",
+  "status": 200,
+  "len": 11293,
+  "hint_lines": []
+ }
+]

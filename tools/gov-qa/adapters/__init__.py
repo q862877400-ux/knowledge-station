@@ -55,8 +55,10 @@ from typing import Callable
 #: 已登记的适配器：key → 模块路径。
 #: ⚠ **新增站点在这里加一行**，`harvest.py --list` 会读它。
 ADAPTERS: dict[str, str] = {
-    "mem": "adapters.mem_gov",       # 应急管理部（静态列表，已跑通）
-    "mee": "adapters.mee_gov",       # 生态环境部（WAS5 接口，已跑通）
+    "hunan-st": "adapters.hunan_sthjt",   # 湖南省生态环境厅（统一互动平台，已跑通）
+    "hunan-yj": "adapters.hunan_yjt",     # 湖南省应急管理厅（同一平台，已跑通）
+    "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
+    "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
 }
 
 #: 用户要能直接 `from adapters import load`

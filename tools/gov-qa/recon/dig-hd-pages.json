@@ -1,0 +1,145 @@
+{
+ "A_栏目页挖掘": [
+  {
+   "label": "湖南省生态环境厅·互动交流",
+   "url": "https://sthjt.hunan.gov.cn/sthjt/hdjl/index.html",
+   "status": 200,
+   "len": 39883,
+   "ctype": "text/html",
+   "script_blocks": [],
+   "script_srcs": [
+    "/sthjt/xhtml/js/jquery.min.js",
+    "/sthjt/xhtml/js/jquery.xdomainrequest.min.js",
+    "/sthjt/xhtml/js/calendar.js",
+    "/sthjt/xhtml/js/jiucuo.js",
+    "https://home.hunan.gov.cn/login/js/index.js?id=40&tc=556fb6&ttc=316bad&mc=&p=467",
+    "https://auth.mangren.com/boots/sthjt.hunan.gov.cn/esdToolsInit.js",
+    "//fxsjcj.kaipuyun.cn/count/10006617/10006617.js",
+    "//pvjs.jktong.com/plugs/stat.js?token=305b92add351bafde5b9ef4c43f1f9ec",
+    "/sthjt/xhtml/js/hdjl_common.js",
+    "/sthjt/xhtml/js/echarts.min.js",
+    "/sthjt/xhtml/js/hdjl_lm.js",
+    "/sthjt/xhtml/js/scrollbar.js",
+    "/sthjt/xhtml/js/jquery.SuperSlide.2.1.1.js",
+    "/sthjt/xhtml/js/hdjl_index.js"
+   ],
+   "iframes": [],
+   "was5_urls": [],
+   "channelids": []
+  },
+  {
+   "label": "湖南省应急管理厅·互动交流",
+   "url": "https://yjt.hunan.gov.cn/yjt/hdjl/hdjl_index.html",
+   "status": 200,
+   "len": 39193,
+   "ctype": "text/html",
+   "script_blocks": [],
+   "script_srcs": [
+    "/yjt/xhtml/js/jquery.min.js",
+    "/yjt/xhtml/js/jquery.xdomainrequest.min.js",
+    "https://home.hunan.gov.cn/login/js/index.js?id=21&tc=556fb6&ttc=316bad&mc=&p=467",
+    "http://home.hunan.gov.cn/login/js/yjt/index.js?id=21&tc=556fb6&ttc=316bad&mc=&p=467",
+    "/yjt/xhtml/js/wap_adaptive.js",
+    "/yjt/xhtml/js/calendar.js",
+    "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+    "https://auth.mangren.com/boots/yjt.hunan.gov.cn/esdToolsInit.js",
+    "//fxsjcj.kaipuyun.cn/count/10006592/10006592.js",
+    "//pvjs.jktong.com/plugs/stat.js?token=305b92add351bafde5b9ef4c43f1f9ec",
+    "/yjt/xhtml/js/hdjl_common.js",
+    "/yjt/xhtml/js/hdjl_lm.js",
+    "/yjt/xhtml/js/echarts.min.js",
+    "/yjt/xhtml/js/hdjl_index.js",
+    "/yjt/xhtml/js/scrollbar.js"
+   ],
+   "iframes": [],
+   "was5_urls": [],
+   "channelids": []
+  },
+  {
+   "label": "福建省生态环境厅·公众参与",
+   "url": "https://sthjt.fujian.gov.cn/gzcy/",
+   "status": 200,
+   "len": 50101,
+   "ctype": "text/html",
+   "script_blocks": [],
+   "script_srcs": [
+    "/public/images/Fjtran.js",
+    "https://www.fujian.gov.cn/images/barrier.free.min.js",
+    "/images/js_rem.min.js",
+    "https://www.fujian.gov.cn/images/model.min.js",
+    "/images/20230412sthjt.js?v=1.11"
+   ],
+   "iframes": [],
+   "was5_urls": [],
+   "channelids": []
+  },
+  {
+   "label": "广东省应急管理厅·互动平台",
+   "url": "https://yjgl.gd.gov.cn/hdjlpt",
+   "status": 200,
+   "len": 172051,
+   "ctype": "text/html; charset=UTF-8",
+   "script_blocks": [],
+   "script_srcs": [
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/moment.js?v=0721",
+    "//app.gd.gov.cn/asset/js/s-header.js",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/jquery-nfw-safe.js?v=0721",
+    "//service.gd.gov.cn/wza/wza.js?check_type=site_id&site_id=122",
+    "//slhsrv.southcn.com//wza/slh.js?check_type=site_id&site_id=122",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/base64.js?v=0721",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/config.js?v=0821",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/ui.js?v=0721",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/global.js?v=0721",
+    "//yjgl.gd.gov.cn/hdjlpt/static/core/js/utils.js?v=0721",
+    "//yjgl.gd.gov.cn/hdjlpt/static/index/js/redirect.js?v=0721",
+    "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+    "//app.gd.gov.cn/asset/js/common_pc.js",
+    "//yjgl.gd.gov.cn/hdjlpt/static/common/pc/jump_prompt.js?v=0721",
+    "//yjgl.gd.gov.cn/hdjlpt/static/index/js/common.js?v=0721"
+   ],
+   "iframes": [],
+   "was5_urls": [],
+   "channelids": []
+  }
+ ],
+ "B_浙江was5响应": {
+  "label": "浙江省生态环境厅·was5响应",
+  "url": "https://sthjt.zj.gov.cn/was5/web/search?channelid=1&perpage=1&page=1",
+  "status": 200,
+  "len": 55976,
+  "ctype": "text/html; charset=utf-8",
+  "head": "<!DOCTYPE html>\n<html>\n\n<head>\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n    <meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n    \n\n    <link href=\"/cms_files/webzhejiangshengshengtaihuanjingting/pubtplobject/defaultSet/CBGM1aY4WJ8HQQvBpP4oT/images/index.css\" rel=\"stylesheet\" type=\"text/css\" />\n    <script src=\"/cms_files/jcms1/web2432/site/images/22763/jquery.js\" type=\"text/javascript\"></script>\n\n    <script type=\"text/javascript\">\n        window.onload = function() {\n            var tt = document.getElementById('xwtop');\n            var lt = document.getElementById('xwlist');\n            var odd = xwtop.getElementsByTagName('dd');\n            var ospan = lt.getElementsByTagName('div');\n\n            for(var n = 0; n < odd.length; n++) {\n                odd[n].index = n\n                odd[n].onmouseover = function() {\n                    for(var i = 0; i < odd.length; i++) {\n                        odd[i].className = '';\n                        ospan[i].style.display = 'none';\n                    }\n                    this.cla"
+ },
+ "C_代理对照": [
+  {
+   "url": "https://yjt.hebei.gov.cn/",
+   "direct": "ConnectError",
+   "proxy": "ConnectError"
+  },
+  {
+   "url": "https://jsthjt.jiangsu.gov.cn/",
+   "direct": "ConnectTimeout",
+   "proxy": "ConnectError"
+  },
+  {
+   "url": "https://sthj.henan.gov.cn/",
+   "direct": "ConnectError",
+   "proxy": "ConnectError"
+  },
+  {
+   "url": "https://sthj.cq.gov.cn/",
+   "direct": "ConnectError",
+   "proxy": "ConnectError"
+  },
+  {
+   "url": "https://yjgl.cq.gov.cn/",
+   "direct": "ConnectError",
+   "proxy": "ConnectError"
+  },
+  {
+   "url": "https://sthj.shanxi.gov.cn/",
+   "direct": "ConnectError",
+   "proxy": "ConnectError"
+  }
+ ]
+}

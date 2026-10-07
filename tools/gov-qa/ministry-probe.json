@@ -1,0 +1,1339 @@
+{
+ "why": "核验业主给的部委互动栏目清单",
+ "rows": [
+  {
+   "who": "外交部",
+   "name": "发言人办公室",
+   "url": "https://www.fmprc.gov.cn/",
+   "status": 200,
+   "len": 98650,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 420,
+    "n_detail_like": 137,
+    "top_prefix": [
+     [
+      "http://",
+      42
+     ],
+     [
+      "https://www.mfa.gov.cn/web/zwjg_674741/zwtc_674771/202601/",
+      14
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 2,
+    "anti": [],
+    "login": [],
+    "api_hints": [
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "国防部",
+   "name": "互动交流",
+   "url": "http://www.mod.gov.cn/",
+   "status": 200,
+   "len": 64407,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 244,
+    "n_detail_like": 83,
+    "top_prefix": [
+     [
+      "http://www.mod.gov.cn/gfbw/qwfb/",
+      15
+     ],
+     [
+      "http://www.mod.gov.cn/gfbw/tp_214132/",
+      12
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 3,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家发改委",
+   "name": "互动交流",
+   "url": "https://www.ndrc.gov.cn/",
+   "status": 200,
+   "len": 70646,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 334,
+    "n_detail_like": 92,
+    "top_prefix": [
+     [
+      "/xxgk/wjk/",
+      16
+     ],
+     [
+      "https://services.ndrc.gov.cn/ecdomain/portal/portlets/bjweb/newpage/itemlist/",
+      10
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 3,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "教育部",
+   "name": "部长信箱",
+   "url": "https://hudong.moe.gov.cn/interactive/bzxx/",
+   "status": 200,
+   "len": 14278,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 45,
+    "n_detail_like": 4,
+    "top_prefix": [
+     [
+      "https://zwfw.moe.gov.cn/portal/trs/login?appId=trs&redirectUrl=https://hudong.moe.gov.cn/hd/login/cas&state=https://hudong.moe.gov.cn/interactive/bzxx/",
+      3
+     ],
+     [
+      "http://en.moe.gov.cn/",
+      2
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 3,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "page=",
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "科技部",
+   "name": "公众问答",
+   "url": "https://www.most.gov.cn/",
+   "status": 200,
+   "len": 157,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "工信部",
+   "name": "部长信箱",
+   "url": "https://bzxx.miit.gov.cn/bzxx/appellate/main",
+   "status": 200,
+   "len": 2733,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家民委",
+   "name": "互动交流",
+   "url": "https://www.neac.gov.cn/",
+   "status": 200,
+   "len": 148402,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 673,
+    "n_detail_like": 300,
+    "top_prefix": [
+     [
+      "/seac/xwzx/202609/",
+      82
+     ],
+     [
+      "/seac/c103691/202412/",
+      24
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "公安部",
+   "name": "网上信访",
+   "url": "https://www.gab.gov.cn/",
+   "kind": "⛔ConnectError",
+   "error": "[Errno 11001] getaddrinfo failed"
+  },
+  {
+   "who": "民政部",
+   "name": "我要留言",
+   "url": "https://www.mca.gov.cn/",
+   "status": 200,
+   "len": 88315,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 252,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://zwfw.mca.gov.cn/#/",
+      63
+     ],
+     [
+      "https://www.mca.gov.cn/gdnps/pc/",
+      6
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 6,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "司法部",
+   "name": "网民留言",
+   "url": "http://www.chinalaw.gov.cn/",
+   "status": 200,
+   "len": 92599,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 342,
+    "n_detail_like": 74,
+    "top_prefix": [
+     [
+      "https://mp.weixin.qq.com/s/",
+      14
+     ],
+     [
+      "http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202609/",
+      8
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [
+     "登录",
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "api/",
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "财政部",
+   "name": "交流互动",
+   "url": "https://www.mof.gov.cn/",
+   "status": 200,
+   "len": 2534,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "人社部",
+   "name": "部长信箱",
+   "url": "http://www.mohrss.gov.cn/",
+   "status": 200,
+   "len": 988,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "自然资源部",
+   "name": "建议留言",
+   "url": "https://box.mnr.gov.cn/",
+   "status": 200,
+   "len": 72826,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 273,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      7
+     ],
+     [
+      "https://gk.mnr.gov.cn/",
+      5
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 17,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "生态环境部",
+   "name": "部长信箱",
+   "url": "https://www.mee.gov.cn/hdjl/bzxxzs_1/",
+   "status": 200,
+   "len": 30094,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 195,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      19
+     ],
+     [
+      "/searchnew/",
+      4
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 3,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "住建部",
+   "name": "政务咨询",
+   "url": "https://www.mohurd.gov.cn/",
+   "status": 200,
+   "len": 63873,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 195,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "/gongkai/zc/wjk/art/2026/",
+      46
+     ],
+     [
+      "https://www.mohurd.gov.cn/xinwen/jsyw/art/2026/",
+      8
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [
+     "注册",
+     "login"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "交通运输部",
+   "name": "留言咨询",
+   "url": "https://qa.mot.gov.cn/",
+   "status": 200,
+   "len": 30640,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 42,
+    "n_detail_like": 3,
+    "top_prefix": [
+     [
+      "http://www.mot.gov.cn/wangzhanguanli/",
+      4
+     ],
+     [
+      "http://big5.mot.gov.cn:82/gate/big5/www.mot.gov.cn/",
+      2
+     ]
+    ],
+    "n_forms": 3,
+    "n_inputs": 7,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "水利部",
+   "name": "部长信箱",
+   "url": "http://www.mwr.gov.cn/",
+   "status": 200,
+   "len": 89132,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 505,
+    "n_detail_like": 112,
+    "top_prefix": [
+     [
+      "https://spjc.mwr.gov.cn/spjc/hallg/",
+      12
+     ],
+     [
+      "https://spjc.mwr.gov.cn/spjc/hall/files/bszn/",
+      11
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 9,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "login"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "农业农村部",
+   "name": "部长信箱",
+   "url": "https://www.moa.gov.cn/wsxfbzxx/xfwy/ministerMailBox.html",
+   "status": 200,
+   "len": 91212,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 220,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      29
+     ],
+     [
+      "https://",
+      9
+     ]
+    ],
+    "n_forms": 4,
+    "n_inputs": 39,
+    "anti": [],
+    "login": [],
+    "api_hints": [
+     "ajax",
+     "api/"
+    ]
+   }
+  },
+  {
+   "who": "商务部",
+   "name": "部长信箱",
+   "url": "http://www.mofcom.gov.cn/",
+   "status": 200,
+   "len": 34005,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 110,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.gov.cn/yaowen/liebiao/202609/",
+      6
+     ],
+     [
+      "/zwgk/zcfb/art/2026/",
+      6
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "文化和旅游部",
+   "name": "部长信箱",
+   "url": "https://www.mct.gov.cn/",
+   "status": 200,
+   "len": 129953,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 215,
+    "n_detail_like": 76,
+    "top_prefix": [
+     [
+      "https://zhuanti.mct.gov.cn/",
+      8
+     ],
+     [
+      "https://zwfw.mct.gov.cn/",
+      7
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 2,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "国家卫健委",
+   "name": "政策咨询平台",
+   "url": "http://www.nhc.gov.cn/hdjl/denglu.html",
+   "status": 412,
+   "len": 3502,
+   "kind": "HTTP 412",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "退役军人事务部",
+   "name": "部长信箱",
+   "url": "http://www.mva.gov.cn/",
+   "status": 200,
+   "len": 178157,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 280,
+    "n_detail_like": 54,
+    "top_prefix": [
+     [
+      "http://",
+      75
+     ],
+     [
+      "https://www.mva.gov.cn/sy/xx/bnxx/202609/",
+      12
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 3,
+    "anti": [],
+    "login": [],
+    "api_hints": [
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "应急管理部",
+   "name": "智能问答",
+   "url": "https://www.mem.gov.cn/hd/znwd/",
+   "status": 200,
+   "len": 19590,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 76,
+    "n_detail_like": 1,
+    "top_prefix": [
+     [
+      "https://www.mem.gov.cn/wzdt/",
+      2
+     ],
+     [
+      "https://www.mem.gov.cn/",
+      1
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 8,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "channelid"
+    ]
+   }
+  },
+  {
+   "who": "应急管理部",
+   "name": "互动答复(已采)",
+   "url": "https://www.mem.gov.cn/hd/gzly/hdhdly/",
+   "status": 200,
+   "len": 39696,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 100,
+    "n_detail_like": 7,
+    "top_prefix": [
+     [
+      "https://www.mem.gov.cn/hd/wsxf1/yjwsxf/",
+      2
+     ],
+     [
+      "https://www.mem.gov.cn/hd/znwd/",
+      2
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 14,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "login"
+    ],
+    "api_hints": [
+     "channelid",
+     "ajax",
+     "page=",
+     "currentpage"
+    ]
+   }
+  },
+  {
+   "who": "矿山安全监察局",
+   "name": "咨询",
+   "url": "https://www.chinamine-safety.gov.cn/hd/",
+   "status": 200,
+   "len": 37714,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 48,
+    "n_detail_like": 4,
+    "top_prefix": [
+     [
+      "https://www.chinamine-safety.gov.cn/jg/nsjg/",
+      3
+     ],
+     [
+      "https://www.chinamine-safety.gov.cn/jg/zyzz/202012/",
+      2
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 22,
+    "anti": [],
+    "login": [
+     "注册",
+     "login"
+    ],
+    "api_hints": [
+     "channelid",
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "中国地震局",
+   "name": "咨询",
+   "url": "https://www.cea.gov.cn/cea/jlhd/gzly/",
+   "status": 200,
+   "len": 101021,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 283,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      13
+     ],
+     [
+      "https://",
+      7
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 26,
+    "anti": [],
+    "login": [
+     "登录",
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "page=",
+     "currentpage"
+    ]
+   }
+  },
+  {
+   "who": "中国人民银行",
+   "name": "公众留言",
+   "url": "http://wzdt.pbc.gov.cn/",
+   "status": 404,
+   "len": 577,
+   "kind": "HTTP 404",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "审计署",
+   "name": "互动交流",
+   "url": "https://www.audit.gov.cn/",
+   "status": 200,
+   "len": 126593,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 285,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.audit.gov.cn/n11/n535/",
+      2
+     ],
+     [
+      "https://www.audit.gov.cn/n11/n1765/",
+      1
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 1,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国资委",
+   "name": "主任信箱",
+   "url": "http://www.sasac.gov.cn/",
+   "status": 200,
+   "len": 62968,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 184,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.gov.cn/yaowen/liebiao/202609/",
+      6
+     ],
+     [
+      "http://www.sasac.gov.cn/n2588025/n2588144/n35331108/",
+      3
+     ]
+    ],
+    "n_forms": 3,
+    "n_inputs": 11,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "海关总署",
+   "name": "署长信箱",
+   "url": "http://www.customs.gov.cn/",
+   "status": 412,
+   "len": 1977,
+   "kind": "HTTP 412",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家税务总局",
+   "name": "12366平台",
+   "url": "https://12366.chinatax.gov.cn/",
+   "status": 200,
+   "len": 125859,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 53,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://zfwzgl.www.gov.cn/exposure/",
+      1
+     ],
+     [
+      "https://beian.miit.gov.cn/",
+      1
+     ]
+    ],
+    "n_forms": 5,
+    "n_inputs": 12,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "signin",
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "currentpage"
+    ]
+   }
+  },
+  {
+   "who": "市场监管总局",
+   "name": "公众留言(聊天机器人)",
+   "url": "https://xgzlyhd.samr.gov.cn/",
+   "status": 200,
+   "len": 613,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 2,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://nginx.org/",
+      1
+     ],
+     [
+      "http://nginx.com/",
+      1
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家金融监管总局",
+   "name": "网上信访",
+   "url": "https://www.nfra.gov.cn/",
+   "status": 200,
+   "len": 215,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "证监会",
+   "name": "12386平台",
+   "url": "https://fwpt.csrc12386.org.cn/",
+   "status": 200,
+   "len": 26769,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 19,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "/",
+      3
+     ],
+     [
+      "/app/nt/",
+      3
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 7,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "login"
+    ],
+    "api_hints": [
+     "ajax"
+    ]
+   }
+  },
+  {
+   "who": "广电总局",
+   "name": "局长信箱",
+   "url": "http://www.nrta.gov.cn/",
+   "status": 200,
+   "len": 53320,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 258,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      24
+     ],
+     [
+      "https://zwfw.nrta.gov.cn/gd-portal/",
+      20
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "体育总局",
+   "name": "互动交流",
+   "url": "https://www.sport.gov.cn/",
+   "status": 200,
+   "len": 83588,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 292,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.sport.gov.cn/gdnps/",
+      4
+     ],
+     [
+      "https://www.sport.gov.cn/n4/n24581921/",
+      3
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 7,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "国家信访局",
+   "name": "网上投诉",
+   "url": "https://wsxf.gjxfj.gov.cn/",
+   "status": 200,
+   "len": 14304,
+   "kind": "登录墙",
+   "ev": {
+    "n_hrefs": 2,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家统计局",
+   "name": "智能平台",
+   "url": "https://www.stats.gov.cn/znwd/",
+   "status": 200,
+   "len": 714,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家知识产权局",
+   "name": "公众留言栏",
+   "url": "https://www.cnipa.gov.cn/col/col79/index.html",
+   "status": 200,
+   "len": 6112,
+   "kind": "登录墙",
+   "ev": {
+    "n_hrefs": 14,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.cnipa.gov.cn/jact/front/",
+      10
+     ],
+     [
+      "/",
+      1
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [
+     "注册"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国务院港澳办",
+   "name": "互动交流",
+   "url": "http://www.hmo.gov.cn/",
+   "status": 200,
+   "len": 118783,
+   "kind": "接口驱动",
+   "ev": {
+    "n_hrefs": 443,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.hmo.gov.cn/2026/08/27/",
+      36
+     ],
+     [
+      "https://www.hmo.gov.cn/2026/10/06/",
+      26
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 10,
+    "anti": [],
+    "login": [
+     "登录",
+     "login"
+    ],
+    "api_hints": [
+     "channelid",
+     "ajax",
+     "api/"
+    ]
+   }
+  },
+  {
+   "who": "中科院",
+   "name": "院长信箱",
+   "url": "https://www.cas.cn/",
+   "status": 200,
+   "len": 108070,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 440,
+    "n_detail_like": 120,
+    "top_prefix": [
+     [
+      "//www.cas.cn/../../djcx/gz/202609/",
+      9
+     ],
+     [
+      "//www.cas.cn/../../zz/",
+      8
+     ]
+    ],
+    "n_forms": 2,
+    "n_inputs": 5,
+    "anti": [],
+    "login": [
+     "注册"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "中国社科院",
+   "name": "院长信箱",
+   "url": "http://www.cass.cn/",
+   "status": 200,
+   "len": 54155,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 272,
+    "n_detail_like": 132,
+    "top_prefix": [
+     [
+      "http://",
+      4
+     ],
+     [
+      "/",
+      3
+     ]
+    ],
+    "n_forms": 2,
+    "n_inputs": 6,
+    "anti": [],
+    "login": [],
+    "api_hints": [
+     "channelid"
+    ]
+   }
+  },
+  {
+   "who": "中国工程院",
+   "name": "院长信箱",
+   "url": "https://www.cae.cn/",
+   "status": 200,
+   "len": 38971,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 105,
+    "n_detail_like": 39,
+    "top_prefix": [
+     [
+      "https://www.gov.cn/yaowen/liebiao/202609/",
+      12
+     ],
+     [
+      "/cae/app/link/",
+      8
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 4,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国务院发展研究中心",
+   "name": "互动交流",
+   "url": "https://www.drc.gov.cn/",
+   "status": 200,
+   "len": 109,
+   "kind": "其他/未明",
+   "ev": {
+    "n_hrefs": 0,
+    "n_detail_like": 0,
+    "top_prefix": [],
+    "n_forms": 0,
+    "n_inputs": 0,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "中国气象局",
+   "name": "局长信箱",
+   "url": "https://www.cma.gov.cn/",
+   "status": 200,
+   "len": 125903,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 523,
+    "n_detail_like": 140,
+    "top_prefix": [
+     [
+      "https://weather.cma.cn/web/",
+      13
+     ],
+     [
+      "http://",
+      11
+     ]
+    ],
+    "n_forms": 3,
+    "n_inputs": 1,
+    "anti": [],
+    "login": [
+     "login"
+    ],
+    "api_hints": [
+     "ajax",
+     "api/",
+     "pagesize"
+    ]
+   }
+  },
+  {
+   "who": "国家档案局",
+   "name": "互动交流",
+   "url": "https://www.saac.gov.cn/",
+   "kind": "⛔ConnectError",
+   "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)"
+  },
+  {
+   "who": "国家能源局",
+   "name": "网民留言",
+   "url": "https://www.nea.gov.cn/",
+   "status": 200,
+   "len": 99288,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 228,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "http://",
+      15
+     ],
+     [
+      "https://www.nea.gov.cn/policy/",
+      7
+     ]
+    ],
+    "n_forms": 1,
+    "n_inputs": 2,
+    "anti": [],
+    "login": [
+     "登录",
+     "注册",
+     "login"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家国防科工局",
+   "name": "互动交流",
+   "url": "https://www.sastind.gov.cn/",
+   "status": 200,
+   "len": 90225,
+   "kind": "纯表单",
+   "ev": {
+    "n_hrefs": 219,
+    "n_detail_like": 0,
+    "top_prefix": [
+     [
+      "https://www.sastind.gov.cn/history/n6195634/n6195706/n6195716/",
+      6
+     ],
+     [
+      "https://www.sastind.gov.cn/gdnps/pc/",
+      4
+     ]
+    ],
+    "n_forms": 2,
+    "n_inputs": 4,
+    "anti": [],
+    "login": [],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家药监局",
+   "name": "网上咨询",
+   "url": "https://www.nmpa.gov.cn/",
+   "status": 200,
+   "len": 47381,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 190,
+    "n_detail_like": 64,
+    "top_prefix": [
+     [
+      "https://www.gov.cn/yaowen/liebiao/202609/",
+      14
+     ],
+     [
+      "https://datasearch.nmpa.gov.cn/datasearch/",
+      8
+     ]
+    ],
+    "n_forms": 0,
+    "n_inputs": 1,
+    "anti": [],
+    "login": [
+     "注册",
+     "login"
+    ],
+    "api_hints": []
+   }
+  },
+  {
+   "who": "国家林草局",
+   "name": "互动交流",
+   "url": "https://www.ly.gov.cn/",
+   "status": 200,
+   "len": 55261,
+   "kind": "静态列表",
+   "ev": {
+    "n_hrefs": 215,
+    "n_detail_like": 61,
+    "top_prefix": [
+     [
+      "https://www.ly.gov.cn/2026/09-30/",
+      16
+     ],
+     [
+      "https://www.hnzwfw.gov.cn/portal/legal/",
+      8
+     ]
+    ],
+    "n_forms": 2,
+    "n_inputs": 4,
+    "anti": [],
+    "login": [
+     "登录",
+     "login"
+    ],
+    "api_hints": [
+     "api/"
+    ]
+   }
+  }
+ ]
+}

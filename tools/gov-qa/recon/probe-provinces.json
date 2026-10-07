@@ -1,0 +1,651 @@
+[
+ {
+  "level": "province",
+  "name": "河北省生态环境厅",
+  "domain": "hbepb.hebei.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 4133,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "山西省生态环境厅",
+  "domain": "sthj.shanxi.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "内蒙古生态环境厅",
+  "domain": "sthj.nmg.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "辽宁省生态环境厅",
+  "domain": "sthj.ln.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 9578,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthj.ln.gov.cn/sthj/zmhd/index.shtml",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://sthj.ln.gov.cn/sthj/zmhd/zxly/index.shtml",
+    "text": "咨询服务"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "吉林省生态环境厅",
+  "domain": "sthjt.jl.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 213,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "黑龙江省生态环境厅",
+  "domain": "sthj.hlj.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "江苏省生态环境厅",
+  "domain": "jsthjt.jiangsu.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "浙江省生态环境厅",
+  "domain": "sthjt.zj.gov.cn",
+  "home_status": 200,
+  "was5_status": 200,
+  "was5_len": 55976,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "安徽省生态环境厅",
+  "domain": "sthjt.ah.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthjt.ah.gov.cn/zmhd/index.html",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710371&action=list",
+    "text": "政策解读咨询"
+   },
+   {
+    "url": "https://sthjt.ah.gov.cn/public/column/21691?type=4&catId=32710431&action=list",
+    "text": "回应关切"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "福建省生态环境厅",
+  "domain": "sthjt.fujian.gov.cn",
+  "home_status": 200,
+  "was5_status": 200,
+  "was5_len": 800,
+  "was5_hit": true,
+  "hd_links": [
+   {
+    "url": "https://sthjt.fujian.gov.cn/gzcy/",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://sthjt.fujian.gov.cn/aisp/ff8080816e59baf3016e5e6e16cb3f38/chat/index.html",
+    "text": "政务问答"
+   },
+   {
+    "url": "https://sthjt.fujian.gov.cn/zwgk/wjjd/hygq/",
+    "text": "回应关切"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "江西省生态环境厅",
+  "domain": "jxsthjt.jiangxi.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "山东省生态环境厅",
+  "domain": "sdein.shandong.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "河南省生态环境厅",
+  "domain": "sthj.henan.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "湖北省生态环境厅",
+  "domain": "sthj.hubei.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "湖南省生态环境厅",
+  "domain": "sthjt.hunan.gov.cn",
+  "home_status": 200,
+  "was5_status": 200,
+  "was5_len": 474,
+  "was5_hit": true,
+  "hd_links": [
+   {
+    "url": "https://sthjt.hunan.gov.cn/sthjt/hdjl/index.html",
+    "text": "互动交流"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "广东省生态环境厅",
+  "domain": "gdee.gd.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://gdee.gd.gov.cn/hygq/index.html",
+    "text": "回应关切"
+   },
+   {
+    "url": "https://gdee.gd.gov.cn/hdjlpt?via=pc",
+    "text": "互动交流"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "广西生态环境厅",
+  "domain": "sthjt.gxzf.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "海南省生态环境厅",
+  "domain": "sthj.hainan.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "四川省生态环境厅",
+  "domain": "sthjt.sc.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c103053/newldxx.shtml",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c100447/list_w.shtml",
+    "text": "回应关切"
+   },
+   {
+    "url": "https://sthjt.sc.gov.cn/sthjt/c250403/zmhdzsk_index.shtml",
+    "text": "政民互动常见问题知识库"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "贵州省生态环境厅",
+  "domain": "sthj.guizhou.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthj.guizhou.gov.cn/hdjl/",
+    "text": "互动交流"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "云南省生态环境厅",
+  "domain": "sthj.yn.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "陕西省生态环境厅",
+  "domain": "sthj.shaanxi.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "甘肃省生态环境厅",
+  "domain": "sthj.gansu.gov.cn",
+  "home_status": 412,
+  "was5_status": 412,
+  "was5_len": 6466,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "青海省生态环境厅",
+  "domain": "sthj.qinghai.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "宁夏生态环境厅",
+  "domain": "sthjt.nx.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 1658,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthjt.nx.gov.cn/yqhy/hdzx/",
+    "text": "互动咨询"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "新疆生态环境厅",
+  "domain": "sthj.xinjiang.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "北京市生态环境局",
+  "domain": "sthjj.beijing.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 553,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthjj.beijing.gov.cn/jj/",
+    "text": "智能问答"
+   },
+   {
+    "url": "https://sthjj.beijing.gov.cn/bjhrb/index/zmhd68/index.html",
+    "text": "政民互动"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "上海市生态环境局",
+  "domain": "sthj.sh.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthj.sh.gov.cn/hbzhywpt5333/index.html",
+    "text": "建议提案答复"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "天津市生态环境局",
+  "domain": "sthj.tj.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 33712,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://sthj.tj.gov.cn/ZMHD5922/",
+    "text": "政民互动"
+   },
+   {
+    "url": "https://sthj.tj.gov.cn/ZWGK4828/ZFXXGK8438/FDZDGK27/XZCFQZXZCFXX7581/202110/t20211027_5666369.html",
+    "text": "天津利维特安全技术咨询有限公司听证公告"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "重庆市生态环境局",
+  "domain": "sthj.cq.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "河北省应急管理厅",
+  "domain": "yjt.hebei.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "江苏省应急管理厅",
+  "domain": "yjt.jiangsu.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "浙江省应急管理厅",
+  "domain": "yjglj.zj.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "山东省应急管理厅",
+  "domain": "yjgl.shandong.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "广东省应急管理厅",
+  "domain": "yjgl.gd.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "http://yjgl.gd.gov.cn/hdjlpt",
+    "text": "互动"
+   },
+   {
+    "url": "https://yjgl.gd.gov.cn/hdjlpt/",
+    "text": "我要咨询"
+   },
+   {
+    "url": "https://yjgl.gd.gov.cn/hd/lytj/index.html",
+    "text": "留言受理情况统计"
+   }
+  ],
+  "channelids": [
+   21926
+  ],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "四川省应急管理厅",
+  "domain": "yjglj.sc.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "河南省应急管理厅",
+  "domain": "yjglj.henan.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "湖南省应急管理厅",
+  "domain": "yjt.hunan.gov.cn",
+  "home_status": 200,
+  "was5_status": 200,
+  "was5_len": 474,
+  "was5_hit": true,
+  "hd_links": [
+   {
+    "url": "https://yjt.hunan.gov.cn/yjt/hdjl/hdjl_index.html",
+    "text": "互动交流"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "安徽省应急管理厅",
+  "domain": "yjt.ah.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 548,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://yjt.ah.gov.cn/hdjl/index.html",
+    "text": "互动交流"
+   },
+   {
+    "url": "https://yjt.ah.gov.cn/hdjl/tzxx/index.html",
+    "text": "信件选登"
+   },
+   {
+    "url": "https://yjt.ah.gov.cn/content/article/150397321",
+    "text": "咨询"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "湖北省应急管理厅",
+  "domain": "yjglj.hubei.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "重庆市应急管理局",
+  "domain": "yjgl.cq.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "上海市应急管理局",
+  "domain": "yjgl.sh.gov.cn",
+  "home_status": null,
+  "was5_status": null,
+  "was5_len": 0,
+  "was5_hit": false,
+  "hd_links": [],
+  "channelids": [],
+  "ajax_hints": []
+ },
+ {
+  "level": "province",
+  "name": "北京市应急管理局",
+  "domain": "yjglj.beijing.gov.cn",
+  "home_status": 200,
+  "was5_status": 404,
+  "was5_len": 552,
+  "was5_hit": false,
+  "hd_links": [
+   {
+    "url": "https://yjglj.beijing.gov.cn/art/2025/12/5/art_10662_1678.html",
+    "text": "《北京市应急管理行政处罚裁量权基准》简明问答"
+   }
+  ],
+  "channelids": [],
+  "ajax_hints": []
+ }
+]

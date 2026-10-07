@@ -1,0 +1,61 @@
+{
+ "api": "https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie",
+ "depts": {
+  "湖南省应急管理厅": {
+   "deptId": "5c24769298304cac9387087d8dd21334",
+   "pages": [
+    {
+     "page": 1,
+     "total": 538,
+     "pageTotal": 11,
+     "rows": 50
+    },
+    {
+     "page": 2,
+     "total": 538,
+     "pageTotal": 11,
+     "rows": 50
+    }
+   ],
+   "sampled": 100,
+   "有答复": 100,
+   "isPublish": 100,
+   "status分布": {
+    "已办结": 100
+   },
+   "类型分布": {
+    "投诉": 5,
+    "咨询": 94,
+    "建议": 1
+   }
+  },
+  "湖南省生态环境厅": {
+   "deptId": "c0fc18f40e604da3a01460d02d731d45",
+   "pages": [
+    {
+     "page": 1,
+     "total": 3830,
+     "pageTotal": 77,
+     "rows": 50
+    },
+    {
+     "page": 2,
+     "total": 3830,
+     "pageTotal": 77,
+     "rows": 50
+    }
+   ],
+   "sampled": 100,
+   "有答复": 100,
+   "isPublish": 100,
+   "status分布": {
+    "已办结": 100
+   },
+   "类型分布": {
+    "咨询": 92,
+    "投诉": 6,
+    "建议": 2
+   }
+  }
+ }
+}
