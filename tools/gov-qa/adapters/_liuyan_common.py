@@ -58,7 +58,7 @@ APPCODE = "PC42ce3bfa4980a9"          # 页面内联 SITE_CONFIG 公开常量，
 SECRET16 = hashlib.md5(APPCODE.encode()).hexdigest()[:16]
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120 Safari/537.36")
-PAUSE = 1.5
+PAUSE = 2.5                     # 403 限流实测在案（SITE-REGISTRY 未决问题①）：≥2.5s
 LIST_ROWS = 20
 
 TAG_RE = re.compile(r"<[^>]+>")

@@ -1,0 +1,29 @@
+[
+ {
+  "url": "https://sthjt.fujian.gov.cn/gzcy/tzxx/",
+  "status": 200,
+  "len": 47608,
+  "channelids": [],
+  "was5_urls": [],
+  "script_blocks": [],
+  "sub_links": [
+   "厅长信箱 -> https://sthjt.fujian.gov.cn/gzcy/tzxx/"
+  ]
+ },
+ {
+  "url": "https://sthjt.fujian.gov.cn/gzcy/tzxx/wyzx/",
+  "status": 200,
+  "len": 61854,
+  "channelids": [
+   "280067"
+  ],
+  "was5_urls": [],
+  "script_blocks": [
+   "\n\t\n\t\t\tvar encrypt = new JSEncrypt();\n\t\t\tencrypt.setPublicKey(\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAb6YU7hvBht7IBQhukCKNMnwQ8o6H+Ag8LNMIaN8dNxpaIGHy/5kx8PjITFqDrYoGi21eH8fsqO1alPSl7DVtQN6B24UBB37zIHm3VA+JO0BpYTRrgTxa5C8BLYKTCGLJzzh3p57HKtnQWljXyMPb31xi0uKT+/vJBgBPvSXO7QIDAQAB\");\n\t\n\t\n\t\t\trequire([\"jquery\", \"add\", 'list', \"dialog\"], function ($, add, listModel, dialog) {\n\t\t\t\tvar addhelp = avalon.define({\n\t\t\t\t\t$id: \"addhelp\",\n\t\t\t\t\tchnlId: 29\n\t\t\t\t});\n\t\n\t\n\t\t\t\tlistModel({\n\t\t\t\t\tMode: 'wasdoc',\n\t\t\t\t\tobjArgs: {\n\t\t\t\t\t\tlistArgs: {\n\t\t\t\t\t\t\tchannelid: '280067',\n\t\t\t\t\t\t\tclasssql: 'dockind=3',\n\t\t\t\t\t\t\tsortfield: \"s3\"\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\tpagebar: {\n\t\t\t\t\t\trecordCount: '20325',\n\t\t\t\t\t\tpgTemp: 'pgBar.html',\n\t\t\t\t\t\tprepage: 30,\n\t\t\t\t\t\tpgCountMode: 'recordCount',\n\t\t\t\t\t\tdisplayNum: 1\n\t\t\t\t\t},\n\t\t\t\t\tautoGetPage: 1,\n\t\t\t\t\tshowStatic: false,\n\t\t\t\t\tsearch: {\n\t\t\t\t\t\tsearchArgs: {\n\t\t\t\t\t\t\tenternametab: {\n\t\t\t\t\t\t\t\titems: [\n\t\t\t\t\t\t\t\t\t{ name: \"全部\", value: \"\" },\n\t\t\t\t\t\t\t\t\t{ name: \"福州\", value: \"福州\" },\n\t\t\t\t\t\t\t\t\t{ name: \"厦门\", value: \"厦门\" },\n\t\t\t\t\t\t\t\t\t{ name: \"漳州\", value: \"漳州\" },\n\t\t\t\t\t\t\t\t\t{ name: \"泉州\", value: \"泉州\" },\n\t\t\t\t\t\t\t\t\t{ name: \"莆田\", value: \"莆田\" },\n\t\t\t\t\t\t\t\t\t{ name: \"三明\", value: \"三明\" },\n\t\t\t\t\t\t\t\t\t{ name: \"南平\", value: \"南平\" },\n\t"
+  ],
+  "sub_links": [
+   "厅长信箱 -> https://sthjt.fujian.gov.cn/gzcy/tzxx/",
+   "网上咨询 -> https://sthjt.fujian.gov.cn/gzcy/tzxx/wyzx/"
+  ]
+ }
+]

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html class=""><!--长者模式这边加个class="slb"-->
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta name="viewport"
+    content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>
+		网上咨询_
+		厅长信箱_
+		福建省生态环境厅
+	</title>
+	<meta name="SiteName" content="福建省生态环境厅">
+<meta name="SiteDomain" content="sthjt.fujian.gov.cn">
+<meta name="SiteIDCode" content="3500000064">
+<meta name="ColumnName" content="网上咨询">
+<meta name="ColumnDescription" content="">
+<meta name="ColumnKeywords" content="">
+<meta name="ColumnType" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="ChnlId" content="21127">
+<meta name="SiteId" content="8">
+	<link rel="stylesheet" type="text/css" href="../../../images/trt_iconfont_v2.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/trt_ui_v2.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/trt_component_v2.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/trt_media_v2.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/221119qzghj_header.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/221119qzghj_footer.css">
+	<link rel="stylesheet" type="text/css" href="../../../images/221119qzghj_style.css">
+	<!-- 预留适老版样式表 -->
+	<link rel="stylesheet" type="text/css" href="../../../images/221208_sthjt_slbtyysb.css">
+	<!-- 通用样式 -->
+	<link rel="stylesheet" type="text/css" href="../../../images/221208_sthjt_tyysb.css">
+	<style>
+		.form_zx{min-height: 960px !important;}
+
+
+.tabs_header label{line-height:0.6rem; font-size:0.2rem; margin-right:0.15rem}
+.tabs_header label input{ margin-right:0.08rem}
+.content_bg_02 .tabs .tabs_header{padding-left:0.2rem;}
+.content_bg_02 .tabs .tabs_header:after{width:0;}
+            /*企业信息 add by lqy 2017-3-21 14:11:40*/
+    .currQy {
+        background: #eee;
+    }
+
+    .QyinfoLists_s {
+        width: 700px;
+        min-height: 30px;
+        height: auto;
+        clear: both;
+    }
+
+    .QyinfoLists_s li {
+        float: left;
+        padding: 3px;
+    }
+
+    .QyinfoLists_s li a {
+        padding: 6px 12px;
+        float: left;
+    }
+
+    .QyinfoLists_s li a:hover,
+    .QyinfoLists_s li a.curr {
+        color: #ffffff;
+        background-color: #428bca;
+        border-color: #357ebd;
+        border-radius: 3px;
+    }
+
+    .QyinfoLists {
+        width: 1200px;
+        min-height: 130px;
+        height: auto;
+        display: inline-block;
+        clear: both;
+        margin: 15px auto;
+    }
+
+    .QyinfoLists li {
+        padding: 3px 0px;
+        width: 32%;
+        float: left;
+    }
+
+
+    .Entername_style {
+        position: absolute;
+        right: 180px;
+        bottom: -54px;
+    }
+
+    .gl_text,
+    #inpEntername {
+        padding: 8px 12px;
+        border-radius: 4px;
+        font: 13.3333px Arial;
+    }
+
+    .gl_btn {
+        padding: 6px 12px;
+        border-radius: 4px;
+        color: #ffffff;
+        background-color: #428bca;
+        border-color: #357ebd;
+        font: 13.3333px Arial;
+    }
+
+    .fw-bold {
+        font-weight: bold;
+    }
+    @media screen and (max-width: 1000px){
+        .ui-dialog{width: 384px!important;
+         margin-left: 15px!important;}
+         .ui-dialog-title{width: 340px!important;}
+         .tips{    width: 350px!important;}
+         .QyinfoLists_s{    width: 270px!important;}
+         .QyinfoLists {width: 349px!important;}
+         .QyinfoLists li {
+
+    margin-right: 4px!important;
+}
+@media screen and (max-width: 450px){
+ .tabs_header label{display:block;}
+}
+.c-txt{    width: 328px!important;}
+.ui-dialog-content{width: 350px!important;}
+.Entername_style{width: 174px!important;}
+#inpEntername{width: 140px!important}
+    }
+	@media screen and (max-width: 400px){
+	        .ui-dialog{width: 331px!important;
+	         margin-left: 15px!important;}
+	         .ui-dialog-title{width: 300px!important;}
+	         .tips{    width: 300px!important;}
+	         .QyinfoLists_s{    width: 270px!important;}
+	         .QyinfoLists {width: 300px!important;}
+	         .QyinfoLists li {
+	
+	    margin-right: 4px!important;
+	}
+	.c-txt{    width: 300px!important;}
+	.ui-dialog-content{width: 300px!important;}
+	.Entername_style{width: 100px!important;}
+	#inpEntername{width: 100px!important}
+	    }
+   .err{border: 1px solid red !important;}
+        </style>
+</head>
+	<body ms-controller="windowRoot">
+		<div class="warp page_bg"><!--二级页面头部没有大背景，把page_bg去掉-->
+			<div class="header menu_hov">
+    <div class="row">
+        <div class="logo trt-col-9"><img src="/images/230410fj_sthjt_logo1.png" /><a href="/"><img src="/images/230410fj_sthjt_logo2.png" /></a></div>
+        <div class="header_line clearflx" role="serve" des="头部信息">
+            <div class="header_link_01">
+                <a href="http://www.gov.cn/" class="btn_base btn_outline btn_outline_primary btn_small">国务院</a>
+                <a href="https://www.mee.gov.cn/" class="btn_base btn_outline btn_outline_primary btn_small">生态环境部</a>
+                <a href="https://www.fujian.gov.cn/" class="btn_base btn_outline btn_outline_primary btn_small">省政府</a>
+                <!-- <a href="#" class="btn_base btn_outline btn_outline_primary btn_small">省人大</a>
+                <a href="#" class="btn_base btn_outline btn_outline_primary btn_small">省政协</a> -->
+            </div>
+            <div class="header_link_02">
+                <a style="display: none;" href="javascript:StranBody()" title="繁体版" id='StranLink'>繁体版</a>
+                <a href="javascript:;" class="none_sm">闽政通 <div class="header_img">
+                        <img src="/images/20xmszf_mzt_ewm.png" />
+                    </div>
+                </a>
+
+                <a href="https://zqztc.fujian.gov.cn/" target="_blank" title="政企直通车" class="none_sm">政企直通车<div
+                        class="header_img">
+                        <img src="/images/20250627zqztc.jpg" />
+                    </div>
+                </a>
+
+
+
+            </div> <!-- <div class="header_link_02 none_sm">
+                <a href="#">登录</a>
+            </div> -->
+            <span>网站支持IPv6</span>
+        </div>
+        <div class="menu_base menu_right menu_hd" role="navigation" des="站点主目录">
+            <ul class="clearflx">
+                <!--有下拉菜单的li加上parentNode-->
+                <li ms-class="on:currPath==''"><a href="/">首页</a></li>
+                <li class="parentNode" ms-class="on:currPath=='gkxx'"><a href="/gkxx/" title="概况信息">概况信息</a></li>
+                <li class="parentNode" ms-class="on:currPath=='zwgk'"><a href="/zwgk/" title="政务公开">政务公开</a></li>
+                <li class="parentNode" ms-class="on:currPath=='gzcy'"><a href="/gzcy/" title="互动交流">互动交流</a></li>
+                <li ms-class="on:currPath=='wsbs'"><a
+                        href="https://zwfw.fujian.gov.cn/province-dept/index?type=2&siteUnid=0034802CDA6EB54E6975312187BD9AEA&randomNum=0.8091622866359283"
+                        target="_blank" title="办事服务">办事服务</a></li>
+                <li ms-class="on:currPath=='ztzl'"><a href="/ztzl/" title="专题专栏">专题专栏</a></li>
+            </ul>
+        </div>
+        <div class="search_fixed">
+
+            <form action="https://sthjt.fujian.gov.cn/aisp/ff8080816e59baf3016e5e6e16cb3f38/search/index.html" method="get" target="_blank">
+
+                <input type="text" placeholder="请输入搜索内容" required="required" name="key" id="selecttags" autocomplete="off" class="form-control" />
+                <button class="btn_base" value="高级搜索"><i class="trt-iconfont trt-icon-sousuo"></i></button>
+            </form>
+
+        </div>
+    </div>
+    <div class="submenu menu_bd">
+        <div class="row">
+            <div></div>
+        </div>
+        <div class="row">
+
+            <div>
+                <a href="/gkxx/stld/" target="_blank" title="省厅领导">省厅领导</a>
+                <a href="/gkxx/jgzn/" target="_blank" title="机构职能">机构职能</a>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div>
+                <a href="/zwgk/sthjyw/" target="_blank" title="省厅环境要闻">省厅环境要闻</a>
+                <a href="/zwgk/mtbd/" target="_blank" title="媒体报道">媒体报道</a>
+                <a href="/zwgk/gsgg/" target="_blank" title="公告公示">公告公示</a>
+                <a href="/zwgk/sjfb/" target="_blank" title="统计数据">统计数据</a>
+                <a href="/zwgk/flfg/" target="_blank" title="政策法规">政策法规</a>
+                <a href="/zwgk/wjjd/" target="_blank" title="政策解读">政策解读</a>
+                <a href="/zwgk/ghjh/" target="_blank" title="财政资金">财政资金</a>
+                <a href="/zwgk/rsxx/" target="_blank" title="人事信息">人事信息</a>
+                <a href="/zwgk/ywxx/" target="_blank" title="业务信息">业务信息</a>
+                <a href="/zwgk/zfxxgkzl/zfxxgkzn/" target="_blank" title="政府信息公开">政府信息公开</a>
+                <a href="/zwgk/ghjh1/" target="_blank" title="规划计划">规划计划</a>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <a href="/gzcy/tzxx/" target="_blank" title="厅长信箱">厅长信箱</a>
+                <a href="/gzcy/zxft/" target="_blank" title="在线访谈">在线访谈</a>
+                <a href="/gzcy/zqyj/" target="_blank" title="民意征集">民意征集</a>
+                <a href="/gzcy/wsdc/" target="_blank" title="网上调查">网上调查</a>
+                <a href="/aisp/ff8080816e59baf3016e5e6e16cb3f38/chat/index.html" target="_blank" title="政务问答">政务问答</a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div></div>
+        </div>
+        <div class="row">
+            <div></div>
+        </div>
+
+    </div>
+</div>
+<div class="banner_header">
+    <div class="row">
+        <div class="trt-row">
+            <div class="trt-col-7 trt-col-sm-0">
+                <div class="area_weather">
+                    <p>
+                        <i ms-text="now|date('yyyy年MM月dd日')"></i>&nbsp;
+                        <i ms-text="now|date('EEEE')"></i>&nbsp;
+
+                    </p>
+
+                </div>
+            </div>
+            <div class="trt-col-10 trt-col-sm-18" role="interaction" des="搜索">
+                <form action="https://sthjt.fujian.gov.cn/aisp/ff8080816e59baf3016e5e6e16cb3f38/search/index.html" id="form" class="form" method="get" target="_blank"
+                    ms-blur="$togLinkkey">
+                    <div class="search_area">
+                        <div class="input_select input_base input_group input_group_append input_group_prepend">
+                            <div class="input_group_prepend_01">
+                                <div class="select_group">
+                                    <div class="input_base input_suffix">
+                                        <input type="text" readonly="readonly" placeholder="本站" value="本站" class="input_inner search_input" />
+                                        <span class="input_icon"><i
+                                                class="trt-iconfont trt-icon-shangxiajiantou"></i></span>
+                                        <div class="select_dropdown shadow_base">
+                                            <selection>
+                                                <option data-value="全省" class="selected">全省</option>
+                                                <option data-value="本站">本站</option>
+                                            </selection>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="请输入关键字" name="key" class="input_inner" id="selecttags" required="required" autocomplete="off" />
+                            <input id="siteId" name="siteId" type="hidden" value="" />
+                            <input id="isMain" name="isMain" type="hidden" value="" />
+                            <div class="input_group_append_01">
+                                <button class="btn_base btn_default">
+                                    <i class="trt-iconfont trt-icon-sousuo"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="trt-col-7 trt-col-sm-6 slb-trt-col-sm-24 text_align_right">
+                <div class="aged_link">
+                    <a href="javascript:;" class="aged_link_01" ms-click="$inSlb()" title="长者模式"><i
+                            class="trt-iconfont trt-icon-laoren"></i>长者模式</a>
+                    <a href="javascript:;" class="aged_link_01 none" ms-click="$outSlb()" title="退出长者模式">退出长者模式</a>
+                    <a href="javascript:;" class="aged_link_02" title="无障碍浏览" id="barrierFreeBtn"><i
+                            class="trt-iconfont trt-icon-a-fenzu2"></i>无障碍浏览</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+			<div class="main">
+				<div class="content" ms-controller="addhelp">
+					<div class="row mar_t_base">
+						<div class="content_bg_02 pad_base pad_base0_sm">
+							<div class="breadcrumb">
+								<span><i class="trt-iconfont trt-icon-weizhi"></i>当前位置：</span>
+								<ul>
+									
+									<li><a href="../../../" title="首页" class="CurrChnlCls">首页</a></li><li><a href="../../" title="互动交流" class="CurrChnlCls">互动交流</a></li><li><a href="../" title="厅长信箱" class="CurrChnlCls">厅长信箱</a></li><li><a href="./" title="网上咨询" class="CurrChnlCls">网上咨询</a></li>
+
+								</ul>
+							</div>
+							<div class="article_title_group mar_t_small mar_t_base0_sm">
+								<div class="article_title text_align_center">网上咨询  </div>
+							</div>
+							<div class="tabs">
+								<div class="tabs_header tabs_hd">
+									<!-- <ul>
+										<li class="on"><a href="#">我要咨询</a></li>
+										<li><a href="#">我要投诉</a></li>
+									</ul> -->
+									<label class="slb_mar_b_middle">信件类型：</label>
+									<label><input type="radio" name="sel" checked="checked" value="29" ms-duplex-number="chnlId" />我要咨询</label>
+									<label><input type="radio" name="sel" value="" ms-duplex-number="chnlId" />我要投诉</label>
+
+								</div>
+								<div class="tabs_content ">
+									<div class="form_zx" ms-visible="chnlId==29" style="display:block;"><!-- 我要咨询 -->
+										<div class="form_notes">
+											<h6>咨询须知</h6>
+											<p>（1）请您自觉遵守中华人民共和国宪法和法律。</p>
+											<p>（2）您应对咨询内容的真实性、客观性负责，咨询中不得含有造谣、诽谤、攻击他人的内容和言论。否则，您将承担由此而引发的相关法律责任。</p>
+											<p>（3）请您保存好您的咨询反馈码，以便查询您咨询信息的回复情况。</p>
+											<p>（4）办理时限：按照《信访条例》规定的时限处理。</p>
+										</div>
+										<div class="article_component mar_t_large mar_t_base0_sm">
+											<div class="input_group1">
+												<form  ms-controller="addzx">
+													<div class="mar_t_small clearflx">
+														<div class="trt-row">
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24">
+																<label class="slb_mar_b_middle"><em>*</em>姓名：</label>
+																<input type="hidden" name="chnlId" value="29" />
+																<input class="form_control" type="text" placeholder="请输入您的姓名" name="sender" ms-duplex="addForm.sender" ms-class="err:errInfo.sender" />
+															</div>
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24 mar_t_base_sm slb_mar_t_middle">
+																<label class="slb_mar_b_middle"><em>*</em>联系电话：</label>
+																<input class="form_control" type="text" placeholder="请输入您的联系电话" name="linkPhone" id="phoneNum" ms-class="err:errInfo.linkPhone" />
+															</div>
+														</div>
+													</div>
+													<div class="mar_t_small clearflx">
+														<div class="trt-row">
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24">
+																<label class="slb_mar_b_middle"><em>*</em>电子邮箱：</label><input class="form_control" type="text" name="email" placeholder="请输入电子邮箱" id="eml" ms-class="err:errInfo.email" />
+															</div>
+															<!-- <div class="trt-col-12 trt-col-sm-24 slb-trt-col-24 mar_t_base_sm slb_mar_t_middle">
+																<label class="slb_mar_b_middle"><em>*</em>联系地址：</label><input class="form_control" type="text" placeholder="请输入联系地址" />
+															</div> -->
+														</div>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle" >所属地区：</label>
+														<select class="sel_input" ms-duplex="addForm.ex_area" ms-class="err:errInfo.ex_area">
+																<option value="福州" selected="selected">福州</option>
+																<option value="厦门">厦门</option>
+																<option value="漳州">漳州</option>
+																<option value="泉州">泉州</option>
+																<option value="莆田">莆田</option>
+																<option value="三明">三明</option>
+																<option value="南平">南平</option>
+																<option value="龙岩">龙岩</option>
+																<option value="宁德">宁德</option>
+																<option value="平潭">平潭</option>
+														</select>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle">咨询类型：</label>
+														<select class="sel_input" ms-duplex="addForm.ex_lettertype" ms-class="err:errInfo.ex_lettertype">
+																<option value="环境污染" selected="selected">环境污染</option>
+																<option value="环境科技">环境科技</option>
+														</select>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>写信对象：</label>
+														<select class="sel_input" name="sendOrg" ms-duplex="addForm.sendOrg" ms-class="err:errInfo.sendOrg">
+																<option value="22">办公室</option>
+																<option value="41">人事处</option>
+																<option value="42">政策法规处</option>
+																<option value="24">规划财务处</option>
+																<option value="25">监测科技处</option>
+																<option value="43">大气环境管理处</option>
+																<option value="44">环境影响评价处</option>
+																<option value="45">土壤环境管理处</option>
+																<option value="26">自然生态保护处</option>
+																<option value="27">水环境管理处</option>
+																<option value="28">核与辐射监管处</option>
+																<option value="37">核应急处</option>
+																<option value="48">机关党委</option>
+																<option value="49">监察室</option>
+														</select>
+													</div>
+
+
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>标题：</label>
+														<input class="form_control" type="text" placeholder="请输入标题" ms-duplex="addForm.title" ms-class="err:errInfo.title" name="title" />
+													</div>
+
+
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>内容：</label>
+														<textarea class="form_control" placeholder="请输入内容" ms-duplex="addForm.content" ms-class="err:errInfo.content" name="content"></textarea>
+													</div>
+
+
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>验证码：</label>
+														<input class="form_control verification_code" type="text" placeholder="请输入验证码" name="vCode" ms-duplex="addForm.vCode" ms-class="err:errInfo.vCode" validate="required:true" />
+														<img ms-click="$getImg" ms-attr-src="codeUrl" class="verification_code_img" />
+														<a href="javascript:void(0);" ms-click="$getImg" class="primary_color mar_l_small text_underline pic_renew">点击图片换一张</a>
+													</div>
+
+
+
+													<!-- <div class="mar_t_small mar_t_base0_sm clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>信件类型：</label>
+														<div class="radio_base icheck-primary">
+																<input type="radio" name="sel" checked="checked" value="29" ms-duplex-number="chnlId" />
+																<label>我要咨询</label>
+														</div>
+														<div class="radio_base icheck-primary">
+																<input type="radio" name="sel" value="" ms-duplex-number="chnlId" />
+																<label>我要投诉</label>
+														</div>
+													</div> -->
+
+													<div class="btn_group text_align_center mar_t_large">
+														<button class="btn_base btn_large btn_primary" type="button" id="clickBtn">提交</button>
+														<button type="reset" class="btn_base btn_large btn_info" ms-click="$reset">重置</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form_zx" ms-visible="chnlId!=29" style="display:none;"><!-- 我要投诉 -->
+										<div class="form_notes">
+											<h6>投诉须知</h6>
+											<p>（1）请您自觉遵守中华人民共和国宪法和法律。</p>
+											<p>（2）您应对来信内容的真实性、客观性负责，信中不得含有造谣、诽谤、攻击他人的内容和言论。否则，您将承担由此而引发的相关法律责任。</p>
+											<p>（3）请您保存好您的反馈码，以便查询您投诉信息的回复情况。</p>
+											<p>（4）办理时限：按照《信访条例》规定的时限处理。</p>
+										</div>
+										<div class="article_component mar_t_large mar_t_base0_sm">
+											<div class="input_group1">
+												<form ms-controller="addts">
+													<div class="mar_t_small clearflx">
+														<div class="trt-row">
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24">
+																<label class="slb_mar_b_middle"><em>*</em>姓名：</label>
+																<input class="form_control" type="text" placeholder="请输入您的姓名" name="sender" ms-duplex="addForm.sender" ms-class="err:errInfo.sender" />
+															</div>
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24 mar_t_base_sm slb_mar_t_middle">
+																<label class="slb_mar_b_middle"><em>*</em>联系方式：</label>
+																<input class="form_control" type="text" placeholder="请输入您的联系方式" name="linkPhone" id="phoneNum1" ms-class="err:errInfo.linkPhone" />
+															</div>
+														</div>
+													</div>
+													<div class="mar_t_small clearflx">
+														<div class="trt-row">
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24">
+																<label class="slb_mar_b_middle"><em>*</em>电子邮箱：</label>
+																<input class="form_control" type="text" placeholder="请输入电子邮箱" name="email" id="eml1" ms-class="err:errInfo.email" />
+															</div>
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24 mar_t_base_sm slb_mar_t_middle">
+																<label class="slb_mar_b_middle"><em>*</em>联系地址：</label>
+																<input class="form_control" type="text" placeholder="请输入联系地址" name="address" ms-duplex="addForm.address" ms-class="err:errInfo.address" />
+															</div>
+														</div>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle">所属地区：</label>
+														<select class="sel_input" name="chnlId" ms-duplex-number="addForm.chnlId">
+																<option value="49" selected="selected">福州</option>
+																<option value="50">厦门</option>
+																<option value="51">漳州</option>
+																<option value="30">泉州</option>
+																<option value="31">莆田</option>
+																<option value="32">三明</option>
+																<option value="52">南平</option>
+																<option value="53">龙岩</option>
+																<option value="33">宁德</option>
+																<option value="54">平潭</option>
+														</select>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle">投诉类型：</label>
+														<select class="sel_input" name="ex_lettertype_0" id="ex_lettertype_0">
+																<option value="环境污染与生态环境破坏类" selected="selected">环境污染与生态环境破坏类</option>
+																<option value="建设项目类">建设项目类</option>
+																<option value="作业作风类">作业作风类</option>
+																<option value="发明建议类">发明建议类</option>
+																<option value="环境监测类">环境监测类</option>
+																<option value="咨询类">咨询类</option>
+																<option value="其他">其他</option>
+
+														</select>
+													</div>
+													<!--环境污染与生态环境破坏类子选项-->
+													<div class="mar_t_small clearflx" style="margin-left: 1rem;">
+														<!-- <label class="slb_mar_b_middle">投诉类型：</label> -->
+														<select class="sel_input" id="ex_lettertype_1">
+																<option value="水污染" selected="selected">水污染</option>
+																<option value="大气污染">大气污染</option>
+																<option value="固体废物">固体废物</option>
+																<option value="噪声污染">噪声污染</option>
+																<option value="危险化学品">危险化学品</option>
+																<option value="放射性污染">放射性污染</option>
+																<option value="电磁辐射">电磁辐射</option>
+																<option value="三产污染">三产污染</option>
+																<option value="生态破坏">生态破坏</option>
+																<option value="蓄养、农药化肥污染">蓄养、农药化肥污染</option>
+																<option value="其他">其他</option>
+
+														</select>
+													</div>
+													<!--环境污染与生态环境破坏类子选项-end-->
+													<div class="mar_t_small clearflx">
+														<div class="trt-row">
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24">
+																<label class="slb_mar_b_middle"><em>*</em>单位名称：</label>
+																<input class="form_control" type="text" placeholder="请输入单位名称" ms-duplex="addForm.ex_company" ms-class="err:errInfo.ex_company" onclick="showQyInfo()" />
+																<input type="hidden" ms-duplex="addForm.ex_qyid" class="form_control" />
+																<input type="hidden" ms-duplex="addForm.ex_area" class="form_control" />
+															</div>
+															<div class="trt-col-12 trt-col-sm-24 slb-trt-col-24 mar_t_base_sm slb_mar_t_middle">
+																<label class="slb_mar_b_middle"><em>*</em>单位地址：</label>
+																<input class="form_control" type="text" placeholder="请输入单位地址" ms-duplex="addForm.ex_popedom" ms-class="err:errInfo.ex_popedom" />
+															</div>
+														</div>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>标题：</label>
+														<input class="form_control" type="text" placeholder="请输入标题" name="title" ms-duplex="addForm.title" ms-class="err:errInfo.title" />
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>内容：</label>
+														<textarea class="form_control" placeholder="请输入内容" ms-duplex="addForm.content" ms-class="err:errInfo.content" name="content"></textarea>
+													</div>
+													<div class="mar_t_small clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>验证码：</label>
+														<input class="form_control verification_code" type="text" placeholder="请输入验证码" name="vCode" ms-duplex="addForm.vCode" ms-class="err:errInfo.vCode" validate="required:true" />
+														<img ms-click="$getImg" ms-attr-src="codeUrl" class="verification_code_img" />
+														<a href="javascript:void(0);" ms-click="$getImg" class="primary_color mar_l_small text_underline pic_renew">点击图片换一张</a>
+													</div>
+													<!-- <div class="mar_t_small mar_t_base0_sm clearflx">
+														<label class="slb_mar_b_middle"><em>*</em>是否公开：</label>
+														<div class="radio_base icheck-primary">
+															<input type="radio" id="default" name="primary" />
+															<label for="default">是</label>
+														</div>
+														<div class="radio_base icheck-primary">
+															<input type="radio" checked="" id="primary" name="primary" />
+															<label for="primary">否</label>
+														</div>
+													</div> -->
+													<div class="btn_group text_align_center mar_t_large">
+														<button class="btn_base btn_large btn_primary" type="button" ms-controller="passFirm" ms-click="sub">提交</button>
+														<button type="reset" class="btn_base btn_large btn_info" ms-click="$reset">重置</button>
+													</div>
+												</form>
+											</div>
+										</div>
+
+
+            <!--填写被投诉单位名称-->
+            <div id="QyLists" class="top_list" style="display:none; ">
+                <div class="tips">
+                    <strong>温馨提示：</strong><br> 　　1、被投诉单位的填报，您可以在查询列表中查询对应单位，然后选中被投诉单位后点击右下角蓝色的【确定】按钮。
+                    <br> 　 　2、如果通过列表查询时查询不到对应的单位，您可在右下方企业名称的输入框输入对应的单位名称，然后点击蓝色的【确定】按钮。
+				</div>
+				
+                <div class="mt10" ms-controller="list_search">
+                    <form id="listForm" ms-submit="$search">
+                        <table width=100%>
+                            <tr>
+                                <th width="80px"><span class="fw-bold">所属地市：</span></th>
+                                <td>
+                                    <ul class=" QyinfoLists_s ">
+                                        <li ms-repeat="helps.enternametabItems">
+                                            <a ms-class="curr:searchForm.enternametab==$index" ms-click="$setVal('enternametab',$index,$event)" ms-click-1="$togDrop('enternametab',false)">{{el.name}}</a>
+                                        </li>
+
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="fw-bold">关 键 字：</span></th>
+                                <td>
+                                    <input type="text" class="gl_text veralign-mid" placeholder="请输入企业名称" ms-duplex="searchForm.entername" name="entername" />
+                                    <input type="submit" class="gl_btn veralign-mid" value="搜索" />
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </div>
+
+
+                <ul class="QyinfoLists" ms-controller="list">
+                    <li ms-repeat="list">
+                        <label>
+                            <input type="radio" name="entername" ms-attr-title="el.s1" ms-attr-qyid="el.s2" ms-attr-area="el.s4" ms-attr-enteraddress="el.s16" onclick="getQyInfo(this)" />{{el.s1}}
+                        </label>
+                    </li>
+                </ul>
+                <div class="c-txt pgStyle" ms-controller="list_pagebar" ms-include-src="pgTemp"></div>
+                <div class="Entername_style" ms-controller="addts">
+                    <span class="veralign-mid">企业名称：</span>
+                    <input type="text" id="inpEntername" value="" ms-duplex="addForm.ex_company" placeholder="请输入企业名称" onfocus="ResetQyInfo()" />
+                </div>
+            </div>
+ 			<!--填写被投诉单位名称-end-->
+
+									</div><!-- 我要投诉:end -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+    <div class="border_t_solid_01"></div>
+    <div class="row">
+      <div class="out_links">
+        <ul class="trt-row">
+          <li class="trt-col-6">
+            <p>生态环境部</p>
+            <div class="shadow_base">
+  
+              <ul class="trt-row">
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://www.mee.gov.cn/" target="_blank" title="生态环境部">生态环境部</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://www.chinaeic.net/" target="_blank" title="生态环境部信息中心">生态环境部信息中心</a>
+                  </li>
+                
+              </ul>
+  
+            </div>
+          </li>
+          <li class="trt-col-6">
+            <p>省(直辖市)生态环境厅(局)</p>
+            <div class="shadow_base">
+              <ul class="trt-row">
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.nmg.gov.cn/" target="_blank" title="内蒙古自治区环保厅">内蒙古自治区环保厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.qinghai.gov.cn/" target="_blank" title="青海省生态环境厅">青海省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.yn.gov.cn/index.html" target="_blank" title="云南省生态环境厅">云南省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.sc.gov.cn/" target="_blank" title="四川省生态环境厅">四川省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthj.guizhou.gov.cn/" target="_blank" title="贵州省生态环境厅">贵州省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gdee.gd.gov.cn/" target="_blank" title="广东省生态环境厅">广东省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.hunan.gov.cn/" target="_blank" title="湖南省生态环境厅">湖南省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.hubei.gov.cn/" target="_blank" title="湖北省生态环境厅">湖北省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.henan.gov.cn/" target="_blank" title="河南省生态环境厅">河南省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://www.sdein.gov.cn/" target="_blank" title="山东省生态环境厅">山东省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.ah.gov.cn/" target="_blank" title="安徽省生态环境厅">安徽省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.jiangxi.gov.cn/" target="_blank" title="江西省生态环境厅">江西省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.jiangsu.gov.cn/" target="_blank" title="江苏省生态环境厅">江苏省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.zj.gov.cn/" target="_blank" title="浙江省生态环境厅">浙江省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="https://sthj.sh.gov.cn/" target="_blank" title="上海市生态环境局">上海市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.jl.gov.cn/" target="_blank" title="吉林省生态环境厅">吉林省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthj.ln.gov.cn/" target="_blank" title="辽宁省生态环境厅">辽宁省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://hbepb.hebei.gov.cn/" target="_blank" title="河北省生态环境厅">河北省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthj.tj.gov.cn/" target="_blank" title="天津市生态环境局">天津市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.beijing.gov.cn/" target="_blank" title="北京市生态环境局">北京市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthj.gansu.gov.cn/" target="_blank" title="甘肃省生态环境厅">甘肃省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjt.nx.gov.cn/" target="_blank" title="宁夏回族自治区生态环境厅">宁夏回族自治区生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://hnsthb.hainan.gov.cn/" target="_blank" title="海南省生态环境厅">海南省生态环境厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.cq.gov.cn/" target="_blank" title="重庆市生态环境局">重庆市生态环境局</a>
+                  </li>
+                
+              </ul>
+            </div>
+          </li>
+          <li class="trt-col-6">
+            <p>省直厅局网站</p>
+            <div class="shadow_base">
+              <ul class="trt-row">
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://fgw.fujian.gov.cn" target="_blank" title="省发改委">省发改委</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://jyt.fujian.gov.cn" target="_blank" title="省教育厅">省教育厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://kjt.fujian.gov.cn" target="_blank" title="省科技厅">省科技厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gxt.fujian.gov.cn/" target="_blank" title="省工信厅">省工信厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://mzzjt.fujian.gov.cn" target="_blank" title="省民族宗教厅">省民族宗教厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gat.fujian.gov.cn/" target="_blank" title="省公安厅">省公安厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://mzt.fujian.gov.cn" target="_blank" title="省民政厅">省民政厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sft.fujian.gov.cn" target="_blank" title="省司法厅">省司法厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://czt.fujian.gov.cn" target="_blank" title="省财政厅">省财政厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://rst.fujian.gov.cn" target="_blank" title="省人社厅">省人社厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://zrzyt.fujian.gov.cn/" target="_blank" title="省自然资源厅">省自然资源厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://zjt.fujian.gov.cn" target="_blank" title="省住建厅">省住建厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://jtyst.fujian.gov.cn" target="_blank" title="省交通运输厅">省交通运输厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://slt.fujian.gov.cn" target="_blank" title="省水利厅">省水利厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://nynct.fujian.gov.cn/" target="_blank" title="省农业农村厅">省农业农村厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://swt.fujian.gov.cn" target="_blank" title="省商务厅">省商务厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://wlt.fujian.gov.cn/" target="_blank" title="省文化和旅游厅">省文化和旅游厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://wjw.fujian.gov.cn/" target="_blank" title="省卫健委">省卫健委</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://tyjrswt.fujian.gov.cn/" target="_blank" title="省退役军人事务厅">省退役军人事务厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://yjt.fujian.gov.cn/" target="_blank" title="省应急厅">省应急厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sjt.fujian.gov.cn" target="_blank" title="省审计厅">省审计厅</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://wb.fujian.gov.cn" target="_blank" title="省外办">省外办</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gzw.fujian.gov.cn" target="_blank" title="省国资委">省国资委</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://lyj.fujian.gov.cn/" target="_blank" title="省林业局">省林业局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="https://hyyyj.fujian.gov.cn/" target="_blank" title="省海洋渔业局">省海洋渔业局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://scjgj.fujian.gov.cn/" target="_blank" title="省市场监管局">省市场监管局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gdj.fujian.gov.cn/" target="_blank" title="省广电局">省广电局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://tyj.fujian.gov.cn" target="_blank" title="省体育局">省体育局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://tjj.fujian.gov.cn" target="_blank" title="省统计局">省统计局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://gdb.fujian.gov.cn/" target="_blank" title="省人防办">省人防办</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://ybj.fujian.gov.cn/" target="_blank" title="省医保局">省医保局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://fjjrb.gov.cn/" target="_blank" title="省金融监管局">省金融监管局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://xfj.fujian.gov.cn/" target="_blank" title="省政府信访局">省政府信访局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://jgswglj.fujian.gov.cn" target="_blank" title="省机关事务管理局">省机关事务管理局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://lsj.fujian.gov.cn" target="_blank" title="省粮食和物资储备局">省粮食和物资储备局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://yjj.scjgj.fujian.gov.cn/" target="_blank" title="省药监局">省药监局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://qb.fujian.gov.cn/" target="_blank" title="省侨办">省侨办</a>
+                  </li>
+                
+              </ul>
+            </div>
+          </li>
+          <li class="trt-col-6">
+            <p>市县（区）生态环境局网站</p>
+            <div class="shadow_base">
+              <ul class="trt-row">
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://www.fuzhou.gov.cn/zgfzzt/shbj/" target="_blank" title="福州市生态环境局">福州市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.xm.gov.cn/" target="_blank" title="厦门市生态环境局">厦门市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://hbj.zhangzhou.gov.cn/" target="_blank" title="漳州市生态环境局">漳州市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.quanzhou.gov.cn/" target="_blank" title="泉州市生态环境局">泉州市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://shb.sm.gov.cn/" target="_blank" title="三明市生态环境局">三明市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.putian.gov.cn/" target="_blank" title="莆田市生态环境局">莆田市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.np.gov.cn/" target="_blank" title="南平市生态环境局">南平市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.longyan.gov.cn/" target="_blank" title="龙岩市生态环境局">龙岩市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://sthjj.ningde.gov.cn/" target="_blank" title="宁德市生态环境局">宁德市生态环境局</a>
+                  </li>
+                
+                  <li class="trt-col-ave-7 trt-col-sm-24">
+                    <a href="http://www.pingtan.gov.cn/" target="_blank" title="平潭综合实验区自然资源与生态环境局">平潭综合实验区自然资源与生态环境局</a>
+                  </li>
+                
+              </ul>
+            </div>
+          </li>
+  
+        </ul>
+        <div class="out_links_close shadow_base"><i class="trt-iconfont trt-icon-dacha"></i></div>
+      </div>
+    </div>
+    <div class="border_b_solid_01"></div>
+    <div class="row mar_t_base mar_t_small_sm">
+      <div class="trt-row clearflx">
+        <div class="trt-col-12 trt-col-sm-24 website_info">
+          <p>
+<a href="http://sthjt.fujian.gov.cn/bzzx/ysbh/"
+              target="_blank">隐私保护</a><em>|</em>
+<a href="http://sthjt.fujian.gov.cn/bzzx/sybz/"
+              target="_blank">使用帮助</a><em>|</em><a
+              href="http://sthjt.fujian.gov.cn/bzzx/wzdt/"
+              target="_blank">网站地图</a><em>|</em><a
+              href="http://sthjt.fujian.gov.cn/bzzx/lxwm/" target="_blank">联系我们</a><em></p>
+                <p><span>网站标识码：
+                  3500000064
+                </span>  <span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35010202001270" target="_blank"><img src="/images/babs.png" />闽公网安备
+                  35010202001270号</a>
+                
+      
+                </span><span> <a href="http://beian.miit.gov.cn/" target="_blank">备案号：
+                    闽ICP备13013504号
+                  </a></span></p>
+          <p><span>联系地址：福建省福州市环保路8号</span><span>邮政编码：350003</span></p>
+          <p><span>版权所有：© 福建省生态环境厅</span><span>中文域名：福建省生态环境厅.政务</span></p>
+        </div>
+        <div class="trt-col-8 trt-col-sm-24 media_info">
+          <h3>新媒体矩阵</h3>
+            <ul class="trt-row">
+                          <li class="trt-col-12 slb-trt-col-24"><a href="javascript:;"><span
+                                      class="trt-iconfont trt-icon-weixin1"></span>福建省生态环境官方微信</a>
+                              <div class="ewm_tu"><img src="/images/20200414-ewm-img.png" /></div>
+                          </li>
+                          <li class="trt-col-12 slb-trt-col-24"><a href="javascript:;"><span
+                                      class="trt-iconfont trt-icon-minzhengtong"></span>APP闽政通</a>
+                              <div class="ewm_tu"> <img src="/images/230410fj_sthjt_ewm.png" /></script>
+                              </div>
+                          </li>
+                          <li class="trt-col-12 slb-trt-col-24"><a href="http://weibo.cn/qr/userinfo?uid=5645444706"><span
+                                      class="trt-iconfont trt-icon-weibo"></span>福建省生态环境政务微博</a>
+                              
+                          </li>
+                          <li class="trt-col-12 slb-trt-col-24"><a href="javascript:;"><span class=""><img src="/images/230410fj_sthjt_footer_icon1.png" /></span>八闽碳惠微信小程序</a>
+                              <div class="ewm_tu"><img src="/images/20211202xx.jpg" /></div>
+                          </li>
+                      </ul>
+        </div>
+        <div class="trt-col-4 trt-col-sm-24 error_img">
+          <span id="_ideConac"></span>
+         <span id="_span_jiucuo"></span>
+        </div>
+      </div>
+    </div>
+    <div class="copyright_info">
+      <div class="row">
+        <p><span>主办单位：福建省生态环境厅</span><span>维护单位：福建拓尔通软件有限公司</span></p>
+        <p>为确保最佳浏览效果，建议您使用以下浏览器版本：IE浏览器9.0版本及以上； Google Chrome浏览器 63版本及以上； 360浏览器9.1版本及以上，且IE内核9.0及以上。</p>
+      </div>
+    </div>
+  </div>
+		</div>
+		<!-- 站点信息 -->
+<script src="/public/images/Fjtran.js"></script>
+<script src="https://www.fujian.gov.cn/images/barrier.free.min.js" id="barrierFree" sn="544e417c00b40894"></script>
+<div style="display: none;" id="_jiucuo_" sitecode='3500000064'></div>
+<script>
+    	window.onload = function() {
+	    		var _script = document.createElement ("script")
+	    		_script.type = "text/javascript";
+	    		_script.src = 'https://zfwzgl.www.gov.cn/exposure/jiucuo.js';
+	    		_script.onload = function(){
+	    			$('#_span_jiucuo img').attr('alt','链接政府网站找错');
+	    		}
+	    		document.getElementsByTagName('head')[0].appendChild(_script);
+
+                var _newScript = document.createElement('script');
+            _newScript.type = 'text/javascript';
+            _newScript.src = 'https://dcs.conac.cn/js/14/000/0000/41066896/CA140000000410668960001.js';
+            _newScript.onload = function(){
+                                    $('#imgConac').attr('alt','党政机关');
+                            }
+            document.head.appendChild(_newScript); 
+
+            var _newScript = document.createElement('script');
+            _newScript.type = 'text/javascript';
+            _newScript.src = 'https://dcs.conac.cn/js/14/000/0000/41066896/CA140000000410668960001.js';
+            _newScript.onload = function(){
+                                    $('#imgConac').attr('alt','党政机关');
+                            }
+            document.head.appendChild(_newScript); 
+	    };
+
+        (function() {
+
+    var links = document.getElementsByTagName('a');
+
+    for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            var href = link.getAttribute('href');  // 获取原始href属性值
+
+            if (href && href.match(/^https?:\/\/sthjt\.(fujian|fj)\.gov\.cn/)) {
+                // 移除域名部分，保留路径及后续内容
+                var newHref = href.replace(/^https?:\/\/sthjt\.(fujian|fj)\.gov\.cn/, '');
+                link.setAttribute('href', newHref);
+            }
+        }
+    })();
+</script>
+<script>
+    var SiteInfo = {
+        siteid: '22',
+      was4doc: '214436' //文档检索
+      , itp4yjx: '23' //意见箱
+      , itp4apply: '45'   //依申请
+      , itp4poll: '193'  //调查
+      , itp4advice: '46'  //征集
+      , itp4letter: '29,49,50,51,30,31,32,52,53,33,54,34,35,47'  //网上咨询，福州，厦门，漳州，泉州，莆田，三明，南平，龙岩，宁德，平潭，咨询，投诉，网上投诉
+      , itp4ftzj: '587'  //访谈征集
+      , visitHost: "sthjt.fujian.gov.cn"   //流量域名地址，避免后续有变更
+       , searchId: 229105  //fjdz频道号
+		,siteMsgType: "govSite"  //非政府网站提醒规则   currSite 非本站提醒 、govSite  非政府网站提醒
+        , siteWriteList: ["fjsty.fjeec.cn",]   //站点白名单
+        , initWindowRoot : false   //false表示，引入model.js时，不自动生成windowRoot
+        , initPageview : false     //执行windowRoot 时自动执行pageview
+        , defaultHotWords : '' //通过嵌套栏目的替换内容，热搜词，设置默认的热搜词
+        , redirtUrl : ""
+        , useWza: true   //是否启用无障碍
+        , useSlb: true   //是否启用适老版
+         ,siteHost:"sthjt.fujian.gov.cn"
+    };
+</script>
+
+<script>
+
+    var PageInfo = {
+        docid: '',
+        chnlid: '21127',
+        siteid: '8',
+        title: '',
+        chnlname: "网上咨询",
+        sitename: "省生态环境厅"
+    };
+    if (PageInfo.title === "") {
+        PageInfo.title = PageInfo.chnlname || PageInfo.sitename;
+    }
+   // require(["pageview"], function (pageview) {
+   //
+   //         var pvTools = pageview();
+   //         pvTools.view(PageInfo, function (d) {
+   //             if (!d.error) {
+   //                 avalon.vmodels.windowRoot.pvCount = d.pvt;
+   //                 avalon.vmodels.windowRoot.siteCount = d.pvst;
+   //                 avalon.vmodels.windowRoot.todayCount = d.today;
+   //                 avalon.vmodels.windowRoot.yesterdayCount = d.yesterday;
+   //                 avalon.vmodels.windowRoot.yearCount = d.year;
+   //             }
+   //         })
+
+
+            
+    //    })
+ // 网址收藏 2020-04-17
+    function addFavorite() {
+        var url = window.location;
+        var title = document.title;
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf("msie 8") > -1) {
+            external.AddToFavoritesBar(url, title, ''); //IE8
+        } else {
+            try {
+                window.external.addFavorite(url, title);
+            } catch (e) {
+                try {
+                    window.sidebar.addPanel(title, url, ""); //firefox
+                } catch (e) {
+                    alert("加入收藏失败，请使用Ctrl+D进行添加");
+                }
+            }
+        }
+    }
+
+</script>
+
+<!--新脚本-->
+<script src='/images/js_rem.min.js'></script>
+<script src='https://www.fujian.gov.cn/images/model.min.js'></script>
+
+
+<script src='/images/20230412sthjt.js?v=1.11'></script>
+
+		<script src="../../../images/sthj_2020.min.js"></script>
+		<script src="/itp/v2/common/js/jsencrypt.min.js"></script>
+		<script>
+	
+			var encrypt = new JSEncrypt();
+			encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAb6YU7hvBht7IBQhukCKNMnwQ8o6H+Ag8LNMIaN8dNxpaIGHy/5kx8PjITFqDrYoGi21eH8fsqO1alPSl7DVtQN6B24UBB37zIHm3VA+JO0BpYTRrgTxa5C8BLYKTCGLJzzh3p57HKtnQWljXyMPb31xi0uKT+/vJBgBPvSXO7QIDAQAB");
+	
+	
+			require(["jquery", "add", 'list', "dialog"], function ($, add, listModel, dialog) {
+				var addhelp = avalon.define({
+					$id: "addhelp",
+					chnlId: 29
+				});
+	
+	
+				listModel({
+					Mode: 'wasdoc',
+					objArgs: {
+						listArgs: {
+							channelid: '280067',
+							classsql: 'dockind=3',
+							sortfield: "s3"
+						}
+					},
+					pagebar: {
+						recordCount: '20325',
+						pgTemp: 'pgBar.html',
+						prepage: 30,
+						pgCountMode: 'recordCount',
+						displayNum: 1
+					},
+					autoGetPage: 1,
+					showStatic: false,
+					search: {
+						searchArgs: {
+							enternametab: {
+								items: [
+									{ name: "全部", value: "" },
+									{ name: "福州", value: "福州" },
+									{ name: "厦门", value: "厦门" },
+									{ name: "漳州", value: "漳州" },
+									{ name: "泉州", value: "泉州" },
+									{ name: "莆田", value: "莆田" },
+									{ name: "三明", value: "三明" },
+									{ name: "南平", value: "南平" },
+									{ name: "龙岩", value: "龙岩" },
+									{ name: "宁德", value: "宁德" },
+									{ name: "平潭", value: "平潭" }
+								],
+								isDisabled: {
+									tab: [0, 2]
+								},
+								field: 's1',
+								compare: 'like',
+								type: 'classsql',
+								valueType: "index",
+								value: 0,
+								showType: 'dropdown',
+								isArray: false
+							},
+							entername: {
+								showType: 'dropdown',
+								value: '',
+								defaultValueName: '',
+								compare: "like",
+								type: 'classsql',
+								field: "s1"
+							}
+						}
+					}
+				});
+	
+	
+				// 咨询提交
+				var obj = add({
+					Mode: "letter.add",
+					objId: "addzx",
+					objArgs: {
+						addArgs: {
+							chnlId: '29',
+							isOpen: 1,
+							ex_lettertype: '环境污染',
+							ex_area: '福州',
+							sendOrg: '22',
+						},
+						addCheck: {
+							email: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 480,
+								fieldName: '邮箱'
+							},
+							linkPhone: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 480,
+								fieldName: '联系电话'
+							},
+							sender: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 64,
+								fieldName: '姓名'
+							},
+							title: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 100,
+								fieldName: '标题'
+							},
+							content: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 1000,
+								fieldName: '内容'
+							},
+						}
+					}
+				});
+				$("#clickBtn").click(function () {
+	
+					//var dhhm = new RegExp('');
+					//var yx = new RegExp('');
+					var phoneNum = $("#phoneNum").val();
+					var eml = $("#eml").val();
+					var sjyz = /^[\d]+$/.test(phoneNum);
+					var yxyz = /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/.test(eml);
+					if (sjyz) {
+						if (yxyz) {
+							var phoneNum1 = encrypt.encrypt(phoneNum);
+							var eml1 = encrypt.encrypt(eml);
+							avalon.vmodels.addzx.addForm.linkPhone = phoneNum1;
+							avalon.vmodels.addzx.addForm.email = eml1;
+							setTimeout(avalon.vmodels.addzx.$submit, 200);
+						}
+						else {
+							dialog({ title: '提示信息', content: "邮箱格式不正确" }).show();
+						}
+					}
+					else {
+						dialog({ title: '提示信息', content: "联系电话格式不正确" }).show();
+					}
+	
+				});   
+	
+				//网上投诉
+				var obj1 = add({
+					Mode: "letter.add",
+					objId: "addts",
+					objArgs: {
+						addArgs: {
+							chnlId: '49',
+							isOpen: 1,
+							ex_area: '',
+							ex_qyid: '',
+							ex_company: '',
+							ex_popedom: '',
+							ex_lettertype: "",
+						},
+						addCheck: {
+							email: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 480,
+								fieldName: '邮箱'
+							},
+							linkPhone: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 480,
+								fieldName: '联系电话'
+							},
+							sender: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 64,
+								fieldName: '姓名'
+							},
+							title: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 100,
+								fieldName: '标题'
+							},
+							content: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 1000,
+								fieldName: '内容'
+							},
+							address: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 1000,
+								fieldName: '联系地址'
+							},
+							ex_company: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 1000,
+								fieldName: '单位名称'
+							},
+							ex_popedom: {
+								required: true,
+								checkType: 'safe',
+								maxLen: 1000,
+								fieldName: '单位地址'
+							},
+						}
+					}
+				});
+				var Ser = avalon.define({
+					$id: "passFirm",
+					SWFUpload_0_0: '',
+					sub: function () {
+						var ex_lettertype0 = $("#ex_lettertype_0").val();
+						var ex_lettertype1 = $("#ex_lettertype_1").val();
+						var phoneNums = $("#phoneNum1").val();
+						var emls = $("#eml1").val();
+						var sjyz1 = /^[\d]+$/.test(phoneNums);
+						var yxyz1 = /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/.test(emls);
+						avalon.log(ex_lettertype0, ex_lettertype1);
+						if (ex_lettertype_0 == "环境污染与生态环境破坏类") {
+							avalon.vmodels.addts.addForm.ex_lettertype = ex_lettertype0 + '、' + ex_lettertype1
+						} else {
+							avalon.vmodels.addts.addForm.ex_lettertype = ex_lettertype0
+						}
+						avalon.log(avalon.vmodels.addts.addForm.ex_lettertype);
+						if (sjyz1) {
+							if (yxyz1) {
+								var phoneNum1s = encrypt.encrypt(phoneNums);
+								var eml1s = encrypt.encrypt(emls);
+								avalon.vmodels.addts.addForm.linkPhone = phoneNum1s;
+								avalon.vmodels.addts.addForm.email = eml1s;
+								setTimeout(avalon.vmodels.addts.$submit, 200);
+							}
+							else {
+								dialog({ title: '提示信息', content: "邮箱格式不正确" }).show();
+							}
+						}
+						else {
+							dialog({ title: '提示信息', content: "联系电话格式不正确" }).show();
+						}
+	
+					}
+	
+				})
+				$("#ex_lettertype_0").change(function () {
+					changeszdq();
+				});
+				function changeszdq() {
+					var ex_lettertype = $("#ex_lettertype_0").val();
+					//alert(ex_lettertype);
+					if (ex_lettertype != "环境污染与生态环境破坏类") {
+						$("#ex_lettertype_1").hide();
+	
+					} else {
+						$("#ex_lettertype_1").show();
+	
+					}
+				}
+	
+	
+	
+	
+			});
+			function getQyInfo(obj) {
+				$("#inpEntername").val("");
+				$(obj).parent().parent().addClass("currQy").siblings().removeClass("currQy");
+				avalon.vmodels.addts.addForm.ex_area = $(obj).attr("area");
+				avalon.vmodels.addts.addForm.ex_qyid = $(obj).attr("qyid");
+				avalon.vmodels.addts.addForm.ex_company = $(obj).attr("title");
+				avalon.vmodels.addts.addForm.ex_popedom = $(obj).attr("enteraddress");
+			}
+			function ResetQyInfo() {
+				$(".QyinfoLists li.currQy").each(function (index, element) {
+					$(this).removeClass("currQy").find("label input").eq(0).attr("checked", false);
+	
+				});
+				avalon.vmodels.addts.addForm.ex_company = '';
+				avalon.vmodels.addts.addForm.ex_popedom = '';
+			}
+			function showQyInfo() {
+				require(["dialog"], function (dialog) {
+					var elem = document.getElementById('QyLists');
+					var d = dialog({
+						title: '请选择/填写被投诉单位名称',
+						align: 'bottom right',
+						content: elem,
+						quickClose: true,
+						zIndex: 2,
+						autofocus: false,
+						cancelValue: '手动填写',
+						cancel: "",
+						okValue: '确定',
+						ok: function () {
+							if (avalon.vmodels.addts.addForm.ex_company == '') {
+								alert("被投诉的单位名称为必填字段，点击【确定】按钮需要在企业信息列表中选择企业名称后提交!");
+								return false;
+							} else {
+	
+								//alert("被投诉的单位名称为:"+QyListsVm.entername);
+								return true;
+							}
+	
+						}
+					}).width(1200);
+					d.show(document.getElementById('rdgz-bubble'));
+				})
+			}
+		</script>
+
+
+
+	</body>
+</html>
