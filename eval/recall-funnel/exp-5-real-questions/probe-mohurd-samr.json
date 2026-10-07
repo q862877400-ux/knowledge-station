@@ -1,0 +1,104 @@
+{
+ "why": "找住建部与市监总局的问答入口与列表接口",
+ "pages": [
+  {
+   "label": "住建部首页",
+   "url": "https://www.mohurd.gov.cn/",
+   "status": 200,
+   "len": 63873,
+   "links": [],
+   "scripts": [
+    "/cms_files/default/script/jslib/jquery.js",
+    "/cms_files/default/script/jslib/jquery.cookie.js",
+    "/cms_files/default/script/layui/layui.all.js",
+    "/cms_files/default/script/layui/layer/layer.js",
+    "/script/webglobal.js",
+    "/plugins/libs/require.js",
+    "/plugins/libs/load.js",
+    "/script/webgray.js",
+    "/script/webgray_2c1d02e85a444611ba1f34047fffa2f5.js",
+    "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/pointer-events-polyfill.js",
+    "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/jquery.SuperSlide.2.1.3.js",
+    "/cms_files/webzjb/tplobject/defaultSet/c6d6465148fd4840bd692c75750d9723/images/jquery.share.min.js"
+   ]
+  },
+  {
+   "label": "市场监管总局首页",
+   "url": "https://www.samr.gov.cn/",
+   "status": 200,
+   "len": 84967,
+   "links": [
+    {
+     "text": "2026食品安全放心消费交流研讨会在京召开",
+     "href": "/xw/zj/art/2026/art_0d5930e6ca0e4869b27c7ea1991e7047.html"
+    },
+    {
+     "text": "2026质量科普展和质量技术基础能力提升成果交流",
+     "href": "/xw/zj/art/2026/art_b231cebb887b4f2ea98604dc1e2538da.html"
+    },
+    {
+     "text": "互动",
+     "href": "/hd/index.html"
+    }
+   ],
+   "scripts": [
+    "/cms_files/default/script/jslib/jquery.js",
+    "/cms_files/default/script/jslib/jquery.cookie.js",
+    "/cms_files/default/script/layui/layui.all.js",
+    "/cms_files/default/script/layui/layer/layer.js",
+    "/script/webglobal.js",
+    "/plugins/libs/require.js",
+    "/plugins/libs/load.js",
+    "/script/webgray.js",
+    "/cms_files/filemanager/1647978232/script/20233/3b9a6f8f8cc84a98ae93024a5526fda0.js",
+    "/cms_files/filemanager/1647978232/script/20219/38f212bad55a43e0b3ff68546154536f.js?v=31",
+    "/cms_files/default/script/AuthorizedRead/unitbuild.js?v=4.2.10.39-samr-U2",
+    "/cms_files/default/script/AuthorizedRead/unitbuild.js?v=4.2.10.39-samr-U2"
+   ]
+  },
+  {
+   "label": "市监公众留言站",
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/",
+   "status": 200,
+   "len": 7906,
+   "links": [],
+   "scripts": [
+    "/gjjly/webjars/vue/vue.min.js",
+    "/gjjly/webjars/artery/artery-ui.min.js",
+    "/gjjly/webjars/artery/static/arteryAjaxInterceptor.js",
+    "/gjjly/public/mixin/jquery.min.js",
+    "/gjjly/js/robot.js"
+   ]
+  }
+ ],
+ "samr_js": [
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/webjars/vue/vue.min.js",
+   "len": 86333,
+   "apis": []
+  },
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/webjars/artery/artery-ui.min.js",
+   "len": 906222,
+   "apis": [
+    "/artery/exportexcel/getProcess/",
+    "/code/list/"
+   ]
+  },
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/webjars/artery/static/arteryAjaxInterceptor.js",
+   "len": 2366,
+   "apis": []
+  },
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/public/mixin/jquery.min.js",
+   "len": 84276,
+   "apis": []
+  },
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/js/robot.js",
+   "len": 4290,
+   "apis": []
+  }
+ ]
+}
