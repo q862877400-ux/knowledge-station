@@ -40,14 +40,13 @@ signature  = md5(路径 + paramJSON + secret16)         # 路径带前导斜杠�
    content(留言全文) / typeName(分类) / stateInfo(已办理…) / createDateline(unix)`。
  · 详情 `resultData.contentList[]`：`[0]` = 留言本体（含 `cUrl` 公开链接）。
 
-   ⛔ **2026-10-07 更正（本行此前写反，见 SITE-REGISTRY 未决问题④）**：
-   `dataType==9` **不是官方答复，是「网友跟帖」**（部委流与地方流都如此；证据
-   `recon/bw-answers-review.txt`——"答复"里出现网友反问「如果遇上套牌车呢？」）。
-   官方答复**极可能是 `dataType==4`**（实测长度最大、位于末尾），**尚待配额冷却后验证**
-   （诊断脚本 `recon/df-datatype-diagnose.py`）。
-   ⇒ **本基座当前产出的 `answer` 字段不可信**；两个源的数据已隔离在
+   ★ **2026-10-07 定稿（`recon/df-datatype-diagnose.out.txt` 两流实测）**：
+   `dataType==4` = **官方答复**（公文口吻、最长、位于末尾）；
+   `dataType==9` = **网友跟帖**（口语化、短）——**不是答复**。
+   本基座据此收 `dataType==4` 作 `answer`，把 `dataType==9` 存进
+   `extra.netizen_comments` 并标 `extra.answer_kind`，**两类不混用**。
+   ⛔ 此前把 9 当答复，已产出的 35 条错数据隔离在
    `recon/bw-suspect-30records.jsonl` / `recon/df-suspect-5records.jsonl`。
-   修好前 `people-liuyan` / `people-liuyan-df` 一律记 0 条可用。
 
 ## 礼貌抓取
 详情接口对 UA 有要求（过短的 UA 会拿到非 JSON），且每请求间隔 ≥1.5s；单线程。
@@ -154,9 +153,14 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
                 continue
             cl = ((dj.get("resultData") or {}).get("contentList")) or []
             head = cl[0] if cl else {}
-            replies = [x for x in cl[1:] if x.get("dataType") == 9]
+            # ★ 2026-10-07 定稿（recon/df-datatype-diagnose.out.txt 实测）：
+            #   dataType==4 = 官方答复（公文口吻、最长、位于末尾）
+            #   dataType==9 = 网友跟帖（口语、短）——**不是答复**，单独放 extra，不混入 answer
+            replies = [x for x in cl if x.get("dataType") == 4]
+            netizen = [_clean(x.get("content") or "")
+                       for x in cl if x.get("dataType") == 9]
             if not replies:
-                continue                         # 详情里也没有答复 ⇒ 不收
+                continue                         # 详情里没有官方答复 ⇒ 不收
             answer = "\n".join(_clean(x.get("content") or "")
                                for x in replies).strip()
             if not answer:
@@ -164,6 +168,11 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
             subject = _clean(it.get("subject") or "")
             body = _clean(it.get("content") or "")
             question = subject if not body else f"{subject}\n{body}"
+            extra = {k: it.get(k) for k in EXTRA_KEYS if it.get(k) is not None}
+            if netizen:
+                # 真人语言语料（非官方答复）：单独标注，供「真人提问/口语表达」用途
+                extra["netizen_comments"] = netizen
+                extra["answer_kind"] = "官方答复(dataType=4)"
             out.append({
                 "source": SITE["key"],
                 "id": str(tid),
@@ -174,8 +183,7 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
                 "answered_at": _ts(replies[0].get("dateline")),
                 "dept": _clean(head.get("forumName") or it.get("forumName") or ""),
                 "channel": it.get("typeName"),
-                "extra": {k: it.get(k) for k in EXTRA_KEYS
-                          if it.get(k) is not None},
+                "extra": extra,
             })
             fetched += 1
             if limit and fetched >= limit:

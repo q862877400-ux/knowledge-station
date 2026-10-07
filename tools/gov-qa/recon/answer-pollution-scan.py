@@ -37,12 +37,13 @@ def main() -> int:
                 code += 1
             if ASK_RE.match(a):
                 ask += 1
-        tag = "⚠" if (code or ask or empty) else "✅"
+        tag = "[!]" if (code or ask or empty) else "[ok]"
         lines.append(f"{tag} {f.stem}: 共 {n}｜代码噪音 {code}｜提问腔开头 {ask}"
                      f"｜过短(<40字) {short}｜空 {empty}")
     out = HERE / "answer-pollution-scan.txt"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print("\n".join(lines))
+    # ⚠ Windows 控制台常是 GBK：这里只打 ASCII，避免 print 自己崩（踩过）
+    print("\n".join(lines).encode("ascii", "replace").decode("ascii"))
     print("\nwritten", out)
     return 0
 

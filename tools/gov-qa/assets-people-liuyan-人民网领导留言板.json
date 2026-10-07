@@ -1,6 +1,441 @@
 {
- "A_考卷": [],
- "B_补料": [],
+ "A_考卷": [
+  {
+   "source": "people-liuyan",
+   "id": "25272271",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25272271",
+   "question": "建议加强农村地区三有动物及保护动物宣传\n当前农村基层对于国家一级、二级保护动物以及三有陆生野生动物的普法宣传严重滞后，只在官网发布，缺乏针对性和接地气的普及方式。多数村民根本分不清身边哪些野生物种属于保护动物，尤其对本地常见的乌梢蛇、菜花蛇",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物名录",
+    "有重要生态、科学、社会价值的陆生野生动物名录",
+    "关于切实做好〈国家重点保护野生动物名录〉调整实施和过渡衔接工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24351686",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24351686",
+   "question": "建议电工理论考试增加难度\n电工理论考试要增加难度。现有的电工理论考试难度太低，基本上都是些死记硬背的知识，体现不出来电工技能。希望增加一些计算题和电路图分析题。增加对电工基础知识的考察，比如说欧姆定律，基尔霍夫定律，电阻的等效变换，多电源的",
+   "cited_hits": [
+    {
+     "name": "安全生产考试机构和考试点管理规定",
+     "lib_no": "应急管理部关于印发《安全生产考试机构和考试点管理规定》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24342562",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24342562",
+   "question": "建议取消特种作业操作证复审\n特种作业操作证建议和驾驶证一样实行扣分制。复审只提交体检报告。6年一复审。10年复审。最后长期。本身考试合格取得操作证件了。最后复审还要重新考试。重新报名。",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24285627",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24285627",
+   "question": "建议将各种行业电工证统一为一种电子证\n部长您好！作为基层工人，每隔三年要年审证件。不仅麻烦而且耽误时间，各行之间而且不通用全国省，地方保护主义有时还不认可对方发的证。同时建筑行业与应急管理局双方都不认可对方证，国家能否统一一下这种现象。",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于推进职业技能证书互通互认的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23912637",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23912637",
+   "question": "对初级消防设施操作员工作的建议\n现在大部分城市初级消防设施操作员都不可以使用，初级只能操作不具备联动控制功能的区域火灾自动报警系统主机，中级监控才可以操作设有联动控制设备的消防主机，因为新的规定只有拿到初级国考证书才可以考中级，但是初级没有",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "消防设施操作员",
+    "国家职业标准编制技术规程",
+    "关于调整申报条件的公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23811315",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23811315",
+   "question": "关于购买消防用品的建议\n消防安全牵涉到千家万户和我们每一个人，而现在无论是集体单位或家庭个人购买消防器材极其不便，每个区县(县级市)只有一个售卖点，而且位置偏僻。许多人购置消防用品只能是在单位或社区组织的消防安全培训时由讲解员推荐厂家购买，",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "消防产品监督管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23982005",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23982005",
+   "question": "关于注册安全工程师职业资格证书管理的建议\n安全生产一直以来都是党中央、国务院高度重视的一项工作，为此应急管理部颁发了注册安全工程师职业资格证书，旨在培养专业的安全管理人员，加强对生产过程中安全的管控，消除安全隐患，防止安全事故的发生。但是，",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师职业资格考试实施办法",
+    "注册安全工程师执业资格制度暂行规定",
+    "注册安全工程师执业资格考试实施办法",
+    "关于实施〈注册安全工程师执业资格制度暂行规定〉补充规定的通知",
+    "注册安全工程师职业资格制度规定",
+    "注册安全工程师职业资格考试实施办法",
+    "注册安全工程师管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23648365",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23648365",
+   "question": "推动基层安全生产事故调查报告公开\n根据《安全生产法》第八十六条规定，“事故调查报告应当依法及时向社会公布”，但是当前基层生产安全事故调查报告存在超期公开、应公开未公开等问题，削弱事故警示作用，损害公众知情权。为强化中央统筹、破解执行梗阻，现",
+   "cited_hits": [
+    {
+     "name": "生产安全事故报告和调查处理条例",
+     "lib_no": "生产安全事故报告和调查处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23631941",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23631941",
+   "question": "打击商标恶意囤积与闲置商标清理退出的想法\n领导你好，近年来，商标注册效率改革好评如潮。每一个注册人都享受到了发展改革的诸多便利。在感恩部门领导对改善营商环境辛勤付出的同时，站在社会良性发展的角度思考了以下几点。\r\n1.闲置商标的自动撤三流程",
+   "cited_hits": [
+    {
+     "name": "商标法实施条例",
+     "lib_no": "商标法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商标法（修订草案）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23735313",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23735313",
+   "question": "关于优化AI行业知识产权保护\n当前AI行业知识产权保护存在“基础技术专利过宽、创新空间被挤压”的问题，如同画画时每支颜色笔都被专利，导致开发者不敢尝试新创作。为破解此困局，特提如下意见：\r\n \r\n一、核心问题：“全环节专利覆盖”阻碍AI创新",
+   "cited_hits": [
+    {
+     "name": "专利法",
+     "lib_no": "专利法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "人工智能相关发明专利申请指引（试行）",
+    "国家知识产权局关于修改〈专利审查指南〉的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23573263",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23573263",
+   "question": "关于消控证的意见建议\n尊敬的部领导：您好!\r\n 希望您在百忙之中关注一下基层县乡级的消控证问题以及后面衍生的问题。\r\n 这里不说省会城市和地级市的问题，我对它们不了解。这里只讲讲各地县乡级各基层单位（县养老院、敬老院、高层小区、企业和事业单",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑消防设施的维护管理",
+    "消防设施操作员",
+    "GB25201-2010"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "people-liuyan",
+   "id": "25425888",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25425888",
+   "question": "取消ETC设备使用，建议车牌感应支付\n尊敬的领导您好，现行高速公路ETC需要安装设备感应，安装时大量耗费人力物力财力和时间，如车牌号绑定支付宝、微信或者银行卡，直接走ETC通道扫车牌支付，节省我们排队的时间，还不用增加人工成本，希望领导于以",
+   "cited_hits": [],
+   "cited_missing": [
+    "高速公路“手机+”无卡便捷通行实施方案（2026-2028年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24889335",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24889335",
+   "question": "统一全国公证处收费标准，降低收费金额\n现在全网关于遗产公证收费标准和收费金额过高提出很多建议，要求全国收费标准统一， 公证收费要有封顶，过高的收费会让人民群众负担过重，公证材料多数都是人民群众收集和跑腿，而公证处却收取高额的费用(尤其是大额",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善公证服务价格形成机制的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24833714",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24833714",
+   "question": "商业快递站点“村村通”服务\n在欠发达的村落，商业快递站点的覆盖仍然不足，有的地方最近的快递站点远在十多公里外的镇上，往返需要耗费较长时间，村民取件十分不便。\n建议推动现行商业快递站点补齐农村“最后一公里”的覆盖短板，依托村里的小卖店或者村委",
+   "cited_hits": [],
+   "cited_missing": [
+    "邮政业发展“十五五”规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24717046",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24717046",
+   "question": "增加农村公路防护土路肩\n尊敬的领导：\n 您好！\n 看到现在不少的农村公路，通过水泥路面直接加铺，或者通过增设水稳层加铺沥青，较好的改善了道路路面但是改造后土路肩没有了，改造后的路面存在高差影响行车舒适与安全。而这一般是由于旧路面在水泥路面加",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程技术标准",
+    "小交通量农村公路工程技术标准",
+    "小交通量农村公路工程技术标准",
+    "小交通量农村公路工程设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24827805",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24827805",
+   "question": "深化推进农村法治建设，推动普法宣传精准入户\n全面推进乡村振兴，法治是重要保障。当前，我国农村法治建设取得显著成效，但依然面临一些深层挑战：部分农民法律意识相对淡薄，对法律法规了解不全面、不深入，尤其在外出务工领域，劳动合同签订不规范、维权证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强法治乡村建设的意见",
+    "关于实行国家机关“谁执法谁普法”普法责任制的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24480230",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24480230",
+   "question": "让行政复议作为化解争议主渠道真正落到实处\n具体建言\r\n恳请司法部立即推行以下可核查的硬措施:\r\n1.开展全国数据打假与流程追溯:对复议文书日期、送达凭证进行信息化比对，严打倒签、迟延等造假;强制要求所有线下程序节点实时同步至全国平台，对“线",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政复议文书示范文本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24245116",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24245116",
+   "question": "建议应急管理部和住建部特种作业证互相认可通用\n尊敬的领导同志您好，我做为一个特种作业人员，期盼应急部和住建部的特种作业证互认通用，促进市场经济发展空间。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进职业技能证书互通互认的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "24174008",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24174008",
+   "question": "关于科学化解农村光伏辐射疑虑推进绿色能源建议\n尊敬的国家能源局：\r\n在农村地区推广光伏发电这一绿色能源技术过程中，我们发现部分村民因担心光伏设备会产生有害\"辐射\"而心存顾虑，这种认知误区在一定程度上影响了清洁能源的普及和乡村振兴战略的推进。",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "非自然人户用分布式光伏项目场所租赁标准合同（范本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23973589",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23973589",
+   "question": "关于消防重点单位消防控制室消防设施操作员等级\n您好，今年八月人社部发布“消防设施操作员规范”修改征求意见稿。里面初级消防员可以辨别操作消防联动控制器。根据多年重点消防单位工作经验，我建议，消防重点单位消防值班员应最低具备中级资格。这样可以更",
+   "cited_hits": [],
+   "cited_missing": [
+    "消防设施操作员",
+    "国家职业标准编制技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23815207",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23815207",
+   "question": "关于中级注册安全工程师报考事宜的建议\n尊敬的部长，您好！\r\n我是一名已报名2025年度注册安全工程师考试的考生，目前因怀孕待产，预产期在10月下旬，无法参加本次考试且缺乏专门的延期申请渠道，深感遗憾。注册安全工程师资格对个人职业发展至关重要",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23691742",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23691742",
+   "question": "建议取消高速公路收费员技能比赛\n建议把高速公路收费员技能比赛从技能大赛项目中取消。原因是因为收费员的技能过时了。收费员技能比赛一般就是文明用语，点钞，车型判断和特情车处理。随着高速公路智能化的普及，现在都是采用ETC和收费发卡机器人，都是机",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国职业分类大典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23570218",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23570218",
+   "question": "关于更新高速公路标识的建议\n目前国家及各省的高速公路新一轮规划均已完成，有多条高速的编号发生了变化，如原晋高速S76平长高速变更为G0411安长高速，原晋高速S65平阳高速变更为G0513平洛高速等等，目前大部分路段还使用旧编号，对司乘人员",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家公路网规划",
+    "国家公路网规划",
+    "公路路线标识规则和国道编号",
+    "国家公路网里程传递方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23352051",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23352051",
+   "question": "关于副高级以上职称评审的建议\n本人是一名企业档案工作者，现就关于档案职称评审的一些问题和建议，请解决。\r\n 一、档案职称评审的问题\r\n 1.副高级以上职称评审需要申报人提供成果，包括有发明专利、参与修订行业标准、参与编制研究报告和学术专著，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化职称制度改革的意见",
+    "档案专业人员职称评价基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23295498",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23295498",
+   "question": "期待能提高二级三级公路路基路面宽度标准\n尊敬的领导：\r\n 您好！\r\n 乡村通镇达村的二三级公路，是乡村发展与振兴的致富路，期待能提升非机动车通行条件，修改二级三级公路标准，将1. 二级公路的路面宽度9米 路基宽度12米调整为路面宽度12米，",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程技术标准",
+    "公路路线设计规范",
+    "公路路线设计规范",
+    "新一轮农村公路提升行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23202416",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23202416",
+   "question": "建议简化查阅流程\n建立完善的档案管理制度，制定档案管理规范流程，简化查阅流程！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家档案馆档案开放办法",
+    "档案馆档案利用服务规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23167655",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23167655",
+   "question": "建议扩大历史档案的公开范围\n档案作为信史的可靠来源和依据，做好公开和急用，可以让权威的历史学者和研究人员更好的宣传。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家档案馆档案开放办法",
+    "档案开放审核工作规范",
+    "档案馆档案利用服务工作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "23122834",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23122834",
+   "question": "关于加大对基层单位档案工作者帮扶的建议\n1、加大对基层单位的档案管理者统一培训和管理。\r\n2、加大对基层单位的档案管理者的关注。\r\n3、增加基层单位的档案管理者的晋升渠道和待遇。\r\n4、增加档案管理的岗位。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国档案系统人才队伍建设规划（2025—2029年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "22977914",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22977914",
+   "question": "网上未找到《建设项目（工程）档案验收办法》\n作为档案部门，希望将历年签发的部门规章、规范性文件均公示（涉密除外），并注明发布日期，是否有效，失效日期等，以便当下档案工作者能知古通今。\n急切盼望能将《建设项目（工程）档案验收办法》（国档发【1",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家档案局关于废止 等七件规章的决定",
+    "建设项目（工程）档案验收办法",
+    "重大建设项目档案验收办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan",
+   "id": "22940468",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22940468",
+   "question": "建议推行储能电池应急调配机制\n台风、地震等灾害情况下，电网容易遭受严重破坏，供电受阻，甚至电网本身的变电站、发电厂、调度大楼因长时间停电，蓄电池时限都不能保证，进一步影响电网恢复供电，也影响着党政机关、银行、通信、电动车等其他一系列用到储能",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推动新型储能发展的指导意见",
+    "关于促进新型储能并网和调度运用的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
  "C_无依据": [
   {
    "source": "people-liuyan",
@@ -22,54 +457,9 @@
   },
   {
    "source": "people-liuyan",
-   "id": "25425888",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=25425888",
-   "question": "取消ETC设备使用，建议车牌感应支付\n尊敬的领导您好，现行高速公路ETC需要安装设备感应，安装时大量耗费人力物力财力和时间，如车牌号绑定支付宝、微信或者银行卡，直接走ETC通道扫车牌支付，节省我们排队的时间，还不用增加人工成本，希望领导于以",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24889335",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24889335",
-   "question": "统一全国公证处收费标准，降低收费金额\n现在全网关于遗产公证收费标准和收费金额过高提出很多建议，要求全国收费标准统一， 公证收费要有封顶，过高的收费会让人民群众负担过重，公证材料多数都是人民群众收集和跑腿，而公证处却收取高额的费用(尤其是大额",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24833714",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24833714",
-   "question": "商业快递站点“村村通”服务\n在欠发达的村落，商业快递站点的覆盖仍然不足，有的地方最近的快递站点远在十多公里外的镇上，往返需要耗费较长时间，村民取件十分不便。\n建议推动现行商业快递站点补齐农村“最后一公里”的覆盖短板，依托村里的小卖店或者村委",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
    "id": "24822920",
    "url": "http://liuyan.people.com.cn/threads/content?tid=24822920",
    "question": "建议加快推进全国历史资料数字化\n扩大馆藏史料数字化范围，加快各级档案馆、博物馆、图书馆珍贵文献，档案，地方志的高清扫描与标准化整理，优先抢救濒危纸质史料。建立全国统一的历史文献数字资源开放平台，实现分类检索、在线阅览、规范引用，降低学术研究",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24717046",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24717046",
-   "question": "增加农村公路防护土路肩\n尊敬的领导：\n 您好！\n 看到现在不少的农村公路，通过水泥路面直接加铺，或者通过增设水稳层加铺沥青，较好的改善了道路路面但是改造后土路肩没有了，改造后的路面存在高差影响行车舒适与安全。而这一般是由于旧路面在水泥路面加",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24827805",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24827805",
-   "question": "深化推进农村法治建设，推动普法宣传精准入户\n全面推进乡村振兴，法治是重要保障。当前，我国农村法治建设取得显著成效，但依然面临一些深层挑战：部分农民法律意识相对淡薄，对法律法规了解不全面、不深入，尤其在外出务工领域，劳动合同签订不规范、维权证",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
@@ -94,117 +484,9 @@
   },
   {
    "source": "people-liuyan",
-   "id": "24480230",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24480230",
-   "question": "让行政复议作为化解争议主渠道真正落到实处\n具体建言\r\n恳请司法部立即推行以下可核查的硬措施:\r\n1.开展全国数据打假与流程追溯:对复议文书日期、送达凭证进行信息化比对，严打倒签、迟延等造假;强制要求所有线下程序节点实时同步至全国平台，对“线",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24351686",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24351686",
-   "question": "建议电工理论考试增加难度\n电工理论考试要增加难度。现有的电工理论考试难度太低，基本上都是些死记硬背的知识，体现不出来电工技能。希望增加一些计算题和电路图分析题。增加对电工基础知识的考察，比如说欧姆定律，基尔霍夫定律，电阻的等效变换，多电源的",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24342562",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24342562",
-   "question": "建议取消特种作业操作证复审\n特种作业操作证建议和驾驶证一样实行扣分制。复审只提交体检报告。6年一复审。10年复审。最后长期。本身考试合格取得操作证件了。最后复审还要重新考试。重新报名。",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24245116",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24245116",
-   "question": "建议应急管理部和住建部特种作业证互相认可通用\n尊敬的领导同志您好，我做为一个特种作业人员，期盼应急部和住建部的特种作业证互认通用，促进市场经济发展空间。谢谢。",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "24174008",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=24174008",
-   "question": "关于科学化解农村光伏辐射疑虑推进绿色能源建议\n尊敬的国家能源局：\r\n在农村地区推广光伏发电这一绿色能源技术过程中，我们发现部分村民因担心光伏设备会产生有害\"辐射\"而心存顾虑，这种认知误区在一定程度上影响了清洁能源的普及和乡村振兴战略的推进。",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23973589",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23973589",
-   "question": "关于消防重点单位消防控制室消防设施操作员等级\n您好，今年八月人社部发布“消防设施操作员规范”修改征求意见稿。里面初级消防员可以辨别操作消防联动控制器。根据多年重点消防单位工作经验，我建议，消防重点单位消防值班员应最低具备中级资格。这样可以更",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23912665",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23912665",
-   "question": "建议取消消防设施操作员实操考试或者改成机考\n现在的消防设施操作员实操是通过人来进行考试时间，希望消防设施操作员实操考试可以通过机考来进行考试。",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23912637",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23912637",
-   "question": "对初级消防设施操作员工作的建议\n现在大部分城市初级消防设施操作员都不可以使用，初级只能操作不具备联动控制功能的区域火灾自动报警系统主机，中级监控才可以操作设有联动控制设备的消防主机，因为新的规定只有拿到初级国考证书才可以考中级，但是初级没有",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23815207",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23815207",
-   "question": "关于中级注册安全工程师报考事宜的建议\n尊敬的部长，您好！\r\n我是一名已报名2025年度注册安全工程师考试的考生，目前因怀孕待产，预产期在10月下旬，无法参加本次考试且缺乏专门的延期申请渠道，深感遗憾。注册安全工程师资格对个人职业发展至关重要",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23811315",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23811315",
-   "question": "关于购买消防用品的建议\n消防安全牵涉到千家万户和我们每一个人，而现在无论是集体单位或家庭个人购买消防器材极其不便，每个区县(县级市)只有一个售卖点，而且位置偏僻。许多人购置消防用品只能是在单位或社区组织的消防安全培训时由讲解员推荐厂家购买，",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23691742",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23691742",
-   "question": "建议取消高速公路收费员技能比赛\n建议把高速公路收费员技能比赛从技能大赛项目中取消。原因是因为收费员的技能过时了。收费员技能比赛一般就是文明用语，点钞，车型判断和特情车处理。随着高速公路智能化的普及，现在都是采用ETC和收费发卡机器人，都是机",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23573263",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23573263",
-   "question": "关于消控证的意见建议\n尊敬的部领导：您好!\r\n 希望您在百忙之中关注一下基层县乡级的消控证问题以及后面衍生的问题。\r\n 这里不说省会城市和地级市的问题，我对它们不了解。这里只讲讲各地县乡级各基层单位（县养老院、敬老院、高层小区、企业和事业单",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "23570218",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=23570218",
-   "question": "关于更新高速公路标识的建议\n目前国家及各省的高速公路新一轮规划均已完成，有多条高速的编号发生了变化，如原晋高速S76平长高速变更为G0411安长高速，原晋高速S65平阳高速变更为G0513平洛高速等等，目前大部分路段还使用旧编号，对司乘人员",
+   "id": "23793158",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23793158",
+   "question": "望消防设施操作员考试鉴定站提供考务服务信息\n尊敬的领导：消防设施操作员考试鉴定站位置一般比较偏僻，我们很多人不熟悉周边环境了解相关情况，对于怎么去鉴定站交通以及周围吃住情况可能很多人都不清楚，如果考试安排在白天那不会担心考完试没有公交车，但",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
@@ -214,60 +496,6 @@
    "id": "23355134",
    "url": "http://liuyan.people.com.cn/threads/content?tid=23355134",
    "question": "关于对近年和近期全国防范洪涝灾害的建议\n近期全国入梅以来，贵州榕江、湖北恩施、咸宁等地先后发生严重洪涝灾害，造成洪涝灾害的原因是局部地区的短时强降雨，有的地方下了两天暴雨，就造成比较严重的洪涝灾害。\r\n\r\n我个人认为除了局部地区的短时强降雨",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "22977914",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=22977914",
-   "question": "网上未找到《建设项目（工程）档案验收办法》\n作为档案部门，希望将历年签发的部门规章、规范性文件均公示（涉密除外），并注明发布日期，是否有效，失效日期等，以便当下档案工作者能知古通今。\n急切盼望能将《建设项目（工程）档案验收办法》（国档发【1",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "22840986",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=22840986",
-   "question": "建议科学发布气象数据\n我在看未来40天天气预报时，看到很多县份15天的数据还基本准确，15天以后的就胡乱写一串数字放进去，某地16至40天的数据里竟然25天夏天的气温比小寒、大寒的平均气温都低，如果使用它们来参考指导生产、生活，将出现巨大混",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "22638893",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=22638893",
-   "question": "天气预报需对数九寒冬的播报做调整\n领导好：\r\n 今天我在观看天气预报的时候发现了一个很明显的错误，那就是天气预报的主持人误解了数九寒冬的基本规律，认为今天就出九了，但实际上并不是这样的。按照数九歌的规律，今天开始应该是“十九”才对，直到春分",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "22904497",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=22904497",
-   "question": "关于驾校监管工作的建言\n尊敬的交通运输部党组书记、部长：\r\n您好！我作为一名普通市民，近期在遭遇驾校退费纠纷过程中，对交通管理部门的工作提出以下建议：\r\n1. 明确职责与监督机制：进一步细化交通管理部门在驾校监管中的具体职责，建立内部监督和",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "22021222",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=22021222",
-   "question": "建议增购新车后ETC可进行转移变更\n最近我购买了一辆新车，但是旧车上的ETC无法进行转移变更到新车，新车想要用etc还得再注销原车账户，再办一张卡，程序麻烦不说，增加群众时间成本。\r\n建议增购新车后ETC可进行转移变更。",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "people-liuyan",
-   "id": "21955669",
-   "url": "http://liuyan.people.com.cn/threads/content?tid=21955669",
-   "question": "对祖国外交事业的建议\n建议开展“外交官进校园活动”\r\n我们这一代青少年，生活在幸福的时代，网络科技迅速发展，人工智能日益更新，可以通过网络了解好多事情 ，特别是国际形势。\r\n建议可以选派优秀外交官，进入小学，初中，高中甚至大学  开展讲座 ",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false

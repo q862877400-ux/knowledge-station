@@ -53,17 +53,19 @@ def main() -> int:
     import httpx
 
     # 取一条 df 已采记录 + 一条 bw 已采记录的 tid
-    df_tid = bw_tid = None
-    for p in DATA.glob("people-liuyan-df-*.jsonl"):
-        rows = [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
-        if rows:
-            df_tid = rows[0]["id"]
-    for p in DATA.glob("people-liuyan-*.jsonl"):
-        if "df" in p.name:
-            continue
-        rows = [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
-        if rows:
-            bw_tid = rows[0]["id"]
+    # ⚠ 两个流的可疑数据已隔离到 recon/（见 SITE-REGISTRY 未决问题④），
+    #   所以这里**先找 data/、找不到就找 recon/ 的 *_suspect_*.jsonl**
+    def first_tid(patterns: list[str]) -> str | None:
+        for pat, root in [(p, DATA) for p in patterns] + [(p, HERE) for p in patterns]:
+            for f in root.glob(pat):
+                rows = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines()
+                        if l.strip()]
+                if rows:
+                    return rows[0]["id"]
+        return None
+
+    df_tid = first_tid(["people-liuyan-df-*.jsonl", "df-suspect-*.jsonl"])
+    bw_tid = first_tid(["people-liuyan-*.jsonl", "bw-suspect-*.jsonl"])
     print("df tid:", df_tid, "| bw tid:", bw_tid)
 
     with httpx.Client(trust_env=False, timeout=20) as c:
