@@ -36,6 +36,7 @@ SITE = {
 }
 
 MAP_FILE = Path(__file__).resolve().parent.parent / "recon" / "liuyan-fid-map.json"
+CURSOR_DIR = Path(__file__).resolve().parent.parent / "data"
 MAX_FIDS_PER_RUN = 5
 
 
@@ -48,7 +49,11 @@ def _load_fids() -> list[dict]:
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """按映射表逐个版块采（每个版块采满已办理且有官方答复的留言）。"""
+    """按映射表逐个版块采（每个版块采满已办理且有官方答复的留言）。
+
+    ⚠ **每个版块一个游标**（`data/.people-liuyan-fid-<fid>.cursor`）：版块列表同样按时间倒序，
+    没有游标就会每次重读版块头部、被去重全挡（与时间流同一个坑，已踩过一次）。
+    """
     out: list[dict] = []
     for row in _load_fids():
         fid = str(row.get("fid") or "")
@@ -56,10 +61,11 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
             continue
         label = row.get("label") or row.get("province") or fid
         print(f"    [{SITE['key']}] 定向版块 fid={fid}（{label}）")
+        cursor = CURSOR_DIR / f".people-liuyan-fid-{fid}.cursor"
         rows = harvest_liuyan(fetch, SITE=SITE, stream="df", fid=fid,
-                              limit=limit)
+                              limit=limit, cursor_file=cursor)
         for r in rows:
-            r["extra"]["fid_label"] = label
+            r.setdefault("extra", {})["fid_label"] = label
         out += rows
         if limit and len(out) >= limit:
             return out[:limit]

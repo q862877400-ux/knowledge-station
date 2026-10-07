@@ -1,0 +1,317 @@
+{
+ "A_考卷": [
+  {
+   "source": "people-liuyan-fid",
+   "id": "26107959",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26107959",
+   "question": "路口增加交通指示灯问题\n西城区地铁八号线鼓楼站东南出口出地铁后，虽然有斑马线，但是没有交通指示灯，早晚时段，学生上下学乘8号地铁出站上学，要穿越大街，但是这路口没有交通指示灯，来往机动车辆包括电动摩托，在此路口不减速，甚至要加速通过，对于要",
+   "cited_hits": [
+    {
+     "name": "道路交通信号灯设置与安装规范",
+     "lib_no": "GB 14886-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26250960",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26250960",
+   "question": "请查处防火分区和安全出口不合规\n1.硬*游泳健身位于朝阳区水岸南街8号院即华贸城8号院*号楼地下一层，该场所健身区远大于1000多平米，只有一个防火分区，只有两个安全出口。该场所游泳区只有一个安全出口。以上均不符合消防规定的要求。\n2.根据",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "消防法",
+     "lib_no": "消防法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公众聚集场所投入使用、营业前消防安全检查合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26230470",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26230470",
+   "question": "道路安全\n领导您好，丰台区南苑路警备东路2号，首都航天机械公司门口，每天早晨7：50-8：30由北向南方向的大量车辆自道路左侧逆行穿越弯道。玩到严禁超车并线掉头穿越，这是明确禁止的，如果这里是丁字路口，请安装交通信号灯。如果不是，请不要穿越",
+   "cited_hits": [
+    {
+     "name": "道路交通标志和标线",
+     "lib_no": "GB 5768.2-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "people-liuyan-fid",
+   "id": "26084764",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26084764",
+   "question": "关于实施秀府北一路电力架空线入地工程的建议\n规划峪隆路是中心城区浅山地带连接潭峪路和隆恩寺路的一条城市次干路，其西段（秀府北一路）已于2018年建成通车，其东段（五里坨一街道路工程）目前正处于施工阶段。建议同步实施秀府北一路电力架空线入地工",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市架空线管理若干规定",
+    "北京市架空线管理若干规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25901305",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25901305",
+   "question": "加快增设运河西大街东段步行道\n东起运河西大街东侧运通桥，西至乔庄东站马路南北两侧均无步行道多年，导致行人必须走在非机动车道甚至机动车道通行，建议加快增加人行道",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于批复广渠路东延道路绿化建设工程实施方案的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25648852",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25648852",
+   "question": "打通杨闸环岛北侧道路联通管庄常营片区路网\n关于打通杨闸环岛北侧道路 联通管庄常营片区路网的建议\n要兴发展，先畅路网。\n朝阳管庄乡地处朝阳、通州交界，素有朝阳区“东大门”之称。当前，随着区域功能不断提升，交通瓶颈日益凸显，打通断头路、贯通区域",
+   "cited_hits": [],
+   "cited_missing": [
+    "朝阳分区规划（国土空间规划）（2017年—2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26207098",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26207098",
+   "question": "老旧小区\n丰台区和义东里四区和五区，作为老旧小区，小区内道路杂乱、私建泛滥，家家户户的心头堵，楼道内部杂线混乱。希望属地政府能彻底整治一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "南苑森林湿地公园地区FT00-2301～2313街区控制性详细规划（2020年-2035年）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "people-liuyan-fid",
+   "id": "26276830",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26276830",
+   "question": "天通苑北b口绿化\n政府投入了很多钱改善绿化环境，城市越来越美了但是天通苑北b入口早餐车旁边刚做好的绿化园子那刚做，草疯长，绿化树全部死亡，希望有关部门改善下，人流量太多，影响不好。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26170420",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26170420",
+   "question": "希望913路公交车在台湖演艺酒店加站\n书记您好：\n\n台湖演艺小镇的北京LIVERSE音宇宙已开业，基本每周末都会举办约三千人规模的演出。演出结束后观众集中散场，但周边目前没有地铁，公交T7、T25末班车基本在21:15左右结束运营，而演出通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26107797",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26107797",
+   "question": "赵全营公交枢纽建议方案\n赵全营镇目前没有地铁，居民进城、通勤、赶高铁全都依赖公交车。但现有公交线路停靠站点太多、绕路严重，大大小小村庄全部挨个停，导致车速慢、路程拖得久，日常通勤和外出出行特别不方便，严重影响居民生活和出行效率。\n\n建议开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26088333",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26088333",
+   "question": "恳请将地铁19号线南延段（新宫至海子角）列为\n恳请将地铁19号线南延段（新宫至海子角）列为大兴区重点优先项目，争取纳入全市2027年民生实事清单并启动开工。该线路已纳入轨道交通第三期建设规划，二次环评已经完成，官方明确计划2029年12月通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26042729",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26042729",
+   "question": "关于地铁 17 号支线站点选址的建议\n尊敬的领导，您好。\n我是昌平区北七家镇的常住居民，一直密切关注地铁17号线支线的规划进展。结合周边实际居住分布和建设条件，我郑重建议将线路北端终点站调整至温泉花园北门的已腾退空地。\n这个点位优势非常明确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25960414",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25960414",
+   "question": "电动自行车充电难\n我在丰台区北宫镇张郭庄小区居住，电动车自行车不仅缓解了交通拥堵的压力，方便了百姓附近购物游玩，可充电难始终不能很好的解决，总不能飞线等之类的吧？上下班通勤十几公里一个来回，到家就得充电。在室内的充电桩几乎大部分闲置，外面确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25952366",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25952366",
+   "question": "建议增加公交站，北京邮件综合处理中心西门\n领导您好，我们大批员工，从北京海淀等地各站点统一搬到北京邮件综合处理中心上班，当前地方没有公交站，不方便上班，也不方便去地铁站，建议增加通勤车次，西门是我们的出入口，可以加一些早晚午班车，感谢领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25917472",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25917472",
+   "question": "海淀区黑泉路中东路段违规正三轮摩托车\n由于海淀区西三旗黑泉路和中东路路口附近有垃圾回收站，导致每天晚高峰到晚上在海淀区黑泉路有大量违章正三轮摩托在路上行驶，还有货物遗撒风险，严重阻碍交通，请处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25916779",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25916779",
+   "question": "关于解决燃油车占用充电车位问题的建言\n随着广大市民新能源车辆购置率攀升，相应的充电需求随之而来，在政府支持推动下我区公共充电设施陆续建设。但公共充电设施经常被迫成为“花瓶摆设”，具体缘由为在停车场中有空余车位情形下，部分燃油车仍然停放在充电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25911036",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25911036",
+   "question": "漷县北京卫生职业学院就要开学\n北京卫生职业学院就要开学了！学校边上没有一天公交车！能否开通一条接驳地铁17号线的公交车！望领导调研",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25842571",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25842571",
+   "question": "六环高线公园跨北运河段北侧增设桥下通道建议\n尊敬的领导：\n\n您好！六环高线公园启动段（京华福满园）已于2026年5月1日正式向公众免费开放。作为全国首个利用高速公路原址改造的大型高线公园，该项目全长1.7公里，跨越北运河，串联起行政办公区、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25833254",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25833254",
+   "question": "服务问题\n现在进入夏季蚊虫特别多。很多小区在小区内比如娱乐休闲运动场所和运动设施上放置花露水这个方法。我建议小区每隔十天或者半个月到各小区的树木花草多的地方和还动场地等人员密集的地方发放花露水或者也可以把花露水绑在运动设施上，但是同时也要放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25724411",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25724411",
+   "question": "关于通州区火车出行\n您好，很多通州区市民都在网上对通州火车站和亦庄火车站十分关注，虽然两站目前火车还是比较少，但是大家的讨论非常积极。\n可是去这两个火车站的车少站多，还不如坐地铁到北京南站乘车方便。希望能考虑开设，从通州站到亦庄火车站，途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25712953",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25712953",
+   "question": "关于月亮河片区增设公交站点的建议\n您好！近期月亮河周边交通出行条件有了明显改善（如月亮河东路北段已通车、千荷泻露桥东延已投用、芙蓉西路正在建设中），在此对相关部门的工作表示衷心感谢。但京贸国际城西侧楼栋及月亮河小区居民乘坐公交仍极为不便，现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25705681",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25705681",
+   "question": "道路减速带没有汽车超速\n香山街道四王府社区，仁义餐厅到西小府甲22号这条路，道路没有减速带，每次汽车都开的非常快，家里有孩子都不放心，这条路上经过的汽车都是不减速，希望设置几个减速带，限制高速行驶的车辆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25662431",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25662431",
+   "question": "关于良乡站西侧道路打通问题\n城市副中心线良乡站西侧的“铁路西侧路”，目前仅在京电路（或者西进站口广场）以南段有，在京电路以北段没有。城市副中心线开通已七年，京电路北面的送变电社区、绿地等地儿的居民去往火车站非常不便，希望铁路西侧路尽快往北打",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25656952",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25656952",
+   "question": "恳请加快一号线支线南延建设，尽快开通良乡北关\n良乡北关房山区政府片区数十万常住居民+全区政务办事人流，目前无直达地铁，早晚高峰道路严重拥堵；现有房山线南关站、市郊良乡站距离过远，老年人、办事群众出行困难。恳请加快1号线支线南延规划论证，将良",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25649219",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25649219",
+   "question": "建议T10路公交车绕行至坨堤村和拓宽坨堤南路\n坨堤村被九周路和张采路夹在中间，两条主路都有公交车并设有公交车站，但村民出行都需要步行1至2公里，或采用其他交通工具才可以到达车站，非常不方便。虽政府已经安排T72路公交车，但每天来回只有4趟固",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25622141",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25622141",
+   "question": "关于加增公交车站事\n书记好！我是丰台区鸿业兴园二区的一名居民。我们小区有2700余户居民，距离新建的丰台站（火车）直线距离一点五公里。但是我们小区附近却没有直达丰台站的公交车站。如果我们要去丰台站，或者往西走四五百米到造甲村上车，或者往丰台",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25585815",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25585815",
+   "question": "希望加速大兴机场高速北延的建设\n目前早晚高峰时期，槐房西路交通拥挤，加上红绿灯也比较多，导致交通体验不太好，希望加速五爱屯西街-槐房路的大兴机场高速路的建设推进，让丰台交通体系更加畅通，便利，也能带动该区域发展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26251774",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26251774",
+   "question": "投拆举报紫竹桥交通混乱问题\n您好！海淀区**小馆道路许多区域破损不平整，外卖小哥逆行抢行，存在巨大的安全问题，严重威胁群众安全，先前通过的时候差点摔伤。\n我感觉**小馆根本没有安全生产意识，道路设计和维护也存在问题，车辆反复通过导致道路破损",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26246154",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26246154",
+   "question": "树上的虫子\n领导你好，我想向你反映一个问题昌平区东小口镇小辛庄村与北七家镇平西府村交界处，那个门口处树上爬满了毛毛虫。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26236010",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26236010",
+   "question": "车辆乱停占用人行便道并堵塞消防通道。\n海淀区莱圳家园小区南区5号楼和8号楼南侧消防通道及人行便道上，经常被乱停乱放的车辆侵占。既妨碍了行人在便道上行走。也影响消防车的通行。有时通道仅为三米多宽，就是发生了火灾。消防车辆也很难进入。希望相关部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

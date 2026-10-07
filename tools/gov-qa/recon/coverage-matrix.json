@@ -49,14 +49,15 @@
    "people-liuyan": 37
   },
   "北京市": {
-   "people-liuyan-df": 82
+   "people-liuyan-df": 82,
+   "people-liuyan-fid": 30
   }
  },
  "province_totals": {
   "广东省": 31092,
   "湖南省": 4351,
   "国家级（部委）": 242,
-  "北京市": 82
+  "北京市": 112
  },
  "source_totals": {
   "gd-amr": 6134,
@@ -101,8 +102,9 @@
   "gd-gdyjzx": 42,
   "people-liuyan": 37,
   "gd-gdaudit": 36,
-  "gd-jgsw": 34
+  "gd-jgsw": 34,
+  "people-liuyan-fid": 30
  },
- "grand_total": 35767,
+ "grand_total": 35797,
  "n_provinces_covered": 3
 }
