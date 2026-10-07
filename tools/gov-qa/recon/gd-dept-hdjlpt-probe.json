@@ -1,0 +1,97 @@
+[
+ {
+  "name": "广东省住房和城乡建设厅",
+  "base": "https://zfc.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省住房和城乡建设厅B",
+  "base": "https://zjw.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省交通运输厅",
+  "base": "https://td.gd.gov.cn",
+  "page": 200,
+  "xsrf": true,
+  "total": 40,
+  "org": "广东省交通运输厅",
+  "sample": "关于监理工程师（交通部）是否视同中级职称"
+ },
+ {
+  "name": "广东省交通运输厅B",
+  "base": "https://gdjt.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省人力资源和社会保障厅",
+  "base": "https://hrss.gd.gov.cn",
+  "page": 200,
+  "xsrf": true,
+  "total": 510,
+  "org": "广东省人力资源和社会保障厅",
+  "sample": "法律业务咨询"
+ },
+ {
+  "name": "广东省自然资源厅",
+  "base": "https://gdlr.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省水利厅",
+  "base": "https://gdwater.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省农业农村厅",
+  "base": "https://gdagri.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省商务厅",
+  "base": "https://gdoi.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省卫生健康委",
+  "base": "https://wsjkw.gd.gov.cn",
+  "page": 200,
+  "xsrf": true,
+  "total": 89,
+  "org": "广东省卫生健康委员会",
+  "sample": "关于保健食品内包日期打码引导词是否需要标识在内包的正面？"
+ },
+ {
+  "name": "广东省文化和旅游厅",
+  "base": "https://whlyt.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省市场监督管理局",
+  "base": "https://gdamr.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省教育厅",
+  "base": "https://eea.gd.gov.cn",
+  "page": 200,
+  "xsrf": true,
+  "total": 14,
+  "org": "广东省教育考试院",
+  "sample": "初中学历可以自考成人大专"
+ },
+ {
+  "name": "广东省工业和信息化厅",
+  "base": "https://gdei.gd.gov.cn",
+  "error": "ConnectError: [Errno 11001] getaddrinfo failed"
+ },
+ {
+  "name": "广东省发展和改革委员会",
+  "base": "https://drc.gd.gov.cn",
+  "page": 200,
+  "xsrf": true,
+  "total": 8,
+  "org": "广东省发展和改革委员会",
+  "sample": "广东经济发展规划"
+ }
+]

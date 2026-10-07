@@ -1,0 +1,4038 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-jt",
+   "id": "3429473",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3429473",
+   "question": "码头陆地上的货物装卸和搬运业务，需要办理港口经营许可证吗\n我司只是承接码头经营者的部分陆地上的货物装卸、搬运、运输业务，一般就是一个堆场运输到另一个堆场，已有道路运输许可证。装卸和搬运活动不涉及船-岸 之间的，只是承接陆地上的例如集装箱装载",
+   "cited_hits": [
+    {
+     "name": "港口法",
+     "lib_no": "港口法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "港口经营管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3410660",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3410660",
+   "question": "涉路施工活动技术评价涉及的道路范围\n领导，您好，根据《广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法》规定，针对公路路政许可涉路施工活动需开展涉路施工活动技术评价。我想请问下，办法中公路的范围是指哪些，请问在县道、乡道上开展",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "技术评价报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3410535",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3410535",
+   "question": "交工现场检测抽查项目钢筋保护层厚度的允许偏差及合格率要求\n《公路工程质量检验评定标准第一册 土建工程》(JTG F80/1-2017)第41页第8.3.1-2条款明确规定:钢筋加工及安装实测项目中的保护层厚度，应在模板安装完成后、混凝土浇筑",
+   "cited_hits": [
+    {
+     "name": "混凝土结构工程施工质量验收规范",
+     "lib_no": "GB 50204-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路工程质量检验评定标准",
+    "公路工程质量检验评定标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3098081",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3098081",
+   "question": "广东省公路项目是否需要做航道通航条件影响评价服务\n广东境内的某公路项目投资建设时，要跨越VIII及IX等级的航道河流，请问是否需要做航道通航条件影响评价服务？ 另外具体评价服务要求是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国航道法",
+     "lib_no": "航道法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "航道通航条件影响评价审核管理办法",
+    "航道通航条件影响评价审核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2877538",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2877538",
+   "question": "关于内河航道施工中航标是否需要向主管部门申请租用事宜\n若在内河航道中施工，封航处理会涉及航标的抛撤，那这里的航标是否也是向相关部门申请，同时申请单位承担租赁航标的费用",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国航标条例",
+     "lib_no": "航标条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广东省航道管理条例",
+     "lib_no": "航道管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省航标管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2867098",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2867098",
+   "question": "涉路施工许可\n未经许可进行涉路施工，接受处理后，可否补办涉路施工许可，许可内容包括此前事项",
+   "cited_hits": [
+    {
+     "name": "行政许可法",
+     "lib_no": "行政许可法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2815612",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2815612",
+   "question": "交通运输部门职权范围\n交通运输部门在查处涉危化品运输违法行为时，能否依据《危险化学品安全管理条例》第七条对车辆及其运载的危化品一同扣押？为什么？",
+   "cited_hits": [
+    {
+     "name": "危险化学品安全管理条例",
+     "lib_no": "危险化学品安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2703831",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2703831",
+   "question": "关于涉路施工许可活动的相关问题\n在省道中间绿化带拟架设220KV电力线路，采钢管杆基础直径约3米，中央绿化带宽4米，塔高大概50到60米左右。 架设线路在省道公路中央绿化带长10Km。请问，是否可以在中央绿化带架设电力线路？需要按照路政许可",
+   "cited_hits": [
+    {
+     "name": "公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路路线设计规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2429382",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2429382",
+   "question": "架设电缆设施时设立的电线杆、修建的电塔是属于电缆设施的一部分吗？\n《中华人民共和国公路法》第四十五条 跨越、穿越公路修建桥梁、渡槽或者架设、埋设管线等设施的，以及在公路用地范围内架设、埋设管线、电缆等设施的，应当事先经有关交通主管部门同意，",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "广东省交通运输厅关于公路路政许可的实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2351323",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2351323",
+   "question": "关于公路工程安全监督工作时限的界定\n在《公路水运工程质量监督管理规定》解读中“《规定》明确了公路水运工程实行质量监督管理制度及监管期限，即质量监管部门应当自建设单位办理完成施工许可或者开工备案手续之日起，至工程竣工验收完成之日止，依法开展公",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2319492",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2319492",
+   "question": "咨询高速公路红线内建设铁塔审批流程和相关资料\n想了解一下： 1.在高速公路红线内建设通信用的铁塔的项目审批流程； 2.基站选址是否需要在省自然资源厅进行规划备案； 3.如无基站站点规划备案资料能否申请路政管理许可证开工； 4.如预计在高速公",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2326976",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2326976",
+   "question": "关于新建砂石海运码头的审批流程\n贵厅领导好！根据《广东省交通运输厅关于台山市福祥实业装卸码头项目航道通航条件影响评价的审核意见》（粤交航政函〔2021〕137号），从该审核意见来看，是不是指该码头已经完成了建设审批流程，下一步可以进行建设施",
+   "cited_hits": [
+    {
+     "name": "港口法",
+     "lib_no": "港口法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "港口工程建设管理规定",
+    "港口经营管理规定",
+    "港口经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2281363",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2281363",
+   "question": "取得公路水运试验检测等级证书的咨询\n中铁x局x工程有限公司（A公司，独立法人，三级施工单位），计划成立检测公司B，由于某种原因，B不能成为独立法人。已经咨询市场监督管理局，这种形式可以取得CMA资质认定证书。 第一，采用A授权B的形式，B能",
+   "cited_hits": [
+    {
+     "name": "计量法",
+     "lib_no": "计量法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路水运工程试验检测管理办法",
+    "公路水运工程试验检测机构等级评定及换证复核工作程序",
+    "公路水运工程试验检测机构等级评定/换证复核申请书",
+    "等级证书",
+    "等级证书",
+    "等级证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2285933",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2285933",
+   "question": "关于水运工程建设工地三级教育的一些问题咨询\n你好！我想咨询一下水运工程建设工地，对于新进场的从业人员具体应当接受三级教育的学时是多少，目前已查到的相关依据有：1、《生产经营单位安全培训规定》（安全监管总局令第3号）规定：生产经营单位新上岗的",
+   "cited_hits": [
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强安全培训工作的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "945322",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=945322",
+   "question": "关于《广东省道路运输行业网络远程教学平台 功能测试与联网对接工作指引》\n您好： 关于《指引》中提到的联网申请对接需要准备资料，其中第7条：网络课程（课件）的知识产权证书或版权使用证明材料，请问该证书材料是否需限定是由广东省版权中心或国家版权",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国著作权法",
+     "lib_no": "著作权法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "全国作品登记机关和办理机构名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "960639",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=960639",
+   "question": "运输从业资格证\n请问考从业资格证可需要三年内没有满分记录还是三年没重大交通事故记录证明，本人有满分记录能考取吗？谢谢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-jt",
+   "id": "3507561",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3507561",
+   "question": "关于监理工程师（交通部）是否视同中级职称\n关于监理工程师（交通部）是否视同中级职称，可直接认定工程师，用于公路项目报监备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "监理工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3506820",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3506820",
+   "question": "公路工程交竣工验收及技术状况评定\n该办法里排水工程、涵洞、支挡工程、防护栏要求检测断面尺寸、铺砌厚度、结构尺寸在等级资质没有这些参数，如何处理？桥梁验收需检测主要结构尺寸、垂直度，公路工程综合乙级没有这些参数，地方站应如何开展？波形护栏护栏",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3492347",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3492347",
+   "question": "2026年度公路水运工程试验检测专业技术人员职业资格考试\n领导您好! 请问：2026年度公路水运工程试验检测专业技术人员职业资格考试 ，广东省省直及21个地级以上市均设置考区吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年度公路水运工程试验检测专业技术人员职业资格考试广东考区考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3467097",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3467097",
+   "question": "广东二级造价\n广东二级造价工程师交通运输专业，里面分为公路和水运，分值各占多少，备考的资料去哪里购买，购买哪些材料，广东好像没有专门的公路和水运的教材，考生该如何购买正确教材备考呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国二级造价工程师职业资格考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3461472",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3461472",
+   "question": "有关广东省公路交通行业砂浆抗压强度试验是否有文件说明必须采用交通部的规范标准\n公路水运检测单位砂浆抗压强度是否必须采用交通部的规范标准，砂浆配合比设计采用住建部的规范导致砂浆抗压强度降低到不到交通部规范要求，交通部或广东省厅是否有文件说明砂",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法",
+    "公路工程水泥及水泥混凝土试验规程",
+    "水运工程混凝土试验检测技术规范",
+    "砌筑砂浆配合比设计规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3461153",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3461153",
+   "question": "关于设计资质设定的咨询\n拟新建2个8000吨多功能的沿海泊位码头，没有其他附属工程，按照《水运行业建设项目设计规模划分表》，是否属于中型工程？是否可以设置水运工程甲级资质？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程设计资质标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3449759",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3449759",
+   "question": "关于公路工程工地试验室仪器设备的要求\n是否有文件要求工地试验室仪器设备必须智能化或者指定的要求，例如：混凝土压力机、万能材料试验机、水泥抗折抗压一体机、标准养护室等全部要采用智能化的设备。对于工地试验室的仪器设备有没有什么特俗的规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路工程工地试验室实施指南（试行）",
+    "公路工程工地试验室标准化指南",
+    "广东省公路工程质量监督标准化管理指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3451292",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3451292",
+   "question": "危险货物港口建设项目安全条件审查问题\n根据《港口危险货物安全管理规定》（交通运输部令2023年第8号）第七条“危险货物港口建设项目的建设单位，应当在可行性研究阶段按照国家有关规定委托有资质的安全评价机构对该建设项目进行安全评价，并编制安全预",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口工程建设管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3446127",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3446127",
+   "question": "公路水运工程工地试验室的管理办法\n2012年4月23日发布的《广东省交通运输厅关于公路水运工程工地试验室的管理办法（试行）》（粤交基〔2011〕1671 号）仍有效吗？对公路水运工地试验室的管理是否有新的要求文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法",
+    "公路水运工程质量监督管理规定",
+    "关于进一步加强公路水运工程工地试验室管理工作的意见",
+    "广东省公路工程工地试验室实施指南（试行）",
+    "广东省公路工程质量监督标准化管理指南",
+    "广东省交通运输厅关于进一步改进公路水运工程工地试验室备案管理工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3444795",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3444795",
+   "question": "请问水运项目的竣工决算报告编制费用能否纳入项目总投\n根据审计单位有关规定和《基本建设财务规则》(财政部令第81号)、《基本建设项目竣工财务决算管理暂行办法》等相关规定，竣工财务决算编制费用属于为编制决算发生的专项服务费用，应列入项目建设单位",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运建设工程概算预算编制规定",
+    "广东省交通运输厅关于印发《水运建设工程概算预算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3395206",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3395206",
+   "question": "广州内河港的多用途泊位装卸货种的类别\n拟建码头选址广州内河港五和港区，根据《广州内河港总体规划（2025-2035年）》，该码头泊位规划为多用途泊位。请问该码头建成后，可提供杂件货和集装箱货物及散货的装卸服务吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口工程基本术语标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3382660",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3382660",
+   "question": "公路涉路施工安全评价报告依据省规还是部规？\n《广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法》是2025年4月8日发布，《涉路施工安全评价技术规范》（JTGT 4520-2025）是交通部2025年10月1日发布，现行在我省",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法",
+    "涉路施工安全评价技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3384468",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3384468",
+   "question": "时效性核实\n《公路水运工程平安工地建设的管理办法》（粤交〔2020〕5号）文中写到本办法自2020年9月1日起实施，有效期5年。 但该办法于2025年9月15日被修订，请问“粤交〔2020〕5号”这一版本当前时效性是于原定到期日（2025年",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程平安工地建设的管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3378670",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3378670",
+   "question": "有关超危大工程的定义问题\n有关超危大工程的定义问题：住建部37号文、建办质〔2018〕31号 发布的规定内，规定了涉及到水下作业的工程全部属于超危大工程，与水运工程《公路水运危险性较大工程专项施工方案编制审查规程》JT/T 1495-202",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运危险性较大工程专项施工方案编制审查规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3365398",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3365398",
+   "question": "专家\n广东省港口运营领域突发事件应急预案专家库如何申请?",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于推荐港口营运领域突发事件应急专家的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3343084",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3343084",
+   "question": "道路运输从业人员诚信考核\n广东省（佛山市）没有对道路运输从业人员进行诚信考核吗？本人在贵网上没有找到可考核的指引，且提示是”该省暂未开放此业务“。请问，广东省没有开展道路运输从业人员诚信考核这项业务吗？求回复。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输驾驶员诚信考核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3323745",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3323745",
+   "question": "化学品运输\n你好！ 请问危险化学品运输车辆的适装介质和实际运输的不一致， 如适装介质列表为氢氯酸（盐酸）， 实际运输的是氯化亚铁， 示例这种情况是否允许？请明确并告知适用的相关法例。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3299231",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3299231",
+   "question": "《公路水运工程试验检测专用标识章使用规定（试行）》仍然有效吗\n《公路水运工程试验检测专用标识章使用规定（试行）》仍然有效吗？关于公路水运检测专用标识章的使用有最新的规定吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法",
+    "等级证书",
+    "广东省公路水运工程试验检测专用标识章使用规定（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3298685",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3298685",
+   "question": "大件运输空车\n大件运输空车可否上高速",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于修改&lt;超限运输车辆行驶公路管理规定&gt;的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3280107",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3280107",
+   "question": "请问粤交基【2015】1304号文现在是否有效\n请问粤交基【2015】1304号文：广东省交通运输厅引发关于进一步加强广东省公路桥梁预应力工程质量管理的指导意见的通知，2025年还是否有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路桥梁工程后张法预应力施工及检测技术指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3279904",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3279904",
+   "question": "关于港口码头使用\n基本情况：港口已获得《港口经营许可证》，许可内容：一、为船舶提供码头设施；二、从事货物装卸（含过驳）、仓储、港区内驳运。 问题：港口经营人能否在码头进行石料分筛作业？若能，需满足什么条件、办理是什么手续、提交什么资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口经营管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3267164",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3267164",
+   "question": "道路运输企业主要负责人和安全生产管理人员安全继续教育相关问题\n请问一下，有没有规定道路运输企业主要负责人和安全生产管理人员必须学习安全继续教育培训后，方可办理证件的延期？另外，如果需要参加学习，那需要学习多少个学时？在哪里参加学习？收费还是",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输企业主要负责人和安全生产管理人员安全考核管理办法",
+    "道路运输安全监督检查规范IT/T1842_2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3259710",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3259710",
+   "question": "油气化工码头岸电系统\n油气化工码头是否可以安装岸电系统，如果可以，有哪些要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口和船舶岸电管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3251900",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3251900",
+   "question": "业主信息审核表\n我司在养护平台提交了业绩，省厅退回来说需要上传业主信息审核表，请问这个表在哪里下载，有无相关的模板提供，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于进一步优化全国公路建设市场信用信息管理系统设计施工企业信息审核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3254842",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3254842",
+   "question": "广东省公路工程基桩检测工作实施意见（粤交监督[2005]381号）是否现行有效？\n您好！请问《广东省公路工程基桩检测工作实施意见》（粤交监督[2005]381号）是否现行有效？另，请问除上述文件外，还有哪些文件规定了公路工程基桩检测的要求并",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程质量检验评定标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3246100",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3246100",
+   "question": "国际道路货物运输许可证的办理\n您好！我老板准备广东省东莞市开一家国际货物流公司，主要的经营业务是帮客户运输货物至越南，柬埔寨等国家。 我们在设立公司的时候标准规范用语是国际道路货物运输，这个经营范围涉及到后置许可。 所以想咨询一下，我们是不",
+   "cited_hits": [],
+   "cited_missing": [
+    "国际道路运输管理规定",
+    "国际道路货物运输经营备案表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3243738",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3243738",
+   "question": "高速公路\n想了解一下清花高速北延线（清远至珠海高速公路连山至清新段）的进展情况，是要等清花高速（清新至花都段）通车了北延线才跟着动工吗？清远节假日出了名拥堵，尤其春节假期清远许广高速迳口处更是拥堵黑点，清花高速只有打通北延线至连山段才能真正",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输高质量发展三年行动方案（2025-2027年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3230638",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3230638",
+   "question": "道路运输从业资格证诚信考核类\n关于道路运输从业资格证诚信考核B级的驾驶员要参加再继续教育学习不低于18小时培训的事项！我想了解一下有资质的网络远程再继续教育平台在广东省内都有哪些？请问哪个网站上面可以查询到这些平台信息!",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输驾驶员诚信考核办法",
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3224794",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3224794",
+   "question": "请问码头的定义以及码头建设的审批流程\n请问码头的定义以及码头建设的审批流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口工程基本术语标准",
+    "港口工程建设管理规定",
+    "港口工程建设管理规定",
+    "GB/T 50186-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3224302",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3224302",
+   "question": "关于公路项目钢结构分部分项检测相关的规定\n你好，我是从事公路桥梁钢结构加工安装的施工单位，目前我在施的项目需要寻找检测单位，想咨询一下公路钢桥的检测对检测单位有什么特殊要求吗？ 1、开展公路钢结构检测的检测单位是否一定要具备公路水运检测等级",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法",
+    "广东省交通运输厅关于公路水运工程质量监督管理的实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3218275",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3218275",
+   "question": "7轴及以上大件运输车空车是否可以上高速\n你好，请问7轴以上的货车，空载时，是否可以上高速，有此收费站可以上，有些收费站不可以上，请问为什么？依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于修改&lt;超限运输车辆行驶公路管理规定&gt;的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3214881",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3214881",
+   "question": "内河码头3000吨级泊位最大限度靠泊多少载重吨的船舶\n港口经营管理规定》第四十二条 港口经营人有下列行为之一的，由港口行政管理部门责令改正，并处1万元以上3万元以下罚款： （二）未按照码头泊位性质和功能接靠船舶或者超过码头靠泊等级接靠船舶的",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠江干线下游货运船舶船型主尺度系列"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3178510",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3178510",
+   "question": "港口设施保安证书\n您好，请问办理港口设施保安证书核发，需要哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口设施保安符合证书",
+    "港口设施保安评估报告",
+    "港口设施保安计划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3152503",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3152503",
+   "question": "涉路施工活动《技术评价报告》项目负责人、技术负责人资格要求\n根据《广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法》（粤交〔2025〕2号）第十一条：《技术评价报告》需经技术评价单位的技术负责人审核并签名确认；第十六条：组织论",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3121322",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3121322",
+   "question": "广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法（修订稿）相关问题\n广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法（修订稿）尚未正式发布，目前做的涉路安评需要按照修订稿要求编制吗？还是继续按照1号文，直至发布新",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法（修订稿）",
+    "广东省交通运输厅关于公路路政许可涉路施工质量和安全技术评价的管理办法（粤交〔2020〕1 号）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3074698",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3074698",
+   "question": "4.5吨以下冷藏车需要办理道路运输经营许可证吗\n您好，想咨询下，广州市4.5吨以下冷藏车需要办理道路运输经营许可证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输经营许可证",
+    "道路运输证",
+    "道路运输经营许可证",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3055507",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3055507",
+   "question": "关于危险性较大的分部分项工程施工前安全生产条件核查频次的问题\n根据《广东省交通运输厅关于印发铁路工程平安工地建设管理办法的通知》的要求，危险性较大的分部分项工程在施工前要进行安全生产条件核查，我现在所在项目正在进行承台基坑施工，超过了3米，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于印发铁路工程平安工地建设的管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3056167",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3056167",
+   "question": "跨境运输车辆指标如何变更\nA公司（深圳企业）和B公司（香港企业）合作经营了一家C公司（中外合作经营企业（中方持股0%，提供合作条件；香港方持股100%）），A、B、C公司联合申请了“粤港客运大巴车辆指标”。 现合作经营期限到期，中方股东A公",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省直通港澳道路运输管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3038931",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3038931",
+   "question": "有巡游出租车驾驶证能否驾驶网络预约出租汽车？\n一、车辆有网约车运输证，但是驾驶员只有巡游车驾驶证，开网约车是否合法合规？巡游车驾驶证是否等于网约车驾驶证？ 二、在珠海市登记的网约车运输证，和巡游车驾驶证，能否跨市跑到佛山去营运？",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格管理规定",
+    "网络预约出租汽车经营服务管理暂行办法",
+    "出租汽车驾驶员从业资格管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3043001",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3043001",
+   "question": "收费站查验大件运输车时跨类别该如何处置\n入口查验大件运输车申请的为二类大件，现场检测称重数据为103吨，与超限运输通行证上重量99吨不符，但未超过5%的误差范围！因为103吨属于三类大件，收费站现场应该按未超过5%的允许误差范围放行，还是按",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路路政管理技术标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3034501",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3034501",
+   "question": "关于小微型客车租赁相关事宜咨询\n1.《小微型客车租赁经营服务管理办法》中要求从事小微型客车租赁经营的需在经营所在地市级或者县级小微型客车租赁行政主管部门进行备案，其中经营所在地是指该企业的注册地吗？ 2.是不是所有地市级或者县级都设置了“小",
+   "cited_hits": [],
+   "cited_missing": [
+    "小微型客车租赁经营服务管理办法",
+    "小微型客车租赁经营服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3021362",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3021362",
+   "question": "知询客运班次\n“从事非镇通村农村客运班线的，每天往返班次应不少于4次”,请问是整条班线班次不少于4次还是每辆车班次不少于4次. 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农村客运服务规范（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3015880",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3015880",
+   "question": "因公司名称变更，一级造价师变更注册提交后，后续需要怎么操作\n因公司名称变更，一级造价师变更注册提交后，后续需要怎么操作",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程造价工程师注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3004758",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3004758",
+   "question": "二级造价师注册问题\n1、请问2024年注册二级造价师初始注册什么时候开始？ 2、2023年第2号 《交通运输工程造价工程师注册管理办法》中注销注册意思是注销证书的意思吗，是否注销了即需要重新考取证书原证书作废？ 还是说注销注册完证书还可以继",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于做好我省交通运输工程二级造价工程师注册管理等工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3007466",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3007466",
+   "question": "定制客运规范问题\n由于《道路旅客运输及客运站管理规定》以及《道路客运定制服务规范》中未能详尽解释定制客运的细节规范性问题，因此存在以下疑问，希望有关部门能详细解答一下。 1、定制客运是班车客运的扩展模式还是独立区分于班车客运的模式？ 2、班",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅关于印发&lt;班车客运定制服务操作指南&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3000965",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3000965",
+   "question": "占用利用公路路产补（赔）偿费执收单位问题\n占用利用公路路产补（赔）偿费是否有文件明确是地市统一收，还是可以也县市收。如有相关文件麻烦告知一下。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅转发广东省发展改革委&nbsp; 广东省财政厅&nbsp; 关于免征部分涉企行政事业性收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2991564",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2991564",
+   "question": "关于招呼站和便捷站的区分和发班的问题\n咨询招呼站和便捷站有何区别，以及两者是否都可以作为客车起讫点发班？若能，对所发班线有什么要求，能发省级、市级班线吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车客运站级别划分和建设要求",
+    "广东省交通运输厅实施〈道路旅客运输及客运站管理规定〉办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2984822",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2984822",
+   "question": "水运工程哪些文件必须盖监理工程师执业章？\n在水运工程项目管理过程中，项目工程资料报送监理审批，有些项目监理在资料上只盖监理部的章，有些只盖监理人员执业章，项目存在上分歧意见。 想咨询水运工程项目资料哪些资料是必须盖监理工程师执业章?哪些资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程监理工程师注册管理办法",
+    "交通运输工程监理工程师注册管理办法",
+    "水运工程施工监理规范",
+    "水运工程质量检验标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2953483",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2953483",
+   "question": "道路运输经营许可证（跨境货运）\n1. 什么种类公司有资格办理道路运输经营许可证（跨境货运）？ 2. 非持有“车辆入境香港指标”的公司是否可以办理道路运输经营许可证（跨境货运）？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省直通港澳道路运输管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2950157",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2950157",
+   "question": "关于《广东省交通运输厅关于公路水运工程安全生产监督管理的实施办法》的适用范围和属地监管问\n您好，我想咨询下关于《广东省交通运输厅关于公路水运工程安全生产监督管理的实施办法》中关于适用于属地安全监管的项目范围是否包含省管铁路项目，另外如果是省",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2939136",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2939136",
+   "question": "在建项目工地试验室母体机构更名\n你好，在建高速公路项目，已经过备案的施工单位工地试验室，其母体检测机构中途更名且完成了，项目管理者（建设单位，监理、检测单位）的审查审批程序是什么？是否有上级文件支持？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2924055",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2924055",
+   "question": "二级造价师继续教育\n请问二级造价师交通专业是否需要继续教育？继续教育有什么要求呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程造价工程师注册管理办法",
+    "交通运输部办公厅关于做好&lt;交通运输工程造价工程师注册管理办法&gt;实施工作的通知",
+    "关于开展公路工程造价人员继续教育工作的通知",
+    "广东省交通运输厅关于做好我省交通运输工程二级造价工程师注册管理等工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2919824",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2919824",
+   "question": "6轴货车，挂车临时牌带超字的可以上高速吗？\n6轴货车，牵引车为正常车，挂车的车牌为临时牌，尾数带“超”字，该车无《超限运输车辆通行证》，运输货物较少，未超载，运输货物未超出挂车栏板，请问可以上高速吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于修改&lt;超限运输车辆行驶公路管理规定&gt;的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2912445",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2912445",
+   "question": "关于试验检测证书上一家单位不撤销，换单位了能直接录入吗\n请问试验检测证书在上一家检测机构一直拖着不撤销，可以在新单位直接录入吗，社保在新单位有缴纳",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2904035",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2904035",
+   "question": "2023年度平安公路结果\n请问2023 年度平安公路结果何时公布呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公布2023年度公路水运工程省级“平安工地”典型项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2887742",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2887742",
+   "question": "涉路施工\n《广东省公路管理局关于公路路政许可的实施办法》(粤公路函〔2016〕829号)附件请问哪里可以下载到呢？能否发我邮箱",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路路政许可的实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2861881",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2861881",
+   "question": "关于企业业绩录入的问题\n本公司在2019年在东莞市中了一个项目，S120线峡口大桥左幅桥修复工程，请问这个业绩在全国公路系统录入业绩后，广东省交通厅那边审核需要什么资料呢？654165",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于进一步优化全国公路建设市场信用信息管理系统设计施工企业信息审核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2850580",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2850580",
+   "question": "4.5吨以下冷藏类货车不须办理道路运输可以从事道路运输业务\n按照《道路货物运输及站场管理规定》（交通运输部令2019年第17号）第二条规定，道路货物运输包括道路普通货运、道路货物专用运输、道路大型物件运输和道路危险货物运输。道路货物专用运输",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2842109",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2842109",
+   "question": "网约车经营范围\n你好，请问：非广东省的外省牌照纯电动新能源5座的家用小汽车，拥有非广东省的：道路交通运输证， 疑问1:能否在广东省进行网络预约出租汽车行业服务？ 疑问2:如果不能在广东省从事网络预约出租汽车行业服务，请问相关法律，政策文件依",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2811489",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2811489",
+   "question": "无船承运人(NVOCC)的号码如何申请\n我司已经取的企业无船承运人备案， 但是我们要如何的申请无船承运人的号码 ， 以便我们可以直接向船公司订舱定价格 ， 谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于做好国际船舶管理业务等多项行政许可、备案事项调整相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2808748",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2808748",
+   "question": "公路水运工程质量检测机构资质申请窗口\n请问现行的公路水运工程质量检测机构资质，线上申请窗口在什么系统上？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程质量检测管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2808925",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2808925",
+   "question": "危大工程安全管理\n您好，《广东省高速公路工程施工安全标准化指南》中未对超过一定规模危大工程施工方案专家评审会参会人员明确规定，作为公路工程是否要参照住房城乡建设部办公厅关于实施《危险性较大的分部分项工程安全管理规定》有关问题的通知（建办质〔",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高速公路工程施工安全标准化指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2794526",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2794526",
+   "question": "有关广东省养护项目勘察设计费的疑问\n现在打算实施一个二级公路路面养护及功能性修复养护工程，请问勘查设计费有无另外规定，还是可参考部颁18定额附录的勘察设计费标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "养护工程管理办法",
+    "广东省公路养护工程预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2794462",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2794462",
+   "question": "直通港澳运输车辆指标\n直通港澳危险运输车辆指标，向那个部门申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省商务厅 海关总署广东分署关于做好直通港澳道路运输相关工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2782194",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2782194",
+   "question": "有无水运工程的省统表\n请问有无水运工程的竣工验收技术资料统一用表，类似住建部的建筑和市政的省统表。",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运工程质量检验标准",
+    "港口工程竣工验收规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2773276",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2773276",
+   "question": "就企业信用评价等级问题咨询\n您好，请问施工企业（港口与航道施工总承包二级）可以参与评选信用等级评选吗，如可以，应在哪参与提交资料呢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于印发水运工程从业单位信用评价实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2769185",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2769185",
+   "question": "文件\n广东省高速公路施工标准化指南最新版出来了么，在哪里可以下载电子版。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省高速公路工程施工安全标准化指南",
+    "广东省公路工程施工标准化指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2739671",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2739671",
+   "question": "道路运输主要负责人证\n如果企业主要负责人是A，A是企业实际控制人，B是企业法定代表人，那主要负责人证是不是由A去考，而B不用考取主要负责人证。",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输企业主要负责人和安全生产管理人员安全考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2729848",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2729848",
+   "question": "直通港澳运输车指标怎么申请\n粤Z直通港澳运输车指标怎么申请？申请需要什么条件？到哪个部门申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅转发广东省直通港澳道路运输管理办法的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2660568",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2660568",
+   "question": "广东省高速收费标准文件\n一类皮卡货车走高速，后面拖个房车，按三类车收费，如果是客车的话，就是按二类，是根据哪个文件标准，有没有单独的，这项文件指出。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅关于贯彻&lt;收费公路车辆通行费车型分类&gt;行业标准(JT/T 489-2019)有关问题的通知",
+    "收费公路车辆通行费车型分类"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2694540",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2694540",
+   "question": "码头企业港务费使用范围\n您好，我是珠海的企业，想咨询一下码头企业收到返还的港口货物港务费使用范围具体包括哪些？期待您的回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口收费计费办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2670387",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2670387",
+   "question": "码头在预留水工的基础上升级改造为具备靠泊5万吨级船舶是否进行重新进行岸线批复\n我司的危货码头（3万吨级）计划在原预留水工（5万吨级）的基础上升级改造为具备靠泊5万吨级船舶的能力，满足《交通运输部 国家发展改革委 自然资源部 生态环境部 水利",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于调整港口深水岸线标准的公告",
+    "广东省港口管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2666808",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2666808",
+   "question": "主管部门如何对公交车和出租车营运里程进行审核\n根据省厅组织的燃油补贴管理信息系统培训，农村客运管理部门审核参考里程有电子围栏内运营里程 、包车合同备案数据、加班证数据、交通执法数据、联网售票数据、ETC通行数据等。 但相关培训会议的ppt中",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省财政厅关于印发农村道路客运补贴和城市交通发展奖励资金使用管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2644270",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2644270",
+   "question": "关于路政许可管理办法许可管辖相关问题\n您好，想咨询下根据广东省交通运输厅关于印发《广东省交通运输厅关于公路路政许可的实施办法》的通知，对于未开通高速公路或在建高速公路段，涉及跨越、穿越公路修建桥梁、渡槽、涵洞、隧道或者架设、埋设管道、电缆等",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路条例",
+    "广东省交通运输厅关于公路路政许可的实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2649035",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2649035",
+   "question": "二级造价工程师相关问题\n1、二级造价工程师注册证书在哪里下载？ 2、二级造价工程师什么时候需要参加继续教育，继续教育要完成什么内容？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输工程造价工程师注册管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2644414",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2644414",
+   "question": "粤交监督【2012】27号是否有效\n请问粤交监督【2012】27号关于贯彻《广东省交通运输厅关于公路水运工程工地试验室的管理办法》的实施意见是否现行有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路工程施工标准化指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2637623",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2637623",
+   "question": "交通部总监理工程师可以兼任多个项目总监吗\n根据《建设工程监理规范》规定：1、一名总监理工程师只宜担任一项委托监理合同的项目总监理工程师工作。当需要同时担任多项委托监理合同的项目总监理工程师工作时，须经建设单位同意，且最多不得超过三项。请问交",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工监理规范",
+    "水运工程施工监理规范",
+    "关于印发公路水运工程监理工程师登记管理办法的通知",
+    "交通运输部关于印发《公路水运工程监理信用评价办法",
+    "项目监理合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2631626",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2631626",
+   "question": "关于公路工程监理企业资质问题\n2023年公路工程监理企业资质延续还在审核当中，请问在此期间企业资质是属于过期还是有效？在审核期间资质证书是否可以正常使用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程监理企业资质管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2622630",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2622630",
+   "question": "关于养护工程编制办法计取保险费的疑问\n《广东省公路养护工程预算编制办法及配套定额》（粤交基〔2009〕 1350号）没有关于工程保险费的计取规定，在编制预算时工程保险费能否单独在工程建设其他费计取？若能计取，计费依据是什么？若不能单独在工程",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路养护工程预算编制办法及配套定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2629678",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2629678",
+   "question": "广东省交通建设市场信息管理系统注册问题\n我是公路施工三级资质企业，想加入“全国公路建设市场信用信息管理系统”的从业企业名录用于招投标活动，申请注册后，审核驳回，已咨询中国公路建设行业协会，回复是从2023年开始全国系统目前只对一级资质企业开",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于印发公路工程从业单位信用评价实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2616958",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2616958",
+   "question": "养护工程\n目前有公路桥梁养护工程预算定额 JTG T5612-2020的编制办法和定额，是不是代表广东公路养护工程预算定额-粤交基【2009】1350号文这个作废？如果都能用优先使用哪个？或者怎么界定使用范围，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东公路养护工程预算定额",
+    "公路桥梁养护工程预算定额 ",
+    "公路桥梁养护工程预算定额 ",
+    "公路工程建设项目概算预算编制办法",
+    "广东公路养护工程预算定额",
+    "广东省公路养护工程预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2614850",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2614850",
+   "question": "关于网络预约出租汽车驾驶员证从业问题\n你好！我现在拥有茂名的人证，若然想到广州从事网约车是否要重新考证？如果考了广州的人证茂名的证件是否自动注销？拥有广州的人证如果在茂名从事网约车是否违法行为，怎么处罚？ 网络预约出租汽车驾驶员证这个证件是",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2596073",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2596073",
+   "question": "关于养护工程定额人工费采用\n关于现在的养护工程项目采用的2010养护工程预算定额，执行人工单价采用是否仍按根据粤交基〔2010〕1733号执行，该标准年限已久，是否应参考最新的粤交基〔2022〕67号的人工单价采用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2592203",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2592203",
+   "question": "关于广州至佛山第二高速、佛山至中山高速当前项目进展情况的咨询\n关于广州至佛山第二高速、佛山至中山高速，请问这两条高速当前项目前期工作情况进展如何，预计什么时候进行施工招投标工作，何时开展实质性开工建设工作。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省综合交通运输体系“十四五”发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2592196",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2592196",
+   "question": "2023公路水运试验检测师报名时间\n2023公路水运试验检测师报名时间广东省通道什么时候开启？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年度公路水运工程试验检测专业技术人员职业资格考试广东考区考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2581388",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2581388",
+   "question": "关于广东省公路养护工程编制办法的疑问2\n之前问的可以忽略，这次是正确的： 1.养护项目的方案设计，由省公路事务中心审查，请问概算执行哪份什么文件及定额？ 2.如套用2018部版概算定额，人工费按粤交基〔2022〕67 号执行吗？ 3.养护项",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路养护工程预算编制办法及配套定额",
+    "编制办法",
+    "公路养护工程管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2572349",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2572349",
+   "question": "申请从事的直通港澳出入境道路危险货物运输\n你好，我公司是生产销售运输的化工企业，已经取得清远市交通局核发的危险道路运输许可，目前我司有供港运输业务，怎么样申请跨境危险货物运输许可",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省商务厅 海关总署广东分署关于做好直通港澳道路运输相关工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2567789",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2567789",
+   "question": "公路水运工程试验检测师考试\n请问在公路水运工程试验检测师考试中，如何计算个人的工作年限？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程试验检测专业技术人员职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2559081",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2559081",
+   "question": "关于公路日常养护单位资质的相关问题\n《公路养护作业单位资质管理办法》（中华人民共和国交通运输部令2021年第22号）已经公布施行，《《广东省交通运输厅关于公路养护作业单位资质管理的实施细则》（粤交〔2022〕3号）也已公布施行。两个文件中都",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅关于贯彻落实&lt;公路养护作业单位资质管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2550675",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2550675",
+   "question": "请问国际道路运输许可证需要找哪个科室办理\n我司国际道路运输许可证在2022年12月到期，现在需要续证，请问需要哪些哪个科室，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "国际道路运输管理规定",
+    "广东省交通运输厅关于做好国际道路货物运输备案管理有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2546477",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2546477",
+   "question": "国际道路旅客运输审批咨询\n我们是一家深圳运输企业，想扩展跨境客运业务（深圳-香港），想咨询企业申请国际道路旅客运输资质的流程是怎么样的？要达到什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省直通港澳道路运输管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2541312",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2541312",
+   "question": "关于“《公路路线设计规范》（JT GD20-2017） 12.5.8规定”的理解与执行\n《公路路线设计规范》（JT GD20-2017） 12.5.8规定：输送有毒有害、易燃易爆物质的管线穿（跨）越河流时，管线距特大桥、大桥、中桥的距离，应",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路路线设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2539447",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2539447",
+   "question": "驾驶教练员证报名\n请问如何报考汕头的C1驾驶教练员证，在哪里报名呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2524815",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2524815",
+   "question": "求疑“广交厅关于开展机动车驾驶“智能驾培”试点工作的通知”\n领导好，我是智能驾驶培训模拟器相关的从业者，近日看到文件“广东省交通运输厅关于开展机动车驾驶“智能驾培”试点工作的通知” ，想了解一下其中关于“试点”对设备要求的问题 ：是满足符合",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车驾驶培训模拟器",
+    "机动车驾驶员计时培训系统第1部分：计时终端技术要求",
+    "机动车驾驶培训教学与考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2529528",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2529528",
+   "question": "粤交运【2014】1012号有没有废止？\n广东省交通运输厅文件 粤交运【2014】1012号《广东省交通运输厅关于机动车驾驶员培训管理若干事项的通知》，请问这个文件是否有效？有没有废止？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车驾驶培训管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2515239",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2515239",
+   "question": "水运工程重大设计变更\n航道疏浚工程因其中航道疏浚单位工程由吹填上岸改为外抛，导致疏浚单位工程调增费用超过10%且大于1000万，但是总投控制不超过初步设计概算及施工图预算，初步设计由省交通厅批复，施工图由市交通局批复。 1.请问该情况是否属",
+   "cited_hits": [],
+   "cited_missing": [
+    "航道工程建设管理规定",
+    "航道工程建设管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2516709",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2516709",
+   "question": "冷链道理运输车辆是否需要办理道理运输许可证\n您好，我是北京的一家认证机构，准备给深圳当地企业做认证。因为产品涉及冷链运输，需要企业提供道理运输许可及冷链运输备案。企业告知当地政策，冷链道理运输车辆无需办理道理运输许可证，望尽快予以回复，非常",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输经营许可证",
+    "道路运输证",
+    "道路运输经营许可证",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2508693",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2508693",
+   "question": "广东省韶关市汽车C2教练证在哪里报考\n广东省韶关市汽车C2教练证在哪里报考需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2498602",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2498602",
+   "question": "外省市企业的养护资质是否需要在广东省备案\n《广东省交通运输厅关于公路养护工程市场准入的实施细则》（粤交〔2018〕7号）第十三条“跨省、自治区、直辖市进行公路养护工程施工的公路养护工程从业单位进入本省从事公路养护工程工作需向省交通运输厅出示",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路养护作业单位资质管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2494292",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2494292",
+   "question": "救护车高速通行是否免费\n外省籍救护车省内通行高速公路是否免费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;加快推进高速公路电子不停车快捷收费应用服务实施方案&gt;的通知",
+    "关于印发进一步完善院前医疗急救服务指导意见的通知",
+    "广东省公路收费站管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2486579",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2486579",
+   "question": "高速公路的服务区项目，可以按房建工程那样专业分包吗\n本项目按公路招标范本进行高速公路的服务区项目的招标工作，中标单位即总承包单位可以按房建工程那样专业分包吗（公路工程施工分包专项类别和分包人资格条件表中说单独招标不得分包描述有点模糊）",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路工程施工分包管理的实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2463931",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2463931",
+   "question": "广东省东莞市机动车C1教练证去那里考，去那里报名，费用多少？\n广东省东莞市机动车C1教练证去那里考，去那里报名，费用多少？需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2449956",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2449956",
+   "question": "关于路产赔偿问题\n《关于重新制定《损坏公路路产赔偿标准》的通知》（粤交路〔1998〕38号是否还有效，如无效，废止文件以及文号是什么？如粤交路〔1998〕38号没废除，与《广东省损坏公路路产赔偿指导标准》（粤公路函〔2020〕352号）有出",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新制订《损坏公路路产赔偿标准",
+    "广东省公路路政管理规定",
+    "广东省定价目录（2018年版）",
+    "广东省损坏公路路产赔偿指导标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2446892",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2446892",
+   "question": "水运工程设计变更\n水运工程（防波堤工程、航道疏浚工程）如何区分重大设计变更、较大设计变更及一般设计变更？相关区分标准是否按《港口工程建设管理规定》？如果不是那广东省内按哪个标准区分？相关文件依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港口工程建设管理规定",
+    "航道工程建设管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2442431",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2442431",
+   "question": "大件运输\n请问行驶证标有仅可运送不可拆解物体字样的重型低平板挂车1，能否拉普通货物上高速？ 2，拉挖掘机这种不超长超宽超高的属不属于不可拆解物体？能否上高速？是否一定要办理大件运输许可通行证才能上高速？请给予一个回复，因为有的高速收费站不允",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部关于修改〈超限运输车辆行驶公路管理规定〉的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2440142",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2440142",
+   "question": "广东省港口建设是否需要办理施工许可证？\n公路水运建设项目在开工前，是否一定需要办理施工许可证？如何办理？ 为什么在茂名市承建港口建设，咨询当地主管部门，表示无需办理施工许可证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水上水下作业和活动许可证",
+    "通航水域水上水下施工作业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2438006",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2438006",
+   "question": "驾驶员培训教练员证报名\n请问教练员证在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2419937",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2419937",
+   "question": "工程借套部颁桥梁养护定额\n桥梁改造加固工程套部颁桥梁养护定额，人工是要按养护定额，还是预算定额呢?",
+   "cited_hits": [],
+   "cited_missing": [
+    "养护桥梁工程预算定额",
+    "公路工程建设项目概算预算编制办法",
+    "广东省交通运输厅关于调整公路工程人工工日单价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2424117",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2424117",
+   "question": "道路运输从业人员再教育是否有网络平台提供学习教育？\n道路运输从业人员为6年三审一换证，每二年必须接受学习在教育，想问问领导，有没网络平台或者培训机构的联系方式，提供出来方便各位从业人员去接受再教育！在网上我找过很多个外地的交通运输从业人员再",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输驾驶员诚信考核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2413961",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2413961",
+   "question": "广东公路养护项目中，部颁公路预算定额2007与2018年适用请况\n广东公路养护项目编制预算中，采用广东省公路养护工程预算定额(2010)，公路定额应配套采用旧版2007版还是新版2018版？为什么？两版人工费计取也不同，应如何考虑",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程预算定额",
+    "广东省公路养护工程预算定额",
+    "公路工程预算定额"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2397849",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2397849",
+   "question": "私家车是否可以顺风车平台接单？\n尊敬的领导您好： 我本人名下有一辆车，非营运车辆，也没有运营证。本人在佛山工作，一个月回老家清远英德一次，一 个人出行觉得费用不划算，想在顺风车平台接一些顺路的乘客，费用是平台分摊结算。请问在没有双证的情 况",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2389474",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2389474",
+   "question": "广东省公路水运工程拟淘汰的落后施工工艺、设备、材料目录\n请问《广东省公路水运工程拟淘汰的落后施工工艺、设备、材料目录》于2018年8月1日至8月10日公示，没见到正式公布此目录的公告，请问此目录是否正式实施了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路水运工程拟淘汰的落后施工工艺、设备、材料目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2388521",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2388521",
+   "question": "办理交通部监理公路乙级 人员是试验检测专业监理工程师，可以吗？\n按照交通部最新资质标准规定要求。全国公路系统 业绩录入中 试验检测专业监理工程师属不属于规定监理资质申办这个业绩范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程监理企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2382685",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2382685",
+   "question": "定制客运\n定制客运网络平台资质申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于做好互联网道路客运网络平台备案相关工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2372486",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2372486",
+   "question": "车辆事故物品（柴油）定损\n由于车辆事故造成对方货车柴油油箱泄露，如何对泄露的柴油进行定损？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省损害公路路产赔补偿指导标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2366127",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2366127",
+   "question": "08定额公路工程人工费调差\n我们在珠海市有个项目。是18年中标的，采用08公路定额，其中人工单价根据粤交基函〔2010〕1915号中取69.12元/工日。 今年由于疫情及劳动力等各方面影响，实际人工费猛涨，针对18公路定额，省厅发布了粤交基",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于调整公路工程人工工日单价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2359332",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2359332",
+   "question": "职称与职业资格证书\n本人去年才取得港航助理工程师职称，评中级工程师需要取得助工4年才可以评，但本人去年取得国监和水运材料检测师，今年是否可以评港航专业中级工程师职称，有没资格？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2333077",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2333077",
+   "question": "请问水运工程爆破（炸礁）安全监理、振动监测的费用由谁承担，是建设单位吗？\n您好！请问水运工程爆破（炸礁）安全监理、振动监测的费用由谁承担，是建设单位承担吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运建设工程概算预算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2290417",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2290417",
+   "question": "关于养护工程造价中“安全生产经费”费率取费问题\n《广东省公路养护工程预算编制办法》（粤交基【2009】1350号）中安全及文明施工措施费包含的内容是否与《广东省公路水运建设工程安全生产费用管理办法的通知》(粤交基【2015】500号)中安全",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路养护工程预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2264941",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2264941",
+   "question": "272676\n请问《关于重新制订《损坏公路路产赔偿标准》的通知（粤交路[1998]38号）》，目前是否有效执行的标准文件？后续是否有更新的标准？如有，具体的标准文件是哪个？非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新制订《损坏公路路产赔偿标准",
+    "广东省公路路政管理规定",
+    "广东省损坏公路路产赔偿指导标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2256522",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2256522",
+   "question": "全国公路信用信息系统上传业绩需要准备哪些资料\n全国公路信用信息系统上传业绩需要准备哪些资料呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于进一步优化全国公路建设市场信用信息管理系统设计施工企业信息审核的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2252149",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2252149",
+   "question": "关于企业申请公路工程丙级监理资质有固定时间月份申请的吗\n关于企业申请公路工程丙级监理资质有固定时间月份申请吗，还是没有固定时间的？审批时间一般多少个月？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程监理企业资质管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2238941",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2238941",
+   "question": "查询从事港口码头航道建设方面的工程造价活动管理相关的规定办法\n领导您好，经查询广东省建设工程造价管理规定（2021.9.29修定版-广东省人民政府令第289号），这里“第二条第三款：交通运输、水利等专业建设工程造价活动管理，国家另有规定的，",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运建设工程概算预算编制规定",
+    "广东省水运工程设计变更操作规程的通知",
+    "广东省水运工程造价文件管理规程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2221913",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2221913",
+   "question": "公路工程标准施工招标文件\n2018版公路工程标准施工招标文件发布后，广东省内的清单预算相关清单编号等是否仍执行广东省执行交通运输部《公路工程标准施工招标文件范本》（2009年版）补充规定的通知要求的编号等相关要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程标准施工招标文件范本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2217038",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2217038",
+   "question": "广东省公路水运工程工地试验室标准化建设指南\n《广东省公路水运工程工地试验室标准化建设指南》是现行实施嘛？官网上怎么搜不到文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路水运工程工地试验室标准化建设指南",
+    "广东省公路工程施工标准化指南（第一分册 综合管理及工地建设）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2210474",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2210474",
+   "question": "关于公司4.5吨以下冷藏车是否需要办理《道路运输经营许可证》《道路运输证》《从业资格证》\n公司需要4.5吨以下冷藏车做鲜活食材农产品食材配送。 1、想请问4.5吨以下的冷藏车是否属于《交通运输部办公厅关于取消总质量4.5吨及以下普通货运车辆",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输经营许可证",
+    "道路运输证",
+    "道路运输经营许可证",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2194518",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2194518",
+   "question": "关于施工单位公路水运安全生产费用具体项目咨询\n我这里想咨询一下，在管理办法目录中只列出了个别项目的具体明细，而有些明细属于安全投入的项目未曾列出，请问是否可以算作安全费用报审？如：普通工作服、纱手套、普通防尘口罩等！（监理公司特别教条，未在",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2183698",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2183698",
+   "question": "水运工程施工监理表格\n请问在哪可以获取最新版的《广东省水运工程施工、监理表格》",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省水运工程施工、监理表格"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2176481",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2176481",
+   "question": "两项资质的咨询\n我司拟从事网络货运居间服务工作（即无车承运人），请问需要办理哪些资质？ 此外和意向客户签合同的时候，有的客户要求我们直接以承运人的身份来签，请问网络货运的实际承运人需要具备哪些资质？ 谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 国家税务总局关于印发网络平台道路货物运输经营管理暂行办法的通知",
+    "网络平台道路货物运输经营管理暂行办法",
+    "交通运输部办公厅关于印发网络平台道路货物运输线上服务指南&gt;等三个指南的通知",
+    "广东省交通运输厅 国家税务总局广东省税务局关于印发网络平台道路货物运输经营管理的实施细则的通知",
+    "广东省交通运输厅国家税务总局广东省税务局关于深入贯彻落实网络平台道路货物运输经营管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2174317",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2174317",
+   "question": "无车承运需要办理什么许可证\n根据《网络平台道路货物运输经营者管理暂行办法》规定无车承运企业，应申请《道路运输经营许可证》经营范围：网络货运，但此办法2020.1.1起施行，有效期2年。2021.12月31号已经过期了，请问目前需要办理什么许",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 国家税务总局关于印发网络平台道路货物运输经营管理暂行办法的通知",
+    "网络平台道路货物运输经营管理暂行办法",
+    "交通运输部办公厅关于印发网络平台道路货物运输线上服务指南&gt;等三个指南的通知",
+    "广东省交通运输厅 国家税务总局广东省税务局关于印发网络平台道路货物运输经营管理的实施细则的通知",
+    "广东省交通运输厅国家税务总局广东省税务局关于深入贯彻落实网络平台道路货物运输经营管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2173415",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2173415",
+   "question": "关于道路货物运输网络平台的相关咨询\n你好，请问注册开展道路货物运输网络平台服务的公司需要准备什么材料？办理什么手续？需要哪些资质？盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 国家税务总局关于印发网络平台道路货物运输经营管理暂行办法的通知",
+    "网络平台道路货物运输经营管理暂行办法",
+    "交通运输部办公厅关于印发网络平台道路货物运输线上服务指南&gt;等三个指南的通知",
+    "广东省交通运输厅 国家税务总局广东省税务局关于印发网络平台道路货物运输经营管理的实施细则的通知",
+    "广东省交通运输厅国家税务总局广东省税务局关于深入贯彻落实网络平台道路货物运输经营管理实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2167021",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2167021",
+   "question": "关于2018公路工程预算定额路面水稳层及垫层计算方法问题\n想请问路面垫层、水稳层清单及定额计算方法为顶面面积，但是实际施工过程中有一定程度放坡值，这部分放坡值是否已经包含在定额考虑范围之内？还是计算出整段道路垫层、水稳层体积/相应厚度反算出",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程建设项目概算预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2170447",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2170447",
+   "question": "无船承运人(NVOCC)的提单如何备案？\n您好，我们公司已经取得无船承运人NVOCC资质，由于业务需要，我们需要使用NVOCC提单，请问提单的备案流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "港澳线普货备案、无船承运备案、国际航线普货备案等操作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2120220",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2120220",
+   "question": "初次申报公路综合丙级资质前期需要准备什么材料\n您好！想咨询下初次申请公路综合丙级资质，前期需要准备哪些资料！人员证书注册情况，人员社保需要满足多长时间。我们公司现有CMA的检测参数。",
+   "cited_hits": [],
+   "cited_missing": [
+    "退休证",
+    "公路水运工程试验检测管理办法",
+    "公路水运工程试验检测机构等级标准",
+    "公路水运工程试验检测机构等级评定及换证复核工作程序"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2117408",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2117408",
+   "question": "关于企业申报广东省公路工程从业企业信用评价的问题咨询\n我司属于省外央企，在广东省有公路类业绩，想咨询下如何申报广东省公路工程从业企业信用评价？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路工程从业单位的信用评价实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1101831",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1101831",
+   "question": "公路工程施工企业信用评价\n施工企业在2018年度信用评价中评为C级，停止投标2年，请问2021年如何进行信用评价",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路工程从业单位的信用评价实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1885708",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1885708",
+   "question": "维修备案编号是否可以撤销\n根据《机动车维修管理规定》，维修经营者依法申请备案并取得备案编号，行业主管部门向维修经营者发放维修备案编号后，日常监管和现场检查发现其不符合维修开业条件，请问主管部门是否可以撤销其备案编号，责令维修经营者限期改正落",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车维修管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "1882489",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1882489",
+   "question": "广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法\n广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法（广东省交通运输厅2015年4月23日以粤交基〔2015〕500号发布 自2015年6月1日起施行）第二十三条 本办法自2",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1880298",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1880298",
+   "question": "关于粤交基[2009] 1350号 人工的问题\n现在公路养护依旧使用粤交基[2009] 1350号计费吗？里面的人工单价未免太低了吧 现在是否有新的文件规定单价，或者是有新的计费定额呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省农村公路养护预算编制办法",
+    "广东省普通国省干线公路养护预算编制办法",
+    "高速公路养护预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1088585",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1088585",
+   "question": "跨境电商企业需要申报两地牌货车用于跨境货物运输，该申报需要准备好什么材料？\n我公司是国内电商企业，澳门总公司有一辆澳门牌照的箱式货车，现在因业务需要办理两地牌照（双牌车）；目前只得知需要商务厅进行批复，还有车辆的登记文件，司机证件。 问： ",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省商务厅 海关总署广东分署关于做好直通港澳道路运输相关工作的通知",
+    " 广东省交通运输厅关于规范直通港澳道路货物运输审批事项办理和行业管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1086074",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1086074",
+   "question": "公路中级职称\n外省取得的公路中级职称在广东是否认可",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省跨区域跨单位流动专业技术人才职称重新评审和确认规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1072013",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1072013",
+   "question": "营运类粤港货车指标\n您好，想咨询现在在香港有货物运输公司，公司名下有货车若干辆，现有从广东省内至香港的贸易业务，想咨询办理营运类粤港货车指标的相关事项。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省商务厅 海关总署广东分署关于做好直通港澳道路运输相关工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1070006",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1070006",
+   "question": "“广东省交通建设（公路）工程评标专家库”在哪里申请和如何申请？\n本人有高级职称，有注册咨询工程师和注册监理工程师执业证书，所学专业与交通专业相关，请问在哪里申请和如何申请成为广东省交通建设工程方面的专家？谢谢！联系电话13719331924",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府办公厅关于印发广东省综合评标评审专家和评标评审专家库管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1060981",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1060981",
+   "question": "关于2021路桥专业副高职称评审的问题\n惠州2021路桥专业副高职称什么时候开始评审，哪里可以看到文件通知？什么时候出评审结果？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1059580",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1059580",
+   "question": "关于营运证年审\n相关部门的领导，您好！我司是小型运输物流公司，有四台专门给水泥厂拉水泥的灌装车，由于经营状况问题，现在都在广东清远运输，现已经在广东清远做完车辆年审，只差营运证年审。但是当地云安区交通运输局规定需要开车回当地年审营运证，考虑",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输证",
+    "道路运输证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1017148",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1017148",
+   "question": "港口船舶岸电咨询\n您好，国家交通运输部、财政部、国家发展改革委、国家能源局、国家电网公司、南方电网公司2019年1月28日联合印发了《关于进一步共同推进船舶靠港使用岸电工作的通知》，其中第三项完善供售电机制，推动岸电可持续发展中提到要进一步",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发柴油货车污染治理攻坚战行动计划的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "961332",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=961332",
+   "question": "广东省试验检测证书怎么考\n在哪个网站报试验检测省证",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路水运工程试验检测专业技术人员职业资格制度规定",
+    "人力资源社会保障部办公厅关于2021年度专业技术人员职业资格考试工作计划及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "943621",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=943621",
+   "question": "一级造价工程师注册证书由哪个部门发放？是电子证书吗？会不会有纸质版注册证书？\n您好： 2021年第一批一级造价工程师初始注册已经在交通运输部职业资格中心网站公告（关于公布2021年度第四批准予注册的造价工程师名单的通告http://www.",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《造价工程师职业资格制度规定",
+    "造价工程师职业资格考试实施办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "923185",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=923185",
+   "question": "关于粤交【2018】8号油价补贴的咨询\n您好，百忙之中打扰您了，关于《广东省交通运输厅 广东省财政厅关于印发农村道路客运、出租车行业油价补贴财政实施细则的通知中》有关“对申报年度内发生1-2人，3人以上的责任死亡事故车辆，补助的资金应予以不",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省交通运输厅 广东省财政厅关于印发农村道路客运、出租车行业油价补贴财政实施细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "924284",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=924284",
+   "question": "驾驶员培训教练员证到期更换\n我的机动车驾驶员培训教练员证2020年09月28日到期，现在已经过期了，应该怎么更换？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "919526",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=919526",
+   "question": "关于《新能源车辆运营 补助实施细则》的咨询\n1、请问《广东省城市公交车、农村道路客运、出租汽车成品油价格改革和新能源车辆运营 补助实施细则》是否正式实施了？如正式实施，请问于何时起实施？ 2、该《细则》中是否明确了新能源农村道路客运车辆的营",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省城市公交车、农村道路客运、出租汽车成品油价格改革和新能源车辆运营补助实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "916402",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=916402",
+   "question": "省道路货物运输源头超限超载治理办法管理对象咨询\n2014年6月18日公布的201号省政府令《广东省道路货物运输源头超限超载治理办法》中第三条，列举了运输源头的若干情形。 想明确一下，普通生产企业的内部仓库发货地点，算不算201号的管辖范围？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省道路货物运输源头超载超限治理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "904860",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=904860",
+   "question": "关于道路运输从业资格证换证材料的咨询\n本人是清远的一名司机，在清远获得的道路运输货运资格证，本人长期在广州出差，最近有换证的需要。据了解，换证需要参加培训。我想请问一下，本人是否可以在广州参加正规培训，参加清远的资格证换证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定",
+    "道路运输驾驶员继续教育办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "898282",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=898282",
+   "question": "浙江省台州市办理的货运资格证（B1、B2驾照）遗失了，现在可以在广州补办吗？\n尊敬的领导，您好！请问：在浙江省台州市办理的货运资格证（有B1、B2驾照），遗失了，现因工作在广州的原因，我现在可以在广州补办该货运资格证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "896709",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=896709",
+   "question": "高架桥下、两个桥段（台）之间暗敷设10kV电力电缆保护套管\n场景：高架桥下空间、地面到桥面垂直净高不低于8m，两个桥墩之间不小于8m，扣除桥墩基础1.5m，水平净空间不小于5m。 请问2条10KV电缆，套PE160保护套管，电缆保护套管中心",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公路管理局关于公路路政许可的实施办法",
+    "交通运输部 国家能源局 国家安全监管总局关于规范公路桥梁与石油天然气管道交叉工程管理的通知",
+    "公路工程技术标准",
+    "公路路线设计规范",
+    "公路桥涵设计通用规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "896838",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=896838",
+   "question": "梅州市普通货物从业资格证培训考试\n尊敬的领导： 您好。普通货物从业资格证3月1号改革后在梅州市原来能报名考试的驾校不能报名培训。也在驾驶培训公服务网查询名单中梅州市的驾校没有一个能培训考核。而其它市的都有好多驾校名单可以培训考核。打电话本市",
+   "cited_hits": [],
+   "cited_missing": [
+    "结业证书",
+    "结业证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "889442",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=889442",
+   "question": "武深高速银瓶山隧道北向南出口安全问题\n武深高速银屏山隧道全长近7公里3车道，北向南出口有较长实线，虚线开始不足700米内有惠塘高速互通。对于左侧车道要转道惠塘高速的车辆，700米内要实现2次变道，而出口太长的实线让车辆出隧道后都在加速，使变",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路交通安全设施设计细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "883173",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=883173",
+   "question": "关于货车营运证办理\n我司目前营运车辆一共9台，现购入新车办理货车营运证，上级交通运输局需要我司提供所有人员社保、购车买卖流水、主要负责人要求参加安全生产知识技能培训、公司提供安全生产管理架构等多样附加条件才予办理，请问哪样合理、哪样不合理，",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路货物运输及站场管理规定",
+    "道路运输车辆技术管理规定",
+    "道路运输证",
+    "道路运输管理工作规范",
+    "道路运输证申领登记表",
+    "道路运输经营许可证",
+    "道路运输经营许可证",
+    "道路运输证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "847953",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=847953",
+   "question": "关于粤交基函[2015]1766号文是否适用于交通运输部公告2019年第57号文发布的定额\n2015年8月19日广东省交通运输厅发布关于调整我省沿海港口工程疏浚工程概算预算人工单价的通知 粤交基函〔2015〕1766 号，文件提出因现行人工",
+   "cited_hits": [],
+   "cited_missing": [
+    "水运建设工程概算预算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "822649",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=822649",
+   "question": "关于绿色通道目录明细问题\n尊敬的领导： 您好，我是一名普通农民，现在主要在云南石林种植人参果，曾经也是一名兢兢业业的交通工作者，在2009年至2017年曾经在广东交通集团广东省高速公路有限公司湛江分公司任职了高速收费站收费班长的职务。 现在",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部 国家发展改革委 财政部关于进一步优化鲜活农产品运输“绿色通道”政策的通知",
+    "鲜活农产品品种目录",
+    "鲜活农产品品种目录",
+    "鲜活农产品品种目录",
+    "鲜活农产品品种目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "811011",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=811011",
+   "question": "公路养护定额咨询\n您好，我想咨询《广东省公路小修保养工程概算编制办法》及《广东省公路小修保养工程概算定额》(试行)，这两本书，现在还在施吗？如果在施，请问可以在哪买到？谢谢。问了广州好多交通书店，说这两本书都没有。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;广东省公路养护预算编制办法&gt;和&lt;广东省掩护预算定额&gt;的通知",
+    "广东省公路小修保养工程概算编制办法",
+    "广东省公路小修保养工程概算定额",
+    "广东省公路养护预算编制办法",
+    "广东省公路养护工程预算定额"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-jt",
+   "id": "3475803",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3475803",
+   "question": "如何注册大件运输许可综合服务系统\n如何注册大件运输许可综合服务系统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3468374",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3468374",
+   "question": "现在施工单位还是否需要5%外委送检\n粤交监督[2008]272号-关于加强公路水运工程桩基检测、材料检验及工地试验室管理的意见目前是否有效？ 除了此文件中有要求按不低于5%频率送外委单位检测外，还有其它文件有要求吗？ 如无，是否可以理解现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3425118",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3425118",
+   "question": "我是广州天河区货代公司，请问无船承运人运价如何更新运价备案信息以及在哪里更新运价备案\n我是广州天河区货代公司，已经取得无船承运人资格，现在需要更新无船承运人运价备案，请问在哪里更新f运价备案呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3417849",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3417849",
+   "question": "实名制认证\n现工地进场需要实名制认证，因原项目做了实名制，目前已经完工，项目管理人员已全部解散，无法联系管理人员退场，导致现工地一直无法完成认证，请问怎么解决该问题 ？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3395176",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3395176",
+   "question": "关于《广东省公路水运工程平安工地建设评估标准》（GDJT 002-01-2025）\n以大中型公路水运工程为例。《广东省公路水运工程平安工地建设评估标准》（GDJT 002-01-2025）6.3.2条目规定使用表格为B4、B5、B6，然而B",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3390438",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3390438",
+   "question": "检测机构等级评定\n请问申请资质证书过程中遇到的问题应该联系哪个电话呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3371943",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3371943",
+   "question": "货车ETC享受85折\n非粤通卡通行广东路段是否享受85折，优惠至什么时候结束",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3372760",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3372760",
+   "question": "咨询一下交通建设实名制app在哪里下载？\n咨询一下交通建设实名制app在哪里下载？几个手机应用市场都搜不到，网上也没有！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3352392",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3352392",
+   "question": "蓝牌拖车加装尾板\n蓝牌拖车加装的尾板是否算入车辆总长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3343813",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3343813",
+   "question": "道路运输运输经营许可证查询途径\n请问是否有省级以上网络平台可查询到广州市交通运输局核发的道路运输运输经营许可证真伪情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3310046",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3310046",
+   "question": "无法登录网址\nhttps://dlys.gdcd.gov.cn:8080/mini-owner/a/login，这个网址无法登录，请问有最新的网站吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3284097",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3284097",
+   "question": "广东省公路水运工程平安工地建设评估标准\n您好，最新的广东省公路水运工程平安工地建设评估标准还没有发布，开展平安工地自评和危大工程开工前条件核查用什么表格？按照原来的还是按照《广东省公路水运工程平安工地建设评估标准》修订稿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3282501",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3282501",
+   "question": "优质工程李春奖省厅推荐意见及盖章事宜。\n您好，申报公路建设行业协会优质工程李春奖，根据李春奖申报办法，公路工程申报需要省厅出具推荐意见及盖章，想问下省厅哪个部门负责李春奖推荐意见及盖章工作，需要准备哪些材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3285237",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3285237",
+   "question": "广东省道路运输车辆检验检测联网平台网页打不来\n广东省道路运输车辆检验检测联网平台网址打不开，是否已经关闭，或者有新的网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3276898",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3276898",
+   "question": "关于定制客运的问题\n我是道路客运经营者，我想请问定制客运可以在乡镇上下客吗？设置停靠点后可以在乡镇上下客吗？这是两个问题，麻烦回答一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3257264",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3257264",
+   "question": "关于涉路施工质量和安全技术评价资质要求、人员资格要求\n据最新的《广东省交通运输厅关于公路路政许可涉路施工活动技术评价的管理办法》： 1、第六条 建设单位委托开展涉路施工活动技术评价的单位，一般具有工程设计资质（设计综合、公路行业或者公路专业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3256543",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3256543",
+   "question": "如何下载企业道路运输经营许可证\n企业道路运输经验许可证已经办理下来了，但是如何在官网下载高清PDF版本的证照，公众号只能查询到只显示部分信息的证照，不适用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3256607",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3256607",
+   "question": "铁路跨(穿或并行)越高速公路\n请问《关于加强铁路跨(穿或并行)越公路等交叉工程管理的通知》（粤交基函【2008】2253号），文件是否废除，有无最新相关通知；铁路跨(穿或近距离并行)高速公路项目，是否仍需省交通厅受理批复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3247123",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3247123",
+   "question": "广东省交通建设工程从业人员实名制管理系统网站打不开\n广东省交通建设工程从业人员实名制管理系统网站无法打开https://jssmz.gdcd.gov.cn/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3244424",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3244424",
+   "question": "收费目录清单制度具体指的是什么？\n你好，根据2019年颁发的粤交〔2019〕9 号文件以及相关的政策解读文件，贵单位明确了一点：“港口经营主体建立收费目录清单制度，做好明码标价工作，以及加强指导和监督检查。”请问，文件中指明“港口经营人和引",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3246234",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3246234",
+   "question": "港口建设工程附属建筑规划手续问题\n现有广州市一码头建设工程，其陆域建筑物（如车间、装置楼等）已取得了建设工程规划许可证，且码头岸线使用也取得了港务局的批复。其码头工程使用岸线批复中包含引桥、变电所等内容，其中变电所（建筑面积约为135平方米",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3230101",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3230101",
+   "question": "公路养护资质有关问题\n1、我司外省子公司具有路基路面甲级、桥梁甲级和安全设施不分等级养护资质，将外省子公司资质重组分立或吸收合并至广东省内母公司，所考核的资料有什么不同？2、如分立后，要重新核定资质，我司的人员及设备是否需要配齐？是否需要考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3234485",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3234485",
+   "question": "广东省道路运输管理信息网无法访问\n广东省道路运输管理信息网( http://dlys.gdcd.gov.cn/#/ ) 无法访问，请问是否有新的官方查询渠道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3226490",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3226490",
+   "question": "公路水运试验检测师报名条件\n我是本科学历，打算报考公路水运助理检测工程师考试，24年六月份毕业，7月份工作，25年一月中旬实习期结束。我看公告上说累计工作年限截止到2025年12月31号，报考条件的第一条说实习期不计入专业工作年限。请问累计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3187337",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3187337",
+   "question": "二级造价工程师注册\n你好，我省的二级造价师交通运输工程专业，考试没有区分“公路”和“水运”方向。请问若通过考试，注册时，公路和水运是二选一，还是可以两个同时注册在同一单位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3181179",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3181179",
+   "question": "政策解读信息\n您好，请问广东省交通运输厅的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3118369",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3118369",
+   "question": "请问广东省IC卡道路运输电子证件数码照片报送网的网址是什么\n请问广东省IC卡道路运输电子证件数码照片报送网的网址是什么，我是照相馆的，想开通道路运输电子证件数码回执这个业务，麻烦领导指点一下谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3069145",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3069145",
+   "question": "关于交运规〔2024〕8号《道路运输企业主要负责人和安全生产管理人员安全考核管理办法》咨询\n我于2021年通过深圳市交通运输局考核，取得《安全生产知识和管理能力考核合格证》，经营类别：（道路货运 （含货运站），考核类型：安全管理人员。如果去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "3036007",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3036007",
+   "question": "字母S代表省道、Y代表县道、C代表村道。那字母U代表什么道路？\n尊敬的领导： 您好，我是张木恒，现遇到一个问题想请教，我村的主进出唯一主道路，明明是一条村道，命名道路编号是U588。众所周知字母S代表省道、字母Y代表县道、C代表村道。那道路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3032611",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3032611",
+   "question": "小微型客车经营服务备案\n广东省小微汽车租赁备案系统http://121.33.200.107:16004/mini-owner/a/login，这个系统打不开，是否有最新的系统呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3035788",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3035788",
+   "question": "2024年职称评审\n2024 年度交通运输工程高级职称评审工作预计何时开始？省厅还是跟往年一样会发布通知，统一在广东 省交通工程系列职称申报评审管理系统中申报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3029973",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3029973",
+   "question": "职称评审\n《广东省交通运输工程技术人才职称评价改革实施方案》自2019年11月25日实施，有效期5年，现已接近有效期期限，是否重新编制新的实施方案，还是延续旧的实施方案？具体职称评价标准是否有变化？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3016748",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3016748",
+   "question": "国际船舶代理办理\n如何申请国际船舶代理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "3009869",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=3009869",
+   "question": "广东省港口监管系统的网址是什么？\n广东省港口监管系统之前的网址打不开了，请问有新的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2976701",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2976701",
+   "question": "从业资格证转籍\n我想把押运员从业资格证转籍到惠州，询问该局告知省厅没有改革，暂时还不能网上办理，需要前往，运政一网通小程序已经上线几年了，很多省份都已经改革，问下广东什么时候能接入，这样也不用跑路方便群众",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2947872",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2947872",
+   "question": "道路运输经营许可证\n您好，想请问一下，在广东 销售农产品后用冷链车为客户送货，需要办理道路运输经营许可证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2893037",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2893037",
+   "question": "高速公路救援服务收费标准---莞佛高速乘客转移等费用标准\n尊敬的领导， 本人想了解关于广东高速公路救援服务收费标准中的广东省莞佛高速路段，关于乘客转移费用等相关标准，也就是乘客司机在莞佛高速路段，因车辆故障请求救援，转移乘客相关费用。 根据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2889064",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2889064",
+   "question": "黄牌危化品车辆做一级维护或二级维护保养问题咨询\n需要了解整个广东省内具有二类以上危险货物运输车辆维修资质的修理单位有哪些（整个广东省名单），或者在哪里可以查看到公布名单，方便我公司（贵州远恒物流有限责任公司）运输车辆根据具体位置就近按时完成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2840262",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2840262",
+   "question": "小微型客车经营服务备案\n办理部门在哪 办理部门电话 所需资料 可以网上申请还是要线下，经营所在地服务机构及服务能力证明是什么东西、在哪里办。 场地证明是村里出的吗。 管理人员材料是身份证复印件还是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2807533",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2807533",
+   "question": "《广东省交通运输 厅关于公路工程造价管理的实施细则》是否已经失效\n《广东省交通运输厅关于公路工程造价管理的实施细则》第三十三条 本细则由广东省交通运输厅负责管理和解释。本细则自 2018 年 1 月 1 日起施行，有效期五年。请问，该细则目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2772068",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2772068",
+   "question": "查询公路工程关于索赔费用计算方面的行业文件\n主要想查询交通部、广东省交通厅或者国内其他省份是否有关于公路工程索赔方面的行业文件，关于延期索赔费用的计算方式的相关约定，或者有比较合理的案例。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2766267",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2766267",
+   "question": "交通造价站发布的信息价与建设工程造价站发布的信息价差异\n为什么交通造价站发布的信息价与建设工程造价站发布的信息价差异如此之大，单价相差1/3左右的价格？例如，碎石材料价格，2023年8月广东省交通运输工程造价站发布的信息价平均为140元/m",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2730361",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2730361",
+   "question": "国省道增设平交道口标准\n企业地块位于国省道旁，想在厂房门口增设一个平交道口接入国省道（无辅道），方便车辆出入，拟开设的路口与最近路口的间距有要求吗？最近应该间隔多少米呢？是否是按照《公路工程技术标准》9.1.5中，作为主干道的一级公路需间隔",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2713872",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2713872",
+   "question": "关于养护工程造价中“安全生产经费”费率取费问题\n请问养护工程执行公路养护工程预算编制办法（粤交基【2009】1350号文），安全生产经费是已经全部包括在费率中的，还是需另外单计1%的安全生产经费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2713639",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2713639",
+   "question": "广东省经营性道路货物运输\n广东省经营性道路货物运输驾驶员从业资格证申请表，在哪里可以下载？要给货车司机办理货物资格证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2699396",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2699396",
+   "question": "广东省驾驶培训公众服务网载录个人基本信息中性别出错\n登陆广东省驾驶培训公众服务网，发现自己性别错了，没有修改个人信息的入口，请问这需要改回来吗？不及时修改等到领取驾驶证时，驾驶证的性别也会错吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2690284",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2690284",
+   "question": "关于港口经营许可相关问题的的咨询\n根据《港口法》第二十二条要求：港口经营包括码头和其他港口设施的经营，港口旅客运输服务经营，在港区内从事货物的装卸、驳运、仓储的经营和港口拖轮经营等。请问已经取得港口许可的经营人将其所有部分泊位或者仓库、堆场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2623133",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2623133",
+   "question": "关于从业监理资格证事宜\n请问在广东省从事公路行业的专业监理工程师持有的是广西省交通工程质量监督站资格认定的地方级专业监理证是否可行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2577411",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2577411",
+   "question": "公路工程试验检测机构投标\n陕西省公路工程试验检测机构在广东省境内参与项目投标需要在交通厅网站提前备案或入库吗？前期需要做什么准备工作吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2559463",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2559463",
+   "question": "《广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法》\n第二十三条中；无法以具体单位数量进行计量，或者采用具体单位数量计量难度较大的安全生产费用， 可以采用总额包干、分期支付的方式进行计量与支付，但该部分费用合计应控制在合同安全生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2526354",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2526354",
+   "question": "隧道洞渣自加工碎石材料单价是否应计算利润和税金\n利用公路隧道洞渣加工成碎石，用于本项目路面垫层、水稳层等部位，路面垫层、水稳层的预算综合单价已经包含了利润和税金，那么在确定自加工的碎石材料价时，能否计算利润和税金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2520145",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2520145",
+   "question": "如何获取广东省内现有的高速公路名称及其编号的完整目录\n我在省交通厅的网站上不知道怎样可以找到广东省内现有的高速公路名称及其编号的完整目录，比如S31是龙大高速，我想知道S1是什么高速及一些简单的介绍，S2是哪条高速等等…… 希望可以告知查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2522569",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2522569",
+   "question": "交通运输专业高级职称评审业绩条件问题咨询\n广东省人力资源和社会保障厅、广东省交通运输厅联合印发的《广东省交通运输工程技术人才职称评价实施方案》（粤人社规〔2019〕36号）中规定了申报中高级职称的养护管理岗位业绩要求。如高级工程师要求：维修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2491412",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2491412",
+   "question": "码头核准和码头岸线批复\n因公司需要新建一个LNG码头，相应咨询下两个问题，烦请尽快答复，谢谢。 1、码头核准需要办理哪些手续，需要什么文件，是国家交通局还是省交通局批复？ 2、码头岸线申请需要办理哪些手续，需要什么文件，是国家交通局还是省交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2464533",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2464533",
+   "question": "中阳高速\n您好！请问中阳高速中山段横栏镇有没有高速出口？什么时候开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2455883",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2455883",
+   "question": "交通运输工程专业二级造价工程师的注册证书哪里可以下载？\n交通运输工程专业二级造价工程师的注册证书哪里可以下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2439485",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2439485",
+   "question": "广东省公路水泥路面拉毛应套什么定额\n广东省公路水泥路面拉毛1cm应套什么定额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2436996",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2436996",
+   "question": "公路水运项目开工备案\n现在广东省范围内的公路水运建设项目在开工前还需要办理开工备案手续或者施工许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2418483",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2418483",
+   "question": "关于粤交[2022]9号文件的解读问题\n您好，请问粤交[2022]9号发布后，原文件“粤公路函【2016】829号”附件9公路路政许可条件中的相关要求还可作为依据吗？是否还继续实行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2409397",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2409397",
+   "question": "关于高级职称业绩问题\n作为试验室评审专家，可以用来作为业绩？如果可以，请问用那个条件支撑？还有论文有没有时效性，评中级之后都可以使用，还是相隔年限过长就作废？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2400144",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2400144",
+   "question": "关于公路养护资质申请\n1.请问申请公路养护资质证书在哪里提交申请？2.请问资质申请要求里面技术设备无明确的数量和设备类型要求，能否提供明细？3.关于申报养护资质问题有咨询电话吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2380656",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2380656",
+   "question": "关于质量保证金返还\n水运工程项目质量保证金返还是通过交工验收合格起计算还是通过竣工验收合格后起计算（企业投资），是否有相关文件支持，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2376401",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2376401",
+   "question": "2022年度的交通运输工程的职称评审通知时间\n2022年度的交通运输工程的职称评审通知大概什么时候会出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2339894",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2339894",
+   "question": "关于省外企业养护资质是否需在广东省备案\n《广东省交通运输厅关于公路养护工程市场准入的实施细则》（粤交〔2018〕7号）第十三条“跨省、自治区、直辖市进行公路养护工程施工的公路养护工程从业单位进入本省从事公路养护工程工作需向省交通运输厅出示从",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2330532",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2330532",
+   "question": "请问2022年度公路水运试验检测师考试成绩什么时候公布？\n请问2022年度公路水运试验检测师考试成绩什么时候公布？是否有大概公布时间，是下周能公布？还是七月份中旬或者下旬可以公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2323319",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2323319",
+   "question": "高速公路边坡监测单位资质\n麻烦问下从事高速公路边坡、软基地段监测资质要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2319072",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2319072",
+   "question": "办理网约车经营许可证\n网约车线上服务能力认定所需要的材料及要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2318274",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2318274",
+   "question": "为什么现在省内从业资格证无法迁档案？\n从去年10月份系统升级后，省内从业资格证就一直无法迁档案，导致部分人员想考取危险品运输从业资格证因为无法将档案迁到有考点的城市报名考试。请问这个事情要怎么解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2300455",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2300455",
+   "question": "关于试验检测报告编号\n工地试验室设三个分室，且只有一个授权负责人，三个分室根据施工进展独立备案，现咨询各分室试验检测报告编号是否可以独立编码。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2280417",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2280417",
+   "question": "公路养护资质技术工人证书\n请问：申请从事公路养护资质的技术工人的证书，有限定颁发单位吗？外省的证书申请从事公路养护资质可以使用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2273422",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2273422",
+   "question": "2022年度公路水运试验检测师考试广东区域会停考吗？\n2022年度公路水运试验检测师考试广东区域会停考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2274664",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2274664",
+   "question": "危大工程\n广东省高速公路工程施工安全标准化指南（第一册管理行为）里面P33页需专家论证、审查的超过一定规模的危险性较大工程：采用非常规起重设备、方法，且单件起吊重量在100kN 及以上的起重吊装工程。请问下，这里说的非常规方法包含哪些？预制",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2267399",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2267399",
+   "question": "广东省交通建设工程从业人员实名制管理系统事宜\n广东省交通建设工程从业人员实名制管理系统忘记账号密码，现无法审批员工提出的离职申请。员工无法入职新单位。该如何找到账号密码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2263015",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2263015",
+   "question": "公路监理工程师\n领导您好 有2个问题想咨询 1、 按部新的监理资质管理办法，文件所述的监理工程师，是否包括原交通部版发的专业监理工程师（JGZ***开头）的证书？ 2、我省企业在全国公路诚信系统申报的监理人员录入，录入至今未审批。请问是那个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2261763",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2261763",
+   "question": "关于广东省0-6时危险品运输车辆白名单查询事宜\n您好！现有一份从同行业人员转发的“附件2二季度0-6时危险品运输车辆白名单_匹配企业“的电子档一份，其中我公司的19台危运车在列。因这个信息是转发的，是否可以从相关网站或公共平台的入口可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2250587",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2250587",
+   "question": "关于粤交路〔1998〕38号《损坏公路路产赔偿标准》补偿工程量相关问题\n一、文中（四）、路面、路基：计算单位㎡，备注1、挖掘水泥路面深度超过25CM的，每增加10CM，按面积增加25%计算；挖掘其他路面深度超过20CM的，每增加10CM，按",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2257666",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2257666",
+   "question": "外省交通工程监理企业，在广东承接业务需要在广东交通运输厅什么地方或网站备案？\n外省交通工程监理企业，在广东省承接业务要不要在广东交通运输厅备案？备案网址和流程是怎么样的？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2235854",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2235854",
+   "question": "二级造价工程师\n领导你好！请问下通过广东省2021年度考试的二级造价工程师考试的什么时间可以注册。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2233239",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2233239",
+   "question": "多用途泊位是否可以靠泊散货船？\n沿海港口的多用途泊位是否可以靠泊散货船？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2221256",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2221256",
+   "question": "广东省高速公路工程施工安全标准化指南\n现行的广东省高速公路工程施工安全标准化指南与最新的标准规范不一致，以哪个为准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2203712",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2203712",
+   "question": "无船承运人(NVOCC)的提单如何备案？\n您好，我们公司已经取得无船承运人NVOCC资质，由于业务需要，我们需要使用NVOCC提单，请问提单的备案流程是怎样的？需要到哪里备案？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2201479",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2201479",
+   "question": "广东省交通运输厅关于印发《广东省交通 运输厅关于公路水运建设工程安全生产 费用的管理办\n公路水运工程现场临时用电（，一级电箱、二级电箱防护棚），高边坡增设有关安全标语的宣传、现场应急处置流程的牌子，七牌两图、安全会议室内的投影屏幕、音响设备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2190767",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2190767",
+   "question": "公路水运检测师考试\n请问今年2022公路水运检测师工程师报名是否需要工作证明，还是采用承诺制！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2193912",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2193912",
+   "question": "无船承运资格证\n企业办理无船承运资格证需要满足什么条件，如何办理，在哪里申请办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2185608",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2185608",
+   "question": "安全标准化\n码头企业安全标准化在哪申请评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2185681",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2185681",
+   "question": "咨询疑问\n粤交基[2022]67号文 关于调整公路工程人工工日单价 是否已经正式实施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2169332",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2169332",
+   "question": "二级造价师交通运输工程怎么注册，相关操作指引在哪看？\n截止目前，网上有三批次的交通运输工程二级造价工程师通过了初始注册，但是查找相关网站，找不到二级造价师交通运输工程注册流程或注册入口网站，请问，相关操作指引在哪看？注册流程或注册入口网站在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2155088",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2155088",
+   "question": "粤交基函【2020】177号\n请问粤交基函【2020】177号是这边出的吗？怎么找不到相关文件，目前工程建设领域是否仍需按照此文执行作业人员实名制和工资支付？或者适用其他什么文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2157348",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2157348",
+   "question": "关于收取占用利用公路路产补（赔）偿费等问题\n我想请问一下，关于收取占用利用公路路产补（赔）偿费等问题参考的是哪个文号的文件。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2153602",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2153602",
+   "question": "试验检测证件注销\n请问试验检测证书在检测机构提交撤销录入申请后，省质检机构审核一般要多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2147377",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2147377",
+   "question": "预算编制办法里信息化约定\n建设管理系统、质量监督管理系统、施工现场视频监控及数据传输系统、搅拌站和工地试验室视频监控及数据采集传输系统、档案管理软件等的计算机软件配置属于企业管理费还是属于工程建设其他费里的建设项目信息化费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2149136",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2149136",
+   "question": "公司自有货车是否需要办理道路运输许可\n你好！ 我公司自有一辆限载1.25吨轻型客车，需要运送公司销售的产品给广东省内客户。请问这种情况是否需要办理道路运输许可吗？如果是要办理是我公司的名义办理，还是需要挂靠运输公司的车队？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2143736",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2143736",
+   "question": "关于职业资格与专业技术职称相关问题\n你好！ 1、根据省人社厅印发的《关于做好2021年度职称评审工作的通知》附件1中的第9和10条规定：“取得相应国家专业技术职业资格可与我省职称对应，不另行换发职称证书”。那么取得一级建造师、试验检测师等证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2140496",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2140496",
+   "question": "广东省交通工程系列职称申报评审管理系统”找不到上级单位省人社厅，也找不到本单位\n广东省人社厅下属的省属技工学校，需要申报交通运输工程高级职称，广东省交通工程系列职称申报评审管理系统”找不到上级单位省人社厅，也找不到本单位，请问法人单位找谁注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2125401",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2125401",
+   "question": "关于施工单位安全生产费用计量咨询\n今年新发布的《广东省交通运输厅关于公路水运建设工程安全生产费用的管理办法》中第十六条规定了“施工单位应按照合同约定，制订季度（月度）安全生产费用使用计划，报监理单位审批，同意后实施。” 但是代建单位在202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "2124466",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2124466",
+   "question": "2022年二级造价师\n该考试结束并出成绩3周了，交通运输专业的合格分数线什么时候出，是否会单独划合格分数线？盼复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2120208",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2120208",
+   "question": "如何申报绿色公路示范工程\n你好，想了解下绿色公路示范工程的评审标准，和申报条件、流程，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2119085",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2119085",
+   "question": "查询广东省交通运输厅2008年路桥、港航专业高级工程师资格评审结果公示\n尊敬的领导您好： 本人2008年通过高级工程师评审，但最近由于新单位认为我证书有疑问，需要网上公示，但目前查不到相关信息，广东省交通运输厅官网可以查到2009年及以后的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "2117702",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=2117702",
+   "question": "关于加快印发新版《广东省高速公路网路线命名和编号规则》的问题\n广东省交通运输厅于2017年2月23日印发《广东省高速公路网路线命名和编号规则（2017年修订版）》，2020年5月28日印发《广东省高速公路网规划（2020—2035年）》，“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1880130",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1880130",
+   "question": "货运从业资格证继续教育\n广东省茂名市的货运从业资格证继续教育业务是否可以在网上完成？或者手机上完成？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1885682",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1885682",
+   "question": "关于粤交〔2020〕5号文平安工地建设考核评分\n根据粤交〔2020〕5号文附件1考核评价的标准中第“3.4”条，评分的计算是“施工现场通用部分的实得分与公路部分（水运部分）的实得分相加得到的和 除以 施工现场通用部分的应得分与公路部分（水运",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1885457",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1885457",
+   "question": "关于2021年度交通运输工程高级职称评审，业绩填报问题\n领导，你好！请教一下我参加检测的一个高速公路项目，担任检测单位的检测部部长，有30km有路基、路面、桥梁（7座）。业绩应该怎么计算？怎么申报，算路基还是综合方面申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1885885",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1885885",
+   "question": "关于路桥副高职称业绩计算问题\n请问按养护批复的设计项目，按维修养护大、中修设计高速公路120km以上，为项目审核负责人，没有对应的项目职位，能否按专业工程师来呢？还是有其它的选择呢？ 建设方案的工程 按初步设计阶段来可以吗？ 谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1882224",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1882224",
+   "question": "关于业主单位项目负责人的定位\n在高级职称评审中公路等级系数折算表中 建设管理 分类中，从高到低有项目经理/总工、主管工程副经理、技术相关副经理.......专业工程师或业主代表。分别匹配不同的分数，但是没有“项目负责人”一职。实际项目运行中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1098434",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1098434",
+   "question": "职称与职业资格相关问题\n你好, 目前，国家在部分工程领域推行职称与职业资格对应制度，广东省在职称评审工作中也明确取得规定的职业资格证便可对应相应的职称，比如：取得公路水运工程试验检测师便可对应工程师中级职称。另一边，我们交通运输工程领域中级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1094839",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1094839",
+   "question": "查询广东省交通运输厅2013年路桥、港航专业高级工程师资格评审结果公示\n尊敬的领导您好： 本人2013年通过高级工程师评审，但最近由于新单位认为我证书有疑问，需要网上公示，但目前查不到相关信息，广东省交通运输厅官网也查不到，请问能不能提供相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1087405",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1087405",
+   "question": "粤交监督[2008]272号文件是否有效\n请问粤交监督[2008]272号-关于加强公路水运工程桩基检测、材料检验及工地试验室管理的意见这个文件目前是否有效，是否需要按此执行。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1079488",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1079488",
+   "question": "受疫情影响，公路水运工程试验检测考试是否继续进行\n其他有几个省市已经取消了公路水运工程试验检测考试，广东省是否取消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1076906",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1076906",
+   "question": "关于参加公路水运工程试验检测考试的新冠核酸检测及检测费用问题\n现在参加公路水运工程试验检测考试硬性要求出具48-72小时核酸检测阴性证明，我想问下这个就目前我省得疫情况如果没出省或去过中风险等重点场所的情况下，是不是可以不硬性要求？最近发现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1069066",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1069066",
+   "question": "需求《广东省交通运输厅工程质量管理处“双随机一公开”监管工作 实施细则》电子版文件\n求《广东省交通运输厅工程质量管理处“双随机一公开”监管工作 实施细则》文件，交通厅网站查询不到原版发布的文件出处，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1066977",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1066977",
+   "question": "试验检测考试\n您好，今年的试验检测考试提供的72小时核酸检测阴性证明一定要是纸质的吗？粤省事上显示的阴性证明可已作为纸质的代替吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1061972",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1061972",
+   "question": "高速超时是否罚款\n请问广东省内高速有无超时罚款？例如我从梅州回茂名信宜，路途遥远，遇上节假日塞车的话有时候甚至会超过24小时。有时候晚上比较疲惫会在服务区睡觉，请问是否会有超时罚款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1060236",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1060236",
+   "question": "广东挪亚国际航运代理有限公司无船承运备案\n网上已申请无船承运业务备案，审批状态显示正在进行，联系广东省交通运输厅十几个电话无人接听，请帮忙尽快处理，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1027907",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1027907",
+   "question": "二级造价注销\n二级造价在全国造价人员管理网站上注册成功后，无法变更单位，也无法注销，要如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1027994",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1027994",
+   "question": "二级造价工程师\n二级造价工程师（交通运输专业）已在全国造价人员管理平台注册成功，并通过省级审核，已有注册编号，如何获取注册证书？全国造价人员管理平台中无法进行二级造价工程师的注销与变更已注册单位信息，要如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1017273",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1017273",
+   "question": "关于路桥副高职称业绩计算问题\n您好，请问路桥副高职称业绩中，公路设计的公路改建、改造工程，路面大修工程，路面改造工程，路面改造工程（灾毁恢复重建工程）业绩计算应怎么计算，归哪一类？公路设计审核负责人折算系数是多少？工可、初步设计、改建方案、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jt",
+   "id": "1010873",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1010873",
+   "question": "网络平台道路货物运输经营许可申请\n请问一下： 1、网络货运许可申请，是随时都可以申请然后集中评审，还是说要在规定时限内申请啊？ 2、目前能查到第一批、第二批“线上服务能力”通过名单，请问每一批时间间隔是固定的吗？多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "1006638",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=1006638",
+   "question": "源头治超\n我们是做源头治超的，源头治超技术文件及接口规范，和关于源头治超的文件，在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "980211",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=980211",
+   "question": "广东省二级造价师注册\n您好，请问2020年的二级造价师什么时候开始注册呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "979206",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=979206",
+   "question": "监理综合资质和交通运输部颁发的监理资质\n请问监理企业持有住房建设部颁发的综合监理资质是否能承担公路工程的监理业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "964712",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=964712",
+   "question": "江苏的公路路面专业承包三级企业初次到广东投标怎么备案\n您好： 我单位为江苏一家公路路面专业承包三级施工企业，准备到广东承接招投标项目，请问是否需要在广东省交通厅备案？如果需要，请问在哪个网址备案？备案资料和要求是什么？对备案企业人员和业绩以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "959887",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=959887",
+   "question": "道路运输车辆电子证照\n目前广东省已实行道路运输车辆电子证照，请问是否凭打印的电子证照就全国通用，不需要再携带以前的纸质道路运输证出省了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "950908",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=950908",
+   "question": "广东省驾驶培训服务网学员信息\n本人在汕头报了驾驶证，后因过期在其他驾校报名考驾驶证，现因科目一是需要学时累计学时，但驾驶培训服务网学员信息显示的是第一家驾校的信息 然后我不能进行学习累计学时，请问是我需要先在驾驶培训服务网注销掉学员信息后再",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "924772",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=924772",
+   "question": "2020财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "926461",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=926461",
+   "question": "港口企业二级标准化评审资质单位\n广东省具有港口企业二级安全标准化评审资质的单位有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "925097",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=925097",
+   "question": "公司变更了名称和地址，已取得新的营业执照，请问无船承运备案怎么修改公司名称和地址？需要多久\n公司变更了名称和地址，已取得新的营业执照，请问无船承运备案怎么修改公司名称和地址？需要多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "925173",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=925173",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "915985",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=915985",
+   "question": "《广东省交通运输工程技术人才职称评价改革实施方案》中的释义咨询\n广东省人力资源和社会保障厅、广东省交通运输厅关于印发《广东省交通运输工程技术人才职称评价改革实施方案》，其中《附录：有关词语或概念的解释》中的第22与第28条款。在申报路桥工程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "916421",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=916421",
+   "question": "网络货运\n想咨询以下几点：1、办理网络货运道路运输经营许可证，申报线上服务能力材料提交后，企业要怎么接入？2、企业分公司备案到珠海，不管是省外还是省内的企业是否需要重新做线上能力认定，怎么做？做完线上过后，具体接入怎么对接？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "909349",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=909349",
+   "question": "关于对广东省《道路旅客运输及客运站管理规定办法》条款的咨询\n1、请问该《办法》中的“除营运线路长度在800公里以上及镇通村的客运班线以外，班车客运、包车客运不实行一车一牌对应管理”内容应如何理解？ 2、请问该《办法》中的“企业自有营运客车《",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "912498",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=912498",
+   "question": "请问二级造价师交通运输专业什么时候可以注册？\n请问二级造价师交通运输专业什么时候可以注册？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "901191",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=901191",
+   "question": "钻孔桩桩基长度疑问\n根据《公路工程工程量清单计量规范》405 钻孔灌注桩 计量规则 第3条之规定： 桩长为桩底高程至承台底面或系梁底面。对于与桩连为一体的柱式墩台，如无承台或系梁时，则以桩位处原始地面线为分界线，地面线以下部分为灌注桩桩长，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "903419",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=903419",
+   "question": "检测机构查询\n请问如何查找广东省内的公路水运检验检测机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "894917",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=894917",
+   "question": "二级造价师交通运输工程专业注册\n二级造价师交通运输工程怎么注册，相关操作指引在哪看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "885694",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=885694",
+   "question": "请问广州考教练员证在哪里报名\n请问广州考教练员证在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "883261",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=883261",
+   "question": "公路路政许可涉路施工质量和安全技术评价的管理办法相关问题\n《广东省交通运输厅关于公路路政许可涉路施工质量和安全技术评价的管理办法》中第六条“第三方评价机构根据公路行业业务范围，按照法律法规的规定具有工程设计资质（设计综合、公路行业或者公路专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "879999",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=879999",
+   "question": "广东高速公路收费标准总表\n尊敬的领导：本人从事运输行业，企业要核算成本，想了解一下最新广东所有高速公路的收费标准情况，以前有一份所有收费站到收费站之间的里程和收费标准，不知能否提供一下最新的汇总。非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "875357",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=875357",
+   "question": "临时工程拆除费\n公路项目完工之后，项目部用地需要复绿，预制梁场、混凝土搅拌站、水稳层拌合站等临时工程是否要另外计算拆除费用，在100章的临时工程安装与拆除中计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "873114",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=873114",
+   "question": "广东省交通工程系列职称申报评审管理系统的注册问题\n您好，我是广东省内路桥中级职称，打算计划在2021年申报交通工程的高级职称，我知道2021年的高级职称评审工作尚未开始，但是想提前熟悉里面的操作系统，并按照系统和2020年资料要求准备。 但",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "873324",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=873324",
+   "question": "21年春节期间高速公路是否继续免费通行？\n如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "867689",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=867689",
+   "question": "2020年交通厅中级工程师评审结果\n你好，2020年交通厅的中级工程师评审材料已提交数月，高级工程师评审结果已公示大半个月，请问中级工程师的评审结果什么时候出来呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "864874",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=864874",
+   "question": "省交通厅评标专家\n你好，请问一下，广东省交通厅的评标专家还能申请入库吗？现在我条件够了，想申请入库，谢谢回答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "855965",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=855965",
+   "question": "广东省是否有关于高速公路的计量计价规范\n尊敬的领导 请问广东省是否有关于高速公路的计量计价规范 有的话 最新规则的全称麻烦说一下 感谢领导 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "850551",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=850551",
+   "question": "无船承运资质变更事宜\n你好， 我司企业名称、注册资本及地址发生变化，请问无船承运人资质是否需要办理相应信息的变更。如果需要，请提供办事指南。感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "854596",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=854596",
+   "question": "关于《广东省交通运输工程技术人才职称评价改革实施方案》相关问题的咨询\n方案中，附录“17.有关项目的说明”中的“专业技术工作经历（能力）条件”中所称的高速公路皆指普通综合型高速公路，其它等级公路根据工程特征折算系数折算，其中等外公路的业绩不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "842845",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=842845",
+   "question": "海运无船承运业务\n1.关于海运无船承运业务申请流程，材料，周期 2.是否可以直接在经营范围增加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835968",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835968",
+   "question": "开设驾校需要什么性质用地？\n本人查询了开办驾校的相关资料，根据“城市用地与规划建设用地标准”对土地性质的要求是，S9（其它交通设施用地——除以上之外的交通设施用地，包括教练场等用地），请问下是否必须要这个性质的用地才可以申办驾校，以及审批道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835833",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835833",
+   "question": "关于路桥专业副高职称评审的问题\n目前任职一家民企，公司注册地广州市海珠区，在广东省交通工程系列职称申报评审管理系统中填报上级单位主管部门时，发现如下问题：1、是否应选择广州市交通运输局？如果不是，应选择哪个单位呢？2、申报路桥专业副高职称时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835771",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835771",
+   "question": "关于新车选号的业务\n你好，我在使用12123手机软件进行新车选号时被告知账号存在风险，然后我依照提示上传了个人身份信息，但到今天已经有四五天了，仍然未通过审核，12123软件内的网上咨询也没有回复，请问这个身份安全审核要多久？现在等着选号上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835381",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835381",
+   "question": "关于高速公路收费扫码支付无法开具发票\n您好，11月11日我从广贺高速-大旺至广佛肇-端州站交付高速公路费用，用微信扫描支付，索取发票被告知可以上网开具发票，11月12日我通过“无感收费”小程序申请开具发票显示“09D120：超过离线开票限定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835383",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835383",
+   "question": "关于职称申报的问题\n目前任职一家民营企业，公司注册地在广州市海珠区，在“广东省交通工程系列职称申报评审管理系统”中填报上级单位主管部门时，发现如下问题： 1、是否应选择“广州市交通运输局”？如果不是，应选择哪个单位呢？ 2、申报路桥专业副高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "835016",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=835016",
+   "question": "广州市城市桥梁桥下空间占用管理办法\n您好，在网上看到几年前广州市出台了《广州市城市桥梁桥下空间占用管理办法（征求意见稿）》，但目前还没有正式文件。而浙江省、东莞、佛山等市出台的桥下空间管理文件以及省交通厅（参加广东省交通运输厅关于广东省十三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "826408",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=826408",
+   "question": "请公开国道G205线龙川东出口至佗城段路面改造工程建设方案\n国道G205线龙川东出口至佗城段路面改造工程建设方案已由广东省交通运输厅以粤交规[2020]157号批准建设，施工图设计已由河源市交通运输局以河交函[2020]570号批准。 请问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "826203",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=826203",
+   "question": "岑溪—大新公路东延建议\n据闻岑溪—大新公路容县黎村至玉林段一期工程已进行到施工图审查阶段，即将开工建设。二期工程（省界～容信高速段）路线方案受广东省规划影响，暂缓建设，待方案稳定后再进行建设。而最新的广东省高速公路规划图里近期却没有规划对接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "826788",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=826788",
+   "question": "大件运输通行桥梁安全评估系统\n厅长您好，关于建立大件运输“主通道”基础信息数据库、提升单次大件运输评估效率、建立基础信息和检测评估信息化管理平台。我公司（上海同豪土木工程咨询有限公司）有很好的解决方案，目前我公司已经有完备的大件运输通行安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "824143",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=824143",
+   "question": "广州开发区连接麻涌东江大桥扩建问题\n交通运输厅的同志你好！广州开发区连接东莞麻涌的东江大桥，桥梁老旧且双向单行道设计，导致桥梁交通承载力和运输效率低下，每逢上下班高峰和节假日堵车现象严重。同时因靠近麻涌港口，每天有大量运输卡车经过，人车分流",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "824144",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=824144",
+   "question": "如何参与公路工程从业企业信用评价\n我司曾多次参与高速公路电力线路迁改施工，但在公路工程企业信用评价名单中未见我司名字。请问如何参与公路工程从业企业信用评价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "823144",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=823144",
+   "question": "汽车教练证\n您好： 我汽车教练证21年1月到期，怎么办理更换？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "821852",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=821852",
+   "question": "营业执照地址从德庆变更为高要,广东省交通运输厅颁发的道路经营许可证需要怎么变更地址?\n你好,广东省运输厅的办事同志.我司是XX贸易运输公司，类型为有限责任公司(中外合作)，经营范围:经营广东省各地至香港进出口货物汽车运输业务。工商地址已变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "821625",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=821625",
+   "question": "关于网络货运平台第二批什么时候开始答辩\n您好！请问深圳华石供应链科技有限公司第二批申请网络货运平台什么时候开始答辩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "821557",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=821557",
+   "question": "广东省事业单位统考面试名单\n2020待业考生，报考下属单位航道测绘中心，请尽快公布面试名单。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "821278",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=821278",
+   "question": "关于漳州至汕头铁路的咨询\n6月11日，漳汕高铁项目可行性研究报告审查全体会议在漳州市举行。请问目前漳汕铁路具体进展情况如何？线路的走向以及设站是否基本确定并上报国铁集团工可批复？今年底先行段是否可以开工建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "820934",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=820934",
+   "question": "广河高铁\n您好，请问广河高铁有考虑博罗石坝设站吗，石坝设站就很棒啊，那边现在出行都不方便，赣深高铁只通深圳，去广州不方便啊，去惠州市区或者博罗县中转也很不方便，博东这边交通本来就不是很发达，设个站就好很多了，又可以很好的带动经济发展，博东生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "820884",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=820884",
+   "question": "新能源客车运营补贴咨询\n1、根据《广东省交通运输厅、广东省财政厅关于印发农村道路客运、出租车行业油价补助政策实施细则的通知》的内容，新能源农村道路客运车辆按照行驶里程、车辆车型系数和通行政村调整系数发放运营补助。该文件适用于2017-201",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "819435",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=819435",
+   "question": "道路运输许可证\n换证所需准备资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "819836",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=819836",
+   "question": "道路运输许可证\n你好，我司为贸易流通企业，现公司自有一台货车仅用于本公司经营范围内的产品运输，请问需要办理道路运输许可证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "819133",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=819133",
+   "question": "请问广清城际铁路正式通车时间，谢谢！\n前两天，广清城际清城站（原清远站）的站牌终于挂牌到站场的房顶上了，广清城际的花都站、乐同站、狮岭站、银盏站、龙塘站和清城站所有站场终于完工，相关围墙挡板也被拆除，热心的沿线人民也拍到城轨列车从早上八点到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "818770",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=818770",
+   "question": "学时多久能审核\n当天刷的学时多久能同步并审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "818518",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=818518",
+   "question": "国务院办公厅关于进一步优化营商环境\n尊敬的领导同志： 您好！前段时间看到新闻国务院办公厅发布政策文件关于进一步优化营商环境更好服务市场主体的实施意见国办发〔2020〕24号中 四、进一步降低就业创业门槛 （十）优化部分行业从业条件。推动取消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "817628",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=817628",
+   "question": "高速公路桥底空间能否搭建商铺出租\n佛山市大沥镇沥北农贸综合市场旁边，广三高速公路桥底下，该路段多出一排商铺，是为市场老板搭建用于私人出租，请问该路段桥下建筑物是否合法？如若合法，那沥北到沥西路段的桥下空间是否也可以私人搭建建筑物？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "817427",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=817427",
+   "question": "省道大修改造需要到发改部门立项吗？\n省道大修改造需要到发改部门立项吗？具体建设流程是什么？怎样申请上级补助资金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "817379",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=817379",
+   "question": "安全生产费用管理办法\n《广东省交通运输厅关于印发广东省公路水运建设工程安全生产费用管理办法的通知》（粤交基〔2015〕500号）到2020年6月1日过期了，在广东省交通运输厅官网上未找到新的安全生产费用管理办法文件，请尽早颁发新的安全生产费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "817349",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=817349",
+   "question": "我们是广州天河区的货代公司，请问怎么办理无船承运人资质\n我们是广州天河区的货代公司，请问怎么办理无船承运人资质？需要提交什么资料？在哪里提交资料？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "816628",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=816628",
+   "question": "货车人员从业资格证\n请问目前广东省关于非营业的货车司机的从业资格证是怎么管理的呢？目前有车辆4.3吨和8吨的，公司车辆用于运送公司半成品，成品货物，属于非营业，仅制造行业正常物品运送，范围也是广东省内。 目前取消了4.5吨及以下车辆货物运输",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "816352",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=816352",
+   "question": "公路水运企业交安C证报考流程\n请问公路水运企业的交安C证在系统申请报名之后，需要去现场交资料吗？交资料的话需要什么资料？要去哪里交资料？具体的流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "815572",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=815572",
+   "question": "关于市政桥梁检测收费标准应采用粤价函[2008]77号还是粤价函[2012]1490\n我司受相关单位委托，对财政资金项目进行审核，因《广东省物价局关于我省建筑工程质量检测收费问题的复函》（粤价函[2008]77号文）、《广东省物价局关于交通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "815324",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=815324",
+   "question": "营运车\n私家车如何变革营运车，车辆需要什么要求什么资质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "815126",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=815126",
+   "question": "G15沈海高速广州到湛江路段机电科负责单位\n需要了解沈海高速广州到湛江路段机电科负责单位联系方式，进行业务协商洽谈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "814787",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=814787",
+   "question": "完善城际班车出行服务，提高为人民服务的水平。\n翁源汽车站（国营）：翁源县至韶关市的城际粤运快车班车，最后一班车17:30发车的粤运快车，在距离发车车站600米必经的县司法局正前面公交车站，不停车。因为是5点25左右，多位顾客无法及时赶到车站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "808526",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=808526",
+   "question": "茂名化州至广西北流（省界）高速公路目前进度怎样？\n尊敬的省领导：您好！本人家乡化州北部山区和平农场。化州北部山区到现在还没有一条高速路，严重影响当地经济发展和交通出行，茂名化州至广西北流（省界）高速公路已列入省规划，是化州北部山区人民的福音",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "812570",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=812570",
+   "question": "关于高速公路经营企业自维的相关问题\n尊敬的领导，您好，经过前期咨询我已了解到现在我省暂无公路机电设施（收费、通讯、监控照明、供配电等等）养护资质认定，想请问一下如果我司作为高速公路经营企业但是现阶段未取得任何施工资质能否自行开展机电设施养护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "814145",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=814145",
+   "question": "关于广东省公路工程施工、监理表格\n请问在哪可以获取最新版的《广东省公路工程施工、监理表格》？需要收费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "814111",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=814111",
+   "question": "南沙大桥（原虎门二桥）的保护、管理要求\n您好，我想咨询一下，南沙大桥的上下游保护范围是多少？其管理要求是什么？有没有想过的文件依据说明特大桥的保护、管理要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "813882",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=813882",
+   "question": "深圳考教练员证在什么网站报名？报名入口是？\n深圳考教练员证在什么网站报名？报名入口是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "813841",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=813841",
+   "question": "广东省交通厅关于公路工程设计变更管理实施细则 粤交基（2007）1241号解读\n《广东省交通厅关于公路工程设计变更管理的实施细则》（粤交基[2007]1241号） 第五条中较大设计变更标准的第（十一）项“1．由于建设条件发生变化，路基、路面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "813742",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=813742",
+   "question": "水运工程施工企业主要负责人和安全生产管理人员考核\n您好，我省水运工程施工企业主要负责人和安全生产管理人员考核什么时候安排考核呢？我司已在交通运输部公路水运工程施工企业主要负责人和安全生产管理人员信息管理系统申请考核，但近半年仍无安排考核，咨",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "813272",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=813272",
+   "question": "《广东省交通厅关于公路工程设计变更管理的实施细则》（粤交基[2007]1241号）\n《广东省交通厅关于公路工程设计变更管理的实施细则》（粤交基[2007]1241号）第五条中较大设计变更标准的第（十一）项“（十一）其他单项工程费用变化超过5",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "812728",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=812728",
+   "question": "粤交基函【2020】177号\n“粤交基函【2020】177号” 请问一下这份文件你们这边发出的吗，这个能发一份给我吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "808125",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=808125",
+   "question": "关于广东省交通运输厅关于执行内河肮运建设 工程概算预算编制规定有关意见执行原则\n广东省交通运输厅关于执行内河肮运建设 工程概算预算编制规定有关意见的通知粤交基 函 [2015] 2754号第八点建设期维护工程第二小点(二 )建设期航标维护工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "812529",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=812529",
+   "question": "广东省交通工程高级工程师职称评审费用如何缴费，缴费通知书如何获取\n广东省交通厅8月份发布了职称评审通知，评审费用缴费需要省厅开具《缴款通知书》，《缴款通知书》会发短信通知吗，如何获取《缴款通知书》，另在哪里缴费。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "812212",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=812212",
+   "question": "教练员证到期更换\n我的教练证2020年10月8号到期，请问如何更换，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "811439",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=811439",
+   "question": "广东省交通运输厅关于公路养护工程市场准入的实施细则\n第十条公路养护工程从业单位的资质分为三个类别，共五个级别。其中，一类不分级；二类分甲级、乙级；三类分甲级、乙级。 (一) 一类：可以承担大型、特大型桥梁和长、特长隧道以及特殊复杂结构的桥隧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "808473",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=808473",
+   "question": "硝酸铵钙的操作和堆存\n我们是一家贸易公司，经营的一种化学品的品名是“硝酸铵钙”，外观是颗粒状， CAS号码15245-12-2 . 现在咨询此产品在港口装卸及储存时，是否需要港口危险货物作业证？ 装卸及储存此产品的港口是否需要申请危险化学品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "811407",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=811407",
+   "question": "教练员证报名\n请问广州考教练员证在哪里报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "809711",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=809711",
+   "question": "2019互联网+交通运输创新创业大赛奖金\n比赛已经结束一年的时间的了，负责奖金的人员一推再推，难道这么大的比赛省厅就严格无信了？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "808624",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=808624",
+   "question": "网约车监管平台\n广东省交通运输厅：您好！ 我单位是广东北斗兆睿信息技术有限公司，现根据网约车市场环境中存在的诸多不合法行为及潜在危险因素，我司开发了有关网约车的监管平台，可有效解决目前网约车市场存在的安全隐患和监管难题。我单位想向您单位咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "810275",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=810275",
+   "question": "酒驾醉驾专题会议材料\n广东省关于酒驾醉驾的文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "810298",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=810298",
+   "question": "下班接滴滴顺风车是非法从事网约车经营吗？\n下班顺路接了两个乘客，下车点离家不到五公里，两个人六十多公里80块钱，请问网约车经营的定义是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "808250",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=808250",
+   "question": "我们是广州荔湾区的企业，请问怎么办理无船承运人资质\n我们是广州荔湾区的企业，请问怎么办理无船承运人资质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "807638",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=807638",
+   "question": "请问9.30号广东上高速，10.1号零点以后在湖南出高速，如何收费\n您好，请问如果在9.30号广东上高速，10.1号零点以后在湖南出高速，请问是否全程免费，还是需要交非免费时间段的费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "807560",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=807560",
+   "question": "关于国庆节提前进入高速问题\n国庆节30号进入高速，1号出高速，是否免费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "807338",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=807338",
+   "question": "年票咨询\n东莞车辆年票是否一定要缴纳？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "807289",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=807289",
+   "question": "企业行政处罚查询\n广东省交通运输厅行政处罚哪里如何查询处罚明细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jt",
+   "id": "806695",
+   "url": "https://td.gd.gov.cn/hdjlpt/detail?pid=806695",
+   "question": "广东省驾驶培训公众服务网学员服务密码修改问题\n密码忘记了，修改密码，拨打电话不通！！！密码修改途径过于局限，我现在想修改密码都难。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

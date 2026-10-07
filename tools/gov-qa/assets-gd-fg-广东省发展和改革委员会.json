@@ -1,0 +1,3464 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-fg",
+   "id": "3249322",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3249322",
+   "question": "固定资产投资项目备案\n尊敬的广东省发展和改革委员会业务咨询人员: 您好，我公司于2012年开工建设的投资项目，当时没有办企业固定资产投资项目备案。对于上述未办理备案事宜，现在能否进行补办？是否可能面临行政处罚？",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "3164050",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3164050",
+   "question": "在东莞投资建设的新型储能用户侧储能项目是否需要办理整理消防验收？\n在储能设备的消防产品已经验收合格的情况下，在东莞投资建设的新型储能用户侧储能项目是否需要办理整理消防验收？如需要，消防验收的主体是业主单位还是建设单位？麻烦提供相应的规定，谢",
+   "cited_hits": [
+    {
+     "name": "建筑设计防火规范",
+     "lib_no": "GB 50016-2014",
+     "weak": false
+    },
+    {
+     "name": "建筑灭火器配置设计规范",
+     "lib_no": "GB 50140-2005",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电化学储能电站设计规范",
+    "电化学储能系统储能变流器技术规范",
+    "电化学储能电站启动验收规程",
+    "预制舱式磷酸铁锂电池储能电站消防技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2344223",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2344223",
+   "question": "请问邀请招标需要发布招标公告吗？\n以下几个问题想咨询： 1、邀请招标，必须要发布招标公告吗？可以在“广东省招标投标监管网”发布吗？ 2、《必须招标的工程项目规定》和有关法律法规中所指“必须招标的项目”，是指必须采用公开招标方式吗？还是按《招",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "847723",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=847723",
+   "question": "新建通用机场的可研审批流程\n您好，请问清远新建通用机场的可研审批流程是怎么样的？具体由哪个部门审批，需要走什么流程？",
+   "cited_hits": [
+    {
+     "name": "政府投资条例",
+     "lib_no": "政府投资条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业投资项目核准和备案办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "818540",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=818540",
+   "question": "国有控股投资工业园生产设备采购是否属于必须招标范围？\n我是省属国企审计人员，对下属企业大型工业园区投资项目（75亿元）招标合规性审计。现咨询投资项目中的生产线设备采购（总额约60亿元）是否属于必须招标的范围？下属企业认为国家规定的是工程不可",
+   "cited_hits": [
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "747325",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=747325",
+   "question": "国道路面改造工程的招标核准\n根据《省发展改革委关于进一步简化政府投资公路和水运项目审批程序的通知》（粤发改交通函[2014]2414号）第二点国、省道路面改造项目，请问国道路面改造工程的招标核准审批部门是省发改委还是地方发改部门？",
+   "cited_hits": [
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "535134",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=535134",
+   "question": "外商投资项目\n请问外商投资项目内容有哪些要求或限制？",
+   "cited_hits": [
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "外商投资法实施条例",
+     "lib_no": "外商投资法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "外商投资法",
+     "lib_no": "外商投资法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "外商投资准入特别管理措施（负面清单）2019年版",
+    "自由贸易试验区投资准入特别管理措施（负面清单）（2019年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "6330",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6330",
+   "question": "分布式光伏项目项目备案\n请问办理分布式屋顶光伏发电项目备案需要提供项目所依托建筑物及设施合法性证明材料（如房产证等）吗？企业可以在农业项目设施建设（附属设施用地）的活动板房（其建设材料为集装箱柜）上面安装光伏发电设备吗？",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家能源局关于印发分布式光伏发电项目管理暂行办法的通知",
+    "企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6062",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6062",
+   "question": "分散式风力发电\n请问广东省对于个人或企业投资建设分散式风力发电的政策是什么？是核准还是备案制？需要哪些手续？",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家能源局关于印发 &lt;分散式风电项目开发建设暂行管理办法&gt;的通知",
+    "广东省人民政府关于发布 &lt;政府核准的投资项目目录（2017年本）&gt;的通知",
+    "企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "758",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=758",
+   "question": "《广东省实施 办法》第十九条评委抽取的问题\n根据《广东省实施 办法》十九条的规定，条文原文（第二款）：本省范围内全部或者部分使用国有资金、国家融资、国际组织或者外国政府资金的项目，其评标委员会的专家成员应当从省综合评标评审专家库中抽取。 上",
+   "cited_hits": [
+    {
+     "name": "广东省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1164",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1164",
+   "question": "关于咨询“抽签、摇号等随机方式”认定标准的请求\n尊敬的发改主管部门领导： 最新修订的《广东省实施 办法》（以下简称《办法》）自2019年3月1日起施行。该《办法》第二十一条明确“禁止采取抽签、摇号等随机方式进行资格预审、评标评审或者确定中标",
+   "cited_hits": [
+    {
+     "name": "广东省实施 &lt; 中华人民共和国招标投标法 &gt; 办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1175",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1175",
+   "question": "关于对2019年修订的《广东省实施 办法》第十八条、十九条的问题\n领导： 您好！ 想请教一下，我们觉得《广东省实施 办法》第十八条、第十九条没讲清楚一个问题：即国有企业的不属于依法必须进行招标的项目，如果自行组织招标，评标委员会成员是否须从",
+   "cited_hits": [
+    {
+     "name": "广东省实施 &lt; 中华人民共和国招标投标法 &gt; 办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1209",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1209",
+   "question": "光伏项目备案权限和所需提交材料\n请问目前光伏项目备案的权限（在省发改委备案还是在县级发改部门备案），以及备案所需提交哪些材料？《光伏电站项目管理暂行办法》（国能新能〔2013〕329号）是否继续有效？",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业投资项目核准和备案管理办法",
+    "广东省发展改革委关于印发企业投资项目核准和备案管理实施细则（试行）的通知",
+    "国家能源局关于印发&lt;光伏电站项目管理暂行办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1216",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1216",
+   "question": "公共资源交易平台建设运营主体\n根据2019年3月1日正式实施最新的广东省实施 办法，第六条依法设立的法人或者其他组织，可以按照国家和省统一的规范标准建设、运营招标投标交易平台。是否可以这么理解，今后的公共资源交易平台建设运营主体包括两类，一",
+   "cited_hits": [
+    {
+     "name": "广东省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-fg",
+   "id": "3476690",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3476690",
+   "question": "广东经济发展规划\n尊敬的广东省发展改革委： 您好！作为长期关注广东经济发展的普通市民，我持续关注近两年全省经济运行数据。对比来看，江苏省近一两年GDP增速表现相对亮眼，超越广东在即。广东省阶段性增速有所放缓，社会各界普遍关心全省后续经济动能",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省国民经济和社会发展第十五个五年规划纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3478026",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3478026",
+   "question": "广东省发展和改革委员会等部门关于印发广东省远程异地 评标招标项目范围规定（试行）的通知咨询\n在2026.7.6发布的广东省发展和改革委员会等部门关于印发广东省远程异地评标招标项目范围规定（试行）的通知里面的规定文件写的实行工程总承包发包的，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展和改革委员会等部门关于印发广东省远程异地评标招标项目范围规定(试行)的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3435903",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3435903",
+   "question": "咨询文件发布\n尊敬的工作人员您好，我想要咨询的问题是：广东省发改委的《关于进一步优化我省峰谷分时电价政策的通知》（征求意见稿），是否已经发布？如果发布，查看位置是广东发改委官网-互动交流-征集调查栏目吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化我省峰谷分时电价政策的通知（征求意见稿）",
+    "关于进一步完善我省峰谷分时电价政策有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3259420",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3259420",
+   "question": "《广东省 “十四五” 时期 “一老一小” 整体解决方案》为什么查不到政策原文？\n在省发改委、省政府网站上均查不到《广东省 “十四五” 时期 “一老一小” 整体解决方案》的文件原文，是已经废止了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省“十四五”时期“一老一小”整体解决方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3144583",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3144583",
+   "question": "军转干部车补\n经广东省退役军人事务厅指引，该政策问题需请教贵委。问题如下： 根据国务院、中央军委《关于2006年度及以后计划分配军队转业干部工资待遇确定办法的通知》（国发[2008]8号），第三条：分配到机关事业单位的军队转业干部，其 津贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省全面推进公务用车制度改革总体方案",
+    "广东省省直机关公务用车制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2984699",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2984699",
+   "question": "通用机场核准时是否需要提交项目环境评估报告？\n根据《企业投资项目核准和备案管理条例》2016年国务院第673号令：项目申请书应当包括项目利用资源情况分析以及对生态环境的影响分析。法律、行政法规规定办理相关手续作为项目核准前置条件的，企业应当",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业投资项目可行性研究报告编写参考大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2939490",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2939490",
+   "question": "设立价格评估机构需要什么条件？\n现设立价格评估机构需要什么具备什么条件？如何才算具有法定资质。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2887625",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2887625",
+   "question": "广东省关于船舶停泊保管服务费相关的规范性文件\n您好，我想咨询了解广东省现行的关于船舶停泊保管服务费相关的规范性文件，作为招投标的价格参考依据；同时想咨询：汕头市物价局《关于收取涉嫌走私船舶停泊管理服务费的批复》（汕价费二（2002）41号）",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省定价目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2846278",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2846278",
+   "question": "境外投资备案能否补办\n尊敬的广东省发展和改革委员会业务咨询人员： 您好，我司于2014年7月投资收购了一家香港公司、2015年8月投资设立了一家德国子公司，当时未能按照规定办理境外投资发改备案，但均办理了商务部门备案及外汇登记，现咨询，对于",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2690703",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2690703",
+   "question": "境外（香港）投资备案手续流程及资料\n1、大陆目前是否支持个人在境外（香港）投资设立企业？还是只能是以企业身份投资设立？ 2、境外投资备案的手续和资料是什么？是否能够在线上办理？ 3、境外投资备案的部门除了省发改委，是否还需要到其他部门同步备",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "2693868",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2693868",
+   "question": "境外投资备案\n1、注册地址在深圳市的企业在境外设立子公司的发改备案机关是广东省一级发改部门还是深圳市发改部门备案即可？ 2、内资企业2016年在香港、美国设立子公司，未办理发改备案手续，现在是否需要补办发改备案手续？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2679056",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2679056",
+   "question": "广东省关于价格评估机构资质的现行规定？\n您好，请帮忙查询2005年7月1日实施的《价格评估机构资质认定管理办法》（国家发展与改革委第32号令）是否现行有效？如已废止，我省是否对开展价格评估工作主体的资质要求有相关规定？例如：《价格评估机构资",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国国家发展和委员会令?第37号",
+    "价格评估机构资质认定管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2676639",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2676639",
+   "question": "关于企业境外投资备案的相关咨询\n问题：我公司是在惠州注册的公司，目前拟在香港和新加坡设立全资子公司。请问： 1.是否可以在境外公司注册后、境内母公司向境外企业注入出资款等权益之前办理完成发改备案？ 2.能否对两家境外公司同时进行备案？还是需",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "2647035",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2647035",
+   "question": "境外投资发改备案\n内资企业2016年在香港新设子公司，当时还没出台《企业境外投资管理办法（国家发展和改革委员会令第11号）》无需办理发改备案，现在走出资流程，是否需要补办发改委备案？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2607540",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2607540",
+   "question": "关于境外投资发改备案\n尊敬的发改委领导， 请问在《企业境外投资管理办法》（11号令）生效之前实施的境外投资，未办理发改备案的，现在是否能够补办？ 如无需补办，此前实施境外投资但未履行发改备案的情形会不会被发改相关部门责令中止或停止实施该项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "2416108",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2416108",
+   "question": "设立价格评估机构需要备案吗\n你好，请问广东省设立价格评估机构需要什么资质要求，另外是否需要到发改下属部门备案，因为在网站查询无相关主管单位及设立机构的要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于第二批取消152项中央指定地方实施行政审批事项的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2298258",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2298258",
+   "question": "咨询《广东省新能源汽车购置补贴活动公告》预登记问题\n在《广东省新能源汽车购置补贴活动公告》中，申请指南里“购车并签订购车合同后，于当日督促并配合经销商在“新能源车购置补贴”登记审核系统上传购车合同以及其他有关资料，进行补贴申请预登记。”，请",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省进一步促进消费若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2290411",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2290411",
+   "question": "咨询购置新能源汽车补贴\n请问我是在6月30号前签订 购车合同的话是否可以享受到购置新能源汽车的补贴，还是需要在6月30号前开了购车发票才可以享受该补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省新能源汽车购置补贴活动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2287459",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2287459",
+   "question": "电化学储能电站是否需要单独进行节能审查\n根据《国家发展改革委关于印发 《不单独进行节能审查的行业目录》的通知》（发改环资规〔2017〕1975号），抽水蓄能项目列入不单独进行节能审查的行业目录，电化学储能电站与抽水蓄能电站作用相似，故咨询电",
+   "cited_hits": [],
+   "cited_missing": [
+    "不单独进行节能审查的行业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2148897",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2148897",
+   "question": "广东省工程实验室\n请问广东省工程实验室还有在认定吗？我只查询到最新申报是在2019年的第七批省工程实验室申报，后续还会不会再开展？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省工程研究中心管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2119449",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2119449",
+   "question": "经济\n您好！我是广东工业大学的一名学生，现在正在做实践报告，想了解广东不同地区的经济政策和产业结构，能否提供一些资料，例如十三五和十四五规划。谢谢您的支持和帮助。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省国民经济和社会发展第十三个五年规划纲要",
+    "广东省国民经济和社会发展第十四个五年规划和2035年远景目标纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1101140",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1101140",
+   "question": "关于节能审查的相关问题\n请问下固定资产投资项目编制节能报告时，对于生产消耗的水是否合并计算列入能源消耗？国家市场监督管理总局颁布了《综合能耗计算通则》（GB/T2589-2020） 1 万吨水=2.571 吨标准煤、 1 万千瓦时电=1.2",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查系列工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1096205",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1096205",
+   "question": "“信用中国”网上修复咨询\n我司已在“信用中国”申请诚信修复，多次申请被拒绝修复原因：材料一修复承诺书所填写内容有误。经核查资料正确查不出错误的原因，网站上没有相关的电话可咨询，企业继续办理诚信修复，请帮忙协助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政处罚决定书",
+    "行政处罚决定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1074350",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1074350",
+   "question": "天然气热电联产项目立项流程\n天然气热电联产项目立项企业需要提供哪些资料？有具体的文件依据嘛？是否必须要提供专项供热规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政府核准的投资项目目录（2017年本）",
+    "广东省人民政府关于将一批省级行政职权事项调整由广州、深圳市实施的决定",
+    "广东省发展改革委关于调整实施一批行政审批事项的通知",
+    "广东省发展改革委关于企业投资项目核准和备案管理的实施细则（试行）",
+    "投资项目代码，企业备案、核准申请手册"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1066260",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1066260",
+   "question": "关于数据中心项目节能审批的地址变更问题\n标准机柜约4000个的数据中心节能审查项目，已于2020年7月获得深圳市发改委《深圳市固定资产投资项目节能审查意见》审查通过。现需要将原审查意见的选定的建设地址，更改到其它地址（指深圳市范围）建设，请",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省能源局关于明确全省数据中心能耗保障相关要求的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1056000",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1056000",
+   "question": "企业节能报告自主组织专家验收\n请问，现在节能报告是由业主单位自主组织专家验收，是由什么文件规定的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省固定资产投资项目节能审查实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1045170",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1045170",
+   "question": "关于居民阶梯电价“一户多人口”政策与实际用电量基数不符\n您好，我是珠海居民，《关于居民阶梯电价“一户多人口”政策有关事项的通知》规定，是写明一 户家庭人 口满 5人及以上可申请每户每月第一、二、三档分别增加 100千瓦时阶梯电量基数。正常理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于居民阶梯电价“一户多人口”政策有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1026574",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1026574",
+   "question": "桥梁属核准项目还是备案项目\n企业投资380万元建设长106米，宽7.5米用于改善村民出行，属核准项目还是备案项目。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于发布 &lt;广东省政府核准的投资项目目录（2017年本）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1006510",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1006510",
+   "question": "汽车以旧换新办理咨询\n我个人报废名下的汽车，参加汽车以旧换新活动，因为汽车报废到取得《机动车注销证明书》时间比较长，可否先购置政策目录内的推广车型，取得《机动车销售统一发票》并且上牌使用后，在取得校验码后再到汽车经销商处进行“汽车以旧换新”",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2021年汽车以旧换新专项行动公告",
+    "二手车销售统一发票",
+    "机动车注销证明书",
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "995451",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=995451",
+   "question": "汽车以旧换新如何办理？\n汽车以旧换新如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2021年汽车以旧换新专项行动公告",
+    "二手车销售统一发票",
+    "机动车注销证明书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "988353",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=988353",
+   "question": "关于《广东省2021年汽车以旧换新专项》，旧车开票及过户时间规定\n如要享受《广东省2021年汽车以旧换新专项》补贴，二手车开票时间及过户时间是否要在2021年7月1日后？粤省事小程序能查询到“名下具备参与 汽车以旧换新活动的置换车辆”，点击",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2021年汽车以旧换新专项行动公告",
+    "二手车销售统一发票",
+    "机动车注销证明书",
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "962872",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=962872",
+   "question": "物业公摊水电费相关规定\n《广东省物价局关于规范全省城镇住宅小区物业管理服务收费中公共水电费分摊问题的通知》（粤价[1997]173号），该份文件是否已经被废止了？广州市辖区内有关于物业公摊水电费计算方式的现行有效的文件有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省物价局广东省住房和城乡建设厅关于物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "960870",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=960870",
+   "question": "新能源项目送出线路企业申请自建\n新能源光伏风电项目送出线路因电网建设进度满足不了企业2021底投产时间，企业申请保障性并网项目按照电网公司建设质量要求申请企业自建。电网公司可按排监督单位监管线路施工质量（根据国家能源局关于2021年风电、光",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于积极推进风电光伏发电补贴平价上网有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "949945",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=949945",
+   "question": "普通高校能源定额\n请问广东省普通高校能源资源消费定额是多少，在哪儿能找到相关指标资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "公共机构能源资源消耗限额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "940759",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=940759",
+   "question": "我省建设工程造价咨询服务收费\n截止目前2021年5月8日，我省建设工程造价咨询服务收费执行哪份文件，按哪份文件依据收费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委 广东省住房城乡建设厅关于放开部分建设项目服务收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "931150",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=931150",
+   "question": "强烈建议将深大城际大亚湾段线路由澳头延伸至霞涌（黄金海岸），并由远期计划调整为近期实施！\n广东省发改委有关领导， 您们好！很高兴看到您们为民着想，开通了十四五大规划的通道！！ 我作为深大城际规划中大亚湾的业主，急切提出以下建议： 强烈建议将",
+   "cited_hits": [],
+   "cited_missing": [
+    "粤港澳大湾区城际铁路建设规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "921882",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=921882",
+   "question": "信用修复的罚款收据遗失如何办理信用修复\n我是运输企业的职工，目前受委托办理企业的信用修复工作，我司的违章已处理，也按时缴纳了罚款，但是由于保管不当导致收据遗失，我司也进行了信用培训并获培训证书，严重失信的违章行为要如何申请信用修复？",
+   "cited_hits": [],
+   "cited_missing": [
+    "情况说明",
+    "情况说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "918334",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=918334",
+   "question": "请问内资企业在香港设立子公司，是否需要办理境外投资备案？\n内资企业在香港设立子公司，但不涉及固定资产投资，是否需要按照《企业境外投资管理办法（国家发展和改革委员会令第11号）》的规定履行境外投资项目备案手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "918128",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=918128",
+   "question": "失信记录标题\n1、公共信用信息信用修复申请表需要填写 失信记录标题以及失信记录主要内容，具体在哪里可以查看到？ 2、公共信用信息信用修复申请表中的信用承诺部分需要签字盖章，是企业法人签字盖章还是经办人签字，或者是企业公章即可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "信用修复承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "916456",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=916456",
+   "question": "关于产业融合型企业的建设培育\n请问申请产教融合型企业培育建设需要提交什么资料？对于申请企业有什么条件？主营业务为其他生活服务类的企业应该怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建设培育产教融合型企业工作方案",
+    "工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "913256",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=913256",
+   "question": "关于企业捐建公立学校如何办理立项手续？\n我是县级发改部门的干部，现有一企业捐建学校某个建筑（由企业捐资，企业自行建设，建设完工后移交学校）在学校的土地上建设如何办理立项手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于印发企业投资项目核准和备案管理实施细则（试行）的通知",
+    "广东省政府核准的投资项目目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "903024",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=903024",
+   "question": "工业企业电价\n大型水泥企业用电价格",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于降低我省一般工商业电价有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "881468",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=881468",
+   "question": "请问2021年广东省有没有汽车下乡活动？\n请问2021年广东省有没有汽车下乡活动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省关于促进农村消费的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "875373",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=875373",
+   "question": "请问 深大城际深圳段和惠州段是否同时开工？\n深大城际将来开通是大亚湾人民的一件大事，可以方便出行和缩短到深圳的通勤时间，是大亚湾和深圳人民的一条福路。交通运输部9月2日（2020）585号文中称“通过1—2年时间，启动深大城际、穗莞深城际延",
+   "cited_hits": [],
+   "cited_missing": [
+    "粤港澳大湾区城际铁路建设规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "868936",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=868936",
+   "question": "关于产业融合型企业的建设培育\n请问申请产业融合型企业培育建设需要提交什么材料？主营业务为教育培训服务的企业该怎样申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省建设培育产教融合型企业工作方案",
+    "工作方案",
+    "工作方案",
+    "工作方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "866049",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=866049",
+   "question": "请问2021年有汽车下乡补贴吗？\n请问2021年有汽车下乡补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省关于促进农村消费的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "859863",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=859863",
+   "question": "2020年汽车下乡补贴申请方式\n2020年汽车下乡的预登记，必须得要经销商协助登记系统吗？可否由个人进入系统提交资料进行登记审批？如果可以的话，对应的系统网址是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "854821",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=854821",
+   "question": "信用修复\n请问企业（来自佛山禅城）在信用中国官网的行政处罚修复后，信用广东官网，信用佛山官网，信用禅城官网，国家企业信用信息公示系统，广东企业信用信息公示系统，佛山市企业信用信息公示系统，以上官方网站的修复信息是否跟信用中国网站同步更新？各",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好行政处罚信息信用修复工作 实现信用修复 “一口受理、一次办成”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "855162",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=855162",
+   "question": "汽车下乡补贴\n请问是否必须在12月31号上牌才可以申请农村补贴5千吗？也就是意味着我必须在12月份拿到指标对吗？12月份完成上牌才可以申请吗？这个政策是否有延迟的说法？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "849742",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=849742",
+   "question": "如何办理煤炭及制品销售经营审批\n您好！我司为深圳一家贸易公司，已在深圳市场监督局办理完成了经营范围变更，增加“煤炭及制品销售经营”，商事主体审批告知书写明“需依法取得相关审批文件后方可经营”，请问如何相关销售审批手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "煤炭经营监管办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "849427",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=849427",
+   "question": "汽车下乡补贴预登记后的操作\n你好，我想问下关于补贴的问题，就是我是20号开发票申请了预登记补贴。预计是3号去上牌。上牌后我看到申请补贴那里有个【申请人开户银行账号】是需要照片的。请问是拍银行卡的照片吗还是什么？还有那个【开户银行支行名称】是",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "844784",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=844784",
+   "question": "广东省的电价\n咨询广东省的现行电价 包括工业用电 居民用电等，哪里可以查到相关信息？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于降低我省一般工商业电价有关事项的通知",
+    "居民阶梯电价和峰谷电价价目表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "843813",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=843813",
+   "question": "咨询商品房销售价格构成包括包含的内容？\n商品房销售价格构成是否包含智能监控费用及单户的入户门费用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省物价局新建商品房交易价格行为规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "843380",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=843380",
+   "question": "关于汽车下乡补贴\n你好，我想问下我是汕头户口，在河源买车也是可以享受补贴的吗？还有这个结束时间是确定在12月31号吗？是以上牌为准还是以新车到手就可以申请的？我听4S店说12月15号后就可能补贴不了",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "826995",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=826995",
+   "question": "关于股权变动后新能源车资质是否需要重新备案的提问\n您好， 如果一家新能源车整车生产企业已经在广东依据《汽车产业投资管理规定》进行了相关备案并取得了新能源车制造资质，那么当该企业股权结构发生变化时（该企业股东的股东要转让部分该企业股东的股权）",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车产业投资管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "823813",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=823813",
+   "question": "城际铁路互通及快速化换乘\n想咨询一下，现行的莞惠城际铁路（小金口-东莞西）实现了惠州到东莞互联互通，并且通过穗深城际铁路（深圳机场-广东东站）实现了深圳、东莞、深圳、广州互联互通，但是惠州到深圳、广州需要在东莞西站换乘，很不方便，未来能否实",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠三角城际铁路网规划",
+    "粤港澳大湾区城际铁路建设规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "821820",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=821820",
+   "question": "南沙至珠海中山城际和广州轨道交通18号线是否贯通运营\n根据已批复的粤港澳大湾区城际铁路规划里显示，广州轨道交通18号线南延段变成了南沙至珠海中山城际，那南沙至珠海中山城际还会和广州18号线贯通运营吗，用18号线同款列车？还是独立运营，和18",
+   "cited_hits": [],
+   "cited_missing": [
+    "粤港澳大湾区城际铁路建设规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "820337",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=820337",
+   "question": "汽车下乡覆盖人群咨询\n你好，请问广东省汽车下乡政策覆盖人群有职业限制吗？比如说农村户口的公务员能参与申请吗？谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "818267",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=818267",
+   "question": "2015年至2018年商业电价的广东发改委文件\n2015年至2018年商业电价的广东发改委文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于降低我省工商业用电价格有关问题的通知",
+    "广东省发展改革委关于降低我省一般工商业用电价格有关问题的通知",
+    "广东省发展改革委关于降低我省工商业用电价格的通知",
+    "广东省发展改革委关于调整销售电价等有关问题的通知",
+    "广东省发展改革委关于降低我省一般工商业电价有关事项的通知",
+    "广东省发展改革委关于降低我省一般工商业电价的通知",
+    "广东省发展改革委关于再次降低我省一般工商业电价有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "816203",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=816203",
+   "question": "信用修复\n请问行政处罚怎么区分为一般失信行为和严重失信行为",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委办公厅关于进一步完善 “信用中国”网站及地方信用门户网站行政处罚信息信用修复机制的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "814385",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=814385",
+   "question": "关于充电桩补贴的政策咨询\n请问2019-2020年的省级新能源汽车充电基础设施财政补贴项目什么时候开始？需要准备什么申报资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省人民政府关于加快新能源汽车产业创新发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "815249",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=815249",
+   "question": "关于电损的收费标准\n请问广东省是否有转供电主体收费标准的文件或者关于电损方面的收费标准的文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于进一步清理规范电网和转供电环节收费有关事项的通知",
+    "广东省发展改革委 广东省市场监管局 广东省能源局关于进一步清理规范转供电环节加价有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "809245",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=809245",
+   "question": "关于广州地铁3号线东延段是否可以延长到亚运城？\n尊敬的发改委领导： 您好，我有个问题，现在广州地铁3号线东延段正在建设当中，与四号线海傍站换乘，海傍站旁边的亚运城是一个体量很大的楼盘，我不久前在亚运城也买了一套房子，亚运城发展十年以来，陆续",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市城市轨道交通第三期建设规划（ 2017-2023年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "791417",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=791417",
+   "question": "关于城市燃气配气管道项目立项问题。\n我是广东省某市城镇燃气工程的投资人，请问建设城镇燃气工程（城市门站之后的中压天然气配气管道项目），在“广东省企业投资项目审批平台”申请时，是选择“备案”里的“城市燃气工程”？还是选择“核准”里的“油气输送",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政府核准的投资项目目录（ 2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "784916",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=784916",
+   "question": "关于市政中压燃气管网办理核准或立项问题\n市政燃气管网项目（中压天然气管道项目），是否需要办理项目核准或备案？若需要办理，应办理核准还是备案？有没有相关制度依据？请指引",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政府核准的投资项目目录（ 2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "783183",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=783183",
+   "question": "关于“粤价函2011【742】号文”与现在社会发展不匹配的问题\n粤价函2011【742】号文是工程造价咨询行业的收费标准，从发布至今已执行9年左右，早已与现时的经济发展不匹配，行业竞争激烈、为获取项目低价中标，造成我们的技术人员工作量负重但",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委 广东省住房城乡建设厅关于放开部分建设项目服务收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "774350",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=774350",
+   "question": "补贴\n我查询到我汽车下乡补贴有资格，但因为是广州户口没指标上牌，只能在别的城市上工商牌照登记上牌，这样的话能不能拿到购车补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "771234",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=771234",
+   "question": "关于汽车下乡政策，申请时限\n各位领导好，本人于今年六月份，购买了日产轩逸经典一辆，但是当时对于这项政策不熟悉，并未申请购车补贴。现在在粤省事查询到有下乡补贴资格。6月购车手续都完成了，现在8月份还可以去4s店申请下乡补贴吗？本人农村户口，粤",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "764191",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=764191",
+   "question": "广州地铁规划事项\n贵厅领导： 你们好。 经查询发改基础〔2017〕498号文件，广州市地铁规划暂没有广州市地铁15号线，NS1、NS2、NS3、NS4等线路，但目前市场上流传该等线路已有初步立项或规划。 请问上述提及的线路规划是否已有初步立",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市城市轨道交通第三期建设规划（ 2017-2023年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "767116",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=767116",
+   "question": "关于储电项目投资建设相关手续办理\n我司想投资建设储能（储电）项目，但不了解储能（储电）报建及相关建设手续应该怎么办理，在国家发改委网站有看到《关于促进储能技术与产业发展的指导意见》发改能源〔2017〕1701号、《关于推进“互联网+”智慧能",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政府关于发布 &lt;广东省政府核准的投资项目目录（2017年本）的通知&gt;"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "754661",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=754661",
+   "question": "汽车下乡补贴\n你好，我想问问，我是清远市农村户口，如果我在江门市买车并上江门牌照的话能否享受汽车下乡补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "750451",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=750451",
+   "question": "关于成立促进会需要业务主管单位的事宜\n您好，我们有8个以上的发起单位，要成立暂定名为：广东省企业战略发展促进会，的促进会，东莞市民政厅说需要我们自己确定好业务主管单位，我看了我们的业务范围比较符合贵部门的职能，故提出申请，请问我过去办理需要",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面推开行业协会商会与行政机关脱钩改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "749798",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=749798",
+   "question": "废石综合利用项目\n您好！请问在采矿权证有效期内且在采矿权证范围，开展剥离、尾矿资源进行综合利用（建设沙石骨料生产线），需进行社会稳定风险评估么。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委重大项目社会稳定风险评估暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "725632",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=725632",
+   "question": "汽车下乡\n我是茂名农村户籍，查询微信可以有汽车乡下补贴资格，在汕头买车（丰田车型属于乡下补贴范围）上汕头牌，但S4店说不能申请汽车乡下补贴，说要回到户籍本市上牌才可以申请汽车乡下补贴。请问是不是广东户籍农村户口是不是一定要在户籍本市买车上牌",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "714551",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=714551",
+   "question": "2020汽车下乡补贴问题\n2020年5月份，我在粤省事申请了汽车下乡补贴对象验证，属于补贴对象范围，也获得了购车校验码。现在购买长安CS35plus的汽车，我们在购车前通过“广东发布”得知此车型在补贴范围内，在购车前我们咨询了车行此车型有下",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡推广车型名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "714014",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=714014",
+   "question": "城镇燃气管网项目是核准还是备案事项\n我想咨询下城镇燃气管网项目是核准还是备案事项。 省发改最近印发的“投资项目审批事项清单”（粤发改投资函［2020］812号）:“九城建”中没有城镇燃气管网内容；“二能源（十五）35其余输气管网项目”由地级",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省政府核准的投资项目目录（ 2017年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "713240",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=713240",
+   "question": "请问作出行政处罚的行政执法部门如何代被处罚单位在“信用广东”上修复被处罚单位的信用？\n请问作出行政处罚的行政执法部门如何代被处罚单位在“信用广东”上修复被处罚单位的信用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "涉及一般失信行为的行政处罚信息信用修复表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "697560",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=697560",
+   "question": "佛山市光伏项目补贴问题\n本人于2018年并网光伏发电站12.83KW,现收到补贴与当时光伏公司宣传国家20年补贴差太多腰斩了一半，咨询各单位都模棱两可，给不到一个准确的答复，请问究竟在那里能查到补贴费用明细？！！现在的补贴标准究竟是如何？1",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家能源局关于2019年风电、光伏发电项目建设有关事项的通知",
+    "国家发展改革委关于完善光伏发电上网电价机制有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "712625",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=712625",
+   "question": "汽车下乡\n请问2020年汽车下乡补贴审核需要多长时间?",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "622355",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=622355",
+   "question": "请问 深大城际惠州段 为何要列为远期规划，不能与深圳段同时建设同步运营？\n尊敬的广东省发改委、交通运输厅领导： 您们好 与深圳接壤的惠州大亚湾地区，90%的住户是在深圳上班的工作者，他们早出晚归因交通不便，每天花费在路途中的时间达4-5个小",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "620566",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=620566",
+   "question": "2020汽车 下乡补贴\n本人为农村户口，但是粤省事上查询说不在补贴范围，我所在的地区城乡分类代码为121，请问这个属于什么类型？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于更新全国统计用区划代码和城乡划分代码的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "619914",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=619914",
+   "question": "汽车下乡补贴\n你好，我经过派出所查询符合农村户口标准，户号也是‘2’开头的，最重要的是我的亲弟弟，亲姐姐都可以通过粤省事获得下乡补贴吗，我却提示不符合。都是同一个户口本，没有做过变动。请回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于更新全国统计用区划代码和城乡划分代码的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "617001",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=617001",
+   "question": "广州地铁3号线东延段\n广州地铁3号线东延段正在建设中，在之前的广州城市轨道交通规划中是3号线一直延伸到海鸥岛，后来是因为什么原因取消了规划？只延伸到海傍站和四号线换乘。那在未来的规划中，三号线是否还会延伸到海鸥岛？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市城市轨道交通第三期建设规划（ 2017-2023年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "619270",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=619270",
+   "question": "2020年汽车下乡\n您好，请问4月20号购买了东风日产经典轩逸，可以申请政府补贴吗？具体要如何操作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省 2020年汽车下乡专项行动公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "617939",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=617939",
+   "question": "2020汽车下乡补贴户籍\n请问一下，我是中山市港口镇农村户口，我上粤省事查询2020年汽车下乡补贴相关资格，它显示是“您是非广东省户籍农村居民”，这是什么原因呢？农村户口不是可以享受这个政策的资格吗？还是说怎么区分农村户籍呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于更新全国统计用区划代码和城乡划分代码的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "566146",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=566146",
+   "question": "公司取得国高证书。19年用电量117万。\n想请问有没有用电优惠？如何申请。有相差的政策文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委转发国家发展改革委关于阶段性降低企业用电成本支持企业复工复产的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "562642",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=562642",
+   "question": "家电下乡补贴\n你好请问家电下乡补贴申请在哪个部门提交资料？还有补贴资金在哪里发放的？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省关于促进农村消费的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "550125",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=550125",
+   "question": "关于肇顺南城际的建设\n您好，随着粤港澳大湾区的政策之下，总所周知珠三角东西两岸无论在道路交通建设和铁路交通建设都是处在一个不均衡的状态的，珠三角西岸人民十分迫切需要高速铁路在珠三角西岸更多的落实，请问肇顺南城际的建设有没有纳入粤港澳大湾区城",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠江三角洲城际轨道交通网规划",
+    "珠三角城际铁路规划项目实施调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "538805",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=538805",
+   "question": "信用广东及国家企业信用信息公示系统的信用修复撤销一般需要几个工作日？\n你好，想再问一下，信用中国的已撤销，其他平台一般需要几个工作日？有的处罚文号信用中国上没有的相应的平台是怎么申请修复，申请异议申诉吗？申请异议申诉提交后审核需要几个工作日",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公共信用信息管理系统异议信息处理工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "537617",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=537617",
+   "question": "口罩有无指导价\n口罩有市场指导价吗或者标准价？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省定价目录（2018年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "522918",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=522918",
+   "question": "设计费审核\n公路专业设计费能否根据《工程勘察设计收费标准》2002年修订版规定计算？该规范三级、四级公路设计费附加调整系数为1.89，地方财政局审核设计费时，毫无根据取消1.89的系数，请问该行为合法、合规吗？或者有何依据能取消1.89的附",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委关于放开部分建设项目服务收费标准有关问题的通知",
+    "国家发展改革委关于进一步放开建设项目专业服务价格的通知",
+    "国家计委 建设部关于发布&lt;工程勘察设计管理规定&gt;的通知",
+    "工程勘察收费标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "523440",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=523440",
+   "question": "深圳新能源充电桩价格咨询\n1. http://drc.gd.gov.cn/ywtz/content/post_2857665.html根据该发改委文件，深圳充电桩价位需要调整，这里具体什么时候会下文调整？ 2. 跟“充之鸟”客服咨询，充电桩",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省定价目录",
+    "广东省发展改革委关于我省新能源汽车用电价格有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "522333",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=522333",
+   "question": "关于产业结构调整指导目录（2019年本）的咨询\n请问下国家《产业结构调整指导目录（2019年本）》，限制类，一、农林业，“16、破坏林地、湿地、草地的开发项目”这一点怎么理解？如果一个新建项目，需要占用到林地的，是否就属于这一类限制的？ 另",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（ 2019年本）",
+    "广东省国家重点生态功能区产业准入负面清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "522172",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=522172",
+   "question": "产业政策和市场准入问题\n你好，我想咨询一个问题，就是没有列入国家产业结构调整指导目录的鼓励类、限制类、淘汰类，也没在负面清单里的投资项目，是否符合国有产业政策？可以允许准入？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场准入负面清单（ 2019年本）",
+    "产业结构调整指导目录",
+    "产业结构调整指导目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "521777",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=521777",
+   "question": "关于广州地铁18号线延伸至珠海\n请问广州地铁18号线是否确认延伸至珠海，线位有确认吗？之前珠海有招标18号线珠海段的研究，后续取消了。那18号线是否还延伸至珠海？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "521671",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=521671",
+   "question": "充电桩建设\n新能源汽车充电桩、充电站建设与相邻建筑物之间的安全距离多少？是否有相关规定？充电桩备案所需要的材料是哪些？需要征求哪些部门意见？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于企业投资项目核准和备案管理的实施细则（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "521484",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=521484",
+   "question": "空置商品房需不需要交公共水电分摊费？？\n业主自购房以来未曾入住，向物业公司申请减免公摊水电费，有没有什么政策支持空置商品房可以不交公摊水电费的规定，在哪里可以查到相关政策？谢谢~",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省物价局、广东省住房城乡建设厅关于物业服务收费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "521057",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=521057",
+   "question": "关于信用广东的行政处罚修复问题\n您好！请问如果我司在信用中国上有查到行政处罚，而且还没到最短公示期，那我需要如何才能把这条行政处罚处理掉呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善 “信用中国”网站及地方信用门户网站行政处罚信息信用修复机制的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "520722",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=520722",
+   "question": "关于转供电文件的解读-粤发改价格〔2018〕375号！\n你好！《关于进一步清理规范电网和转供电环节收费有关事项的通知》（粤发改价格〔2018〕375号）中”二、清理规范转供电环节不合理加价行为-（三）规范全省转供电主体的电费收费行为。转供电",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于降低我省一般工商业电价有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "293168",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=293168",
+   "question": "广州住宅小区地下车库安装直流汽车充电桩\n您好！ 请问广州住宅小区地下车库是否可以安装直流汽车充电桩，是否有政策要求不可以安装或者允许安装？多谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委 国家能源局 工信部 住建部关于加快居民区电动汽车充电基础设施建设的通知",
+    "广东省人民政府关于加快新能源汽车产业创新发展的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "218911",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=218911",
+   "question": "穗莞深城际轨道深圳机场至前海段站点设置咨询\n近日，从深圳市交通运输局获悉，穗莞深城际轨道深圳机场至前海段工程经深圳政府研究明确，按三站方案（即设西乡、宝安、前海）报送贵委审批，请问，贵委是否已经审批通过，具体结果何时会向公众公布？另外，此延",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠三角城际轨道交通网规划实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "292724",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=292724",
+   "question": "关于进一步清理规范电网和转供电环节收费有关事项的通知\n想了解下，这个通知是最新的通知吗，能按上面的规定进行收取线损吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步清理规范电网和转供电环节收费有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "218225",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=218225",
+   "question": "产业政策咨询\n根据国家发展改革委、商务部发布《市场准入负面清单（2019年版）》说明中“四、《产业结构调整指导目录》《政府核准的投资项目目录》及地方国家重点生态功能区和农产品主产区产业准入负面清单（或禁止限制目录）纳入市场准入负面清单。地方",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省主体功能区产业发展指导目录（ 2014年本）",
+    "产业结构调整指导目录（ 2019年本）",
+    "市场准入负面清单（2019年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "218135",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=218135",
+   "question": "广州地铁15号线何时上报开建？\n请问广州地铁15号线是否纳入广州城市轨道三期修编，是否跟随三期规划修编上报国家发改委？预计何时开建，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广州市城市总体规划（ 2011-2020年）",
+    "广州市城市轨道交通第三期建设规划（2017-2023年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "217754",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=217754",
+   "question": "梅州商业购物中心2020年电力市场用电量准入要求\n我公司自行开发、经营、管理商业购物中心，属商业房地产类物业管理公司，根据粤经信电力函[2017]208号文规定，我司可按2020年商业用户用电量准入标准申请电力市场准入资格，这样理解对吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于 2020年电力市场交易规模和市场准入有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "216479",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=216479",
+   "question": "关于2020年电力一般用户准入申请\n符合2020年电力市场准入要求的企业是否还需向当地发改局提交一般用户电力市场准入申请表申请报告等相关资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省发展改革委关于 2020年电力市场交易规模和市场准入有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "216277",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=216277",
+   "question": "《关于规范全省城镇住宅小区物业管理服务收费的通知》（粤价〔1997〕24号）废止时间？\n《关于规范全省城镇住宅小区物业管理服务收费的通知》（粤价〔1997〕24号）是不是已经废止？如果废止了，是什么时候废止的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省物价局关于公布省物价局规范性文件及其他政策措施清理结果的通知",
+    "关于规范全省住宅小区物业管理服务收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "216066",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=216066",
+   "question": "境外投资备案\n请问某注册地在广东的企业，于2016年获得了《项目备案通知书》，备案投资结构为该广东企业通过境外子公司A在投资目的国设立项目公司B。最终在实施境外投资的过程中，该广东企业以境外子公司的境外资金投资，且并不涉及境内公司提供担保或",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "215482",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=215482",
+   "question": "有关佛山市第二轮地铁补充资料进度问题\n领导您好， 《佛山市城市轨道交通第二期建设规划（2019-2024年）》应国家发改委要求补充资料，现阶段是否已经补充完成？ 如未完成补充资料进行到什么步骤了？ 多少佛山人翘首以盼的第二轮，等了多少年了.",
+   "cited_hits": [],
+   "cited_missing": [
+    "佛山市城市轨道交通第二期建设规划（ 2019-2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "215559",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=215559",
+   "question": "自来水用户向自来水公司申请更换水表费用负担问题\n自来水用户向自来水公司申请更换水表，水表费用有谁负担，是企业承担还是自来水用户承担。依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省定价目录（ 2018年版）",
+    "梅州粤海水务有限公司表务管理制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "187943",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=187943",
+   "question": "关于珠斗城际铁路的规划\n请问目前珠斗城际（珠海至斗山）还有在规划中吗？是否有纳入粤港澳大湾区城际铁路建设规划里面？",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠江三角洲城际轨道交通网规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "113136",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=113136",
+   "question": "有关佛山市第二轮地铁审批递交问题\n领导您好， 《佛山市城市轨道交通第二期建设规划（2019-2024年）》，纳入该轮建设规划的项目为2号线二期、4号线一期、11号线一期及13号线一期。现有以下几点疑问咨询：1、 省发改委相关部门是否已经审批",
+   "cited_hits": [],
+   "cited_missing": [
+    "佛山市城市轨道交通第二期建设规划（ 2019-2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "111485",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=111485",
+   "question": "关于建设项目节能报告与节能审查\n请问，1.是否所有建设项目都需要编制节能报告？如果项目是核准类或者审批类项目，是否可以在编制《项目申请报告》或《可行性研究报告》过程中增加节能报告章节，这样来免掉项目单独编制节能报告这一工作？2.是否所有建设",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查办法",
+    "广东省固定资产投资项目节能审查实施办法",
+    "广东省固定资产投资项目节能审查实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "111306",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=111306",
+   "question": "关于广佛江珠城轨进展情况\n您好，咨询一个问题，广佛江珠轻轨目前讨论进度如何？根据2017年12月，按照省政府常务会议审议通过《珠三角城际铁路规划项目实施调整方案》，要结合珠江西岸高铁建设发展需要，进一步深化研究广佛江珠城际的功能定位、技术标",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠三角城际铁路规划项目实施调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "111104",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=111104",
+   "question": "《佛山市城市轨道交通第二期建设规划（2019-2024年）》\n领导您好， 《佛山市城市轨道交通第二期建设规划（2019-2024年）》，纳入该轮建设规划的项目为2号线二期、4号线一期、11号线一期及13号线一期。因为目前来说新一轮地铁规划对",
+   "cited_hits": [],
+   "cited_missing": [
+    "佛山市城市轨道交通第二期建设规划（ 2019-2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110757",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110757",
+   "question": "关于物业公司对业主户内维修收费标准备案事宜\n物业公司对业主户内维修收费标准是否需要备案？如需要，具体办理流程是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "印发广东省物价局 广东省住房和城乡建设厅关于物业服务收费管理办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110596",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110596",
+   "question": "佛山市城市轨道交通第二期建设规划（2019-2024年）\n从佛山部门了解到《佛山市城市轨道交通第二期建设规划（2019-2024年）》已经交到省发改委了，想咨询《佛山市城市轨道交通第二期建设规划（2019-2024年）》现在到省发改委哪一步",
+   "cited_hits": [],
+   "cited_missing": [
+    "佛山市城市轨道交通第二期建设规划（ 2019-2024年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110181",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110181",
+   "question": "船舶产业项目备案相关事宜\n尊敬的省发改委领导：根据《广东省人民政府关于发布《广东省政府核准的投资项目目录（2017年本）的通知》（粤府〔2017〕113号）的规定“对于钢铁、电解铝、水泥、平板玻璃、船舶等产能严重过剩行业的项目，要严格执行《",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于化解产能严重过剩矛盾的指导意见",
+    "广东省政府核准的投资项目目录（ 2017年本）",
+    "广东省关于化解船舶工业产能严重过剩矛盾实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110242",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110242",
+   "question": "关于蓄冷电价夜间低谷时间增加用电量基本电费结算问题\n我们公司是做中央空调蓄冷节能投资业务，业务开展过程中，发现蓄冷电价文件存在一些不明确之处。广东省粤发改价格函【2017】5073号《关于蓄冷电价有关问题的通知》，通知中只对峰平谷电度电价有",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于蓄冷电价有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110147",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110147",
+   "question": "关于公安派出所新建项目立项审批有关问题\n您好，我们这有个基层派出所新建项目，公安部2016年修订了《公安派出所建设标准》，里面对派出所的规模面积有较大修改。我们要按照公安部2016年修订版的《公安派出所建设标准》审批可研还是要按照2007年",
+   "cited_hits": [],
+   "cited_missing": [
+    "公安派出所建设标准（2016修订版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "7117",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=7117",
+   "question": "关于加油站重改扩建的问题\n我是一名基层工作人员，现在加油站的行业主管部门是发改局。想咨询一下有一个加油站想申请重建，需要提供什么资料呢。还有请问省在这一方面有什么相关的政策文件可供学习呢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "重/改/扩建加油站建设规划确认文件申请表",
+    "营业执照",
+    "成品油零售经营批准证书",
+    "成品油市场管理办法",
+    "成品油零售企业管理技术规范",
+    "广东省经济和信息化委关于优化规范电力、石油行政审批办理事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6160",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6160",
+   "question": "关于“国家发展改革委关于全面放开经营性电力用户发用电计划的通知”\n关于“国家发展改革委关于全面放开经营性电力用户发用电计划的通知”，发展改革委网站已经于2019年6月27日发文通知，请问地方的发改委什么时候能收到最新通知，以便可以办理最新的",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委关于全面放开经营性电力用户发用电计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6134",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6134",
+   "question": "“认定企业建设项目是否属于广东省优先发展产业”该由哪个部门认定？\n您好，有个问题烦请贵局解答： 广东省发改委已印发《关于进一步明确我省优先发展产业的通知》（粤发改产业函2019 397号）请问“认定企业建设项目是否属于广东省优先发展产业”该",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步明确我省优先发展产业的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "5235",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=5235",
+   "question": "信用修复\n提由信用修复要填写异议信息申请吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省公共信用信息管理系统信用修复工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "5180",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=5180",
+   "question": "光伏电站项目备案\n您好，我们想设立一家光伏电站公司，从《光伏电站项目暂行管理办法》中得知需要向省能源部门进行备案，而又得知省能源局归省发改委管理。请问设立公司时，是否需要分别取得省能源局、省发改委的备案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "光伏电站项目管理暂行办法",
+    "企业投资项目核准和备案管理办法",
+    "广东省发展改革委关于印发企业投资项目核准和备案管理实施细则（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "4196",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=4196",
+   "question": "关于医院进修收费标准、医学院校毕业实习费标准的问题反映\n根据普通高等医学教学基地管理暂行规定（教高【1992】8号）文第二十六条：高等医学院校的上级和管部门，应定期拨给学校专项实习经费，以教学补贴费的形式统筹拨发教学医院，用以购置一般常用教",
+   "cited_hits": [],
+   "cited_missing": [
+    "省物价局 省教育厅 省财政厅关于进一步规范我省高等学校收费管理的通知",
+    "广东省发展改革委 广东省教育厅 &nbsp; 广东省财政厅关于调整公办普通高等学校学费的通知",
+    " 教育部 国家发展改革委 财政部关于进一步规 范高校教育收费管理若干问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3822",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3822",
+   "question": "用石作为原材料生产建筑用砂，是否符合产业政策？\n阳春市为生态发展区，用石作为原材料生产建筑用砂，是否符合产业政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省采石取土管理规定",
+    "广东省主体功能区产业准入负面清单（ 2018年本）",
+    "负面清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3496",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3496",
+   "question": "广东省高可靠性供电费用如何征收\n我司新投资的一个工业项目位置珠海市高栏港经济区，根据相关要求，需要使用10KV双回路供电，一路是1250KVA,另一路是800KVA。中国南方电网给我们出具了一份《业扩费用缴费通知书》，收费项目是\"高可靠10",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于降低我省高可靠性供电费用及临时接电费用征收标准的通知",
+    "转发国家发展改革委关于停止收取供配电贴费有关问题的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3304",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3304",
+   "question": "始兴县属国家重点生态功能区，在始兴县河石加工成砂是否符合产业政策？\n始兴县属生态功能发展区，《广东省生态发展区产业准入负面清单（2018年本）》将“石材加工和板材角料综合利用生产”列为负面清单，请问：1.河石是否属于“石材和板材角料”？2.",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省河道采砂管理条例",
+    "广东省发展改革委 广东省经济和信息化委关于印发广东省主体功能区产业准入负面清单（ 2018年本）的通知",
+    "负面清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3043",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3043",
+   "question": "光伏\n本厂在2017年已经安装并验收了1021KW的光伏发电项目,至今已经发电有一年多了.现想咨询一下这段时间光伏所发电的国家补贴什么时候才能补贴到用户帐上？？因为我所咨询本省相关部门都没有明确答复！！！他们都说要上面有关部门方面才能回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 国家发展改革委 国家能源局关于印发 &lt;可再生能源电价附加补助资金管理暂行办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2479",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2479",
+   "question": "年产600吨环保纸托建设项目\n行业类型是其他纸制品制造（2239）属不属于禁止？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发广东省主体功能区产业准入负面清单（2018年本）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2204",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2204",
+   "question": "关于印发做好广东省新能源汽车推广应用地方财政补贴工作的通知\n请问这个粤发改产业函〔2018〕518号文件应生效时间是什么时候？多次咨询佛山发改委都只得到官方式回答：“等待，会有的”但从2016年开始佛山新能源汽车地方补贴到现在还没有，是否正",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好广东省新能源汽车推广应用地方财政补贴工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1907",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1907",
+   "question": "广佛江珠城轨目前进度如何\n您好，想咨询一个问题，广佛江珠轻轨目前讨论进度如何？珠三角各市与广州联系的轻轨及地铁都有公开发文知悉明确的进度安排， 而有关广佛江珠轻轨许久没有阶段性的消息，今年1月时省发改委有回复公民咨询，答复“省发改委会同省铁",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠三角城际铁路规划项目实施调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1776",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1776",
+   "question": "2018年9月的《广东省负面清单》是否有效\n国家发展改革委 商务部关于印发《市场准入负面清单（2018年版）》的通知（发改经体〔2018〕1892号）中明晰“各地区各部门不得自行发布市场准入性质的负面清单，确保市场准入负面清单制度的统一性、",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场准入负面清单（2018年本）",
+    "广东省主体功能区产业准入负面清单（2018年本）",
+    "负面清单",
+    "负面清单",
+    "市场准入负面清单（2018年本）",
+    "产业结构调整指导目录",
+    "政府核准的投资目录",
+    "负面清单",
+    "负面清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1671",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1671",
+   "question": "关于信用修复的几点疑问，烦请解答，谢谢\n1.请问信用修复是否支持个人征信的修复？ 2.不良产生的事项消除多久后可以申请征信修复？ 3.征信修复是否有网络办理渠道，若没有需到何处办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发改委办公厅关于进一步完善行政许可和行政处罚等信用信息公示工作的指导意见",
+    "广东省公共信用信息管理系统信用修复工作指引",
+    "信用修复申请表",
+    "信用修复决定书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1380",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1380",
+   "question": "党政机关办公用房和业务用房项目有关问题\n你好，想请问下行政机关的对外办事窗口、办事大厅是属于业务用房还是属于办公用房性质？如果是属于业务用房，是否有相关的窗口办事大厅建设标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅关于党政机关停止新建楼堂馆所和清理办公用房的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1349",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1349",
+   "question": "关于深惠城际是否会实施\n深惠城际2010年就已提出，实施最大的阻碍是什么，连莞惠城际都能开通，深惠城际岂不更加有意义吗，为什么一直建不了呢？大概什么时候可以开建",
+   "cited_hits": [],
+   "cited_missing": [
+    "珠三角城际铁路规划项目实施调整方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1137",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1137",
+   "question": "佛山地铁四号线\n网传佛山四号线准备动工。 https://mp.weixin.qq.com/s/o3sR0Y5yFjnFayNjJrlulw 佛山地铁四号线此前暂未获国家发展改革委批复建设规划。现在是否已经获批？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1148",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1148",
+   "question": "与工程建设项目有关的重要设备、材料\n《工程建设项目货物招标投标办法》中第一章第二条里的与工程建设项目有关的重要设备、材料范围如何确定？哪些是重要的？哪些是不重要的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程建设项目货物招标投标办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1179",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1179",
+   "question": "油库建设事宜\n我们公司计划建设一个成品油库，计划建设28万方库容，现可申请成品油库容22.5万方，剩余5.5万方库容计划按航空煤油报审，航空煤油的库容申请都需要做哪些工作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成品油市场管理办法",
+    "广东省成品油配送体系 “十三五”发展规划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "1219",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1219",
+   "question": "2年前在境外收购一家公司是否还需要补办备案证\n我司于2016年在美国以2万美元收购一家公司，现在已经在区政府已经办理了境外投资证书，想了解是否还需要补办境外投资备案？ 如果需要补办，还请给一下操作指引。感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业境外投资管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "134",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=134",
+   "question": "佛山地铁五号线\n您好，请问，佛山市前两年便说在规划地铁五号线，但到现在都还没有进一步消息，是规划没有合格？五号线还会建吗？计划什么时候动工？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强城市轨道交通规划建设管理的意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-fg",
+   "id": "3406841",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3406841",
+   "question": "低空经济\n您好 能否提供一下广东省2022-2025每年低空经济的规模总量和增长率，没查到具体的数据 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3326782",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3326782",
+   "question": "建议省发改委增加低空经济人才相关岗位，研制相关政策推进低空产业\n建议省发改委增加低空经济人才相关岗位，研制相关政策推进低空产业，在省考岗位职位表中，应充分考虑专业代码对人才的限制，尽可能以二字代码招聘，广罗人才。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3316948",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3316948",
+   "question": "开启空中交通时代——划时代的基础设施变革\n尊敬的艾主任，您好： 我做的是一种介于飞行器和轨道交通之间的一种新型智能交通工具。它非常便利，可以随时随地去往任何地方，完全依靠人工智能控制自动运行，更快（时速可达600公里以上）更安全。它还解决了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3345349",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3345349",
+   "question": "在加油站办公用房屋顶建设分布式光伏\n请问在加油站办公用房屋顶建设分布式光伏有相关的要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3293686",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3293686",
+   "question": "交通建设工程试验检测的收费标准执行哪份文件要求\n省物价局关于交通建设工程现场检测和工程材料试（检）验收费问题的复函已废止,目前关于交通建设工程试验检测的收费标准是按哪份文件要求执行?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3204492",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3204492",
+   "question": "储备大米的自然损耗标准\n目前，广东省是否出台制定地方储备大米的自然损耗标准，江门市6个月轮换的非真空袋装大米（粮食储备公司保管）自然损耗率是多少？如果半年大米的自然损耗率为0.48%，算不算高？请给予指导，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3181115",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3181115",
+   "question": "政策解读信息\n您好，请问广东省发展和改革委员会的政策解读信息在哪里查看，可以提供下网址吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3099565",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3099565",
+   "question": "工程建设\n请问一个项目如果采用EPC总承包模式建设，这个项目已经获得可研和初步设计概算的批复，项目已经招投标并开工建设。在建设过程中，因实际施工时有的规划内的内容受到位置等的限制建设不了导致设计有变，应该怎么处理比较好？是要重新再走报批流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3066247",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3066247",
+   "question": "信用广东登录法人登录不上去\n信用广东网站用法人账号登录时不跳出登录界面，跳转界面提示：很抱歉，用户username tyrzaaa42已存在，请登录账户管理界面链接账户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3016622",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3016622",
+   "question": "咨询“两个1000亿元”项目清单已下达相关事宜\n贵委会：国家发展改革委有关负责人10月22日接受新华社记者采访，对当前经济热点问题进行深入分析和解读。其中谈到“两个1000亿元”项目清单已下达：其中，“两重”建设项目121个、带动总投资约8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2854812",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2854812",
+   "question": "广东省发改委政务新媒体\n你好，请问广东省发改委有开设政务新媒体吗，想关注了解下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2847821",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2847821",
+   "question": "咨询省发改文件《广东省对口支援干部人才家属探亲管理制度的指导意见》细则内容\n广东省粤援藏援疆办[2018]13号文《广东省对口支援干部人才家属探亲管理制度的指导意见》中第二条:“二、对口支援选派时间达到一周年的干部人才，可享受其家属到受援地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "2788220",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2788220",
+   "question": "产业结构调整指导目录限制类的碳酸钙生产装置具体限制了哪些类型的项目\n《产业结构调整指导目录（2019年本）》中规定“限制类-四石化化工-5.新建...碳酸钙生产装置”该项规定中限制的碳酸钙生产装置具体指哪些类型的碳酸钙生产？项目将碳酸钙原矿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2777003",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2777003",
+   "question": "关于广东氢能政策\n省发改于2023年10月30日发布了《广东省加快氢能产业创新发展意见的通知》，其中第（五）条提到“参照国家综合评定奖励积分，原则上每1积分奖励5万元，每个企业同类产品奖励总额不超过5000万元。”，第（十六）条提到“车辆推",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2684380",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2684380",
+   "question": "外债登记备案证明领取\n成功通过国家改委政务服务大厅办理外债登记备案证明文件正本，贵委在收到正本后，是否必须到贵委现场领取，可都通过邮递等方式领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2639556",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2639556",
+   "question": "境外投资备案\n“全国境外投资管理和服务网络系统”注册用户需要后台审核，审核时间是多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2557084",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2557084",
+   "question": "评标专家入库申请进度和手续查询\n您好！ 我是申请发改委评标专家库的专家，在网上按要求提交了材料之后，今年2月13号收到广东省综合评标评审专家库系统发给我的短信，告知我已通过管理部门初审。之后我按要求去政府办事大厅进行了实名验核（五级）。 想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2490124",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2490124",
+   "question": "国家发改委2023年支持先进制造业和现代服务业发展专项项目申报\n想找产业发展处科室了解相关申报信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2427024",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2427024",
+   "question": "建议梅州机场尽快搬迁落地\n放眼当下，梅州城市发展一直较慢，城区规模太小是一大原因，难以辐射影响做大做强。本来梅州城区平原面积不多，应该好好利用本不多的平原可开发土地面积，梅州机场设在城区，不仅占用大片有限的土地，也限制梅州高楼对土地的利用率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2377529",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2377529",
+   "question": "境外投资\n境内私募股权人民币基金投资境外已上市公司优先股，是否需要去发改委办理ODI审批？去发改委办理ODI手续是否能够办理通过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2261368",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2261368",
+   "question": "发展和改革委员会政府信息公开工作年度报告\n请问广东省发展和改革委员会的2021年政府信息公开工作年度报告在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2253900",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2253900",
+   "question": "查询物价\n在广东省物价局或者深圳市物价局官网哪里能看到农贸市场主要农副产品的公开价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2196435",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2196435",
+   "question": "申请信用修复多少工作日\n请问去年5月份被行政处罚，按时办理了交罚款等相关手续，由于我们是第1次经历这样的事，也不知道会转送到信用中国平台，今年有个项目投标前才发现，行政处罚决定书文号：粤惠交罚（2021）00914，于2022年3月7日已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2124506",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2124506",
+   "question": "2021年汽车以旧换新专项活动是否可以延缓期限？\n自政府推出汽车以旧换新政策以来，大部分市民均积极响应政府号召，计划将现有燃油车换成新能源车并申请了新能源号牌指标和订购了名录中的新能源车型号。但是，因为疫情和新能源汽车行业普遍缺芯的影响，各",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2121309",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2121309",
+   "question": "新媒体\n请问一下贵单位有没有开设新媒体账号？（请直接在网上信件回复，不用打电话，谢谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "2117928",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=2117928",
+   "question": "信用修复\n在国家信息信息公示系统有行政处罚记录，但是在信用中国/广东都没有处罚记录，所以无法申请在线修复，请问如何修复在国家信息信息公示系统的行政处罚记录？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1098015",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1098015",
+   "question": "咨询广东省“十四五”各地区节能目标任务\n您好！请问关于广东省“十四五”各地区节能目标任务分解的相关文件是还没有发布吗？根据《广东省生态文明建设“十四五”规划》，到2025年全省能源消费总量控制在4.05亿吨标准煤内，单位GDP能源消耗较20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1094639",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1094639",
+   "question": "危险废物含铜污泥的资源化利用项目是否定义为“两高”项目？\n我司准备开展从危险废物含铜污泥（10吨/年）提取铜等其他金属，耗能在20000标煤左右。该项目是划分为哪种行业？如果划分为环保行业，是否不属于“两高”项目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1092299",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1092299",
+   "question": "信用中国修复咨询\n我是公司法人，需要在“信用中国”网站公益性在线培训平台进行学习，请问网站公益性在线培训在哪里进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1090771",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1090771",
+   "question": "“两高”项目怎么定义？\n广东省发展改革委关于印发《广东省坚决遏制“两高”项目盲目发展的实施方案》的通知中定义，“二、主要任务--（一）建立“两高”项目管理台账。--“两高”项目范围暂定为年综合能源消费量1万吨标准煤以上的煤电、石化、化工、钢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1087284",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1087284",
+   "question": "咨询《广东省固定资产投资项目节能审查实施办法》的细节问题\n经查《广东省固定资产投资项目节能审查实施办法》“第十五条，节能审查意见自印发之日起2年内有效。第十六条 项目在节能审查意见有效期内未开工建设的应在有效期满前30个工作日之前，向出具审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1085717",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1085717",
+   "question": "信用修复咨询\n我是非公司法人，公司法人让我代为在“信用中国”网站公益性在线培训平台进行学习，学习后取得证书并将对公司进行信用修复，信用修复过程需要提供授权委托书，请问这个授权书有没模板或者下载途径？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1082232",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1082232",
+   "question": "能耗指标调配\n根据国家发展改革委关于印发《完善能源消费强度和总量双控制度方案》的通知发改环资〔2021〕1310号中（十）推行用能指标市场化交易，在确保完成能耗强度降低基本目标的情况下，可向能耗强度降低进展顺利、总量指标富余的省（自治区、直",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1078534",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1078534",
+   "question": "信用修复咨询\n企业在信用广东上检索之后，其下面司法信息里面有失信被执行人记录。请问如果取消这个信息公示，需要怎么做？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1076255",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1076255",
+   "question": "关于燃煤电厂技改项目节能评估业务的咨询\n煤矸石综合利用燃煤电厂拟建设一台辅助燃烧炉仅用于燃烧低热值的煤矸石，燃烧后向主锅炉供应烟气，与主项目共用烟气处理设施，生产规模保持不变。经估算，项目投产后主项目总能耗不超过已取得的总能耗指标，请问此技",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1075880",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1075880",
+   "question": "皮革供热改造是否属于“两高”禁止项目\n您好，我司以半成品蓝（白）皮为原料，经回水、复鞣染色、涂饰等工序，生产汽车革、鞋面革，位于珠三角江门市，2010年通过广东省环境保护厅审批，环保手续齐全。现在为适应市场变化，为提升产品品质，企业在产能和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1072285",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1072285",
+   "question": "无违规版信用报告下载\n登录界面显示没法登录请问怎么处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1075370",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1075370",
+   "question": "关于户用光伏补贴问题\n领导您好，现亲戚家于2019年12月29日并网一套户用光伏设备，现在不清楚是否有补贴，请给予指导。 根据2020年12月16日《广东省能源局转发国家发展改革委办公厅 国家能源局综合司 关于公布2020年生物质发电中央补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1069519",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1069519",
+   "question": "关于数据中心的能耗数据接入要求及具体系统对接指引\n你好，想咨询了解目前对于数据中心的能耗数据接入要求及具体能耗监控系统的是否有相关的对接指引",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1052695",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1052695",
+   "question": "重点用能单位能耗在线监测数据上传CA认证\n要咨询如何办理重点用能单位能耗在线监测数据上传的CA认证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1019543",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1019543",
+   "question": "《信用报告代替企业无违法违规证明改革实施方案》的细节询问\n关于近期公布的《信用报告代替企业无违法违规证明改革实施方案》： （1）若想对某一更名过的公司进行信息公示查询，是以统一社会信用代码作为公示依据，还是以现行公司名称作为公示依据？ （2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "952014",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=952014",
+   "question": "深惠城际开始建了吗？\n深惠城际开始建了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "959587",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=959587",
+   "question": "询问房地产评估收费标准问题\n尊敬的相关职能部门领导，请问：房地产租赁价格评估，是否有规范性的收费收费标准。 即：房地产租赁价格评估服务的收费标准，省内是否有明确收费的基数。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "961812",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=961812",
+   "question": "关于物业公司收取车库门禁卡费用问题\n根据《广东省发展改革委、广东省住房城乡建设厅关于进一步规范物业服务收费的通知》（粤发改价格函[2019]2897号），第四条：规范出入证押金(或工本费)。实行小区出入证管理的，物业服务企业应当为业主免费配",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "958278",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=958278",
+   "question": "关于物业收费的咨询\n领导您好： 根据2018版广东省定价目录，我想咨询下目前广东省内非住宅（商业）性质的物业费是属于政府指导价吗？ 一般住宅前期物业管理的物业费还是属于政府指导价吗？ 惠州的一般住宅前期物业管理的物业费还是属于政府指导价吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "943813",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=943813",
+   "question": "关于电力市场准入的问题\n想咨询一下电力市场准入的问题，有家企业今年4月份拿到高新企业证书，想申请进行电力市场准入，但是该公司2020年用电量不足100万度，2019年用电量超过100万度，能否申请进入电力市场。《广东省能源局 国家能源局南方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "941379",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=941379",
+   "question": "请问广州地铁16号线，19号线，23号线什么时候才能完成审批动工\n据悉16号线，19号线和23号线原计划在第三期完成审批，但是由于因为某些因素问题导致这三条线路迟迟未获得批复，搞到开工时间也姗姗来迟，甚至遥遥无期，那请问这三条线路什么时候才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "942751",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=942751",
+   "question": "关于平价光伏发电项目的后期管理问题。\n关于光伏发电项目在2019年度、2020年度已备案，但未列入平价上网项目，将对项目的并网、售电、电价等后续手续的办理有什么影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "942326",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=942326",
+   "question": "电力折标系数的计算方法\n在节能报告计算的时候，我们都需用到等价值，请问电力的等价值计算方法是怎么样的，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "934369",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=934369",
+   "question": "新建电力管廊工程\n新建的电力管廊工程（无主体工程）是否需要用地预审。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "936249",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=936249",
+   "question": "广清永（广东段）高铁为何进度缓慢？\n广清永高铁提法提了好多年，现在进度如何？最近《关于进一步做好铁路规划建设工作的意见》一文发布，是否意味着广清永高铁就没了？然后，广清永高铁能不能先行一步，先铺设广东段。如果过两年广湛，深赣高铁修完了，意味",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "938943",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=938943",
+   "question": "信用修复申请查询进度，查询码没有了，如何查修复结果\n信用修复申请查询进度，查询码没有了，如何查修复结果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "932486",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=932486",
+   "question": "关于2021年汽车下乡补助\n您好！现在国家在1月份已经发布了2021年汽车下乡活动了，“鼓励有条件的地区对农村居民购买3.5吨及以下货车、1.6升及以下排量乘用车，对居民淘汰国三及以下排放标准汽车并购买新车，给予补贴。” 我们广东省什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "933864",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=933864",
+   "question": "广东的信用报告，是否要进行申报\n请问我公司需要打印信用广东的信用报告，是否要进行申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "932667",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=932667",
+   "question": "广州市黄埔区有轨电车1号线东延线进展\n据说广州市黄埔区正在报批黄埔区有轨电车1号线东延线项目建议书报批工作，请问有进展吗？永和人民急切盼望该线路尽早动工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "922912",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=922912",
+   "question": "地铁28号线设站问题\n地铁28号线，听说不在凤凰城（陈家林片区）设置站点了，这是真的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "930637",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=930637",
+   "question": "增城区政府官网发布的地铁16号和23号已批复问题\n尊敬的领导： 您好！在2021年4月17号，增城区政府官网发布的一篇文章《3332亿！5年引进490个项目，“增城模式”成功出圈》中谈到交通板块中提及（规划已批复2条）地铁16号、23号线，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "931473",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=931473",
+   "question": "广州地铁第三期调整上报\n关于广州市城市轨道交通第三期建设规划调整：广州市去年底已经报给你委，至今有半年了，请问你委什么时候能将建设规划调整上报送审到国家发改委？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "926584",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=926584",
+   "question": "深圳地铁第五期规划\n本人在惠州居住，深圳上班。想问问深圳地铁第五期规划中有深圳地铁14号线惠阳延长段吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "930120",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=930120",
+   "question": "企业可否申请光伏发电项目\n是否可以利用企业建筑物安装光伏发电站，如果可以需要如何申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "927391",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=927391",
+   "question": "关于省打好污染防治攻坚战（节能降耗）专项资金项目的问题\n请问今年还有 “ 2020年省打好污染防治攻坚战（节能降耗）专项资金项目”的申报吗？ 需要提供什么申报材料呢？在去年的申报通知中没有列出申报所需提交的材料？具体的申报通知是直接放在省能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "924814",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=924814",
+   "question": "2020年财政预算信息\n请问贵单位的2020年财政预算信息在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "925189",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=925189",
+   "question": "2020年度网站工作报表\n请问贵单位的2020年政府网站年度工作报表在哪里查看，能否提供网址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-fg",
+   "id": "922679",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=922679",
+   "question": "急需能源数据\n您好，请问各地市分行业的能源消耗数据是多少呢？主要是批发零售业和住宿餐饮业，交通运输和仓储邮政业这两个行业的数据。望回复，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "909348",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=909348",
+   "question": "2018年户用光伏装机总量是多少？\n你好，请问2018年广东省户用光伏装机总量是多少呢？或者是否有其他渠道可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "908404",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=908404",
+   "question": "信息广东上行政处罚信息修复\n请问我司企业相关行政处罚信息，在信用中国网站上没有显示，在信用广东网上有显示行政处罚项，我需要向哪里提交证明进行相关信用修复工作呢？，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "905125",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=905125",
+   "question": "广州地铁第三期调整的报审情况\n关于广州市城市轨道交通第三期建设规划调整：①广州市开展的环境影响评价审查、社会稳定风险评估这些工作完成并报给你委了吗？②请问你委将建设规划调整上报送审到国家发改委了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "897690",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=897690",
+   "question": "加快广州地铁23号线纳入规划建设上报审批\n尊敬的领导，目前最新广州地铁23号线规划走向，从赤沙到官湖沿线已有多个居民成熟住宅片区，分布着多处商业中心，制造业金融科技产业组团，从已发布的规划路线走向，主要经过琶洲高新区，天河广州金融城，广州数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "897941",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=897941",
+   "question": "电改\n广东省已达到电改准入条件尚未进入市场的用户名录按照要求向社会公示，请问在哪里公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "894558",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=894558",
+   "question": "咨询省内地市帮扶情况\n您好，我十分关心广东省区域经济发展和政府间友好合作情况。特此询问：省内21地市间的帮扶关系。请问是否有公开文件，给21地市结对，明确谁负责帮扶谁呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "894787",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=894787",
+   "question": "综合能耗当量值与等价折算系数\n请问广东省的综合能耗当量值与等价值折算系数是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "892317",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=892317",
+   "question": "交通肇顺南城际\n肇顺南城际现在重新变回近期建设规划了吗？随着现在珠三角广州枢纽新机场的落实，肇顺南城际机场到高明站到顺德站是否会提升为350Km/h高铁？ 综上请问肇顺南城际是否是近期建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "887862",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=887862",
+   "question": "深圳地铁14号线惠阳段何时开工\n都已经六七年了，想问问深圳地铁14号线惠阳段何时开工。不希望真的只是嘴上说说，可以让惠州人民可以更加方便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "885471",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=885471",
+   "question": "广州地铁28号线是第四期规划吗？\n请问广州地铁28号线是在增城区新塘镇陈家林路附近新设有地铁站出入口吗？现在正在等中央最高审核部门复批吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "884880",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=884880",
+   "question": "我想问一下，集中式光伏发电项目如何申请列入2021年平价光伏上网指标目录？\n我想知道如何让一个集中式光伏项目申请列入2021年平价光伏上网指标目录，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "881154",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=881154",
+   "question": "佛山四号线\n网上发布了佛山四号线已获得国家发改委的批准，但是没有收到官方回复，想要确认下，佛山四号线国家发改委真的审批通过了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "879541",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=879541",
+   "question": "《东莞市城市轨道交通第二期建设规划调整》是否已上报国家发改委\n尊敬的省发改委领导，您好！东莞市轨道交通局在2020年11月28日在阳光网答复网民关于“东莞地铁1号线支线”相关咨询事项时表示：“目前，《东莞市城市轨道交通第二期建设规划调整》已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "877182",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=877182",
+   "question": "有关佛山地铁第二轮规划\n您好，最近有关佛山地铁四号线、十一号线消息频繁，是否国家发改委已批复佛山地铁第二轮建设，但目前尚未挂网？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "876656",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=876656",
+   "question": "关于行政处罚到期后，是否需要进行信用修复\n公司在信用广东公示网上的行政处罚，待公示期满后，是否需要上传相关资料进行修复，还是会自动撤下？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "871767",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=871767",
+   "question": "关于行政处罚到期后，是否需要进行信用修复\n建设项目因材料抽检不合格被住建局行政处罚，并在信用广东网站公示，现公示时间已满一年，请问公示期满一年后是否还需要进行信用修复，还是说信用广东网站会在期满后自动不再公示。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "871495",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=871495",
+   "question": "关于广州市地铁23号线建设时间\n有消息指广州市地铁23号线会在2021年开始建设，不知道消息是否属实？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "872094",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=872094",
+   "question": "广州地铁第三期调整方案上报国家了吗？\n广州市城市轨道交通第三期建设规划调整，请问你委上报送审到国家发改委了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "870678",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=870678",
+   "question": "广佛环线西环线\n乐平镇作为广佛肇经济圈的中心，又是佛高区三水园的所在地，区位优势明显，与南海有南三产业合作区，与花都同是广佛同城重要节点，在乐平设站恰好可以让口号成为现实，突破三地堡垒，促进人流来往，作为佛山一环创新圈的重要节点，拥有佛高区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "858425",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=858425",
+   "question": "关于信用广东修复\n佛山工程项目因违规操作被城管处罚，并在信用广东网站公示，未在信用中国完整公示，公示时间1年，请问该如何修复，是否得等到公示时间结束才能修复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "854948",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=854948",
+   "question": "广东省可再生能源电力交易实施方案何時可以開始實施?\n1. 廣東省再生能源交易實施方案何時實施? 2. 透過交易中心是否有中國綠證等環境效益提供作抵碳方式憑證?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "854153",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=854153",
+   "question": "广州市轨道交通24号线审批进度？\n请问目前广州市发展改革委员会将广州市轨道交通24号线（广州北站-纪念堂）规划上报到你委审批了吗？何时能上报到国家发改委？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "849934",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=849934",
+   "question": "收到广州地铁第三期建设规划调整方案了吗？\n含8号线滘心至江府、24号线的广州市城市轨道交通第三期建设规划调整，请问你委收到广州市的申报了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "845816",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=845816",
+   "question": "请问广州23号线地铁什么时候动工？\n在网上看到说广州23号线地铁在2020年12月28号动工，请问是真的吗？如果不是，那23号线估计什么时候动工呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "848987",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=848987",
+   "question": "地铁23号线是否获得国家批复，预计什么时候动工建设、未来6年黄埔区有规划哪几天地铁线\n地铁23号线是否获得国家批复，预计什么时候动工建设？ 未来6年黄埔区有规划哪几条地铁线，预计什么时候动工什么时候完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "842575",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=842575",
+   "question": "佛山地铁四号线上报国家审批\n佛山地铁四号线上报国家审批已经有几个月了，现在佛山地铁四号线沿线在招标电力迁移问题，上报那么久没有下文，是不是文件或者佛山还是资格不够，佛山政府说今年年底前会通过，都快都年底了，到底怎样得。为什么广州一上报就能马",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "827321",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=827321",
+   "question": "关于2020年的汽车下乡政策\n你好，本人农村户口，想买2021(年)款宝骏510 1.5L CVT畅享型，这款车于2020年10月21日新上市，但是这车标明2021(年)款，生产日期是今年，标识又是明年的车，请问这2021(年)款宝骏510",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "834874",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=834874",
+   "question": "佛山地铁4号线\n请问佛山地铁4号线现在审批进度如何?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "825852",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=825852",
+   "question": "信用修复\n信用修复申请表及其附列资料在那里下载？我进了信用广东资料下载页面，没有看信用修复的资料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "821126",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=821126",
+   "question": "询问广州地铁22号线南延线规划进度以及线路设计？\n近期，广州地铁发布招标公告,提出对粤港澳大湾区线网优化客流预测进行专题研究，其中提到对广州地铁22号线东延至东莞段与深圳衔接点选择的客流比选论证。 请问目前广州地铁22号线南延线规划进度如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "818549",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=818549",
+   "question": "广佛江珠\n发改委领导： 你好！关于新建广佛江珠城际铁路项目目前进展如何？是否已经取消或变更？计划什么时候动工建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "819175",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=819175",
+   "question": "佛山二号线二期申报进展\n尊敬的领导，请问上报至国家发改委的佛山二号线二期是否有最新的进展，早期规划的二期，可是迟迟未得到批复建设，二号线二期是连接打通整个广佛同城的最后点缀，希望佛山二号线二期能早日得到建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "819919",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=819919",
+   "question": "信用修复\n您好，请问【未重新办理环评审批文件，于2010年9月擅自开工扩建超声波清洗工艺并投入生产经营】属于什么失信行为？能否进行信用修复？违法行为类型为违反建设项目环境保护三同时制度， 处罚内容为罚款 。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "816045",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=816045",
+   "question": "广州地铁24号线是否国家已经批复了呢，地铁的环评已经撤销是否线路不通过？\n广州地铁24号线是否国家发改委已经批复了呢，地铁的环评是否不通过，建设的时间是否需要押后，望领导回复，白云广花一带入市区比较麻烦，去市区工作和读书经常在广花路，机场路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "809014",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=809014",
+   "question": "广州地铁18号线，22号线是否在细沥设站\n尊敬的领导，你好！请问广州地铁18号线及22号线，是否会在南沙区鱼窝头细沥村设置站点？如果设站，该站点是否为预留站？大约何时会开通运营？ 谢谢解答！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "800608",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=800608",
+   "question": "增城地铁16号线到石滩镇有规划吗\n增城石滩镇绿湖首府宣传有地铁16号规划到地产销售处，是否有此规划？望回复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "793258",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=793258",
+   "question": "《佛山市城市轨道交通建设规划（2020-2025）》国家发改委是否批复？\n据佛山轨道部门消息，《佛山市城市轨道交通建设规划（2020-2025）》于2020年5月上报至省发展改革委。请问国家发展改革委是否已经批复？期望省发改委推动广佛同城地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "793053",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=793053",
+   "question": "佛山地铁4号线规划及审批进度\n非常感谢能借用这个平台跟相关单位互动； 现在我想咨询的是关于佛山4号线的审批进展，网传佛山地铁四号线已经有详细的规划， 结合7月初贵单位有回复网友说佛山地铁4号线项目已列入佛山市城市轨道线网规划，但未列入国家批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "786824",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=786824",
+   "question": "深圳地铁10号线东延东莞段，什么时候动工建设？\n深圳地铁10号线已经于8月18日载客运行了，而10号线东延线迟迟没有下文。2019年初深圳卫视新闻，各大媒体都均有报道10号线东延动工。2019年9月深圳市政府发布公告，10号东沿线暂时搁置，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "784297",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=784297",
+   "question": "请问广东省有无出台可再生能源消纳实施方案？\n请问广东省发改委或者能源局有无出台可再生能源电力消纳实施方案？之前看到国家能源局和其他部分省市有出台可再生能源的实施方案，想问一下广东省的情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "776328",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=776328",
+   "question": "广州16号线延长线的问题？\n有新闻消息称，广州地铁16号线延长线延伸到龙门县城，请问情况是否属实？现在省政府是否已制定了广州地铁16号线延长线的规划设计方案，广州地铁16号线延长线的建设进展到什么程度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "776323",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=776323",
+   "question": "关于佛山地铁二号线二期批复情况\n尊敬的省发改委领导，请问佛山市城市轨道交通二号线二期已纳入佛山市第二期建设规划并上报至国家发展改革委审批”，请问情况是否属实： 第一、该规划是否包含佛山地铁二号线二期？ 第二、该规划是否已上报国家发改委并受理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "771525",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=771525",
+   "question": "抽水蓄能电站工程规划许可证和施工许可证\n抽水蓄能电站项目，是否可以免予办理工程规划许可证和施工许可证？有没有相关制度依据？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "772433",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=772433",
+   "question": "询问广州地铁22号线南延线规划进度？\n您好，近日国家发改委批复了大湾区城际铁路建设规划，其中广州地铁18号线南北延线、22号线北延线均在列，并以城际铁路的名义申报建设。 我想知道关于广州地铁22号线南延线目前的规划情况？具体线路走向如何？目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "773360",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=773360",
+   "question": "《佛山市城市轨道交通第二期建设规划（2020-2025）》上报国家发改委审批情况\n尊敬的省发改委领导，您好！ 佛山市轨道交通局在2020年7月8日答复网民关于“佛山地铁4号线”相关咨询事项时，表示“佛山市城市轨道交通四号线一期已纳入佛山市第",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "769062",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=769062",
+   "question": "关于佛山4号地铁线的审批进度\n非常感谢能借用这个平台跟相关单位互动； 现在我想咨询的是关于佛山4号线的审批进展，这也是佛山百万市民一直在关注的问题！4号线的开通毕竟是能给佛山市民带来交通便利， 结合7月初贵单位有回复网友说4号线的建设计划已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "758568",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=758568",
+   "question": "D级信用评价等级咨询\n请问，知道或者应当知道是私自印制、伪造、变造、非法取得或者废止的发票而受让、开具、存放、携带、邮寄、运输的”的规定，我司取得不合规发票入账，违反了发票管理规定，被行政处罚1万元，是否会被信用评为D级？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "754011",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=754011",
+   "question": "2020年汽车下乡补贴发票预登记问题\n我爱人于6月购买了一台属于汽车下乡补贴政策范围内的车型，并于6月28日交付了全款并当日，开具了发票，之前在6月15日在与销售员谈价过程中有提及申请汽车下乡补贴的事项，销售员表示购买后会配合我们申请相关的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "730156",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=730156",
+   "question": "深大城轨惠州段建设时间问题\n尊敬的领导： 深大城轨深圳段已列为今年开工建设项目，惠州大亚湾段为远期建设项目？请问这个远期是指要多少年？目前大湾区建设都已经上升到国家战略了，如果只建深圳段，还算什么大湾区呢？现在省政府也规划了深莞惠都市圈，轨",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "746950",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=746950",
+   "question": "截止到2020年5月市场电力交易已注册用户数量和名单\n你好，向咨询一下截止到2020年5月市场电力交易已注册用户数量和名单，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "727106",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=727106",
+   "question": "关于深大城际线-惠州段为何又成为远期规划问题！！！！！！！！！！！！！！！！！！\n尊敬的省发改委领导： 您好！ 前段时间喜闻深圳规划一条深大城际线并得到省发改委的支持，让身处惠州大亚湾居住的深圳务工人员来讲，是一件非常得民心的天大好事。因为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "715139",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=715139",
+   "question": "广州八号线北延线（白云湖-广州北站）地铁线是否继续建？目前进展如何？\n之前看过官方报道说八号线北延线（白云湖-广州北站）在去年年内上报国家发改委批复修订，现在半年过去了，原计划在2019年就该开工建设的，现在2020年6月依旧没有任何开工的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "670171",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=670171",
+   "question": "汽车下乡补贴\n你好，我在粤省事上面上传登记了汽车下乡补贴的资料，然后今天登上去看审核进度的时候发现上面显示的银行卡信息不是我上传登记的信息，我上传登记的银行卡是惠州农业银行的，但现在系统上面显示的是乐昌农商银行的，银行卡账号也不是我的，怎么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "669839",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=669839",
+   "question": "2020年汽车下乡补贴申请办法\n您好！经过查询，我符合本次汽车下乡补贴的条件，请问参加汽车下乡补贴时，需要4S店配合做哪些事？没有4S店的配合，能申请补贴吗？如果4S店因为补贴临时加价，这种行为合理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "658454",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=658454",
+   "question": "节能审查意见\n我司节煤量约35600吨/年，想咨询，办理节能审查的办事流程，另外是否需要办理节能审查意见落实情况验收意见，如果需要，是政府组织还是企业自己组织进行，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "654183",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=654183",
+   "question": "关于增城火车站和广州规划的地铁16号线是啥时候动工？目前一点消息都没有？\n您好，关于石滩镇增城火车站和广州地铁16号线什么时候可以动工？目前一点动静度没有？是不是不开建了？或者未符合建设标准？不开建的话，周边的地产商一直拿这两个项目来作为卖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "621413",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=621413",
+   "question": "绿电购买\n你好！我们是东莞的一家企业，企业除了在绿电认购平台购买绿证外，请问在广东范围内还有没其它渠道或供电公司可以购买绿电，盼回复！谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "622733",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=622733",
+   "question": "关于汽车下乡车型停产车型都可以申请补贴，新款车型不在补贴车型内！\n我在2020年5月份购买了广汽本田的皓影精英版车型，我看补贴车型里面有飞度车型在，皓影车型没有补贴。请问在去年2020年7月份飞度都停产了为什么该车型可以享受补贴？哪里有该车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "622390",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=622390",
+   "question": "2020年汽车下乡补贴\n请问购车暂时上的是临时牌照，还没正式上牌照，可以先申请补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "618853",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=618853",
+   "question": "关于佛山地铁二号线二期何时能开建？\n据了解佛山地铁二号线二期的路线图已经公布了许多年，但迟迟未动工，目前是线路图站点有改动还是怎么样一概不知？由于位置距离市区偏远，高明这个区没通地铁，经济受到很大的制约的，希望有关部门领导告知这条地铁线路的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "619845",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=619845",
+   "question": "罚款缴纳凭证丢失\n办理信用修复，但罚款缴纳凭证丢失，应该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "617639",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=617639",
+   "question": "广东省2020年5月1日的汽车下乡细则\n我看到了出台的细则，但是政策细则里面还是没有提及新能源1万元综合补贴是怎么补的，因为不像之前的购车补贴，直接买车就补贴现金，使用环节的1万元补贴是具体怎么补呢，我充电的时候直接抵扣吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "565823",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=565823",
+   "question": "请问汽车下乡车型什么时候公布，补贴什么时候开始？\n您好，请问汽车下乡车型什么时候公布，补贴什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "566386",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=566386",
+   "question": "汽车下乡具体细则\n汽车下乡具体实施细则何时公布并实施？ 另农村居民如何界定？是户口类型吗？农业户口？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "564464",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=564464",
+   "question": "广东云茂高速（云浮罗定到茂名信宜）能如期按照计划2020年年底通车吗？\n广东云茂高速（云浮罗定到茂名信宜）能如期按照计划2020年年底通车吗？如不能，那最新计划到什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "562972",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=562972",
+   "question": "广州地铁24号线（原8号线北延段（白云湖-广州北站））啥时候开工建设？\n广州地铁24号线（原8号线北延段（白云湖-广州北站））原来是第三批规划（2019年开工建设），现在已经是2020年4月份仍然没有听到任何消息，也是第三批唯一一条未开动的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "562857",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=562857",
+   "question": "关于《东莞市城市轨道交通第二期建设规划调整（2019-2024年）》的咨询\n了解到《东莞市城市轨道交通第二期建设规划调整（2019-2024年）》已经上报至省发改委，在此有几个问题想要咨询： 1.该规划是否已上报国家发展改革委？若仍未上报，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "562561",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=562561",
+   "question": "揭阳市惠来县光伏发电扶贫项目补贴问题\n请贵单位明确告知，揭阳市惠来县2018、2019和2020年并网的光伏发电扶贫项目，那光伏发电补贴还有吗？多少？有相关明确的文件吗？今年2020年是全国脱贫攻坚年，那补贴迟迟不发，或者以等待排除的借口，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "562444",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=562444",
+   "question": "深圳信用网网显示的深圳市双公示行政处罚信息 怎么撤销掉\n“深圳信用网”显示的企业的深圳市双公示行政处罚信息 如何使用信用修复等方式使其撤下？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "560255",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=560255",
+   "question": "广州地铁11号线\n请问广州地铁11号线现在的建设进度，会提前开通吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "561849",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=561849",
+   "question": "信用中国的现场受理网点支不支持办理地方信用门户网站行政处罚信息信用修复合\n“信用中国”的现场受理网点支不支持办理地方信用门户网站行政（信用广东）处罚信息信用修复业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "560269",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=560269",
+   "question": "规划建设的茂名市通用机场能否改为民航机场\n通用机场无法满足茂名市人民的出行需求，能否改为民航机场？4c级别的也好啊。 虽然我知道建设通用机场对区域发展的好处，但无法满足茂名特别是信宜，高州电白区东部和化州北部地区人们的出行需求。湛江新机场离",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "560131",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=560131",
+   "question": "信用顺德网站上的信用修复\n您好！行政处罚信息公示于信用顺德（顺德是广东省佛山市顺德区），可否将相关修复材料发至信用广东平台进行申请修复？如若不是，请提供其他修复途径的资料。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "556357",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=556357",
+   "question": "集中式光伏发电项目是否核准还是备案？备案是否有前置性批准文件？\n你好，请问集中式光伏发电项目是核准还是备案？如果是备案，那么请问备案时，是否需要前置性批准文件？比如自然资源局、林业局、环保局的同意函？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "550100",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=550100",
+   "question": "2020年底广东城际铁路运营有限公司确定有接管佛肇城际（佛山西至肇庆）公交化运营的计划吗？\n我们家在广州，现在在肇庆高新区上班，急切渴望快快实现广佛肇城际公交化运营。请问领导：2020年底广东城际铁路运营有限公司确定有接管佛肇城际（佛山西至",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "544420",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=544420",
+   "question": "关于深惠城轨路线前期研究的建议\n深惠城轨是深圳连接惠州的重要轨道交通建设工程，根据前段时间省发改委发布的2020年重点建设项目计划的通知深惠城轨是由深圳前海引出经西丽，龙华，平湖，东莞凤岗，深圳龙岗，东莞谢岗至惠州沥林接莞惠城轨，对于深圳以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "539137",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=539137",
+   "question": "有关佛山地铁下一轮补充资料递交问题\n距离上一次国家发改委要求补充资料已经过去快大半年了，不知道是否已经补充完毕并受理了，如未补充完成望尽快敦促佛山方面加快推进，毕竟一年又一年过去了，是在是太慢了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "539357",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=539357",
+   "question": "佛山地铁2号二期\n领导你好?请问佛山地铁二号线2期什么时候可以动工开建？国家发改委是否已经同意建设？按照之前公示佛山地铁2号线二期是佛山地铁2017-2022规划建设线路之一！请问2021-2022年2号线二期能否动工？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "538496",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=538496",
+   "question": "关于“信用广东”平台信用修复事情的咨询\n尊敬的”信用广东“平台领导： 有关“信用广东”平台的信用修复问题，它不像“信用中国”那样可以在平台递交修复资料，那么具体修复程序是怎么样的呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "538097",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=538097",
+   "question": "佛山市城市轨道交通第二期建设规划（2019-2024年）佛山地铁4号线1期起点延长到大旺\n尊敬的广东发改委领导和专家同志们：我强烈建议佛山市城市轨道交通第二期建设规划（2019-2024年）中的佛山地铁4号线1期起点延长到肇庆高新区。建议理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "538089",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=538089",
+   "question": "信用修复\n你好，想咨询企业信用修复的问题：是否在信用中国提交了信用修复申请，在广东信用网上不用再提交？ 届时信用中国信用修复成功后，是否广东信用网上行政处罚信息自动修复？ 多谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "538411",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=538411",
+   "question": "信息公开年报咨询\n请问在哪里能获取到贵单位的信息公开年报?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "536736",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=536736",
+   "question": "2020年广佛江珠城际相关情况\n发改委各位领导： 您们好！想咨询一个高铁问题，在发改委官网留言中查询了解到，2019年时有百姓留言咨询过关于“广佛江珠城轨进度”的问题，当时该单位回复“2017年12月，按照省政府常务会议审议通过《珠三角城际",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "534487",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=534487",
+   "question": "2019年度网站工作报表\n贵单位的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "534342",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=534342",
+   "question": "请问广州有哪些地方可以做信用修复的培训以及出具报告的？\n公益性培训应该在哪里查看信息？有资格进行第三方培训的公司应该怎么找？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "533832",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=533832",
+   "question": "关于中山、珠海地铁规划实施等事宜\n请问（1）珠海地铁1号线是否已审批通过？可以按计划今年开工实施？（2）中山、珠海规划的地铁是否还在规划报批中，没有最终落实审批？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "521735",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=521735",
+   "question": "关于信用中国已经递交申请问题，望尽快审核\n我司在信用中国查到有行政处罚，现在已经完全履行罚款，现于2020年01月03日提交资料申请恢复，希望贵部门尽快审核，或者可否告知相关联系电话，让我司工作人员进行跟踪。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "520946",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=520946",
+   "question": "广州地铁NS2号线何时上报开建？\n请问广州地铁NS2号线是否纳入广州城市轨道三期修编和广州市轨道交通线网规划（2018-2035）？预计何时开建，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "293575",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=293575",
+   "question": "请问现在我省和江门市对于二手房交易中的评估费收费有没有什么标准依据文件？\n二手房交易中，办理贷款时银行都会由他们选择一个评估公司进行价值评估，然后向贷款申请人收取评估费。江门这边一般都是按照千分之五来收取，感觉很贵，价格远远超出了房产评估本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "292356",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=292356",
+   "question": "关于信用广东的行政处罚修复问题\n您好！请问如果我司在信用广东上有查到行政处罚，但是在信用中国上没有查到该条行政处罚，那我需要如何才能把这条行政处罚处理掉呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "218115",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=218115",
+   "question": "广中珠澳高铁前期工作\n请问广中珠澳高铁是否已经在进行前期工作？线位是否确定了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "217689",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=217689",
+   "question": "2020年粤东、西、北地区商业地产物业管理公司参与电力市场交易用电量准入要求\n2020年粤东、西、北地区商业地产物业管理公司参与电力市场交易，用电量准入要求是否为商业用户用电量标准达到200万千瓦时即可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "216168",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=216168",
+   "question": "企业撤回境外投资资金办理注销手续需要发改委备案吗？\n请问在境外投资了一家美国的企业，现在打算注销掉美国的那家企业，作为股权占比100%的境内主体办理境外企业注销备案需要在商务部提交相关资料之外，是否也需要在广东省的发改委进行备案？之前咨询商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "188550",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=188550",
+   "question": "深惠城际铁路\n深惠城际铁路在2015年8月，该项目此前就已被列入广东省“九年跨越”工作方案的重大项目，按照之前的规划，深惠城轨要在2020年前建成并投入使用。直至今日是依旧停留在纸面上。今天给贵委来信主要是咨询：1，深惠城轨在2020年前能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "188272",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=188272",
+   "question": "新能源购车补贴\n你好，本人想购买新能源车，想了解新能源购车补贴的相关政策，请问要去哪里咨询或了解呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "113747",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=113747",
+   "question": "关于珠机城轨动车所问题\n目前珠机城轨没有修建动车所存车场，动车要从广州南那边过来，这样不是很方便。而原规划的金湾动车所也随着广佛江珠城轨规划调整而搁置。那请问珠机城轨是否有规划新的动车所或存车场？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "111515",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=111515",
+   "question": "工厂光伏项目备案权限和所需提交材料\n你好 我们是潮州市的一家企业、本公司计划安装太阳能光伏发电项目设备，自发自用，余电卖给供电局，请问目前光伏项目备案所需提交哪些材料？工厂有跟当地村政府签订的租地合同，并且根据规定办理注册营业执照多年，用地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "111085",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=111085",
+   "question": "关于企业信用修复\n您好！ 我是一位企业律师，想咨询企业信用修复的问题：是否在信用中国提交了信用修复申请，在广东信用网上不用再提交？ 届时信用中国信用修复成功后，是否广东信用网上行政处罚信息自动修复？ 多谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110530",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110530",
+   "question": "可不招标情形中“需要采用不可替代的专利或者专有技术”如何理解\n您好，我公司（国企）目前由于工程项目需要拟向第三方采购一套设备，金额超过了400万，由于该类型设备的平台软件此前国内仅有两家单位有能力提供，为突破行业技术限制，我单位拟在采购设备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "110443",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=110443",
+   "question": "销售电力许可证\n你好 我们是中山的一家企业、本公司有太阳能设备，能生产电然后在卖给供电局，请问我们需要办哪些许可证，请问中山能办理吗，请问是在哪个部门进行办理，请问办理流程和所需资料有哪些 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6958",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6958",
+   "question": "关于粤港澳大湾区广州增城地铁16号线的建议\n您好，领导，希望和建议粤港澳大湾区的地铁16号线可以连接东莞的地铁，深圳的地铁，惠州的地铁相通等，最后把终点设在广州增城第二机场，加快增强粤港澳大湾区路通财通成为世界第一湾区，小小建议，望采纳，谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6773",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6773",
+   "question": "如何在信用广东平台处理信用修复？\n如何在信用广东平台处理信用修复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6922",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6922",
+   "question": "珠海市正顺地产中介公司违规多收取佣金\n尊敬的领导： 我于2019年5月份和珠海正顺地产中介公司签订合同购买珠海吉大一套房产。根据《国家计委、建设部关于房地产中介服务收费的通知》和《广东省物价局关于房地产中介收费有关政策的复函》,佣金我应支付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "6726",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=6726",
+   "question": "信用修复\n按照《国家发展改革委办公厅关于进一步完善“信用中国”网站及地方信用门户网站行政处罚信息信用修复机制的通知》（发改办财金〔2019〕527号）的规定，请按照“信用中国”网站新发布的信用修复流程指引自主在线提交修复申请。自申请资料提交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "4441",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=4441",
+   "question": "关于行政处罚信息信用修复审批表上传事宜\n怎么上传广州市荔湾区城管开处的行政处罚信息信用修复审批表，行政处罚决定书文号:荔城综处字【2018】37029号，行政处罚信息信用修复审批表已拿到，怎么上传，去哪里上传，消除不良记录。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3852",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3852",
+   "question": "成品油专项用户怎么认定?\n成品油专项用户怎么认定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "3016",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=3016",
+   "question": "请问镇、村建设的公园属于市政施设还是文化设施？\n请问镇、村建设的公园属于市政施设还是文化设施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "1794",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=1794",
+   "question": "打击私油业务问题\n请问关于打击私油业务，请问是否属于能源局职责范围？如是，县区能源局缺乏政策文件依据，恐难开展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "961",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=961",
+   "question": "红色旅游项目企业备案有关问题\n私营企业想自己出资利用红色革命遗址开发旅游，在遗址周围建设相配套的旅游设施和旅游景点。请问企业能否作为红色革命遗址建设项目业主单位？产权要怎样界定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-fg",
+   "id": "135",
+   "url": "https://drc.gd.gov.cn/hdjlpt/detail?pid=135",
+   "question": "大湾区核心城市广州、深圳、珠海地铁互通\n为了发挥核心城市对大湾区城市一体化发展的促进作用，建议对大湾区内核心城市广州、深圳、珠海进行地铁互通，在现有基础上，将广州地铁18号线（22号线），延长到深圳、珠海，使广东自贸区（南沙、前海、横琴）可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

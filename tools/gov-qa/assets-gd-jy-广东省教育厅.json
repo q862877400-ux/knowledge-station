@@ -1,0 +1,4989 @@
+{
+ "A_考卷": [
+  {
+   "source": "gd-jy",
+   "id": "3492635",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3492635",
+   "question": "初中学历可以自考成人大专\n初中学历可以直接考成人大专吗",
+   "cited_hits": [
+    {
+     "name": "高等教育自学考试暂行条例",
+     "lib_no": "高等教育自学考试暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jy",
+   "id": "2721958",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2721958",
+   "question": "自学考试报名费太贵了，希望调整为原来的价格即37元/科\n1，选择自考的考生大多以提升学历为目的，突然考试报名费从37元涨价为52元/科，确实太贵了。普通打工阶层的考生确实没办法接受。 2，近几年受疫情严重影响，从企业到员工都收入降低，越来越",
+   "cited_hits": [
+    {
+     "name": "高等教育自学考试暂行条例",
+     "lib_no": "高等教育自学考试暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "高等教育自学考试实践性环节考核管理试行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "556877",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=556877",
+   "question": "教师资格证可考级别\n请问大专生教师资格证资格证可以考的是幼儿园，小学，初中，高中哪个级别",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国教师法",
+     "lib_no": "教师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jy",
+   "id": "537203",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537203",
+   "question": "2020年自考需要高中毕业证书么？\n我只有初中学历，但又想要自考专科，但是听说2020年我省自考专科需要高中毕业证，这消息属实么？",
+   "cited_hits": [
+    {
+     "name": "高等教育自学考试暂行条例",
+     "lib_no": "高等教育自学考试暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gd-jy",
+   "id": "3335205",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3335205",
+   "question": "我毕业多年，老师联系不上，现在想质询我的自考还需要考哪些科目才可以毕业\n我报考的是120402，但是在网上无法查询具体考什么科目，求解决",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广东省高等教育自学考试专业调整有关事项的通知",
+    "广东省自学考试新旧专业考试计划课程顶替表",
+    "广东省自学考试新旧专业考试计划课程顶替说明",
+    "广东省自学考试新旧专业考试计划课程顶替说明",
+    "广东省自学考试新旧专业考试计划课程顶替表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3289229",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3289229",
+   "question": "高中同等学力可以报考成人高考高中起点吗？\n您好，没有高中毕业证，目前准备考学考申请高中同等学力。可以用高中同等学力参加成考吗？没有中专学历用高中同等学力参加成考高中起点，是否学历违规或者学历断档的情况影响政审考公考编？用高中同等学力成考，志",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3281831",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3281831",
+   "question": "教材\n老师您好！我是中药学大专，目前已工作，想报考2026年广州中医药大学的成人高考专升本中药学专业考试，在最新发布的26年考试专业和学校没有看到该校内容和教材，请问我需要怎么操作呢？下一步我需要做什么呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国各类成人高等学校招生考试大纲（2024年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3268348",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3268348",
+   "question": "2025年成人高等教育学士学位英语水平考试大纲及考试范围\n2025年成人高等教育学士学位英语水平考试大纲及考试范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省学位委员会办公室关于成人高等教育本科毕业生申请学士学位外国语水平考试有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2991029",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2991029",
+   "question": "关于2004年成人高考（2011年前退役军人不给于免试）不公平对待\n经茂名市教育局招生办同志反馈参加2024年成人高考免试操作流程，咨询到退役军人事务局安置股反应说：2011年之前退役的士兵无法开具自主就业证明，我想问我在部队奉献了多年，参",
+   "cited_hits": [],
+   "cited_missing": [
+    "教学厅〔2024〕5号 教育部办公厅关于做好2024年全国成人高校招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2906766",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2906766",
+   "question": "专业及报考方式\n请问在佛山市和广州市有哪间学校可以报考成人专升本的人力资源管理专业，烦请告知学校名称？什么时候可以报名？是否需要每周到学校上课和每学校到学校考试？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等学校报考须知及招生专业目录 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2890990",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2890990",
+   "question": "普通专升本转氨酶偏高\n转氨酶偏高影响录取吗，体检意见内容医生怎么写呢，有没有考试院出的一份具体文件呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;普通高等学校招生体检工作指导意见&gt;的通知",
+    "教育部办公厅 卫生部办公厅关于普通高等学校招生学生入学身体检查取消乙肝项目检测有关问题的通知",
+    "关于明确慢性肝炎病人并且肝功能不正常的具体判定标准的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2850530",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2850530",
+   "question": "五年一贯制考试真题或考试范围\n请问广东的五年一贯制有往年真题可供学习，或者是考试大纲范围可以让学生学习的吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "语文课程标准",
+    "数学课程标准",
+    "英语课程标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2823291",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2823291",
+   "question": "资料一直待审核\n已经提交了教资的申请，系统一直不给审核意见以及审核时间。教育考试院的电话一直没有人接听",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2024年上半年中小学教师资格考试笔试通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2803860",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2803860",
+   "question": "关于专插本考纲\n2024年专插本考试的考纲，管理学和人力资源管理的书籍是否会发生变动",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2024年普通高等学校专升本招生专业目录及考试要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2773998",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2773998",
+   "question": "退役士兵免试专升本\n你好，我想问一下退役军人免试入学为什么只限自主就业退役士兵，自主择业军转干部，复员干部？为什么安置方式回乡生产的退役士兵不能享受免试入学呢？？难道安置方式回乡生产的退役士兵就不是退伍军人？难道上过战场的就可以称为退役军人",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部办公厅关于做好2023年全国成人高校招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2687530",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2687530",
+   "question": "提供自考成绩单中实践课考核成绩对应等级的官方文件或是否可以打印该文字说明进行盖章\n因出国留学需要，无法证明自考成绩单中实践成绩的评分等级。曾提交业务咨询，得到答复：成绩单中实践课考核成绩分五个等级：不合格（59以下）、合格（60-69）、中",
+   "cited_hits": [],
+   "cited_missing": [
+    "高等教育自学考试实践性环节考核管理试行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jy",
+   "id": "2678290",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2678290",
+   "question": "广东省2023年第二次普通高中学业水平合格性考试\n请问今年7月份的学考何时能够查询成绩",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2678111",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2678111",
+   "question": "2023年七月份广东水平合格性考试\n请问2023年七月份的广东水平合格性考试成绩什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2673970",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2673970",
+   "question": "地方专项\n你好，请问一下2023年的地方专项计划政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于做好2023年重点高校招生专项计划工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2579379",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2579379",
+   "question": "2023.2 高中学考成绩单下载\n您好，想问一下现在2023.2的高中学考成绩单是否能下载，如果可以在哪里下载呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2023年第一次高中学业水平合格性考试成绩的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2564993",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2564993",
+   "question": "成绩查询\n尊敬的领导：您好！请问普通高中学业合格性考试（语数英）的成绩什么时候可以查询？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2023年第一次普通高中学业水平合格性考试成绩的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2563724",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2563724",
+   "question": "广东春季高考\n尊敬的领导你们好！请问广东春季高考成绩公布时间具体是几号几点呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2023年第一次普通高中学业水平合格性考试成绩的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2565175",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2565175",
+   "question": "是否在明天公布2023年第一次高中学考的成绩\n您好。据悉，省教育考试院将于明天早上10时公布“3+证书”考试成绩，部分微信公众号称，广东高中学考成绩届时将同步公布。请问是否属实，若不属实，将在三月中下旬的哪一天公布，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2023年第一次普通高中学业水平合格性考试成绩的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2393461",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2393461",
+   "question": "学业水平合格证\n你好，本人于2019年高中毕业，请问如何开具学业水平合格证？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2367814",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2367814",
+   "question": "关于考研的一些问题\n考试院能出一份全国招收研究生院校的名单，专业，以及学费，全日制，非全日制的统计excel表格吗，我知道研招网可以查询院校，专业，但是太分散了，而且学费那些也要到官网去查，如果有这样的统计表格，筛选查询也会很方便。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年全国硕士研究生报考指南（广东高校版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2322168",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2322168",
+   "question": "平行志愿\n想问一下今年2022年的艺考生都是按平行志愿被录取吗，有没有说有些院校不是按平行志愿来录取的呢，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年广东省普通高考招生考生志愿表（样表）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2164515",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2164515",
+   "question": "2022年广东省的学位英语考试是否会举行？\n请问2022年广东省的学位英语考试是否会举行？何时举行，在哪里可以关注后续的消息呢？ 武汉理工大学继续教育学院，网络教育的学生是否可以参加呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省学位委员会办公室关于成人高等教育本科毕业生申请学士学位外国语水平考试有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1024696",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1024696",
+   "question": "2021年7月份高二年级普通高中学业水平考试\n老师您好！请问下2021年7月份高二年级普通高中学业水平考试的成绩什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1024612",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1024612",
+   "question": "2021年七月广东高中学考\n您好，请问2021广东七月高一学业水平测试成绩查询时间是？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1024381",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1024381",
+   "question": "2021年七月份广东水平合格性考试\n请问2021年七月份的广东水平合格性考试成绩什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1023748",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1023748",
+   "question": "2021年广东普通高中7月合格性考试成绩查询时间\n尊敬的领导，您好！请问湛江地区的合格性考试成绩什么可以查询？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1020989",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1020989",
+   "question": "2021广州高中学业水平测试成绩查询时间\n尊敬的领导，您好！ 请问广州7月份高一学业水平测试成绩查询时间是什么时候？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "成绩公布通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1012711",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1012711",
+   "question": "2022年广东省成人高等教育学士学位英语考试\n请问2022年广东省成人高等教育学士学位英语水平考试的考试大纲是什么？应该参考什么书籍？以及大概的考试时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省学位委员会办公室关于成人高等教育本科毕业生申请学士学位外国语水平考试有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1004539",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1004539",
+   "question": "关于中考的志愿填报没被录取，如何报读中职学校？\n你好！应届毕业生中考志愿没收到高中录取通知信息，今日7月21日到当地中职招生办咨询报读中职校方回应招够了，是忽悠人的还是真的招够了 有哪些中职学校可以报读三二分段，如何报名？非常紧急，万分感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发2021年中等职业学校招收初中毕业生生源计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "997715",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=997715",
+   "question": "7月报名\n你好，自学考试管理系统什么时候可以报名啊",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2021年10月高等教育自学考试报考须知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "970083",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=970083",
+   "question": "录取\n您好，孩子今年高考，因哥哥在读军校，所以一心向往做一名军人或警察，现在就想代孩子咨询2个问题：1、孩子选科历史但没有选政治，想报提前批军校，但孩子又想报警校，所以就想问问可以同时报提前批军校和本专科警校吗，如果可以是不是要填写两份政治",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年军队院校招收普通高中毕业生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "932714",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=932714",
+   "question": "高考报考\n您好，我的户口在阳江市江城区，我小孩今年在阳江市读高二，明年参加高考，我小孩的户口是阳江市城区户口。我有一个问题是 我小孩是少数民族：瑶族。 麻烦问一下 1.我小孩算少数名族考生吗？ 2.我小孩可以报大学里的少数民族班吗？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省民族宗教委广东省招生委员会关于做好普通高校招收广东省少数民族聚居区少数民族考生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "926127",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=926127",
+   "question": "地方专项\n2020年广东省地方专项计划里面，大学能报考的专业有哪些，就是那些能减分录取的专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高等学校招生专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "923562",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=923562",
+   "question": "2021广东普通专升本考试\n2021广东普通专升本考试专业综合科考试大纲不够详细！！！没有具体到哪个知识点。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2021年普通高等学校专升本招生专业目录及考试要求",
+    "广东省2021年普通高等学校专升本招生专业目录及考试要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "898315",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=898315",
+   "question": "应届毕业初中生可以报考哪些五年一贯制的学校\n应届毕业初中生可以报考哪些五年一贯制的学校？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅 广东省招生委员会办公室关于做好2021年高职院校五年一贯制单独招生考试工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "822828",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=822828",
+   "question": "考试科目时间安排\n你好，我现在高二，马上要学业水平考试了，我想问一下，我是选：地理，生物，物理 2021年1月份的学业水平考试考什么 学业水平考试的时间安排和科目具体是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "国家学生体质健康标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "877352",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=877352",
+   "question": "实行指标生政策的城市有哪些\n您好，请问广东省实施指标生政策（又称指标到校、高中阶段考试名额直接分配到初中）的城市有哪些？除了广州、深圳、珠海、中山正在实施该政策外，广东省还有别的城市在实施这个政策吗？指标比例和最低录取控制线分差分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于积极推进中小学评价与考试制度改革的通知",
+    "国家基础教育课程改革实验区2004 年初中毕业考试与普通高中招生制度改革的指导意见",
+    "关于深入推进和进一步完善中考改革的意见",
+    "国家中长期教育改革和发展规划纲要（2010-2020 年）",
+    "教育部、国家发展改革委、审计署关于印发&lt;治理义务教育阶段择校乱收费的八条措施&gt;的通知",
+    "教育部关于进一步做好小学升入初中免试就近入学工作的实施意见",
+    "教育部关于进一步推进高中阶段学校考试招生制度改革的指导意见",
+    "县域义务教育优质均衡发展督导评估办法",
+    "关于做好2018年普通中小学招生入学工作的通知",
+    "关于做好2019年普通中小学招生入学工作的通知",
+    "关于进一步规范普通中小学招生入学工作的指导意见",
+    "广东省人民政府办公厅转发省教育厅关于全面实施素质教育进一步提高义务教育办学质量意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "874888",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=874888",
+   "question": "关于报名资格\n您好 我是东莞市技师学院的学生，现在就读该学校的室内设计的高级技工班，由于学校的特殊性，毕业不是颁发正统的大专毕业证而是高级技工毕业证，这样的情况下可以报考自考本科考试并且毕业吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "高等教育自学考试毕业证书电子注册办法",
+    "教育部学历证书电子注册备案表",
+    "中国高等教育学历认证报告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jy",
+   "id": "871753",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=871753",
+   "question": "ab卷类型忘记涂写\n忘记填涂ab卷类型怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年1月普通高中学业水平合格性考试考务工作的通知",
+    "考生守则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "848374",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=848374",
+   "question": "新高考学业水平合格考试、等级考试\n您好，我想了解一下，新高考制度下，新的学业水平合格考，而高考又在选科的基础上有一个等级分，这两个考试我们应该怎么区分，考试时间又是怎么分配的，考试结果怎么区分，我们应该怎么配合安排孩子的三年整体规划，马上面",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高中课程方案和语文等学科课程标准(2017年版)",
+    "普通高中课程方案(实验)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "849536",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=849536",
+   "question": "成人高考可以报名中国传媒大学吗\n成人高考可以报名中国传媒大学吗，我是广东省的，有没有区域的限制，我的学历是中专",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2004年全国成人高校医学类专业招生条件建议的函",
+    "外国人永久居留证",
+    "外侨居留证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "823386",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=823386",
+   "question": "高 中 学 业 水 平 考 试 成 绩 转入\n高中在广西就读，需要回广东参加应届高考，转入高中学业水平考试成绩的流程具体要怎样操作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年普通高中学业水平合格性考试考生成绩转移工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "842900",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=842900",
+   "question": "合格性考试\n您好，我是一名高三学生。 我想要询问 高考外语成绩（如日语成绩） 能否代替 合格考英语成绩 成为综合测评的分数。 希望能尽快回复。十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "842939",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=842939",
+   "question": "初中毕业生怎么报名学业水平考试取得高中同等学力证明\n高中退学了，只有初中毕业证，现在想以社会青年身份参加普通高考，看报名条件要有高中同等学力证明，请问高中同等学力证明怎么开，怎么报名参加学业水平考试，考试的科目有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››、的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843038",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843038",
+   "question": "语数英\n如果在高考是选择日语作为外语语种，那春季高考中的外语部分可以用高考日语成绩代替吗？如果可以，那可以用语数的学考成绩加日语的高考成绩来参加春季高考的录取吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "834515",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=834515",
+   "question": "关于往届生报考1月份学业水平合格线考试的问题\n本人广州市2020年高中毕业，理科往届生，关于网上报名，省考试院的通知要求：“已报考过的考生（下称“非首次报考考生”）必须凭原普通高中学业水平考试考生号（证件号）和注册时设置的密码报考”。 我有",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年1月广东省普通高中学业水平合格性考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "822954",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=822954",
+   "question": "请问2022届高考生学业水平测试时间是什么时候？\n2020年高中水平测试时间具体是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年1月广东省普通高中学业水平合格性考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "807639",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=807639",
+   "question": "社会考生 学考\n请问一下最近一次的学业水平考试在什么时候。 第一次报名的话是到户籍所在地报名吗？ 考试地点也在户籍所在地吗？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年1月广东省普通高中学业水平合格性考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "804885",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=804885",
+   "question": "合格考\n您好！本来我是18年九月高三的 19年毕业 但当时办了休学（18年九月~19年六月）然后又续休一年（19年九月~20年六月） 今年九月份上高三 当时是理科生 现在选择生物政治历史 请问我要参加哪些科目的合格考？ 合格考一共几个科目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高中课程方案和语文等学科课程标准(2017年版)",
+    "普通高中课程方案(实验)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "794106",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=794106",
+   "question": "高三学考\n茂名现届高三学考能报考日语吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "789151",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=789151",
+   "question": "英语\n您好，我是成人大专毕业的，然后在今年考取了本科插班生，然后看到推文说成人大专毕业的要考取英语成绩才可以拿到本科的学士位，我是想问一下考英语4-6级都可以算是我的英语成绩吗，请您帮我解答一下",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院学位委员会、国家教育委员会关于整顿普通高等学校授予成人高等教育本科毕业生学士学位工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "791009",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=791009",
+   "question": "自考成绩\n老师，您好！请问2020年8月初考的自考，成绩几号可以出？现在急需成绩，以此办外省转入。外省转出系统很快会关闭。 请告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2020年4月高等教育自学考试延期考试成绩于9月3日公布"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "789285",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=789285",
+   "question": "语数英合格性考试\n请问普通高中在校应届考生，必须要报考语文、数学、外语的合格性学业水平考试么？是否可以不报考，直接参加6月份的高考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省普通高中学业水平考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "762589",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=762589",
+   "question": "广东学位英语\n之前不是出台说使用非英语专业第二版命题么，所以我想问一下2020年广东的学位英语是不是按照《成人高等教育本科生学士学位英语水平考试大纲第二版》命题？以及大概的考试时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等教育本科生学士学位英语水平考试大纲（非英语专业）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "757629",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=757629",
+   "question": "高中学业水平考试\n请我3+1+2的2是以等级的形式呈现还是什么样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省教育厅关于普通高中学业水平考试思想政治等4门选择性考试科目等级赋分方法的通知 ",
+    "教育部关于普通高中学业水平考试的实施意见",
+    "广东省人民政府关于印发广东省深化普通高校考试招生制度综合改革实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "729421",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=729421",
+   "question": "关于2020学士学位英语书\n您好，请问学士学位英语2020年新大纲的书是否已出版呢？有无购买链接？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等教育本科生学士学位英语水平考试大纲（非英语专业）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "729025",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=729025",
+   "question": "2020年广东成人本科学位英语考试\n1、2020年广东成人高等教育本科生学士学位英语水平考试大纲介绍，请问去哪里可以查到？ 2、考试时间是什么时候？ 3、考试题型是怎么样的？ 4、成人高等教育本科生学士学位英语考试是全国统一的吗？ 5、《成",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等教育本科生学士学位英语水平考试大纲（非英语专业）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "728198",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=728198",
+   "question": "成人学历报考医学职称\n你好，我想咨询下，执业助理医师考取后，能否用成人大专学历报考医学职称类，查过网站，有的说可以，有的说不可以，想问下权威网站，如果不行，高职学历能否可以报考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2004年全国成人高校医学类专业招生条件建议的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "715029",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=715029",
+   "question": "高中合格考成绩转出\n有学生转学，该省学校要求将合格性考试成绩转过去，学生该怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部关于取消一批证明事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "714251",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=714251",
+   "question": "社会考生参加9门高中学业水平考试学科合格了能开同等学力证明吗\n高二辍学，没有高中毕业证，参加了语文，数学，英语，思想政治，历史，地理，物理，化学，生物学9门合格性考试，并且合格，能以此开高中同等学力证明吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "714274",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=714274",
+   "question": "高考小语种和合格性考试\n高考选择小语种的考生，如果参加高中学业水平测试英语科目的考试不及格的话，是否会影响毕业。不参加高中学业水平测试英语科目的考试是否不可以参加春季高考",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "669304",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=669304",
+   "question": "高考小语种和合格性考试\n今年高二，准备高考外语选择日语，但是广东合格性考试只有英语科，但考英语合格考怕不及格会对毕业有影响。可以不选择英语合格性考试吗？直接高考日语吗？会不会对毕业和高考有影响？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "657089",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=657089",
+   "question": "打印学考成绩证明\n本人就读于惠州崇雅实验中学高中部二年级。想转回福建泉州就读。福建泉州教育局这边要求提供在广东省惠州崇雅学校学考成绩证明。需要加盖广东省公章。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2020年普通高中学业水平考试考生成绩转移工作的通知 ",
+    "教育部关于取消一批证明事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "624350",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=624350",
+   "question": "全国中小学教师资格证\n1、2020年中小学教师资格证知道什么时候开始报名？ 2、笔试和普通话考试有时间限制吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于将2020年上半年中小学教师资格考试推迟至下半年一并组织实施的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "654470",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=654470",
+   "question": "因为休学推迟一年毕业，已经考过的学考成绩在毕业时还有效吗？\n学考已经考了四门课程，但由于身体伤病学生在高二下学期办了休学，那么学生的学考成绩在毕业报名高校时还有效吗？需不需要在复学后重新报考这四门课程的学考呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省普通高中学业水平考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "624065",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=624065",
+   "question": "2020年成人高考题数学（二）考试有大纲及考试范围吗？\n2020年成人高考题数学（二）考试有大纲及考试范围吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国成人高等学校招生复习考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "618080",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=618080",
+   "question": "成人高考试题还有分文理科的吗\n你好，想请部一下，我想报考成人高考，但是不清楚2020年的教材出了没，有没有平台可以买。还有文科和理科试题是不同的还是一样的",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国成人高等学校招生复习考试大纲"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "617662",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=617662",
+   "question": "2021合格考外语\n您好，我想问一下关于广州2021年外语的合格考的问题。只有英语合格考的话，选择小语种的学生该如何进行对应语种的合格考，还有就是必选科目的合格考不过是不能参加高考吗。求助..",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "566254",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=566254",
+   "question": "学考补考\n请问现高三学生是否还有补考学考的机会 若有 补考内容会不会发生变化 补考成绩是否在填报高考志愿前出 会不会影响填报高考志愿",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明›的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "565191",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=565191",
+   "question": "社会考生参加高中学考的申请\n尊敬的老师： 您好！我想问些问题，①社会青年参加高中学考需要参加三年才才能拿到成绩吗？体育考试办呢？ ②社会青年参加高中学考前需要提前两三个月去当地教育局申请“社会个别考 生”这个申请文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "564303",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=564303",
+   "question": "2020年成人高等教育学士学位英语水平考试大纲及考试范围\n2020年成人高等教育学士学位英语水平考试将根据哪一版考试大纲进行命题？考试题型及考试范围是否与《成人高等教育学士学位英语水平考试大纲（非英语专业）》（2005年版）一样？",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等教育本科生学士学位英语水平考试大纲（非英语专业）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "562708",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=562708",
+   "question": "高三学考补考\n您好，我想咨询一下合格考的评判制度。就是关于合格考等级划分，合格考等级D就算是合格了，那我们这些补考的高三，如果合格考考到D，可以报本科吗?亦或者还是我们高三这些补考的合格考要考到C才能报本科?我本人旧学业水平考试一个C俩个D",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "559443",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=559443",
+   "question": "中专报名学考咨询\n您好，我是一名中专生。我想报名普通高考，因为没有参加2020年一月份的学业水平测试参加不了高考，我想知道报名今年六月份的学考需要考什么，参加合格能参加2021年的普通高考吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "561783",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=561783",
+   "question": "2020年高中学业水平测试补考具体时间\n您好，请问什么时候可以公布具体补考报名时间、考试时间的通知？如果高中学考的密码忘记了，当时注册的手机号不能用了，应该如何找回？我看到别的咨询里有说这次补考是和新高二一起考新高考模式，请问这对旧文理模式",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明›的通知",
+    "课程标准",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560970",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560970",
+   "question": "关于技校毕业生\n请问技校的高技毕业证可以参加高职高考即3+证书招生考试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2020年普通高等学校招收中职毕业生“3+专业技能课程证书”考试招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "561411",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=561411",
+   "question": "社会人员，想取得正规本科学士学位\n已有专科毕业证书，想取得正规本科学士学位，只能网络学习，不能脱产学习，正规合法操作是怎么样？费用怎么样？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好广东省2019年成人高校考试招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560623",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560623",
+   "question": "小语种学考\n2021届高考生，准备选择德语作为高考外语科目，学考是否可以选择德语作为外语考试科目？如若不行，该怎么取得学考外语成绩?高考德语是否有听说考试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560960",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560960",
+   "question": "高中学业水平测试\n请问2020年七月份高考的高三文科生还有学业水平测试补考机会吗？通知什么时候发布？什么时候可以报名补考？补考的话，是考文理生旧模式还是与新高考政策的高二考生一起考新模式？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明›的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "559033",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=559033",
+   "question": "教师资格证免考怎么申请？\n我2014年研究生毕业于师范院校，当时在学校申请了中职教师资格证，现在需要有一个高中生物的教师资格证，这种情况需要参加教师资格证考试吗？还是可以直接申请？申请的流程是怎样的呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2020年上半年中小学教师资格考试笔试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551836",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551836",
+   "question": "参加了2021年一月的高中学业水平测试能以此申请高中同等学力证明吗?\n尊敬的领导，我是在技校的时候意外看见社会考生可以参加高考，不过需要同等学力，在校学生不能参加，所以我毅然退学，想去参加学业水平获得同等学力去参加高考，去潮阳区招生办问了，",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››、的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551411",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551411",
+   "question": "广东省成人高等教育本科生学士学位英语水平考试题型\n购买的教材上面写着广东省2020年学士学位英语的题型有更改，题型会去掉完型填空增加翻译，想了解一下是否属实？2020年的题型有哪些？盼答复",
+   "cited_hits": [],
+   "cited_missing": [
+    "成人高等教育本科生学士学位英语水平考试大纲（非英语专业）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "552165",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=552165",
+   "question": "2021年军校招生政策\n你好，我是高二在校生，我想报考军校。但对于新高考的情形下，我还不是很了解关于军校招生这方面的信息，以及相关的政策。您可以解答一下吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "军队院校招收普通中学高中毕业生政治考核表",
+    "政治考核表",
+    "关于做好2019年军队院校招收普通高中毕业生政治考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551217",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551217",
+   "question": "关于复读问题\n你好请问一下 2020届的高三还有复读的可能吗？允许吗？ 如果复读的话，2020年6月的合格性考试成绩对2021年的春季高考录取有效吗？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551355",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551355",
+   "question": "关于高三学考补考\n你好，本人目前高三学生，学考等级只有一个C，请问高三学生学考补考需要达到什么等级才能可以报考本科呢？是需要同以前一样达到C等级才能报考，还是只需达到合格便可以了呢？ 请问什么时候出示具体方案？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2019年12月和2020年1月广东省普通高中学业水平考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551073",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551073",
+   "question": "关于2021年复读\n2021届是新高考改革的一年 然后我是2020应届高考生 我如果是复读参加2021年的高考 我会选物理化学生物 也就是按之前文理科选 那么我之前所考的文科学业水平测试还有效嘛 之前没改革之前是有效的 我就担心会不会重新考",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "549331",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=549331",
+   "question": "为什么广东省高中学业水平考试（合格性考试）的外语只有英语？\n高考和学业水平考试不应该是对应的吗？为什么外省（比如广西上海等）有日语，俄语等科目考试 既然是改革开放，以后会有越来越多的外国人来中国，那日本人就不算外国人？那也是一部分经济呀，直",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "548870",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=548870",
+   "question": "高二退学了，参加了2020年一月的高中学业水平测试能以此申请高中同等学力证明吗\n老师，我高二因病退学了，现在很想参加高考，但是没拿到毕业证，可是我以社会青年去参加了2020年一月的高中学业水平测试，能以此申请高中同等学力证明吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››、的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "548524",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=548524",
+   "question": "怎么复查学考成绩\n复查成绩有具体时间吗？我看的贵院发的文件要求登录的网站是本网站吗？ 还有我找不到“成绩复查的版块” 不好意思麻烦了，请尽快答复我，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好广东省2020年普通高考音乐、舞蹈、体育术科统考、3+证书考试和普通高中学业水平考试考生成绩复查工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "548705",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=548705",
+   "question": "老师好，我是高二退学的，参加了2020年一月的广东省高中水平测试能申请高中同等学力证明吗\n老师，我高二因病退学了，我现在想重新高考，所以报名了一月的高中水平测试，不知道能不能申请学力证明",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››、的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "548529",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=548529",
+   "question": "中医学\n专科中药学学生可以报考中医学的成人本科或自考本科吗？成人本科可以考执业中医师吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2004年全国成人高校医学类专业招生条件建议的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "547864",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=547864",
+   "question": "关于学位英语是否能用其他成绩代替\n你好，经过了解今年是学位英语改革过渡期，所以请问在过渡期内申请学位是否有其他成绩能代替学位英语，例如像其他省份那样全国公共英语三级，英语四级，英语二在70分以上能免考学位英语，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省学位委员会办公室关于成人高等教育本科毕业生申请学士学位外国语水平考试有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "540235",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=540235",
+   "question": "关于小学教师教师证的\n没法打印准考证，3月14考试，9号和10号都查不到准考证，没法打印",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推迟2020年上半年中小学教师资格考试的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "539518",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=539518",
+   "question": "关于社会考生普通高中学考问题\n请问下社会考生是否可以参加普通高中的学考？应该然后操作？另外请问地市级组织的体育与健康、艺术、信息技术、通用技术等科目应该如何报名、在哪报名及相关报名费是多少？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明››、的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "538980",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=538980",
+   "question": "广东省成人高等教育学士学位外国语水平统一考试\n自考本科马上结束，想要学士学位，有以下几个问题请教。 1.请问“广东省成人高等教育学士学位外国语水平统一考试”考试时间会公布在该网站吗？ 2.学位外语成绩合格后有无有效时间限制？是不是成绩合格后",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2019年成人高等教育学士学位外国语水平全省统一考试报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536858",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536858",
+   "question": "学考不及格影响高考录取\n想帮表弟问一下，要是学考补考也还不及格，会影响高考和录取吗？ 表弟高二了，因为英语实在太差了而去学了日语，准备用日语参加高考，但学校学考还是要考英语，表弟对此很是焦虑，担心不及格会不会不能参加高考。还有就是非选考的科",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536897",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536897",
+   "question": "评分D的标准是多少分\n请问49～25分评分不是该为D等级嘛，及格等级，为什么我26分竟然不及格",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536931",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536931",
+   "question": "学考成绩等级是否有误\n你好 我是参加了广东2020学业水平考试的考生 在本次考试里 我发现本次的等级评定政治历史地理生物化学物理这六科的等级标准是卷面分 且24分一下才算是不及格 然后语数英的等级标准才是成绩的排名 我的地理分数是38分 历",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536563",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536563",
+   "question": "学考成绩\n你好！请问高三学生参加今年六月份的新学考，成绩达到50分便有c吗？或者成绩是怎样计算的",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536587",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536587",
+   "question": "退报名费\n我于12月份报名的pets等级考试可不可以全额退款？应如何操作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020年上半年全国英语等级考试（PETS）广东考区报考简章"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534995",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534995",
+   "question": "请问3月14日的教师资格考试笔试是否延期举行？什么时候出具体时间？\n请问3月14日的教师资格考试笔试是否延期举行？什么时候出具体时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推迟2020年上半年中小学教师资格考试的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "533287",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=533287",
+   "question": "关于教师资格考试报名\n你好，我在报考2020年教师资格考试时，由于户口所在地河源市源城区考场已满，报考了河源市管辖的东源县考区，我本身在源城区和东源县都有住所。请问在后续环节的现场审核中，是否还需要提供东源县的居住证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2020年上半年中小学教师资格考试笔试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536071",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536071",
+   "question": "中专生如何自考跟参与成人高考\n尊敬的广东省教育考试院的各位，我是一名贫穷的广东省惠州市的中专生，已经毕业并参与社会工作两年。想要改变学历去争取艺术类的全日制的本科学历或者专科，但是网上关于怎么去参加考试跟想要读什么教材寥寥无几，培训教育机构",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2019年广东省成人高校考试招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "529653",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=529653",
+   "question": "普通高中学业水平合格性考试的报名方式\n领导您好：本人需要通过参加普通高中学业水平合格性考试来获得同等学力证明去参加高考，我想询问广东省广州市越秀区的报名点和报名时间，以及考试内容，如参加地市组织的体育与健康、艺术（或音乐、美术）、信息技术、",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知",
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发 ‹ 2020 年广东省普通高中学业水平合格性考试说明 ››、 的通知",
+    "广东省教育厅关于普通高中体育与健康等科目学业水平考试工作的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "535391",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=535391",
+   "question": "6月份学业考，社会考生可以报名几个科目？\n因为没能获得高考报名条件，社会考生参加学业水平考试的日子是只有6月9号一天吗？只可以报名3科还是6科呢？（看到6科里的考试时间是重叠的，很疑惑）语数英是不是得12月份的时候才能考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于规范普通高中同等学力认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "535410",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=535410",
+   "question": "学业水平测试转入\n错过学业水平测试网上转入时间怎么办",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2020年普通高中学业水平考试考生成绩转移工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "533308",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=533308",
+   "question": "关于2020年6月份学业水平考试\n您好！我想提一下关于2020年6月份旧学业水平考试补考的意见。因为补考的学生都是适应旧的考试模式，就是全是选择题，而且他们现在受疫情影响，高考复习时间较短，压力挺大的，所以我希望2020年6月份学业水平考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "关于印发《2020 年广东省普通高中学业水平合格性考试说明",
+    "课程标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534422",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534422",
+   "question": "学考是否能选择小语种\n2021年第一届新高考考生，全校仅一人打算高考选择日语为外语科目。 在目前将进行的学业水平考试，其中外语科目是否只能为英语？ 或可选择小语种，其是否参加听说口语考试？是否有两次考试机会？报名有无需注意事项？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534432",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534432",
+   "question": "关于2017级高中学考补考\n旧高考生学考补考，哪个等级算合格的，哪个等级能代替旧的学业水平考试的D等级呢，还是说一样得C等级呢，然后这个合格的等级的分数是在什么范围呢",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省教育厅关于印发广东省 普通高中学业水平考试实施办法 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531670",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531670",
+   "question": "学测没过怎么办\n领导您好，我是一名高三考生。去年我的学考没过，一月份有事考不了，现在只能在六月份考。请问，六月考是随下一届高二的考吗？是不是新的那种学测（有大题的）？谢谢您的解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《2020 年广东省普通高中学业水平合格性考试说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531577",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531577",
+   "question": "关于高中学考通过的问题\n我想咨询一下 2020年6月的补考 还是50分算通过吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 广东省教育厅关于印发广东省 普通高中学业水平考试实施办法 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531521",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531521",
+   "question": "关于高三级六月份学考补考\n请问2017年入学的2020年参加高考的高三学生六月份参加的学业水平考试补考内容 命题题型 考纲范围是否跟往年一样都是选择题呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高中课程方案（实验）",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明›的通知",
+    "课程标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531526",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531526",
+   "question": "2020年高三学考补考\n你好！请问今年高三考生在6.9号的学考补考形式和去年的形式是一样的吗？都是选择题？如果换成和合格性一样的考试，多了非选择题，对于高三考生来说难度加大了！！烦请简洁解释一下！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "关于印发‹2020年广东省普通高中学业水平合格性考试说明›的通知",
+    "课程标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531481",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531481",
+   "question": "关于2020年6月9日高三学生水平合格考试补考\n尊敬的领导： 您好！我想请问一下 六月九号的学业水平测试补考 补考的内容 以及命题的题型 是否和以往一样都是选择题呢？命题内容范围是否改变 考纲考点是否改变呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省教育厅关于印发广东省普通高中学业水平考试实施办法的通知",
+    "课程方案和课程标准",
+    "广东省教育厅关于做好普通高中课程教材实施工作的通知",
+    "普通高中课程方案（实验）",
+    "关于印发《 2020 年广东省普通高中学业水平合格性考试说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "523097",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=523097",
+   "question": "教师资格考试报错考取，能否修改考区\n晚上报名报名的时候发现没有深圳考区，就随便报了一个，然后审核通过了。到第二天白天发现又可以报深圳考区了，想改过来，问是否有办法修改，或者是取消重新报名。",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2020年上半年中小学教师资格考试笔试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "523068",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=523068",
+   "question": "全国中小学教师资格证\n如果报考的地方名额满了怎么办 包括户口所在地 学籍地.怎么选择其他的地方报考？",
+   "cited_hits": [],
+   "cited_missing": [
+    "广东省2020年上半年中小学教师资格考试笔试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "522655",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=522655",
+   "question": "教师资格证报名为什么没有东莞考区\n您好，今天是1月9日下午15:26，上午教师资格证开始报名，我想请问东莞考区是报满了还是什么原因，我在广东省选择底下没找到东莞考区，谢谢解答",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于广东省中小学教师资格考试笔试报名的温馨提示"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gd-jy",
+   "id": "3489760",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3489760",
+   "question": "商务英语和英语专业属于同一类专业吗？\n本人于 2015 年自考毕业于广东外语外贸大学商务英语专业，由于未取得学位证，想今年继续报考深圳大学英语本科自学考试，想问这两个专业属于同一类专业吗？可否报考？重合部分中已通过的课程可以申请免考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3447889",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3447889",
+   "question": "如何线上查询高考成绩？\n本人于2014年进行高考，现想查询2014年的高考成绩该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3436616",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3436616",
+   "question": "请问高考考点物品存放处和安检流程\n您好，佛山市第三中学是我的考点，我因需独自前往考点，且高三下学期休学至今，复习资料不全，手机需用于通勤、联系家长、查看资料。 请问，1、手机能否带入考点。2、进入考点时是否需要安检。3、手机等物品存放具体是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3407154",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3407154",
+   "question": "关于改名后高中学考报名信息修改的问题\n我前几天报名了今年第二次的高中学考，但近期打算去改名。想请教一下，如果改名成功的话，之前报名时用的姓名信息还能修改吗？我担心到时候考试时姓名和证件对不上，影响正常参加考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3392498",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3392498",
+   "question": "五年一贯制考试与广东省体育中考时间冲突\n你好，今年我省4月11日进行五年一贯制单独招生考试，但是省中考的体育科目却在同一天，这样安排让学生难以协调时间，请问是否可以申请补考中考体育科目？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3368248",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3368248",
+   "question": "港澳台联考及两校联考报名条件\n请问我的香港永久性居民身份证是在23年2月4号办的，然后我的生日是7月2号，但是这个身份证是要在18岁生日后的30天内去香港申领新政的，那么到时候我考试报名之类的时候，这个证件还是算在有效期内吗？我看老师发的那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3338793",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3338793",
+   "question": "报名系统绑定手机号已经注销\n登陆不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3305962",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3305962",
+   "question": "关于前置学历的审核意见的疑问\n本人12月将申请毕业，因为是很久之前已操作了前置学历，现在前置学历的审核结果是“省复审属实”，但是审核意见是“-”，已经尝试过在学信网上操作延期了，还是一样的显示，是否还需要其他操作？还是不需要继续操作了，直接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3300766",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3300766",
+   "question": "加分政策\n您好我想问一下2025年报名的成人高考的年满25岁加分政策是到几年几月几号符合",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3242997",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3242997",
+   "question": "2025年成人高考报考条件\n老师您好，请问2026年3月份能取得毕业证的应届毕业生，能否报考2025年的成人高考呢？报考文件没有明确说明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3198153",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3198153",
+   "question": "高考位次转化\n想问一下533分106711位次在填报志愿时是否需要转化为2024年的同位次526分？ 高校招生增多是否106711位次对比2024年的志愿录取是可以填报更高位次的，因为上层高校招生人数增多使2025年10万位次的考生可以被2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3194390",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3194390",
+   "question": "录取排名\n考试院老师您好： 广州大学官网《2024年录取统计》显示专业组213（思想政治教育师范）普通批最低排位21538名， 但志愿填报系统标注该专业组最低排位10647名，两者严重矛盾。 请贵院核实： 1. 该专业组2024年普通批实际",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3191514",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3191514",
+   "question": "专升本考教资\n你好，我是今年已被升本学校录取的考生，9月份开学，目前专科已毕业，请问我可以报名9月份的教资考试吗？能否在升本学校的考区考试呢，学制和入学年份如何填写呢？是选在校生还是非在校生呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3159834",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3159834",
+   "question": "关于拥有广东户籍的湖南省考生专升本\n拥有广东户籍在湖南省大专就读三年大专毕业后领到毕业证或者还没领到毕业证前考专升本能不能考回广东。有什么要求嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3150387",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3150387",
+   "question": "如何查询自己是否报考了自考专升本\n今天接到一个陌生电话，说我2022年注册了账号报考了自考专升本，询问我是否取得了证书，我跟他说我没有报考自考专升本，他就让我在广东教育考试院上把账号注销，请问我该如何去验证呢？ （我的实际情况是:2021年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3110951",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3110951",
+   "question": "中考五年一贯制公费定向招生\n您好！我从《关于做好2025年广东省高职院校五年一贯制单独招生考试报名工作的通知》中了解到，今年的中考五年一贯制招生报考条件相比去年少了公费定向。这能否说明今年的公费定向招生取消了？还是另有安排呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3098695",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3098695",
+   "question": "关于是否需要预报名问题\n（1）您好，我想咨询下就是我自考本科已经申请毕业了，并且已经拿到毕业证，但未取得学位证。现在想报考其他院校的其他专业，请问需要重新注册，新生预报名吗？ (2)已经申请毕业的公开课如：马原、近代史这两科公用课，是否可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3102078",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3102078",
+   "question": "2025年4月开始自考本科法学，官方渠道哪里可以查到历年真题及具体考试大纲\n2025年4月开始自考本科法学，官方渠道哪里可以查到历年真题及具体考试大纲。已经在官网查了 ，但没查到，要么就是查找很久，一直转不出来。 有的话麻烦说下具体是怎么查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3089563",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3089563",
+   "question": "学考成绩什么时候公布\n你好，此前说学考成绩将在开学后公布，今天广东中小学已经开学了，那什么时候公布成绩呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3050060",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3050060",
+   "question": "南方医科大学\n你好，第一个我想问南方医科大学护理学专业报考的条件要求？第二个我想问南方医科大学自考官网的电话，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3033262",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3033262",
+   "question": "想咨询2024年成人高考的成绩什么时候公布？\n2024年成人高考的成绩什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3032179",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3032179",
+   "question": "2024年成人高考成绩查询时间\n今年广东省成考学生才30来万，预计啥时候公布成绩呢?看到其他省份都公布成绩了，这个比较着急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3020951",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3020951",
+   "question": "成考成绩具体几号公布呢？今年会不会提前公布？\n成考成绩具体几号公布呢？今年会不会提前公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "3006481",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=3006481",
+   "question": "如何申请补办毕业申请\n六月份忘记办理自学考试的毕业申请了，还可以补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2997618",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2997618",
+   "question": "本科自考未领毕业证报名研究生考试\n尊敬的工作人员您好， 本人将于今年2024年10月报名研究生考试，但是自考毕业证还未拿到，目前自考成绩已都通过，正在论文提交的最后阶段，预计今年12月份可拿到毕业证书。 按照考研要求需出示一份盖有省公章的成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2993212",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2993212",
+   "question": "全国各类成人高等学校招生考试大纲（2024年版）内容在哪里找？\n首先，我在找寻“全国各类成人高等学校招生考试大纲（2024年版）”的内容时找不到，特拨打电话咨询，结果打了五六天，连续几十次电话拨打，人工客服都是处于无人接听的状态。 其次，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2989857",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2989857",
+   "question": "怎么查询到2022年成人高考的成绩\n怎么查询到2022年成人高考的详细成绩，问函授站也没有找到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2987750",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2987750",
+   "question": "2024年成人高考准考证打印时间\n2024年成人高考准考证打印时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2967531",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2967531",
+   "question": "2024成人高考报名时间以及考试时间\n2024年成人高考报名时间以及考试时间是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2958146",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2958146",
+   "question": "本科结业证，可以参加成考，直接报专升本？\n老师，我是全日制本科结业，可以报今年的成考专升本？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2931621",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2931621",
+   "question": "专升本考教资\n您好，我是今年专升本录取的新生，我想问一下还没有开学，我可以报名九月份的教资笔试考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2928657",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2928657",
+   "question": "志愿填报设备\n您好！关于志愿填报设备，我想询问今年在手机上是否可以填报？还是只能在电脑上填报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2896946",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2896946",
+   "question": "五年一贯录取通知什么时候出\n五年一贯录取通知具体时间是多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2888232",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2888232",
+   "question": "五年一贯考试成绩什么时候出\n五年一贯考试成绩几号可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2889218",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2889218",
+   "question": "普通专升本成绩查询\n2024年普通专升本的成绩啥时候能公布呀！已经过去1个月，什么时候才能开放查成绩！焦虑😐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2864882",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2864882",
+   "question": "自学考试实践考试具体操作以及其他问题\n自考本科是分笔试和实践是吗？那实践具体考试科目和考试时间在那里看吗？具体在主考院校那里可以查询得到？ 毕业论文有具体要求吗？毕业论文要求以及上传是在那里？ 原先选定的主考院校在毕业的时候想选择其他学校只",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2826362",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2826362",
+   "question": "退伍大学生士兵\n退伍士兵集体的立功资料怎么上传审核，有立功证明加证书照片够了吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2824706",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2824706",
+   "question": "自考报考\n我专科是助产专业毕业，从事护理工作，有护士资格证，可以报名自考本科护理专业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2819698",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2819698",
+   "question": "居住证资料的上传\n教资报名要求上传的居住证资料，必须是要实体居住证吗？电子居住证或者办理过程中的办理成功回执，可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2819382",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2819382",
+   "question": "已毕业的非在校生可以报考在工作地区考试吗\n已经毕业了，在深圳工作，但是户口本上显示在茂名，可以报考深圳地区考场吗，还是必须得回到茂名考试，报名一直显示不符合条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2819356",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2819356",
+   "question": "教师资格证报名无法取消\n本人教师资格证报错科目，联系广州市海珠区招考中心表示教师资格证通过审核后无法取消，可是官网上照片在招生时间内可以重新修改照片进行报考，且其他省市通过人工也可以进行取消，请问如何进行取消",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2819047",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2819047",
+   "question": "报名咨询\n请问居住证还在申领中，能进行教资考试报名吗？如果申领成功，已经过了报名时间了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2817849",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2817849",
+   "question": "税务部门要求提供学籍、考籍信息，用以证明正在参与继续教育，并进行抵扣\n按照国家个税抵扣规定，学历继续教育的个税抵扣，需要提供学籍信息，由于广东省政策自考无学籍，所以需要提供考绩证明，目前无法自主开具，所以在深圳申报个税抵扣失败，请考试院邦民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2795102",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2795102",
+   "question": "关于2024年普通高等学校专升本招生工作规定\n你好，关于2024专升本具有广东省户籍，且在报名时具有广东省户籍连续满3年，同时在我省依法参加社会保险（仅限基本医疗保险、基本养老保险）这里的基本养老保险包括城乡居民养老保险吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2790723",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2790723",
+   "question": "高三学生错过了语数外学考还有补考机会吗\n您好，我错过了二月份的学考的报名，现了解到高考完后，七月份还有一次合格考试，请问可以在那次考试中补考语数外学考吗？如不能，我还有什么机会可以补考语数外的学业水平考试呢？非常非常需要语数外的学考成绩，感",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2788736",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2788736",
+   "question": "毕业证遗失，补办毕业证证明\n各位领导，本人毕业证刚刚遗失，但昨天刚刚查到司法考试主观题已经通过，需要毕业证原件或者毕业证证明去申请法律职业资格证书，因了解贵院的流程是二十个工作日，已经错过了司法部的申请时间，会导致考试成绩作废，我已已经参加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2784222",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2784222",
+   "question": "成考贫困地区县加分\n您好，我想了解一下成考成绩出来了合计91分，我的户籍地是广东省茂名市信宜信平塘镇，请问可以加分吗，如果加分是什么时候加的分呢，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2784256",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2784256",
+   "question": "满25周岁加分\n2023年满25周岁加20分是1997年12月31日及之前出生的才可以加20分，是吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2784332",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2784332",
+   "question": "成人高考年龄35岁了没有加分\n我已经35岁了，成人高考没有加分，是系统自己加还是后面再加？还能再加吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2783776",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2783776",
+   "question": "成考成绩\n您好！请问2023年的成人高考成绩大概什么时候出呢？盼复谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2773516",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2773516",
+   "question": "教师资格证成绩复核\n如对成绩有异议，考生可于11月21日前，按所在考区教育考试机构规定的程序向其提出复核申请，申请须注明申请人准考证号、姓名、身份证号、需复核科目代码、网上查询到的成绩以及联系电话等。 请问公告里面说的规定程序是在哪？ 教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2762221",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2762221",
+   "question": "关于复读生想要参加夏季高考是否必须参加春季高考\n你好，我是一名复读生。我想知道参加夏季高考是否必需同时参加春季高考？能否不参加春季高考只参加夏季高考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2748125",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2748125",
+   "question": "关于最新的教材版本清单在哪里查看或是购买教材\n我想问下自考本科计算机科学与技术专业，课程代码080901，主考学校深圳大学的这门专业课程，最新的教材清单在哪里可以查看，或是可以购买到相关教材呢。（据说教材版本有更新，但网上都是旧版的教材）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2739701",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2739701",
+   "question": "市组织普通高中学业水平测试\n你好，我是一名社会考生 请问今年下次市组织的高中学业水平测试，体育与健康，音乐，美术，信息技术，通用技术这些科目，的报名时间，考试时间 谢谢你啦!🌷🌷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2734840",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2734840",
+   "question": "信息退回\n报名信息填错了，报考地点错了，能不能退回来重新改啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2725649",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2725649",
+   "question": "在读研究生学籍是否会与自学考试的本科学位存在冲突\n您好，本人于2023年9月份正式成为一名研一新生，10月份左右学校将完善我们的学籍并更新至学信网。届时，我有两个疑问： 请问我2023年正在读着法律硕士的研究生，如果我今年或者明年又去参加汉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2722961",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2722961",
+   "question": "广东省的全国计算机等级考试今年12月份会举办吗\n广东省的全国计算机等级考试今年12月份会举办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2714797",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2714797",
+   "question": "外地合格考成绩如何调回广东省\n学生户口在惠州，一直在上海上学，高中阶段学业合格性考试均已通过，高中毕业证已拿，因积分问题未能在上海参加成2023年度高考。 现拟回到惠州参加2024年度高考，经咨询需要把上海那边的高中阶段学业合格考成绩转回广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2710057",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2710057",
+   "question": "学信网学历信息没有照片显示，并且无法进行申请验证报告\n学信网学历信息没有照片显示，并且无法进行申请验证报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2709233",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2709233",
+   "question": "请问2023年计算机一级考试报考公告在哪里可以查看？\n请问2023年计算机一级考试报考公告在哪里可以查看？2023年9月份后还有报考机会吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2686813",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2686813",
+   "question": "2024年夏季高考填报志愿专业时选科要求\n你好！2023年9月开始读高三的小孩在参加完2024年广东夏季高考后填报大学志愿时，选考科目是物理，生物，地理的同学可以填报大学理工类专业吗？是不是选考科目必须物理和化学捆绑后才能填报计算机，机械类",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2685413",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2685413",
+   "question": "合成分\n您好，想咨询一下夏季高考体育生合成分是如何计算的，需要计算公式，麻烦回复一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2686233",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2686233",
+   "question": "孩子档案本科批未录取，是否是退档还是滑档了，哪里可以查看到，本科批没录取，是否正常参加专科\n孩子是广东省艺考生，本科批没查到录取信息，哪里可以查看是退档还是滑档，怎么才能知道是哪里出问题了，还能正常参加专科批投档吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2676652",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2676652",
+   "question": "教资审核时间\n广东教资审核时间，目前还差报名截止不到半小时，但是审核一直显示待审核，打了当地的招生办电话一直是“正在通话中”，打不进，请问是否会在报名截止前审核完毕呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2674860",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2674860",
+   "question": "跨省考教资的成绩通用吗\n你好，想请问一下，我2022年下半年在海南参加了小学的教师资格考试，但是只通过了科二，目前我已插本回广东，可以在今年下半年继续报考小学科一的考试吗？到时候如果通过了，在海南考的科二的成绩可以使用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2675160",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2675160",
+   "question": "关于笔试成绩跨省认定的疑问\n如果说科目二去年在广东省考的 科目一今年在其他省份考的 届时还可以参加面试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2675537",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2675537",
+   "question": "取消报名\n审核通过。如何取消单科报名还未交付？报了三科，想取消一科。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2675654",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2675654",
+   "question": "今年专插本学生报考7月份教资\n1、请问专插本学生的“学制”是填3年还是5年呢？ 2、请问专插本学生的“最高学历层次”应该填已毕业的“专科”还是在读的“本科”呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2675681",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2675681",
+   "question": "教师资格证少报两科考试，审核通过更改不了\n你好，我的教师资格证考试少报两科考试，审核通过更改不了，请问有什么办法吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2675696",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2675696",
+   "question": "教师资格证考试科目修改\n中小学教师资格证考试的笔试报名已通过审核，但目前没有缴费，可以修改考试科目吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2673538",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2673538",
+   "question": "毕业生教师资格报考\n请问23年6月份毕业，7月底在广东正式工作，但暂时没有居住证，是否不能报考广东的教师资格证考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2673307",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2673307",
+   "question": "邮寄录取通知书地址变更事宜\n尊敬的领导： 您好！因现在搬新家了，大学录取通知书是直接寄到高考报名时填写的通讯地址吗，相应大学寄通知书之前会有短信通知和来电再次确认收件人信息吗？填报志愿系统里的通讯地址信息现在可以登录上去修改吗？恳请及时回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2666004",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2666004",
+   "question": "2023年下班年教师资格证报名时间及通道\n2023年下班年教师资格证报名时间及通道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2666783",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2666783",
+   "question": "专插本学生如何报名七月份教资\n您好，我是今年广东插本学生，今年专科毕业，已被本科录取，九月份本科开学。报名七月份教资是选在校生还是非在校生呢？学信网还没有本科学籍，也没有本科学校开的学籍证明，可以用本科学历报名七月份初中教资吗？如果可以的话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2662238",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2662238",
+   "question": "建档立卡批\n我家21年之前原来是建档立卡户，曾经是，现在不是了，我23年大专毕业想专插本考试，所以23年参加升本考试，能不能被建档立卡批次录取呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2617045",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2617045",
+   "question": "报考时间\n全国计算机等级考试广东5月份有开考吗? 还是要等到9月份，那报名时间大概什么时候？谢谢答复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2597283",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2597283",
+   "question": "申请成绩复核\n请问申请复核的步骤是什么呢?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2584000",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2584000",
+   "question": "英语四六级广东省开始报名时间\n请问为什么广东省的英语四六级还没开始报名，又或者说江门市这边还没开始报名，这是为什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2583519",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2583519",
+   "question": "举报有人作弊\n广东省茂名市十六中北校区 第一科目政治考试，有人好像带小抄抄答案。作弊时间2023年3月25日上午，作弊方式：抄小抄；作弊考场：013考场 01座位号。看到该考生不停翻看裤袋，不确定百分之一百是作弊，但有作弊嫌疑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2583549",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2583549",
+   "question": "关于2023年3月份全国计算机等级考试成绩的咨询\n考试院您好，请问2023年3月份全国计算机等级考试的成绩何时可以查询？请回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2561463",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2561463",
+   "question": "报名\n请问2023年第二次高中学业水平合格性考试什么时候报名？还望告知 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2557037",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2557037",
+   "question": "春季高考\n你好，请问2023年春季高考学考成绩什么时候可以出，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2557020",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2557020",
+   "question": "广东春季高考\n尊敬的领导，我想问一下，广东春季高考的成绩什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2549416",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2549416",
+   "question": "学考成绩\n你好，请问2023年第一次物理政治学考成绩什么时候可以出，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2509940",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2509940",
+   "question": "教资居住证问题\n考试院微信号中提及“外省户籍凭居住地在当地报考，需要提供正反面居住证截图”，但是我在粤省事下载电子居住证只有人像照，没有反面。是否你们的推文需要更新了？或者提供新的下载正反面的途径，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2505630",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2505630",
+   "question": "关于取消2023届中考体育的建议\n2023届刚好初中三年都是封控期，训练本身就因为配合封控居家隔离而节奏乱，还面临长时间戴口罩不适合高强度训练问题。 现阶段，各地均出现转阴后高强度运动出现意外。教育局也出了警示。作为全国非专业运动员中，唯一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2501643",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2501643",
+   "question": "全国计算机等级二级考试\n请问2023年计算机二级考试报名时间在什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2502623",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2502623",
+   "question": "打印2023年春季高考准考证号的时间\n您好，文件显示，12月26号就开放春季高考准考证号的打印，可是昨天我登录考试系统报名网址，点击考务信息打印不了准考证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2500575",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2500575",
+   "question": "语数英学业水平考试\n你好！我想请问一下，是否真的确定春季高考推迟到春节后，为啥老师还没下达通知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2500581",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2500581",
+   "question": "2023年第一次高二学考是否延迟\n您好，关于网上很多人传学考延迟，但是教育局没有发公告，请问学考是否有延迟呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2500101",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2500101",
+   "question": "高中一月份学业水平考试\n您好，我想问一下，就是说我们高二的1月份学业水平考试是否延迟呢？看到有的人说延迟，有的人说照常举行，但是没有正式通告，因此很困惑，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2500293",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2500293",
+   "question": "普高春考\n您好！打扰了，我想请问一下2023年1月普通高中春季高考是延迟了吗？如果延迟的话那具体时间是什么时候呢？辛苦了～😊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2497862",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2497862",
+   "question": "2023年1月学考是否延期\n您好，有部分学校发了通知称：2023年第一次高中学考推迟至（春节后）下学期开学后进行。请问是否延期是否属实呢？延期到春节后具体什么时间呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2498210",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2498210",
+   "question": "关于最近各大市教育局和学校发布春季高考延期\n您好，我想咨询一下关于最近各大市教育局和学校发布通知 普通高中生的春季高考延期是否属实？另外，春季高考具体时间是什么时候？望回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2499126",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2499126",
+   "question": "关于2023年春季高考时间推迟的问题\n考试院的工作人员们，您们好，我想请问一下，我老师发的通知说推迟2023年的春季高考这是真实的吗，我也看到我同学他们的学校，还有别的地方的当地教育局发的通知，但是我的学校和我的班主任至今都没有说推迟的事情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2498942",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2498942",
+   "question": "学业水平考试\n你好，请问网上说的学业水平考试也就是春季高考延迟是真的吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2499877",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2499877",
+   "question": "关于学考春季高考延期\n你好，我想请问一下，春季高考到底延不延期呀？很多人都阳了，就是我想问一下，如果有人突然间在考试前他阳了，然后他考试就没办法去了，那应该怎么办呀？所以想问一下，到底延不延期？可以快一点出一个通告吗？可怜的高三生，再此求一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2485002",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2485002",
+   "question": "成绩复核的程序是什么\n成绩复核的程序是什么，路径在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2479034",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2479034",
+   "question": "关于2023年广东专插本政策\n您好，我是一名就读于某所大学的继续教育学院的大四学生，对于2023年的的专插本政策我有以下疑惑。经电话核实，今年的专插本非全日制大专的考生报考必须要同时满足以下三个条件，即满广东户籍三年+有城镇职工医保+养老金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2472961",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2472961",
+   "question": "2022年12月四六级会全广州市延期吗？\n现在学校还没有发四级通知，却又根据省教育厅的指示回家返乡，但四六级的相关通知还没有发布，想请问一下会有全广州延期的可能嘛？通知可否早点发出呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2468063",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2468063",
+   "question": "教师资格证退费\n教师资格证退费申请已通过，但并未收到退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2439510",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2439510",
+   "question": "高考预报名信息里核对学业水平号的成绩未更新\n你好，我是参加了广东2022普通高中学业水平合格性考试的考生，我分别参加了1月和7月的考试，科目思想政治1月考试等级为B，7月考试等级为A，然而我的高考预报名信息里核对学业水平号的思想政治成绩只有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2436627",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2436627",
+   "question": "疫情影响\n请问因疫情影响所住小区被封 无法参加中小学教师资格证考试怎么办？会被登记为缺考吗？如何解决这个问题？谢谢回答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2435164",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2435164",
+   "question": "考试退费\n您好，请问因疫情无法参加教师资格证考试的如何申请退费，需要什么证明材料？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2433589",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2433589",
+   "question": "健康申报\n你好，教资笔试也要上报健康记录吗？都没有收到这个信息短信。前面有6天空了没申报，会影响考试吗?需要打印健康情况记录表吗？在哪里打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2427338",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2427338",
+   "question": "目前疫情环境下教资考试会延迟吗\n目前广州疫情形势严峻，无法外出考试，考试地区也有许多是管控区，教资考试会延迟吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2427457",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2427457",
+   "question": "异地考教资需要什么条件\n本人户籍是四川的但是在广东省工作，请问有广东省居住证是否能报考广东省教资，但人事档案在四川",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2427704",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2427704",
+   "question": "防疫相关\n请问在考试前7天需要一直在考点所在城市吗？因目前不在考点城市，故有此问。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2428146",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2428146",
+   "question": "广州花都教资笔试是否延期举行\n目前广州疫情不容乐观，花都教资能否延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2429330",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2429330",
+   "question": "教师资格证防疫咨询\n关于2022年下半年教师资格证跨市考试需三天三检，请问:三天三检是在目前所在地完成即可还是要回到考点所在地完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2425317",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2425317",
+   "question": "关于教师资格证花都区考点若干问题\n敬爱的广东省考试院领导您好， 我是报名了2022年下半年中小学教师资格证考生，原定10月29日考试，但是我报名的是花都区考场，但是近日以来，因为花都区受到新冠疫情强力影响，已晋升为高风险地区，我想咨询一下，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2428463",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2428463",
+   "question": "广东省中小学教师资格证考试疫情防控申报表\n广东省中小学教师资格证考试22年下的健康监测表什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2428477",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2428477",
+   "question": "花都区教资考试是否会举行\n尊敬的考试院工作人员： 您好！最近由于花都区疫情较为严重，而教资考试的日期日益临近。学校里的同学们都很关心花都区的疫情是否能如期举行，望尽快得到回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2428521",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2428521",
+   "question": "教师资格证\n关于2022年下半年教师资格证跨市考试需三天三检，请问:三天三检是在目前所在地完成即可还是要回到考点所在地完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2386368",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2386368",
+   "question": "自考成绩等级与分数\n自学考试毕业登记的成绩单只有等级，看不到分数；请问自考成绩等级的划分标准是什么？如何计算自考阶段的总成绩百分比？自考GPA怎么计算呢？希望得到解答，多谢。[抱拳]",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2377397",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2377397",
+   "question": "关于2022第二次普通高中学业水平考试成绩公布\n你好，请问第二次合格考成绩什么时候公布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2323169",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2323169",
+   "question": "退伍军人\n退伍回来后才读大专，能否报退役军人专升本专项？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2316298",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2316298",
+   "question": "关于对2022年广东普通专升本补录分数线疑惑\n2022年普通专升本与2021相比普通批要求改为：三科总分线120专业课分100分，补录要求分数线为三科线120，对比普通批补录分数线只去除了专业课分数而且对三科分数线并没有调整，那这样为何直接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2308714",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2308714",
+   "question": "汉语言文学专科970201\n2022年下半年还能报名汉语言文学专科970201吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2296027",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2296027",
+   "question": "普通专升本分数线的不公平性\n老师，你好！普通专升本分数线只有高等数学类降分，其他普通专升本专业不降分，是否充满歧视和区别对待其他专业的普通专升本考生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2295822",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2295822",
+   "question": "会不会取消汉语言文学专科\n你好，近来有个别省份要停考汉语言专科，不允许的新生报考，请问广东省会不会取消呢？因本人注册了汉语言本科，没有注册汉语言专科。二月份的时候也有咨询过自考办说本科专科的准考证通用，所以没有另外注册专科准考证，最近突然听",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2291330",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2291330",
+   "question": "关于加分标记的疑问\n在考试报名时，有一个加分标记，我填写并上传了资料，加分资格审核显示已审核，是审核通过的意思吗，那为什么没有加到我的成绩里呢？ 还是说我的审核并没有通过？ 我获得的是广东省的职业院校大赛的比赛证书，这个不包括在加分标记内吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2291605",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2291605",
+   "question": "军队院校招收普通高中毕业生政治考核工作\n报考所在地（应届生学籍地）与户口所在地不一致的情况下，”十“初步政治考核意见”栏和十一、“政治考核结论”栏，由县（市、区）兵役机关作出结论“，的考核地可以是报考所在地办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2272227",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2272227",
+   "question": "2022年六月份的英语四六级考试是否会延期\n2022年六月份的英语四六级考试是否会因为疫情延期或取消，还是如期举行？若延期会到什么时候？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2258183",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2258183",
+   "question": "关于2022专升本体检上传材料的咨询\n您好，想咨询一下 2022年专升本考试体检材料的上传是否只是上传体检表就可以了，化验单需不需要也一并上传呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2252363",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2252363",
+   "question": "全国计算机等级二级考试\n全国计算机考试报名一年只有2次考试机会吗？下半年报名时间考试时间分别是在什么时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2250784",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2250784",
+   "question": "2021年7月份普通高中学业水平合性考试总是显示考号或密码错误，证书无法下载\n孩子高考综合评价报名需要上传2021年7月份普通高中学业水平合性考试证书，上微信小程序考试成绩-高中学考-普通高中学业水平合格性考试（2020.1-2021.7）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gd-jy",
+   "id": "2237613",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2237613",
+   "question": "关于自考本科论文评审不通过事宜\n作为社会考生，没有指导老师，论文查重通过，评审后论文不通过，而且华南理工学院自考评审老师没有说明任何论文不通过的原因。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2219049",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2219049",
+   "question": "今年的计算机二级考试啥时候开始报名啊\n今年的计算机二级考试啥时候开始报名啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2212959",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2212959",
+   "question": "自考专科专升本\n自考专科能专升本？需要什么条件？是需要拿到毕业证在手可以报，还是在毕业审核通过之后就可以报了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2196407",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2196407",
+   "question": "2021年7月份普通高中学业水平合性考试证书无法下载\n你好！我们是广州市普通高中家长，今天刚收到学校通知需要下载高中学业水平考试成绩证书，但是去年由于疫情原因考试时间由原来的6月改为7月，但是现在小程序已经无法下载2021年7月的成绩证书，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2189454",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2189454",
+   "question": "交费问题\n我是退役士兵，我的审核验证通过了，但是没有交费，现在系统显示已经超过了交费规定时间，系统是说1月24号缴费时间截止，但是我那个时候的资料还在审核，交不了费，我想了解这是怎么回事，还是退役大学生士兵是不用交费的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2186889",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2186889",
+   "question": "领取毕业证\n请问2021年12月申请的自考毕业，什么时候能在学信网查到，什么时候能领取毕业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2186741",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2186741",
+   "question": "计算机等级考试时间询问\n请问下次（2022.03之后）的计算机等级考试报名大约几月开始呢，下次的应该是几月份开考呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2150187",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2150187",
+   "question": "退役士兵免试专升本\n你好，我想问一下，退役士兵免试专升本能不能报考允许跨专业的相关高校专业，还是说只能报考专科学校专业的本科院校同一专业，请受理，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2145857",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2145857",
+   "question": "高中合格性考试\n2022年1月广东省第一次学业水平合格性考试（新课标物理政治）的成绩大概什么时候公布呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2139830",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2139830",
+   "question": "请问2022年上半年教师资格考试预计什么时候报名？肇庆地区是否有考点？\n请问2022年上半年教师资格考试预计什么时候报名？肇庆地区是否有考点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "2117642",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=2117642",
+   "question": "计算机等级考试\n请问一下，2022年的计算机考试报名时间是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1879506",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1879506",
+   "question": "毕业免考申请\n于今年9月在广州参加计算机等级考试且已获得计算机一级证书，什么时候能合并到自考免考专科成绩中（计算机应用基础0018，计算机应用基础0019）免考申请已提交，能否在2021年下半年毕业申请（即12月15—20日）之前审核通过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1101346",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1101346",
+   "question": "计算机证书免考申请\n你好！请问下2021年9月份在深圳考取的计算机一级等级证书（合格），什么时候系统能合并到自考免考专科成绩中（计算机应用基础00018与计算机应用基础00019），需要人工申请吗？自考为同一张准考证，所有的课程已考试完成，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1079798",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1079798",
+   "question": "考试前是否需要做核酸\n教资考试需要持有72小时核酸证明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1078555",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1078555",
+   "question": "2021年自考毕业证领取时间\n2021年6月份申请的自考本科毕业，领取毕业证的时间大概是什么时候？打地方考办的电话一直没人接。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1059102",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1059102",
+   "question": "2012年报名的自考，现在想续考，可以么？\n你好，我想请问下我当时专业是行政管理学，学校是中山大学，2012年报名的，考过了一部分，今年想继续。但目前我看了下专业代号改了，中山大学也没开这个专业了，那我还可以继续报考么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1049434",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1049434",
+   "question": "自考\n自考本科怎么报名?什么时候开始？怎么看有那些学校那些专业?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1041752",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1041752",
+   "question": "报名\n广东省的报名平台进不去，请问什么原因呢，担心报不了名啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1030272",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1030272",
+   "question": "2021成人高考报名时间\n您好，想请问一下成人高考可以个人进行报名考试吗？2021年什么时候可以报名呢？官网是否会在考试前提前通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1022836",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1022836",
+   "question": "成人高考的报名系统无法登录\n成人高考的报名系统无法登录，提示“因近期系统升级维护，维护期间暂停使用， 预计7月11日恢复，不便之处，敬请谅解！”，为什么8月份了，系统还是无法使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1016706",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1016706",
+   "question": "中专录取问题\n小孩珠海初三毕业，只报了广州一间职业中专学校，在珠海教育局档案提示：出档，但我两次咨询学校反馈未看到学生档案，未能录取，说是省平台未投档，但中专学校都准备11号发录取通知书了。我想知道省平台什么时候投档呢？是否被录取？如被录取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1003536",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1003536",
+   "question": "030101K91法律\n030101K91法律需要考那些科目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1000419",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1000419",
+   "question": "关于中职升高职 ，三二分段考核\n请问广东省三二分段考核（高二）成绩什么时候出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "1001564",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=1001564",
+   "question": "初中应届毕业生如何报考中职学校？\nhttp://eea.gd.gov.cn/tzgg/content/post_3285603.html 关于印发2021年中等职业学校招收初中毕业生生源计划的通知 您好！请问初中应届毕业生如何报考中职学校？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "983947",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=983947",
+   "question": "中高职三二分段\n参加了中高职三二分段考核，但还未被正式拟录取，可以退掉三二分段去参加3+证书高考吗？ 如果可以退三二分段的话要去哪里退？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "986821",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=986821",
+   "question": "高考\n老师 我分数是515 现在假设惠院今年最低分数是510 然后我只填惠院2个专业组 为001和002 然后001和002的最低分数都是518和519 就就算我都服从调剂也没有过任何一个专业，这种情况我没本科读吗直接读专科吗还是去看我填的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "986983",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=986983",
+   "question": "高考志愿填报\n你好，今年高考平行志愿填报。我要问两个问题；一、比如说我填报志愿，我的理想是立志要当一名口腔医生，又想“冲”一所较好的大学，是否适宜用“冲 ”“稳”“保”方法填报志愿？二、比如1志愿填报“冲”A大学的医学专业组的口腔专业（只选",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "985885",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=985885",
+   "question": "填报志愿\n你好！我想请问一下，如果出现两位考生（A和B)同分的情况，两位考生报了同一所大学，考生A将该大学填报在第一志愿，考生B将该志愿填报在靠后的志愿（如第四十志愿），若该校只剩下一名录取人数，是否先录取考生A，然后将考生B进行退档处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "981872",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=981872",
+   "question": "高考\n你好我想问一下新高考广东服从调剂是在专业组里面调吗 还是不同专业组都有可能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "982046",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=982046",
+   "question": "志愿填报问题\n你好，今年高考平行志愿填报。比如说我填报了一个A大学以及5个专业 和 填一个B大学5个专业，都服从调剂，然后我把A大学作为冲的大学填在1号志愿，稳妥的B大学填在2号志愿，那如果A大学我冲不上滑档了没录取，滑档到接下来的2志愿B",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "986369",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=986369",
+   "question": "平行志愿\n请问2021年报考采用平行志愿的比例是多少？是所有学校都一比一进行投档吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "986067",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=986067",
+   "question": "考试时间\n您好，请问今年12月份的计算机二级考试举办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "985323",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=985323",
+   "question": "志愿填报\n平行志愿录取我服从调剂会出现低分退档吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "982243",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=982243",
+   "question": "三二分段参加高职高考\n有本科对口专业三二分段是否可以参加高职高考。本科院校会录取该三二分段学籍的学生吗？三二分段是否会被本科院校刷下来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "950893",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=950893",
+   "question": "高等院校单招\n亲爱的领导 您好！我小孩去年就读三二分段专业，今年会拿到篮球二级运动员证。想了解： 1、能否在中职毕业转段时参加普通高校的体育项单招？ 2、如果能参加普通高校体育项单招，需要怎样报名？还需要参加高学业水平测试吗？ 2、如果不能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "959402",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=959402",
+   "question": "高职高考\n1.是从今年开始三二分段班的学生都不能参加高职高考吗？ 2.如果转段考不通过还能报名2022年的高职高考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "961838",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=961838",
+   "question": "咨询三二分段转段考核\n中高职贯通三二分段是不是每门课程结束，学期末考试都是相应的高职学校出题考试?当中职毕业时不再另外组织专门转段考试?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "971351",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=971351",
+   "question": "准考证到期\n你好，我的准考证是2011年办理的，有效期到2015年，一直没有补办，现在没有考生号，在系统上查不到之前的专业考试成绩，我现在想转考专业，需要怎样操作？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "970268",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=970268",
+   "question": "网站\n广东省教育考试院的网站是多少？我上网查的考试院的网站打开不了，显示过期了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "970138",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=970138",
+   "question": "个人信息更改\n请问考生可以更改个人信息内的电话号码吗 原号码不使用了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "970165",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=970165",
+   "question": "关于普通高考问题\n尊敬的领导好，我是2021年的毕业生。刚刚高考完不久，虽然还没出成绩，但我能预知我应该考不上心仪的学校华南理工大学，所以我打算复读。但因2021年起所有公办学校不得招收复读班了，而去培训机构复读的话，费用又太贵了。最后我决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "965711",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=965711",
+   "question": "录取\n你好，如果报考的学校计划招生人数是50，前五十名排位里是有退役士兵的话，那退役士兵是否占学校原来的计划招生人数呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "968177",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=968177",
+   "question": "录取时间\n招生录取工作将于15号正式开始，请问这是录取结果查询时间还是工作开展时间呢？若是开展时间请问正式查询结果是什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "967716",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=967716",
+   "question": "想更改专业和学校\n你好，我想请问一下，2018年报的是汉语言专业，考过 两科公共课，现在想改成商务英语专业所以也需要改学校，请问可以改吗？如果可以的话，是怎样操作？还有就是之前考的两科毛概和思想道德的成绩还有用吗？需要重新考吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "963711",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=963711",
+   "question": "三二分段怎么填报志愿，是将中职专业代码和高职专业代码一起填报吗\n三二分段怎么填报志愿，是将中职专业代码和高职专业代码一起填报吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "964157",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=964157",
+   "question": "初中往届生参加中考\n广东省户籍的初中往届生可以参加初中学业水平测试吗，怎么报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "962462",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=962462",
+   "question": "普通专升本录取结果公布\n您好，请问专升本什么时候能查询录取结果？志愿填报到现在已经过去半个月了还没有任何消息，想咨询下录取工作开始了吗？等了那么久，有点着急想知道一下进程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "960851",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=960851",
+   "question": "四六级考试是否会受到疫情影响\n您好，我想咨询一下关于六月的四六级，广州地区的考试安排是否会受到影响？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "958209",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=958209",
+   "question": "高职高考\n你好，我想问一下中职3+2转段考试通过了还可不可以参加高职高考的，如果可以参加高职高考的话，转段通过了那所对口大专，高职高考也被其他大专录取了，如果不喜欢还可不可以去那所转段通过那所对口大专？顺便问一下，计算机一级通过了有补贴的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "952376",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=952376",
+   "question": "更改个人信息里的专业建设主考学校和承办学校\n本人的自学考试管理系统里的个人基本信息维护一栏显示专业建设主考学校是华南师范大学，承办学校是暨南大学，我可以申请更改专业建设主考学校和承办学校么。如果可以，申请更改流程是什么样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "954902",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=954902",
+   "question": "关于什么时候出录取结果\n专升本的普通批具体什么时候最晚什么时候能出通知，是否能够提前通知大家？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "952963",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=952963",
+   "question": "普通专升本录取结果公布\n您好，请问普通专升本什么时候才可以查询到录取结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "951339",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=951339",
+   "question": "普通专升本录取结果查询时间\n您好，想要咨询一下，普通专升本什么时候才可以查询到录取结果",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "951185",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=951185",
+   "question": "普通专升本\n考试院过时开放体检表上传通道，这件事还没向广大考生交代呢。考试院就没有要向考生道歉的念头吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "946602",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=946602",
+   "question": "关于同时填报校考统考的问题\n1、普通批校考统考都填报的情况，如果系统是按照“分数优先”原则依次检索的话，那出现省统考排位在前的考生校考排位没之后的同学高，却又被校考录取了，那校考计划数减一，这样不会对后面统考排位虽然低的考生但校考排位高的考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "944432",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=944432",
+   "question": "关于志愿填报问题\n你好，我对于专升本志愿填报有疑问！ 录取是按总成绩由高到低录取，不用看你填在第几个志愿？还是说录取是按第一志愿填了同一个学校的同学的成绩从高到低进行第一志愿的录取呢？还是说只要是填了该院校的专业，无论你是填在了第几志愿，只",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "939729",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=939729",
+   "question": "自考成绩有效期\n请问：我2006年-2009年在广东的自考成绩，现在还有效吗？广东自考成绩有效期是多长时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "934601",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=934601",
+   "question": "关于普通高中学业水平考试找回账号和密码\n如何找回普通高中学业水平考试的账号和密码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "932093",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=932093",
+   "question": "地方专项\n您好，请问地方专项计划，报名点审核通过后，县级和地级什么时候审核完。如果县级审核或者地级审核，申请人申请材料有错误需要修改，是否会被撤回给申请人本人重新修改再上传审核，如果撤回以后上传是否还需要经过报名点的重新审核。如果超过限定时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "932127",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=932127",
+   "question": "高校专项和地方专项\n符合高校专项计划和地方专项计划考生（在规定时间内）， 1.已在阳光高考平台上传材料、志愿高校“XX大学2021高校专项计划招生申请表”并填写完毕的情况下，那么在广东普高报名系统中，是否需要【分别】填写并上传高校专项材料和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "931660",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=931660",
+   "question": "关于地方专项\n我的监护人的地址是广东省汕尾市陆河县河田镇，而网页上没有显示，希望可以赶紧调试一下，不耽误我填报地方专项政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "931499",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=931499",
+   "question": "高校专项\n你好，请问非农业家庭户口是城镇户口吗？ 如果户籍地在实行专项计划的区划内，但是是非农业家庭户口可以报考高校专项吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "928383",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=928383",
+   "question": "自考本科汉语言文学专业需要修满多少学分可以申请毕业\n您好，老师，我是今年3月刚报名报考的自考考生。备考学校是广东外语外贸大学，报考了汉语言文学。 想咨询一下这个专业需要修满多少学分可以申请毕业，以及申请学位证的要求。 大概什么时候能够开始做",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "927991",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=927991",
+   "question": "录取问题\n您好，想通过高校专项被录取，请问可以填报多少所学校？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "931228",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=931228",
+   "question": "地方专项\n你好，咨询一下地方专项的“学籍资料等其他证明”包括哪些资料证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "931213",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=931213",
+   "question": "地方专项\n你好，我的地方专项填报证明材料上传的板块没有上传入口，只有三个户口本的材料入口，我的户主是我奶奶，我和我父亲都在我奶奶的户口本上，派出所的亲子证明无法上传，证明不了我和我父亲的亲子关系，还有我的学籍证明也无法上传，请问我该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "931122",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=931122",
+   "question": "地方专项\n之前保存材料的时候学籍证明上传错了，现在修改不了，学籍证明这个选项出不来，不管怎么弄这个学籍证明上传选项都没有，无法修改上传，只有前面户口本的那三个能修改上传，手机电脑都一样，到底该怎么办啊，我身边的同学也都是这样，真的很急很急很",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "928170",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=928170",
+   "question": "地方专项\n地方专项会有要求指定选择某类专业吗？如果被地方专项里的学校录取了，能不能不去，选择其他非地方专项的学校？地方专项先录取还是正常志愿里的学校先录取？地方专项是否有毕业后就业有要求？参加了地方专项，能否最终选择不使用地方专项呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "929011",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=929011",
+   "question": "地方专项计划\n您好，我想问的问题是有关于地方专项计划上传材料的问题。在填完材料上传以后，为什么会出现材料未全部上传。还有在填材料的时候没有出现要上交学籍证明，按返回后键后就又出现了呢？ 还有就是您们可以出一个相关的填表流程，预想一下可能会出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930038",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930038",
+   "question": "关于高校专项计划申报\n高校专项计划申报那里上传照片的时候，截取和保存按不了，上传不了照片，不知道是什么原因，该怎么解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930081",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930081",
+   "question": "地方专项\n你好，我是申请农村专项的高三届考生，近期提交的申请被撤回了，在报名点审核那一项提示撤回修改，请问原因是什么呢，我怎么找到我个人的原因在哪呢。因为我看公告是说可以提供具体原因的，请问如何找到呢谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930296",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930296",
+   "question": "地方专项\n地方专项填报没有上传学籍佐证材料，但却审核了，能通过吗。而且审核不能退回，也有时间限制，我该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930791",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930791",
+   "question": "地方专项\n你好，我在填写地方专项申请表时发现我的佐证材料上没有学籍证明的选项，但是其他同学都上传了，我害怕审核不通过，想问问是否是系统出了问题，我的佐证材料只有三个空，都是与户口本有关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930858",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930858",
+   "question": "地方专项\n报地方专项的，户口原来的村委会符合地方专项条件，但2019年2月迁移到同镇另一个村里（这个村也符合地方专项条件），现在能报名申请地方专项吗？监护人入户年月怎么填写？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "930944",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=930944",
+   "question": "录取问题\n请问地方专项中，学生的高中3年是在同个县里两个不同高中读的，这种符合吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "927222",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=927222",
+   "question": "录取问题\n您好，请问报考地方专项时，如果我（考生）的户口是符合条件的，但高中连续3年是在另一个县里读的（这个县也是规定的30个县），这种情况符合条件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "925620",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=925620",
+   "question": "专项计划和公费师范生\n1、广东省高考是否有国家专项计划？ 2、教师专项计划和卫生专项计划可以同时报吗？定向的意思是指定向就业而不是定向生源是吧？即只要愿意去偏远地区深圳户籍考生也可以报考是吗？ 3、教师专项计划和卫生专项计划是归属于地方专项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "925142",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=925142",
+   "question": "2020年12月申请自考毕业的毕业证书发放时间\n你好，我是2020年12号在深圳申请自考毕业的， 申请状态显示“省考委审核通过”， 我想知道什么时候可以领取毕业证书呢？领取地点在哪里？需要准备什么资料领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "927218",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=927218",
+   "question": "地方专项报名资格\n请问报考地方专项时，如果考生的户口是符合条件的，但高中连续3年是在另一个县里读的（这个县也是规定的30个县），这种情况符合条件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "924314",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=924314",
+   "question": "教师资格证相关问题\n2021年下半年教师资格证什么时间段开放注册和报名系统？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "920752",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=920752",
+   "question": "核酸检测需要出示纸质证明吗\n做了核酸检测，考试当天需要出示纸质证明吗，还是手机粤康码上显示核酸检测呈阴性就可以了呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "921288",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=921288",
+   "question": "自考毕业证身份证号码是15位数，现时的身份证号码是18位数，是否可更改？\n2009年6月自考独立本科毕业的，毕业证上的身份证号码是15位数，是否能更改为18位数？如不能更改，对身份及学历是否会有影响，如何证明是同一个人？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "919134",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=919134",
+   "question": "修改密码\n您好，我的广东省中招平台信息采集修改完新密码以后可能当时点错忘记了，应该怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "917766",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=917766",
+   "question": "请问今年的6月份广东省计算机二级考试\n请问广东省计算机二级考试今年的6月份考试会有吗。如果有 按照惯例报名时间大概是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "914975",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=914975",
+   "question": "无法通过考号登录网站\n我在准备打印高中学考证书时，无法通过“考号”+“密码”登录，反馈是密码不对。但是我通过重置密码发现输入密码是正确的。在电脑网页，可以通过“身份证”+“密码”登录，但是无法通过“考号”+“密码”登录，同样报密码不正确。请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "913484",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=913484",
+   "question": "中高职三二分段\n请问2021年初中生参加的中高职三二分段，通知什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "909758",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=909758",
+   "question": "四六级考试咨询\n您好，我是四川成都那边大学的研究生，目前在中山大学学习。请问能在广州市这边考四六级吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "904225",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=904225",
+   "question": "分数赋分\n高中学考成绩有没有赋分，还是卷面分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "881793",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=881793",
+   "question": "准考证号找回\n我2020年1月考完试后，就把准考证丢了，我现在不知道自己的准考证号，查不了成绩，我该怎么找回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "899805",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=899805",
+   "question": "学考成绩\n您好，请问2021年1月考的学考大概要多久出成绩呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "898879",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=898879",
+   "question": "历史生物化学地理\n我想问一下高中学业水平考试（历史生物化学地理）什么时候出成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "893406",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=893406",
+   "question": "学考成绩\n请问学考成绩大概是什么时候出来呐？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "892559",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=892559",
+   "question": "证书领取\n2020年9月份考的计算机等级考试，证书什么时候可以领取，怎么领取？无人通知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "886485",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=886485",
+   "question": "2021年普通高中学业水平合格性考试\n2021年一月份普通高中学考水平合格性考试成绩什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "870978",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=870978",
+   "question": "高中学业水平考试成绩打印小程序密码忘记了\n我想打印2020年1月的学业水平合格性考试的成绩证书，但是我微信小程序的密码忘记了，而且不能找回，能不能给我一个找回密码的方式，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "872237",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=872237",
+   "question": "关于春季高考考完能否离校挂读\n从2021年广东省学业水平语数英考试（春季高考）的实施，就有一部分只想通过春季高考录取专科且不准备参加夏季高考学生（简称学考生），学考生在考完春季高考在校已无心学习备考夏季高考，对冲击夏季高考的学生有很大影响，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "876260",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=876260",
+   "question": "开具高中学业水平测试成绩证明\n你好，请问如何开具高中学业水平测试成绩证明的？我是2014年参加广东省高中学业水平测试的，原件不见了，需要开具成绩证明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "885402",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=885402",
+   "question": "高中学考成绩公布\n历史 地理 化学 生物 学考科目成绩什么时候会公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "879116",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=879116",
+   "question": "学考成绩转入审核需要多长时间\n2020年12月份提交学业水平考试成绩由外省转入申请，多长时间能审核通过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "881094",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=881094",
+   "question": "全日制本科结业证报考自学考试后是否能拿到毕业证\n全日制本科仅拿到本科结业证,报名自学考试通过后,是否能获得学信网自考本科学历？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "879653",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=879653",
+   "question": "本科结业生自学考试\n本科结业生报读本科段自学考试后能否凭本科结业证申请自考本科毕业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "880411",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=880411",
+   "question": "中职生技能考试\n您好 请问一月份的中等职业课程考试技能考试的成绩能在填写志愿前出来吗，来得及吗？ 没有通知我怕来不及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "868919",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=868919",
+   "question": "高中学水考的成绩用途、毕业班的咨询\n根据省的多份红头文件表示，高中的学水考成绩作为学生高中毕业的必要条件和春季高考的录取成绩之一。所以想咨询一下，学生在高二考完政治史物化生6科学水考，并且取得成绩合格后，依据学考成绩用途表述，学生在春季高考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "867822",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=867822",
+   "question": "2021年中小学教师资格证报名时间\n请问2021广东省年中小学教师资格证报名时间是1月几号？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "865667",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=865667",
+   "question": "2020自考9月申请毕业的毕业证书发放时间\n我想问下，我是4月份延期至8月份考试，9月份申请毕业的考生，想知道什么时候可以领取毕业证书呢？领取地点在哪里？需要拿什么领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "861429",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=861429",
+   "question": "有高中毕业证的社会考生 高中学考\n你好，请问已有高中毕业证的社会考生，如打算参加2022年的夏季高考，是否需要参加音乐、美术、体育与健康、信息技术、通用技术这五门学业水平考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "857995",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=857995",
+   "question": "往年学位英语成绩单\n请问往年报名参加的学位英语成绩单在哪里可以查询打印？（当初查看的成绩单忘记把个人照片一起截图保存了？）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "855604",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=855604",
+   "question": "二级建造师\n环境设计专业可以报考二级建造师考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "857681",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=857681",
+   "question": "毕业申请\n自考毕业申请未选择县区受理，想要撤消重新申请，怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "855032",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=855032",
+   "question": "教师资格笔试\n教师资格笔试成绩存在疑问，请问在哪里、如何复查？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "852104",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=852104",
+   "question": "成人高考录取结果\n查询成人高考录取结果是暂未录取，但是考试成绩分数已经超过录取分数。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "850835",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=850835",
+   "question": "2019普通高中学业水平考试找回密码\n我是2019年6月考的学业水平考试，现在准备出国留学，学校要做学历认证，想找回成绩但是忘记密码了。现在找回密码的页面只有2021的，请问2019的有找回密码的网页入口吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "849204",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=849204",
+   "question": "重复缴费\n你好 11月17日 我在报名的时候 出现交费后长时间处于缴费中的状态 然后我查看了官网的文件 有标注这种情况的处理方式 我再次选择另外一间银行缴费 缴费成功了 然后我就重复缴费了 重复缴费的部分官网说可以退回 请问什么时候退回 需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "850373",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=850373",
+   "question": "关于学考成绩转入\n本人是一名将于2021年参加高考的广东户籍考生，高中三年一直在广西的高中就读，上个月回我的户籍所在地（湛江雷州）报考了2021年都广东高考，现在正准备办理学考成绩转入，我想问一下，转入等级那一项填的是我在广西那边的等级还是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843651",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843651",
+   "question": "高中学考\n在2021年广东学考照片采集中，因公安证件照检测失败和实名认证未通过而造成照片未通过，改怎么解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "852457",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=852457",
+   "question": "学考成绩转入申请己提交，但是发现有错误想要更改。\n学考成绩转入申请已经提交了，但是发现有错误，想要更改要怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "850851",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=850851",
+   "question": "合堂考试\n只报名了物理科目的合格考怎么样参加合堂考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843643",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843643",
+   "question": "学考报名信息填错怎么办\n学考的预报名信息填错了，费用也缴了，但不知道怎么更改报名信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "841937",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=841937",
+   "question": "2021高中学业水平考试\n学业水平考试时注册的时候信息填错了怎么修改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "845741",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=845741",
+   "question": "春季高考现场报名确认的问题\n我21号去县教育局时人家说周末不上班，然后我上系统看自己的报名状态，显示我已确认报名，但我没有在现场签名确认报名的，不知道我这算不算是已经正式报名了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "845959",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=845959",
+   "question": "春季高考\n春季高考后被大专录取后高考考到本科可以被录入本科吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843828",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843828",
+   "question": "咨询\n学考报少了科目但是已经进入缴费阶段无法修改怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "844094",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=844094",
+   "question": "合格考\n急！合格考只选了生物化学历史，地理不知道没按到，现在显示缴费中不可以更改，请问怎么成功修改信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "820117",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=820117",
+   "question": "咨询\n您好！ 我想咨询一下今年的3+证书考试录取规定是只能报回和证书相同的专业吗？是无法像之前那样一些学校是没有证书要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "820820",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=820820",
+   "question": "3+技能证书考试\n我今年想报3+技能证书考试，但是我的全国计算机证书是今年9月份才考的，成绩和证书还没有出来，能不能先报3+技能证书等成绩出来在把全国计算机证书复印件证书补上去，最迟什么时候交上去，要到哪里补交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "824634",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=824634",
+   "question": "中专毕业，想继续升大专需要哪些条件？\n我户口是广西的。想继续升大专？听学校老师说需要父母有一年以上的社保才可以，但是我父母没有或者不够不够一年。导致现在只能在家待着，可能会错失升学的机会。想咨询一下还有什么办法能继续升学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843552",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843552",
+   "question": "国家保安员分级考试\n请问国家保安员分级考试的条件、报名时间以及报名入口，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "843654",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=843654",
+   "question": "广东高考3+技能证书\n错过报名时间 还可以再开一次中等职业技术教育专业技能课程考试吗…",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "824293",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=824293",
+   "question": "广东省2019年普通高中学业试成绩转入申请\n密码一直错误怎么修改密码或者找回密码.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "810389",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=810389",
+   "question": "2015年的学业水平考试\n我想知道怎么查询2015年的学业水平考试，我现在无法在网上查到，我现在在国外留学，学校要我验证但是我在网站上找不到信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "824857",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=824857",
+   "question": "学考成绩转入密码忘记\n我本来是在湖南高考，然后复读到户籍地广东复读，19年参加的学考，需要成绩转入，但密码不记得了怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "824597",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=824597",
+   "question": "学业水平合格性考试\n我是高考往届生，然后当时18年读高二，考了学业水平合格性考试，现在是社会考生，我高二那会的学业水平合格性准考证号忘记了应该去那里查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "814167",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=814167",
+   "question": "合格性考试的成绩A、B、C、D对大学录取有什么影响\n①不同批次的大学对合格性考试等级有要求吗？旧学考的时候，本科好像要2个C，1个D，请问2021届毕业的有这种类似的录取规则吗？ ②广东省的211、985重点院校是不是对合格性考试等级有要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "812738",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=812738",
+   "question": "中专报名全日制大专\n您好，我是一名今年刚毕业的中专生, 想继续就读专科，想知道以什么方式可以考试上专科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "801077",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=801077",
+   "question": "重复缴费\n请问自考重复缴费，能退麽？多久退回？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "796630",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=796630",
+   "question": "关于自考系统\n为何自考系统不能修改密码了！？万一密码泄露了需要修改呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "790078",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=790078",
+   "question": "2021年广东省普通高中合格性考试成绩复查\n请问一下2021年7月广东省普通高中合格性考试，成绩有凝问什么样复查成绩？输入信息登陆网址打不开？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "787898",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=787898",
+   "question": "2020年学位英语考试时间与注册税务师的考试时间有冲突\n由于2020年学位英语考试时间与注册税务师的考试时间有冲突，今年需要考这两个考试就只能考一个，造成前期进行努力复习的人非常的不公平，由于学位英语的考试时间公布在后，在此非常希望能错开与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "787564",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=787564",
+   "question": "无法下载2020年1月高中学业考试成绩证书\n在“广东省教育考试院官方发布平台”上的”证书打印“栏目，通过考生号和密码可以查询下载2020年7月高中学业考试成绩证书，但是通过相同的考生号和密码无法查询下载2020年1月高中学业考试成绩证书。提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "787811",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=787811",
+   "question": "高中学业合格性考试，复读生\n你好，我是2020年老高考的考生，今年复读，参加新高考，但是新高考合格考包括高中全部的科目：语文、数学、外语、思想政治、历史、地理、物理、化学、生物、体育与健康、艺术（音乐、美术）、信息技术、通用技术等等，因为我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "782147",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=782147",
+   "question": "普通高考\n请问我在优先投档中被退档后是否可以进入本科批次的投档进行二次投档呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "757757",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=757757",
+   "question": "2020年下半年自学考试预报名时间是什么时候\n想报名自学考试，但是错过了6月份的预报名时间，请问下半年自学考试的预报名时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "773563",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=773563",
+   "question": "往届生水平考试询问\n您好老师，我是14年毕业的往届生（有高中毕业证，高中学业水平准考证以及水平考试成绩单） 关于高中学业水平考试我有2个问题需要咨询！ 1，请问我13年考的水平考试至今是否还有效？ 2，若我对当时所考的成绩不满意是否能重考，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "773285",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=773285",
+   "question": "往届生学业水平考试\n2020年应届高中毕业生，复读后参加2021年高考，原来理科学生，选科不变，文综各科学业水平考试成绩都为D以上，是否还有科目必须参加学业水平考试？如果有，是哪些科目？可以怎样参加？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "771434",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=771434",
+   "question": "咨询成人高考情况\n您好,我目前是高中学历今年想报成考,但是不知道成考的报考流程,您这边可以说一下吗?然后报考了之后要去哪里购买书籍,并且购买什么书籍呢?成考是在这个广东省教育考试院的官网报名是吗?具体的报考时间是在什么时候?然后报考了之后要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "767771",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=767771",
+   "question": "请问2020年的成人高考报名开始了吗？\n您好，请问2020年的成人高考报名开始了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "771080",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=771080",
+   "question": "2020年成人高考\n您好，想问一下成人高考开始了吗？我关注的广东省教育考试院，官网上还没有看到有关消息，但是很多机构怎么跟我说报名马上就要结束了？关于成人高考的信息，我从哪里才可以得到相关准确的信息呢？烦请回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "770651",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=770651",
+   "question": "2020年自考毕业申请\n尊敬的老师们好，想问问您，因为疫情，4月份自考的迟8月份考到了，但很多本来4月考完可以毕业的，位于上半年的毕业申请时间已经过了，请问是要等到12月才能申请，还是9月份可以多加一次啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "759065",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=759065",
+   "question": "2020年七月份合格考\n你好，关于2020年七月份的合格考成绩什么时候可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "754842",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=754842",
+   "question": "高中学业水平合格性考试\n请问明年1月是否会进行物理，政治的合格性考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "759846",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=759846",
+   "question": "自考本科属于普通高等教育本科吗\n您好，我已取得中山大学自考本科毕业证和学位证，请问是否属于普通高等教育本科？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "760379",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=760379",
+   "question": "已通过全国计算机等级证考试，如何并入自考00018和00019科目成绩\n己通过全国计算机等级考试，但由于早年曾报过自学考试（另外院校的不同专业）。现在要如何才能合并计算机00018和00019的成绩？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "760056",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=760056",
+   "question": "《军队院校招收普通中学高中毕业生政治考核表》\n请问《军队院校招收普通中学高中毕业生政治考核表》在哪里可以下载呢？如果方便可以发送此表格一份吗？十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "752947",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=752947",
+   "question": "准考证专业如何修改?\n我是2012年在罗湖办理的准考证,报考专业是计算机应用专业(大专),正式参加报考时间是2018年4月份,通过的考试专业都是行政管理专业(大专),还有一两科快考完了,请问需要修改准考证上面的专业吗?怎么修改?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "751931",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=751931",
+   "question": "是否能从广东转回广西自考\n2008年在广东报考广东外语外贸大学，请问现是否能转到广西自考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "749151",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=749151",
+   "question": "合格性证书打印\n这个证书有什么规定吗，规定是彩色打印吗，黑白的行不行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "748091",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=748091",
+   "question": "高三学生学考补考\n高三学生补考学考准考已经打印了 但是高考准考证打印前需要每天健康上报 健康上报那里填了高考考号就会同时显示本人学考考号 请问是否一直按那个小程序上报就可以了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "730344",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=730344",
+   "question": "您好，请问一下成人高考，学位英语是每年都可以考的吗？\n您好，请问一下成人高考，学位英语是每年都可以考的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "730699",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=730699",
+   "question": "教师资格证异地报考\n户籍以及人事关系都在吉林省，在读期间报考的教师资格证只差一科就过了，今年来广州就业，有缴纳五险一金，但人事关系仍在吉林省。如果想报考剩下的一科综合素质，可以在广州考区考试么？如需居住证或者社保缴纳，麻烦问一下期限。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "729140",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=729140",
+   "question": "军校招生\n尊敬的工作人员，不好意思。第二次问了。我的问题是：我想小孩报考军校，但现在处在高考的冲刺阶段，不适合做小孩的思想工作，故我必须问清楚。 一是：体检（军检）是在高考成绩出来之后还是之前？ 二是：政审合格，成绩也达到要求，可以放弃体检",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "725477",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=725477",
+   "question": "2020年成人高考报名时间\n请问2020年成人高考报名时间是什么时候？可以个人网上报名吗？还是一定要通过辅导班报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "725191",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=725191",
+   "question": "成考相关政策咨询\n如果没有高中毕业证是否可以报考成人高考（成考）？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "728965",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=728965",
+   "question": "报考\n2020年6月是自学考试报考开始时间，上午十点到现在一直无法报考，后来显示域名更改，希望领导可以重视，报考人数虽多，但希望在网站技术处理上有更高的提升，给每个考生更便利的报考条件。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "714241",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=714241",
+   "question": "成考和自考含金量哪个高？\n我是全日制本科毕业，想考汉语言专业，但是自考和成考就证书含金量问题，没有搞清楚，到底哪个更高呢？依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "728606",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=728606",
+   "question": "计算机证书考试时间\n正常每年的12月与6月份都会有一次报名时间，按之前的报名时间来说，现在15号的时候应该已经开始报名了，请问今年6月份的报名时间出来了吗，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "727170",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=727170",
+   "question": "大学英语四六级考试今年7月11的考试广东会进行吗\n这次考试是保研前最后一次考试了，9月的考试在申请保研之后，如果7月的考试不进行，那会影响到我自己保研问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "726692",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=726692",
+   "question": "2020年自考本科——学位英语考试时间\n您好！请问今年的自考本科学位英语全省统一考试时间安排什么时候呢？麻烦告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "725744",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=725744",
+   "question": "计算机等级考试\n请问广东省2020年9月的计算机等级考试的报名时间出来了吗？按照往年规律，一般都是在这个时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "714779",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=714779",
+   "question": "学考成绩\n您好！我想打印2018年6月的高中学考成绩，但是显示打印参数错误。因现在高考综合评价需要打印学考成绩。急！急！急！谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "713916",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=713916",
+   "question": "高中学考\n我是2018年6月考的理科水平测试，现在想重新打印那个证书，可是忘记密码了，能在线找回密码吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "657255",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=657255",
+   "question": "查无录取数据\n我的成绩高于学校的投档分，也有服从调剂，至今没有录取信息，特别焦虑，请求答复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "670038",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=670038",
+   "question": "什么叫做填志愿\n我是3+证书的考生，想请问一下什么是服从志愿，你们给出6个志愿别人去填选的意义何在，目的是否能达到？本人由于填报志愿时选择了服从调剂，反而“被”服从调剂到某个志愿的某个专业去，而我本来就达到了下一个志愿里的第一专业的专业分但",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "655422",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=655422",
+   "question": "普通高中毕业生，明年可以以社会生身份参加3+证书考试上大专或本科吗？\n我是2020届的高中毕业生，准备复读或者在家自学。请问我明年可以以社会生的身份考取计算机等级再去参加3+证书考试进入大学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "712624",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=712624",
+   "question": "成人高考\n我是中专毕业的，今年想报考成人高考很多不清楚的，请问是今年9月中旬报考，10月份考试吗？还是明年的10月份考试呢？是考哪几科？是需要自己准备学习资料还是平台订购发放呢？有线上课程教学吗？第一次了解问题有点多，希望各位老师看到能帮我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "656906",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=656906",
+   "question": "地方专项计划\n我家中的孩子今年符合地方专项计划照生标准，平时分数在一本线徘徊，现在犹豫是否要报这个计划，因为担忧是否存在这样一种情况：学生分数达到某个他心仪专业的分数线，但由于报考了地方专项计划，该名学生能报考的专业被限制了，导致改名学生无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "657104",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=657104",
+   "question": "成人高考\n我现在中专学历，想参加成人高考，什么时候报名？怎样报名？在哪里买资料？什么时候考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "657037",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=657037",
+   "question": "社会考生能报名地方专项计划吗？\n2016年高中毕业的社会考生能报名地方专项计划吗？户口和学籍证明等都符合条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "658968",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=658968",
+   "question": "关于2020年成人专升本考试通知\n2020年成人专升本考试时间及报名时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "656706",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=656706",
+   "question": "考取的证书查不到\n我是18级的中专生，然后考取了英语一级证书和全国计算机等级考试，并且取得了证书，然后证书在特效情况下不见了，然后现在登入网站查不到自己的证书，现在该怎么办？要重新考取证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "655907",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=655907",
+   "question": "成人高等教育本科学位外语考试时间\n您好，我想问下，现在报名以及考试时间是否确认下来了，一直没消息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "656647",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=656647",
+   "question": "往届生网上报名参加合格性考试发现不准考证号不能用怎么办\n考试院您好， 我是想参加本次合格性考试的往届生，想在网上预报名，忘记了密码，但是多次尝试后发现17年参加学业水平考试的考生号在找回密码时不能使用，显示“未找到对应考生”怎么办？现在已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "655279",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=655279",
+   "question": "关于外省考生考前14天返回广东省\n打扰到您！我是报考2020广东专插本的山西考生，对于昨天广东考试院发布的通告中其中一条，考生须考前14天返回广东省，因为我目前人还在山西，所以我想咨询下，如果我没有按照通告里说的那样提前返回广东，会不会被禁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "623382",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=623382",
+   "question": "中职升高职\n请问在省外就读中职的广东户口学生怎么升大专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "624104",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=624104",
+   "question": "咨询华南理工是否继续开展成人专升本教育？\n咨询华南理工是否继续开展成人专升本教育？ 咨询了很多培训机构，都反馈华南理工已停止了成人专升本的教育。但又无法查询到相关新闻，特此咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "654231",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=654231",
+   "question": "广东省高考地方专项\n你好 我是广东省汕尾市城区的一名高三学生，在本地就读三年，户籍为汕尾市城区。近期听闻有部分同学可以填报高考地方专项，请问户籍广东省汕尾市城区凤山街道的学生可以填报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "621309",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=621309",
+   "question": "关于3+证书考试\n请问中专已经毕业一年的往届生还可以参加3+证书考试吗？可以的话要怎么报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "620972",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=620972",
+   "question": "找回密码说没有个人信息\n学考2020年一月普通高中学业水平考试忘记密码 后登录网站平台找回密码 说未找到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "619614",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=619614",
+   "question": "关于osta证书是不是3+证书考试所要求的证书问题\n您好！ 辛苦工作人员回答一下我的疑惑，如主题是我想问的问题。 不能上传图片，我用文字描述一下这个证书：证书名称“全国计算机信息高新技术考试合格证书”；公章字为“人力资源和社会保障部职业技能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "619717",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=619717",
+   "question": "中职在校生升大专\n你好，请问下中职在校生，明年毕业可以通过什么途径升全日制大专？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "617752",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=617752",
+   "question": "成人高考什么时候可以报名\n你好，请问下成人高考什么时候可以报名？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "617679",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=617679",
+   "question": "英语考试次数\n老师，您好！我是一位高二的老师，我想请教2021届高三（下届高三）英语口语和笔试有多少次考试机会？是跟过去高考一样仅有一次机会，还是有多次考试机会？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "616918",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=616918",
+   "question": "四六级报名\n您好！今年6月大四毕业生，如果不是因为疫情影响，在3、4月还可以报名考最后一次四六级考试，现在报名推迟了，如果在我毕业后才开始报名和考试，哪么我还能报名考四六级吗？感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "566128",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=566128",
+   "question": "四六级\n您好！我是一名大三的学生，如果不是因为疫情原因，我还有最后一次四六级考试的机会，现在取消上半年四六级考试的话，那下次报名考试的时候还有机会吗？因为我六月就毕业了，实在不想错失这本来有的最后一次考试机会，感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "564530",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=564530",
+   "question": "3+证书的考试\n您好，请问已经有函授大专学历(己毕业)，还能参3+证书考试吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "563867",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=563867",
+   "question": "关于2020年本科校测何时进行以及录取时间\n您好，请问教育考试院会安排3+证书本科院校安排网络校测进行录取吗？在这特殊时期，会优先考虑这种校测来进行吗？以及在本科院校校测进行后 ，多久开始录取大专院校的学生。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "564168",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=564168",
+   "question": "全国计算机等级考试退费\n你好！请问费用是按原路退回，那已经换号码的该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "563470",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=563470",
+   "question": "关于学考补考问题\n您好，我是一名高三文科学生，在理科学考成绩中拿到了2D1C的成绩，但是上本科需要两个C以上，请问现在（4月19日）还有下一次补考的机会吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "562582",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=562582",
+   "question": "全国计算机等级考试（NCRE)\n你好，请问取消原定于2020年3月28日至30日举行的全国计算机等级考试后：（1）原来具有考试资格的考生是否保留考试资格（既在下次的考试中，是否需要重新报名。）(2),若不保留，那么考试费用是否会退回？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560459",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560459",
+   "question": "关于学业水平考试更换照片的问题\n请问可以更改照片吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560722",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560722",
+   "question": "密码\n你好，去年六月参加的学业水平合格性考试修改过后的密码忘记了可以在网上重置嘛，因为问了老师，老师一直没有给出明确的解决办法，所以直到现在还没有办法打印出成绩证书，还有到时高考档案里需要放入合格性考试的证书嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "560162",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=560162",
+   "question": "证书打印、密码\n高中学考证书打印为什么一定要上微信小程序打印不能在电脑上打印，而且密码忘记不为什么不能提供找回途径而必须去招办或报名点当面修改，这个在现在无法实现啊，怎么解决找回密码问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "559199",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=559199",
+   "question": "2020年全国计算机等级考试\n我本来报了2020年3月的全国计算机二级考试，但由于疫情的原因延迟了的，我后来想报2020年9月的全国计算机一级，我将二级的考试费退了，重新报名可以吗？或者等9月份的一级报名时间开始后在二级没退款的情况下还能不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "558477",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=558477",
+   "question": "函授站点查询\n请问怎么查询到各高校在深圳的授权函授点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "558370",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=558370",
+   "question": "学业水平测试的成绩查询密码忘记了\n我去年参加了春季高考，就最近成绩出来了，当我想去查询成绩时，发现我忘记了查询密码，希望可以在网上知道自己的密码或者修改密码。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "557515",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=557515",
+   "question": "学考成绩证书打印\n学考成绩证书打印的链接失效了怎么办，微信小程序登不进去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "556970",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=556970",
+   "question": "请问今年广东高中学考会延期吗\n您好，昨天看到官方消息说高考延期到七月份，那今年的学考是六月份还是七月份呢？还是像往年一样4月中旬报名吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "557017",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=557017",
+   "question": "3+证书统考成绩证书电子版打印\n错过了打印时间通道关闭了还能打印吗或者有什么办法打印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "556628",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=556628",
+   "question": "咨询\n我大专只拿到了结业证，并没有毕业，想要重先考取一个大专文凭，我具体需要做些什么？ 万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "552624",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=552624",
+   "question": "外省户籍在东莞报考需要居住证吗\n户籍在福建省，现在东莞市上班，想在东莞报考成人高考，需要居住证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "552265",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=552265",
+   "question": "2020年1月学业水平合格性考试成绩证书\n官网说3月28日10:00起可以到官微的小程序查询并自行打印合格考成绩证书，可为什么小程序并没有这个入口？这让我怎么打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "550903",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=550903",
+   "question": "学业水平成绩转入\n老师好，我已通过今年三月份的学业水平成绩转入，我想问一下成绩在哪里可以打印？是否必须打印？高考时还需要学考考号吗，如果需要的话成绩表上有吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "551506",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=551506",
+   "question": "6月分学业水平考试\n密码忘记了，能不能在网上怎么重新修改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "550678",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=550678",
+   "question": "关于往年广东省成人高等教育学士学位外国语水平统一考试成绩查询\n您好，我于2019年参加并通过广东省成人高等教育学士学位外国语水平统一考试，现在想查询成绩，请问在哪里查询？谢谢，辛苦了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "550455",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=550455",
+   "question": "领取学位英语证书\n你好，我2017年学位英语考试及格了，现在想领取证书，请问怎样领取和在哪里领取？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "549673",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=549673",
+   "question": "中专生可以参加成人高考吗？\n我是中专学历，想利用空闲时间考大专，听朋友说可以通过成人高考报名，考过了再报大专，但是报名时发现成人高考需要高中起点的才可以，请问像我这种情况，应该怎么做呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "550503",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=550503",
+   "question": "关于2020年英语听说考试 及高三学考重考\n想问问英语听说具体延迟时间 是什么时候考试？ 以及高三学水是否可以补考 报考的报名时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "549426",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=549426",
+   "question": "学业水平成绩转入\n广东户籍在外省读书 会考成绩还没有转入广东省 三月份能够补报名然后再转入成绩吗 能补报名的话 在报名的时候会考号什么的怎么填 到时候会考成绩怎么转入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "548506",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=548506",
+   "question": "学业水平成绩转入\n非常抱歉再次打扰了！我有如下问题求解： 先前一月份的时候是学业水平成绩转入的正常处理时间，那么在三月份补报高考成功后申请学业水平成绩转入能否办理？ 如若可以办理，又应该去哪申请转入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "547983",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=547983",
+   "question": "希望提高助学贷款金额或降低高校学费\n尊敬的领导 您好！我是今年的大三的学生，也是家庭低保户，大学的学费几乎是助学贷款，由于这次疫情家庭经济极其困难，希望得到教育考试院的帮助！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "546741",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=546741",
+   "question": "今年教师资格证已经延期，请问具体考试时间确定了吗，是什么时候？\n请问具体考试时间确定了吗，是什么时候？到时通过什么可以查询，怕错过考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "546597",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=546597",
+   "question": "2020年广东省学位英语咨询\n请问今年2020年的广东省学位英语考试什么时候发通知？是否会在4月份如期举行考试还是延期举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "546360",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=546360",
+   "question": "初中学历是否能参加成人高考\n您好，我在网上看到成人高考的报名要求需要有高中学历或者中专学历，但我只是初中毕业，目前已经工作三年，不知道能不能参加成人高考呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "546381",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=546381",
+   "question": "初中学历能否报名成人高考\n初中学历能报名成人高考吗？如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "540242",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=540242",
+   "question": "社会考生关于普通高中体育与健康等科目学业水平考试的问题\n1、体育与健康科目。采用“运动参与+体质健康测试+运动技能测试”方式进行。运动参与和体质健康测试是“过程性评价”。 请问：社会考生如何进行“运动参与+体质健康测试”？ 2、社会考生如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "545373",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=545373",
+   "question": "找2019年12月学业水平考试密码\n查找2019年12月学业水平考试密码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "540153",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=540153",
+   "question": "关于高中学考报名相片问题\n我想依据2019年高中学考(语、数、英)填志愿上大学，就是高中学考报名相片有点不好看(当时紧张所拍),想问一下这张不好看的高中学考报名相片会不会对我(例如找工作、上大学等)有影响？ 又麻烦你们了，谢谢你们！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "539606",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=539606",
+   "question": "收不到验证码\n高中合格性考试找回密码，然后收不到手机验证码，已经弄了好多天了，一直收不到验证码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "539696",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=539696",
+   "question": "2020年3月计算机等级考试退报名费\n2020年3月计算机等级考试改期，因改期另有安排未能参加，请问如何退费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "539727",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=539727",
+   "question": "2020年一月学考证书打印\n那个官微小程序里没有2020年一月学考证书打印怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "538984",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=538984",
+   "question": "广东省合格性考试非深圳户籍在深圳报考\n我是一名在深圳市就读二年级的中技在校生，户籍在茂名，想在深圳报名参加6月份的高中合格性考试因为回茂名太远，请问像我这样的情况可以在深圳报名并参加高中合格性考试吗，如果能，需要回茂名市办借考手续吗？如果不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "538732",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=538732",
+   "question": "2019高中学业水平考成绩排位\n哪里可以查询19年12月份的学考成绩排位阿，微信小程序没有，官网只能查询成绩不能查询排位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "538428",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=538428",
+   "question": "成人高考科目怎么查询\n成人高考护理专业考试科目有文件查询吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537914",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537914",
+   "question": "2019下半年教师资格面试成绩如何复查\n您好，我对2020年3月3日公布的教师资格证面试成绩有疑问，希望申请复查面试成绩，希望能得到您的回复。 谢谢，祝工作顺利！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537656",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537656",
+   "question": "如何修改密码查询成绩\n高三春季高考的密码忘了，查询不到成绩，而且今日登陆微信的公众号的小程序，貌似也找不到了学考的查询按钮，请问如何修改密码和查成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537574",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537574",
+   "question": "学考成绩查不到\n12月高中学业水平考试查不到，微信小程序也查不到，以前查的到，现在查不到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537207",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537207",
+   "question": "2020年1月高中学考及格了6月可以补考吗\n想问一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537079",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537079",
+   "question": "现在想查询2019年12月普通高中学业水平成绩\n这几天想查询2019年12月普通高中学业水平的成绩并打印，可现在我查询不了，求急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536872",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536872",
+   "question": "2018级高中学考补考\n想询问一下第一次学考科目补考时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "537417",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=537417",
+   "question": "2020年1月自考成绩什么时候公布\n请问2020年1月自考成绩何时公布呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536774",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536774",
+   "question": "关于学考密码\n出成绩的日期距离学考结束过久了，所以很多学生已经忘记自己的密码了，目前要求学生都到当地的招办点或者学校寻回密码，但是目前新冠肺炎严重，若依然要去招办点寻回密码人潮拥挤，可能会导致交叉感染的危险，希望考试院可以开启网上寻回密码，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536763",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536763",
+   "question": "20201月合格性考试密码忘了怎么办\n求助一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "535196",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=535196",
+   "question": "关于广东省2020年本科插班生考试的问题——考试时间能否具体到月份？\n您好！我们想咨询有关2020年广东省本科插班生考试的问题，考试院通知原定于2020年3月7号开始的本科插班生考试确定是推迟的情况。我们同学非常关心考试什么时候开始，能否具",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536115",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536115",
+   "question": "函授点\n请问哪里可以查询专业对应的培训点（函授站）？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "536532",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=536532",
+   "question": "关于高考补报\n您好，请问在2020年高考是否还能进行补报，如果可以的话时间段大概在什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "532628",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=532628",
+   "question": "2020年学位英语考试相关问题咨询\n老师好，有几个问题想咨询下。 1.请问学位英语报名网址是多少？ 2.什么时候可以报名？ 3.届时是否有相关公告或者通知？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534426",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534426",
+   "question": "学位英语\n请问成人学士学位英语在哪里报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "535208",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=535208",
+   "question": "关于疫情影响无法在2月20日之前体检应该怎么办\n因为一些事情没有时间体检，有没有补检的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "533099",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=533099",
+   "question": "关于高校延迟开学时间\n领导您好！广东省工业大学华立学院定于3月2日正式开学（2月底就要坐动车去学校），目前广东省新冠状病毒疫情防控依然严峻，是否这个时间点回校安全?能否从学生安全考虑继续延迟开学?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "533621",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=533621",
+   "question": "注册造价工程师考试成绩评定无效\n春节前已经留言，得到了电话回复：1、深圳考试院会给我反馈审核结果，至今未收到反馈信息；2、关于广东省下发的报名条件中（取得毕业证前后的工作时间均算为工作年限），回电工作人员说跟领导沟通后回复，至今未见回复，请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534891",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534891",
+   "question": "信息处理技术员初级证书领取问题\n在2017年11月份报考了广东计算机技术与软件专业技术资格证书，考试也通过了，但是忘记在符合时间内去拿证书，请问现在还可以去拿吗？如果可以的话去到哪个地方领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534639",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534639",
+   "question": "网站报表\n您好，请问贵单位的2019年度政府网站工作年度报表在哪里查看或下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534951",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534951",
+   "question": "财政预决算\n您好，请问贵单位财政预决算在哪里可以查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534337",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534337",
+   "question": "全国英语等级考试5级怎么报名\n请问，全国英语等级考试5级，PET5，怎么报名？网页上没有看到报名通知，只有1-4级的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "534181",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=534181",
+   "question": "计算机等级考试报名时间\n您好，请问2020年下半年的计算机等级考试什么时候开始报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "532871",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=532871",
+   "question": "学业水平密码忘了\n现在疫情情况，我把密码忘了，学校因为怕对学生发生意外，不给回学校，我这也因有病案例，所以老师也不能回学校，但我密码忘了，快到填志愿的时候了，帮帮我，好不好，我急啊。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "532152",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=532152",
+   "question": "关于2020学位英语考试\n老师您好，想请问一下，2020年的学位英语考试还和往年一样在4月进行吗？ 还是将会延迟呢，请问延迟到什么时候呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531929",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531929",
+   "question": "20203月计算机等级考试退费\n你好，我在12月份报名了计算机二级考试，但是由于今年疫情的原因无法出门参加考试，请问能否申请退费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "531772",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=531772",
+   "question": "请问3月14日的教师资格考试笔试是否延期举行？\n请问3月14日的教师资格考试笔试是否延期举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "529874",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=529874",
+   "question": "复读生高中学业水平考试咨询\n我是2019届的高考生，今年复读了，去年学业水平考试1C2D，今年又重新考了那两科2D的，今年1C1D，请问去年的学业水平是可以保留到今年高考吗？今年学业水平是算2C1D吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "521500",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=521500",
+   "question": "关于旧高考学业水平考试和新高考学业水平考试过渡期间疑问\n领导您好！ 孩子今年高考，(一)想咨询如果2019年12月的旧高考学业水平补考不合格能否参加2020年6月的新高考学业水平考试 (二)如果可以考，旧高考学业水平考试已经合格的科目是否可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "530418",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=530418",
+   "question": "关于学业水平考试6月份补考\n2020年六月份是否还有高三学生一次学业水平补考机会？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "530536",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=530536",
+   "question": "关于2020届有关学业水平的等级考试是否还有补考的机会！\n亲爱的领导您好: 亲爱的领导您好，我是2020届的高考生就关于2020届的学业水平等级考试我有一些疑惑想请领导解答。 关于2020届的高考生也就是新高考前的最后一批高考生关于学业水平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "530606",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=530606",
+   "question": "忘记学业水平考试考号\n如题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "530835",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=530835",
+   "question": "查询2020年1月水平考试成绩\n你好！请问一下，2020年1月6号的水平考试成绩什么时候出来呢？ 是不是2月中旬出来的？会不会推迟成绩出来的时间呢？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gd-jy",
+   "id": "529735",
+   "url": "https://eea.gd.gov.cn/hdjlpt/detail?pid=529735",
+   "question": "旧高考学生高中学考补考\n领导您好！参加今年6月份高考，但是2019年12月29日旧高考学业水平考试1c2d，想要读本科，还可以参加2020年6月9号的学业水平考试补考吗？如果可以，请问还是按照旧学考模式，之前合格的成绩保留，只考没有合格的那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
