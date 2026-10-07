@@ -52,24 +52,39 @@ def main() -> int:
     report: dict = {"why": "入库回归判决（判据见 STOP-LOSS-入库回归.json）",
                     "hard_fail_pt": HARD_FAIL_PT, "scopes": {}, "verdict": None, "reasons": []}
 
+    # ⚠ **结构是嵌套的**：`union.same_budget.@20` / `union.prod_caps.hit` / `fused.@20`。
+    #   我第一版按平铺键名（`union_same_budget`）去取 ⇒ **静默取不到，把主指标整个漏掉了**，
+    #   而主指标恰恰是止损线里写的 `union@1000`。**漏指标比报错更危险**（输出看着是成功的）。
+    #   修法：显式列出 (显示名, 取值路径)。
+    METRICS = [
+        ("union.same_budget@20", ("union", "same_budget", "@20")),
+        ("union.same_budget@100", ("union", "same_budget", "@100")),
+        ("**union.same_budget@1000**", ("union", "same_budget", "@1000")),
+        ("union.prod_caps.hit", ("union", "prod_caps", "hit")),
+        ("fused@20", ("fused", "@20")),
+        ("fused@100", ("fused", "@100")),
+        ("fused@1000", ("fused", "@1000")),
+    ]
+
+    def dig(d: dict, path: tuple):
+        for k in path:
+            if not isinstance(d, dict):
+                return None
+            d = d.get(k)
+        return d
+
     for scope in ("headline", "all_171"):
         sb, sa = b[scope], a[scope]
         rows = {}
         print(f"\n=== {scope}（n={sb.get('n')}）===")
-        print(f"    {'指标':28s} {'入库前':>9s} {'入库后':>9s} {'差(pt)':>9s}")
-        for key in ("union_same_budget", "union_prod_caps", "fused"):
-            vb, va = sb.get(key), sa.get(key)
-            if not isinstance(vb, dict) or not isinstance(va, dict):
-                continue
-            depth_keys = [d for d in DEPTHS if d in vb] or [k for k in vb if k.startswith("@")]
-            if key == "union_prod_caps":
-                depth_keys = ["hit"] if "hit" in vb else []
-            for d in depth_keys:
-                x, y = vb.get(d), va.get(d)
-                if isinstance(x, (int, float)) and isinstance(y, (int, float)):
-                    diff = round((y - x) * 100, 2)
-                    rows[f"{key}{d}"] = {"before": x, "after": y, "diff_pt": diff}
-                    print(f"    {key+d:28s} {x:9.4f} {y:9.4f} {diff:+9.2f}")
+        print(f"    {'指标':30s} {'入库前':>9s} {'入库后':>9s} {'差(pt)':>9s}")
+        for label, path in METRICS:
+            x, y = dig(sb, path), dig(sa, path)
+            if isinstance(x, (int, float)) and isinstance(y, (int, float)):
+                diff = round((y - x) * 100, 2)
+                rows[label.replace("*", "")] = {"before": x, "after": y, "diff_pt": diff}
+                mark = "  ← 主指标" if "1000" in label else ""
+                print(f"    {label:30s} {x:9.4f} {y:9.4f} {diff:+9.2f}{mark}")
         report["scopes"][scope] = rows
 
     # 翻转（配对）
@@ -103,7 +118,7 @@ def main() -> int:
     # ★ 机械判决（只看 headline 的 union@1000 与 fused@20，与 STOP-LOSS 一致）
     hl = report["scopes"].get("headline", {})
     fails, warns = [], []
-    for metric in ("union_same_budget@1000", "fused@20"):
+    for metric in ("union.same_budget@1000", "fused@20"):
         r = hl.get(metric)
         if not r:
             continue

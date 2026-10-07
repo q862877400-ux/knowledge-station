@@ -1,0 +1,151 @@
+{
+ "why": "入库回归判决（判据见 STOP-LOSS-入库回归.json）",
+ "hard_fail_pt": 6.0,
+ "scopes": {
+  "headline": {
+   "union.same_budget@20": {
+    "before": 0.125,
+    "after": 0.1167,
+    "diff_pt": -0.83
+   },
+   "union.same_budget@100": {
+    "before": 0.225,
+    "after": 0.2083,
+    "diff_pt": -1.67
+   },
+   "union.same_budget@1000": {
+    "before": 0.4,
+    "after": 0.3417,
+    "diff_pt": -5.83
+   },
+   "union.prod_caps.hit": {
+    "before": 0.1333,
+    "after": 0.125,
+    "diff_pt": -0.83
+   },
+   "fused@20": {
+    "before": 0.0917,
+    "after": 0.0833,
+    "diff_pt": -0.84
+   },
+   "fused@100": {
+    "before": 0.125,
+    "after": 0.1167,
+    "diff_pt": -0.83
+   },
+   "fused@1000": {
+    "before": 0.125,
+    "after": 0.1167,
+    "diff_pt": -0.83
+   }
+  },
+  "all_171": {
+   "union.same_budget@20": {
+    "before": 0.1111,
+    "after": 0.1053,
+    "diff_pt": -0.58
+   },
+   "union.same_budget@100": {
+    "before": 0.1988,
+    "after": 0.1871,
+    "diff_pt": -1.17
+   },
+   "union.same_budget@1000": {
+    "before": 0.3918,
+    "after": 0.3392,
+    "diff_pt": -5.26
+   },
+   "union.prod_caps.hit": {
+    "before": 0.117,
+    "after": 0.1111,
+    "diff_pt": -0.59
+   },
+   "fused@20": {
+    "before": 0.0877,
+    "after": 0.076,
+    "diff_pt": -1.17
+   },
+   "fused@100": {
+    "before": 0.1111,
+    "after": 0.1053,
+    "diff_pt": -0.58
+   },
+   "fused@1000": {
+    "before": 0.1111,
+    "after": 0.1053,
+    "diff_pt": -0.58
+   }
+  }
+ },
+ "verdict": "🟡 灰区：有退化迹象",
+ "reasons": [
+  "union.same_budget@1000 下降 -5.83 pt（灰区，未过硬失败线）",
+  "fused@20 下降 -0.84 pt（灰区，未过硬失败线）"
+ ],
+ "flips": {
+  "变好": [],
+  "变差": [
+   {
+    "i": 1,
+    "metric": "fused@20",
+    "query": "退潮后在海泥里插竹竿吊养生蚝，这种做法属于哪种行当？"
+   },
+   {
+    "i": 21,
+    "metric": "union@1000",
+    "query": "加油站加的标着E10含一成酒精的汽油属于哪类油品？"
+   },
+   {
+    "i": 60,
+    "metric": "union@1000",
+    "query": "我把租来的两百个木栈板直接交接给下家算啥？"
+   },
+   {
+    "i": 64,
+    "metric": "union@1000",
+    "query": "轮毂刚浇满那会儿，炉子里突然加大力气顶着是干嘛？"
+   },
+   {
+    "i": 74,
+    "metric": "union@1000",
+    "query": "领导让我核实博览会的门禁刷卡流水，这种查证报表的事叫什么？"
+   },
+   {
+    "i": 79,
+    "metric": "union@1000",
+    "query": "车底两侧能伸出来支在路面上的4条铁脚是啥构件？"
+   },
+   {
+    "i": 81,
+    "metric": "union@1000",
+    "query": "印书机烤箱里一烤就能干透的那种颜料是什么类型？"
+   },
+   {
+    "i": 88,
+    "metric": "union@1000",
+    "query": "测胶圈粗细前，先加2牛顿持续按住它的力是干啥的？"
+   },
+   {
+    "i": 123,
+    "metric": "union@1000",
+    "query": "夜里路上看前面大卡车尾部发亮的发光贴纸，到底是干嘛用的？"
+   },
+   {
+    "i": 133,
+    "metric": "fused@20",
+    "query": "我们村这口大泉，上游两公里溶洞水都算它的供水地盘吗？"
+   },
+   {
+    "i": 136,
+    "metric": "union@1000",
+    "query": "仪表说明书写的反应快慢到底是从哪一步开始算的？"
+   },
+   {
+    "i": 167,
+    "metric": "union@20",
+    "query": "公司申请解除失信黑榜被驳回了，主管局必须给咱书面答复吗？"
+   }
+  ],
+  "不变": 501
+ }
+}
