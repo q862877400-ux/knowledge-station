@@ -49,6 +49,18 @@ PERPAGE = 100
 PAUSE = 3.0            # 接口很轻，但保持礼貌
 
 
+def _looks_like_question(answer: str, question: str | None) -> bool:
+    """判断 `answer` 是否其实是问题原文（该接口个别条目的字段装错）。
+
+    判据：以提问腔开头（问：/请问/我想咨询/尊敬的领导），或与标题前 20 字重合。
+    """
+    a = (answer or "").strip()
+    if a.startswith(("问：", "问:", "请问", "我想咨询", "咨询：")):
+        return True
+    q = (question or "").strip()
+    return bool(q) and len(q) >= 20 and a[:20] == q[:20]
+
+
 def harvest(fetch, *, limit: int | None = None, channels=None) -> list[dict]:
     """按统一格式返回该站问答。
 
@@ -75,12 +87,21 @@ def harvest(fetch, *, limit: int | None = None, channels=None) -> list[dict]:
                 total = j.get("recordCount")
                 print(f"    [{SITE['key']}] {ch_name}（channelid={ch}）recordCount={total}")
             for it in items:
+                q = it.get("doctitle")
+                a = it.get("doccontent")
+                # ⚠ 2026-10-07 加守卫：该接口个别条目的 `doccontent` 装的是**问题原文**
+                #   （实测「关于伪造机动车检验报告情节严重判定咨询」的答复字段以"问："开头）。
+                #   这类条目**丢弃**，别把问题当答复写进语料。
+                if not a or _looks_like_question(a, q):
+                    print(f"    [{SITE['key']}] 丢弃疑似「问题当答复」条目："
+                          f"{(q or '')[:30]}")
+                    continue
                 out.append({
                     "source": SITE["key"],
                     "id": str(it.get("recid") or it.get("docpuburl") or ""),
                     "url": it.get("docpuburl"),
-                    "question": it.get("doctitle"),
-                    "answer": it.get("doccontent"),
+                    "question": q,
+                    "answer": a,
                     "asked_at": it.get("lxrq"),
                     "answered_at": it.get("hfrq"),
                     "dept": it.get("hfdw"),

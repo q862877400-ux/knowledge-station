@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11,chrome=1" />
+<title>冬春救助咨询</title>
+<link rel="stylesheet" href="../../../../images/comStyle_8.css">
+<link rel="stylesheet" href="../../../../images/style.css">
+<script src='../../../../images/jquery-1_9.7.2.min.js'></script>
+<!--[if IE 6]>
+   <script src="../../../../images/DD_belatedPNG_9.js"></script>
+   <script>
+    DD_belatedPNG.fix("img,.fiWrap_con");
+  <![endif]-->
+ <style>
+ .zhenwen_neir p{line-height:200%;}
+ </style>
+</head>
+<body id="bid">
+<!--顶通-->
+
+<!-- 页主体 -->
+<div id="page_body"> 
+ 
+  <SCRIPT LANGUAGE="JavaScript">
+
+	
+	function search_check() {
+		var sword =document.getElementById("iptSword").value.replace(/^\s+|\s+$/g,"");		
+		if(hasIllegalChar(sword )){
+			  alert("输入的字符串包含非法字符!");
+			  return false;
+		}else if(hasIllegalScriptChar(sword)){
+			  alert("输入的字符串包含非法字符");
+			  return false;
+		}else{
+			document.getElementById("sw").value=sword;
+		        document.searchform.submit();
+		}
+		//return true;
+	}
+        
+
+		function hasIllegalChar(value){
+		 reg=/[`~!@#$%^&*()_+<>?:\"{},.\/;\'[\]]/im;
+		 if(reg.test(value)){
+		  return true;
+		 }
+		}
+
+		function hasIllegalScriptChar(str) {
+		 return new RegExp(".*?script[^>]*?.*?(<\/.*?script.*?>)*", "ig").test(str);
+		}
+
+</SCRIPT>
+
+
+<style>
+.yingji_NavBox .NavBox ul li{margin-right:55px;}
+.yingji_nav .navBar .tools ul li .input{width:262px;}
+</style>
+<style media="print" type="text/css">
+ .yingji_nav
+{
+  display:none
+}    
+
+
+</style>
+<!--时间 begin-->
+<div class="yingji_nav">
+  <div class="navBar">
+    <div class="time" id="pDate"></div>
+    <div class="tools">
+      <ul>
+        <li class="searchBox cur" style="width:300px">
+          <form name="searchform" method="post" action="/was5/web/search" onSubmit="return search_check();" target="_blank">
+           <input type="hidden" name="channelid" id="channelid" value='201309' />
+	   <input type="hidden" name="perpage" value='15' />
+	   <input type="hidden" name="page" value='1' />
+            <input type="hidden" name="sw" id="sw" value='' />
+           <input type="hidden" name="date1" value='' />
+           <input type="hidden" name="date2" value='' />
+           <input type="hidden" name="stype" value='0' />
+          <img src="../../../../images/search.png" id="query_btn" width="28" height="26" onclick="search_check();" class="sousuoIcon" />
+        
+         <!-- <div class="input" style="display:block;" >请输入检索词</div>-->
+         <input type="text" style="width:262px;display:block;" placeholder="请输入检索词" class="txt" name="iptSword" id="iptSword" value="" />
+          <div class="rbg"></div>
+          </form>
+        </li>
+       
+        <li>
+
+               <a href="#" target="_blank"><img src="../../../../images/weibo.png" width="28" height="26" /></a>
+         
+          <div class="code">
+            <img src="../../../../csym/images/P020200903653496548530.png" width="100%" height="100%" />
+          </div>
+        </li>
+        <li>
+          <a href="#" target="_blank"><img src="../../../../images/weixin.png" width="28" height="26" /></a>
+          <div class="code">
+            <img src="../../../../image/code.jpg" width="100%" height="100%" />
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--时间 end-->
+
+
+  <!--banner-->
+  <div class="yingji_banner"><a href="javascript:void(0);" onclick="return false;" target="_blank"><img id="imag" src="../../../../jg/images/P020250415553134787719.png" width="100%" height="100%" /></a></div>
+  <!--nav-->
+  <div class="yingji_NavBox">
+    <div class="NavBox">
+      <ul>
+        <li>
+          <a href="https://www.mem.gov.cn/" class="navList" target="_blank">首页</a>
+        </li>
+        <li>
+          <a href="../../../../jg/" class="navList" target="_blank">机构</a>
+<!--
+          <div class="down">
+                                         
+                                           <a href="../../../../jg/zyzz/" target="_blank">主要职责</a>
+                                         
+                                           <a href="../../../../jg/ldxx/" target="_blank">领导信息</a>
+                                         
+                                           <a href="../../../../jg/nsjg/" target="_blank">内设机构</a>
+                                         
+                                        </div>
+-->
+        </li>
+        <li>
+          <a href="../../../../xw/" class="navList" target="_blank">新闻<i></i></a>
+          <div class="down">
+                                        
+                                            <a href="../../../../xw/szzl/" target="_blank">时政要闻</a>
+                                        
+                                            <a href="../../../../xw/yjyw/" target="_blank">应急要闻</a>
+                                        
+ 
+                                            <a href="../../../../xw/yjglbgzdt/" target="_blank">工作动态</a>
+                                        
+                                            <a href="../../../../xw/gdyj/" target="_blank">地方应急</a>
+                                        
+                                            <a href="../../../../xw/jyll/" target="_blank">救援力量</a>
+                                        
+                                            <a href="../../../../xw/zhsgxx/" target="_blank">灾害事故信息</a>
+                                        
+                                            <a href="../../../../xw/xwfbh/" target="_blank">新闻发布会</a>
+                                        
+                                            <a href="../../../../xw/mtxx/" target="_blank">媒体信息</a>
+                                        
+                                        </div>
+        </li>
+        <li>
+          <a href="../../../../gk/" class="navList" target="_blank">公开<i></i></a>
+          <div class="down">
+                                           
+                                            <a href="../../../../gk/zfxxgkpt/" target="_blank">政府信息公开</a>
+                                        
+                                            <a href="../../../../gk/tzgg/" target="_blank">通知公告</a>
+                                        
+                                            <a href="../../../../gk/zcjd/" target="_blank">政策解读</a>
+                                        
+                                            <a href="../../../../gk/sgcc/" target="_blank">事故及灾害查处</a>
+                                        
+                                            <a href="../../../../gk/rsxx/" target="_blank">人事信息</a>
+                                        
+                                            <a href="../../../../gk/cwxx/" target="_blank">财务信息</a>
+                                        
+                                            <a href="../../../../gk/ghjh/" target="_blank">计划规划</a>
+                                        
+                                            <a href="../../../../gk/tjsj/" target="_blank">统计数据</a>
+                                        
+                                            <a href="../../../../gk/jytabljggk/" target="_blank">建议提案办理</a>
+                                        
+                                            <a href="../../../../gk/gwgg/" target="_blank">原国家安全监管总局文件</a>
+                                        
+                                        </div>
+        </li>
+        <li>
+          <a href="../../../../fw/" class="navList" target="_blank">服务<i></i></a>
+          <div class="down">
+                                        
+                                            <a href="../../../../fw/zffw/" target="_blank">政务服务</a>
+                                        
+                                            <a href="../../../../fw/jsxx/" target="_blank">警示信息</a>
+                                        
+                                            <a href="../../../../fw/flfgbz/" target="_blank">法律法规标准</a>
+                                        
+                                            <a href="../../../../fw/yjya/" target="_blank">应急预案</a>
+                                        
+                                            <a href="../../../../fw/yajzjxzxk/" target="_blank">应急管理部行政许可</a>
+                                        
+                                            <a href="../../../../fw/xzzfgs/" target="_blank">行政执法公示</a>
+                                        
+                                            <a href="../../../../fw/yjpf/" target="_blank">应急普法</a>
+                                        
+                                            <a href="../../../../fw/cxfw/" target="_blank">查询服务</a>
+                                        
+                                            <a href="../../../../fw/ywxt/" target="_blank">业务系统</a>
+                                        
+                                            <a href="../../../../fw/dzzz/" target="_blank">应急管理部电子证照</a>
+                                        
+                                        </div>
+        </li>
+        <li>
+          <a href="../../../" class="navList" target="_blank">互动<i></i></a>
+          <div class="down">
+                                        
+                                            <a href="../../../zxft/" target="_blank">在线访谈</a>
+                                        
+                                            <a href="../../../zqyj/" target="_blank">征求意见</a>
+                                        
+                                            <a href="../../../hygq/" target="_blank">回应关切</a>
+                                        
+                                            <a href="../../" target="_blank">公众留言</a>
+                                        
+                                            <a href="../../../tsjb/" target="_blank">国家政务服务投诉与建议</a>
+                                        
+ <!--<a href="https://www.mem.gov.cn/hd/wsxf1/yjwsxf/" target="_blank">网上信访</a>-->
+                                        </div>
+        </li>
+       
+        <li>
+          <a href="../../../../dj/" class="navList" target="_blank">党建<i></i></a>
+ <div class="down">
+                                        
+                                            <a href="../../../../dj/djyw/" target="_blank">党建要闻</a>
+                                        
+                                            <a href="../../../../dj/jcdt_1/" target="_blank">基层党建</a>
+                                        
+                                            <a href="../../../../dj/djjl/" target="_blank">党建交流</a>
+                                        
+                                            <a href="../../../../dj/dflz/" target="_blank">党风廉政</a>
+                                        
+                                            <a href="../../../../dj/xsdt/" target="_blank">巡视工作</a>
+                                        
+                                            <a href="../../../../dj/gwgg/" target="_blank">公文公告</a>
+                                        
+                                            <a href="../../../../dj/gzzd/" target="_blank">规章制度</a>
+                                        
+                                            <a href="../../../../dj/qttz/" target="_blank">群团统战</a>
+                                        
+                                            <a href="../../../../dj/xxyd/" target="_blank">学习园地</a>
+                                        
+                                        </div>
+                                                </li>
+        <li>
+          <a href="../../../../shjyfw/" class="navList" target="_blank">社会救援服务<i></i></a>
+ <div class="down">
+ 
+                                            <a href="../../../../shjyfw/tzgg_3324/" target="_blank">工作信息</a>
+                                        
+                                            <a href="../../../../shjyfw/dwfc/" target="_blank">队伍风采</a>
+                                        
+        </li>
+        <li>
+          <a href="../../../../kp/" class="navList" target="_blank">应急科普<i></i></a>
+          <div class="down">
+                                        
+                                            <a href="../../../../kp/shaq/" target="_blank">生活安全</a>
+                                        
+                                            <a href="../../../../kp/zrzh/" target="_blank">自然灾害</a>
+                                        
+                                            <a href="../../../../kp/sgzn/" target="_blank">安全生产</a>
+                                        
+                                            <a href="../../../../kp/yjkpcg/" target="_blank">应急科普场馆</a>
+                                        
+                                          </div>
+        </li> 
+      </ul>
+    </div>
+  </div>
+  
+  <!-- 内容 -->
+  <div class="column_wrapper">
+    <div class="vspace" style="height:20px;"></div>
+    <div class="crumbs02"><a href="../../../../" title="首页">首页</a><i>></i><a href="../../../" title="互动">互动</a><i>></i><a href="../../" title="公众留言">公众留言</a><i>></i>回复汇总</div>
+    <div class="youbiaodc_ind01">
+      <div class="cont">
+        <div class="zhenwen">
+          <h2>冬春救助咨询</h2>
+        </div>
+        <div class="vspace" style="height:37px;"></div>
+        <div class="zhenwen_tit">
+          <div class="time_laiy"><span>2026-09-18</span></div>
+          <div class="clear"></div>
+        </div>
+        <div class="zhenwen_neir">
+          <p> &nbsp;&nbsp;&nbsp;&nbsp;网名:* 先生/女士<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;身份证号:350*<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;邮箱:244*<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;电话:138*<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;通讯地址:福建<br>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong>咨询:</strong>请问冬春救助补助群体是哪些？受灾困难家庭怎么界定？是指受灾后衣服、取暖、住宿有问题的群体吗？如果受灾后吃、住、取暖都没问题的能纳入吗？&nbsp;咨询时间:
+2026-09-10<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong>回复:</strong>根据《受灾人员冬春生活救助工作规范》，冬春救助对象为当年遭受自然灾害导致冬春临时生活困难的受灾人员。实际工作中，主要有两类：一是家庭本身生活困难且在当年受灾的，如受灾的低保对象、低保边缘家庭、刚性支出困难家庭、分散供养特困人员、防止返贫监测对象等困难群众。二是因灾造成冬春临时生活困难的，如因灾造成家庭成员致病致伤致残致死等情况的；因灾造成住房倒塌或严重损坏需重建的；因灾造成住房损坏恢复修缮支出较高的；因自然灾害及其次生风险导致长期在外安置无法返家的；因灾造成过冬期间的口粮、衣被、取暖燃料短缺的；因灾导致农林牧渔业减产绝收损失严重、家庭收入来源大幅减少的；因灾造成家庭财产和生产资料损失严重、恢复正常生产生活成本较高的；其他因灾导致临时生活困难的。建议充分考虑受灾人员本身困难程度、因灾造成损失情况、灾后生活面临的具体困难情况，深入开展摸底排查，规范履行程序，公开公平公正确定救助对象。回复单位: 救灾和物资保障司  &nbsp;&nbsp;&nbsp;&nbsp;回复时间:  2026-09-18</p>
+          
+        </div>
+        
+        <div class="vspace" style="height:35px;"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="vspace" style="height:30px;"></div>
+  </div>
+  
+  <div class="fiWrap">
+    
+  </div>
+</div>
+
+<!--页尾-->
+<style>
+.footer_right{margin-top: 10px;float: right;margin-left: 0px;width:400px;}
+.footer_right a{float: left;margin-top: 10px;margin-left: 10px;}
+
+</style>
+                <div class="footer_wrap" style='overflow: visible;'>
+                    <div class="footer_box" style='overflow: visible;'>
+                        <div class="footer_left" style='width: 550px;overflow: visible;'>
+                            <div style="height: 19px;overflow: visible;">
+                                <a href="https://www.mem.gov.cn/wzdt/" target="_blank">网站地图</a>
+                                
+                               <!-- <a href="https://www.mem.gov.cn/wzdt/" target="_blank">网站声明</a>-->
+
+                              <!-- <a href="https://www.mem.gov.cn/hd/202110/t20211027_400884.shtml">联系我们
+                                  
+                                </a>-->
+ <span class="fonter_sx">|</span>
+<a href="javascript:void(0);" onclick="return false;" style="position:relative;" onmouseover="$('.weixin_nr02').show();" onmouseout="$('.weixin_nr02').hide();">联系我们
+                                   <div class="weixin_nr02" style="display:none;">
+                                       
+                                        网站技术支持电话: 010-64463685
+                                    </div>
+                                </a>
+                            </div>
+                            <p style="margin-top:20px;"><span>主办单位：应急管理部</span><!--<span style="margin-left: 32px;">承办单位：国家安全生产监督管理总局通信信息中心</span>--></p>
+                            <p><!--<span>协办单位：中国安全生产报社 中国煤炭报社</span>--><!--<span>网站管理员邮箱：</span>--></p>
+                            <p style="height:  25px;width: 535px;line-height: 25px;"><span style="margin-right:10px;">网站标识码bm34000001</span><a span style="margin-right:10px; "; href="https://beian.miit.gov.cn/" target="_blank">京ICP备18056520号-2</span></a><a style="float:right;"href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040102700086'><img src="../../../../csym/images/P020200903653739863394.png" />京公网安备11040102700086号</a></p>
+                            
+                        </div>
+                        <div class="footer_right" style="width:450px">
+              
+                            <a href="http://bszs.conac.cn/sitename?method=show&id=090FA13E04291598E053012819ACCC31">
+<img src="../../../../csym/images/P020200903653625466559.png" alt="" />
+
+</a>
+         <!--<a style="margin-top: 25px;" href="https://zfwzgl.www.gov.cn/boxpro/custom/pucha">
+<img src="https://www.chinacoal-safety.gov.cn/images/jiucuo_1_1.png" alt="" />
+
+</a>-->
+<a style="margin-top: 25px;" href="javascript:void(0);" onclick="return false;"  id="_span_jiucuo">
+<!--<img src="https://www.chinacoal-safety.gov.cn/images/jiucuo_1_1.png" alt="" />-->
+
+</a>
+<script id="_jiucuo_" sitecode='bm34000001' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script>
+                            <a href="javascript:void(0);" onclick="return false;" style="margin-top: 0px;margin-left: 13px;" target="_self"><img src="../../../../csym/images/P020200930605328396263.png" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+<script type="text/javascript" src="../../../../js/jquery.tinyscrollbar.js"></script> 
+<script src="../../../../images/index.js"></script> 
+
+</body>
+</html>

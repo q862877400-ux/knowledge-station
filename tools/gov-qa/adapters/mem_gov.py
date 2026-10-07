@@ -37,13 +37,23 @@ BASE = "https://www.mem.gov.cn/hd/gzly/hdhdly/"
 
 #: 明细页链接（相对路径）
 ENTRY_RE = re.compile(r"\.\./lyhf/\d{6}/t\d{8}_\d+\.shtml")
-#: 明细页里的答复正文（该站把答复放在 main 内容区；用整段兜底最稳）
+#: 明细页正文里的分隔标记（2026-10-07 实测定稿，见 recon/mem-detail-sample.html）
+#: 页面结构：… 咨询: <问题> 咨询时间: <日期> 回复: <答复> 回复单位: <单位> 回复时间: <日期> …
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
+SCRIPT_RE = re.compile(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", re.S | re.I)
+ASK_RE = re.compile(r"咨询[:：]\s*(.*?)\s*咨询时间", re.S)
+ANS_RE = re.compile(r"回复[:：]\s*(.*?)\s*回复单位", re.S)
+DEPT_RE = re.compile(r"回复单位[:：]\s*(.*?)\s*回复时间", re.S)
+AT_RE = re.compile(r"咨询时间[:：]\s*([\d\-./年月日]+)")
+RT_RE = re.compile(r"回复时间[:：]\s*([\d\-./年月日]+)")
 
 
 def _text(html: str) -> str:
-    t = TAG_RE.sub("", html)
+    """去脚本/样式/注释后再去标签 —— 不复用旧版整页兜底（那会把 JS 当答复，已踩坑）。"""
+    t = SCRIPT_RE.sub(" ", html or "")
+    t = TAG_RE.sub(" ", t)
+    t = t.replace("&nbsp;", " ").replace("&amp;", "&")
     return re.sub(r"\s+", " ", t).strip()
 
 
@@ -75,17 +85,29 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
             body = _text(html)
             m = TITLE_RE.search(html)
             title = _text(m.group(1)) if m else ""
+            # 按页内分隔标记抽「咨询/回复」（2026-10-07 定稿；旧版整页兜底会抓进 JS）
+            ma = ASK_RE.search(body)
+            mr = ANS_RE.search(body)
+            question = _text(ma.group(1)) if ma else ""
+            answer = _text(mr.group(1)) if mr else ""
+            if not answer:
+                # 抽不到答复的（页面结构变了）**不收**，别把页面壳当答复
+                print(f"    [{SITE['key']}] {i} 未抽到「回复:」段，跳过 {u[-40:]}")
+                continue
+            md = DEPT_RE.search(body)
+            mt = RT_RE.search(body)
+            mt_ask = AT_RE.search(body)
             out.append({
                 "source": SITE["key"],
                 "id": u.rsplit("/", 1)[-1] or u,
                 "url": u,
-                "question": title,
-                "answer": body,
-                "asked_at": None,
-                "answered_at": None,
-                "dept": None,
+                "question": question or title,
+                "answer": answer,
+                "asked_at": mt_ask.group(1) if mt_ask else None,
+                "answered_at": mt.group(1) if mt else None,
+                "dept": _text(md.group(1)) if md else None,
                 "channel": "互动答复",
-                "extra": {"path": u},
+                "extra": {"path": u, "title": title},
             })
         except Exception as e:                                              # noqa: BLE001
             print(f"    [{SITE['key']}] {i} {u} 失败：{type(e).__name__}")

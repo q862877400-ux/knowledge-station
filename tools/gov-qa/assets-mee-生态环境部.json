@@ -2,23 +2,6 @@
  "A_考卷": [
   {
    "source": "mee",
-   "id": "1779997",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132996.shtml",
-   "question": "《挥发性有机物无组织排放控制标准》（GB37822-2019）是否适用于单一厂房的企业或项目？如适用，在何处设置监控点？",
-   "cited_hits": [
-    {
-     "name": "挥发性有机物无组织排放控制标准",
-     "lib_no": "GB 37822-2019",
-     "weak": false
-    }
-   ],
-   "cited_missing": [
-    "GB37822-2019"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1779995",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202511/t20251111_1132994.shtml",
    "question": "“无防渗漏措施的坑塘沟渠”存贮废水是否等同于“渗坑”排污？",
@@ -495,44 +478,6 @@
   },
   {
    "source": "mee",
-   "id": "1776080",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130116.shtml",
-   "question": "《建设项目环境影响报告表编制技术指南（生态影响类）（试行）》中“排放国家、地方环境空气质量标准中有标准限值要求的特征污染物”，环境空气质量标准是否包含《环境影响评价技术导则 大气环境》（HJ2.2-2018）附录D等技术导则和参考资料？",
-   "cited_hits": [
-    {
-     "name": "工业企业设计卫生标准",
-     "lib_no": "GBZ 1-2010",
-     "weak": false
-    }
-   ],
-   "cited_missing": [
-    "建设项目环境影响报告表编制技术指南（生态影响类）（试行）",
-    "环境空气质量标准",
-    "环境影响评价技术导则 大气环境",
-    "前苏联居住区标准",
-    "环境影响评价技术导则 制药建设项目"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776070",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130106.shtml",
-   "question": "《环境影响评价技术导则 生态影响》(HJ 19-2022)6.1.2 e）中“湿地”的范围如何界定？",
-   "cited_hits": [
-    {
-     "name": "中华人民共和国湿地保护法",
-     "lib_no": "湿地保护法(OCR采集)",
-     "weak": false
-    }
-   ],
-   "cited_missing": [
-    "环境影响评价技术导则 生态影响"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776060",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130096.shtml",
    "question": "建设项目环境影响后评价备案应报哪级环评审批权限部门？",
@@ -563,17 +508,6 @@
   }
  ],
  "B_补料": [
-  {
-   "source": "mee",
-   "id": "1791255",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202601/t20260116_1140857.shtml",
-   "question": "关于伪造机动车检验报告情节严重判定咨询",
-   "cited_hits": [],
-   "cited_missing": [
-    "关于机动车排放检验机构伪造排放检验结果或出具虚假排放检验报告情节严重判定标准的意见"
-   ],
-   "has_clause_no": true
-  },
   {
    "source": "mee",
    "id": "1779996",
@@ -858,17 +792,6 @@
   },
   {
    "source": "mee",
-   "id": "1776150",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130187.shtml",
-   "question": "仅购买《中国受控消耗臭氧层物质清单》中所列消耗臭氧层物质或氢氟碳化物，提纯或混配后作为电子特气、混合制冷剂销售和使用，是否需要办理生产配额许可证？",
-   "cited_hits": [],
-   "cited_missing": [
-    "中国受控消耗臭氧层物质清单"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776148",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130185.shtml",
    "question": "当前我国电力二氧化碳排放因子相关工作进展如何？",
@@ -985,17 +908,6 @@
   },
   {
    "source": "mee",
-   "id": "1776129",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130165.shtml",
-   "question": "废弃的水性漆产品包装桶、废弃的水性漆生产原料包装桶是否属于危险废物？",
-   "cited_hits": [],
-   "cited_missing": [
-    "国家危险废物名录（2025年版）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776128",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130164.shtml",
    "question": "报废机动车拆解过程产生的机油过滤器是否属于危险废物？危险废物代码是？",
@@ -1072,18 +984,6 @@
   },
   {
    "source": "mee",
-   "id": "1776121",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130157.shtml",
-   "question": "《危险废物填埋污染控制标准》（GB18598-2019）要求的渗滤液调节池废水排放口对应的一类污染物排放标准是指原生渗滤液的原始浓度限值还是渗滤液处理后的浓度限值？如果是指的渗滤液处理后的浓度限值，那么是渗滤液单独处理后的浓度限值还是渗滤液",
-   "cited_hits": [],
-   "cited_missing": [
-    "危险废物填埋污染控制标准",
-    "GB18598-2019"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776118",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130154.shtml",
    "question": "根据《关于进一步加强重金属污染防控的意见》（环固体〔2022〕17号），重点防控的重金属污染物是铅、汞、镉、铬、砷、铊和锑，并对铅、汞、镉、铬和砷五种重点重金属污染物排放量实施总量控制。重点行业包括重有色金属矿采选业（铜、铅锌、镍钴、锡、锑",
@@ -1092,18 +992,6 @@
     "关于进一步加强重金属污染防控的意见",
     "国民经济行业分类（GB/T 4754-2017）",
     "GB/T 4754-2017"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776115",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130151.shtml",
-   "question": "《环境γ辐射剂量率测量技术规范》（HJ 1157-2021）中的“5.5结果计算”与《辐射环境监测技术规范》（HJ 61-2021）中的“8.6.1环境γ辐射空气吸收剂量率监测中宇宙射线响应值的扣除”均有对“环境γ辐射剂量率结果修正”的计算",
-   "cited_hits": [],
-   "cited_missing": [
-    "环境γ辐射剂量率测量技术规范",
-    "辐射环境监测技术规范"
    ],
    "has_clause_no": false
   },
@@ -1337,28 +1225,6 @@
   },
   {
    "source": "mee",
-   "id": "1776085",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130121.shtml",
-   "question": "《污染影响类建设项目重大变动清单（试行）》（环办环评函〔2020〕688号）中提出“生产、处置或储存能力增大30%及以上的”，所有项目均需要考虑这三种情形的变化吗？",
-   "cited_hits": [],
-   "cited_missing": [
-    "污染影响类建设项目重大变动清单（试行）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776084",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130120.shtml",
-   "question": "《污染影响类建设项目重大变动清单（试行）》（环办环评函〔2020〕688号）中提到“废气主要排放口”如何确定？",
-   "cited_hits": [],
-   "cited_missing": [
-    "污染影响类建设项目重大变动清单（试行）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776083",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130119.shtml",
    "question": "《高速公路建设项目重大变动清单（试行）》中“原线路长度”如何理解把握？",
@@ -1407,39 +1273,6 @@
   },
   {
    "source": "mee",
-   "id": "1776077",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130113.shtml",
-   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）要求编制环境影响报告书的项目评价等级提高一级的行业如何界定？",
-   "cited_hits": [],
-   "cited_missing": [
-    "环境影响评价技术导则 大气环境"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776076",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130112.shtml",
-   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）5.5评价基准年如何界定？",
-   "cited_hits": [],
-   "cited_missing": [
-    "环境影响评价技术导则 大气环境"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776075",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130111.shtml",
-   "question": "《环境影响评价技术导则 大气环境》（HJ 2.2-2018）对环境空气补充监测布点数量如何要求？",
-   "cited_hits": [],
-   "cited_missing": [
-    "环境影响评价技术导则 大气环境"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776074",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130110.shtml",
    "question": "改扩建项目地表水评价等级如何判定？",
@@ -1478,18 +1311,6 @@
    "question": "金属矿选矿项目的土壤环境影响评价项目类别如何确定？",
    "cited_hits": [],
    "cited_missing": [
-    "环境影响评价技术导则 土壤环境（试行）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776069",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130105.shtml",
-   "question": "《环境影响评价技术导则 生态影响》（HJ 19-2022）6.1.2 e）中“土壤影响范围”具体指什么？",
-   "cited_hits": [],
-   "cited_missing": [
-    "环境影响评价技术导则 生态影响",
     "环境影响评价技术导则 土壤环境（试行）"
    ],
    "has_clause_no": false
@@ -1656,42 +1477,9 @@
   },
   {
    "source": "mee",
-   "id": "1776052",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130088.shtml",
-   "question": "《建设项目环境影响评价分类管理名录（2021年版）》说明部分中第2条“名录中涉及规模的，均指新增规模”，应该如何理解？",
-   "cited_hits": [],
-   "cited_missing": [
-    "建设项目环境影响评价分类管理名录（2021年版）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
    "id": "1776050",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130086.shtml",
    "question": "如何明确自来水厂的排污许可管理类别，《固定污染源排污许可分类管理名录（2019年版）》通用工序中的“水处理”是指自来水厂产生的污水处理量，还是包含了原水的处理量？",
-   "cited_hits": [],
-   "cited_missing": [
-    "固定污染源排污许可分类管理名录（2019年版）"
-   ],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776049",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130085.shtml",
-   "question": "《固定污染源排污许可分类管理名录（2019年版）》正文第七条的适用范围是指哪类行业？",
-   "cited_hits": [],
-   "cited_missing": [
-    "固定污染源排污许可分类管理名录（2019年版）"
-   ],
-   "has_clause_no": true
-  },
-  {
-   "source": "mee",
-   "id": "1776048",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130084.shtml",
-   "question": "《固定污染源排污许可分类管理名录（2019年版）》中的“、”表示什么作用？",
    "cited_hits": [],
    "cited_missing": [
     "固定污染源排污许可分类管理名录（2019年版）"
@@ -1852,15 +1640,6 @@
    "id": "1776157",
    "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130194.shtml",
    "question": "《中国受控消耗臭氧层物质清单》备注栏中：自2010年1月1日起，除特殊用途外，全面禁止生产和使用。这里的特殊用途是指什么？",
-   "cited_hits": [],
-   "cited_missing": [],
-   "has_clause_no": false
-  },
-  {
-   "source": "mee",
-   "id": "1776154",
-   "url": "http://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130191.shtml",
-   "question": "消耗臭氧层物质和氢氟碳化物的销售、使用单位，以及从事含消耗臭氧层物质和氢氟碳化物的制冷设备、制冷系统或者灭火系统的维修、报废处理等经营活动的单位如何进行备案。",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
