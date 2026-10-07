@@ -2,403 +2,280 @@
  {
   "province": "北京市",
   "secretary": "539",
-  "fids": [
-   {
-    "fid": "539",
-    "forum": "北京市委书记尹力",
-    "role": "书记"
-   },
-   {
-    "fid": "540",
-    "forum": "北京市市长殷勇",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "540"
+  "governor": "540",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "天津市",
   "secretary": "541",
-  "fids": [
-   {
-    "fid": "541",
-    "forum": "天津市委书记陈敏尔",
-    "role": "书记"
-   },
-   {
-    "fid": "542",
-    "forum": "天津市市长张工",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "542"
+  "governor": "542",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "河北省",
   "secretary": "543",
-  "fids": [
-   {
-    "fid": "543",
-    "forum": "河北省委书记罗文",
-    "role": "书记"
-   },
-   {
-    "fid": "544",
-    "forum": "河北省省长王正谱",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "544"
+  "governor": "544",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "山西省",
   "secretary": "545",
-  "fids": [
-   {
-    "fid": "545",
-    "forum": "山西省委书记唐登杰",
-    "role": "书记"
-   },
-   {
-    "fid": "546",
-    "forum": "山西省省长卢东亮",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "546"
+  "governor": "546",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "内蒙古自治区",
   "secretary": "547",
-  "fids": [
-   {
-    "fid": "547",
-    "forum": "内蒙古自治区党委书记王伟中",
-    "role": "书记"
-   },
-   {
-    "fid": "548",
-    "forum": "内蒙古自治区主席包钢",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "548"
+  "governor": "548",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "辽宁省",
   "secretary": "549",
-  "fids": [
-   {
-    "fid": "549",
-    "forum": "辽宁省委书记许昆林",
-    "role": "书记"
-   },
-   {
-    "fid": "550",
-    "forum": "辽宁省省长王新伟",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "550"
+  "governor": "550",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "吉林省",
   "secretary": "551",
-  "fids": [
-   {
-    "fid": "551",
-    "forum": "吉林省委书记黄强",
-    "role": "书记"
-   },
-   {
-    "fid": "552",
-    "forum": "吉林省省长胡玉亭",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "552"
+  "governor": "552",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "黑龙江省",
   "secretary": "553",
-  "fids": [
-   {
-    "fid": "553",
-    "forum": "黑龙江省委书记许勤",
-    "role": "书记"
-   },
-   {
-    "fid": "554",
-    "forum": "黑龙江省省长梁惠玲",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "554"
+  "governor": "554",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "上海市",
   "secretary": "555",
-  "fids": [
-   {
-    "fid": "555",
-    "forum": "上海市委书记陈吉宁",
-    "role": "书记"
-   },
-   {
-    "fid": "556",
-    "forum": "上海市市长朱忠明",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "556"
+  "governor": "556",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "江苏省",
   "secretary": "557",
-  "fids": [
-   {
-    "fid": "557",
-    "forum": "江苏省委书记信长星",
-    "role": "书记"
-   },
-   {
-    "fid": "558",
-    "forum": "江苏省省长刘小涛",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "558"
+  "governor": "558",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "浙江省",
   "secretary": "559",
-  "fids": [
-   {
-    "fid": "559",
-    "forum": "浙江省委书记王浩",
-    "role": "书记"
-   },
-   {
-    "fid": "560",
-    "forum": "浙江省省长刘捷",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "560"
+  "governor": "560",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "安徽省",
   "secretary": "561",
-  "fids": [
-   {
-    "fid": "561",
-    "forum": "安徽省委书记李乐成",
-    "role": "书记"
-   },
-   {
-    "fid": "562",
-    "forum": "安徽省代省长王东伟",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "562"
+  "governor": "562",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "福建省",
   "secretary": "563",
-  "fids": [
-   {
-    "fid": "563",
-    "forum": "福建省委书记赵龙",
-    "role": "书记"
-   },
-   {
-    "fid": "564",
-    "forum": "福建省省长赵龙",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "564"
+  "governor": "564",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "江西省",
   "secretary": "565",
-  "fids": [
-   {
-    "fid": "565",
-    "forum": "江西省委书记尹弘",
-    "role": "书记"
-   },
-   {
-    "fid": "566",
-    "forum": "江西省省长",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "566"
+  "governor": "566",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "山东省",
   "secretary": "567",
-  "fids": [
-   {
-    "fid": "567",
-    "forum": "山东省委书记林武",
-    "role": "书记"
-   },
-   {
-    "fid": "568",
-    "forum": "山东省省长周乃翔",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "568"
+  "governor": "568",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "河南省",
   "secretary": "569",
-  "fids": [
-   {
-    "fid": "569",
-    "forum": "河南省委书记周祖翼",
-    "role": "书记"
-   },
-   {
-    "fid": "570",
-    "forum": "河南省代省长王陆进",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "570"
+  "governor": "570",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "湖北省",
   "secretary": "571",
-  "fids": [
-   {
-    "fid": "571",
-    "forum": "湖北省委书记关志鸥",
-    "role": "书记"
-   },
-   {
-    "fid": "572",
-    "forum": "湖北省省长李殿勋",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "572"
+  "governor": "572",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "湖南省",
   "secretary": "573",
-  "fids": [
-   {
-    "fid": "573",
-    "forum": "湖南省委书记沈晓明",
-    "role": "书记"
-   },
-   {
-    "fid": "574",
-    "forum": "湖南省省长毛伟明",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "574"
+  "governor": "574",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "广东省",
   "secretary": "575",
-  "fids": [
-   {
-    "fid": "575",
-    "forum": "广东省委书记黄坤明",
-    "role": "书记"
-   },
-   {
-    "fid": "576",
-    "forum": "广东省省长孟凡利",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "576"
+  "governor": "576",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "广西壮族自治区",
   "secretary": "577",
-  "fids": [
-   {
-    "fid": "577",
-    "forum": "广西壮族自治区党委书记陈刚",
-    "role": "书记"
-   },
-   {
-    "fid": "578",
-    "forum": "广西壮族自治区主席 韦韬",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "578"
+  "governor": "578",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "海南省",
   "secretary": "579",
-  "fids": [
-   {
-    "fid": "579",
-    "forum": "海南省委书记冯飞",
-    "role": "书记"
-   },
-   {
-    "fid": "580",
-    "forum": "海南省省长刘小明",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "580"
+  "governor": "580",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "重庆市",
   "secretary": "581",
-  "fids": [
-   {
-    "fid": "581",
-    "forum": "重庆市委书记袁家军",
-    "role": "书记"
-   },
-   {
-    "fid": "582",
-    "forum": "重庆市市长陈新武",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "582"
+  "governor": "582",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "四川省",
   "secretary": "583",
-  "fids": [
-   {
-    "fid": "583",
-    "forum": "四川省委书记王晓晖",
-    "role": "书记"
-   },
-   {
-    "fid": "584",
-    "forum": "四川省省长施小琳",
-    "role": "省/市长"
-   }
-  ],
-  "governor": "584"
+  "governor": "584",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
  },
  {
   "province": "贵州省",
   "secretary": "585",
-  "fids": [
-   {
-    "fid": "585",
-    "forum": "贵州省委书记徐麟",
-    "role": "书记"
-   }
-  ]
+  "governor": "586",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "云南省",
+  "secretary": "587",
+  "governor": "588",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "西藏自治区",
+  "secretary": "589",
+  "governor": "590",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "陕西省",
+  "secretary": "591",
+  "governor": "592",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "甘肃省",
+  "secretary": "593",
+  "governor": "594",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "青海省",
+  "secretary": "595",
+  "governor": "596",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "宁夏回族自治区",
+  "secretary": "597",
+  "governor": "598",
+  "confirmed": {
+   "secretary": true,
+   "governor": true
+  }
+ },
+ {
+  "province": "新疆维吾尔自治区",
+  "secretary": "599",
+  "governor": "600",
+  "confirmed": {
+   "secretary": true,
+   "governor": false
+  }
  }
 ]

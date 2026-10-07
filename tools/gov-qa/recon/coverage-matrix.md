@@ -1,34 +1,41 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **35895** 条；覆盖省级行政区 **24** 个（另有「国家级（部委）」一类）。
+语料总计 **35952** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
-| 广东省 | 31094 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
-| 湖南省 | 4353 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 2 |
+| 广东省 | 31096 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
+| 湖南省 | 4355 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 4 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
-| 北京市 | 161 | people-liuyan-df 82、people-liuyan-fid 75、people-liuyan-prov 4 |
-| 天津市 | 4 | people-liuyan-prov 4 |
+| 北京市 | 163 | people-liuyan-df 82、people-liuyan-fid 75、people-liuyan-prov 6 |
+| 天津市 | 6 | people-liuyan-prov 6 |
 | 河北省 | 4 | people-liuyan-prov 4 |
-| 山西省 | 2 | people-liuyan-prov 2 |
-| 内蒙古自治区 | 2 | people-liuyan-prov 2 |
-| 辽宁省 | 2 | people-liuyan-prov 2 |
+| 山西省 | 4 | people-liuyan-prov 4 |
+| 内蒙古自治区 | 4 | people-liuyan-prov 4 |
+| 辽宁省 | 4 | people-liuyan-prov 4 |
+| 黑龙江省 | 4 | people-liuyan-prov 4 |
+| 上海市 | 4 | people-liuyan-prov 4 |
+| 江苏省 | 4 | people-liuyan-prov 4 |
+| 浙江省 | 4 | people-liuyan-prov 4 |
+| 安徽省 | 4 | people-liuyan-prov 4 |
+| 福建省 | 4 | people-liuyan-prov 4 |
+| 江西省 | 4 | people-liuyan-prov 4 |
+| 山东省 | 4 | people-liuyan-prov 4 |
+| 河南省 | 4 | people-liuyan-prov 4 |
+| 湖北省 | 4 | people-liuyan-prov 4 |
+| 广西壮族自治区 | 4 | people-liuyan-prov 4 |
+| 海南省 | 4 | people-liuyan-prov 4 |
+| 重庆市 | 4 | people-liuyan-prov 4 |
+| 四川省 | 4 | people-liuyan-prov 4 |
+| 贵州省 | 3 | people-liuyan-prov 3 |
 | 吉林省 | 2 | people-liuyan-prov 2 |
-| 黑龙江省 | 2 | people-liuyan-prov 2 |
-| 上海市 | 2 | people-liuyan-prov 2 |
-| 江苏省 | 2 | people-liuyan-prov 2 |
-| 浙江省 | 2 | people-liuyan-prov 2 |
-| 安徽省 | 2 | people-liuyan-prov 2 |
-| 福建省 | 2 | people-liuyan-prov 2 |
-| 江西省 | 2 | people-liuyan-prov 2 |
-| 山东省 | 2 | people-liuyan-prov 2 |
-| 河南省 | 2 | people-liuyan-prov 2 |
-| 湖北省 | 2 | people-liuyan-prov 2 |
-| 广西壮族自治区 | 2 | people-liuyan-prov 2 |
-| 海南省 | 2 | people-liuyan-prov 2 |
-| 重庆市 | 2 | people-liuyan-prov 2 |
-| 四川省 | 2 | people-liuyan-prov 2 |
-| 贵州省 | 1 | people-liuyan-prov 1 |
+| 云南省 | 2 | people-liuyan-prov 2 |
+| 西藏自治区 | 2 | people-liuyan-prov 2 |
+| 陕西省 | 2 | people-liuyan-prov 2 |
+| 甘肃省 | 2 | people-liuyan-prov 2 |
+| 青海省 | 2 | people-liuyan-prov 2 |
+| 宁夏回族自治区 | 2 | people-liuyan-prov 2 |
+| 新疆维吾尔自治区 | 1 | people-liuyan-prov 1 |
 
 ## 各来源总量
 
@@ -64,6 +71,7 @@
 | gd-dara | 155 |
 | mee | 145 |
 | gd-coop | 133 |
+| people-liuyan-prov | 110 |
 | gd-gdjyj | 98 |
 | people-liuyan-df | 82 |
 | gd-dfz | 78 |
@@ -74,7 +82,6 @@
 | gd-gzw | 68 |
 | mem | 60 |
 | gd-gdcss | 53 |
-| people-liuyan-prov | 53 |
 | gd-gdyjzx | 42 |
 | people-liuyan | 37 |
 | gd-gdaudit | 36 |

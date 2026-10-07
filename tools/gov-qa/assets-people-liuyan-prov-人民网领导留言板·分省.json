@@ -14,6 +14,68 @@
    ],
    "cited_missing": [],
    "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26120524",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26120524",
+   "question": "非本村村民购买宅基地并重建\n位置位于威海市文登区文登营镇马格庄村8*号，买方王*才非本村村民，不具备购买本村宅基地的主体资格，违规占地重建，请相关职能部门依法查处",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26188535",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26188535",
+   "question": "新房未住，未享受物业服务还要缴纳物业费\n我18年在荥阳碧桂园龙城天悦购置的新房，因工作原因，房子一天未居住，从未享受过物业提供的任何服务。为何还要正常缴纳物业费，物业公司称是法律规定。",
+   "cited_hits": [
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "河南省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "前期物业服务合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25799455",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25799455",
+   "question": "房企收取80%购房款，长期拒不办理网签\n省长你好:\n 本人于2013年2月认购【沱牌镇恒信.柳城印象小区】，已支付总房款80%，有转账凭证、认购收据为证。\n 我多次主动沟通，开发商以封顶、交全款等理由拖延，至今未签订正式购房合同、未做住建网",
+   "cited_hits": [
+    {
+     "name": "城市房地产开发经营管理条例",
+     "lib_no": "城市房地产开发经营管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "商品房预约协议",
+    "城市商品房预售管理办法",
+    "射洪县商品房预售资金监督管理暂行办法",
+    "商品房预约协议"
+   ],
+   "has_clause_no": true
   }
  ],
  "B_补料": [
@@ -104,6 +166,83 @@
     "贵州省促进旅居地产发展的若干措施",
     "贵州省旅居地服务运营指引",
     "关于加强文创产品开发助推贵州文旅产业高质量发展的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25377047",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25377047",
+   "question": "南昌市经开区奥克斯盛世华庭小区违章搭建问题\n南昌市经开区奥克斯盛世华庭小区屋顶违章搭建，严重影响后面楼栋采光，主要涉及楼栋一期26栋，由于屋顶随意加高，造成我家采光问题，需望有关领导针对违章搭建问题进行处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令改正通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26147026",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26147026",
+   "question": "开发商到现在未安装楼层数字标志牌\n我是广西北海市海城区南珠大道176号碧桂园北海阳光三期26栋的居民，现在实名举报我们三期26栋一单元进户门、电梯厅、各楼层数字标字牌子未安装，住宅小区每天居民进出，去了几单元几楼了都不知道，也没有明显的楼层",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25882708",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25882708",
+   "question": "歌舞厅噪音扰民\n尊敬的领导，现投诉一个影响居民的露天舞厅。绿*实业舞厅位于海口市秀英区西秀镇海榆西线*号，紧临金手指小区22栋23栋24栋居民楼，最近直线距离140米左右，从2026年1月至今无证经营露天舞厅，每天营业到22：30后，噪音开",
+   "cited_hits": [],
+   "cited_missing": [
+    "声环境质量标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25498370",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25498370",
+   "question": "临高碧桂园金沙滩物业服务管理混乱\n本人是临高碧桂园金沙滩小区业主，多项物业服务不到位，线上多个平台存在大量业主投诉，损害业主合法权益，具体问题如下：\n\n收费不合理：物业供水泵房电费重复计入公摊电费，存在重复扣费行为；公摊电费明细不公示，各项",
+   "cited_hits": [],
+   "cited_missing": [
+    "前期物业服务协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26058517",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26058517",
+   "question": "关于建议未央区太华北路大型车辆通行\n书记好。未央区太华北路是严管街，建议夜晚11时至凌晨八点禁止大型车辆通行，期它时段可适当向未央交警队报备在不影响居民生活的情况下通行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发进一步加强建筑垃圾管理工作实施方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26090157",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26090157",
+   "question": "停车难\n呼图壁县宁都花园小区地库长年闲置，为什么不投入使用减轻地面停车压力，因地面车位紧张经常出现车辆堵路停放的情况，给居民带来极大不便，请合理解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "******前期物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25878178",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25878178",
+   "question": "关于中奥家园一期楼顶公区长期漏水\n尊敬的各位领导：\n本人系丰台区长辛店街道连兴街2号院中奥家园一期业主。本人2023年底购置房屋、背负房贷安家，自2024年起，房屋公区持续反复渗漏，三年久治不愈。\n因渗漏严重影响判断修复效果，本人分别于20",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市住宅专项维修资金管理办法"
    ],
    "has_clause_no": false
   }
@@ -510,6 +649,429 @@
    "id": "26110976",
    "url": "http://liuyan.people.com.cn/threads/content?tid=26110976",
    "question": "小区物业不作为\n尊敬的领导，我是文安县中央公馆小区业主，小区物业是开发商自持的物业，物业不作为，我现在是有家不能回，我自己有车位，物业现在限制我不让我把车开进地库，我车位单独花六万元买的，当初买房的时候开发商说可以让业主自己选车位，等到交房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25872969",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25872969",
+   "question": "疏通楼顶排水管通诉求\n原楼顶排水水在在四号门店楼项后面，现四号门店主人不让1，2，3只号33五户的的楼顶排水。于7月23日早上甲用水泥砖头堵死死，现积水水严重，影响了我们3家的正常生活，这是公共公共建筑建筑没施没施，属于公共排水排水管道。盼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25729715",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25729715",
+   "question": "流动商贩违法占道经营现象严重\n太原市万柏林区南寒街道:\n1.安宁街与西机路交叉口西北角；2.安宁街与西机路交叉口东北角；3.玉门花园A区南门门口；4.安宁街与玉园路交叉口东北角。\n上述路段每日都有流动商贩占用非机动车道与人行道摆摊经营的现象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25749702",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25749702",
+   "question": "内蒙医院桥靠小区问题\n在内蒙古呼和浩特市赛罕区大学东路金宇巷的内蒙医院桥靠小区大门附近的消防通道上，围栏破损，U型管缺失，违停车辆堵路的三大问题，问题始终得不到任何解决！请问是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25729319",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25729319",
+   "question": "交通指示灯问题\n呼和浩特市赛罕区满洲里路与绿城海棠映月南侧的路口虽然有红绿灯，但是没有违章抓拍摄像头，往来的车辆很多根本不遵守交通规则，行人出行遇到多次闯红灯的车辆，特别危险。希望领导重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26221473",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26221473",
+   "question": "锦州天安小区住户，常年看不到自己家的水表\n领导您好，锦州市天安小区的住户，十几年看不到自己家的自来水表。自来水表都安装在楼外的水井里，都是自来水公司要多少钱，我给多少钱。我想要随时能看到自己家的水表，了解自己家的实际用水量。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25939059",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25939059",
+   "question": "居民住宅楼违规开迪吧 夜间噪音严重扰民\n我们是辽宁省抚顺市顺城区香山美墅小区的居民，在小区的正门。开了一家音乐餐厅。实际是一家迪吧。每天下午3点营业，本小区本是居民住宅用房\r\n该场所每到夜间，播放高分贝蹦迪音乐，低频震动明显，经常营业到深夜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26206687",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26206687",
+   "question": "夜间噪声扰民\n尊敬的领导\n南岗区耀景街施工 现场无施工公告 长期夜间施工 严重影响休息 ，该施工项目还涉及占道行为 占用公共交通单行道路、占用公共停车位\n请领导重视 还百姓安静夜间生活",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26148828",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26148828",
+   "question": "私自养鸽子扰民，影响他人生活\n黑龙江省哈尔滨市松北区红星威尼斯庄园第10号楼3单元*楼业主私自养鸽子。请领导协调解决此问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25827619",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25827619",
+   "question": "手机网络信号不好\n向某通讯公司反应上海市闵行区浦锦街道世博家园八街坊（南江燕路229弄2*号楼）手机网络信号不好，无法在室内打电话，只能跑阳台打电话，手机上网也卡顿，不同品牌手机，不同的手机号码都这样。请领导协调解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25370163",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25370163",
+   "question": "交通管理\n我在长宁区虹桥路上骑自行车。当我由西向东经过地铁(3号线4号线)轨道高架路下方路段时，我意图在前方路口右转弯进入徐汇区的凯旋路继续行驶。然而此处设有一面圆形蓝底的交通路线引导牌，要求\"一切车辆只允许左转弯和直行\"(该标志的意思应该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26068632",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26068632",
+   "question": "官渎花园边垃圾回收污染环境\n反映苏州市车站路官渎花园一幢边垃圾回收堆放灰尘污染环境，噪音扰民，天天早上四五点就开始工作，一直干到晩上九十点，离官渎花园一幢只有十几米边远。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25913935",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25913935",
+   "question": "南京中海左岸澜庭混凝土钢渣鼓包严重质量问题\n2019年7月5日购买浦口区顶山街道澜苑住宅，合同约定项目于2021年6月13日交付。房屋多个房间顶板出现多处混凝土鼓包现象，要求建关部门彻查该项目施工阶段的质量情况及验收情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25983682",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25983682",
+   "question": "举报非法加工点\n东阳市白云街道珊瑚里北区4*栋有一家洁涛pvc板材加工厂，该小区土地属于住宅用地，该加工厂在住宅区从事工业生产，请综合执法部门联合工商管理、市场监督、环保、消防等相关部门核实情况并依法处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25528309",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25528309",
+   "question": "电梯噪应让人烦\n尊敬的领导，我在诸暨悦熙澜庭安置了一套房子，我们小区的电梯在运行中噪声太大，我怀疑是电梯质量有问题，请领导协调解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25577297",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25577297",
+   "question": "恳请保留合肥地铁2号线西延\n尊敬的领导，我是运河新城片区居民，由衷恳请将轨道交通 2 号线西延完整保留在地铁四期建设规划内。2 号线西延作为既有主干线延伸，审批条件更优，前期规划、勘察设计工作已全部落地，能填补城西大片区域轨道空白，串联运河",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26126119",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26126119",
+   "question": "关于合肥地铁s1号线的建议\n领导你好，我是一名学生，因为我的家就住在合肥地铁s1号线的附近，所以比较关注s1号线的进度，希望领导可以让合肥轨道官方多公布一些s1号线的消息，现在网上都在传，因为第4轮批复没有下来，所以不开通s1号线，所以恳请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25647456",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25647456",
+   "question": "福州仓山区金山豪景外停车场选址不合理\n书记您好，我投诉福州市仓山区金山大道金山豪景 1 号门口，金山大桥高架配套新建公厕 + 停车场选址不合理。\n第一，公厕紧挨小区大门，离住宅楼很近，后续异味、蚊虫会严重影响居民生活；\n第二，十字路口本来车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25273062",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25273062",
+   "question": "违规安装电表\n我家位于福建省莆田市秀屿区东庄镇石码村，由于福建省莆田市秀屿区东庄镇石码村顶埕*号陈*欣家电表被安装在我家房子屋后专属产权墙面/宅基地地界，未经我本人同意，属于违规安装。请领导协调解决以上问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25672740",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25672740",
+   "question": "公路随地大小便，环卫工不打扫\n领导您好，我是江西省赣州市经开区蟠龙镇杨坑锦绣新天地人才的居民，我这里接近半年多了345县道唯一人行道公路随地大小便，环卫工根本不打扫，这种情况很久了，严重影响我们居住环境，请领导百忙之中处理一下谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25961251",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25961251",
+   "question": "房屋质量\n省长您好，我是潍坊市寒亭区固堤街道嘉实花苑小区9-2-90*的业主，房子去年交房，今年装修完成尚未入住阳台埋地热水管即出现漏水，开发商找人维修后打压仍保不住压即不再处理，至今已半个多月时间，对此很不满意，请省长安排一下尽快给维修并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26067976",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26067976",
+   "question": "建业璞园道路配套缺失，物业费质价不符请求督办\n您好！我是濮阳市工业园区建业璞园小区业主。\n\n一、小区周边道路基础设施缺失。小区出入口周边道路没有硬化，仍是土路，晴天尘土飞扬，雨天泥泞积水。多处路段被施工围挡长期围住，没有公示施工工期。道路无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25959671",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25959671",
+   "question": "国道修好不让走\n我家住在湖北省老河口市李楼镇刘营村七组，几年前我们这边在修328国道，现在都修好了也不让走，盼解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "24372810",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24372810",
+   "question": "请求解决居民夜间出行路灯问题\n湖北省荆州市荆州区市场路六号公馆小区西边有一道路，未安装路灯，居民出行不便，望领导协调安装路灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25722915",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25722915",
+   "question": "关于雨花区高升路项目\n2024年11月—2025年3月 雨花区高升路项目（洞井家园二小区）旁边，负责人，多次联系中介人员，把原有紧实路基挖开，挖到砂石层后，联系半挂自卸车运走贩卖。数量多达几百车。深度达到六七米深，随后又回填建筑垃圾，和泡水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25323967",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25323967",
+   "question": "投诉湘江时代的物业\n省长 您好 我前几年在湘江时代买的商铺，铺子在租的的过程中，铺子大门被小偷撬了，东西被偷了。我问物业管事的，为什么我的铺子被偷这么大的事情，怎么不通知我一下，或是发个短信也好，微信说下也可以。请问我每个平方可是交着10元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26139930",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26139930",
+   "question": "关于申请开设转弯路口为学生保驾护航的请示\n我们是广东省茂名市电白区市民大道沿线——华讯大宅、石化苑住宅小区的居民代表，辖区内配套学校在读学生众多，日常上下学、居民通勤出行长期存在极大交通不便与致命安全隐患，事关数千名学生生命安全，现提交两项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26038907",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26038907",
+   "question": "城镇道路多年未改造\n电海街道办雅翠苑小区附近道路长期未改造，长期积水，严重影响民生及卫生，道路长期积水。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25900958",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25900958",
+   "question": "恳请整治民主路小学凤岭南校区周边车辆乱停乱放\n尊敬的领导:\n 您好！我是南宁民主路小学凤岭南校区附近常住居民，学校后门长期有车辆乱停占道，影响日常出行与消防安全，特此留言恳请领导协调相关部门整治处理。\n一、实际困扰详情\n1. 日常出行寸步难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26202705",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26202705",
+   "question": "电梯坏两个月物业一直不维修处理\n我是重庆市江北区鱼嘴镇和韵家园南区的业主，我们这栋楼的3号电梯已经坏了2个月了每次打电话给物业维修就说等材料我们也不知道什么材料需要等两个月一直拖着不维修，大大的影响我们小区业主的上下班时间，就因为电梯原因我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25881337",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25881337",
+   "question": "江北区铁山坪街道小学建设\n江北区铁山坪街道只有一所胜利村小学，学校环境欠缺，面积很小，没有完善的教学场地，给学生的学习氛围带来影响，附近小区新生率很高。希望领导能考虑一下重新建设胜利村小学，或者另外引进一所小学。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26041044",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26041044",
+   "question": "餐饮店外摆夜间扰民\n涉事楼宇位于玉林三巷民谣里，引进的所谓“轻油污”餐饮店，全是“火锅“”干锅“，特别是这些餐饮店与居民楼只有一墙之隔，”陶*夭 干锅店“，餐馆直接在店门口摆桌用餐，请你们听一下视频，有多么吵闹！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25926557",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25926557",
+   "question": "本人多次投诉人行道占道摆摊问题\n开阳县该路段人行道长期聚集大量流动烧烤摊贩占道经营，每天傍晚持续摆摊。摊贩占用公共人行道，阻碍行人正常通行，油烟弥漫、噪音扰民。流动摊贩无需承担房租、税费，无序经营严重冲击周边持有营业执照、依法纳税的正规门面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25835877",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25835877",
+   "question": "优化贵阳北收费站收费\n同城南路左转进入金朱东路（北二环）这里十分拥堵，每天白云南路，枫林路，同城南路三个方向的大量车辆都挤在匝道等待左转，这里插队现象也十分严重，没有15分钟的都难以通过。为了减缓拥堵情况，在本地路网结构没有大改的情况下建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26121776",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26121776",
+   "question": "建议尽快修补升级昆明边防路好几处破损凹陷\n尊敬的领导:今天下午我路过云南昆明边防路天泽园小区门囗从西福路至滇池路中间这一段上有几处凹陷坑其中有两处破损比较宽影响路过车辆如两车对路则一车胎陷凹坑有较大声音…从现场看似乎以前修补现在又烂了…为了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26013786",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26013786",
+   "question": "广昌立交交通堵塞缓解建议\n问题：\n 广昌立交通车后，广福路由东向西下桥后拥堵严重，主要是下桥后大量车辆是右转，经和美路或巫家坝路去巫家坝或春城路，但是右转车辆和直行车辆交叉混乱，导致拥堵严重。\n\n建议：\n 拆除下桥后主道和附到之间的隔离栏和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26293635",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26293635",
+   "question": "扎根基层感恩政策，期盼家乡乡村产业更好发展\n我是日喀则江孜县的一名中共党员，也是自治区级优秀志愿者，曾经是建档立卡脱贫户，如今是乡村致富带头人。\n多年来，依靠党和国家的好政策，我们边疆农牧民的生活发生巨大改变，我心怀感恩，始终牢记党员初心，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26051751",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26051751",
+   "question": "关于重建工程的建议\n西藏吉隆口岸泥石流导致国门向内约 1‑2.5 公里国道路基整体冲毁。抢险中的难题：道路完全损毁后大型工程机械无法抵达国门现场，仅靠人力难以开展清障作业。\n对此段通道工程建设提出参考建议：\n该段距离位于山谷，遇泥石流或洪水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26107058",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26107058",
+   "question": "西咸新区沣东新城西安西站到16号地铁站出行难\n西安西站到16号线细柳营直线距离约1公里，但实际步行距离约 2公里，近30分钟，且周边无共享单车，公交车班次间隔近半个小时，严重影响出行。目前随着西安足球国际中心运营，西安西站周边企业陆续运营，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26188861",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26188861",
+   "question": "龙湖光年二期开发商\n销售时浮夸宣传龙湖天街，合同中明确的交房的同时交付幼儿园，至今都没有建成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26184907",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26184907",
+   "question": "天水市天水郡到第三中学路况\n天水市天水郡到第三中学门口，一路坑坑洼洼不是特别好走，可以修补一下吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26124743",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26124743",
+   "question": "关于解决校园体育场馆周末及节假日开放\n当前，西宁市不少学校在周末、法定节假日及寒暑假期间实行封闭管理，校园体育场馆虽近在咫尺，学生及周边居民却难以进入。假期期间，学生闲暇时间增多，锻炼需求上升，校园体育设施却大量闲置，未能充分发挥公共服务功",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25720354",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25720354",
+   "question": "在西宁市城北区汇金街道路北侧增设停车位的建议\n西宁市城北区汇金街附近有北川万达一期、绿地公馆小区，住户多，临时停车需求大，但该街道南侧道路仅有有20余个停车位，北侧无停车位，希望政府部门在做城市治理工作时，充分进行调研，考虑群众正常需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26162324",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26162324",
+   "question": "请求增加临时公交站点\n请求增加宁东202路公交线路(文萃家园——清水营影视城)在宁夏宁东资源循环利用科技发展有限公司门口临时站点，方便干活的工人去镇上采购生活物资，望领导帮助解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25657305",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25657305",
+   "question": "公共足球场地严重不足，现有场地破损严重\n我是一名中卫市中宁县的足球爱好者，目前，中宁县仅仅只有一座6人制公共足球场，难以满足广大足球爱好者日常踢球比赛，加之球场破损严重，无人维护，现针对球场设施严重破损问题向您反映情况，恳请予以关注解决。（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26192715",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26192715",
+   "question": "汽车占用行人便道。影响行人通行。\n海淀区莱圳家园小区南区。机动车长期占用行人便道。迫使行人走机动车道。遇有汽车过来，行人无处躲闪。望市领导予以关注解决。以便行人能顺利通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "26082720",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26082720",
+   "question": "金水湾小区电动车上楼问题\n天津市宝坻区海滨街道金水湾小区，有业主推电动车电动车上楼，望领导予以解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-prov",
+   "id": "25989676",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25989676",
+   "question": "花园里二段1-2号楼自来水\n花园里二段1号楼2号楼自来水不支持居民线上自行缴费，还需要物业代收，何时改造？",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
