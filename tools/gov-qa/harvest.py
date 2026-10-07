@@ -126,10 +126,11 @@ def main() -> int:
                     print(f"      · {(r['question'] or '')[:60]}")
                     print(f"        {(r['answer'] or '')[:80]}")
             else:
-                with out_path.open("a", encoding="utf-8") as fh:
-                    for r in fresh:
-                        fh.write(json.dumps(r, ensure_ascii=False) + "\n")
-                print(f"    已追加到 {out_path}")
+                if fresh:                     # 0 新增时不建空文件（403 空跑会留垃圾）
+                    with out_path.open("a", encoding="utf-8") as fh:
+                        for r in fresh:
+                            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+                    print(f"    已追加到 {out_path}")
             grand_new += len(fresh)
             time.sleep(args.pause)
 
