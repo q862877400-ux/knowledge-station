@@ -358,6 +358,59 @@
    ],
    "cited_missing": [],
    "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "23699211",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23699211",
+   "question": "请政府帮协调开发商恶意收费停车位问题\n我们系丰台区宋庄路73号院（鑫兆雅园南区）的业主。近日，开发商发布了《关于丰台区宋庄路73号院1号地下车库（南区）地下一层车位出租事宜的通知》，要求业主必须一次性缴纳20年（2026年至2045年）租金",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26024151",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26024151",
+   "question": "朝阳区秋实街违停问题\n秋实街由红军营南路至双营路，东西两侧违章停车占满非机动车道，致使自行车与机动车在机动车道上混行，安全隐患巨大；尤其在“北苑菜市场”门前附近，甚至有机动车占用主路违停，由于常年占用机动车道路，致使公交公司无法开通运行线路",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市实施 办法",
+    "北京市交通协管员道路停车记录告知单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22287141",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22287141",
+   "question": "天丰苑物业收费过高\n尊敬的领导，您好。\r\n我是房山区天丰苑小区的居民，目前物业收费标准2.83/平米/月。根据相关规定，经济适用房的物业费政府指导价为0.55元/平米/月，共有产权房同样作为保障性住房，对比经济适用房，天丰苑物业收费标准太高",
+   "cited_hits": [
+    {
+     "name": "北京市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "北京市发展和改革委员会关于废止有关收费文件的通知",
+    "北京市定价目录",
+    "民法典",
+    "北京市住宅物业服务标准"
+   ],
+   "has_clause_no": true
   }
  ],
  "B_补料": [
@@ -916,6 +969,74 @@
    "cited_hits": [],
    "cited_missing": [
     "违法停车告知单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25273322",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25273322",
+   "question": "关于永顺西里东区边上家和园小区高层楼间距问题\n家和园高层建筑和永顺西里东区小区2，3，4号楼采光问题。楼间距是否过小，以及规划高度问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市居住区规划设计规范",
+    "GB50180-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26102603",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26102603",
+   "question": "双珑原著违建\n这个小区6号楼4单元30*住户，私自把开放式阳台的围栏和立柱都拆掉了，重新搭建了封闭式阳台，存在楼宇主体承重等安全隐患，也影响了小区的整体容貌，违建应恢复原貌：开放式阳台。",
+   "cited_hits": [],
+   "cited_missing": [
+    "容积率计算指标规则",
+    "关于进一步规范阳台面积计算规则及工作要求的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "21992980",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=21992980",
+   "question": "和锦诚园安全级别非常低 屡翻围墙\n1.围墙加装电网，屡次小区人员翻阅围墙，开发商涉嫌智能安防虚假宣传。2.和锦诚园自行车车棚开发商宣传有，设计规范有，实际上没有解决业主刚需，要求开发商对业主经济赔偿及出解决方案！",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "21992939",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=21992939",
+   "question": "和锦诚园楼梯间未按合同做压光处理\n1.和锦诚园未按合同做压光处理。2.西侧电梯配重块应按照施工合同刚在东侧楼梯墙壁，未按图纸施工。3.合同内标注起居室不临近电梯井，实际上起居室与电梯井共墙。针对和锦诚园开发商合同违约，恳请相关部门督促开发商",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "23259797",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23259797",
+   "question": "北京国际社区使用虚假名字宣传\n尊敬的领导您好：\r\n\r\n我要投诉*公司，该公司开发的“青年金色佳苑”项目，在其宣传广告中大肆宣传未经过批准备案的”北京国际社区“小区名字，售楼部从大门到沙盘模型图上明确写着北京国际社区。进入小区内部，也明目张胆",
+   "cited_hits": [],
+   "cited_missing": [
+    "临时管理规约"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22303263",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22303263",
+   "question": "雍和宫大街东侧腾退\n领导您好，请问今年雍和宫大街，雍和宫大门往北东侧居民院落有腾退计划吗，雍和宫初一、十五，春节等日子排队变道都是人，院落居民出行不便，是否有腾退计划呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好核心区历史文化街区平房直管公房申请式退租、恢复性修建和经营管理有关工作的通知"
    ],
    "has_clause_no": false
   }
@@ -2330,6 +2451,87 @@
    "id": "25012047",
    "url": "http://liuyan.people.com.cn/threads/content?tid=25012047",
    "question": "建议督促完成小区电动车充电桩消防合规性检查\n一品嘉园小区存在较多个人搭建的电动汽车充电桩，为保证消防安全，请社区督促物业完成小区个人充电桩统计，并进行合规性检查、公示，明确现有个人充电桩是否满足消防安全要求，排除安全隐患，保障社区居民人身财",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25240965",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25240965",
+   "question": "北苑街道首师大附中（通州校区）东侧规划道路\n您好，之前看副中心规划，首师大附中（通州校区）东侧有一条待建设的道路（规划广储路），请问有没有建设时间计划？因为要去通州区幼儿园送孩子绕一大圈。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "23714525",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=23714525",
+   "question": "和义庄北街顺和写字楼长期破损\n和义庄北街顺和写字楼（世嘉丽晶对面）自2018年违建部分坍塌以来，长期破损没有任何后续进展，长期影响社区环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25288450",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25288450",
+   "question": "八角路小区11号楼居民违规占楼道\n楼道属于全体业主共有区域，任何业主私自安装防盗门、占用公共通道，都是侵犯其他业主共有权的违规行为，两家私下商量好也不算数，因为楼道是整栋楼所有业主的，不是几家人能说了算的。该部分为楼道而并非共有面积，请重新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25273195",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25273195",
+   "question": "八角路小区11号楼3 4号把楼的外立面砸了\n领导 八角路小区11号楼3.4号居民，破坏楼体外立面 南北两侧均将墙砸掉。请相关部门介入核实 对照设计图核实破坏情况！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22790227",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22790227",
+   "question": "顺义公园都会小区公共设施的维修\n公园都会北区14号楼2单元顶层的顶梁出现塌陷，从24年夏天联系过物业过来维修，但至今不见施工，一直拖拉。顶梁塌陷的位置内已有马蜂筑巢，现在天气逐渐转热， 并已出现马蜂。 这个位置是公共区域，紧挨着顶层住户的露",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22308300",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22308300",
+   "question": "关于富贵园小区电表收费500元的合理性\n本人是富贵园小区四区的居民，拥有该小区地下储藏间的产权，该储藏间有电力接入，电表也正常运行。近日打算继续给该储藏间充电，被该小区物业告知需要更换 电表并自行承担500元，才能充值供电，如果不缴纳这个钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25472283",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25472283",
+   "question": "备用铁轨及检修铁轨的鸣笛位置及时间咨询\n领导您好，我这边想咨询一下【丰台地铁十九号线新宫车辆段综合利用项目FXG-1401-0601-03等地块】下方地铁备用铁轨及地铁检修铁轨的地铁鸣笛位置及时间。谢谢~~",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25454012",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25454012",
+   "question": "翠林小区居民无序停车，车位规划不合理\n现象1:翠林小区分为一里二里三里，人员多，车辆也多，固定车位很少（仅以车位有车号为准），对于固定车位、随机车位以及不碍事儿的地方没有明确管理，谁先停车就是谁的，谁一直在停车就是谁的。有大爷无故要求停在非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22597503",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22597503",
+   "question": "房山磁家务幼儿园\n房山区磁家务幼儿园自拆迁后，新建磁家务河北镇中心幼儿园自从建筑主体框架建成后4年之久了，附近幼儿园离小区很远，很是不方便。希望能尽快建成，充分利用起来，满足附近老百姓对于幼儿教育需求。",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
