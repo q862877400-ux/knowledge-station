@@ -1,0 +1,85 @@
+{
+ "why": "从 JS 里挖部委问答的接口 URL",
+ "js": [
+  {
+   "url": "https://www.mee.gov.cn/images/hjb251010_query.js",
+   "status": 200,
+   "len": 5182,
+   "urls": [],
+   "funcs": [],
+   "head": "\n(function(root, factory) {\n\t//amd\n\tif (typeof define === 'function' && define.amd) {\n\t\tdefine(['$'], factory);\n\t} else if (typeof exports === 'object') { //umd\n\t\tmodule.exports = factory();\n\t} else {\n\t\troot.Query = factory(window.Zepto || window.jQuery || $);\n\t}\n})(this, function($) {\n\tvar Query = {\n\t\tgetQuery: function(name, type, win) {\n\t\t\tvar reg = new RegExp(\"(^|&|#)\" + name + \"=([^&]*)(&|$|#"
+  },
+  {
+   "url": "https://www.mee.gov.cn/hdjl/images/hjb251010_query.js",
+   "status": 200,
+   "len": 30094,
+   "urls": [
+    "//gov.govwza.cn/dist/aria.js?appid=ca7cdadfe5c5be7aa82dd83cdf2639b6",
+    "/home/lxwm/",
+    "/home/wzdt/",
+    "/home/wzsm/",
+    "/images/2022slh.png",
+    "/images/MEPC_base_footer_v2019_03.png",
+    "/images/MEPC_base_footer_v2019_11.png",
+    "/images/MEPC_base_footer_v2019_14.png",
+    "/images/MEPC_base_innerBanner_v2019_02.jpg",
+    "/images/MEPC_base_mobile_v2019.js",
+    "/images/MEPC_base_pc_v2019.js",
+    "/images/MEPC_base_top2_v2019_13.png",
+    "/images/MEPC_base_topImg_v2019_03.png",
+    "/images/MEPC_base_topImg_v2019_05.png",
+    "/images/MEPC_base_topImg_v2019_06.png",
+    "/images/MEPC_base_topImg_v2019_08.png",
+    "/images/MEPC_base_toutiao_v2019_03.png",
+    "/images/MEPC_base_v2019_03.png",
+    "/images/MEPC_base_v2019_07.png",
+    "/images/MEPC_base_v2019_17.jpg",
+    "/images/MEPC_base_ydGjhaqj_v2019_03.png",
+    "/images/MEPC_hzx_mobile_v2019.js",
+    "/images/MEPC_hzx_pc_v2019.js",
+    "/images/MEPC_link_mobile_v2023.css",
+    "/images/MEPC_link_pc_v2023.css",
+    "/images/MEPC_mobile_v2020.js",
+    "/images/babs.png",
+    "/images/hrefclickdate.js",
+    "/images/icon_13.png",
+    "/images/jiucuo.js"
+   ],
+   "funcs": [],
+   "head": "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1\">\n<title>中华人民共和国生态环境部</title>\n<script type=\"text/javascript\" src=\"/images/jquery-3.7.1.min.js\"></script>\n<script type=\"text/javascript\" src=\"/images/jquery-migrate-3.4.0.min.js\"></script>\n<script type=\"text/javascript\" src=\"/ima"
+  },
+  {
+   "url": "https://www.mee.gov.cn/images/jquery-3.7.1.min.js",
+   "status": 200,
+   "len": 87533,
+   "urls": [],
+   "funcs": [
+    "ajax",
+    "ajaxComplete",
+    "ajaxError",
+    "ajaxPrefilter",
+    "ajaxSend",
+    "ajaxSettings",
+    "ajaxSetup",
+    "ajaxStart",
+    "ajaxStop",
+    "ajaxSuccess",
+    "ajaxTransport"
+   ],
+   "head": "/*! jQuery v3.7.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */\n!function(e,t){\"use strict\";\"object\"==typeof module&&\"object\"==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error(\"jQuery requires a window with a document\");return t(e)}:t(e)}(\"undefined\"!=typeof window?window:this,function(ie,e){\"use strict\";var oe=[],r=Object."
+  },
+  {
+   "url": "https://xgzlyhd.samr.gov.cn/gjjly/webjars/artery/static/arteryAjaxInterceptor.js",
+   "status": 200,
+   "len": 2366,
+   "urls": [
+    "/login?returnUrl="
+   ],
+   "funcs": [
+    "ajax",
+    "url = 'login?returnUrl='"
+   ],
+   "head": "(function () {\r\n    if (Artery.ajax) {\r\n        var getTopWindow = function() {\r\n            var top = window.top.window\r\n            if (top === window) {\r\n                return window\r\n            }\r\n            var parents = []\r\n            var parent = window.parent.window\r\n            while (parent !== top) {\r\n                parents.unshift(parent)\r\n                parent = parent.parent.wi"
+  }
+ ]
+}
