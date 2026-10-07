@@ -21,8 +21,14 @@ from typing import Iterator, List
 
 #: middle 产物文件名模式，按优先级排序。2026-09-14 云改名事件：zip 内裸名
 #: layout.json，_normalize_landing 落位后为 <stem>_layout.json——两种形态都要认。
+#: **2026-10-07 MinerU 4.0 改名**：产物目录里是 ``middle_json.json``（带下划线），
+#: 上表任一模式都匹配不上 ⇒ ``find_middle_files`` 返回空 ⇒ 上层报"未找到 middle.json"。
+#: 实测：业主 OCR 的 1,087 本 4.0 产物全部命不中（`GB 1094.1-2013` 起）。
+#: 放在 ``middle.json`` 之后、layout 系列之前：4.0 目录里没有 ``middle.json``，
+#: 两者不会同时命中；真有并存时优先旧的（历史行为优先）。
 MIDDLE_PATTERNS: tuple[str, ...] = (
-    "*_middle.json", "middle.json", "*_layout.json", "layout.json")
+    "*_middle.json", "middle.json", "middle_json.json", "*_middle_json.json",
+    "*_layout.json", "layout.json")
 
 
 def iter_middle_files(root: Path) -> Iterator[Path]:

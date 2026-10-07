@@ -75,3 +75,24 @@ class TestFind:
     def test_non_json_ignored(self, tmp_path):
         (tmp_path / "layout.txt").write_text("x", encoding="utf-8")
         assert find_middle_files(tmp_path) == []
+
+    # --- 2026-10-07 MinerU 4.0 改名：产物目录里是 middle_json.json（带下划线）---
+    def test_finds_mineru40_middle_json(self, tmp_path):
+        """4.0 的产物名 `middle_json.json` 必须被识别。
+
+        不认它 ⇒ 上层报"未找到 middle.json" ⇒ 即便结构归一器已支持 4.0 也进不了库
+        （实测 1,087 本 4.0 产物全部命不中）。
+        """
+        _mk(tmp_path, "doc.mineru-4.0.10-vlm/middle_json.json")
+        files = find_middle_files(tmp_path)
+        assert len(files) == 1 and files[0].name == "middle_json.json"
+
+    def test_finds_stemmed_middle_json(self, tmp_path):
+        _mk(tmp_path, "auto/doc_middle_json.json")
+        assert len(find_middle_files(tmp_path)) == 1
+
+    def test_legacy_preferred_over_40_when_both(self, tmp_path):
+        # 真有并存时优先旧的（历史行为优先）
+        _mk(tmp_path, "middle.json")
+        _mk(tmp_path, "middle_json.json")
+        assert find_middle_files(tmp_path)[0].name == "middle.json"
