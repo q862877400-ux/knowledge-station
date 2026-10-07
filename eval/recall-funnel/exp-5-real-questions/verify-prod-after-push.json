@@ -1,0 +1,44 @@
+{
+ "why": "第⑤步：在真库上补验推送结果（推送脚本漏验了 clause_vec）",
+ "real": {
+  "doc_meta": 8983,
+  "clause_revision": 663634,
+  "clause_vec": 663634,
+  "integrity": "ok",
+  "mandatory_gb": 1024,
+  "law_docs": 1430
+ },
+ "copy": {
+  "doc_meta": 8983,
+  "clause_revision": 663634,
+  "clause_vec": 663634,
+  "integrity": "ok",
+  "mandatory_gb": 1024,
+  "law_docs": 1430
+ },
+ "match": true,
+ "samples": [
+  {
+   "name": "劳动合同法",
+   "found": true,
+   "clauses": 98,
+   "first_no": "第一条",
+   "first_text": "第一条 ## 第一章 总则 为了完善劳动合同制度，明确劳动合同双方当事人的权利和义务，保护劳动者的合法权益，构建和发展和谐稳定的劳动关系，制定本法。"
+  },
+  {
+   "name": "职业病防治法",
+   "found": true,
+   "clauses": 88,
+   "first_no": "第一条",
+   "first_text": "第一条 ## 第一章 总则 为了预防、控制和消除职业病危害，防治职业病，保护劳动者健康及其相关权益，促进经济社会发展，根据宪法，制定本法。"
+  },
+  {
+   "name": "易制毒化学品管理条例",
+   "found": true,
+   "clauses": 45,
+   "first_no": "第一条",
+   "first_text": "第一条 ## 第一章 总则 为了加强易制毒化学品管理，规范易制毒化学品的生产、经营、购买、运输和进口、出口行为，防止易制毒化学品被用于制造毒品，维护经济和社会秩"
+  }
+ ],
+ "note": "推送脚本 40 的 clause_vec 一栏报 ModuleNotFoundError（漏 sys.path 注入），故单独补验。"
+}

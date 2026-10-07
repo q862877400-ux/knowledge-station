@@ -1,0 +1,40 @@
+{
+ "why": "把副本推成生产库（业主 2026-10-07 授权）",
+ "real": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+ "copy": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data\\database\\knowledge.db",
+ "seconds_total": null,
+ "backup_before": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\backups\\knowledge-20261007-134109-prepush.db",
+ "copy_counts": {
+  "doc_meta": 8983,
+  "clause_revision": 663634,
+  "clause_vec": "未取到:ModuleNotFoundError",
+  "integrity": "ok"
+ },
+ "real_counts_after": {
+  "doc_meta": 8983,
+  "clause_revision": 663634,
+  "clause_vec": "未取到:ModuleNotFoundError",
+  "integrity": "ok"
+ },
+ "match": true,
+ "log": {
+  "exclusive": {
+   "ok": true,
+   "why": "可独占打开"
+  },
+  "backup_before": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\backups\\knowledge-20261007-134109-prepush.db",
+  "copy_counts": {
+   "doc_meta": 8983,
+   "clause_revision": 663634,
+   "clause_vec": "未取到:ModuleNotFoundError",
+   "integrity": "ok"
+  },
+  "real_counts_after": {
+   "doc_meta": 8983,
+   "clause_revision": 663634,
+   "clause_vec": "未取到:ModuleNotFoundError",
+   "integrity": "ok"
+  }
+ },
+ "rollback": "把 C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\backups\\knowledge-20261007-134109-prepush.db 复制回 C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db 即可退回（覆盖前请确认没有程序占用）"
+}
