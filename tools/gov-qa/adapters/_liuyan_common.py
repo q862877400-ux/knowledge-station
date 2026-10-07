@@ -107,13 +107,19 @@ def _ts(unix) -> str | None:
 
 
 def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
+                   fid: str | None = None,
                    limit: int | None = None, pause: float = PAUSE,
                    rows_per_page: int = LIST_ROWS) -> list[dict]:
-    """抓部委版块（`stream="bw"`）的**已办理**留言 + 官方答复。
+    """抓版块（`stream="df"` 地方 / `"bw"` 部委）的**已办理**留言 + 官方答复。
 
     ⚠ `fetch` 是 harvest.py 注入的 `_Fetcher`：本站接口是 POST，
     用 `fetch.post(url, content=…, headers=…)`。
-    只收详情里确有 `dataType==9` 答复的条目（列表状态只是初筛）。
+    只收详情里确有 `dataType==4` 答复的条目（列表状态只是初筛）。
+
+    `fid`：**按版块定向**（2026-10-07 实测 `fid=540`＝北京市长版块，返回该版块自己的留言）。
+    不传 = 全站时间流（广度；单批常聚集在一个省）。
+    定向时 fid 从已采数据的 `extra.fid` + `extra.pForumNames` 累积成表（见
+    `recon/liuyan-fid-map.json`）——**广度靠时间流、深度靠 fid 定向**。
     """
     out: list[dict] = []
     list_path = f"/v1/threads/list/{stream}"
@@ -121,6 +127,8 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
     while True:
         param = {"showUnAnswer": 0, "lastItem": last_item, "position": position,
                  "rows": rows_per_page, "orderType": 2}
+        if fid:
+            param["fid"] = str(fid)
         r = fetch.post(BASE + list_path, content=_envelope(list_path, param),
                        headers=_headers(f"{BASE}/index"))
         if getattr(r, "status_code", 0) != 200:
