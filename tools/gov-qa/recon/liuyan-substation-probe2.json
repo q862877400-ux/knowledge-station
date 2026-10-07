@@ -1,0 +1,152 @@
+[
+ {
+  "path": "/v1/forum/substation",
+  "param": {
+   "fid": "575"
+  },
+  "status": 200,
+  "result": "{'code': '0', 'serverTime': 1791388805}",
+  "rd_len": 26,
+  "rd_head": "{\"hasColumnConfig\": false}"
+ },
+ {
+  "path": "/v1/forum/substation",
+  "param": {
+   "parentId": "575"
+  },
+  "status": 200,
+  "result": "{'code': '0', 'serverTime': 1791388806}",
+  "rd_len": 26,
+  "rd_head": "{\"hasColumnConfig\": false}"
+ },
+ {
+  "path": "/v1/forum/substation",
+  "param": {
+   "pid": "575"
+  },
+  "status": 200,
+  "result": "{'code': '0', 'serverTime': 1791388808}",
+  "rd_len": 26,
+  "rd_head": "{\"hasColumnConfig\": false}"
+ },
+ {
+  "path": "/v1/forum/subSite",
+  "param": {
+   "fid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/subSite",
+  "param": {
+   "parentId": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/subSite",
+  "param": {
+   "pid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/list",
+  "param": {
+   "fid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/list",
+  "param": {
+   "parentId": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/list",
+  "param": {
+   "pid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/getSubForums",
+  "param": {
+   "fid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/getSubForums",
+  "param": {
+   "parentId": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/getSubForums",
+  "param": {
+   "pid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/subForumList",
+  "param": {
+   "fid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/subForumList",
+  "param": {
+   "parentId": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ },
+ {
+  "path": "/v1/forum/subForumList",
+  "param": {
+   "pid": "575"
+  },
+  "status": 404,
+  "result": "None",
+  "rd_len": 0,
+  "rd_head": ""
+ }
+]

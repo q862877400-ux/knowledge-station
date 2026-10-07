@@ -150,6 +150,10 @@
   ② 按区间扫描补号（本表即扫描所得，证据 `recon/liuyan-fid-band-scan.json`）。
 ⚠ 未穷举：601~763 只稀疏取样过（每 10 个取 1），**不代表该区间只有这些版块**；
 地级市/县级的完整清单尚未建立（体量以千计，逐号扫描不经济，优先靠时间流自然带出）。
+⛔ **没有「按省列下级版块」的公开接口**（2026-10-07 实测）：`/v1/forum/substation` 无论带
+`fid`/`parentId`/`pid` 都只返回 `{"hasColumnConfig": false}`；另 4 个猜名路径（`/v1/forum/subSite`
+`/list` `/getSubForums` `/subForumList`）全 404。证据 `recon/liuyan-substation-probe2.json`。
+⇒ **别再找这类接口**，市县级就走上面两条路（时间流 + 已发现 fid 轮转）。
 
 ## 二·补、★ 2026-10-07 真浏览器实测（业主指示："搜不到就直接用 browser use"）用受控浏览器实测了两家**直连拿不下**的站，结论**改变了原先的判断**：
 
