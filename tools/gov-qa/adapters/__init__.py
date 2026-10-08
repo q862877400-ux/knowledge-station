@@ -70,6 +70,36 @@ ADAPTERS: dict[str, str] = {
     "gz-nynct": "adapters.gz_nynct",     # 贵州省农业农村厅（IGI，生成器产出）
     "gz-swt": "adapters.gz_swt",         # 贵州省商务厅（IGI，生成器产出）
     "gz-zrzy": "adapters.gz_zrzy",       # 贵州省自然资源厅（IGI，生成器产出）
+    # —— 贵州 IGI 扩厅局 第 3 轮（2026-10-08）：从省门户部门导航取**真实域名**（不再猜域名），
+    #    27 站全部实测 n>0 且带省/市/区三级归属。生成器 recon/gen-gz-igi-adapters.py，
+    #    证据 recon/gz-igi-hunt-3.txt ——
+    "gz-fgw": "adapters.gz_fgw",         # 贵州省发展和改革委员会（502516/1225）
+    "gz-kjt": "adapters.gz_kjt",         # 贵州省科学技术厅（501485/542）
+    "gz-gxt": "adapters.gz_gxt",         # 贵州省工业和信息化厅（500653/307）
+    "gz-mzw": "adapters.gz_mzw",         # 贵州省民族宗教事务委员会（500471/327）
+    "gz-mzt": "adapters.gz_mzt",         # 贵州省民政厅（501697/699）
+    "gz-sft": "adapters.gz_sft",         # 贵州省司法厅（97/92）
+    "gz-czt": "adapters.gz_czt",         # 贵州省财政厅（502606/1299）
+    "gz-mwr": "adapters.gz_mwr",         # 贵州省水利厅（501659/684）
+    "gz-whhly": "adapters.gz_whhly",     # 贵州省文化和旅游厅（500430/225）
+    "gz-tyjrswt": "adapters.gz_tyjrswt",  # 贵州省退役军人事务厅（88/77）
+    "gz-yjgl": "adapters.gz_yjgl",       # 贵州省应急管理厅（500484/1054）
+    "gz-sjt": "adapters.gz_sjt",         # 贵州省审计厅（503134/1396）
+    "gz-gzw": "adapters.gz_gzw",         # 贵州省国资委（502072/793）
+    "gz-tyj": "adapters.gz_tyj",         # 贵州省体育局（68/46）
+    "gz-stjj": "adapters.gz_stjj",       # 贵州省统计局（502060/858）
+    "gz-ylbzj": "adapters.gz_ylbzj",     # 贵州省医疗保障局（101/94）
+    "gz-dsj": "adapters.gz_dsj",         # 贵州省大数据发展管理局（500670/358）
+    "gz-lyj": "adapters.gz_lyj",         # 贵州省林业局（500437/237）
+    "gz-lshwzcb": "adapters.gz_lshwzcb",  # 贵州省粮食和物资储备局（503368/1421）
+    "gz-atcm": "adapters.gz_atcm",       # 贵州省中医药管理局（500440/242）
+    "gz-invest": "adapters.gz_invest",   # 贵州省投资促进局（500470/331）
+    "gz-stymj": "adapters.gz_stymj",     # 贵州省生态移民局（500472/618）
+    "gz-wsb": "adapters.gz_wsb",         # 贵州省外事办公室（501794/696）
+    "gz-wsg": "adapters.gz_wsg",         # 贵州省文史研究馆（501489/577）
+    "gz-jyglj": "adapters.gz_jyglj",     # 贵州省监狱管理局（502238/674）
+    "gz-jdglj": "adapters.gz_jdglj",     # 贵州省戒毒管理局（502602/1282）
+    "gz-jkj": "adapters.gz_jkj",         # 贵州省疾控局（503467/1636）
     "jl-hrss": "adapters.jl_hrss",       # 吉林省人社厅（海云平台，appId=96+groupId=170）
     "jl-jt": "adapters.jl_jt",           # 吉林省交通运输厅（海云平台，appId=96+groupId=159）
     # —— 吉林 IGI 扩厅局（2026-10-08）：扫 groupId 得 38 个厅局，此处补 34 个未接的。

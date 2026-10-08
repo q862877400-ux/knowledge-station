@@ -1,0 +1,128 @@
+贵州省级部门 IGI 信箱侦察（第 3 轮，2026-10-08）
+域名来源：www.guizhou.gov.cn 门户部门导航真实域名
+============================================================
+★ 贵州省发展和改革委员会 指纹页 https://fgw.guizhou.gov.cn/hdjl/ 参数 {'siteId': '502516', 'appId': '1225'}
+     验证 base=https://fgw.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "西部鼓励类产业目录（2025版）产业范围咨询", "chain": ["贵州省", "安顺市", "西秀区"]}
+★ 贵州省科学技术厅 指纹页 https://kjt.guizhou.gov.cn/hdjl/ 参数 {'siteId': '501485', 'appId': '542'}
+     验证 base=https://kjt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "贵州省9个市州2018年研究与试验发展（RD）经费投入强度", "chain": ["贵州省", "遵义市", "红花岗区"]}
+★ 贵州省工业和信息化厅 指纹页 https://gxt.guizhou.gov.cn/ 参数 {'siteId': '500653', 'appId': '307'}
+     验证 base=https://gxt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "宽带资源覆盖", "chain": ["贵州省", "黔西南州", "安龙县"]}
+★ 贵州省民族宗教事务委员会 指纹页 https://mzw.guizhou.gov.cn/hdjl/ 参数 {'siteId': '500471', 'appId': '327'}
+     验证 base=https://mzw.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "2026年贵州世居少数民族语言测试报名", "chain": ["贵州省", "贵阳市", "花溪区"]}
+★ 贵州省民政厅 指纹页 https://mzt.guizhou.gov.cn/ 参数 {'appId': '699', 'siteId': '501697'}
+     验证 base=https://mzt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "申请低保", "chain": ["贵州省", "黔东南州", "岑巩县"]}
+★ 贵州省司法厅 指纹页 https://sft.guizhou.gov.cn/ 参数 {'siteId': '97', 'appId': '92'}
+     验证 base=https://sft.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "关于贵州行政执法培训系统课程进度显示异常、无法参加在线考试的问题反映", "chain": ["贵州省", "遵义市", "务川自治县"]}
+★ 贵州省财政厅 指纹页 https://czt.guizhou.gov.cn/hdjl/ 参数 {'siteId': '502606', 'appId': '1299'}
+     验证 base=https://czt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "非税收入", "chain": ["贵州省", "贵阳市", "南明区"]}
+★ 贵州省水利厅 指纹页 https://mwr.guizhou.gov.cn/ 参数 {'siteId': '501659', 'appId': '684'}
+     验证 base=https://mwr.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "职称评定", "chain": ["贵州省", "遵义市", "湄潭县"]}
+★ 贵州省文化和旅游厅 指纹页 https://whhly.guizhou.gov.cn/hdjl/ 参数 {'siteId': '500430', 'appId': '225'}
+     验证 base=https://whhly.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "演唱会查询", "chain": ["贵州省", "贵阳市", "白云区"]}
+★ 贵州省退役军人事务厅 指纹页 https://tyjrswt.guizhou.gov.cn/hdjl/tzxx/xjgs/ 参数 {'appId': '77', 'siteId': '88'}
+     验证 base=https://tyjrswt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "军队文职人员贵州省内享受福利政策", "chain": ["贵州省", "黔南州", "荔波县"]}
+★ 贵州省应急管理厅 指纹页 https://yjgl.guizhou.gov.cn/ 参数 {'siteId': '500484', 'appId': '1054'}
+     验证 base=https://yjgl.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "2025年中级注册安全工程师证书发放时间是什么时候", "chain": ["贵州省", "铜仁市", "玉屏自治县"]}
+★ 贵州省审计厅 指纹页 https://sjt.guizhou.gov.cn/ 参数 {'siteId': '503134', 'appId': '1396'}
+     验证 base=https://sjt.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "咨询2025年中级审计师证书领取时间", "chain": ["贵州省", "贵阳市", "观山湖区"]}
+★ 贵州省国资委 指纹页 https://gzw.guizhou.gov.cn/ 参数 {'appId': '793', 'siteId': '502072'}
+     验证 base=https://gzw.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "国资国企在线监管系统", "chain": ["贵州省", "贵阳市", "云岩区"]}
+  贵州省能源局 无 IGI 指纹 | hdjl/:404 hdjl/tzxx/xjgs/:404 zmhd/:404 hdjl/tzxx/:404 zmhd/tzxx/lyxd/:404 hd/:404 (home):200
+  贵州省广播电视局 无 IGI 指纹 | hdjl/:404 hdjl/tzxx/xjgs/:404 zmhd/:404 hdjl/tzxx/:404 zmhd/tzxx/lyxd/:404 hd/:404 (home):200
+★ 贵州省体育局 指纹页 https://tyj.guizhou.gov.cn/hdjl/ 参数 {'siteId': '68', 'appId': '46'}
+     验证 base=https://tyj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "咨询", "chain": ["贵州省", "六盘水市", "水城区"]}
+★ 贵州省统计局 指纹页 https://stjj.guizhou.gov.cn/zmhd/ 参数 {'siteId': '502060', 'appId': '858'}
+     验证 base=https://stjj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "申请最新投入产出表", "chain": ["贵州省", "遵义市", "红花岗区"]}
+★ 贵州省医疗保障局 指纹页 https://ylbzj.guizhou.gov.cn/ 参数 {'siteId': '101', 'appId': '94'}
+     验证 base=https://ylbzj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "把多发性硬化纳入门诊慢性病报销范围", "chain": ["贵州省", "黔东南州", "凯里市"]}
+★ 贵州省人民防空办公室 指纹页 https://rfb.guizhou.gov.cn/ 参数 {'siteId': '501475', 'appId': '27'}
+     验证 base=https://rfb.guizhou.gov.cn/IGI -> {"http": 200, "n": 0, "sample": null, "chain": null}
+  贵州省机关事务管理局 无 IGI 指纹 | hdjl/:404 hdjl/tzxx/xjgs/:404 zmhd/:404 hdjl/tzxx/:404 zmhd/tzxx/lyxd/:404 hd/:404 (home):200
+★ 贵州省大数据发展管理局 指纹页 https://dsj.guizhou.gov.cn/hdjl/ 参数 {'siteId': '500670', 'appId': '358'}
+     验证 base=https://dsj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "复旦大学学生学术研究访谈申请关于贵州省大数据管理机构职能演化研究", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州省林业局 指纹页 https://lyj.guizhou.gov.cn/hdjl/ 参数 {'siteId': '500437', 'appId': '237'}
+     验证 base=https://lyj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "林业专业职称评审", "chain": ["贵州省", "安顺市", "西秀区"]}
+★ 贵州省粮食和物资储备局 指纹页 https://lshwzcb.guizhou.gov.cn/ 参数 {'siteId': '503368', 'appId': '1421'}
+     验证 base=https://lshwzcb.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "大米是怎样分类和定等的", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州省中医药管理局 指纹页 https://atcm.guizhou.gov.cn/hdjl/ 参数 {'siteId': '500440', 'appId': '242'}
+     验证 base=https://atcm.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "西学中已经取得结业证书，还需要考合格证书吗？", "chain": ["贵州省", "遵义市", "红花岗区"]}
+★ 贵州省药品监督管理局 指纹页 https://yjj.guizhou.gov.cn/ 参数 {'siteId': '502591'}
+     参数不足，跳过验证
+  贵州省供销合作社联合社 无 IGI 指纹 | hdjl/:200 hdjl/tzxx/xjgs/:200 zmhd/:200 hdjl/tzxx/:200 zmhd/tzxx/lyxd/:200 hd/:200 (home):200
+  贵州省公共资源交易中心 无 IGI 指纹 | hdjl/:200 hdjl/tzxx/xjgs/:200 zmhd/:200 hdjl/tzxx/:200 zmhd/tzxx/lyxd/:200 hd/:200 (home):200
+  贵州省公安厅 无 IGI 指纹 | hdjl/:404 hdjl/tzxx/xjgs/:404 zmhd/:404 hdjl/tzxx/:404 zmhd/tzxx/lyxd/:404 hd/:404 (home):200
+★ 贵州省投资促进局 指纹页 https://invest.guizhou.gov.cn/ 参数 {'siteId': '500470', 'appId': '331'}
+     验证 base=https://invest.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "想咨询贵州省对品牌便利店入驻贵州是否有招商引资政策", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州省生态移民局 指纹页 https://stymj.guizhou.gov.cn/ 参数 {'siteId': '500472', 'appId': '618'}
+     验证 base=https://stymj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "关于平塘县克度镇FAST宁静区易地扶贫搬迁安置房八年未办理不动产权证的情况反映与诉求", "chain": ["贵州省", "黔南州", "平塘县"]}
+★ 贵州省人民政府外事办公室 指纹页 https://wsb.guizhou.gov.cn/hdjl/ 参数 {'siteId': '501794', 'appId': '696'}
+     验证 base=https://wsb.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "颁布咨询", "chain": ["贵州省", "贵阳市", "南明区"]}
+★ 贵州省文史研究馆 指纹页 https://wsg.guizhou.gov.cn/hdjl/ 参数 {'siteId': '501489', 'appId': '577'}
+     验证 base=https://wsg.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "询问贵单位编辑出版的《民国贵州文献大系·乐嘉藻日记》相关问题", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州省监狱管理局 指纹页 https://jyglj.guizhou.gov.cn/ 参数 {'appId': '674', 'siteId': '502238'}
+     验证 base=https://jyglj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "家属如何查询服刑人员信息", "chain": ["贵州省", "贵阳市", "乌当区"]}
+★ 贵州省戒毒管理局 指纹页 https://jdglj.guizhou.gov.cn/hdjl/ 参数 {'siteId': '502602', 'appId': '1282'}
+     验证 base=https://jdglj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "信息咨询", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州省监狱管理局(jkj) 指纹页 https://jkj.guizhou.gov.cn/ 参数 {'siteId': '503467', 'appId': '1636'}
+     验证 base=https://jkj.guizhou.gov.cn/IGI -> {"http": 200, "n": 2, "sample": "您好！我想问一下儿童电子接种证怎么申请?", "chain": ["贵州省", "贵阳市", "南明区"]}
+
+===== 二次深挖（扩路径 + 全 JS 扫）=====
+== 贵州省药品监督管理局 https://yjj.guizhou.gov.cn（首轮已知 siteId=502591）
+   页 https://yjj.guizhou.gov.cn/ 参数 {'siteId': '502591'}
+      参数不足（缺 appId）
+== 贵州省国防动员办公室 https://rfb.guizhou.gov.cn（首轮已知 siteId=501475）
+   页 https://rfb.guizhou.gov.cn/ 参数 {'siteId': '501475', 'appId': '27'}
+      验证 -> {"http": 200, "n": 0, "sample": null}
+
+============================================================
+结论汇总（2026-10-08，第 3 轮扩贵州厅局）
+============================================================
+域名来源：www.guizhou.gov.cn 门户「省级部门」导航的真实链接（非猜测），
+共探 35 个候选，逐个抓首页 + 6 个常见信箱路径（/hdjl/、/hdjl/tzxx/xjgs/、
+/zmhd/、/hdjl/tzxx/、/zmhd/tzxx/lyxd/、/hd/），在页面内联 JS 里抠
+siteId/appId/groupId，带 Referer 调 IGI 接口验证。
+
+【通（n>0，已落适配器，共 27 站）】key ← siteId/appId
+  gz-fgw     502516/1225   贵州省发展和改革委员会
+  gz-kjt     501485/542    贵州省科学技术厅
+  gz-gxt     500653/307    贵州省工业和信息化厅   ★首轮 gxj.* ConnectError 是域名写错，真域名 gxt.*
+  gz-mzw     500471/327    贵州省民族宗教事务委员会
+  gz-mzt     501697/699    贵州省民政厅
+  gz-sft     97/92         贵州省司法厅
+  gz-czt     502606/1299   贵州省财政厅
+  gz-mwr     501659/684    贵州省水利厅           ★首轮 sl.* ConnectError 是域名写错，真域名 mwr.*
+  gz-whhly   500430/225    贵州省文化和旅游厅     ★首轮 wlt.* ConnectError 是域名写错，真域名 whhly.*
+  gz-tyjrswt 88/77         贵州省退役军人事务厅
+  gz-yjgl    500484/1054   贵州省应急管理厅       ★首轮 yjt.* ConnectError 是域名写错，真域名 yjgl.*
+  gz-sjt     503134/1396   贵州省审计厅
+  gz-gzw     502072/793    贵州省国资委
+  gz-tyj     68/46         贵州省体育局
+  gz-stjj    502060/858    贵州省统计局
+  gz-ylbzj   101/94        贵州省医疗保障局
+  gz-dsj     500670/358    贵州省大数据发展管理局
+  gz-lyj     500437/237    贵州省林业局
+  gz-lshwzcb 503368/1421   贵州省粮食和物资储备局
+  gz-atcm    500440/242    贵州省中医药管理局
+  gz-invest  500470/331    贵州省投资促进局
+  gz-stymj   500472/618    贵州省生态移民局
+  gz-wsb     501794/696    贵州省人民政府外事办公室
+  gz-wsg     501489/577    贵州省文史研究馆
+  gz-jyglj   502238/674    贵州省监狱管理局
+  gz-jdglj   502602/1282   贵州省戒毒管理局
+  gz-jkj     503467/1636   贵州省疾病预防控制局
+  ⇒ 生成器 recon/gen-gz-igi-adapters.py 已加 27 行 TARGETS 并产出 27 个壳文件；
+     抽测 5 个（fgw/jkj/stjj/tyjrswt/jdglj）端到端取到真人问答 + 省/市/区三级归属。
+
+【未通（如实记，别再重复试）】
+  贵州省药品监督管理局 yjj       首页只抠到 siteId=502591，扩路径 + 全 JS 扫仍无 appId ⇒ 参数不足
+  贵州省国防动员办公室 rfb       siteId=501475, appId=27 接口 200 但 n=0 ⇒ 参数不对（疑登录 iframe key），非站空
+  贵州省能源局 nyj               6 路径全 404 + 首页 200，无 IGI 指纹
+  贵州省广播电视局 gbdsj          同上，无 IGI 指纹
+  贵州省机关事务管理局 jgsw       同上，无 IGI 指纹
+  贵州省公安厅 gat               6 路径全 404，首页 200，无 IGI 指纹
+  贵州省供销合作社联合社 gxs      6 路径均 200（站群壳页）但无 IGI 指纹
+  贵州省公共资源交易中心 ggzy     6 路径均 200（站群壳页）但无 IGI 指纹
+
+【本轮附带更正】
+  首轮 igi-hunt-2.txt 记的「贵州水利/工信/文旅/应急 ConnectError」实为**域名猜错**
+  （sl/gxj/wlt/yjt 均不存在），门户真实域名为 mwr/gxt/whhly/yjgl，四站本轮全部验证通过。
