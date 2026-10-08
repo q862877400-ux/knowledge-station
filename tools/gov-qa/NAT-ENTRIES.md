@@ -49,14 +49,14 @@
 | 司法部 | 网民留言 | `chinalaw.gov.cn/hdjl/hdjlwmly/` | 🔴 登录墙 | 0 | `/hdjl/hdjlwmly/` 200 但内联 JS 跳 `/sfbconsult/index.html#/consult/consultRemind`；`/sfbconsult/` 302（需会话） |
 | 国家发展改革委 | 互动交流 | `ndrc.gov.cn` | 🟡 未挖 | ? | 首页含 `services.ndrc.gov.cn/ecdomain/portal/.../itemlist/`（清单线索） |
 | 教育部 | 部长信箱 | `hudong.moe.gov.cn/interactive/bzxx/` | 🔴 需实名注册（清单已知） | 0 | 清单标注需实名注册 |
-| 工业和信息化部 | 部长信箱 | `bzxx.miit.gov.cn/bzxx/appellate/main` | ⬜ 未核 | ? | — |
+| 工业和信息化部 | 部长信箱 | `bzxx.miit.gov.cn/bzxx/appellate/main` | 🔴 Vue SPA（疑登录墙） | 0 | 主入口 200（2733B，`gxb-bzxx-web` SPA 壳）；`js/app.*.js` 直取被 SPA 回退成 index.html（2733B）；接口未定位，疑需登录 |
 | 公安部 | 网上信访 | `gab.gov.cn` → 互动 | ⬜ 未核（信访类，大概率无答复文本） | ? | — |
 | 民政部 | 我要留言/查询 | `mca.gov.cn/n154/index.html` | ❌ 按编号+验证码查个人留言 | 0 | 交流互动页 200；「留言查询」`/consult/queryIndex.jsp` 200 需 `searchName`+`searchCode`(留言编号)+`rand`(验证码)，列表为占位模板（同一标题重复）；非公开列表 |
 | 水利部 | 公众咨询 | `mwr.gov.cn/hd/gzzx/` | ❌ 仅使用须知 | 0 | `mwr.gov.cn/hd/gzzx/` 200 → 跳 `zxzj.mwr.gov.cn/gzzx/index.html` 200，正文为《公众咨询使用须知》，无问答列表；另有 `hd/zqyj/`(征求意见)/`hd/jjjb/`(纪检举报) 非问答 |
 | 财政部 | 咨询留言 | `mof.gov.cn` → 交流互动 | ⬜ 未核 | ? | — |
 | 人力资源社会保障部 | 部长信箱 | `mohrss.gov.cn` → 互动 | ⬜ 未核 | ? | — |
 | 农业农村部 | 留言回复 | `moa.gov.cn/hd/` → 网民互动 | ✅ 可用（翻案） | **824** | 站内静态 JSON `GET /bzxxlyhf/xfwy/jsonFiles/reply.json` 200 → `[{strMinisterCode,strLetter(问题),strContent(答复HTML),strHandleOrgName,dtHandleStr}]`；**答复内联**，点名《农村综合统计调查制度》（`recon/nat-probe-moa-reply.json`）。⚠ 同域「留言选登」`publish.json` **只有问题无答复**（90 条），不合格 |
-| 商务部 | 部长信箱 | `mofcom.gov.cn` → 互动 | ⬜ 未核 | ? | — |
+| 商务部 | 互动交流 | `mofcom.gov.cn/hdjl/index.html` | ❌ 仅征求意见/访谈 | 0 | 互动交流页 200，内容为「其它征求意见/混委会征求意见」+ 发布会新闻，无「问题+官方答复」列表；部长信箱为独立表单 |
 | 文化和旅游部 | 部长信箱 | `mct.gov.cn` → 互动 | ⬜ 未核 | ? | — |
 | 国家卫生健康委 | 政策咨询平台 | `nhc.gov.cn/hdjl/denglu.html` | 🔴 疑登录墙（清单已知） | 0 | URL 含 "denglu" |
 | 退役军人事务部 | 部长信箱 | `mva.gov.cn` → 互动 | ⬜ 未核 | ? | — |
