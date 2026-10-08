@@ -9,6 +9,9 @@
         答复时间戳|None, 答复正文, 答复时间字符串], …],
        "allRow":1373,"totalPage":138,"pageSize":10,…}}`
    ★ **列表即含问题 + 答复全文**（无需再请求明细）⇒ 采集极快。
+ · ★★ 字段语义（2026-10-09 实测复核）：`it[1]` = **部门信箱 id**（全站只有 **41 个唯一值**，
+   1373 行里大量重复）；`it[2]` = **信件 guid**（1373 唯一）；`it[5]` = 信件编号（1372 唯一）。
+   **id 必须取 `it[2]`** —— 旧版用 `it[1] or it[2]` 去重，按部门折叠，1373 条只剩 41 条（3%）。
  · ⚠ `pageSize` 被服务端忽略（恒 10）；翻页参数名是 **`currentPage`**（页码，1 基）——
    `pageIndex`/`page`/`pageNo`/`pageNum` 都被忽略（恒返回第 1 页，实测）。
  · 样例：编号 202610044587「统计年鉴」→ 市统计局答复（电话告知）；公安局部门信箱同款。
@@ -79,7 +82,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 300) -> list[di
             box, id1, id2, sub_ts, title, num, content, ans_ts, answer = (
                 it[0], it[1], it[2], it[3], it[4], it[5], it[6], it[7], it[8])
             answered = it[9] if len(it) > 9 else None
-            sid = str(id1 or id2 or num or "").strip()
+            # ★ id 用 it[2]（信件 guid，1373 唯一）；**不是** it[1]！
+            #   实测 it[1] 只有 41 个唯一值（=41 个部门信箱的 id），
+            #   旧版误用 `id1 or id2 or num` ⇒ 按部门去重、1373 条只剩 41 条。
+            sid = str(id2 or num or "").strip()
             if not sid or sid in seen:
                 continue
             seen.add(sid)
