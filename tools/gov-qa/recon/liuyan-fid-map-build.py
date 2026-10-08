@@ -5,6 +5,9 @@
 
 - `liuyan-fid-national-map.json` —— `{fid: {province, city, forum, sample}}`（机器可读）
 - `liuyan-fid-national-map.md`   —— 按省汇总（省 → 市/区县数 + fid 区间），人看
+- `liuyan-fid-map.json`          —— **适配器输入格式**（`[{fid,label,province,city}]`），
+  与既有的 `build-fid-map.py` 产物**合并**（保留它从时间流累积出来的条目），
+  这样 `adapters/people_liuyan_fid.py` 不用改就能吃到全国版块表。
 
 用法：python recon/liuyan-fid-map-build.py
 """
@@ -17,6 +20,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 OUT_JSON = HERE / "liuyan-fid-national-map.json"
 OUT_MD = HERE / "liuyan-fid-national-map.md"
+ADAPTER_MAP = HERE / "liuyan-fid-map.json"      # adapters/people_liuyan_fid.py 读这个
 
 
 def main() -> int:
@@ -61,8 +65,30 @@ def main() -> int:
                      f"{items[0][2][:20]} |")
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
+    # ── 适配器输入格式：与既有 map 合并（保留 build-fid-map.py 从时间流累积的条目）──
+    merged: dict[str, dict] = {}
+    if ADAPTER_MAP.exists():
+        try:
+            for r in json.loads(ADAPTER_MAP.read_text(encoding="utf-8")):
+                if r.get("fid"):
+                    merged[str(r["fid"])] = r
+        except Exception:                                               # noqa: BLE001
+            pass
+    for fid, v in m.items():
+        old = merged.get(fid) or {}
+        merged[fid] = {
+            "fid": fid,
+            "label": v.get("forum") or old.get("label") or v.get("city") or fid,
+            "province": v.get("province") or old.get("province"),
+            "city": v.get("city") or old.get("city"),
+        }
+    ADAPTER_MAP.write_text(
+        json.dumps(sorted(merged.values(), key=lambda r: int(r["fid"])),
+                   ensure_ascii=False, indent=1), encoding="utf-8")
+
     print(f"合并 {len(files)} 份 → {len(rows)} 个 fid，命中 {len(m)} 个版块，"
           f"{len(by_prov)} 个省级单位")
+    print(f"适配器映射表 liuyan-fid-map.json：{len(merged)} 个版块")
     for prov, items in sorted(by_prov.items(), key=lambda x: -len(x[1]))[:15]:
         print(f"  {prov}: {len(items)}")
     return 0
