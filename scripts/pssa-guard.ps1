@@ -9,6 +9,14 @@
 #   「Line 475: The variable 'totalForRatchet' is assigned but never used.」
 #   ⇒ 一次命中、原始件零误报。
 #
+# ⚠⚠ **覆盖面的边界（2026-10-09 本机实测，PSSA 1.25.0）—— 就地更正，上面原话保留**：
+#   本条规则判的是"**赋值了没人用**"，所以它**只抓得住"7 个读取点全改回、只留赋值点"那一种**。
+#   实测（`var/tmp/ratchet-mutation-probe.ps1`，主仓只读、变异件建在 var/tmp）：
+#     原样件 0 命中 ／ **8 处里任意一处**单独改回 $totalRan ⇒ **0 命中** ／ 7 处全改回 ⇒ 1 命中。
+#   ⇒ 别把本门禁当成"run-gates.ps1 的棘轮接线已有单测"：**任意一处**改坏它看不见。
+#   那一半由 `tests/test_run_gates_ratchet_wiring.py` 补（逐处变异 8/8 变红）。
+#   ⚠ 本门禁仍不可删：它跑在 `-Quick` 档、pytest 那套只在 `-Full` 档。
+#
 # 扫的范围（**不是**全规则集）：run-gates.ps1 本身就有 60+ 条诊断
 #   （WriteHost / PositionalParams / EmptyCatch / BOM），全扫等于永久红。
 #   这里只判两条，**含义不同**：
