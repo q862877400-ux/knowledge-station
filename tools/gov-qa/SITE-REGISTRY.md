@@ -172,6 +172,28 @@
 | `jl-jt` | 吉林 | 交通 | haiyun.jl.gov.cn | 117 | 96 | 159 | 71 |
 | `jl-wjw` | 吉林 | 卫健 | haiyun.jl.gov.cn | 117 | 96 | 178 | 40 |
 
+#### ★ 吉林扩厅局的**正解：扫 `groupId`**（2026-10-08）
+
+第二批用「**猜域名**」探吉林其余厅局 ⇒ 大量 `ConnectError`、多数站首页没有 IGI 指纹。
+**换的做法**：吉林 IGI 是 `haiyun.jl.gov.cn/IGI` + `(siteId=117, appId=96)` **全省固定**，
+**只有 `groupId` 区分厅局** ⇒ 直接**扫 groupId 一个整数维度**，**不依赖任何厅局域名**。
+
+扫描器 `recon/jl-groupid-roster.py`（列表接口回 `datas.pageInfo.totalResults`
+⇒ **一个 groupId 一次请求**就能拿到该厅信件总数，不必翻页）。
+
+**结果（`recon/jl-groupid-roster.txt`）：`groupId` 158~195 + 255，共 38 个厅局 / 3,497 封信。**
+
+| 关键事实 | 证据 |
+|---|---|
+| `groupId` **确实是厅局选择器**（159→交通厅、186→统计局、177→文旅厅、195→药监局…）| `jl-groupid-roster.txt` 步骤1 |
+| **不带 `groupId`** 回的是**全厅混合池**（total=3,802）⇒ **别当"全量"用**，会与分组重复 | 同上 步骤0 |
+| `Referer` **不要求匹配站点**（拿人社的 Referer 去请求别的 groupId 一样 200）| `recon/jl-groupid-scan-evidence.txt` |
+| 上游 `PUBLISHURL` 字段**全为 null** ⇒ 拿不到信件公示页真实地址，`entry` 只能指平台主机 | 本机实测 |
+
+⇒ 34 个未接厅局（2,952 封）已由 `recon/gen-jl-igi-adapters.py` 批量生成薄壳适配器。
+⚠ 这条思路**同样适用于贵州**（贵州是各厅局独立 host + 独立 siteId，扫不出，只能逐个抓页面），
+故**只有吉林能这么省事**。
+
 ⚠ **参数陷阱（本轮实测，别再踩）**：
 1. 首页的 `siteId`/`appId` 常是**登录 iframe 的 key**（吉林首页那个 `575` 就是），**不是**信箱参数
    —— 抠到就**立刻验证**；`n=0` 说明参数不对，**不是站空**。

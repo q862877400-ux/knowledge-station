@@ -105,13 +105,14 @@ Set-Location 'D:\AI\work space\zcode'
    连 4 次退出）。⚠ **进程不跨会话存活** ⇒ 接手后**重新起一个**（脱离会话后台跑）：
    `python tools/gov-qa/recon/df-loop.py`；日志 `recon/df-loop.log`。
    游标 `data/.people-liuyan-df.cursor`，**续采不重采**。
-2. **IGI 平台已接通 12 站**（贵州 8 + 吉林 4，见 §三 轨②）；**还有大量厅局没探**：
-   贵州/吉林其余厅局、以及**地市州一级**（`xxx.<市>.gov.cn`）都可能挂着同款 ——
-   用 `recon/igi-hunt.py`（候选表在文件顶部；**新跑请给输出文件名，别覆盖历史证据**）
-   自动「指纹识别→抠参数→调接口验证」。
-   ★ 两条参数规律：**贵州 = 各厅局独立 host**（siteId 不连续，只能挨个抓）；
-   **吉林 = 共享 host `haiyun.jl.gov.cn` + `(siteId=117, appId=96)` 固定、只有 `groupId` 变**
-   ⇒ 吉林扩厅局 = **找新 groupId**，比贵州快。
+2. **IGI 平台**：贵州 8 站（各厅局独立 host，`siteId` 不连续 ⇒ 只能挨个抓信箱页）；
+   **吉林 38 个厅局已全部扫出**（`recon/jl-groupid-roster.txt`：groupId 158~195+255 /
+   3,497 封信），其中 **4 个已接**（交通 159 / 人社 170 / 生态 172 / 卫健 178），
+   其余 **34 个已生成薄壳适配器**（`recon/gen-jl-igi-adapters.py`）。
+   ★ **吉林扩厅局的正解是「扫 groupId」**，不是猜域名——`(siteId=117, appId=96)` 全省固定，
+   只有 groupId 变，且 `Referer` 不必匹配站点 ⇒ 一个整数维度扫完（见 SITE-REGISTRY 该节）。
+   ★ 仍可推进：**地市州一级**（`xxx.<市>.gov.cn`）可能挂着同款；贵州其余厅局只能逐个抓。
+   ★ 工具：`recon/igi-hunt.py`（猜域名路线，贵州用）、`recon/jl-groupid-roster.py`（扫 groupId，吉林用）。
 3. **已知未通的参数组合**（API 返 200 但 `n=0`）：**贵州市场监管局**（`siteId=41, appId=88`）。
    ~~吉林人社 `groupId=170`~~ —— ✅ **2026-10-08 已通**（`jl-hrss`，153 条）：
    真正的拦路虎不是 `groupId`，而是**必须带该厅站点的 `Referer`**，否则一律 403。

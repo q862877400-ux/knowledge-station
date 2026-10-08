@@ -72,6 +72,42 @@ ADAPTERS: dict[str, str] = {
     "gz-zrzy": "adapters.gz_zrzy",       # 贵州省自然资源厅（IGI，生成器产出）
     "jl-hrss": "adapters.jl_hrss",       # 吉林省人社厅（海云平台，appId=96+groupId=170）
     "jl-jt": "adapters.jl_jt",           # 吉林省交通运输厅（海云平台，appId=96+groupId=159）
+    # —— 吉林 IGI 扩厅局（2026-10-08）：扫 groupId 得 38 个厅局，此处补 34 个未接的。
+    #    生成器 recon/gen-jl-igi-adapters.py；花名册 recon/jl-groupid-roster.txt ——
+    "jl-tjj": "adapters.jl_tjj",         # 吉林省统计局（groupId=186）
+    "jl-wlt": "adapters.jl_wlt",         # 吉林省文化和旅游厅（177）
+    "jl-ypj": "adapters.jl_ypj",         # 吉林省药品监督管理局（195）
+    "jl-nynct": "adapters.jl_nynct",     # 吉林省农业农村厅（175）
+    "jl-scjd": "adapters.jl_scjd",       # 吉林省市场监督管理厅（183）
+    "jl-zyy": "adapters.jl_zyy",         # 吉林省中医药管理局（194）
+    "jl-fgw": "adapters.jl_fgw",         # 吉林省发展和改革委员会（161）
+    "jl-gxj": "adapters.jl_gxj",         # 吉林省工业和信息化厅（164）
+    "jl-zrzy": "adapters.jl_zrzy",       # 吉林省自然资源厅（171）
+    "jl-czt": "adapters.jl_czt",         # 吉林省财政厅（169）
+    "jl-tyj": "adapters.jl_tyj",         # 吉林省体育局（185）
+    "jl-tyjr": "adapters.jl_tyjr",       # 吉林省退役军人事务厅（179）
+    "jl-zfcx": "adapters.jl_zfcx",       # 吉林省住房和城乡建设厅（173）
+    "jl-mzt": "adapters.jl_mzt",         # 吉林省民政厅（167）
+    "jl-ybj": "adapters.jl_ybj",         # 吉林省医疗保障局（187）
+    "jl-slt": "adapters.jl_slt",         # 吉林省水利厅（174）
+    "jl-sjt": "adapters.jl_sjt",         # 吉林省审计厅（181）
+    "jl-sft": "adapters.jl_sft",         # 吉林省司法厅（168）
+    "jl-lyj": "adapters.jl_lyj",         # 吉林省林业和草原局（191）
+    "jl-gfdy": "adapters.jl_gfdy",       # 吉林省国防动员办公室（190）
+    "jl-kjt": "adapters.jl_kjt",         # 吉林省科学技术厅（163）
+    "jl-yjt": "adapters.jl_yjt",         # 吉林省应急管理厅（180）
+    "jl-gzw": "adapters.jl_gzw",         # 吉林省国有资产监督管理委员会（184）
+    "jl-xmy": "adapters.jl_xmy",         # 吉林省畜牧业管理局（158）
+    "jl-wsb": "adapters.jl_wsb",         # 吉林省外事办公室（182）
+    "jl-jyj": "adapters.jl_jyj",         # 吉林省监狱管理局（193）
+    "jl-ggzy": "adapters.jl_ggzy",       # 吉林省公共资源交易中心（255）
+    "jl-nyj": "adapters.jl_nyj",         # 吉林省能源局（192）
+    "jl-mzw": "adapters.jl_mzw",         # 吉林省民族事务委员会（165）
+    "jl-jgsw": "adapters.jl_jgsw",       # 吉林省机关事务管理局（188）
+    "jl-gbdsj": "adapters.jl_gbdsj",     # 吉林省广播电视局（160）
+    "jl-lsj": "adapters.jl_lsj",         # 吉林省粮食和物资储备局（189）
+    "jl-swt": "adapters.jl_swt",         # 吉林省商务厅（176）
+    "jl-gat": "adapters.jl_gat",         # 吉林省公安厅（166）
     "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）
