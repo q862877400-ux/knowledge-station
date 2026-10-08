@@ -155,6 +155,7 @@ ADAPTERS: dict[str, str] = {
     "sd-linyi": "adapters.sd_linyi",           # 临沂市·政民互动·网上信箱（服务端渲染 JSP，约 63 页 / 945 条）
     "sd-liaocheng": "adapters.sd_liaocheng",   # 聊城市·政民互动·网上信箱（api.min.js，列表自带答复，total≈1249）
     "sd-dezhou": "adapters.sd_dezhou",         # 德州市·政民互动·回应关切（服务端渲染 17 页，去重 161 条）
+    "sd-heze": "adapters.sd_heze",             # 菏泽市·政民互动·咨询选登（山东一体化CMS，无鉴权，total=613）
     "qh-wsxf": "adapters.qh_wsxf",             # 青海·互动交流·群众诉求回应（静态 27 页）
     "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "heb-szj": "adapters.heb_szj",             # 河北·数据和政务服务局·留言公开（EWB 平台，1043 条）
@@ -298,6 +299,8 @@ ADAPTERS: dict[str, str] = {
     "gs-longnan": "adapters.gs_longnan",   # 陇南市·市长信箱（龙讯 CMS label 8888，415 条）
     # —— 重庆翻案（2026-10-08）：siteId 在 150~300+ 区间，1..60 为空 ⇒ 曾误判「无问答」——
     "cq-igi": "adapters.cq_igi",           # 重庆市·政民互动（IGI，75 site / 约 3.26 万条）
+    # —— 天津翻案（2026-10-08）：门户 IGI 判死（只有问题无答复），改走北方网 enorth 问政平台 ——
+    "tj-enorth": "adapters.tj_enorth",     # 天津市·政民零距离（北方网 enorth，55 部门/区县 / 63 万条）
 }
 
 #: 用户要能直接 `from adapters import load`
