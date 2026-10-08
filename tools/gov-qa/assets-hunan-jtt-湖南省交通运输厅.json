@@ -1,0 +1,2270 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-jtt",
+   "id": "7dc8ae09accf47e9bf6a1a414241e197",
+   "url": null,
+   "question": "货运量咨询",
+   "cited_hits": [
+    {
+     "name": "湖南省交通厅&lt;政府信息公开条例&gt;实施细则",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省交通运输厅政府信息公开指南",
+    "湖南省交通运输厅政府信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8359c6f2e2cb44b7a916bd97cbf4dfb7",
+   "url": null,
+   "question": "8米级公交在农村超载走四级村道合理吗？",
+   "cited_hits": [
+    {
+     "name": "校车安全管理条例",
+     "lib_no": "校车安全管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "788cb66d0ac6447c8ce114cf0576f63f",
+   "url": null,
+   "question": "DB43T3164-2024公路桥梁锚下有效预应力检测技术规程",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省交通运输厅办公室关于进一步加强公路水运工程试验检测管理工作的通知",
+    "公路桥梁锚下有效预应力检测技术规程",
+    "公路桥梁锚下有效预应力检测技术规程",
+    "地方标准管理办法",
+    "公路桥梁锚下有效预应力检测技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2ad9358dc6bb4ff5bc3be72c79472c98",
+   "url": null,
+   "question": "请求解决新化县通达出租车重大安全隐患及违规违约等问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省安全生产条例",
+    "巡游出租汽车经营服务管理规定",
+    "新化县巡游出租汽车新一轮经营权许可实施方案",
+    "新化县巡游出租汽车经营服务管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "9936871b1cfb461eaaee4a3f5919f90a",
+   "url": null,
+   "question": "绿通问题",
+   "cited_hits": [
+    {
+     "name": "汽车、挂车及汽车列车外廓尺寸、轴荷及质量限值",
+     "lib_no": "GB 1589-2016",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "行驶证",
+    "关于进一步提升鲜活农产品运输“绿色通道”政策服务水平的通知",
+    "行驶证",
+    "行驶证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c1e154a83bdc4c11bfe494aa91c10c37",
+   "url": null,
+   "question": "关于我省破损公路及公路设施赔（补）偿费和公路占用费免征、少征的程序和权限问题。",
+   "cited_hits": [
+    {
+     "name": "公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于明确破损公路及公路设施赔（补）偿费和公路占用费有关问题的函",
+    "政府非税收入管理办法",
+    "湖南省非税收入管理条例",
+    "湖南省公路路产保护规定",
+    "破损公路及公路设施赔补偿费和公路占用费标准表",
+    "公路赔（补）偿通知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ee0d8ce90cae4d4d85a5406146a8222b",
+   "url": null,
+   "question": "咨询湖南省交通厅自然人施工是否属于承揽问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "建筑工程施工发包与承包违法行为认定查处管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0bc23cb5189d461cbfac267794b7850d",
+   "url": null,
+   "question": "咨询湖南省交通厅违法分包举报发现时效问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "建筑工程施工发包与承包违法行为认定查处管理办法的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8dfbc1aae1ba4305bd08f7c49fa7428a",
+   "url": null,
+   "question": "关于请求督促湖南省高速集团株洲分公司对G0422武深高速攸县酒埠江镇普安桥村增加龙组段排水渠淤塞问题进行治理的联名投诉信",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "农田水利条例",
+     "lib_no": "农田水利条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省小型农业水利设施管护办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3cba366c9d48488b825fc4a5af8241c7",
+   "url": null,
+   "question": "县道升级省道前建成燃气企业存量道口是否收取平面交叉道口补偿费",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公路法",
+     "lib_no": "公路法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8e6e0991dd924c4b95082221ef428947",
+   "url": null,
+   "question": "我县境内“小黄车”用于运送液化气的运输活动，如何监管？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于加强瓶装液化石油气安全管理的指导意见",
+     "lib_no": "住房和城乡建设部 公安部 交通运输部 商务部 应急部 市场监管总局关于加强瓶装液化石油气安全管理的指导意见",
+     "weak": false
+    },
+    {
+     "name": "无证无照经营查处办法",
+     "lib_no": "无证无照经营查处办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法",
+    " 危险货物道路运输安全管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "de9fa70593a84370a4ccdfa5f71c4780",
+   "url": null,
+   "question": "湖南高速收费站违法拦截机动车",
+   "cited_hits": [
+    {
+     "name": "湖南省实施〈中华人民共和国道路交通安全法〉办法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "595cf1ae65604cbaadb698f0758c667f",
+   "url": null,
+   "question": "摩托艇归谁管理？",
+   "cited_hits": [
+    {
+     "name": "航道法",
+     "lib_no": "航道法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "船舶登记条例",
+     "lib_no": "船舶登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "体育总局水上中心关于进一步加强摩托艇项目安全工作的通知",
+    "船舶登记办法",
+    "体育总局水上中心关于进一步加强摩托艇项目安全工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "9d2a10df0ccd43a08ad0aa7ebbb74fed",
+   "url": null,
+   "question": "请湖南省交通厅阐释违法分包认定政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国建筑法",
+     "lib_no": "建筑法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑业企业资质管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "626b20cd3d884f1d9d0aa0bd901a60fb",
+   "url": null,
+   "question": "关于长沙泛亚运通国际货运代理有限公司非法扣押出口货物的投诉信",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国国际货物运输代理业管理规定",
+     "lib_no": "国际货物运输代理业管理规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国国际货物运输代理业管理规定",
+     "lib_no": "国际货物运输代理业管理规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "7942cd9de4f7463bb11a2c57506d7225",
+   "url": null,
+   "question": "关于对湖南省岳阳市平江县南江收费站违法改变收费站栏杆规格的投诉信",
+   "cited_hits": [
+    {
+     "name": "收费用栏杆",
+     "lib_no": "GB/T 24973-2023",
+     "weak": false
+    },
+    {
+     "name": "收费公路管理条例",
+     "lib_no": "收费公路管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "收费公路管理条例",
+     "lib_no": "收费公路管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典",
+    "GB/T24973-2023"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "64d11ac0168b4aaf828cebbcda44d801",
+   "url": null,
+   "question": "摩托车上高速",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省高速公路条例（修订草案·二审修改稿）",
+    "湖南省高速公路条例（修订草案·二审修改稿）",
+    "湖南省高速公路条例",
+    "湖南省高速公路条例",
+    "湖南省高速公路条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "9e4875fe8afb484486e85149d9ab2b1b",
+   "url": null,
+   "question": "投诉宁远县交通局对农养省道管控标准执行错误",
+   "cited_hits": [
+    {
+     "name": "公路安全保护条例",
+     "lib_no": "公路安全保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "38c6b52668934f898217cc3878c5e0d2",
+   "url": null,
+   "question": "关于恳请重新申请办理道路运输证",
+   "cited_hits": [
+    {
+     "name": "湖南省道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6498843e72a941fca226cc10d540e355",
+   "url": null,
+   "question": "向领导申请解冻道路运输证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和&nbsp;国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路运输车辆技术管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "16ecb984fb2a492888ff83577932e86d",
+   "url": null,
+   "question": "关于京港澳高速润和星河玥侧噪音问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "b7726f77532b461a8de0de3cdbae0f1e",
+   "url": null,
+   "question": "北横高速望城段进展",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-jtt",
+   "id": "ec5d7c940ffa4e579e46f3798b5cc3da",
+   "url": null,
+   "question": "关于规划建设衡邵高速公路经高平、花瑶延伸至怀化的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路网规划（2024-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "434e605ce5654b7e8db81bd8838787fb",
+   "url": null,
+   "question": "关于湖南省是否允许旅游大巴车进行挂靠的三个问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定",
+    "湖南省人民政府办公厅关于加强道路运输安全监管的通知",
+    "湖南省人民政府办公厅关于加强道路运输安全监管的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "669424f7c26c4538af9a26ca26064cca",
+   "url": null,
+   "question": "长沙市交通运输局不履行法定监管职责，行政不作为",
+   "cited_hits": [],
+   "cited_missing": [
+    "小微型客车租赁经营服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3d7ace069e7d48c0a1d57d3b545c99b6",
+   "url": null,
+   "question": "宁乡市黄材镇月山村古香榧公园入口漫水桥改建项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村公路建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2f48615e55004cfab43a5d682dfcc7b3",
+   "url": null,
+   "question": "关于跨高速施工是否应征收占用公路补偿费事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省交通运输系统行政事业性收费标准表",
+    "湖南省财政厅&nbsp;湖南省发展和改革委员会关于明确破损公路及公路设施赔（补）偿费和公路占用费有关问题的函",
+    "湖南省发展和改革委员会湖南省财政厅关于重新公布湖南省交通运输系统行政事业性收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4d3a2c4b774e43e98b89a666d275439c",
+   "url": null,
+   "question": "关于永州市零陵区交通运输局受理信访事项后长期未反馈办理情况的投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "受理告知书",
+    "受理告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d4c5dad458d747d5b427b514d4f53c1a",
+   "url": null,
+   "question": "湖南省农村公路竣工文件编制费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村公路工程竣（交）工验收办法",
+    "湖南省农村公路工程竣（交）工验收办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "80643e5e8beb4aa5930c3c2684365ecd",
+   "url": null,
+   "question": "关于优化巡游出租车公平竞争环境、推动行业健康发展的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "生活服务类平台算法负面清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1c1a26e38a3a43419c908f764ddf8ec0",
+   "url": null,
+   "question": "关于施工分包资质要求问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;湖南省公路工程施工分包管理实施细则&gt;的通知",
+    "实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3a66684ebfe04977a813d62ecba73b84",
+   "url": null,
+   "question": "关于危货运输车辆驾驶时长问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品安全法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "cf4a80e6c4374c3c8df786a40dd82074",
+   "url": null,
+   "question": "沅陵县交通运输局虚假整改",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令停止建设通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1bf1dadfcb6d4c338be9226d666c3b3c",
+   "url": null,
+   "question": "319国道1673+600处已明确发证违规为什么没有人强制执行停工？",
+   "cited_hits": [],
+   "cited_missing": [
+    "责令停止建设通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1ce29572f3174abb88d7e387262e0a6c",
+   "url": null,
+   "question": "常德市高速公路管理处（高路办）履职缺位、拒不承担高速建设遗留侵权整改与补偿责",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于澧县(东岳庙)至常德公路施工图设计的批复",
+    "湖南省东常高速公路建设开发有限公司关于肖伍铺社区6组村民上访诉求事项的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "96822f722750442482c5437a456be6d8",
+   "url": null,
+   "question": "关于恳请加快推进S303永顺麻阳坪至石堤公路项目2027年实质性开工的督办申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年下半年普通国省道（含重要经济干线）需开展工可审查的项目清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fcf557d927a34414849eefa4407019e5",
+   "url": null,
+   "question": "水运项目土石方消纳的费用记取",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公路水运工程造价管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "97b2ee98430c481eb05c28e035f13f21",
+   "url": null,
+   "question": "录业绩",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好公路建设市场信用信息录入有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "84dcba7a027a44be9dce5f943b48eec5",
+   "url": null,
+   "question": "关于《湖南省公路工程“机器管招投标”模块化招标文件（施工）》的问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公路工程“机器管招投标”模块化招标文件（施工）（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4526d8b5d9a342d3abe3b49795eafc59",
+   "url": null,
+   "question": "咨询湖南省交通厅自然人承揽二级公路工程问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "bdbec0235f7845cd8f02f2ab5a57a5a5",
+   "url": null,
+   "question": "重大道路安全隐患+死亡事故后未明确责任单位+多部门推诿",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省乡村公路条例",
+    "湖南省农村公路管理条例",
+    "小交通量农村公路交通安全设施设计细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "61dc64e3911147ad9580b0d06911d526",
+   "url": null,
+   "question": "关于依据CMA检测报告（夜间超标2分贝）请求责令湖南省高速集团株洲分公司限期治理噪声污染的督促函",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路保护条例",
+    "国检华科字环质第2604-01119号",
+    "声环境质量标准",
+    "声环境质量标准",
+    "国检华科字环质第2604-01119号",
+    "声环境质量标准",
+    "GB3096-2008",
+    "GB3096-2008",
+    "GB3096-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "640a3818346f4984a1f97a046005be9b",
+   "url": null,
+   "question": "关于请求依法认定湖南省高速集团株洲分公司噪声监测结论无效并责令其限期采取降噪措施的投诉举报信",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路保护条例",
+    "国检华科字环质第2604-01119号",
+    "声环境质量标准",
+    "声环境质量标准",
+    "国检华科字环质第2604-01119号",
+    "声环境质量标准",
+    "GB3096-2008",
+    "GB3096-2008",
+    "GB3096-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "5fe739cd323e42eb893acee4c228bf33",
+   "url": null,
+   "question": "请为基层“安全”管理减负",
+   "cited_hits": [],
+   "cited_missing": [
+    "请为基层“安全”管理减负"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "56bcf2b317824a47a57626812ad22f35",
+   "url": null,
+   "question": "湖南高速公路改扩建规划",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于科学开展国家高速公路扩能更新改造的实施意见",
+    "湖南省“十五五”交通运输发展规划（公路、水路）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f718cfe15277451c903e10040e829a58",
+   "url": null,
+   "question": "非罐式专用车辆或者非运输有毒、感染性、腐蚀性危险货物的专用车辆增加普通货物资质问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路危险货物运输管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c05e75a4f5d74502a28c8d382514d1b4",
+   "url": null,
+   "question": "明确“单侧接入口”和“平面交叉”的概念差别",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新公布湖南省交通运输系统行政事业性收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "b3ee9abe42704b749eadb1c9537e1a59",
+   "url": null,
+   "question": "大件运输",
+   "cited_hits": [],
+   "cited_missing": [
+    "超限运输车辆行驶公路管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "209c72dd415b41a19f4a14141c4e7134",
+   "url": null,
+   "question": "关于道路运输企业出租带有《道路运输证》营运车辆的行为界定",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输证",
+    "道路运输证",
+    "道路货物运输及站场管理规定（2023修正）",
+    "道路运输证",
+    "道路运输证",
+    "道路运输证",
+    "道路货物运输及站场管理规定",
+    "道路运输证",
+    "道路运输证",
+    "道路货物运输及站场管理规定",
+    "道路货物运输及站场管理规定",
+    "道路运输证",
+    "道路货物运输及站场管理规定",
+    "道路运输证",
+    "道路运输证",
+    "道路货物运输及站场管理规定",
+    "道路运输证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6ee0af88196f44158c90b94e53fd3d0a",
+   "url": null,
+   "question": "危险货物运输车辆经营范围和运输普通货物及运输豁免货物时是否需要押运员在车上问题？",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路危险货物运输管理规定",
+    "道路危险货物运输管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "919ebeb0ef75420ca87c30d56f7dd22b",
+   "url": null,
+   "question": "字体",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB5768.2-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a1c69d861fb6417ebccc729316f2f28e",
+   "url": null,
+   "question": "关于月桃公路（Y315）提质改造（黑化）对接桃江文旅圈的可行性报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于月桃公路（Y315）提质改造（黑化）对接桃江文旅圈的可行性报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "54e9b57524e74844b67b092d318313ba",
+   "url": null,
+   "question": "请湖南省交通厅阐释二级公路劳务合作具体政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "84c1b797080848aea17e11dd62edb084",
+   "url": null,
+   "question": "请湖南省交通厅阐释二级公路劳务合作政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "42c5943bcfc34acf9ccbc1dd24d3a3b9",
+   "url": null,
+   "question": "湘粤运河的方案",
+   "cited_hits": [],
+   "cited_missing": [
+    "内河航运发展纲要",
+    "国家综合立体交通网规划纲要",
+    "全国港口与航道布局规划",
+    "推进实施内河水运体系联通工程行动方案",
+    "长江流域综合规划",
+    "珠江流域综合规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f04ebc31913949e5889710d5da741ac1",
+   "url": null,
+   "question": "建议将s303省道湘西州段纳入省重点项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省省重点建设项目管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "b1b5ae6d3a0d42eea691310d352a569c",
+   "url": null,
+   "question": "请湖南省交通厅阐释二级公路行政许可政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e119ff03cc9a498abe983eece7e6a8bc",
+   "url": null,
+   "question": "请湖南省交通厅阐释违法劳务分包政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法",
+    "公路工程施工分包管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "eb8df0f9a7ea4cf08c4078c199c56502",
+   "url": null,
+   "question": "桂阳县交通运输局签收法院诉前保全协助执行文书后，擅自向四川融驰建设有限公司湖南二分公司拨付冻结工程款60万元，拒不履行司法协助义务，违法履职，侵害投诉人合法债权。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村公路建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fd6f9ddcd0754cc2af5932ecb3ffdd58",
+   "url": null,
+   "question": "平汝高速南往北株洲中村段，高速公路行车道中间有很大坑洞，导致车辆损坏严重",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路养护安全作业规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "10ca8bc917f54129bc37f6678b398f6a",
+   "url": null,
+   "question": "三甲乡收费站噪音污染",
+   "cited_hits": [],
+   "cited_missing": [
+    "声环境质量标准",
+    "GB3096-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0ca8bf37e7174d838c4eeecb3efd270b",
+   "url": null,
+   "question": "高级职称评审问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程系列（交通工程专业）职称评价办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f83a11e65bb64c76aafb7cece8c25302",
+   "url": null,
+   "question": "关于高速公路试验检测资料结论是否可以直接打印问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路建设项目文件材料编制与归档管理指南(2025版)第一卷 一般规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "305658158e34498f81b6d530de497bf9",
+   "url": null,
+   "question": "长芷高速限速问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "全省高速公路限速优化调整工作方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "02c55aaf4fbc46d189f425d0d9fcb5fb",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程系列（交通工程专业）职称评价办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "eaff161b1de14b18a77b9990f7dc491d",
+   "url": null,
+   "question": "咨询《公路路政管理技术标准》（JTG4110—2024）的适用性",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路路政管理技术标准",
+    "公路路政管理技术标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e57a0bea32c04b1e928ec1530628150b",
+   "url": null,
+   "question": "长沙轨道交通集团员工李沛洲偷拍被公安处罚后单位长期不处理，请求督促严肃处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "长沙市轨道交通运营有限公司员工违纪违规处理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4e63137436bc4f8c8a3f98608f5b8e94",
+   "url": null,
+   "question": "收割机高速免费问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅&nbsp;农业农村部办公厅关于切实做好“三夏”跨区作业联合收割机运输通行服务保障工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6ac0028afc1c4f81afd0ff970414ddf2",
+   "url": null,
+   "question": "公路系统离职",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省交通运输厅关于公路建设市场信用信息录入有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8279715692b24168b17f2ada38c9515a",
+   "url": null,
+   "question": "公路系统离职",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省交通运输厅关于公路建设市场信用信息录入有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f1656c5128334fb79f2fbc532132777b",
+   "url": null,
+   "question": "两个交通项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路网规划（2024-2035年）",
+    "湖南省地方高速公路项目可行性研究阶段前期工作指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "08fef102069c45e29b95f9ebfde1eea8",
+   "url": null,
+   "question": "关于全国公路平台信息撒销",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省交通运输厅关于公路建设市场信用信息录入有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f4acffc63fa64bcd8e80651e3ab8173f",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程系列（交通工程专业）职称评价办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2680ff26f0994e489535e8489a31bf58",
+   "url": null,
+   "question": "关于明确我省港航管理工作有关事项的通知湘交人事【2016】78号文件是否现行有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确我省港航管理工作有关事项的通知",
+    "关于明确我省港航管理工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "20a87a769755472f8873f31f212c993c",
+   "url": null,
+   "question": "交通专业职称",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程系列（交通工程专业）职称评价办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "bfdcd12829034552be4fbb7d8a7fa7f7",
+   "url": null,
+   "question": "关于2025年度换购新能源公交车补贴资金是否全部下发的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年新能源城市公交车及动力电池更新补贴工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2d00b28ffdda48229ba21a4e303b4fd6",
+   "url": null,
+   "question": "岳麓区交通运输执法大队行政不作为及新渝汽车租赁公司把非营运车辆从事租赁活动违法违规进行立案查处和行政处罚",
+   "cited_hits": [],
+   "cited_missing": [
+    "小微型客车租赁经营服务管理办法",
+    "交通运输部关于修改〈小微型客车租赁经营服务管理办法〉的决定",
+    "小微型客车租赁经营服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ea00e7b887884b57951f8914cdb90fb3",
+   "url": null,
+   "question": "关于危险货物道路运输出车前检查记录形式及行政处罚适用问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "48669583cb134f139efeef51e60603a2",
+   "url": null,
+   "question": "关于危险货物道路运输环节及非运输企业装货人监管职责的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输安全管理办法",
+    "危险货物道路运输安全管理办法",
+    "危险货物道路运输安全管理办法",
+    "危险货物道路运输安全管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "abf38a3e118e476497034a65e4a177b6",
+   "url": null,
+   "question": "湘交基建[2019]74号文",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程建设项目投资估算编制办法",
+    "公路工程建设项目概算预算编制办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a6760a6f25ed45b598359f22aa1b3733",
+   "url": null,
+   "question": "衡阳华菱衡钢违规禁止国六货车进厂、一刀切强制新能源",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强清洁运输管控的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "af59c989e20347aa919818f25de3ac18",
+   "url": null,
+   "question": "请督促邵阳市航运公司停止违法行为",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源和社会保障厅关于对困难企业养老保险费实行“缴一办一”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e98ec830ba46429c88e38d11a186bd50",
+   "url": null,
+   "question": "交通工程高级工程师职称评审问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程系列(交通工程专业)职称评价办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "043af3d60bfa41a493aeef9ea547da24",
+   "url": null,
+   "question": "高速公路通行费电子发票开具渠道",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输部办公厅国家税务总局办公厅关于做好收费公路通行费增值税发票开具系统上线运行有关准备工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1cb8e0d754c345baad81d7dd7d4001b0",
+   "url": null,
+   "question": "湖南省高速公路建设项目文件材料归档与管理指南2025版问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路路基施工技术规范",
+    "湖南省高速公路建设项目文件材料归档与管理指南（2025版） ",
+    "公路路基施工技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a0a730a125944d9fb64898f0ba6106da",
+   "url": null,
+   "question": "危货运输企业安全例会与安全生产工作会议的参会范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输企业安全管理规范",
+    "危险货物道路运输企业安全管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "63114b650c6c4073884db0e4ef815989",
+   "url": null,
+   "question": "湖南高速有没有禁止摩托车上高速红头文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路条例",
+    "条例（修订草案）",
+    "条例（修订草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "cafb870dd27f41beb23bab69d6694c78",
+   "url": null,
+   "question": "关于要求对长沙汇仕通公司违法挂靠危险运输车行为进行查处的举报信",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展危险化学品道路运输安全集中整治工作的通知",
+    "关于贯彻落实湘政办明电〔2016〕102号文件加强道路运输安全管理的若干规定",
+    "浙江省危险货物道路运输挂靠经营专项整治工作方案",
+    "代发结果清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3426483850db433f93c4194c58dca874",
+   "url": null,
+   "question": "关于永顺县润雅乡省道S303澧水大桥项目长期拖延、恳请省级统筹建设并严肃问责的留言",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈交通运输领域省与市县财政事权和支出责任划分改革实施方案〉的通知",
+    "关于做好政府投资交通项目审批管理的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-jtt",
+   "id": "7540669a604d4c5e9210e8188308c875",
+   "url": null,
+   "question": "盼一条高速,通宁乡西部万家幸福!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "27014d621de04e1881fd839702dfba26",
+   "url": null,
+   "question": "盼一条高速,通宁乡西部万家幸福",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4ea0059e738a439897511c049d08b6f9",
+   "url": null,
+   "question": "盼一条高速,通宁乡西部万家幸福",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fd040a6dd8614d21b3f4bbbd86306251",
+   "url": null,
+   "question": "本人投诉长沙至常德北线高速公路相关管理、养护单位处理交通事故损失问题不作为、处理结果不合理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "297edc91dab449e4ba7bdb6df3e857b2",
+   "url": null,
+   "question": "怀化市中方县王毛田组组道硬化项目纳入十五五农村公路规划相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ff759a4a53e94ca2990af7ca8c969120",
+   "url": null,
+   "question": "维修高速公路路面导致拥堵，严重影响通行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c4fb5ec98c694fa4a50c7b08471bf20a",
+   "url": null,
+   "question": "官张高速国庆是否能通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ca7f9e0108644715a8d7515f99f5d49e",
+   "url": null,
+   "question": "投诉永州市冷水滩交通运输局对国鼎驾校异地招生监管履职不到位，混淆责令整改与行政处罚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d3baa98a6a9d4dfb8f545c743ae56d15",
+   "url": null,
+   "question": "株洲市交通局不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6e2d7f73deff409cb976f1ac6cae6c24",
+   "url": null,
+   "question": "益阳市赫山区会龙山街道仙峰岭安置小区限高杆是否合法合规问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "72bc8b86e69e4e90a8e27612e2b0f63f",
+   "url": null,
+   "question": "长沙小桔汽车租赁服务有限公司非法经营",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2586087b3339432bb9ef6fed1610939c",
+   "url": null,
+   "question": "关于配合机动车维修行业专项整治在省内专业从事汽车举升机检验工作的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6290c58138a645529294f9b42721ba4a",
+   "url": null,
+   "question": "关于配合机动车维修行业专项整治在省内专业从事汽车举升机检验工作的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e29a2a6dfee944bea5f62eca7fa44c8f",
+   "url": null,
+   "question": "湖南省交通工程专业职称改革工作领导小组办公室收由于2026年评副高对论文审核建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6360d6d1d71d4653aafc645f7ad51366",
+   "url": null,
+   "question": "全数字化双端测力监测锚索新技术报送",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "b085497387da4cc9a66ac68c4b0067eb",
+   "url": null,
+   "question": "张官高速通车时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0559e35634db4a8897157f99207e1aa4",
+   "url": null,
+   "question": "G59呼北高速（张家界至官庄段）通行情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0e0309e1832a484f935830480cb9cff1",
+   "url": null,
+   "question": "张官高速通车时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "93799f03031a4cd08cdaaeb4013c4f45",
+   "url": null,
+   "question": "冷水江市交通运输局刘俊凯充当保护伞不懂法律法规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fec5109ab1214304bb89fc3c67e1ec3d",
+   "url": null,
+   "question": "请求湖南政府调查处理关于蒙永熊在城龙高速三标从事桥梁涂装工作从6米多高空跌落重伤的安全生产事故",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "dbb0a36747204c6783b787770cc40b7d",
+   "url": null,
+   "question": "投诉长沙市交通运输局，放任12328小程序设置不合理障碍阻碍群众投诉，请求层级监督纠正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "dad2e7ca15bc4230a23782aab2692e40",
+   "url": null,
+   "question": "2026年交通工程专业副高级职称面试答辩时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "90ad0315d0184b4a8714bf602886ce16",
+   "url": null,
+   "question": "三甲乡收费站噪音污染相关问题，回复时请正面回答问题！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e1e18f465a6d4142bcace8f2b19c7cbe",
+   "url": null,
+   "question": "ETC办卡被骗交300元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a2acca01e307443e8e9dba7964d6bb84",
+   "url": null,
+   "question": "关于南横高速G6023在杨花，金刚，大瑶南增设收费站的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d0080b91ad0d4afa9a9b71d061db445a",
+   "url": null,
+   "question": "关于衡阳市市政工程公司在处理高架桥碎石砸车赔偿事宜中推诿拖延、拒不履行管理责任的情况反映",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "02df6e0c1abb492798ab651b93840586",
+   "url": null,
+   "question": "关于优化南横高速兴马洲湘江大桥建设方案的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4af586b16a434ca2bafab3eff977eb60",
+   "url": null,
+   "question": "\"鉴于该纠纷涉及面广、影响较大，恳请湖南省交通运输厅领导予以关注，督促协调解决，维护广大学员的合法权益。\"",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fcedef28c02a4616b8461781e9569b35",
+   "url": null,
+   "question": "湘桂运河应依潇贺古道走向取道贺州据贺江直下广东",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0cc2cf70ea714109a2c833839bb45d52",
+   "url": null,
+   "question": "关于岳阳县交通局对荣家湾至沿河客运线路停运决定的不作为投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1d652a809af54667afd054d0f406fb90",
+   "url": null,
+   "question": "ETC产品虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "14dd90efc8de40fe900c1864157f6dbe",
+   "url": null,
+   "question": "关于2022年度湖南省交通工程专业高级职称评审通过人员公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "396aa4dd7f834271875068e2e92822fb",
+   "url": null,
+   "question": "关于湖南高速信息科技有限公司授权外包地推虚假宣传ETC\"储值变会员\"的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "add548023a36457fb9d4741d28dc7779",
+   "url": null,
+   "question": "省委巡视组将举报案件交由县政府处理是否算发现时效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "40a6b96000b0442ba05ca15df7f477bd",
+   "url": null,
+   "question": "请湖南省交通厅回复具体明确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "e120af9dc9234280b720a98567a5782a",
+   "url": null,
+   "question": "长潭西高速九华入口何时恢复通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "578b94f90af246eaa0175ab635cca5d9",
+   "url": null,
+   "question": "路段崎岖不平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d0d2ed4d33264948a6c0b372ef1adaf7",
+   "url": null,
+   "question": "水上交通客运存在较大安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "eb3d541c6cdc45aeb921f986fe70568d",
+   "url": null,
+   "question": "关于长沙路面路况的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2fd67f0fbc7c421b92edbe7863d50d51",
+   "url": null,
+   "question": "关于修建Y302公路请求建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "9305cab95fd74382907a16680a29039f",
+   "url": null,
+   "question": "投诉长沙湘安驾校:分支机构注销但仍违规招生，欺诈学员。虚假承诺学时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "961bb9d634da49099c390724a29ee8e0",
+   "url": null,
+   "question": "湖南公路（桥梁）维护业务咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "66268a2e74eb49f4859e1152a6a185a1",
+   "url": null,
+   "question": "ETC被骗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "449019cbe7374c43842863766a79e470",
+   "url": null,
+   "question": "请求是对衡山县店门镇牌楼至明月峰路段烂尾至今几年施工恢复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4a2d9f2955cd4b928e03dec4e069212b",
+   "url": null,
+   "question": "投诉永州市国鼎驾校收费双标及当地部门监管不力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d9c1fd80efe346639c0be2e9816cfd2b",
+   "url": null,
+   "question": "请为基层”安全“管理减负",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8f5fe1012c804842a70a4674641c091e",
+   "url": null,
+   "question": "农村客运班车以旧换新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "97525dce7d79405f851fa34425615433",
+   "url": null,
+   "question": "关于优化长株潭外环高速公路延伸至湘乡市白田镇互通的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "48bc3bbd49354b58aacdef96da4f2f2b",
+   "url": null,
+   "question": "鄂ED32550车主高速公路维权艰难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "aa4f35f0a540473ba4a3af5302eb2422",
+   "url": null,
+   "question": "关于车辆报废补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "721a5fc8510e42c99ef2a2aed78a1923",
+   "url": null,
+   "question": "关于南横高速进展问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "fa268fdce86b48b6a49434edc0aff8e7",
+   "url": null,
+   "question": "衡阳至双峰黑车横行和顺风车平台监管不力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "56119f2f4fe347d1b71604687cf8cca4",
+   "url": null,
+   "question": "《2026年第二批农村公路建设计划》新增邵阳市隆回县大石村村路改造建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "15db4098cf784a28b72e52e51558e984",
+   "url": null,
+   "question": "复查2025年12月12日信访件，耒阳交通改制胁迫债务打折、悬空生效判决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "7d5dd8a2d8d941d3a04ea787263575d7",
+   "url": null,
+   "question": "永州市祁阳市潘市镇陶家湾村13组780米产业土路未纳入2026第二批农路计划申请核查并优先安排硬化指标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "053b619c33ea4b69b0a3acbba3a965e0",
+   "url": null,
+   "question": "长沙汽车西站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "cc70a33da2f14f21a49a7e1a697c9913",
+   "url": null,
+   "question": "湖南省老旧营运货车报废更新补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3ae5236c00254b6fb44b033a78f19db6",
+   "url": null,
+   "question": "关于2025年货车报废更新补贴申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "10bda5e028b9464e935475c876b775be",
+   "url": null,
+   "question": "驾校异地违规招生、欺诈未成年学员，申请全额退费并查处违规行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6a563b9273174bf78ca684df65c50c30",
+   "url": null,
+   "question": "驾校异地违规招生、欺诈未成年学员，申请全额退费并查处违规行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "84764819191b4ab698f46060f851d758",
+   "url": null,
+   "question": "衡阳市石鼓区大汉鸿雁云府片区长期无公交覆盖，居民尤其是老人儿童出行困难，恳请协调增设公交站点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "24bcfb6e0fea4fa7ac57efec9c465237",
+   "url": null,
+   "question": "湖南凯旋长潭西高速公路公司管理不善导致动物上高速被撞使我车辆受损，现拒不赔付，出尔反尔",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "f9bfd3ec76104a2698788bcb513bfe07",
+   "url": null,
+   "question": "请求省交通运输厅领导协调解决宁乡市黄材镇月山村月桃公路（黄材镇月山村—益阳桃江县界）提质改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "805590e0be8e48ff8fa23a90860bc344",
+   "url": null,
+   "question": "交通涵积水问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a8a04b026ceb49eb9659a8c71a8c5000",
+   "url": null,
+   "question": "关于出租车涉嫌违规运营及服务质量问题投诉处理情况的再次反映，恳请依法依规履行监管职责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "74dd5ee228534fadaac0a874b9b11902",
+   "url": null,
+   "question": "请湖南省交通厅阐释法律法规执行政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4ef6b672095a4ce783ed4a23b40c669e",
+   "url": null,
+   "question": "请湖南省交通厅阐释国家公路监督管理政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "dc211f6138854c3395c0cb0789ceecf5",
+   "url": null,
+   "question": "25年货车报废补贴发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "564eff0299114ba69d379964c96bb176",
+   "url": null,
+   "question": "老旧货车以旧换新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c14c592998d743878c1839e8b901ec99",
+   "url": null,
+   "question": "关于南横高速局部设计的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "67d2fc52f6384701a8260f813507edd7",
+   "url": null,
+   "question": "交通涵排水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "706b984dcb304df982d853063ac998ba",
+   "url": null,
+   "question": "针对醴娄高速八分部违法分包层层转包的问题投诉信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "24e1e128421848f28d45bc0c2a3cd959",
+   "url": null,
+   "question": "长沙至株洲城际铁路项目进展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "58834d70857e454993b29066e7c10698",
+   "url": null,
+   "question": "关于京港澳高速朱耒段K1619十027、084箱型通道必须加宽加高的诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2831d2a39ec548d0a1a45c5590a5c7fb",
+   "url": null,
+   "question": "关于洞溆高速征地拆迁和邵阳市境内高速连接线一共有几条最新进展怎么样了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c0e5c57e464345bcbcd5d56aafa8b285",
+   "url": null,
+   "question": "关于南横高速过江后的线路走向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "56c25f86bca04e14a16ca00f359872e7",
+   "url": null,
+   "question": "关于南横高速过江后的线路走向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "20260cafca84477592003b401a202af9",
+   "url": null,
+   "question": "询问长吉高速情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2130c43b910d43249136858a36c3476e",
+   "url": null,
+   "question": "湖南高速etc异地推销诈骗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8b4483a6c1914a19963d4ef43b54d05b",
+   "url": null,
+   "question": "举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "6024a63f0c974c38978dc280f137e690",
+   "url": null,
+   "question": "湖南高速ETC虚假宣传，拒不退款，投诉不处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "edc454a06ece4b338d8a2400adaf198d",
+   "url": null,
+   "question": "安溆高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "3a3b078131d74ad2a9388894df9b7f01",
+   "url": null,
+   "question": "建议取消沪昆高速娄底段高速告知电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8e8b0a0c2a1c4b14a82daeac2edbd4a3",
+   "url": null,
+   "question": "投诉长沙盛鑫驾校在安全生产问题上多次违反，本人已多次反应，建议严查。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2fac1ce2d4f84fc782e67995752661e5",
+   "url": null,
+   "question": "乱收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "4d0e06ad28a54327b3f9a93b4dc5285f",
+   "url": null,
+   "question": "湖南省关于超速罚款标准的具体规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "959c14c632ee40b795aa13de3d06de9d",
+   "url": null,
+   "question": "请求重建石板溪大桥的二次诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "5f2c50d111ff4abab93fcb7a2446d3fb",
+   "url": null,
+   "question": "建议S326南横线借道G6023南横高速兴马洲大桥市政辅道拓宽西延过江",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ddc9a48a9bdb4f3a8cb463e904038ea3",
+   "url": null,
+   "question": "关于注册监理工程师交通运输专业是否可以作为办理公路二级资质专业技术人员配置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c2e48694650a4a658cbd51a7edf64a63",
+   "url": null,
+   "question": "高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "ba7a691d590f47c2a1e2317fc295dd77",
+   "url": null,
+   "question": "优化共建方案排除安全隐患聚力推动兴马洲辅道西延获批实施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "9ec0200e94f8499285cce98022efe43c",
+   "url": null,
+   "question": "怀新公路s312省道有扩宽改造计划和溆洞高速争取一级公路连接线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "2aa965ddb114416e840cdce27ecb5660",
+   "url": null,
+   "question": "关于长沙公交车行车记录仪设备不合格存在安全隐患的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0afb2623f9b0458081d2a93ef74dd9e9",
+   "url": null,
+   "question": "关于S423北横线项目存废及危房重建问题的投诉信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "87ab1d8efd5b4f25b6ec11e179f37bd4",
+   "url": null,
+   "question": "违规收取办理ETC费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "264ba9a899f94e3f83abb7372908779f",
+   "url": null,
+   "question": "安恩张铁路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "d38fd724e53f412d93077251772e3626",
+   "url": null,
+   "question": "货车报废补贴申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "5b982d3c35564d91ba9e5fb10da26711",
+   "url": null,
+   "question": "举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "b92f610ddad5470bbe9a9d041e8cd8a8",
+   "url": null,
+   "question": "要求领导公正处理临湘市公路建设和养护中心单位包庇不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "93de9e1980b048269720fe763b966d7d",
+   "url": null,
+   "question": "司机双标顾客",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "44f76c1f74ea4c97b5020b79173861cd",
+   "url": null,
+   "question": "G5513长益段扩容、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "df8c7d95ade045419bb3797c1fb79929",
+   "url": null,
+   "question": "对科目二考试成绩有异议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "c0e3fc15104347d5b0773fb11acb4742",
+   "url": null,
+   "question": "湖南省株洲市醴陵县茶山镇大西垅村李家湾组醴娄高速公路高架桥伸缩缝扰民及安全隐患复查申请书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "97cadc0af2cb4e0193b8d47f3b029195",
+   "url": null,
+   "question": "株韶高速（南横高速）具体线路图和征地图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "bdb3b8a5a4db4390922cf29ff502530b",
+   "url": null,
+   "question": "节假日大件运输车同行高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "a7a1aadb17ed46a7bb196b3a23fbcea7",
+   "url": null,
+   "question": "关于督办省道S303永顺县润雅乡麻阳坪大桥项目的申请书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "0a80537bceab4701affa32b5e0471aa3",
+   "url": null,
+   "question": "关于京港澳高速长沙段东移原有旧高速问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "92f122351d804a61b7aa94ca1722817c",
+   "url": null,
+   "question": "希望领导公正处理临湘市公路建设和养护中心单位包庇不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8f2652ec06e54bd9b7b9dea027bcd793",
+   "url": null,
+   "question": "湖南高速etc合作方收取押金，到期不退还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "8e7a35a83e784ae89fbaa87c45e610c5",
+   "url": null,
+   "question": "南横高速兴马洲辅道拓宽西延如何落地？破解资金困局是关键",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jtt",
+   "id": "1ac5a11e75ee4ea8a4606e651fd1328b",
+   "url": null,
+   "question": "关于常宁市黑恶势力执法集团线索反映",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

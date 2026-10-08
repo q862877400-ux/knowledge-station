@@ -1,0 +1,1380 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-mzt",
+   "id": "6bf1b7791bfe42d9b5849cbf501f0cf5",
+   "url": null,
+   "question": "涉外婚姻离婚登记",
+   "cited_hits": [
+    {
+     "name": "婚姻登记条例",
+     "lib_no": "婚姻登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "1a73197c9342439aaec79c8ba7dfa58c",
+   "url": null,
+   "question": "办理低保",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6fb93f4777154539b8d1938474debd67",
+   "url": null,
+   "question": "收养新生儿是否需要先办理户籍",
+   "cited_hits": [
+    {
+     "name": "中国公民收养子女登记办法",
+     "lib_no": "中国公民收养子女登记办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "收养登记工作规范",
+    "收养登记申请书",
+    "收养登记审查处理表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "ae5c4d80f8184796b20fe8859997a78d",
+   "url": null,
+   "question": "关于农村低保，我妈是个哑巴，1947年生，今年2026年接到村委消息，说要取消残疾人低保，请问合理吗？",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d614f7ab4dc444f0b862c24afea2c1ba",
+   "url": null,
+   "question": "送养人政策规定",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国 民法典 ",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": " 中华 人民 共和国 民法典 ",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "儿童福利机构管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "5acec17f8ed946fa9015e3b8b343c3d0",
+   "url": null,
+   "question": "低保户申请条件",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "08a7e944883f4ddba0e5fa49e7b8eb0f",
+   "url": null,
+   "question": "得了癌症，医疗费太大无法承受，能申请底保吗",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 湖南省最低生活保障审核确认办法 ",
+    " 湖南省特困人员认定办法 ",
+    " 湖南省最低生活保障审核确认办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "c88f34ac6dc3420a8405e465e4da7fc2",
+   "url": null,
+   "question": "恳求救助一下",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 湖南省最低生活保障审核确认办法 ",
+    "湖南省特困人员认定办法",
+    " 湖南省最低生活保障审核确认办法 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "715d639fbf2444a5a954b029ef71e905",
+   "url": null,
+   "question": "低保申请条件",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法",
+    "湖南省民政厅 湖南省乡村振兴局关于贯彻落实 &lt;关于进一步做好最低生活保障等社会救助兜底保障工作的通知&gt;的通知",
+    "湖南省社会救助家庭经济状况核算评估办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "2c024a9b8c34433e8173c4799cfb249a",
+   "url": null,
+   "question": "生活困难的低保户能办营业执照吗？",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6dfaed1a8ee84609b531d1f549b7f53e",
+   "url": null,
+   "question": "弟弟收养姐姐的孩子",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中国公民收养子女登记办法",
+     "lib_no": "中国公民收养子女登记办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "b883c8047e594b4a8b8763edafbd9a23",
+   "url": null,
+   "question": "低保待遇管理",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活审核确认办法",
+    "湖南省社会救助家庭经济状况核算评估办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "47f2fca3d3b54b4db474d034f19a7585",
+   "url": null,
+   "question": "怎么办理非营利性托管",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "核名通知书",
+    "民办非企业单位登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "787c9de329b246b78505a0de78c20649",
+   "url": null,
+   "question": "社会组织换届流程",
+   "cited_hits": [
+    {
+     "name": "社会团体登记管理条例",
+     "lib_no": "社会团体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省社会团体换届选举工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3d296d6192b148d2b12cadf804dd508b",
+   "url": null,
+   "question": "低保户申请相关问题",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法",
+    "湖南省低收入家庭认定及救助帮扶办法",
+    "湖南省社会救助家庭经济状况核算评估办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a9d1049c790140998e2632f052b1a188",
+   "url": null,
+   "question": "注册民办非企业单位，湖南***研究院需要什么资料",
+   "cited_hits": [
+    {
+     "name": "民办非企业单位登记管理暂行条例",
+     "lib_no": "民办非企业单位登记管理暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "科技类民办非企业单位登记审查与管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "155f8c55cc1e421cb23b4bc41a8a8fd5",
+   "url": null,
+   "question": "注册行业协会需要什么条件？",
+   "cited_hits": [
+    {
+     "name": "社会团体登记管理条例",
+     "lib_no": "社会团体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省行业协会管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "b344d45b4ab6481397f27cc2d77f7af0",
+   "url": null,
+   "question": "关于农村低保事宜",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办 法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步做好困难群众基本生活保障工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3d073098e3284d37b4e0a7f077d34418",
+   "url": null,
+   "question": "农村低保对象确定",
+   "cited_hits": [
+    {
+     "name": "社会救助暂行办法",
+     "lib_no": "社会救助暂行办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "最低生活保障审核审批办法（试行）",
+    "转发&lt;民政部国家统计局关于进一步加强农村最低生活保障申请家庭经济状况核对工作的意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a080032ba9e14be8b881339dfa53fc60",
+   "url": null,
+   "question": "关于咨询退伍安置费问题",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-mzt",
+   "id": "9702e77774be49a69c5ae69c93c08ea0",
+   "url": null,
+   "question": "低保金",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国社会救助法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "27c2356dd8e34cf3bf56016d000b46a5",
+   "url": null,
+   "question": "高龄补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共湖南省委办公厅 湖南省人民政府办公厅关于进一步加强老年人优待工作的意见",
+    "中共常德市委办公室 常德市人民政府办公室关于实施高龄老人生活补贴和加强老年医疗运动保健工作的通知",
+    "常德市民政局 常德市财政局关于提高我市百岁老人生活补贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d8a7ed29731a43e899ed125d1a1afd77",
+   "url": null,
+   "question": "父亲落石致十级伤残急需手术，县民政仅给几百元、拖延不办，请求省厅督办特事特办",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省最低生活保障实施办法",
+    "桃江县临时救助实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "dbe18a7913a141f1b0173067196c9291",
+   "url": null,
+   "question": "重度残疾人护理补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立困难残疾人生活补贴和重度残疾人护理补贴制度实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f266abd8fe0d4e95b24205c21ccbd721",
+   "url": null,
+   "question": "恳求解决低保提标以及欠下两千多元住院费的申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "郴州市低收入家庭经济状况核算评估实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "ef76ba32ba694e85a1b9f54c46ba0163",
+   "url": null,
+   "question": "关于耒阳市大和圩乡养殖协会被拟撤销登记的情况反映及申诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "行政处罚事先告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f6d36ea709fa4b81ba73491534137948",
+   "url": null,
+   "question": "关于低保标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6218475b2a0b4c7694eaafaec5673f72",
+   "url": null,
+   "question": "结婚证",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "79d7c5cc7aba481fb4a54549d314b5d2",
+   "url": null,
+   "question": "事实无人抚养儿童申请精准认定情形",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实做好事实无人抚养儿童保障有关工作的通知",
+    "儿童失联父母查找情况回执单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f08ab3a089a44b8c8701fa921b8c18ef",
+   "url": null,
+   "question": "数据申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于申请民政数据公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "5acd3ca08d3c4ceb9622b3dd6ff8da4a",
+   "url": null,
+   "question": "申请民政数据公开",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于申请民政数据公开"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "76c8547523754caead6db6a9c6a1b586",
+   "url": null,
+   "question": "农村丧事简办，严格实行火化的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省推动殡葬移风易俗、树立文明新风工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6e02338250c54a41895dc1efbbd55fb0",
+   "url": null,
+   "question": "特困人员能不能住好房子",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省民政厅关于印发〈湖南省特困人员认定办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "18f3bdfbdde2410fa65c4ff4b86284c9",
+   "url": null,
+   "question": "请问除了特殊人群如一二级残疾人60岁以上老人能认定为无劳动能力，是不是还有其他特殊情况如重病特大疾病的人无劳动能力了，可以不可以也能认定为无劳动能力的人.",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省民政厅关于印发〈湖南省特困人员认定办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "598335ec37514e54bc23d15c677b07b2",
+   "url": null,
+   "question": "申请低保的条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "407595ea9b8044479763c72f997f1918",
+   "url": null,
+   "question": "为什么我申请的高龄补贴，开始在审核。后面在审核、审核通过、和审核不通过，这里面都没有了。有没有你倒是说个信息啊。",
+   "cited_hits": [],
+   "cited_missing": [
+    "慈利县老龄工作委员会 慈利县民政局 慈利县财政局关于明确 90岁以上无固定收入老年人高龄生活补贴发放办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a5eb183b708543a0a0ec7ed7b97d2ed6",
+   "url": null,
+   "question": "社会救助城镇低保",
+   "cited_hits": [],
+   "cited_missing": [
+    "常德市最低生活保障审核确认办法",
+    "常德市社会救助家庭经济状况核对实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "863838e79688441f8a0f1839689dc2e3",
+   "url": null,
+   "question": "查询婚姻档案",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部关于进一步规范(无）婚姻登记记录证明相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "7c964195391144e2a1ff826fff17d784",
+   "url": null,
+   "question": "残疾人有没有养老保障的政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部 财政部关于组织开展中央财政支持经济困难失能老年人集中照护服务工作的通知",
+    "老年人能力评估规范",
+    "湖南省推进基本养老服务体系建设实施方案 2022-2025年"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "20518cddffe146b88f383168f1ed855b",
+   "url": null,
+   "question": "养老",
+   "cited_hits": [],
+   "cited_missing": [
+    "养老机构管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3382a02c70c8419fabdfb6c98bcee4ba",
+   "url": null,
+   "question": "共同生活的家庭成员具体指的哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省最低生活保障审核确认办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d37aa79acbe54957869a4e5bfb460474",
+   "url": null,
+   "question": "精神残疾证几级才能领取补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于全面建立困难残疾人生活补贴和重度残疾人护理补贴制度的意见",
+    "湖南省人民政府关于全面建立困难残疾人生活补贴和重度残疾人护理补贴制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "06883b7be78c459ca1ca83ba8ef24632",
+   "url": null,
+   "question": "婚姻查询被拒",
+   "cited_hits": [],
+   "cited_missing": [
+    "婚姻登记档案管理办法",
+    "查档记录册",
+    "婚姻登记档案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "426cb461bc8b405cb7d4b415e2de41a6",
+   "url": null,
+   "question": "关于汉寿县崔家桥镇白鹭寺村五保户李新甫住院人寿保险陪护费保险问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省民政厅关于印发〈湖南省特困人员认定办法〉的通知",
+    "湖南省医疗救助办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a5271e5d3ae54dfa9cc3e829cb3c0b38",
+   "url": null,
+   "question": "年检",
+   "cited_hits": [],
+   "cited_missing": [
+    "民办非企业单位年度检查办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "bdce4c0c40124098b38106ae4b2efea5",
+   "url": null,
+   "question": "咨询父母双亡的儿童的补助政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于加强孤儿保障工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "ec57c2cf44594d7a9e5bb8624a532f6b",
+   "url": null,
+   "question": "关于老年社会工作者实际工作中考证年限的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "人事部 民政部关于印发〈社会工作者职业水平评价暂行规定〉和〈助理社会工作师、社会工作师职业水平考试实施办法〉的通知",
+    "关于湖南省2020年度社会工作者职业水平考试考务工作的通知",
+    "关于2020年度社会工作者职业水平考试考务工作的通知",
+    "报考须知",
+    "专业技术人员资格考试报名证明事项告知承诺制报考承诺书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d4a09cd7a19446b59e89d42ac9084cf9",
+   "url": null,
+   "question": "民非企业",
+   "cited_hits": [],
+   "cited_missing": [
+    "民办非企业单位变更登记申请表",
+    "民办非企业单位法定代表人登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f80ead06edf941f989ce10f3d8e22ee5",
+   "url": null,
+   "question": "事实无人抚养儿童学费减免问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强事实无人抚养儿童保障工作的实施意见",
+    "湖南省人民政府办公厅关于加强孤儿保障工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3f5ad21e975c4e658156a0badd2aca93",
+   "url": null,
+   "question": "有关“十三五”残疾人托养服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在脱贫攻坚中做好贫困重度残疾人照护服务工作的通知",
+    "中华人民共和国残疾人证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "01ed80ec4b6e453fa0ed72471a21855b",
+   "url": null,
+   "question": "社会工作者咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部关于印发社会工作者职业水平证书登记办法的通知",
+    "中华人民共和国社会工作者职业水平证书",
+    "中华人民共和国社会工作者职业水平证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "752c3fb01b6a4908b17bcbe3eec1dd3c",
+   "url": null,
+   "question": "聋哑丈夫身患胃癌晚期，瘫痪妻子无人护理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实国办发[2015]30号文件 进一步做好全省医疗救助工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "ede692e8acfb4e6595f1682e2d26110e",
+   "url": null,
+   "question": "关于六十年代初精减职工补助标准一事",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于六十年代初精减职工补助标准一事",
+    "关于提高六十年代精减退职老职工生活救济补助标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d6dd16da84544f5d9bca8eea9188dfa3",
+   "url": null,
+   "question": "如何领养二孩/",
+   "cited_hits": [],
+   "cited_missing": [
+    "收养法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "64b6561de72d48129e8d90ea6a8727a5",
+   "url": null,
+   "question": "农村留守儿童关爱保护工作制度化、规范化建设的几点建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强农村留守儿童关爱保护工作制度化、规范化、机制化建设的几点建议—基于桃江县实地调研",
+    "关于加强农村留守儿童关爱保护工作的意见",
+    "关于开展农村留守儿童摸底排查工作的通知",
+    "湖南省人民政府关于加强农村留守儿童关爱保护工作的实施意见",
+    "湖南省民政厅、湖南省教育厅、湖南省公安厅关于做好农村留守儿童相关帮扶工作的通知",
+    "“合力监护、相伴成长”关爱保护专项行动的通知",
+    "湖南省人民政府关于加强农村留守儿童关爱保护工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "e552dd43ffde4b6480ee7a4bb69426e7",
+   "url": null,
+   "question": "请问如何申报产业联动的智慧健康养老示范基地？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工业和信息化部、民政部、国家卫生计生委关于印发&lt;智慧健康养老产业发展行动计划（2017-2020年）&gt;的通知",
+    "养老机构设立许可办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-mzt",
+   "id": "f8a44349b6d04861b699336bc4eef8ac",
+   "url": null,
+   "question": "事实孤儿有关学费咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "09489566be5041bdb3aaaff7ad6c5df8",
+   "url": null,
+   "question": "永州市冷水滩溯禾小区22栋无法办理房产证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "8b585017ed3d4f72926e5aa63a2d37d8",
+   "url": null,
+   "question": "政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "834740cb1b814d4fabd4d854fe66a430",
+   "url": null,
+   "question": "婚姻咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a6b68a6b2d7e47c7a4a0201d015797f9",
+   "url": null,
+   "question": "关于基层政权建设工作的职责分工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "55deadb32b7245b1aa9da65fe39fa3ab",
+   "url": null,
+   "question": "湖南省行政区划问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "0df30a22ea0343abbf28780c7196f4bf",
+   "url": null,
+   "question": "定王台街道社区辖区居民因病致贫导致家庭困难请求政府救助困难群众申请低保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "1d76bc9d861b47019f9556ba03fd1788",
+   "url": null,
+   "question": "残疾人大学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "438f599453da45c5999e983512bbe2c8",
+   "url": null,
+   "question": "村民小组代表选举",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "9e46e3f165704dc491078ea784a0389f",
+   "url": null,
+   "question": "残疾人两项补贴按月发放，发放时间为每月10日前，请问是否为全省执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "7db585a09edb495586392c3f6fc7d550",
+   "url": null,
+   "question": "关于育儿补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "c873f21306d54351b59a5834f627ac66",
+   "url": null,
+   "question": "建议试点区域户籍流动和工匠登记评定管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f3f42120b80f4da2be61872ef7f8e36a",
+   "url": null,
+   "question": "优扰对象教育优待问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "df2e4a55cd674b0ca1af75c73eb91655",
+   "url": null,
+   "question": "基金会注销流程相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "2bd8ecece5ad4ffcb40dec11399cfee9",
+   "url": null,
+   "question": "2025年7月4日郴州市桂阳县重大刑事案件2死1重伤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a2052b757813475791d923a34ed37a8e",
+   "url": null,
+   "question": "社会工作行政的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6737435367bb4a24b0ae7cd3f82cace9",
+   "url": null,
+   "question": "咨询残疾人两项补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "55bfb130e98f495fb49e5ba97c72f23f",
+   "url": null,
+   "question": "临时救助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "48217e84c7cb4e5eb578cd7e8c5ea874",
+   "url": null,
+   "question": "丧葬费是否有补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "c2bed54de7ed49c09af069b5b75d7e39",
+   "url": null,
+   "question": "结婚登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "34d6524f270d46a48c7c5a5d20e0cdb8",
+   "url": null,
+   "question": "网上如何查询结婚证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "c72b1a8d098d44319c1af40c0cd007e2",
+   "url": null,
+   "question": "电子户口本是否可以登记结婚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "8899986d94894d5faf88efbd4e37c286",
+   "url": null,
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "68d292f4aa7a479ca2f8463dc97807d4",
+   "url": null,
+   "question": "民办非企业单位可以收取会费吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "90d9a7080e104dbd9fbe9a043602fcdc",
+   "url": null,
+   "question": "网上查询结婚证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "9f0b714a8ef5444099da2a3527cc8485",
+   "url": null,
+   "question": "办理结婚证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "842db4800b6d4f13b57ac212ec834c1d",
+   "url": null,
+   "question": "结婚登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "af2a8b4d760249a4857747ec85e09451",
+   "url": null,
+   "question": "结婚登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "01b99f8f123e4b839d065a3387b4dfce",
+   "url": null,
+   "question": "涉外婚姻登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "be107528e4984d8a83e9fcee3f99bba3",
+   "url": null,
+   "question": "和外国人结婚需要的资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "1ffcfbf8b58642ea9cc89fe8f9f13b13",
+   "url": null,
+   "question": "结婚证事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "92394307042c4f0aaef650118a666afa",
+   "url": null,
+   "question": "结婚登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "680d53ab22ea4800a252b05f7d4d51b0",
+   "url": null,
+   "question": "关于我和越南人结婚的若干问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "35a3514f5efa4d079b4173de5c31f08e",
+   "url": null,
+   "question": "6月1日起，湖南婚姻登记实行“全省通办”问题咨询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "9699a76690364f538048777ba36dd89e",
+   "url": null,
+   "question": "网上祭扫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "bd643ac2138841608c119d3ccfb1f6cc",
+   "url": null,
+   "question": "结婚登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "64e81de8066d48bfb0a5e458d3e8d76c",
+   "url": null,
+   "question": "社会团体法人证到期如何换新？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "2bd4e4ff2413428b8279cf68f341f68c",
+   "url": null,
+   "question": "2021年村民委员会换届选举",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3b3ecb4a75df42fea204b95ec06efb1e",
+   "url": null,
+   "question": "办理结婚证所需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "13317a34b5b04588b9cdf64a07818c1e",
+   "url": null,
+   "question": "结婚证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "755c74dfe26743b897bbd3cbf533cd1c",
+   "url": null,
+   "question": "关于军人优待金发放问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "07867e9bfcd24f0ea30ad17cee6eabea",
+   "url": null,
+   "question": "和外国人结婚男女双方要带什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "989bbf7115e942ab92e13302400cd5ed",
+   "url": null,
+   "question": "基金会网站备案需民政部门开具备案登记材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a161c5e4412447c6ba69ebec9fae8160",
+   "url": null,
+   "question": "某体育俱乐部与其他营利性公司签订合作协议分红是否违反规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "972caaebac074a7d82371b01923f64b0",
+   "url": null,
+   "question": "长沙县改区问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "f3b9c92867c7440ea35f1496fc9d17d1",
+   "url": null,
+   "question": "隆回县羊古坳镇，大美田村等干部不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "31ac8eb25a064e63b32a0a49fde7d56c",
+   "url": null,
+   "question": "请问有关协会改选的相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "2c88eec404814c2a814135b386b8b9a5",
+   "url": null,
+   "question": "关于部队战时三等功的认定和士兵安置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "78a5d4bb02c2461dacdd5d7f72fc8e19",
+   "url": null,
+   "question": "株洲县撤县设区攸县撤县设市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "2ba25e7c058345f2a1eb6715ddfab0a9",
+   "url": null,
+   "question": "办件编号为zx20170302029的咨询函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "70ef7937618748bca0597b6f1bf01450",
+   "url": null,
+   "question": "湖南省婚姻登记网上预约平台不能用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "22f0f7e5176e41faa573e39aad10d6c1",
+   "url": null,
+   "question": "可否设立长沙恒大名都社区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "fc8c6a20bfb14a15b6a784be63245457",
+   "url": null,
+   "question": "学会换届，变更法人、地址、章程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "d7a5ef387102462bb086889e13897dde",
+   "url": null,
+   "question": "因矽肺致残的军人去世后算不算旧病复发或旧伤复发。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "04405d8799824803996e0032c9adcdf8",
+   "url": null,
+   "question": "伤残等级赔偿标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "0be18b1686c5480fabe571a61b22b50a",
+   "url": null,
+   "question": "危机求助报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "a9953acd549941859a49eea74220c4a3",
+   "url": null,
+   "question": "湖南银楼现货商品交易平台组织非法期货，诈骗40多万资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "3fcc5ea7235846ed8941595d2c2cb683",
+   "url": null,
+   "question": "我被湖南银楼现货商品交易平台诈骗140574.41资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "028269bd96ce428bba37fefed14ecb95",
+   "url": null,
+   "question": "关于“湘办发［2016］51号”文件的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "404088143d9e4c87a901c4b2295d958a",
+   "url": null,
+   "question": "符合贫困户不给人申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "6793f116db0b41478c3956bde3152254",
+   "url": null,
+   "question": "我们这里的政府不把人民当人看待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "b8273fc0b7b5490f8998096f49516882",
+   "url": null,
+   "question": "关于建立湖南省血友病携带者检测项目申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "9ba27f6135c244e794586c2800216811",
+   "url": null,
+   "question": "符合贫困户不给人申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "c84d8f7d12b34e7e9316db89105d2d89",
+   "url": null,
+   "question": "符合贫困户不给人申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

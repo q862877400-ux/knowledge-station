@@ -1,0 +1,1885 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-gat",
+   "id": "13d6dd9e2d4f4a7ca3b48345fa7d7d41",
+   "url": null,
+   "question": "注销户口",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国户口登记条例",
+     "lib_no": "户口登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7f4a6d8835954371a22793ca2bd31460",
+   "url": null,
+   "question": "求助20年前高考移民双重户籍注销问题？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国户口登记条例",
+     "lib_no": "户口登记条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-gat",
+   "id": "557b8caad0244d2ea76b9792a0fd9901",
+   "url": null,
+   "question": "关于2016年2月3日后将户口由乡村迁往城镇的公民，可以申请将户口迁回迁出地的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省户口登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "582e4809eca5483bb6681f3183490054",
+   "url": null,
+   "question": "身份证",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证领取凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "634c98ad05d04131b79220266423e4b6",
+   "url": null,
+   "question": "应届毕业大学大专生迁户口问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "就业报到证",
+    "就业报到证",
+    "湖南省常住户口登记管理办法实施细则",
+    "准予迁入证明",
+    "准予迁入证明",
+    "就业报到证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c08f3f042f3f45539f9e67860d7d528b",
+   "url": null,
+   "question": "怎么查询户籍是属于农村还是城镇？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于进下推进户籍制度改革的意见",
+    "湖南省人民政府关于进一步推进户籍制度改革的实施意见",
+    "湖南省常住户口登记管理办法",
+    "国务院关于进一步推进户籍制度改革的意见",
+    "湖南省人民政府关于进一步推进户籍制度改革的实施意见",
+    "湖南省常住户口登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "bfca4c6e0dd346438cfc8ee860d89dca",
+   "url": null,
+   "question": "迁移护口",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6b28398530b3465b8eb5cf5ed710009d",
+   "url": null,
+   "question": "婚迁户口迁出外地",
+   "cited_hits": [],
+   "cited_missing": [
+    "准予迁入证明",
+    "准予迁入证明",
+    "户口迁移证",
+    "准予迁入证明",
+    "户口迁移证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "44ded20b085f4f0cbc37fef2d101f7c3",
+   "url": null,
+   "question": "离婚后小孩上户口",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明",
+    "出生医学证明",
+    "湖南省常住户口登记管理办法",
+    "出生医学证明",
+    "湖南省常住户口登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "a90036327b934e2a89cd89e0c13234e7",
+   "url": null,
+   "question": "我是土家族，我老公也是土家族，我女儿出生却登记为汉族，我该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "cf62f13f5645482c8299dfc566159541",
+   "url": null,
+   "question": "未婚生子入户问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于解决无户口人员登记户口问题的意见",
+    "湖南省常住户口登记管理办法",
+    "国务院办公厅关于解决无户口人员登记户口问题的意见",
+    "湖南省常住户口登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "769f1127b7df40659775dd9e6a4264dd",
+   "url": null,
+   "question": "改名申请需多长时间可以批下来？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1dac284dfcb2461080b177cb7cfd32c6",
+   "url": null,
+   "question": "办理户口迁移证需要哪些材料？可以代办吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "户口迁移证",
+    "准予迁入证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "68e56f4285b14eeb940bd1e003946dcf",
+   "url": null,
+   "question": "户口如何迁移？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9343ac31010248a9aeb18340b30e696a",
+   "url": null,
+   "question": "迁移护口",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b65c396cad3649cf8cb4ff0823a50ebd",
+   "url": null,
+   "question": "户口迁移",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "f083242b0ad64ae39e4b63898ce4bd6f",
+   "url": null,
+   "question": "转户口是否需要开具无精神病史无上访记录无参加不良团体的证明",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e0b138253b664d16bc06a48cdb5ef9f2",
+   "url": null,
+   "question": "我的户籍能不能回原居住地",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "145e825c4b0142e88790118431e5175c",
+   "url": null,
+   "question": "我的户籍能不能回原居住地",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省常住户口登记管理办法",
+    "湖南省常住户口登记管理办法实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "8dfd86bbab534b72b398d076de683694",
+   "url": null,
+   "question": "身份证到期能在湘警网办理续期吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南公信网"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-gat",
+   "id": "8f42884db5d84722982664f6b9a08368",
+   "url": null,
+   "question": "身份证过期，人在国外，是否可以延期？或者父母代为补办？需要准备什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c5f8a3327488423fa0d90139d5a21e1a",
+   "url": null,
+   "question": "驻深办还在吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d754cb9741ae4ed49fe6e727fa5b5f2b",
+   "url": null,
+   "question": "请问，港澳通行证的签注什么时候能办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "55f215f91c2146a5925095c25cbf38f6",
+   "url": null,
+   "question": "关于指纹补录问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "00c1b7a70b58423ab69ccdf8a9929303",
+   "url": null,
+   "question": "2019年1月7日的港澳通行证续签问题，请帮忙尽快解疑，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9c417ed9585445378f338de81765442d",
+   "url": null,
+   "question": "是否可以取消网上港澳续签申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "24ad8db606ad43faaabbfffeaf6de853",
+   "url": null,
+   "question": "请问异地办理护照和港澳通行证所需要的材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e6998ba9d59740df8651a3711c7f54c8",
+   "url": null,
+   "question": "港澳通行证证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0d773427f87844f2b575f8f8d2fa57c3",
+   "url": null,
+   "question": "查询护照办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7e9f3f4ec5bf453483cd2c856970ca18",
+   "url": null,
+   "question": "护照办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0f884b11793c4ffeb11b01c6785ad308",
+   "url": null,
+   "question": "你好-网上申请港澳续签可以网上支付吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "829392bf5cf543e99db7052e29af164d",
+   "url": null,
+   "question": "港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c7bbb947896a4cc0a6794db658aa1645",
+   "url": null,
+   "question": "关于港澳通行证签注进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ae465461f89844b7acd6e1fde5e1ef9d",
+   "url": null,
+   "question": "在国外护照丢失,办理旅行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "576528527e704c838a831b3ce4a46c1b",
+   "url": null,
+   "question": "衡阳的港澳通行证只能办团队旅游",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c7dc4a9babe04f30ac468bc53c41b034",
+   "url": null,
+   "question": "关于对长沙市长沙县交通警察新安支队警察同志的感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7083056144da4179a84be662baf1b52b",
+   "url": null,
+   "question": "关于港澳通行证L团队旅游如何通关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e33cbf78500a4a0ea1ff7beb651187b8",
+   "url": null,
+   "question": "再次赴台签注如何申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6667924020af423fa0d65888e4a88b58",
+   "url": null,
+   "question": "关于巡察工作查询被巡察单位登记备案有关情况的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "545697483e6b4d598a1121b33bba0b50",
+   "url": null,
+   "question": "办理护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c48facb23b054486b5554b746bb0399b",
+   "url": null,
+   "question": "续鉴事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "3111f6e14fbe466eb2b0dce3c7120bc6",
+   "url": null,
+   "question": "办的身份证可以快递过来吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ec429a54b22e43ba964d5ae714e9e04e",
+   "url": null,
+   "question": "补领身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d6552a6f72c8473b824b8783b943c495",
+   "url": null,
+   "question": "网络身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "24762fb0860a4a848073b74bb514181e",
+   "url": null,
+   "question": "护照办理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "4289e50ba58f4cafb3efcb1b66ea86d1",
+   "url": null,
+   "question": "外省学生办理护照问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1e1ab8dff47f458aa9c5d36d190feb2b",
+   "url": null,
+   "question": "你好我在三号办理的护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "4f09a1ce16e04828980a7ac40216db45",
+   "url": null,
+   "question": "往来港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "2c70452184d848ba9b50d41638f16e32",
+   "url": null,
+   "question": "港澳通行证在网上续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "eb447cc2951d4a44a48d0cef350b9f75",
+   "url": null,
+   "question": "港澳通行证过期并遗失怎么补办，需要什么证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d41a5249ed63480a972966aeb9fad911",
+   "url": null,
+   "question": "身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ad08e246a4f44f79942dc56ddeea0480",
+   "url": null,
+   "question": "急，求告知申请港澳通行证续签，回执忘记保存了怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c18474882fff48db8d325a531f904b6b",
+   "url": null,
+   "question": "护照进度咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e1cd90eedca54932a1d34823abf7de54",
+   "url": null,
+   "question": "关于网上申请再次签注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "23cf6d20d6254efa9e01095e08e35e50",
+   "url": null,
+   "question": "湖南瑞际出入境服务有限公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d28cf64c32d24a3886066d463f3524b6",
+   "url": null,
+   "question": "人囗出入境",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "cee0ffd5eb0847ab878faeb4bf0fbb8f",
+   "url": null,
+   "question": "港澳通知证未过期但申请网上签注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "865e2254b7724de182a3efd4bffb00eb",
+   "url": null,
+   "question": "網上續簽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "3a63d367779d4ad4bdf2a45d0f84fa61",
+   "url": null,
+   "question": "为什么郴州的自助签注机老是出问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "997ae73fb1aa41189272cbe7e54e46c8",
+   "url": null,
+   "question": "本省户口办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "705641abd8de4aeb85657982c8f2cb15",
+   "url": null,
+   "question": "港澳通行证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1182d8b23ab3447e97d45b83426b619e",
+   "url": null,
+   "question": "卡式港澳通再次签注申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0e1ed0aa265348bba706584ab908ac9b",
+   "url": null,
+   "question": "港澳通行证有效期已过怎么续签或者重新办理需要走哪些流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "70ca769697964db0b7895e6462001617",
+   "url": null,
+   "question": "网上办理快过期身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "304afa802e1a41cfa510e4e9e79be520",
+   "url": null,
+   "question": "外省户籍在长沙市办理赴香港的逗留签（3个月的工作签注）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6977df3d6f284041bb61e3ab4e5d06aa",
+   "url": null,
+   "question": "本人非长沙户口，护照及港澳台通行证签注地为广东深圳 ，可以在长沙办理续签吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "cd3de7fa98ea4e64b45599a38c554ced",
+   "url": null,
+   "question": "请问可以异地办理港澳通行证么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "939952a7d0264819b34707a388328a58",
+   "url": null,
+   "question": "户籍地由广西迁到湖南后身份证可以在深圳办理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1d6f6212293d458f9a7b94fee4bf156e",
+   "url": null,
+   "question": "异地补办港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "2343b44c15ed421cb959b6ccb99e21fc",
+   "url": null,
+   "question": "涟源人在异地办理港澳通行证签注要本人亲自回户籍地吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "8e883650b6764d3e8d73a0b87c1443c5",
+   "url": null,
+   "question": "关于签证续签的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c3d4a3f7e95b458b850fa597549d3de0",
+   "url": null,
+   "question": "修改再次赴港澳签注的回邮信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9934cdb9d2104b92bbacc4a940399ec3",
+   "url": null,
+   "question": "外省户籍可否在湖南办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "f51aa50a86c24c05a02ed3be58a3696f",
+   "url": null,
+   "question": "港澳通行证本子过期怎么换？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "88534f1635154bce8571b8a054f0e4e0",
+   "url": null,
+   "question": "外地可以初次二代身份證？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "77f1b450145143bd86649a5003739171",
+   "url": null,
+   "question": "岳阳户口能在长沙换领身份证么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e377028c11b74a709f63383d254dc6d1",
+   "url": null,
+   "question": "身份证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "2cd5fd9681ff4603be44a80fe9855f4e",
+   "url": null,
+   "question": "护照办理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "02cd54499fa0470da40f09d854377d04",
+   "url": null,
+   "question": "咨询港澳通行证跟护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0deb3726ec3c445b998993af0fa83455",
+   "url": null,
+   "question": "怎么办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "efb1cdebe1bd4756aa0efb39778d11aa",
+   "url": null,
+   "question": "关于通行证网上加签问题，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "834d7a30c9d04312908153b1b6604123",
+   "url": null,
+   "question": "港澳签注",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "f405309545b3475c9b77770458307dd4",
+   "url": null,
+   "question": "网上预约办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "64d12f15ec9e4afda3b91f9c6fbd0994",
+   "url": null,
+   "question": "8.26号开学 8.17号才能拿到香港visa label 然后我办逗留签能加急吗 加急是多少个工作日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1fb65eb6f3564972ac52ca19606eabb9",
+   "url": null,
+   "question": "请问满16周岁办护照是否需要监护人陪同",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c387fa652c6843a0bf1aec72eba7f463",
+   "url": null,
+   "question": "身份证进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0faed00ae45b445fb587ed32c1ca6e93",
+   "url": null,
+   "question": "长沙户口可否在常德申请重新办理护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b0a6d301d13947d4b57b320b4c992f30",
+   "url": null,
+   "question": "港澳通行证过期如何续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e8b4d101c5414e9b950ddc6f010a0615",
+   "url": null,
+   "question": "港澳通行证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "33ce3af2045c4b85af37af3fa05f01e4",
+   "url": null,
+   "question": "申请临时身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0096ca6d5d5349e2995736af4709ed28",
+   "url": null,
+   "question": "港澳通行证过期，是否需要本人前往办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "93b4b05e2e744fc1a7886d59bbd929af",
+   "url": null,
+   "question": "咨询非本地户籍长沙高校大学生台湾个人旅游签证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "89db18191ded44039b03cfcf86966bd2",
+   "url": null,
+   "question": "续签港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d98934d9e65446bcb3dacf5403db17f9",
+   "url": null,
+   "question": "身份证消磁的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0f98d9e0c8344ae9b8d8ff9b6cf6bfdd",
+   "url": null,
+   "question": "身份证补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "210a0b80976f4e1a9e7b5ebbf60da4ed",
+   "url": null,
+   "question": "港澳通行证的次数与用护照去香港的次数挂钩吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "941fbac10c284fecab8c6bdf1e4bfe16",
+   "url": null,
+   "question": "湖南港澳通行证过期可以在外地寄回续证吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "bad29304d6f4477fb49ceadf9bbc48d8",
+   "url": null,
+   "question": "办理护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "2be7f470d59c43c3ac1b0040e7819e0f",
+   "url": null,
+   "question": "第一次办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1fe2053c38eb41bf99acc218bc621d7e",
+   "url": null,
+   "question": "查询港澳护照进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7fa4bcceb9894483942495acc10878a4",
+   "url": null,
+   "question": "港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "17b4cc3672c743339737d97403ede669",
+   "url": null,
+   "question": "关于异地办理身份证的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b451cba577824281baf9a780d6e84d9d",
+   "url": null,
+   "question": "护照咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "da4569cd87384b3b87ad3745282925b5",
+   "url": null,
+   "question": "港澳通信证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c362aff8f587426a89ba5aa6d447ed89",
+   "url": null,
+   "question": "办理港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "4afe61e7199447618592197296f318eb",
+   "url": null,
+   "question": "留学生逗留D签证能否寄回办理续签？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "bfd62566b4974933b43ff5ee42de790c",
+   "url": null,
+   "question": "请问单程证大概多久会批下来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ebf678615231407887b275270b25fd8b",
+   "url": null,
+   "question": "关于在湘读书大学生异地办理护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "14ac7cb3c8554ccaade4168d331ba6bc",
+   "url": null,
+   "question": "港澳通行证过期了怎么续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "05ec14b275d146109bc40f8be18ba0ab",
+   "url": null,
+   "question": "异地护照办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "8216d59e3cea40fd948fb15e3c1b8fb2",
+   "url": null,
+   "question": "身份证失磁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "905db23c568841c4a630d42635a3c702",
+   "url": null,
+   "question": "身份证异地办理加急",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "32a60fef8b314b4abc5083d3d4123e80",
+   "url": null,
+   "question": "港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d858f1cbaebf4311bfb195e576da7b56",
+   "url": null,
+   "question": "怎样查询是否在网上申请了港澳通行证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "058a76fcd8b64929b85bef072f71ffca",
+   "url": null,
+   "question": "港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "62dc7b8e0a784a2383c2a02c9a9a303c",
+   "url": null,
+   "question": "护照遗失补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "823a958d41e94f868400c09af840d1e0",
+   "url": null,
+   "question": "身份证丢失，怎样网上补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ccd9d897b11b485384076f940b672916",
+   "url": null,
+   "question": "网签港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "3f0dcccf1282473daa8794721630f731",
+   "url": null,
+   "question": "咨询护照办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7e5c2f149e1f40729813524311e999f0",
+   "url": null,
+   "question": "护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1dfecbd28fe84d5e877d7e16086d8b2a",
+   "url": null,
+   "question": "中港夫妻團聚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "200beba900bf4b2c895a0071804dcdf0",
+   "url": null,
+   "question": "关於探亲簽証續签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e54717ced2ff4c84ba5d949348b5ae87",
+   "url": null,
+   "question": "港澳通行证网上续签 + 邮寄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1fee8645bb384db996de9b0d85537310",
+   "url": null,
+   "question": "护照及港澳通行证办理咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "236ff966621b482ca535336936628948",
+   "url": null,
+   "question": "香港出入境如何寄出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "514c6f652c9743748190a4459d0fd93e",
+   "url": null,
+   "question": "我的网上申请签注业务查询不到进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c1b92198dadd4b849748961fa795a941",
+   "url": null,
+   "question": "申请加签注地址写错了，怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c0cf834a51e849c2870bb2b1e7dd9c25",
+   "url": null,
+   "question": "身份证丢失需补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1b491f2819524e2eb1bc812834a41eed",
+   "url": null,
+   "question": "请问身份证马上到有效期，在网上可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "de0d9c4e28e14763829215e4ea26674c",
+   "url": null,
+   "question": "身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "86196683baf6431d97ced3e43280c1ed",
+   "url": null,
+   "question": "外地人口申请居住证咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1f49918ce2144cf9aa0d9b0fdba45f70",
+   "url": null,
+   "question": "能网上办理护照吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7a7a089489294ed0a8ea6a26c4a7b265",
+   "url": null,
+   "question": "港澳通行证过期续签问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1ccc0c9830c34d67b9feb5660ab7d1ef",
+   "url": null,
+   "question": "申请香港单程证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "bca8fd3f48e44de98331e448b24b4427",
+   "url": null,
+   "question": "二代身份证补办进度查询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "235f3f7d1bb644a3803b8ab00d604867",
+   "url": null,
+   "question": "请求尽快办理居民身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "84c534db48b9421290fc4da92ab551e3",
+   "url": null,
+   "question": "身份证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "02e951dcaa70413e972d1d37560dc192",
+   "url": null,
+   "question": "办证需要的资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9f2525c87a644fdcae611bcfc5bdc0e6",
+   "url": null,
+   "question": "网上续签收件人的地址怎么填",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "251b4a8194904d1a8693b01246e4e11a",
+   "url": null,
+   "question": "身份证没磁了 能在网上办理吗 要什么资料 户口本在老家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "3b11359c1feb483bac157045be35a51e",
+   "url": null,
+   "question": "娄底涟源茅塘光阳村的人去哪办理护照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "399efce0a9994b87a7db2a1e13927017",
+   "url": null,
+   "question": "港澳通行证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "263ab92c9ec346d8b0f2877ff4a29e21",
+   "url": null,
+   "question": "港澳通行证查询不到进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b8242ea4624c4e3fb3fc946915349d28",
+   "url": null,
+   "question": "关于赴港续签的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "87835478737945a0a5f011b33db4ebb9",
+   "url": null,
+   "question": "补办身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1e5711bd9bf64bc0928a871a11b48417",
+   "url": null,
+   "question": "挂失身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "596571394ef14c56a39a6d2249fe77e7",
+   "url": null,
+   "question": "请问在哪里能查询到单程证进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "63174dc33f7e41c89815a80700cd3e24",
+   "url": null,
+   "question": "港澳通行证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "113755a20fbc4ceb8bd8717293fdbf8a",
+   "url": null,
+   "question": "怎么办不了通行证续签",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1253d11f30d64b0a8c632c1cc7ac55a9",
+   "url": null,
+   "question": "办护照手续咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e1e5045170334cd8beddefdba8e58354",
+   "url": null,
+   "question": "不知道港澳通行证的进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "dda160dd42904d82a5f6adc3cdd2410f",
+   "url": null,
+   "question": "关于续签港澳通行证查询不到进度的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "403503213f3043a18e57ae252ee6edeb",
+   "url": null,
+   "question": "请问如何查询港澳通行证办理的业务编码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "100741ab7bde4a2b87685d244f469461",
+   "url": null,
+   "question": "护照在江苏省南京市江宁区丢失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "a726d00d2f9340d7a54da989cb7efc53",
+   "url": null,
+   "question": "港澳通行证续签和紧急补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "bd16971c961643ae8047e2d42f504b21",
+   "url": null,
+   "question": "受理编号忘记保存了，只有证件号码，查询不了进度，怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1186544f031b4ea6acb5135935557f38",
+   "url": null,
+   "question": "港澳通行证办理进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "71d85735149f4b17923409d1d849d755",
+   "url": null,
+   "question": "毕业3年查询户口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d4285ae9f6dc4d6d979e22b57d1eba70",
+   "url": null,
+   "question": "我户口被冻结并且被上报了公安厅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c89c4ec8669d438a921de6506fd876a5",
+   "url": null,
+   "question": "能否在网上办理老家户口注销证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "8993a59c930e4519b010a31bca7c1069",
+   "url": null,
+   "question": "两性畸形造成的性别不正确属于哪个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "5a27a59a1c884c9abe65ecbcfcfb3cdd",
+   "url": null,
+   "question": "注销小孩非正常入户的户口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "0c979e2820b744d79f2047ca83a950f5",
+   "url": null,
+   "question": "关于身份证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9ab932acedfd4cc3bd2d343c0d59b4f6",
+   "url": null,
+   "question": "迁户口要没收身份证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "48c4be07bf624a9eaf3827edf9cb1eff",
+   "url": null,
+   "question": "户籍是衡阳市的可以在湖南省其他市换领身份证嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "5ef43af00d5a49558f9a197c61635719",
+   "url": null,
+   "question": "我的身份证为什么在外省网上没有照片，办不了银行卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "780ab98858b94b7c80f42ee1085644e0",
+   "url": null,
+   "question": "查询身份证正反面图片",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "f72b553f1ae24771b4b307fb63d966fd",
+   "url": null,
+   "question": "在珠海办理湖南的身份证的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "56c7d9e13d3e477b97c9294ff08f3d2c",
+   "url": null,
+   "question": "身份证进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "3498ca85530943f3b6d9f9f77a6d8c1f",
+   "url": null,
+   "question": "身份证遗失，人也在外地，可以申请网上补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b55da40776be47dcab64562a8fa58be3",
+   "url": null,
+   "question": "身份证现在在我手里。刚有人打电话说有人用我的身份证在一家宾馆开了房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ca85836d846b439e96ada4d37f7df0e9",
+   "url": null,
+   "question": "身份证没有头像",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "cd00c9fd84da4cb8937d8c4d2aa3159d",
+   "url": null,
+   "question": "办理身份证时，照片可以自己提供电子照片吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b5aac14dbbab46cb8603620256514d41",
+   "url": null,
+   "question": "双重户口重户口注销后去银行更变信息被告知身份信息还能查到不能更变信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6e11060df1574b8e9515bb24e98c0776",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系统没有更新还是公安系统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "a637604028cf4dd79537d8c49f982fd9",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系统还是公安系统没有更新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "2698c2209b694896b0fa1b384f67632a",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系统还是公安系统没有更新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "ed03dec5205c485c91fb3edaed4f1c39",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系统还是公安系统没有更新？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "e7e6463b48384cdbb9aaa726bac33c34",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系统还是公安系统没有更新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6352df9b377e4cdda3db6c00f31e3e13",
+   "url": null,
+   "question": "双重户口注销重户口后去银行更变信息被告知注销户口银行还能查到，是银行系还是公安系统没有维护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7f8de79eca5c4aa9b4ef23c648d06ddc",
+   "url": null,
+   "question": "双重户口重户口注销后去银行更变信息被告知身份信息还能查到不能更变信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7d14a532325c4fa987bf1b8b77ba2cd5",
+   "url": null,
+   "question": "身份证更改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "4d2d4fa3a8194c98a45983d5e8bb1a73",
+   "url": null,
+   "question": "身份证更改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "9ebf181fbdc444d88661b7678a92aad7",
+   "url": null,
+   "question": "你好，请帮我查一下我办理的身份证进度430527199108126034",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "cf26ed79b925490082fa32e6eec01c07",
+   "url": null,
+   "question": "身份证号码一样地址不一样怎么回事？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7cca33bd1bc94693b3f9f0f93afb4fd1",
+   "url": null,
+   "question": "补办身份证需要多久才能拿到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "57c31c8e19c34a04b1f9b89adfce1444",
+   "url": null,
+   "question": "异地身份证办理有异",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "b2df032d47294be0a8f5abe992090949",
+   "url": null,
+   "question": "宁乡户口的二代身份证换证可以在长沙市办理吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "18c2bf3490404fbbb5b4ea9e1cfc0dd7",
+   "url": null,
+   "question": "身份证没磁了，在贵州毕节这把可以补吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "828c3cd28bfc4fcaa402a0ae2b00f41c",
+   "url": null,
+   "question": "身份证异地办理进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "c5ed3e675c02497ba6b670963196cab7",
+   "url": null,
+   "question": "公安局补办身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "791b8da952154fd0b263ba846437e2b5",
+   "url": null,
+   "question": "身份证办理进度查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "8dc53f579b0a436bbd625921954c2f3e",
+   "url": null,
+   "question": "身份证网吧上网的详细的地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "6dff173fe10f40d5ae4915d79edb2d69",
+   "url": null,
+   "question": "补办身份证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "01fbfd23618b41d48d421eac8f62d740",
+   "url": null,
+   "question": "怎么办理身份证挂失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1c06be04c31246d78100c4d064737d46",
+   "url": null,
+   "question": "身份证办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1ce4c0be5c42420ab7536e9dd7a047a4",
+   "url": null,
+   "question": "第二代身份证彩色照片不能上传到全国人口网",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "7586753f278542e69cd42b4827e5b749",
+   "url": null,
+   "question": "在甘肃兰州异地办理的身份证，是否可以查询到申请进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "44affe5dccad4143851b832815483369",
+   "url": null,
+   "question": "身份证补办进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gat",
+   "id": "a0dfea524eed467587d77f1bf8a52d4d",
+   "url": null,
+   "question": "机场办理临时身份证收费太高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

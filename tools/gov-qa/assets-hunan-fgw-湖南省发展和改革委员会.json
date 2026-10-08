@@ -1,0 +1,2281 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-fgw",
+   "id": "95699527671f4de080934f9a75856557",
+   "url": null,
+   "question": "产业项目招标是否违规？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "必须招标的工程项目规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "766a97f192d74f7fbb89a500e38c7e4f",
+   "url": null,
+   "question": "收费质疑",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国居民身份证法",
+     "lib_no": "居民身份证法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家发展改革委 财政部关于居民身份证收费标准及有关问题的通知",
+    "公安部关于印发〈户口居民身份证管理工作规范（试行）〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e79bb3ecbdf14da791d53c2fc67ac81d",
+   "url": null,
+   "question": "关于“机器管招投标”项目“例外情形”及实施细则的问题",
+   "cited_hits": [
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "招标投标法实施条例释义",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 关于明确“机器管招投标”项目“例外情形”及实施细则的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8b931c1b0730459dae048389e5789060",
+   "url": null,
+   "question": "招投标关于分公司社保是否符合规定",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "54ba0fe22d6740a1a8304d6686ad69a2",
+   "url": null,
+   "question": "关于分布式光伏备案事宜",
+   "cited_hits": [
+    {
+     "name": "企业投资项目核准和备案管理条例",
+     "lib_no": "企业投资项目核准和备案管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a21d2f7451d04f03840aa1a0287752b1",
+   "url": null,
+   "question": "关于中标单位无法履约时后续项目如何实施",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "dc490ead1564407d959fb06ba1790cf0",
+   "url": null,
+   "question": "关于已招标的政府性投资项目是否需要进行可研等变更的问题",
+   "cited_hits": [
+    {
+     "name": "政府投资 条例 ",
+     "lib_no": "政府投资条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "16ef7699dd3d48248a0bde1d83375141",
+   "url": null,
+   "question": "国有施工单位能否自主施工建设由自己投资的项目而不进行招标",
+   "cited_hits": [
+    {
+     "name": "招标投标法实施条例释义",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c314c3437cb44fc488aa002cd1ba2d49",
+   "url": null,
+   "question": "投标人违规",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例 ",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "投标人违规",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6ceac0e0a5fa4f749cfa49cef8a86e37",
+   "url": null,
+   "question": "关于湖南省发改委和省交易中心印发的《湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则》湘发改法规规〔2024〕958号文件的提问",
+   "cited_hits": [
+    {
+     "name": "招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "招标投标法实施条例",
+     "lib_no": "招标投标法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发&lt;湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则&gt;的通知",
+    "必须招标的工程项目规定",
+    "必须招标的基础设施和公用事业项目范围规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7f9ab7305d54408a8908824a4f6121aa",
+   "url": null,
+   "question": "《湖南省机动车停放服务收费管理办法》第十条具体规定",
+   "cited_hits": [
+    {
+     "name": "湖南省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省机动车停放服务收费管理办法",
+    "湖南省机动车停放服务收费管理办法",
+    "商品房买卖合同"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-fgw",
+   "id": "cd6d994c7f724d43939effe663559c67",
+   "url": null,
+   "question": "150kW/466度电的装机规模是否需要办理备案和办理电力接入流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型储能项目管理规范（暂行）",
+    "关于规范新型储能项目管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "51fa9f33bc6f4e888336e79fd609c68c",
+   "url": null,
+   "question": "娄底城乡新能源蛇形山镇中心卫生院244.8KW工商业屋顶分布式光伏发电项目的并网问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省分布式光伏发电开发建设管理实施细则",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "44a2ae28fea240b89b9ddb033d41c28e",
+   "url": null,
+   "question": "离网分布式光伏",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家能源局关于印发&lt;分布式光伏发电开发建设管理办法&gt;的通知（国能发新能规〔2025〕7号）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7cd1235154024cc4aa7d025d8344fc70",
+   "url": null,
+   "question": "建议将居民使用液化石油气纳入政府指导价格",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推进价格机制改革的若干意见",
+    "关于全面深化价格机制改革的意见",
+    "关于“十四五”时期深化价格机制改革行动方案的通知",
+    "湖南省天然气管道运输价格管理实施办法",
+    "湖南省天然气配气价格管理办法",
+    "关于进一步完善成品油价格形成机制有关问题的通知",
+    "关于转发&lt;国家发展改革委进一步完善成品油价格形成机制有关问题的通知&gt;的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "86e1dc1e010b40c982f62e3b58b04e63",
+   "url": null,
+   "question": "关于50m3富锰渣高炉的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（2024年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "241d673e2f3742ddba1ea3064a5cbe47",
+   "url": null,
+   "question": "关于印发《湖南省电化学储能电站全过程安全管理办法》的通知实施细节的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省电化学储能电站全过程安全管理办法",
+    "建设工程消防设计审查验收管理暂行规定",
+    " 住建部关于储能电站消防设计审查验收有关事项的函 ",
+    "电化学储能电站设计规范",
+    "电网公平开放监管办法",
+    "供电营业规则",
+    "电化学储能电站运行指标及评价",
+    "储能电站运行维护规程",
+    "GB 51048-2014",
+    "GB/T 36549-2018",
+    "GB/T 40090-2021"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9acd22a41c9c4ad19757a8dc0b510110",
+   "url": null,
+   "question": "两高项目咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查 和碳排放评价 办法",
+    "湖南省固定资产投资项目节能审查 和碳排放评价 实施办法",
+    "产业结构调整指导目录（ 2024年本 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e5c4eeefe15e44cf9d190e118111ea96",
+   "url": null,
+   "question": "招标监管部门咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步落实工业项目招标投标属地监督职责的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "f8d4791a6cad42e2b91ae164f94358ec",
+   "url": null,
+   "question": "关于湖南省“机器管招投标”系统运行公平公正性的咨询函",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程建设项目招标投标信用评价管理办法",
+    "招标公告和公示信息发布管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9d07e46ddde148ad9ed878e9e934c222",
+   "url": null,
+   "question": "保障性住房物业费是否是市场价",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b136ccd5efb34a1e9eb662fc7efe4378",
+   "url": null,
+   "question": "《湖南省长江经济带发展负面清单实施细则(试行，2022年版)》是否已经作废",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江经济带发展负面清单指南",
+    "湖南省长江经济带发展负面清单实施细则",
+    "长江经济带发展负面清单指南",
+    "湖南省长江经济带发展负面清单实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "565ce510e6954380b18d07efc9eba711",
+   "url": null,
+   "question": "咨询《关于印发<关于加强重点城市大气污染联防联控的若干措施>的通知》（湘环发〔2025〕74号）相关要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（2024年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "62261a6906c24b39bfba938c11332c7d",
+   "url": null,
+   "question": "咨询新版《湖南省机动车停放服务收费管理办法》的一个疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省机动车停放服务 收费管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "04262354134b4cdc8ae492aff8be26c7",
+   "url": null,
+   "question": "机器管招投标中人员、设备、资源调度效能及经验评价如何确定",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "db28bd1ed41c45a29d453b18a15a5c10",
+   "url": null,
+   "question": "湖南省污水处理基本电费减免政策解读",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于完善长江经济带污水处理收费机制有关政策的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "18f1b394ff05456fbe843e475e0dc2f9",
+   "url": null,
+   "question": "产业结构调整指导名录",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（2024年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "cf8d5f47c91c45c99ded506d66e34c97",
+   "url": null,
+   "question": "湖南省综合评标专家库是否常态化专家征集",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2025年湖南省综合评标专家公开征集和续聘工作的公告",
+    "评标专家承诺书",
+    "评标专家承诺书",
+    "评标专家承诺书",
+    "湖南省综合评标专家库和评标专家管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3df9fd44b143475caac1f2c6edb90cc2",
+   "url": null,
+   "question": "关于“可开放容量红区”内建设完全自发自用光伏电站项目审批政策的紧急咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " &lt; 分布式光伏发电开发管理办法 &gt; 问答（ 2025 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9842d2bca17c4290a2c2f3ab7000337f",
+   "url": null,
+   "question": "关于国网湖南省电力有限公司代理购电价表中系统运行费用折合电价水平的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt; 湖南省电网企业代理购电实施细则 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c9c1746c83a6471aaae064ad9ba0804a",
+   "url": null,
+   "question": "关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "37db1151430b4f63a896fe33b5632aff",
+   "url": null,
+   "question": "关于对《关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知》相关条款涉嫌违反国家构建统一大市场政策的质疑投诉报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则",
+    "关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "2ca40541d46f444f961863ecccd64a4b",
+   "url": null,
+   "question": "关于请求长沙市奥体中心项目三标段按照统一规则评定中标人的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt; 湖南省招标投标活动投诉处理办法 &gt; 的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "50aa9acff1e342a18847f729f654ce71",
+   "url": null,
+   "question": "新能源上网电价市场化机制认定及竞价",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt; 湖南省深化新能源上网电价市场化改革促进新能源高质量发展实施方案 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "faa21cf714a042899d0445945fdf9151",
+   "url": null,
+   "question": "石灰球磨项目是否属于两高项目？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推进产业园区改革和创新发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7796e38dad184adbb54af7eb9f72b1c7",
+   "url": null,
+   "question": "建议邵阳北站改名为新邵北站",
+   "cited_hits": [],
+   "cited_missing": [
+    "铁路线路、车站、桥渡隧名称管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "bf5c3cb31c114e6ea1120c77f9163b80",
+   "url": null,
+   "question": "关于信用评价修复的疑问咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程建设项目招标投标信用评价管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7edec6571efa4b1fa6f5ea5bd0b1d367",
+   "url": null,
+   "question": "关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在“机器管招投标”综合评标法中对施工组织设计部分评审因素增加智能评审功能的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a145e7d581f24287a993a463f59eeccf",
+   "url": null,
+   "question": "关于停车费用的公平设置问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省定价目录",
+    "湖南省机动车停放服务收费管理办法",
+    "管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "130a4b6e2cf14c7a9c13d3a55652fd34",
+   "url": null,
+   "question": "关于新能源车辆充电场站设立条件及流程的咨询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省电动汽车充换电基础设施 建设与运营管理办法",
+    "湖南省电动汽车充换电基础设施建设与运营管理办法",
+    "关于进一步构建高质量充电基础设施体系的指导意见",
+    "关于加快电动汽车充（换）电基础设施建设的实施意见",
+    "电动汽车充电站设计标准",
+    "电动汽车电池更换站设计标准",
+    "建筑防火通用规范",
+    "汽车库、修车库、停车场设计防火规范",
+    "湖南省电动汽车充电设施设计标准",
+    "图形标志 电动汽车充换电设施标志",
+    "备案证明",
+    "备案证明",
+    "电动汽车充换电设施建设技术导则",
+    "电动汽车充换电设施供电系统技术规范",
+    "汽车库、修车库、停车场设计防火规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "49fb283ea0be4377bc5df59ce6ecc2ee",
+   "url": null,
+   "question": "关于省评标专家库专家集合时间能否延长为3小时的问题？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省综合评标专家库和评标专家管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "27a50efdde5c4dfa90676eac708ba790",
+   "url": null,
+   "question": "综合评估法1的适应范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则",
+    "关于修改 &lt; 湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则 &gt;的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c19d00a0814342f1a4fc0a3a6c0dd6e1",
+   "url": null,
+   "question": "关于电动汽车充电站节能手续的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "固定资产投资项目节能审查和碳排放评价办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c50218ca2ee94d1bb0fbc1e37e3f166e",
+   "url": null,
+   "question": "关于湖南省市政环卫用水购买主体的函询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发 &lt; 湖南省城市供水价格管理办法 &gt; 的通知 ",
+    "城镇供水价格管理办法",
+    "关于印发 &lt; 湖南省城镇供水价格管理实施细则 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c84ed63b650248f8841b815225c587a0",
+   "url": null,
+   "question": "咨询湘价服【2009】81号文件备注中第二条内容",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物价局关于印发〈湖南省建设工程造价咨询服务收费管理办法〉的通知",
+    "关于再次市场化一批服务性收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "1cd7cc5b1e274fd584748d253694a753",
+   "url": null,
+   "question": "湖南省污水处理厂的基本电费减免有新的政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于创新和完善促进绿色发展价格机制的意见",
+    " 关于创新和完善促进绿色发展价格机制的实施意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "85e05004d98947029ebc8f7eb6e8b33b",
+   "url": null,
+   "question": "关于申请湖南省发展和改革委员会线上调研的函",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省级层面与民营企业常态化沟通交流机制",
+    " 2025 年营商环境监测工作方案",
+    "民营经济促进法",
+    "关于创新体制机制推动招标投标市场规范健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0666a1437a214e7aaff381d57351761f",
+   "url": null,
+   "question": "外省人员是否可以申请入湖南省综合评标专家库",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2025年综合评标专家公开征集和续聘公告",
+    "湖南省综合评标专家库和评标专家管理办法",
+    "湖南省综合评标专家行为负面清单与考评标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7f744cc5d8744e029896eef79d36e646",
+   "url": null,
+   "question": "2012年《湖南省学校学生公寓价格管理办法》规定的热水维护费的归属权",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省物价局 &nbsp; 湖南省教育厅关于印发 &lt; 湖南省学校学生公寓价格管理办法 &gt; 的通知 ",
+    "湖南省发展和改革委员会 湖南省教育厅关于印发 &lt; 湖南省学校学生公寓价格管理办法 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3c872d5496744ff598317409030c4e4b",
+   "url": null,
+   "question": "关于湘发改公管规〔2025〕561号《湖南省工程建设项目招标投标“评定分离”管理办法（试行）》文件相关政策解读",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程建设项目招标投标“评定分离”管理办法（试行）",
+    "湖南省工程建设项目招标投标“评定分离”管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6f68fd8d81934e5c8661a8c10000cc63",
+   "url": null,
+   "question": "《湖南省农村集中供水价格管理办法》（湘发改价商【2015】523号）文件是否有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村集中供水价格管理办法",
+    "湖南省城镇供水价格管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "046286d89a914c048203a7f6a7df9d35",
+   "url": null,
+   "question": "关于河道管理范围内建设项目防洪影响咨询服务费计列的指导意见",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省定价目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "77429ce001cb4cad8a54b3e8be3f8598",
+   "url": null,
+   "question": "怀化市工商业分布式光伏项目10KV箱式变电站并网，是否要收取容量费？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 怀化市工商业分布式光伏项目10KV箱式变电站并网，是否要收取容量费？ ",
+    "关于省电网第三监管周期输配电价及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "83c9bcd4a2aa4838bf27d5a47e0102e8",
+   "url": null,
+   "question": "《湖南省农村集中供水价格管理办法》文件有效性再次确认",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村集中供水价格管理办法",
+    "湖南省农村集中供水价格管理 试行 办法",
+    "湖南省城镇供水价格管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ba38851cb60040f58a2a30d918d40cfd",
+   "url": null,
+   "question": "关于怀化市城区居民用气价格的定价依据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于怀化市城区居民用气价格的定价依据咨询 ",
+    " 关于核定怀化市城区配气价格和终端销售价格的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "19bc793c7e8644ae97bf2ab1cacf8af5",
+   "url": null,
+   "question": "申报国家级双创示范基地",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于大力推进大众创业万众创新若干政策措施的意见",
+    "关于建设大众创业万众创新示范基地的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "67df4105ef6e4ca7ad8e79aef145f2b5",
+   "url": null,
+   "question": "关于《湖南省农村集中供水价格管理办法》（湘价服201341号）文件现在是否有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村集中供水价格管理办法",
+    "湖南省农村集中供水价格管理 试行 办法",
+    "湖南省城镇供水价格管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "d89641313f62472ba36b4ac987aeda71",
+   "url": null,
+   "question": "关于小区充电站备案事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省电动汽车充换电基础设施建设与运营管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c45f3dd5e4964173ad2e62d31b3a9a43",
+   "url": null,
+   "question": "“机器管招投标”评标委员会否决投标理由数字化目录清单咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布“机器管招投标”交易系统否决投标理由数字化目录清单的通知",
+    "目录清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0e3ccfb45f9f4fa1b48482c4dab61a49",
+   "url": null,
+   "question": "关于长沙2017年至2025年物业费收费标准及详情",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e57da64d1e1647e081008539c0886923",
+   "url": null,
+   "question": "请求对违法对物业服务费收取标准进行备案审查",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7ce2f3023f664d86add177e292a3c475",
+   "url": null,
+   "question": "违法对物业服务费收取标准进行备案审查",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8fc8f40e8293416e855f3a0de3e23a1f",
+   "url": null,
+   "question": "物业收费",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省定价目录",
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b1c55b350740413b8e9937c8952170c6",
+   "url": null,
+   "question": "关于长沙市2017年至2025间的小区物业费收取的具体明细及标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c1db1b991a974be3b489e2dd6f5f1fdb",
+   "url": null,
+   "question": "关于光伏发电与电能质量评估的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "电能质量管理办法（暂行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "fabcd0c5d4f5422eaf60f8c43cf77ca0",
+   "url": null,
+   "question": "关于湘发改价调规〔2024〕14号文件内容咨询确认",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于湘发改价调规〔2024〕14号文件内容咨询确认 ",
+    "关于我省居民阶梯电价制度及有关事项的通知",
+    "关于推进非住宅商品房去库存的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "74b0cf4ffe2941fab7bff4736bbbb492",
+   "url": null,
+   "question": "关于“岳阳港君山港区现代物流园铁路专用线工程”防洪影响评价技术服务项目招标工作的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " “岳阳港君山港区现代物流园铁路专用线工程”防洪影响评价技术服务项目招标工作的咨询 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "d84ac2c5c0264c1fa39149525e17b681",
+   "url": null,
+   "question": "关于湘阴东达华城住宅小区地下停车场的收取停车费行为相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省机动车停放服务收费管理办法",
+    "湖南省机动车停放服务收费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "963067d96a3c4abcb4ca9cac0ad356dd",
+   "url": null,
+   "question": "机器管招投标的诚信金怎么计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "efcb4c12fb6f46dcb0a40112fe8fbbc3",
+   "url": null,
+   "question": "（转供电相关）2022-15号通告与2021-693号文件冲突",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省发展和改革委员会 湖南省住房和城乡建设厅 湖南省市场监督管理局关于进一步规范转供电环节价格政策及有关事项的通知",
+    "转供电价格信息公示（模板）",
+    "转供电价格信息公示（模板）",
+    "转供电价格信息公示（模板）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0938fd45fa7c451cbec3798ca70f2f12",
+   "url": null,
+   "question": "限制失信被执行人的投标活动，“限制”到底是禁止还是允许？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在招标投标活动中对失信被执行人实施联合惩戒的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "def71586081e4db5ae9891f2f32eecbe",
+   "url": null,
+   "question": "长沙市地表水水资源费收取标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布湖南省水利系统行政事业性收费标准的通知",
+    "财政部 税务总局 水利部关于印发〈水资源税改革试点实施办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e6fea6bce3e0484a9b376f13625b4058",
+   "url": null,
+   "question": "关于代建费的收费依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省定价目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0310162000ff4a619651ef9a2543a206",
+   "url": null,
+   "question": "居民用户缴纳水资源费政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 水资源税改革试点实施办法",
+    " 关于明确 水资源税改革试点有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "4c911470960f40a99ede00db02c51eb1",
+   "url": null,
+   "question": "一般工商业分布式光伏",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a4853329060b41ad8a0a5e24ef897eff",
+   "url": null,
+   "question": "湖南省居民天然气价格定价公式是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省管道燃气配气价格管理办法",
+    "关于调整天然气价格管理权限的通知",
+    "湖南省发展和改革委员会关于完善湖南省天然气上下游价格联动机制的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ded156bf84ba4de9b85b93f2d5693eb2",
+   "url": null,
+   "question": "关于隔墙售电在湖南省是否可以办理及具体办理流程及条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于有序推动绿电直连发展有 关事项的通知",
+    "湖南 省有序推动绿电直连发展实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "bd3b07e871874962b36b57a47ccfe8aa",
+   "url": null,
+   "question": "关于发布湖南省住房和城乡建设系统行政事业性收费标准的通知（政策解读）",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省行政事业性收费管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e7babc02c68a4e26bc9ed4c3e47c3065",
+   "url": null,
+   "question": "湖南省政府投资项目代建单位名录库",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省政府投资项目代建制管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "12af288db4e34c0f8477a39e17bc0d5b",
+   "url": null,
+   "question": "业委会申请公变容量的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展和改革委员会 国家能源局 工业和信息化部 住房和城乡建设部关于加快居民区电动汽车充电基础设施建设的通知",
+    "湖南省电动汽车充换电基础设施建设与运营管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7cf26f160e414e7389cbacd8e3f6138c",
+   "url": null,
+   "question": "机器管招投标",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于发布设计施工总承包 “机器管招投标”交易系统的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "cdbdd64fbc5b4a0381da1e0860e5d55f",
+   "url": null,
+   "question": "小微企业申请公变容量建设充电桩的功率问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则",
+    "国家发展改革委 国家能源局关于全面提升“获得电力”服务水平 持续优化用电营商环境的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "4a7b4d361fb14043aeb2152984f9e1b7",
+   "url": null,
+   "question": "关于我省居民阶梯电价制度优化的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    " 的来信收 悉。经研究，现答复如下： 根据我委 《关于我省居民阶梯电价制度及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "5db18e7ac3c0421ab4f26b3baa6a50a8",
+   "url": null,
+   "question": "《关于完善我省分时电价政策及有关事项的通知（征求意见稿）》何时执行的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    " &lt; 关于完善我省分时电价政策及有关事项的通知（征求意见稿） &gt; 何时执行的问题 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e7fb07204fcb4b649cc942de78ecd225",
+   "url": null,
+   "question": "关于规范新型储能项目管理有关事项的通知（湘发改能源【2024】760号）文政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家能源局关于进一步明确电力建设工程质量监督机构业务工作的通知",
+    "湖南省工程建设项目审批制度改革工作领导小组办公室关于明确省建设项目审批管理系统中房屋建筑定义的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "698adbc976b142ea851a05e79777c9d4",
+   "url": null,
+   "question": "教师资格证考试面试费用有关规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布全省教育系统行政事业性收费项目和标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "bfbbaa7e026d4790a6e1bd4fc3419e2b",
+   "url": null,
+   "question": "要求衡阳市自规局解除土地使用权出让合同的申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省营商环境诉求办理实施办法 （试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "eda072ff44e1455bb6abb42ecf21b40c",
+   "url": null,
+   "question": "关于电动汽车充电基础设施建设与运营管理办法",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省电动汽车充电基础设施建设与运营管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6523eb36d9c446bea22991c2beddf588",
+   "url": null,
+   "question": "湖南省居民阶梯电价制度",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省居民阶梯电价制度 ",
+    "关于我省居民生活用电试行阶梯电价的通知",
+    "关于完善我省居民阶梯电价制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "1704f9a1af6245bf8c3ef4c81fdd86af",
+   "url": null,
+   "question": "公路",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高速公路网规划（2024-2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a7180e2dafd74af99238351decc7cfb6",
+   "url": null,
+   "question": "湘价重【2004】25号文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;湖南省降低大工业电价工作方案&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0071924258c749b0ba3af0a65377fd8a",
+   "url": null,
+   "question": "获得国债资金支持的社会投资项目是否要招标？",
+   "cited_hits": [],
+   "cited_missing": [
+    "必须招标的工程项目规定",
+    "必须招标的基础设施和公用事业项目范围规定",
+    "必须招标的工程项目规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "21fe055da6bf4d559e05c365c1051562",
+   "url": null,
+   "question": "物业费重新定价",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "927dba5b1d2a4554a3f6be29c258e0bd",
+   "url": null,
+   "question": "投诉油麻供电所拒绝执行分时计价政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于继续试行居民电动汽车充电设施用电分时电价的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6efc7d7fbc0a49c28997afbbcc81874e",
+   "url": null,
+   "question": "湘发改价服〔2015〕744号什么时候废止的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发湖南省政府投资项目代建服务取费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0cb6feea9d9c41efa24423f833ee8713",
+   "url": null,
+   "question": "“关于居民阶梯电价有关事项的复函中,二、城乡居民自建房用电需分户装表的，由产权人持独立的不动产权证向供电企业提出申请，供电公司按照“一证一户”原则办理。”建议修改或恢复",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "efb782307cc2492dae9a192a8768f707",
+   "url": null,
+   "question": "百世云镜两轮电动车充电收费标准不合理",
+   "cited_hits": [],
+   "cited_missing": [
+    " 百世云镜两轮电动车充电收费标准不合理 ",
+    "关于转发 &lt; 国家发展改革委办公厅 市场监管总局办公厅关于规范电动自行车充电收费行为的通知 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "5ca9d1eacec34840aedf0a8d9c645d55",
+   "url": null,
+   "question": "新能源充电桩企业备案新规则是否出来了？没出来前是否可以延用老规则录入了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省电动汽车充电基础设施建设与运营管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c687c06b94af470081171045528bae68",
+   "url": null,
+   "question": "关于咨询国家或者湖南省是否有国家标准或者地方法规等强制要求在小区地下车库规划建设充电、车位和充电桩的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "电动汽车充电站设计标准",
+    "湖南省居民住宅小区供配电设施建设技术标准",
+    "湖南省电动汽车充电设施设计标准(DBJ43/T016-2020)",
+    "GB/T50966-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "75ec082d233640e18ea5e1c3567e8dd1",
+   "url": null,
+   "question": "项目立项（党群服务中心是否属于楼堂馆所建设）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于党政机关停止新建楼堂馆所和清理办公用房的通知",
+    "关于加强和改进城市基层党的建设工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "2bd57cce5a7e41e9b4ac71340f63653d",
+   "url": null,
+   "question": "关于咨询小区地下车库建设充电车位和充电桩遵循的强制性国家标准或者法律法规问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "电动汽车充电站设计标准",
+    "湖南省居民住宅小区供配电设施建设技术标准",
+    "湖南省电动汽车充电设施设计标准(DBJ43/T016-2020)",
+    "GB/T50966-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a2fca1b28b05445ab77f1581676b002f",
+   "url": null,
+   "question": "关于咨询小区地下车库建设充电车位和充电桩遵循的强制性国家标准或者法律法规问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "电动汽车充电站设计标准",
+    "湖南省居民住宅小区供配电设施建设技术标准",
+    "湖南省电动汽车充电设施设计标准(DBJ43/T016-2020)",
+    "GB/T50966-2024"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9d6e218427e94a64bde2b6878809b165",
+   "url": null,
+   "question": "关于长沙物业新规空置房费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法",
+    "关于规范物业服务收费管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "817f86a422d14480806512b54d84893e",
+   "url": null,
+   "question": "湘发改价调规[2023]427文件中充电桩使用性质的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湘发改价调规[2023]427文件中充电桩使用性质的政策咨询 ",
+    "关于规范销售电价分类适用范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "cc26d30e4d5348db95cd8c8b8e868f20",
+   "url": null,
+   "question": "关于国网湖南省电力有限公司代理购电价格表中系统运行费用折合度电水平的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《湖南省电网企业代理购电实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "74c58a70122f41919cd9b7550c9d82fc",
+   "url": null,
+   "question": "关于国家重要基础设施有关问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省长江经济带发展负面清单实施细则（试行，2022年版）",
+    "长江岸线保护和开发利用总体规划",
+    "长江岸线保护和开发利用总体规划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3bfc0e3f774343b9b2df46faeac5690c",
+   "url": null,
+   "question": "关于测量成果利用费的收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省发展和改革委员会关于取消、降标和放开部分服务性收费的通知",
+    " 湖南省发展和改革委员会关于取消、降低和放开部分经营服务性收费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7bf16e8646d04a0f85e85d45789a944e",
+   "url": null,
+   "question": "关于湘发改价费〔2018〕435号文件失效后的执行问题",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于重新明确医院进修收费标准、医学院校毕业实习费标准的通知 ",
+    "湖南省定价目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "d6ede544dbef4a5cab91109946a8a9cc",
+   "url": null,
+   "question": "并网红区-建设不并网的全额自发自用分布式光伏项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好分布式光伏可开放容量管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "26df3b45387542799a3227082a7cbb19",
+   "url": null,
+   "question": "关于居民小区电动自行车服务费收费标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于居民小区电动自行车服务费收费标准",
+    "国家发展改革委办公厅 市场监管总局办公厅关于规范电动自行车充电收费行为的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "417972bfcecb4d1184571d5f86f863d6",
+   "url": null,
+   "question": "光伏红区能否备案全额自发自用的分布式光伏项目",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好分布式光伏可开放容量管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8d593a4a4d4b4d5fb411333841324f08",
+   "url": null,
+   "question": "关于LNG气化站的立项类型",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省企业投资项目核准和备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "79e47251e5c84c99ba4347f8c69f47cc",
+   "url": null,
+   "question": "关于修订“657文件”过程，应同时变更（修订）有线电视安装费自主定价的市场主体",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善我省有线电视收费管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "04cfbe6472b54ce7b780dfc32924dc3b",
+   "url": null,
+   "question": "取消居住地社区证明后，长沙市多人口家庭用气该如何申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "取消居住地社区证明后，长沙市多人口家庭用气该如何申请？",
+    "关于建立健全居民生活用气阶梯价格制度的指导意见",
+    " 湖南省居民生活用天然气阶梯价格实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "874b6c58a7874a47a27b3e6254692263",
+   "url": null,
+   "question": "请问怀化市的天然气管道运输什么时候开通，这都点火成功几年了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "请问怀化市的天然气管道运输什么时候开通，这都点火成功几年",
+    " 关于 核定怀化市城区配气价格和 终端销售价格 的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6044d40cdce8473e832346d533db7995",
+   "url": null,
+   "question": "以后未来有没有高铁线路连接溆浦南站和洞口站两个站？原来张峎桂铁路本来经过沅陵，溆浦，洞口，武冈，直接南下终点桂林",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好铁路规划建设工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8e377d7e71ef44d0ad002410e1315ad1",
+   "url": null,
+   "question": "关于《年产1000吨高纯硫酸钡建设项目》有关产业政策问题的咨询函",
+   "cited_hits": [],
+   "cited_missing": [
+    "年产 1000 吨高纯硫酸钡建设项目",
+    "产业结构调整指导目录（ 2024 年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9e7bd079c179464fb8e64232de19a6c0",
+   "url": null,
+   "question": "代理购电商要求企业必须通过代理购电商购电是否属实",
+   "cited_hits": [],
+   "cited_missing": [
+    " 代理购电商要求企业必须通过代理购电商购电是否属实 ",
+    "国家发展改革 委办公厅关于组织开展电网企业代理购电工作有关事项的通知",
+    " 湖南省发展 和 改革 委员会 关于印发 &lt; 湖南省电网企业代理购电实施细则 &gt; 的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "59b0a5dca9934e9f8418b516992ad8f4",
+   "url": null,
+   "question": "电价文件中所制定的居民生活用电价格和一般工商业及其它用电价格按使用电的性质还是物业产权性质确认",
+   "cited_hits": [],
+   "cited_missing": [
+    " 电价文件中所制定的居民生活用电价格和一般工商业及其它用电价格按使用电的性质还是物业产权性质确认 ",
+    "湖南省发展和改革委员会关于规范销售电价分类适用范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9ae866baf29c43099bf7b1066017ee82",
+   "url": null,
+   "question": "关于株洲市发改委空置房物业费优惠政策解读违法的投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "081b6262042144848a231d67b736b80a",
+   "url": null,
+   "question": "关于交通运输系统行政事业性收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新发布湖南省交通运输系统行政事业性收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "177ab993f5134ecaaf9aa15d9da5d253",
+   "url": null,
+   "question": "咨询充电桩使用性质",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快居民区电动汽车充电基础设施建设的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "910bb0930d10477496999c3acf1b7099",
+   "url": null,
+   "question": "关于《湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则》评标办法的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ec8bdd42e2894d6c83dfb51a2710b9e4",
+   "url": null,
+   "question": "前期物业服务收费备案是否需要经过建设单位签字盖章后才能进入备案流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b4b663cd8a6f4746b1bf8ddffef6e3c5",
+   "url": null,
+   "question": "咨询湖南省2004年和2005年燃煤发电标杆上网电价",
+   "cited_hits": [],
+   "cited_missing": [
+    " 咨询湖南省2004年和2005年燃煤发电标杆上网电价 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "cc0ecb1be86e4ed38430f653a4d3aa3f",
+   "url": null,
+   "question": "前期物业服务收费备案到期后是自动延续还是需要重新备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ecc8a163739d4d3e8afeae5e5c78ca8c",
+   "url": null,
+   "question": "农光互补备案和接入办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于支持分布式光伏发展规范相关管理事项的通知",
+    "关于规范“农光互补”项目建设管理有关事项的通知(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b81a460c67644b0aa046932addfab5f1",
+   "url": null,
+   "question": "监利至华容公铁两用大桥进展",
+   "cited_hits": [],
+   "cited_missing": [
+    "长江干线过江通道布局规划（2020-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0666562151c44c9494a6ada8419cefef",
+   "url": null,
+   "question": "关于移动运营商有线电视收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于移动运营商有线电视收费问题 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "82853150160347aba7b2552a65247422",
+   "url": null,
+   "question": "微风发电政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "微风发电政策咨询",
+    "湖南省政府核准的投资项目目录（2017年本）",
+    "湖南省发展和改革委员会关于调整风电项目核准权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "afa24d7085114c5eacedbaa7d6f1d495",
+   "url": null,
+   "question": "关于燃气和电力关于一户多人口政策落实不到位",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于我省居民阶梯电价制度及有关事项的通知",
+    "湖南省居民生活用天然气阶梯价格实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "1efa9f76485e49d3bd3fd4f2cf82f6c0",
+   "url": null,
+   "question": "关于用电腰荷电价的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善我省分时电价政策及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6b779376463344118a77eef597ae69c0",
+   "url": null,
+   "question": "关于离网型分布式光伏的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "分布式光伏发电开发建设管理办法",
+    "关于支持分布式光伏发展规范相关管理事项的通知 ",
+    "分布式光伏发电开发建设管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-fgw",
+   "id": "65647047b8794ec383e432a8874c2185",
+   "url": null,
+   "question": "怀桂高铁项目规划建设最新进展情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "94923e1976d640c99e8c9616803ef947",
+   "url": null,
+   "question": "要求\"湖南省投资项目在线审批监管平台“中的文件公开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "991e602027e64dc0a5c552d4cfa82d60",
+   "url": null,
+   "question": "请求开辟长沙经武冈通往南宁的湘桂新通道。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "abe621a692dc441d9f172fca2a20e0b5",
+   "url": null,
+   "question": "关于湖南省十五五铁路及澧张铁路的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "eb51fe55a98b42718c4345af3679a6b0",
+   "url": null,
+   "question": "衡茶吉铁路建设方案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9c7c9678e791475d9db9215f3ac877a9",
+   "url": null,
+   "question": "请问一下荆澧高铁和武张高铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "5f15979decd34847b67627d8a3be9b18",
+   "url": null,
+   "question": "电等价值",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "86a20ff961a2430cbd5d392fcc599642",
+   "url": null,
+   "question": "安恩张",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8896b92a0adf4314b70082fd0b226569",
+   "url": null,
+   "question": "国网资兴市供电公司价格违法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "06eb7ab6355149ec988fc809bf93788f",
+   "url": null,
+   "question": "咨询湖南省中中心电子保函征集事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "57ae4c889bb3476aa6e60b742d09a23f",
+   "url": null,
+   "question": "咨询进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7f64ebe0fb504b639d2607b0c523721b",
+   "url": null,
+   "question": "关于提请对攸县多部门系统性对抗中央及省级决策部署、违规收费等问题开展提级督查的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7cda5e183a594dc2bd025ed43dc2bce0",
+   "url": null,
+   "question": "【紧急】投诉郴州市发改委系统性不作为，违反省级规章，请求启动层级监督",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "351348e5a5de498bbebda9f70b106c9c",
+   "url": null,
+   "question": "关于省综合评标专家入库专业不符合要求审批意见的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a3daa5628dc8427e9a20b29fd49dc062",
+   "url": null,
+   "question": "城建投工作人员先称政府将停车场承包租给她们公司收费,而后又称政府将这里卖给了她们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3efe42ac0bc84ced91e2e6cb6338170d",
+   "url": null,
+   "question": "关于恳请统筹协调将湘潭大学科创港项目选址调整至湘江科学城的请示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "f4e286918d8844fa85adbc90991d2589",
+   "url": null,
+   "question": "工程咨询单位备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "1b43e142f8eb42eea4df16b18fb65ae2",
+   "url": null,
+   "question": "关于城市低收入人群享受水电气优惠相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7387c27eec004230ace2d9accc4d6cae",
+   "url": null,
+   "question": "咨询申请评标专家的疑问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e07d25ee3f1f4d21974d84cbb7f869a1",
+   "url": null,
+   "question": "长衡湘潭北至株洲西线路目前有进展吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "cd0e1729926443618038afba67409638",
+   "url": null,
+   "question": "从京沪、沪广高铁二线，论渝广高铁二线利用怀邵铁路，建茶元头联络线实现渝怀广高铁的必然性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "71b7e24262fc4fd0933bc6c6c980e777",
+   "url": null,
+   "question": "湖南省综合评标专家库新专家征集入库咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6585bb1fe169476f82dd4fc841c9eb02",
+   "url": null,
+   "question": "2025年湖南省综合评标专家库申报时间和报名网站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "91ac42131d1140808ae20971b351e004",
+   "url": null,
+   "question": "关于湖南家用充电桩电费收取的若干问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b79cabad16a54787a86802690bc1f2f2",
+   "url": null,
+   "question": "荆岳高铁进展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "6b989e1b422c4792b4049a4ab82cf19c",
+   "url": null,
+   "question": "关于机器管招投标“六随机五区间报价得分模型”的疑问与建议​",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "2cd6655e02e7495e9bbd44390743a6ae",
+   "url": null,
+   "question": "湖南综合评标专家库专家征集咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "866583dd39174b2bb781994c6c838b41",
+   "url": null,
+   "question": "湖南省发改委综合专家库什么时候开始招专家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "67e4e62845ea422cbe3a3c2cd0087d8b",
+   "url": null,
+   "question": "关于《湖南省长江经济带发展负面清单实施细则（试行,2022）》政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "8cdba844ba5e428d838292036464e2aa",
+   "url": null,
+   "question": "增量配电网区域内，全额上网的光伏项目，可以和增量配电网公司议价吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ec1313b6977b4d41bfe6b07dabb6f4ac",
+   "url": null,
+   "question": "关于小区地下车库建设充电车位配套设施的咨询求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e5abf9b21a6d4272b85a403c9133cf0c",
+   "url": null,
+   "question": "湖南省汽车充电站建设现行奖补政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b35a1b90d1a24e71b537c4a82d69d4a2",
+   "url": null,
+   "question": "永州零陵区的燃气费价格为什么那么贵？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "f635423c557347eb898b3a95005c90b4",
+   "url": null,
+   "question": "关于是否属于两高项目的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "ec710cf92d624b0d972c66879ca6f33d",
+   "url": null,
+   "question": "湘潭市雨湖区友仟痘一生皮肤管理店",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "0f41309dc12349bda94dc2b654e00577",
+   "url": null,
+   "question": "项目经理查询事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "5d27ea506e404e33a33206a3c90a4c66",
+   "url": null,
+   "question": "关于上个发表提到的沪昆高铁的答复我还有三个疑问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "babb12eeaff14e7e93a01195ec2c1f58",
+   "url": null,
+   "question": "国家可再生能源发电项目建档立卡系统，建档立卡后一直是审核中状态。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "c64217c79afe40309de35dfa9fda125b",
+   "url": null,
+   "question": "长株快线的具体进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7e976658aee946d581eb6fc44a2a761f",
+   "url": null,
+   "question": "关于统筹化解全国各级地方政府债务、盘活烂尾楼、改善民生并带动经济增长的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "695198ea463449ad9ff0f47120fd44da",
+   "url": null,
+   "question": "关于咸嘉湖景区（西湖公园）停车场收费公示牌设置的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "21bc0e78319b41f1aaf7aedbddcde9ab",
+   "url": null,
+   "question": "居民小区二次供水收费标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "eea1d47e456548169380f2472f4b5961",
+   "url": null,
+   "question": "咨询电动汽车充电设施建设运营企业申请报告书大纲的资料标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "e8ce789bf0c54650a658ee0c899df6e3",
+   "url": null,
+   "question": "长沙西至浏阳高铁施工进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7dfda93de0434b0ba3c4a389330aaf02",
+   "url": null,
+   "question": "宁乡工业企业分时电价政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "eff7d97a417446a4a5102dd493ddc571",
+   "url": null,
+   "question": "长赣高铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "a9990351a69d402e996b2fc9c08b18a7",
+   "url": null,
+   "question": "1号已经发布了机器管投标的招标文件范本，什么时候开始正式实施？长沙浏阳地区的公路项目是否按照机器管执行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7d6c65ffd8484d34ac2bc06aae0c4658",
+   "url": null,
+   "question": "长赣高铁初步设计批复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3f41703adfae44c28408890e59bdaafe",
+   "url": null,
+   "question": "长赣高铁进展如何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "2d08b39ebf984676bd737952587ca1ac",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "2d28d0a0225746ca806e89e205c6e2df",
+   "url": null,
+   "question": "分享长韶娄高铁线路个人思路愿为上层规划添灵感；咨询长韶娄高铁最近动态与可行性",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "92dddc381d0748b38c7c5e3527dc2015",
+   "url": null,
+   "question": "关于湖南新五丰股份有限公司利用国有企业资源禀赋优势，拒绝履行量身定制母猪场承租协议，导致民营企业遭受重大经济损失。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "27760f54a8db4a2482ad05a3a079bbc6",
+   "url": null,
+   "question": "长赣高铁初步设计批复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "9cdf786e5afd405893e648ab142def88",
+   "url": null,
+   "question": "恳求建议永清广高铁过嘉禾、临武设站，采用东线优化方案，填补郴州县域铁路空白！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "4a5a1338dfc34f759ccc7a6629d6a1a2",
+   "url": null,
+   "question": "湖南省2024年物流行业基本情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "53eb91eaf4eb46dc925f67a35adbb3b3",
+   "url": null,
+   "question": "关于幼儿园退费的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "75bb77c2ea6940059898a64b9bb06ec7",
+   "url": null,
+   "question": "为国家提建议（有两个地方有所改动）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "3669d9c2a5284b58b7939467f4f9bf71",
+   "url": null,
+   "question": "请问2025年有计划公开征集和续聘湖南省综合评标专家吗？一般是几年一次公开征集？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "7ad1dbe8d2f74c13a5b74bcffa1acf2e",
+   "url": null,
+   "question": "关于光伏项目建档立卡工作的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "5047a51167004070ab59e74715a48076",
+   "url": null,
+   "question": "特种设备定期检验收费标准。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "273c0628ab6d45bda95590db0cb614fe",
+   "url": null,
+   "question": "铁路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "35c5628f5b484bd1adc279cb90765268",
+   "url": null,
+   "question": "钢铁厂行业的新建项目咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "b5532f7a763e4ec28e012f8a9dcd8c81",
+   "url": null,
+   "question": "可行性研究报告有效期限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "506d15b02d18402abd77921ab68cdd6a",
+   "url": null,
+   "question": "请问湖南秀吉益高铁什么时候开工，什么时候通车会不会设溆浦北站？什么时候溆浦南站和洞口站高铁线路连接起来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "174841f654c846de8dbc308fb2fe6e3e",
+   "url": null,
+   "question": "请问长赣高铁初设批复了么，三月份能实现实质全面开工么？目前进展如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "346e7a01516e4e878b61f0e28c8ddbdb",
+   "url": null,
+   "question": "关于永州站新增衡柳快铁/南衡高铁接入永清广高铁联络线的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-fgw",
+   "id": "77c6bb55c30748c885bcdb0541364f1f",
+   "url": null,
+   "question": "关于用电峰谷时段的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

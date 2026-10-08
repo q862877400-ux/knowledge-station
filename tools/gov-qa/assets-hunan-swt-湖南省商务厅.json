@@ -1,0 +1,2102 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-swt",
+   "id": "288da2b964174a3abab7195032e299c9",
+   "url": null,
+   "question": "衡阳比亚迪中意汽车服务有限公司违约",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "aab47f6eb9fb4fe7aca492d9be00726c",
+   "url": null,
+   "question": "极氪不履行兜底购置税承诺，涉嫌虚假宣传",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "58fc0c142b1148a4827b21dbcb1aa2c3",
+   "url": null,
+   "question": "关于解决东安县民营加油站生存困境的行政复议申请书",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于解决东安县民营加油站生存困境的行政复议申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-swt",
+   "id": "54aba5185c8f4e858928975cffac2100",
+   "url": null,
+   "question": "商品质量",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "缺陷汽车产品召回管理条例",
+     "lib_no": "缺陷汽车产品召回管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4e179b5af4d34635843c6e373be4c0c1",
+   "url": null,
+   "question": "报废回收证明明细条例",
+   "cited_hits": [
+    {
+     "name": "报废机动车回收管理办法实施细则",
+     "lib_no": "报废机动车回收管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "报废机动车回收证明",
+    "报废机动车回收证明"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-swt",
+   "id": "9a7bd60025e844a78575dfb8295a73f5",
+   "url": null,
+   "question": "领取汽车以旧换新补贴后，旧车可以再转回原车主名下吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "abe3f59bbdc44d8dacc6a3f812d3d098",
+   "url": null,
+   "question": "旧车置换",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4176da246ec045faae3daa2a7a528f92",
+   "url": null,
+   "question": "湖南省汽车置换补贴和报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c8eeab4b4dfe46f1a1e69328bd17b2c2",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c4e356455f93495fa680943d7743df3f",
+   "url": null,
+   "question": "mRNA疫苗是否属于核酸类药物，母公司为外商合资企业的公司能否经营该业务",
+   "cited_hits": [],
+   "cited_missing": [
+    "外商投资准入特别管理措施（负面清单）（2024 年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "24974b397768457198c5c88ade0a6bfd",
+   "url": null,
+   "question": "长沙市悠泳体育场馆管理有限责任公司无证经营且无正当理由扣除手续费，不予退费",
+   "cited_hits": [],
+   "cited_missing": [
+    "单用途商业预付卡管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e9f524f02b9c4f56b6660003d8b7bf9c",
+   "url": null,
+   "question": "关于柴油经营业务的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "成品油流通管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-swt",
+   "id": "48834a57493a4d4da6435beced4e8438",
+   "url": null,
+   "question": "关于316L,316L1.4404,316LStainlessSteelPowder,SS2507是否属于两用物项",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "82adfb4c702240cb86543a97736195cd",
+   "url": null,
+   "question": "县级加油站的迁建是否需要遵守县成品油零售“十四五”规划文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "成品油零售企业管理技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ac0a2c7594c74f83ababf4947435a1e1",
+   "url": null,
+   "question": "汽车报废补贴问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "报废机动车回收证明",
+    "机动车注销证明",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ebb031603b7142a8a488a5cdd86aa7af",
+   "url": null,
+   "question": "家装厨卫",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等7部门关于提质增效实施2026年消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "66d1fa5bb5eb4faa9866a1378facf916",
+   "url": null,
+   "question": "咨询一下2026年异地车牌旧车在异地报废，在湖南购买新车并上牌是否可以申请报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "报废机动车回收证明",
+    "机动车注销证明",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e07b9201020d41e7a14e14800bfe2368",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a2ace12b36a14c9994f27c11c156e033",
+   "url": null,
+   "question": "置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e854538841c74b3e8c22918d2ae75d3e",
+   "url": null,
+   "question": "关于以旧换新的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2026年家电以旧换新、数码和智能产品购新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "94aa90ead40e4194a6d8a09713429915",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书",
+    "二手车销售统一发票",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "19b6e68f00d644a78784ab774252c322",
+   "url": null,
+   "question": "出口许可证申办方法流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4234a159c456424296ad43d249d58acd",
+   "url": null,
+   "question": "两用物项",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "77c4b6d0aa1d4eaa9aa080b15e16df75",
+   "url": null,
+   "question": "非营运微型小货车提前报废有补贴吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "减免车辆购置税的新能源汽车车型目录",
+    "2026 年汽车以旧换新补贴问答手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "665fa41fd14d4568aa1303eef50381e7",
+   "url": null,
+   "question": "汽车报废置换补贴政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026 年湖南省汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "35a89e5777e7486c97c553ea2a50d0c0",
+   "url": null,
+   "question": "关于对《2026年湖南省汽车以旧换新补贴实施细则》中属于特殊符合条件的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c9e41b1bf4d04b16b0963b737602a5e7",
+   "url": null,
+   "question": "2026年汽车以旧换新，汽车国补置换补贴不算报废和省补置换补贴不算报废可以叠加领取吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026 年湖南省汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "1941fc3ceefc4e65b52891a66207fcc3",
+   "url": null,
+   "question": "建议优化汽车以旧换新补贴直系亲属过户时间限制",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a6de51d0ec3d4e1d8eaec29f8a0f377c",
+   "url": null,
+   "question": "咨询湖南省电动自行车2026年度补贴政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委 财政部关于2026年实施大规模设备更新和消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "19f8948b65514058a28321f0e19280d1",
+   "url": null,
+   "question": "汽车以旧换新",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026 年湖南省汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "1989cc40376149019288d4066ea579ab",
+   "url": null,
+   "question": "咨询汽车以旧换新补贴政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年湖南省汽车以旧换新补贴实施细则",
+    "机动车登记证书",
+    "二手车销售统一发票",
+    "机动车销售统一发票",
+    "机动车登记证书",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ced8a611eaf24a38b526de09176a70c3",
+   "url": null,
+   "question": "请问在2026年湖南省会有装修补贴的计划吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等7部门关于提质增效实施2026年消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f0c73bc15c5d43278adeb53db592a20c",
+   "url": null,
+   "question": "数码产品换新消费国家补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门办公厅（室）关于做好2026年家电以旧换新、数码和智能产品购新补贴工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "26ec29df49f948789d75cb271f482c86",
+   "url": null,
+   "question": "装修公司以国补优惠来吸引消费者签订合同并施工，施工期间国补停止，造成消费者无法拿到国补而损失",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省消费品以旧换新实施细则",
+    "关于调整部分消费品以旧换新活动规则的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "612b4809447540bda1eb1a8ea64151fa",
+   "url": null,
+   "question": "2026年交售废旧锂离子电动自行车补贴什么时间开启呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委 财政部关于2026年实施大规模设备更新和消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6cf37d40a6fa44449aca67943a6d41e0",
+   "url": null,
+   "question": "关于湖南2026年以旧换新补贴领取后不能使用的询问",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门办公厅（室）关于做好2026年家电以旧换新、数码和智能产品购新补贴工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6ed8cc659b744fb38d51fb457077999b",
+   "url": null,
+   "question": "两用物项确认",
+   "cited_hits": [],
+   "cited_missing": [
+    "两用物项和技术进出口许可证管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "47f8cc15dba94408a8c37439e8485642",
+   "url": null,
+   "question": "外国人战略投资及外商投资",
+   "cited_hits": [],
+   "cited_missing": [
+    "外国投资者对上市公司战略投资管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d20834b8c9984db68ea09edc4e202094",
+   "url": null,
+   "question": "2026年汽车报废补贴细则什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年汽车以旧换新补贴实施细则",
+    "减免车辆购置税的新能源汽车车型目录",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "47f15509cfa54db8bf85464fd7cda499",
+   "url": null,
+   "question": "2026汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等8部门办公厅关于印发&lt;2026年汽车以旧换新补贴实施细则&gt;的通知",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "14943a0778cc4417b167a0f80a869981",
+   "url": null,
+   "question": "线上国补完善",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等5部门办公厅（室）关于做好2026年家电以旧换新、数码和智能产品购新补贴工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "62b287a3157547b9814c0b5db99afc3d",
+   "url": null,
+   "question": "2026年汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省商务厅关于接续开展2026年消费品以旧换新活动的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "bc7365b7910d4cb99ee1a1e3a95d7818",
+   "url": null,
+   "question": "关于汽车以旧换新补贴申请因政策时间差受阻的反映与建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d9fffeac0b924d33a7b4c77e918516f5",
+   "url": null,
+   "question": "湖南省2026年是否还有装修建材补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等7部门关于提质增效实施2026年消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6bc4fa9cf1024e55a06d121571339203",
+   "url": null,
+   "question": "2026年家装厨卫补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等7部门关于提质增效实施2026年消费品以旧换新政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6f812e3219b0447991e02c8e2a68be97",
+   "url": null,
+   "question": "关于汽车报废补贴政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车和电动自行车以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "06d232b4f68a49889daf5ed85c0413f3",
+   "url": null,
+   "question": "购车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4080167f0cca45be957b0834e40eb405",
+   "url": null,
+   "question": "希望出台2025-2026年置换补贴衔接政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "2026年汽车以旧换新补贴实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "9e0acf93caf141b5a8ecc8670b006e80",
+   "url": null,
+   "question": "服务贸易进出口数据请求",
+   "cited_hits": [],
+   "cited_missing": [
+    "国际服务贸易统计监测制度",
+    "中国服务贸易统计"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4d7db20ce0454115964f18e9054e7057",
+   "url": null,
+   "question": "2026年汽车置换补贴相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省商务厅关于接续开展2026年消费品以旧换新活动的公告",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "418837965fa24843a6361671feea9962",
+   "url": null,
+   "question": "咨询2025年家装厨卫以旧焕新商家垫付资金发放时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省家电、数码产品和家装厨卫以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "cf276cb3f1f44a08bd77b9eea5f55eff",
+   "url": null,
+   "question": "汽车置换补贴政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "00eff89df3ed470ab83cee390f264e42",
+   "url": null,
+   "question": "“乐享湖南·湘当有惠”汽车促销补贴活动什么时候公布细则？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2025“乐享湖南 湘当有惠”汽车促销活动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c982c754b22f4395ae8a39d0a84ce751",
+   "url": null,
+   "question": "关于完善成品油零售网点布局间距相关规定的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "成品油流通管理办法",
+    "湖南省成品油流通管理实施细则",
+    "成品油零售企业管理技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "fdafc186137f4bf494848538c0bbc0d3",
+   "url": null,
+   "question": "建议加快汽车报废补贴审核效率",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车和电动自行车以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8b53ed07bc0a40919515dfe896df80e6",
+   "url": null,
+   "question": "11月13日关于调整2025年湖南省汽车报废更新补贴政策的公告",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "daa28388f2d74969b96f99d38682d716",
+   "url": null,
+   "question": "湖南汽车报废补贴政策的延续建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f4951267ce30405b985bec37ae284faf",
+   "url": null,
+   "question": "请求湖南省商务厅根据实际情况将正在办理之中的旧车补贴适当延长几天",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3c8c4b9b24294f3cacee9c63ec510659",
+   "url": null,
+   "question": "7月份购车，能享受报废补贴嘛",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "bf9e0fc9ee494c59a0708a218fc30391",
+   "url": null,
+   "question": "汽车报废更新政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f1cb0e653d674214a165e6f4fd895e91",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "af58edb08b0c47b99ef913d2d43f74a8",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车和电动自行车以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b3e6a97a4c3a4dd48e1bd0373778c514",
+   "url": null,
+   "question": "关于汽车报废补贴的补充公告咨询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "1e77cc38037d41d3a98269c003610fab",
+   "url": null,
+   "question": "车辆报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "28920617fe114c739edb24addf67b555",
+   "url": null,
+   "question": "关于国补时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6b091b4d59254afe93b509796184d177",
+   "url": null,
+   "question": "湖南省汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "958cea496ca64a6d90067b33b08cf9b0",
+   "url": null,
+   "question": "2025年湖南省汽车报废补贴政策如何解读",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "18ca1309053a4f4c993e72ccc6ed2558",
+   "url": null,
+   "question": "关于调整2025年湖南省汽车报废更新补贴政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b2924cc3a3b8458e958c39c887373b6b",
+   "url": null,
+   "question": "2025年汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d0280203c845465a98baa440cfe0f7aa",
+   "url": null,
+   "question": "车辆报废补贴新政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车报废更新补贴调整公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-swt",
+   "id": "340187751c554c0c9c7e945a35a70eda",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的公告",
+    "机动车登记证书",
+    "报废机动车回收证明",
+    "机动车注销证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "47abeae2707e478da21aa3f55377a5ed",
+   "url": null,
+   "question": "汽车报废补贴细则",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年湖南省汽车报废更新补贴政策的补充公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8c159dd19f074e14bbe117e743b3cebc",
+   "url": null,
+   "question": "旧车报废购新能源车补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车报废更新补贴调整公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4abc7d5a6cc343978c163f97cef983c5",
+   "url": null,
+   "question": "2025汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f7f1dfd2496544c4952612798e07a2fe",
+   "url": null,
+   "question": "旧车报废购新能源车补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年汽车以旧换新政策的公告",
+    "2025年湖南省消费品以旧换新实施细则",
+    "关于调整长沙市2025年汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "fc7b80e388e1425ba64757de869527f6",
+   "url": null,
+   "question": "关于汽车报废补贴的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2025年汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ce70c119673d4749a65df077c9c52b8b",
+   "url": null,
+   "question": "《湖南省加快提升新能源汽车渗透率行动计划（2025—2026年）》的通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c37628f276b64703b3a16771524a96db",
+   "url": null,
+   "question": "报废补贴截止时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整长沙市2025年汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "dedd80f4775e41098f315b4c29915ff4",
+   "url": null,
+   "question": "湖南第4季度汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8ace564d1c99427b9df7253f60a6daf8",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "30a32654844a4daa8b653441d6bfea22",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8e5d94cb224748be95fef0b623967993",
+   "url": null,
+   "question": "国家财政置换补贴资金已于近期下达，湖南省汽车以旧换新补贴政策有无重启计划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b9b46d874b344d4896ffdf72cdd9e8fb",
+   "url": null,
+   "question": "告别重盐重油！湖南出招：百万奖补+新标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省商务厅 湖南省财政厅关于促进湖南首发经济高质量发展的若干政策措施",
+    "关于公开征求首发政策申报指南（征求意见稿）意见建议的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ff2657fa20504ace93305473c8c62193",
+   "url": null,
+   "question": "湖南省2025年汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "5224f1af016741e6b1252409ad2c9f2f",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "dfd9da7e5d564e26a21827a647af8022",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c7987288cae440ae8145224846f955d2",
+   "url": null,
+   "question": "汽车国补",
+   "cited_hits": [],
+   "cited_missing": [
+    "2025年湖南省汽车和电动自行车以旧换新实施细则",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6ce5141bbb394220b189150726a5e748",
+   "url": null,
+   "question": "鳞片石墨制口的两用物项出口许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部、海关总署公告2024年第67号",
+    "中华人民共和国敏感物项和技术出口许可申请表",
+    "最终用户和最终用途证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "04d83eb119e54f5caca5fb8e964b1061",
+   "url": null,
+   "question": "汽车置换补贴还会恢复吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "92a9a9547d8047b4843d26d8333ad92b",
+   "url": null,
+   "question": "商品“三氧化二铋”，海关编码2825902100是否属于两用物项管控产品",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部、海关总署公告2025年第10号",
+    "中华人民共和国敏感物项和技术出口许可申请表",
+    "最终用户和最终用途证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "fb032d3d3d4a40b58d5d37ed37ea2b32",
+   "url": null,
+   "question": "关于湖南省汽车置换补贴提交已12天，依然处于待审核状态",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "492bcc2e6f6840f0b2357946f11047cd",
+   "url": null,
+   "question": "关于置换补贴的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "商务部等8部门办公厅关于做好2025年汽车以旧换新工作的通知",
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f8c00a767c744951adaa91a94922943c",
+   "url": null,
+   "question": "旧车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车登记证书",
+    "机动车登记证书",
+    "二手车销售统一发票",
+    "关于调整汽车以旧换新政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "283b02f5555b4bb99542940d71239a33",
+   "url": null,
+   "question": "购车补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年汽车以旧换新工作的通知",
+    "湖南省商务厅关于发布2025年汽车和电动自行车以旧换新实施细则的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-swt",
+   "id": "fb6ca8c22d204b7e804126d6fc86b75a",
+   "url": null,
+   "question": "请问湖南省2026惠购湘车活动8月能否开启？是否有汽车首购补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2ad98a067bb84e54b48a79effec7abc6",
+   "url": null,
+   "question": "永兴县生源超市违法拒退预付款，监管部门不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "879f408e2db147708ee98070008d2bb2",
+   "url": null,
+   "question": "《长沙经济技术开发区关于推动先进制造业知识产权强链增效的若干措施》第九条，通过专利代理资格考试奖励1万元的奖励兑现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b46bc7086fe3424e91fad69ee70e2b05",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2641893aec3e4eb997d015b63740e198",
+   "url": null,
+   "question": "2026年消费品以旧换新业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "7bea0b1b1341481e9123f65420dc25a8",
+   "url": null,
+   "question": "邵阳市商务厅汽车置换补贴本应三个工作日受理的置换补贴，一个半月才受理，且直接驳回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "982519c263e04ba1866c12aa90bd9c96",
+   "url": null,
+   "question": "关于2026年夏季汽车新购补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "1bc578d9101c43788592793427ae9b2e",
+   "url": null,
+   "question": "商业特许经营",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e46b50ea4bb4415dafa0dcc044c7707b",
+   "url": null,
+   "question": "两用物项许可证电子钥匙相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "871137a706764d03b7a149bae7de8133",
+   "url": null,
+   "question": "想实地拜访马来西亚湖南商会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c773458c000c461088c2da6e897f093b",
+   "url": null,
+   "question": "因家电消费涉及国家补贴使用情况存在疑问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "574eb20470274fc8af2b0d936163bc54",
+   "url": null,
+   "question": "汽车置换补贴提交资料一个月了还没过初审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "57cdb61f1b3842c386a59ac83fea5493",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "85087b7449334b51828e53ed173d78ec",
+   "url": null,
+   "question": "出国务工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "33750572913d430ba21356188262dbaa",
+   "url": null,
+   "question": "出口特种机动车申请出口许可所需资料信息咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c25e71868c004899bba7e19f7fda075b",
+   "url": null,
+   "question": "咨询2020-2025年湖南省电子商务报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4d58fa80a3fd4c18afc7e1dc410f4f38",
+   "url": null,
+   "question": "欧洲设立分公司或办事处的流程手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4ce53d7b7aee47b0ac05173681dd6e17",
+   "url": null,
+   "question": "关于2025.12月乐享湖南湘当有惠购车补贴中奖补贴未到账问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "69d5bd1111d04931b90247b6d0685320",
+   "url": null,
+   "question": "请问现在汽车以旧换新的审核时间是多久，为什么我的20天了还在初审呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "baecbfb6fae74301871ead16f1fabb06",
+   "url": null,
+   "question": "2026汽车置换更新补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "98de80f9bdcf4bf3a200883a748d24d7",
+   "url": null,
+   "question": "关于长沙市汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8a0ba48656994cbfa314639b2ed25360",
+   "url": null,
+   "question": "长沙手机线上国补为什么这么难领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a8a40f0bbeda4e059d1c8fe934acd56a",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a7d087352cc54651b7e7a7befdfa4c95",
+   "url": null,
+   "question": "乐享湖南2025补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2544a58890cc46e5bb5b7fa2f296d576",
+   "url": null,
+   "question": "2026年汽车置换更新补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3d9f4bc999214df180fefe7f28ced500",
+   "url": null,
+   "question": "常德以旧换新补贴电脑类目更新名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "24e8295d2c5543a6a59bc0dd5e2897c3",
+   "url": null,
+   "question": "乐享湖南家政券2026年活动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "25f8476423224da3a0f88c3c15eb11ba",
+   "url": null,
+   "question": "关于参加2025年11月份迪拜展费用补助政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3d65643e881c48b7a2fd9839aeed0213",
+   "url": null,
+   "question": "咨询新能源汽车以旧换新补贴审核相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d1a77d087261415b82c3e685d98a00cb",
+   "url": null,
+   "question": "湖南省文化产品进出口额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8fbbdf3bcb7a47b481cbd1ed88bef838",
+   "url": null,
+   "question": "农村电商交易额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "941e7fe796004adb958c7cf3e0bc4ec1",
+   "url": null,
+   "question": "电子商务销售额数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "55ca07b163424c43a8c1407d91ab4dc9",
+   "url": null,
+   "question": "关于湖南省农产品电商交易额的数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e642feb49c1b4940bf85df0513e36bf7",
+   "url": null,
+   "question": "ODI相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "32ee5499d87f4304916aaac09154f67a",
+   "url": null,
+   "question": "汽车以旧换新审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6b3f2089f36f44f292ec494883536d76",
+   "url": null,
+   "question": "成品油流通和加油站智慧监管是哪个处在负责，联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "7bba3441f2784217b4e084aac0b20083",
+   "url": null,
+   "question": "品牌方如何参加2026年度家电以旧换新活动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "60baf6531f2b416ba27cc388d333759c",
+   "url": null,
+   "question": "家电政府补贴资格领取目前对农村老年人不友好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3389fb4930554942bb8f147410700a42",
+   "url": null,
+   "question": "国家以旧换新补贴政策岳阳市多加阻碍",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b61b3f9fc9034c38bb3adbe4124af5db",
+   "url": null,
+   "question": "关于特许经营备案流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c8f4a3f65c3949969d7432424bb3c48b",
+   "url": null,
+   "question": "2025年12月乐享湖南湘当有惠汽车补贴中签的什么时候发放补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d922bcd7c87645539c843cc1e71db9e0",
+   "url": null,
+   "question": "2025乐享湖南汽车补贴资格查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "5be067f95d644a44b54357f940cd0bd6",
+   "url": null,
+   "question": "望城汽车补贴活动审核通过半个月了还未到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "41d45abd90784765bc233c97e5fe5b2b",
+   "url": null,
+   "question": "境外投资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c4dccb2a20844af5849c5da0fe4d281d",
+   "url": null,
+   "question": "增设政策衔接措施建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "aabf4aff78ad4ab8b39c560216327adc",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "846fe360c1734baab737e886b96690b0",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f8dedf4a43e34a07aa15e707718a466b",
+   "url": null,
+   "question": "乐享湖南汽车补贴申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "47015de8f0ce4ee493800cddfb91d343",
+   "url": null,
+   "question": "关于湖南省汽车以旧换新实施细则什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c9bdb506416e48198102bce51d8307e7",
+   "url": null,
+   "question": "核销国补券收取手续费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4cd05823a5e24e989944b917d0e59a13",
+   "url": null,
+   "question": "商家涉嫌违规截留/挪用国补资金”、“拒不执行国补退货退款规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "9ea77e79b08e4175b285ed46e7662b02",
+   "url": null,
+   "question": "湖南2026国补领取时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ce452adbe7134d6a919a5c1a45b6b691",
+   "url": null,
+   "question": "乐享湖南汽车补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "1d7efdd37e00468780267bdbaf6f9202",
+   "url": null,
+   "question": "乐享湖南-湘当有惠汽车补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f9a80f83dcdb4cf8a02f44e0ad6bacce",
+   "url": null,
+   "question": "湖南装修国补2026年的政策情况、时间、具体金额、方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "29ddb44332784a9fa133d23be39881f3",
+   "url": null,
+   "question": "申领出口许可证，出现流程上的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "aed2c304ec364deaaea0df2cf8e92d63",
+   "url": null,
+   "question": "2014-2023年湖南省浏阳市电子商务交易额及农产品网络零售额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c3ff8d43b1814beda1fc97a258e8425b",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "548470945e4345649821a368e6b246a9",
+   "url": null,
+   "question": "单位道路专项作业车报废更换新能源专项作业车的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "30bfe8623a554d49bc98efd283458264",
+   "url": null,
+   "question": "购买汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "4c5f2bd8c2de401fac3214d9779716c5",
+   "url": null,
+   "question": "国家补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3956da3be75441d6b22de1d8af8c13c7",
+   "url": null,
+   "question": "关于湖南省长沙市汽车补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "df4c0a8add404d09b023017e81c074bc",
+   "url": null,
+   "question": "建议延续汽车报废置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "99055c2730ec41a3be4c0ead2a5c4ecf",
+   "url": null,
+   "question": "2025年汽车置换补贴是否还会继续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "daa42e8183854de6af4486162d42a81f",
+   "url": null,
+   "question": "国三柴油货车补贴款什么时候下发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "9b5e9a7ef515436e8820ba8d286e643f",
+   "url": null,
+   "question": "2025年老旧营运货车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "686b3226d71d46669a4949422b996d81",
+   "url": null,
+   "question": "支付宝上的乐享湖南优惠券不可以核销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2e1e2d96829a4f08a2d7e5188575316b",
+   "url": null,
+   "question": "电动自行车以旧换新国补500元迟迟未到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8fac3aacfe2f4c2c95bfba624c775d09",
+   "url": null,
+   "question": "电动车以旧换新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6e2d7d4237e6414ea311c06e81ed20f8",
+   "url": null,
+   "question": "报废汽车补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "f519077397d748c49814484bae74ce4a",
+   "url": null,
+   "question": "湖南汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "95547703735a429a831d392ea83d8753",
+   "url": null,
+   "question": "下一轮汽车报废补贴政策什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b4014c9da6a44081882e189157c2faf3",
+   "url": null,
+   "question": "汽车报废补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "08c682e1a7cb44adb68ef93a1ee2f71e",
+   "url": null,
+   "question": "乐享湖南优惠券-按照可使用商户地址消费-却使用不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a53ac023b7ca4a85900c9afc62508721",
+   "url": null,
+   "question": "关于湖南省新能源汽车首购补贴政策推出时间的咨询信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "06bed2cfa79742389ca1f69bf9543e7f",
+   "url": null,
+   "question": "汽车以旧换新国家补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b0607777bf77409ba6e3586495909d72",
+   "url": null,
+   "question": "贴砖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c06ab2ed02e74b74af3d35633e10ab46",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "badda36496d74828b5dbb7be641e7e37",
+   "url": null,
+   "question": "汽车省补",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "fce07a821b1b4238837035e7897372ed",
+   "url": null,
+   "question": "2026年湖南省还有没有电动车以旧换新政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "5df9a405e0fd4b98a4222dd058f1ae33",
+   "url": null,
+   "question": "电动车以旧换新补贴迟迟未到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "3c0738ae68b148fd8592a0dc99fda832",
+   "url": null,
+   "question": "汽车以旧换新补贴何时到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "028546e79860414bba20981999ef77c0",
+   "url": null,
+   "question": "国外务工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a4baa397033f4fa6beb2baf04486e1a7",
+   "url": null,
+   "question": "拍卖许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2c40b50d81484c26b0ab272b1170afad",
+   "url": null,
+   "question": "汽车以旧换新补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "02353179e09643ecaa0712363e707ec7",
+   "url": null,
+   "question": "关于2025年新能源汽车置换补贴发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "d0b08ae9b5e04da08589e274ab6d0a8d",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e4bb4f858ff34a4f9d9bc71e1ec224ba",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "31bbd7a169ed4eb2b43624e86c38b05e",
+   "url": null,
+   "question": "湖南省置换补贴车辆信息交警核验未通过短信通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "507f0a4bb0ed4d0d971f84bc479a3c49",
+   "url": null,
+   "question": "汽车置换补贴打款缓慢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "321909e815fc45d59d1b07d10829bc62",
+   "url": null,
+   "question": "湖南省汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "e442604cd263483bbedaf5e3f1e20706",
+   "url": null,
+   "question": "汽车置换补贴复审通过打款情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "894ffe094f334db3a6481872c99365d8",
+   "url": null,
+   "question": "电动自行车以旧换新国补500元补贴何时到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "ec625549a0db4c1c96a8558ecc733b51",
+   "url": null,
+   "question": "【长沙市-湖南省补汽车置换补贴】审核进度异常缓慢的进度反馈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c6e1e0f4f5d54c8c9a794e0c8aa5b772",
+   "url": null,
+   "question": "汽车置换补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "8f71b68d56be4d75a5ecc19271dee671",
+   "url": null,
+   "question": "新能源车补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "b620043c46464d229c2f2215955da4de",
+   "url": null,
+   "question": "汽车置换补贴资金何时到账",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "618a52bd35c84a57bb1f738f109cad3a",
+   "url": null,
+   "question": "汽车置换补贴一直是初审状态，半个月了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "dce899d4c2c24442a4378a9e5bbab0c0",
+   "url": null,
+   "question": "非两用物项许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "2e8eb8c40cee4750942983bcf0341209",
+   "url": null,
+   "question": "育儿补贴银行卡问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "c0c49c8b90ba469a8838d427bcab107b",
+   "url": null,
+   "question": "汽车使唤补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "6564781ef6fd43a984a8f6c92e7e6b43",
+   "url": null,
+   "question": "长沙烘焙好忙品牌管理有限公司违规招商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "a19f699d56974e17ba86515ae3b505ee",
+   "url": null,
+   "question": "请问蓝牌货车怎么报废申请国补条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "deae801ac92b42b7b43d403570a3a770",
+   "url": null,
+   "question": "湖南省汽车置换更新经交警核验未通过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "776bc482111e4f5a9c1ea26157324b3e",
+   "url": null,
+   "question": "汽车旧车置换",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-swt",
+   "id": "70c4eb2378874fd5a809716e84f22e0c",
+   "url": null,
+   "question": "关于电动自行车旧车合法来源承诺书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

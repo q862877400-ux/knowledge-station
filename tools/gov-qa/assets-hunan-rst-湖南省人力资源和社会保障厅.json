@@ -1,0 +1,1969 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-rst",
+   "id": "d58f37aef6e2452ea2424154ee4dd00d",
+   "url": null,
+   "question": "关于公司裁员后经济补偿的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法实施条例",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法实施条例",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业实施竞业限制合规指引"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "413faac4541c4ae683b3ca09c6e96f5f",
+   "url": null,
+   "question": "关于事业单位岗位聘用的政策咨询",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "3aebfd97252940a6a206ddf507a920b6",
+   "url": null,
+   "question": "如何纠正参保类型",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "262863fc777d4cba9ee4e23b2e83b272",
+   "url": null,
+   "question": "在事业单位专技专业方向上已看到工商管理方向，且国家也有中级经济师工商管理方向专业考试，为什么本级人社局说工商管理方向只能走管理岗，这说法合理吗？",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7847e39910e849c782d4d1f95f6641c6",
+   "url": null,
+   "question": "关于落实驻村工作队员在同等条件优先晋职晋级文件精神的请求",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fe645841c1f74539a1a8799795a155c3",
+   "url": null,
+   "question": "公考",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步做好事业单位公开招聘工作的通知",
+    "湖南省事业单位公开招聘人员办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-rst",
+   "id": "c4229de8df124f0f960bdcd4db750f3c",
+   "url": null,
+   "question": "关于复印湖南省人社厅盖章岗位审核表的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省事业单位专业技术工勤技能岗位人员异动聘用审核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "20ea7c68d5084c5c97beb91f4a9ac65d",
+   "url": null,
+   "question": "湖南省2026年省直事业单位招聘政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2026年省直事业单位第四次公开招聘工作人员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "aa5b06b172564868a461ee82559c829e",
+   "url": null,
+   "question": "关于事业单位改革中现有人员首聘定级政策适用的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "75ab0b65a6a140da83a9ce334fd552eb",
+   "url": null,
+   "question": "湖南省事业单位人才引进试用期内辞职是否需要赔付违约金。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在事业单位试行人员聘用制度的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "35476d3ecd4d4947afa3a84703e246c3",
+   "url": null,
+   "question": "咨询探亲假相关休假制度",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于职工探亲待遇的规定",
+    "我国法定年节假日等休假相关标准",
+    "国务院关于修改 的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b478cf7ad06a4fa09f5d3460f0061c25",
+   "url": null,
+   "question": "差异化延长湖南省法定婚假的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fc51299627a84079bc9fcf36c3f38805",
+   "url": null,
+   "question": "关于受到降低岗位等级处分任职年限咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员处分规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "80621603ca3a4ef1bf69955cedfba787",
+   "url": null,
+   "question": "探亲假休假条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于职工探亲待遇的规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d84ad3e38015474a8aeb3401cc58b870",
+   "url": null,
+   "question": "事业单位转聘及文件效力问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省事业单位岗位管理若干问题处理意见",
+    "党政领导干部选拔任用工作条例",
+    "事业单位领导人员管理暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d5d1f460404349fb847fafe1e6795675",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "职称评审管理暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "816cb7341f404a9cb48ed745ee8d44a4",
+   "url": null,
+   "question": "贵网站第三次事业单位公告信息考试确认时间与实际不一致，请务必给考生一个说法",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2026年省直事业单位第三次公开招聘工作人员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d7be6510f9f34574808b38e7a5b06551",
+   "url": null,
+   "question": "关于探亲假的规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于职工探亲待遇的规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "a69eb41af93348fcb8a3e257f235495e",
+   "url": null,
+   "question": "事业单位招考，专业报名对应岗位咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "75148a76311e40aba5bbdcc115b8f96f",
+   "url": null,
+   "question": "原中级会计师职称考试通过高级经济师财政与税收专业之后是否可以参加高级经济师财政与税收的评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "经济专业技术资格规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "056e6456bf5a4da18011fa231b55aa15",
+   "url": null,
+   "question": "湖南省事业单位人员探亲假是怎么规定的",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省贯彻执行〈国务院关于职工探亲待遇的规定〉实施细则",
+    "国务院关于职工探亲待遇的规定",
+    "探亲规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5f721de34d8f45b88736f4bb1c344c04",
+   "url": null,
+   "question": "关于延长婚假的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f70371f608d043178d7135a602db1d82",
+   "url": null,
+   "question": "湖南中小学基层高级教师的困惑",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省事业单位岗位设置管理实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "235dd2fe3afc49f89275ac13c8e2434a",
+   "url": null,
+   "question": "民营企业大专学历具有一级造价工程职业资格是否可以申报2026年度土建工程系列副高职称的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化工程技术人才职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "15010bf7581d44cfb29650652035beeb",
+   "url": null,
+   "question": "对特殊情况下的视同缴费年限确认的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源和社会保障厅关于开展机关事业单位工作人员养老保险视同缴费年限确认核定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "0fc29ae26a04449897d84ec467afc9ee",
+   "url": null,
+   "question": "病残津贴满55周岁重新核算待遇",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业职工基本养老保险病残津贴病残津贴暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "796fcfc7eb8942a788b1cd0f0e55c2b3",
+   "url": null,
+   "question": "职称聘用",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "96bec82e322d426db64a81dbfdc748fc",
+   "url": null,
+   "question": "职称聘用",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c372dc13b97e41a387441c560670a58b",
+   "url": null,
+   "question": "已考取中级证书在单位有职数情况下申请聘任有什么流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "34a5dfb340f24d76b590d9c1ed9007c6",
+   "url": null,
+   "question": "事业单位聘用专技七级高级岗位需要满足什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "599c9888b4e1497d9a9760ad4fcaf5e9",
+   "url": null,
+   "question": "关于养老保险缴费相关问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施弹性退休制度暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "e3e3c24fc9104693b9ba980f04a63728",
+   "url": null,
+   "question": "关于事业单位工勤人员受到降低岗位等级处分后的后续问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员处分规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7742fa4af4554435a8580d476d49d943",
+   "url": null,
+   "question": "中级职称初定",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源社会保障厅关于做好职称认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "01ee05cfe44549d5af9f7035d235e242",
+   "url": null,
+   "question": "继续教育学时折算细则",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年专业技术人员继续教育有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c2f5b75339aa47db9771d69894aa76cf",
+   "url": null,
+   "question": "事业单位环境影响评价工程师能否聘中级",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范湖南省事业单位岗位聘用备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "69795bb237734a458a664de5f8f61eb0",
+   "url": null,
+   "question": "关于湖南省事业单位招录不落实，取消国家设立的基层服务项目人员倾斜政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好事业单位公开招聘工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "857471323f0f4c38b2af8e7e8411b79d",
+   "url": null,
+   "question": "关于原继续教育作废问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年专业技术人员继续教育有关工作的通知",
+    "关于做好2026年专业技术人员继续教育有关工作的通知",
+    "关于做好2026年专业技术人员继续教育有关工作的通知",
+    "继续教育学时折算细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7bb2bfe9e41847f0bd333b8bc9d3775f",
+   "url": null,
+   "question": "青少年学生校外活动中心是否在申报中小学职称范围之内",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省中小学教师系列职称申报评价及管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "09e2b9cc25e3475f8a7148eeb4e5b45b",
+   "url": null,
+   "question": "关于民营企业中级聘用年限能否计入事业单位副高申报任职年限的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省土建工程专业高级工程师职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "40af4d8e188749638376aabcbdcbfb92",
+   "url": null,
+   "question": "土建工程（给水排水）副高级职称继续教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2025年专业技术人员继续教育有关工作的通知",
+    "关于做好2026年专业技术人员继续教育有关工作的通知",
+    "关于做好2026年专业技术人员继续教育有关工作的通知",
+    "继续教育学时折算细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8b575938274c495f8b98ea857d602db1",
+   "url": null,
+   "question": "年满50周岁女性职工未交满社保不能办理退休被解除合同的一次性待遇",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省实施 办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c273edb144a9495ea5e499dd187e1982",
+   "url": null,
+   "question": "恳请贵厅：认定浏阳市卫生局未出具书面复核决定的程序违法行为，构成《事业单位工作人员申诉规定》第十二条规定的“其他正当理由”；依法批准延长本案的申诉、再申诉时效；受理再申诉申请，并对原处分决定进行实质审查。",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员申诉规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "a8f43fa2c3894ad89f44463fb0ee4872",
+   "url": null,
+   "question": "办理转岗备案手续同级政府人社部门是否需要对主管部门提交的资料审核真伪",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范事业单位岗位设置工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "16e8928a783b4a41a916e07cdd52ae51",
+   "url": null,
+   "question": "转岗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范事业单位岗位设置工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d834bd2e9a6f41fb81993d012418315c",
+   "url": null,
+   "question": "咨询事业单位人员连续三年年度考核为优秀等次，是否可记功一次记？",
+   "cited_hits": [],
+   "cited_missing": [
+    "事业单位工作人员考核规定",
+    "事业单位工作人员奖励规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "30e38be7353048e5810dd5c763b0ca48",
+   "url": null,
+   "question": "副高会计以考代评",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化会计人员职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d93e2aa01aac4463b0b206b68c509088",
+   "url": null,
+   "question": "湘人社函〔2024〕115号",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化会计人员职称制度改革的指导意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-rst",
+   "id": "7f791a34633c462293e26e0e1ea06f64",
+   "url": null,
+   "question": "关于湖南省第三届职业技能大赛拟定赛项意见反馈表参赛选手年龄限制问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4c9152491c4941d2a8bbfdbe9befa77d",
+   "url": null,
+   "question": "关于新生儿彭栩昂社会保障卡办理事宜的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "55bec2e5fd2445c8bf8727988e288a9a",
+   "url": null,
+   "question": "尽快处理入国网",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "806de27cc0064beea2aace6d01ab02ad",
+   "url": null,
+   "question": "咨询职工带薪年休假“连续工作”工龄中断认定标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "844b43283cb04bf28b2ffcfaebc7715b",
+   "url": null,
+   "question": "关于最低工资标准计算口径及政策解读冲突/适用问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "127965cc64f94abf800e6969f1dc713f",
+   "url": null,
+   "question": "关于湘人社涵【2024】115号文件内容咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "3feda3985e0448d2ac392c86f8e3b75d",
+   "url": null,
+   "question": "转正定级享受9级薪级待遇的双学士学位如何界定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "bb2484c5512349aa9e469bc032040a97",
+   "url": null,
+   "question": "就湘人社规〔2023〕1号、郴人社发〔2024〕25号文件，咨询被征地农民社会保障对象认定相关政策口径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "75f1983ad2ea402bbe67d3b6b360be88",
+   "url": null,
+   "question": "机关事业单位的人员异动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "1d28a7aef03e4c6f8f3bfbfb5640a4ea",
+   "url": null,
+   "question": "郴州市北湖区卫健局违反事业单位招聘条例，面试结果存疑、已受到纪委监察期间仍然向社会公示，藐视法规。自查无效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f758d60107d04ea8b11640fcdc4d12c1",
+   "url": null,
+   "question": "2026年企业养老金计发基数多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "19308a9a34d143fd95d87a2d55a99b40",
+   "url": null,
+   "question": "高校毕业生身份认定存疑问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "e4f33399afc2401a92414634f1d0382a",
+   "url": null,
+   "question": "事业单位招聘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "37bc8104e6a84f21b4b5ba7e14a2a1db",
+   "url": null,
+   "question": "社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5925389a680049f480ccf7c1989bc4aa",
+   "url": null,
+   "question": "单位欠缴10个月社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b4add242d9ed48e6b88b15ba14444af5",
+   "url": null,
+   "question": "对岗聘用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8c7ec69c777f474abc0b14dd49a3bdc9",
+   "url": null,
+   "question": "高级经济师省线",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "449674c95648438f9169997b6cee1d50",
+   "url": null,
+   "question": "职称申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7fe2111c6b934cbdbca6906910a47828",
+   "url": null,
+   "question": "已评职称网上无法查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "6342174ae2984d379e73ccd34db20d99",
+   "url": null,
+   "question": "关于独生子女家庭父母城乡居民养老保险建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5d28495f505d4e2fad75bb82b60c36db",
+   "url": null,
+   "question": "长沙市岳麓区社会保险服务中心出具的违规补缴认定书无效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "9afc1c0d855e46cd8c5d0c3f2d596f86",
+   "url": null,
+   "question": "咨询湘才回湘申请相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d2c5ea6dd3e14e9dbcd94995242d0ccc",
+   "url": null,
+   "question": "职称申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "0df78146a02049ad82c649b2d717fd28",
+   "url": null,
+   "question": "注册安全工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "9cb9b45b6bfa4e2a82093ea1444a9b35",
+   "url": null,
+   "question": "关于本人工资津贴少调漏调的情况诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "56185a20e74343928e0613a1e5150524",
+   "url": null,
+   "question": "希望上级部门领导能够听到下级的声音",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "853f6b849126410c83142ade84e6d130",
+   "url": null,
+   "question": "关于城乡居民养老保险建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2a09dcf67742404b921eab898fcce565",
+   "url": null,
+   "question": "关于个人从事多份工作，社保要买多份吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4e4db347693e47a394cfbaaeb66e0a6a",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b7dc37ad4d09435fb285a10080737275",
+   "url": null,
+   "question": "关于请求湖南省人力资源和社会保障厅依法行政履职并书面回复的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5771907e55924fcfbe344ac74928732d",
+   "url": null,
+   "question": "关于请求湖南省人力资源和社会保障厅依法行政履职并书面回复的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "0edc18e43d6d49eb8a8c7f32107ea8b4",
+   "url": null,
+   "question": "湖南省中级教师认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4d4a1a5faf144e1786968b5b382e56f0",
+   "url": null,
+   "question": "工伤赔偿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b41bbee6348d4f4483361c1c9a29b4a3",
+   "url": null,
+   "question": "社保退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5dbe775911554df1a259287f262afdac",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "e35fb47f9f9e40e9a6abe2e372ddcb83",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "bfa1d8f5627f4a87bd95d708cf15714a",
+   "url": null,
+   "question": "育儿假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "262863b8c02e43be8b9639514db6bdb3",
+   "url": null,
+   "question": "穗智浩人力资源服务有限公司湘潭分公司，工伤后突击参保、诱导签署其他公司合同意图骗取工伤保险待遇，请求省人社厅稽核科核查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f0ffc91d8e9f4d389511e48d401c7078",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4c7bf6a2382d495da4682fef83820b15",
+   "url": null,
+   "question": "社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "bdac178d2770462d9e23275f296f0904",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8f7d679d1b814ceb841aefe628c204f3",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8c8fbee6cc1e4cd2ac7c85aa1b5da135",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "9279bcf0eedf4b7bbb51e1f57b7fcab2",
+   "url": null,
+   "question": "社保停止缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8c01d2f36a6244329ab7066a1fe4207d",
+   "url": null,
+   "question": "湖南省实行职工个人缴纳养老保险费的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "48a3ef844c8f40088cf8a43bc4d7da5b",
+   "url": null,
+   "question": "\"紧急求助：衡阳市珠晖区环卫所24年未给环卫工人缴纳社保，60岁老人10月退休老无所养\"",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "3d9589df5f874d0baa9938ea5a76d76b",
+   "url": null,
+   "question": "育儿假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b63fc41e7c6746fca413f5db7968b019",
+   "url": null,
+   "question": "大学生创业补贴政策相关疑惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8c125f2de7744b96a796af7acba84cba",
+   "url": null,
+   "question": "一代身份证缴纳的社保金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2d05a5f007364a8780bb4d1470ab8c07",
+   "url": null,
+   "question": "请告知一下湖南省内有哪个第3方机构能对“食品安全管理师职业编号4-03-02-11”进行考核评价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "a2fcf74572ba4b0d84553c6ffe3e455f",
+   "url": null,
+   "question": "全国职称评审信息查询平台（试运行）中高级职称查询信息错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "85326c6e843d46a49415716dff53adbc",
+   "url": null,
+   "question": "咨询高级工程师证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "30c39e98718244f08611166131201687",
+   "url": null,
+   "question": "职称评定相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fa576e1c9a714bb1a20c1f4edd4f9589",
+   "url": null,
+   "question": "关于优化年假制度的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "b83514a935534857a2939b984ad39aad",
+   "url": null,
+   "question": "婚假咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fa9f7d04d0bf4f4cb28b01fe132f80de",
+   "url": null,
+   "question": "投诉湖南万通培训机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4e4b94129fa54bf9865f269f7abeac43",
+   "url": null,
+   "question": "投诉湖南东方高级技工学校违规设置退费霸王条款，拒不执行湖南省民办教育退费规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "6d6b080423994502b9606f6b64cffa91",
+   "url": null,
+   "question": "湖南高级职称评审提交问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "91cdb9afa86f4fd99f2e5806da0abbe0",
+   "url": null,
+   "question": "任职时间认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f48d054944a84f29a48dba26d660ceeb",
+   "url": null,
+   "question": "关于事业单位管理人员“双肩挑”岗位的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "bf428201602749d3abc46119ac2359be",
+   "url": null,
+   "question": "湖南省退休中人养老金重算补发的政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "37ba1cec178d4c0da1ffc0df3afb8e3c",
+   "url": null,
+   "question": "有关官方发布工伤停工留薪期文件问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "defbb824df4f4892bc47c1bcb5a3eae8",
+   "url": null,
+   "question": "咨询湖南省人社厅是否依法发布典型案例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "98124fa988c048d4bb4afc5105f1adce",
+   "url": null,
+   "question": "关于总部在京国企，湖南子公司员工高级职称评审咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "106356d407774737b22aef3a8cc368b6",
+   "url": null,
+   "question": "关于事业单位转企后视同缴费指数核定政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f2aa9b5f351d426c9cfc9bc37d5bad4b",
+   "url": null,
+   "question": "北京寸阴成器有限公司解除劳动合同时年假工资未按三倍发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "af434b69db184e4fb586fc7ca008cad5",
+   "url": null,
+   "question": "省劳动人事仲裁委何时向我出具仲裁书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c24e7b8faaf64b0195893fb15a38b072",
+   "url": null,
+   "question": "关于人社工作人员业务不熟的投诉建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4eeb976720d641d4aa8344a5269ece17",
+   "url": null,
+   "question": "继续教育学时折算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "654a15b6237f4cf28253e57126ce7389",
+   "url": null,
+   "question": "关于申报高级工程师大专学历不具备资格问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2b42360e6087451484008eb1671f7401",
+   "url": null,
+   "question": "我想向您咨询一个关于职称转评后，任职资历计算方式的问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "aa439a6002f3432ba5df04de8ab3cadd",
+   "url": null,
+   "question": "澧县人社局在事业单位管理岗位晋级工作中存在问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "3a8747cd9b18420b8ce129a45eddf047",
+   "url": null,
+   "question": "管理岗转专技岗可以直接聘用单位副高吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "220be2d9161449aa9a7313dc76135cd8",
+   "url": null,
+   "question": "关于以考代评取得中级职称的聘用问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "eac4d9b93aef40b19238dfb7aeaa45e6",
+   "url": null,
+   "question": "工伤保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2314b9b635ab4e10a79cb9c09b1e1db3",
+   "url": null,
+   "question": "关于湖南省人社厅职业技能鉴定中心工作推诿、不作为、怕担责的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "93b2b938de5c47d195fd78faed4724dc",
+   "url": null,
+   "question": "碳排放管理员考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "ff8a3205cb5a4c67bc0476b56e3c8a83",
+   "url": null,
+   "question": "2025年高级职称证书未发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7baf322e00e14fb78562908f60355bae",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "13df3f86cb0c47bfaf7658dca81e0fe4",
+   "url": null,
+   "question": "关于咨询在服刑人员能否补缴农村社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d0f87e09af634dcbb89b70ea6caeb6ad",
+   "url": null,
+   "question": "中级职称聘任是否要从初级开始聘任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "64fe8abb4785430eafdab1c543a80b9a",
+   "url": null,
+   "question": "湘才回湘政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "047badcf155845d3abd7a9f4d4ff606c",
+   "url": null,
+   "question": "具有高级职称的女性专业技术人员退休年龄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-rst",
+   "id": "973a869c28144cb184535f0e5692d2b6",
+   "url": null,
+   "question": "咨询湘人社函〔2024〕115号中“从事专业技术工作”界定标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "0e57aa00995748f5b2defba260d1d8f8",
+   "url": null,
+   "question": "初次认定职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d4f77c0aa951456f92810f6e15aee56a",
+   "url": null,
+   "question": "关于非本专业学历取得初级职称后申报中级职称的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "820ac0696e0d4e52b4e8fcc314e5a5f1",
+   "url": null,
+   "question": "职称评审通过人数统筹一说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fa7006b744474eefa92ae1f3a4fe7c92",
+   "url": null,
+   "question": "副高继续教育学时认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "9e07d7120b684da3822d2890d9d55a50",
+   "url": null,
+   "question": "高温补助的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "02e79a9a0d6c4d699b37504ff03527d5",
+   "url": null,
+   "question": "婚假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5740e02db7e744078458fb5512aad469",
+   "url": null,
+   "question": "水利副高评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "03305512cf9846d2bc47da32696133e4",
+   "url": null,
+   "question": "调入（转入）人员职称认定事宜咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4cae7ff085d44ec9b2f35ab832710c0b",
+   "url": null,
+   "question": "参加我省执业药师继续教育平台的继续教育，专业科目是否可以当高级职称专业科目继续教育学时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "acbb9e8222a147e6943952266420139b",
+   "url": null,
+   "question": "在湖南娄底双峰县如何报考健康管理师证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "20d45e24610c4b72984af335d7b51c70",
+   "url": null,
+   "question": "教师职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c0f57f5c134c4bd9822a1b163181743b",
+   "url": null,
+   "question": "继续教育学时认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4beab44f42ff45179bfcfb99e9723c3f",
+   "url": null,
+   "question": "关于副高级职称评审继续教育相关问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "255c63f84d8a4fb7a800ba10af60604c",
+   "url": null,
+   "question": "职称评审学时认定问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f705173cbd77469fa52e6fbdb7b32e06",
+   "url": null,
+   "question": "管理岗（政工七级）人员转聘专技岗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "106854bf1fa542b4a878ddbacf030607",
+   "url": null,
+   "question": "关于重新核实本人工作年限（连续工龄）并妥善解决社保缴纳与退休待遇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "818c5d0ef32646949b364c7b28a354e7",
+   "url": null,
+   "question": "咨询关于退休工龄计算的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7d721fac64ed4dcc9b687f1b29f72f8e",
+   "url": null,
+   "question": "毕业档案查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "7dace43ec6664e19847402e51d935741",
+   "url": null,
+   "question": "档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "72d7764c7c524d90b16ceea468c6c6c1",
+   "url": null,
+   "question": "湘才回湘政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "eb482247c30942aa80358b76aa33081c",
+   "url": null,
+   "question": "社会保障",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d6c349d6dc9843ad99893f5ce87e6d33",
+   "url": null,
+   "question": "非工程类、水利水电专业的专科学历能否申报水利水电管理高级工程师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d1378edbc9a14d52972e9fb02e314c43",
+   "url": null,
+   "question": "职称可以互评吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "fa5cef8d43e143ec8bd358c0dfdc76c8",
+   "url": null,
+   "question": "关于事业单位无法申请账号进行高级职称申报的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "1d21913d294a4b7bba1dad5cba11622f",
+   "url": null,
+   "question": "土建工程副高级职称继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c58a39a51573483fac4f209868ac9c85",
+   "url": null,
+   "question": "副高评审继续教育专业课选择问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4224a7b8926340b29fac37470f0e3a6f",
+   "url": null,
+   "question": "交通职业资格的继续教育学时是否可认定为专业人员继续教育学时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f11699bc6163405e93b00735f877df5b",
+   "url": null,
+   "question": "关于超龄人员用工的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "345cb25b2411476cb157b1c914af4904",
+   "url": null,
+   "question": "关于2017年考取的计算机职称证书事宜咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "92129d07aed34a1291a9a7966e9052a1",
+   "url": null,
+   "question": "湖南省职称评定咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "40b77e882ce64bc5839fd227ed3b8c5c",
+   "url": null,
+   "question": "职称评审职数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "0f791033c04046d7959b3ac81ece7900",
+   "url": null,
+   "question": "职称转评",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "ab543c8e02674d4e8dfbf322fc9f6022",
+   "url": null,
+   "question": "关于湖南省2026年度高级职称评审无法暂存的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "9ad38be6f53e421b8378c1a899a5f802",
+   "url": null,
+   "question": "关于事业单位改革涉改单位职称申报系统无法审核的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5398fd970fac494e9be912c2b33ea150",
+   "url": null,
+   "question": "关于本人副高级职称评审相关情况的申诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "19765009b6d64c7e88bd3a818473f997",
+   "url": null,
+   "question": "职称评审关于经办人是谁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "21fb92d2decb4c68b4b6ca50bc6516d5",
+   "url": null,
+   "question": "关于工亡职工配偶长期待遇的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "de87aaa1d07a47abb14100ae55387ce7",
+   "url": null,
+   "question": "关于工龄认定及养老保险待遇的确认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d8120d29d1dc4ee099262951230a617a",
+   "url": null,
+   "question": "政策解读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "619960998d1543fbab2aab2ef9c65019",
+   "url": null,
+   "question": "关于三支一扶报考问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "43c5d2168610404ab6e8a80136a567d3",
+   "url": null,
+   "question": "关于申报湖南省财政厅关于申报2026年度湖南省人力资源培养开发项目（专业技术类）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d14cef132ad24177b6ba2a33cc8bdce0",
+   "url": null,
+   "question": "关于湖南艺术职业学院2025年公开招聘工作人员中非应届生岗位涉嫌违规“萝卜招聘”的举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f109f599429a4a14b7299489dd5d9ed8",
+   "url": null,
+   "question": "副高5级的视同缴费指数修正率是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "969aa1ae38484522bd4f880cdd3e078e",
+   "url": null,
+   "question": "湘才回湘政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "323e8ce9e0ff46f19a24c42fd7094a2e",
+   "url": null,
+   "question": "调查邵阳学院附属第一医院及工作人员张国彬、杨琳涉嫌违法的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f2bd4688757e42d4b3938e21a82d7769",
+   "url": null,
+   "question": "关于湖南创美时代有限公司漏缴1年3个月社保问题及偷税漏税问题的举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "4e92fa7434c94f32ae7f1b04538e052d",
+   "url": null,
+   "question": "三支一扶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "3d52afefbe8c4b64ad983cb9d37122c3",
+   "url": null,
+   "question": "关于恳请开展技工教育网络谣言反诋毁的建议函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "a8200e12c6e745159ba139fd9da8f7af",
+   "url": null,
+   "question": "父亲已办理退休，但发现智慧人社系统上的民族写错了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f5f88d008a6148449fc4f8623f78760b",
+   "url": null,
+   "question": "更改信息的证明资料重叠了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8e1ae16ebe1d4533b8ac3ecaa60339d7",
+   "url": null,
+   "question": "洞口县城乡居民养老保险补交年限问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "947528e9f4e245e5a172524b5b72df75",
+   "url": null,
+   "question": "请求公开文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "99955b78b2fa4a7aab83f4ecee121989",
+   "url": null,
+   "question": "事由：申请复核我的基本养老金的视同缴费年限（工龄）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "106e4d2588294664afcad90e255cec0f",
+   "url": null,
+   "question": "关于工勤岗转专技岗位的相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "8861759336844d3f90509bb4ced58ff3",
+   "url": null,
+   "question": "关于客观情况发生重大变化的认定标准及合法裁员程序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d4be3863ca824f4b916b80616248c4d5",
+   "url": null,
+   "question": "建议将视同缴费指数修正为不能低于实际缴费指数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "e4ed9b0ceb1b4e59b42bb7d14941f4ad",
+   "url": null,
+   "question": "城乡居民养老保险补交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "70eef4f064764f92b700d76e7420e884",
+   "url": null,
+   "question": "职业考试报名求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "43038f15f3ea44ab8f9ef1e19e0d3c88",
+   "url": null,
+   "question": "关于怎么确定公司补缴往年社保的缴费基数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "68d46eb86d4a47e29a19efbd5306bc1f",
+   "url": null,
+   "question": "高级会计师参评资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "cecccb3800e4472390857f217c154cf5",
+   "url": null,
+   "question": "关于湖南省陪产假能否分段休假的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "968db094be254fa7b3f1c035b5da359e",
+   "url": null,
+   "question": "关于社保一体化平台暂停使用政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "456d44efb47b4663b2269600c4dd6c57",
+   "url": null,
+   "question": "关于省直事业单位转正定级的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "cdc4f4029e9149efb5e34c74b8c8d0f4",
+   "url": null,
+   "question": "关于跨省就业的被征地农民社保缴费补贴问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "31675e48d36b4fa0ab753741d90c93aa",
+   "url": null,
+   "question": "2026年全省高级职称评审工作的通知的下发时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2feb478650534ba986260fcb84748566",
+   "url": null,
+   "question": "劳动用工备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "c522ea5c49544d97b0376d4403539b53",
+   "url": null,
+   "question": "婚假",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "76c67000d3334107bb761c7f0b04bb56",
+   "url": null,
+   "question": "关于非劳动者原因停工待岗时长大于一个月后，待岗第一个月工资是否按合同约定全额发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-rst",
+   "id": "51a203d4870e4421b33b6b9f7e281b91",
+   "url": null,
+   "question": "员工产假是否可以在小孩分娩时间延后休",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

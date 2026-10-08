@@ -1,0 +1,970 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-tyjrswt",
+   "id": "5464fc4d85854b3c8e6844b3ad1750b2",
+   "url": null,
+   "question": "转业安置",
+   "cited_hits": [
+    {
+     "name": "退役军人安置条例",
+     "lib_no": "退役军人安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ab836ca7ffdf45db81f8c73500ea7b7d",
+   "url": null,
+   "question": "追认烈士",
+   "cited_hits": [
+    {
+     "name": "烈士褒扬条例",
+     "lib_no": "烈士褒扬条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "4ac940225b32431eb7e9887fb773fe5b",
+   "url": null,
+   "question": "残疾军人因病去世后的遗属抚恤",
+   "cited_hits": [
+    {
+     "name": "军人抚恤优待条例",
+     "lib_no": "军人抚恤优待条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "军人抚恤优待条例",
+     "lib_no": "军人抚恤优待条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "419b293baa1a42f9ad4093f1377c7a22",
+   "url": null,
+   "question": "请问新下发的《中国人民共和国因公伤残人民证》是否和军残证、伤残警察证一样可以享受交通旅游等方面的待遇。",
+   "cited_hits": [
+    {
+     "name": "军人抚恤优待条例",
+     "lib_no": "军人抚恤优待条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "军人抚恤优待条例",
+     "lib_no": "军人抚恤优待条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "人民警察抚恤优待办法",
+    "中华人民共和国残疾军人证",
+    "中华人民共和国伤残人民警察证",
+    "中国人民共和国因公伤残人员证"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-tyjrswt",
+   "id": "bd109821c5414e3e9f281f6a0dcf9eef",
+   "url": null,
+   "question": "部队转业的自主择业干部,现邵阳某三甲医院就业，非编合同制，主治医师，2026年首次申报副高，不作下基层服务要求,这样理解正确吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省卫生系列执业医师晋升副主任医师前下基层服务工作实施管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "394b2d6c4ce34040afee95b3a9497209",
+   "url": null,
+   "question": "社保",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅印发&lt;关于解决部分退役士兵社会保险问题的意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "9effaba736a84c8da0e5ebae7eff0e64",
+   "url": null,
+   "question": "社保",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅印发 &lt;关于解决部分退役士兵社会保险问题的意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "c5b1b5121d114139b11542596957f488",
+   "url": null,
+   "question": "散葬的烈士墓在外省的，可以迁回原籍的烈士陵园吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部等 8部门关于进一步加强烈士纪念设施规范管理的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2e5e437f8ca94917952f4d2823a150f6",
+   "url": null,
+   "question": "有工作退休参战退役军人有什么医疗待遇",
+   "cited_hits": [],
+   "cited_missing": [
+    "优抚对象医疗保障办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0f7a6720e9214e0c9d7f99f20767aecd",
+   "url": null,
+   "question": "长沙哪些景区对退役军人免门票",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于加强军人军属、退役军人和其他优抚对象优待工作的意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "328fa5cfcb5b4e87a075895af81b1507",
+   "url": null,
+   "question": "咨询退役军人持优待证浏览天心阁是否免费",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于加强军人军属、退役军人和其他优抚对象优待工作的意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2a9e2cd407de4dc8b9950b3724e52285",
+   "url": null,
+   "question": "送喜报政策疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "立功受奖军人家庭送喜报工作办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "7168071d8d004177b2a9bdbf19d2ea5b",
+   "url": null,
+   "question": "2011年之前退伍军人可否享受自主就业税收优惠",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于进一步扶持我省自主就业退役士兵和重点群体创业就业有关税收政策的公告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "cf6236e8d278463c9e0a2a471eeefd28",
+   "url": null,
+   "question": "逐月领取退役金退役军人落户政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人逐月领取退役金安置办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "49ee501a09c7433c9817a4ad54ffda1b",
+   "url": null,
+   "question": "退役军人部发〔2023〕39号文件解读",
+   "cited_hits": [],
+   "cited_missing": [
+    "伤残抚恤管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "000183f0c0be4ef78ab54d2e03a95fb4",
+   "url": null,
+   "question": "180条优待目录清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省加强军人军属、退役军人和其他优抚对象优待工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ddc353b249e749b6a188e0806d4e57af",
+   "url": null,
+   "question": "关于退役军人培训",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进新时代退役军人就业创业工 作的意见",
+    "关于全面做好退役士兵职业技能教育工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ee9b9e3b385544fe8ea61798a5e3cd69",
+   "url": null,
+   "question": "退役军人优待证有何优待",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强军人军属、退役军人和其他优抚对象优待工作的意见",
+    "关于加强军人军属、退役军人和其他优抚对象优待工作的意见",
+    "湖南省加强军人军属、退役军人和其他优抚对象优待工作的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "1b0bd42d98574e29af5a3e53ccaf8c74",
+   "url": null,
+   "question": "关于外省人员申领湖南优待证",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部关于印发〈退役军人、其他优抚对象优待证管理办法（试行）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "5f7a383e202d42c780c6d2f6402be56a",
+   "url": null,
+   "question": "关于退役军人有待证的办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部关于印发〈退役军人、其他优抚对象优待证管理办法（试行）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "191e1e6c1bc94987bdbb295caee492c7",
+   "url": null,
+   "question": "退役军人优待证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部关于印发〈退役军人、其他优抚对象优待证管理办法（试行）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "4268c5453a2d4fcc9e75935d87d6e721",
+   "url": null,
+   "question": "入伍农村户籍的能解决社保不交吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省解决部分退役士兵社会保险问题的实施方案",
+    "关于解决部分退役士兵社会保险问题的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "83a0b6272c824864bf434a85b2aa87ac",
+   "url": null,
+   "question": "退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省退役军人事务厅关于有序开展退役军人、其他优抚对象优待证申领工作的公告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "f18114548d764e84b23f1494327a4a58",
+   "url": null,
+   "question": "关于退役复学能不能重新转专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "激励大学生参军入伍若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "3d53cf44be594352912c0519689a30fa",
+   "url": null,
+   "question": "退伍该怎么入学",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 2022年高职（高专）院校单独招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "95ea58a9f0aa490da15a0d58dcd77d56",
+   "url": null,
+   "question": "退役复学",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部关于进一步落实好退役士兵就读中等职业学校和高等学校相关政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ad365878715d460c9ff47f98a3c199c9",
+   "url": null,
+   "question": "退伍士兵升本要走哪些程序",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2022年湖南省普通高等学校专升本考试招生工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "c074ac027bcf47c684b2dceb99d9fc5d",
+   "url": null,
+   "question": "退役军人复学",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全面做好退役士兵教育培训工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "8ffc5a7946ad4657845c90240e4ac383",
+   "url": null,
+   "question": "请问2年义务兵有资格申领优待证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "优待证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "83c514dce6e145c9bfdb04d43211fef6",
+   "url": null,
+   "question": "退役军人伤残证件丢失",
+   "cited_hits": [],
+   "cited_missing": [
+    "伤残抚恤管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ee3a7dd88f514fcd8c6d0fb9f13316f2",
+   "url": null,
+   "question": "关于退伍军人学历提升一事",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2020年大学生征兵工作的通知",
+    "关于全面做好退役士兵教育培训工作的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "c71e3d337bcd4463924f4cfc6f2077c3",
+   "url": null,
+   "question": "退役军人事物厅今年上半年的体检提级",
+   "cited_hits": [],
+   "cited_missing": [
+    "伤残抚恤管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "bc5b06ba089340afbee3d3500ed16709",
+   "url": null,
+   "question": "关于2012年在校大学生应征西部建设的退役军人安置疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进新时代退役军人就业创业工作的意见",
+    "湖南省促进新时代退役军人就业创业工作实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "62daddf5a2aa4aef86ed07338294c35f",
+   "url": null,
+   "question": "退役士兵提升学历",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 2019 年我省高职扩招专项考试招生工作的通知",
+    "关于做好2019年退役军人高职扩招专项招生工作的通知",
+    "激励大学生参军入伍若干措施",
+    "关于做好 2021 年高职(高专)院校单独招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "5e0231b96b324383bfbd1e5c84cb9b6a",
+   "url": null,
+   "question": "退伍军人提升学历",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈高职扩招专项工作实施方案〉的通知",
+    "关于做好 2019 年我省高职扩招专项考试招生工作的通知",
+    "关于做好2019年退役军人高职扩招专项招生工作的通知",
+    "激励大学生参军入伍若干措施",
+    "关于做好 2021 年高职(高专)院校单独招生工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "9129e0f88c554b01beca97c57132f786",
+   "url": null,
+   "question": "咨询2008年入伍大学生是否可以享受学费补偿政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "应征入伍服义务兵役高等学校毕业生学费补偿和国家助学贷款代偿暂行办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-tyjrswt",
+   "id": "9f0d74191af34e8fbc2993e0b2f6a1d2",
+   "url": null,
+   "question": "军官转业安置相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2b246ed80e7544ac8629605a88a29a5f",
+   "url": null,
+   "question": "退伍安置地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "b571d30a6ebb4bc4aee20a27b499e3e2",
+   "url": null,
+   "question": "申请企业军转干部生活困难补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "718cc67b39424f9f957fcaf33e747c24",
+   "url": null,
+   "question": "咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "5ccc2e4f7f6c4e3c888121a1fb347da5",
+   "url": null,
+   "question": "咨询国防教育辅导员证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "a302beed2c0446eaaf0c295bb5ce52cd",
+   "url": null,
+   "question": "军人公墓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "62851b7f63b54774975b99510633415b",
+   "url": null,
+   "question": "退役军人优待证电子版办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "6a9e42daf13e42a9979623332515b7da",
+   "url": null,
+   "question": "培训费补贴问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "4106785d6d0143d1bf2dfa04f8eaff52",
+   "url": null,
+   "question": "服役期间是否有社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "64e672f302474677a3d38d0d600ea54f",
+   "url": null,
+   "question": "怀化市退役军人事务局区别对待所有符合条件的退役士兵安置，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "3fefc90d32ad49d5af70627b5ff0748c",
+   "url": null,
+   "question": "未享受技能补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "9384e37d777041c98b376f8d536cbca4",
+   "url": null,
+   "question": "关于退役军人优待证的使用问题和建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "1dd6aea047f548ed8b7918752b5dde37",
+   "url": null,
+   "question": "退役军人优待证遗失补办的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "5443eb0dbe164a5796a8fc16cc9ee27d",
+   "url": null,
+   "question": "革命烈士褒扬条例释义",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "be87b1c069b84028a82a85dfbb578b86",
+   "url": null,
+   "question": "优待金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "093e0dc5fe2b406391b32b57271aa8d2",
+   "url": null,
+   "question": "关于退伍军人八一建军过节费和过春节的慰问费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ea7d32801ca94980a5bce408e97adc6e",
+   "url": null,
+   "question": "请求解决两参退伍老兵家庭实际困难的报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "7bb33f68423f4a02b96fcefa74e07f75",
+   "url": null,
+   "question": "退役军人优待证遗失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "f92de4defd474b1ea765b67e50d152be",
+   "url": null,
+   "question": "滴水洞游览，我们的退伍优待证还需要购票吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "fb60efcea27f44c5a442bd5345c1c50c",
+   "url": null,
+   "question": "咨询回乡一次性补助金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "466e9e35fb1f4e24a1c9822d76fc389e",
+   "url": null,
+   "question": "八一建军节慰问金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0a12297769f845b29bb45310e0687e7c",
+   "url": null,
+   "question": "年年收不到八一慰问短信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "91d57be9c8b144cd92ac477bbba9dbbe",
+   "url": null,
+   "question": "八一建军节慰问短信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0c084aaf7332443cbf7b083cb2d4de32",
+   "url": null,
+   "question": "建军节祝福及福利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "25fc1e181b2f4291a6a5201d626d2e61",
+   "url": null,
+   "question": "退役军人慰问品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2621b89874894c5d99f09fbd8b6e1bfc",
+   "url": null,
+   "question": "2024.8.1退役军人有什么福利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "153247b8386442698825942c2e3ceb07",
+   "url": null,
+   "question": "“八一”福利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "d531c53bf9bc4a0bad13575af7224776",
+   "url": null,
+   "question": "退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "f3c14ff7148a4bafb3c13cf23d1a1a98",
+   "url": null,
+   "question": "您好，请问下退役军人优待证（银行卡）遗失了可以补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ee4ef3dceb2f4aa39119abdcc4586ade",
+   "url": null,
+   "question": "关于优待证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "46fcb87c7f55448babfd6d310c120ed2",
+   "url": null,
+   "question": "退役军人优待证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "25faf97ea57e46e4a52074dae31e014a",
+   "url": null,
+   "question": "家庭优待金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "364357236ee745f2ad4477f6cfb0e1da",
+   "url": null,
+   "question": "退役军人优待证丢失如何补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "ef6d385c373e422dacae9cabd860f0d4",
+   "url": null,
+   "question": "关于义务兵因精神疾病被评为军残6级是否发放护理费用问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "258fb582895d41fcab08baa5040a0fb9",
+   "url": null,
+   "question": "善待人民子弟兵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "63d5268ee3324a158e56f6c23466b98e",
+   "url": null,
+   "question": "退役大学生考研专项计划资格审核不通过",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "f94e0dfbf5594e65b3efe44cf4e7f1bf",
+   "url": null,
+   "question": "现役军人子女新生儿医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "f389c71401b0496db3c3fb163c079ae2",
+   "url": null,
+   "question": "政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "d52ed03b1d03442c83f8afc801bc8ec1",
+   "url": null,
+   "question": "退役军人安置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "fe958d1d8fa8468eb1433ed320c201bb",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "d975a4f4456945c18a3af6e03a462d8b",
+   "url": null,
+   "question": "优待证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0ed9c25a932947bcbfdc792bbd46df0b",
+   "url": null,
+   "question": "军人家庭优待金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "cde141aaec36435e86d48215b4f81ebf",
+   "url": null,
+   "question": "湖南户籍的退役士兵有地方一次性退役补助吗？有的话什么时候发?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2bd9aff1e2ec4f9c8c2da96de86f1939",
+   "url": null,
+   "question": "如何办理退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "b18d89bd12624615a3eb8bf717342807",
+   "url": null,
+   "question": "我是参战老兵，想咨询一个问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "438e99f02af740698bc58983ffa49d62",
+   "url": null,
+   "question": "可否跨市办理退役军人优待证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "4927768cdca04780bc19f1c010320f09",
+   "url": null,
+   "question": "有过刑事案件的退伍军人能申请优待证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "550f3adac7354d14a343e523dcd4967f",
+   "url": null,
+   "question": "退伍军人优待证办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0fe0ef01e95a42b1929eae870c18798d",
+   "url": null,
+   "question": "退伍老兵如何寻找以前的老战友",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "0538287846934c558c03af5578bae802",
+   "url": null,
+   "question": "退役士兵经济补助金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "375c636df7bd4d5ba81c208752c7ea3a",
+   "url": null,
+   "question": "退役军人社保中断补缴申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2337118c3d834addbfbd9ede0df96e99",
+   "url": null,
+   "question": "上传数据给铁路购票系统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "14890d29c59c4855baf69608f4f9778b",
+   "url": null,
+   "question": "复员军官档案调取问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "54e1df2b84b04e1c92e42e958957aeba",
+   "url": null,
+   "question": "退役军人优待卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "7ca05e8b756e443896dcfd1f33e4bcc1",
+   "url": null,
+   "question": "退役军人身患大病（癌症）住院手术后有什么政策及补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "c87d726ae74a4c90ac33957a22bc404a",
+   "url": null,
+   "question": "退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "2be4618e9d414903b58ddce66ed1cb78",
+   "url": null,
+   "question": "退役军人职业技能培训机构咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "id": "3b4980ef72a54cb38ad01c880722149e",
+   "url": null,
+   "question": "请问湖南省退役军人事务厅是在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

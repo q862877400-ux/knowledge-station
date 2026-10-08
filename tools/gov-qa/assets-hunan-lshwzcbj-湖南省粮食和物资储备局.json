@@ -1,0 +1,380 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "3a0ff46e41d945a19b46e5164252ff95",
+   "url": null,
+   "question": "粮食消费量年度数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家粮食流通统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "07c684583bbf49778c3055399869333f",
+   "url": null,
+   "question": "询问粮食需求量的相关数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家粮食流通统计调查制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "3684aaa3b4c44a1daefee7c8e0fceb79",
+   "url": null,
+   "question": "粮食收购资格许可证的办理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司登记管理条例",
+     "lib_no": "公司登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "粮食收购资格审核管理办法",
+    "湖南省粮食局关于印发&lt;湖南省粮食收购资格审核管理办法&gt;的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "18f8db7dcaa94d59a1ba2c617348416d",
+   "url": null,
+   "question": "关于确定县级储备粮存储企业数量的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省地方储备粮管理办法",
+    "湖南省地方储备粮管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "2857d4999cc8472c91b90d3c1b4489c7",
+   "url": null,
+   "question": "湖南省大米产业销售和贸易数据查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省大米产业数据"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "0812fbdf33e34382b108fa915544f8a1",
+   "url": null,
+   "question": "储备粮轮换入库新粮检测标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "稻谷储存品质判定规则",
+    "粮油检验 稻谷新鲜度测定与差别",
+    "GB1350-2009",
+    "GB/T 20569-2006",
+    "GB1354-2009"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "2530588207304de59fd2ef50bbb601a4",
+   "url": null,
+   "question": "关于昨天咨询的湖南经济贸易高级技工学校工作事宜校方处理进程的回复",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省经济贸易高级技工学校（湘潭）2020级学生后续安排的咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "c82933f0fc444734a6017e76abe93f8d",
+   "url": null,
+   "question": "关于加强原粮供应链品质驱动节粮减损的提案",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强原粮供应链品质驱动节粮减损的提案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "b8b932ded2b14e3ca7304cc97ef9ad14",
+   "url": null,
+   "question": "请尽快实施2018年中晚稻政策收购事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "请尽快实施2018年中晚稻政策收购事宜"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "109d6e010c424c13ad4d4574c615b87a",
+   "url": null,
+   "question": "2018年粮油保管员培训鉴定时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省粮食局办公室关于开展2018年度全省粮食行业特有工种职业技能培训与鉴定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "387a1c11788d453c8954ca5605ba1100",
+   "url": null,
+   "question": "投稿怎么投",
+   "cited_hits": [],
+   "cited_missing": [
+    "潇湘粮网"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "22fc4f8151044278b8a6d31d84b9802f",
+   "url": null,
+   "question": "急求2005-2014年湖南省粮食平均价格",
+   "cited_hits": [],
+   "cited_missing": [
+    "湘粮政务网"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "06531185e6f9459d91c909f01ea53f33",
+   "url": null,
+   "question": "关于申请益阳市全面启动早籼稻托市收购的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "a78bd61825c84e7989ac61a4c419d07a",
+   "url": null,
+   "question": "粮食价格收购查寻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "00c69200119c4b1ca6a54dd542075caf",
+   "url": null,
+   "question": "售卖水稻粮食",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "42d5448069104663a876964b8276c0f4",
+   "url": null,
+   "question": "请问贵单位的政务新媒体账号什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "ef2d4150be894da5b16b6388d124006f",
+   "url": null,
+   "question": "关于“洞庭香米”区域品牌相关数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "51eb435b1a5d4bd39a48992375c8c838",
+   "url": null,
+   "question": "湖南省应急物资储备仓库数量以及分布情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "ff3945bb1ab144b4bfb51cfb694d34dd",
+   "url": null,
+   "question": "湘粮调(2021)128号全文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "53b82093cae2420689c08a9efe637cc9",
+   "url": null,
+   "question": "请问贵单位的地址在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "3f22b620c5864f93876895925ab1e5f6",
+   "url": null,
+   "question": "定销粮取消的相关文件和纪要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "46a7b3f93efb4b9ab80dd06996d17a5d",
+   "url": null,
+   "question": "湖南省粮食局招聘考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "2907d668d9a94a73a183c3fc3afb0264",
+   "url": null,
+   "question": "希望能够学习深圳车企补贴的形式去提升湖南大米在广东省的品牌占有率(在深圳和夏文斌局长一起开过会)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "5e0f71e457fb431db8ed44ea17651c88",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "43f1e3769e244c93899591636746ed5a",
+   "url": null,
+   "question": "现在执行的粮食熏蒸补助标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "44ffff8a7e814700ab2c796d41ddd0cd",
+   "url": null,
+   "question": "请问长沙、株洲、湘潭、岳阳、益阳、常德的粮库名录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "732c522f8d684825971b714aa92d08b1",
+   "url": null,
+   "question": "关于湖南省经济贸易高级技工学校（湘潭）2020级学生后续安排的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "e21a673f8b914e08b424726767089cb3",
+   "url": null,
+   "question": "请问有哪些利于大米储存的方法？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "a8951dfcb3ae476a9d9fa94c2bb2e620",
+   "url": null,
+   "question": "湖南省闲置粮库数量咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "0b78b7a0e4854dce8ebeb4068d032e58",
+   "url": null,
+   "question": "“湖南粮食”形象标识与宣传口号征集进展到什么地步了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "e6c6f943918c493eab8cbb7450e433d3",
+   "url": null,
+   "question": "湖南衡阳市林科所申时利车祸造成手掌骨折筹病款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "c07d7ce5ffa24cf6a7e7db312be471ec",
+   "url": null,
+   "question": "建议省粮食局党进行中水洁厕改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "bf054094e71945aab69463207aecf5df",
+   "url": null,
+   "question": "长沙中储粮2016晚稻不收购",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "9463cc051df74256b0a77bfac5c0cc66",
+   "url": null,
+   "question": "互联网粮油 进货渠道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "13e13a5ff5bc48d6a1bfc4f2edfd4671",
+   "url": null,
+   "question": "请问技师该怎么报考？省内哪里可以报考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "id": "957a86fdd92b4e29b239302d37522ebd",
+   "url": null,
+   "question": "今年中晚稻最低收购价是多少?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

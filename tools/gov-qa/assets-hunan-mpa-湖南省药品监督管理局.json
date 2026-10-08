@@ -1,0 +1,922 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-mpa",
+   "id": "fd399044c3024d5d828c6967da1af791",
+   "url": null,
+   "question": "《湖南省中药饮片炮制规范》（2021年版）相关问题咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省中药饮片炮制规范",
+    "湖南省中药饮片炮制规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "4ba47dbaf6c2434098e850f634562d67",
+   "url": null,
+   "question": "办证咨询",
+   "cited_hits": [
+    {
+     "name": "医疗器械经营监督管理办法",
+     "lib_no": "医疗器械经营监督管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "1bd0d806da274d05a306ed3ce927613c",
+   "url": null,
+   "question": "住所变更",
+   "cited_hits": [
+    {
+     "name": "医疗器械注册与备案管理办法",
+     "lib_no": "医疗器械注册与备案管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "42a2af50df8248068d0de578a3a4230b",
+   "url": null,
+   "question": "一般贸易进口车载香氛是否需要进行备案",
+   "cited_hits": [
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "c60fd68ecfde404ea8230365b3d78004",
+   "url": null,
+   "question": "办理精麻药品印鉴卡的条件与流程",
+   "cited_hits": [
+    {
+     "name": "麻醉药品和精神药品管理条例",
+     "lib_no": "麻醉药品和精神药品管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e8bfcfabcd774a4290e77f34a805481e",
+   "url": null,
+   "question": "关于国家药品监督管理局组织修订前生产产品的销售咨询",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗器械注册与备案管理办法",
+     "lib_no": "医疗器械注册与备案管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家药监局关于实施&lt;第一类医疗器械产品目录&gt;有关事项的通告",
+    "一类目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "17568ac96adb48c7b9a9dad81f13fc95",
+   "url": null,
+   "question": "关于劣药的认定",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家药监局综合司关于假药劣药认定有关问题的复函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f1191750551c41078832c756ebb5d83a",
+   "url": null,
+   "question": "涂抹在皮肤上，主要功效为祛除狐臭，主要涂抹在腋下，请问产品是属于化妆品还是消毒用品？",
+   "cited_hits": [
+    {
+     "name": "化妆品卫生监督条例",
+     "lib_no": "化妆品卫生监督条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品卫生监督条例",
+     "lib_no": "化妆品卫生监督条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e08d8a67691d4f458d9184746e3e2ebb",
+   "url": null,
+   "question": "关于化妆品和消毒用品",
+   "cited_hits": [
+    {
+     "name": "化妆品卫生监督条例",
+     "lib_no": "化妆品卫生监督条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品卫生监督条例",
+     "lib_no": "化妆品卫生监督条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "7154bba4ccaf4d51a33489ee1add74e4",
+   "url": null,
+   "question": "湖南省关于体温计、早孕试纸、血压计等十八种二类器械需要办理备案证吗",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "705208c0a35a4e1589c5c241a8e3fb14",
+   "url": null,
+   "question": "关于在2019年12月1日以前认证的单位是否给予GSP证的咨询",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国药品管理法 ",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "cbd803957de1434995a4cbd2766a695f",
+   "url": null,
+   "question": "咨询：二类医疗器械备案变更",
+   "cited_hits": [
+    {
+     "name": "医疗器械经营监督管理办法",
+     "lib_no": "医疗器械经营监督管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-mpa",
+   "id": "64a30f4290d645f2a4ac14b877fd8772",
+   "url": null,
+   "question": "美洲大蠊提取物",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省中药饮片炮制规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "d9a6ecf893bb44a3be36934d88ec4d2d",
+   "url": null,
+   "question": "有源产品延续注册的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于GB 9706.1-2020及配套并列标准、专用标准实施有关工作的通告",
+    "关于GB 9706.1-2020及配套并列标准、专用标准实施有关工作的通告",
+    "GB 9706.1-2020",
+    "GB 9706.1-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f62ae292770346578cbff551fc4b56f9",
+   "url": null,
+   "question": "二类医疗器械经营备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械经营质量管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "0efa5d29c55f473faf7bc0583132e3d3",
+   "url": null,
+   "question": "管制对照品购买",
+   "cited_hits": [],
+   "cited_missing": [
+    "科研教学等单位购买麻醉药品和精神药品（含对照品）购买审批"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "edbe26a967544bdcb9aa868d2340a323",
+   "url": null,
+   "question": "湖南省中药饮片炮制规范2010年版是否可执行",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省药品监督管理局关于实施&lt;湖南省中药饮片炮制规范&gt;（2021年版）的公告",
+    "湖南省中药饮片炮制规范",
+    "湖南省中药饮片炮制规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "5e6ec14b08dc4c3781d6cb81ed77a8fb",
+   "url": null,
+   "question": "设立医疗器械第三物流公司的条件有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局关于发布&lt;医疗器械经营质量管理规范附录：专门提供医疗器械运输贮存服务的企业质量管理&gt;的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f61384245a1247168b961145512a9faa",
+   "url": null,
+   "question": "注册自检",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械注册自检管理规定",
+    "医疗器械生产质量管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f25e82adfa804082881d3bd0c13e4a0f",
+   "url": null,
+   "question": "二类医疗器械注册的检验报告中关于检验资质的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局综合司关于明确&lt;医疗器械检验工作规范&gt;标注资质认定标志有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "196a690004d74cff94674141f3439e41",
+   "url": null,
+   "question": "如何申请复工复产，",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医疗器械生产企业停产复产报告工作指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "b6592779f87f41b1877687b812b00057",
+   "url": null,
+   "question": "大枣质量标准问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "34b21be0e45842fb8ae258a81cd51f33",
+   "url": null,
+   "question": "中药饮片包装标签为中国药典，没有标第几部。可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "5db4f752d02446aeb259768bac5e0780",
+   "url": null,
+   "question": "湖南省中药饮片炮制规范（2010年版）红参超微饮片",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省中药饮片炮制规范（2010年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f64dd3282aa54701ac46199a011682da",
+   "url": null,
+   "question": "湖南省药学专业高级职称申报政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省药学专业高级职称申报政策",
+    "评审标准条件",
+    "评审标准条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "25ad4f18b5224ce2a7f3fc6bf1d4997c",
+   "url": null,
+   "question": "中药饮片执行标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "d83f004307124b3087ae08cfa285c4b3",
+   "url": null,
+   "question": "氧气袋备案咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范医疗器械产品分类有关工作的通知",
+    "关于进一步规范医疗器械产品管理属性和类别专项请示资料要求的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "3f429ed51cef47ffa691af5091ac17a9",
+   "url": null,
+   "question": "氧气袋备案咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范医疗器械产品分类有关工作的通知",
+    "关于进一步规范医疗器械产品管理属性和类别专项请示资料要求的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-mpa",
+   "id": "673e2cb4d32340c5a369a8a6d317ee72",
+   "url": null,
+   "question": "二类医疗器械广告审查申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "3c64c45982d748cba9b4e9ef9f115788",
+   "url": null,
+   "question": "二类器械变更注册生产过渡期咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e0873db3e4434d03a12fd18670805e17",
+   "url": null,
+   "question": "咨询药品标准问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "d9a26da17aef4c5b89e54a8a5481347a",
+   "url": null,
+   "question": "委托生产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "444e22ca8b524b2e9db98e2ffeae6ad4",
+   "url": null,
+   "question": "GB9706系列标准升级变更注册提交时间咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "ca27cc23ca9a4dbdacace0358690e75f",
+   "url": null,
+   "question": "第二类精神药品批发企业销售给生产企业第二类精神药品的相关流程与注意事项咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "1326302a26ca4ca4a8b9c8097bfca66c",
+   "url": null,
+   "question": "医疗器械注册人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "fd926a8098d447bbaa3a585ce91632a6",
+   "url": null,
+   "question": "备案微信小程序，关于药品和医疗器械前置审批部门咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "6de50f46833944808a6e96ef94b7bc13",
+   "url": null,
+   "question": "执业药师考后审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "691f664d7307468d8fad0438499c33d8",
+   "url": null,
+   "question": "医用氧经营相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "1ec1e61a5c2244c8b5fbd1723871e657",
+   "url": null,
+   "question": "想要咨询关于科研企业项目使用精麻类对照品的流程和途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "5d63d0d2100e4be3b4768f03853386d1",
+   "url": null,
+   "question": "辐照箱是否可以用聚丙烯（PP）材质的箱子",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e9ed5814862b460daa61d50437c87e9b",
+   "url": null,
+   "question": "执业药师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "bc68d8fa0e744d20bfbabd4503984ec4",
+   "url": null,
+   "question": "药品经营与管理专业能不能报考初级药士证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "afa020da62fc471c954a058afb9781c7",
+   "url": null,
+   "question": "医疗器械注册申请人变更咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "8a69c473f5f0482e81faf20df3165e59",
+   "url": null,
+   "question": "药品、保健品广告宣传咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "dd78632ddb3a4e2c9f7106bf7eb3c69b",
+   "url": null,
+   "question": "如何申请食品成分的检测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "3bc721452da44c18ae3ba93af2161709",
+   "url": null,
+   "question": "医疗器械注册咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "016122fd9d5e4a64834ac85303c56636",
+   "url": null,
+   "question": "体外诊断试剂说明书不涉及变更注册的更改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "7c0de81706c04a4aa17ab3439846bc39",
+   "url": null,
+   "question": "产品注册证新增了生产地址2，原有包材（只印了生产地址1内容）是否还能使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "0a94178122f947acbfe6a0c65c108a9d",
+   "url": null,
+   "question": "域名备案涉及医疗器械相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "39bea125891945a68c90d315d9353807",
+   "url": null,
+   "question": "关于医疗器械注册延续补充材料通知书内容的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "422b21e4a7684e8faf6a8f2bf239a127",
+   "url": null,
+   "question": "关于小程序备案问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f39ed97b92ac4b458d373b076e3f64dd",
+   "url": null,
+   "question": "生产企业复产相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "ca02d7953de6434a82ecb8d0851d741e",
+   "url": null,
+   "question": "网站备案咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "c2bc60c668fd4560b994abe20eadd894",
+   "url": null,
+   "question": "药品零售连锁加盟店能否独立采购",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "0d98439350c94ecd8ea13ce75314b752",
+   "url": null,
+   "question": "2024年甲磺酸伊马替尼的报销问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "52244e0f2d394388a3a50ccd106c3412",
+   "url": null,
+   "question": "体系核查延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "b5ace4cb399642d280708b38b941c85f",
+   "url": null,
+   "question": "医疗器械广告审查网上在线办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "a9abd3f917974ddd97799a2ac97973d8",
+   "url": null,
+   "question": "食品经营许可证怎么办理需要准备哪里材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "235612e54f17433a8087aa9d99624834",
+   "url": null,
+   "question": "处方药品广告可否在药店张贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "d3a2d6e7a189491795f61f8b31e83276",
+   "url": null,
+   "question": "网站域名备案时，没有通过，提示“经营范围涉及药品/医疗器械字样”，请问需要做前置审批么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "ad52f45588544c9a8bbc5816eaf302d2",
+   "url": null,
+   "question": "药品生产和经营许可证应该如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "736b7335e8cc410b952613173bfb3ec9",
+   "url": null,
+   "question": "互联网药品信息服务资格证书信息变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "dd710c9be65c4a85b30ce94176118718",
+   "url": null,
+   "question": "取消注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "444ae057f54c4266b99bb4966e92ac37",
+   "url": null,
+   "question": "关于《互联网药品服务信息资格证书》的办事指南",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "1f75990bc0d14f15b07ca515a4e81972",
+   "url": null,
+   "question": "小餐饮经营许可证如何办理，流程是什么，线下咨询后给个进不去的网址，请问网办的网址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "a24cd37d214c452c918a37324c2804a5",
+   "url": null,
+   "question": "使用期限与有效期的区别",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "0ad172932a704c4da5612b3f35dfa9bd",
+   "url": null,
+   "question": "【康泰医学】外省的医疗器械公司来长沙建厂，需要办理本地药监局的哪些资质呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "31094242467e498aa089e346bb042c22",
+   "url": null,
+   "question": "药品上市许可持有人委托负责药品销售的经营企业可视同生产企业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "7890cc90e24c4e24964d1ab513173329",
+   "url": null,
+   "question": "食品经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "7a52842a76f74c29abfd393dd86643b5",
+   "url": null,
+   "question": "医疗器械注册人制度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "3193f1b6f1b64466a9bf4aad613be6cb",
+   "url": null,
+   "question": "临床试验备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "addcd70add984ff8a11dc4827b8ead8d",
+   "url": null,
+   "question": "医疗器械广告审查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "95aa7a63fab642e4a2ffdc3750708767",
+   "url": null,
+   "question": "外省中药饮片炮制规范生产的饮片是否能在湖南销售",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "6745af1543e44fcc98561fbe82cf5b3c",
+   "url": null,
+   "question": "药物临床试验备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e9dc0d7a9ce34dfead79a7485a085c5b",
+   "url": null,
+   "question": "关于GSP体系和GMP体系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "936bf064fd224ac68c2a7333d56ff1b5",
+   "url": null,
+   "question": "请问2019年参加执业药师考试，今年发了证以后注册，需不需要先修满继续教育学分才能注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "10033b46ec814080ae1534ca48fff2a8",
+   "url": null,
+   "question": "医疗器械NMPA注册证适用范围确认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "bebc3ca3f97d4146bc8d3953c9ec344e",
+   "url": null,
+   "question": "食药监局的座机",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "4a386d95402d4d9a921cec2c34242b26",
+   "url": null,
+   "question": "中药饮片规格相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "e835ea63b52c43e5bf6cf2e28850586f",
+   "url": null,
+   "question": "药品经营许可证申请咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "f73bf59bce074484a052e785c96e4cf5",
+   "url": null,
+   "question": "区县级市场监督管理局收到无化妆品生产许可证的情形的投诉举报是直接将案件线索移送省局吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "7e1212d2d0f345bfb5278f3eb5241250",
+   "url": null,
+   "question": "我要申办药品生产许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "8c2638ed7ec54cb8beb20fa32470cf9b",
+   "url": null,
+   "question": "申办药品生产许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

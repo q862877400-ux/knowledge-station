@@ -1,0 +1,238 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-sjt",
+   "id": "0700052364784897b5ecab7c363b08e8",
+   "url": null,
+   "question": "新版的审计常法律法规单行本现在是否有买，需要五十本",
+   "cited_hits": [
+    {
+     "name": "审计法律法规单行本",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中国财经审计法规选编",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-sjt",
+   "id": "3e733ff2fcb144938f6bf575bfb73b31",
+   "url": null,
+   "question": "代建费取费依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省政府投资项目代建服务取费标准",
+    "基本建设项目建设成本管理规定",
+    "湖南省政府投资项目代建制管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "790d1eade7cf4e9b830d8a23c81af984",
+   "url": null,
+   "question": "请问报考高级审计师中要求的相关专业中级专业技术资格是哪些专业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计署 人力资源和社会保障部审计专业技术资格考试办公室关于 2024 年度审计专业技术资格考试工作有关事项的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "7e1549cbe7d2450aad4e4784a44e4dfd",
+   "url": null,
+   "question": "关于“审计专业技术资格考试考务工作通知”的有关建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "审计署 人力资源和社会保障部审计专业技术资格考试办公室关于2019年度审计专业技术资格考试工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "c396b6ae3a0f4b78ac516871791dc778",
+   "url": null,
+   "question": "请问工程造价咨询企业想要承接审计厅的相关业务，需要与审计厅哪个部门对接？如果没有入围审计厅的中介机构名单库，是不是不能接",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省审计厅关于印发向中介机构购买审计服务的管理办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "9f947b1bf2744322b1aae85fa9e5089e",
+   "url": null,
+   "question": "邮箱咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省审计厅关于进一步加强政务信息公开和门户网站管理工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-sjt",
+   "id": "bcf48c5414b147529fb7668a5261e639",
+   "url": null,
+   "question": "“银行客户交易流水分析工具”可否供公众使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "1eebfba020314ac8a172f6afa8e49633",
+   "url": null,
+   "question": "关于审计专业职称的继续教育问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "39d8ecda550f4cdbb948b3e5417dc931",
+   "url": null,
+   "question": "感谢湖南省审计厅及邵阳市审计局对老百姓反映的问题及时调查查处，党员及群众非常满意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "5ee08458b66c4eed86508079c0a5848e",
+   "url": null,
+   "question": "领导干部自然资源资产离任审计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "a0f8b2a1bd3a44a79d46d9348d108747",
+   "url": null,
+   "question": "致审计厅领导的一封信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "d62193326c104c28ae37b3e9c1118da8",
+   "url": null,
+   "question": "单位地址在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "3232185f39cd403c89b3b3ba1b9fbfb8",
+   "url": null,
+   "question": "湖南省审计厅的工作时间是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "076a94d3a6314351ada8ebcaeff0cfee",
+   "url": null,
+   "question": "想咨询湖南省审计厅的办公地址在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "058600c9daf54489b5216d994c8c3af2",
+   "url": null,
+   "question": "2020年高级审计师评审通知下发了没？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "8c4eab704d0e41948f12140dbcf337f7",
+   "url": null,
+   "question": "2016初级审计师考后复审具体时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "4e99f6535e7b4fd6be2f152ab10b5d4d",
+   "url": null,
+   "question": "审计职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "73f698db3e3b4278941b16ae812180e1",
+   "url": null,
+   "question": "咨询审计师证书领取时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "350d9a0a8c0a4701befaf090d61f4e0e",
+   "url": null,
+   "question": "关于审计资格证书领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "beae5d88b11a41c8a32d8dfac6d3b957",
+   "url": null,
+   "question": "干部离任审计期间能否出国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "ee691de905374f878f95b59eb4ba44e0",
+   "url": null,
+   "question": "2015年审计职称考试报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "8e1cc40e16a14f38bef8ca6dd2893ddf",
+   "url": null,
+   "question": "初级审计师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sjt",
+   "id": "92883a3ca1434803bee37e9441a6fdd6",
+   "url": null,
+   "question": "审计职称考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

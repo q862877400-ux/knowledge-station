@@ -1,0 +1,242 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-sjt",
+   "id": "27147734",
+   "url": "https://sjt.guizhou.gov.cn/?id=27147734",
+   "question": "外省工程造价咨询资质入黔从事工程结算审计业务，需办理什么手续？怎么办理？谢谢",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国审计法",
+     "lib_no": "审计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-sjt",
+   "id": "27415996",
+   "url": "https://sjt.guizhou.gov.cn/?id=27415996",
+   "question": "您好，想咨询一下审计职业资格考试报名的程序是什么？需要哪些材料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度审计专业技术资格考试报名的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27395411",
+   "url": "https://sjt.guizhou.gov.cn/?id=27395411",
+   "question": "会计师事务所接受行政事业单位的主管部门委托对行政事业单位进行经济责任审计或财务收支审计，对审计中发现的问题，能在会计师事务所出具的审计报告依据《中国内部审计准则》或其他法规发表审计处理意见吗，如可发表审计处理意见，该意见是否有效？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国内部审计准则",
+    "审计署关于内部审计工作的规定",
+    " 第 2309号内部 审计具体准则 ——内部审计业务外包管理",
+    "第 2307号内部审计具体准则——评价外部审计工作质量"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27323541",
+   "url": "https://sjt.guizhou.gov.cn/?id=27323541",
+   "question": "您好！我于2019年通过中级审计师考试，并在贵署领取了证书，现在单位聘用职称，是否需要贵署出具“考试合格人员登记表”，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于专业技术人员资格考试不再发放考试合格登记表的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27322521",
+   "url": "https://sjt.guizhou.gov.cn/?id=27322521",
+   "question": "请问中级审计师资格证书需要做继续教育吗？如果要做的话是通过什么渠道做？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "专业技术人员继续教育规定",
+    "贵州省专业技术人员继续教育学时授予与管理办法（试行）",
+    "专业技术人员继续教育规定",
+    "贵州省专业技术人员继续教育学时授予与管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27321757",
+   "url": "https://sjt.guizhou.gov.cn/?id=27321757",
+   "question": "您好，可以提供省审计厅2021年度本单位政策文件目录吗？主要是用于学习，了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省审计系列高级专业技术职务任职资格申报评审条件（试行）",
+    "贵州省审计机关审计复议规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27186760",
+   "url": "https://sjt.guizhou.gov.cn/?id=27186760",
+   "question": "省审计厅：您好！&nbsp; 我有两个问题需要咨询：1、我参加了19年初级审计考试并通过，已递交审核资料，请问是否审核通过？如审核通过，多久领取证书？ 2、请问初级审计考试是否需要继续教育？如需教育，领证本年是否需要教育？&nbsp; 望解",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2019年度审计专业技术资格考试有关问题的答复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27184945",
+   "url": "https://sjt.guizhou.gov.cn/?id=27184945",
+   "question": "咨询2019年度审计师考试资格证发证时间，包括电子证书和纸质证书的具体时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2019年度审计专业技术资格考试有关问题的答复"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-sjt",
+   "id": "27693785",
+   "url": "https://sjt.guizhou.gov.cn/?id=27693785",
+   "question": "你好，请问2025年中级审计师证书领取时间是多久，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27629495",
+   "url": "https://sjt.guizhou.gov.cn/?id=27629495",
+   "question": "请问2024初级审计证书什么时候可以领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27582349",
+   "url": "https://sjt.guizhou.gov.cn/?id=27582349",
+   "question": "我是2020年10月获得的中级审计师,按照报考高级需从事审计工作五年,请问2024年是否能报考高级审计师.谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27553583",
+   "url": "https://sjt.guizhou.gov.cn/?id=27553583",
+   "question": "您好，想咨询一下审计机关会对哪些事项进行审计监督呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27499481",
+   "url": "https://sjt.guizhou.gov.cn/?id=27499481",
+   "question": "&nbsp;关于做好2023年度审计专业技术资格考试报名的通知一（十）提出在审计及相关合规、稽核、内部控制、风险管理等岗位工作；或者在会计、经济、统计、工程或教育科研等岗位工作，且有相关审计实践经验的；可以视同从事审计相关工作。请问相关审计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27434386",
+   "url": "https://sjt.guizhou.gov.cn/?id=27434386",
+   "question": "请问2022年度高级审计师是否已经组织评审？如未评审，请问是否还会举行？请问2021年度取得高级审计师合格证书，合格证书是否按照最新的文件规定，有效期为5年？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27407553",
+   "url": "https://sjt.guizhou.gov.cn/?id=27407553",
+   "question": "2022年审计师能否正常开考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27338482",
+   "url": "https://sjt.guizhou.gov.cn/?id=27338482",
+   "question": "请问，取得审计中级专业技术资格证后需要审核吗？审核时间是每年一次吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27336135",
+   "url": "https://sjt.guizhou.gov.cn/?id=27336135",
+   "question": "您好，请问贵单位的权责清单在哪里可以查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27321269",
+   "url": "https://sjt.guizhou.gov.cn/?id=27321269",
+   "question": "您好，请问如何获取贵单位2019年的政府网站工作年度报表？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27250214",
+   "url": "https://sjt.guizhou.gov.cn/?id=27250214",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27249418",
+   "url": "https://sjt.guizhou.gov.cn/?id=27249418",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27248944",
+   "url": "https://sjt.guizhou.gov.cn/?id=27248944",
+   "question": "您好，请问如何获取贵单位2019年的政府网站工作年度报表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27201472",
+   "url": "https://sjt.guizhou.gov.cn/?id=27201472",
+   "question": "请问一下，2020年审计证书领取时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sjt",
+   "id": "27193155",
+   "url": "https://sjt.guizhou.gov.cn/?id=27193155",
+   "question": "尊敬的省厅领导：单位要求填报审计资源管理系统，不知是县局报错还是什么原因，我登录后发现近三年来我只参加了一个项目为省厅组织的项目，县本级实施的项目我一个没有。近三年我参加的县本级项目不少于10个，其中在2个项目中担任组长，3个项目中担任主审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,2382 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-slt",
+   "id": "9a052c34cd734baa93784e03c585090f",
+   "url": null,
+   "question": "水资源数据求助",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "aae3c2519f504c0e86cc0b583a43b246",
+   "url": null,
+   "question": "2001年湖南水资源公报",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "15aa203f41df422381768d8c5dbe0bbe",
+   "url": null,
+   "question": "公开信息中看不到湖南省农村供水高质量发展规划全文",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b65c483c81734870a5ce88936aca9cc8",
+   "url": null,
+   "question": "湖南省水利工程“机器管招投标”模块化招标文件(货物采购)(2025年第1版)中关于低于成本报价的疑问",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "评标委员会和评标方法暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "046dba56c7d14ecbb6e073c844785856",
+   "url": null,
+   "question": "关于湖南省水利厅湘水管字（1981）第051号文件信息公开的申请",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "566f6a70a7814d5f9c1b0ac040ed12bb",
+   "url": null,
+   "question": "2010-2023年湖南省各市州水土流失治理面积",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2547c4bdecb742979d4dceb3d9c03707",
+   "url": null,
+   "question": "在《湖南省水利工程\"机器管招投标”模块化招标文件示范文本(施工)》中项目经理在建情况的认定",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工程建设项目招标投标活动投诉处理办法",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "31e133859b184507a1ba6cd25432fba3",
+   "url": null,
+   "question": "请求查找2011年水利高工评审通过红头文件",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "3ec39ac0cd4f464797ac5edb151fe72f",
+   "url": null,
+   "question": "请求查找2010年湖南省水利高级工程师评审通过名单",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2760b9482ec94b81af642dead9b71487",
+   "url": null,
+   "question": "湖南省2016年至2019年水土保持公报",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2cfd1258ad9746faab33f80e2a3d445c",
+   "url": null,
+   "question": "文件是否有效咨询",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利建设基金筹集管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "3a032f72671c402db9beaf8ced11ee0a",
+   "url": null,
+   "question": "文件有效性",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利建设基金筹集管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5d9eb762b5a247398b6ee66b748fe8fc",
+   "url": null,
+   "question": "关于湖南省水利工程招投标活动的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工程建设项目招标投标活动投诉处理办法",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "32b2dca873cc4360929a180de256c817",
+   "url": null,
+   "question": "咨询娄底市水资源公报",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2e0d9868dd8e4ec6b56b73eac2f51add",
+   "url": null,
+   "question": "水利技术改造咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国能源法",
+     "lib_no": "能源法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利科技项目管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "af398af6709545dfaf7fa721dc41f8f9",
+   "url": null,
+   "question": "洪水情况",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9cc6b3f67cd94ce8ad694f4a4f54c672",
+   "url": null,
+   "question": "《湖南省水利建设指挥部关于印发〈湖南省重大水利工程建设监管方案〉的通知》(湘水建〔2023〕1号)等规定找到这文件",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8e8f2a362a3d4fadb8e05a0316fdb417",
+   "url": null,
+   "question": "关于湖南省水利工程招投标活动中施工项目管理机构人员中安全员配备的咨询",
+   "cited_hits": [
+    {
+     "name": "招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑施工企业安全生产管理机构设置及专职安全生产管理人员配备办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "41be0e8b0879408e8884bb3360e078d9",
+   "url": null,
+   "question": "在招投标活动中，拟任项目负责人是否有在建如何定义？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工程建设项目招标投标活动投诉处理办法",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5e993d9cf2154045b33750c6920f7dba",
+   "url": null,
+   "question": "洞庭湖流域历年水文年鉴",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f4bdf688857b4ac1b0e75c71e03a2547",
+   "url": null,
+   "question": "洞庭湖区灌区现代化建设水平评价指标",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6d465b07c1054686b2b27924a2427e86",
+   "url": null,
+   "question": "关于施工范本文件相关问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工程建设项目招标投标活动投诉处理办法",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a375d758a6cd49ffb3212a07b73bd702",
+   "url": null,
+   "question": "有关水闸除险加固工程闸门进场验收用表",
+   "cited_hits": [
+    {
+     "name": "水利水电工程钢闸门制造、安装及验收规范",
+     "lib_no": "GB/T 14173-2008",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "水利工程施工监理规范",
+    "水工金属结构制造安装质量检验通则",
+    "水利工程质量检测技术规程",
+    "GB/T 14173-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2a27bd3011784862ba8717f1fdac3664",
+   "url": null,
+   "question": "建造师在其它项目中任技术负责人，还可以参加别的项目投标吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国招标投标法&gt;办法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工程建设项目招标投标活动投诉处理办法",
+    "湖南省招标投标活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b22d8699f04a49d2b1634426502b0d18",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2dff857142704a56b896fbbbd63ccf2f",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "619306a5bfa7449badc4a3336fcf5c19",
+   "url": null,
+   "question": "请问湖南水利厅10月发布的《湖南省中小河流治理总体方案》，在哪可以下载查阅方案的正文内容？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5cedf9ad8be24554804dc2781f619674",
+   "url": null,
+   "question": "水资源公报数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "95cc3097d62f453ea67687c1d32d1c95",
+   "url": null,
+   "question": "应急取水的解读",
+   "cited_hits": [
+    {
+     "name": "取水许可和水资源费征收管理条例",
+     "lib_no": "取水许可和水资源费征收管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "取水许可管理办法",
+    "取水条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0055abaafd21477c8a1a3d7c02669e0f",
+   "url": null,
+   "question": "关于湖南省水利工程电子招标投标工程总承包招标文件示范文本（2020版）技术标暗标要求的疑问？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 湖南省水利工程电子招标投标工程总承包招标文件示范文本 ",
+    "湖南省水利工程电子招标投标工程总承包招标文件示范文本"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "4151a54bf9be4b1fb44f7ad0b804f5f0",
+   "url": null,
+   "question": "查询浏阳河东岸段百年洪水水位标高",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5d81cdc093004bff9f7a427380edd697",
+   "url": null,
+   "question": "申请获取水资源公报",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利厅信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c5bccc2d463c4e20b5fb4bd05c2c017e",
+   "url": null,
+   "question": "请问水利水电施工招标文件中评分要求投标人类似工程业绩如何设置？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国招标投标法实施条例",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省水利工程建设项目招标投标管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "65e40f6f39e54be794dde0f2c69aa11e",
+   "url": null,
+   "question": "安全生产费用计取问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国安全生产法",
+     "lib_no": "安全生产法(2021修正)",
+     "weak": false
+    },
+    {
+     "name": "建设工程安全生产管理条例 ",
+     "lib_no": "建设工程安全生产管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 关于规范全省水利工程建设安全生产费用提取和使用管理的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7536b0af285449179c15974b009f1480",
+   "url": null,
+   "question": "关于泵房选址在河湖道范围内的相关问题",
+   "cited_hits": [
+    {
+     "name": "防洪法",
+     "lib_no": "防洪法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "河道管理条例",
+     "lib_no": "河道管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-slt",
+   "id": "5ef2c0b1919d4988b71d1af7c328bfbd",
+   "url": null,
+   "question": "湖南省水土保持技术审查与咨询专家库专家征集",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公开征集湖南省水土保持技术审查与咨询专家库专家的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6c97896a08e4437e874bf0913710f633",
+   "url": null,
+   "question": "《水工建筑物地下开挖工程施工规范》（SL378-2007）和湖南省《水利建筑工程概预算定额》岩石开挖等级",
+   "cited_hits": [],
+   "cited_missing": [
+    "水工建筑物地下开挖工程施工规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "4d63503e11fe42b4b0f001a255331d9f",
+   "url": null,
+   "question": "水利安全三类人员调出湖南至外省流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利水电工程施工企业主要负责人、项目负责人和专职安全生产管理人员安全生产考核管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "70f8e5113cd242c48b79283a59df2a9e",
+   "url": null,
+   "question": "关于水利工程检测乙级资质申报中CMA要求与\"一单一库\"衔接问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于对检验检测机构资质认定实施“一单一库”管理的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "efa92e700eec440090a6f5be4586c1b2",
+   "url": null,
+   "question": "关于水文地质与工程地质、水工环地质专业认定的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9d03b84da9ce4462a04f2eeb440ef4c1",
+   "url": null,
+   "question": "申请《洞庭湖区重点河湖生态流量保障实施方案》文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "洞庭湖区重点河湖生态流量保障实施方案",
+    "洞庭湖区重点河湖生态流量保障实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d90eb773ea454c07bd118eec33835a03",
+   "url": null,
+   "question": "中级职称评审问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f8cd9cfcc18548f8b62c0b109705a5f0",
+   "url": null,
+   "question": "水利行业项目法人",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利部关于印发水利工程建设项目法人管理指导意见的通知（水建设〔2020〕258 号）",
+    "水利部办公厅关于印发〈水利工程建设项目法人工作手册（2023 版）〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "badec4693c884f918903fcb4e9b39c33",
+   "url": null,
+   "question": "关于小水电站提质改造和新建的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快推动小水电绿色转型高质量发展的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c359b559ae104defb197cb0e1847a708",
+   "url": null,
+   "question": "副高评审论文要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法(试行)",
+    "在职称评审中破“四唯”强化实干实力实绩评价的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "433d0eae7f9c489bbf3f835a1496c205",
+   "url": null,
+   "question": "洪水影响评价专题阻水率问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "洪水影响评价技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ad784526542045af9b9cb83d81cebe78",
+   "url": null,
+   "question": "水利职称评审条件咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0b932b9b46b34964919d158d10f08159",
+   "url": null,
+   "question": "请问2025年的水利副高级职称证书何时能够下证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源和社会保障厅关于做好2025年度全省高级职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c32cd00e06bf4ab8b7a449e970071d5e",
+   "url": null,
+   "question": "洪水影响评价时间节点",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程建设项目管理规定",
+    "水利工程建设项目管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "aca00604439a41448fbfbd3f661e85f4",
+   "url": null,
+   "question": "水利工程高级职称发证时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源和社会保障厅关于做好 2025年度全省高级职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5907df1a88a04bff964586f043852668",
+   "url": null,
+   "question": "防洪影响咨询服务费",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省河道管理范围内建设项目防洪影响咨询服务费计列的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2533c2722d454591b3fd250c190ed476",
+   "url": null,
+   "question": "关于《湖南省水利建设基金筹集管理实施细则》，广东省企业在湖南省的建筑项目是否需要交纳水利建设基金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于继续征收水利建设基金的通知",
+    "财政部国家税务总局关于扩大有关政府性基金免征范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cef933ece4304c5981d2ec43a817d3db",
+   "url": null,
+   "question": "你好！请问水土保持评审专家库什么时候会增加或进行补充？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利厅办公室关于公布湖南省水土保持技术审查与咨询专家库名单的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9ec52b33e1e1418c9eecb1b78167cfcc",
+   "url": null,
+   "question": "关于《湖南省水利建设基金筹集管理实施细则》，跨区域建筑项目没达到增值税起征点，要缴纳水利建设基金吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于继续征收水利建设基金的通知",
+    "财政部 国家税务总局关于扩大有关政府性基金免征范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "3bf0b1e9eeb541809dee16fc5a6a6f7b",
+   "url": null,
+   "question": "关于水利建设项目招投标信用评价行政处罚的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程“机器管招投标”模块化招标文件示范文本（施工）（2025 年第 1 版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6b19c827f6f64141a9ed7369c53e3056",
+   "url": null,
+   "question": "关于湖南省水利市场主体信用评价的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省工程建设项目招标投标信用评价管理办法",
+    "湖南省工程建设项目招标投标信用评价管理办法",
+    "关于发布全省工程建设项目招标投标信用评价试评价结果的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c1fe590ddb474d08b502b3b2207c7b50",
+   "url": null,
+   "question": "水利部里2024年出的新的定额，那现在湖南省水利工程的概算用的是省里的定额还是新的部里的定额？",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程设计概（估）算编制规定",
+    "水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "62b1383b606b4e58b738f63e31985523",
+   "url": null,
+   "question": "湖南省水利工程“机器管招投标”模块化招标文件示范文本",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程“机器管招投标”模块化招标文件示范文本（施工）（2025年第1版）",
+    "示范文本（施工）",
+    "湖南省公共资源交易数字化、模块化招标文件范本框架导引及编制导则",
+    "示范文本（施工）",
+    "示范文本（施工）",
+    "水利水电工程标准施工招标文件",
+    "示范文本（施工）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "1b27076ef3754068841476f4038367bd",
+   "url": null,
+   "question": "关于露天开采矿山水土保持补偿费收费标准咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 国家发展改革委 水利部 中国人民银行关于印发〈水土保持补偿费征收使用管理办法〉的通知",
+    "湖南省发展和改革委员会&nbsp;湖南省财政厅关于发布湖南省水利系统行政事业性收费标准的通知",
+    "国家税务总局湖南省税务局 湖南省水利厅关于明确水土保持补偿费等项目划转有关事项的通知",
+    "水土保持补偿费缴款通知单",
+    "缴款通知单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "77bc7faf57194be9866cddca6dfb335d",
+   "url": null,
+   "question": "关于预算按费率计算的部分，结算怎么处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程工程量清单计价规范",
+    "水利工程设计概（估）算编制规定",
+    "GB50501-2007"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d8f16017535d4f45a300f196a8d2fcc1",
+   "url": null,
+   "question": "关于湖南省内中小型水利项目是否执行水利部水总〔2024〕323号文",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程设计概（估）算编制规定（工程部分）",
+    "湖南省水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5da162608fd44abd8b53f1f0260d29a3",
+   "url": null,
+   "question": "湖南地区水利建设项目预结算疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "392ddb7a79f14141aef48a273f7f8616",
+   "url": null,
+   "question": "新建水库大坝塔吊垂直运输费用如何计取",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电建筑工程预算定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f3e48c42e06849ceb89b9e8d56e161ab",
+   "url": null,
+   "question": "关于农村小水电增效扩容和电气改造中央资金性质问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村水电增效扩容改造财政补助资金管理暂行办法",
+    "水电新农村电气化建设项目管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "fa15cbdc067c44bb9a336b224cf92a67",
+   "url": null,
+   "question": "新建水库工程中，预算时需不需要在临时工程中另计算塔吊基础和塔吊租赁费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9875d170a84e42e5bb686e2c57936eff",
+   "url": null,
+   "question": "《湖南省农村集中供水价格管理办法》（湘发改价商【2015】523号）是否仍有效",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村 集 中 供 水价格管理办法",
+    "湖南省规范性文件管理办法",
+    "湖南省农村 集 中 供 水价格管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6092809527f64d2f99d3a537df1fa3fe",
+   "url": null,
+   "question": "关于《湖南水利水电》杂志投稿要求与须知",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南水利水电杂志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d2ab190dd43241f6befdcd3451d2477a",
+   "url": null,
+   "question": "湖南水利水电杂志",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南水利水电杂志"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "23653cc0ce9b4662a55d72694d713e37",
+   "url": null,
+   "question": "水利专业中级职称能否以考代评",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7fe4201fdc58435c9e9727b6c2254b14",
+   "url": null,
+   "question": "项目负责人“在建项目”认定",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册建造师执业管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "dee33a14d7d24c22bb831b87f9bdb7c2",
+   "url": null,
+   "question": "备用饮用水源地可否做日常饮用水供水使用",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省饮用水水源保护条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c9d7caf8cb29416aaf6d0eded80c5446",
+   "url": null,
+   "question": "关于申请副高职称的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "00def08e2bc84ebbb0c3b6a2c64d7708",
+   "url": null,
+   "question": "关于水利项目安全生产费的计算问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程建设安全生产费用管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "04b2f686d7d946ddb61fe062659e7ef3",
+   "url": null,
+   "question": "关于水利水电工程专业中级职称破格条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5f3d3a0255e4450f8c89824a4561cd8e",
+   "url": null,
+   "question": "水利水电高级工程师申报资格咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）",
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cab7e2db52c64631b91a4d13c5a3cee8",
+   "url": null,
+   "question": "关于水利项目启闭机房建筑面积计算",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑工程建筑面积计算规范",
+    "建筑工程建筑面积计算规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "1c4a06efba7d4b4e8393c9d84852a74c",
+   "url": null,
+   "question": "中级职称的计算时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d81e1ed19f204cd4817518a6aad9233f",
+   "url": null,
+   "question": "关于申报水利水电工程专业高级职称的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）",
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "80d57bdc861e4fed95aede962b22c3ab",
+   "url": null,
+   "question": "找不到“湖南省农村供水高质量发展规划”全文",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村供水高质量发展规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9ae8bc36f52441ebb5b95fd68cb1a83b",
+   "url": null,
+   "question": "关于申报水利水电工程专业高级职称的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）",
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "aae9349d6fe944c188b96db602f2c8c5",
+   "url": null,
+   "question": "职称申报咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "经济专业人员职务试行条例",
+    "工程技术人员职务试行条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "bd7d85d38eb74edc8a2b0fd642f6a43f",
+   "url": null,
+   "question": "加油站办理取水证后需要缴纳的费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "水资源税改革试点实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0a96e9fefba44357a6615d0f31a1cb7e",
+   "url": null,
+   "question": "关于用水定额的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省地方标准管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7aab0609c9c844a28938bc9df9eb63d8",
+   "url": null,
+   "question": "水利水电工程中高级职称评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈关于印发《湖南省畅通职称评审绿色通道 10 条实施意见〉〈湖南省创新民营企业专业技术人才职称评审 10 条措施〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c40748481ef64adb918545aac9cefbe8",
+   "url": null,
+   "question": "高级职称评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）",
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "e4eeeefadf0e46e19878200bc034a013",
+   "url": null,
+   "question": "湖南省地方标准《用水定额 第1部分：农业》（DB43/T388.1—2025）",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省地方标准管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "18c298391fd544eabacb1b587177828d",
+   "url": null,
+   "question": "湖南省新版地方标准用水定额",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省地方标准管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "24bba36053d24d1cb84684c007ed3366",
+   "url": null,
+   "question": "项目经理在建",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利建设市场经营主体信用信息管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0c380345db3d4682aa353837af53b49b",
+   "url": null,
+   "question": "咨询水利监理资质",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知",
+    "中央层面设定的涉企经营许可事项改革清单（2021年全国版）",
+    "关于开展水利工程建设监理单位资质行政许可有关工作的公告",
+    "关于实行水利工程建设监理单位和甲级质量检测单位资质电子证书的公告",
+    "水利工程建设监理单位资质管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2ec88c6e1a0f46c5bfde67c4464f2134",
+   "url": null,
+   "question": "关于新的《湖南省水利职称评价办法》今年是否会出台？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术人员职称评价办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ee5b237f1f0c4486b920ff5fd042b8c8",
+   "url": null,
+   "question": "关于湖南省水利工程建设项目结算时实际工程量超招标工程量15%时，超出部分的工程量是属合同内还是属合同外。",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程工程量清单计价标准（GBT50500-2024）",
+    "水利工程工程量清单计价规范 （ GB50501—2007 ） ",
+    "GB50501—2007"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2332661bef804d70aa8c29a34f2f1701",
+   "url": null,
+   "question": "咨询水利工程货物采购公开招标标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程建设项目招标范围和规模标准规定",
+    "必须招标的工程项目规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2c270e6064504ee88611fdc548e3a7d8",
+   "url": null,
+   "question": "关于湖南2025职称制度改革问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人力资源和社会保障厅关于做好职称认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "092434f113b945efa006e8fccbd7b31e",
+   "url": null,
+   "question": "关于《湖南省水利水电工程设计概（估）算编制规定（2015版）》中办公、生活及文化福利建筑的具体范围和结算方式",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b05af7bac16e49cc945cb587fe8841a0",
+   "url": null,
+   "question": "水利工程管理专业高级职称评审业绩要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7c6732ba5c144d24899a3ac9d5fc7f19",
+   "url": null,
+   "question": "关于湖南水利工程招标文件示范文本《工程单价汇总表》单价显示的问题咨询与建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程“机器管招投标”模块化招标文件示范文本（施工）",
+    "工程单价汇总表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9053f0e80e984d9ba1e373316083c890",
+   "url": null,
+   "question": "高级职称",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布全省高级职称评审委员会备案目录的通知",
+    "湖南省水利水电工程专业技术职称申报评价办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cb1ecc059eff48cb884bbe1b7647ac2e",
+   "url": null,
+   "question": "水利水电工程管理中级职称认定",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好职称认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "1573f9530ffd4a32ab71eea7a7e1d6ab",
+   "url": null,
+   "question": "职称评审可以同级转评吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 2023年度全省高级职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "62d9c9055e014b72bde1ee6b411e532d",
+   "url": null,
+   "question": "咨询省级规范文件合适印发",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省小型农田水利工程验收规程（征求意见稿）",
+    "湖南省小型农田水利工程施工质量检验与评定规程（征求意见稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c179749a2ab94fbca03c59c98e718020",
+   "url": null,
+   "question": "公职人员能否享受库区移民补助资金",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省大中型水库移民后期扶持规划实施管理办法",
+    "湖南省大中型水库移民后期扶持人口动态管理办法",
+    "湖南省大中型水库移民后期扶持人口动态管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cb0721325c9349a5bccc9f7c2dc009cc",
+   "url": null,
+   "question": "《湖南省大中型水库移民后期扶持人口动态管理办法》第五条",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省大中型水库移民后期扶持规划实施管理办法 ",
+    "湖南省大中型水库移民后期扶持人口动态管理办法",
+    "湖南省大中型水库移民后期扶持人口动态管理办法",
+    " 湖南省大中型水库移民后期扶持规划实施管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "96c9f9a554da473bbea1eaabab78a946",
+   "url": null,
+   "question": "自来水引用问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利部关于建立农村饮水安全管理责任体系的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "619ef88cc44a4c9ea983f094928a9630",
+   "url": null,
+   "question": "移民后扶",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省大中型水库移民后期扶持人口 动态管理办法 ",
+    " 湖南省大中型水库移民后期扶持人口动态管理办法 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "bed2d57893aa4728a12c73517c720a81",
+   "url": null,
+   "question": "（水建设〔2024〕201号）实施后对之前公示的约谈等行政监督检查信息为什么不取消公示",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对市场主体记录不良行为的通告",
+    "水利建设市场主体信用信息管理办法",
+    "水利建设市场经营主体信用信息管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a35fb46f8e7648f7ae06c16ae908dd91",
+   "url": null,
+   "question": "关于定额和编规的选取",
+   "cited_hits": [],
+   "cited_missing": [
+    "水利工程设计概（估）算编制规定",
+    "水利建筑工程概算定额",
+    "水利建筑工程预算定额",
+    "湖南省水利水电工程设计概（估）算编制规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6c5cc3b6fb8c4020a9ee51ce18cd5231",
+   "url": null,
+   "question": "采区采砂",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省湘资沅澧干流及洞庭湖河道采砂规划（ 2023 ～ 2027 年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "601de9b3e487496bb721be6c1cb152ab",
+   "url": null,
+   "question": "请问湖南水利工程电子招投标工程量清单数据交换标准（V3.1）何时发布？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程电子招投标工程量清单数据交换标准（ V3.1 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7edae9cf80df46b08e56f26a498e05ed",
+   "url": null,
+   "question": "水利招标项目资格条件中的人员配备要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程电子招标投标施工招标文件示范文本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "eccad67e4cdc4c598499fc1fc0be1830",
+   "url": null,
+   "question": "2008年湖南人事厅评的水利水电工程建筑中级工程师在哪个网上可以查到",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 202 2 年度全省高级职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8c76ed5dd90642da93238da504ed7d37",
+   "url": null,
+   "question": "咨询水土保持补偿费",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于保障性安居工程建设和管理的指导意见",
+    "财政部 国家发展改革委 水利部 中国人民银行关于印发 &lt; 水土保持补偿费征收使用管理办法 &gt; 的通知",
+    "财政部 国家发展改革委 水利部 中国人民银行关于印发 &lt; 水土保持补偿费征收使用管理办法 &gt; 的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f74f0e4937dc4978bd8bc172d835f769",
+   "url": null,
+   "question": "中级证年代太久查不到了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt; 湖南省水利水电工程专业技术职称申报评价办法（试行）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "e137057d086f4820bc91267794c13799",
+   "url": null,
+   "question": "请问湖南省水利工程电子招投标工程量清单数据交换标准大概什么时候可以发布",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程电子招投标工程量清单数据交换标准（ V3.1 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "db6a90cfba574835b3f6f6e21c542ae5",
+   "url": null,
+   "question": "水资源总量数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省 2021 年水资源公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8817535245e84ae0a3eeb132a5df8080",
+   "url": null,
+   "question": "全流程电子化建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省水利工程电子招投标工程量清单数据交换标准（ V3.1 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b3b65f860e094ae4b171976f280c89e7",
+   "url": null,
+   "question": "取水量，年超过50万m³的取水点，数据为什么要上传呢？有学习文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省节约用水管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7ce91e53a6c14974b39f2659c0322dd0",
+   "url": null,
+   "question": "求公正落实处理我家移民问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "田坪水库移民登记卡（横冲大队方家生产队）",
+    "关于切实做好水库移民后期扶持政策实施工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0d2f2317cbf3498d94abcaa9f160a0e5",
+   "url": null,
+   "question": "水利工程施工建筑材料价格涨幅很快",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布&lt;湖南省水利水电工程设计概（估）算编制规定&gt;等文件的通知",
+    "湖南省水利水电工程招投标施工招标文件示范文本（2020年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9d8ab1b63c134b2cbac8a63c69474ffb",
+   "url": null,
+   "question": "二级造价工程师（水利）资格后审",
+   "cited_hits": [],
+   "cited_missing": [
+    " 省水利厅转发 &lt; 关于二级造价工程师职业资格考试考后人工核查公告 &gt; 的通知 ",
+    "关于二级造价工程师职业资格考试考后人工核查公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-slt",
+   "id": "317df22474ef4d5db6c73d6db69e7e82",
+   "url": null,
+   "question": "临时工程费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "eac899c0e5ac4831a243501d7ea5403e",
+   "url": null,
+   "question": "水利工程其他临时工程结算争议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "85d5fa547eff453db4a4527c5915b707",
+   "url": null,
+   "question": "2026年职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9837e131efa54d2ca9dba292c6069d38",
+   "url": null,
+   "question": "2026年水利副高评审问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2ffd38725e4d463695052508c386cac0",
+   "url": null,
+   "question": "2026年基层水利定向培养计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ef7c5e522119410e9bbbaf7f2b37218b",
+   "url": null,
+   "question": "职称平常",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2f3a5705d9ef4aa793b84f921b3e1685",
+   "url": null,
+   "question": "水利职称相关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8d533bc88c3a474a98925b4e6c79db15",
+   "url": null,
+   "question": "中国水电四局项目员工孙茂勇工作期间意外身亡无人问津",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6171c2e601bc4621bac094b2a91b03ce",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5ba52fb94c654712a20236db852ec1f6",
+   "url": null,
+   "question": "2005年高工评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b86c3c2fca934ac9a5c6d066ac462e60",
+   "url": null,
+   "question": "新泉村自来水停水问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "61fa4a8d5d3247cd94bf9b5a31ce6ed3",
+   "url": null,
+   "question": "最新的湖南水利水电工程系列定额好久发布实施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c456b453a8dc4c57bbda5298e5c516a2",
+   "url": null,
+   "question": "浆砌石挡墙勾缝",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "788fd393309542129552d31b846d209a",
+   "url": null,
+   "question": "河道治理项目概算编制问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a04fbfba306c4b61974a12f52ac524d0",
+   "url": null,
+   "question": "缺考一次为什么需要停考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d6e5a12b21f24246acdc3261eb60a365",
+   "url": null,
+   "question": "洞庭湖城西垸斗米嘴分洪闸",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "543a16bde5e74cd7ac92e216339b0dd1",
+   "url": null,
+   "question": "关于在湘江昭潭段开展设备测试的审批流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "e96002c0cef842e8b8abaa77659486f4",
+   "url": null,
+   "question": "关于机管招投标中拟任项目经理“在建状态”的认定标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2ecd3ff5272f4158b5d3e124106ad299",
+   "url": null,
+   "question": "关于《湖南省水利工程“机器管招投标”模块化招标文件示范文本（施工）》中企业人员业绩认定问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ce302f1071cc4349b3622e22f0293406",
+   "url": null,
+   "question": "关于湖南省耒阳市欧阳海灌区内大树倾倒问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f9b18d716dbe46d3a5ff14eebdff2d51",
+   "url": null,
+   "question": "你好，领导，我想咨询下，湖南水利副高评审加分项中的湖南省数字技术应用能力水平考试，最高可以加多少分？过一门等于多少分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "67963c3cd96e4659884e7e61c9814fd5",
+   "url": null,
+   "question": "关于《湖南省水利工程“机器管招投标”模块化招标文件示范文本（施工）》中企业人员业绩认定问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a6f6a27d3379484d9cf59d08b0feaac5",
+   "url": null,
+   "question": "小型引调水项目资金用途",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5a7866fc394541e1bd6fb6b4bf898cce",
+   "url": null,
+   "question": "水利工程水下（潜水员）施工怎么套定额组价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a013d9311a744230a4db122161b71cfa",
+   "url": null,
+   "question": "职称转评",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "890bf21fb5804275be61bf5e321eb6b9",
+   "url": null,
+   "question": "继续咨询：公司资质过期，履约中的水利建设项目购买安责险的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "84e98cdbb523468ba40a3f68ace70b18",
+   "url": null,
+   "question": "水利建设项目是否可以用住建系统的安责险代替",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "d2757375bbf64ea0a1e53fe12315e5f1",
+   "url": null,
+   "question": "关于水利定额里的水泥路面子目是否包括伸缩缝费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6dde772765c5412f852382ef4de7aafa",
+   "url": null,
+   "question": "关于水利定额浆砌石挡墙是否需另计勾凸缝费用的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ae901655e4e3438daa2877995c5f6451",
+   "url": null,
+   "question": "关于机器管招投标中类似业绩认定的进一步咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "754351cbc413472b9ef185ae0e9d4311",
+   "url": null,
+   "question": "关于机器管招投标中类似业绩认定的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "48545ca1581e4cd9bcdaab4c6653e5df",
+   "url": null,
+   "question": "查询项目周边街道历史最高内涝水位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0970c87c53664234bf2fda042d8b5a25",
+   "url": null,
+   "question": "一级造价工程（水利）认定的中级职称，应该申报哪个专业的副高？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c7e2e19e423e4a628c99f2fbe526458a",
+   "url": null,
+   "question": "请问领导，《湖南省水功能区划(修编)》(湘政函[2014]183号)可以在哪儿查询，是否可以邮箱提供",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "bb72cd369583410fb400e7498529d3a0",
+   "url": null,
+   "question": "水利注册监理工程师参评2025年度水利副高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8c376d037a7f4c6faa9a8285a252089c",
+   "url": null,
+   "question": "新泉村农村自来水总是停水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a4e5e0738c854dc7b26bf6dfc0f992b3",
+   "url": null,
+   "question": "建议水利厅官网通知公告中的行政许可决定书通知文件，另行开辟子栏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "becc3e79af3b4496b73492df9137765f",
+   "url": null,
+   "question": "关于是否可以跨专业申报水利水电工程专业高级职称的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "be6b07f6e686486087191eb4a574c39e",
+   "url": null,
+   "question": "关于2014水利定额浇筑混凝土挡土墙是否需另计施工操作脚手架的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cfc0bf0f5ca04e15800ef434ec064cff",
+   "url": null,
+   "question": "关于2014水利定额浇筑混凝土挡土墙是否需另计施工操作脚手架的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b69a806aa2974eff9fc3ee2e81a8e5fb",
+   "url": null,
+   "question": "关于《湖南省水利工程电子招标投标勘察设计招标文件示范文本(2020年版)》的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "60cb10b573594ca4b9fb07642f40985b",
+   "url": null,
+   "question": "个人玩皮划艇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c0d176ebf01f4819a0da9c7e567943aa",
+   "url": null,
+   "question": "取水许可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c09b243f55354ac190c17e7076f570a7",
+   "url": null,
+   "question": "关于水利定额水下抛石是否需另计装般费用的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b66ab03fd261491998bfa70f915fd709",
+   "url": null,
+   "question": "关于邀请参与《工业用水效率评价导则》标准制定工作的函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f1813ba89b9947b0ba2d6813b39387e3",
+   "url": null,
+   "question": "汨罗市农村用水的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "e3ed868fa88a45ad966a98258a8c6ef8",
+   "url": null,
+   "question": "张家界市桑植县洪家关乡实竹坪村饮用水冬季断流，居民饮水困难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b4ffb659bf254f4bb83b31cfe92b9d4a",
+   "url": null,
+   "question": "社会实践",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "86bb50e7bab1442cb17387a905d98b7a",
+   "url": null,
+   "question": "湖南省水务规划设计院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "5f3ad64260a446ac997433a091e3ab61",
+   "url": null,
+   "question": "王玉成：请问你——湖南水电职院为什么没有纠错机制？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "53231f729c8246ea8950e1dc8ddf7379",
+   "url": null,
+   "question": "请求尽快开启2024年二级造价工程师（水利工程）注册的事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a5c8cb7ff14c4f238418a59085f09fe6",
+   "url": null,
+   "question": "河道自上世纪建成到现在一直无人维修，请厅长关注一下！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "c2db690f51e34712a2f5b906c6cfd264",
+   "url": null,
+   "question": "湖南水利水电职业技术学院电力工程分院电类基础教研室郭淑贞长达十年外行误人子弟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0faeccbf8f53467f9dd3aebf9b882877",
+   "url": null,
+   "question": "副高面试成绩查询网址查询不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "1822fbd711ef4e46819242ccc57fe228",
+   "url": null,
+   "question": "2017年全省抗洪救灾先进个人可享受劳模待遇吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "9d5fb76c96d94f639e3ebef652d106d9",
+   "url": null,
+   "question": "如何确认挖掘机挖淤泥、流砂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "bc1ba2f2a061485dbccc4ab70c841372",
+   "url": null,
+   "question": "对抖音博主“爱野钓的小范”举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "7cf43498fbb04ec582d26765fcc431e5",
+   "url": null,
+   "question": "举报抖音博主非法修筑河道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2f920bf9a3a0493ca54d0a9a8fd6199e",
+   "url": null,
+   "question": "2024年民间投资第一批工程常德有哪些水利项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "590f7a192a7442a9a70b379ad866c874",
+   "url": null,
+   "question": "一套大坝决堤合龙口施工新方法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a2a0b87d131440e5a2bae12d48fd798e",
+   "url": null,
+   "question": "关于我家房屋被划入龙溪桥水库安全管理范围内得不到合理解决的再次诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "bd375e36b28040098241d1d9732fe474",
+   "url": null,
+   "question": "水利二级建造师在其它项目中任技术负责人，还可以在其它项目中中标吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a3670e55b595419080befacee56f8a05",
+   "url": null,
+   "question": "站得高才能看得远走得稳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2feced4a5abb47f59be87d1b2886ea57",
+   "url": null,
+   "question": "关于“农村饮水安全保障”的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a794ee1232cc4f7cba006fcca708f9e0",
+   "url": null,
+   "question": "水利工程人工工资调整文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "ed8d7c9c5f0540bdbf0a8033f64b0e9f",
+   "url": null,
+   "question": "湖南省水利发展统计公报在哪可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "3a7944a1598c404f9278885dfb471d77",
+   "url": null,
+   "question": "对于湖南城建职业技术学院的水利水电建筑工程专业的就业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cda7535590d04dfe8fd383fe529a9816",
+   "url": null,
+   "question": "湖南2015水利定额说明解释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "b86313c399ad412d90afeeb372b67b3c",
+   "url": null,
+   "question": "党员档案丢失",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "f87a61a80af14bfb8381f6b7d879b59b",
+   "url": null,
+   "question": "水利建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "a64a3d514b934c4d87d41455dd1b4558",
+   "url": null,
+   "question": "山塘坏了影响灌溉、防汛，导致农田无法灌溉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "37e26a4182984f66a5706facc1b4a7b0",
+   "url": null,
+   "question": "湖南省水利水电工程定额基础信息更新不及时，导致工程单价与市场行情脱节，建议主管部门主动作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "0549a58282544051b10d453e88a497ce",
+   "url": null,
+   "question": "水利档案，欧阳海灌区水利档案一宗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "809f8745a70d4e799df74c2308b7755a",
+   "url": null,
+   "question": "敷衍解决公民投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "534e0c8f87e3461c8c5f87e46b4c8dff",
+   "url": null,
+   "question": "提供小型水库大坝注册登记表和小型水库大坝注册登记证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "521e25bd42f34d1f8382c0c7deb986e3",
+   "url": null,
+   "question": "洞庭湖清瘀工程是真是假？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "919bc4aa3f4c4ff4ae9b8c4f501eb8cc",
+   "url": null,
+   "question": "关于企业退休返聘人员投标事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "2341efcae3644d72aa317b21c2f10a1f",
+   "url": null,
+   "question": "移民生活生产和山林处置问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "6d05c277457a46e3ba50e288ac38221e",
+   "url": null,
+   "question": "“湖堤水泥路飞沙又走石”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "cf79ad66e8b74d9e9ac73e73550e27a5",
+   "url": null,
+   "question": "农民无饮用水归哪个部门管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-slt",
+   "id": "8876d2f49a2542c8b7ddacd4ac9a8e2f",
+   "url": null,
+   "question": "生活用水过小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

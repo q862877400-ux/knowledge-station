@@ -1,0 +1,1991 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-czt",
+   "id": "11ed595d67d0489d9f5aa9643705b955",
+   "url": null,
+   "question": "湖南省预算单位政府集中采购目录及标准指引（2025年版）问题咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d8b129a07f3747618bae1310e532d542",
+   "url": null,
+   "question": "国有企业大宗原辅材料或商品物资的采购适用何种程序？",
+   "cited_hits": [
+    {
+     "name": "政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2046f6fb103142fcb97d9c4ca2b14551",
+   "url": null,
+   "question": "想查看《关于做好“十四五”中央支持湖南部分公共文化服务重大工程建设的通知》",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6208f6b87a954d899bae30fa424daa6f",
+   "url": null,
+   "question": "会计从业资格证到期了，咨询如何申请换证？",
+   "cited_hits": [
+    {
+     "name": "关于修改〈中华人民共和国会计法〉等十一部法律的决定",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于认真做好宣传贯彻新&lt;会计法&gt;有关工作的通知",
+     "lib_no": "会计法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3dfd9f5737874b308a5270eb226cae73",
+   "url": null,
+   "question": "会计从业资格证换领新证",
+   "cited_hits": [
+    {
+     "name": "关于修改〈中华人民共和国会计法〉等十一部法律的决定",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于认真做好宣传贯彻新&lt;会计法&gt;有关工作的通知",
+     "lib_no": "会计法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "267d85845fae430dae921029ad39850c",
+   "url": null,
+   "question": "地方政府债务审计结果",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于 2018 年度省级预算执行和其他财政收支的审计工作报告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-czt",
+   "id": "80c5fed1792c48e4b4109d5084e236fd",
+   "url": null,
+   "question": "会计从业继续教育报名",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "430121d07bbb43948ce3340f2ea88417",
+   "url": null,
+   "question": "会计从业资格证丢失补办",
+   "cited_hits": [
+    {
+     "name": "关于修改〈中华人民共和国会计法〉等十一部法律的决定",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于认真做好宣传贯彻新&lt;会计法&gt;有关工作的通知",
+     "lib_no": "会计法(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "会计从业资格证书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-czt",
+   "id": "55a07dbc248f4b0f9edea7a4de48d46b",
+   "url": null,
+   "question": "政府采购",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购质疑和投诉办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-czt",
+   "id": "17b685cf51644f2dae81edcde3a8094d",
+   "url": null,
+   "question": "货物类政府采购中小企业声明函位置放置问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进政府采购公平竞争优化营商环境的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "989b01cb23cf435d98bc750a324ba17d",
+   "url": null,
+   "question": "湖南2014土地开发预算补充定额机械进出场费",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省土地开发整理项目预算补充定额标准",
+    "湖南省房屋建筑与装饰工程消耗量标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2a644443296e480aa1873f7e08f075e7",
+   "url": null,
+   "question": "大学生创业",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅等十三部门关于印发 &lt; 湖南省财政支持大学生创业若干政策措施 &gt; ",
+    " 关于实施大学生创业贷款财政补助政策的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "78c5fa39be29411492d15b183465638a",
+   "url": null,
+   "question": "养老支出数据查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "cec9736dce834c7f88938323083eee10",
+   "url": null,
+   "question": "请求公开文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅 湖南省地方税务局关于湖南省资源税改革具体政策问题的通知",
+    "湖南省财政厅 湖南省地方税务局关于湖南省资源税改革具体政策问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "39772374a7584671884a6320d90a7fc5",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "dc3790d3a1ed4767a755f184fcf77ce1",
+   "url": null,
+   "question": "《湖南省商务厅南省财政关于加力支持汽车、家电、电动自行车以旧换新有关工作的通知》的补贴范围问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于印发 &lt; 湖南省超长期特别国债资金支持消费品以旧换新实施方案 &gt; 的通知",
+    "商务部等 7 部门关于进一步做好汽车以旧换新有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "bebada89a757435e96cbf390e8815bd0",
+   "url": null,
+   "question": "湖南长沙购车置换消费券补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于印发＜湖南省超长期特别国债资金支持消费品以旧换新实施方案＞的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "e337e6531af94cf59fc3ace30acdd387",
+   "url": null,
+   "question": "财政决算报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b5806d6cda47498c8e24c3099b51c63d",
+   "url": null,
+   "question": "初级职称评定咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 人事部关于修订印发〈会计专业技术资格考试 现 行规定〉及其实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "da08ab7736974be38766ecc74f7aef14",
+   "url": null,
+   "question": "关于校友会银行账户变更",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省省级预算单位银行账户管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "51f88e8a98754e199cdc4953726849ea",
+   "url": null,
+   "question": "湖南2021年完全成本保险试点县？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "53dec390280d41f289944fdb97311d27",
+   "url": null,
+   "question": "衡阳师范学院21级优师计划补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅 湖南省教育厅关于下达2023年支持地方高校改革发展中央直达资金（省属高校）的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9db009f86d4545bc9fd519fca7700c77",
+   "url": null,
+   "question": "山水工程试点",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "0de395c9f9834de18e39e65b8f272e72",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "湖南省财政厅财政信息公开申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fbb0e8de4bbe4d269e929092f3c947fc",
+   "url": null,
+   "question": "关于政府信息公开收取信息处理费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国信息公开条例",
+    "政府信息公开信息处理费管理办法",
+    "政府信息公开信息处理费管理办法",
+    "中华人民共和国信息公开条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2e77b39c8eff46d7845009d704e0db3c",
+   "url": null,
+   "question": "咨询初级会计成绩公布时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2022年度全国会计专业技术初、高级资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "601fb6932ea94407b83dcc812e569e5e",
+   "url": null,
+   "question": "初级会计考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2022年度全国会计专业技术初、高级资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "daa75c49528845b5bb28e0fa086a2b5a",
+   "url": null,
+   "question": "初级会计成绩",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2022年度全国会计专业技术初、高级资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "16258a5937df4ed0b1246c16009983a1",
+   "url": null,
+   "question": "关于收到六税两费退税款的会计账务处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业会计准则第16号—政府补助"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b950ff595a6549ae8f6c7cade1fc5137",
+   "url": null,
+   "question": "农业保险保费补贴数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅政府信息公开指南",
+    "申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7879e57b38814c2f94a882810322d346",
+   "url": null,
+   "question": "园林绿化工程类电子卖场方式",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省政府采购电子卖场管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "c79c7a369c2c4c9e8f595cb1bc9f5d5d",
+   "url": null,
+   "question": "继续教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅 湖南省人力资源和社会保障厅关于做好2021年度全省会计专业技术人员继续教育工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "176b6a2dc8504615919ce6ce9b0f7b58",
+   "url": null,
+   "question": "继续教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅 湖南省人力资源和社会保障厅关于做好2021年度全省会计专业技术人员继续教育工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "21f68b6a97014fafb6a664045c3d71b2",
+   "url": null,
+   "question": "湖南会计中级考试核酸检测要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "@各位考生 请收好并遵守会计中级资格考试新冠肺炎疫情防控指南！"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "35a9de18bc0348b39976f5338c7cca39",
+   "url": null,
+   "question": "会计初级资格领证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2021年度全国会计专业技术初级、高级资格考试成绩等有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "64c8a5dedde146299bed4904bd0ff2f0",
+   "url": null,
+   "question": "2021年高级会计师考试成绩复核",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布 2021 年度全国会计专业技术初级、高级资格考试成绩等有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "acb71b711b8b40d8acc741e4576d9aa6",
+   "url": null,
+   "question": "2021年初级会计考后审核",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布 2021 年度全国会计专业技术初级、高级资格考试成绩等有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "24098509833b492f995e041eacbb01a2",
+   "url": null,
+   "question": "2020.6月取得初级会计师证，2021.6月要继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅 湖南省人力资源和社会保障厅关于做好2021年度全省会计专业技术人员继续教育工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "485fa1aed50542f29ef9a9af73c0f05f",
+   "url": null,
+   "question": "2021年初级会计考试成绩",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2021年度全国会计专业技术初级、高级资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "00fa981ade6142f9a40617aab2ead6a4",
+   "url": null,
+   "question": "会计师报考",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2021年度全国会计专业技术中级资格考试考务日程安排及有关事项的通知",
+    "2021年度全国会计专业技术中级资格湖南考区考试公告",
+    "@全体报考人员，会计中级资格考试报名本月31日截止，千万不要错过！！!"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a99c927fc165491fb6ddf46788d17984",
+   "url": null,
+   "question": "2020年初级会计职称什么时候领证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于申领2020年度全国会计专业技术初中级资格证书的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a91b8f3810b846208e82d58c65a31266",
+   "url": null,
+   "question": "中级会计职称合格标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020年度全国会计专业技术中级资格考试考后资格审查公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "460647aa4d16473a87c8178478848c5b",
+   "url": null,
+   "question": "会计系列——会计类正高级职数岗位设置",
+   "cited_hits": [],
+   "cited_missing": [
+    "人事部关于印发&lt;事业单位岗位设置管理试行办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "02dbe2e05c5e4994aa24fea8f0c1341f",
+   "url": null,
+   "question": "会计资格考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "疫情防控承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b920960582a84b31a60d88edfdc43689",
+   "url": null,
+   "question": "2020年高级会计报考资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2020年度全国会计专业技术中高级资格考试日程安排及有关事项的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "70a92330e395428d99613d66d3597473",
+   "url": null,
+   "question": "关于国有资产经营用房房租减免政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好新冠肺炎疫情防控资产保障相关管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "f842e1e19bd94240b0f33e15ad4750a6",
+   "url": null,
+   "question": "中级会计免考",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2020年度全国会计专业技术中高级资格考试考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6e06047f58b849609a44a20bdccc913c",
+   "url": null,
+   "question": "请尽快开通2019年中级会计师证书网上申领渠道",
+   "cited_hits": [],
+   "cited_missing": [
+    "疫情防控期间有关事项的通告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-czt",
+   "id": "7eaaaf152a7c4ffd971fee68f7601cd9",
+   "url": null,
+   "question": "湖南省政府采购评审专家入库要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "251e67f01c0c4e718cd6e570ee3b3634",
+   "url": null,
+   "question": "咨询2023年度会计继续教育补学通道及学分保留问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a07c852c2e8a4917bcc5b6b6f65ae30a",
+   "url": null,
+   "question": "如何申请退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4abeaa9f395c4179a476776dc3a73207",
+   "url": null,
+   "question": "退款咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d8828888365a4224b6a3156ac273f6cf",
+   "url": null,
+   "question": "高级会计职称免试条件确认和申请程序咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4d398a4a377846e1b96953185d8483fe",
+   "url": null,
+   "question": "请问今年有新增评审专家的需求吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "cc024588e8aa42268de18fb68fa33711",
+   "url": null,
+   "question": "乡镇干部下村差旅费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "c31b4737e7a141e4a9acf27e4e2715fa",
+   "url": null,
+   "question": "会计人员继续教育问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "086619dd3db64f3493e2633dcf5416c4",
+   "url": null,
+   "question": "申请同步2023年初级会计继续教育记录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "0640efbb292d40e4951913f8bb780cdf",
+   "url": null,
+   "question": "怎么补办中级会计证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b8de150069de4ad3b63b1d4d467dea61",
+   "url": null,
+   "question": "KTV和咖啡馆的装修装饰及电子设备评估时，如何确定他的可使用年限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "897abbe6caf941679a4f0e8e7db3c1d5",
+   "url": null,
+   "question": "关于政府采购限额以内工程项目自愿进入交易中心的管理是否适用《政府采购法》规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "413b759814d540bd8162edcaf6a737b8",
+   "url": null,
+   "question": "关于湘财行（2017）7号条款的解释",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "5592854a635344bcbbe4f02a4ba18ff1",
+   "url": null,
+   "question": "湖南省省级评审专家劳务费管理办法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "78554703de384f35995ae749355af121",
+   "url": null,
+   "question": "咨询电子卖场关闭后的后续事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "ac5e4e9600e04867bd96551bb6215dd1",
+   "url": null,
+   "question": "参与以旧换新消费者进行订单退款是否需要向商家支付税费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "567c3fdcbddd430f9f9e8981b8664f24",
+   "url": null,
+   "question": "高级会计师职称评审资历条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a99539a799e44b0480db9d6e2f9b83a4",
+   "url": null,
+   "question": "2025年副高级会计师评审，论文要求一篇以上包括一篇吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6f8952c9c3c44136b2c318b7b915b5eb",
+   "url": null,
+   "question": "中小企业管理关系、政策优惠",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9d9389d82dff4010baf82cf9c98ae91a",
+   "url": null,
+   "question": "重新开放补会计继续教育入口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "63078ed2dcb046a796e3b5e7be56988d",
+   "url": null,
+   "question": "重新开放补会计继续教育入口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1a0cd23c54c0418793e8845b3ad1650e",
+   "url": null,
+   "question": "政府采购中的质量保证金问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "8322bf2673c44ce887927df03b4e9b0b",
+   "url": null,
+   "question": "湖南省政府采购评审专家证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "21c7ecb1571243ccb1c3c307375173af",
+   "url": null,
+   "question": "事务所终止备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d9941803c78247038adbb6a6433d4b2a",
+   "url": null,
+   "question": "会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "344c6b77f79343df8c19c932dc1fd663",
+   "url": null,
+   "question": "水库移民开发局直补到人资金发放的时间规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6ea602e42a4d45a9ab5d0dc54a71a957",
+   "url": null,
+   "question": "长沙中级会计职称的补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fcabc560c15a4216bb2e079ad5956e25",
+   "url": null,
+   "question": "两个及以上子女家庭已增加1套购房指标，建议相应对契税方面也给予支持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1cf9ea68584645a8afa39b3df54de3c7",
+   "url": null,
+   "question": "开具电子发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "617e1a9d801f4235ba80a7f54dd65872",
+   "url": null,
+   "question": "开具电子发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "f9af125bec8f4022a807f4db1dfdf9fd",
+   "url": null,
+   "question": "超级经济舱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "43f1cbc11eff473d80866084f07e80c1",
+   "url": null,
+   "question": "湖南省省直差旅费管理办法中第三条，差旅费是指工作人员临时到常驻地意外地区公务出差所发生的城市间交通费、住宿费、伙食补助费和室内交通费，想咨询内容：员工外派到乡镇挂职，从挂职地乡镇到挂职地县城是否算到常住地以外地区出差？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "53a6695c986a4375a39bff00d6e64095",
+   "url": null,
+   "question": "关于湖南省政府采购评审专家管理办法的问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2dd0703fbe6a4427951fd477770f333c",
+   "url": null,
+   "question": "初级会计证书登记认证及继续教育开始时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "03b2d2c3e3d64fbc87e0b81a75ba41a9",
+   "url": null,
+   "question": "中级会计免考条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "020af2f4c69e4afcae7fb9f13627b887",
+   "url": null,
+   "question": "初级会计职称考后审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3bc639e9485844e2a178204c5b4c9700",
+   "url": null,
+   "question": "请问除了有机肥，生物肥以外其他的肥料，以及农药的销售，公司是否免征增值税吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "e63c74be8e1d40e0ad7c7283b731d74f",
+   "url": null,
+   "question": "广西做的会计继续教育能转到湖南长沙吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "acce335e360a4308a5bde2f5b60bb09e",
+   "url": null,
+   "question": "驻点工作算出差吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6eac897051c44f03a0de35323d48acda",
+   "url": null,
+   "question": "会计信息档案跨省调入",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "14d93a9edbb948039163f007db501ece",
+   "url": null,
+   "question": "关于高级会计师咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "49221cf3e5ff4da6a6ecfe442e035958",
+   "url": null,
+   "question": "平台公司债务监管系统数据问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "f69ccb0f2d2d4345844903eb455aa00b",
+   "url": null,
+   "question": "初级会计继续教育和证书登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "e941fb5bda994779b81423a32406b45f",
+   "url": null,
+   "question": "初级会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "372f50ee303b4bd8afe0572155b77f70",
+   "url": null,
+   "question": "是否属于指定特定行业行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9aba754e229c49ec88c7e7081b32bc3c",
+   "url": null,
+   "question": "希望减免继续教育公需科目在线培训费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "711c2082af584b7d8334344058d2f1fe",
+   "url": null,
+   "question": "文化事业建设费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "bd56c8e7d95b4948a70a7c7118b31f49",
+   "url": null,
+   "question": "政府采购公开投标过程中《中小企业声明函》使用问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7ebf5157060042a9be1af3832bf6f4cf",
+   "url": null,
+   "question": "中级会计职称考试无法打印发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7e6041bfa84345f1a0645ae49ad10203",
+   "url": null,
+   "question": "高级职称证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "604f34556b414b469e21608cbb129114",
+   "url": null,
+   "question": "会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d0a87bc8524d47f0bbdcfcc4ebac2601",
+   "url": null,
+   "question": "财政监督局情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "08cf081a454249068a07665312ca924d",
+   "url": null,
+   "question": "会计中级预审驳回了，重新提交了什么时候可以重审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fb5a91b9d92546b8a9c863780fb4ad82",
+   "url": null,
+   "question": "优师专项生活费补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "5f1430b6440a44ea8f93d13312d40f60",
+   "url": null,
+   "question": "财政支出教育细项统计口径问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "eb0f07b4a9af411084a2f7ceae0231c2",
+   "url": null,
+   "question": "关于因灾倒房恢复重建补助资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7c71eb1735444c5f9d86a9a6a514eacc",
+   "url": null,
+   "question": "初级会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a922fd000fe245e9960c37a0dc56ec08",
+   "url": null,
+   "question": "关于进口产品界定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4c7f0505565246bbbb3f7457aa7211fc",
+   "url": null,
+   "question": "2023年中级会计考试报名费发票申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "235e1fa63de64b6d82f0964902c22c05",
+   "url": null,
+   "question": "文化输出政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "49223ffad4b943088d10caff5c738cf2",
+   "url": null,
+   "question": "老师你好，请问党校的大专文凭可以报考中级会计职称吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "5a9e83422a7d48d78ae93c9676a7653e",
+   "url": null,
+   "question": "会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d04d5c9860d9464b90b6eaabe416de5d",
+   "url": null,
+   "question": "咨询2023年会计继续教育相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6c2ea603e398418cb5647a8eded9d856",
+   "url": null,
+   "question": "微信限制支付，查询在哪家欠的款，还上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "789b6906ed5540b9821652900d8d3c2e",
+   "url": null,
+   "question": "三公经费应从哪里列支？基本支出还是项目支出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "33614cae4cdc4871956be340859ace2c",
+   "url": null,
+   "question": "社会组织（民办非企业）参与政府采购是否可以享受小微企业的优惠政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2a38b15f627a47758df692f135edabf6",
+   "url": null,
+   "question": "我协会收了会员单位的会费，如何开具发票",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6b3c844dd96c4d3fb093499ca3f5360e",
+   "url": null,
+   "question": "会计初级考后审核公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fbf2cca5f7c24ddd808818bdae81dc95",
+   "url": null,
+   "question": "可以异地报名中级会计职称吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "22b2ea96384a4c32ab077c8a81c0702b",
+   "url": null,
+   "question": "2023初级会计准考证打印时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7361cc4714044fc28e4e13fa18681a9e",
+   "url": null,
+   "question": "外省回乡待业人员继续教育问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3d252c1d52314773b2f15ae27a2f2e7d",
+   "url": null,
+   "question": "交通违章罚款退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4bca2ebed2134450811f8ef98e489500",
+   "url": null,
+   "question": "湖南省行政单位计提福利费的标准及参考文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7f332bc6528c454f86e49aee5cd01a3a",
+   "url": null,
+   "question": "会计证丢失如何补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "39bf05641f6646e18c035a6ea2b4ec43",
+   "url": null,
+   "question": "会计中级证在哪里查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a3da355c6faa4ae3b2c6afdc7850e03a",
+   "url": null,
+   "question": "关于评标中“招标文件评分标准中未注明未提供演示的计0分”，评标委员会应如何计分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a1fd2e80afc84e43965541e121eb8877",
+   "url": null,
+   "question": "关于评标中“一般商务和技术条款偏离≥10项为无效投标”的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9443a6625b2b4bf5a49ab0daee1f0ff8",
+   "url": null,
+   "question": "对（湘财教〔2016〕1号）文件的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "79d01a177496456f8f8df10866a2d5ec",
+   "url": null,
+   "question": "湖南省耒阳市养牛有补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "88d6086d75fb4df9893dc17ce501dbe3",
+   "url": null,
+   "question": "初级会计考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b5ed865069e34570a635004ebe262b0c",
+   "url": null,
+   "question": "2022年初级会计职称证书什么时候可以领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "e1c575df494e40efae3c28b4f45d4dbd",
+   "url": null,
+   "question": "湖南省属国有企业负责人薪酬制度监督检查办法（湘人设函[2018]302号）这个文件为什么在省财政厅官网找不到啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6450d6b784c84a9d83e8f6dbf63de142",
+   "url": null,
+   "question": "关于政府采购项目集中采购的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "69f414568a5d487e848bed0436d55764",
+   "url": null,
+   "question": "湖南省关于妇女创业就业的政策支持和金融支持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b56c109c7fc043a592f9920644e207d8",
+   "url": null,
+   "question": "初级会计职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "cbc674e7669047f7915129cb7cc6e23c",
+   "url": null,
+   "question": "初级会计准考证打印时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "de95e9e173504fa7b090ef2c922f75eb",
+   "url": null,
+   "question": "2022年初级会计考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "daab042aa5274147b9cc5d4b82bafd71",
+   "url": null,
+   "question": "2022年初级会计什么时候开考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3df51b0ec2cd42969e299419c972961e",
+   "url": null,
+   "question": "初级会计考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "55458d4049f6474b893c2f7438c97ff3",
+   "url": null,
+   "question": "2022年初会考试退费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fddb36737c1c422aa6798a125d924f0c",
+   "url": null,
+   "question": "22年初级会计考试多久恢复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "dccced223f0c4b309fa4045d079334a9",
+   "url": null,
+   "question": "中级会计考试会延期吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "30549fb3cdf1489fae0ef3281d78476f",
+   "url": null,
+   "question": "初级会计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b832c12b88d04f59aedec9b897075a8c",
+   "url": null,
+   "question": "湖南初级会计职称考试是否延期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1bc634725a664be6ab38b36b566dd6a8",
+   "url": null,
+   "question": "湖南省初会是否会延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "8d7d190647b54bfe83738a606c4e3f19",
+   "url": null,
+   "question": "关于报考注册会计师相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2bd3b96bc1ee422d844f84c1bc68fded",
+   "url": null,
+   "question": "参加湖南首届财会知识大赛，得了80分以上，未参加继续教育，还可抵专业科目继续教育吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7bbf12ec41454b009e3ebe8a98fd8f58",
+   "url": null,
+   "question": "会计人员继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1142431c985d4db89edeacab4084a451",
+   "url": null,
+   "question": "财会知识大赛先生考试抵扣继续教育学分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2129085b0806486fba45c839afd7d5c9",
+   "url": null,
+   "question": "初级会计资格证继续教育问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "8cb693f7e39a42ba8627f45e7613f5ca",
+   "url": null,
+   "question": "继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "77b0d83e279149b3ab6c3b9b0bc45ae7",
+   "url": null,
+   "question": "初会证书申领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2292d2a2ab9549718e5f8723963a4a02",
+   "url": null,
+   "question": "初级领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "c54b3a9076294d4a9e6966b43225f918",
+   "url": null,
+   "question": "继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3f1ec9572cf84092acce3262b12ee6ba",
+   "url": null,
+   "question": "证书申领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9e7dc5854a394a539f7d240eb99697a5",
+   "url": null,
+   "question": "关于中级会计审核时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "ddde5158fba44f10ab380e47035f06cf",
+   "url": null,
+   "question": "关于2021年9月中级会计职称考试如期进行的请求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "302b9232038e4d729e0da9c70becc3f9",
+   "url": null,
+   "question": "初级资格会计领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "04f5eba35d9b48d188e4d4fdb91f7cd2",
+   "url": null,
+   "question": "初级会计领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "eb8c12d723304778b1a1dfca0ff339c4",
+   "url": null,
+   "question": "2021年初级考试报名信息表打印及报名费用发票开具",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6fbe42dcc1e94acc99b959b94969d1a7",
+   "url": null,
+   "question": "初级会计成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "84663b6972d8408f91757f3914e85c28",
+   "url": null,
+   "question": "初级会计证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9541b044ae794afb829b3c0f65030457",
+   "url": null,
+   "question": "初级会计成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "e4fd306caa784c92b5fc870f51ea5985",
+   "url": null,
+   "question": "2021年初级会计考试成绩复核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2561c35a8191424e93c6dc414bf0e8d4",
+   "url": null,
+   "question": "关于报考高级会计技术资格的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "bdc4c9aa8c7a404e9a4ebc9c94952552",
+   "url": null,
+   "question": "2021年异地参加会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "0d31385a342a40a787f21bbde6e31791",
+   "url": null,
+   "question": "社保断档补交撤销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2a3aad05be474162877364e1ada7cb6d",
+   "url": null,
+   "question": "2022年会计中级职称是否会新增民法典",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d3aa090d47374290b4760624209f8ee2",
+   "url": null,
+   "question": "关于中级会计报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "dc0588c5e2e54415a7dadf3e7ee0b537",
+   "url": null,
+   "question": "中级会计继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4bd44dcbfc124e098afea95820464608",
+   "url": null,
+   "question": "2020年考过的会计中级职称会下发纸质证书吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "cf65881b91584403a831b5e2f6d7ed32",
+   "url": null,
+   "question": "2020年初级会计职称什么时候领证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "a8345fd1147846c2a2d8c225f23f6ade",
+   "url": null,
+   "question": "2020年度中级会计职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1a0a4d26f5ec40c887d7d8e64d4c5c74",
+   "url": null,
+   "question": "2020年会计初级的证书什么时候可以出来，需要什么资料领取呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7991662bc33843d0b3e9217e4b9f34ce",
+   "url": null,
+   "question": "关于会计从业资格证丢失请求相关部门提供证明的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4b0eb5bec1ea486196919f588babac6f",
+   "url": null,
+   "question": "中级职称领证审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "861da6183f954941a6073d95ece8927b",
+   "url": null,
+   "question": "初级会计专业技术资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7a56b5b8c52c42d883933dd4ac1c45d2",
+   "url": null,
+   "question": "中级会计职称考试准考证什么时候可以打印，在哪里打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "b4dda0d7ba3e4fa8be207773c81c44e2",
+   "url": null,
+   "question": "初级会计资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "1c917a9a2d6a4c47af3a1315b3703add",
+   "url": null,
+   "question": "今年湖南初级会计考试会不会取消呀只有不到一个月了希望可以给个准信！谢谢谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "9066fa022da848f2b326717244985f4a",
+   "url": null,
+   "question": "会计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "eac07d509a9547b080d4ac3e2f59af52",
+   "url": null,
+   "question": "会计人员继续教育学分折算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "ab26193cb78941038c1d6d77c20c7b63",
+   "url": null,
+   "question": "2020中级会计师考试北京已取消湖南会取消吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "293bd0c5339645a0b9502565a2ad8c07",
+   "url": null,
+   "question": "关于初会考试退费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "eecae2650bbf4939a108ab882a1d979f",
+   "url": null,
+   "question": "初级会计跨省继续教育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "eb81ff4ff99a4e0286c4b63fa28e7bb8",
+   "url": null,
+   "question": "关于因疫情滞留海外中级会计考试成绩咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "84e9d94b93814c019a9f46c3768929bf",
+   "url": null,
+   "question": "关于中级会计考试成绩有效期限紧急咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "3ad9b0ed57934a69b3caae8119dc5818",
+   "url": null,
+   "question": "2020年湖南省是否还举行会计领军人才选拔",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "4221d92a6d984721ba5c917378103132",
+   "url": null,
+   "question": "关于中级会计考试问题紧急咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "8752895fc8f5457cbb969b7f87bb3712",
+   "url": null,
+   "question": "投标保证金的缴纳方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "998511d836884d2aa5d20f2b77ad03f3",
+   "url": null,
+   "question": "简政放权财政如何践行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "cf7d4e8e3cd146a1aacdeb51655b2fb9",
+   "url": null,
+   "question": "农村五保户过世后有哪些补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "05c29b90441d4498981c2e0064e55e08",
+   "url": null,
+   "question": "疫情期间，强烈要求二手房长沙第二套房契税减半优惠",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "c33cd96a72c44027933b467318449235",
+   "url": null,
+   "question": "益阳宏祥现代农业科研经费申诉答非所问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "d63f8e472667494eb2b2b193d6a89f62",
+   "url": null,
+   "question": "关于湖南省财政惠民惠农一卡通平台的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "6f03f0aae7054e96bec4810b66bc7b7e",
+   "url": null,
+   "question": "中级会计职称报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "2304919f209f4502a5234d21f515234d",
+   "url": null,
+   "question": "脱产读研期间和毕业那年的会计继续教育是否需要参加",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "fdad03f3f9ec4b568a87a2b8e9ba7384",
+   "url": null,
+   "question": "2019年湖南省中级会计师考后审核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "7c61c0df799c4405ac1266c3dde7e333",
+   "url": null,
+   "question": "初级职称报名和资格审查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "f8e4517e184e42d6b6b80cdad5d2ff3d",
+   "url": null,
+   "question": "初级职称报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "13f172c6309b42b498d568bcbc371d79",
+   "url": null,
+   "question": "2019年湖南中级考后资格审查时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-czt",
+   "id": "db5d2628c5af4129b425fd98852d0230",
+   "url": null,
+   "question": "会计人员继续教育记录查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

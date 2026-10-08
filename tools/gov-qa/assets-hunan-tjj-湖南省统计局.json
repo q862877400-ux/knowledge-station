@@ -1,0 +1,2228 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-tjj",
+   "id": "1ce4a72c73e84349bfc65b7098e2328b",
+   "url": null,
+   "question": "14州市的统计数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴及各市州统计年鉴查询方式"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "45135b209ea14f1aa3e52432c43dd143",
+   "url": null,
+   "question": "湖南省能源消费与污染物排放统计数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南省环境统计年报",
+    "湖南省生态环境统计公报",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c0cf06d63d0143dda0a04677d2f02d73",
+   "url": null,
+   "question": "关于劳资统计与财政预算一体化系统数据互相验证的建议",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国统计法",
+     "lib_no": "统计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "劳动工资统计报表制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "568b0a5e8b7b4f3aa81a782b6ec956f1",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "639ad401c08142d88cf295a23895a333",
+   "url": null,
+   "question": "地级市数据查询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南调查年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "98db99966cb3464aa2235b695b0e9ba4",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "国民经济和社会发展统计公报",
+    "国民经济和社会发展统计公报",
+    "湖南人口普查年鉴2020"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "78d30bc3496b45498306e8ff407067b2",
+   "url": null,
+   "question": "2020年湖南省人口统计年鉴",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中国人口普查分县资料2020"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c644d58f6afa4aaeb478da40e79ec553",
+   "url": null,
+   "question": "统计年鉴中人均GDP统计指标咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7a0cef79d17e4aaab8d77386be38ba1a",
+   "url": null,
+   "question": "信息咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "55c08e51892f41ab82517aae15e6b6c0",
+   "url": null,
+   "question": "论文数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南调查年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7f2a03c18d874041925b723de6614d46",
+   "url": null,
+   "question": "农林牧渔专业及辅助性活动",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3752660efe38463a96187e7363ed80b0",
+   "url": null,
+   "question": "2023年各市州65岁及以上人口占比咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4ecc4e0014f44d16a146369aa4ce1f2b",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2de6fc0a0fde446fba8e9dfe27e913c8",
+   "url": null,
+   "question": "湖南省2020年至2023年地级市人口自然增长率",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d4d753a4b5d045e78222ebdf028331e6",
+   "url": null,
+   "question": "咨询郴州市、邵阳市、永州市统计年鉴具体数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-tjj",
+   "id": "546da70ce0554848affc4069692dca9b",
+   "url": null,
+   "question": "能源消费总量",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "0c518bc39d8f417aba2e16296ff072b6",
+   "url": null,
+   "question": "在岗职工平均工资",
+   "cited_hits": [],
+   "cited_missing": [
+    "最新！2026年湖南省人身损害各项赔偿标准确定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c805440d861c44e39f3367bff7e1dbf2",
+   "url": null,
+   "question": "2023年湖南省投入产出表（42部门）",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "28421cb24b7a47c7bfc21342522829cf",
+   "url": null,
+   "question": "咨询第七次全国人口普查后湖南省各地级市就业人员历史修订数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "583912769af84426b28b2d67d607a36c",
+   "url": null,
+   "question": "各地级市人口数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴2025",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "49baac3b97d1405fbf8e9c633ea2a471",
+   "url": null,
+   "question": "关于《湖南统计年鉴》第一产业从业人员历史数据统计口径及修订情况的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4baa7480c884479b924005d7e26880f6",
+   "url": null,
+   "question": "咨询年鉴引用的参考格式",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计年鉴",
+    "湖南统计年鉴2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "939562e2c8604c3f938fc0fbb87ab84a",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "fb30128ab9674c0a84396d08675812d2",
+   "url": null,
+   "question": "能源数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4eacd6994d734793a9f2db40840cb33d",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "5c330325ea4342099d659cb50549e06f",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口普查年鉴（2020）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7347564315fb4f879d64a14b5485cea3",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2e0c79cb7dc84720a36792af256f3dc4",
+   "url": null,
+   "question": "关于我省城市及农村人口统计的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2025年国民经济和社会发展统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c1c32c580ddc4955a229da7053be056a",
+   "url": null,
+   "question": "关于统计高级职称申报条件的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计专业技术资格规定",
+    "关于深化职称制度改革的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "902d82fefc46475daccf9f20b2d57ed0",
+   "url": null,
+   "question": "关于统计高级职称申报要求的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计专业技术资格规定",
+    "关于深化职称制度改革的意见",
+    "统计专业人员职称评价基本标准",
+    "湖南省人力资源和社会保障厅关于做好2026年度全省高级职称评审工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "cbdbe0c3b640400ebfe26f5629d4267b",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "de40e2bef0c94ceba90b6ffea258198a",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "464bc4cbbd8e402db632a51e2e537f61",
+   "url": null,
+   "question": "数据申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "191c615067d24dc8b7ee461b1fd73d99",
+   "url": null,
+   "question": "地级市数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "94ebe6d4221a41df97203efc784af4e7",
+   "url": null,
+   "question": "关于申请提供湖南省2025年以来月度电力数据的函",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7b432eb339144295820f7143f9c3d873",
+   "url": null,
+   "question": "湖南统计年鉴2010申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "27a7c22ee1574770b5a4fd7564b6a57a",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国服务贸易统计"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a9dc6791cd744c57af271d8a7531ddbd",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "dad1ec6d11ec4f14b70298d775baace1",
+   "url": null,
+   "question": "咨询湖南省近六年人均GDP用于学术研究",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南省2025年国民经济和社会发展统计公报",
+    "湖南统计年鉴",
+    "湖南省国民经济和社会发展统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7bddd52a09a144d2a1a9eea7948921f5",
+   "url": null,
+   "question": "搜寻数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2949d4a89c7744fe98d23894da7b139f",
+   "url": null,
+   "question": "能源消费总量数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "8a9a5de84275489f972abb7ff6dafcce",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南农村统计年鉴",
+    "湖南农村统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "ae1c986489ee47dbb4984db306d5dbf9",
+   "url": null,
+   "question": "数据申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "763a1b395a2e439a859f64e5fa0ba019",
+   "url": null,
+   "question": "国民经济行业分类问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "cc4bbd52c16b4f8b8227d0bc34ac08af",
+   "url": null,
+   "question": "论文数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "13a367bd8a9c4b7c85764a822e1a096e",
+   "url": null,
+   "question": "数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4b8fe7186a5640e8b9ddec2c0e5c4d11",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a1cc3f47b21f42118b3436addfd385a5",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "312b9244bfd147368b0d06f71b31ea76",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省环境统计年报",
+    "湖南省生态环境统计公报",
+    "中国环境统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1a3b726c2acb4a40b468dbc550c3b0d4",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "29c34c6dd9d1448e898a87424ef7e77d",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书",
+    "湖南统计年鉴",
+    " 农业基本情况 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "895e19c64c6d4f6ca109a7dfe4b5c572",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴及各市州统计年鉴查询方式"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "75d49ab2c48e4e9982fe3e2551417cf2",
+   "url": null,
+   "question": "关于申请公开2010-2024年能源消费总量及构成相关统计数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "9a8bbca252b14b8685b0c29fa07f4265",
+   "url": null,
+   "question": "半导体产业规模咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国统计年鉴",
+    "湖南经济普查年鉴2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "9604376c21e246edbb25c6d7270b8741",
+   "url": null,
+   "question": "论文数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "72a8b4ae71b046058ec609c783c02ab0",
+   "url": null,
+   "question": "关于2018-2024年湖南省全社会能源消费总量数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "874f0cc2e52a458a96dbeb3398d1e8f6",
+   "url": null,
+   "question": "咨询城乡分类",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计用区划代码和城乡划分代码编制规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "9c651709af4545869b11fe4a597870d1",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南省2025年国民经济和社会发展统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "15e7fdef6fdf496aaa7f78a943d5779b",
+   "url": null,
+   "question": "论文获取数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "f5018fc36b2a450fbe67f4a808b0ea6f",
+   "url": null,
+   "question": "能源消费总量数据需求",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "01a408b5b3694538b71ed7757b85dbad",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d74371fca3284e78ad7f0dfd7b05005d",
+   "url": null,
+   "question": "各县市农作物播种面积求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "fb8d6eac8733480aa4bd672e679fd89e",
+   "url": null,
+   "question": "论文数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c7622022568045a69b1ee7304d80c3a0",
+   "url": null,
+   "question": "统计数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "732d3358c210425bb5cc15b479bc2a8a",
+   "url": null,
+   "question": "统计年鉴中的区县人口经济相关统计咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "22ce663cf6af408ba8f82cd6246f2ec2",
+   "url": null,
+   "question": "湖南省行政区划问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1ac1a75aeb934ac3bf7711848c316244",
+   "url": null,
+   "question": "关于第七次人口普查详细数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口普查年鉴（2020）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c957407536444762bc0d149a21f859d5",
+   "url": null,
+   "question": "查询湖南各市州城区人口数量和对应城市规模",
+   "cited_hits": [],
+   "cited_missing": [
+    "2020中国人口普查分县资料"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1e1d9493036547ac9607b6e53ea17859",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "105e9266ab1f47d28bc10159c00a9b38",
+   "url": null,
+   "question": "常住人口数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省1%人口抽样调查资料（2005）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "942c1c364d894d3482b6e30030678c71",
+   "url": null,
+   "question": "统计数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e538a5f524184981a1aff7b3990f2c4b",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴2025",
+    "中国农村统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "222f9cf6cbdf45b1ba459c34290cb6fe",
+   "url": null,
+   "question": "关于湖南省统计年鉴2025的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "29f261f996b24166bebbee3f3a39be72",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南农村统计年鉴",
+    "湖南农村统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2d6d148184f94ccbb0ec0b318160ca40",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国能源统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d1e7b90dfde54095ac59f4a21420dbe0",
+   "url": null,
+   "question": "湖南省化工、医药产业规模体量问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南经济普查年鉴2023",
+    "湖南统计年鉴2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "fc61d80d97864d31933791244b41b8bc",
+   "url": null,
+   "question": "数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南省冷链物流体系建设行动方案（2022-2025年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a43bd1843a0247cbbcf805ad5ef48361",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴及各市州统计年鉴查询方式",
+    "湖南统计年鉴",
+    "湖南农村统计年鉴",
+    "湖南农村统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c45426ccb5674a518ca07cb6fe7c4da7",
+   "url": null,
+   "question": "湖南省各县区2000-2025年人口、GDP的数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "915f1f9809284499942d6f082d264943",
+   "url": null,
+   "question": "株洲市2000-2024年碳排放、GDP、人口等统计数据咨询申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "37852ed9b5114dd9a571b997a554d3cb",
+   "url": null,
+   "question": "申请获取2023年经济普查年检中：【3360类：金属表面处理及热处理加工】行业数据/或者2023年全省经济普查年鉴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南经济普查年鉴2023"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "03a74b448df24f28917b40eff3bad31f",
+   "url": null,
+   "question": "救救我的毕业论文",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4154867037ac41bd9628b9efffe40aa0",
+   "url": null,
+   "question": "关于高级统计师职称评审条件中任现职以来近五年的年度考核登记表合格及以上的规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统计局、人事部关于印发〈统计专业技术资格考试暂行规定〉及其实施办法的通知",
+    "人力资源和社会保障部、国家统计局关于印发高级统计师资格评价办法（试行）的通知",
+    "统计专业技术资格规定",
+    "关于深化统计专业人员职称制度改革的指导意见",
+    "专业技术人员考核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e156b9e67fde4a3ca1119b2f742eeead",
+   "url": null,
+   "question": "2020年-2023年湖南省地级市人口自然增长率及2023年地级市建成区面积",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "各地市市辖区土地面积情况(2023年)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e0c194e2a3854aa58295ece071085d99",
+   "url": null,
+   "question": "居住建筑面积及空调拥有量咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "5726da5ea046490db54aca3b7c3e812d",
+   "url": null,
+   "question": "湖南省油茶产业具体数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b3101fb9f1064828bb30d9e557493718",
+   "url": null,
+   "question": "养老服务数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d20fb652bed24848b0ffe2f3cea7108e",
+   "url": null,
+   "question": "湖南省各地级市2023年建成区面积数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "各地市市辖区土地面积情况(2023年)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7ec1813184b04bbbaeaed11e97dbbbe1",
+   "url": null,
+   "question": "湖南省的各地级市2005年-2023年的R&D经费支出数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c05ff626e7ad4883973cf0628b0154f2",
+   "url": null,
+   "question": "人口统计",
+   "cited_hits": [],
+   "cited_missing": [
+    "长沙统计年鉴",
+    "长沙市2024年国民经济和社会发展统计公报",
+    "湖南人口普查年鉴2020",
+    "湖南人口普查年鉴2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "79a6e2fda738499f931a70065fd764f6",
+   "url": null,
+   "question": "固定资产相关数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3184241d5ea84d8caea3dcd3e3868aed",
+   "url": null,
+   "question": "申请2021-2024年各市州万元地区生产总值能耗降低率等指标公报",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e6adc3cf601a4d0dbb03c281aadc5782",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "长沙统计年鉴2024",
+    "湖南人口普查年鉴2020",
+    "长沙市人口普查年鉴2020",
+    "长沙统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1de8b75ce6084e89a6ced9944f61bb66",
+   "url": null,
+   "question": "数据咨询—玉米种植面积",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南农村统计年鉴",
+    "湖南农村统计年鉴",
+    "湖南农村统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "cee99d763a7241bab8a4f372cd7d410d",
+   "url": null,
+   "question": "固定资产投资",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "16367e8188fb433e8bdb7429aa514e7d",
+   "url": null,
+   "question": "文化产业",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a71157b8c29346e099ddc7df2948ed1a",
+   "url": null,
+   "question": "2009-2023年各市医疗服务和卫生经费情况统计",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生健康统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "53a7efb446654dc9a7173f7b1f882403",
+   "url": null,
+   "question": "湖南省各地级市R&D相关数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "59a6404a5a704d9b8bd68c0dea255f03",
+   "url": null,
+   "question": "2001年至2024年间的粮食产量数据（包括早稻、中稻和晚稻）",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "粮食、棉花产量",
+    "湖南调查年鉴",
+    "历年粮食产量"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "80d8cf7df7d14bc3a209edc6314416ec",
+   "url": null,
+   "question": "天然气产量数据自咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d6b4f4c02bc140d6b7f3ed1f9b2692c1",
+   "url": null,
+   "question": "统计年鉴上的数据问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024年湖南省统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "ca2ad4fc49d7407caf78927e2ba43e7b",
+   "url": null,
+   "question": "论文数据求助",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口普查年鉴2020",
+    "湖南省1%人口抽样调查资料2015"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b06765ec2e7647b1b1bc79d15d9bfd3e",
+   "url": null,
+   "question": "截至2025年6月末省辖行政村数量及详细清单",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "5cd1def2d33d4654ba2d1e1519672870",
+   "url": null,
+   "question": "询问数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b3cb6e42fa5c477a9ae72a50e58dcf88",
+   "url": null,
+   "question": "高级统计师评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "统计专业技术资格规定",
+    "统计专业技术资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c98d30f479344978996f2555d174c044",
+   "url": null,
+   "question": "有关文件询问",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业产业化经营评价监测方法研究"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "94a7a3a6b8f745de97aac6a923204c63",
+   "url": null,
+   "question": "行业类别咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "国民经济行业分类",
+    "GB/T 4754-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "03c5d31dfc6b4b2a9016112820d48b05",
+   "url": null,
+   "question": "需要矿产资源数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "国民经济和社会发展统计公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "44cd818ce1864defb68f25ad9eb4d74a",
+   "url": null,
+   "question": "关于2015年湖南14个市州的人口年龄结构数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省1%人口抽样调查资料（2015）",
+    "各地区人口年龄构成和抚养比(二)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d65fa6da59474af8806f8b9926f8b9c1",
+   "url": null,
+   "question": "城镇居民人均可支配收入数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "8957338e27d449c7922acf5ddb2e662f",
+   "url": null,
+   "question": "城镇居民人均可支配收入数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "66fe4ad244ce43d0bbe3827c679a24cc",
+   "url": null,
+   "question": "咨询海洋数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "海洋经济统计调查制度",
+    "海洋生产总值核算制度"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "85f62f7a88fb48eebe451b73b1ff78a9",
+   "url": null,
+   "question": "2023年统计年鉴数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "告知书",
+    "城市高质量发展统计监测报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4463c18f837248208e02aef7e10cc8ba",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴",
+    "湖南省环境统计年报",
+    "湖南省生态环境统计公报",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6c58fae4185b48fbb1b7394bc702b918",
+   "url": null,
+   "question": "2020年起，湖南统计年鉴上三次产业从业人员数据发生较大变化，有没有调整过的平滑数据，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴2024版"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6c0132d1822b44ba80e286d27e7827fa",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南调查年鉴",
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "5b0d83d5af864996a432f5df8647ad57",
+   "url": null,
+   "question": "询问湖南省14个市的2012年到2023年财政支出数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3067c6979bb7457e8a095632499f864d",
+   "url": null,
+   "question": "统计数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统计年鉴",
+    "湖南省环境统计年报",
+    "湖南省生态环境统计公报"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-tjj",
+   "id": "31c910a32c2f4281ac5f3324433cb5d8",
+   "url": null,
+   "question": "咨询娄底市2019—2021年全社会就业人数及统计口径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "ffda2533f1404a26a94c9637e479a2b8",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "719ee6544fc84b25a4e74bd2856fbda5",
+   "url": null,
+   "question": "能源数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b585ff6a25014fff9b50f3fde251aa00",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7fd1a1203772456f850879f23e7fc4c6",
+   "url": null,
+   "question": "关于2025年湖南省城镇非私营单位在岗职工年平均工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "de94a67bb3444cbeb212fd2255d5d5a8",
+   "url": null,
+   "question": "咨询湖南省2026上半年GDP数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6c5cdf04224a484b9a920be0215c05e8",
+   "url": null,
+   "question": "您好！我是一名在校研究生，目前需要搜集湖南省23年和24年各县（区）的农产品加工总产值和第一产业从业人员数（万人），如有的话麻烦发送到我的邮箱，谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "f7990fadb4aa4a158d0277d0ab38ea33",
+   "url": null,
+   "question": "国民经济行业分类咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7f3c5196957f48a487a0d08a8b14a829",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "8c1620faa14d46a7b69e16fb49b53462",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2e5a77d910234c069351ed1e6331dfa0",
+   "url": null,
+   "question": "2025年湖南省城镇私营单位就业人员年平均工资数据什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "879eefca3ebe4b2c9b8caf589656c747",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "eb33108172c8480e94dbcab3e9059354",
+   "url": null,
+   "question": "关于1985-2000年湖南省分地级市相关经济数据的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2de816ae41c749b1bf90a5ad3e194826",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1ccd67e2f6da4034ad46a5cf10d79e44",
+   "url": null,
+   "question": "导师团队咨政报告需要数据，急急急！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "bde36687ea5a4fd0816b440407692518",
+   "url": null,
+   "question": "统计年鉴数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "ea4ad78adab34723b44d367ab28eb252",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "cbfcbde067a742258de94bd8184b60ac",
+   "url": null,
+   "question": "申请2018-2023年能源消费总量以及一次能源生产量数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6031551a7b894d9ab8bd1199c3bdbde9",
+   "url": null,
+   "question": "论文数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1d5584969f8a4fafb14cecae2215a8a2",
+   "url": null,
+   "question": "求助信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3235c8e74fb64f2eb2a8c56d608b9677",
+   "url": null,
+   "question": "株洲市统计年鉴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "af63e5df8cc04e50bbb842d22d3188cb",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6f0d3a4750a6441f812964c72abda8fc",
+   "url": null,
+   "question": "论文数据申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "326e27e89bae47228fe14db6d6682da4",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1a27facfc6a34136bd43b541f9499661",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "df3722dfe5dd496eaff3705823811b34",
+   "url": null,
+   "question": "湖南省农产品出口额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "063c66974a034770abe15ca514c22998",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "93fc3ea9f60a4d8cad65da7d7568aba2",
+   "url": null,
+   "question": "论文数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a56e05c19d9a4abb990f7a4803834d43",
+   "url": null,
+   "question": "寻求数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c81cbf9262d6435195e40657fe04482a",
+   "url": null,
+   "question": "统计数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2f2baa258ca84505850a5f0ae8410a8c",
+   "url": null,
+   "question": "统计数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "44bdabb4dba042d29f51a9d582e3a294",
+   "url": null,
+   "question": "2010-2019年湖南分城乡及分三次产业就业人数",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "0434235f571b4346ae7ca8d4afd72e6e",
+   "url": null,
+   "question": "湖南省2025GDP发布时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "2474b904b72f4c75ad67854592b08b68",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "17efd46dc08f48808212af66e3906ed1",
+   "url": null,
+   "question": "湖南省地级市一般公共预算支出分类明细数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c93d55eb056a4893851b19f20ace94de",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "9a99b400e80f4ef0be6990cc35b209ff",
+   "url": null,
+   "question": "请求助长沙市大气PM2.5组分数据与源解析文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "02fabccb1c444b67acc8e7e50ee1b88b",
+   "url": null,
+   "question": "想咨询《湖南省先进制造业统计监测体系（试行）》的通知（湘统〔2021〕75号）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6efa82edf5474944840ab70a456c4ea0",
+   "url": null,
+   "question": "查询长沙市各街道公园绿地面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b2b511990a4c4ed3b23a2ddebc8fe275",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "0d964c92fc1348589f3ece6da43c391a",
+   "url": null,
+   "question": "湖南省地级市2020年至2023年人口自然增长率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7fa3147c60e047398b8041299a41ec92",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "04a23e7c56074419868db6aab938bb32",
+   "url": null,
+   "question": "就业数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3cf86bb6870f42dc9a1504ff47812904",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3b8f2aebbe754ffead6528d204b42ebf",
+   "url": null,
+   "question": "统计标准咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "fd5f5d70659445979d7b64776e753f30",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "1070cbb2923649218253bc752d9f7e11",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3798d1c4071a442496429a8debc5317f",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3915667dc4884ac8b3b6d16ee91e49ee",
+   "url": null,
+   "question": "需要农村家庭经营净收入的数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "67a8a5199fda4b46ae80a97d6245e99d",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "6369386b203646a1b7410fbdc062efa3",
+   "url": null,
+   "question": "2007年投入产出表（100部门以上）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "f0314db4f77b48f4a10f95d2e180457c",
+   "url": null,
+   "question": "恳请支持提供湖南省产业园区相关数据的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c6c3f15843a04b6bb5ef90238552848c",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "c34772a9fcf940d192d7f3dab646e02d",
+   "url": null,
+   "question": "求助一次能源生产总量数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "a8ac5a00a2754d23acbaaf8fe4988a04",
+   "url": null,
+   "question": "数据咨询——化肥",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3fe5f069cb4f4d948013863b7f07a337",
+   "url": null,
+   "question": "文化与创意产业数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4f9ee445d75949b0b0ad2b41e69c152f",
+   "url": null,
+   "question": "数据查询——耕地面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "99f7dad7761348a99b2bb9d4fb8f1cae",
+   "url": null,
+   "question": "关于2003年-2023年农业补贴公共投资和农业信贷的相关数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "17b91dd55c5442ff96c7f6ccbba9530a",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "ddb9637ded0241b9a4724d00871a0ee1",
+   "url": null,
+   "question": "环境污染治理投资额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e821aacd49c5441b9230a4218def826c",
+   "url": null,
+   "question": "因科研需求的数据资讯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "306452da5dea459d9afcbfb805a575c4",
+   "url": null,
+   "question": "获得月度数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "5564f83532a9477e8bf9391c0fc5cf84",
+   "url": null,
+   "question": "2009年各地级市年末常住人口数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "fb05d20b475f425ca06e4a0391c2e8b0",
+   "url": null,
+   "question": "咨询吉首市公共文化设施的总建筑面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "761a68be301a4a2fb0d0d524da9c7fbc",
+   "url": null,
+   "question": "文件原文咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "d9d0e56c0a474d20b49ea5c0f5e011a1",
+   "url": null,
+   "question": "咨询经济数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "f3312f4510c04dd7bbc8ac251902647e",
+   "url": null,
+   "question": "行业类别咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "b59752d7b21d4295b96d9bbcb44e6c0b",
+   "url": null,
+   "question": "湖南省各地级市涉农贷款余额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "cec0eb08afda48c9a90918a192f8e530",
+   "url": null,
+   "question": "2024年私营单位就业人员年平均工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "bb3fbb1719dd4e148ca2fa0e4d627cba",
+   "url": null,
+   "question": "关于尽快统计并发布城镇私营非私营单位分行业门类就业人员平均工资的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3be35e21ea474f44ac4907b4893a715f",
+   "url": null,
+   "question": "咨询2024非私营和私营统计数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "e03960957225465e98e046892197cfc2",
+   "url": null,
+   "question": "会展业收入情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "9507f118736748a893aee7cb7ed31c60",
+   "url": null,
+   "question": "1995年至2024年长沙市社平工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "4b6cde1e7c12415380b1d0a18205222b",
+   "url": null,
+   "question": "文化产业数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "7a02d3b1761342a39bd2f24bed19f66e",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "dab85a066ac54887925dd82b81606aaa",
+   "url": null,
+   "question": "湘绣市场规模数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "f7ba7bebfed94c5eaa09d63408df746e",
+   "url": null,
+   "question": "政府信息公开申请（文化产业增加值数据）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "bded2f1c611140518a3b78ee3145d59a",
+   "url": null,
+   "question": "统计年鉴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "3d8128655f4444a3834130519b423232",
+   "url": null,
+   "question": "数据求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "eb614849858b421f9dd92a55a86be32f",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "42b823bc78ff4efa8e320aa0601f2b07",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tjj",
+   "id": "195999f4b63d4f0e85cc7827e7e1075d",
+   "url": null,
+   "question": "写毕业论文急需2015-2024年湖南出口商品中初级产品及工业制成品的出口额",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

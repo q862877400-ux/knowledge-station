@@ -1,0 +1,4775 @@
+{
+ "A_考卷": [
+  {
+   "source": "tj-hdjl",
+   "id": "t20260920_7378381",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260920_7378381.html",
+   "question": "女职工怀孕流产，享受产假时长是多少天？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260916_7375795",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260916_7375795.html",
+   "question": "天津农村集体经济组织成员认定有农业和非农业户口限制么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7363523",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7363523.html",
+   "question": "公众责任险、雇主责任险属于安全生产费用吗？",
+   "cited_hits": [
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    },
+    {
+     "name": "企业安全生产费用提取和使用管理办法",
+     "lib_no": "财政部 应急部关于印发《企业安全生产费用提取和使用管理办法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260805_7348020",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260805_7348020.html",
+   "question": "工作期间患病，劳动合同至2026年7月7日结束，医疗期至2026年8月23日结束，合同顺延至医疗期结束不再续签。劳动能力鉴定结果为‘大部分丧失劳动能力’。公司答应赔偿N+1(前12个月平均工资）+6个月医疗补助金（最后一个月工资乘以6，最后",
+   "cited_hits": [
+    {
+     "name": "劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "劳动部违反和解除劳动合同的经济补偿办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260728_7342775",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260728_7342775.html",
+   "question": "成立首次业主大会的入住率是多少？",
+   "cited_hits": [
+    {
+     "name": "天津市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260728_7342778",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260728_7342778.html",
+   "question": "请问参加高级会计资格考试相关政策？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340375",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340375.html",
+   "question": "咨询现役军人配偶休假的相关事宜。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国军人地位和权益保障法",
+     "lib_no": "军人地位和权益保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260703_7329836",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260703_7329836.html",
+   "question": "长期病休工龄如何确定？是否享受年假？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动保险条例实施细则修正草案",
+     "lib_no": "劳动保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260630_7327317",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260630_7327317.html",
+   "question": "业委会可以主持召开关于续聘物业问题的业主大会吗？",
+   "cited_hits": [
+    {
+     "name": "天津市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260610_7315826",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260610_7315826.html",
+   "question": "在公共河道及水库下地笼、下拦河网、电鱼、可视锚鱼是否属于违法行为？占用公共河道，对河道进行围堵后进行养殖，是否合法？如以上行为违法，如何举报？",
+   "cited_hits": [
+    {
+     "name": "渔业法",
+     "lib_no": "渔业法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260608_7313884",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260608_7313884.html",
+   "question": "女员工生产前12个月的工资构成是底薪+绩效奖金（奖金），按政策如果生育津贴低于产假期间的工资，需要由单位补足差额部分，那么这种薪资结构下，产前12个月的月平均工资是否含奖金？对应的政策文件及标准是什么？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260605_7312818",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260605_7312818.html",
+   "question": "向消防救援机构申报开业前消防安全检查，具体要求是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国消防法",
+     "lib_no": "消防法(2021修正全本)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260527_7306666",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260527_7306666.html",
+   "question": "想成立业委会，目前有5个人，且党员占半数以上，请问是否符合成立业委会的最低标准？如果不符合，最低标准是什么？",
+   "cited_hits": [
+    {
+     "name": "天津市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "业主大会议事规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260527_7306663",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260527_7306663.html",
+   "question": "神州花园小区门前的六纬路设有道路隔离护栏，护栏正对小区处留有过街开口，但是马路上没有交通信号灯，也没有斑马线。",
+   "cited_hits": [
+    {
+     "name": "城市道路交通信号灯设置与安装规范",
+     "lib_no": "GB 14887-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260402_7275568",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260402_7275568.html",
+   "question": "根据规定，年休假按“累计工作时间”计算,请问这是指在当前单位的工作年限，还是社保缴纳年限（累计工作年限）？",
+   "cited_hits": [
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于企业职工带薪年休假实施办法有关问题的复函",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260331_7273499",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260331_7273499.html",
+   "question": "按照 市人社局《关于女职工产假有关问题的通知》(津人社规字〔2017〕10号)、市人社局关于印发《天津市贯彻落实劳动合同法若干问题实施细则》的通知（津人社规字〔2023〕7号）等相关政策规定 发放的生育津贴补差，是否属于生育津贴？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260324_7268582",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260324_7268582.html",
+   "question": "远洋天地路与津塘公路交口有许多车逆行且拥堵，如何解决？",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267190",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267190.html",
+   "question": "最近小区在进行业委会筹备工作，筹备组人员中，有没在房产证上署名的业主配偶进入了筹备组，这符合国家的法律、法规及天津市《物业管理条例》第十七条的规定吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258121",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258121.html",
+   "question": "天津商贷是否可以转成公积金贷？",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260214_7247744",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260214_7247744.html",
+   "question": "根据现行政策，仅欠缴物业费的业主是否有合法资格参选业委会？",
+   "cited_hits": [
+    {
+     "name": "天津市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260122_7229838",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260122_7229838.html",
+   "question": "医疗期超了转年还能休年假吗？",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260120_7226970",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260120_7226970.html",
+   "question": "年龄已满18周岁但未满20周岁的天津市居民可以初次申领哪种驾驶证？",
+   "cited_hits": [
+    {
+     "name": "机动车驾驶证申领和使用规定",
+     "lib_no": "机动车驾驶证申领和使用规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260116_7225222",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260116_7225222.html",
+   "question": "根据《天津市社区物业管理办法》，业主入住率达百分之五十以上成立小区业委，请问这个“入住率”是指交付还是实际居住？",
+   "cited_hits": [
+    {
+     "name": "天津市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "tj-hdjl",
+   "id": "t20260930_7386277",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260930_7386277.html",
+   "question": "GB55036-2022废止了GB50444-2008第5.3.2条灭火器的维修期限规定，新规10.0.7只写了灭火器应定期维护、维修和报废。请问全新未使用、以及使用后的灭火器维修周期如何确定？此前每2年维修粘贴维保标签，标签超2年，消防检",
+   "cited_hits": [],
+   "cited_missing": [
+    "灭火器维修",
+    "GB55036-2022"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7381579",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7381579.html",
+   "question": "取暖有历史欠费，是否能申请报停？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市集中供热暂停和恢复用热管理办法",
+    "天津市供热用热条例",
+    "天津市供热采暖收费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260916_7375794",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260916_7375794.html",
+   "question": "国风星苑一期周边道路很宽，但是划线的停车位很少，是否可以增设公共停车位，解决停车难的问题？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西青区道路停车泊位设置方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260914_7373805",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260914_7373805.html",
+   "question": "报名考试“全国公共科目＋网约车区域科目”通过后，是否可在运政通上同时申领《巡游出租汽车驾驶员证》、《网络预约出租汽车驾驶员证》？若线上只能报名全国公共科目＋网约车区域科目，是否巡游出租汽车驾驶员从业资格考试需要从线下方式约考报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "巡游出租汽车驾驶员证",
+    "网络预约出租汽车驾驶员证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260904_7367164",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260904_7367164.html",
+   "question": "我在天津离职后当月入职北京一家公司，两地单位均缴纳了当月社保，造成社保重复缴纳，请问该如何处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于职工基本养老保险关系转移接续若干问题处理意见的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260902_7365212",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260902_7365212.html",
+   "question": "具有高级职称的企业员工，按照政策是否对于退休金核定有补贴？补贴金额如何计算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人力社保局关于印发天津市城镇企业职工退休管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260821_7356763",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260821_7356763.html",
+   "question": "本人名下小客车，车主不变，办理车辆迁出转籍至外地，原车使用普通摇号指标。请问车辆迁出办结后是否生成更新指标？更新指标需要在多长时限内申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市小客车总量调控管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260821_7355932",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260821_7355932.html",
+   "question": "办理农药经营许可证需要哪些资格条件？我本科专业是化学工程与工艺，是否符合申请条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农药经营许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260813_7351785",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260813_7351785.html",
+   "question": "请问精武镇金地艺墅家茗泽苑周边配套规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "津城菜市场规划（2021－2035）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260807_7349365",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260807_7349365.html",
+   "question": "企业名下土地性质为划拨的住宅，办理转让时如何缴纳土地出让金？是按成交金额的1％计征？还是需要按现状补办出让手续？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市规划资源局关于国有划拨土地上房屋转让有关份额问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260807_7349363",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260807_7349363.html",
+   "question": "家中老人为河北省户口，患有慢阻肺，已在河北省当地完成门诊慢特病资格认定。请问在天津可以去哪些医院按异地门慢病挂号就医？除了医科大学总医院，还有其他医院吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳妥有序扩大跨省直接结算门诊特病病种范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260807_7348751",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260807_7348751.html",
+   "question": "请问能否在小区绿化区域种植自家植物（包括但不限于树木、花草、蔬菜等）？若允许种植，所种植物是否归小区全体业主所有？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市绿化条例",
+    "天津市绿化条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260804_7347133",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260804_7347133.html",
+   "question": "我是直管公产房的承租人，通过津房置换机构拍卖购买所得，与红桥区房屋管理服务中心签署有《天津市公有住宅房屋租赁合同》。当前我的户口与房屋地址一致，如果我的户口迁出天津市，对房屋的承租权益是否有影响？如果将来房屋拆迁，是否可以享受与本地户口的承",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市直管公产房屋管理办法",
+    "天津市国有土地上房屋征收与补偿规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260729_7343455",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260729_7343455.html",
+   "question": "异地报考执业药师，考试成绩可以合并吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局执业药师中心关于执业药师职业资格考试报考条件说明的函",
+    "执业药师职业资格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260728_7342773",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260728_7342773.html",
+   "question": "高校（事业单位）工勤岗如何晋升技师？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市事业单位岗位设置管理实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260720_7338692",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260720_7338692.html",
+   "question": "持海河英才C卡如何申领小客车增量指标？",
+   "cited_hits": [],
+   "cited_missing": [
+    "海河英才"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260714_7335536",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260714_7335536.html",
+   "question": "滨海新区新河街道春风海上周边无菜市场买菜不方便，是否有规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨海新区农贸市场专项规划（2021-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260714_7335535",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260714_7335535.html",
+   "question": "妻子生育，暂未就业，是否支持使用男方的生育险？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好男职工未就业配偶生育医疗费用报销工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260710_7333843",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260710_7333843.html",
+   "question": "咨询调取小区经营性商户全套登记、监管、投诉档案的线上入口、线下窗口与办公时间。办理调档是否需要提前预约？档案复印件能否加盖档案查询专用章？出具材料司法是否认可？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市市场主体登记管理档案查询办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260710_7333835",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260710_7333835.html",
+   "question": "我单位一名职工工伤诊断为左膝关节损伤、左半月板损伤、左膝关节多处韧带损伤，经对照《天津市工伤职工停工留薪期分类目录》，我单位认为该伤情无完全匹配的标准条目，符合办法第五条“伤害未列入目录”情形。请问此种情况，合规合理的停工留薪期区间为多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市工伤职工停工留薪期管理办法",
+    "天津市工伤职工停工留薪期分类目录"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260709_7332388",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260709_7332388.html",
+   "question": "幼儿仅因病、探亲长期请假，不办理退园、转园，是否适用出勤不足半月退一半保教费、整月缺勤全额退费的规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市发展改革委市教委市财政局关于印发〈天津市幼儿园收费管理暂行办法实施细则〉的通知",
+    "市发展改革委市教委关于本市民办幼儿园收费管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260702_7329086",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260702_7329086.html",
+   "question": "何时可以在天津拿到有限空间监护人证件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260702_7329081",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260702_7329081.html",
+   "question": "有特种作业电工高压证还用考电工低压证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于&lt;特种作业目录&gt;有关事项的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260702_7329079",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260702_7329079.html",
+   "question": "道路运输经营者从事重点液态食品道路散装运输，应当依法取得准运证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局 交通运输部 国家粮食和储备局关于公告实行道路散装运输许可制度的重点液态食品目录的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260625_7324354",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260625_7324354.html",
+   "question": "2007年因拆迁，由村委会统一缴纳了15年城乡居民养老保险，2013年参加工作后，又正常缴纳城镇职工社保。请问退休后，我能享受哪种养老金待遇？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人力社保局关于贯彻实施城乡养老保险制度衔接暂行办法有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260603_7311349",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260603_7311349.html",
+   "question": "外地人在本地补办身份证需要带什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民户口簿",
+    "天津市居住证",
+    "天津市蓝印户口簿",
+    "流动人口居住登记凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260529_7308365",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260529_7308365.html",
+   "question": "防暑降温补贴是否为强制性必须发放？具体政策如何规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立健全企业职工工资正常增长机制的指导意见",
+    "批转市劳动和社会保障局等五部门关于建立全市职工平均工资发布及工资保险福利待遇正常调整制度暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260529_7308362",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260529_7308362.html",
+   "question": "如果职工周五请了病假，下周一或者下周二来上班，那么中间的周六和周日是按病假算？还是按公休算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅转发人事部关于在事业单位试行人员聘用制度意见的通知",
+    "人事部关于印发〈事业单位试行人员聘用制度有关问题的解释〉的通知",
+    "企业职工患病或非因工负伤医疗期规定",
+    "劳动部关于贯彻〈企业职工患病或非因工负伤医疗期规定〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260528_7307459",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260528_7307459.html",
+   "question": "咨询廉租房申请条件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市公共租赁住房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260527_7306667",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260527_7306667.html",
+   "question": "取暖面积是指套内使用面积还是套内面积加墙体面积？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市供热采暖收费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7305286",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7305286.html",
+   "question": "假设新入职员工于月初或月中发生工伤，而企业在当月月末为其申报并缴纳社保费，能否正常申报工伤并享受相关待遇？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人社局关于进一步明确工伤保险待遇支付有关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7304710",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7304710.html",
+   "question": "新房交付后物业收取装修服务费标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "住宅室内装饰装修管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260519_7301722",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260519_7301722.html",
+   "question": "武清区溪和林项目南侧空地规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市武清新城14-03-02单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260515_7299936",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260515_7299936.html",
+   "question": "本人持有正规医院连续开具的先兆流产病假证明，孕期医疗期满后，是否有权继续休病假？公司要求医疗期满后转为事假，拒绝按病假处理，停发病假工资，并要求社保全部由个人承担，是否符合《劳动法》《女职工劳动保护特别规定》？若公司以医疗期满，拒不返岗为由",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业职工患病或非因工负伤医疗期规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260514_7299077",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260514_7299077.html",
+   "question": "本人于2019年7月在现单位生育并休产假，产假前12个月的月平均工资高于社保部门核发的生育津贴标准，但单位当时仅发放了生育津贴，未补足工资差额，请问现在是否可以要求单位补足产假工资差额？是否已过仲裁或诉讼时效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市人民政府办公厅关于印发天津市职工生育保险规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260513_7298328",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260513_7298328.html",
+   "question": "我是滨海新区适龄儿童家长，孩子身心发育相较于同龄孩子偏慢，想申请自愿晚一年入学，特咨询相关政策。",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨海新区2026年小学招生入学工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260509_7296203",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260509_7296203.html",
+   "question": "网约车是不是八年报废？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车强制报废标准规定",
+    "网络预约出租汽车经营服务管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260507_7294654",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260507_7294654.html",
+   "question": "小客车阶梯摇号怎么参与申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市进一步优化小客车调控管理的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260507_7294655",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260507_7294655.html",
+   "question": "市民公共活动空间与设施是否可以增多一些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强全民健身场地设施建设的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260506_7293942",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260506_7293942.html",
+   "question": "高中生休学政策适用哪些情形？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中小学生学籍管理办法",
+    "天津市普通高中学生学籍管理实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260430_7292518",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260430_7292518.html",
+   "question": "我是万新街单人低保拆迁户，当初分第一套安置房时因患大病办理低保，如今第二套拆迁安置房已下发，像我这样拥有两套拆迁房，会不会影响低保？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市社会救助家庭经济状况核定办法",
+    "不动产权证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260429_7291433",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260429_7291433.html",
+   "question": "咨询天津市最低工资标准包含的项目。如工资结构为基本工资+工龄工资+职务工资+基础性绩效+奖励性绩效+交通通讯补贴，是总数不低于2510元？还是基本工资不低于2510元？",
+   "cited_hits": [],
+   "cited_missing": [
+    "最低工资规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284874",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284874.html",
+   "question": "群芳苑小区地下车位（非人防部分）产权是否属于开发商？是否有不动产权证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市不动产登记规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260414_7281840",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260414_7281840.html",
+   "question": "咨询武清区盛世馨园东南角地块用途。",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市武清新城14-03-03单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260410_7279980",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260410_7279980.html",
+   "question": "新河街南益名仕华庭片区规划菜市场吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "滨海新区农贸市场专项规划（2021-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260401_7274770",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260401_7274770.html",
+   "question": "进行计划生育手术（女性放置宫内节育器、输卵管结扎，男性结扎、复通等）有没有规定的假期时长？",
+   "cited_hits": [],
+   "cited_missing": [
+    "临床诊疗指南与技术操作规范-计划生育分册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260330_7272649",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260330_7272649.html",
+   "question": "关于医疗期，天津是以工作日为计算标准还是以自然日为计算标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻企业职工患病或非因工负伤医疗期规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270038",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270038.html",
+   "question": "广贤路东侧、京沪线西侧、 武清区第二人民医院北侧、北运河南侧的土地是怎么规划的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市武清区下朱庄街14-05-02单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267204",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267204.html",
+   "question": "滨海新区国民经济和社会发展的规划和方向？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市滨海新区国民经济和社会发展第十五个五年规划纲要",
+    "规划纲要",
+    "规划纲要"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260313_7261820",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260313_7261820.html",
+   "question": "生育津贴补差部分是否属于生育保险性质的津贴、补贴，是否由用人单位补差？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市人民政府办公厅关于印发天津市职工生育保险规定的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260305_7256433",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260305_7256433.html",
+   "question": "办理退休是以档案年龄为准？还是以身份证年龄为准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市城镇企业职工退休管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260304_7255250",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260304_7255250.html",
+   "question": "翡翠半岛馨园西侧空地是否有规划？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市武清开发区四期01单元土地细分导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260303_7254285",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260303_7254285.html",
+   "question": "请问失能老人在纳入补贴范围的养老机构内购买餐食，是否属于“助餐”服务范畴？能否使用养老服务消费补贴？老人在养老机构或社区使用爬楼机服务，是否属于“助行”服务范畴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "民政部 财政部关于实施向中度以上失能老年人发放养老服务消费补贴项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260302_7253361",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260302_7253361.html",
+   "question": "运输食品添加剂二氧化碳，是否需要取得重点液态食品准运证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布实行道路散装运输许可制度的重点液态食品目录的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260226_7251085",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260226_7251085.html",
+   "question": "个人普通指标能否购买已经上了区域指标的油车？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市小客车总量调控管理办法",
+    "&lt;天津市进一步优化小客车调控管理的若干措施&gt;实施细则",
+    "天津市小客车总量调控管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260128_7233844",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260128_7233844.html",
+   "question": "目前的《天津市公积金贷款管理办法》1月底过期，想问下上个月的新政策征求意见稿，具体落地时间是几号？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市个人住房公积金贷款管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260126_7231982",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260126_7231982.html",
+   "question": "武清耀华中学西边，过京津公路的一大片空地和建筑是做什么的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市武清新城14-03-06单元控制性详细规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260122_7229837",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260122_7229837.html",
+   "question": "独生子女费只有自己申请才能领取，那么之前的费用是否可补领？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7227983",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7227983.html",
+   "question": "既有住宅加装电梯相关政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "天津市既有住宅加装电梯工作指导意见",
+    "指导意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "tj-hdjl",
+   "id": "t20261008_7389167",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202610/t20261008_7389167.html",
+   "question": "天津市武清区杨村镇栖仙温泉公寓东区燃气管道改造何时完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20261008_7389152",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202610/t20261008_7389152.html",
+   "question": "请问东丽区交通运输管理局津汉公路改扩建项目何时完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260930_7386577",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260930_7386577.html",
+   "question": "怎么办理城市卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260930_7386576",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260930_7386576.html",
+   "question": "武清区下朱庄天湖路与滨保高速交口（梧桐大道小区东门东南）路桥工程好像是滨保高速的辅路匝道，请问准确的竣工日期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260930_7386269",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260930_7386269.html",
+   "question": "我是大港油田港西新城的居民，辖区内幸福路多处出现坑洼沉陷，过往修补的补丁与原路面高低落差极大，车辆通行时颠簸剧烈，雨天大面积积水，过往车辆为避让坑洼频繁变道，极易引发刮擦事故，严重影响通行效率与行车安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260928_7384393",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260928_7384393.html",
+   "question": "我是空港二期的业主，经常通行天津港保税区空港经济区经一路，该道路建成时间较长，路面多处坑洼不平，车辆颠簸明显，存在一定安全隐患。想咨询相关部门是否有道路维修、翻新改造的规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260928_7384390",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260928_7384390.html",
+   "question": "淮东路两侧的绿化带一直以来无人管理，现在草已长到一人多高，严重影响周边环境，请领导派专人进行定期维护，打造宜居生活环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260928_7384388",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260928_7384388.html",
+   "question": "请问沙柳南路跨津滨大道桥最新的完工时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260928_7384386",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260928_7384386.html",
+   "question": "本人父亲1966年7月出生，天津市城镇职工养老保险参保人，拟2027年退休。其1986年7月至1997年12月为视同缴费年限（审定11年5个月），1998年1月至2000年2月实际缴费26个月，2001年1月至2025年12月未缴费，202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7381578",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7381578.html",
+   "question": "军官转业随父母安置，父母在军人服役期间户口签到河西区，有一个女儿在西青区。满足转业安置条件吗？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7381575",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7381575.html",
+   "question": "机动车抵押状态转籍到天津，需提供的抵押权人资料有哪些，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7381573",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7381573.html",
+   "question": "天和城实验中学东侧地块的性质？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7380666",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7380666.html",
+   "question": "小客车区域指标，夫妻之间如何变更？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260923_7380664",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260923_7380664.html",
+   "question": "房产证上名字写错了如何办理更改手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260920_7378378",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260920_7378378.html",
+   "question": "外环南路辅道即南兴道路面破损，鄱阳路口到大沽南路路口之间存在深坑，何时维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260918_7377571",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260918_7377571.html",
+   "question": "津汉公路与赤海路交叉路口交通堵塞严重，每日通行都需等待近二十分钟，期盼能够得到有效解决。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260917_7376607",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260917_7376607.html",
+   "question": "参加高职分类考试（春考）的考生，如果中职阶段是电子商务专业，有电子商务师证书，想要报考计算机大类，能不能凭证书享受200分技能免试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260917_7376603",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260917_7376603.html",
+   "question": "西青道右转津同路的施工何时完工？西河闸路交通堵塞严重。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260917_7376602",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260917_7376602.html",
+   "question": "宁静高速华明镇出口，由东丽湖往空港方向左转津汉公路的红绿灯时长设置是否太不合理了？红灯180秒，绿灯只有10秒，大大降低了通行效率。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260916_7375374",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260916_7375374.html",
+   "question": "据说公交835路要缩线，由185路替代835路东段，请官方确认是否有此计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260915_7374951",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260915_7374951.html",
+   "question": "万达自在南湾小区周边配套市政道路为什么到现在迟迟没有动工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260915_7374950",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260915_7374950.html",
+   "question": "我想办理永久停暖，冬季开空调或是烧燃气壁挂炉取暖。我咨询供暖公司，说是居民用户不能办理永久停暖，只有独栋别墅才可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260911_7372782",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260911_7372782.html",
+   "question": "新城玺樾熙棠北门翠柳道何时通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260910_7371701",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260910_7371701.html",
+   "question": "G2502滨保高速（武清区下朱庄街道）段路面存在多处坑槽破损， 大型货车通行碾压坑槽产生的震动噪音较大，扰民问题突出。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260909_7370471",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260909_7370471.html",
+   "question": "空港二期水系公园什么时候交付使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260908_7369604",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260908_7369604.html",
+   "question": "云霞路已完工，何时开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260908_7369603",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260908_7369603.html",
+   "question": "水乡花园三期楼南侧空地规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260908_7369598",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260908_7369598.html",
+   "question": "武清区翠溪路什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260907_7368669",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260907_7368669.html",
+   "question": "人民医院附近的红旗路何时可以修复完成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260907_7368664",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260907_7368664.html",
+   "question": "国展A7地块何时能开发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260907_7368663",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260907_7368663.html",
+   "question": "请问滨海新区轨道交通进度及开通时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260904_7367161",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260904_7367161.html",
+   "question": "请问2026年还举办青少年田径锦标赛吗？今年举办了市运会，有传言说不再举办青少年田径锦标赛。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260904_7367156",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260904_7367156.html",
+   "question": "海泰大道与津静公路交口，海泰大道由南向北方向压车情况严重，建议早高峰时段增加现场警力疏导，及时干预加塞、不按导向车道行驶等违法行为；强化路口交通违法摄录，对不按导向车道行驶、路口抢行等行为加大处罚，规范通行秩序；结合早高峰实际车流量，优化信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260904_7367159",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260904_7367159.html",
+   "question": "空港二期经三路以东，到林与里小区之间的空地是做什么用的？经四路到津汉公路什么时候能开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260903_7366203",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260903_7366203.html",
+   "question": "美的云熙府和中建展望名苑的西面有什么规划？周围没有一个可以散步游玩的公园。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260903_7366201",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260903_7366201.html",
+   "question": "目前东丽湖进出仅一条主干道，非常拥挤，想了解一下东文北路何时开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260902_7365214",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260902_7365214.html",
+   "question": "请问天津市或者滨海新区有没有可供召开业主大会使用的线上表决投票系统或者APP？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260902_7365210",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260902_7365210.html",
+   "question": "大港经济开发区万象路、丰裕街路面坑洼，暴雨天积水严重，电动车通过时容易发生危险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7364259",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7364259.html",
+   "question": "我是天津市宝坻区黄庄镇黄庄村的，我对象是宝坻区方家庄镇大角甸村的，结婚之后，我对象的户口已经迁到黄庄镇了，现在想把她的地也迁过来，手续不知道怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7364248",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7364248.html",
+   "question": "目前南丰路已正式通车，原先调整出去的633路等线路是否会恢复运行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7364221",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7364221.html",
+   "question": "我居住在东丽湖街道，东丽湖目前发展迅速，小区车多人多，公共交通不方便，请问东丽湖街道能否引进共享自行车和共享电动车，解决市民出行最后一公里的问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7363532",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7363532.html",
+   "question": "8月初发现黄港嘉辉路、实验滨海东面这段路完全封闭维修，请问维修内容是什么？施工计划如何？能否加快进度？我们接送学生太堵车了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260901_7363527",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202609/t20260901_7363527.html",
+   "question": "目前从外滩公园站到耀华滨城学校只有124路公交，到学校最近的是金融创新中心站，下车还要步行约500米。且该站只有单向站点，没有回程站点。回程要到政务服务办或者高铁滨海站乘车，从学校过去需要步行近1公里。建议在金融创新中心站增设往外滩公园方向",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260827_7360335",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260827_7360335.html",
+   "question": "滨海新区厦门路路面维修何时结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260827_7360331",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260827_7360331.html",
+   "question": "潮白河左提路（潮白河大桥——潮阳大桥段），路面出现多处坑洼，只修了部分路段，可否尽快修好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260826_7359229",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260826_7359229.html",
+   "question": "滨海新区厦门路路面维修何时结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260826_7358879",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260826_7358879.html",
+   "question": "本人发现咸水沽镇的公交站牌未及时调整。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260826_7358877",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260826_7358877.html",
+   "question": "九园路辅道到天河路什么时候可以开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260826_7358874",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260826_7358874.html",
+   "question": "武清下朱庄街道静湖片区内有两所小学，却无公办初中，是否有规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260824_7357719",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260824_7357719.html",
+   "question": "我通过摇号中签了汽油车指标，名下无车。计划将爱人名下的节能车过户到我名下，并使用我中签的汽油车指标。请问该如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260821_7356764",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260821_7356764.html",
+   "question": "在企业发生工伤，已完成工伤认定与劳动能力鉴定，评定为工伤九级。请问工伤保险基金发放的一次性伤残补助金，是否需要单位或者个人办理申领？这个补助金是对工伤职工个人的补助吗？是汇到企业账户还是受伤职工的社保卡上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260820_7355281",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260820_7355281.html",
+   "question": "咨询儿童乘车收费标准。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260819_7354602",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260819_7354602.html",
+   "question": "咨询高新区华苑免费班车运行时间、站点及每个站点发车时刻表，是否有班车联系电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260819_7354600",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260819_7354600.html",
+   "question": "武清区徐官屯街段庄村东南通往武宁路的高速下穿桥洞，目前处于封闭施工状态，请问什么时候可以恢复通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260819_7354599",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260819_7354599.html",
+   "question": "黄海路与十三大街交口，Z4线科技大学地铁站周边道路何时进行维修？黄海一街与洞庭三街之间路段，往第五大街方向的中间车道，路面出现两处塌陷，一处位于红绿灯下方，一处位于道路中央，现已影响车辆通行，需排查维修。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260817_7353810",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260817_7353810.html",
+   "question": "双方都是非津户籍，如果在津南区做婚检需要什么手续？哪些医院可以做？周六周日可以做吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260817_7353805",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260817_7353805.html",
+   "question": "黄河道与向阳路交口东西方向红绿灯不明显，每天下午3点-6点阳光反射，东西方向车辆看不到或者容易忽略红灯，这个点正是学生放学时间，希望将交口东西方向信号灯改至路中间，防止事故发生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7353004",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7353004.html",
+   "question": "北岛雅苑地下车库可否升级维修、卫生、消防及照明等问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7353003",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7353003.html",
+   "question": "北仓示范镇周庄村还迁房还迁进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7353002",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7353002.html",
+   "question": "美的旭辉翰悦府东门商业推进缓慢，是否有建设进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7352343",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7352343.html",
+   "question": "静海团泊医疗规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7352342",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7352342.html",
+   "question": "专业技术人才申报高级经济师职称，应具备什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7352341",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7352341.html",
+   "question": "津南区可否建设市级综合交通枢纽、完善交通体系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260814_7352340",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260814_7352340.html",
+   "question": "天津有“站产城”规划，可否有天津版1小时通勤圈规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260813_7351784",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260813_7351784.html",
+   "question": "请问北辰区大张庄是否规划地铁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260811_7350461",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260811_7350461.html",
+   "question": "地铁z4线滨海站至泰达站进度如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260811_7350459",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260811_7350459.html",
+   "question": "建议公交658撤出百货大楼范围，缩短路线到鼓楼即停即走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260811_7350449",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260811_7350449.html",
+   "question": "由东向西平祥大厦北门对面的路面上有破损，影响出行，可否维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260811_7350439",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260811_7350439.html",
+   "question": "团泊西万达自在澜湾周边道路修建进展到哪一步了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260807_7348753",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260807_7348753.html",
+   "question": "开发商说精武镇付村3号地北侧有口袋公园，具体是什么规划？大概有多少平米？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260807_7348752",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260807_7348752.html",
+   "question": "咨询河北区体园路（金钟河大街至中纺前街段）最新建设进展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260805_7348023",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260805_7348023.html",
+   "question": "因宋庄子雨水泵站提升改造施工，大沽南路辅路断交绕行，预计何时可以恢复正常通行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260805_7348022",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260805_7348022.html",
+   "question": "新华常春藤昕旺花园何时交付？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260803_7346463",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260803_7346463.html",
+   "question": "目前高新区定制1路途径海泰西路的高新区软件园，但不停靠，建议在此处停靠，满足天开园华苑园内企业职工出行需求，目前园区内的居民、员工乘坐该班车，需要行走至电子科技18所站或工农大桥乘车，步行路途较远，十分不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260803_7346462",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260803_7346462.html",
+   "question": "天津市最低工资是否包含五险一金个人缴纳部分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345597",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345597.html",
+   "question": "津沧城际与津雄城际是否过站静海北站？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345596",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345596.html",
+   "question": "海缘东路幼儿园有围挡，何时能完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345595",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345595.html",
+   "question": "和平区万全道整条道路太破烂，建议整体修一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345594",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345594.html",
+   "question": "绿地新里天澜西北角配建公园是否可以进行修整？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345593",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345593.html",
+   "question": "大张庄生活组团北区规划地铁站了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260801_7345584",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202608/t20260801_7345584.html",
+   "question": "古林街永明路（海景七路至津岐公路段）什么时间能开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260728_7342769",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260728_7342769.html",
+   "question": "前进道破旧，什么时候可以维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260724_7341474",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260724_7341474.html",
+   "question": "位于烟台道和安徽路交口处的遇见博物馆门前，近期被施工蓝板围起来，咨询目前在做什么工程？工期多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340814",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340814.html",
+   "question": "南兴道与鄱阳路交口貌似已恢复通行，215路和309路嫁接方案应该可以执行了吧？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340810",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340810.html",
+   "question": "北塘古镇里面只有卖吃的的，别的区域都不开放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340808",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340808.html",
+   "question": "开发区南海路与十三大街交口，由北向南行驶允许调头位置地面破损，凹坑较大。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340385",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340385.html",
+   "question": "北辰马庄大楼已经有70年房龄，冬天没有暖气，线路老化严重，是否能列入城市更新计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340381",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340381.html",
+   "question": "津侨国际小镇香坻花园前面的空地一直荒废，请问这块空地是要干什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260723_7340376",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260723_7340376.html",
+   "question": "724路和337路何时停运？219路嫁接375路和212环线啥时候执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260721_7339400",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260721_7339400.html",
+   "question": "滨海新区杨家泊镇高庄村， 通往河北省唐山市汉沽管理区汉沽农场大泊村的乡道 严重破损、长期无人修理。希望滨海新区交通局、杨家泊镇政府对接河北汉沽管理区交通部门，联合实地勘察，将该路段纳入道路改造项目，彻底解决破损问题，消除交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260721_7339398",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260721_7339398.html",
+   "question": "小区地下车库仅有整体产权，无法分户登记到业主个人名下，该部分面积是否计入表决统计面积？人防工程是否应当全部扣除不参与投票计算？设备机房物业用房等公共配套，是否不计入专有投票面积？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260721_7339395",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260721_7339395.html",
+   "question": "广贤路中学北区北侧建筑早已施工完成，想咨询一下何时启用？主要用途是什么？龙湾城学校具体位置在哪？是初中还是小学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260721_7339393",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260721_7339393.html",
+   "question": "咨询地铁B1线云山道站周边道路恢复双向通行问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260720_7338690",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260720_7338690.html",
+   "question": "本人配偶与子女均为滨海新区本地常住户口，现购置了一套期房，该房屋已完成交房且开发商已在公安部门完成门楼牌备案，尚未办理房产证。如果现在携带网签购房合同、购房发票、契税完税凭证、物业入住证明、不动产登记簿查询证明、身份证及户口本，能否办理市内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260717_7337712",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260717_7337712.html",
+   "question": "电报大楼的钟表停了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260717_7337711",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260717_7337711.html",
+   "question": "一中心医院地铁站在红旗路东侧出入口能否先开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260717_7337708",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260717_7337708.html",
+   "question": "团泊新桥至杨成庄大桥之间的河堤路由于迎丰泵站施工，导致断交，请问何时能够通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260717_7337185",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260717_7337185.html",
+   "question": "白塘口村东区还迁房什么时候给钥匙？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260717_7337184",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260717_7337184.html",
+   "question": "大王古庄镇京津塘高速出入口通车时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260715_7336391",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260715_7336391.html",
+   "question": "福阳街小区北侧地块规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260715_7336386",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260715_7336386.html",
+   "question": "津南区首创禧悦西门门前道路施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260715_7336385",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260715_7336385.html",
+   "question": "孩子户籍在武清区泗村店镇，可以报考哪些公办高中？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260715_7336381",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260715_7336381.html",
+   "question": "大王古庄镇京津塘高速出入口通车时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260715_7336367",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260715_7336367.html",
+   "question": "东丽湖天安象屿配套学校建设规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260714_7335539",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260714_7335539.html",
+   "question": "万达自在澜湾周边道路建设情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260713_7334937",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260713_7334937.html",
+   "question": "新胡路施工出行不便，大概什么时候完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260713_7334934",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260713_7334934.html",
+   "question": "北辰区京津路柳滩地铁站B口附近处边道路面不平，可否维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260709_7332975",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260709_7332975.html",
+   "question": "个人保险缴费明细如何查询打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260709_7332387",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260709_7332387.html",
+   "question": "宝坻区兴海路南端与唐通北外环丁字路口由南向北车流密集，重型货车很多，时常发生拥堵。该路口仅设两条机动车道：一条直行（可直行可掉头），一条直行加右转，右转车流量较大，重型货车存在视线盲区。两条道边上另有一条相对宽的慢车道，请问是否可以把慢车道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260707_7331529",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260707_7331529.html",
+   "question": "泰达大街滨海大桥往北京方向的施工什么时候结束？何时恢复通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260707_7331528",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260707_7331528.html",
+   "question": "泉流路（丽湖环路至智景东道路段）道路及附属设施已全部完工，此前该路口曾短暂开放通行，但近期又被黄色地桩重新封闭，车辆无法正常通过。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260707_7331527",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260707_7331527.html",
+   "question": "滨海新区海慈路已建成两年，至今未交付。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260707_7330945",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260707_7330945.html",
+   "question": "小白楼488项目最新进展如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260707_7330944",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260707_7330944.html",
+   "question": "东丽区保利玫瑰湾西侧的空地有什么规划用途？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260703_7329837",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260703_7329837.html",
+   "question": "团泊西万达自在澜湾周边道路什么时候能修好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260701_7328233",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260701_7328233.html",
+   "question": "失业保险领取标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260701_7328231",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260701_7328231.html",
+   "question": "地铁11号线延伸工程建设到什么程度了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260701_7328230",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260701_7328230.html",
+   "question": "中级职称评审2026年大约在什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260701_7328229",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202607/t20260701_7328229.html",
+   "question": "妻子名下外地车辆转入天津，可以在12123线上办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260630_7327316",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260630_7327316.html",
+   "question": "一、南运河扩宽工程静海镇义渡口段，堤上公路多宽，堤下便道多宽？二、静海镇义渡口村北侧的小公路断交很不方便，可否修复？三、大堤西侧每逢大雨积水严重，排水系统何时能完善?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260630_7327308",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260630_7327308.html",
+   "question": "塘沽一中新校区是九年一贯制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260629_7326319",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260629_7326319.html",
+   "question": "南开区卫安西里小区更新改造内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260629_7326317",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260629_7326317.html",
+   "question": "之前公告说津潍高铁项目第二阶段，恢复新胡路通行，那么新胡路预计什么时候开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260629_7326315",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260629_7326315.html",
+   "question": "国展西周边是否规划建设公园、公厕？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260629_7326314",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260629_7326314.html",
+   "question": "大寺镇经济技术开发区微电子园区爱迪生道道路，微八路交口至微六路交口之间路段破损严重，是不是可以进行维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260626_7325029",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260626_7325029.html",
+   "question": "咨询北辰区华辰中学高中部南侧、和鸣园东侧、金隅金成府商业北侧地块详细规划信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260626_7325023",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260626_7325023.html",
+   "question": "孩子开学上初三，想转学来天津，目前还没有天津户口，想问一下红桥区异地初中转学公告大概什么时候出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260626_7325016",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260626_7325016.html",
+   "question": "琼州道与解放南路交口北侧的人行道由于毗邻学校，上下学高峰时段人流量较大，多数沿琼州道行驶司机没有礼让行人意识，东西向交通指示灯绿灯期间依然抢行，存在较大安全隐患，希望交管部门能够严格执法，确保行人合法路权。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260625_7324349",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260625_7324349.html",
+   "question": "泽信公园御府西侧的公园在交房初期配套设施齐全，可供周边居民休闲散步。现园内设施破损严重，篮球场长期缺乏养护，景观水池干涸，杂草丛生，请相关单位加强日常管理与维护。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260625_7324347",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260625_7324347.html",
+   "question": "武清区前进道与京津公路交口雨天积水严重、排水不畅， 希望市政部门尽快疏通管道，改造或检修排水设施，消除积水安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260624_7323630",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260624_7323630.html",
+   "question": "大港步行街及周围道路到处大坑，骑车、步行途经此处极易摔跤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260624_7323629",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260624_7323629.html",
+   "question": "姚村路与智兴路中间地块是否有建设规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260624_7323628",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260624_7323628.html",
+   "question": "西青区精武镇才智道翰悦园商业项目迟迟不动工，现场围挡有碍市容，且周边缺少商业配套，给附近居民日常生活带来不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260623_7322891",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260623_7322891.html",
+   "question": "海缘东路的人行道杂草丛生，地砖缺失，电线通讯线裸露。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260623_7322884",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260623_7322884.html",
+   "question": "亨通小区周边没有菜市场，小区东边的空地迄今为止还在空置，为什么不能用来当菜市场呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260623_7322880",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260623_7322880.html",
+   "question": "818和858的调整方案还执行嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260622_7321905",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260622_7321905.html",
+   "question": "咨询高新区恒大恒湖苑小区东南角地块规划问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260622_7321899",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260622_7321899.html",
+   "question": "小黄庄通往新城的路坑坑洼洼的太难走了，希望早点重新修一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260622_7321898",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260622_7321898.html",
+   "question": "红桥区爱民桥桥头，南运河南路侧的健康步道上，有一处损毁沙坑一直没有修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260618_7320367",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260618_7320367.html",
+   "question": "恳请尽快改造空港东八道周边土路，消除安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260618_7320361",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260618_7320361.html",
+   "question": "天津动物园狮虎馆、熊山、两栖爬行馆、大象馆及中型猛兽馆建成年代久远，设施整体老化，建议分批次实施升级改造。另外，熊山仍为传统坑式老旧展区，游客私自投喂现象仍然存在，不利于动物身心健康。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260618_7320359",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260618_7320359.html",
+   "question": "西青区富力津门湖地区是否有建设较大型菜市场的计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260618_7320358",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260618_7320358.html",
+   "question": "请详细介绍一下滨海新区各条地铁线路（Z4线、B1线、Z2线）的施工进展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260616_7318982",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260616_7318982.html",
+   "question": "景瑞翰邻小区南面，加油站北面的空地，是什么规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260616_7318979",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260616_7318979.html",
+   "question": "滨海高新区渤龙湖片区龙泽东园小区北侧道路何时开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260616_7318977",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260616_7318977.html",
+   "question": "有天津蓝牌指标，在外地购新车，准备在天津上牌，需要准备什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260615_7318348",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260615_7318348.html",
+   "question": "响螺湾秀清园南侧空地规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260615_7318344",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260615_7318344.html",
+   "question": "华康街道、团泊大道的部分人行道有破损，可否修复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260615_7318340",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260615_7318340.html",
+   "question": "是否有规划在矽谷港湾建个综合公园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260612_7317164",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260612_7317164.html",
+   "question": "适龄儿童小学延期入学需要办理备案吗？如需备案，需要哪些资料以及备案途径是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260612_7317162",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260612_7317162.html",
+   "question": "大唐庄镇大唐庄驶往董官庄和狼尔窝村方向的路段损坏多年，路面坑洼不平，影响行车安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260611_7316467",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260611_7316467.html",
+   "question": "咨询八纬路拓宽工程的动工时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260611_7316463",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260611_7316463.html",
+   "question": "解放南路由北向南去往外环线方向的主路没有右转车道，车辆必须提前下辅路方能右转，但辅路车辆并不主动避让，经常提速抢行。按照交通法规，主路驶出至辅路时，主路车辆优先通行，辅路车辆应减速避让。建议交管局在辅路临近主路出口处划上鱼肚线，消除通行安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260611_7316460",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260611_7316460.html",
+   "question": "东丽湖街映景路两侧树木成活率仅30%~40%，建议相关部门及时补种，做好行道树与绿化带植物的日常维养工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260610_7315825",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260610_7315825.html",
+   "question": "海河开启桥中间两段设置了人行步梯，供行人上桥通行至对岸，但因桥梁两头未建设连续步道，导致往来两岸的行人无法直观看到专用人行通道，只好选择从桥梁两侧非机动车道过桥。 为保障行人出行安全，恳请相关部门在开启桥两侧醒目位置，加装清晰、显眼的行人通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260610_7315818",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260610_7315818.html",
+   "question": "我是附近小区的居民，天津市水利工程有限公司院内施工已持续很久，施工噪音影响平时休息，想问下施工还有多久结束？所盖的楼房高度多少？是否会影响周围居民居住？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260609_7314705",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260609_7314705.html",
+   "question": "滨河道小学门口人行道路面坑洼，绿化缺乏管护，校车通行路段一直未铺设柏油，仍为碎石路面，希望相关部门重视并开展道路及绿化改造。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260609_7314704",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260609_7314704.html",
+   "question": "咨询沙柳南路未来的道路规划情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260608_7313887",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260608_7313887.html",
+   "question": "经开区西区冬旭路桥南向北方向下桥位置，桥面伸缩缝落差大，车辆颠簸严重。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260608_7313885",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260608_7313885.html",
+   "question": "杨柳青镇楼顶防水改造目前已基本完工，但佳苑里片区迟迟没有动工，请问何时启动？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260605_7312830",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260605_7312830.html",
+   "question": "中新天津生态城信息园内部连接中新大道的路口修好为什么一直不开？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260605_7312823",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260605_7312823.html",
+   "question": "西青区李七庄缺少大型商业中心，是否有计划招商？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260604_7311946",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260604_7311946.html",
+   "question": "金钟河堤南侧和恒大翡翠华庭之间地块的规划？恒大西侧地块规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260604_7311945",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260604_7311945.html",
+   "question": "大港太平镇北环新路与老路之间的道路什么时候可以连接上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260604_7311938",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260604_7311938.html",
+   "question": "变电所路（海河东路－环宇道）占路封闭施工何时结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260604_7311934",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260604_7311934.html",
+   "question": "建明道北侧新建幼儿园何时使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260603_7311352",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260603_7311352.html",
+   "question": "滨海新区地铁Z4线现在修到了什么进度？什么时候所有站点会全部运营？都有哪些站点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260603_7311348",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260603_7311348.html",
+   "question": "幸福里小区交房已经有七个月时间了，信号不好，能否解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260603_7311346",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260603_7311346.html",
+   "question": "宝坻区万科劝学里南门通向林海路的道路何时修通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260602_7310582",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260602_7310582.html",
+   "question": "津南区津港公路与天嘉湖路之间有两处修路，请问什么时候可以恢复通行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260602_7310569",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260602_7310569.html",
+   "question": "西中环快速路贯通时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260602_7310567",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260602_7310567.html",
+   "question": "生态城北岛第一幼儿园何时开园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260601_7309622",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260601_7309622.html",
+   "question": "武清区梅石路路边上看见了修路的标识牌，什么时间开始到什么时间结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260601_7309616",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260601_7309616.html",
+   "question": "我在今年购买了生态岛上的中新澜湖庭的商品房，是否规划滨海小外五部，是否会建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260601_7309612",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260601_7309612.html",
+   "question": "请问天津哪里可以报考“医药商品购销员”证书?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260601_7309610",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260601_7309610.html",
+   "question": "请问城梧桐公馆西门清水路与嘉平道中间的空地，后期规划是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260601_7309605",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202606/t20260601_7309605.html",
+   "question": "妻子摇到天津正式指标，我名下天津区域牌照机动车能否平移到我妻子名下（使用这个指标）？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260529_7308367",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260529_7308367.html",
+   "question": "请问空港经济区西八道与中环西路交口空地的规划用途是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260529_7308363",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260529_7308363.html",
+   "question": "听湖小镇外围智景东道，以及智景东道与映景路交叉口积水严重 ，建议有效整改排水管道，保障周边居民出行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260528_7307457",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260528_7307457.html",
+   "question": "南开区卫津路天津大学路口（八里台桥往海光寺方向）早高峰信号灯配时不合理，直行放行时长约180秒，左转仅30秒，严重影响通勤通行效率。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260528_7307452",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260528_7307452.html",
+   "question": "新胡路上跨津塘公路桥的部分怎么时候开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260527_7306662",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260527_7306662.html",
+   "question": "泉流路（丽湖环路至智景东道路段）已修建完成，但该道路与丽湖环路交叉口处仍处于封闭状态，建议相关部门尽快打开路口，方便日常通勤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260526_7306047",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260526_7306047.html",
+   "question": "西青区津港公路与爱迪生道交口信号灯配时不合理，北向南直行红灯太长，绿灯太短，和主干道流量完全不匹配，严重影响通勤。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260526_7306046",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260526_7306046.html",
+   "question": "缴纳灵活就业保险，会对失业金的申请和发放造成影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7305285",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7305285.html",
+   "question": "宝坻区潮阳街道马家店小学北侧市民道、东侧幸福路，路面大坑连片、沉降严重，请优先安排维修施工，消除安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7305284",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7305284.html",
+   "question": "建议起用大唐盛世学校，解决周边教育资源短缺问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7304716",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7304716.html",
+   "question": "1、休完产假后上班，当月除产假外均正常出勤，当月工资计算是否能扣全勤奖？2、职工产假期间，冬季取暖补贴、集中供热采暖补助费是否正常发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7304705",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7304705.html",
+   "question": "建议天津多举办重大有影响体育赛事，提高城市影响力、增添城市活力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260525_7304703",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260525_7304703.html",
+   "question": "Z2线建设的怎么样了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260522_7304200",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260522_7304200.html",
+   "question": "津桥国际小镇片区后期是否还有规划建设？乐雅广场商业以及衡水中学宝坻分校是否还会建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260522_7304198",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260522_7304198.html",
+   "question": "滨海新区中塘镇城中村改造项目东7地块何时出安置方案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260522_7304196",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260522_7304196.html",
+   "question": "静海区团泊西万达自在澜湾周边只有临时道路，可否修建道路？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260522_7304194",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260522_7304194.html",
+   "question": "团泊小外小学招生情况？团泊小外小学片区招生范围可否扩展到整个团泊东？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260522_7304193",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260522_7304193.html",
+   "question": "杨柳青柳霞路坑洼不平，是否可以维修或者改造？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260520_7302647",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260520_7302647.html",
+   "question": "滨海新区小学转学申请什么时候开始呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260520_7302643",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260520_7302643.html",
+   "question": "杨村街道河东片区团结路什么时候能够进行南北贯通（馨吉园到中信广场）？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260520_7302638",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260520_7302638.html",
+   "question": "武清商务区建议建设大型商超。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260519_7301731",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260519_7301731.html",
+   "question": "荣辰小学宣传是九年一贯制，对口初中是哪个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260519_7301726",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260519_7301726.html",
+   "question": "滨海新区太湖路（新港四号路-一大街）施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260519_7301724",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260519_7301724.html",
+   "question": "我是玉皇里小区居民，附近新建道路何时建成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260519_7301720",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260519_7301720.html",
+   "question": "大毕庄地铁站出入口如何规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260515_7299935",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260515_7299935.html",
+   "question": "雪莲桥下路口掉头红灯设置不合理，大大影响了车流通行效率，同时路口加塞现象严重，建议适当缩短红灯时长，增设抓拍设备，加大处罚力度，并安排早高峰交警执勤管控，缓解通行压力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260515_7299933",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260515_7299933.html",
+   "question": "海泰发展三道、四道、五道井盖凹凸不平，严重影响行车安全。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260514_7299075",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260514_7299075.html",
+   "question": "海航城大集贸有哪些开发建设规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260514_7299074",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260514_7299074.html",
+   "question": "目前B1线隧道已经贯通，请问大概什么时间可以轨通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260514_7299072",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260514_7299072.html",
+   "question": "南开区水天路与景川路交口东南侧，即水乡花园三期南侧，时代奥城北侧地块的规划用途是什么？什么时候建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260513_7298329",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260513_7298329.html",
+   "question": "城厢中路辅路往北门外大街方向没有非机动车道，自行车应该走哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260512_7297660",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260512_7297660.html",
+   "question": "咨询滨海高新区渤龙湖科技园航天城商业街西楼招商情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260512_7297658",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260512_7297658.html",
+   "question": "天津站站厅层有灯不亮了，希望尽快修缮。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260512_7297657",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260512_7297657.html",
+   "question": "团泊健康城西区除团泊大道外，辖区主要道路非机动车道普遍存在机动车占道、路面坑洼不平问题。同时多处非机动车道存在台阶，导致非机动车无法正常通行，存在较大道路交通安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260512_7297656",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260512_7297656.html",
+   "question": "孩子天津户籍，产权房买在滨海新区，目前在北京上四年级，今年暑假后计划四升五转到天津上学，咨询转学时间及相关办理手续。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260511_7296863",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260511_7296863.html",
+   "question": "《市人社局市教委市财政局市税务局关于鼓励本市实习生和超龄从业人员参加工伤保险的通知》（津人社办发〔2025〕14号）规定企业可以为实习生按单险种参加工伤保险，麻烦提供具体的要求与操作指引。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260511_7296861",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260511_7296861.html",
+   "question": "本人外地户籍，已在兰雅苑购置房产，名下无其他住房。想咨询今年孩子能在哪里上学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260511_7296860",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260511_7296860.html",
+   "question": "津北公路从东金路到中南二街的一段坑洼不平且狭窄，请问有没有整修以及拓宽计划？什么时候能修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260511_7296856",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260511_7296856.html",
+   "question": "位于财经大学一侧的长湖路公交站候车亭，这个站名牌粘贴的方式在白天看或许还好，但是到晚上开灯之后，正面的“长湖路站”和反面的“天津博物馆站”重叠在一起，从远处看压根看不清楚，希望对站名牌进行维修或更换。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260509_7296202",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260509_7296202.html",
+   "question": "人民公园是否会新建免费儿童游乐设施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260508_7295327",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260508_7295327.html",
+   "question": "原振业御湖售楼处是否改建为社区幼儿园？现在建设进度如何了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260508_7295329",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260508_7295329.html",
+   "question": "第十六届市运会群众组比赛如何设置？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260507_7294656",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260507_7294656.html",
+   "question": "地铁7号线金纬路站和中山路站开工了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260506_7293934",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202605/t20260506_7293934.html",
+   "question": "请问中北镇是要建设中学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260430_7292523",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260430_7292523.html",
+   "question": "塘沽一中高中部什么时候投入使用？九年一贯制学校什么时候开建？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260430_7292522",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260430_7292522.html",
+   "question": "请问耀华中学东丽湖学校目前施工进展如何？何时建成招生？未来招生范围入学政策有何要求？是否为公立完全中学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260430_7292520",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260430_7292520.html",
+   "question": "目前小区已成立业委会筹备组。关于筹备组工作开展，镇政府要求召开线下会议。因为业主时间难以统一，是否可以线上开会议定会议纪要，线下统一补签签到表？另外镇政府要求筹备组成员未来三个月要到居委会值班，完成业主身份及房屋面积确认工作，请问是否可以通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260429_7291439",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260429_7291439.html",
+   "question": "于庄子路通往中储公司塘沽分公司的铁路线两侧道路坑洼严重，影响通行且易损坏车辆，建议及时填平。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260429_7291435",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260429_7291435.html",
+   "question": "咨询昆仑路到外环线辅路设置围挡的原因及施工期限。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260428_7290472",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260428_7290472.html",
+   "question": "建议杨村街道协调相关部门对团结路进行简易临时改造，让馨发园、胜利路、馨祥园三个小区的学生上学免绕远，缓解周边路网压力。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260428_7290467",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260428_7290467.html",
+   "question": "咨询西青区张家窝镇金地时光印小区南侧空地的相关规划问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260428_7290466",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260428_7290466.html",
+   "question": "咨询高铁站前区板块“十五五”规划。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260427_7289591",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260427_7289591.html",
+   "question": "咨询公交202路调整后的具体路线与站点设置。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260427_7289589",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260427_7289589.html",
+   "question": "咨询永明路延长线工程进度及开通时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260424_7287990",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260424_7287990.html",
+   "question": "国展西幼儿园，位于美的云熙府旁边，今年能启用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260424_7287985",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260424_7287985.html",
+   "question": "双军人同时退役，可以随配偶父母落户吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260423_7287337",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260423_7287337.html",
+   "question": "武通新开的北京专线装上卡机了，武通别的线什么时候安？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260423_7287335",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260423_7287335.html",
+   "question": "华都微雨城交房进度？初中属于哪个学区片？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260422_7286382",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260422_7286382.html",
+   "question": "《天津市市域(郊)铁路专项规划(2019-2035)》具体都有哪些线路？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260422_7286377",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260422_7286377.html",
+   "question": "还迁房馨发园建设进度？塔园路施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260422_7286370",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260422_7286370.html",
+   "question": "团泊西华康街道自在凤栖园周边道路规划和建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260422_7286367",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260422_7286367.html",
+   "question": "才智道与学府东路交叉口处正在施工，是否建设街角公园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260422_7286365",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260422_7286365.html",
+   "question": "地铁6号线北运河站建设的怎么样了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260421_7285474",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260421_7285474.html",
+   "question": "中梁公馆外面的便道什么时候修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284882",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284882.html",
+   "question": "德庆里路面极破、井盖返屎、底商返泔水现象严重，可否解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284880",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284880.html",
+   "question": "内江路的浯水道至珠江道之间道路何时能通行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284878",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284878.html",
+   "question": "双辰中路（双江道——九园公路）路面破损，能维修吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284872",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284872.html",
+   "question": "胡家园区域内多条道路上有废弃铁轨，为何不拆除？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260420_7284870",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260420_7284870.html",
+   "question": "杨村街运河西片区棚户区是否有改造计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260417_7283913",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260417_7283913.html",
+   "question": "办理车辆由河北转入天津，在12123完成转籍并网上选号后，需几日内到现场验车上牌？假期能否办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260417_7283911",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260417_7283911.html",
+   "question": "塘沽一中响螺湾学校与东路市场中的路一直封着，不知道为什么不开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260417_7283910",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260417_7283910.html",
+   "question": "东丽湖路与智景东道交口的红绿灯只有直行无左转，而且直行时间很长，高峰时段左转进智景东道、右转汇入东丽湖路的车流量大，需与直行车混行抢行，通行效率低且易发生事故。诚恳建议相关部门对红绿灯进行调整，增设独立左转及右转信号灯。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260417_7283909",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260417_7283909.html",
+   "question": "港城大道嘉丰路大部分路灯损坏不亮，晚上此路段较黑，不利于车辆行驶，请相关部门安排修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260416_7283087",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260416_7283087.html",
+   "question": "海兴路全线路面破损严重，导向车道线模糊不清，致使交通违法罚款频发。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260416_7283085",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260416_7283085.html",
+   "question": "塘承高速双向路面破损严重，尤其是双向左侧第一第二车道，存在大面积沥青路面脱落的情况，个别路段甚至出现了大坑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260416_7283082",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260416_7283082.html",
+   "question": "咨询东丽湖天安象屿智慧城配建学校项目落地时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260415_7282511",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260415_7282511.html",
+   "question": "请问丽江道新地道何时开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260415_7282510",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260415_7282510.html",
+   "question": "咨询轨道交通B1线广州道站施工进展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260415_7282509",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260415_7282509.html",
+   "question": "请公示武清通途客运有限公司所属全部公交阶梯票价线路的收费表，方便乘客高效有序乘车。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260414_7281837",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260414_7281837.html",
+   "question": "文化中心站从11号线到6号线的换乘路线太远了，能加装自动人行道吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260414_7281834",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260414_7281834.html",
+   "question": "云山道及厦门路从去年10月开始占路维修，导致每天拥堵，请问什么时候施工能结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260410_7279979",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260410_7279979.html",
+   "question": "领世郡内部道路违规停车过多，易发生交通事故？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260410_7279978",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260410_7279978.html",
+   "question": "乘坐939公交车去滨海高铁站，进站前会绕路，能否优化路线？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260409_7278978",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260409_7278978.html",
+   "question": "公交141路停运了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260409_7278976",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260409_7278976.html",
+   "question": "南大附中地下停车场项目竣工时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260408_7278310",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260408_7278310.html",
+   "question": "静海区团泊西区规划几所大型医院，是专科医院还是综合医院？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260408_7278308",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260408_7278308.html",
+   "question": "大王台村供水管网更新改造，大概什么时候能够启用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260408_7278307",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260408_7278307.html",
+   "question": "华都微雨城小区建设进度，大概什么时候能交房？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260408_7278305",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260408_7278305.html",
+   "question": "华苑街道雅士道与华苑东路交叉口空地规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260408_7278303",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260408_7278303.html",
+   "question": "1、雍澜路到底何时可以动工？2、天宝福苑西侧空地规划 ？3、林海路小学东侧地块规划？4、宝境栖园南侧地块用途是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260407_7277640",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260407_7277640.html",
+   "question": "滨海高新区龙泽东园北侧道路什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260407_7277639",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260407_7277639.html",
+   "question": "汇海北里什么时候建成？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260407_7277637",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260407_7277637.html",
+   "question": "河西务溪语花园二期继续施工了什么时候可以完工？是否已正式纳入武清区保交楼专项借款名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260403_7276190",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260403_7276190.html",
+   "question": "和平区即将举办海棠花节，迎接五一游客，在此期间客流量将会呈现几何层数增加。根据历年经验，游客和市民如厕问题将会集中爆发，建议和平区重新启用中心公园公厕应对客流高峰。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260403_7276188",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260403_7276188.html",
+   "question": "胡家园街道滨湾万科城中三路开始修建了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260403_7276185",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260403_7276185.html",
+   "question": "翠溪路与泉丰路交口什么时候能够修通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260402_7275566",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260402_7275566.html",
+   "question": "团泊西松江盛湖园商业二期地块有新的开发商接手吗？2026年会有新的规划吗？北京协和医院天津医院二期2026年是否会开工建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260402_7275564",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260402_7275564.html",
+   "question": "咨询津南区新尚园小区周边规划问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260402_7275563",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260402_7275563.html",
+   "question": "早晚高峰，津汉公路东西方向在赤海路、中心大道、中环西路、西三经路交叉口处，交通灯时间设置不合理，绿灯时间太短，红灯时间太长，影响津汉公路主干道通行，导致严重拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260401_7274768",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260401_7274768.html",
+   "question": "泽杨道工程结束后道路迟迟没有修复，请领导安排下道路修复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260401_7274765",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202604/t20260401_7274765.html",
+   "question": "太阳城金旭园西门旁边的贺兰路什么时候修好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260331_7273496",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260331_7273496.html",
+   "question": "我是一名天津市民，也是城市文旅发展的关注者。近年来，天津凭借“有人情味”的城市特质，在文旅领域打造出了温暖鲜活的形象，深受游客喜爱。上周末我前往天津动物园游玩时，发现目前大象展区丰容设施严重不足，游客投喂现象屡禁不止，建议完善丰容设施，加强",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260330_7272652",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260330_7272652.html",
+   "question": "渤龙湖地铁站 外立面和站点天桥啥时候能干完？ 跨高新七路高架还没有合拢，何时能彻底连接合拢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260330_7272651",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260330_7272651.html",
+   "question": "渤龙湖周边的办公楼，是否可以引入航天相关的企业？目前高新区仅只有一所高中在招生，是否尽快让华苑的高中也招生？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260330_7272650",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260330_7272650.html",
+   "question": "咨询聚祥道（雅润路—二八公路）道路工程的建设情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260327_7271293",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260327_7271293.html",
+   "question": "阶梯票价线路更改计费模式，出现了一些问题，比如计费不准，支付不方便等，如何解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260327_7271291",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260327_7271291.html",
+   "question": "Z4线第九大街站到新城段的施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260327_7271290",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260327_7271290.html",
+   "question": "Z2线目前的施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260327_7271288",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260327_7271288.html",
+   "question": "和平区营口道路段最近交通不畅，可否完善路面标志等交通设施？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270419",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270419.html",
+   "question": "地铁8号线长泰河东站能不能在居民区附近设置出入口，方便乘坐？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270417",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270417.html",
+   "question": "1.学府中路两侧人行便道何时开工铺设？2.新风道何时完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270414",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270414.html",
+   "question": "生态城瑞龙南苑小区围栏毁坏严重，业主安全得不到保证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270413",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270413.html",
+   "question": "我是生态城临海新城的居民，便民市场将搬迁，民生配套缺失？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270410",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270410.html",
+   "question": "雅居乐三期项目什么时候可以复工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270046",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270046.html",
+   "question": "洞庭路往外环线方向，珠江道—浯水道占道施工结束时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270036",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270036.html",
+   "question": "四家春晓和和慧南路校区北面交口的口袋公园何时建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270033",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270033.html",
+   "question": "中昂安纳西小镇周边道路及规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260326_7270031",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260326_7270031.html",
+   "question": "汇才道施工计划？何时通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260324_7268584",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260324_7268584.html",
+   "question": "香山道中学门口的成林道，道路坑坑洼洼，道路损坏严重，是否可以维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260324_7268579",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260324_7268579.html",
+   "question": "天拖板块五马路小学已经动工，什么时候可以建好呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260324_7268578",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260324_7268578.html",
+   "question": "静海弘泽客运报站功能有问题？是否可以开通刷卡机支付功能？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260324_7268572",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260324_7268572.html",
+   "question": "城投华润理想之城和雅居乐津桥小镇高中对应的学校有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267208",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267208.html",
+   "question": "海洋科技园便道补建将何时开工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267200",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267200.html",
+   "question": "天津新鸥鹏教育城旁边的学校何时复工？旁边新建的幼儿园是什么幼儿园，何时投入运营？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267196",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267196.html",
+   "question": "天拖保阳道南侧，天拖公园相邻东侧地块多年荒废，可否续建为公园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267193",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267193.html",
+   "question": "事业单位人员退休当年，可休带薪年假日期如何计算？如果未休，未休年假补贴如何计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260323_7267185",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260323_7267185.html",
+   "question": "2026年度还有131创新人才计划申报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260319_7265457",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260319_7265457.html",
+   "question": "请问Z4线北段科技大学站围挡何时拆除以恢复车道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260318_7264579",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260318_7264579.html",
+   "question": "环宇道为什么迟迟不能通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260318_7264577",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260318_7264577.html",
+   "question": "挨着和顺家园的那条用铁皮挡着的道路为何迟迟不给开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260318_7264576",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260318_7264576.html",
+   "question": "开发区西区春华路和新环北街交口，因没有红绿灯和管控措施，下班期间道路通行混乱且拥堵，希望能 在此处安装红绿灯或采取其他有效管控措施，以缓解道路拥堵。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260318_7264574",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260318_7264574.html",
+   "question": "造甲大集田园大集办得挺好，就是集市5天一次，其余时间和晚上大片空地有点浪费了，可不可以摆点健身运动设施呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260317_7263728",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260317_7263728.html",
+   "question": "宸澜华庭小区已交房好几年，南侧路段一直没有维修。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260317_7263727",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260317_7263727.html",
+   "question": "咨询纪庄子北道环湖中路到环湖东路路段的施工问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260317_7263724",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260317_7263724.html",
+   "question": "微山路和赤水东道交口地处河西区和津南区交界，赤水东道被微山路拦腰截断，致使周边居民生活极其不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260317_7263723",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260317_7263723.html",
+   "question": "请问津南区近年是否有招募人民陪审员的计划？如有大概会在什么时间、什么平台发布?如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260317_7263712",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260317_7263712.html",
+   "question": "在办理外埠车辆转入天津的过程中，能否使用12123 APP上的电子行驶证办理业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260316_7263049",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260316_7263049.html",
+   "question": "由武清城区和前进道外环开往福源道（南东路西侧）方向，每个工作日早上存在大流量车流，存在严重拥堵，建议新安路和雍福道交口处设定红绿灯疏导交通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260316_7263048",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260316_7263048.html",
+   "question": "京华东道附近区域是工业区还是荒地？是否有规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260316_7263047",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260316_7263047.html",
+   "question": "距离 2024 年 11 月的入户调查已经过去一年多了，请问杨柳青农场腾迁公告会在 2026 年 公 示吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260316_7263046",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260316_7263046.html",
+   "question": "咨询华山道车辆段目前的施工进度，以及2027年是否与Z2线同步投入使用？以及首列车何时到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260313_7261828",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260313_7261828.html",
+   "question": "津南区辛庄镇锦绣家园没有门禁系统，居民安全得不到保障？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260313_7261823",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260313_7261823.html",
+   "question": "东丽区金钟街道金地万悦城一期东侧规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260313_7261819",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260313_7261819.html",
+   "question": "津南区南华路保利时代小区东边道路何时开通？菜市场选址在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260312_7260756",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260312_7260756.html",
+   "question": "请问小学入学什么时间报名？如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260312_7260753",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260312_7260753.html",
+   "question": "嘉畅园小区道路和公共休闲区域木质座椅破损，何时修复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260312_7260749",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260312_7260749.html",
+   "question": "2026年天津初级注册安全工程师报考时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258119",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258119.html",
+   "question": "八号线六里台站的施工进展？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258117",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258117.html",
+   "question": "静海区华康街道南海道什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258115",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258115.html",
+   "question": "塘沽图书馆升级改造进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258113",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258113.html",
+   "question": "东丽区新立街惠山道幼儿园何时移交？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260309_7258111",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260309_7258111.html",
+   "question": "1. 3、7号线天塔站地下换乘通道和1、7号线海光寺站地下换乘通道建设进展？2.海光寺站卫津路东侧出入口工地围起来在进行什么施工？3.11号线迎宾馆站东侧D口何时投用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260306_7257110",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260306_7257110.html",
+   "question": "天津医科大学公交新校区公交站设置不合理，建议在鄱阳湖路和团泊大道路口处，或在团泊大道上增设站点，方便乘客换乘。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260306_7257108",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260306_7257108.html",
+   "question": "我是津南区辛庄镇首创喜悦小区的居民，小区西门外的鑫盛路（建明道路口至天津大道段）作为居民出行的必经之路，长期以来路面状况堪忧。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260306_7257107",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260306_7257107.html",
+   "question": "近期听闻翡翠大道地块教育用地学校因学位充足，不再批准建设，请问消息是否真实？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260306_7257105",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260306_7257105.html",
+   "question": "武清二院新建的停车场环境太差了，刮风天尘土飞扬，将来下雨肯定一地泥水，不仅无法停车，也影响附近环境，建议将停车场进行硬化。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260305_7256438",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260305_7256438.html",
+   "question": "浩江道建成已经6-7年了，但解放南路与浩江道交口一直处于封闭状态，请问为何一直不开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260305_7256435",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260305_7256435.html",
+   "question": "楼山道至变电所路这段路啥时候能修好啊？还有一节没有路灯，这条路每天接送孩子上下学特别费劲。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260305_7256434",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260305_7256434.html",
+   "question": "团泊西万达自在澜湾三期目前还剩4栋楼没有建成交付，请有关部门询问建设单位以及施工单位后，给予回复一下准确的复工时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260304_7255257",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260304_7255257.html",
+   "question": "南开学校敬慧路校区至开放大学路段，开放大学正门、开放大学西侧路口，两侧交叉道口路沿石没有缓坡，造成送学和放学时非机动车不能顺畅通行，被迫在公路上与机动车混行，增加交通安全风险，严重影响道路通行效率。建议主管部门着眼孩子老人安全和交通效率，对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260304_7255255",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260304_7255255.html",
+   "question": "北新玉龙湾北门路段多处路面塌陷，开车跟过山车似的，请问是否可以对路面进行维修？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260304_7255249",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260304_7255249.html",
+   "question": "我是2026年即将毕业的非全日制研究生，读研期间有单位缴过职工社保，但已离职，请问还能不能以应届身份报2026年的事业编考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260303_7254286",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260303_7254286.html",
+   "question": "辛沽道和国昌路到底交付没交付？交警队说没交，住建委说交付了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260303_7254282",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260303_7254282.html",
+   "question": "2026年津南区有没有招聘辅警的意向？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260303_7254280",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260303_7254280.html",
+   "question": "请问武清盛世睿园、盛世颐园等小区会划片到南东路中小学吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260302_7253369",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260302_7253369.html",
+   "question": "8号线土城站是与1号线的换乘车站，规划图显示该站与1号线车站之间有两条换乘通道。请问位于解放南路东侧的换乘通道是否还会继续建设？如果开工建设，现有土城站D出入口是否需要关闭改造？7号线金纬路站、中山路站何时开始进场施工？中山路站作为3号线与",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260302_7253366",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260302_7253366.html",
+   "question": "怒江道自24年封闭以来一直未有实质进场施工，请问建设进展以及何时能够开通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260302_7253364",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260302_7253364.html",
+   "question": "我是天津市空港经济区二期的住户，在我小区附近有个水系公园已经很久没有看到施工人员动工了，塑胶跑道也没有铺，请问该水系公园施工是暂停了么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260302_7253358",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202603/t20260302_7253358.html",
+   "question": "中海天嘉湖项目配套幼儿园项目是否已经移交完成？26年9月份能否招生入园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260228_7252669",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260228_7252669.html",
+   "question": "胡家园街道滨湾万科城中三路已招标，什么时候可以开始建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260227_7251939",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260227_7251939.html",
+   "question": "紫金山路（快速路至郁江西路段）道路西侧世纪新城公交站前，非机动车道有一处地面明显沉降，骑自行车和电动车路过会有明显颠簸，建议对沉降地面进行修补。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260227_7251938",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260227_7251938.html",
+   "question": "高新区企业如何线下查询和打印公司章程？需要准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260227_7251937",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260227_7251937.html",
+   "question": "文化中心站地下换乘通道建设进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260226_7251086",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260226_7251086.html",
+   "question": "天津南站扩站动工时间定下来了吗？本次提质扩容的具体内容？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260226_7251080",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260226_7251080.html",
+   "question": "关系到泓丽花园和荣锦园两个小区约2000余户居民的出行，华康街道南海道什么时候通车?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260224_7249269",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260224_7249269.html",
+   "question": "熙悦北苑南门阳名道何时完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260224_7249267",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260224_7249267.html",
+   "question": "和邻南门两侧道路违停现象频出，可否加装电子监控设备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260214_7247758",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260214_7247758.html",
+   "question": "武清区通途客运的车现在还是用个人码收款，怎么不安卡机呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260214_7247756",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260214_7247756.html",
+   "question": "津围线与大黑路火车道西侧道路严重损坏，能不能从根本上解决问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260213_7246719",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260213_7246719.html",
+   "question": "西青区精武镇文化公园的青阅书苑图书馆何时能正常开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260213_7246712",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260213_7246712.html",
+   "question": "咨询2026年春节假期（2月16日至2月22日）天津公交570快线是否正常运行？首末班时间是否调整？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260213_7246710",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260213_7246710.html",
+   "question": "滨海高新区的114路过年期间发车时间表有吗？发车时间有变动吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260212_7245698",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260212_7245698.html",
+   "question": "东丽湖耀华中学目前高中部大楼快封顶了，初中部什么时候开始建设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260212_7245696",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260212_7245696.html",
+   "question": "阳光佳苑一期门前的市政道路什么时候正式完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260212_7245695",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260212_7245695.html",
+   "question": "学府工业区土地规划咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260212_7245694",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260212_7245694.html",
+   "question": "咸水沽第八小学目测已经施工完毕，何时正常招生？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260211_7244758",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260211_7244758.html",
+   "question": "1.杉杉奥莱在规资局规划中设置有2期，请问2期有建设时间了吗？2.光启商业综合体现在是否复工了？3.张家窝镇引入开市客超市有无进展？4.南站科技商务区有无新项目洽谈？目前南站东侧商业用地有无新开发计划？5.天津南站何时扩建？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260211_7244756",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260211_7244756.html",
+   "question": "北辰区经济开发区原轧钢厂那片空地，未来有没有什么规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260211_7244754",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260211_7244754.html",
+   "question": "东丽区万新街东城家园小区每年供热季暖气都不热。究其原因就是小区管道老化，暖气管道常年锈蚀，早应该更换，希望有关部门解决一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260210_7243821",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260210_7243821.html",
+   "question": "小区物业消防工程招标、应急资金使用的公告在哪里能查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260210_7243819",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260210_7243819.html",
+   "question": "海洋高新区吾悦广场旁边的景观树及云山道两侧的几个花坛灯，晚上长期关闭。作为景观照明设施应该在固定时间开启，一是方便附近居民夜间通行，同时也能提升该片区的景观美化效果，快过年了附近人流量越来越大，望有关部门改善。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260210_7243816",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260210_7243816.html",
+   "question": "关于东丽湖文旅产业的咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260209_7242303",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260209_7242303.html",
+   "question": "咨询滴滴出行App天津新出租功能。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260209_7242299",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260209_7242299.html",
+   "question": "公交327路和公交340路合并方案什么时候执行?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260209_7242292",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260209_7242292.html",
+   "question": "静海区良王庄乡四小屯村静霸线堵车严重，有加宽的规划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260207_7241478",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260207_7241478.html",
+   "question": "可否在海馨园小区空地多建些充电设备？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260206_7240676",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260206_7240676.html",
+   "question": "B1线北段2027年底开通时，塘沽站如何规划？是否与9号线实现站内换乘？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260204_7239522",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260204_7239522.html",
+   "question": "津北公路拓宽项目何时动工？道路两旁可否增设路灯？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260203_7238755",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260203_7238755.html",
+   "question": "（1）美的云熙府北侧和东侧空地规划？（2）配套商业中建福邻荟计划何时开业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260203_7238752",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260203_7238752.html",
+   "question": "兆和园小区对面空地规划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260203_7238748",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260203_7238748.html",
+   "question": "可否在响螺湾月亮岛附近规划桥梁？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260202_7237831",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260202_7237831.html",
+   "question": "海泰高新区发展一道与发展三道之间的支路何时修通？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260202_7237829",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202602/t20260202_7237829.html",
+   "question": "滨海新区道路一些破损，可否修复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260130_7236469",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260130_7236469.html",
+   "question": "建议东海路与原会展中心之间的绿化带在中间增加人行道路，改善行人步行环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260130_7236465",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260130_7236465.html",
+   "question": "强国道至前进道运河西侧堤顶道路，是什么单位负责管理？是否可用于机动车通行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260130_7236462",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260130_7236462.html",
+   "question": "期望海洋高新区“PK”大厦能早日投入使用，带动高新区信创产业发展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260129_7234708",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260129_7234708.html",
+   "question": "张家窝镇域内融侨方圆北门的博华道（望湖路至高泰路段）看着已经修好了， 希望能尽快通车！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260129_7234706",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260129_7234706.html",
+   "question": "曹庄地铁站作为终点站，来往人员密集，为什么这么多年B口那里一直没有照明，漆黑一片？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260129_7234702",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260129_7234702.html",
+   "question": "天津地铁3号线通往南站方向客流量极大，急需增加车辆，缩短间隔。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260128_7233846",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260128_7233846.html",
+   "question": "咨询物业费相关问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260127_7233142",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260127_7233142.html",
+   "question": "咨询雍顺路西侧道路工程进度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260127_7233141",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260127_7233141.html",
+   "question": "请问对南口路9号院有什么规划？此处为老龄化楼房，老人较多，出行不便。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260127_7233139",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260127_7233139.html",
+   "question": "津港公路向储珍道左拐的信号灯时间非常不合理，只有十几秒的时间，早晚高峰左拐车辆流量很大，每次只能通行三五辆车，导致从芦北公路交口至储珍道交口处的道路正常行驶通行需要十几二十分钟。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260126_7231980",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260126_7231980.html",
+   "question": "反映静海区交通集团公交车问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260126_7231979",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260126_7231979.html",
+   "question": "G112国道（芦台农场段）拓宽计划最新进展是什么？是否有实际落地计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260123_7230698",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260123_7230698.html",
+   "question": "是否可以在滨海国际机场附近规划观景台？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260123_7230691",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260123_7230691.html",
+   "question": "永太路至河南路有一部分道路施工，何时通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260123_7230688",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260123_7230688.html",
+   "question": "团泊大道西侧能不能规划便民菜市场或建设小型超市？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260123_7230687",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260123_7230687.html",
+   "question": "空港二期弘昌道以南商业配套？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260123_7230686",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260123_7230686.html",
+   "question": "东丽万达与百郦荣锦苑之间的空地有什么规划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260122_7229835",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260122_7229835.html",
+   "question": "塘汉路新建高架桥预计多久完工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7228630",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7228630.html",
+   "question": "天津南站扩建工作何时开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7228627",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7228627.html",
+   "question": "泓丽花园附近南海道、东海道施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7228624",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7228624.html",
+   "question": "铁东北路高架桥通车后，桥下辅路何时通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7228619",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7228619.html",
+   "question": "天津2026年国补细则什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7227993",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7227993.html",
+   "question": "武清区六力学校是否有民转公计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7227991",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7227991.html",
+   "question": "退役士兵易地安置到天津首先符合什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260121_7227990",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260121_7227990.html",
+   "question": "滨海新区地铁B1线建设施工进度？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260120_7226972",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260120_7226972.html",
+   "question": "天津市北辰区天穆镇王庄村拆迁改造项目进度如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260120_7226971",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260120_7226971.html",
+   "question": "海洋科技园海缘路、智祥道的便道补建项目何时开工？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260120_7226969",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260120_7226969.html",
+   "question": "静海区禹州尊府小区公厕，类别为一类公厕，为何长期关闭？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260116_7225230",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260116_7225230.html",
+   "question": "南开三纬路天桥东北侧楼梯迟迟不开放，希望尽快将此楼梯投入使用并拆除东南侧楼梯，将陞安大街公交站东侧站台恢复原位。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260116_7225226",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260116_7225226.html",
+   "question": "天津公交已有部分阶梯票价线路实现上下车刷卡，目前还有156、458、459专、471、478、479、589、672、678、706、710、710区、727、730、734这15条线路没有升级上下车刷卡，请问这15条线路什么时候全部升级上",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260115_7224453",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260115_7224453.html",
+   "question": "咨询地铁Z4线通车情况。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260115_7224451",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260115_7224451.html",
+   "question": "在失业保险金领取到期后仍未找到工作，是否可以领取失业补助金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260115_7224450",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260115_7224450.html",
+   "question": "本人已拿到了C1驾驶证，最终想拿到A1驾驶证，请问怎么考最快捷？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260115_7224449",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260115_7224449.html",
+   "question": "北塘街九里晴川小区天禄苑东侧(玄武湖路与阳澄湖路中间)，中石化加油站旁的空地，政府有什么规划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260114_7223319",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260114_7223319.html",
+   "question": "宝坻区北城东路宝坻一中东侧、宝坻十一中西侧地块一直围着围挡没有建设，请问这块地的规划用途是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "tj-hdjl",
+   "id": "t20260114_7223315",
+   "url": "https://www.tj.gov.cn/zmhd/wmfkxd/202601/t20260114_7223315.html",
+   "question": "津南区双林街南兴路路面破损，存在安全隐患。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

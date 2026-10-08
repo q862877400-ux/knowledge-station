@@ -1,0 +1,1896 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-ylbzj",
+   "id": "27646523",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27646523",
+   "question": "请问医保个人账户部分金额可以用于个人体检和一些特需服务项目吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家医保局财政部关于建立医疗保障待遇清单制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27593224",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27593224",
+   "question": "您好，请问贵州省女员工如果是剖腹产生育，在享受158天产假之外，是否可以额外新增15天产假。还请给予准确答复，并告知所参考的法律法规，感谢！",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省人口与计划生育条例修正案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-ylbzj",
+   "id": "27755401",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27755401",
+   "question": "1、请问黔医保发〔2025〕16 号分娩住院按普通住院支付，是否废止各市州生育单病种付费？； 2、支付方式改革（单病种）政策与2025年11月1日执行的全省居民统一待遇标准文件是否并行有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一贵州省城乡居民基本医疗保险待遇保障政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27744320",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27744320",
+   "question": "请发一份贵阳市最新的医保服务价格工具书",
+   "cited_hits": [],
+   "cited_missing": [
+    "省医保局关于印发《贵州省基本医疗保险医用耗材目录（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27715489",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27715489",
+   "question": "请问今年新版的中医治疗服务项目中，每天中医治疗是否有几种的上限（门诊和住院是否一样的限制？）？还有特殊穴位针法每天限几穴？挑治每次限几个部位，这些有具体文件解释吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省医保局关于执行国家新版中医五类医疗服务价格项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27704401",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27704401",
+   "question": "老师您好，想咨询下贵州省中药饮片医保码是否需按炮制规范区分。如炮制规范为《四川省中药饮片炮制规范》2015年版的白花蛇舌草，能否使用贵州省三目录内的医保码T120200931或T520200931、炮制规范为《中国药典》1977年版一部的煅",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基本医疗保险、工伤保险和生育保险中药饮片目录",
+    "贵州省基本医疗保险、工伤保险和生育保险中药饮片目录",
+    "贵州省基本医疗保险、工伤保险和生育保险中药饮片目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27652703",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27652703",
+   "question": "以办理慢特证并注明定点医院为黔西南州人民医院，在黔西南州人民医院如何申请特药？请列明最新贵州省以及黔西南州关于特药申请条件及流程的制度文件或者政策依据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省医疗保险特殊药品用药条件认定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27608665",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27608665",
+   "question": "贵局好： 今日望见湖南长沙将试管婴儿8个项目纳入医保报销范围，遂到此询问目前我省对于试管婴儿纳入医保的有关政策。希望能快快普及，解决想生不能生的问题，也是解决我省老龄化人口问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27607405",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27607405",
+   "question": "我了解到我们贵州隔壁省湖南、重庆、四川针对试管婴儿手术都纳入医保报销范畴，想咨询我们贵州何时出台相关政策以减轻家庭负担，做试管前前后花费了所有积蓄。（因身体原因）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27606335",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27606335",
+   "question": "尊敬的领导您好！终于在9月份迎来了贵州辅助生殖纳入医保的好消息，我作为一名贵州已婚女士，希望能对辅助生殖报销问题提一些建议 ，第一我希望能在贵州政府经济允许的情况下尽最大努力提高报销比例和项目，第二因为很多女性在检查出很难自然受孕成为宝妈时",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27606275",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27606275",
+   "question": "贵州什么时候才能将试管婴儿纳入医保。真的想要孩子都快想疯了，中西医都看过了一直没有希望。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27604205",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27604205",
+   "question": "请问医疗机构中药代煎服务收费标准是什么？中药汤剂每剂收费多少元？中药膏剂每剂收费多少元非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放开、下放第一批省级政府定价项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27601251",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27601251",
+   "question": "希望贵州能尽快将试管婴儿纳入医保，真的想要孩子都快想疯了，中西医都看过了一直没有希望，搞的家都快保不住了，想要孩子的生不起，不想要的接二连三去做人流",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27600381",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27600381",
+   "question": "国家卫健委等17部门印发的《关于进一步完善和落实积极生育支持措施的指导意见》提出，“指导地方综合考虑医保（含生育保险）基金可承受能力、相关技术规范性等因素，逐步将适宜的分娩镇痛和辅助生殖技术项目按程序纳入基金支付范围”。据了解，截止2024",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27595810",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27595810",
+   "question": "尊敬的工作人员： 您好！我爱人在贵阳仁爱医院做了输卵管疏通手术，因为我们现居住在县里，术后询问县级医院主任医生，是否能进行医保报销，县级医院回复的是能进行医保报销，但是贵阳仁爱医院说的是此手术属于什么孕前手术不属于国家报销范围内，对此我深感",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见",
+    "辅助生殖类医疗服务价格项目立项指南（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27595434",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27595434",
+   "question": "尊敬的贵州省医疗保障局： 作为民营医院，能否执行“(新修订)贵州省基本医疗保险诊疗项目及医疗服务设施目录价格标准（暂行〕（毕节市整合版〕”的项目收费标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放开、下放第一批省级政府定价项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27584208",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27584208",
+   "question": "贵州省医保医用耗材库将于2023年9月30日起暂停受理维护申请。暂停之前已入库耗材收费、新医用耗材维护受理启动时间是否已经启用，如果还未启用，预计启用时间？感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医疗保障局关于做好基本医疗保险医用耗材支付管理有关工作的通知",
+    "关于暂停医保医用耗材库维护受理的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27582065",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27582065",
+   "question": "我经患病经州医保局同意后到广州治疗，在治疗中医生开了吗替麦考酚酯胶囊服用，出院后也开了该药回家服用。但在报销时医保局认为我没有服用资格拒绝报销该药品的费用，让我到医院申请用药资格，而医院拒绝申请，况且在《贵州省医疗保险特殊药品用药条件认定表",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州 省医疗保障局关于做好基本医疗保险特殊药品使用管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27580358",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27580358",
+   "question": "您好！我这边是医用耗材生产企业，想请问一下贵州省的耗材挂网流程？是否直接在招采子系统提交产品信息就可以了？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医疗保障局关于做好基本医疗保险医用耗材支付管理有关工作的通知",
+    "关于暂停医保医用耗材库维护受理的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27576336",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27576336",
+   "question": "老师，目前全国各地均在推进辅助生殖纳入医保范畴，请问贵州地区目前推进哪一步?预计相关政策的推出时间可否告知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27572703",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27572703",
+   "question": "请问贵州试管婴儿什么时候纳入医保？长护险什么时候才会贵州所有市州都有？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27543234",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27543234",
+   "question": "你好，我是医学检验中心工作人员，想要一份最新的《贵州省基本医疗保险诊疗项目及医疗服务设施目录（暂行）》、《贵州省城镇职工基本医疗诊疗项目、服务设施目录》（变动注释版）。以前服务项目都可以在医疗保障局官方网站查询，现在查询不了了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基本医疗保险诊疗项目（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541419",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541419",
+   "question": "随着三胎政策的出台，我们老百姓的生育需求大大增加。但是摆在我们面前的最大拦路虎就是现在许多适婚年轻人因各种因素导致不孕不育，只有通过试管才能可能满足当父亲或母亲的愿望。据不完全统计：全国约15%夫妇面对生育困难，即每6对夫妇就有一对不育。因",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发城镇职工基本医疗保险诊疗项目管理、医疗服务设施范围和支付标准意见的通知",
+    "关于印发贵州省城镇职工基本医疗保险诊疗项目管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27536705",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27536705",
+   "question": "你好，老师，我生育保险2016年11月开始工作，五险一金也缴费了6年，21年结婚，2022年8月查出怀孕一个月，2022年10月去医院检查胎儿停止发育，当时在当地医院做了滑稽流产手术，有住院证明。出院后医生和公司人事都没有提醒我可以报生育津",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育保险待遇申领表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27518020",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27518020",
+   "question": "请问贵州省医疗服务收费标准总表哪里下载",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于放开、下放第一批省级政府定价项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27517969",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27517969",
+   "question": "本人因身体原因，需要辅助生育技术生育小孩，目前已经自费费用几万元还未成功怀孕，本人有2个问题想要咨询：1.咨询一下我们省2023年是否有计划将辅助生育纳入医保报销范围，让我们这类人群可以减轻一些资金负担；2.在医院就医期间，相关辅助生育药品",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发城镇职工基本医疗保险诊疗项目管理、医疗服务设施范围和支付标准意见的通知",
+    "关于印发贵州省城镇职工基本医疗保险诊疗项目管理暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27504182",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27504182",
+   "question": "你好，根据黔医保发【2021】31号关于《贵州省医疗保障局关于公布2021年第一批新增、修订医疗服务价格项目的通知》文件，新增项目自行测算单价，试行期一年，我们已经试行超过时间了，请问这个文件大概什么时候定价？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省医疗保障局关于公布2021年第一批新增、修订医疗服务价格项目的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27498167",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27498167",
+   "question": "医保关系跨省转移接续申请跨省转入，提交申请后显示调用转出地校验规则校验失败，请问是什么意思，需要怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "基本医疗保险参保缴费凭证",
+    "基本医疗保险参保缴费凭证",
+    "参保凭证",
+    "参保凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27494571",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27494571",
+   "question": "我母亲在贵州省第二人民医院诊断为“躯体化障碍”，出院后每天吃药控制病情，缴纳的农村合作医疗，现在门诊开药的费用无法报销，该病是否可以纳入慢性病的范畴，如果属于慢性病如何办理才可以报销门诊的费用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "省医保局关于进一步规范慢特病门诊保障制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27493578",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27493578",
+   "question": "请问2023年我省80周岁以上老年人需要缴纳合医吗？是全省一个政策，还是各市州不一样？盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人民政府办公厅关于健全重特大疾病医疗保险和救助制度的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-ylbzj",
+   "id": "27772349",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27772349",
+   "question": "尊敬的贵州省医疗保障局领导您好； 本人参保地凯里市，确诊复发‑缓解型多发性硬化，肢体一级重残 。长期需要使用奥法妥木单抗特药治疗，目前针剂可以走双通道报销，但核磁复查、细胞检测、氨吡啶缓释片等门诊检查和口服药物，不在报销范围，家庭医疗支出压",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27768799",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27768799",
+   "question": "您好，在网上能查到的最新的贵州省医疗服务价格文件还是2003年的。文件号是黔价费（2003）127号文。后续在贵州省医疗保障局上查到了很多增补通知和映射表，因为这种补丁文件是持续的，不是一次性下发的，对应某种医疗收费有些混乱，首先建议更新或",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27657966",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27657966",
+   "question": "我想咨询一下灵活就业医保是不是只有贵阳市才可以参保，黔西南州可以办理灵活就业医保吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27642013",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27642013",
+   "question": "你好，我想咨询一下目前为止，收否能在贵州省内进行二尖瓣钳夹修复手术，如果可以使用，是用什么收费项目进行收费，如果不能的话，是因为什么原因导致，接下来大概要到什么时候才能开展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27641580",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27641580",
+   "question": "请问贵州省六盘水市六枝特区的生育津贴怎么领 生育津贴怎么计算的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27633447",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27633447",
+   "question": "你好，我想咨询关于公司缴纳职工医保需要对城乡居民医保进行停保，城乡居民医保未使用过，停保后城乡居民医保的费用的退费流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27629565",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27629565",
+   "question": "请问，因为入职公司，要把城乡居民医保停保，是只能线下停保吗？ 如果只能线下，我应该去哪里？除了身份证还需要带哪些证件文件嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27628479",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27628479",
+   "question": "请问一下，剖腹产后多久可以提交资料申请生育津贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27624607",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27624607",
+   "question": "2024年1月离职，3月份办理灵活就业，补交了二月份医疗保险，11月生小孩，请问可以报销生育保险吗？离职之前公司连续交了四年的社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27621645",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27621645",
+   "question": "贵州省医疗保障局领导，您好！好消息贵州省已将试管婴儿纳入医保了。请问一下在异地试管能不能报销？或回贵州报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27617517",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27617517",
+   "question": "请问社区工作者（居委会工作人员）在符合生育津贴申领条件的情况下，是否可以领取了生育津贴后，同时领取产假期间工资？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27617379",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27617379",
+   "question": "你好，我想咨询一下关于社保的问题，我在省外单位交了社保，老家里的医保还用交吗，以后不在省外上班了，回老家发展，社保是否需要转移，家里医保断缴后 从省外转回来是否还可以正常使用 望回复 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27615881",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27615881",
+   "question": "尊敬的工作人员： 您好！我想咨询一下省外户籍是否能在贵州缴费农合医保？且缴费后在贵州是否能正常使用？望回复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27613198",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27613198",
+   "question": "您好我交的贵阳市云岩区的职工社保，因工作调动外地工作一段时间现回贵阳怎么才能使用生育门诊报销的1200元，我老家在四川要回四川生育，生育费用和生育津贴该如何报销，需要提供哪些具体的资料，如果我使用四川的新农合报销生育住院费用，还能否领取生育",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27612783",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27612783",
+   "question": "我儿子今年考大学，在贵阳读书，他的医保一直在都匀缴纳，明年的医保需要在贵阳缴纳还是在都匀缴费也可以。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27608884",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27608884",
+   "question": "请问领取生育津贴是必须连续缴纳6个月吗？本人于2023年10月开始缴纳职工医保，到2024年9月生产，中间断交过两个月20241-20242可以领取吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27608224",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27608224",
+   "question": "本人之前是黔东南地区城乡居民医保（因为要参加职工医保，这个月停保了），这个月参加了贵阳市的职工医保（已经缴费成功），我想咨询下职工医保统筹待遇什么时候生效。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27607128",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27607128",
+   "question": "请问门诊慢特病就诊产生的哪些医疗费用可以报销？在慢特病定点医疗机构进行慢特病相关的检验、门诊静脉输液、口服药物都可以报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27607036",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27607036",
+   "question": "小孩子患过敏性紫癜，到公立医院治疗不好，后转到贵阳丽肤皮肤科医院治疗，但该院不是医保定点单位，治疗全自费，请问这种现象我们交医保还有意义吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27606799",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27606799",
+   "question": "你好！ 由于我现在在新疆读大学，大学里面要求在新疆本地缴费医疗保险，需要我停城乡医保，由学校缴纳医保。 请问如何办理城乡医保停保事宜？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27606063",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27606063",
+   "question": "你好我想咨询一下，生育登记以后有一个1200的额度，从孕初我就开始关注金额的变动，直到现在已经21周了，额度为什么没有使用情况？这金额到底是可以报销到哪些项目上去？费用比较贵的小排畸 nt 大排畸都做过了没有报销过，难道这额度是用在之后胎心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27604399",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27604399",
+   "question": "您好 我想咨询一下 我失业金领取是从2023年12月到2024年11月共12个月 是不是我在今年12月去办理灵活就业医保就不会断保 因为我还在怀孕期间 预产期正好11月15号 是否可以领生育津贴？ 生育津贴怎么算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27600093",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27600093",
+   "question": "请问一下，在产假期间单位发放基本工资，其余工资部分未发放，能领生育津贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27600025",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27600025",
+   "question": "您好，我是检验机构工作人员！关于2024年5月16日发布的“省医保局关于公开征求部分医疗服务价格项目政府指导价意见的通告”，什么时候发布该批医疗服务项目的正式的价格？现在各地收费参差不齐，患者投诉事件时常发生，恳请省医保局统一标准！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27599940",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27599940",
+   "question": "老师您好，我公司在贵安新区缴纳医保，1我公司一男同事配偶无职工医保，但有新农合，请问这种情况其配偶生育，男职工可以报销哪些费用；其配偶已用新农合报销了一部分住院费，还可以报销哪些费用？2我公司一女同事生育，医院说到时候住院相关费用可以全部报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27599880",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27599880",
+   "question": "您好，因贵州省医保医用耗材库正在维护，暂停使用，所以无法申请耗材收费编码，导致医院购买设备后无法使用配套耗材，请问医保医用耗材系统预计什么时候开通？如像其他咨询信件答复2024年下半年开通的话，预计是几月份。感谢答复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27598988",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27598988",
+   "question": "医保局领导 &nbsp; &nbsp; &nbsp; &nbsp; 您好！据悉新农合参保全省通用，我在毕节市赫章县参保，在清镇市就医门诊费用不予报销，确定下新农合是否全省通用？全省通用仅仅针对住院还是包含门诊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27598861",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27598861",
+   "question": "贵州省医保医用耗材库于2023年9月30日起暂停受理维护申请，请问预计启用时间？感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27598848",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27598848",
+   "question": "咨询：我媳妇近一年失业在家，没有正常购买职工医保，只够买了农村合作医疗，马上要生小孩了。我本人在贵阳一直都够购买职工医保的，这种情况下，我能否领导对应的生育补贴？如果有，大概是多少钱？以及什么时候可以申领？盼回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27598629",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27598629",
+   "question": "领取失业金期间，交有医疗保险和生育险，可以申请生育津贴嘛？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27597942",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27597942",
+   "question": "本人应届毕业生，现公司需要缴纳职工医保，农村医保需要停保，但是石阡县医保局电话好几个都是停机的，打了铜仁市12345，给的号码也都是停机的，因为现在无法返回户籍地现场办理，请问该怎么处理这个问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27596869",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27596869",
+   "question": "《职工基本医疗保险参保登记表》 表2职工基本医疗保险参保登记表(参考样表).pdf[示范文本下载] 表2职工基本医疗保险参保登记表(参考范本).pdf （您好、想问一下这个在哪里下载呀、我没找着）申请人可在贵州省医疗保障局指定网站下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27596670",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27596670",
+   "question": "您好！ 请问新生儿已经参保了，为什么职工医保里面家庭共济用不了啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27596664",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27596664",
+   "question": "家中老人去年因脑出血造成偏瘫，其子女在缴纳2025年医保时有什么优惠政策，有的话缴费标准是多少。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27596639",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27596639",
+   "question": "咨询：1.产后42天复查，做的阴道B超、白带化验等项目是否不能医保结算报销，刷医保卡，必须自费现金吗？2.根据文件政策中：产前检查不设起付标准，待遇享受期截至预产期当月。职工医保（含灵活就业人员）产前检查按限额报销，基金支付限额为1200元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27596569",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27596569",
+   "question": "我产前检查的1200已经使用完了，但是我在2023年10月1日之后有3笔产检的费用是自费的，那这几笔费用能进行零星报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27595960",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27595960",
+   "question": "我想请问一下医保局和政府，我在分娩之前医保连续缴纳6个月以上，但是其中有一个月的费用是次月缴纳，属于补缴，但是在分娩之前已经全部缴纳完成，属于情况属于连续缴纳吗？请问这种会影响我的生育津贴吗？我在产假期间也是继续缴纳医保，请问这种可以正常领",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27595722",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27595722",
+   "question": "黔南州生育津贴领取条件及所需才料，如何领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27595301",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27595301",
+   "question": "治疗婴儿痉挛症的氨己烯酸口服溶液用散在贵州的医保报销比例以及报销政策是怎么样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27594750",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27594750",
+   "question": "尊敬的工作人员： 您好！我和我老婆今年年初结婚，现在检查怀孕了，想咨询贵阳市医疗、生育待遇。 1.我老婆现在未就业，只参加了黔南州的居民医保。我之前在四川工作，7月份刚回贵阳工作，7月份在贵阳开始缴纳国有企业职工社保。 2.多久可以享受贵阳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27593374",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27593374",
+   "question": "共济账户以前绑定过但过期了，父母住院后再绑定共济账户就不能再使用医保账户缴纳费用吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27592800",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27592800",
+   "question": "你好，如果车祸责任五五开的情况下，我的责任所产生的医疗费用可否走医保报销。列如:我医疗费共10万元，对方的保险报5万元，我自费的5万元医疗费可以走医保报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27592559",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27592559",
+   "question": "本人在父亲住院前已授权父亲医保共济账户，但在近日办理出院时，医院结账未能使用共济功能。电话医保能查到已绑定共济账户，但医院工作人员无法解决，导致目前无法结账，仅能用现金支付不足部分。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27591545",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27591545",
+   "question": "您好，我想咨询一下医保中关于心脏起搏器的异地报销政策。1.贵州省职工医保关于心脏起搏器安装的报销政策是如何的？2.如果进行异地就医，报销比例等是否会有变化？3.对于本地医疗耗材目录中属于丙类的心脏起搏器如无导线心脏起搏器，如在本地就医是否属",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27589456",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27589456",
+   "question": "我想咨询一下，现在贵州的灵活就业交医保是否含有生育险，如果生小孩以后能不能领取生育津贴，如果要交灵活就业的医保的话，大概每个月需要缴纳多少钱，生育津贴会领取到多少钱，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27589429",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27589429",
+   "question": "我是遵义市的职工医保，我老婆是铜仁市的新农合医保，使用新农合在遵义市看门诊能否报销？住院能否报销？报销比例是多少？若新农合不能使用，是否能够使用我的职工医保共济在遵义进行门诊、住院报销使用？报销比例是多少？目前在遵义市妇幼保健院与医学院工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27589399",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27589399",
+   "question": "您好，我老婆是毕节的，她家是精准扶贫户，目前和我在贵阳刚刚出生一个有先天性疾病的孩子，因为医院治疗费用较高，我想咨询一下像她家精准扶贫户的话孩子可以报销吗，目前我和她还没有领结婚证，属于非婚生子，打算孩子户口暂时上他家，我想请问一下这种情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27589354",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27589354",
+   "question": "您好，我23年在广西参加工作，24年准备回贵州攻读全日制研究生，请问医保关系及账户余额可以转移么？如果可以转移请问需要哪些材料；如果不能转移，广西医保会存在断缴问题，该如何处理呢？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27588260",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27588260",
+   "question": "本人2023年9月开始领取失业保险，2024年5月为领取失业保险的最后一个月，2024年6月11日在开阳县政务大厅以灵活就业身份交了职工医保，本人于2024年6月6日凌晨4点半左右在贵州中医药大学第一附属医院住院进行分娩，2024年6月9日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27587019",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27587019",
+   "question": "你好，我想问一下，我23年12月底合同到期然后失业，1月份申请了失业金，一共发放6个月，但是2月份发了1.2月份两个月的失业金，1月份的医保没有缴上，会视为不连续参保吗？还有医保是给我缴6个月的，还是5个月？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27585965",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27585965",
+   "question": "想了解一下治疗帕金森的DBS手术在贵州遵义余庆的报销比例。 患者是余庆县退休公务员且是退役军人，如果患者在北京协和做治疗帕金森的DBS手术，那报销比例是多少，如何报销？ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27585794",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27585794",
+   "question": "尊敬的保障局领导 您好，请问一下我职工社保交着的，现在需要在贵州医保app上办理生育产前检查登记，上面提示请提供能够证明本人怀孕及预产期的材料，我上传的是母子手册和第一次产检的照片，退回的消息提示我资料不全，咨询一下保障局领导我还需要上传哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27585323",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27585323",
+   "question": "女方三年前上班缴纳的社保，现在没有上班缴纳的农村医保，生一孩没有保险医保，生二孩，可以使用男方职工医保报销吗？女方产假没有报销，生产的时候出院用农村医保报销过一次。剩余的产假和生育保险和津贴可以用男方职工医保报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27585189",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27585189",
+   "question": "2024年4月份，我去到七星关区政务中心办理有关尘肺（非工伤）的医保门诊报销，工作人员告知了我需要的相关材料证明，其中有一个非工伤保险承诺书的材料，工作人员说由于该病申请的人少，上级也没有下发相关模板。而我通过我能去查询的渠道都不能获知该承",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27585112",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27585112",
+   "question": "您好，咨询新生儿医保异地报销相关事宜： 新生儿目前在重庆出生，准备在贵阳南明区落户，并办理新生儿医保，独立参保； 请问是否可以报销在重庆住院治疗期间的费用，报销比例是否和贵阳本地一致，若能报销，需要那些手续（如异地备案？），及具体操作流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27584769",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27584769",
+   "question": "本人在贵州医科大学附属医院看病，医生给开了药之后，用医保支付在单据合并支付环节一直不能成功，本人医保属于省职工医保，一直正常参保，请问是什么原因？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27584281",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27584281",
+   "question": "产检期间发的工资是本人的基本工资吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27584009",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27584009",
+   "question": "请问一下，生育津贴是保险需要交多久才能领？是生产完当日往后推的158天，才能申领吗？申领期间保险能不能断？(已经连续缴纳6个月），是休完产假后就能报销，还是生产后的158天才能报销，钱需要多久下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27582669",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27582669",
+   "question": "我是广西户口，我老婆是甘肃户口，目前我的医保是贵州贵阳白云区医保，请问医保共济可以实现让我老婆在广西南宁刷我的医保买药或者在医院看病吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27582457",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27582457",
+   "question": "咨询：我媳妇原来在单位连续交了13个月，现因怀孕剧吐不能正常上班，如果接着以灵活就业人员参加职工医保可以领取生育津贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27582207",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27582207",
+   "question": "灵活就业人员罹患恶性肿瘤跨省异地就医备案涉及到的相关问题请解答： 1.异地备案后在异地就诊报销比例是否比参保地医院报销比例有所降低？ 2.已经办理了贵州省人民医院的门特，省外异地就医是否还能继续在异地办理门特，同时保留贵州省人民医院的门特？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27582048",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27582048",
+   "question": "请问贵阳市剖腹产产假天数到底是158天，还是158天+15天=173天？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27581959",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27581959",
+   "question": "1：我是息烽县人，现在在贵阳观山湖交有职工医保，需要缴纳多久才能领生育津贴？1：休完产假后离职了，但无缝衔接另外一家公司给我继续缴纳保险，还能领生育津贴吗？3：报销是由上一家公司还是现在缴纳保险的公司？4：上一家公司在产假期间会发放产假工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27581098",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27581098",
+   "question": "本人毕业离校学生，现需缴纳职工社保，显示我的居民医保仍在保，想要办理停保但不知道去哪。电话咨询过相关单位，说去户口所在地街道办事处（头桥社区），但我的实际参保单位（黔灵镇渔安村委会）与户口所在地不一致，想咨询这种情况该去哪个地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27580816",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27580816",
+   "question": "你好，因家人确诊肺腺癌IA3期，已办理门诊特慢病，主治医生开具靶向药伏美替尼用于术后辅助治疗。针对该药在贵网站查到使用条件如下 甲磺酸伏美替尼片 限：1.表皮生长因子受体(EGFR)外显子19缺失或外显子21(L858R)置换突变的局部晚期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27580061",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27580061",
+   "question": "尊敬的领导: 您好！ 我想咨询一下，我交了好几年生育津贴，我媳妇未上班，但是交了农村合作医疗，我可以领生育津贴吗？如果能领，需要在那里办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27577020",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27577020",
+   "question": "尊敬的医保局领导： 我写信向您举报一起涉及贵州医科大学附属医院 ICU 和急诊外科三病房的严重事件。 我的父亲在医院 ICU 期间由于他们的严重不负责任遭受了压疮，然而医院却隐瞒了这一情况，未告知我们家属。之后，他们将我父亲转入急诊外科三病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27577009",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27577009",
+   "question": "妻子合作医疗，买药不可报销，所以开了我的家庭共济，但是不能共享我的医保，刷不了是什么情况呢，是不可以刷还是什么条件不满足",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27576675",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27576675",
+   "question": "家里老人参保的是贵州省铜仁石阡县的居民医保，在苏州长期生活，老人有慢性病糖尿病和高血压，今年3月份咨询医保局的工作人员如何在异地办理慢病资格申请，按照工作人员的指导在贵州医保公众号和贵州省医疗保障局小程序中操作，根本无法进行，病种信息界面中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27576300",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27576300",
+   "question": "你好 请问一下我媳妇，一直正常在交灵活就业医保，和养老保险。已交6个月以上了，可以领取生育津贴吗。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27576028",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27576028",
+   "question": "我是铜仁市沿河县的，想问问，如果在遵义医科大学附属医院住院报销比例是多少呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27575445",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27575445",
+   "question": "领导你好！我想咨询一下生育险如何交付，交多久后能用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27573693",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27573693",
+   "question": "1.美国美敦力起搏器是否纳入医保报销范围？ 2.病人是公务员，如果该起搏器不在医保报销范围内，是否该起搏器能享受遵义市公务员年度医疗补助？（可以享受的条件为：1.住院个人自付费用纳入年度医疗补助报销范围，其中不包含限价材料、床位费的超标自费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27572846",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27572846",
+   "question": "根据病人病情需要，拟开展”布鲁菌病抗体四项“，但经查询贵州省三目录，无此项目；因此，目前不清楚该项目是否能开展？应当如何收费？能否医保报销？现将此问题反馈给贵局，期待贵局的回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27571399",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27571399",
+   "question": "我已经缴纳职工医保了，我城乡居民医保已经停保了，单家人不清楚还是缴纳了城乡居民医保，请问这个费用怎么退",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27571180",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27571180",
+   "question": "关于贵州省医疗保障局文件黔医保发〔2021〕82号省医保局关于制定部分医疗服务项目价格（试行）的通知中价格表第56项椎管内麻醉分娩镇疼，如分娩镇痛实施后，待产过程中如出现必须剖宫产情况，或孕妇/家属主动要求剖宫产情况，后面因剖宫产再次实施椎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27569731",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27569731",
+   "question": "您好： 我想咨询一下婴幼儿接种自费疫苗是否可以使用父母的家庭共济账户支付费用？若可以，请说明具体使用方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27569603",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27569603",
+   "question": "本人毕业离校学生，现需缴纳职工社保，但显示我的居民医保仍在保，请问需要怎么停保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27567620",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27567620",
+   "question": "请问瓮安县新型农村合作医疗2024年报销细则是怎么样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27566553",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27566553",
+   "question": "贵州医疗保障公共服务平台可以查询个人零星报销，在政务大厅医保窗口，可以查询吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27565576",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27565576",
+   "question": "您好，请问异地工作后，通过网上申请，将黔南州本级医保转移到了外地，已经申请成功。 目前贵州医保个人账户余额显示0，但外地医保并没有收到余额的转移。并且医保转移申请进度显示已办理完结。 请问余额的去处是哪呢？办理时限是多久，我该通过怎么样的渠",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27558144",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27558144",
+   "question": "患甲沟炎在门诊挂号治疗，收费处告知城乡居民医保门诊不能使用。查询相关文件未找到关于三级医院门诊是否能使用城乡居民医保的说明。特来信咨询城乡居民医保能在那些医院门诊报销，报销比例分别是多少，具体能报销那些费用（比如那些药品可报销，那些治疗费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27558074",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27558074",
+   "question": "我的医保是贵阳市的，将我的医保和我小孩共济后，去三甲医院给小孩看病，无法使用共济，小孩和我的户口是贵州省晴隆县的，所以想咨询一下是不是异地医保共济以后还是不能使用我的医保账户上的钱？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27556967",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27556967",
+   "question": "你好，我想请问下女职工医保是不是在分娩前连续缴满6个月就能领生育津贴？如果需要分娩前连续缴纳12个月的话，我目前到分娩当月只够10个月，请问差的2个月能以什么方式补缴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27556721",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27556721",
+   "question": "您好，因为我家两个孩子在江苏省常州市第七人民医院生病住院，由于大宝异地备案，小宝没有异地备案，请问大宝回去报销的比例是多少，小宝又是多少呢？常州第七人民医院属于三级医院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27555868",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27555868",
+   "question": "领导好，我的妻子已确认怀孕但尚未建档，为无职业人员，只交了了农村医保。我为单位职工，交了生育险。请问一下我的妻子可以用我的生育险进行产检已经后期的生育住院吗？如果可以，请问一下该怎么操作。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27553892",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27553892",
+   "question": "省外职工个人医保账户是否可以为省内亲人代缴医保费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27552857",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27552857",
+   "question": "您好，想咨询一下贵州省贵阳市级职工生育津贴报销问题 1、生育津贴报销资料（出院小结，住院发票，身份证和出生证复印件等）报销的总额涵盖了产前检查费以及手术费么？如果不涵盖需要在提供哪些资料在何处进行报销申请？ 2、产前检查费用和手术费分别能报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27549862",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27549862",
+   "question": "您好，我想咨询一下，没有工资，怎么样领取生育津贴，领取流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27548719",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27548719",
+   "question": "作为主体，我与女儿绑定为家庭共济。9月23日前往医院就诊，付款时工作人员告知说女儿不能使用家庭共济，原因是我未将女儿与我绑定，询问原因答复不清楚。之前，我们在其他医院多次使用家庭共济账户付款成功过，经过查询，也在授权的有效期内，就不知原因是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27547384",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27547384",
+   "question": "如何辨别查询公司是否为职工个人缴纳了生育险？？因为在多彩宝社保服务里面查看不到生育险的相关信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27547358",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27547358",
+   "question": "我是耗材厂家，想在贵州把耗材产品挂网销售，但是不知道怎么操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27547259",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27547259",
+   "question": "投诉该院收费问题，我是病人家属，我妈妈在贵州医科大学附属肿瘤住院，住院当天因为病情较重，按I级护理，一个病人同一天收两次24小时持续吸氧，护士给家属解释的是病人因为透析，各开各的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27546551",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27546551",
+   "question": "想了解下该如何申请收费，不用再跑到其他省去做手术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27546257",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27546257",
+   "question": "医保参保地变更后，以前绑定的共济账户不能使用了，要怎么样处理才能正常使用共济账户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27546208",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27546208",
+   "question": "我合作社一个农民工砍树受伤住院，他自己交了合医，我合作社也买了商业保险，请问他先去合作医疗报销费用，合医报完剩下未能报销的费用再去商业保险报销合规吗？有没有存在骗保的行为？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27545588",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27545588",
+   "question": "我在贵州医保APP上将孩子共济账户绑定上，绑定的时候提示已经绑定，但是在绑定记录那里又找不到。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27545543",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27545543",
+   "question": "你好！请问下在医院就诊选择做医美项目，能用医保卡个人账户进行支付吗？有没有具体哪一号文件明确医美项目只能现金自付？？？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27545356",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27545356",
+   "question": "您好，就是我之前在成都就职参加了2年的职工医保，现今离职，想将医保关系转移到户籍地施秉县参加2024年的城镇居民医保，请问该怎么转移呢？（大致流程，需要什么手续和材料，是否需要本人到场，是否可以线上办理）另外我2021年在贵阳毕业，2021",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27545241",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27545241",
+   "question": "老师您好！我是省级公益一类事业单位职工，单位正常参加医疗保险。现我单位有一名女职工怀孕预产期大概在2023年12月份。请问一下：1.产前检查费用如何报销？哪些项目不能报销？如何办理报销手续？2.入院生产时如何使用医保？需要注意哪些事项？住院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27545237",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27545237",
+   "question": "老师您好！我是省级事业单位职工，现我单位有一位女同事已怀孕预产期约在2023年12月，已连续参加省级职工医保2年多。想咨询一下：1.产前检查费用如何报销？哪些项目不能报销？除了统筹基金支付后的其他自付部分还能否报销？如果能报销的话如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27544703",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27544703",
+   "question": "我不小心误操作使用安顺市职工医保为毕节市威宁县域内家人代缴费，但家人是重度残疾人，属于特殊人群，需要退费，联系哪个地方部门退费？望协助，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27544605",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27544605",
+   "question": "我公司（武汉百达智美医学科技有限公司），申请纳入贵州医保耗材目录，已经通过贵州省内医疗机构在平台进行了申请。请问审核通过了没？因为客户需求比较急。麻烦告知一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27544570",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27544570",
+   "question": "我的参保地是黔东南且是在保状态，跟我爸的省医保卡绑定了家庭共济，为什么贵州省疾病预防控制中心说参保地不支持？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27544545",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27544545",
+   "question": "咨询本省内跨地级市(州)为什么职工医保不能代缴本家庭成员医保（属于脱贫户）,职工医保为省内是其他地级市(州)的，职工缴纳医保地非户籍地的地州市。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27543945",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27543945",
+   "question": "2023年8月21日，本人将母亲通过贵州医保绑定家庭共济账户并生效后。前往贵州盘江煤电集团有限责任公司医院就医。在结账时，收费窗口人员仅要了母亲的身份证，对于本人的身份证或者医保付款码或者母亲的医保码均没有要求提供，就被告知已完成缴费。后收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27543885",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27543885",
+   "question": "贵州医保APP功能不全，门诊慢特病资格申请界面中，拟定点医疗机构信息无法选择，但其余项目均能正常使用，致使最终无法通过APP办理相关业务，请APP运营方及时调整后台。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27543878",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27543878",
+   "question": "我公司（武汉百达智美医学科技有限公司）是医用耗材生产企业，已经在贵州省阳光采购平台挂网，我产品需要进入医保耗材目录，申请纳入贵州耗材目录范围，已经通过贵州省内医疗机构在平台进行了申请，客户需求比较急，请问怎么到现在还没有通过审核？需要多久时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27542983",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27542983",
+   "question": "咨询下参保地是遵义市务川县在罗甸县跨地区了医保门诊是不可以用的吗?还有就是这个共济账户，同为共济人员为什么黔南的参保地在黔南可以共济遵义的账户，到遵义地区门诊的话医保和共济都不能使用，望解答！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27542972",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27542972",
+   "question": "请问一下黔南州的医保在贵阳市普通门诊就医是否可以使用并直接结算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27542590",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27542590",
+   "question": "最近在查询了解贵州城乡居民医保报销具体内容时，没有找到一个权威且详尽的渠道窗口。电话咨询只是简单说了几句，网上搜索到的信息或老旧或不准确，均未能解决问题。因此想咨询看看官方是否有渠道能提供给市民创新了解，最好是有线上渠道，并且需要包含医保报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27542462",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27542462",
+   "question": "您好！问题1：我在贵州医保上办理了医保共济，将我儿子绑定到我的医保账户后，在妇幼保健院就医时，不能使用我的医保账户余额，医院回复绑定人必须与我在同一参保地（工作人员回复医保共济当前贵阳只是试点，还不能共济给其他参保地），我的参保地是贵阳市，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27542167",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27542167",
+   "question": "主绑人个人账户结余资金使用完之后，主绑人能否使用共济对象的结余资金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541840",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541840",
+   "question": "我妈妈恶性肿瘤，现就医在浙江大学第四附属医院，前期手术刚完成已经消耗5万多块钱，后期还需要放疗和化疗，这个情况有没有大病报销，比例多少，怎么申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541388",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541388",
+   "question": "因我父亲突发急性大面积脑梗，行动不便。请问中医埋针治疗和药棒穴位按摩治疗属于医保范畴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541387",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541387",
+   "question": "因我父亲突发大面积脑梗，行动不便！请问中医埋针治疗和药棒按摩穴位治疗属于医保范畴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541164",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541164",
+   "question": "工作人员您好！上一个关于灵活就业医保疑问的回复已收到，十分感谢。但阅读之后发现在回复中提到灵活就业医保缴纳之后有一段等待期，那如果在等待期中有就医行为，可以使用今年缴纳的居民医保进行报销吗？以及门诊报销是只能在市内报销吗？烦请工作人员回复，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27541076",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27541076",
+   "question": "工作人员您好！近期想给父母把新农合医保更换为灵活就业医保，但对灵活就业医保有以下几个疑问，特来询问∶ 1.父母是自由职业者，可以购买灵活就业医保吗？办理时需要携带什么证明？ 2.当父母年龄超过国家退休年龄之后还能正常购买灵活就业医保吗？ 3",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27540978",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27540978",
+   "question": "2022年我母亲住院做手术，费用37533元，12月时候医保报销18149元，现在还可不可以二次报销。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27540747",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27540747",
+   "question": "我是在贵阳参保的，为什么我在大学城医院第一次刷医保的时候不可以报销，然后，我自费之后想去再次报销，结果医护人员和我说自费之后不准许报销，这是为什么，是大学城医院不可以报销吗？还是自费之后不允许报销了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27540623",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27540623",
+   "question": "您好，我想咨询一下，我父亲今年八月在习水县人民医院做了一个脊柱侧弯手术，个人花费5000元，可以进行大病二次报销吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27540120",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27540120",
+   "question": "异地工作后，在贵州的医保里的余额不能网上转移或者取出，建议依申请实现网上办理转移或者取出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27539604",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27539604",
+   "question": "贵阳疾病诊断相关分组及定额收费标准/关于调整部分疾病诊断相关分组收付费标准等有关问题通知。 请问在哪里下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27539473",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27539473",
+   "question": "请问医保共济账户绑定后，刷卡时使用的是共济资金还是被绑定方个人账户里的资金?共济资金来源是共济账户的创建者的个人资金还是创建者与被绑定方账户资金之和?被绑定方是否也需要缴纳医保?需要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27538110",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27538110",
+   "question": "你好，我想咨询一下异地医保保险事项。我的农村医保是交在贵州毕节，但在四川成都看病，涉及到了异地医保保险。我在国家异地就医小程序上查询到华西天府医院住院可以申请异地就医备案，但是在贵州医保小程序上查询却显示不能。因此我想咨询一下农村医保交在贵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27537723",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27537723",
+   "question": "在贵州省官方网站上未查询到 降钙素原检测 的收费的价格，特向贵处咨询。该项目在贵州省最新医保收费价格。望回复！感谢！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27537681",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27537681",
+   "question": "我们是吉林省医用耗材生产企业，想要注册账号，进行产品挂网，想问一下，是在医保局招采系统还是公共资源交易平台的药械网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27536855",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27536855",
+   "question": "家属在生育期间失业，且已领取失业金，先本人是否可以申领生育津贴或补贴，如果可以，需要满足什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27536419",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27536419",
+   "question": "共济账户的费用可以用来给家人支付在医院体检的费用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27536004",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27536004",
+   "question": "2023年4月17日在贵医科口腔医院进行拔牙，由于直接微信支付的费用，并没有得到应有的门诊费用报销(事后才知道2023年开始每人一年有2000元额度报销)。2023年5月底开始咨询12345及政务大厅窗口关于此费用是否可以事后补报销，在云岩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27535698",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27535698",
+   "question": "尊敬的工作人员您好！我本人未就业，参与贵州省安顺市西秀区城乡医保，老公参与贵阳市职工医保，孕期产检及生产均在安顺市人民医院自费进行，现有几个问题想咨询：1、生产住院医疗费用能否通过老公的职工医保报销，如可以，需怎么操作？2、孕期产检的费用能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27535672",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27535672",
+   "question": "为什么家庭共济功能开通那么久了，贵州省疫控中心的家庭共济还是一直没能开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27535407",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27535407",
+   "question": "请问因为智齿痛到医院诊断需要拔牙，拔牙的费用可以报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27534926",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27534926",
+   "question": "请问一下参保地为贵阳云岩区的居民医保，可以在六盘水中医院的门诊看病报销开药吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27534406",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27534406",
+   "question": "编码110600001，项目名称救护车费：每超过20公里，每增加1公里加收2元；*自愿租用救护车城区外转运患者的，收费标准由医患双方协商而定。请问：星号后面怎么解释？抢救病人时拨打120算自愿租用吗？自愿租用救护车在什么条件下适用？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27534351",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27534351",
+   "question": "本人因工作原因需要暂停城乡居民医保，但没有找到网上暂停方式，请求帮助！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27534289",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27534289",
+   "question": "如果一个比较贫困的家庭不幸得了耐药肺结核，不能吃一线药，二线药期中一种贝达喹啉一瓶八千多，一瓶只有24片，一天2次，一次两片，就能吃6天，那还有其他的药，这些药加起来一万多，就算医保报了一部分，还是有很贵。需要考虑到一个家庭的承受能力。比如",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27517792",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27517792",
+   "question": "您好，我想咨询下，我从18年在江苏工作，21年离职，之后21年在厦门工作至22年，现在在贵阳工作，我想把江苏和厦门的医保转移到贵阳这边来，需要怎么进行办理，去哪里办理，需要带什么材料（因本人是贵州的，所以不会回到原参保地）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27517568",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27517568",
+   "question": "尊敬的贵州省医保局领导： 您好！我是毕节市赫章县一个普通职工，同时是一个10岁女儿的母亲。我的女儿在2023年5月19日发烧咳血，后抗原检测新冠阳性。因病情反复，2023年6月2日送到四川大学华西第二医院检查，2023年6月8日被确诊为安卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27517547",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27517547",
+   "question": "您好，我想咨询一下公立医院对患者复印病案进行收费，具体以什么标准进行收取，同时该走什么流程申报才符合相关要求。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27511359",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27511359",
+   "question": "本人交的职工医保，妈妈交的居民医保，家庭共济账户绑定了妈妈的身份信息，但是今天去药店购买药品，发现妈妈的医保还是用不了，请问是只有双方都是职工医保才能用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27502715",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27502715",
+   "question": "尊敬的工作人员您好！我本人参与省职工医保，妻子未就业，参与黔南州三都县城乡医保，妻子孕期产检及生产均在贵州省人民医院自费进行，现有几个问题想咨询：1、生产住院医疗费用能否通过我的职工医保报销，如可以，需怎么操作？2、生产前一周有反应，经医生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27501613",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27501613",
+   "question": "本人所在单位性质为国企，享受产假158天+难产15天，产假期间单位实发放工资17193.93元，应发工资（实发工资+个人社保公积金）22836元，现生育津贴到单位账31000元。出现的问题：文件只明确了“生育津贴低于本人工资”的情况，还有现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27500822",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27500822",
+   "question": "生育津贴材料已经提交一个多月了，津贴什么时候能发放下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27500557",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27500557",
+   "question": "咨询一下，我上一家公司在湖南长沙给我缴纳了职工医保，于今年2月离职后入职了贵州铜仁的一家公司。请问我长沙缴纳的医保余额可不可以转移合并到铜仁这家公司给我开设的医保账户里面。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27500259",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27500259",
+   "question": "尊敬的领导你好，我妈妈现在50岁，现在在医院查出，恶性肿瘤低分化腺，手术过后需要靶向治疗，医院医生说医保报不到，但是我们这种家庭无法承受这种高费用，我爸爸也去世的早，我今年23岁，希望领导可以报销一点，一个月需要9300的费用，医保不报销全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27500162",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27500162",
+   "question": "尊敬的领导： 孩子于5月27日凌晨2时左右，因扁桃体脓肿入院金阳医院耳鼻喉科，6月3日出院结账时，费用总额2950.15元，自费金额为2571.44元，当时对费用报销比例有疑问，先后咨询耳鼻喉科护士站得到回复报销比例低，具体多少不知道，后打",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27499934",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27499934",
+   "question": "我是西部计划志愿者，今年7月31号就自动离职了，不能再续签，到时候社保就断交了，刚生了宝宝，但到7月31号还没有到158天产假时间能申请生育津贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27499773",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27499773",
+   "question": "请医保局提供贵州省以下医疗服务项目的指导价格、医保类别（即属于甲类、乙类还是丙类）、除外内容、除外内容的医保类别： 一、体外人工肺膜（ECMO）相关的医疗服务项目，国家医保项目代码：003308030250000 1.1、体外人工膜肺(EC",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27499541",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27499541",
+   "question": "尊敬的领导您们好，我咨询下，我正常缴纳社保，媳妇未参加工作，未缴纳社保，可以用我的社保申领生育津贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27498691",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27498691",
+   "question": "我在瓮安县和贵安新区均缴纳过医保，现在在剑河县正常工作参保，请问另外两地的医保关系需要转移到剑河县吗？个人医保账户余额能转移过去吗？感谢答疑！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27498543",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27498543",
+   "question": "色谱法检测维生素A/D2/D3/E的收费编码和收费价格是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27498454",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27498454",
+   "question": "我的医保属地是贵州毕节，2023年5月26日在金阳医院便民门诊开药，普通门诊，4支德谷门冬双胰岛素注射液，费用297.44元，基金支付96.62元，个人账户支付200.82元，我咨询职工医保门诊报销费用，基金支付比例怎么产生的，个人账户支付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27498259",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27498259",
+   "question": "想查询一下贵州省医疗收费项目的收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27497837",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27497837",
+   "question": "你好，我想咨询一下，我已足额缴纳职工医保，为什么查不到生育保险相关信息呢。（医疗保险和生育保险不是合并缴纳了吗）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27497328",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27497328",
+   "question": "我的共济账户绑定我妻子后不慎点到了取消就一直显示授权已失效，但是重新绑定又提示无法绑定，请帮忙解决一下，在医院也无法使用共济账户支付，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27496949",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27496949",
+   "question": "尊敬的领导你们好 我院采购的八省二区（内蒙古）注射用复方骨肽 规格：30mg多肽物质，生产企业：河北智同生物制药股份有限公司 国药准字H20052314，根据我院日常临床业务需要，现需使用该药品，经过医保报销，报销后显示该药品为自费药品。请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27496917",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27496917",
+   "question": "文件上说的省内异地就医当场结算报销比例不会降低，为什么我们当场结算报销比例只有32%左右呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27496815",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27496815",
+   "question": "请问依据最新的贵州省医疗保险政策 多趾并趾畸形手术是否报销 报销比例是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495979",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495979",
+   "question": "各位领导您们好！ 为进一步贯彻落实国务院《关于支持贵州在新时代西部大开发上闯新路的意见》中关于“提高保障和改善民生水平、推动健康贵州建设”的要求，去年由省医疗保障局指导，9家保司成立共保体、推出了贵州首个普惠定制医疗保险—“贵惠保”项目，并",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495891",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495891",
+   "question": "医保支付类别中的特殊诊疗项目的含义是什么？与普通诊疗项目的区别是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495720",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495720",
+   "question": "本人及配偶户口均属云南，本人2018年12月起在贵州上班缴纳社保，现就生育津贴的申领咨询以下问题：1.办理生育津贴需要哪些资料？准生证是否必须要有？2.如必须要有准生证，准生证的办理地有要求吗？是否必须要在贵州办理？还是在任何一方户口所在地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495661",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495661",
+   "question": "尊敬的医保局领导您好 我想咨询一下贵州省新农村医保（新农合）的组成是医疗保险+大病保险吗？大病是否可以二次报销 如果可以大病二次报销需要哪些材料和向哪个单位（部门）提交申请 我是黔南州独山县 网上资料显示有大病二次报销（自费部分）但去独山县",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495480",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495480",
+   "question": "子女医保共济绑定了妈妈，可以解绑了重新绑定爸爸的吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27495410",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27495410",
+   "question": "希望就以下三个问题得到肯定答复： ①恶性肿瘤住院按重大疾病报销必须要进行放疗和化疗才可以么？ ②住院3天后由于身体原因没做成化疗按照医生指导办理出院，住院期间的治疗和检查费用能否按重大疾病报销？ ③恶性肿瘤住院重大疾病报销条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27494424",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27494424",
+   "question": "多发性硬化检查费和治疗费太贵，迫切希望国家能把它纳入慢性病，减轻我们患者的医疗负担，望领导们采纳，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27493925",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27493925",
+   "question": "领导你好！ 我想问一下甲类医保和乙类医保报销比例分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27493911",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27493911",
+   "question": "我的医保共济了家人，我的家人去药店买药的时候如何使用我医保里的余额呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27493209",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27493209",
+   "question": "上级部门检查项目：重症监护包含持续有创血压监测，两者同时收费存在重复收费的问题。 根据贵州省基本医疗保险诊疗项目及医疗服务设施目录价格标准，重症监护：护理类，计价单位/小时，县级医疗机构价格5.9元/小时，指重症监护室内连续监测，项目内涵“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-ylbzj",
+   "id": "27493205",
+   "url": "https://ylbzj.guizhou.gov.cn/?id=27493205",
+   "question": "重症监护包含持续有创血压监测，两者同时收费是否存在重复收费的问题。 根据贵州省基本医疗保险诊疗项目及医疗服务设施目录价格标准，重症监护：护理类，计价单位/小时，县级医疗机构价格5.9元/小时，指重症监护室内连续监测，项目内涵“含24小时室内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

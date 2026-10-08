@@ -1,0 +1,199 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-gzw",
+   "id": "eab80b34a0a648e4b1a2165a836e916e",
+   "url": null,
+   "question": "请问有限公司增资可否分批注资?",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "f5e475333a4043c5a66eb4adf0865396",
+   "url": null,
+   "question": "非上市公司董事、监事、高管股份转让受限25%吗？",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-gzw",
+   "id": "facf24438a1546f0b0d6f7b6f350361f",
+   "url": null,
+   "question": "关于个人人事档案存放地点咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "人事档案管理办法",
+    "人事档案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "6f3bea371e0c4399892d61cd2f69965d",
+   "url": null,
+   "question": "关于企业资产负债率的红线咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于强化国有企业债务约束和管理的实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "cf7da99dfc97488d9e03b53802e4e908",
+   "url": null,
+   "question": "关于新冠肺炎疫情影响支持民企复工复产政策的咨询事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "G55长常高速太子庙服务区旅游咨询经营项目租赁经营合同",
+    "芙蓉镇、吉首北、花垣3对服务区旅游咨询经营项目租赁经营合同"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-gzw",
+   "id": "10cb695630ab4ceabc093afbd076d448",
+   "url": null,
+   "question": "文件是否有效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "0989578737454efc89b804d954230c18",
+   "url": null,
+   "question": "信息公开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "8aa69682c1e34a37a6ae1c3d44f91317",
+   "url": null,
+   "question": "全民所有制企业进行公司制改制时，能否直接实行国资全退出？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "4cd83443bc2b41ebaf0e61774c58286f",
+   "url": null,
+   "question": "贵省国资国企在线监管系统的上线时间、建设内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "818f252b867f4d0e91ef3bc1a92e6b72",
+   "url": null,
+   "question": "关于求助职业资格管理事件的回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "4f36586b4aea46e6ac98c342b01492c8",
+   "url": null,
+   "question": "关于湖南省煤业集团湘永矿业有限公司房屋开裂的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "fdfd9c8587b740c09eeef137294cc565",
+   "url": null,
+   "question": "粤芯半导体项目二期土建工程工程款拖欠",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "eaf1516ebf794499aea3671964b6b831",
+   "url": null,
+   "question": "关于建设医院食堂里的抽排油烟机的噪音问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "209d548b4627482f8309419237417925",
+   "url": null,
+   "question": "湖南轨道交通控股集团有限公司关于游客马先生投诉件处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "18cdae3c78bf4b1dab039a4bbba785c0",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "b80c125dd8ee443ea4dd9c3a713548c5",
+   "url": null,
+   "question": "涟钢房地产开发有限公司拖欠商铺租金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "c527585dd5da441ba2cb612d096ea70e",
+   "url": null,
+   "question": "谢谢省国资委的监督、调解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "3bc1ecf907224926a05da1d78c380182",
+   "url": null,
+   "question": "《湖南省国资委关于加强监管企业融资担保管理工作的通知》湘国资〔2022〕117号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "a6cfa1cefe2843339e2607a8115deaff",
+   "url": null,
+   "question": "国有企业股权出资，评估机构委托问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

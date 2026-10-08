@@ -1,0 +1,2809 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-amr",
+   "id": "3ec0b8f2895f49e0afc26584e66ef472",
+   "url": null,
+   "question": "企业标准的企业代码以Q/GBT开头",
+   "cited_hits": [
+    {
+     "name": "埋地用聚乙烯（PE）结构壁管道系统 第1部分：聚乙烯双壁波纹管材",
+     "lib_no": "GB/T 19472.1-2019",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "埋地用聚乙烯（PE）结构壁管道系统 第2部分：聚乙烯缠绕结构壁管材",
+    "企业标准化促进办法",
+    "企业标准化促进办法",
+    "责令改正通知书",
+    "双壁波纹管"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "88c1af61f2404f699ae40e80ed80918f",
+   "url": null,
+   "question": "医用防护口罩销售合规性的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB19083-2023医用防护口罩",
+    "GB19083-2023"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "01c57775dfd04afbac84140ac76a0dac",
+   "url": null,
+   "question": "关于代工厂生产的即食鲜切果蔬销售合法性的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于代工厂生产的即食鲜切果蔬销售合法性的咨询",
+    "食用农产品市场销售质量安全监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "47153aefe0f0448f807c2ae465b8cbe7",
+   "url": null,
+   "question": "营养酵母（固体饮料）能否直接食用",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 食品添加剂使用标准",
+     "lib_no": "GB 2760-2014",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "餐饮服务食品安全操作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bc5a5908d1af447492da64a803e8c93d",
+   "url": null,
+   "question": "在湖南省管辖范围内经营售卖牛肉、羊肉、猪肉是否要取得两证一标",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食用农产品市场销售质量安全监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "530b48e7625840acb7c3adf841ad255b",
+   "url": null,
+   "question": "一次性（食用级）塑料碗、杯生产加工企业对周边环境有什么要求？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国工业产品生产许可证管理条例",
+     "lib_no": "工业产品生产许可证管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 31603-2015 食品安全国家标准 食品接触材料及制品生产通用卫生规范",
+    "GB 31603-2015 食品安全国家标准 食品接触材料及制品生产通用卫生规范",
+    "食品相关产品质量安全监督管理暂行办法",
+    "GB 31603-2015",
+    "GB 31603-2015"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "7edcabd0234743dab20c7f9f273c6df1",
+   "url": null,
+   "question": "关于《特种设备使用单位落实使用安全主体责任监督管理规定》的疑问",
+   "cited_hits": [
+    {
+     "name": "特种设备安全监督检查办法",
+     "lib_no": "特种设备安全监督检查办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "75576b841e594ea69c4fc9080f65ad28",
+   "url": null,
+   "question": "代用茶命名",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6f639b32ffdb4c90b91c63ff169f24b3",
+   "url": null,
+   "question": "关于白酒（原酒）相关问题的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于白酒（原酒）相关问题的咨询"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8888860d38174708be6e9964333c85e4",
+   "url": null,
+   "question": "酒类食品生产加工小作坊是否可以生产加工预包装酒类产品？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T26760-2011"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8a6942f2a86c4b6d96ec6c1df9b0038f",
+   "url": null,
+   "question": "建议参考其他省份建立食品安全抽检结果公开的专栏",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建议参考其他省份建立食品安全抽检结果公开的专栏",
+    "食品安全抽样检验管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f363206f7611434ba0c79d25905e7010",
+   "url": null,
+   "question": "苦瓜藤和苦瓜叶可不可以作为普通食品原料？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "新食品原料安全性审查管理办法",
+    "既是食品又是药品的物品名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d9c5191d2cdb452092c8fafc76b5c93d",
+   "url": null,
+   "question": "委托食品加工的资质条件",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法实施条例",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "26f6694738c246aa8709b788b2297278",
+   "url": null,
+   "question": "咨询初次违法的概念",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省市场监督管理领域轻微违法行为不予处罚、减轻处罚规定",
+    "湖南省市场监督管理行政处罚裁量权实施办法及基准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1868a9cc571b467abb129e12a263cb9c",
+   "url": null,
+   "question": "关于使用海南香露兜叶（斑兰）食品原料进行二次加工、经营流通或直接食用的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1e8d387e3c41406aa10d898dcf547340",
+   "url": null,
+   "question": "关于湖南省食用盐碘含量标准的通告的提问",
+   "cited_hits": [
+    {
+     "name": "食盐加碘消除碘缺乏危害管理条例",
+     "lib_no": "食盐加碘消除碘缺乏危害管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "转发卫生部等八部委局关于做好实施食用盐碘含量标准工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8625eb31d8904e849b35b67c74463617",
+   "url": null,
+   "question": "咨询认定企业是否为合法经营以合法制造商",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国企业法人登记管理条例施行细则",
+     "lib_no": "企业法人登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1a50a9e0814e46c9a84ec3a8c1f34358",
+   "url": null,
+   "question": "净含量标注咨询",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB7718-2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1b05f8a00a8248c08588f1d243ecbfa7",
+   "url": null,
+   "question": "食品经营许可证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品经营许可和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "07aac16a6b6c4494b0846208385c96d6",
+   "url": null,
+   "question": "领导您好，“玫瑰花”属于保健食品原料，不是普通食品原料，那么“玫瑰花提取物”是否属于普通食品原料，能否添加到普通食品中？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于批准DHA藻油、棉籽低聚糖等7种物品为新资源食品及其他相关规定的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e9ce8040ddb54af1a09c26d70443e72a",
+   "url": null,
+   "question": "咨询湘市监注[2022]55号文件第三条中一致同意的解释",
+   "cited_hits": [
+    {
+     "name": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "住宅改变为经营性用房证明",
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "235574761f474553a752c385647297c6",
+   "url": null,
+   "question": "个人房屋住改商需要哪些资料",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释（法释〔2020〕17号修正）",
+     "lib_no": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "住宅改变为经营性用房证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ce28ba6198b74c699215ccc1ceea5997",
+   "url": null,
+   "question": "如何认定是“拒不改正”？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "责令改正通知书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6f8580e8d13a4e31bad88f5295063661",
+   "url": null,
+   "question": "食品销售",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品经营许可和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bcb4455d70b94ad3809fcef71606d747",
+   "url": null,
+   "question": "食品标签标识",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农业转基因生物标识管理办法",
+    "农业农村部关于修改农业转基因生物标识管理办法的决定（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8ef148d0355a449b91ae6493659aa543",
+   "url": null,
+   "question": "生菜籽是否可作为普通食品原料",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "49e93b5de11c4d7fa6b7fda9812a5377",
+   "url": null,
+   "question": "关于实名认证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施细则",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步做好经营主体登记实名认证工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "dd1e687de58549b4ab1eae424b926e25",
+   "url": null,
+   "question": "工商经营异常是否有罚款文件",
+   "cited_hits": [
+    {
+     "name": "企业信息公示暂行条例",
+     "lib_no": "企业信息公示暂行条例(OCR采集)",
+     "weak": true
+    },
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施细则",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施细则",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工商经营异常是否有罚款文件"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "296a9037664842768755fd3e93439b60",
+   "url": null,
+   "question": "标准是不是适用",
+   "cited_hits": [
+    {
+     "name": "标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "冻干水果、蔬菜"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6284f16bd1f84bc9aa303b71ae1eb0b8",
+   "url": null,
+   "question": "大型游乐设施",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国特种设备安全法",
+     "lib_no": "特种设备安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "特种设备使用管理规则",
+    "特种设备使用管理规则",
+    "特种设备使用单位落实使用安全主体责任监督管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8a0acf15544544f3b9915823f596b9cd",
+   "url": null,
+   "question": "饭店的厨房没有安装监控合法合规吗",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "105ad73cbed241f0bcb3c36d18f52220",
+   "url": null,
+   "question": "独立包装的概念",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品安全抽样检验管理办法",
+    "食品安全抽样检验管理办法",
+    "GB 7718-2011",
+    "GB 4789.1-2016"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e6c5620f00c944768bf90cf91e3b0648",
+   "url": null,
+   "question": "请问企业的注册资金和实际投资是一回事吗？",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "7ac03cbbebb346eda10094e1326969c1",
+   "url": null,
+   "question": "自建经营一个APP商城销售各种百货商品，请问需要办理哪些相关资质？",
+   "cited_hits": [
+    {
+     "name": "电子商务法",
+     "lib_no": "电子商务法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f8e54cc729344335bde2459f9b53210c",
+   "url": null,
+   "question": "GB/T20808-2022标准中9.1产品销售包装标识问题咨询",
+   "cited_hits": [
+    {
+     "name": "中华人共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "侵害消费者权益行为处罚办法",
+     "lib_no": "侵害消费者权益行为处罚办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人共和国消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国产品质量法",
+     "lib_no": "产品质量法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB/T20808-2022",
+    "GB/T 20808-2022"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "24a1870c14124763bb8f84dbd5838bdd",
+   "url": null,
+   "question": "产品执行标准",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ba5b6518967a4d50b3766c0bea3597a5",
+   "url": null,
+   "question": "个体工商户的行政处罚对象是字号还是经营者？",
+   "cited_hits": [
+    {
+     "name": "行政诉讼法",
+     "lib_no": "行政诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "民事诉讼法",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于适用〈民事诉讼法〉的解释",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "da33520a71a94a03937977fcb36bde2d",
+   "url": null,
+   "question": "关于餐饮服务经营范围的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院关于深化“证照分离”改革进一步激发市场主体发展活力的通知",
+    "湖南省人民政府办公厅关于印发〈湖南省深化“证照分离”改革实施方案〉的通知",
+    "市场监管总局关于仅销售预包装食品备案有关事项的公告",
+    "市场监管总局关于充分发挥职能作用落实深化“证照分离”改革任务的通知",
+    "湖南省仅销售预包装食品备案工作规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "52d5f51ff3ec48d7afcc60aa1fc89d1f",
+   "url": null,
+   "question": "有限责任公司股东持股比例变更流程和资料",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场主体登记提交材料规范",
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "007caee1c8de40668c507a872d4917d7",
+   "url": null,
+   "question": "关于非我国标准的插头能否在国内销售的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国产品质量法",
+     "lib_no": "产品质量法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "c7e26597bc2542c6a563bdffd242941b",
+   "url": null,
+   "question": "食品经营许可证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ead358b70dc843ab974d6275bef944da",
+   "url": null,
+   "question": "猪肉贸易需要什么手续",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食用农产品市场销售质量安全监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ad3da16815bb43b7a54c58424c79270d",
+   "url": null,
+   "question": "住宅地址注册公司",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "住宅改变为经营性用房证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "87bd2b31f941443b98cdb0ef1b4e6ea9",
+   "url": null,
+   "question": "个体工商户租赁住房办理流程",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "住宅改变为经营性用房证明",
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "4447dc61af2040f999fd02a4e7d57f7b",
+   "url": null,
+   "question": "要求添加的公司章程内容是否合法？是否可以办理章程备案登记？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "5efe1dd2b76a43cc828d79b038c5a901",
+   "url": null,
+   "question": "商业住宅内注册软件开发类个体户是否需要其他邻居同意",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "住宅改变为经营性用房证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "de959ee3bcf14483a349900c237d8729",
+   "url": null,
+   "question": "企业经营范围",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "031380916a23484cac90ba6fafcafcce",
+   "url": null,
+   "question": "组合产品储藏方式及保质期问题",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 7718—2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "9b71baa4c47b4f009656e5afec184577",
+   "url": null,
+   "question": "咨询函",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1e757e3cb0a44761b2c3fd2968160e85",
+   "url": null,
+   "question": "关于包装饮用水生产许可的几个问题",
+   "cited_hits": [
+    {
+     "name": "GB 8537-2018 食品安全国家标准 饮用天然矿泉水",
+     "lib_no": "GB 8537-2018",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品生产许可管理办法",
+    "食品生产许可审查通则",
+    "食品生产许可审查通则",
+    "饮料生产许可审查细则",
+    "饮料生产许可审查细则",
+    "GB 8537-2018"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "fe5c7caa7e8a4b01ab93838e586780e3",
+   "url": null,
+   "question": "企业如何变更原保健食品批文糖源。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "保健食品注册与备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6daad34ab493421bae5860315690100f",
+   "url": null,
+   "question": "国家强制执行标准问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "强制性国家标准管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a5e43a9137dd42d7b9e13c29dd9d4d76",
+   "url": null,
+   "question": "化妆品委托生产",
+   "cited_hits": [
+    {
+     "name": "化妆品监督管理条例",
+     "lib_no": "化妆品监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "化妆品生产经营监督管理办法",
+     "lib_no": "化妆品生产经营监督管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家药监局关于发布实施化妆品标签管理办法的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b6f58d2c44854dee9024f90bae1c05a7",
+   "url": null,
+   "question": "个人独资企业改制",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国个人独资企业法",
+     "lib_no": "个人独资企业法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8f0c390656034ee89cfc5f6a752c1943",
+   "url": null,
+   "question": "企业登记变更",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国市场主体登记管理条例实施细则",
+     "lib_no": "市场主体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "077e62a546c24945b32af30b81f60453",
+   "url": null,
+   "question": "关于公司经营场所问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理建筑物区分所有权纠纷案件适用法律若干问题的解释(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省放宽市场主体住所 （经营场所）登记条件的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6139373001034abf978b909034055f4f",
+   "url": null,
+   "question": "进口膳食补充剂食品没有注册保健食品，在国内销售应当认定为保健食品还是普通食品？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法实施条例",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "保健食品注册与备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "22357f3feb5440e899b5a4bbeb1b337d",
+   "url": null,
+   "question": "关于办理施工告知",
+   "cited_hits": [
+    {
+     "name": "固定式压力容器安全监察规程",
+     "lib_no": "GB 150-2011",
+     "weak": false
+    },
+    {
+     "name": "压力容器监督检验规则",
+     "lib_no": "GB 150-2011",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "张家界市市场监督管理局关于委托下放特种设备安装改造维修告知工作的通知",
+    "特种设备安装改造维修告知书",
+    "特种设备生产和充装单位许可规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "9527261371364edd9e2b18a88eb47d0e",
+   "url": null,
+   "question": "医疗器械企业通过互联网媒介对产品技术原理等内容的介绍是否属于广告",
+   "cited_hits": [
+    {
+     "name": "广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品、医疗器械、保健食品、特殊医学用途配方食品广告审查管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b9d2c67630234d0eadff0cc285475f88",
+   "url": null,
+   "question": "内资企业基本情况表怎么查询？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国档案法",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1db0d4e3acdf4628a78630669e76afb7",
+   "url": null,
+   "question": "关于团体标准能否作为产品的执行标准问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d8af4673e2c64a87a0d23e27ff97986a",
+   "url": null,
+   "question": "外籍人士工商登记",
+   "cited_hits": [
+    {
+     "name": "中外合作经营企业法",
+     "lib_no": "中外合作经营企业法实施细则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场监管总局关于印发&lt;企业登记申请文书规范&gt;&lt;企业登记提交材料规范&gt;的通知",
+    "公司登记（备案）申请书",
+    "非公司外资企业登记（备案）申请书",
+    "外资企业法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "07cf9cbcecd744acb9b58ed206a71202",
+   "url": null,
+   "question": "企业变更证明",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国档案法",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d066a483428b4b89aa268241cdddd32c",
+   "url": null,
+   "question": "关于湖南省小作坊食品安全问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省食品生产加工小作坊小餐饮和食品摊贩管理条例",
+    "湖南省食品生产加工小作坊小餐饮和食品摊贩管理条例",
+    "湖南省小作坊管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a615af787b6e4aa7b5cc3fc83bf3406e",
+   "url": null,
+   "question": "章程下载",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国档案法",
+     "lib_no": "档案法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国保密法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bfa7a5b8d5304d3db8cf33be6ebc9071",
+   "url": null,
+   "question": "燕窝等进口食品标签是否需要产品标准代号",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准 预包装食品标签通则",
+     "lib_no": "GB 7718-2025",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 7718-2011"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6fc216e8f32b4f7cb84a362303d53140",
+   "url": null,
+   "question": "请求市场监督管理局对于职业敲诈，非正常消费购买商品、滥用行政资源的行为出台相关政策。",
+   "cited_hits": [
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "产品质量法",
+     "lib_no": "产品质量法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "价格法",
+     "lib_no": "价格法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "特种设备安全法",
+     "lib_no": "特种设备安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场监管领域重大违法行为举报奖励暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "4cef1f91cdd74968aafadfae372748c0",
+   "url": null,
+   "question": "冷水江市融泰佳苑小区涉及虚假宣传，高价售楼",
+   "cited_hits": [
+    {
+     "name": "广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "市场监督管理投诉举报处理暂行办法",
+     "lib_no": "市场监督管理投诉举报处理暂行办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "广告法",
+     "lib_no": "广告法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "房地产广告发布规定",
+    "房地产广告发布规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "124d9b60d52c4fc8ac85e1ffe2864c91",
+   "url": null,
+   "question": "补办营业执照",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国公司登记管理条例",
+     "lib_no": "公司登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场监管总局关于印发&lt;企业登记申请文书规范&gt;&lt;企业登记提交材料规范&gt;的通知",
+    "增、减、补、换发证照申请书",
+    "个体工商户登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bccb46ab18794523925219f9d96426d7",
+   "url": null,
+   "question": "注册成立法律咨询有限公司",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "市场监管总局关于印发&lt;企业登记申请文书规范&gt;&lt;企业登记提交材料规范&gt;的通知",
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "892bbcb7b9cc45f0be6682da36b3bb7d",
+   "url": null,
+   "question": "火炼猪油应该办理小作坊生产许可还是食品生产许可",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品生产许可分类目录",
+    "湖南省食品生产加工小作坊许可管理办法",
+    "食品生产许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b3f8c0d546df4de0a08ea35ce92728d2",
+   "url": null,
+   "question": "商家违规收取餐位费应当如何处罚",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省消费者权益保护条例",
+    "湖南省消费者权益保护条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-amr",
+   "id": "d0b59b768a0a4284a0b59924b2b300a9",
+   "url": null,
+   "question": "入网餐饮服务提供者未在网上真实公示菜品名称法律法规的适用",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络餐饮服务经营者落实食品安全主体责任监督管理规定",
+    "网络交易监督管理办法",
+    "网络食品安全违法行为查处办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "78f1204b80354fc79dfbd680ca63b91c",
+   "url": null,
+   "question": "餐饮服务规模认定",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省食品经营许可审查实施细则",
+    "湖南省食品经营许可审查实施细则",
+    "统计上大中小微型企业划分办法（2017）",
+    "统计上大中小微型企业划分办法（2017）",
+    "统计上大中小微型企业划分办法（2017）",
+    "食品生产经营企业落实食品安全主体责任监督管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "be0b5cab6f8c467fa54b84ade6bbf186",
+   "url": null,
+   "question": "特种设备注销",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备使用管理规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2ea4c7314546416c9c5d25621cd6323c",
+   "url": null,
+   "question": "关于湖南省下发“校园食品安全标准化建设评价与管理规定”中小学是否禁止销售三高食品",
+   "cited_hits": [],
+   "cited_missing": [
+    "营养与健康学校建设指南",
+    "关于落实主体责任强化校园食品安全管理的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8d6d0567d3504b368bf8245aeb7609f2",
+   "url": null,
+   "question": "升降机判定为特种设备的情形",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备目录",
+    "简易升降机安全规程",
+    "GB 28755-2012"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "cde329182cfb4dadbf15b1ec243c6bb0",
+   "url": null,
+   "question": "注册公司",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1ce4330ac21a42f6b63bb317dbac9221",
+   "url": null,
+   "question": "汽车吊是否属于特种设备？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "306511fd3e5e4f449e72a11373c3a931",
+   "url": null,
+   "question": "《企业商业秘密保护管理规范》的具体内容",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业商业秘密保护管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e2893d2970ae47ae85edfaaef04edebf",
+   "url": null,
+   "question": "燕窝是否能作为食品原料添加到预包装食品中",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典",
+    "质检总局关于更新&lt;进口食品境外生产企业注册实施目录&gt;的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a1e6adf79d334f1db2a3262c6f887e0d",
+   "url": null,
+   "question": "机动车检验机构技术负责人/授权签字人的职称要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车检验机构技术负责人/授权签字人的职称要求",
+    "机动车检验机构资质认定评审补充技术要求",
+    "DB43/T1267-2023机动车检验机构建设和运行管理规范",
+    "机动车检验机构资质认定评审补充技术要求"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "02387d6518744360aad28c94da2a4fa1",
+   "url": null,
+   "question": "工商年报填报指南",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监督管理局关于经营主体和外国企业常驻代表机构报送2024年度年报的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1fac49a147af4dea91d3fefbeeac1a48",
+   "url": null,
+   "question": "关于“现制现售干噎酸奶(希腊酸奶)”工艺是需办理《食品经营许可证》还是《食品生产许可证》的界定咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品生产许可分类目录",
+    "食品经营许可和备案管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "269d1b8da4b14115931610362d89a992",
+   "url": null,
+   "question": "关于显齿蛇葡萄叶水提物是否可作为固体饮料办理食品生产许可证的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于批准显齿蛇葡萄叶等3种新食品原料的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bde794991a7f4099b7960a9dc4be0ad6",
+   "url": null,
+   "question": "较低罚款数额是多少",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监督管理局办公室关于贯彻落实&lt;市场监督管理严重违法失信名单管理办法&gt;等三个文件有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d3193f3c1bc74beeadbb63229d5440d0",
+   "url": null,
+   "question": "首席质量官报名",
+   "cited_hits": [],
+   "cited_missing": [
+    "质量强国建设纲要",
+    "企业首席质量官基本要求及评价规范",
+    "企业首席质量官培训服务规范",
+    "首席质量官能力水平认定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "5dcaa064ae634347be1feeba75c600a3",
+   "url": null,
+   "question": "行政处罚自由裁量问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监督管理行政处罚裁量权实施办法及基准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "689f2c9ae35d427c9de0b6efd95b3a27",
+   "url": null,
+   "question": "个体工商户的口腔门诊部销售处方药品，需要办理《药品经营许可证》吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构执业许可证",
+    "医疗机构执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "55f28fbdab6a4e57aa37ae34a3f1cb30",
+   "url": null,
+   "question": "特种设备界定",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备目录",
+    "特种设备目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e56f2fa527cc406caa8708526e6701f2",
+   "url": null,
+   "question": "如何申请食品成分的检测",
+   "cited_hits": [],
+   "cited_missing": [
+    "保健食品中75种非法添加化学药物的检测",
+    "食品中硝苯地平及其降解产物的测定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "82e07d78557d4c8cb18b31815280ccdc",
+   "url": null,
+   "question": "关于湖南财源广来贸易有限公司注销事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业注销指引（2023年修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "59ee4a2fd94f4a1c839e4adf2afb7dde",
+   "url": null,
+   "question": "长沙市内公司减资流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "499d13c8e3df479fa1db0c0af5ce12e9",
+   "url": null,
+   "question": "湖南省对综合能耗在5000至10000吨煤的单位认定为重点用能单位是否正式发文过？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强能源计量审查工作的通知",
+    "关于开展重点用能单位能源计量审查工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1a34459a5ae04ebe9fb3665ccc2aada4",
+   "url": null,
+   "question": "办理食品加工小作坊许可证生产场所有具体面积规定吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省食品生产加工小作坊许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "02c3a7acbb654990a07d5d3d31ef9df6",
+   "url": null,
+   "question": "市场监管领域轻微不罚包括：使用未经检验（监督检验、定期检验）特种设备的行为吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监管领域轻微违法行为不罚、减轻处罚的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a782c25865d947099d4def4fe0794dca",
+   "url": null,
+   "question": "关于电梯检测及备案相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于发布&lt;电梯监督检验和定期检验规则&gt;&lt;电梯自行检测规则&gt;的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ad54d48812594df89897d3bd6c220a49",
+   "url": null,
+   "question": "个体工商户升级企业咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省支持个体工商户转型升级为企业的若干措施",
+    "个体工商户转型证明",
+    "个体工商户转型证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d9527ce7479b47b59ebaddd39e2084ab",
+   "url": null,
+   "question": "省内（包括各地级市）知识产权保护工作站相关制度的建立情况",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省知识产权综合服务分中心运行规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "384f61cc054a4c06bf408087a633a7f0",
+   "url": null,
+   "question": "医疗器械产品包装盒是否需要单独做广告审批？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品、医疗器械、保健食品、特殊医学用途配方食品广告审查管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "695030dbfb8f4adca218fcbb6bcd3eb0",
+   "url": null,
+   "question": "关于湖南省小餐饮经营许可现场核查表是否可以申请政府信息公开的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品经营许可和备案管理办法",
+    "湖南省食品生产加工小作坊小餐饮和食品摊贩管理条例",
+    "湖南省小餐饮经营许可和食品摊贩登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "c8ee6d8445874a4da43ea9df55c11279",
+   "url": null,
+   "question": "大型游乐设施",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备焊接作业人员证",
+    "特种设备焊接作业人员考核细则",
+    "特种设备焊接作业人员证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "115ad8c2599f4abfb3ac801d0c2daeab",
+   "url": null,
+   "question": "上市合规证明",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于加快推进企业上市的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "347362a46c494366b401b59aeeabae9d",
+   "url": null,
+   "question": "公司登记（备案）申请书",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场主体登记提交材料规范",
+    "市场主体登记文书规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "aa6ec1d8f21e4d4a84aec4d829dfce0a",
+   "url": null,
+   "question": "限制商品过度包装实施问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "限制商品过度包装要求食品和化妆品",
+    "GB23350-2021"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "99db9a51c22a4a8992ce742f6b706a1f",
+   "url": null,
+   "question": "工业产品生产许可证如何办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于调整工业产品生产许可证管理目录加强事中事后监管的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f626e2a4573d4fb09524f3471841b985",
+   "url": null,
+   "question": "湖南省工商行政管理局关于印发《关于规范行政处罚的若干指导意见》的通知有效性的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省规范性文件管理办法",
+    "关于公布规范性文件清理结果的通告",
+    "湖南省工商行政管理局关于进一步深化企业名称自主申报改革工作的通知",
+    "湖南省工商行政管理局关于印发关于规范行政处罚的若干指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "7a627612903a4700bfd4c9e02be2045d",
+   "url": null,
+   "question": "长沙市发明专利授权奖励资助政策，湖南省发明专利奖励政策，以及域外地区申请专利授权奖励政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省知识产权战略专项资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "c96bbf1752254404b0d783be2e4b6121",
+   "url": null,
+   "question": "企业开办",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营范围登记规范表述目录（试行）",
+    "规范表述目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "16713194c1fe4a2a8098fb69b80a5987",
+   "url": null,
+   "question": "个体户登记问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "c31419343d2a40e78c32b510e01c4c65",
+   "url": null,
+   "question": "关于加拿大进口西洋参是否可以作为普通食品/初级农产品销售？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对党参等9种物质开展按照传统既是食品又是中药材的物质管理试点工作的通知",
+    "湖南省对杜仲叶等3种物质开展按照传统既是食品又是中药材的物质管理试点工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "4516f9cf91aa4918aecf48d70d93c476",
+   "url": null,
+   "question": "咨询《湖南省放宽市场主体住所（经营场所）登记条件的规定》第十条第（三）项规定的竣工验收证明材料如何理解",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "工程竣工验收备案表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "727d41040e9c45c590613522f8cd92e4",
+   "url": null,
+   "question": "个人股权转让",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场主体登记提交材料规范",
+    "公司登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "beb97c5b9645448b870d46ec6e88a69b",
+   "url": null,
+   "question": "湖南省市场监督管理局关于印发《湖南省市场监督管理行政处罚自由裁量权实施办法（试行）》《湖南省市场监督管理行政处罚自由裁量权基准（试行）》的通知效力问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监督管理行政处罚自由权实施办法（试行）",
+    "湖南省市场监督管理行政处罚自由裁量权基准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "085124a6df514b00bc76622826679be8",
+   "url": null,
+   "question": "需要省市场监管局对文件条文的解释",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强农村住房质量安全监管的通知",
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "关于贯彻执行〈湖南省放宽市场主体住所(经营场所)登记条件的规定〉的实施意见",
+    "全国自建房安全专项整治工作方案",
+    "全省自建房安全专项整治工作和百日攻坚行动方案",
+    "关于加强居民自建房安全管理若干规定",
+    "湖南省居民自建房用于市场主体住所（经营场所）管理办法",
+    "关于贯彻执行〈湖南省放宽市场主体住所(经营场所)登记条件的规定〉的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2896e2a636754642bcc80f55db82a8fb",
+   "url": null,
+   "question": "车库、柴棚办理营业执照",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "关于贯彻执行〈湖南省放宽市场主体住所（经营场所）登记条件的规定〉的实施意见",
+    "住宅改变为经营性用房证明"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "9cc524595bc647aebdcda01883e1751d",
+   "url": null,
+   "question": "补办锅炉司炉证",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备作业人员考核规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ec84d06749a54654a68868c867cc5faf",
+   "url": null,
+   "question": "企业想通过外购成品电芯，在自己企业组装成电池包及电池模组需要哪些资质或申请条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国实施工业产品生产许可证管理的产品目录",
+    "强制性产品认证目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d937ed3c5e424cd9a940d12a148dcabf",
+   "url": null,
+   "question": "企业想申请办理挤包绝缘中压电力电缆产品生产许可证，何时开放办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "电线电缆产品生产许可证实施细则",
+    "国务院关于发布实施&lt;促进产业结构调整暂行规定&gt;的决定",
+    "产业结构调整指导目录（2011年本）（修正）",
+    "电线电缆产品生产许可证实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "58cf21e917954415bc3d4a3405f256fd",
+   "url": null,
+   "question": "个人工商营业执照办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记（备案）申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1dd05e0dae71478fa8d812700ca28b1f",
+   "url": null,
+   "question": "湖南省特种设备检验检测市场开放情况及外地机构入湘开展业务条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省市场监督管理局关于印发〈湖南省改进电梯维护保养模式和调整电梯检验检测方式试点工作方案〉的通知",
+    "湖南省市场监督管理局关于进一步做好电梯检验检测改革试点工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "02c0bd5b9d1f4ee6a0f7cd97130b2329",
+   "url": null,
+   "question": "关于市场电子秤及各大加油站相关涉及计量设备市场抽查情况公开申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局办公厅关于开展民生计量专项行动的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f901025b852d44a3b4e37375f8d0f8f1",
+   "url": null,
+   "question": "小型无人机产品代理和销售是否需新增营业范围？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实深化“证照分离”改革要求 全面推行市场主体经营范围规范化登记的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bae73ebe3e90495384281d73b6150f33",
+   "url": null,
+   "question": "关于营业执照迁出怎么办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业登记申请文书规范",
+    "企业登记提交材料规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "be53a151b3de424bba06a8219ae52889",
+   "url": null,
+   "question": "普通合伙企业经营范围变更",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实深化“证照分离”改革要求 全面推行市场主体经营范围规范化登记的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2f1e9e84611d4c6e855966e7638cc4cb",
+   "url": null,
+   "question": "关于生产许可申证问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品生产许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f39c8d5d70634a93b1d877dca59b7923",
+   "url": null,
+   "question": "新资源食品添加",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对党参等9种物质开展按照传统既是食品又是中药材的物质管理试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2e4124ed8ecd4c14aa655e59da32d784",
+   "url": null,
+   "question": "配方颗粒试点结束问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强湖南省中药配方颗粒管理的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "80a75902bce64d8dbbb17725b2129fe6",
+   "url": null,
+   "question": "股权质押所需要的资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于印发&lt;企业登记申请文书规范&gt;&lt;企业登记提交材料规范&gt;的通知",
+    "股权出质登记申请书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ae1b950afe2a4958a0c0ec0a862758f3",
+   "url": null,
+   "question": "长沙民政职业技术学院对社会生不按公示文件收学费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好 2019 年企业在岗人员高职扩招专项考试招生工作的通知",
+    "关于做好2020年高职（高专）院校单独招生工作的通知",
+    "教育部办公厅关于做好扩招后高职教育教学管理工作的指导意见",
+    "教育部办公厅等六部门关于做好2021年高职扩招专项工作的通知",
+    "关于做好2021年高职（高专）院校单独招生工作的通知",
+    "教育部办公厅关于做好扩招后高职教育教学管理工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "61bf119049c34c5c8c490f83545ac960",
+   "url": null,
+   "question": "关于省市场监督局工商登记办公软件“司法协助”模块仅有“股权冻结”与“股东变更”两项功能，无法处理“法定代表人变更”事项的投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于撤销冒用他人身份信息取得公司登记的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b41f0d093cd64d00a086a7c3c17d55f8",
+   "url": null,
+   "question": "身份被冒用",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于撤销冒用他人身份信息取得公司登记的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a43a843af9454fd9b6593e9cedf363e4",
+   "url": null,
+   "question": "关于公共交通一口价的投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国交通运输部令"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "f6d1f269712a45bcb1f233736e688308",
+   "url": null,
+   "question": "工商登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "62f8f35771f542bc9e1dd76ad6e440b3",
+   "url": null,
+   "question": "注销个体户营业执照",
+   "cited_hits": [],
+   "cited_missing": [
+    "个体工商户登记管理办法",
+    "个体工商户注销登记申请书",
+    "清税证明",
+    "委托代理人证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a5d26fcb9a914604957a4dd8b3fce919",
+   "url": null,
+   "question": "德一碧桂园物业强制收费现象",
+   "cited_hits": [],
+   "cited_missing": [
+    "前期物业服务协议",
+    "商品房买卖合同",
+    "前期物业服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "4d9d34f4d00041edbf54f140aee2aab4",
+   "url": null,
+   "question": "注册公司时住所使用证明到哪里开？所有行业都需要吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国物权法",
+    "湖南省放宽市场主体住所（经营场所）登记条件的规定",
+    "中华人民共和国物权法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1a7407164a384a20bec2a2035b816712",
+   "url": null,
+   "question": "省市区市场监督管理局政务服务中心对于审核统一要求统一规定的请求",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监管总局关于印发&lt;企业登记申请文书规范&gt;&lt;企业登记提交材料规范&gt;的通知",
+    "文书规范",
+    "材料规范",
+    "关于加强股权转让个人所得税管理工作的通告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-amr",
+   "id": "fae543430c9549bc93fc3ea5e2b05ce0",
+   "url": null,
+   "question": "仅销售预包装食品经营者备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "0e5325497bec4bf8bf2841986cac4510",
+   "url": null,
+   "question": "正在进行破产清算的企业，撤销监事，怎么操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "5ed625071ad640d3bab80ea3d10c87b5",
+   "url": null,
+   "question": "咨询《湖南省用水定额》2025年版的标准获取途径",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "04ee9061bc4d410187b133ff39b1e58b",
+   "url": null,
+   "question": "行吊式垃圾设备是否为特种设备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d53c70d4b29645799fde53532dd73dcf",
+   "url": null,
+   "question": "关于工业生产许可证办理问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "7c2ce9db5c4e42a1ae3ba30f13531462",
+   "url": null,
+   "question": "企业委托其他企业加工食品是否应将委托加工食品纳入经营范围‌？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8838a8f50ddd4c089b01ac528129e395",
+   "url": null,
+   "question": "叉车异地年检",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "c3334c61de4e4ffba03575d9d8f47440",
+   "url": null,
+   "question": "关于特种设备归类咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "ebd318351d084c7ab8e0140d9965f81b",
+   "url": null,
+   "question": "餐饮用醇基液体燃料使用规程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b540304b919e42f5a885605942f1e691",
+   "url": null,
+   "question": "非道路移动机械环保信息卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b16a410cc2b2402e8064d6165ee69a2a",
+   "url": null,
+   "question": "检验检测机构资质认定参数查询网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2063ba58b52142d0ae9b88ed24ad1888",
+   "url": null,
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d9af87c3dcbb43988276d1e8b8aa4e79",
+   "url": null,
+   "question": "请问湖南省市场监督局是否对发布吸收合并公告的媒体是否有指定要求？哪些媒体符合要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bcd2502006d54629b0730682dd0f87d8",
+   "url": null,
+   "question": "增加选项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "1b1619a4fa4643f19e95190bcaa53d8c",
+   "url": null,
+   "question": "特种设备使用登记证公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6ab6d21c5c2c4d8c9cf4866608725028",
+   "url": null,
+   "question": "在哪里查询检验检测机构信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "25b98e3d8ed44e1fb3750fa53a60db7c",
+   "url": null,
+   "question": "叉车证复审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "780fcfdb765748b7bb96c975391ee45b",
+   "url": null,
+   "question": "公司章程下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "51c4700ba4924eedab7c7370ec61dfe0",
+   "url": null,
+   "question": "仅销售预包装食品经营者备案信息采集表查询网址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e0bb38e391064ca0af465dad2b98fb18",
+   "url": null,
+   "question": "怎么下载电子的公司章程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d16d57f151a445aabc61e87cab68b460",
+   "url": null,
+   "question": "地标查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "8fb55074e11c420ba52cefc4f85ac5ef",
+   "url": null,
+   "question": "工商变更财务负责人如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "10a8d4c728e64ce8b6b24bc9824af2e5",
+   "url": null,
+   "question": "产品模型标注3C标识",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d4afa8f9b4824feea990c42a86c5013b",
+   "url": null,
+   "question": "县级公司更名为市级公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d379e94826b146eda06af4b0e4be9324",
+   "url": null,
+   "question": "个体工商户营业执照名称变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "51d43b24c26e441884ad789baf653c69",
+   "url": null,
+   "question": "寻求帮助修改电子注册登记身份证号码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "4a36b14c23c946bc84ae5b7a6033c7c9",
+   "url": null,
+   "question": "关于电梯安装监管问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b380a5299f5c4005b2acab89f7bc1171",
+   "url": null,
+   "question": "营业执照变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6d99b2a368ee4bddb73e9062c2f9629b",
+   "url": null,
+   "question": "公司法定代表人变更、章程修订、注册资本金变动问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-amr",
+   "id": "080640a66dc248c9b8086c728aa009d1",
+   "url": null,
+   "question": "冷水滩服务区过年期间兜售汽油转换液(汽油宝)，坑消费者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bc63f489c5b44256944b287df2803d55",
+   "url": null,
+   "question": "观光车取消年检手续咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "45099d0ba8f34d9dbe96aa72d521cc01",
+   "url": null,
+   "question": "个体工商户办理注销在《湖南省个体登记业务全程电子化系统》走完了线上审批流程。还需不需要去线下窗口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "40645d1cd6ce4510beb68bd730391f76",
+   "url": null,
+   "question": "检验检测机构内审员培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d300c6d234514fe990211b54b41d5f70",
+   "url": null,
+   "question": "设立个体户的进度疑惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "dab9566ddb9f42cf81fb75f7b7cbc66a",
+   "url": null,
+   "question": "请问株洲市企业专利可以走快速预审通道么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "dd539e3dff52445395c72b35493b2863",
+   "url": null,
+   "question": "冷冻食品外省监管仓出的核酸和消杀报告是否在湖南省能认可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "3393396fa9aa47d6b80cf7fcef68a3f4",
+   "url": null,
+   "question": "起重机械检验相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "3650210802e74f0682af9d8853715920",
+   "url": null,
+   "question": "如何在市场监督管理局获取最新的政策文件和规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "a5764c21841742aeaebecd10ff1ec6d8",
+   "url": null,
+   "question": "专利代理师资格证考试退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "211063e046eb4761bdac33662eebb2e3",
+   "url": null,
+   "question": "感谢信（表示对永州市场监督管理局唐烛军同志的感谢）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "d344e1115e9f47dba7ad276bfec7b29b",
+   "url": null,
+   "question": "请问特殊食品查询现在是哪个网站？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "0de31555e28b4f8da23cb10376a2d4e3",
+   "url": null,
+   "question": "请问怎么查询企业信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "6f8df4d5ef2741e1a1f34682348e2d9c",
+   "url": null,
+   "question": "检验检测机构资质认定评审员考核认定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "016e0ef5b6624390b25b402efbdfbc77",
+   "url": null,
+   "question": "特种设备安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "84614dd562cb4340a4f2f0e87ac35f20",
+   "url": null,
+   "question": "食品经营（仅销售预包装食品）备案告知函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "005f98c0ffaf4691aece3c3e198e78f2",
+   "url": null,
+   "question": "【被无职业医师资格并超范围执业的痘院长工作人员用针祛痘消费诈骗诱导分期贷款20000元！！！！】",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "98a1ff264f4542438a05f9efe2e1fad9",
+   "url": null,
+   "question": "个体工商户网上登记注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "936a0c333af54120bda8a773034c681a",
+   "url": null,
+   "question": "个人在长沙开设淘宝网店，没有实际经营地址，如何办理营业执照和食品经营许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "3e5eb5070b9841eabc04f409d0ef2fec",
+   "url": null,
+   "question": "贵湖南企业登记app软件注册不了新用户，怎么签字注办企业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "9e85ec0d2aeb43489384ac3fad47d756",
+   "url": null,
+   "question": "湖南企业湖南办理预包装食品销售备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e87871b6db4d45349d8aa8cf567bc28a",
+   "url": null,
+   "question": "湖南省洞口县高沙镇自来水厂乱作为、乱收费，坑害老百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "faa53daf8c4443f78c683a4b7d5edd6c",
+   "url": null,
+   "question": "在市场买到病死猪肉到底如何处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "171ac9c190834da69393aab2985f4e36",
+   "url": null,
+   "question": "企业营业执照名称及经营范围变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "2c51d060a10b4e868708603e0b86a517",
+   "url": null,
+   "question": "黑心开发商江河颐璟城虚假宣传坑害业主3000万元",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "bd406c748dba48958507f629282a1fd1",
+   "url": null,
+   "question": "邵阳恒大华府游泳健身会所收钱后不让进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b3ed35cadd0344e7a33d3d7516de65ca",
+   "url": null,
+   "question": "郴州市温德姆大酒店乱收电费，市场监督核实后，未给商户落实退款事项。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "b59c52e9051e4690b345ae0fa7375a12",
+   "url": null,
+   "question": "恒大未按约定进行车位返款，欺骗业主！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "76fc5c05dae446bd914b13f3b8db2bd8",
+   "url": null,
+   "question": "投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "e67c80f9b40c4238b70986881745f61a",
+   "url": null,
+   "question": "关于特种设备生产许可承接业务的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "fe868b255a794ae1aa523e2d5a401488",
+   "url": null,
+   "question": "吉首市燕淇电子商务有限公司销售假冒伪劣三无迪士尼品牌童装拒绝售后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "619683a94c9a42308cead10e925de337",
+   "url": null,
+   "question": "棚户区改造范围内办理营业执照",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-amr",
+   "id": "801a836c573446dfb70371fadc796cd0",
+   "url": null,
+   "question": "异地分公司的设立流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,2117 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-zrzyt",
+   "id": "26ca110452394fe3be11e17ac4cd8e07",
+   "url": null,
+   "question": "城乡规划",
+   "cited_hits": [
+    {
+     "name": "城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "9d0e270ca8d54af6be7b6a54f4edb389",
+   "url": null,
+   "question": "用地审批",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法实施条例",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "17e05959b238486482b01442b54150ae",
+   "url": null,
+   "question": "咨询文件",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5f8930019a104372bd0a61847f7bcacb",
+   "url": null,
+   "question": "地价动态监测数据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步加强城市地价动态监测工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "413edb9cdd814474824491bf65907d7b",
+   "url": null,
+   "question": "采矿权流转",
+   "cited_hits": [
+    {
+     "name": "探矿权采矿权转让管理办法",
+     "lib_no": "探矿权采矿权转让管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "矿业权出让转让管理暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "cfb52788f3ac44639d7972e725ef4f82",
+   "url": null,
+   "question": "国有出让土地不办理建设用地规划许可证，可以办理纯土地不动产证吗?",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "002e2e6a3e6c4d59a3c221a1710dbf0b",
+   "url": null,
+   "question": "关于农村房地一体不动产权属证书办理问题",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "40f0586ddf4143389d00f2c4b35411ec",
+   "url": null,
+   "question": "一方有《林权证》，另一方耕种20余年，权属该归谁？",
+   "cited_hits": [
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "林权证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "b1f0182fa250482e9ccaa5ceea2e77ed",
+   "url": null,
+   "question": "为什么省自然资源厅迟迟不给本人答复",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0ca324c88787444ebde62881229982c3",
+   "url": null,
+   "question": "关于自然河流(河流水面)及以及荒地是否计算征地面积的咨询",
+   "cited_hits": [
+    {
+     "name": "土地利用现状分类",
+     "lib_no": "GB/T 21010-2017",
+     "weak": false
+    },
+    {
+     "name": "土地利用现状分类",
+     "lib_no": "GB/T 21010-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典",
+    "湖南省人民政府关于调整湖南省征地补偿标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c49de101f9604c37ae5bbb999d312fd7",
+   "url": null,
+   "question": "《湖南省国土资然厅<关于对架空电力线路走廊用地预审进行相应调整的函>》有效期咨询",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法实施条例",
+     "lib_no": "土地管理法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施土地管理法办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "678c23f25cd04056b7229734c1530cbc",
+   "url": null,
+   "question": "关于硫铁矿尾矿权属问题的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法实施细则",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f88cf692f6354898bf90ecd91910be17",
+   "url": null,
+   "question": "咨询《农用地转用、土地征收审批单》的有效期",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农用地转用、土地征收审批单",
+    "国务院关于深化改革严格土地管理的决定",
+    "自然资源部关于健全建设用地“增存挂钩”机制的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "198ef6fdc1f64318914c9e88332155ba",
+   "url": null,
+   "question": "农村房屋确权纠纷",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a6411e57049f4f5a804c7617200f1923",
+   "url": null,
+   "question": "涟源市金樾府项目的用地性质一再更改",
+   "cited_hits": [
+    {
+     "name": "土地管理法实施条例",
+     "lib_no": "土地管理法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3b2d914360e642e1bde922e1482ffeb4",
+   "url": null,
+   "question": "施工方可以卖石头吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国矿产资源法实施细则",
+     "lib_no": "矿产资源法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5f211c55cb6344aa9163cd7b1ecd307d",
+   "url": null,
+   "question": "南省自然资源厅土地行政土地权属争议行政调处预审人连起码的案件性质都搞不清，建议更换",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "b99582fb2be64fb58bac1c142506b7f6",
+   "url": null,
+   "question": "依申请公开",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3f0448bab86540c6a7c69200919dd5db",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [
+    {
+     "name": "土地调查条例",
+     "lib_no": "土地调查条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ee8aeb929a3745ddadf9ac5284a8a409",
+   "url": null,
+   "question": "司法拍卖房地产不动产变更登记",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "05f1616124104c859032437b12459795",
+   "url": null,
+   "question": "社区居委会有权力征收村民土地吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "785725b5bf5e46dbb7c50d8b8f808ce2",
+   "url": null,
+   "question": "常宁市庙前镇旅游商贸街商铺是否可以办理不动产登记证？",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-zrzyt",
+   "id": "785cbdc21bb443b0b5508451cea3618b",
+   "url": null,
+   "question": "关于存量村庄规划项目验收相关资质政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "城乡规划编制单位资质管理办法",
+    "城乡规划编制单位资质管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "715442128d9b4c8e9a16be13c599a188",
+   "url": null,
+   "question": "关于湖南省内地质灾害工程预算编制，采用计价依据选用问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省国土空间生态保护修复项目预算编制指导意见（暂行）",
+    "湖南省土地开发整理项目预算补充定额标准（试行）",
+    "湖南省房屋建筑与装饰工程消耗量标准",
+    "湖南省市政工程消耗量标准",
+    "湖南省水利水电建筑工程预算定额",
+    "湖南省自然资源综合整治 工程项目 定额标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "139fc090fd534af2abea748d6bb2eed8",
+   "url": null,
+   "question": "关于因历史遗留问题未办权证的国有资产盘活是否符合土地使用相关规定的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省省直管土地资产处置办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "9a9b8cbf52f04e00b5ecd019b98c818d",
+   "url": null,
+   "question": "不动产权",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村住房建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "feeb69448f024c41b1e47317019a432e",
+   "url": null,
+   "question": "绿色矿山",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省自然资源厅关于2024年度新增湖南省绿色矿山的公示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "30a82f7fcb91431e925a9091ea638609",
+   "url": null,
+   "question": "建设项目压覆探矿权的补偿问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于做好压覆矿产资源补偿工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a76c9108c33943b898a6fb48699195e0",
+   "url": null,
+   "question": "湖南省绿色矿山",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强绿色矿山建设的通知",
+    "国家级绿色矿山建设评价指标"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "09b1ca466907441ba204b4db4890d1bd",
+   "url": null,
+   "question": "请问空间规划中级考试报名时间一般在什么时候",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省自然资源厅 湖南省人力资源和社会保障厅 关于2024年度自然资源工程专业初中级职称考试有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e115d85dbdf849d4a38614f11c188070",
+   "url": null,
+   "question": "工业项目是否入园问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于促进开发区改革和创新发展的若干意见",
+    "国务院安委会办公室关于进一步加强危险化学品安全生产工作的指导意见",
+    "国务院安委会办公室关于进一步加强化工园区安全管理的指导意见",
+    "国务院办公厅关于推进城区老工业区搬迁改造的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "69d493a096414483970257d7c1edb38b",
+   "url": null,
+   "question": "已通过日常变更但来不及进入年度变更的国土调查更新成果，能否作为建设用地红线调查的依据?",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部办公厅关于以“三调”成果为基础做好建设用地审查报批地类认定的通知",
+    "自然资源部办公厅关于按照实地现状认定地类规范国土调查成果应用的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4014acf1b76a4ad98625df11929274fe",
+   "url": null,
+   "question": "矿山地质灾害（塌陷）区是否可以开发光伏，政策是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部办公厅 国家林业和草原局办公室 国家能源局综合司关于支持光伏发电产业发展规范用地管理有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "dc2b4862382a44f1ba0fb3da4ddcf104",
+   "url": null,
+   "question": "缴纳不动产登记费问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省发展和改革委员会 湖南省财政厅关于发布湖南省自然资源系统行政事业性收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ae0288e78bd94112a1d211b2c2cae1e8",
+   "url": null,
+   "question": "《关于农村集体土地确权登记发证的若干意见》国土资发[2011]178号是否包括集体林地确权登记发证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于农村集体土地确权登记发证的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d9685b7f7e7749079a869817334aa3a3",
+   "url": null,
+   "question": "耕地图斑整改后是否可以稻鳖套养",
+   "cited_hits": [],
+   "cited_missing": [
+    " 农业农村部关于推进稻渔综合种养产业高质量发展的指导意见 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "304cd5f5a50544fd990e8d1cbaab5dd9",
+   "url": null,
+   "question": "国土三调基本农田界定",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国“三区三线”划定规则",
+    "湖南省人民政府办公厅关于加强农村建房管理的通知",
+    "农业农村部 自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ab32b6dba7664d71b114ca86b1a60c3b",
+   "url": null,
+   "question": "建设工程规划许可证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省人民政府办公厅关于全面推进城镇老旧小区改造工作的实施意见",
+    "建设工程消防设计审查验收管理暂行规定",
+    "湖南省工程建设项目审批工作指南（第四版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e461c3c807a14c30b93f175c86a38496",
+   "url": null,
+   "question": "三区三线含义",
+   "cited_hits": [],
+   "cited_missing": [
+    "花垣县土地利用总体规划（2006-2020年）",
+    "边城镇土地利用总体规划（2006-2020年）",
+    "全国“三区三线”划定规则",
+    "湖南省人民政府办公厅关于加强农村建房管理的通知",
+    "农业农村部 自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c3dc9b9762354d48ac5ef6d3b0a4c512",
+   "url": null,
+   "question": "咨询风电项目的送出线路涉及生态保护红线问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在国土空间规划中统筹划定落实三条控制线的指导意见",
+    "自然资源部 生态环境部 国家林业和草原局关于加强生态保护红线管理的通知（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "fb83f995c883444fa28ae178e4258834",
+   "url": null,
+   "question": "村庄规划",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省村庄规划编制技术大纲（修订版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a51828aafeb24033b911f43b4a99de7a",
+   "url": null,
+   "question": "设施农用地手续",
+   "cited_hits": [],
+   "cited_missing": [
+    " 自然资源部 农业农村部 国家林业和草原局关于严格耕地用途管制有关问题的通知 ",
+    "湖南省自然资源厅关于严格落实耕地进出平衡的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "9244540ba4d24901834a831c65c8b348",
+   "url": null,
+   "question": "国土空间中级职称考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央 国务院关于建立国土空间规划体系并监督实施的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "11e1fa6c05044cdfad27a6f2fed9086f",
+   "url": null,
+   "question": "竣工验收的含义是否包括“规划核实”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强法律解释工作的决议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f91ebfe4728e4d99a8f6e643280acdf1",
+   "url": null,
+   "question": "关于“多测合一业务”什么时候开放端口的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "长沙市望城区存量居民自建房问题分类处置与权证办证工作实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3a136073183949e0817f429d81f63376",
+   "url": null,
+   "question": "祁阳市金诚房地产开发有限公司不办理不动产权证",
+   "cited_hits": [],
+   "cited_missing": [
+    "商品房买卖合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0685f9a2e02846ad87f7debe07ea67a2",
+   "url": null,
+   "question": "不动产权证之土地使用权证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设用地规划许可证",
+    "实施细则",
+    "建设用地规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "30dc7a26a7ff49919989bbe2c866ce81",
+   "url": null,
+   "question": "关于通过招拍挂竞价取得的地块办理不动产权证之土地使用权证的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设用地规划许可证",
+    "实施细则",
+    "建设用地规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "b2685aeb719b4237a9ea9524fce9db05",
+   "url": null,
+   "question": "恳求依法按政策将自然资源所纳入参照公务员管理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好省级以下国土资源管理体制改革有关问题的通知",
+    "关于国土资源管理体制改革的实施意见",
+    "关于将全省乡镇国土资源所划分为行政类事业单位的请示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7e781453322b44d3a6ec373c6d8b1b4e",
+   "url": null,
+   "question": "未办理建设用地规划许可证、建设工程规划许可证等违法行为",
+   "cited_hits": [],
+   "cited_missing": [
+    "国土资源行政处罚办法",
+    "湖南省国土资源厅关于明确国土资源违法案件省级管辖范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "afbf62b6e8aa47ee822d145d5d70090e",
+   "url": null,
+   "question": "湖南省人民政府作出的〔2021〕政国土字第915号《农用地转用、土地征收审批单》请依法公开",
+   "cited_hits": [],
+   "cited_missing": [
+    "农用地转用、土地征收审批单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f85df4055b654dd38f858994a5e42371",
+   "url": null,
+   "question": "黑恶势力粮田毁坏和集体土地霸占举报书",
+   "cited_hits": [],
+   "cited_missing": [
+    "国土资源行政处罚办法",
+    "湖南省国土资源厅关于明确国土资源违法案件省级管辖范围的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5570d147cdc2409ebe24b983814f62cb",
+   "url": null,
+   "question": "关于报考下属事业单位需提供单位同意报考证明的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省事业单位公开招聘人员办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1d955a04540e47c58e02a2fa61466b1d",
+   "url": null,
+   "question": "土地被侵占",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部自然资源部关于规范农村宅基地审批管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "af1beb8aec114e61829f78dea3a6f876",
+   "url": null,
+   "question": "土地预审",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省自然资源厅关于规范建设项目用地预审与选址有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "05cfe3d77cca4689915811b61a4ecda4",
+   "url": null,
+   "question": "宅基地确权办强行促成一户两基不给村民确权",
+   "cited_hits": [],
+   "cited_missing": [
+    "望城区农村宅基地和集体建设用地房地一体确权登记操作方案（试行）",
+    "望城区个人建房管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6f85fd7fd03e48a6bef3dc8c44f722fd",
+   "url": null,
+   "question": "麻阳县金鑫华庭商品房不动产登记",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于黄静信访事项的处理意见书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "31361add464b4d63a5bac80a44d24e32",
+   "url": null,
+   "question": "购买商品房六年了，都拿不到不动产",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于忠良花园房地产项目房产办证历史遗留问题的处理意见",
+    "临武县集中化解忠良花园项目遗留问题办理不动产登记审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0288fc298a3343a3b1fabb62ae1dfbd5",
+   "url": null,
+   "question": "关于地下空间及车位的相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步做好不动产登记工作的通知",
+    "国务院关于促进节约集约用地的通知",
+    "湖南省人民政府关于进一步加强节约集约用地的意见",
+    "住房城乡建设部国土资源部关于进一步完善城市停车场规划建设及用地政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "36d48f99ae2642c1b8c6c4cd0d3cdefe",
+   "url": null,
+   "question": "湖南省人民政府农用地转用、土地征收审批单有效期是多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于深化改革严格土地管理的决定",
+    "关于完善农用地转用和土地征收审查报批工作的意见",
+    "湖南省征地程序暂行规定"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-zrzyt",
+   "id": "71a241c1c19a478981725b32be561080",
+   "url": null,
+   "question": "关于不动产登记代理人职业资格能否对应经济系列中级职称聘任的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c938baa3d5254b74953290af2a887e92",
+   "url": null,
+   "question": "关于无偿划拨的公共设施用地抵押相关政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "2400b20f548b42b4bc9bb538b7898a01",
+   "url": null,
+   "question": "历史遗留宅基地确权程序咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f5ca99912fd7428b8cd4295aff23e624",
+   "url": null,
+   "question": "农村房屋房地一体确权首次登记后户内人员去世，户内还有集体经济组织成员，后续怎么确权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d94d34274894487682b87a200a9572c6",
+   "url": null,
+   "question": "关于城市基础设施配套费收费的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3821e833e09a4c618775421a6e0bacac",
+   "url": null,
+   "question": "不动产测量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1cdaa4163dd946a7a1e9c5b1d64b99ee",
+   "url": null,
+   "question": "政府征收厂房和设备、厂法人已领取厂房、设备征收款后被征收的设备归属政府还厂法人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5d12bf72a6514c969ff70a243e7803c3",
+   "url": null,
+   "question": "地理信息下载获取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1b66db5eaf654687aa27f33f154b106c",
+   "url": null,
+   "question": "关于洋湖湿地公园规划的相关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "9b3dde78813d420aaa4b3f2664911e20",
+   "url": null,
+   "question": "咨询自然资源工程高级职称（副高）评审的有关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c7072b05668d41228d6c14236e711fdc",
+   "url": null,
+   "question": "农村建房审批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "8791227694c244a79e71ac7297a068ea",
+   "url": null,
+   "question": "2025年土地年度变更调查结果何时出来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e7123c62bbf64cda9faab7083d45a6bd",
+   "url": null,
+   "question": "自然资源确权登记专业中级职称进高级职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e0e4393474ae4e0a8bd5f5d563abfc75",
+   "url": null,
+   "question": "宅基地确权登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "b51f29d3b4474c93934659267bacfd22",
+   "url": null,
+   "question": "职称申报咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0c4a36a852574492b5e65c062be56177",
+   "url": null,
+   "question": "耕地相关数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "85cfb914d2d740929cafd621b982523c",
+   "url": null,
+   "question": "申请了临时用地在使用过程进行建设用地报批，可以退复垦费用和耕地占用税吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d0903693bc20443bab426b2cb1a1405d",
+   "url": null,
+   "question": "农村老宅基地建房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bf9ed784aed64221a946879843dfb7c7",
+   "url": null,
+   "question": "业务咨询：不动产首次登记能否利用已有地籍调查资料的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "740ce734a774413fa3ca90ee81ac2460",
+   "url": null,
+   "question": "咨询统计数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "31267d1c0c8d4a29b519f8b379679b3c",
+   "url": null,
+   "question": "需要矿产资源数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a97bdb6a104f48cb9e5303e5c4c4080a",
+   "url": null,
+   "question": "少儿手绘地图大赛投稿到哪里？怎么参与？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "cc10b46c9fb44e1680871356f5ef8d1a",
+   "url": null,
+   "question": "河道划界拷贝等高线数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bcb65d18222f4095913608b2ada800a7",
+   "url": null,
+   "question": "醴陵市陶瓷博物馆问题地图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a8d7135ab89b4e99830c8c3ea5c06f7a",
+   "url": null,
+   "question": "关于湖南省山区农村农民房前屋后菜地错误划分为永久农田、宅基地使用问题及农村问题的意见建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "33e551da98de4883abe612e616568fbf",
+   "url": null,
+   "question": "请求解决新化县枫林办事处五里亭社区魏氏俩兄弟宅基地置换问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "52fd2bdfa1b7481e82a4f50aaedd24bb",
+   "url": null,
+   "question": "宅基地超标问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "cbcfa53a6b6841c79496e8f3b92bc760",
+   "url": null,
+   "question": "咨询农村原宅基地建房事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "91bb137c2f18479b8a8257aa3c81da10",
+   "url": null,
+   "question": "测试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "de3071ff84e94bfe93fcfb2e00f5e768",
+   "url": null,
+   "question": "关于调取醴娄高速公路红线图的申请书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ec93f30dd6fc48c386bfe22dafe9b11f",
+   "url": null,
+   "question": "国土空间规划师高级职称要怎么评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6e258fcc75094b6aae6857f382a7175e",
+   "url": null,
+   "question": "养殖鱼塘及附属设施没有得到合法补偿的情况下，是否允许该地块挂牌出让？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "2540b6d92892411ca2477d811a62e805",
+   "url": null,
+   "question": "文件废止时间咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "53afff68828042b5827a9efe237ae4ae",
+   "url": null,
+   "question": "房地产开发企业申请不动产首次登记，不动产登记部门如何收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1353065ec6e341bea92a07eb13160f90",
+   "url": null,
+   "question": "关于湖南省农垦国有土地使用权使用期限的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "83071e0fbf4d4769b8cb6d64941155d9",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "308ea5af8a374c17885a814e3365f4e8",
+   "url": null,
+   "question": "宅基地政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4e7d3fb17e894784940039d3ab9f1e50",
+   "url": null,
+   "question": "关于职称申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f70f435b6fe04dbc87125ee2778eed83",
+   "url": null,
+   "question": "通过网上核认系统的继续教育学时认定单如何提供原件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1fa6849874e6489eacf0c2a4dbcec5af",
+   "url": null,
+   "question": "生态红线调整计划是多久",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bd5284372d4a46f0a01d406a6ff68c4b",
+   "url": null,
+   "question": "今年空间规划中级考试报名时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3b6992019fe0450396697d6c4f15d1f0",
+   "url": null,
+   "question": "2024年空间规划中级职称什么时候报名呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6e280f73ed824b21a2633cdc70ccd9ef",
+   "url": null,
+   "question": "2024年空间规划中级职称什么时候报名呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "525624de33da45828dd47f1836888abc",
+   "url": null,
+   "question": "关于地质灾害治理工程施工乙级资质申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c50fb0c9c24e4a5189bf05ad6aa3367d",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "dbb1f0cd055640ea9c9ff4be21433330",
+   "url": null,
+   "question": "关于集体经营性建设用地入市试点问题的疑惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3ca5d6614c6f4defac332daccf29c267",
+   "url": null,
+   "question": "咨询关于矿山整合的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7c365d2013a84fbb8a66ad8ac6accd08",
+   "url": null,
+   "question": "基准地价土地用途修正系数表已解决需撤销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "42012b167f8e4b369207585e3d7777e0",
+   "url": null,
+   "question": "电子地图标注违规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6c61f1dfd0e8495782f7cd654f58c9aa",
+   "url": null,
+   "question": "关于2024年《湖南省自然资源工程专业职称申报评价办法》出台时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d29ad48cba0c4cd3a1f6d2070fccbf4f",
+   "url": null,
+   "question": "关于湖南省竹木资源面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c620bde24c5743ff9c6f9e3a1f3777dc",
+   "url": null,
+   "question": "关于职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7f339950a4ff41b3a761b4118c644db1",
+   "url": null,
+   "question": "关于宅基地旧房重建的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "fcdb59c969dc46daa7b9dab61594e9c4",
+   "url": null,
+   "question": "高标准农田建设问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "88126780ff0f49ad8adc304e23ee7ff2",
+   "url": null,
+   "question": "山水工程试点名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0f4f4a4200ad438c9ef3adbe382a60d4",
+   "url": null,
+   "question": "测试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a058e695871e41bd949a821e4f0f501f",
+   "url": null,
+   "question": "宁乡市地图行政区划示意版上色可能错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "81936f467a614adfbd0a96db61b90571",
+   "url": null,
+   "question": "中铁十八局二分部临时租用古丈县默戎镇中寨村1组农田全部损毁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "35cd9c1150f04b3c82a7c8f5e18782f0",
+   "url": null,
+   "question": "三龙村村干部毁耕地建砂场谋暴利",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7551bef0d1704c4b871ef42864a0211f",
+   "url": null,
+   "question": "2023年城乡规划中级职称考试什么时候报名？在哪报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7eae2b9e610749e997c00aa33462b2ca",
+   "url": null,
+   "question": "郴州市基础测绘资料如何申请使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "40c6659227fe46ec84b5a7d7cc5ba892",
+   "url": null,
+   "question": "征地补偿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d432b41a03344130a60c9389eb4f0074",
+   "url": null,
+   "question": "农村集体土地用于非农业建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0721fa466384451aa78c9aa242d01f51",
+   "url": null,
+   "question": "数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bbbb7bbedca647aaa6a2a2f583deba0f",
+   "url": null,
+   "question": "寻求湖南省长沙市土地利用变更数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0c5691744b6146bbacb7ff3050532428",
+   "url": null,
+   "question": "农民难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a199aef0d8af4091a21a38c286d9f67b",
+   "url": null,
+   "question": "尾矿库回采权是否可以进行协议转让",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5836508814114ff4a4ab7bbe502c91c5",
+   "url": null,
+   "question": "长株潭城市群绿心矢量数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3d91b9ac86084918a6d1220e461df0d7",
+   "url": null,
+   "question": "老房子翻修",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "926f7435a40e4e6ab8ba774abd2132ed",
+   "url": null,
+   "question": "2022年注册城乡规划师考试成绩公布时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "888fcddb226946b8aceb75433a6802b7",
+   "url": null,
+   "question": "注册规划师考试成绩公布时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0b7d8f7633944da2a893ecf2a000c2c0",
+   "url": null,
+   "question": "公开公示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3327c28a9c6845a39b05f2ca0716e2b5",
+   "url": null,
+   "question": "湖南农村耕地流转政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3fb7504d62614064af0afc39d3684410",
+   "url": null,
+   "question": "湖南省国土空间规划专业中级职称考试成绩预计什么时候发布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "68a29c4969c64094a3682c7af08fca84",
+   "url": null,
+   "question": "计算机及应用专业可以报考国土空间规划中级职称吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "fc2330721945497fae9a2d2f6952ee09",
+   "url": null,
+   "question": "关于祁东县砖塘镇江溪口加油站如何办理经营性用地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4a8fe2fb5c4042719289d3aed11b71d8",
+   "url": null,
+   "question": "湖南省自然资源厅直属事业单位2022年公开招聘笔试时间：2022年11月12日（星期六）上午9:00-11:00",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6e010039f34b49b287190b11a38f3711",
+   "url": null,
+   "question": "新一轮永久基本农田核实整改时间什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c57bd29fc97a4046bf807cd5ddc5e6b8",
+   "url": null,
+   "question": "耕地建房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0a492cdd822d4626a0786beab6f500bd",
+   "url": null,
+   "question": "关于祁东县砖塘镇江溪口加油站如何办理经营性用地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5f866fe5fd1643a9a2e0db95179106c2",
+   "url": null,
+   "question": "开发商出具不了购房发票，能否办理不动产登记证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4cf9f928ea8d437197fa250c8b8ba855",
+   "url": null,
+   "question": "职称评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6f9bf322209743e89ad3e96d3dc816a3",
+   "url": null,
+   "question": "请问没有规划验收违规进行竣工验收请问怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6ddf1b0bde6f4364a361751862d4bc92",
+   "url": null,
+   "question": "农村宅基地建车库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "81aeef835a3d4f7db2248bbd5e96574a",
+   "url": null,
+   "question": "中级职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "96bd64bdea85460cab463bdb8c867773",
+   "url": null,
+   "question": "自然资源工程专业初中级职称",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4b230b1537af48479865c02e38ab6f99",
+   "url": null,
+   "question": "关于《湖南省自然资源厅湖南省人力资源和社会保障厅关于2022年自然资源工程专业初中级职称考试有关事项的通知》的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5bb93d0864da49b3960602c93af99491",
+   "url": null,
+   "question": "中级职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bbcff77afde04e77b926f3750ba13078",
+   "url": null,
+   "question": "请问湖南省自然资源厅的官方新媒体账号是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "2f3c16269a704299a9cdcf3b74f2c107",
+   "url": null,
+   "question": "本网站线上咨询问题一直不予解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4f5025466c134b33b2f7cf0df79f04cb",
+   "url": null,
+   "question": "个体工商户经营者将名下不动产权证（空地）转移个体工商户名下进行开发建设。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "edb19ad8bd0a4e5f9e0bc73611cd4ce0",
+   "url": null,
+   "question": "赫山区自然资源局包庇开发商违法违规办证官商勾结欺上瞒下玩忽职守亵渎职位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "878f004cb1d740f291d641489d52b545",
+   "url": null,
+   "question": "国外有一业余无线电运动，需提供某处公园地理信息，请问是否可以向其官网提供？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "42baffceaf9849309edafddc10298323",
+   "url": null,
+   "question": "城市规划中级职称考试时间及如何报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "2fe7f769ce974767a9dd4248ab1d1bfc",
+   "url": null,
+   "question": "城市规划专业职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ac4b18bf121f43c7963ef70179e6f751",
+   "url": null,
+   "question": "房产证办证事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "5a8de2d9c5c244379a22a45a5378b8d7",
+   "url": null,
+   "question": "城市规划职称考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e6e45bbbb5bb4a7892029f929f15356b",
+   "url": null,
+   "question": "关于工业用地土地使用权续期时是否还需要再支付城市基础设施配套费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e126d23ff90349bab26334cb8e384201",
+   "url": null,
+   "question": "多次咨询关于公共医疗用地可否用于疗养院建设，但是持续没有答复，并且咨询记录都已被删除",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ed903762179c40f6af0aa08a0e9b0c8d",
+   "url": null,
+   "question": "农村建房能建3层半？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "26d049090c6c45669a4c7246af7cb97b",
+   "url": null,
+   "question": "申请明确《湖南烈士公园总体规划修编》的文是否还在有效执行期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "d2fc8e4b59ae4f3da0c3a9c0d5476178",
+   "url": null,
+   "question": "数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "450597c235794b09a5570a8027e8ba29",
+   "url": null,
+   "question": "关于省外城乡规划编制单位入湘承揽业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "388aa15e622d432da870700564259395",
+   "url": null,
+   "question": "湖南省住建厅玩忽职守睁眼说瞎话，工作流于形式，一直来回踢皮球",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c377666e75c3437fa94a0dbf66b876ea",
+   "url": null,
+   "question": "关于架空电力线路杆塔占用基本农田的有关问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "f07d73ee60974690a15c54a1047a4365",
+   "url": null,
+   "question": "农村两证土地确权证以及宅基地证两年了一直没有回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1035487e277d49f18d247c276738de7d",
+   "url": null,
+   "question": "请求协助解决工程款，解决农民工工资！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "cf20fae02c944d9ab29e80a38dfdec63",
+   "url": null,
+   "question": "申请信息公开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "419e2700735e4e2393e453c7918bc4a6",
+   "url": null,
+   "question": "小区配电房地点设置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "3170d5d614254e4793487f03018ba118",
+   "url": null,
+   "question": "恳请落实国土资源管理体制改革政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "68847ebba563488e983dc4527d092d0d",
+   "url": null,
+   "question": "湖南省长沙市望城区普瑞大道888号富基世纪公园四期御景园房产证事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "26d5098fb32843a4a7f2ec4f19faacc4",
+   "url": null,
+   "question": "关于湖南省地质博物馆玻璃仓橱内容错误的提示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "43b1523affb74fd28fd6da6877db1660",
+   "url": null,
+   "question": "数据咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "bcc2d3280074458e87c134f972963d85",
+   "url": null,
+   "question": "永州市零陵区完美生活小区5年没拿到不动产证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "2e96476f0e9f40598e569cec41f07c50",
+   "url": null,
+   "question": "农民生产、生活安置用地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "679618f14b2243ef9f5385ba464c2af3",
+   "url": null,
+   "question": "房产证七年多办不下来",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "faba53c7bc314e05bc82be542d432102",
+   "url": null,
+   "question": "关于农村住宅宗地面积计算依据的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "12a3da92c56d43d482ff26c3fdde82ab",
+   "url": null,
+   "question": "耒阳市五一路东兴帝景不动产证迟迟不能办理、物业费高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "8be847d4c0c245b5a2d0860f3245992f",
+   "url": null,
+   "question": "开发商交房6年未办理房屋产权证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "53d3d70e14a947859c3002c3128134b1",
+   "url": null,
+   "question": "我为什么不能查询在建建筑物抵押登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "60aae8c1bafd4fd3b96965f7ef8a0521",
+   "url": null,
+   "question": "邵阳市宝庆皇府小区迟迟不办理不动产权证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "a429c89c525b4ef78cb568119a9f0899",
+   "url": null,
+   "question": "1996年的宅基地土地使用权证上是“空地”，今年确权却变成了农田，为什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "e39ff24cca354199b74777e6a47a6dc3",
+   "url": null,
+   "question": "官商勾结，眀目张胆，弄虚作假，欺上瞒下，伙同开发商闭门造假，天理难容，，，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c8c4ad0526324c7a8a872a9560131b32",
+   "url": null,
+   "question": "请求保留桑植县上河溪乡刘家垭建筑石料用灰岩矿，撤销桑植县陈家河镇耳洞坪建筑材料用灰岩矿权的请示",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "70a4920f2c0b4ec2a71c9bc12af28dc5",
+   "url": null,
+   "question": "连续四年咨询，百年央企何时拥有自己的运动净土。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "eef3e2240d834cb89d2f88e9c83d7cab",
+   "url": null,
+   "question": "我户是否属于长沙市60号令期间的征地农民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "1fb54b24d23245bab89f77cf3c460090",
+   "url": null,
+   "question": "燥音污染",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "91c9eb8c8f084e91be609ab42851f6f8",
+   "url": null,
+   "question": "国土证改名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4f5c2ab6bb8c49169446fdb9b0d0a140",
+   "url": null,
+   "question": "控告湘潭市公,检,法窜通一起,殉私枉法,捏造事实,",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "34f3fe55579d469d99e66cdd9de04377",
+   "url": null,
+   "question": "控告湘潭市公,检,法窜通一起,殉私枉法,捏造事实,",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c4fa2384ceeb40319806af4bde3aac5b",
+   "url": null,
+   "question": "官网权责清单栏目长期打不开",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "cc341b919aa34cbc8dacb91bf44961b5",
+   "url": null,
+   "question": "关于县级自然保护地整合优化预案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "c183e78464d34c5b95d95577ed338988",
+   "url": null,
+   "question": "关于县级自然保护地整合优化预案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "ea968b7c6c8f406a87b62391f5d76cfb",
+   "url": null,
+   "question": "关于县级自然保护地整合优化",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "6008be166a8e4fbebab06e71f911dd1f",
+   "url": null,
+   "question": "二级建造师成绩什么时候出？？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "529ffccad8364b6fb81f96697ade96fd",
+   "url": null,
+   "question": "购房备案证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4c3046ff927a4f7aa3e46a8f0395a176",
+   "url": null,
+   "question": "咨询临湘市正鑫矿业有限公司在金盆胥家断山采矿一事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "77f76f5d639640f8884600586ecdf4e8",
+   "url": null,
+   "question": "不动产权登记",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "060b406ad8ff45d48252918e0198d5bd",
+   "url": null,
+   "question": "茶常高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "fd7c9484657f475abf69bf673fb3c0dc",
+   "url": null,
+   "question": "乡村不动产权证申办所需资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

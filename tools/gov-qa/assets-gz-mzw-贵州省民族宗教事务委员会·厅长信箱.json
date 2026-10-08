@@ -1,0 +1,274 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-mzw",
+   "id": "27336129",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27336129",
+   "question": "您好，请问如何获取贵单位2021年的政府信息公开年报？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-mzw",
+   "id": "27630257",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27630257",
+   "question": "本人因婚姻关系发生变化（离婚），想申请更改所抚养的女儿的民族成分。目前遇到两个困难：一因所持户口册户主是我的父亲，我与户主关系是户主之女，孩子是户主是外孙女，不能直接证明我与女儿的母女关系，被要求到街道办出具父母子女关系证明。目前咨询街道办",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27556865",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27556865",
+   "question": "您好，想咨询一下贵州省少数民族语言测试划分为几个等级？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省世居少数民族语言测试等级证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27553344",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27553344",
+   "question": "您好，想咨询一下少数民族语言测试多少分可以及格？及格了有证书吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省世居少数民族语言测试等级证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27395626",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27395626",
+   "question": "你好，我想咨询一下，7月16号考的布依族语言，什么时候可以出成绩，并且多少分才可以有证书？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省世居少数民族语言测试等级证书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-mzw",
+   "id": "27738165",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27738165",
+   "question": "请问一下2026年贵州世居少数民族语言测试报名时间是什么时候啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27626616",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27626616",
+   "question": "您好！我正在研究贵州省少数民族村寨课题。但是在贵单位2017年10月份发布的第二批特色村寨公示共计241个，在当年12月份公布的第二批村寨共计240个。目前我在网上没有找到公示结束后的240个村寨，我希望获取公示之后的最终名单，感谢您的帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27607992",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27607992",
+   "question": "您好，少数民族语言测试证书何时可领取？领取的日期什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27596937",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27596937",
+   "question": "你好，本人于2024年7月参加贵州省世居少数民族语言等级测试，经查，本人测试成绩合格，已到达等级证书授予条件。现咨询内容如下： 1、本次测试证书何时可领取？领取证书的日期是什么时候开始呢（本人备注现场领取） 2、因本人工作时间冲突，周六周日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27594684",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27594684",
+   "question": "老师，你好，我想咨询一下，2024少数民族语言测试证书好了吗，可以来领了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27574214",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27574214",
+   "question": "各位老师，你们好，我想问一下我们去年参加的世居少数民族语言考试，等级证书什么时候发放呢？选择邮寄方式，但是到目前为止一直没有收到什么，办理一本证书需要多长时间呢，盼望老师回复我们一下，谢谢你们。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27550553",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27550553",
+   "question": "你好，我想咨询一下，之前的少数民族语言测试，通过后，有证书吗？是电子证书还是纸质证书？如果有，需要在哪领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27537449",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27537449",
+   "question": "您好。咨询一下我参加2023年贵州省世居少数民族语言测试成绩达合格，选填的是证书邮寄方式，但一直没有收到邮寄的证书是什么原因？如何咨询呢？谢谢答疑！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27503167",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27503167",
+   "question": "老师您好，我想咨询一下2023年全省世居少数民族语言测试去年参加测试的今年还能参加吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27493221",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27493221",
+   "question": "老师您好，我想咨询2023年全省世居少数民族语言测试时间具体是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27451013",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27451013",
+   "question": "您好。咨询一下我参加2022年的贵州双语考试成绩已合格，选填的是证书邮寄方式，一直没有收到邮寄的证书是什么原因？如何咨询呢？麻烦您致电或者发信息回复至我手机号一下，谢谢您的解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27419934",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27419934",
+   "question": "领导你好，我想咨询一下2022年7月16日考的少数民族语言多少分可以有证书，然后证书什么时候可以拿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27402057",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27402057",
+   "question": "领导好：请问2022年7月16测试的少数民族语言等级测试证书啥时候发放啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27396466",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27396466",
+   "question": "您好，我想问一下少数民族语言考试是多久一次？在哪可以报名呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27373530",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27373530",
+   "question": "请问下少数民族语言考试时间是多久？怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27359403",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27359403",
+   "question": "本人于2021年12月4日考了布依语，填的是邮寄方式领取证书，但现在还没有收到，请问如何领取证书呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27359263",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27359263",
+   "question": "本校测试的同学证书已领取，我们外校的(之前有写好地址的)迟迟没收到任何信息。官方和负责人都没有人通知怎么支付运费或者送到我们这里。想知道现在证书是否可以到本校领取或者喊人代领。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27338469",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27338469",
+   "question": "我行政村少数民族居住组建立少数民族文化广场的申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27325255",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27325255",
+   "question": "您好！我想咨询一下自己在2017年7月参加的少数民族语言等级考试，后证书不慎遗失，现在能补办吗，如何办理呢？盼复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27321107",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27321107",
+   "question": "您好，请问一下如何获取贵单位2021年的政府网站工作年度报表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27320999",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27320999",
+   "question": "请问2021年贵州省下半年少数民族语言水平测试的报名时间是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27319078",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27319078",
+   "question": "本人2019年5月报名参加了苗语考试，至今未收到资格证领取通知，请问下怎么联系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-mzw",
+   "id": "27281247",
+   "url": "https://mzw.guizhou.gov.cn/hdjl/?id=27281247",
+   "question": "请问2021年贵州省世居少数民族语言水平测试的报名时间是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

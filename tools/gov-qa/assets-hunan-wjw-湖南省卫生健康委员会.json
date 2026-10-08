@@ -1,0 +1,1166 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-wjw",
+   "id": "b30964d8fdba49698757b3a734d60dbd",
+   "url": null,
+   "question": "小檗碱及小檗碱衍生物、化合物是否在我国属于非法添加",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "dbcf2a17cdce49298ea79f3b4670ca8f",
+   "url": null,
+   "question": "盐渍蔬菜添加剂使用标准",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " &nbsp; 食品安全国家标准 酱腌菜 ",
+     "lib_no": "GB 2714-2015",
+     "weak": false
+    },
+    {
+     "name": " 中华人民共和国标准化法 ",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "GB 2714-2015"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "11beb45f3dc042f78a308b401da10593",
+   "url": null,
+   "question": "植物提取物的质量指标的检测方法能用食品的检测标准检测吗？",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家卫生计生委政务公开办关于新食品原料、普通食品和保健食品有关问题的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "c0516b6746c84fecb00400c9f6081131",
+   "url": null,
+   "question": "斑斓叶（香露兜叶）能不能在湖南合法经营",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 国家卫生健康委办公厅关于进一步规范食品安全地方标准备案工作的通知 ",
+    "食品安全地方标准香露兜叶（粉）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5a69a3f4c3444052a635a3bc4ce15146",
+   "url": null,
+   "question": "湖南省范围内哪些医疗单位具备胎儿产前筛查的资质，三甲医院是不是都可以？",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "ba40cb21e3544f77b20abffa2aed7c08",
+   "url": null,
+   "question": "职业病危害因素检测周期",
+   "cited_hits": [
+    {
+     "name": "使用有毒物品作业场所劳动保护条例",
+     "lib_no": "使用有毒物品作业场所劳动保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "工作场所职业卫生监督管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "70ebd708f09f4a70b476b6b6d7787433",
+   "url": null,
+   "question": "关于申请永州零陵外骨科医院医疗赔偿的报告",
+   "cited_hits": [
+    {
+     "name": "医疗事故处理条例",
+     "lib_no": "医疗事故处理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗纠纷预防和处理条例",
+     "lib_no": "医疗纠纷预防和处理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "侵权责任法",
+    "湖南省医疗纠纷预防与处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "36f66e3e8b5e4f7481b1f3666b040bbc",
+   "url": null,
+   "question": "是否可以免征社会抚养费",
+   "cited_hits": [
+    {
+     "name": "全国人大常委会法工委关于征收计划外生育费是否适用行政处罚法的批复",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "立法法",
+     "lib_no": "立法法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省人口与计划生育条例（2007年）",
+    "省人大常委会关于修改&lt;湖南省人口与计划生育条例&gt;的决定",
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "73e430380e9a49bfac4c78638014fefa",
+   "url": null,
+   "question": "关于加热型饮水机的水质监测标准问题（附带我产品涉水批件）",
+   "cited_hits": [
+    {
+     "name": "学校卫生工作条例",
+     "lib_no": "学校卫生工作条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生活饮用水卫生标准",
+     "lib_no": "GB 5749-2006",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "c339d8bbee69471781914dd43577351c",
+   "url": null,
+   "question": "2018年婚假",
+   "cited_hits": [
+    {
+     "name": "关于修改〈中华人民共和国人口与计划生育法〉的决定",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "人口与计划生育法",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "修改决定",
+    "修改决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "72c27281cf55425c9f21d05d4ea53062",
+   "url": null,
+   "question": "问问为什么每个省份制定的计划生育条例都不同呢？",
+   "cited_hits": [
+    {
+     "name": "人口与计划生育法",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "人口与计划生育法",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "人口与计划生育法",
+     "lib_no": "人口与计划生育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-wjw",
+   "id": "102e9386eb94482e926856efff6837c6",
+   "url": null,
+   "question": "市场上的“打耳洞”是否与“穿耳孔术”一致",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗美容项目分级管理目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "389a7006c2d9496c95065b4da5b85f41",
+   "url": null,
+   "question": "蟠桃籽是否可作为普通食品原料使用?跟药食同源的桃仁一样属于药食同源吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国药典",
+    "中华人民共和国药典",
+    "国家卫生计生委政务公开办关于新食品原料、普通食品和保健食品有关问题的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5c4371370ff14ab0a06452e5f2da00b4",
+   "url": null,
+   "question": "乡村医生招聘信息公示疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省2024年大学生乡村医生公开招聘公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "85c3f3c419fc4b2e89081e71f5f25012",
+   "url": null,
+   "question": "献血者相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省卫生计生委关于印发&lt;湖南省无偿献血及其亲属临床用血费用报销工作管理办法（试行）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "61a032134c654150ba0952fe41e1e4f1",
+   "url": null,
+   "question": "在邵东接种疫苗发生异常反应几年无人处理",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省第一类疫苗预防接种异常反应补偿基础保险实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "233453e4c5eb40688c4202889745d9ae",
+   "url": null,
+   "question": "接种一类疫苗后发生疫苗异常反应",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省第一类疫苗预防接种异常反应补偿基础保险实施方案（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "9eecce414bcc4b8c84c98f1cdf1f0de2",
+   "url": null,
+   "question": "《独生子女父母光荣证》是否继续享受奖励的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "湖南省人口与计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "c01475db574e4658b0aefa81ac545e3d",
+   "url": null,
+   "question": "咨询职称考试报考问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省卫生专业技术人员职称制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "d362755dbd88416da27843cbadee4939",
+   "url": null,
+   "question": "育儿假含不含休息日？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例",
+    "条例（2021版）",
+    "条例（2021版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "9cb70f0d55794219b0802d7a522804fa",
+   "url": null,
+   "question": "医疗机构数量",
+   "cited_hits": [],
+   "cited_missing": [
+    "长沙、衡阳、邵阳、益阳、岳阳市社区卫生服务中心（站）数量"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "29531e0ab496464da555e3d8eb125267",
+   "url": null,
+   "question": "我们何时能够注册执业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人民政府关于印发&lt;湖南省建立全科医生制度实施方案&gt;的通知",
+    "湖南省人民政府办公厅关于改革完善全科医生培养与使用激励机制的实施意见",
+    "关于加强和完善精神专科医生医疗服务的意见",
+    "湖南省医疗机构设置规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e7e342f5917040dd8b5afbdbd60093eb",
+   "url": null,
+   "question": "关于独生子女界定，和独生子女父母光荣证办领问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村部分计划生育家庭奖励扶助政策解释",
+    "湖南省人民政府关于二胎生育的暂行规定",
+    "湖南省人民政府关于二胎生育的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "19f1198a0a03488e96a2b9def7f6a19d",
+   "url": null,
+   "question": "湖南省食品安全地方标准挤压糕点(DBS43/002-2017)是否已经公告废止",
+   "cited_hits": [],
+   "cited_missing": [
+    "挤压糕点"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "2192617cade04cb0b47c6f0cbf29782f",
+   "url": null,
+   "question": "关于农村二女政策补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络问政",
+    "湖南省农村部分计划生育家庭奖励扶助政策解释",
+    "湖南省人民政府关于二胎生育的暂行规定",
+    "湖南省人民政府关于二胎生育的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "6d41f9126bc34d5d8755e489541d59de",
+   "url": null,
+   "question": "关于父母未办理独生子女证",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络问政",
+    "独生子女父母光荣证",
+    "独生子女证",
+    "湖南省人口与计划生育条例（2007版）",
+    "独生子女父母光荣证",
+    "关于修改&lt;湖南省人口与计划生育条例&gt;的决定",
+    "&lt;湖南省人口与计划生育条例（2016版）&gt;应用解释",
+    "修改决定",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "应用解释",
+    "独生子女父母光荣证",
+    "独生子女证",
+    "湖南省人民代表大会常务委员会关于修改〈湖南省人口与计划生育条例〉的决定",
+    "&lt;湖南省人口与计划生育条例（2016版）&gt;应用解释"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "3ef0946355a64715a5a878f383043de1",
+   "url": null,
+   "question": "关于仙人掌和人参果食品原料的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络问政",
+    "卫生部关于批准蛋白核小球藻等4种新资源食品的公告",
+    "卫生部政务公开办公室关于普通食品、保健食品和新资源食品原料有关问题的说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5f0d9d7b860747f484f830d0fe30ad0c",
+   "url": null,
+   "question": "关于肝病防治缺陷和误区的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国脂肪肝防治指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "401b08ae376b4b6d943259892385eabf",
+   "url": null,
+   "question": "可输注血制品的医疗机构有何要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "处方管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "071f6ebfd0f2420ea983234cf6f55cbb",
+   "url": null,
+   "question": "现在不还收不收社会抚养费",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "4eed5a1e353f4645aeef21e026254282",
+   "url": null,
+   "question": "网上计划生育登记相关咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省生育服务登记和生育证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "d6464714eee6406295052dabe3155dc6",
+   "url": null,
+   "question": "什么时候能够出台新的《湖南省疫苗接种异常反应补偿办法》",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省第一类疫苗预防接种异常反映补偿基础保险实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5b8a688fd9764463997a48550075090a",
+   "url": null,
+   "question": "关于独生子女奖励政策问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络问政",
+    "湖南省农村部分计划生育家庭奖励扶助政策解释"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "dc86d3573c5041a0849f57950eda9869",
+   "url": null,
+   "question": "请问含银离子阴道用黏膜消毒剂的审批问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "消毒管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a72749d0c262407d81f162932269e447",
+   "url": null,
+   "question": "中医师承老师资格确认",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省中医医术确有专长人员医师资格考核注册管理实施细则（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "b8203a7bfc2c4d19b50329532b6b5aa7",
+   "url": null,
+   "question": "关于2018届医学专业型硕士研究生住院医师规范化培训合格证书迟迟未发放",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训合格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "ba5b1fb8ff61455b98ba6b238afea084",
+   "url": null,
+   "question": "独生子女及其父母各种福利补助",
+   "cited_hits": [],
+   "cited_missing": [
+    "网络问政",
+    "独生子女父母光荣证",
+    "独生子女证",
+    "湖南省人口与计划生育条例（2007版）",
+    "独生子女父母光荣证",
+    "关于修改&lt;湖南省人口与计划生育条例&gt;的决定",
+    "湖南省人口与计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "&lt;湖南省人口与计划生育条例（2016版）&gt;应用解释",
+    "关于修改〈湖南省人口与计划生育条例〉的决定",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "湖南省人民代表大会常务委员会关于修改〈湖南省人口与计划生育条例〉的决定",
+    "&lt;湖南省人口与计划生育条例（2016版）&gt;应用解释"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "0045940417ae4c28b7c94b354eecc0d0",
+   "url": null,
+   "question": "相关计生政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5838752f72ec4275849519fd8bfd06bc",
+   "url": null,
+   "question": "关于湖南省人口与计划生育条例2016版第二十二条的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈湖南省人口与计划生育条例（2016版）〉应用解释",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "de6029739e1a4f58beba83b814b1a549",
+   "url": null,
+   "question": "恳请协调解决农村订单定向医学生编制待遇等问题的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "恳请协调解决农村订单定向医学生毕业后编制待遇等问题的报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "90fba44112a547c48670b8d6307018b2",
+   "url": null,
+   "question": "咨询独生子女光荣证",
+   "cited_hits": [],
+   "cited_missing": [
+    "〈湖南省人口与计划生育条例（2016版）〉应用解释",
+    "修改决定",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女证",
+    "湖南省人口与计划生育条例（2016版）",
+    "〈湖南省人口与计划生育条例（2016版）〉应用解释"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "8aaed59a9a274838aeac93b8b865e6c9",
+   "url": null,
+   "question": "问下计生政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5ab9ab41485c49af8dfa23ad2b2b7a8c",
+   "url": null,
+   "question": "关于2016年生育津贴发放标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "24541a80a3be4791a457605b7b717ede",
+   "url": null,
+   "question": "长沙县至今未能办理生育津贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "af615940fd6343568dcfe1f71ae4c4a4",
+   "url": null,
+   "question": "对应用解释条款的疑问",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人口与计划生育条例（2016版）应用解释",
+    "应用解释（2016版）",
+    "修改决定",
+    "修改决定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-wjw",
+   "id": "73e5b538d56f466db20f718464932e8d",
+   "url": null,
+   "question": "湖南省二类疫苗接种机构中部分疫苗品种缺失的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "84154198696d4085b131b364e6c3ee3c",
+   "url": null,
+   "question": "销售无备案消毒产品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e91a6bdb28b84c1fbdc0d6f633ec531a",
+   "url": null,
+   "question": "人类辅助生殖技术（评审/校验）申请书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "927d564b812a4f19a3ef3f88a947042f",
+   "url": null,
+   "question": "关于补办护士资格证（非执业证）的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "cc021ee9018b4b3eb501be6439052c11",
+   "url": null,
+   "question": "关于咨询医院禁止、限制携带物品名录的具体目录有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "47a347847570472aaf3280ba509f125c",
+   "url": null,
+   "question": "卫生专业资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a4c2eb4abd9647aca735420d33312f2e",
+   "url": null,
+   "question": "疫情隔离",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "f7cb8e49698245a4a3100a18c04c19fd",
+   "url": null,
+   "question": "两年参加抗疫，因漏报名额，就改变抗疫事实吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "8bc7a9889a4a4a2994032ee7ca9e4cb2",
+   "url": null,
+   "question": "关于进口胶囊状食品分类问题请教",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "95d040f90d034529ba76209fd991c993",
+   "url": null,
+   "question": "关于“加强针”疫苗接种计划的相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "88403d84d07641488727cab0e1b23ea0",
+   "url": null,
+   "question": "关于存在中高风险区域的相关城市居民返湘的若干问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5f1247cb8b0b492b85c0d5f4fc06e328",
+   "url": null,
+   "question": "护士职称证书查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5282d73d2cb24422b159b706803f1299",
+   "url": null,
+   "question": "健康管理师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "97d87cd57b5d45bc912ee59592f3805f",
+   "url": null,
+   "question": "关于2021年健康管理师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "472911582313488883b74c3e55bc0040",
+   "url": null,
+   "question": "卫生专业技术资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "85b652fc70e2463c9e89255a56d191c6",
+   "url": null,
+   "question": "外省回湖南防疫咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "2a568f5ac66947ab9950a0c1ac684077",
+   "url": null,
+   "question": "职称评审行政性加分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e9edb53a1d7448598334a0cbb2fea842",
+   "url": null,
+   "question": "卫生专业技术资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "92895e7897b5462f80b736e594df739d",
+   "url": null,
+   "question": "入学新生肺结核筛查是免费还是收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "7c2868c06cc741929473f5d1e8cae7e8",
+   "url": null,
+   "question": "健康管理师考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "32254927c8ec4b93b4d555b5d142c100",
+   "url": null,
+   "question": "2020年健康管理考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e25df03d63d641389b8aacbb93cd95d8",
+   "url": null,
+   "question": "成人高考，《医学检验技术》本科文凭可以参加临床医学检验职称考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e9c70228b8da4c348c2340409e1411b4",
+   "url": null,
+   "question": "健康管理师考试能否协取消报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "949ad2a3bf084bc8848bafe4395aeccd",
+   "url": null,
+   "question": "县级二甲医院的螺旋CT等级怎么审批",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "675a5d7c5e784048abcd5fbed05a0751",
+   "url": null,
+   "question": "固体饮料产品是否合格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "f65ac3cf2c7d4fefb6907b2fa0f15e12",
+   "url": null,
+   "question": "湖南省食品安全地方标准挤压糕点(DBS43/002-2017)是否废止？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "04e80852c05c42d5b7c951bacbcc210d",
+   "url": null,
+   "question": "健康管理师如何报名?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "095a34dcaef04283a01b0155a59b473e",
+   "url": null,
+   "question": "援鄂护士编制问题能否解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "328b35df28294a16b2072d5eca7494c2",
+   "url": null,
+   "question": "农村订单定向医学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "8e444a31d8ba429fae657307f1ce0cb6",
+   "url": null,
+   "question": "定向生省内工作流通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a09dd818180b41d2bd73ced8f7307886",
+   "url": null,
+   "question": "防疫津贴发放人员范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "7a4cf0710f334a0e90fd0f68a71509f9",
+   "url": null,
+   "question": "2020助理全科医师培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "3aeee11891614c62be3b93a700a408d0",
+   "url": null,
+   "question": "卫生专业技术职称证补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "e20d138aab5e4c379c0ee9661d24eeb1",
+   "url": null,
+   "question": "保险报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a292618748b5483281b395aa519626ab",
+   "url": null,
+   "question": "湖南省计划生育证件网上办事大厅办事效率低下！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "6de6954bb91d4f588bbfb3ff30de01e1",
+   "url": null,
+   "question": "对艾滋病防治工作的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "536189ed62324bf8892919b08af86872",
+   "url": null,
+   "question": "有关湖南省儿童医院乱收费及重复检查的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "815941accdd041b39fcb2a1ce3868c31",
+   "url": null,
+   "question": "中南大学湘雅三院乱收费，医生医德何在？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a5d0b4f2d8554c0aba65e7d979f9a68b",
+   "url": null,
+   "question": "医生俜用中级职称需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "5053bb1943a2465698c91a9d67e317f3",
+   "url": null,
+   "question": "关于长春长生涉及疫苗问题的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "ca12e6e1eb68475696824673a6319786",
+   "url": null,
+   "question": "全国百强社区卫生服务中心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "da059d7e96e44d43b6828d05201b7987",
+   "url": null,
+   "question": "湖南卫生计生委关于派遣医务人员前往国外学习的信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "192ca3679bbd4df9b525422b15098245",
+   "url": null,
+   "question": "更换规培基地和专业的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "cbf835c1aa2d4a68a5976d7c6bbd8a45",
+   "url": null,
+   "question": "关于上节育环",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a18a387ef0b944458392166e09fff47c",
+   "url": null,
+   "question": "二孩罚款与流动计生证挂钩吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "09ca84f10b234bd28e4c0bf756fb4806",
+   "url": null,
+   "question": "关于“全国健康扶贫动态管理系统”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "a1fc01392caf46dea72b00b09c1bc800",
+   "url": null,
+   "question": "房东在出租房内圈养活鸡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "dbe5717eda834d44bbd30e6ace5ad423",
+   "url": null,
+   "question": "请问慈利县农合在镇上医院门诊买药不能报销了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "b90d7cb8b68546a8927ca9302bf4d641",
+   "url": null,
+   "question": "关于新生儿在湘雅附一申报新农合的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "02f2f637df45468dba67232b46462d85",
+   "url": null,
+   "question": "企退医务人员待遇诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "2ee54281d6da4fbeb084a16574d024d0",
+   "url": null,
+   "question": "精神病医院放射人员的津贴问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "ff8d7fafb19b4968beac06b8691365bc",
+   "url": null,
+   "question": "医疗收费标准咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "c43071d23fda4ee0a1284dc4515abc7d",
+   "url": null,
+   "question": "黑诊所问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "7ad2b28118ca4c92a5a858cbb85c856d",
+   "url": null,
+   "question": "关于财务部门与银行合作问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "fbd1fb798ae64b2abe5532a329bfb6ae",
+   "url": null,
+   "question": "咨询省卫计委",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

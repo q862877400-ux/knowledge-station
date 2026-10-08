@@ -1,0 +1,1903 @@
+{
+ "A_考卷": [
+  {
+   "source": "qh-wsxf",
+   "id": "030074642",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/14/030074642.shtml",
+   "question": "领失业保险金，是否会减少基本养老保险个人账户金额？",
+   "cited_hits": [
+    {
+     "name": "社会保险法",
+     "lib_no": "社会保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073639",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073639.shtml",
+   "question": "学法减分期间，记分达12分可以继续申请吗？",
+   "cited_hits": [
+    {
+     "name": "道路交通安全法",
+     "lib_no": "道路交通安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070814",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/25/030070814.shtml",
+   "question": "工作时与人发生争执被殴打，能认定工伤吗？",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069438",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/07/030069438.shtml",
+   "question": "房屋装修可以提取住房公积金吗?",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069436",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/07/030069436.shtml",
+   "question": "帮同事分担工作受伤，能否认定工伤？",
+   "cited_hits": [
+    {
+     "name": "工伤保险条例",
+     "lib_no": "工伤保险条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067865",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/19/030067865.shtml",
+   "question": "房屋未居住可以不支付物业费吗?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030064008",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/27/030064008.shtml",
+   "question": "货车司机驾驶证已延长至63岁，但道路运输资格证未延迟，导致无法驾驶车辆，怎么办？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "qh-wsxf",
+   "id": "030108637",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/09/17/030108637.shtml",
+   "question": "西宁多处道路为啥要开挖 围挡背后原来是一场地下“民生慢手术”",
+   "cited_hits": [],
+   "cited_missing": [
+    "西宁市城市地下管网更新改造三年集中攻坚专项机制",
+    "西宁市市政工程施工指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030108167",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/09/09/030108167.shtml",
+   "question": "如何在青海申请成为离境退税“即买即退”商店？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家税务总局关于推广境外旅客购物离境退税“即买即退\"服务措施的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030097953",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/24/030097953.shtml",
+   "question": "劳动仲裁申请撤回后，能再次申请吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "劳动人事争议仲裁办案规则",
+    "劳动人事争议仲裁办案规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096765",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096765.shtml",
+   "question": "青海省关于幼儿园大中小班级学生容量有何规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "幼儿园工作规程（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096759",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096759.shtml",
+   "question": "保健食品广告批准文号的有效期是多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品、医疗器械、保健食品、特殊医学用途配方食品广告审查管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096755",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096755.shtml",
+   "question": "缓缴工伤保险费期间，工伤职工待遇受影响吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于阶段性减免企业社会保险费的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096751",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096751.shtml",
+   "question": "为何青海省体育局要求前往岗什卡雪峰需提前20天报备？",
+   "cited_hits": [],
+   "cited_missing": [
+    "青海省体育局登山活动管理工作流程（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030086587",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/20/030086587.shtml",
+   "question": "2026年青海省普通高考报名流程？",
+   "cited_hits": [],
+   "cited_missing": [
+    "青海省2026年普通高考考生综合素质评价表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030085232",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/03/030085232.shtml",
+   "question": "2025年青海省汽车报废更新补贴资格申领需上传哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车登记证书",
+    "报废机动车回收证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081981",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/19/030081981.shtml",
+   "question": "2025年成人高考报名收费标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新核定我省部分教育考试收费标准的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081205",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/06/030081205.shtml",
+   "question": "取得哪些证书能退个税？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家职业资格目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030075024",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/20/030075024.shtml",
+   "question": "2025年青海省高考成绩如何复核？",
+   "cited_hits": [],
+   "cited_missing": [
+    "青海省2025年高考成绩复核申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074631",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/14/030074631.shtml",
+   "question": "提取省公积金偿还商业贷款需哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "借款合同",
+    "购房合同",
+    "不动产权证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071935",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/10/030071935.shtml",
+   "question": "青海省失业保险金标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整失业保险金标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068081",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/22/030068081.shtml",
+   "question": "海西州生育补贴标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "海西州加快完善生育支持政策体系推动建设生育友好型社会实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067866",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/19/030067866.shtml",
+   "question": "身份证可以委托他人代领吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "居民身份证领取凭证",
+    "居民身份证领取凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067181",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/10/030067181.shtml",
+   "question": "列车未驶离，电子检票已停止，是否可以走人工通道检票通行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国国家铁路集团有限公司铁路旅客运输规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067179",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/10/030067179.shtml",
+   "question": "职工医保个人账户为何不可以支付体检费用？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于建立医疗保障待遇清单制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030066095",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/26/030066095.shtml",
+   "question": "我家住小区一楼，想把家里客厅改造为一个商店，可以办理烟草零售许可证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟草专卖许可证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030066094",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/26/030066094.shtml",
+   "question": "有无癌症患者办理残疾证的政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "残疾人残疾分类和分级",
+    "GB/T 26341-2010"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065034",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/11/030065034.shtml",
+   "question": "如何参与2025年商务领域消费品以旧换新活动，并了解申请流程及所需资料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "青海省2025年商务领域加力扩围消费品以旧换新实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063243",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/15/030063243.shtml",
+   "question": "从西宁市前往甘肃省购买正规烟花爆竹，在高速收费口会被查处吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "烟花爆竹道路运输许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "qh-wsxf",
+   "id": "030108166",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/09/09/030108166.shtml",
+   "question": "哪些人能申请技能提升补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030101699",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/06/12/030101699.shtml",
+   "question": "照顾性政策加分项目及分值适用于所有在青招生计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030101698",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/06/12/030101698.shtml",
+   "question": "青海省长期护理保险制度什么时候全面覆盖所有人群？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030097955",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/24/030097955.shtml",
+   "question": "青海省房地产经济专业人员职业资格考试具体的报名入口、报名方式及流程是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030097954",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/24/030097954.shtml",
+   "question": "青海省医保定点药店的药品价格比价信息如何查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096764",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096764.shtml",
+   "question": "青海省住房公积金父母子女互偿住房贷款提取办理渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096763",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096763.shtml",
+   "question": "什么是高职院校分类考试招生？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096762",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096762.shtml",
+   "question": "劳动能力鉴定材料不符合要求，能补正吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096761",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096761.shtml",
+   "question": "2026年有奖发票活动中奖金额是怎么设置的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096760",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096760.shtml",
+   "question": "经营者提供商品或者服务有欺诈行为时应当如何赔偿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096758",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096758.shtml",
+   "question": "法定节假日加班的三倍工资怎么算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096752",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096752.shtml",
+   "question": "目前我省生态殡葬奖励标准是怎么规定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096754",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096754.shtml",
+   "question": "社保费管理客户端频繁提示存在应申报未申报信息，导致申报失败，如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030096753",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/04/08/030096753.shtml",
+   "question": "购买异地二手房省直公积金线上办理流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091899",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/29/030091899.shtml",
+   "question": "目前我省的养老机构有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091898",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/29/030091898.shtml",
+   "question": "当前我省城乡最低生活保障的标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091897",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/29/030091897.shtml",
+   "question": "医保显示重复参保怎样处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091100",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/19/030091100.shtml",
+   "question": "装修房屋是否可以提取公积金？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091099",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/19/030091099.shtml",
+   "question": "医保显示重复参保怎样处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091098",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/19/030091098.shtml",
+   "question": "当前我省城乡最低生活保障的标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030091097",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/19/030091097.shtml",
+   "question": "目前我省的养老机构有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030090292",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2026/01/10/030090292.shtml",
+   "question": "职工医保如何转居民医保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030086891",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/24/030086891.shtml",
+   "question": "青海省育儿补贴发放载体渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030086890",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/24/030086890.shtml",
+   "question": "青海省2025年度育儿补贴首次申请截止时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030086588",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/20/030086588.shtml",
+   "question": "2026年青海省艺术类专业省级统考科类有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030086585",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/20/030086585.shtml",
+   "question": "青海省2026年普通高考报名是如何安排的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030085234",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/03/030085234.shtml",
+   "question": "2026年城乡居民医保缴费后何时享受待遇？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030085233",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/03/030085233.shtml",
+   "question": "2026年城乡居民医保线下缴费渠道有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030085231",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/11/03/030085231.shtml",
+   "question": "2025年青海省汽车报废更新补贴资格在哪里领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030084086",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/17/030084086.shtml",
+   "question": "离职后住房公积金账户是否会自动注销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030084085",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/17/030084085.shtml",
+   "question": "医保账户内资金可以给家中老人使用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030084084",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/17/030084084.shtml",
+   "question": "2026年城乡居民基本医疗保险费青海医保APP缴费流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030084083",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/17/030084083.shtml",
+   "question": "2026年城乡居民基本医疗保险费集中征缴期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030084082",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/17/030084082.shtml",
+   "question": "2026年城乡居民基本医疗保险费缴费标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030082843",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/03/030082843.shtml",
+   "question": "2025年度城镇职工社会保险缴费基数？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030082842",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/03/030082842.shtml",
+   "question": "省住房公积金贷款还款银行卡丢失、过期如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030082841",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/03/030082841.shtml",
+   "question": "出差个人买火车票、公司报销，电子发票抬头填个人还是公司？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030082840",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/03/030082840.shtml",
+   "question": "汽车报废更新资格如何领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030082839",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/10/03/030082839.shtml",
+   "question": "新车购置补贴名额如何锁定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081980",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/19/030081980.shtml",
+   "question": "2025年下半年自学考试报名是否收费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081979",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/19/030081979.shtml",
+   "question": "火车票电子发票信息填写错误如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081978",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/19/030081978.shtml",
+   "question": "青海省育儿补贴省内申领需提供哪些信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081977",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/19/030081977.shtml",
+   "question": "青海省育儿补贴如何申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081208",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/06/030081208.shtml",
+   "question": "2025年家电以旧换新优惠券如何领取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081207",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/06/030081207.shtml",
+   "question": "火车票开具电子发票有时间要求吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081206",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/06/030081206.shtml",
+   "question": "火车票电子发票在哪里下载打印？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030081204",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/09/06/030081204.shtml",
+   "question": "2025年家电以旧换新活动优惠券是否可以跨品核销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030080512",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/29/030080512.shtml",
+   "question": "子女买房，可以提取父母的省公积金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030080511",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/29/030080511.shtml",
+   "question": "2025大美青海高原马拉松报名项目是否可以更改？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030080510",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/29/030080510.shtml",
+   "question": "幼儿园是否免保育教育费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030080509",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/29/030080509.shtml",
+   "question": "2025年家居消费品换新活动新系统启用后，消费者如何领取补贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030080508",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/29/030080508.shtml",
+   "question": "2025年家居消费品换新活动调整后的活动规则？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030079768",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/20/030079768.shtml",
+   "question": "2025年家装、家具审核和发放补贴需要多长时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030079767",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/20/030079767.shtml",
+   "question": "医保亲情账户可绑定哪些家庭成员？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030079766",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/20/030079766.shtml",
+   "question": "就医过程中可以交替使用社保卡和医保码吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030079765",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/20/030079765.shtml",
+   "question": "如何前往西宁曹家堡国际机场T3航站楼？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030079764",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/20/030079764.shtml",
+   "question": "西宁曹家堡机场停车使用规定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030078719",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/04/030078719.shtml",
+   "question": "国家育儿补贴发放标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030078716",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/04/030078716.shtml",
+   "question": "申请残疾人临时救助需提供哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030078720",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/04/030078720.shtml",
+   "question": "身份证到期前可提前多久申领新证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030078718",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/04/030078718.shtml",
+   "question": "省公积金离职封存后，如何办理转移业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030078717",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/08/04/030078717.shtml",
+   "question": "国家育儿补贴如何申领？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077807",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/25/030077807.shtml",
+   "question": "失业人员重新就业后再次失业，失业保险金领取金额如何计算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077806",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/25/030077806.shtml",
+   "question": "青海省生态安葬补贴在哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077805",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/25/030077805.shtml",
+   "question": "如何申领网络身份证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077804",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/25/030077804.shtml",
+   "question": "如何通过“交管12123”APP挪车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077803",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/25/030077803.shtml",
+   "question": "青海湖景区享受半票优惠政策有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077470",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/21/030077470.shtml",
+   "question": "高考录取通知书收件地址可以修改吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077469",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/21/030077469.shtml",
+   "question": "如何乘坐西宁市至青海湖专线客运车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077468",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/21/030077468.shtml",
+   "question": "何时可以申领生育津贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077467",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/21/030077467.shtml",
+   "question": "2025年全国导游资格考试报名时间及渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030077466",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/21/030077466.shtml",
+   "question": "青海高速公路加油ETC支付功能是否已上线？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076773",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/11/030076773.shtml",
+   "question": "如何跨省申请新生儿落户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076772",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/11/030076772.shtml",
+   "question": "西宁曹家堡机场遗失物品如何查找？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076771",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/11/030076771.shtml",
+   "question": "社保卡丢失后补办，需要重新激活吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076770",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/11/030076770.shtml",
+   "question": "如何办理青海医保个人账户跨省共济？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076769",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/11/030076769.shtml",
+   "question": "省公积金线上如何绑定银行卡？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076242",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/04/030076242.shtml",
+   "question": "没有实体社会保障卡，能否申领医保码进行结算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076241",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/04/030076241.shtml",
+   "question": "医保卡个人账户能支付医美费用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030076240",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/07/04/030076240.shtml",
+   "question": "异地安置人员能否创建医保家庭共济账户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030075027",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/20/030075027.shtml",
+   "question": "如何在12306APP获取临时身份证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030075026",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/20/030075026.shtml",
+   "question": "高校毕业生档案如何存放?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030075025",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/20/030075025.shtml",
+   "question": "省直公积金缴存职工离职后能申请公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030075023",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/20/030075023.shtml",
+   "question": "社保卡服务银行更换后，原银行账户资金如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074641",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/14/030074641.shtml",
+   "question": "如何下载社保费管理客户端？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074640",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/14/030074640.shtml",
+   "question": "2025年国家统一法律职业资格客观题考试报名时间及方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074630",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/14/030074630.shtml",
+   "question": "灵活就业人员缴存公积金后可以停缴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074182",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/06/030074182.shtml",
+   "question": "乘飞机忘带身份证如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074181",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/06/030074181.shtml",
+   "question": "如何在个人所得税APP中修改手机号码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074180",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/06/030074180.shtml",
+   "question": "西宁市北山大墩岭景区禁止哪些车辆进入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074179",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/06/030074179.shtml",
+   "question": "2025年青洽会举办时间和地点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030074178",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/06/030074178.shtml",
+   "question": "如何拨打中高考心理减压专线？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073638",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073638.shtml",
+   "question": "个人养老金资金账户能否销户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073637",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073637.shtml",
+   "question": "2025年青海省普通高考准考证打印流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073636",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073636.shtml",
+   "question": "领取失业保险金对缴纳养老保险费有影响吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073635",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073635.shtml",
+   "question": "已发放公积金贷款职工，能否按2025年5月新政策调整利率？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073634",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/06/02/030073634.shtml",
+   "question": "如何申领电子结婚证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073073",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/23/030073073.shtml",
+   "question": "高考提前批录取后，能否参加其他批次录取？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073072",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/23/030073072.shtml",
+   "question": "改变车辆内饰颜色，是否需办理变更登记？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030073071",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/23/030073071.shtml",
+   "question": "在交管12123APP上学法减分有次数限制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030072447",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/17/030072447.shtml",
+   "question": "青海开放大学报名后有录取通知书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030072446",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/17/030072446.shtml",
+   "question": "医保家庭共济账户余额由谁使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030072445",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/17/030072445.shtml",
+   "question": "跨省异地就医备案需指定具体医院吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030072444",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/17/030072444.shtml",
+   "question": "领结婚证需准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030072443",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/17/030072443.shtml",
+   "question": "青海省是否执行婚姻登记“全国通办”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071940",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/10/030071940.shtml",
+   "question": "青海湖景区实行免票人群有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071939",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/10/030071939.shtml",
+   "question": "西宁市湟中区塔尔寺门票收费标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071937",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/10/030071937.shtml",
+   "question": "购买汽车、车库可以提取住房公积金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071936",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/10/030071936.shtml",
+   "question": "社工证考试一年考几次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071568",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/04/030071568.shtml",
+   "question": "公积金账户封存后，能否提取缴房租？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071567",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/04/030071567.shtml",
+   "question": "可以与公司协商少缴或不缴社保费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071566",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/04/030071566.shtml",
+   "question": "参保地跨省变更，社保卡需要更换吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071565",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/04/030071565.shtml",
+   "question": "换工作地后，何时办理养老保险转移？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030071564",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/05/04/030071564.shtml",
+   "question": "2025年商铺、商场等商业性质装修能否参与以旧换新补贴?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070817",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/25/030070817.shtml",
+   "question": "职工患重病提取省公积金需哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070816",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/25/030070816.shtml",
+   "question": "青海省最低工资标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070815",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/25/030070815.shtml",
+   "question": "灵活就业人员如何参加职工养老保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070813",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/25/030070813.shtml",
+   "question": "高考报强基计划，还可以填其他志愿吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070136",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/16/030070136.shtml",
+   "question": "已贷两次公积金，现仅一套房，再购房能申请公积金贷款吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070135",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/16/030070135.shtml",
+   "question": "消防救援队扑救火灾收费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070134",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/16/030070134.shtml",
+   "question": "烟草专卖零售许可证能否一证多店？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070133",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/16/030070133.shtml",
+   "question": "持火车“行程信息提示”和报销凭证可以进站乘车吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030070132",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/16/030070132.shtml",
+   "question": "消防员职业资格证可以补办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069660",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/11/030069660.shtml",
+   "question": "老年人入住养老机构是否缴费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069659",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/11/030069659.shtml",
+   "question": "购买商铺可以提取公积金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069658",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/11/030069658.shtml",
+   "question": "高中学历是否可以考取社会工作者证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069657",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/11/030069657.shtml",
+   "question": "社会工作者证考试报名渠道？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069656",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/11/030069656.shtml",
+   "question": "补换实体社保卡后，电子社保卡需重新申领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069437",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/07/030069437.shtml",
+   "question": "职业技能等级证书是否全国通用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069435",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/07/030069435.shtml",
+   "question": "处理电子监控类车辆交通违法，需携带哪些证件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030069434",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/04/07/030069434.shtml",
+   "question": "如何查询医保卡余额？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068778",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/29/030068778.shtml",
+   "question": "个人征信报告通过哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068777",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/29/030068777.shtml",
+   "question": "如何办理烟草专卖零售许可证停业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068776",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/29/030068776.shtml",
+   "question": "父母年龄均超过60周岁，进行赡养老人个人所得税扣除时，是否可以按照两倍标准扣除?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068775",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/29/030068775.shtml",
+   "question": "购买商业保险后，影响申领失业保险金吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068774",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/29/030068774.shtml",
+   "question": "社保卡服务银行是否可以更换？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068080",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/22/030068080.shtml",
+   "question": "省直公积金如何变更银行卡账户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068078",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/22/030068078.shtml",
+   "question": "残疾证跨省可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030068077",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/22/030068077.shtml",
+   "question": "工商营业执照到期，烟草专卖零售许可证未到期，还能售卖烟草吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067942",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/20/030067942.shtml",
+   "question": "孩子看病未带医保卡，如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067864",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/19/030067864.shtml",
+   "question": "2024年综合所得年度个税汇算在哪里申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067863",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/19/030067863.shtml",
+   "question": "申请领取结婚证时，是否必须进行婚检？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067183",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/10/030067183.shtml",
+   "question": "实体社保卡注销后，电子社保卡还能用吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067182",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/10/030067182.shtml",
+   "question": "换领驾驶证后，电子驾驶证需要重新申领吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030067180",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/03/10/030067180.shtml",
+   "question": "青海个税APP忘记登录密码怎么办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030066098",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/26/030066098.shtml",
+   "question": "再次入职同一单位，还需约定试用期吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030066097",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/26/030066097.shtml",
+   "question": "因工作地变化，住房公积金可以转移吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030066096",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/26/030066096.shtml",
+   "question": "想预约3月10日办理2024年度个税汇算，但没有预约到，怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065687",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/20/030065687.shtml",
+   "question": "激活医保码后，社保卡还能用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065686",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/20/030065686.shtml",
+   "question": "社保关系转移，需要更换社保卡吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065685",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/20/030065685.shtml",
+   "question": "车辆列入ETC黑名单收到补费信息如何处理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065684",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/20/030065684.shtml",
+   "question": "儿童疫苗接种信息通过哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065683",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/20/030065683.shtml",
+   "question": "接手别人转让的门店，可否使用之前的烟草专卖零售许可证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065035",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/11/030065035.shtml",
+   "question": "2024年家装补贴的发放流程是怎样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065036",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/11/030065036.shtml",
+   "question": "2024年汽车和家电以旧换新补贴资金发放时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065033",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/11/030065033.shtml",
+   "question": "医保码和社保卡能同时使用吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030065032",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/02/11/030065032.shtml",
+   "question": "异地就医是否可以使用医保码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030064007",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/27/030064007.shtml",
+   "question": "国家开放大学的本科学历可以考研吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030064006",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/27/030064006.shtml",
+   "question": "如何修改青海省医师资格证上的身份证号码？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030064005",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/27/030064005.shtml",
+   "question": "外籍人员能否办理青海省居住证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030064004",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/27/030064004.shtml",
+   "question": "西宁市哪里有回族养老院？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063545",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/19/030063545.shtml",
+   "question": "2024 商务以旧换新活动显示初审已通过，但目前未收到补贴怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063544",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/19/030063544.shtml",
+   "question": "西宁市住房公积金提取审核时限是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063543",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/19/030063543.shtml",
+   "question": "住房公积金能提取交物业费吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063245",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/15/030063245.shtml",
+   "question": "2025年青海省灵活就业人员养老保险缴费时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063244",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/15/030063244.shtml",
+   "question": "孩子父母在外省服兵役，户口迁到部队，能否将孩子落户在爷爷奶奶西宁市户口上？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063246",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/15/030063246.shtml",
+   "question": "2025年商务补贴活动申请平台是否已开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030063247",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/15/030063247.shtml",
+   "question": "2024年消费品以旧换新活动中审核通过的申请，补贴何时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030062365",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/05/030062365.shtml",
+   "question": "特种作业证即将到期，本人在外省，是否可以申请延期复审？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030062364",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/05/030062364.shtml",
+   "question": "青海省家庭共济账户可以绑定的成员包括哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "qh-wsxf",
+   "id": "030062363",
+   "url": "http://www.qinghai.gov.cn/zmhd/system/2025/01/05/030062363.shtml",
+   "question": "青海省医保家庭共济账户创建人绑定成员的限制条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

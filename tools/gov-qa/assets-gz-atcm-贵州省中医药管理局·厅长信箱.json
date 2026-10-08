@@ -1,0 +1,714 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-atcm",
+   "id": "27769677",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27769677",
+   "question": "尊敬的领导，您好。 我们医院中医科的中医师每次有病人需要使用西药时（口服，肌注，静脉滴注），都需要会诊西医医师才行。很多医院也是这样的。但是根据中医药法释义16条的解释：二是经考试取得医师资格的中医医师按照国家有关规 定，经培训、考核合格后",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27749005",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27749005",
+   "question": "尊敬的中医药管理局领导：您好！来信目的是为了咨询，关于民间传承的中医绝根疗法，即中医挑治，我想为该绝根疗法申请非遗传承，请问我需要准备哪些资料，或者我需要到哪些部门了解相关信息，谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国非物质文化遗产法",
+     "lib_no": "非物质文化遗产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省非物质文化遗产保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27684120",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27684120",
+   "question": "已经取得中医专长医师资格证，且已注册。想考中医执医。请问有什么方式？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师资格考试暂行办法",
+    "执业医师法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27544578",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27544578",
+   "question": "参加中医确有专长通过后，可以独立开中医馆不？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27451429",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27451429",
+   "question": "领导： 您好！在临床工作中遇到几个问题，需要咨询您。 1. 注册全科医学专业，是否可以开展中医适宜技术（穴位贴敷、中药涂擦、拔罐、推拿等）。 2.如果不可以，通过中医适宜技术培训（比如中医全科理疗师等），取得相关合格证后，是否可以开展？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27391272",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27391272",
+   "question": "我是替朋友咨询，朋友是中西医结合执业医师，前几天欲注册在龙里县某医院中医科县医政科告知说中西医结合不能注册在中医科.只能注册在中西医结合科，这个医院没有中西医结合科怎么注册？（新的医师法14条规定：中医，中西医结合医师可以在医疗机构中的中医",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27321299",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27321299",
+   "question": "您好，我请问一下，2021年关于中医医术确有专长的报名时间是什么时候开始?有具体文件可以查阅吗？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省中医医术确有专长人员医师资格考核注册管理实施细则(暂行)",
+    "关于做好2021年贵州省中医医术确有专长人员医师资格考核工作的通知",
+    "2021年贵州省中医医术确有专长人员医师资格考核通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27317929",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27317929",
+   "question": "您好，我想咨询一下中西医结合专业是否可以在三级综合医院内科执业？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27301814",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27301814",
+   "question": "你好领导！考得中医医术确有专长医师资格证后可以用之前的全日制大专中医类别专业毕业证来直接考中医执业医师资格证吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "&lt;中医医术确有专长人员医师资格考核注册管理暂行办法&gt;解读",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27231326",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27231326",
+   "question": "您好，我大学本科专业是中西医临床医学，研究生学习的是病理学与病理生理学专业。研究生3年在病理科学习病理科专业知识，并且具备考取中西医结合执业医师资格。请问中西医执业医师资格证，能否进入医院病理科实行病理医师诊断？？ 因为有的省份比如福建省中",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师资格考试暂行办法",
+    "执业医师法",
+    "医师注册暂行办法",
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27220998",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27220998",
+   "question": "您好，我想咨询一下关于中医确有专长人员报考执医文件的有关情况。按照国卫医发﹝2014﹞11号印发《医师资格考试报名资格规定（2014版）》第七条第2款“传统医学师承和确有专长人员取得执业助理医师执业证书后，取得国务院教育行政部门认可的成人高",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）",
+    "医师资格证书",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医（专长）医师资格"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27220446",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27220446",
+   "question": "尊敬的省中管局领导、老师：您好，关于国卫医发﹝2017﹞ 55号文件中所提到的开办中医诊所的条件：“具有中医类别《医师资格证书》并经注册后在医疗、预防、保健机构中执业满3年，身体健康”，请问 “中西医结合专业”的执业医师是否属于中医类别？是",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中医诊所基本标准",
+    "医师资格证书",
+    "中医（专长）医师资格证书",
+    "医师资格证书",
+    "中医诊所备案管理暂行办法",
+    "&lt;中医诊所备案管理暂行办法&gt;解读",
+    "中医诊所基本标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27202050",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27202050",
+   "question": "请问，有中西结合医执业证书，可以个人申办中西医结合诊所吗？在哪儿申办？谢谢！",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例实施细则",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医疗机构基本标准（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27187135",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27187135",
+   "question": "尊敬的中医药管理局领导、老师： 您好 学生是2011年 06级 中西医临床医学毕业的本科全日制毕业的医生，毕业至今一直从事”手外科“工作，曾经在“解放军四十四医院”、“贵州华夏骨科医院“工作，现在黔西某民营医院就职，17年通过骨伤主治医师考",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国执业医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "在“中医类职业点及职业范围”信访件有关问题"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-atcm",
+   "id": "27774649",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27774649",
+   "question": "贵州省中医药管理局的领导：您们好！我现在想咨询一下已经完成西医学习中医”培训（2年制），考核合格，已经获得贵局下发的结业证，那可以开展中医适宜技术吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "中成药临床应用指导原则",
+    "医院中药饮片管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27750413",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27750413",
+   "question": "尊敬的领导： 您好！ 感谢您在百忙之中阅读此信。 我是贵州省黔东南苗族侗族自治州丹寨县人民医院的一名中医类别执业医师，目前从事精神科疾病的中医诊疗工作。 根据工作计划，我拟报名参加2026年由贵州省卫生健康委组织的精神科医师转岗培训。然而，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发2025年医疗服务与保障能力提升（卫生健康人才培养）心理援助热线咨询员培训等2个项目实施方案的通知",
+    "省卫生健康委关于开展2026年精神科医师转岗培训学员申报工作的通知",
+    "国家卫生计生委办公厅、国家中医药管理局办公室关于中医类别医师从事精神障碍疾病诊断与治疗有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27719450",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27719450",
+   "question": "老师您好，请问下：1目前在官网等媒介上只能查到2022年中医师承出师考试相关信息，那么从2023年至今，贵州省是没有举办相关考试还是举办了？如果举办了，请分享下相关考试信息查阅链接；如果没有举办，请说明下停办原因，同时麻烦公布下未来3-5年",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师考核申请表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27706364",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27706364",
+   "question": "咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021-2025粤黔医疗卫生协作框架协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27672323",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27672323",
+   "question": "致中医药管理局：我是一名中医专长医师，于2023年11月24日获取推拿类技术（骨痹）的医师资格证，于2025年7月15日到中医药管理局进行关于使用“关节错缝术”的相关咨询，并咨询了推拿类技术的骨痹医师做关节错缝术是否属于超范围执业，关于该问",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "贵州省中医医术确有专长人员医师资格考核注册管理实施细则（2025年版）",
+    "中医医术确有专长人员医师资格考核结论"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27562496",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27562496",
+   "question": "你好，我想请问一下2020届毕业的中医类本科生在没有工作单位的情况下可以报考2024年的规培考试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《关于建立贵州省住院医师规范化培训制度的实施方案的通知",
+    "省中医药局关于做好2023年中医住院医师规范化培训招录工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27517990",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27517990",
+   "question": "关于中医执业助理医师理论培训报名，各地区的人员报名情况各不相同，人数远远不及所制定的名额限制，各培训点报名人数不足的情况下，该怎么样进行调剂工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "省中医药局关于开展2023年中医执业（助理）医师资格考试综合笔试考前培训的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27503711",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27503711",
+   "question": "老师您好，想咨询一下通过确有专长中医助理医师资格考试后并注册，再修一个成人教育专科学历或者本科学历的中医学专业，2.5年毕业后继续执业一年后可以直接参加具有规定学历的中医执业医师资格考试报名吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名规定(2014版)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27398206",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27398206",
+   "question": "尊敬的局长大人您好：我听说好多地方限制西医生开具中成药，请问全国好多地方都放开西医学习中医政策，通过短期培训或长期函授等方式，让西医生对中医感兴趣的医生对中医知识的需求，且我作为西医医生亲身的工作实践，西医医生对中医知识还是比较渴求的，工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省西医人员学习中医知识培训大纲（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27396149",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27396149",
+   "question": "贵州省2022年确有专长医生资格证什么出报名通知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于启动贵州省2022年度中医医术确有专长人员医师资格考核报名工作的预通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27385558",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27385558",
+   "question": "2022年中医确有专长医师资格证报名时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于启动贵州省2022年度中医医术确有专长人员医师资格考核报名工作的预通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27331289",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27331289",
+   "question": "您好！我是贵州中医药大学2019届毕业研究生，于2016年9月至2019年5月期间以专业硕士研究生身份，在贵州中医药大学第一附属医院培训基地参加中医专业住院医师规划法培训，经考核合格，获得证书，其发证日期为2020年7月8日。 当时的一个情",
+   "cited_hits": [],
+   "cited_missing": [
+    "住院医师规范化培训考核实施办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27303303",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27303303",
+   "question": "咨询下，贵州是否组织有中医师承出师统一考试。另外，如何获取中医师承关系合同及《出师合格证书》。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省传统医学师承和确有专长人员医师资格考核考试办法实施细则（试行）",
+    "传统医学师承关系人员资格审核表",
+    "传统医学师承关系合同书",
+    "传统医学师承关系合同书",
+    "出师合格证书",
+    "贵州省传统医学师承和确有专长人员医师资格考核考试办法实施细则（试行）",
+    "传统医学师承出师考核申请表",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27284608",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27284608",
+   "question": "请问，按照中医15号令取得中医专长医师资格后，根据中医15号第三十二条规定，能否以中西医结合临床专业学术学位研究生学历报考执业医师。望解答，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27251043",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27251043",
+   "question": "请问中医执医注册何时审批？已申请半个月，医院已审核完毕，卫健委一直没有审批",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师执业注册管理办法",
+    "医师执业证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27218499",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27218499",
+   "question": "建议：非中医学专业毕业从事中医相关工作的，把考核入门的条件放低一些，区别与中医学专业考试的办法。中医讲究一个整体，不易把病名定得繁杂。走实践考核的路会更好，以患者的病愈率为标准。毛主席不是说过嘛：实践是检验真理的唯一标准！ 具体实施：1、远",
+   "cited_hits": [],
+   "cited_missing": [
+    "执业医师法",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27202054",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27202054",
+   "question": "请问，中西执业类别的中医师，可以任药店坐堂医吗？卫生局说不行，网友说有的地方可以，有的地方不可以。不知行否？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医（综合）诊所基本标准",
+    "中医诊所基本标准",
+    "中医诊所基本标准",
+    "中医坐堂医诊所基本标准（试行）",
+    "中医诊所基本标准",
+    "中医（综合）诊所基本标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27190023",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27190023",
+   "question": "中西医结合执业医师执业范围有哪些？为什么晋升主治医师可选专业只有中西医结合内科.中西医结合外科.中西医结合骨伤科而没有其他学科？",
+   "cited_hits": [],
+   "cited_missing": [
+    "卫生专业技术资格考试专业目录",
+    "卫生专业技术资格考试专业目录",
+    "卫生专业技术资格考试专业目录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-atcm",
+   "id": "27775537",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27775537",
+   "question": "尊敬的省中管局领导，您好！ 请问一下，我们是2023年西学中学员，已经于2025年12月取得结业证书，现在是否具有中药饮片处方权，还是需要进一步考一个合格证，或者到卫健局增加注册中医类别才能合法职业？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27689368",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27689368",
+   "question": "贵州省中医药管理局领导您好： 我是2023年参加遵义市中医院西学中的两年制学员，于2025年4月份已经完成各科培训考核合格，结业证书一直没有下发，按照贵局2021年下发的关于印发《贵州省西医人员学习中医知识培训大纲》的通知，按照各条款参加培",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27607608",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27607608",
+   "question": "作为中医药企业，可以申报省级中医药文化宣传教育基地吗？对场地有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27556950",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27556950",
+   "question": "您好，请问省中医药管理局2023年财政预算在哪里查找，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27553599",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27553599",
+   "question": "您好，想咨询一下省级中医重点专科建设的医师结构是什么？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27420373",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27420373",
+   "question": "请教一下，今年黔医人才计划中医班好久开始报名。谢谢，打扰了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27416016",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27416016",
+   "question": "您好，想咨询一下申报省级中医重点专科需要达到哪些基础条件？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27377229",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27377229",
+   "question": "领导们好！请问2021年中医医术确有专长考试成绩什么时候公布？今年的报名即将启动，咨询下，去年报考的没过的话好提前准备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27321768",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27321768",
+   "question": "您好，可以提供省中医药局2021年度本单位政策文件目录吗？主要是用于学习，了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27280084",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27280084",
+   "question": "请问一下2021年中医医术确有专长什么时候开始报考试？今年会举行考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27253911",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27253911",
+   "question": "请问贵州省今年还举行中医医术确有专长资格考核吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27250211",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27250211",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27249400",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27249400",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27249398",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27249398",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27248936",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27248936",
+   "question": "您好，请问如何获取贵单位2019年的政府网站工作年度报表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27248336",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27248336",
+   "question": "您好，请问如何查阅哪位部门领导分管政务公开工作的信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27238785",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27238785",
+   "question": "请问一下，2020年关于中医医术确有专长的报名时间是什么时候开始?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27230451",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27230451",
+   "question": "请问一下，2020年关于中医医术确有专长的报名时间是什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27205798",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27205798",
+   "question": "一个内科医师和中医科医师一起开设诊所，诊所诊疗科目是否可以同时设置内科和中医科？已经咨询过贵州省卫生健康委，贵州省卫生健康委回复涉及到中医科，建议问下中医药管理局！网上查阅相关资料没有具体的规定，部分地区有政策可以设置1-4个诊疗科目，但是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "27187079",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=27187079",
+   "question": "你好，我想咨询下2019年因贵阳市卫计委延迟举办中医确有专长考试导致拿到证书后，报考中医执业助理时间不够，不能报考2020年执业助理考试，我想问下这种情况对这一批的考生并不公平，该怎么处理。民间中医考证书原本就极为不容易。好容不容易考上了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "17676856",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=17676856",
+   "question": "因为工作要求，需请了解我市地州市中医院的名称和联系人。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "11235697",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=11235697",
+   "question": "您好，请问如何获取贵单位2018年财政决算和2019年财政预算，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-atcm",
+   "id": "11235696",
+   "url": "https://atcm.guizhou.gov.cn/hdjl/?id=11235696",
+   "question": "请问如何获取贵单位较为全面、规范、准确的行政权力清单和责任清单？能否提供一份学习研究，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

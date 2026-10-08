@@ -1,0 +1,2043 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-mzw",
+   "id": "725eb240edcf4892ad60e46fffe037da",
+   "url": null,
+   "question": "请求解决长沙宁乡市芙蓉山普济寺占用农民用地",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "72f6cccf4e8247b8b0dddbd2f7bbc990",
+   "url": null,
+   "question": "关于县级部门否定松峰寺漏登建档一事",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于县级部门否定松峰寺漏登建档一事",
+    "湖南省民间信仰活动场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f22f1b82b102453db37ae4e62c762314",
+   "url": null,
+   "question": "宗教团体的民宗审批层级",
+   "cited_hits": [
+    {
+     "name": "社会团体登记管理条例",
+     "lib_no": "社会团体登记管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "宗教团体管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "e7ec9e5333674dbc81e2bdff6b0e095c",
+   "url": null,
+   "question": "现在四大民族进不了厂，找不到工作",
+   "cited_hits": [
+    {
+     "name": "人力资源市场暂行条例",
+     "lib_no": "人力资源市场暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2f337b1231304d3fa21c1f82a152b4f6",
+   "url": null,
+   "question": "张家界宝峰寺的投诉证据提交",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b43cfb9f40d04a0a8277ec3370859cd6",
+   "url": null,
+   "question": "张家界",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "584e6f92a6314e5abd90ad22586a1b77",
+   "url": null,
+   "question": "关于辰溪县民族宗教事务局张局长涉嫌违规任命罗子山寺庙负责人进行敛财的投诉",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于辰溪县民族宗教事务局张局长涉嫌违规任命罗子山寺庙负责人进行敛财的投诉"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9f5b1f2645ff4298a27f8fedf5a41cc7",
+   "url": null,
+   "question": "武冈市湾头桥镇少数民族聚居村被“自愿”合并了",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国村民委员会组织法",
+     "lib_no": "村民委员会组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "行政区划管理条例",
+     "lib_no": "行政区划管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中共湖南省委 湖南省人民政府关于开展乡镇区划调整改革工作的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "6eb00bdf38e64b65bcc5d1e2375598ee",
+   "url": null,
+   "question": "请政府管理网络上泛滥的基督教异端平台",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "a8f8e6a743a040d78d151707e313e8b8",
+   "url": null,
+   "question": "拍摄宗教场所（麓山寺）如何进行许可审批",
+   "cited_hits": [
+    {
+     "name": "宗教事务条例",
+     "lib_no": "宗教事务条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-mzw",
+   "id": "3d54b56433b449aeaa94050eb8662f5c",
+   "url": null,
+   "question": "关于《文化人类学的湘西文本——土家族苗族历史文化研究》一书片面叙事矮化土家族历史主体性、伤害民族感情的投诉与建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "文化人类学的湘西文本：土家族苗族历史文化研究"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c4af76f6d2614cb1be9a94dccfdf96fd",
+   "url": null,
+   "question": "僧人释真定疑似使用假证",
+   "cited_hits": [],
+   "cited_missing": [
+    "情况说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9c4323b0aa544063b8c5c40502c5080f",
+   "url": null,
+   "question": "关于高考加分的一项问题",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于高考加分的一项问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f9dba1456fd34ee88b1a8906abb3f62b",
+   "url": null,
+   "question": "咨询2020年湖南省各县区的分民族人口数",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省民族地区24个县市区少数民族人口情况统计表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "01728de83aab4611bf3980db0555aef1",
+   "url": null,
+   "question": "武冈市洪觉寺非法违规成立管委会",
+   "cited_hits": [],
+   "cited_missing": [
+    "宗教活动场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "d2d8b3428f304712998558a3cdcc2863",
+   "url": null,
+   "question": "少数民族的学生考大学是否加分",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《湖南省进一步调整高考加分政策实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "e233ee2da27c447a8429f00e01f14b99",
+   "url": null,
+   "question": "新生儿民族",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "31cb60d39f364a159e1309bb5d592662",
+   "url": null,
+   "question": "清真企业申请抗议湖南省产商品质量检验研究院，原切羊肉检测出猪源性成分和鸭源性成分",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB/T 38164-2019"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2e69fe3a61ea4d7e9d7b5efc3e4c3f72",
+   "url": null,
+   "question": "益阳市安化县东坪镇城西社区天主堂宗教用地，被省自然资源厅判定为闲置土地，意味着什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "517783e054554c20babd9b0f38e25f59",
+   "url": null,
+   "question": "湖南名族优惠",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南民族优惠"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "219f56f3e74c4a6aaedbfd2e30804387",
+   "url": null,
+   "question": "请加强宗教领域法治工作",
+   "cited_hits": [],
+   "cited_missing": [
+    "宗教临时活动地点审批管理办法",
+    "长沙市宗教领域行政处罚裁量基准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9e5674d2e3524fab83b6be45f207a825",
+   "url": null,
+   "question": "2024年高考生少数民族加分条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024年高考生少数民族加分条件",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b5ed0fee38cc43d4ac3cd8d5272708c9",
+   "url": null,
+   "question": "民族加分",
+   "cited_hits": [],
+   "cited_missing": [
+    "民族加分的咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "e245f5fce28d4a0e9a0fa9febbb3c8b1",
+   "url": null,
+   "question": "少数民族考生享受高考录取照顾政策资格审核申请表",
+   "cited_hits": [],
+   "cited_missing": [
+    "少数民族考生享受高考录取照顾政策资格审核申请表的咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "4694d62b5c984590ad16b88be7ff2f55",
+   "url": null,
+   "question": "普通群众，是否可以从网络查询已经湖南省民宗部门登记的“民间信仰活动场所”信息？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省民间信仰活动场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "d5801d650cf64c97af04c30c64baadd3",
+   "url": null,
+   "question": "民族优惠加分",
+   "cited_hits": [],
+   "cited_missing": [
+    " 民族优惠加分的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "584d2ed17b6b4bc0a75778e426f06d19",
+   "url": null,
+   "question": "关于少数民族资格认证",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于少数民族资格认证的咨询 ",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "5f2a0a9b96464c3783db86efd682ebb4",
+   "url": null,
+   "question": "高考名族加分，姓名填错驳回了不能更改",
+   "cited_hits": [],
+   "cited_missing": [
+    " 高考民族加分，姓名填错驳回了不能更改的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ed3c683270f44a4e8831decbf0955a08",
+   "url": null,
+   "question": "高考民族加分申请资料填错了需要修改",
+   "cited_hits": [],
+   "cited_missing": [
+    " 高考民族加分申请资料填错了需要修改的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b3a55c24d76249afbb77b446dcdcc9fc",
+   "url": null,
+   "question": "少数民族高考加分政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 少数民族加分政策咨询 ",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "e3fca1d293a443bea5b70e0d15539fcb",
+   "url": null,
+   "question": "关于少数民族加分政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于少数民族加分政策 的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "12b4d98a42d7437c8f7c15827271bd6e",
+   "url": null,
+   "question": "民族加分",
+   "cited_hits": [],
+   "cited_missing": [
+    " 民族优惠政策考生申报问题的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "cf13eb32709346329112d60b6bb5715e",
+   "url": null,
+   "question": "在湖南民族优惠错填学校名，已申报了，怎么处理？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 在湖南民族优惠错填学校名，已申报了，怎么处理？ "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "370aa28835fb424aab9e2841e7b63c69",
+   "url": null,
+   "question": "高考少数民族加分",
+   "cited_hits": [],
+   "cited_missing": [
+    " 民族优惠政策考生申报问题的咨询 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ca73b02486b3407c90c992415abdaf0b",
+   "url": null,
+   "question": "关于少数民族加分政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于少数民族加分政策的咨询 ",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "11d5ca0b0b9c4321ab1ca70a0435ef33",
+   "url": null,
+   "question": "湖南省普通高校招生享受民族优惠政策考生资格申报系统",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于做好 2024年普通高校招生考生优惠信息及专项计划资格申报审核工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f6acf7f414b34f438445669721c558f2",
+   "url": null,
+   "question": "请省厅领导看看关于我们城西社区天主堂土地征收的会议纪要",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "98299a2c22be453c89763c50b4905009",
+   "url": null,
+   "question": "互联网宗教信息传播许可证办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法",
+    "互联网宗教信息服务许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "15046e69a72947808d134f14d15ad746",
+   "url": null,
+   "question": "虽然信访问题，没人管，我提供一张图片，请领导们随便看看。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "5e191f6d5a0d454bb11fbdb5b7e86005",
+   "url": null,
+   "question": "举报益阳市安化县东坪镇城西社区天主教堂异地重建违规征收土地的行为",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c99af6380a0746f6be10323242df03b2",
+   "url": null,
+   "question": "再次请求省民族宗教事务委员会领导，重视益阳市安化县城西社区天主堂土地征收问题！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "712c8d988df44d7197461a681568dd09",
+   "url": null,
+   "question": "尊敬的省民族宗教事务委员会领导，请求提供具体邮寄地址。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "22b108d27600472f88851ce9eb659461",
+   "url": null,
+   "question": "我们东坪镇城西社区居民与安化新建天主教堂共享宗教房产的行为是否合法？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9b1fc48a29544af1acbb4767fbfa45fb",
+   "url": null,
+   "question": "请问益阳市民宗局，安化县天主堂所征收土地补偿给农民的到底是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国建筑工程施工许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "6d0c04fc4ff9412e980621214dae97c2",
+   "url": null,
+   "question": "投诉微信用户正一道人宇航和抖音用户宇航道长yc77582581314520",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "79e52ec22c394f7fa2e3e604180f3284",
+   "url": null,
+   "question": "高考民族加分",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈湖南省进一步调整高考加分政策实施办法〉的通知",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "1013aaecbcee4e9ba02b127a332f3a0d",
+   "url": null,
+   "question": "宗教人员恶劣行为",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南正一派道士谢真恶劣行为 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "16f1222fbbb94f01bbef3e1a21fc60fb",
+   "url": null,
+   "question": "高考少数民族优惠问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c77606be3d544c6ab8d09ea0e67525b0",
+   "url": null,
+   "question": "关于湖南省普通高校招生享受民族优惠政策考生资格的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省普通高校招生享受民族优惠政策考生资格审核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "4383c77dacfe4b01af8bd3dcb71dacae",
+   "url": null,
+   "question": "观音岩明辰法师，雇佣社会人员充当打手",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好文明敬香建设生态寺观工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "79e7ef3ef7224500a55f003529c92d9e",
+   "url": null,
+   "question": "观音岩寺庙派打手威胁抢夺他人财物",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好文明敬香建设生态寺观工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "0f861a4b7e5c47c1909ae6aca331d2a0",
+   "url": null,
+   "question": "关于少数民族加分政策的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于少数民族加分政策的咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "64e36afa3041498584b1396efd7c6e80",
+   "url": null,
+   "question": "关于请求督促协调湘西州启动自治权，变通执行省“三统一”政策的呼吁",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于请求督促协调湘西州启动自治权，变通执行省“三统一”政策的呼吁"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "13e00f04acf84989a49c048aac942187",
+   "url": null,
+   "question": "关于高考加分的求助信",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于高考加分的求助信"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "356a0b019b094581b6653a4bd201eb3e",
+   "url": null,
+   "question": "湘西州民族中学高考加分政策",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湘西州民中少数民族关于“三统一”高考加分的情况"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7c58041014a74e15b871e6b0416f5b59",
+   "url": null,
+   "question": "关于江永县成立瑶族自治县的看法",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于江永、会同、绥宁三县建立民族自治县的请示"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "cb5b64e018024d72ae9d3877acf6816e",
+   "url": null,
+   "question": "户籍民族是否可以更改",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f902a59306d843fea50d8a9372a6d8f6",
+   "url": null,
+   "question": "关于互联网宗教信息管理的建言",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "3639cfc7f5b448a7b4f6a4ac494d8b1d",
+   "url": null,
+   "question": "关于释来见故意殴打本人案件没有最终处理的办结咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于释来见故意殴打本人案件没有最终处理的办结咨询"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f192ac7519d5479aa3ef4f0971f2ca4f",
+   "url": null,
+   "question": "铲除邪教回归圣经",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法",
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "8563b08d09744b6abb0b928ef763f843",
+   "url": null,
+   "question": "请问《互联网宗教信息服务许可证》现在可以开始申请了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理 办法",
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b68990eb362c4eb2a388acc69093ba56",
+   "url": null,
+   "question": "铲除邪教回归圣经",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法",
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "628a49579988429abec8d37d5acd192c",
+   "url": null,
+   "question": "铲除邪教回归圣经",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法",
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "82f6bb5002b145b697d2b98d0973226f",
+   "url": null,
+   "question": "铲除邪教回归圣经",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法",
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "20d1b0704074469d876ec56610de8cc4",
+   "url": null,
+   "question": "民族成分",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公民变更民族成份申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b5d45775daf540529026930ad4b88bff",
+   "url": null,
+   "question": "不问而上户口，我该怎么办怎么投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公民民族成份登记管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "740c074bba4c406e9f913f2e10536ecc",
+   "url": null,
+   "question": "我女儿和儿子民族身份问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公民民族成份登记管理实施细则",
+    "中国公民民族成份登记管理办法",
+    "湖南省公民民族成份登记管理实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "335166787a734239b7a5aeb3552e3377",
+   "url": null,
+   "question": "千年古寺,为何成为他人的提款机",
+   "cited_hits": [],
+   "cited_missing": [
+    "千年古寺，为何成为他人的提款机"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "cbb4591b911d4be4b635226cd7f0385d",
+   "url": null,
+   "question": "千年古寺,为何成为他人的提款机",
+   "cited_hits": [],
+   "cited_missing": [
+    "千年古寺，为何成为他人的提款机"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "a2e3e53d5fcc48978894bc2e2b7bf283",
+   "url": null,
+   "question": "举报安乡县安曹洞寺水府庙封建迷信活动，骗取信众财产",
+   "cited_hits": [],
+   "cited_missing": [
+    "举报安乡县安曹洞寺水府庙骗取信众财产"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "6dd44eb7b1594b2d9dd214337d2575af",
+   "url": null,
+   "question": "少数民族审核表在哪里办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公民变更民族成份申请表",
+    "湖南省普通高校招生享受民族优惠政策考生资格审核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "dab8d37ffac14a36877ee1b635ad04b4",
+   "url": null,
+   "question": "改族",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法",
+    "湖南省公民民族成份登记管理实施细则",
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "396bf651a4184abfb9488a5038e2780a",
+   "url": null,
+   "question": "关于小孩民族变更的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "小孩民族变更",
+    "中国公民民族成份登记管理办法",
+    "湖南省公民民族成份登记管理实施细则",
+    "湖南省公民变更民族成份申请表",
+    "湖南省公民变更民族成份申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c5c706a4ab4546e286ebe6512b3f1efe",
+   "url": null,
+   "question": "请求民族更正回来，让我们的传承继续延续",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "0d14525451e54428bbbd0fc06c515851",
+   "url": null,
+   "question": "请求民族更正",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "da1bf88f5ecc4cfdb1c6853741e8c99f",
+   "url": null,
+   "question": "需要民族事务部门出具的民族成份凭证材料，应该去哪个部门办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法",
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f435baefb77a4e0f8f352e54d1d667a5",
+   "url": null,
+   "question": "改孩子户口民族",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b018f2ffda03413c9d8a051a884e591b",
+   "url": null,
+   "question": "更正户口本的民族",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f72aed53f84442f69942bbb8d49f9a51",
+   "url": null,
+   "question": "改户口册民族",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国公民民族成份登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "77db8061f0fe4d2e9bdb3422deeabe84",
+   "url": null,
+   "question": "寺院开通微信公众号",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "5566db791de544bda8a130bd775a13f4",
+   "url": null,
+   "question": "请解决问题即必须在湖南省教育厅网站上看到我儿子是少数民族苗族的内容特急",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省普通高校招生享受民族优惠政策考生资格审核操作办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f440e2132e0d4e579b4ada1ef37688fc",
+   "url": null,
+   "question": "请解决问题即必须在湖南省教育厅网站上看到我儿子是少数民族苗族的内容",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省普通高校招生享受民族优惠政策考生资格审核操作办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "dbca92bb47804be3ac414b21487cf693",
+   "url": null,
+   "question": "2017年湖南省民族健美操比赛章程文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "2017年湖南省民族健身操大赛竞赛规程"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-mzw",
+   "id": "0f054744df63430a8a360c6274b99184",
+   "url": null,
+   "question": "举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "736ae08937024a87b4f615436bcdd1f7",
+   "url": null,
+   "question": "关于释真定教职信息的进一步核实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "914ca2714a004e2583cf465e1b5f1ca9",
+   "url": null,
+   "question": "湘西州县有关方不按省厅26年官方文件执行民族优惠政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ecaf321589174e9b8911e6af510be283",
+   "url": null,
+   "question": "要求关公庙71430624MCU5939755退还所交款项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "52cd3650b3d947af989e9cf98dfb6673",
+   "url": null,
+   "question": "维语学习",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "122ca986cf9b4b7e8e8b5228c20244d0",
+   "url": null,
+   "question": "打击报复已故纪检干部子女举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "40de65de1499421cb3a4013be1ba9845",
+   "url": null,
+   "question": "诱导游客上香钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ee504f9870a7460fbc4ec747b56d2a7c",
+   "url": null,
+   "question": "湘西州道教已经姓田了，全部被州里领导乱搞",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "52adbb07f2a544b18cfe01d17ab52320",
+   "url": null,
+   "question": "举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "3dff2b93ae4146bca74803b8a567f834",
+   "url": null,
+   "question": "寺庙派别与介绍咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "d363dcf7f3194013a88937c98cfe2e80",
+   "url": null,
+   "question": "湖南省常德市民族宗教事务局包庇九龙观负责人李嘉志违规建设道观，出事故不作为不整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "af77be2489234e73be2ae95318421554",
+   "url": null,
+   "question": "举报：陈嗣浩（俗名陈小兵）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9eca92e964fc45af8e3a047d98faa793",
+   "url": null,
+   "question": "民间信仰场所许可证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "04d8f4d5f0ba4902a13dfe5156435159",
+   "url": null,
+   "question": "武冈市宗教局处理洪觉寺管委会意见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "77cbe31669424631b597d4a57aa0306c",
+   "url": null,
+   "question": "关于抖音用户山慧斌道哥（ID：shanhuibinda）涉嫌伪造道教教职人员证的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "012333b8e05a44b4891cab9b351eda83",
+   "url": null,
+   "question": "高考少数民族加分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "55659079d2ad48488199b27aeef6e35b",
+   "url": null,
+   "question": "如何撤回评价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "a6741c51deb84d288720f78dc9520e58",
+   "url": null,
+   "question": "2025年普通高校招生享受名族优惠申请被就读学校驳回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "230e096919474e3bba5611fde021410d",
+   "url": null,
+   "question": "宗教场所安全事故责任纠纷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "59e8e29c1d584792a738701e1837385d",
+   "url": null,
+   "question": "宗教场所安全事故责任划分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "890dabc6644d4f9ea5eadadcaeb208cb",
+   "url": null,
+   "question": "帮我把湖北省鄂州市鄂城区西山庙的菩萨都抓起来！邪恶至极！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2614a1b01da34b54b2731f7d2b15fb94",
+   "url": null,
+   "question": "长沙老戴公庙住持盘罗香",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "193f113aba964ad9b01f26847b89567d",
+   "url": null,
+   "question": "湖南省少数民族加分弄不好",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f5318fd41a814bfe9e30c05e147c9256",
+   "url": null,
+   "question": "湖南民族优惠政策申报学生姓名填错",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c1c27bf1f3a8451997c1ffeca56e253d",
+   "url": null,
+   "question": "注册湖南民族优惠APP账号时候名字填错了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c1d59eae74bc4105b2af6d4dc6048154",
+   "url": null,
+   "question": "湖南民族优惠APP注册的账号姓名错误对加分有影响吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "bec3a8d04d8f453fa77d23d0f87c9dd4",
+   "url": null,
+   "question": "高考少民加分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2b9f105c1f8141309f3005847b22e05b",
+   "url": null,
+   "question": "2025年应届考生注册“湖南民族优惠政策申报系统”的时候把学生名字栏注册错了，该怎么处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f6dab958b378494cbf4a32d05924525a",
+   "url": null,
+   "question": "应届考生注册湖南名族优惠姓名登记错误",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b3286f3f05624e8baa108379b95d86cb",
+   "url": null,
+   "question": "三一工学院失信，拒不履行法院判决，区别对待土家族员工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "0a48e4295aa04750ba2d52ad0dca5cae",
+   "url": null,
+   "question": "佛门中比丘尼行果（真名李飞艳）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "57f9b1b5054b4c9099ce47e68d57272f",
+   "url": null,
+   "question": "武冈市洪觉寺监事是姚锋吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "69cbb3482aa24832aa9d28d7fbd82586",
+   "url": null,
+   "question": "举报永顺县老司城祖师殿主持罗培松诈骗钱财",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "1dc910fb1ecf4ab78f68b9b27a1c4543",
+   "url": null,
+   "question": "举报道士蒋耀吾道士证不合法借教敛财",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7ca5b0c173cb4865aa6f544da32caedf",
+   "url": null,
+   "question": "湘西州吉首市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ebf05e7d9c904a5696869a1f9847ff74",
+   "url": null,
+   "question": "关于湘西地区少数民族干部数据（1949至今）的请求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "16e0281620a34d5f9d19416b0853c6ba",
+   "url": null,
+   "question": "关于怀化市鹤城区基督教违法违规事宜的举报！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "eea8a45d585540e3880a6628b06d0c4d",
+   "url": null,
+   "question": "疑似非正规宗教团体网络售卖皈依证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "4475ee058e5140e583da14751ea96a18",
+   "url": null,
+   "question": "近五年（2019-2023）湖南省民族地区24个县市区经济发展情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "83699f44cc7f4f1490d9389deba0e65b",
+   "url": null,
+   "question": "武冈市洪觉寺法人代表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "0fba78cdb2db4c4c860091ab70a414ad",
+   "url": null,
+   "question": "岳阳某宗教场地洗脑，自虐虐他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7c1929c11c9b4f6da627909f8771ba85",
+   "url": null,
+   "question": "湖南省供销合作总社周晓理主任行为不端八项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "32720371de2147c8be45ee1690b3f35d",
+   "url": null,
+   "question": "致湖南省供销合作总社周晓理主任十荣十耻",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "313334cd746b4b6b89b92583be6f2d71",
+   "url": null,
+   "question": "实名举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7b79a6409b494a0eb1a265da552c99be",
+   "url": null,
+   "question": "请问郴州市民宗办地址在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "98a2d721b69e48348c8c414d185df19b",
+   "url": null,
+   "question": "违法乱纪举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c294290d974b4f68af0094b2fa6da439",
+   "url": null,
+   "question": "小区设立祠堂，长期摆放佛像并长期作为办丧事的场所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "22bc6abcd9414fe2a0ba99ec9f378ae0",
+   "url": null,
+   "question": "小区商业门面设立祠堂摆放佛像，长期作为办丧事的场所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "4f3b4b7fe88340ebaf10b938d908ff13",
+   "url": null,
+   "question": "永顺民政局和县人社局私扣死亡老师抚恤金5年不发，是准备私吞吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b86cfe338c5e4d8db805c3875ef1d044",
+   "url": null,
+   "question": "违反国家规定逼迫职工内部退养举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "88df6843f7d9443793eadca86ac4572a",
+   "url": null,
+   "question": "违规任命举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "49b7ffcbafc44862967f19cfe9a0deec",
+   "url": null,
+   "question": "关于湘潭县民族宗教事务局不作为的群众投诉举报书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "8540efb7e36e49bea39579c7b7d01606",
+   "url": null,
+   "question": "求救信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ab48c7dad1ad49efb448d21166ec73de",
+   "url": null,
+   "question": "李嘉志在九龙观违规相关图片补充",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "d7e516d82a1f4f33b9a8403ebea2acc3",
+   "url": null,
+   "question": "湖南省道教协会副会长、常德市道教协会会长李嘉志违规建设道观、中饱私囊、称霸一方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c191403e3ab649209fa464893bbea398",
+   "url": null,
+   "question": "关于湖南省益阳市南县观音寺主持释了然违法违规的补充材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "5e669269ce454e31a5807605b64f98bb",
+   "url": null,
+   "question": "湖南省益阳市南县观音寺主持释了然违法违规的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "563dc2bd9d764d0b9044d024030e24bd",
+   "url": null,
+   "question": "请求益阳市民宗局以公文形式回复，证明城西社区天主教堂异地重建所使用地块与本人没有任何关系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "1e0b502f5e164eef8516ce21b4b4ceb8",
+   "url": null,
+   "question": "向省民宗委反映8月17日，由市、县、镇三级统战领导与信访人的碰面会情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "3059717135634c33bf4dbab449adb74e",
+   "url": null,
+   "question": "针对市民宗局2023年8月14日关于对本人回复的质疑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "63a86d807946493b8e360882b31e1855",
+   "url": null,
+   "question": "益阳市安化县东坪镇天主堂与城西社区村民的土地权属争议并没有结束，请求益阳市民宗局责令其暂停施工建设",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7e91cebbc41b4ca796d8e2d342b5fbb2",
+   "url": null,
+   "question": "关于益阳市安化县东坪镇天主教堂在城西社区违规征收土地的后续发展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "bb6b64fdf416413c88b0f8c84ddbc226",
+   "url": null,
+   "question": "益阳市安化县东坪镇城西社区天主教征地补偿款（续）。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "94ed6dec05bc425e91c471e3f8eb5a7d",
+   "url": null,
+   "question": "招聘咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9037b19b9ba94424b1755c8d2005c63e",
+   "url": null,
+   "question": "实名举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "b491cafd481c46cc9c9991da2db9e6a3",
+   "url": null,
+   "question": "恳请信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "d1c06db708394b199c35e404a4fa9789",
+   "url": null,
+   "question": "精神传销式邪教，全国各地巡回演讲",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "a896de71d27e434aa0e0e2a7f3d71f98",
+   "url": null,
+   "question": "僧人骗取钱财",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ec13107ea7094a0abbd06b562b1cb4a2",
+   "url": null,
+   "question": "宗教活动需管制",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "88ab413bce8949d8bfa60385956e7f7c",
+   "url": null,
+   "question": "附上上一条投诉的图片资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "36ea0982aa9348e1a7b2bab7fa911c73",
+   "url": null,
+   "question": "东坪镇天主教堂联合城西社区个别干部瞒天过海征收土地，教堂设立申请报告冒签村民名字以及违法分配宗教财产。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "1b875920d21a473ab99111219ae71de7",
+   "url": null,
+   "question": "关于西方意识形态隐秘侵入的思考与建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "958262f76daf4d88ad9f8ce1e7ed08d9",
+   "url": null,
+   "question": "天主教设立城西社区，为何不尊重本村村民的信仰自由",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "35e194392d3a458babde1d7b6781d512",
+   "url": null,
+   "question": "安化县东坪镇城西社区村民对天主教设立在我村的真实民意。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9c2c38aeb79d458386ac3d8d430ff76a",
+   "url": null,
+   "question": "益阳市安化县东坪镇天主教负责人试图找信访人的“麻烦”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "259220a2b292401281d36f27eba89b90",
+   "url": null,
+   "question": "益阳市安化县天主教东坪祈祷所，将还未建成的天主教堂固定资产用于分配给其他组织。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "77028ad97c6d4aaf939c7caf4fac8619",
+   "url": null,
+   "question": "益阳市安化县东坪镇城西社区向县民宗局提供虚假签字材料审批天主教设立在城西社区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c1abb10f619a41b5b8aa8596377f5333",
+   "url": null,
+   "question": "安化天主教李嫦娥，伪造申请报告，申请天主教落地益阳市安化县东坪镇城西社区。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "72550eedb9734a91aae26cabd666fe07",
+   "url": null,
+   "question": "关于大学生实习培训的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "41ed7c7e0b4e4838a1f6c1f86b5573c6",
+   "url": null,
+   "question": "湖南2022届高考生，母亲和考生户口地址为：湖南省永州市新田县门楼下瑶族乡竹林坪漕头源4组，考生在户籍地新田县2019-2022年高中三年，请问该考生高考定性是少数民族聚居区还是其他散居区少数民族？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "e607715f68614f01b35dfa82d4e71e74",
+   "url": null,
+   "question": "中国有多少个“跨国少数民族”？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "c1ce42ce3ee444de96070e91ed7cfe41",
+   "url": null,
+   "question": "少数民族高考优惠加分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2b85a0d6a7354063937369557f3a9abc",
+   "url": null,
+   "question": "关于基督教中国化的想法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f02a0d4e181e44c58ee562a02643674a",
+   "url": null,
+   "question": "湖南省边销茶生产销售情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "5bc16c628c2749fab38a117d5aa0a76c",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "a4a40d527f5543999882e1a1bfc72123",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "672d884d86484779833aea11c1b7b632",
+   "url": null,
+   "question": "响水乡.村领导欺压百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "914499cdfbbc4034959601852fab5589",
+   "url": null,
+   "question": "响水乡.村领导欺压百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "549e7a3369904a7cb1a93f3e4f221340",
+   "url": null,
+   "question": "被市信访干部欧打投诉书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f4da622d12694cd4987f037f5eb025e5",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "6f3033f1799a47bcbc992cb086900940",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "1f3d5fc75fa34a85bed352c9fa283b09",
+   "url": null,
+   "question": "请求湖南省人民政府复核人伤骗保，律师贿赂法官，贿赂司法鉴定人员出具虚假鉴定意见，工伤骗保是否违法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ecd3264a7d814c7c806d06539897cde4",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "749b7d74498e4b8d8988f8e0ee49cfe9",
+   "url": null,
+   "question": "请督促相关部门实事求实解决问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7f667e1fe09c4c3f9f08096d3a917ad0",
+   "url": null,
+   "question": "新媒体账号咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "80277f76c8144aa38238f261e12b381a",
+   "url": null,
+   "question": "关于湖南省慈利县黄中宫涉嫌违法占用农田，虽下达限期拆除的红头文件，但至今未拆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "ec62a6f24ccb43f2b117ab06b462894e",
+   "url": null,
+   "question": "村委私集资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "903c4667a92f4701bb297361dab6ae3d",
+   "url": null,
+   "question": "房屋建筑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "fe4b662282aa4e2fa2c239eea743b146",
+   "url": null,
+   "question": "保障人权停止财产侵害恢复房屋原样",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "32e4b806491a4594b10ce5459f3f06bf",
+   "url": null,
+   "question": "请问真耶稣教会是否属于邪教或者属于异端宗教？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7a472e201b064bbb98b6a72f0085013e",
+   "url": null,
+   "question": "1.摄于淫威瑶族百姓“吃屎”多年敢怒不敢言！2.村委凭主观“认为”就可以掌控百姓被生杀大权！！！3.村里数据记得混乱不清，有待理顺。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "f9b46ddffeb54b0da74faf0e28d2275e",
+   "url": null,
+   "question": "2020年2月份企业延迟复工工资发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "58072601cec040afa6dda44c020557eb",
+   "url": null,
+   "question": "请求解决湖南省怀化市芷江侗族自治县宗教工作三级网络和两级责任制建设和经费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2c868c43d6b74bfaa51290467fef646b",
+   "url": null,
+   "question": "请求解决湖南省怀化市芷江侗族自治县宗教工作三级网络和两级责任制建设和经费问题希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "2a37667cec4341b199ba6892a1e3309c",
+   "url": null,
+   "question": "  希望你们把湖南省怀化市芷江县安置区做成湖南省民委的试点工程，做好湖南省民委三级网络和两级责任制建设工程项目。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "7944aaeeab7e4404b5ae2ac42cd0ff43",
+   "url": null,
+   "question": "开斋节放假的通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "76eb8b24ff0241e1b53455052e2d890b",
+   "url": null,
+   "question": "关于2017年湖南省民族健美操比赛章程文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "589122296b824b1eb8b1a29ef25a2265",
+   "url": null,
+   "question": "(请交给省教育厅)怀化市通道侗族自治县第一中学高中部周末强制补课及乱收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "07cfaca58bcb45fdb98cb6cd61cd273b",
+   "url": null,
+   "question": "寺庙住持可以结婚生小孩吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "fb4e3e96cb2246398a87ed9e6a085349",
+   "url": null,
+   "question": "湖南省民族宗教法律法规知识有奖网络竞赛最终抽奖取消了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "fabcc9ac83ca4cc6b4c9f12aebec888e",
+   "url": null,
+   "question": "永贺高铁不是梦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "3f56866abcff40eca57ee00174b063d4",
+   "url": null,
+   "question": "湖南情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "87ad943d3fee4687a3220d19db017e1d",
+   "url": null,
+   "question": "是每个地方都有宗教管理局吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "9d2228c2454b4e8188a959b53802ecc0",
+   "url": null,
+   "question": "在网站上能看到湖南的所有有关宗教的相关信息吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

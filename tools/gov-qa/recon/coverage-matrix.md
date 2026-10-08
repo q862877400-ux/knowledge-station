@@ -1,41 +1,41 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **40943** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **53541** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
 | 广东省 | 31112 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
-| 湖南省 | 4379 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 28 |
+| 湖南省 | 9202 | hunan-st 3813、hunan-yj 538、hunan-agri 200、hunan-amr 200、hunan-czt 200、hunan-fgw 200 …共 33 个来源 |
+| 贵州省 | 4340 | gz-zrzy 598、gz-whhly 505、gz-fgw 460、gz-tyj 322、gz-sft 292、gz-yjgl 252 …共 30 个来源 |
 | 吉林省 | 2679 | jl-wlt 338、jl-nynct 179、jl-hrss 153、jl-scjd 137、jl-zyy 137、jl-ypj 120 …共 39 个来源 |
-| 贵州省 | 1000 | gz-zrzy 598、gz-st 120、gz-swt 107、gz-wjw 40、gz-jyt 30、gz-nynct 30 …共 9 个来源 |
-| 北京市 | 709 | people-liuyan-df 442、people-liuyan-fid 245、people-liuyan-prov 22 |
+| 安徽省 | 773 | ah-kb 600、ah-st 145、people-liuyan-prov 28 |
+| 北京市 | 757 | people-liuyan-df 490、people-liuyan-fid 245、people-liuyan-prov 22 |
+| 山西省 | 736 | sx-szxx 700、people-liuyan-prov 36 |
+| 上海市 | 628 | sh-12345 600、people-liuyan-prov 28 |
+| 宁夏回族自治区 | 615 | nx-zxxx 597、people-liuyan-prov 18 |
+| 天津市 | 511 | tj-hdjl 497、people-liuyan-prov 14 |
+| 湖北省 | 470 | hb-wuhan-8 161、hb-hdjl-16 119、hb-wuhan-9 103、hb-wuhan-7 29、hb-hdjl-25 22、people-liuyan-prov 20 …共 9 个来源 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
-| 安徽省 | 173 | ah-st 145、people-liuyan-prov 28 |
+| 海南省 | 228 | hi-zcwd 200、people-liuyan-prov 28 |
+| 青海省 | 215 | qh-wsxf 200、people-liuyan-prov 15 |
+| 陕西省 | 202 | sn-lyxd 184、people-liuyan-prov 18 |
+| 广西壮族自治区 | 166 | gx-mailbox 138、people-liuyan-prov 28 |
+| 河北省 | 164 | heb-szj 114、heb-czt 26、people-liuyan-prov 24 |
+| 山东省 | 93 | sd-12345 71、people-liuyan-prov 22 |
 | 辽宁省 | 60 | people-liuyan-prov 36、ln-st 24 |
 | 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
-| 山西省 | 36 | people-liuyan-prov 36 |
 | 内蒙古自治区 | 36 | people-liuyan-prov 36 |
 | 黑龙江省 | 36 | people-liuyan-prov 36 |
 | 江西省 | 36 | people-liuyan-prov 36 |
 | 福建省 | 32 | people-liuyan-prov 32 |
-| 上海市 | 28 | people-liuyan-prov 28 |
 | 江苏省 | 28 | people-liuyan-prov 28 |
 | 浙江省 | 28 | people-liuyan-prov 28 |
-| 广西壮族自治区 | 28 | people-liuyan-prov 28 |
-| 海南省 | 28 | people-liuyan-prov 28 |
-| 河北省 | 24 | people-liuyan-prov 24 |
 | 重庆市 | 24 | people-liuyan-prov 24 |
-| 山东省 | 22 | people-liuyan-prov 22 |
 | 河南省 | 20 | people-liuyan-prov 20 |
-| 湖北省 | 20 | people-liuyan-prov 20 |
 | 云南省 | 18 | people-liuyan-prov 18 |
-| 陕西省 | 18 | people-liuyan-prov 18 |
 | 甘肃省 | 18 | people-liuyan-prov 18 |
-| 宁夏回族自治区 | 18 | people-liuyan-prov 18 |
-| 青海省 | 15 | people-liuyan-prov 15 |
-| 天津市 | 14 | people-liuyan-prov 14 |
+| 新疆维吾尔自治区 | 15 | xj-dchs 10、people-liuyan-prov 5 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
-| 新疆维吾尔自治区 | 5 | people-liuyan-prov 5 |
 
 ## 各来源总量
 
@@ -51,12 +51,19 @@
 | gd-smzt | 976 |
 | gd-ws | 909 |
 | people-liuyan-prov | 757 |
+| sx-szxx | 700 |
+| ah-kb | 600 |
+| sh-12345 | 600 |
 | gz-zrzy | 598 |
+| nx-zxxx | 597 |
 | hunan-yj | 538 |
 | gd-jy | 513 |
+| gz-whhly | 505 |
+| tj-hdjl | 497 |
+| people-liuyan-df | 490 |
 | gd-gdii | 486 |
 | gd-czt | 462 |
-| people-liuyan-df | 442 |
+| gz-fgw | 460 |
 | gd-mpa | 437 |
 | gd-tyj | 398 |
 | gd-jt | 381 |
@@ -66,38 +73,31 @@
 | gd-zfsg | 331 |
 | gd-fg | 330 |
 | gd-com | 326 |
+| gz-tyj | 322 |
+| gz-sft | 292 |
 | gd-gbdsj | 274 |
+| gz-yjgl | 252 |
 | people-liuyan-fid | 245 |
+| gz-tyjrswt | 244 |
 | gd-lyj | 234 |
 | gd-whly | 202 |
-| gd-yj | 179 |
-| jl-nynct | 179 |
-| gd-zfcxjst | 177 |
-| gd-hsa | 173 |
-| gd-dara | 155 |
-| jl-hrss | 153 |
-| ah-st | 145 |
-| mee | 145 |
-| jl-scjd | 137 |
-| jl-zyy | 137 |
-| gd-coop | 133 |
-| gz-st | 120 |
-| jl-ypj | 120 |
-| jl-tjj | 119 |
-| gz-swt | 107 |
-| jl-fgw | 105 |
-| gd-gdjyj | 98 |
-| jl-st | 94 |
-| jl-gxj | 79 |
-| gd-dfz | 78 |
-| gd-gdwsxf | 78 |
-| jl-zrzy | 78 |
-| jl-czt | 76 |
-| gd-gdstc | 74 |
-| jl-jt | 71 |
-| gd-gdgrain | 70 |
-| gd-gzw | 68 |
-| jl-tyj | 66 |
-| jl-tyjr | 62 |
-| jl-zfcx | 60 |
-| mem | 60 |
+| gz-stjj | 200 |
+| gz-ylbzj | 200 |
+| hi-zcwd | 200 |
+| hunan-agri | 200 |
+| hunan-amr | 200 |
+| hunan-czt | 200 |
+| hunan-fgw | 200 |
+| hunan-gat | 200 |
+| hunan-gxt | 200 |
+| hunan-jtt | 200 |
+| hunan-lyj | 200 |
+| hunan-rst | 200 |
+| hunan-sft | 200 |
+| hunan-slt | 200 |
+| hunan-swt | 200 |
+| hunan-tjj | 200 |
+| hunan-tyj | 200 |
+| hunan-whhlyt | 200 |
+| hunan-xfj | 200 |
+| hunan-zjt | 200 |

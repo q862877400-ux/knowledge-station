@@ -1,0 +1,2245 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-lyj",
+   "id": "b61e0bc27b1440dda1e8f5d1dd537c9c",
+   "url": null,
+   "question": "关于网友反映平江县一企业疯狂盗伐林木的舆情",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于网友反映平江县一企业疯狂盗伐林木的舆情",
+    "债权转让合同"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6a90c639ee2948729afd2a6757edbfa6",
+   "url": null,
+   "question": "关于网友反映相关林业手续一直办不下来的舆情",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于网友反映相关林业手续一直办不下来的舆情",
+    "使用林地现场查验表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ba2cc0d67de240f29ae663ae0c1feb2f",
+   "url": null,
+   "question": "关于网友反映在衡山县多处发现捕鸟网的舆情",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于网友反映在衡山县多处发现捕鸟网的舆情",
+    "关于切实加强候鸟等野生动物资源保护工作的令",
+    "关于进一步加强全市鸟类保护工作的提示函",
+    "湖南省防鸟网使用技术指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1ad5b5fb9c5043e1a6101a96fae617a8",
+   "url": null,
+   "question": "养灰机鹦鹉",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a4151b07b0e04078877f40b34a23200d",
+   "url": null,
+   "question": "鹦鹉人工繁育许可证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "30cd76c96c4e439198cfa15ededa9713",
+   "url": null,
+   "question": "关于长沙市合法饲养鹦鹉的问题",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国野生动物保护法 ",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "aa37a2af2eab407ca9fed6aaa3b01ea8",
+   "url": null,
+   "question": "湖南省壶瓶山自然保护区华南虎野化放归实验进展",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8c6b02aeefc34930b774dd9358f13c65",
+   "url": null,
+   "question": "鹦鹉标识卡是否可以合法喂养",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f71de35a1004435786d65d63f6d570e9",
+   "url": null,
+   "question": "关于合法饲养鹦鹉的问题",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国野生动物保护法 ",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "83bb3bc7d8594b068d4ed13ffe894ea2",
+   "url": null,
+   "question": "湘潭/湘乡市林业局放任刘叔汶毁林挖山，扩建别墅未做任何处理",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "227bd0b4498c428ca41b6fc779f8369a",
+   "url": null,
+   "question": "关于衡山县自然源保护区内存在非法违规建筑的舆情",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政诉讼法",
+     "lib_no": "行政诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "自然资源违法案件行政处罚决定书",
+    "行政复议决定书",
+    "自然资源违法案件行政处罚决定书",
+    "行政处罚决定书",
+    "行政复议决定书",
+    "行政裁定书",
+    "履行行政处罚决定催告书",
+    "行政裁定书",
+    "自然资源违法案件行政处罚决定书",
+    "衡山县人民政府县长办公会议纪要"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "3ca00a4d4ae947e2af95b1a8addb3891",
+   "url": null,
+   "question": "#洞庭湖湿地被破坏现状#：新种植欧美黑杨清退难 四处散落除草剂",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湿地保护法",
+     "lib_no": "湿地保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省湿地保护条例",
+    "湖南省洞庭湖保护条例",
+    "中国树木志",
+    "国家储备林树种目录",
+    "湖南省主要乡土树种和草种目录",
+    "湖南省湿地保护条例",
+    "河外洲开发承包合同书",
+    "关于加强生态保护红线管理的通知",
+    "岳阳市东洞庭湖国家级自然保护区保护条例",
+    "河外洲开发承包合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "eb463905c0664b77984b4a144050f6e7",
+   "url": null,
+   "question": "经营有中国野生动物经营利用管理专用标识的中药饮片是否需要办理野生动物经营利用许可证",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于加强赛加羚羊、穿山甲、稀有蛇类资源保护和规范其产品入药管理的通知",
+    "湖南省野生动植物及其产品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0184826e51a34fd5a272b3956673ca2b",
+   "url": null,
+   "question": "举报有人在世界自然遗产五A级景区武陵源区严重挖沙取石毁林",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国自然保护区条例",
+     "lib_no": "自然保护区条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "风景名胜区条例",
+     "lib_no": "风景名胜区条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省风景名胜区条例",
+     "lib_no": "风景名胜区条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于审理破坏林地资源刑事案件具体应用法律若干问题的解释",
+     "lib_no": "最高人民法院关于审理破坏林地资源刑事案件具体应用法律若干问题的解释(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国河道管理条例",
+     "lib_no": "河道管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施〈中华人民共和国河道管理条例〉办法",
+     "lib_no": "河道管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施〈中华人民共和国城乡规划法〉办法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施&lt;中华人民共和国城乡规划法&gt;办法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于对毁坏森林、挖沙取石采矿破坏景区环境行为的举报",
+    "农村土地利用现状二级分类面积汇总表",
+    "湖南省武陵源世界自然遗产保护条例",
+    "关于严肃查处天子山镇泗南峪生态环境破坏问题的函",
+    "关于迅速调查处理白蛇溪天子山街道江雾峪段河道非法采砂石的交办函",
+    "建设用地规划许可证",
+    "覃豪、彭欢欢两户私房连体设计方案",
+    "武陵源风景名胜区天子山旅游镇总体规划（2005-2020）",
+    "湖南省自然资源行政处罚裁量权基准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4adf84940af9450da38053534926f263",
+   "url": null,
+   "question": "野生动物如今正在风口浪尖上",
+   "cited_hits": [
+    {
+     "name": "野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物名录",
+    "关于全面禁止非法野生动物交易、革除滥食野生动物陋习、切实保障人民群众生命健康安全的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4c424e5f39514c9f8978863e655779f3",
+   "url": null,
+   "question": "衡南县江口镇耒水鸟洲段电船非法捕鱼",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国刑法",
+     "lib_no": "刑法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国渔业法",
+     "lib_no": "渔业法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "衡南县江口镇耒水鸟洲段电船非法捕鱼"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6553f023caa248639162715231a2a8fd",
+   "url": null,
+   "question": "地笼网、迷魂阵、随意出入的人群，何时能解决制止？",
+   "cited_hits": [
+    {
+     "name": "渔业法",
+     "lib_no": "渔业法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "地笼网、迷魂阵、随意出入的人群，何时能解决制止？",
+    "地笼网、迷魂阵、随意出入的人群，何时能解决制止？",
+    "湖南省渔业保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5b829f6432f54c1e932d991985e85bde",
+   "url": null,
+   "question": "举报非法加工林木",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法实施条例",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "林业行政通知书",
+    "督促停止违法收购、经营加工木材通知书",
+    "湖南省林业条例"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-lyj",
+   "id": "0ecb19c1a9df4e84b0fd0e154fc7272a",
+   "url": null,
+   "question": "湖南个人可以养带合法标识的非洲鹦鹉或者其他中型和中大型鹦鹉吗，开放能养的鹦鹉有哪些",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "cdfc6126b0a946bea1849b871e52710a",
+   "url": null,
+   "question": "关于网友反映在益阳沅江琼湖湿地公园发现大量生活垃圾的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映在益阳沅江琼湖湿地公园发现大量生活垃圾的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8bb48c1ff26f401a8720152dcd854866",
+   "url": null,
+   "question": "关于网友反映桂东县新坊乡森林被破坏的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映桂东县新坊乡森林被破坏的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "cade9a59cdad472baab4c2cc92cfae07",
+   "url": null,
+   "question": "关于网友反映浏阳市达浒镇金田村连云山片林木被盗伐的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映浏阳市达浒镇金田村连云山片林木被盗伐的舆情",
+    "林木、林地权属争议举证通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2ad71ad007ee43419c19ffe82dbae18e",
+   "url": null,
+   "question": "关于网友反映在长沙望城区发现有人张网捕鸟的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映在长沙望城区发现有人张网捕鸟的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f2fb488735c14da48c42e74d4e9843ee",
+   "url": null,
+   "question": "关于网友反映在岳阳临湘又发现巨大捕鸟网的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映在岳阳临湘又发现巨大捕鸟网的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a2682ba0d2b44807b621234b3e0e456d",
+   "url": null,
+   "question": "关于网友反映在岳阳临湘仍发现不少捕鸟网，质疑“走过场”的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映在岳阳临湘仍发现不少捕鸟网，质疑“走过场”的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0fc87ee35fb543d0b841585e47b24cf2",
+   "url": null,
+   "question": "关于网友反映在岳阳发现不少捕鸟网的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映在岳阳发现不少捕鸟网的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1be6293fe7074a9eb334f7afe507e015",
+   "url": null,
+   "question": "关于网友反映耒阳市三架街道办事处大胜村十组的集体山林被开发为私人墓地的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映耒阳市三架街道办事处大胜村十组的集体山林被开发为私人墓地的舆情",
+    "停止违法通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "7bfeccea6b0142c1a6a0993fd57d42ad",
+   "url": null,
+   "question": "关于网友反映东洞庭湖团洲垸湿地防洪林被随意砍伐的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映东洞庭湖团洲垸湿地防洪林被随意砍伐的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f9471add419140798f75eca755ffd63d",
+   "url": null,
+   "question": "什么是自然保护区的外围保护地带？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然保护区功能区划技术规程",
+    "GB/T 35822-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0d30382e4fd9431f92bb2d465facff4b",
+   "url": null,
+   "question": "关于网友反映益阳市南县茅草街存在私设捕鸟网乱象的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映益阳市南县茅草街存在私设捕鸟网乱象的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9d6ac7149a1449b8b3cff09ea59d9706",
+   "url": null,
+   "question": "关于网友质疑洞庭湖流域采桑湖片区水环境综合治理项目破坏候鸟栖息地生态的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友质疑洞庭湖流域采桑湖片区水环境综合治理项目破坏候鸟栖息地生态的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "b1a4ab21c56343c8bbbe0d92701ec71a",
+   "url": null,
+   "question": "关于网友反映平江县三墩乡公坪村一村民油茶林被镇政府强行挖掉的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映平江县三墩乡公坪村一村民油茶林被镇政府强行挖掉的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "91dd4976cf824687a297936465b2978c",
+   "url": null,
+   "question": "关于人工繁殖佛罗里达箱龟的买卖问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于濒危野生动植物种国际贸易公约附录水生动物物种核准为国家重点保护野生动物名录的公示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "7bb381a63e2c49bcbfd9191ee7ccca8a",
+   "url": null,
+   "question": "湖南省林地林权登记换发证实施办法(湘林证【2003】10号)",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部办公厅 国家林业和草原局办公室关于进一步规范林权类不动产登记做好 林权登记与林业管理衔接的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6f807d46359a4cd6832f213358fcbffc",
+   "url": null,
+   "question": "关于网友反映双峰县荷叶镇和井字镇存在滥砍滥伐情况的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映双峰县荷叶镇和井字镇存在滥砍滥伐情况的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0590ff5efcb4468fafaabbb32ac870e0",
+   "url": null,
+   "question": "关于网友反映道县万家庄社区存在有人霸占村民油茶林山地的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映道县万家庄社区存在有人霸占村民油茶林山地的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "68be8ef78e0d4133a1a1d1a1978e1ff5",
+   "url": null,
+   "question": "关于网友反映冷水滩区普利桥镇小江桥村有人盗伐林木的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "红网问政湖南：网友反映永州市冷水滩区普利桥镇小江桥村有人盗伐林木问题",
+    "林木采伐许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "264998f4f97741e987d62d703e035856",
+   "url": null,
+   "question": "关于网友反映长沙市岳麓区坪塘街道江家坪存在毁坏林木的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "红网问政湖南：关于网友反映长沙市岳麓区坪塘街道江家坪存在毁坏林木的舆情",
+    "责令停止违法行为通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ee7069c4091a48aaaab3169b7a0694c0",
+   "url": null,
+   "question": "关于网友反映长沙县安沙镇和平村有人毁坏村民山林的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "红网问政湖南：关于网友反映长沙县安沙镇和平村有人毁坏村民山林的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "90fc17986bbd4bda92c16c6cd38251f2",
+   "url": null,
+   "question": "关于网友反映衡山县新桥镇存在非法砍伐樟树并售卖的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "林木采伐许可证",
+    "限期整改通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ee34adcf1b4d49b08063e20f575f1e7e",
+   "url": null,
+   "question": "关于宁乡市双凫铺麦田村宝达碎石场非法侵占老百姓林地 的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "宁乡市普通建筑材料用砂石土矿专项规划(2019-2025年)",
+    "宁乡市采石(砂)取土场使用林地发展规划(2021-2030)和2021-2023年度采石(砂)取土场使用林地计划",
+    "责令停工通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1b21c2e9e601442db91682d61679c52d",
+   "url": null,
+   "question": "关于网友反映新化县圳上镇金炉村民林地被强占的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于网友反映新化县圳上镇金炉村民林地被强占的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "11c770686ed94b0aa63c65a43e62eee7",
+   "url": null,
+   "question": "关于冷水滩区高溪市镇王家冲村村民私自露天盗采煤炭毁坏耕田山塘以及水库林地的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于冷水滩区高溪市镇王家冲村村民私自露天盗采煤炭毁坏耕田山塘以及水库林地的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ac05a10decdc47c198af83f249d79397",
+   "url": null,
+   "question": "关于宜章县一六镇塘尾村村民用挖机肆意破坏林地的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于宜章县一六镇塘尾村村民用挖机肆意破坏林地的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f91415057db14bd8945fe341d534239f",
+   "url": null,
+   "question": "关于洞口县醪田镇存在非法毁坏林地改变土地性质的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于洞口县醪田镇存在非法毁坏林地改变土地性质的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e5189018963f4a0288f86e9172100f70",
+   "url": null,
+   "question": "关于常德市鼎城区谢家铺镇油茶林被毁的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "谢家铺镇油茶林被毁舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "09d6dda546a346e1a4c311ed5472af3a",
+   "url": null,
+   "question": "关于邵阳县林业局对修建自用住房征用林地批复问题的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于邵阳县林业局对修建自用住房征用林地批复问题的舆情",
+    "关于同意长乐乡建制村调整的批复",
+    "湖南省林业厅关于加强和规范建设项目使用林地审核审批管理工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6f3f3b85c1d646d18fb8a232d7c8c6b4",
+   "url": null,
+   "question": "湖南省分布的国家重点保护野生植物",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省生物多样性白皮书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "947ad80c20be4087b8bedfbbb4452688",
+   "url": null,
+   "question": "在湖南岳阳，个人购买的带标识卡和脚环的小太阳鹦鹉合法吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "90d4de71e4774c27bf3016502039d700",
+   "url": null,
+   "question": "关于岳麓山实验室林科院片区建设项目开山砍伐的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "种业振兴行动方案",
+    "岳麓山实验室建设方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8a75976b112b4689a46f6fa0aa74d0ea",
+   "url": null,
+   "question": "关于浏阳市官桥镇一江村长春组油茶开发项目的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "浏阳市官桥镇一江村长春组油茶开发项目的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "cd88b2ff37a1470ca14c9adf2206d96e",
+   "url": null,
+   "question": "关于茶陵县严塘镇原高兴村村民自留山被开发成油茶林的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "区划界定书",
+    "生态公益林管护协议",
+    "湖南省森林生态效益补偿基金管理办法",
+    "湖南省森林生态效益补偿基金管理办法",
+    "国家级公益林管理办法",
+    "湖南省公益林管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4c5ed3576baa49cab36003319fcae66d",
+   "url": null,
+   "question": "关于长沙市岳麓区坪塘街道林地耕地成渣土消纳场的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于长沙市岳麓区坪塘街道林地耕地成渣土消纳场的舆情",
+    "关于长沙市岳麓区坪塘街道林地耕地成渣土消纳场的舆情"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "de92909589f94d499f132b35406e15fd",
+   "url": null,
+   "question": "关于双峰县锁石镇林长制责任未落实的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "调解协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2f04f432c37642349fea941caea6ee69",
+   "url": null,
+   "question": "关于洞口县竹市镇香樟村山林遭到破坏的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于洞口县竹市镇香樟村山林遭到破坏的舆情",
+    "关于洞口县竹市镇香樟村山林遭到破坏的舆情",
+    "停工通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "251672682b1f4cc99b351116557562ab",
+   "url": null,
+   "question": "长沙生态动物园内大熊猫生活异常",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年&lt;舆情通报&gt;第2期涉林舆情",
+    "关于&lt;关于调查处理野生动物有关舆情信息的函&gt;的调查情况汇报",
+    "关于&lt;关于调查处理野生动物有关舆情信息的函&gt;的调查情况汇报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a298dd014b304e2c96c9b5919600c7b6",
+   "url": null,
+   "question": "双峰县安石石材全心采石场非法占用农用地",
+   "cited_hits": [],
+   "cited_missing": [
+    "双峰县安石石材全心采石场非法占用林地",
+    "双峰县安石石材全心采石场非法占用林地"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2465719f14d4476896a514952ff3bd74",
+   "url": null,
+   "question": "耒阳市退耕还林生活补贴发放的标准要求是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "耒阳市退耕还林生活补贴发放的标准要求是什么？"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a073f6e950924a269d851ba91f213eb0",
+   "url": null,
+   "question": "关于江永县夏层铺镇底铺村村民在公益林区内乱砍滥伐的舆情",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家重点保护野生植物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "acbff482502348dea86ee9a66fd3d3e9",
+   "url": null,
+   "question": "请求查处双峰县杏子铺镇政府保护万某毁特等粮田，破坏生态等问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "舆情通报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "589214d37d5e47f4ad54df951dc327ee",
+   "url": null,
+   "question": "反映衡山县杉木桥村村干部在衡山自然保护区内毁山大兴土石工程",
+   "cited_hits": [],
+   "cited_missing": [
+    "反映衡山县杉木桥村村干部在衡山自然保护区内毁山大兴土石工程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1f39fae2cf6e4e1f9211a78797a4e49d",
+   "url": null,
+   "question": "请求解决隆回县五大国有林场环境卫生整治工作经费",
+   "cited_hits": [],
+   "cited_missing": [
+    "请求解决隆回县五大国有林场环境卫生整治工作经费"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "3c59c641a36d4cf18fb38611c0cc5d0a",
+   "url": null,
+   "question": "衡山县东湖镇自然保护区内存在毁山大兴土石、占田占河道现象/衡山县杉木桥村王某家扩宽前院使古道变危道",
+   "cited_hits": [],
+   "cited_missing": [
+    "红网 百姓呼声",
+    "涉林舆情管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d988063e87134826998799ba6f2758c5",
+   "url": null,
+   "question": "资阳区林业局和茈湖口镇政府漠视百姓利益，不作为乱作为",
+   "cited_hits": [],
+   "cited_missing": [
+    "舆情通报（2020年第24期，总85期）",
+    "中央环保督察反馈意见整改工作方案",
+    "中央环保督察反馈问题整改任务清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a48d0fe0351e4fe9995f5d95a6d7d18c",
+   "url": null,
+   "question": "关于反馈“舆情通报（2020第23期）”相关涉林负面舆情调查处置情况的函",
+   "cited_hits": [],
+   "cited_missing": [
+    "神农公园动物园场地租赁合同",
+    "民事判决书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "b04797efc60f4f4da3548a9c968650cb",
+   "url": null,
+   "question": "新宁县舜皇山国家级自然保护区生态被破坏 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "章坪电站整改科学评估和一站一策变更方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "08831e4e12254b5683d4967ce8f03416",
+   "url": null,
+   "question": "请问林业苗木种植专业合作有没有补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [
+    "舆情通报",
+    "林业改革发展资金管理办法",
+    "林业改革发展资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "68c3b7a882084342b4d4b8ab6676317a",
+   "url": null,
+   "question": "东安县新圩江镇茶源村5组罗某被野猪咬伤致死，申请补偿",
+   "cited_hits": [],
+   "cited_missing": [
+    "东安县新圩江镇茶源村5组罗某被野猪咬伤致死，申请补偿",
+    "关于调查核实野生动物致害情况的函",
+    "中华人民共和国野生动物法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "47caaa4e5f294c47b9890fbcdbfd3fbc",
+   "url": null,
+   "question": "大通湖区河坝镇路段惊现大量鸟类尸体（可能是禽流感）",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省野生动物疫源疫病监测中心站 关于 益阳市大通湖区鸟类死亡 的 调查报告 ",
+    " 湖南省野生动物疫源疫病监测中心站 关于 益阳市大通湖区鸟类死亡 的 调查报告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "06012b86be694086bae3b05094ece861",
+   "url": null,
+   "question": "请求解决隆回县五大国有林场环境卫生整治工作经费",
+   "cited_hits": [],
+   "cited_missing": [
+    "请求解决隆回县五大国有林场环境卫生整治工作经费"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "60bf3e1a10c347e287c67052113073c1",
+   "url": null,
+   "question": "湖南嵩达林业科技发展有限公司破坏山林、污染环境",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于核处群众举报长沙市雨花区湖南嵩达林业科技发展有限公司毁林卸土的督办通知",
+    "土地流转合同",
+    "跳马镇矿山矿坑整治及生态修复规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "35440749943243b68cedbd7a650a7835",
+   "url": null,
+   "question": "衡阳南岳某民宿疑似捕杀濒危物种鼬獾",
+   "cited_hits": [],
+   "cited_missing": [
+    "人居环境卫生责任牌"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ab8b78d77b6443d0b4a7d148c290c910",
+   "url": null,
+   "question": "长沙动物园大象踩死驯兽员 官方：疑大象发情导致",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省野生动植物及其产品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e2b921288ede4712b4fd46e49ac317ba",
+   "url": null,
+   "question": "衡阳石鼓区有人盗挖国有资源破坏国有林业",
+   "cited_hits": [],
+   "cited_missing": [
+    "衡阳石鼓区有人盗挖国有林业资源"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8a23c0d9a07b4ee8888c9fa91a6cfcb7",
+   "url": null,
+   "question": "邵东市火厂坪镇毛坪村毁林卖地建坟山",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于核处群众举报邵东市火厂坪镇毛坪村毁林修墓问题督办通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a82ef2651d0b45e0b3257a46c661ff4b",
+   "url": null,
+   "question": "龙山县63万人民求助信",
+   "cited_hits": [],
+   "cited_missing": [
+    "请求省林业局把我县我镇卜纳洞村一块林地审批给我们建设养猪场",
+    "关于划定并严守生态保护红线的若干意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "656c0c2f32be494a98fa16141bc8f2f4",
+   "url": null,
+   "question": "隆回县罗洪镇X052县道旁中罗洪村八组邹某批东挖西，滥伐林木",
+   "cited_hits": [],
+   "cited_missing": [
+    "隆回县罗洪镇 X052县道旁中罗洪村八组邹某批东挖西滥发林木",
+    "隆回县罗洪镇 X052县道旁中罗洪村八组邹某批东挖西滥发林木"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2d63555970864e369fd1512ab68f7769",
+   "url": null,
+   "question": "东洞庭湖一江豚遇害，尾鳍绑有砖头，谁干的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强保护区捕捞秩序管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ee1bc1e259e74324ac35e2738e7b7b70",
+   "url": null,
+   "question": "长沙县安沙镇李洪书记叫姚双球“姐姐”又能怎样？",
+   "cited_hits": [],
+   "cited_missing": [
+    "拆除搬迁安置协议",
+    "息访息诉协议",
+    "拆除搬迁安置协议",
+    "息访息诉协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "3b54c6d81240470899c40f869e41d5e3",
+   "url": null,
+   "question": "关于回复湖南省林业厅资源林政处的信访件至今没有答复",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于国电优能广西恭城风电有限公司非法占用江永林地植被恢复工作会议纪要",
+    "国电优能桂林恭城圆石山49,5MW风电场工程（江永范围）植被恢复方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ebcc6783a3c147dcb2da885f86db7ca3",
+   "url": null,
+   "question": "回复湖南省林业厅资源林政处的信访件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于国电优能广西恭城风电有限公司非法占用江永林地植被恢复工作会议纪要",
+    "国电优能桂林恭城圆石山49,5MW风电场工程（江永范围）植被恢复方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "b8f70a7f91f747af85efbd28dcf815ea",
+   "url": null,
+   "question": "对省林业厅发《湘林函（2017）32号文件》中一些用语的质疑",
+   "cited_hits": [],
+   "cited_missing": [
+    "湘林函（2017）32号文件"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-lyj",
+   "id": "d5cfb4e4198542cdb84b3318b660307b",
+   "url": null,
+   "question": "国家级生态公益林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "18fe909ee15c4bfaa04ab80bc014a842",
+   "url": null,
+   "question": "湘西土家自治州凤凰中华大熊猫苑饲养员内舍抽烟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "cd9cd242e168414598d7c3f6540ae57c",
+   "url": null,
+   "question": "林下中药材种植",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "dd63a03f8015406eaa115f6bee678873",
+   "url": null,
+   "question": "关于2024年度国土变更调查和森林草原湿地荒漠化普查成果启用的相关咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ec961e76bf80464c82d1f455b2b7af5d",
+   "url": null,
+   "question": "关于网友反映在娄底新化山林间发现大量私架捕鸟网的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "c26d96ecb82548b4890cce5c7829438a",
+   "url": null,
+   "question": "关于无人机是否能够帮助林业局的日常工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "66c657aea15c49299118691734176b57",
+   "url": null,
+   "question": "湖南省防护林补贴取消了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5bba30166abf452f8bfc210ad8960b50",
+   "url": null,
+   "question": "关于2025年招聘宣传编辑岗位考试缴费入口以及相关考试内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2d4852c2a1e84640a86d80ac070ac140",
+   "url": null,
+   "question": "考试报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5efa0846eed3423881040f337deb8b92",
+   "url": null,
+   "question": "政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2528d3c43e264e6f99fb40a3e2ee029e",
+   "url": null,
+   "question": "关于网友反映“湖南油茶山整理工作中茶树旁边的其他树种全被砍掉，质疑为‘杀百留一’工程”的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1489db02b8d54300900661398fecd7a8",
+   "url": null,
+   "question": "受灾补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "15d28d3c7e664cd39163b78961b52718",
+   "url": null,
+   "question": "关于《民间环保人士举报湘西盗伐野生“金弹子”猖獗，质疑执法部门查处8棵“走过场”》的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "3e8afec8959f4f479a23b0581211021d",
+   "url": null,
+   "question": "自家种的杉树被别人烧了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "786e235da8fb435bb5ff6e640beae13e",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "72fcde50d3ca4e7a950bebb3fd343fe1",
+   "url": null,
+   "question": "个人危房改建项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "34ee6ccf8b4141b69353cae45987cf27",
+   "url": null,
+   "question": "关于耒阳市大和圩荣华村九组刘长荣贪污退耕还林款的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f702829db8c84325bf362e064c4ba356",
+   "url": null,
+   "question": "关于湘潭县山林征收青苗补偿费用发放的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f02fddc5d42f4bf9b38097545491ded0",
+   "url": null,
+   "question": "湖南省茶油苗育苗定点单位咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "496b2686013c48c0ae8c2b7641c0e79f",
+   "url": null,
+   "question": "关于古树名木枯萎威有可能胁周边群众生命财产安全问题的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "058999c9dd4d4eb3a6cc4bab3ef341b3",
+   "url": null,
+   "question": "古树名木申请挂牌保护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8e249e97264d4d45b96d0fd78a8bf3a0",
+   "url": null,
+   "question": "古树名木申请挂牌保护",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5666d59ccf7b43068b593e0ed98f6d9b",
+   "url": null,
+   "question": "关于汨罗市双塘社区城郊乡疑似有加拿大一支黄花的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9c478c2139b0405dad24c61e38c69a95",
+   "url": null,
+   "question": "关于汉寿同发野生动物世界动物表演仍未停止的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e7e9a7f64d1f42cdbde87511afd6fd0a",
+   "url": null,
+   "question": "关于国网新化县供电公司霸占土地强砍林木的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "761a83c72e804e8387a8fe3af1c83f4c",
+   "url": null,
+   "question": "辰溪县谭家场乡有棵百年枫树存在安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "80594bfe41f84555b29b4382550da34f",
+   "url": null,
+   "question": "宁远县西山村第九组邓某某乱砍滥伐盜砍林木",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d35c41d8c7ad4be5a9f00ac1a89951ed",
+   "url": null,
+   "question": "关于邵阳县长阳村田某某非法毁坏他人林地建房的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "c7232b15c4f245d19c32e4a1cec5e120",
+   "url": null,
+   "question": "武冈市秦桥镇杉树林地被挖的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "75d1dd75f1b44d1081763c8560d1133b",
+   "url": null,
+   "question": "关于澧县枞杨村大片自然山林被人侵占的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a690e6c8ca874bbe8a99745de3278603",
+   "url": null,
+   "question": "关于益阳谢某强占林地毁林造墓的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "870ff01a5f684e9bb3833bf7c1d8f4df",
+   "url": null,
+   "question": "关于零陵区凼底乡油山岭村松树遭遇虫灾的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "626590eeb68b4802bb4708d2a42c3dd4",
+   "url": null,
+   "question": "关于零陵区凼底乡油山岭村松树遭遇虫灾的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "fccddcb590f142ef857fd6ec34b627d3",
+   "url": null,
+   "question": "关于怀化市中坡国家森林公园管理不力的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e735e724e1974f6c88d38e273e2d0e09",
+   "url": null,
+   "question": "关于张家界野猴子再度伤人的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6ae95775f18045ad96b4ee334256c855",
+   "url": null,
+   "question": "关于邵阳南山牧场遭破坏的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "3cca5724bce74595ad3a70b3edcb2b3d",
+   "url": null,
+   "question": "关于邵阳南山牧场遭破坏的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "07e2c99a9144484b8154ccf3ff4e530a",
+   "url": null,
+   "question": "关于张家界村民被猴子咬伤的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "434430341c54414c94634fbb129d6149",
+   "url": null,
+   "question": "关于邵阳县屏峰村养殖场破坏生态环境的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "686e5261f960418a99b422a7168437cf",
+   "url": null,
+   "question": "关于桑植县西坪村的村民不需要粽叶低改项目的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "712470387b534ce69cb9582c802089e4",
+   "url": null,
+   "question": "关于岳阳楼区郭镇乡公益生态林面积减少的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1334dd04e7474a8e8e8fa4eef0c2fa44",
+   "url": null,
+   "question": "关于祁阳下马渡镇汤家岭村白蚁泛滥成灾的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "674877a3e194438fa5163b132de29010",
+   "url": null,
+   "question": "关于汉寿湘同发野生动物世界野生动物表演的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a2f2c6912c9548598b7a8b02b0b6fc83",
+   "url": null,
+   "question": "关于网友反映怀化市冠乐贝欢乐谷有熊和猴子表演的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "fa231ed0ce974cc8b1caa9185e6a15a4",
+   "url": null,
+   "question": "关于溆浦县令吉冲村四组害虫泛滥的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1697a6a151c643f1a67687a39ca6148d",
+   "url": null,
+   "question": "关于长沙市岳麓山景区南大门不开放的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4291c877f87644d091eaec48e72d334f",
+   "url": null,
+   "question": "关于常宁市烟洲镇百年古树起火的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "67e5304036534d54924600c050a27ee3",
+   "url": null,
+   "question": "关于怀化市溆浦县葛洲平镇一带山林有病虫害的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "517ab5e8f2574383a2332284716f99ec",
+   "url": null,
+   "question": "关于网友反应江华县大量松线虫肆虐森林的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1333197c365d49db9f19711ff7cc1db3",
+   "url": null,
+   "question": "关于桃源县漆河镇游姓父子挖山破坏山林的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d2a3ccaf74544e728343f3eee043d1a7",
+   "url": null,
+   "question": "关于宁乡市双江口镇违规将集体林地建设公益性墓地的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e7c6d0b3f627491182703e33b8b43702",
+   "url": null,
+   "question": "关于祁阳市文富市镇一采石场破坏生态环境的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "97500556dd7a44c78c5b9cb197e861d0",
+   "url": null,
+   "question": "关于安化县柘溪林场白水村石庄组夏延习盗伐树木的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4abacf11e96c44279019778cfac1fc71",
+   "url": null,
+   "question": "关于娄底市双峰县金龙煤矸石烧结砖厂破坏山林的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a27cc9a10b794f208acf193e4e2a5686",
+   "url": null,
+   "question": "武冈市林科所存在腐败现象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "103ad2b0ce2948b5a29a69ad9db002c1",
+   "url": null,
+   "question": "关于祁东县林业局拖欠油茶产业扶贫补助款的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f90e2a1c7e174036b2eb2659e1d17604",
+   "url": null,
+   "question": "关于常宁市林业局等合伙盗取国家油茶开发资金的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f4ea65c42af849d7a06855e3ec8b2639",
+   "url": null,
+   "question": "关于平江县梅仙镇天鹅村退耕还林的地到处是沙场的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4e9af50a5ee3406897bd09ba82d236d9",
+   "url": null,
+   "question": "关于隆回县大水田乡水田村古树被填埋事宜的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f99163ba81d74e2a9a6ee4ddfe28ef31",
+   "url": null,
+   "question": "关于株洲市湘水湾一级饮用水源地自然山体上31棵树木遭人为损坏的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e11508d9af8341ea9248405a7512884a",
+   "url": null,
+   "question": "关于武冈市林科所原领导班子棚改房、人事调动的舆情",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9429c6ba6e50411fa22cb5a631dbe684",
+   "url": null,
+   "question": "国有林场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e9f130fb069748bb93130b39a1c64359",
+   "url": null,
+   "question": "怀化市溆浦县江口镇高速芦冲隧道上两侧山体大面积采矿、毁林舆情的办理情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "47ff4bdd59ac4913b669a193cc571e6a",
+   "url": null,
+   "question": "宁乡县长林矿业有限公司求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "6b62fdf7d9ce48e5a51ea634956f1aec",
+   "url": null,
+   "question": "南岳衡山风景名胜区内野蛮施工导致大量树木“遍体鳞伤”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "bbe8f96a734947b59bb0e778e35fdec6",
+   "url": null,
+   "question": "电力公司砍伐国家二级保护植物野生香樟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "eea40da0fe2c4e59964fc34159e42324",
+   "url": null,
+   "question": "澧县盐井金马居委会大批猪獾晚上出来毁坏玉米地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "275d9c58637d40b494c0e060bb48daf0",
+   "url": null,
+   "question": "岳阳县新墙镇进塘水库被严重污染，殃及下游村民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0c35a8c30639401c8fb81d65cda63f38",
+   "url": null,
+   "question": "请问邵阳县五峰铺国有林场职工工资是如何发放的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "185268163c1440028fb86a8a5219678f",
+   "url": null,
+   "question": "安化县国有柘溪林场老兵维权",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2fc28d08894742dd9341b9b213db8d15",
+   "url": null,
+   "question": "安化县国有柘溪林场党委书记以权谋私，多拿多占",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1057ededf4144debaae44191b68c4f6a",
+   "url": null,
+   "question": "衡南县邓某非法在衡东县自然保护区天光山盗采矿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8d20cca07af9408bb9af7f9eca065eb2",
+   "url": null,
+   "question": "安化县柘溪国有林场单位领导德不配位才不配位，焉能服众",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2efd771cc73340d8bcac7fc68b6dfa2f",
+   "url": null,
+   "question": "关于零陵区国有林场危房改建后的几个问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "424c0a91c6f848a08d5636782bd07e02",
+   "url": null,
+   "question": "永兴县法院(2010)永民初字第(299)号判决不公正",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d8fd9021da7b4a8f83a663f150abcc30",
+   "url": null,
+   "question": "湖南这家采石场什么来头，越界采矿、紧靠居民区、附近还有湿地公园和水电站 ！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "f8f979761fb04a68a3d628f7192284c6",
+   "url": null,
+   "question": "洞口县迴龙洲的树木被乱砍滥伐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "ff6a7a6c8a784ffd98c86c7e8d1cd9ec",
+   "url": null,
+   "question": "非法捕猎，树林里的高压电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "48939a78be65404aa41c127d40f28626",
+   "url": null,
+   "question": "涨芝士啦",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "a72a79f03d854cd0baad46282083ea1b",
+   "url": null,
+   "question": "张家界国家森林公园弹弓钢珠射击野生猕猴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "fd8b977e48ee48a7a6166d7820846603",
+   "url": null,
+   "question": "新宁县柳源村章坪电站在国家保护区内非法取水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9682b19a529443dabd474687bf56711c",
+   "url": null,
+   "question": "新邵县控告新邵县大形山林场场长 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "01aa8bb756b84a1fab74e1f532cf07cb",
+   "url": null,
+   "question": "涟源市石马山镇原麦冲村石漠化综合治理工程封山育林项目涉嫌骗取国家项目资金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d70567b0db184f3aa77452b4a2b292c7",
+   "url": null,
+   "question": "浏阳市古港镇林家冲农作物被野生动物损坏",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "249faf9299e34c2294167d60840c5a11",
+   "url": null,
+   "question": "湘乡市东台山国家森林公园摆摊者损坏树木",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8ec99a937a88450da793c3910803feb8",
+   "url": null,
+   "question": "投诉汝城县绿源生态城非法强占林地农田",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "97097f65e153418780b71c8f4de4271b",
+   "url": null,
+   "question": "沅江市政府在国家湿地公园内建设垃圾总站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "106f2bb6ab944603bb309c098266ec90",
+   "url": null,
+   "question": "湘西有人长期上山抓野生动物，并拍视频，向他人传授捕猎技术",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4e128b395d594b64b89bea0a929dfcba",
+   "url": null,
+   "question": "石门县壶瓶山国家级自然保护区江坪河社区老支书猎杀野生动物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1e6b1107da564406bc25e5dffd079d77",
+   "url": null,
+   "question": "快反直击 | 湖南汨罗：自然保护区的砂石，让谁在“疯狂”？！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "246364b3236649f1a21683f741600107",
+   "url": null,
+   "question": "华容县东山镇野生动物捕猎严重，向谁报案才能扼制这种现象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "53745a72d14247fcacff308edb7736b8",
+   "url": null,
+   "question": "湖南省永州市零陵区菱角塘一石场严重破坏生态",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "cb01fecaba804e449bbe5abf3dd869e4",
+   "url": null,
+   "question": "新化县天门乡土坪村“奇观”最新进展",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5b21bd99af7048539e72579bdeee7576",
+   "url": null,
+   "question": "请求查处湖南蓬源鸿达矿业有限公司破坏林地的违法行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9896b959f391464e9de996e729b2ca17",
+   "url": null,
+   "question": "新宁县回龙寺镇有人挖山违建，政府不处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "e3917679ead4467c8995cb649146efef",
+   "url": null,
+   "question": "龙山县多家无良餐馆将野生麂子端上餐桌！​",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0c53681931d14870946c26315fdd2a7e",
+   "url": null,
+   "question": "岳阳县万棵松树在北风中流泪——新割松脂的刀口令人触目惊心！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "7296ce7c3e164275a2799958e3aa73ab",
+   "url": null,
+   "question": "长沙街边一家土菜馆在卖保护动物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8060797c3e7a4e0baf8168390a86af36",
+   "url": null,
+   "question": "常宁市龙鑫矿业公司毁坏林地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2d880df81359427fbeeceb3160b3c154",
+   "url": null,
+   "question": "被囚禁的国家二级保护动物成千上万谁来解救?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "15e1413b52864a1a87a8baf22cf6a3de",
+   "url": null,
+   "question": "私开山林建公墓？长沙这个地方被查了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d4d7a36a03cc4b9dad19a2edb547ddea",
+   "url": null,
+   "question": "村镇干部强毁坏油茶山林开梯田",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "c4669741aad94066a1c3a0f0e042d434",
+   "url": null,
+   "question": "我家山林自2014年开始被非法倒卖出租，致使本人的合法财产受损。长达四年时间一直没有相关单位受理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "04a2797f2ef8488c8afce032cdbc22ae",
+   "url": null,
+   "question": "金山银山，不如绿水青山，衡阳市衡南县车江镇花桥乱吹乱伐生态林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "0f14fdb4f99f4780b48a3666d5011a1f",
+   "url": null,
+   "question": "关于湖南樱皇农业开发有限公司在蔡家岗花园村擅挖茶山",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "922d5b1f671b4818a72a1e7b15282313",
+   "url": null,
+   "question": "保护区核心区砍伐近3000株林木",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4bcd22a904924dd18156d87f554144e8",
+   "url": null,
+   "question": "中药材种植用地性质是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "bed33326876c4a249934a52f871c04ac",
+   "url": null,
+   "question": "举报非法公司未经允许毁我油楂树山林",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8c7d23d34cb948f0ab165035d7ebd2bb",
+   "url": null,
+   "question": "关于湖南省森林植被恢复费标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "4b119735785642beb3fdf899c32e2949",
+   "url": null,
+   "question": "关于国土和林业，林地数据库不统一的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "40353f2a126645c09251ad514cfae74b",
+   "url": null,
+   "question": "求助买到有毒产品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1d92e0857b344415b24a76a45a874028",
+   "url": null,
+   "question": "林业局和林业厅是同一个地方吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "9de41cad28c4470fa540307f2de13c67",
+   "url": null,
+   "question": "关于林权证面积与实际面积不符处理办法的咨询函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "5c62699c2cea4fac8e0916428caee754",
+   "url": null,
+   "question": "人事咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "d6a9b1755f2e436f81a29c0c19f40b5b",
+   "url": null,
+   "question": "岳麓山白蚁成灾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "67f5d5739e9d4c2a9fd59f0dc8140658",
+   "url": null,
+   "question": "关于2016年溆浦县葛竹坪镇山背村退耕还林咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "af584b7614754820ab8e9773feec47bc",
+   "url": null,
+   "question": "滥伐林木投诉与咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "58cec5b5a3814e4eb73b09cbbabc757e",
+   "url": null,
+   "question": "非法占用林地行政处罚后还补交植被恢复费吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

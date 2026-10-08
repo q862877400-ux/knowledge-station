@@ -1,0 +1,470 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-jgswj",
+   "id": "04355d2ce83941c1b34f8420ccd5681e",
+   "url": null,
+   "question": "关于取消省直公积金“第3套以上自住房不予提取公积金”限制的建议",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "ac757ad2e26d4f7384dd95432ee68a87",
+   "url": null,
+   "question": "个人缴纳公积金",
+   "cited_hits": [
+    {
+     "name": "住房公积金管理条例",
+     "lib_no": "住房公积金管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-jgswj",
+   "id": "64dbf137ede544209445ff0a2a56fbb0",
+   "url": null,
+   "question": "办公室配置是否超标，",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省省级行政事业单位通用办公设备和办公家具配置限额标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "d06880a6cba842b4b0de7683449361cb",
+   "url": null,
+   "question": "工会组织的相关活动（春游，妇女节等）能否派公车出行",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省党政机关公务用车管理实施办法",
+    "湖南省党政机关和事业单位租用社会车辆管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "cb20d0735476449096aff2bb3367ce66",
+   "url": null,
+   "question": "往返黄花机场是否属于市内公务出行交通费报销范畴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "按次按距离报销交通费用实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "e6b3d36c6c1e4fcca4f3bb87c8ce440a",
+   "url": null,
+   "question": "省直单位新人住房补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省直行政事业单位职工住房补贴发放办法",
+    "湖南省省直单位职工住房补贴发放工作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "0cb2aff2af2a41f09a27e6304b48a949",
+   "url": null,
+   "question": "建议省公积金首套二套可提可贷",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一长沙住房公积金管理中心和省直分中心业务政策的通知",
+    "湖南省机关事务管理局关于调整省直单位住房公积金部分政策和流程的通知",
+    "关于优化住房公积金业务政策和流程的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "44cb062f9a294b86b971ea5929e6a21a",
+   "url": null,
+   "question": "关于对湖南省人民政府直属机关第二幼儿院楼顶太阳能空气能发热泵产生噪音扰民一事的再次请求",
+   "cited_hits": [],
+   "cited_missing": [
+    "声环境质量标准",
+    "城市区域环境噪声适用区划分技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "398b9f1fdb1e44fa8d7a80f00b72d50e",
+   "url": null,
+   "question": "区属事业单位办公用房执行标准问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "党政机关办公用房建标准"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "50dda59644ef429d9cdcb8f5b328a742",
+   "url": null,
+   "question": "请上级尽快落实事业单位车补问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省事业单位公务用车制度改革实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "d5d43ad764324f348f9750e7500a55dd",
+   "url": null,
+   "question": "关于建议党政机关以《三位一体方案》带头实施垃圾分类的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "三位一体垃圾分类产业化方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "faf2609f2eb24acd9737e857b44ffd61",
+   "url": null,
+   "question": "湖南省二幼，孩子不是甲醛吸附器",
+   "cited_hits": [],
+   "cited_missing": [
+    "室内空气质量检测标准",
+    "3—6岁儿童发展指南",
+    "幼儿园教育新纲要"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-jgswj",
+   "id": "47fa96ebf8664ef198e535c5475fa518",
+   "url": null,
+   "question": "湘办通＋公务用车系统繁琐且增加工作量。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "7f80c9f0e4e64279a1d5c7ef19297684",
+   "url": null,
+   "question": "湖南省机关事务工作“十四五”规划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "059cc75e7b2c4077b82877982a6bc8fe",
+   "url": null,
+   "question": "关于本省各年份公共机构能耗统计数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "6093a72e8dd54dbdbcf5cb9b1ae6a14c",
+   "url": null,
+   "question": "省直周转住房的增设建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "db1f171c8f9942d788cb2ee6b5952504",
+   "url": null,
+   "question": "省直单位住房补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "2215095595994e6898ddc48e3844366a",
+   "url": null,
+   "question": "咨询公务用车使用区域范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "9291efc75abf4fa8813c71ddd6e166b8",
+   "url": null,
+   "question": "关于特斯拉不让进机关单位的意见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "b5ee55f9a8054710b1c6a31a57b07e4b",
+   "url": null,
+   "question": "关于开通省直公积金异地贷款还款开通月对冲业务的需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "17191f4e0c3e4bc6a2fefd15f763db43",
+   "url": null,
+   "question": "请问贵单位的地址在哪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "0ea25e4cf039488dad239248bf50f053",
+   "url": null,
+   "question": "跨省通办业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "c937c8cc37554455b56e15bc8b7dbee6",
+   "url": null,
+   "question": "关于省直周转房德才苑拟交付使用时间的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "606b5076d4f64cbea555c3e59226af1c",
+   "url": null,
+   "question": "省直公积金提取咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "470c1dd69ef24b10a0e11f9a357b64a5",
+   "url": null,
+   "question": "为何在法治社会的今天，购房押金得不到保障？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "250d6e7f563e49f08c279857dbf6a553",
+   "url": null,
+   "question": "开发商拒绝使用公积金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "c42969f451dc49119795f4f452f324df",
+   "url": null,
+   "question": "湘诚物业公司越权改建小区附属设施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "cde2d8461e6a4ea680f6a3a450ca1873",
+   "url": null,
+   "question": "省直事业单位公车改革及车补政策何时落地执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "465dec7c10684a8397a6a17f4cb8b903",
+   "url": null,
+   "question": "关于请求保留湖南省政府机关二院幼儿园的诉求信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "981e7149f0f049a392992d69bb5b1e3a",
+   "url": null,
+   "question": "省公积金二手房商贷转公积金需网签备案合同不合理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "86f8e801412846f79d717edc2e8f6a82",
+   "url": null,
+   "question": "湖南省公积金贷款问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "fd8346f08575441487617f38983430c0",
+   "url": null,
+   "question": "关于省机关二幼入学问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "8411bc0b16a44594933e4ed84b5e8921",
+   "url": null,
+   "question": "咨询下湖南省第三四五场公车拍卖具体成交价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "96cc5cc0b360436bb50ab26e74c95ddf",
+   "url": null,
+   "question": "关于公车改革政策问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "b250d2d7c0c7442d94a2e9f79aa45449",
+   "url": null,
+   "question": "物业不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "128359de8bf0426e8b828e77dc63bbf4",
+   "url": null,
+   "question": "楼上漏水楼下反水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "a339d5b23ad74aa38a373e949ac4d3a9",
+   "url": null,
+   "question": "华盛世纪新城篮球场扰民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "3d69b84085a4474e836527ce61e11010",
+   "url": null,
+   "question": "关于异地调动住房补贴的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "1ab30bf68d364198b16ab04d9ecc21c6",
+   "url": null,
+   "question": "经济适用房能否出售",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "386919fd7bc84f5b95c01def4d0c416f",
+   "url": null,
+   "question": "请二幼，尽快组织家长参与的新教师的检测",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "6bee64f028d24e098f99c2d069e9ffce",
+   "url": null,
+   "question": "请尽快回复关于公积金贷款需要社保连续缴一年有何政策依据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "5adbcfde26e44922a5cee55edbe3f948",
+   "url": null,
+   "question": "管理车辆调处的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "19dcae1f373d4bdd86bce70b325060d1",
+   "url": null,
+   "question": "关于湖南省商业技师学院学费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "07ce863b049f478986a7238e8cd39e60",
+   "url": null,
+   "question": "关于就读九峰幼儿园的条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "3dec3497876543c6937c6e92cbd34276",
+   "url": null,
+   "question": "省直事业单位职工创新创业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "171da77570324565b378e14bece3efcf",
+   "url": null,
+   "question": "转学怎么那么困难？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "befe5830925748e9a9a4333bd4a60560",
+   "url": null,
+   "question": "请及时回复有关咨询问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

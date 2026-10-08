@@ -1,0 +1,394 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-lyj",
+   "id": "27761818",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27761818",
+   "question": "政府通过招拍挂方式出让建设用地，出让的建设用地中包含林地。按我国法律规定，林地转为建设用地的相关手续（如缴纳占一补一费用、砍伐林木）应由土地出让部门负责还是购买建设用地的单位负责？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27714987",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27714987",
+   "question": "因个人对鸟类保护与观赏养殖存在兴趣，现就个人饲养海南八哥（海八哥）相关合规事宜，特向贵局书面咨询，恳请予以明确答复。 据本人了解，海南八哥已列入国家“三有”保护陆生野生动物及海南省省级重点保护陆生野生动物范围。为严格遵守《中华人民共和国野生",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国陆生野生动物保护实施条例",
+     "lib_no": "陆生野生动物保护实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省野生动物保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27678235",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27678235",
+   "question": "单位或企业所处的位置是在城市规划区内，绿化树或行道树的所有权是单位或企业所有，砍伐数量80颗直径20厘米到45厘米的绿化树或行道树要办理相关的砍伐手续吗？要办理什么手续？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国森林法",
+     "lib_no": "森林法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27608054",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27608054",
+   "question": "尊敬的领导： 您好！光伏项目升压站占用其它草地，现在光伏升压站需要在自然资源部门办理农转用和土地征收手续，请问哈升压站占用其它草地需要办理占用草地审核手续？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国草原法",
+     "lib_no": "草原法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "草原征占用审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27568598",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27568598",
+   "question": "哪些蝴蝶品种标本可以自由交易，哪些品种标本需要标识卡，哪些不允许交易。以及与之相关的文件、政策、名录等相关资料",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物保护名录",
+    "有重要生态、科学、社会价值的陆生野生动物名录",
+    "林业部关于核准部分濒危野生动物为国家重点保护野生动物的通知",
+    "濒危野生动植物种国际贸易公约",
+    "濒危野生动植物种国际贸易公约"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27545187",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27545187",
+   "question": "一般的宠物店可以卖正规养殖场培育的松鼠，和有标识的小太阳鹦鹉和和尚鹦鹉吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家重点保护野生动物名录",
+    "濒危野生动植物种国际贸易公约",
+    "有重要生态、科学、社会价值的陆生野生动物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27499639",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27499639",
+   "question": "尊敬的胡局长您好， 我是一名大学生，由于近期正在撰写学位论文，需要查询我们贵州省的地方重点保护野生动物有哪些（即根据《野生动物保护法》的规定，由省级人民政府制定公布的地方重点保护野生动物名录里的野生动物）。 但由于本人搜寻未果，特来求助，希",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省陆生野生动物保护办法",
+    "贵州省重点保护野生动物名录",
+    "贵州省人民政府关于修改和废止部分省政府规章的决定",
+    "贵州省陆生野生动物保护办法",
+    "贵州省野生动物保护条例",
+    "贵州省重点保护野生动物名录"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-lyj",
+   "id": "27771221",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27771221",
+   "question": "本人本科毕业，专业属于植物生产类，在乡镇林业站已经工作满一年，目前想了解一下能否评定助理林业工程师，在相关的文件里没找到对专业方面的要求，如果可以申请的话，想了解一下需要哪些材料，谢谢！！！，",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省工程系列林业类专业技术职务任职资格申报评审条件（试行）",
+    "省林业局 省人力资源社会保障厅关于做好 2024年工程系列林业专业职称申报评审工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27739384",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27739384",
+   "question": "您好，我想咨询一下，我们有一条农村通组公路在2019年已经取得使用林地审核同意书，因为农村道路无需转建设用地，还是按照农用地管理，2026年，因另一条国道改扩建需占用上述农村通组公路，而国道需要转建设用地，在最新启用的2024年度国土变更调",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村道路重新办理问题",
+    "建设项目使用林地审核审批管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27735714",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27735714",
+   "question": "您好，我想咨询一下，在贵州省境内个人可以合法饲养带有标识卡，脚环的非洲灰鹦鹉吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局办公室关于开展陆生野生动物专用标识试点工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27715458",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27715458",
+   "question": "尊敬的领导，现就《国家林业和草原局 国家能源局关于支持风电开发建设规范使用林地草地有关工作的通知》（林资规〔2026〕1 号）相关条款咨询如下：该通知第一条规定，风机基础、施工和检修道路、升压站、集电线路等设施使用（含临时占用）林地草地的，",
+   "cited_hits": [],
+   "cited_missing": [
+    " 国家林业和草原局 国家能源局关于支持风电开发建设规范使用林地草地有关工作的通知 ",
+    "国家林业和草原局关于规范风电场项目建设使用林地的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27691870",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27691870",
+   "question": "贵州省林业面积大，林地远比耕地多，林中有很多野生林产品，而这些林产品大多以低廉的价格在本地销售，根本无法带动老 百姓致富。 如今的中国老百姓的生活水平得到了很大的提升，单纯满足温饱早已成为过去时。现在的人们更多追求的是怎样吃得好吃得健康，但",
+   "cited_hits": [],
+   "cited_missing": [
+    "对贵州原生态纯天然食品的销售建议",
+    "贵州省 “十五五”现代林业产业体系建设规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27691139",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27691139",
+   "question": "尊领的领导，您好： 本人因维权需要查询《贵州省集体林权制度改革确权发证办法》（黔林改办通【2007】31号）文件的全文内容，但该文件已经失效，在官网上无法查询，故请求发送该文件，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省集体林权制度改革确权发证办法",
+    "省林业局关于印发2020年度林业行政规范性文件清理目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27654128",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27654128",
+   "question": "近期，我在抖音刷到了吸蜜鹦鹉的相关视频，后在抖音直播间看到了有出售吸蜜鹦鹉的商家，不知道吸蜜鹦鹉是否可以个人饲养，问了直播间的商家都说是人工繁育的。但是我在百度查询了相关内容，也没有一个明确的信息，是否可以购买和饲养。便来求助政府部门，请问",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27625291",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27625291",
+   "question": "尊敬的省林业局：我是贵州省林业部门一名专业技术人员，2020年人社局和林业局根据贵州省人力资源和社会保障局关于印发《贵州省专业技术职务任职资格评审工作规则试行》的通知黔人社厅通[2016]273号文件第二章第10条第1款：对具备申报初级专业",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省人力资源和社会保障厅关于印发&lt;贵州省职称申报评审工作规则（试行）&gt;的通知",
+    "省人力资源社会保障厅关于印发&lt;贵州省职称申报评审工作规则&gt;（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27597217",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27597217",
+   "question": "对于河南具有标识卡的陆龟，贵州是否能个人饲养？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家重点保护陆生野生动物及其制品专用标识管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27574986",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27574986",
+   "question": "省林业局： 您好！目前我想从事林下食用菌种植，有几个疑问想请贵单位帮忙解答一下，感谢！1.我省目前林下食用菌发展较好的地区有哪些？2.从事林下食用菌需要办理什么行政审批？3.我省菌材林基地有哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省加快推进林下经济高质量发展领导小组办公室关于印发〈贵州省高质量发展林下经济林地利用指南（试行）〉的通知",
+    "森林抚育规程",
+    "森林采伐作业规程",
+    "贵州省林木采伐技术规定（试行）",
+    "森林抚育规程",
+    "中国外来入侵物种名单",
+    "贵州省菌材林基地建设规划2019-2022年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27551972",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27551972",
+   "question": "请问办理国家重点保护陆生野生动物人工繁育许可证（蟒蚺类）具体流程是什么？在繁育基地选址上有什么具体的要求？自然人和个体工商户是否也能办理相关手续？对兽医证的要求是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "濒危野生动植物种国际贸易公约",
+    "国家重点保护野生动物驯养繁殖许可证管理办法",
+    "陆生野生动物饲养场通用技术条件（两栖、爬行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27448925",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27448925",
+   "question": "如果养了一对带标识小太阳鹦鹉，鹦鹉自己繁殖了可以申请标识吗？是否需要办理繁殖证？如果需要办理繁殖证如何办理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-lyj",
+   "id": "27667372",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27667372",
+   "question": "尊敬的林业厅领导，我是贵州师范大学的大四学生，因毕业论文资料需要，求一份贵州省所有的自然资源保护地名录，附带面积大小，如果有相应的GIS图数据更好，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27663972",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27663972",
+   "question": "您好，灰鹦鹉现在河南开放饲养，想请问一下贵阳这边是否能够购买个人当宠物饲养？如果可以是否需要办理什么手续？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27633059",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27633059",
+   "question": "上次咨询到贵州六盘水乌蒙山国家地质公园在盘州市新民镇的面积为八百多公顷，但是不知道新民镇哪些村的哪些地界划入了地质公园内，请发一份六盘水乌蒙山国家地质公园在盘州市新民镇的地图，请别再删除我咨询地图的信件，如无法提供还请说明原因，并告知我应该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27629716",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27629716",
+   "question": "对于河南具有标识卡出处的合法苏卡达陆龟，贵州现在是否能作为个人宠物饲养，如果可以的话需要上报相关部门政府吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27615526",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27615526",
+   "question": "想了解个人购买饲养河南省开放的带标识卡芯片的赫曼陆龟，红腿陆龟是否需要办理个人饲养证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27584468",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27584468",
+   "question": "尊敬的林业局领导：请问玄风鹦鹉 面类牡丹鹦鹉 虎皮鹦鹉 这三种合法鹦鹉个人养个几对繁殖 到集市上卖需要办证不？ 谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27571616",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27571616",
+   "question": "您好，我是一名在读研究生，因科研需求想跟贵局获取整合优化后最新的《贵州省自然保护地名录》，谢谢您！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27556915",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27556915",
+   "question": "您好，请问省林业局2022年财政决算在哪里查找，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27556914",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27556914",
+   "question": "您好，请问省地方金融监管局2023年财政预算在哪里查找，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27454954",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27454954",
+   "question": "您好，我是一名吉林农业大学的大学生，在写毕业论文的过程中遇到一些困难，我需要2012、2013、2020、2021贵州省（州）县（市、区、特区）森林覆盖率统计表中黔南州及其十二个市县的森林覆盖率，请问贵局能否提供相关数据，本人仅用于学术研究",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-lyj",
+   "id": "27453874",
+   "url": "https://lyj.guizhou.gov.cn/hdjl/?id=27453874",
+   "question": "请问贵州省省树省花是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

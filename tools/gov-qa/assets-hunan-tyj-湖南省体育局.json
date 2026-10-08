@@ -1,0 +1,1961 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-tyj",
+   "id": "75c199041fdc413cab68869f7d7dd765",
+   "url": null,
+   "question": "关于省运会击剑项目引进高水平运动员（无户籍无学籍）参加，提出异议",
+   "cited_hits": [
+    {
+     "name": "湖南省第十五届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "43c678f7ec6f475db3237240fc37a60b",
+   "url": null,
+   "question": "关于限制外省专业运动员参加湖南省运会击剑比赛的建议",
+   "cited_hits": [
+    {
+     "name": "湖南省第十五届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c998de669cfa49c6812bb6742e3a8505",
+   "url": null,
+   "question": "关于规范跨省交流运动员参赛资格、维护本土青少年公平发展环境的建议暨政府信息公开申请",
+   "cited_hits": [
+    {
+     "name": "湖南省第十五届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d38ec42f34c54a92ba332a04337d31ff",
+   "url": null,
+   "question": "关于省运会击剑项目让引进的高水平运动员（无湖南户籍无湖南学籍）参加一事，提出严重抗议",
+   "cited_hits": [
+    {
+     "name": "湖南省第十五届运动会竞赛规程总则",
+     "lib_no": "总则(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7ae50775a9e34044aa78105e323b67ff",
+   "url": null,
+   "question": "洞口县水东中学放假期间篮球场不对外开放",
+   "cited_hits": [
+    {
+     "name": "全民健身条例",
+     "lib_no": "全民健身条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "洞口县水东中学放假期间篮球场不对外开放"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c909e18e623b4944acf4601a66062f12",
+   "url": null,
+   "question": "感谢做实事的政府人员，让我们诚兴园小区终于有篮球架了！！！",
+   "cited_hits": [
+    {
+     "name": "感谢做实事的政府人员，让我们诚兴园小区终于有篮球架了！！！",
+     "lib_no": "GB/T 23176-2008",
+     "weak": false
+    },
+    {
+     "name": "湖南省全民健身条例",
+     "lib_no": "全民健身条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "室外健身器材配建管理办法",
+    "物权法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-tyj",
+   "id": "70a2bdb25628430a9d4c07f1326e33a2",
+   "url": null,
+   "question": "高危体育项目经营许可证审批",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育场所开放条件与技术要求 第 1 部分 : 游泳场所",
+    "湖南省公共游泳场所管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "979d5848567a437fbd611eed95f42bcf",
+   "url": null,
+   "question": "攀岩运动员评级",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准",
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "47fa3fbf051d4a03b595d4e0e18a43d4",
+   "url": null,
+   "question": "15届省运会群众组游泳比赛",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省十五运会 十二残运会"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "951e95b331354ba8a738bc8c6845647e",
+   "url": null,
+   "question": "体彩资金支出咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅湖南体育局关于印发&lt;湖南省省级体彩公益金支持体育事业专项资金管理办法&gt;"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a391c04433bc4951a0d2520281e0550d",
+   "url": null,
+   "question": "一级裁判证补办投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育竞赛裁判员管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "239fed88acfa417c94448654382c5ca4",
+   "url": null,
+   "question": "关于排球大众爱好者如何报名考取排球裁判员证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育竞赛裁判员管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7e581a2fde75427ba3001eb12e79f507",
+   "url": null,
+   "question": "湘超",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省足球联赛裁判员处罚条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "1ccfd86689fb47879a58d0996ed9b97f",
+   "url": null,
+   "question": "关于湘超11月23日邵阳与长沙比赛有失公允的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省足球联赛裁判员处罚条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4832c4d3edea4b0f920bfd69e86c59c0",
+   "url": null,
+   "question": "乒乓球二级运动员证书查询与补办",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3111016af15c459aae56de13e4020667",
+   "url": null,
+   "question": "如何申请马拉松运动员等级证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "运动员技术等级标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "bdde04d49ab54dada7766080296a7543",
+   "url": null,
+   "question": "投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于参加省级青少年体育比赛全国注册的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "6ce58fa99ca041128d803cea29c5a2d1",
+   "url": null,
+   "question": "湖南省艺术体操锦标赛赛风赛纪投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于 2024 年湖南省青少年艺术体操锦标赛补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "8663d26d1bb04b85a136c32dc3b9b1c5",
+   "url": null,
+   "question": "咨询开设综合性水上乐园是否需要办理高危许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营高危险性体育项目许可管理办法",
+    "体育场所开放条件与技术要求—第1部分:游泳场所",
+    "GB 19079.1-2013"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c5efd9ca603d430eaecce1f4cfc4f693",
+   "url": null,
+   "question": "关于气排球裁判员报名渠道的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育竞赛裁判员管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "130d4fd2d43f41afb7559fe581ac123e",
+   "url": null,
+   "question": "排球二级裁判证",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育竞赛裁判员管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2b981fbb9fa14017b7dfec450535bd9f",
+   "url": null,
+   "question": "事业单位可否申请办理高危性体育项目许可证（游泳池）",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营高危险性体育项目许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3420299e8b0e40e7af77e1643226bc33",
+   "url": null,
+   "question": "关于高尔夫运动项目的教练怎么评职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省体育教练员系列专业技术职称申报评价办法（试行）",
+    "湖南省体育系列专业技术职称申报评价办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "424f6ec3911c46c0814a1d0d37c033c8",
+   "url": null,
+   "question": "是否可以用事业单位法人证书申请办理高危险性体育项目经营许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营高危险性体育项目许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7c507fa124274188b5b98fe8f25b346b",
+   "url": null,
+   "question": "竞彩内卷",
+   "cited_hits": [],
+   "cited_missing": [
+    "竞彩权限管理实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "073d37e4ee6b485287bfc67ec141bddb",
+   "url": null,
+   "question": "体育法律法规效力",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省公共游泳场所管理办法",
+    "湖南省体育竞赛管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0bc4f4d47d7545c590d2eca934585547",
+   "url": null,
+   "question": "把吕洞山镇建设成为体育助力乡村振兴示范镇",
+   "cited_hits": [],
+   "cited_missing": [
+    "把吕洞山镇建设成为体育助力乡村振兴示范镇"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "651c6b0669fa4940b15c8ee89e841fe4",
+   "url": null,
+   "question": "关于湖南省省级体育行政部门认可的乒乓球教练员证书事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "课外体育培训行为规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "8b6ca49dff4742fd8fdf60631a529ce2",
+   "url": null,
+   "question": "校外体育培训监管",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范非学科类校外培训机构管理的通知",
+    "湖南省非学科类校外培训机构管理办法",
+    "湖南省非学科类校外培训机构审批管理办法",
+    "关于规范面向中小学生的非学科类校外培训的意见",
+    "中小学生校外培训服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "204e6f21293340c6b66ada64789edebf",
+   "url": null,
+   "question": "关于体育俱乐部培训工作人员持证上岗事宜，请问全国体育运动学校联合会颁发的全国青少儿体育运动技能等级培训师证书是否被认可。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省非学科类校外培训机构准入指南",
+    "湖南省非学科类校外培训机构准入指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "6df517fe80514414b7f0cb2b37d9204f",
+   "url": null,
+   "question": "关于航空体育运动经营合法性的认定",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场准入负面清单（2020年版）",
+    "关于深化“证照分离”改革进一步激发市场主体活力的通知",
+    "湖南省重点行业领域安全生产监督责任分工",
+    "湖南省通用航空条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "8e8f55f20cb44cb8876a81e3aa984de5",
+   "url": null,
+   "question": "关于国家体育总局《航空体育运动管理办法》的实施",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家体育总局关于废止和修改部分规章、规范性文件和制度性文件的决定 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "36035ba6986f44008c4fe302fc028c27",
+   "url": null,
+   "question": "湖南省体育城镇单位就业人员数量",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省体育城镇单位就业人员数量"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d6550e8195214127a9219378d4625b47",
+   "url": null,
+   "question": "十四五时期是否有规划建设大型体能、康复中心保障竞技体育队伍",
+   "cited_hits": [],
+   "cited_missing": [
+    "十四五时期是否有规划建设大型体能、康复中心保障竞技体育队伍",
+    "湖南体育发展“十四五”规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "9813d235d31445529168959a0f867e2a",
+   "url": null,
+   "question": "请求拨付体育器材以健身強体",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于衡南县车江街道铁市村上街组请求拨付体育器材"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2eed3b46c0cf4440b112174b834a5606",
+   "url": null,
+   "question": "望城区谷山体育公园游泳馆安全管理缺失",
+   "cited_hits": [],
+   "cited_missing": [
+    "望城区谷山体育公园游泳馆安全管理缺失"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "058b905b94054de783630909bba3573a",
+   "url": null,
+   "question": "请问湖南省关于《经营高危险性体育项目管理办法》文件是由省体育局哪个部门制定的",
+   "cited_hits": [],
+   "cited_missing": [
+    "经营高危险性体育项目许可管理办法",
+    "湖南省经营高危险性体育项目管理工作实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d836e43272b14b81a6fdbf2fe9905c92",
+   "url": null,
+   "question": "益阳市南县城区花甲社区运河南路足球场因为没有防护栏导致闲置的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    " 益阳市南县城区花甲社区运河南路足球场因为没有防护栏导致闲置的问题 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "84fa8769fd584e6999b824b8b807badb",
+   "url": null,
+   "question": "写给湖南省建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南体育强省建设规划（ 2020-2030 ）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a478c0c0602d433788009def12ccb315",
+   "url": null,
+   "question": "关于反映湖南省游泳跳水运动管理中心雨花区体育新城游泳馆对外收费的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于反映湖南省游泳跳水运动管理中心雨花区体育新城游泳馆对外收费的问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7a0446d2f07f49d1b0a2c69ab746c618",
+   "url": null,
+   "question": "关于中国围棋协会证书定价的通知（湘围协字(2021)4号）认证服务费的收取标准",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于中国围棋协会证书定价的通知（湘围协字 (2021)4号）认证服务费的收取标准 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ba382108cc2546c4881c03d4dc92a5cd",
+   "url": null,
+   "question": "建议向公众开放湖南省体育场内田径场",
+   "cited_hits": [],
+   "cited_missing": [
+    "建议向公众开放湖南省体育场内田径场"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "65ec9ff5516d42ad95cb8cb673e43675",
+   "url": null,
+   "question": "关于省体民生项目落实情况投诉",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于省体民生项目落实情况的投诉"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "790d4f64aaef4b0f9b33e0b78dc133dd",
+   "url": null,
+   "question": "射箭体育指导员",
+   "cited_hits": [],
+   "cited_missing": [
+    "射箭体育指导员"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "39e2d562338c4e1fac8e6f1fbf3377ea",
+   "url": null,
+   "question": "湖南体育职业学院晨练喊口号声音太大扰民",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南体育职业学院晨练喊口号声音太大扰民",
+    "中国人民武装警察部队军事训练条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a0bf238d3e8a4e4fb2e178280bd80909",
+   "url": null,
+   "question": "湖南省游泳跳水中心小孩游泳班是否已经取消",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省游泳跳水中心小孩游泳班是否已经取消"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "cc19bfc655b24eea8f7634079fcd124d",
+   "url": null,
+   "question": "体育事业统计年鉴",
+   "cited_hits": [],
+   "cited_missing": [
+    "体育事业统计年鉴",
+    "体育事业统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ff06be2e6a0a4251bfe55cc9c903648c",
+   "url": null,
+   "question": "益阳奥林匹克体育馆博一体育公司占用全民健身场地，弄虚作假",
+   "cited_hits": [],
+   "cited_missing": [
+    "益阳奥林匹克体育馆博一体育公司占用全民健身场地，弄虚作假"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-tyj",
+   "id": "95dd30527b3e463ab062b42e910227b4",
+   "url": null,
+   "question": "瑜伽馆、健身房、少儿体能馆、游泳馆的退费问题归哪个部门管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "858efde5c32f4894a9bf2f6d27a5eeaa",
+   "url": null,
+   "question": "2026年和2027年湖南青少年攀岩锦标赛运动员评级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "007071375b6d4bff98d294bd2efed373",
+   "url": null,
+   "question": "2026年和2027年湖南青少年攀岩锦标赛运动员评级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a6d5353523fb45769e37f3d5016063b4",
+   "url": null,
+   "question": "关于规范湘超联赛高水平背景球员单场上场名额、保护青少年参赛运动员的建议书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ad66b0d4fc4d4e0f9731ffbb1cfaab32",
+   "url": null,
+   "question": "湘超赛事裁判不负责以及不公平判罚使比赛没有公平可言",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "02a3661483414a6e90002701c6fdf371",
+   "url": null,
+   "question": "二级田径裁判证无法网上查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7420f243a320465ebde35e56eaec28cf",
+   "url": null,
+   "question": "以“湘超”赓续湖南红色革命文化宣传建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b7ad5b2e436c4dc78a6ecf5bdcf40587",
+   "url": null,
+   "question": "岳阳龙舟队违规参赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "f2c4eed269c043979ce0e41a9af8eea7",
+   "url": null,
+   "question": "岳阳队弄虚作假违规参赛省龙协会涉嫌包庇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "97a0bf1b09fe49eca66b4c9842326d6d",
+   "url": null,
+   "question": "可否联合中南六省区举办“中南超”暨中南区六省群众足球超级争霸赛的建议书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0a7b8f4ff32c45698bb7707f36b9a4bd",
+   "url": null,
+   "question": "动力冲浪二级裁判员培训",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a1776df6657049d69c989503ff6a689b",
+   "url": null,
+   "question": "2026湘超各队大名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d9793c2375ad4127a2ffe539f6031350",
+   "url": null,
+   "question": "大麦网利用湖南足球嘉年华平台虚构产品欺骗球迷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b89eabb5021a4eadbd45f9021481aaf3",
+   "url": null,
+   "question": "湖南应该有一个WCBA职业球队",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b1c913c5c83a49c0919a33ed33498d90",
+   "url": null,
+   "question": "湖南省第十五届运动会增设自行车项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a17fb25b8352459caf3e805d81bb9507",
+   "url": null,
+   "question": "关于飞行营地如何在省体育局报备",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "8091101b900e4503900bf77e668c0802",
+   "url": null,
+   "question": "湘潭市体校网球训练队队员没有场地开展训练",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "6023a2b4dbe04e8f82dfd133704f9272",
+   "url": null,
+   "question": "关于组建湖南省冰壶队参加2025-2026赛季全国冰壶锦标赛的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "bad3a1d33d6f436b93aed50c5f9d1ecb",
+   "url": null,
+   "question": "下一届“湘超”足球联赛（16支球队）赛制方案建议书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7f951056ea4e43a3a6442de554d020b7",
+   "url": null,
+   "question": "弹射者田径公开赛无售后，电话微信均联系不上，存在欺诈行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "60d13d7fde334ec89f5bd371d6f85238",
+   "url": null,
+   "question": "举报湖南省长沙市岳麓区集美健身房（金荣店）虚假宣传教练资质，涉嫌欺诈消费者。地址:湖南省长沙市湘江新区麓谷道桐梓坡西路229号金泓园孵化大楼5楼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "120e9b8d0af74cd2bf268131a30795f8",
+   "url": null,
+   "question": "关于恳请湘超赛事严格裁判尺度、加强球员保护的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2eff340e0fd44b02b0775e104b32b151",
+   "url": null,
+   "question": "我想咨询下国家认可的羽毛球教练员证有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "625637c598914f849aeb78124cd893ce",
+   "url": null,
+   "question": "关于2025年湖南省青少年科技体育比赛违规行为的举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "5363c7ad2619474f8c8837a96e79116a",
+   "url": null,
+   "question": "在７月８日洪江市安江镇举行的２０２５年湖南省青少年科技体育比赛〔航空航天模型（含无人机项目）获奖通报和证书能否尽快发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "492e15c67a694aba8db1301f0de9e546",
+   "url": null,
+   "question": "运动员违规报名参与十一届长沙市运动会花游比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "95cb4d5262f94baa9ffe9e12941f5316",
+   "url": null,
+   "question": "2020年湖南省体育产业相关数据查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7015b830ba6b451faf022b0ac76eb949",
+   "url": null,
+   "question": "2025湖南青少年乒乓球锦标赛具体举办时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c9e643b0c2eb4c87a8becf5d5fe85bda",
+   "url": null,
+   "question": "个人想为湖南十六运会做点事可行吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "e3186d35b9d042cdb783138e8230e712",
+   "url": null,
+   "question": "查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0f1ad32b55ed454a885a02cf318f5dee",
+   "url": null,
+   "question": "关于长沙市高校间足球业余比赛创办事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "cb39d1c7c0c34076b02272ce20545bc8",
+   "url": null,
+   "question": "关于长沙市高校间足球业余比赛创办事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b61fa470e0c54d7da38e844a28f73f38",
+   "url": null,
+   "question": "十六届全运",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "075a549eb2bb4922a858a2f8ba0b81b1",
+   "url": null,
+   "question": "关于建议今年长沙市幼儿园足球、篮球市赛不集中安排在同一天的诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b800360a65de429cad808a019dcd9564",
+   "url": null,
+   "question": "能否争取2025年乒超联赛第二阶段举办权最好是在长沙或者衡阳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2f52c827f40240938ae35a6c5d71b1f3",
+   "url": null,
+   "question": "湖南的三大球怎么这样差劲？？？！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "9313beeedef545dba866ca3c381b44cb",
+   "url": null,
+   "question": "长沙新动品牌管理有限公司恶意伪造国家机关授权资质，扰乱体育培训市场秩序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b004ed59239e42409e062129e2823029",
+   "url": null,
+   "question": "关于开展为十五运湖南健儿加油，为湖南申办十六运助力活动的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "34b95829d51741f0ae88b11866db9509",
+   "url": null,
+   "question": "今年或明年是否有获得二级运动员证的比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "dae2e98c3ff942738d82e87a238f2642",
+   "url": null,
+   "question": "体育教练员职称评定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "21b3decf058940058ecc8c904e7dfed0",
+   "url": null,
+   "question": "无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "6bb822dde2db4d59ba8d0d43eb8ad0e1",
+   "url": null,
+   "question": "张家界市跆拳道协会会长符胜利有意垄断比赛造成多名高中生无法参赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "198438e0fabb4e158bb2578e281aca3f",
+   "url": null,
+   "question": "体育局课题结题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3dccf1b1ad804b749e085a38e73a5575",
+   "url": null,
+   "question": "2025长沙国际网球公开赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "85ed0e75a620421481ca396504c848a0",
+   "url": null,
+   "question": "运动员等级证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "52550d894fb4440fae9f2e6fc54c7fc8",
+   "url": null,
+   "question": "全运会报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a579ed0b2d814e779e3372df778407d7",
+   "url": null,
+   "question": "五子棋比赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "9c00f3d909bd4bf6a0f8fd8d1fd3523e",
+   "url": null,
+   "question": "二级运动员证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "74a99a2f9d6e40ff816f16e2c2caba55",
+   "url": null,
+   "question": "省田径传统校",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ca99758efa3e4b6b93258baae6983886",
+   "url": null,
+   "question": "游泳的全国注册是否是专业注册，是否影响参加高水平升学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a76053fe89894912a8258c33a1ef4b92",
+   "url": null,
+   "question": "学校教练员岗位设置文件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "9c42a27c68e945cda7db8f8541c14f9c",
+   "url": null,
+   "question": "三大球媒体预报名申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "cf8e4e7590f24945a52c290bf0c20a44",
+   "url": null,
+   "question": "请问巴黎奥运会湖南选手获得了多少金牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "62082e1bf2dc4c41a9b086205615cea7",
+   "url": null,
+   "question": "省游泳队有招收小朋友的培训项目吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4eb0df2a1c354141bf2c91e3f4114e19",
+   "url": null,
+   "question": "咨询9月27-29日湖南省排舞比赛信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "880656d3071c4edaa1a4c067de1729a3",
+   "url": null,
+   "question": "潇湘频道浏阳段线路图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "8067310eac8d4a38bde4061e896387f7",
+   "url": null,
+   "question": "咨询相关机构联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "bd678ac43b514e9c86843d56a5d865e5",
+   "url": null,
+   "question": "体育局课题结题流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "897e8571c3c6469aaac6bbfa57a008e9",
+   "url": null,
+   "question": "省体育局游泳馆是否恢复对外开放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "81c39be9aa874f879a826ddd4273c16f",
+   "url": null,
+   "question": "针对株洲体彩市场提几点想法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "89a3d3ee39534b7d92bfb1289d80c43d",
+   "url": null,
+   "question": "事业单位考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ca077af805b549bfafec20121be06935",
+   "url": null,
+   "question": "注册运动员变更单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a7f3d6203cf44f088fb70be4e4716d19",
+   "url": null,
+   "question": "咨询花样游泳运动员招聘的体检要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4e12f991e3194756aa68e8b82f992acd",
+   "url": null,
+   "question": "关于如何报名网球三级裁判证的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "5a7e700714454abeaa4f6299d8330e8f",
+   "url": null,
+   "question": "游泳指导员证报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "164a1a726d6740ee9da55a1fb6cb258d",
+   "url": null,
+   "question": "关于竞技体操一级裁判证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3818882927c84d3dbfb1101ec5020f94",
+   "url": null,
+   "question": "举办体育赛事申办程序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "1994be3ec6a44a7094475b7225d85ced",
+   "url": null,
+   "question": "排球裁判证考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "f776953456f74e5eb2f86519e3cf37c0",
+   "url": null,
+   "question": "因个人工作调动，用人单位需要省田协帮助自证田径国家一级裁判员资质，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2b9562de3afa49a5a8576195e5165a61",
+   "url": null,
+   "question": "请问有没有关于省级的社会体育俱乐部的星级评选",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "89d624f2770d465aa73267c70eb1d4a9",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4481fe6175e849d982e18abfd2b7b83e",
+   "url": null,
+   "question": "男子举重冠军赛在哪里举行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "5a0b4d8056a74a37b39d3ebfcc16389f",
+   "url": null,
+   "question": "省体委组织正规儿童暑期游泳培训的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b0c617cf220b42f6948759060c1916de",
+   "url": null,
+   "question": "篮球特色学校申办流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "dede8b8bde1e4f26a7fa3a6852403d15",
+   "url": null,
+   "question": "乒乓球裁判员证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "41ca811b15094fe3b8f294e33d205082",
+   "url": null,
+   "question": "申请二级运动员证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "920089636b2247efbee5d7d2e3fd2f31",
+   "url": null,
+   "question": "数据使用申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "42e238e4091e4408a9aeabb2a6c0ee30",
+   "url": null,
+   "question": "裁判证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3f386a2c338d47da816ec7c809680045",
+   "url": null,
+   "question": "湖南省体育馆羽星羽毛球场灯光高度问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a644aa642ebd4eeaa1f632d3b07beee3",
+   "url": null,
+   "question": "乒乓球国家一级社会指导员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b2b3f3e357a441bca1c00b5cafc5e18d",
+   "url": null,
+   "question": "运动证注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c3e6b36cc4de40d3a85699dfc53c76be",
+   "url": null,
+   "question": "足球运动员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "e13a1de0318c487c930c15a10bd33b24",
+   "url": null,
+   "question": "裁判证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b0f2eb727131489ea07af2e72a2a6fb6",
+   "url": null,
+   "question": "请问今年社会体育指导员（游泳）中级职业资格什么时候能考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "11dbc1309160468e9dbe73f583ff0c7c",
+   "url": null,
+   "question": "第四、五次年湖南省国民体质监测及全民健身现状调查报告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "36b9f49f4d8b4967af99b9e7bf729915",
+   "url": null,
+   "question": "体育局直属单位招考问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "be5d40cadb3c44c6844295768c2d6672",
+   "url": null,
+   "question": "关于社会组织召开第一次会员大会，会员收取标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "e5991f40ee394822bb074dd9fd0e39ac",
+   "url": null,
+   "question": "关于公开运动员技术等级称号赛事名录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "35bee9ae4ebd43d5841a32bb345913cc",
+   "url": null,
+   "question": "在长沙地区国家D级足球教练证怎么考，有没有开立培训班",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "58dd6c2ca6b74139a65ff23e673ebb70",
+   "url": null,
+   "question": "篮球裁判证查询及遗失怎么办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2078c95e0ae940cab1c6062a0b2dbd22",
+   "url": null,
+   "question": "省运会报名资格审查时已通过，但是赛前突然取消小运动员比赛资格问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c57b41612a3e488f8cd390242c585c78",
+   "url": null,
+   "question": "感谢信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a30c441200d146969e4186c9df4b6058",
+   "url": null,
+   "question": "体育项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a630f4c88e884f61940d25142109ad49",
+   "url": null,
+   "question": "省体委组织正规儿童暑期游泳培训的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "504157a9e2694c20bb1cce3f7d6253a4",
+   "url": null,
+   "question": "田径裁判员证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "be300c1a2e6a4ae29024360105c964f5",
+   "url": null,
+   "question": "冰雪体育场馆数目统计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "15f6e1343b34431a9ba95ceceffea0f2",
+   "url": null,
+   "question": "田径一级裁判员证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2072f7d27f1c48fc845cad87221556aa",
+   "url": null,
+   "question": "湖南省第十四届运动会志愿者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "56c0a9ea54914222a284c4bd5d217936",
+   "url": null,
+   "question": "羽毛球裁判员证怎么考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b7282c3dffec405d9c4864576a43e003",
+   "url": null,
+   "question": "青少年拳击锦标赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "64d85bffcfa2492fadbeadd413d9ad11",
+   "url": null,
+   "question": "健身教练自主报考咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0593a9f96f384438b31c94e3d1ec2a84",
+   "url": null,
+   "question": "2022体育单招专项考试咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "bc4ab2defcd5487a9e27e3f221c82d70",
+   "url": null,
+   "question": "湖南省非遗项目“谭氏苗拳”申请举办中小学生表演赛，需要办理哪些手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0243969d79ba4d1488ffdc2d64f7aece",
+   "url": null,
+   "question": "羽毛球教练员证考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "689403808cea474d9348a237f4e87c1e",
+   "url": null,
+   "question": "有没有什么即开彩的彩票。挂名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ee8c3d0743454719a591b2e246ff60d2",
+   "url": null,
+   "question": "国家体育总局关于公布现行有效的体育法律、法规、规章、规范性文件和制度性文件目录的通知总局政法司体政字〔2019〕197号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "95823b9da1d449d88850e716d1ef8ba6",
+   "url": null,
+   "question": "篮球裁判证可以网上查询或者补办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "756ea17263114d52a6f9460131d8ad16",
+   "url": null,
+   "question": "关于岳阳市举办湖南省第十四届运动会时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a673572220f04a73aa1bb4ec168f631e",
+   "url": null,
+   "question": "业余注册运动员变更单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "196c31b3e2fd4fa8b6b2946604889d35",
+   "url": null,
+   "question": "气排球裁判员考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7416702a5a5c4ba7b6b1e297471a8f6b",
+   "url": null,
+   "question": "个人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "00d62fdb5d9e430593faef31192fff87",
+   "url": null,
+   "question": "是否可以补篮球裁判证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c4e1e89c6dd746aa8337ef21b5d11248",
+   "url": null,
+   "question": "体育小镇",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "fcf91175ca4442589f1d57e352a86905",
+   "url": null,
+   "question": "个人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "064222161afc4a45afe8e777252ad59f",
+   "url": null,
+   "question": "湘潭市2015-2020年体育产业发展数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b432d3f071be47b097958572614c65c5",
+   "url": null,
+   "question": "关于健身工作室是否需要办理公共场所卫生许可证的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "808c31acb4984e2c90e69a890120cd48",
+   "url": null,
+   "question": "全运会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "546b3f7d09394101a321b3509c487899",
+   "url": null,
+   "question": "长沙市芙蓉区的在校初一新生去哪里可以参加青少年射击训练（步手枪项目）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b5a8934213884aedaf811de4ca973136",
+   "url": null,
+   "question": "湖南省内足球人口注册人数是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2b859e7733e84b0fa38132ff3642eb9a",
+   "url": null,
+   "question": "长沙市幼儿园单个班级人数是否有限额规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4c90530ed6f2434f84241e1b5c55936f",
+   "url": null,
+   "question": "十五运会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ab49dffa01dc4496b771487aafdfb81d",
+   "url": null,
+   "question": "常德市拉丁舞考级",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d60e1c4f8fd94c0fa41d3f69c828c268",
+   "url": null,
+   "question": "十五运会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2e6b95a446f14d21948485a288e24cce",
+   "url": null,
+   "question": "关于社会足球场的问题，向领导咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "96a3220aaef347b5bee0b1b3223b8912",
+   "url": null,
+   "question": "关于\"十四五\"期间足球场建设问题的咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "773bc203e324410399bd2964d6865c23",
+   "url": null,
+   "question": "第十五届全运会（湖南若拿下）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "802c7502a3f849758d3f540328ffbc65",
+   "url": null,
+   "question": "大学生在哪报名考自行车裁判证？什么时候考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "aef5763ecea24933b6f1c24de823ada6",
+   "url": null,
+   "question": "省体彩中心办公地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "9c82820501a745d88d72ab01e3e7a9f8",
+   "url": null,
+   "question": "咨询2021年岳阳市市区各区教师招聘事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "015e27ec78c44bbd89263e3af816328b",
+   "url": null,
+   "question": "请责令湘江马拉松长沙站延长领物时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "fd91ea8abd8b4afaaa723379e1e83ceb",
+   "url": null,
+   "question": "2019年底湖南省体育场地统计调查数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "19996415c4394e2b8fb989d779f4d357",
+   "url": null,
+   "question": "关于国家二级运动员称号认证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "925ea86232e8416680da2f8c02c0fda0",
+   "url": null,
+   "question": "气排球裁判员考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7cba67f95e5742a38c083ad7ff112d44",
+   "url": null,
+   "question": "2018,2019年湖南省体育产业数据统计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "51938da1d5d142ca8b744527d31ac299",
+   "url": null,
+   "question": "不花钱可以让学习能力大幅提升",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "3dcd419776554632ae0e49458a35168f",
+   "url": null,
+   "question": "不花钱可以让大幅度的提高教育水平（个人观点，能不能成还需要试一下）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b55585c395474f2487f8d87d8ddd32e5",
+   "url": null,
+   "question": "2020年田径锦标赛的成绩册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ec2d331afc0942d1b423f97cc5a19343",
+   "url": null,
+   "question": "运动员学生输送",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ce7321fa3722460b87797496cbbfeee3",
+   "url": null,
+   "question": "2021年湖南省青少年武术套路锦标赛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b4d450a960064a918f3a26487ef8a9c4",
+   "url": null,
+   "question": "2020年长沙马拉松举办时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2d69ba5a5635404fb9a9aa372a4be5ff",
+   "url": null,
+   "question": "关于社会足球场的问题，向领导咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b56ff92c6d2c4c72be1fc2aadf1c6b7d",
+   "url": null,
+   "question": "关于长沙国际体育中心最新的规划设计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7354c4b3ed0a49e8afd334fea6d973ac",
+   "url": null,
+   "question": "湖南光速乐动有限文化有限公司拖欠工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "ea1731f2a595404593f1a978d8e8c29c",
+   "url": null,
+   "question": "湖南省光速乐山拖欠活动工程款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "70d1327e31c948d68ff27b6cb77e5fba",
+   "url": null,
+   "question": "湖南省体育职业技术学院退费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "7529e319aef9459bab909a39aefb6030",
+   "url": null,
+   "question": "各篮球爱好对谷山体育公园室外篮球场的投诉问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "d6f005d52c8b490597d024c9cc1217b6",
+   "url": null,
+   "question": "实名举报老年人体育协会广场舞专项委员会夏松",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a03bddb5e83541bcae56ad2712bc27ff",
+   "url": null,
+   "question": "我的问题已经得到了圆满解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "e7cc43fbb74a463f87b04502b56f8c03",
+   "url": null,
+   "question": "篮球二级裁判员证书怎么查询？查询的网站是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "dcbb93d28dc9486c82b3101c928e18d9",
+   "url": null,
+   "question": "社会人员参加高考问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b7bac83708be44bea9c13e1a64818e7c",
+   "url": null,
+   "question": "助力经济复苏的消费券",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "dbba03de275c49a8ad74f5e5136a62d5",
+   "url": null,
+   "question": "湖南省游泳跳水运动管理中心游泳馆开放时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

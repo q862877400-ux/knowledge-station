@@ -1,0 +1,1866 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-ybj",
+   "id": "6630857a0a3d4fbca3609646c3bf8b69",
+   "url": null,
+   "question": "生育保险",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于进一步完善和落实积极生育支持措施的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "07d71d17c076427c8293b7043b402204",
+   "url": null,
+   "question": "退休人员缴费年限",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国军人保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "e2d42717f2394ca09f57f592321ba4a0",
+   "url": null,
+   "question": "外籍人员嫁在我们湖南是否可以办理医保",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "外国人在中国永久居留享有相关待遇的办法",
+    "外国人永久居留证"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-ybj",
+   "id": "8eab6ff1a5a346859169192bdf7ecdeb",
+   "url": null,
+   "question": "耗材收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省基本医疗保险、工伤保险和生育保险医用耗材目录(2021版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "81cc05bbebd9453aa5ea0c5bdc48cd7c",
+   "url": null,
+   "question": "《药品差比价规则》相关，挂网价与互联网零售价关系",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品差比价规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8d23ed9360cd4f77ac980a6995b9556d",
+   "url": null,
+   "question": "关于将短肠综合征纳入湖南省门诊特殊病种保障的个人申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "第二批罕见病目录",
+    "中共中央&nbsp;国务院关于深化医疗保障制度改革的意见",
+    "中共湖南省委 湖南省人民政府关于深化医疗保障制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f1df7807acc34c9a95ccad3f2291a3a3",
+   "url": null,
+   "question": "关于适当放宽生育津贴连续缴费时限要求的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于印发《湖南省职工基本医疗保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "42375075832b4b4199ba5d2ddc6c5e7d",
+   "url": null,
+   "question": "关于湖南省医疗服务价格项目目录",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医疗服务价格项目目录（2024年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "de9d58ef20764b059c3c4d13e1e70072",
+   "url": null,
+   "question": "《关于健全重特大疾病医疗救助制度的若干措施》",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于健全重特大疾病医疗救助制度的若干措施"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b341e1ce03344d60883ae12c357e3817",
+   "url": null,
+   "question": "膀胱恶性肿瘤高昂治疗费用求助咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "郴州市医疗救助实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "5a1ad2b60a434cefb15625b4f11dfb08",
+   "url": null,
+   "question": "生育津贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "永州市城镇职工生育保险实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9b9686a40eeb47ea8f43bbbceb454793",
+   "url": null,
+   "question": "医保报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅&lt;关于印发《湖南省城乡居民基本医疗保险实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "ae6feb843c1e40459b3f096029b92e68",
+   "url": null,
+   "question": "医保报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f2d3c2ee34b94cbaaac07ba7c09452ce",
+   "url": null,
+   "question": "如果想报生育津贴，需要购买多久的生育险",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于生育保险和职工基本医疗保险合并实施有关问题的处理意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0119aa1ecf644448b59641879d1b9cc6",
+   "url": null,
+   "question": "咨询双通道单行支付药品的大病衔接问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈湖南省医保“双通道”单行支付管理药品目录（2023年版）〉的通知",
+    "湖南省职工基本医疗保险实施办法",
+    "湖南省城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8649cc3fa39142999a0eb184f0788f91",
+   "url": null,
+   "question": "关于2025年城乡医保缴纳费用标准及等待期问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于印发〈湖南省城乡居民基本医疗保险实施办法〉的通知",
+    "关于做好2025年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "551c7a46e89f4470963c07fc9537f8bf",
+   "url": null,
+   "question": "生长激素缺乏症患儿报销问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医保谈判药品“双通道”管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4f6bc58851e34dcfa82fa012b183358f",
+   "url": null,
+   "question": "医保报销地区范围到底是怎样的",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医疗保障局、财政厅、卫生健康委员会关于进一步完善城乡居民基本医疗保险门诊医疗保障政策的通知",
+    "衡阳市医疗保障局、财政局、卫生健康委员会关于做好城乡居民基本医疗保险普通门诊统筹工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "2afd9697925d427682397c4848f23c31",
+   "url": null,
+   "question": "《湖南省基本医疗保险慢性肾功能衰竭（血液透析治疗）慢特病门诊待遇实施办法（试行）》延期到十月份执行了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省基本医疗保险慢性肾功能衰竭（血液透析治疗）慢特病门诊待遇实施办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4f7a962c1a214bfdb179d932314a23d3",
+   "url": null,
+   "question": "医保断缴了，多久后不能使用",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省职工基本医疗保险实施办法",
+    "湖南省城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "00a1661539274d25ad449bb1e8d61ca7",
+   "url": null,
+   "question": "新生儿出生超过90天缴费问题咨询。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "bc0dd64fa7a947999c125fe2350eb427",
+   "url": null,
+   "question": "生育报销、补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省人民政府办公厅关于印发〈湖南省城乡居民基本医疗保险实施办法 〉 的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "972a68b3fe7f47148616767faa44df4b",
+   "url": null,
+   "question": "湖南省本级和长沙市本级参保的医保住院报销有什么区别",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于印发〈湖南省职工基本医疗保险实施办法〉的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3e81cb975a28499788ddcd296f25bb2d",
+   "url": null,
+   "question": "新生儿医保怎么办理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "aab268045d8743d9a5af262f928a24b2",
+   "url": null,
+   "question": "新生儿医保问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "a9389cc65f78495a8499197966fdd177",
+   "url": null,
+   "question": "医保免缴年龄和条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "46dbe88b2f6b4278ba2e40c967786461",
+   "url": null,
+   "question": "特慢门诊报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省恶性肿瘤门诊放化疗医保支付管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1a14fde38a124ccd814b256d99c0bd1b",
+   "url": null,
+   "question": "湖南农村医保政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d378dff1416f4aa0b20d262ea87b91af",
+   "url": null,
+   "question": "长期异地居住医保备案",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医疗保障局 湖南省财政厅 关于印发&lt;湖南省基本医疗保险异地就医直接结算管理办法（试行）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "883048849c644948bd4bced34cdd9b93",
+   "url": null,
+   "question": "省医保特殊放化疗门诊",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省恶性肿瘤门诊放化疗医保支付管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c60456275b1547239d6cac0413e2e6d3",
+   "url": null,
+   "question": "关于特殊门诊的报销比例咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省职工基本医疗保险慢特病门诊待遇保障管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "804f7672a8a9484990f732b124443dc7",
+   "url": null,
+   "question": "职工省医保如何报销妻子生育费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "生育津贴（一次性生育补助金）申领表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f4a00cd2e8e043928837019c68f4bd10",
+   "url": null,
+   "question": "医疗保险",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省 关于进一步加强城镇职工基本医疗保险有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d5eb830de03a40d7a0d57b52838265bd",
+   "url": null,
+   "question": "生育保险报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省城镇职工生育保险办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "7f9f95e36c0b47a3adf339d413935770",
+   "url": null,
+   "question": "职工医保至少要交多少年才能享受终生医保",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省 关于进一步加强城镇职工基本医疗保险有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4852c6943ef64f97b9982942313497c1",
+   "url": null,
+   "question": "我们长期在省外的，购买药品或者医疗可以享受医保吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省异地就医登记备案表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "5c053374b63d437b8980c8dffa3d250e",
+   "url": null,
+   "question": "咨询新生儿医保事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "aefc3cfe5b4d4620954235d36e4f582b",
+   "url": null,
+   "question": "建档立卡贫困户需要缴纳医保金吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3a0aa80b7afa482d95b60311319663e0",
+   "url": null,
+   "question": "退休后还需要继续缴纳医保吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省 关于进一步加强城镇职工基本医疗保险有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "93d10c32c61b421ca07ad1351cdc14fe",
+   "url": null,
+   "question": "二级残疾证持有者需要需购买医保吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "205fd0461d0b427d9b1971f261bce802",
+   "url": null,
+   "question": "度普利尤单抗（达必妥）报销政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医保谈判药品双通道管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b02e8b024ff54fd3816c7d76fb8bfdcf",
+   "url": null,
+   "question": "医保关系转移",
+   "cited_hits": [],
+   "cited_missing": [
+    "参保（合）凭证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "324eec2c12ae42d8a2d3577e2dfb1aca",
+   "url": null,
+   "question": "少儿社保（医保）实体卡如何办理领取",
+   "cited_hits": [],
+   "cited_missing": [
+    "家庭成员添加告知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fd495fe560a2440fb59e515f9c1614ed",
+   "url": null,
+   "question": "生育保险咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于明确生育保险和职工基本医疗保险合并实施有关细则的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fd695d1d32044a619ddb9b469aa3c8cd",
+   "url": null,
+   "question": "市社保转省社保，会影响生育津贴的发放吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于生育保险和职工基本医疗保险合并实施有关问题处理意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "537ee891a1614efc9720d9bbb7a9ea99",
+   "url": null,
+   "question": "特殊门诊就医问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于落实市统筹调整待遇保障政策的若干规定（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "719b529517494bd789fd05af03089545",
+   "url": null,
+   "question": "关于省直医保跨省生育保险跟生育津贴问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省生育津贴（一次性生育补助金）审领表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3005595ab3c445b1aae2f36a944b9547",
+   "url": null,
+   "question": "涟源市医保局",
+   "cited_hits": [],
+   "cited_missing": [
+    "侵权责任法",
+    "娄底市城乡居民基本医疗保险实施细则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "cf812f6995b643ddb1018e36922c8023",
+   "url": null,
+   "question": "关于异地购买特药无法报销的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "省外就医特药无法报销",
+    "省外就医特药无法报销",
+    "湖南省大病保险特殊药品支付管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "95e1922ed9604e28885f2e7fbea57b66",
+   "url": null,
+   "question": "今年的医保报销是比以前少了吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善城乡居民基本医疗保险门诊医疗保障政策的通知",
+    "关于做好城乡居民高血压糖尿病门诊用药保障工作的实施意见",
+    "关于做好2020年医疗保障基金监管工作的通知",
+    "关于开展医保经办机构和定点医药机构医保违法违规行为专项治理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "6c9e104180e34d61a0e252425eb43da8",
+   "url": null,
+   "question": "医保局不予报销白血病患儿今年因疫情原因导致的非定点医院住院费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "李荣明（化名）异地住院医疗费用报销相关问题",
+    "关于规范我市基本医疗保险异地转诊转治的通知",
+    "长沙市基本医疗保险异地转诊转治申请表",
+    "转诊转治申请表",
+    "转诊转治申请表",
+    "转诊转治申请表",
+    "转诊转治备申请表",
+    "转诊转治申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "49ba5e86f0804404b76bb19698461a40",
+   "url": null,
+   "question": "大病保险报销",
+   "cited_hits": [],
+   "cited_missing": [
+    "省长信箱",
+    "关于调整城乡居民大病保险政策的通知",
+    "关于调整城镇职工医疗保险政策有关问题的通知",
+    "关于进一步加强社会基本医疗保险有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "5ee5295be3114cbebf7386d43eaa6d55",
+   "url": null,
+   "question": "城乡居民医疗保险该怎么用",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2021年度城乡居民基本医疗保险参保缴费工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c97c46861a6d4b7ca3ee1faee12579a1",
+   "url": null,
+   "question": "退休后医保没达到缴费年限的怎么办？原单位有职责继续缴费吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强城镇职工基本医疗保险有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "859266b3f9ed4bbe8c0ff5644a67afba",
+   "url": null,
+   "question": "农村合作医疗",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省城乡居民基本医疗保险实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0be9012cfdfc4d9e964f1440dca83c8e",
+   "url": null,
+   "question": "岳阳市屈原管理区家庭病床办理违规设坎",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省城乡居民基本医疗保险特殊病种门诊管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4a912b50ba88465ca849e3f824e96ee2",
+   "url": null,
+   "question": "请问2010年至2014年在省直交的医保明细在哪里打印",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医保网上办事系统"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b91e7dadf419445b9af30783d88c342d",
+   "url": null,
+   "question": "关于外地医保转入省直医保的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省医保网上办事系统"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c14a871580e64f4aa2a3689843eb3e96",
+   "url": null,
+   "question": "医保外省转入",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省直管参保单位个人医疗保险本统筹区外参保缴费情况申报审核表",
+    "参保人员医疗保险类型变更登记表",
+    "参保（合）证明",
+    "湖南省医保网上办事系统",
+    "关于印发流动就业人员基本医疗保险关系转移接续业务经办规程的通知",
+    "参保人员医疗保险类型变更登记表",
+    "基本医疗保险关系转移接续联系函",
+    "湖南省医保网上办事系统",
+    "流动人员医疗保险关系转移接续申请表"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-ybj",
+   "id": "531c73ab61a24e59be11d1a73ff48890",
+   "url": null,
+   "question": "请求将青光眼纳入残疾和慢特病",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b7a894bfaf204e38b782bae5ac4373cd",
+   "url": null,
+   "question": "已婚已育人工流产可申请生育津贴吗？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4a0b63a3fc7d4e5b853cac9660e0baef",
+   "url": null,
+   "question": "咨询《关于印发<湖南省医疗服务价格项目目录（2024年版）>的通知》（湘医保发〔2024〕11号）文件相关内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "44707c55494f4608a226b5af0c17f136",
+   "url": null,
+   "question": "儿童矮小症打生长激素能否报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c6ce74ebc9b24b509e4a5668cdc10dea",
+   "url": null,
+   "question": "生育保险——产前检查费及分娩报销咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0dd13c0029184ce9ba2bbbf64ac40db0",
+   "url": null,
+   "question": "特瑞普利单抗注射液可走医保报销吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "61bd8470a42249389669651f4cb3981c",
+   "url": null,
+   "question": "关于异地就医备案的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "41ef93de66e045d3b83fedd8899d481c",
+   "url": null,
+   "question": "外地就医后回长沙本地医保补报销流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9efa778346b74f3e95afc543e2b1c981",
+   "url": null,
+   "question": "如何暂停参保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "90d5cb8fda3b4ad9815d25bc40400645",
+   "url": null,
+   "question": "小孩医保卡电子凭证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "222f69204113437fb0320834a1622626",
+   "url": null,
+   "question": "胰酶肠溶胶囊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b8fcb53dd59e4e029ab4bfb85ca166cb",
+   "url": null,
+   "question": "多方求证未果，请求相关部门明确",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "358f74546c8b409ba862f7795e05f0b6",
+   "url": null,
+   "question": "下岗职工退休医保补微问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9c1426bdff41485b89bcb87ff9343172",
+   "url": null,
+   "question": "家庭共济",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d6ceaa1e50b84c3c8d9dc389aefd2080",
+   "url": null,
+   "question": "多次收到医疗补充、医疗保障等短信，请问是真实的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f9f517313b1149a2912f4d5bfe68cca0",
+   "url": null,
+   "question": "关于某些国家基本药品目录中可报销的中药饮片不能匹配医保的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "332f668e3c744e8aabad65b36fc2f540",
+   "url": null,
+   "question": "通用介入项目中选产品是否纳入医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "ae04e85431c8449fba004dc534c121f2",
+   "url": null,
+   "question": "医疗服务价格项目-服务产出咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4f06953bc3594f56856cc0ac67e1be8e",
+   "url": null,
+   "question": "我要表扬湖南省，岳阳市，君山区，医保中心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3b26910401974cc3a11cbe864e699f86",
+   "url": null,
+   "question": "医保报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fec3d038390c48679e157c0f18903d71",
+   "url": null,
+   "question": "医保双通道药品阿布昔替尼，要满18岁才能走医保报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "10d0e60f8e304afc8c434e95b3e6368c",
+   "url": null,
+   "question": "儿童生长激素分泌缺失，需长期注射生长激素药品",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d56b218018654e00b0a919e560763567",
+   "url": null,
+   "question": "生育保险报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c161a32fa8084b098da5a9768a0589ca",
+   "url": null,
+   "question": "咨询医疗服务价格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "96bd985d880241eaa7dcdb10554fc51d",
+   "url": null,
+   "question": "医保报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "5e7921a7e72b4c34814d5345840a5c76",
+   "url": null,
+   "question": "城乡居民医疗保险参保地变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "6c277eb3ba554c70b804dcfab102be27",
+   "url": null,
+   "question": "新生儿医保缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8c10669aea3543d0834fc8d6e84c358d",
+   "url": null,
+   "question": "医保资询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "429dbbab31804ca8bae0f8ce3b659ddd",
+   "url": null,
+   "question": "现在还可以补交居民医保吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f7b0b29357f645d8a7f4d877bf81a095",
+   "url": null,
+   "question": "长沙医保省内不能使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b6496d968ba14328a83e0cde9299e7a3",
+   "url": null,
+   "question": "企业职工医保要缴纳多少年退休后才能享受职工医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "baf1a273f1654f0783d0f7d49a31fda5",
+   "url": null,
+   "question": "大学生医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "15a672ec6fac4bb7b0fc13b178f85040",
+   "url": null,
+   "question": "意外报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "a37475df17164c2bb380f6fe3e0622b4",
+   "url": null,
+   "question": "居民医保省外异地就医是否可以报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "af42c6cb06a947c7ae181089fd36af5b",
+   "url": null,
+   "question": "特门有效期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c9bc132fbbe74a4ba0193e597144ad5f",
+   "url": null,
+   "question": "恶性肿瘤门诊放化疗待遇政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c64324021d044028a54a484cab3341a4",
+   "url": null,
+   "question": "公司停保个人怎么购买医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "e967dc757f56479992d3117cd324499c",
+   "url": null,
+   "question": "2023年度城乡居民医保参保缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "77d232e0c60c43748b6c1f18cc14527f",
+   "url": null,
+   "question": "社保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f074493b6ec144e4aa4e7aad095b7dff",
+   "url": null,
+   "question": "个人医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "375c2d7c75d7459c80df54954b0f4259",
+   "url": null,
+   "question": "浑南医保异地报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "e881458c55ae4924aa8e162955b5c50a",
+   "url": null,
+   "question": "异地就医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "134c93848b6f40af97fc6258005b1f2f",
+   "url": null,
+   "question": "灵活就业医保怎么转回农村医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0334ced455044d85862b291b3acfaab9",
+   "url": null,
+   "question": "职工医保个人余额给家人交城乡医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "566967a3ad9b403cba312940b081ae93",
+   "url": null,
+   "question": "如何查询哪些药店支持省直医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "283ee197f8b543a2a1508fcde158042c",
+   "url": null,
+   "question": "医疗缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "baed4604b15040d88c0994c707c3b2e2",
+   "url": null,
+   "question": "职工门诊报销的限额咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9f120af953b4483abc6fc839ce8944dd",
+   "url": null,
+   "question": "辽宁省申请新增物价申请，需要提供外省的物价审批文件，可否提供谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1736ebac47b44c21a0565c866a7eda7f",
+   "url": null,
+   "question": "城乡居民基本医疗保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "551d84e5a0724f85aa1d5573bdf24bb6",
+   "url": null,
+   "question": "关于湘医保发[2020]51号对儿童加收50%诊查非中“儿童”定义的解读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d5a28652260e43369b75054e06350110",
+   "url": null,
+   "question": "长沙转株洲医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "82c7488700b045838c9e1515863db7ba",
+   "url": null,
+   "question": "双通道定点医疗机构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b233df96ec2047d6bb011f2cf7a243db",
+   "url": null,
+   "question": "咨询发来的彩信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "2fdc54da52d34b62b8ca2afecc6e3e12",
+   "url": null,
+   "question": "湖南省省本级特门服务定点药店以及延伸结算门店有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "5d5a76aa5a004ece8274dfb04afa4e69",
+   "url": null,
+   "question": "门诊特殊药和双通道药品购买咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "850760a4dc2f4450900ff665d702220b",
+   "url": null,
+   "question": "省直医保有报销上限吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fd9c849b35cd44a68cb92f5ae7b542f4",
+   "url": null,
+   "question": "特殊门诊办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "a32fbad391c7424887a4cbbb16c3cfa3",
+   "url": null,
+   "question": "城乡居民医疗保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3d34d3cab620489fb646d3fa83ad807c",
+   "url": null,
+   "question": "就医报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9909c6561a084a108339c0ad781218c6",
+   "url": null,
+   "question": "医保查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "a65649db4527444cb564fd18d46f23ed",
+   "url": null,
+   "question": "贫困户医保支付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c9de8624babc4c299121c2725106f650",
+   "url": null,
+   "question": "医保交费的事！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "bd174c0eee6b489897454bd8abf04d09",
+   "url": null,
+   "question": "购买城镇居民医疗保险意外摔伤住院，是否可以报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "94f0513b295f4bfc82c76525a2abbed2",
+   "url": null,
+   "question": "新农合异地就医报销咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "75dde8728e4f4e69b3788a43bf6e3799",
+   "url": null,
+   "question": "湖南省直单位医保怎么办理大病医疗？特殊门诊？异地就医等手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fe2d2fd285f244ab9836b8518082b6ea",
+   "url": null,
+   "question": "异地生产后如何报销生产费用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "7b5ae3c430574701990d7b50b01f2f55",
+   "url": null,
+   "question": "咨询关于新农合农村大病报销补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "7f4668dae33e4e7c812b75c062d80398",
+   "url": null,
+   "question": "新媒体账号咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3e8d6375654344f4b92409b4502eecd2",
+   "url": null,
+   "question": "新生儿医保政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "98ad7765330c4e67acbc15a2389668f4",
+   "url": null,
+   "question": "关于跨省医保结算医院清单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "41d65c429d26418abef8115c2fc852ea",
+   "url": null,
+   "question": "请提供湖南省医疗保障局的联系电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3d5ef78574e44f73ae75423fa537ec7d",
+   "url": null,
+   "question": "女民警生育津贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "540b8ddd17854249b8c388dadf6b81be",
+   "url": null,
+   "question": "人工髋关节报销比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "e2cb5ef035bf42c0839b6c98bc8bba31",
+   "url": null,
+   "question": "铁路医保余额结转省直医保时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1e638c75b96c4241a61473fb831a57f9",
+   "url": null,
+   "question": "省直医保28天再入院申请表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "78991b62eaa64d3bbdef055c5c455bc7",
+   "url": null,
+   "question": "医疗保险",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "430686524c0847358f63ef12844d2649",
+   "url": null,
+   "question": "非急诊省内异地就医如何报销住院费用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "f0210fc25c7e4a0fa7ae09f1dbc7e1b3",
+   "url": null,
+   "question": "生育保险怎么报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8c604f85c7884f06a7807ca055231efc",
+   "url": null,
+   "question": "湖南省中医附一医院周六连不上省医保系统导致省医保患者不能办理得不到及时治疗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "063a045bbfcb4f89a47e38e75de81d97",
+   "url": null,
+   "question": "异地生育住院医保报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "669eda2b6b584d908402b2b8a9ea0d1b",
+   "url": null,
+   "question": "异地就医备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "969d60019a174aa6ad408f9ab5a238c0",
+   "url": null,
+   "question": "异地生产如何报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "3342fda990054fe4a1f24a9ec68dd22a",
+   "url": null,
+   "question": "湖南省直医保在省内异地报销比例多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "cb8da89774cc4faca07e7d2f4297a68e",
+   "url": null,
+   "question": "门诊医保报销流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "c465e82085d346b6b58820223bdaae9d",
+   "url": null,
+   "question": "新农合医保缴费记录自助查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4442734dc71248c091c17aa66c8d592c",
+   "url": null,
+   "question": "医保问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "785d7727372641f2b947937440e7b876",
+   "url": null,
+   "question": "关于新农合报销问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "e0ce5a5dab1241a098f18c5e73016515",
+   "url": null,
+   "question": "报销基本医疗后，家里还自费6万2千多。大病救助怎么只报销1万3千多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "41aebc60e4d94e6ea053f2e26bc63685",
+   "url": null,
+   "question": "异地居住人员社保卡密码遗忘",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d73e4e891e854ad2b9798c7551341584",
+   "url": null,
+   "question": "微信交今年医保不知道在那里看是否缴费成功和生效了！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "39f8483869b248fb8cc385965f976b92",
+   "url": null,
+   "question": "关于衡阳市耒阳市尿毒症患者报销比例下降。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b56dc20aa0de4e4fb5a1e4611e09325b",
+   "url": null,
+   "question": "农村医疗合作强行收费村委收费不开收据也没有凭据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "58382d3f4fa74069b314c86a6bde1dc8",
+   "url": null,
+   "question": "关于改革大病患者城乡居民医保报销制度和程序的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "075478b150e346ffb00cf3ceedb7efb6",
+   "url": null,
+   "question": "医疗事故赔偿问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "12599b836fdc4e0ba0abfce68458b44b",
+   "url": null,
+   "question": "医保关系转移",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4e77be79577d436d9413ab5fa2bd6f92",
+   "url": null,
+   "question": "个人是否可以同时购买二份城镇职工医疗保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d3ef5262dcee43179712c9d2f70d52fd",
+   "url": null,
+   "question": "小孩多趾畸形手术医保有报销吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "7e1da507787042c8815902f4e4db3a93",
+   "url": null,
+   "question": "耒阳市社保基金管理局不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "cf2a16f944a94e53b57a51fda18c3402",
+   "url": null,
+   "question": "关于“新生儿医保90天内可参保”文章的建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "4ea1861e85ef4dbaaa81d68c4a850b9e",
+   "url": null,
+   "question": "医保范围",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "93d61062aa734a4da34c80c478a46312",
+   "url": null,
+   "question": "湖南全民保是否是政府认可的医保外补充保险？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "d7ce1546c401418581214599b02e7cc2",
+   "url": null,
+   "question": "公司新办理的长沙银行医保卡里面没有钱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0c4dca90344741f49f2af3fc2565d6f6",
+   "url": null,
+   "question": "省内医保跨地市互转互认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1ed36635b9be4be5ab65284a50537fcf",
+   "url": null,
+   "question": "关于城乡基本医疗保险缴纳问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "adf2da4d31df43bbab9e4b1ca0e824f3",
+   "url": null,
+   "question": "2021年度城乡居民基本医疗保险参保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "6b857ed03df04eb0b9c9ed701e0cbf13",
+   "url": null,
+   "question": "关于医保缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "9cf566b7ab64456194509deddc9c085b",
+   "url": null,
+   "question": "盐酸安罗替尼胶囊在医保的报销比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8896c5c795f245eab169d2724eaa9b64",
+   "url": null,
+   "question": "湖南农村综合医疗保险问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "dd44c2e2cc0544ff9fffd771eaf006cc",
+   "url": null,
+   "question": "职工大病互助怎么申请，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1a00ff88db0044a2ba208cc1f7a8c3f2",
+   "url": null,
+   "question": "女员工生育津贴领取标准问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "356dc82a7a9d48db996a6c7a25a09b09",
+   "url": null,
+   "question": "关于奶奶住院医疗费用不能保销的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fb7f251f0d674f5e9372747b98e4fb00",
+   "url": null,
+   "question": "岳阳市经开区医保要求医疗报销，必须开华容湘江银行的户，合理吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "06dd8c0a7e374ddbb89c9ae34e693d4a",
+   "url": null,
+   "question": "有关大病报销的询问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "952968d613274adb94beebf87fd5fe77",
+   "url": null,
+   "question": "关于我父亲骑车搭载我母亲，突发脑溢血失去意识，两人意外摔伤医保不予报销的复议申请书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "bc91a38b8ef9433abcf3342c867383bd",
+   "url": null,
+   "question": "胶质瘤为什么使用贝伐珠单抗化疗药不能报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "0d965dd839694271bbd4ddd48b2b207b",
+   "url": null,
+   "question": "咨询盐酸安罗替尼胶囊在医保的报销比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b8605e28dade4a41aaadbdd8082171b9",
+   "url": null,
+   "question": "职工医保在看门诊或住院时能否使用医保卡里面的余额进行缴费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "66ddfd64fe214fc594aa9cc3d4051280",
+   "url": null,
+   "question": "异地医保报销比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "77de1b0d7a704c3d8ec879b62a3b6321",
+   "url": null,
+   "question": "肺癌靶向药克唑替尼纳入医保了，为什么其中一种基因突变的病人不能享受医保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "01a1c059288844eda30fa1b02cc64461",
+   "url": null,
+   "question": "生育险报销咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "747ce2b8e5844ce79a6d86de8ee7e936",
+   "url": null,
+   "question": "省直医保特门透析病人联网结算时医药费怎么结算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "2f6f35ba37634b37862c0d13ff4282ee",
+   "url": null,
+   "question": "膝关节置换手术报销问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "36a0dfb6f50a4524b237cc46dfc11ce8",
+   "url": null,
+   "question": "4.8号后核酸检测费用标准？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fbf2c9846ae645fd9df69115d86e24c8",
+   "url": null,
+   "question": "个人帐户资金到底能不能冲抵个人城乡居民医保缴费部分？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "1bdb8f2f349c4369a6585710a9166a57",
+   "url": null,
+   "question": "生育保险报销事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "665c463682e04393bed7795dbc29ee2b",
+   "url": null,
+   "question": "电力部门的医保问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "fa1bf03337974f46b836b179affb0090",
+   "url": null,
+   "question": "异地就医问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "b9d2f34304f74d27835c2ead19d36faf",
+   "url": null,
+   "question": "关于盐酸阿来替尼医保报销事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-ybj",
+   "id": "8cb63ad2dc3349fcb93ceb735d1548e8",
+   "url": null,
+   "question": "抗癌药安罗替尼是否纳入了湖南医保，如何保销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

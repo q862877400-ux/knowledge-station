@@ -1,0 +1,1954 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-jyt",
+   "id": "c5495370f22f4fa085998737c751da19",
+   "url": null,
+   "question": "衡山星源小学食品安全",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b351023d81fa4193854601dd8fa04e6a",
+   "url": null,
+   "question": "关于要求肃清武冈市任银芳违背上级文件规定恶意诋毁我园影响报告",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民办教育促进法实施条例",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "68e77c8e89a24b889c00205433831f0c",
+   "url": null,
+   "question": "关于请求严肃查处武冈市教育局纵容安乐中心小学内违规举办幼儿园",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民办教育促进法实施条例",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民办教育促进法",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "幼儿园管理条例",
+     "lib_no": "幼儿园管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "公众问答",
+    "请求严肃查处武冈市教育局纵容安乐乡中心小学违规举办幼儿园的报告",
+    "湖南省幼儿园办园标准",
+    "湖南省简易幼儿园基本条件"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "5714367ae5404a148c16cb6cea302591",
+   "url": null,
+   "question": "离省政府300米的保利花园，教育配套还是70年代水平",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "cfffcf4e705f4e8399cc90af21b33e83",
+   "url": null,
+   "question": "就近入学到底什么是就近？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "教育部办公厅关于做好2016年城市义务教育招生入学工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "83e2da1ae8d041cb90fa04b1008b7257",
+   "url": null,
+   "question": "教师调动问题",
+   "cited_hits": [
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "事业单位人事管理条例",
+     "lib_no": "事业单位人事管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "eec7f63dff4e4df3bb6bc113dd92470a",
+   "url": null,
+   "question": "小孩读书问题",
+   "cited_hits": [
+    {
+     "name": "湖南省实施〈中华人民共和国义务教育法〉办法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "小孩读书问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "3b7a0cde7a0a4837bb3c3a6bf2eaa267",
+   "url": null,
+   "question": "幼儿园补偿",
+   "cited_hits": [
+    {
+     "name": "民办教育促进法",
+     "lib_no": "民办教育促进法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f362e226f2f54766b4ab172253fb25f6",
+   "url": null,
+   "question": "小孩集体户口上学",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施〈中华人民共和国义务教育法〉办法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "小孩集体户口上学"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "232e9b275fc54c38942f38760056f2ca",
+   "url": null,
+   "question": "关于小孩子读书转学",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省普通高中学生学籍管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "ccadf9d975e944d4bc789cf734599197",
+   "url": null,
+   "question": "关于上学与户口",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国义务教育法",
+     "lib_no": "义务教育法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-jyt",
+   "id": "e8e9cef9e85f42d1af095f588ba47a72",
+   "url": null,
+   "question": "湖南省耒阳市杜甫学校问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省耒阳市杜甫学校问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c7caf9cfd95d4353ab35e8292d2c83e8",
+   "url": null,
+   "question": "退休工资问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省机关事业单位养老保险制度改革基本养老金计发办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "206111a11e914513bfa277de46f3412b",
+   "url": null,
+   "question": "特岗一年转正是否可行？是否影响人事调动？",
+   "cited_hits": [],
+   "cited_missing": [
+    "特岗一年转正是否可行？是否影响人事调动？",
+    "关于实施农村义务教育阶段学校教师特设岗位计划的通知",
+    "关于做好服务期满特岗教师转为正式教师工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c1bc81c21da743babae27e627f820389",
+   "url": null,
+   "question": "全民爱国主义教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅关于培育和践行社会主义核心价值观的意见",
+    "关于培育和践行社会主义核心价值观进一步加强中小学德育工作的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "209247db6854489c9ee65e70043af170",
+   "url": null,
+   "question": "关于调整小学一年级入学截止时间的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2017年义务教育招生入学工作的通知",
+    "湖南省中小学生学籍管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "aea7d72f20ba43f4a46ab437572f1ac1",
+   "url": null,
+   "question": "学费收费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2016年规范中小学教育收费管理有关事项的通知",
+    "湖南省物价局、湖南省财政厅关于进一步加强中小学教育收费管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "cce5518036394b8e8a6f87493912188c",
+   "url": null,
+   "question": "强烈要求中国政府在行动上尊师重教!",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省调整事业单位工作人员基本工资标准的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "28c92e949b6d43c4876182437af7ab4d",
+   "url": null,
+   "question": "2016年的中小学的学杂费和书本费",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善城乡义务教育经费保障机制的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c5d60db410f643eaaa1ce716ac5e1764",
+   "url": null,
+   "question": "政府如此对待在岗代课教师的合理诉求有良心吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知",
+    "湖南省事业单位公开招聘人员试行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4e2b71de5a3f4a5cb55915d5990f450e",
+   "url": null,
+   "question": "急！湖南教育考试院成考报名系统预约始终无名额且无咨询电话。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2016年湖南省成人高等教育招生专业目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "6318d72ec54e4616b9205e0ed38fe3ca",
+   "url": null,
+   "question": "新生录取大学生有助学奖金吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "录取通知书",
+    "高校学生资助政策简介"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "5e763d691b214f51bda6dbd4bd4f8413",
+   "url": null,
+   "question": "1977年至1978年私人住房给给学校用。现在可以申请补偿吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "合同法",
+    "关于贯彻执行&lt;中华人民共和国民法通则若干问题的意见（试行）&gt;",
+    "民法通则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1f024a61ab6f44799d2ad05fb936cf4b",
+   "url": null,
+   "question": "请为请为长沙电力职业技术学院学生被骗专升本学费主持公道！",
+   "cited_hits": [],
+   "cited_missing": [
+    "高等教育自学考试社会助学管理试行办法",
+    "关于进一步规范高等教育自学考试社会助学工作",
+    "湖南省高等教育自学考试社会助学登记证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9015a7f75617474faa5252c8c1545e24",
+   "url": null,
+   "question": "湖南省普通高校毕业生贫困地区基层单位就业学费补偿管理办法",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省财政厅、湖南省教育厅关于印发&lt;湖南省普通高校毕业生贫困地区基层单位就业学费补偿管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "750d537fc6844aa9b1bd7ea3cd487373",
+   "url": null,
+   "question": "为何外来小孩在长沙上学竟然要求父母必须购买长沙市职工养老保险",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好义务教育招生入学工作的实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4a22b7a320ef49ee89097a849fdbb0f4",
+   "url": null,
+   "question": "我是现役军人，想咨询孩子入学是否有优惠政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "军人子女教育优待办法",
+    "关于印发&lt;湖南省军人子女教育优待实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "7fde5bf810b046258c81833ee8798e1d",
+   "url": null,
+   "question": "娄底市教育局无视特岗老师的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "娄底市教育局无视特岗老师的问题"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "ba4e2930cb544e88ac813eab15b7d73a",
+   "url": null,
+   "question": "特岗教师发放集中连片特困地区教师生活补贴的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好武陵山片区农村教育人才津贴发放工作的通知",
+    "关于印发&lt;湖南省乡镇机关事业单位工作人员乡镇工作补贴实施办法&gt;的通知",
+    "湖南省人民政府办公厅关于印发&lt;湖南省乡村教师支持计划（2015-2020年）实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "05d943e159c74c4c93e9006302cf35d3",
+   "url": null,
+   "question": "《湖南省乡村教师支持计划》实施时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "&lt;湖南省乡村教师支持计划&gt;实施时间",
+    "湖南省人民政府办公厅关于印发&lt;湖南省乡村教师支持计划（2015-2020年）实施办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b076f7f2af994761a71be0a9abe611c2",
+   "url": null,
+   "question": "关于《原民办教师生活困难补助》一事",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知",
+    "关于原中小学民办代课教师生活困难补助发放工作有关问题的处理意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4e4ac33356a74c9cbdaf2046408c1045",
+   "url": null,
+   "question": "残疾人家庭高中学生",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省高中阶段残疾学生和高中阶段贫困残疾人家庭子女资助管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "3ac1f726d84c43d28929151cf3b70a2b",
+   "url": null,
+   "question": "湖南省隆回县原民办教师补助",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "eb7e0f37118b45e081536aea37794cf2",
+   "url": null,
+   "question": "永州市道县四小重大违规",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省中小学校幼儿园规划建设条例（草案）",
+    "条例（草案）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a1f95012047a405298175b233a4751d4",
+   "url": null,
+   "question": "关于请求落实政策的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d5233f3516a44c80b86980b43c2d8c04",
+   "url": null,
+   "question": "事业单位离休老干的抚恤金领取问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整企事业单位离休人员死亡一次性抚恤金标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a8546d779d2c4e6dbb520452e1453b37",
+   "url": null,
+   "question": "2010级毕业生未发报到证",
+   "cited_hits": [],
+   "cited_missing": [
+    "报到证",
+    "报到证",
+    "就业协议书",
+    "回原籍申请书",
+    "介绍信",
+    "就业协议书",
+    "回原籍申请书",
+    "介绍信",
+    "毕业证书",
+    "就业协议书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c487fda227fc4b86bfdfe62210700ac9",
+   "url": null,
+   "question": "关于解决漏报民办教师待遇问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "82382241f70249e9b20b5689ddb0cf9d",
+   "url": null,
+   "question": "湖南退役士兵报读高等职业技术院校单独招生的政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "普通高职高专毕业生服义务兵役退役后接受本科教育实施办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "913414a0364140ceb45c7b1105e2ff28",
+   "url": null,
+   "question": "一个年近花甲，一个为教育事业奋斗终身的老人的一点点期盼",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "76504cbf28294268bcc7837f8d1278ef",
+   "url": null,
+   "question": "关于民办教师补贴问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好原中小学民办教师和代课教师生活困难补助发放工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "51210c1699c746f88daad7fb15bd555d",
+   "url": null,
+   "question": "湖南省统一招考的特岗教师年终可否评优？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南统一招考的特岗教师年终可否评优",
+    "关于实施农村义务教育阶段学校教师特设岗位计划的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "958e1bedcfce47078f139c6f5be46025",
+   "url": null,
+   "question": "泸溪县教师的绩效工资不合理，校长是老师的1.5倍。",
+   "cited_hits": [],
+   "cited_missing": [
+    "&nbsp;湖南省义务教育学校绩效工资的实施意见",
+    "湖南省其他事业单位绩效工资实施意见",
+    "&nbsp;湖南省义务教育学校绩效工资的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "7e7f1e0760b84cc49a6b284afc487d67",
+   "url": null,
+   "question": "大学生创业",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于做好2013年全国普通高等学校毕业生就业工作的通知",
+    "国务院关于进一步做好普通高等学校毕业生就业工作的通知",
+    "国务院办公厅转发人力资源社会保障部等部门关于促进以创业带动就业工作指导意见的通知",
+    "就业失业登记证",
+    "高校毕业生自主创业证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "eeb5664b83944bb682c21292efe706de",
+   "url": null,
+   "question": "关于湖南武陵山扶贫新《意见》教卫人才人才津贴的提问：包括特岗教师吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对武陵山片区农村基层教育卫生人才发展提供重点支持的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "5376b5cebe1f40cf9120044e910ec96d",
+   "url": null,
+   "question": "关于湖南武陵山扶贫新《意见》教卫人才涨数百元人才津贴的提问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对武陵山片区农村基层教育卫生人才发展提供重点支持的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "467696fb052d4eeaa7a4ce93f9a60f00",
+   "url": null,
+   "question": "石门教育系统工人为何不能享受农村人才津贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对武陵山片区农村基层教育卫生人才发展提供重点支持的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "6b9fe94d82844b49bc1bd2ec506c1647",
+   "url": null,
+   "question": "未转正特岗教师是否有农村教师补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对武陵山片区农村基层教育卫生人才发展提供重点支持的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "672c5859ba124d6783c380aa7d057998",
+   "url": null,
+   "question": "关于湖南非师范教师资格证考试的改革是否列入国家统考的范畴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈中小学教师资格考试暂行办法〉和〈中小学教师资格定期注册暂行办法〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e8aa0e4bfcf34ea5ad3d938c97454fe2",
+   "url": null,
+   "question": "关于湘西州教育局收取教师资格证考试费用提出质疑",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅转发省教育厅关于进一步加强中小学教师培养工作意见的通知",
+    "关于做好2006年教师资格认定工作的通知",
+    "湖南省物价局、湖南省财政厅关于重新发布全省教育系统行政事业性收费标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1d73ff807d7d4964b1b251e083f87237",
+   "url": null,
+   "question": "教师资格证报名考试地问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省非师范教育类专业毕业人员申请认定高中（中专）及以下教师资格教育学、教育心理学考试考务工作细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f63c9100b24744abb5554f9c0a4f97f4",
+   "url": null,
+   "question": "特困片区教师津补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对武陵山片区农村基层教育卫生人才发展提供重点支持的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "2724f27d3d33474ba15e543169d28109",
+   "url": null,
+   "question": "关于湖南科技大学成人教育专升本毕业证书与学士学位证书格式的若干问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "教育部关于当前加强高等学校学历证书规范管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "8d0fadb02f50428ca9661b3b517acd35",
+   "url": null,
+   "question": "现在没到退休年龄的国有破产企业幼师，退休后是否享受湘政办2011  92号文件待遇？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国有企业职教幼教退休教师认定表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b8da9073f5b44f3bb837c3ac113bed46",
+   "url": null,
+   "question": "毕业证学籍的查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全省民办非学历教育高等学校清理规范结果的通报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a09fd02ae7904ae1ab34b92ddc145c71",
+   "url": null,
+   "question": "《军人子女教育优待办法》颁布实施，湖南省实施细则怎样？",
+   "cited_hits": [],
+   "cited_missing": [
+    "军人子女教育优待办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "658106d183694fbdb165a300e38c788d",
+   "url": null,
+   "question": "关于普通高中招生范围如何确定的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范普通中小学办学行为的规定",
+    "关于长沙市一中、湖南师大附中恢复面向全省招生的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "813a4507e7b249bab6c78c5efb24f772",
+   "url": null,
+   "question": "湖南大学生村官助学贷款代偿",
+   "cited_hits": [],
+   "cited_missing": [
+    "高等学校毕业生学费和国家助学贷款代偿暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "cfae7e8fdbfe4ce3a4cbe6aec6c94ad8",
+   "url": null,
+   "question": "衡东县县政府县教育局恶意拖欠教师绩效工资一事",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于湖南省义务教育学校绩效工资实施意见的通知",
+    "绩效考核方案",
+    "绩效考核方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d4a3854f20364a8a9cdaad6fca038ade",
+   "url": null,
+   "question": "关于义务教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2011年秋季中小学收费有关问题的通知",
+    "关于武陵区中小学校服价格的批复",
+    "关于进一步加强学生饮用奶管理的通知",
+    "关于规范中小学服务性收费和代收费管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "6c0f99fc5643478a9df08f29cca7aec3",
+   "url": null,
+   "question": "关于九年义务教育收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物价局、湖南省财政厅、湖南省教育厅关于进一步做好当前教育收费管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "db9c4eace6d64702bd2af8f479462eb7",
+   "url": null,
+   "question": "现在9年义务教育学校还该要学生哪些费用",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物价局、湖南省财政厅、湖南省教育厅关于进一步做好当前教育收费管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c50daeccc6a94f4c8d1c8e6bfc929b33",
+   "url": null,
+   "question": "关于农村小学收费",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物价局、湖南省财政厅、湖南省教育厅关于进一步做好当前教育收费管理有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "394cf9baa1d044a69b89b3fbe2f067a7",
+   "url": null,
+   "question": "关于应届毕业生人事档案的相关的问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "就业报到证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "47097181518842868eda496b17f40a8c",
+   "url": null,
+   "question": "2011年湖南省教师是否还有十三个月工资？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅转发省人事厅财政厅省教育厅关于湖南省义务教育学校绩效工资实施意见的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-jyt",
+   "id": "a5ee66bb50d0472b831196352ff709eb",
+   "url": null,
+   "question": "关于专升本考试安排补考极其不合理的投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e1af7e4f2f9c4024b490c56a661e6d57",
+   "url": null,
+   "question": "建议湖南省开设普通话一甲人测考场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9079cea531d745b0ae063d13d48d6653",
+   "url": null,
+   "question": "入学问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b57b74f3dae84b258b8dcdb0b5277d05",
+   "url": null,
+   "question": "党费标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "756980ef09e44212ac6796b545ce2b05",
+   "url": null,
+   "question": "衡东县文冲完小插班超员至近百人每班",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9b860a0f142843a59ffebad99718bf61",
+   "url": null,
+   "question": "请各位领导派专人到湖南省邵阳市绥宁县第二中学管管不作为的领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "20329928fec04eeab12e3b62d29a3835",
+   "url": null,
+   "question": "孩子上学问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "65cb4cf2889640d28c21005bd6f5103f",
+   "url": null,
+   "question": "请各位领导派专人到邵阳市绥宁县第二中学整改领导及教学质量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "457ea0f23c2844c492afe44d535da8e6",
+   "url": null,
+   "question": "请各位领导派专人到湖南省邵阳市绥宁县第二中学督促整改领导教学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "22cfa29894574decb6882d4c0bab0ae6",
+   "url": null,
+   "question": "请各位领导派专人到湖南省邵阳市绥宁县第二中学进行整改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d9e5eed4681447c48d732cc39b746dbc",
+   "url": null,
+   "question": "请各位领导派专人到湖南省绥宁县第二中学整改领导及教学质量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "79b6b7d461ad46b6b7b6930fbdb012d1",
+   "url": null,
+   "question": "请各位领导派专人督促并解决湖南省绥宁县第二中学教学质量太差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "254fbcafa19f41099fd8decceb85f140",
+   "url": null,
+   "question": "请各位领导到湖南省邵阳市绥宁县第二中学狠抓教学质量学校害学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f9415427b56148b1887af9a4236b8394",
+   "url": null,
+   "question": "请各位领导派专人来管管湖南省邵阳市绥宁县第二中学的教学质量了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "dc2ac7c8417d49fa915117cb7a771b5c",
+   "url": null,
+   "question": "湖南省教育厅及各市州教育主管部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "3a1af7fb8ce74e65927b9e4bcd76d352",
+   "url": null,
+   "question": "中学生学校意外死亡学校教育局联合推脱责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "7d90352b8f9a4616ac808aff0c75bd44",
+   "url": null,
+   "question": "集资款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "cdd8c68f6cee4f26a90677d49f426beb",
+   "url": null,
+   "question": "湖南农大违规收费，教育厅官网行政执法电话无人接听",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "45a5b362469d4f6e862e6c66daee8d9f",
+   "url": null,
+   "question": "少数民族骨干计划的毕业事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "8d96a2a103c442219335ba92720e768e",
+   "url": null,
+   "question": "退伍复学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f080dd4719904a2b82443306cae03736",
+   "url": null,
+   "question": "刑事附带民事控告书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "8a740f2440524145b8a1b771fb8c6357",
+   "url": null,
+   "question": "三十年拆迁地基，教育局让我起诉法院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e0f67c6d1b784f23952065a4845c5a44",
+   "url": null,
+   "question": "关于邵阳市中考录取邵阳师范(岩口乡镇计划）等系列问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "2092a804c1b441838b6751c2edba46b7",
+   "url": null,
+   "question": "娄底城南中学乱收费屡教不改 无动于衷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "709e9234dce74663b5202650cf1b82d5",
+   "url": null,
+   "question": "娄底城南中学还有人管得了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "fe584fe4d9f741dd812f608e06904039",
+   "url": null,
+   "question": "湖南省农林师专业奖学金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "dc25e2bf48a2487fb59c479bdd9ea7e0",
+   "url": null,
+   "question": "正确对待九年义务教育中公私立学校招生比例",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "20835cca9c6a461eaf0b815bb76fe5b9",
+   "url": null,
+   "question": "关于湖南邵东县水东江镇石牛村曾顺生复职问题，希望政府及时解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "5e7443de06f94283b8e113ad6a31894d",
+   "url": null,
+   "question": "湖南省武冈市初中升高中比例的失调，一半初中生没书读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "07309cf1a76643c1a650a014b276c599",
+   "url": null,
+   "question": "关于学校商店收费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "33ac360b4dc64cd38cbad0a51386b8e3",
+   "url": null,
+   "question": "农林师专项奖学金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "eb53e3f65cf74ae8a421a1723034b6da",
+   "url": null,
+   "question": "长沙理工大学不允许联通建基站校方不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9cee52cf2116413387c1b02fdb5d16d9",
+   "url": null,
+   "question": "关于长沙理工大学金盆岭校区联通无信号问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "631d201ad48340b5a991a7bcbfd28c7d",
+   "url": null,
+   "question": "每年教师加多少薪水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "aa33be1c364c492bb65f5f51ada295a3",
+   "url": null,
+   "question": "为人师表的老师怎能对小学生动手",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e4e78c50b6b645f1a363daeff855e724",
+   "url": null,
+   "question": "湖南省农林师专业奖学金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1bb25e9bcb144c7e9bba9deda448685e",
+   "url": null,
+   "question": "关于新化县上梅镇黄泥学校安置重建问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f807a19091534b9386ea7da6464d64d4",
+   "url": null,
+   "question": "湘潭市各中小学的开学时间能和赣州市各中小学的开学时间能否一起",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "2750de42826747fcb93cacd0be8f89dd",
+   "url": null,
+   "question": "乡镇小学一年级90个学生一个班合法吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "52799e3529b34888bce9fb433c028ff9",
+   "url": null,
+   "question": "娄底城南中学乱收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "eca888a794bf40028d98a885da519267",
+   "url": null,
+   "question": "学历认证为啥这么难",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9ae80b2feb0c49b889050adf8b8b2e29",
+   "url": null,
+   "question": "湖南石油化工职业技术学院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "0b47ade357c541088baa4ba8d82150f6",
+   "url": null,
+   "question": "重大安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a44cfd5ac1774b07be527c6e52e240f2",
+   "url": null,
+   "question": "异地在编教师是否能调回本地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e2a9b00698cb4e028630ff7b5079c363",
+   "url": null,
+   "question": "湖南省湘西州少数民族骨干计划硕士研究生档案毕业证学位证领取问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c583d654fcf64a0b80a27a7a35851961",
+   "url": null,
+   "question": "小孩读书的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "08cd7c04bd98442bad7baddfd837f927",
+   "url": null,
+   "question": "中小学教师职称不要绑架太多利益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "dcb913491fb44d7a89a1662c51a9cfdc",
+   "url": null,
+   "question": "学校师生安全问题15073863384",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9ccc85a7dffb4e7d81cd4167d1ea742f",
+   "url": null,
+   "question": "武冈教育问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "2921829fa7524c7bb48c5cdc7abb726c",
+   "url": null,
+   "question": "湖南省新华图片社刁难学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "8184a8efd6c14f419d8c0057224d3e15",
+   "url": null,
+   "question": "学校乱收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "11f66e9773c443129d10198a8197b029",
+   "url": null,
+   "question": "投诉湖南机电湖南机电职业技术学院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "035be273073343b9a8f3de5179bd873d",
+   "url": null,
+   "question": "错过湖南代课老师补助政策的申请，请问还有机会申请吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "446ab8c32b9940449a2c9c90b040d741",
+   "url": null,
+   "question": "岳阳市湘阴县西林乡西林中学乱收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "06619d679ed24e92a385a7435e04b576",
+   "url": null,
+   "question": "益阳职业技术学院，扣退学生档案，致学生失去读书机会！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "86c6e4307bbb476e8165ab1cb430087a",
+   "url": null,
+   "question": "我的档案被学校丢了，学校根本不帮我查档案哪去了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "0d547dd0abd442b9a8b639903d024fbb",
+   "url": null,
+   "question": "2000年湖南大学毕业，个人档案应该在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "ca2751cdcbf54a84ba9aee1ded27deab",
+   "url": null,
+   "question": "湖南打算什么时候落实《军人子女教育优待办法》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "7a396a9af4df4fbd8caad07fe4bf3a8d",
+   "url": null,
+   "question": "衡阳市一中暑假补课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "54a414bf6eba4ad1b1d807136817d0ea",
+   "url": null,
+   "question": "原民办教师问题何日才是尽头",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "ec3dbfb0f3c2436fa57bc26ae97abc7e",
+   "url": null,
+   "question": "关于吉首大学校园安全问题的投诉和建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "8ff419c87bb344a69969caedd747be63",
+   "url": null,
+   "question": "军人子女教育优待的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "45c3f322e525464499f8dcfbf708c50a",
+   "url": null,
+   "question": "我父亲被拖欠的民办教师工资该向谁要？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d9b6fb3726a14e8eb3198aee19c17ef8",
+   "url": null,
+   "question": "民办教师补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "80558e955e474a7db5043ee5c163013d",
+   "url": null,
+   "question": "已经辞退的代课老师今年有解决的方案吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b2bbc512833e41f9999d0eca6815f475",
+   "url": null,
+   "question": "关于自学考试方面的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "00b311b448a5418bb1fcc30346cdc5c7",
+   "url": null,
+   "question": "14考研成绩公布的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "fbe807da0a34474ab263d4d579b96f13",
+   "url": null,
+   "question": "农村低保户子女读书政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4532986a3d2c4ccaa58c3bad9923285f",
+   "url": null,
+   "question": "关于2013年毕业大学生就业补助问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "83bf83c594124232861a8d1acda49b34",
+   "url": null,
+   "question": "尊敬的领导，请让湖南的五年制大专生参加考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "afb95384002f41d68d759f348332ed7d",
+   "url": null,
+   "question": "学校收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "09fe8e9497454f1d81de1e5df514a808",
+   "url": null,
+   "question": "关于档案丢失补办相关事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "efaa0626ceb34b57b966e05c1873826f",
+   "url": null,
+   "question": "代课老师补助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "22fc9aa073704cb98b65136373aaef83",
+   "url": null,
+   "question": "关于援疆人才",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "efd1717f2e72465e9b9acda95e87ac3f",
+   "url": null,
+   "question": "询问读书学校收费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "2b2c5b673df54930b06545de0bc5cc55",
+   "url": null,
+   "question": "成教大专可以申请生源地贷款吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "30c5770fc4e84149a0bea3f3237a4f8b",
+   "url": null,
+   "question": "请省教育部门严查洞口县教育局教师招聘存在的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "593b0260088a407dbe3ede00af263d02",
+   "url": null,
+   "question": "大学学费涨价",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "11c6ecfe00384d239784ddb94fdf38b4",
+   "url": null,
+   "question": "高考人数不对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "79910e7897b14898bc9ff89b370f36d8",
+   "url": null,
+   "question": "关于大学生当兵入伍学费补偿事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1abcc6a77f524c1fa456ebf64d19b189",
+   "url": null,
+   "question": "关于在校大学生身份证年龄信息更改后与学籍不符的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9852687784e6445789ae31c27f496fd8",
+   "url": null,
+   "question": "援藏 退休待遇如何解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e6c76b30074e4aa891bc37ef18857ab6",
+   "url": null,
+   "question": "关于大一新生才上几个月因故退学能否退学费的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d8178ff647d74bfd8f38a3bd0e4b1ec7",
+   "url": null,
+   "question": "请问2011年高校高级职称结果何时公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a4d246bc12454bc5ac6527d5c03a14a5",
+   "url": null,
+   "question": "我的毕业证,职业资格证在网上都查不了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b196b1f0f2ec4f8480e699e966ee9789",
+   "url": null,
+   "question": "大专院校大三学生未安排教师上课，学校将学生送往沿海城市务工是否合理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "3effdf6ab2764f788367821e996c9539",
+   "url": null,
+   "question": "2002年毕业证网上无法查询到！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e5bc917baaa5448c9148f8b174ed93b5",
+   "url": null,
+   "question": "暑假违规补课",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b13f2bb003ff45f394f60c41b29d02ba",
+   "url": null,
+   "question": "库区移民后扶持政策学费补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e00dad4d8e4e461b910f4e8b35a41bd9",
+   "url": null,
+   "question": "请问湖南大学生村官助学及利息代偿如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "aab186bd51c2466c8961836ed195e4c1",
+   "url": null,
+   "question": "应征入伍大学生在校期间学费能否退还",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4a6af1df01414c7aae7d0906639a177e",
+   "url": null,
+   "question": "获奖咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "95063c32ab3840f7b1099c2ab18c7eba",
+   "url": null,
+   "question": "关于大学生当兵入伍退学费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e4e89a413e9f4942831cc35f122d5139",
+   "url": null,
+   "question": "非本地户口，能否参加高考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "07cbd5dbd07b4af7a6b310b76adf4b76",
+   "url": null,
+   "question": "专科生考研",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b0f05612c39348cf8bc78e19dacbfe8f",
+   "url": null,
+   "question": "自考生考研",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "0b65e367a7bf4f5d8fd438de3d555728",
+   "url": null,
+   "question": "退学费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "054127e294174d6fa32e6cba4b142114",
+   "url": null,
+   "question": "\"海外名师\"评请问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "f237654cc484472ea55e3a92cea9da71",
+   "url": null,
+   "question": "高职院校技能抽查与毕业证挂钩吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "56c0cb67bd8e4fb28345ae0ea1b13ba2",
+   "url": null,
+   "question": "关于民办学校株洲华南政法专修学院在其读书毕业证的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "c80fdb6fe1dd4fd4a0c9b3e80c541b60",
+   "url": null,
+   "question": "关于湖南大学研究生收费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "e5ab612afc024bb8b7d73761fe91cd6b",
+   "url": null,
+   "question": "为什么我们的毕业证在网上查不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b9f256989f0d4ebdb18dec2c443b99f6",
+   "url": null,
+   "question": "为何免费义务教育比之前交的费用还要高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1303a0e28bb546c79274b3e4f31b60a4",
+   "url": null,
+   "question": "咨询中高级职称评定方案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "b75df9d781bc47c399eb1aa673f4997d",
+   "url": null,
+   "question": "教育基金捐款每天一元，省政府是否知道这一事情？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "098d51b66c10455d8fb35b60e1db7003",
+   "url": null,
+   "question": "请问户口不在长沙，但在长沙念完小学、初中直至高中的，能否在湖南参加高考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "0bde4e4061674c64b669bae81695c157",
+   "url": null,
+   "question": "退伍大学生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "3afae8d64e8e4caaa50913b8b5b6a24a",
+   "url": null,
+   "question": "醴陵市学校收费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "49f67e6cc86b425a8d1756cefd1cfefc",
+   "url": null,
+   "question": "咨询教师认证问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "4e978052b43843c4a881d74de09be8c1",
+   "url": null,
+   "question": "生源地贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "49e9ffcc288c4a01aa0f3ac7db6d1b8f",
+   "url": null,
+   "question": "关于国家针对物价上涨对在校大专生的补助金问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "ad742a3ea5d74f3188edac79d64a60d8",
+   "url": null,
+   "question": "我怎样才能得到电大文凭的学籍证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "d0a59a3bbc3f4e97b430292cfbe4dc62",
+   "url": null,
+   "question": "关于高中毕业生的档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "a953de8573df45598bd731eccda0d902",
+   "url": null,
+   "question": "毕业生档案存放问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "dfabfce448854d41a273151e4b5b8fee",
+   "url": null,
+   "question": "九年制义务教育不是农村户口的小学生都免费吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "0fadf1cb4f6545fca077b6b093ab7bd8",
+   "url": null,
+   "question": "九年义务制学费规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "91978362b3854367b53154f3c628c2a1",
+   "url": null,
+   "question": "学校情况咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "9fab25b14b86495d9a73934b8f85d67d",
+   "url": null,
+   "question": "我还能不能继续上学？如果能该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "610253d08aad4038b039495f2799423a",
+   "url": null,
+   "question": "对于大学毕业三年多的死档案该如何激活呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "56635ddacc0046b3951e9de7d0920f4e",
+   "url": null,
+   "question": "在职硕士报考现场报名咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "1d72d477d1c14d60895b9569f9190112",
+   "url": null,
+   "question": "大专生应征入伍的政策问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-jyt",
+   "id": "cbb2edd9c0894ecdb2cf4ad136c89cf8",
+   "url": null,
+   "question": "毕业生档案问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

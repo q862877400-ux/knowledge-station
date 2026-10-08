@@ -43,7 +43,69 @@
   "湖南省": {
    "hunan-st": 3813,
    "hunan-yj": 538,
-   "people-liuyan-prov": 28
+   "hunan-agri": 200,
+   "hunan-amr": 200,
+   "hunan-czt": 200,
+   "hunan-fgw": 200,
+   "hunan-gat": 200,
+   "hunan-gxt": 200,
+   "hunan-jtt": 200,
+   "hunan-lyj": 200,
+   "hunan-rst": 200,
+   "hunan-sft": 200,
+   "hunan-slt": 200,
+   "hunan-swt": 200,
+   "hunan-tjj": 200,
+   "hunan-tyj": 200,
+   "hunan-whhlyt": 200,
+   "hunan-xfj": 200,
+   "hunan-zjt": 200,
+   "hunan-zrzyt": 200,
+   "hunan-mzw": 197,
+   "hunan-ybj": 188,
+   "hunan-jyt": 187,
+   "hunan-kjt": 129,
+   "hunan-mzt": 120,
+   "hunan-wjw": 100,
+   "hunan-tyjrswt": 94,
+   "hunan-mpa": 83,
+   "hunan-jgswj": 47,
+   "hunan-lshwzcbj": 36,
+   "people-liuyan-prov": 28,
+   "hunan-sjt": 23,
+   "hunan-gzw": 19
+  },
+  "贵州省": {
+   "gz-zrzy": 598,
+   "gz-whhly": 505,
+   "gz-fgw": 460,
+   "gz-tyj": 322,
+   "gz-sft": 292,
+   "gz-yjgl": 252,
+   "gz-tyjrswt": 244,
+   "gz-stjj": 200,
+   "gz-ylbzj": 200,
+   "gz-czt": 166,
+   "gz-mwr": 148,
+   "gz-st": 120,
+   "gz-swt": 107,
+   "gz-mzt": 106,
+   "gz-gxt": 86,
+   "gz-kjt": 79,
+   "gz-dsj": 58,
+   "gz-atcm": 55,
+   "gz-wjw": 40,
+   "gz-lshwzcb": 32,
+   "gz-invest": 30,
+   "gz-jyt": 30,
+   "gz-lyj": 30,
+   "gz-nynct": 30,
+   "gz-rst": 30,
+   "gz-zfcx": 30,
+   "gz-mzw": 28,
+   "gz-gzw": 24,
+   "gz-sjt": 23,
+   "people-liuyan-prov": 15
   },
   "吉林省": {
    "jl-wlt": 338,
@@ -86,30 +148,72 @@
    "jl-gbdsj": 21,
    "jl-gat": 20
   },
-  "贵州省": {
-   "gz-zrzy": 598,
-   "gz-st": 120,
-   "gz-swt": 107,
-   "gz-wjw": 40,
-   "gz-jyt": 30,
-   "gz-nynct": 30,
-   "gz-rst": 30,
-   "gz-zfcx": 30,
-   "people-liuyan-prov": 15
+  "安徽省": {
+   "ah-kb": 600,
+   "ah-st": 145,
+   "people-liuyan-prov": 28
   },
   "北京市": {
-   "people-liuyan-df": 442,
+   "people-liuyan-df": 490,
    "people-liuyan-fid": 245,
    "people-liuyan-prov": 22
+  },
+  "山西省": {
+   "sx-szxx": 700,
+   "people-liuyan-prov": 36
+  },
+  "上海市": {
+   "sh-12345": 600,
+   "people-liuyan-prov": 28
+  },
+  "宁夏回族自治区": {
+   "nx-zxxx": 597,
+   "people-liuyan-prov": 18
+  },
+  "天津市": {
+   "tj-hdjl": 497,
+   "people-liuyan-prov": 14
+  },
+  "湖北省": {
+   "hb-wuhan-8": 161,
+   "hb-hdjl-16": 119,
+   "hb-wuhan-9": 103,
+   "hb-wuhan-7": 29,
+   "hb-hdjl-25": 22,
+   "people-liuyan-prov": 20,
+   "hb-wuhan-6": 7,
+   "hb-hdjl-10": 5,
+   "hb-hdjl-19": 4
   },
   "国家级（部委）": {
    "mee": 145,
    "mem": 60,
    "people-liuyan": 37
   },
-  "安徽省": {
-   "ah-st": 145,
+  "海南省": {
+   "hi-zcwd": 200,
    "people-liuyan-prov": 28
+  },
+  "青海省": {
+   "qh-wsxf": 200,
+   "people-liuyan-prov": 15
+  },
+  "陕西省": {
+   "sn-lyxd": 184,
+   "people-liuyan-prov": 18
+  },
+  "广西壮族自治区": {
+   "gx-mailbox": 138,
+   "people-liuyan-prov": 28
+  },
+  "河北省": {
+   "heb-szj": 114,
+   "heb-czt": 26,
+   "people-liuyan-prov": 24
+  },
+  "山东省": {
+   "sd-12345": 71,
+   "people-liuyan-prov": 22
   },
   "辽宁省": {
    "people-liuyan-prov": 36,
@@ -118,9 +222,6 @@
   "四川省": {
    "people-liuyan-prov": 28,
    "sc-st": 15
-  },
-  "山西省": {
-   "people-liuyan-prov": 36
   },
   "内蒙古自治区": {
    "people-liuyan-prov": 36
@@ -134,94 +235,65 @@
   "福建省": {
    "people-liuyan-prov": 32
   },
-  "上海市": {
-   "people-liuyan-prov": 28
-  },
   "江苏省": {
    "people-liuyan-prov": 28
   },
   "浙江省": {
    "people-liuyan-prov": 28
   },
-  "广西壮族自治区": {
-   "people-liuyan-prov": 28
-  },
-  "海南省": {
-   "people-liuyan-prov": 28
-  },
-  "河北省": {
-   "people-liuyan-prov": 24
-  },
   "重庆市": {
    "people-liuyan-prov": 24
   },
-  "山东省": {
-   "people-liuyan-prov": 22
-  },
   "河南省": {
-   "people-liuyan-prov": 20
-  },
-  "湖北省": {
    "people-liuyan-prov": 20
   },
   "云南省": {
    "people-liuyan-prov": 18
   },
-  "陕西省": {
-   "people-liuyan-prov": 18
-  },
   "甘肃省": {
    "people-liuyan-prov": 18
   },
-  "宁夏回族自治区": {
-   "people-liuyan-prov": 18
-  },
-  "青海省": {
-   "people-liuyan-prov": 15
-  },
-  "天津市": {
-   "people-liuyan-prov": 14
+  "新疆维吾尔自治区": {
+   "xj-dchs": 10,
+   "people-liuyan-prov": 5
   },
   "西藏自治区": {
    "people-liuyan-prov": 14
-  },
-  "新疆维吾尔自治区": {
-   "people-liuyan-prov": 5
   }
  },
  "province_totals": {
   "广东省": 31112,
-  "湖南省": 4379,
+  "湖南省": 9202,
+  "贵州省": 4340,
   "吉林省": 2679,
-  "贵州省": 1000,
-  "北京市": 709,
+  "安徽省": 773,
+  "北京市": 757,
+  "山西省": 736,
+  "上海市": 628,
+  "宁夏回族自治区": 615,
+  "天津市": 511,
+  "湖北省": 470,
   "国家级（部委）": 242,
-  "安徽省": 173,
+  "海南省": 228,
+  "青海省": 215,
+  "陕西省": 202,
+  "广西壮族自治区": 166,
+  "河北省": 164,
+  "山东省": 93,
   "辽宁省": 60,
   "四川省": 43,
-  "山西省": 36,
   "内蒙古自治区": 36,
   "黑龙江省": 36,
   "江西省": 36,
   "福建省": 32,
-  "上海市": 28,
   "江苏省": 28,
   "浙江省": 28,
-  "广西壮族自治区": 28,
-  "海南省": 28,
-  "河北省": 24,
   "重庆市": 24,
-  "山东省": 22,
   "河南省": 20,
-  "湖北省": 20,
   "云南省": 18,
-  "陕西省": 18,
   "甘肃省": 18,
-  "宁夏回族自治区": 18,
-  "青海省": 15,
-  "天津市": 14,
-  "西藏自治区": 14,
-  "新疆维吾尔自治区": 5
+  "新疆维吾尔自治区": 15,
+  "西藏自治区": 14
  },
  "source_totals": {
   "gd-amr": 6134,
@@ -234,12 +306,19 @@
   "gd-smzt": 976,
   "gd-ws": 909,
   "people-liuyan-prov": 757,
+  "sx-szxx": 700,
+  "ah-kb": 600,
+  "sh-12345": 600,
   "gz-zrzy": 598,
+  "nx-zxxx": 597,
   "hunan-yj": 538,
   "gd-jy": 513,
+  "gz-whhly": 505,
+  "tj-hdjl": 497,
+  "people-liuyan-df": 490,
   "gd-gdii": 486,
   "gd-czt": 462,
-  "people-liuyan-df": 442,
+  "gz-fgw": 460,
   "gd-mpa": 437,
   "gd-tyj": 398,
   "gd-jt": 381,
@@ -249,28 +328,73 @@
   "gd-zfsg": 331,
   "gd-fg": 330,
   "gd-com": 326,
+  "gz-tyj": 322,
+  "gz-sft": 292,
   "gd-gbdsj": 274,
+  "gz-yjgl": 252,
   "people-liuyan-fid": 245,
+  "gz-tyjrswt": 244,
   "gd-lyj": 234,
   "gd-whly": 202,
+  "gz-stjj": 200,
+  "gz-ylbzj": 200,
+  "hi-zcwd": 200,
+  "hunan-agri": 200,
+  "hunan-amr": 200,
+  "hunan-czt": 200,
+  "hunan-fgw": 200,
+  "hunan-gat": 200,
+  "hunan-gxt": 200,
+  "hunan-jtt": 200,
+  "hunan-lyj": 200,
+  "hunan-rst": 200,
+  "hunan-sft": 200,
+  "hunan-slt": 200,
+  "hunan-swt": 200,
+  "hunan-tjj": 200,
+  "hunan-tyj": 200,
+  "hunan-whhlyt": 200,
+  "hunan-xfj": 200,
+  "hunan-zjt": 200,
+  "hunan-zrzyt": 200,
+  "qh-wsxf": 200,
+  "hunan-mzw": 197,
+  "hunan-ybj": 188,
+  "hunan-jyt": 187,
+  "sn-lyxd": 184,
   "gd-yj": 179,
   "jl-nynct": 179,
   "gd-zfcxjst": 177,
   "gd-hsa": 173,
+  "gz-czt": 166,
+  "hb-wuhan-8": 161,
   "gd-dara": 155,
   "jl-hrss": 153,
+  "gz-mwr": 148,
   "ah-st": 145,
   "mee": 145,
+  "gx-mailbox": 138,
   "jl-scjd": 137,
   "jl-zyy": 137,
   "gd-coop": 133,
+  "hunan-kjt": 129,
   "gz-st": 120,
+  "hunan-mzt": 120,
   "jl-ypj": 120,
+  "hb-hdjl-16": 119,
   "jl-tjj": 119,
+  "heb-szj": 114,
   "gz-swt": 107,
+  "gz-mzt": 106,
   "jl-fgw": 105,
+  "hb-wuhan-9": 103,
+  "hunan-wjw": 100,
   "gd-gdjyj": 98,
+  "hunan-tyjrswt": 94,
   "jl-st": 94,
+  "gz-gxt": 86,
+  "hunan-mpa": 83,
+  "gz-kjt": 79,
   "jl-gxj": 79,
   "gd-dfz": 78,
   "gd-gdwsxf": 78,
@@ -278,17 +402,21 @@
   "jl-czt": 76,
   "gd-gdstc": 74,
   "jl-jt": 71,
+  "sd-12345": 71,
   "gd-gdgrain": 70,
   "gd-gzw": 68,
   "jl-tyj": 66,
   "jl-tyjr": 62,
   "jl-zfcx": 60,
   "mem": 60,
+  "gz-dsj": 58,
   "jl-ybj": 56,
+  "gz-atcm": 55,
   "jl-mzt": 55,
   "gd-gdcss": 53,
   "jl-sjt": 49,
   "jl-sft": 48,
+  "hunan-jgswj": 47,
   "jl-slt": 47,
   "gd-gdyjzx": 42,
   "jl-lyj": 41,
@@ -299,26 +427,42 @@
   "jl-yjt": 37,
   "people-liuyan": 37,
   "gd-gdaudit": 36,
+  "hunan-lshwzcbj": 36,
   "jl-gzw": 36,
   "gd-jgsw": 34,
   "jl-gfdy": 33,
+  "gz-lshwzcb": 32,
   "jl-wsb": 31,
+  "gz-invest": 30,
   "gz-jyt": 30,
+  "gz-lyj": 30,
   "gz-nynct": 30,
   "gz-rst": 30,
   "gz-zfcx": 30,
+  "hb-wuhan-7": 29,
   "jl-ggzy": 29,
   "jl-jyj": 29,
+  "gz-mzw": 28,
+  "heb-czt": 26,
   "jl-nyj": 26,
   "jl-jgsw": 25,
   "jl-mzw": 25,
+  "gz-gzw": 24,
   "jl-lsj": 24,
   "ln-st": 24,
+  "gz-sjt": 23,
+  "hunan-sjt": 23,
   "jl-swt": 23,
+  "hb-hdjl-25": 22,
   "jl-gbdsj": 21,
   "jl-gat": 20,
-  "sc-st": 15
+  "hunan-gzw": 19,
+  "sc-st": 15,
+  "xj-dchs": 10,
+  "hb-wuhan-6": 7,
+  "hb-hdjl-10": 5,
+  "hb-hdjl-19": 4
  },
- "grand_total": 40943,
+ "grand_total": 53541,
  "n_provinces_covered": 31
 }

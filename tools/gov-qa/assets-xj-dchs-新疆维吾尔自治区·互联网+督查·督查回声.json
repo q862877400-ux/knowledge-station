@@ -1,0 +1,106 @@
+{
+ "A_考卷": [
+  {
+   "source": "xj-dchs",
+   "id": "05bee35805044e1abea66b4d0be5f22e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202510/05bee35805044e1abea66b4d0be5f22e.shtml",
+   "question": "群众反映酒店占用公共停车泊位问题伊犁州政府依法限期要求整改到位",
+   "cited_hits": [
+    {
+     "name": "城市市容和环境卫生管理条例",
+     "lib_no": "城市市容和环境卫生管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "xj-dchs",
+   "id": "f13294bcc7e344a3831940641e6eff27",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202508/f13294bcc7e344a3831940641e6eff27.shtml",
+   "question": "群众反映小区物业拒绝配合安装充电桩问题昌吉州政府现场协调督促整改到位",
+   "cited_hits": [],
+   "cited_missing": [
+    "昌吉州居民小区电动汽车充电基础设施建设运营管理暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "xj-dchs",
+   "id": "c249b06eedc24048809e8cd37c2636d5",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202605/c249b06eedc24048809e8cd37c2636d5.shtml",
+   "question": "群众反映小区居民停车难问题乌鲁木齐市政府积极协调回应群众诉求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "f28e920176ef493bb62308ae93c94452",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202510/f28e920176ef493bb62308ae93c94452.shtml",
+   "question": "群众反映户内燃气设施无法正常使用问题乌鲁木齐市政府积极协调 帮助接通燃气",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "1ae09bc9586348bda686b925f6c0d133",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202509/1ae09bc9586348bda686b925f6c0d133.shtml",
+   "question": "群众反映小区出口两侧道路存在违法停车问题乌鲁木齐市政府开展专项治理 有效保障道路交通安全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "67632ff1964a4f059772bb48834fc451",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202509/67632ff1964a4f059772bb48834fc451.shtml",
+   "question": "群众反映观景平台存在安全隐患问题阿勒泰地区行署立即整改 进一步强化保障措施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "a0a6f3ec29e240e99a1a0e3fc9216929",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202508/a0a6f3ec29e240e99a1a0e3fc9216929.shtml",
+   "question": "群众反映线路车违规占用公共区域载客问题伊犁州政府现场办公进行清理整治",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "e011753d7e1f4578af551cd0ae733c28",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202507/e011753d7e1f4578af551cd0ae733c28.shtml",
+   "question": "群众反映和田市阳光物业公司长期未退应退款项问题自治区政府督查室实地核实积极协调进行退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "5d79ce50ede34b0c9fe950ebfb24aa6e",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202507/5d79ce50ede34b0c9fe950ebfb24aa6e.shtml",
+   "question": "群众反映伊宁市潘津镇供水不足问题伊犁州政府多措并举保障居民用水需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "xj-dchs",
+   "id": "efce343636b545e495db3abd6d5a86db",
+   "url": "https://www.xinjiang.gov.cn/xinjiang/dchs/202506/efce343636b545e495db3abd6d5a86db.shtml",
+   "question": "群众反映青河县风林小区高层用水困难问题阿勒泰地区行署多措并举保障高层住户用水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

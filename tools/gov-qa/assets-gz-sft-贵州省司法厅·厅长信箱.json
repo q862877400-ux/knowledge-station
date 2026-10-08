@@ -1,0 +1,2977 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-sft",
+   "id": "27564658",
+   "url": "https://sft.guizhou.gov.cn/?id=27564658",
+   "question": "关于行政执法中的当场处罚，指当场决定，当场处罚。咨询：如1号晚上7时在某路段检查发现当事人有违法行为，属于依法适用简易程序当场处罚的。但于次日2号上午在执法机关办案机构办公室对当事人进行询问，采用简易程序进行处罚。这种时间、空间都发生变化了",
+   "cited_hits": [
+    {
+     "name": "行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27556732",
+   "url": "https://sft.guizhou.gov.cn/?id=27556732",
+   "question": "请问贵州省司法厅工作人员，贵州省行政监督有相关的行政监督条例嘛，本人经过查询没有找到相关的行政复议的监督条例，希望贵厅相关工作人员受累，帮助我查询一下",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政复议法实施条例",
+     "lib_no": "行政复议法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27500072",
+   "url": "https://sft.guizhou.gov.cn/?id=27500072",
+   "question": "《行政处罚法》第五十八条第二款规定“行政机关中初次从事行政处罚决定法制审核的人员，应当通过国家统一法律职业资格考试取得法律职业资格。”咨询：1.从事法制审核的人员需要取得执法证吗？2.如不需要取得执法证，2011年获得交通部执法证，后因执法",
+   "cited_hits": [
+    {
+     "name": "行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27453904",
+   "url": "https://sft.guizhou.gov.cn/?id=27453904",
+   "question": "咨询问题：民办高校的法学专职教师是否可以兼职律师？高校如贵州黔南经济学院、贵州黔南科技学院、贵州中医药大学时珍学院等。",
+   "cited_hits": [
+    {
+     "name": "律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "律师执业管理办法",
+    "全国高等院校名单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27436974",
+   "url": "https://sft.guizhou.gov.cn/?id=27436974",
+   "question": "感谢在百忙之中查看我的信件，首先介绍一下我的基本情况，我是事业编制、专业技术人员（助理社会工作师），法学本科，通过国家法律职业资格考试A证。 根据《人社部规〔2017〕4号》规定：支持和鼓励事业单位专业技术人员兼职创新或者在职创办企业；我作",
+   "cited_hits": [
+    {
+     "name": "律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27434225",
+   "url": "https://sft.guizhou.gov.cn/?id=27434225",
+   "question": "我在云南省迪庆州维西县巴迪乡阿尺打嘎村，现在的贵州省都已经进入小康社会了，那请问一下贵州省司法厅的相关工作人员到了现在为什么还没有进行高利贷进行立法？贵州省有关于高利贷的法律至今为止还是一片空白，是一个漏洞 ，这样会导致在贵州省的网络贷款a",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27382363",
+   "url": "https://sft.guizhou.gov.cn/?id=27382363",
+   "question": "尊敬的领导：&nbsp;&nbsp;&nbsp;&nbsp;你好！我是一名律师，在为基层政府提供政府法律顾问服务，在服务过程中就针对环保分局提起的行政复议如何受理，产生了疑问，故特此向省厅咨询，具体如下：&nbsp; 环保部门作为新增的省以",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法实施条例",
+     "lib_no": "行政复议法实施条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国行政复议法实施条例",
+     "lib_no": "行政复议法实施条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中共中央办公厅、国务院办公厅关于省以下环保机构监测监察执法垂直管理制度改革试点工作的指导意见",
+    "中共中央办公厅、国务院办公厅关于省以下环保机构监测监察执法垂直管理制度改革试点工作的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27381021",
+   "url": "https://sft.guizhou.gov.cn/?id=27381021",
+   "question": "关于《贵州省交通建设工程质量安全监督条例》有关条款的问题 &nbsp; 根据该条例第五十三条规定，“省交通建设工程质量监督机构负责全省高速公路、国道、省道和重点水运建设工程的质量安全监督工作；市、州交通建设工程质量监督机构负责本行政区域内县",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国立法法",
+     "lib_no": "立法法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省交通建设工程质量安全监督条例",
+    "贵州省交通建设工程质量安全监督条例",
+    "贵州省地方立法条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27199468",
+   "url": "https://sft.guizhou.gov.cn/?id=27199468",
+   "question": "厅领导：你好！特咨询加处罚款决定在执法程序的哪个阶段下达？望回复。",
+   "cited_hits": [
+    {
+     "name": "行政处罚法",
+     "lib_no": "行政处罚法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "行政强制法",
+     "lib_no": "行政强制法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "446317",
+   "url": "https://sft.guizhou.gov.cn/?id=446317",
+   "question": "公职律师转为社会律师的相关政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "律师执业管理办法",
+    "公职律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "446096",
+   "url": "https://sft.guizhou.gov.cn/?id=446096",
+   "question": "咨询：根据《行政处罚法》《律师法》《贵州省行政听证规定》有关规定，行政处罚案件当事人在收到行政执法机关发送的重大行政处罚听证告知书后，行政处罚案件当事人可以决定是否申请听证，若决定申请听证可以委托1-2名代理人。我想请问：该听证委托代理人在",
+   "cited_hits": [
+    {
+     "name": "律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "律师法",
+     "lib_no": "律师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "62303",
+   "url": "https://sft.guizhou.gov.cn/?id=62303",
+   "question": "《国务院实施若干规定》(国务院令第435号) 是国务院行政法规，其中第二十一条规定，只有在面向民族自治地方招生时才能对少数民族考生进行加分照顾，请问贵司为什么能够以此为依据，认可&lt;贵州省高考加分改革实施办法&gt;中 对全省的少数民族",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国高等教育法",
+     "lib_no": "教育法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民族区域自治法",
+     "lib_no": "民族区域自治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市民族工作条例",
+     "lib_no": "城市民族工作条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "贵州省实施〈中华人民共和国民族区域自治法〉若干规定",
+     "lib_no": "民族区域自治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院实施若干规定",
+    "国务院实施若干规定",
+    "国务院办公厅关于严格执行党和国家民族政策有关问题的通知",
+    "国务院关于深化考试招生制度改革的实施意见",
+    "国务院关于加快发展民族教育的决定",
+    "教育部 国家民委 公安部 国家体育总局 中国科学技术协会关于进一步减少和规范高考加分项目和分值的意见",
+    "省司法厅关于对＜贵州省高考加分改革实施办法＞的合法性审核意见"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-sft",
+   "id": "27744354",
+   "url": "https://sft.guizhou.gov.cn/?id=27744354",
+   "question": "您好，我是在2025年通过法考取得法律职业资格证书，在符合基层法律服务工作者执业资格前提下已申领并取得“基层法律服务工作者执业证”。 现在想申请在律所实习，已明确知晓不能同时以基层法律服务工作者与律师身份执业；但是否可以同时存在基层法律服务",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省申请律师实习人员管理细则",
+    "不违规兼职执业承诺书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27668068",
+   "url": "https://sft.guizhou.gov.cn/?id=27668068",
+   "question": "尊敬的领导，您好，我预备25年自考非全日制本科法学专业，预计3年后毕业，是否还能参考法考？2025年是放宽政策的最后一年，我毕业后是否还能享受放宽政策以自考本科学历报考法律从业资格证考试？望予以解答为谢，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27626416",
+   "url": "https://sft.guizhou.gov.cn/?id=27626416",
+   "question": "我2017年9月入学读函授法学专科，于2020年3月函授法学专科毕业，2020年9月又入学读函授法学本科，于2023年7月函授法学本科毕业，学历学信网均可查。是否可以报名参加法律职业资格考试，是否可以适用“老人老办法”取得A证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试实施办法",
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27611323",
+   "url": "https://sft.guizhou.gov.cn/?id=27611323",
+   "question": "您好，注销了律师证之后，从新申请律师执业证，需要重新实习吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于因故停业一年以上重新申请执业有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27607831",
+   "url": "https://sft.guizhou.gov.cn/?id=27607831",
+   "question": "尊敬的厅领导：您好！我是一名法考生，平常生活中非常热衷于学习法律知识，由于个人原因，每次考试都不遂人愿，未能达到分数线。我希望贵厅领导能改变或者适当降低基层法律服务执业资格报名要求必须法考客观题达到国家规定的统一分数线分数线降50分才有资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法",
+    "贵州省基层法律服务工作者执业核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27568407",
+   "url": "https://sft.guizhou.gov.cn/?id=27568407",
+   "question": "我2023基础法律服务工作者执业考试已经通过，请问哈考试合格证什么时候下发，下发后什么时候可以申请执业。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者执业管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27565494",
+   "url": "https://sft.guizhou.gov.cn/?id=27565494",
+   "question": "我想请问你一下领导机关执法人员，考取法律从业资格证书后，怎样办理公职律师，如果单位领导不同意是不是就不能办理了",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27556246",
+   "url": "https://sft.guizhou.gov.cn/?id=27556246",
+   "question": "尊敬的贵州省司法厅： 关于《2023年贵州省基层法律服务工作者执业核准考试公告》我有以下疑问，特此咨询。1.《2023年贵州省基层法律服务工作者执业核准考试公告》中要求报名需要毕业证书，那么目前大四在读生无法申请吗？2.主观题30号出成绩后",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年贵州省基层法律服务工作者执业核准考试公告",
+    "基层法律服务工作者执业核准考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27555538",
+   "url": "https://sft.guizhou.gov.cn/?id=27555538",
+   "question": "请问一下2023基层法律工作者考试只涉及公告公布的内容吗，民法刑法等不会涉及吗？怎么获得往年真题呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023年贵州省基层法律服务工作者执业核准考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27551709",
+   "url": "https://sft.guizhou.gov.cn/?id=27551709",
+   "question": "尊敬的贵州省司法厅，您好，我想问一下，今年参加基层法律服务工作者考试，一定要是法学本科才可以吗，不是法学本科分数达到了，可以参加吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法",
+    "贵州省基层法律服务工作者执业核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27550848",
+   "url": "https://sft.guizhou.gov.cn/?id=27550848",
+   "question": "司法部令第138号《基层法律服务工作者执业证》第六条 申请基层法律服务工作者执业，应当具备下列条件： （一）拥护中华人民共和国宪法； （二)高等学校法律专业本科毕业，参加省、自治区、直辖市司法行政机关组织的考试合格； （三）品行良好； （四",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者执业核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27504173",
+   "url": "https://sft.guizhou.gov.cn/?id=27504173",
+   "question": "请问如果在23法考成绩合格拿到了b证，明年拿到研究生毕业证后，是否可以正常参加法考客观题和主观题，成绩合格后申领a证",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法",
+    "2023年国家统一法律职业资格考试《公告",
+    "法律职业资格管理办法",
+    "实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27504125",
+   "url": "https://sft.guizhou.gov.cn/?id=27504125",
+   "question": "我是2018年4月28日以后就读非法本，我处在放宽地区，我报名了2023法考，如果我客观主观均过a证线可以拿到B证。 问题：如果我客观180分以上，主观未过108，但是过了c证的线，可以申领c证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27500097",
+   "url": "https://sft.guizhou.gov.cn/?id=27500097",
+   "question": "请问一下，专职律师去公司当法务，可以直接转为公司律师吗？可以从遵义专职律师转为贵阳某企业的公司律师吗?转为公司律师如何办理？公司律师执业范围有限制吗？和专职律师执业范围一样吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27498005",
+   "url": "https://sft.guizhou.gov.cn/?id=27498005",
+   "question": "领导好，我参加2022年国家统一法律职业资格考试，客观题考试通过国家放宽地区合格分数线，主观题未通过，今年参加2023年国家统一法律职业资格考试能否直接参加主观题考试，如主观题考试过国家放宽地区合格线，可否领取C证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27496631",
+   "url": "https://sft.guizhou.gov.cn/?id=27496631",
+   "question": "请问关于：第二十二条 本办法实施前已取得学籍(考籍)或者已取得相应学历的高等学校法学类专业本科及以上学历毕业生，或者高等学校非法学类专业本科及以上学历毕业生并具有法律专业知识的，可以报名参加国家统一法律职业资格考试。中的“本办法实施前已取得",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试实施办法",
+    "国家统一法律职业资格考试实施办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27492237",
+   "url": "https://sft.guizhou.gov.cn/?id=27492237",
+   "question": "领导您好，请问属于放宽地区参加法考，如果取得B证，在满足了学历条件之后（考上法硕研究生）可以把B证换成A证吗？还是要等法硕毕业之后重新参加法考才能取得A证呢？谢谢领导",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法",
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27491641",
+   "url": "https://sft.guizhou.gov.cn/?id=27491641",
+   "question": "执业律师考取研究生后到校就读（全日制） 需不需要注销律师执业证 ？注销之后重新申请执业需不需要重新申请实习 ？可不可以继续挂在所里面 如果需要注销 法律规定是什么 重新实习的具体规定是什么？望详解",
+   "cited_hits": [],
+   "cited_missing": [
+    "律师执业管理办法",
+    "申请律师执业人员实习管理规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27488660",
+   "url": "https://sft.guizhou.gov.cn/?id=27488660",
+   "question": "我是贵阳市事业单位在编工作人员，本单位为公益一类事业单位，2018年考取法律职业资格证书A证，请问我这种情况是否能申请公职律师",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27488224",
+   "url": "https://sft.guizhou.gov.cn/?id=27488224",
+   "question": "C证申请面试考核，考核通过后暂时不申请执业，可以继续参与诉讼案件的办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "申请律师执业人员实习管理规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27455450",
+   "url": "https://sft.guizhou.gov.cn/?id=27455450",
+   "question": "领导您好，我想请问一下法律职业资格考试如果以放宽学历通过国家统一分数线，是申领A证还是B证",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法",
+    "国家统一法律职业资格考试实施办法",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27452693",
+   "url": "https://sft.guizhou.gov.cn/?id=27452693",
+   "question": "尊敬的省司法厅领导，经个人学习《贵州省行政执法监督办法》，对《办法》第六条存在疑惑，希望能得到释义。 《办法》第六条“县级以上人民政府作为行政执法监督机关的，其法制工作机构为本级人民政府的行政执法监督机构，承担行政执法监督的具体工作。县级以",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省行政执法监督办法",
+    "贵州省行政执法监督办法",
+    "行政执法监督办法",
+    "国务院办公厅关于全面推行行政执法公示制度执法全过程记录制度重大执法决定法制审核制度的指导意见",
+    "省人民政府办公厅关于全面推行行政执法公示制度执法全过程记录制度重大执法决定法制审核制度实施意见的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27451981",
+   "url": "https://sft.guizhou.gov.cn/?id=27451981",
+   "question": "法律职业资格考试客观题，贵阳籍是按照多少分数线及格。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2022年度国家统一法律职业资格考试延考客观题考试成绩公布和主观题考试报名工作的公告",
+    "国家统一法律职业资格考试实施办法",
+    "贵州省2022年国家统一法律职业资格考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27407219",
+   "url": "https://sft.guizhou.gov.cn/?id=27407219",
+   "question": "由于本省客观题延期，请问二战主观题的考生还可以选择延期地区作为主观题考试地点吗？报名时间又是从什么时候开始呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年国家统一法律职业资格考试公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27389209",
+   "url": "https://sft.guizhou.gov.cn/?id=27389209",
+   "question": "尊敬的领导，您好，我是我们县司法局公职律师，编制在下属事业单位公共法律服务中心。按照司法部《关于开展公职律师试点工作的意见》明确，公职律师可以参加职称评定，《中共贵州省省委办公厅贵州省人民政府办公厅印发的通知》十六项也明确“公职律师享有参加",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅 国务院办公厅印发〈关于深化律师制度改革的意见〉的通知",
+    "中共中央办公厅 国务院办公厅印发〈关于完善法律援助制度的意见〉的通知",
+    "律师工作证（试用）",
+    "申报评审条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27382991",
+   "url": "https://sft.guizhou.gov.cn/?id=27382991",
+   "question": "我校是一所县直属公办学校，可否依照《公职律师管理办法》第二十四条设立公职律师，并推荐本校一名公职人员担任公职律师？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法",
+    "公职律师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27381270",
+   "url": "https://sft.guizhou.gov.cn/?id=27381270",
+   "question": "你好，请问一个关于C证执业地域的问题。我是去年考的C证，户籍地是在安顺市，现在准备申请执业证。如果我现在把户籍迁回观山湖区，能在观山湖区的律所执业吗？如果不能的话，请问贵阳市范围内哪些区可以C证执业？",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书C证的人员申请律师执业问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27332556",
+   "url": "https://sft.guizhou.gov.cn/?id=27332556",
+   "question": "请问在2019年9月入学的贵州籍学生（贵州大学法学专业，全日制本科，学制4年），在2022年是否有资格参加国家统一法律职业资格考试，麻烦解答一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部公告",
+    "国家统一法律职业资格考试实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27332540",
+   "url": "https://sft.guizhou.gov.cn/?id=27332540",
+   "question": "请问取得法律C证的监狱警察可以申请公职律师证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27331846",
+   "url": "https://sft.guizhou.gov.cn/?id=27331846",
+   "question": "尊敬的贵州省司法厅： 我是2016年9月上的大学，但是由于其间休学了两年，目前是大四阶段，于今年（2021）参加的法考，后期取得学位证有一些障碍，但是不影响毕业证的获得。想请问是否能根据“老人老办法”（根据《实施办法》第二十二条规定，对于2",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于2020年国家统一法律职业资格考试主观题考试成绩、合格分数线公布以及申请授予法律职业资格等事宜公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27326501",
+   "url": "https://sft.guizhou.gov.cn/?id=27326501",
+   "question": "我是贵州省交通运输综合行政执法三支队一大队路政执法人员，在一线从事路政执法工作9年，2012年通过国家法律执业资格考试，能否申请公职律师证。如果能申请，申请程序是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法",
+    "公职律师管理办法",
+    "公职律师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27325943",
+   "url": "https://sft.guizhou.gov.cn/?id=27325943",
+   "question": "本次缴费截至时间为国考刚考完，前一天在参加清镇事业单位考试，第二天在参加国考，而截至时间刚好为国考完，大家都忙着准备考生及，忘记了缴费时间，以至于周围身边好多人都没有缴费成功，能否申请延长缴费时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021年贵州省司法行政系统基层单位统一面向社会公开招录公务员公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27318315",
+   "url": "https://sft.guizhou.gov.cn/?id=27318315",
+   "question": "咨询一下，中学教师可以参加基层法律工作者考试不，另外可以兼职做基层法律服务工作者不。",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律工作者执业管理办法",
+    "贵州省基层法律服务工作者执业核准考试办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27296732",
+   "url": "https://sft.guizhou.gov.cn/?id=27296732",
+   "question": "尊敬的领导您好! 我是19届浙江警官职业学院贵州籍学生，我们即将回到本省监狱实习。面临毕业对自己的就业情况十分的关心，也很热爱监狱人民警察这个行业，希望能加入这个大家庭，成为其中的一份子。请问贵单位面向我校2022届刑事执行、行政执行贵州籍",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强司法行政机关人民警察招录培养工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27295830",
+   "url": "https://sft.guizhou.gov.cn/?id=27295830",
+   "question": "请问法律职业资格档案在广州，能否在贵阳申请公司律师执业？是否需要先将档案转移过来。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27287879",
+   "url": "https://sft.guizhou.gov.cn/?id=27287879",
+   "question": "省司法厅您好：&nbsp; &nbsp; &nbsp; &nbsp;2018年12月13日司法部印发的《公职律师管理办法》，规定了公职律师的任职条件和申请程序，其中规定，公职律师是指任职于党政机关或者人民团体，依法取得司法行政机关颁发的公职",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27285384",
+   "url": "https://sft.guizhou.gov.cn/?id=27285384",
+   "question": "尊敬的相关部门领导：&nbsp; &nbsp; &nbsp; &nbsp;您好，我今年申领了c证，户籍地为黔西南州兴仁市，想咨询几个问题：1.持c证是否能在省外地区申请实习？2.持c证能否在省内户籍地以外的地区申请实习？如贵阳市城区，黔西南",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书C证的人员申请律师执业问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27283316",
+   "url": "https://sft.guizhou.gov.cn/?id=27283316",
+   "question": "在贵州省范围内申请律师执业，是否需要将个人档案转至申请所在地人才中心？有无政策依据？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省司法厅律师执业证书申领变更注销工作指南"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27280693",
+   "url": "https://sft.guizhou.gov.cn/?id=27280693",
+   "question": "我是一名律师，2019年至2020年，受紫支县法律援助中心委托安顺市法律援助中心指派，办理了几个刑事案件，现案件已经办结，卷宗已经于2020年交给紫云县法律援助中心，事务所也已经把发票开具给紫云县法律援助中心，但至今未领到费用。我们办理法律",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈安顺市法律援助经费管理办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27279268",
+   "url": "https://sft.guizhou.gov.cn/?id=27279268",
+   "question": "&nbsp; &nbsp; &nbsp;贵州省司法厅2020年就发布《贵州省基层法律服务工作者执业核准考试办法（试行）》的通知，其中第二阶段的考试在考试前60日公布，就目前来看，在2021年中旬尚未能确定考试时间。请明确的回答，《办法》公布",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27272033",
+   "url": "https://sft.guizhou.gov.cn/?id=27272033",
+   "question": "你好，关于关于对申请律师执业实习的人员实施“先上岗、再考证”阶段性措施的通知中的可以先实习再通过法考取得法律职业资格证是否只针对2018、2019、2020届毕业生？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好律师行业应对新冠肺炎疫情影响实施“先上岗、再考证”相关工作的通知",
+    "关于应对新冠肺炎疫情影响实施部分职业资格“先上岗、再考证”阶段性措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27265379",
+   "url": "https://sft.guizhou.gov.cn/?id=27265379",
+   "question": "你好！请问《基层法律服务工作者》的考试，2021年大概什么时候举行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27264201",
+   "url": "https://sft.guizhou.gov.cn/?id=27264201",
+   "question": "咨询法律职业资格考试差几分，怎么样复核？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家统一法律职业资格考试工作规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27258696",
+   "url": "https://sft.guizhou.gov.cn/?id=27258696",
+   "question": "领导您好！本人已经参加2020年法律资格考试，客观题已经达到申请法律工作证书标准，现想咨询以下几个问题。1、请问今年还可以申请法律工作者证书？ ；2、什么时候能向当地司法局递交申请材料？；3、申请法律工作者证书需要提交哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27257816",
+   "url": "https://sft.guizhou.gov.cn/?id=27257816",
+   "question": "本人2011年参加当时的司考，2012年年初取得C证，当时的报考地为贵阳市乌当区，现已经将户籍转入观山湖区，请问能否将C证转入登记地为贵阳市观山湖区的律师事务所注册并执业。感谢回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书C证的人员申请律师执业问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27252372",
+   "url": "https://sft.guizhou.gov.cn/?id=27252372",
+   "question": "我想咨询一下公职律师办理法律援助案件能否领取法律援助补贴，省里面是否制定过关于公职律师办法法律援助案件可以领取法律援助补贴方面的政策文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省法律援助经费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27252039",
+   "url": "https://sft.guizhou.gov.cn/?id=27252039",
+   "question": "基层法律工作者第二阶段报名时间及报名所需报名材料,",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27250815",
+   "url": "https://sft.guizhou.gov.cn/?id=27250815",
+   "question": "刑释解教人员就业，就业企业不是认定的安置基地，其企业是否有税收、补助等相应优惠政策？相关有效文件是多少？能否告知？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省进一步稳定和促进就业若干政策措施",
+    "关于进一步支持和促进重点群体创业就业有关税收政策的通知",
+    "省人民政府关于印发贵州省进一步稳定和促进就业若干政策措施的通知",
+    "关于进一步支持和促进重点群体创业就业有关税收政策的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27248418",
+   "url": "https://sft.guizhou.gov.cn/?id=27248418",
+   "question": "尊敬的司法厅领导，请问贵州省关于2020年基层法律工作者什么时候报名考试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者核准考试办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27241968",
+   "url": "https://sft.guizhou.gov.cn/?id=27241968",
+   "question": "财政全额拨款事业单位编制人员取得法律职业资格证后，可以申请公职律师执业吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27230607",
+   "url": "https://sft.guizhou.gov.cn/?id=27230607",
+   "question": "尊敬的领导：&nbsp; &nbsp;&nbsp; 您好!&nbsp; &nbsp;&nbsp; 现本人在律所实习，因法律职业资格证于8月底申请，具体发放时间不清楚，申请实习证需要法律职业资格证，故向您咨询法律职业资格证多久可以发放。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对申请律师执业实习的人员实施 “先上岗再考证”阶段性措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27222245",
+   "url": "https://sft.guizhou.gov.cn/?id=27222245",
+   "question": "我们公司有申请公司律师的要求，但是没有最新的申请文件，所以向司法厅寻求相关的文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司律师管理办法",
+    "关于在省内民营企业中试行公司律师制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27220496",
+   "url": "https://sft.guizhou.gov.cn/?id=27220496",
+   "question": "2011年户籍地为贵阳市南明区，通过司考C证分数线，2012年7月户籍迁入六盘水水城县，2012年9月颁发法律职业资格证书C证，所在地为贵州省六盘水市。请问现在可以在贵阳南明区从事律师执业不？执业所在地以司考时的户籍地为准还是以申办法律职业",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书 C证的人员申请律师执业问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27217331",
+   "url": "https://sft.guizhou.gov.cn/?id=27217331",
+   "question": "尊敬的贵州省司法厅领导：&nbsp; &nbsp; &nbsp; &nbsp; 我是一家驻贵安新区央企子公司法律合规部门工作人员，根据司法部关于公司律师的管理规定，个人当前符合公司律师的申请条件，拟申请办理公司律师执业资格申请，但前往贵安新",
+   "cited_hits": [],
+   "cited_missing": [
+    "公司律师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27214367",
+   "url": "https://sft.guizhou.gov.cn/?id=27214367",
+   "question": "尊敬的司法厅领导：&nbsp; &nbsp; &nbsp; &nbsp;我是取得法律职业资格C证的人员，户籍所在地为毕节市，请问：&nbsp; &nbsp; &nbsp; &nbsp;1、我申请实习和申请执业的地方必须是在户籍所在地的放宽地",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书C证的人员申请律师执业问题的批复",
+    "申请律师执业人员实习管理规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27211392",
+   "url": "https://sft.guizhou.gov.cn/?id=27211392",
+   "question": "请问贵州省2020年基层法律服务工作者考试何时举行开考，全国已有多个省份开考，贵州省是否已经出台了相应的考试办法！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者执业核准考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27202183",
+   "url": "https://sft.guizhou.gov.cn/?id=27202183",
+   "question": "各司法部门的领导负责同志 你们好&nbsp; &nbsp;我是贵州省户籍的应届高三学生 准备报考司法警官学院（浙江警官职业学院）的国控专业（刑事执行，刑事侦查技术，罪犯心理测量与矫正技术，行政执行，戒毒矫治技术，司法信息安全）在此期间我了解",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部等六部门关于进一步加强司法行政机关人民警察招录培养工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27198346",
+   "url": "https://sft.guizhou.gov.cn/?id=27198346",
+   "question": "关于贵厅与贵州省律师协会联合下发的《关于对申请律师执业实习的人员实施 “先上岗、再考证”阶段性措施的通知》，望提供一下具体文件或文件网址为谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于对申请律师执业实习的人员实施“先上岗 再考证”阶段性措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27196529",
+   "url": "https://sft.guizhou.gov.cn/?id=27196529",
+   "question": "尊敬的司法厅领导们：大家好！请问贵州何时组织基层法律服务工作者考试？比邻省市都在陆续组织考试了（四川、云南、湖南、重庆），贵州为何还不出台相关政策？盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省基层法律服务工作者执业核准考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27195245",
+   "url": "https://sft.guizhou.gov.cn/?id=27195245",
+   "question": "律师职业资格证C证，现为四川自贡市执业律师，能否转所到毕节县？",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法部关于取得法律职业资格证书c证的人员申请律师执业问题的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27194116",
+   "url": "https://sft.guizhou.gov.cn/?id=27194116",
+   "question": "我是安顺市一名普通律师，去年，我们办理安顺市各县区司法局委托市局指派的法律援助案件，指派到的律师都认真且负责地完成了案件的办理工作，也按照各县区局的要求将案件卷宗装订好交到市局，可是案件经费至今没有领到。我们都是年轻律师，加上安顺市实行刑事",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发〈安顺市法律援助经费管理办法〉的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "27189076",
+   "url": "https://sft.guizhou.gov.cn/?id=27189076",
+   "question": "请问一下2019年法律职业资格证书其他省已经发放，我们省要什么时候才开始发放啊。",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27188794",
+   "url": "https://sft.guizhou.gov.cn/?id=27188794",
+   "question": "请问2019法律职业资格证书什么时候发放？因为疫情确实影响了发放进度，深表理解。可是最近好多机关和国有企业招考发布公告，要求截止今年三月取得法律职业资格证书，提交成绩合格单都不行，必须要求证书扫描件。已经错过了好几个单位的报名，这两天陆续又",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27188526",
+   "url": "https://sft.guizhou.gov.cn/?id=27188526",
+   "question": "本人于2019年通过法律从业资格考试，2019年12月20日向六盘水市司法局提出法律职业资格申请，因疫情影响一直未收到领取证书的消息，现已2020年4月份，不知道何时才能领取法律职业资格证书？？？",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27188398",
+   "url": "https://sft.guizhou.gov.cn/?id=27188398",
+   "question": "请问贵州省现行有效的律师收费标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省发展改革委&nbsp;省司法厅 关于律师服务收费有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27185597",
+   "url": "https://sft.guizhou.gov.cn/?id=27185597",
+   "question": "请问今年因为疫情的原因，法律职业资格证书会推迟发放吗？什么时候能发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27185520",
+   "url": "https://sft.guizhou.gov.cn/?id=27185520",
+   "question": "请问2019年法律职业资格证领取是否还像往年一样是3月底？或者有其他具体时间吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2730826",
+   "url": "https://sft.guizhou.gov.cn/?id=2730826",
+   "question": "在执法部门上班，想咨询下今年的执法证考试说明时候？可否个人报考？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省行政执法监督办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "2667322",
+   "url": "https://sft.guizhou.gov.cn/?id=2667322",
+   "question": "各位领导，你们好，我是2011年通过司法考试取得法律职业资格证，一直没有从事法律相关工作，年度备案时司法局工作人员说只要工作性质没有改变就不需要年年备案，从2016年以来我就没参与年度备案工作，但是看到网站上有众多咨询备案的，答复好像我不太",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2452996",
+   "url": "https://sft.guizhou.gov.cn/?id=2452996",
+   "question": "《贵州省办理律师查询入口信息工作规范（试行）》文件中规定的《人口信息查询申请表》哪里可以下载？或者自制该表格可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人口信息查询申请表",
+    "贵州省办理查询人口信息工作规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2450437",
+   "url": "https://sft.guizhou.gov.cn/?id=2450437",
+   "question": "司法部现未颁布类似如《公司律师管理办法》等规章未对法援律师转为社会律师的政策规定，法援律师可否依据《律师执业管理办法》直接转为社会律师？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省司法厅律师执业证申领变更注销工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "446036",
+   "url": "https://sft.guizhou.gov.cn/?id=446036",
+   "question": "本人想申请基层法律服务工作者执业资格，查询相关管理办法，要求通过省级司法行政机关组织的资格考试，咨询市司法局答复到：新规出台后未组织过相关考试。所以想咨询省厅相关考试的问题，有计划进行组织吗，如果短期无计划，那无工作经验的应届生是否有其他方",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "445977",
+   "url": "https://sft.guizhou.gov.cn/?id=445977",
+   "question": "事业编制人员取得《法律职业资格证书》后，可以申请公职律师吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法",
+    "公司律师管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-sft",
+   "id": "62935",
+   "url": "https://sft.guizhou.gov.cn/?id=62935",
+   "question": "求关于新的机构改革后，（例如：原县卫计局改为卫健局后），原行政执法制证系统的单位账号名称和账号，需要更改，咨询上级司法局答复说要等省司法厅下发新的文件，统一更改执法单位名称，这到底是怎么回事？？还有很多执法单位现在持有的行政执法证经过年审签",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于全面推行行政执法公示制度执法全过程记录制度重大法制审核制度的指导意见",
+    "司法部办公厅关于征求〈行政执法证件标准样式（征求意见稿）〉意见的函",
+    "关于采用网络远程培训考试方式开展行政执法监督、行政执法培训考试以及制证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "62906",
+   "url": "https://sft.guizhou.gov.cn/?id=62906",
+   "question": "机构改革后，涉改行政执法单位的很多名称已更改，行政执法证报名、考试、新申领、换发、年审等事宜，怎么办？？？？基层很着急。。。。。。。。。。。。。急需解决。。。。。。。。。。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于全面推行行政执法公示制度执法全过程记录制度重大法制审核制度的指导意见",
+    "司法部办公厅关于征求〈行政执法证件标准样式（征求意见稿）〉意见的函",
+    "关于采用网络远程培训考试方式开展行政执法监督、行政执法培训考试以及制证工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "60030",
+   "url": "https://sft.guizhou.gov.cn/?id=60030",
+   "question": "您好，我是遵义人，我于2018年在贵阳市司法局取得国家司法考试A类证书，但是现在有点好奇证书的备案问题，贵阳司法局不要求每年备案，而遵义司法局要求每年备案，我应该以那个司法局的规定为准呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "法律职业资格管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-sft",
+   "id": "27768526",
+   "url": "https://sft.guizhou.gov.cn/?id=27768526",
+   "question": "2025年，我在贵州行政执法培训系统中参加行政执法证课程学习。期间，有一门课程在学习完毕后，多次更新后依旧显示为“继续学习”状态，始终无法进入在线考试环节。在多次尝试无果后，我最终无奈放弃。令人困扰的是，2026年再次参与培训时，同样的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27753130",
+   "url": "https://sft.guizhou.gov.cn/?id=27753130",
+   "question": "2015年非法学专科毕业，已取得毕业证书，2024年非全日制本科法学毕业，已取得毕业证书，可以报考2026年司法考试么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27720014",
+   "url": "https://sft.guizhou.gov.cn/?id=27720014",
+   "question": "你好，我2025年基层法律服务工作者执业考试已经通过，请问考试合格证什么时候下发？现已2026年3月底，还未收到领证通知，能否告知具体领证时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27709256",
+   "url": "https://sft.guizhou.gov.cn/?id=27709256",
+   "question": "本人不是在户籍放宽地区，2018年9月份入学，本科非法本专业，目前已经通过了同等学历申硕，取得了法学硕士学位证，没有毕业证，可以参加法考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27707355",
+   "url": "https://sft.guizhou.gov.cn/?id=27707355",
+   "question": "我想咨询一下，我于2017年全日制大专毕业，在2024年获得成人本科学历（无学位证），请问我是否可以参与法考，是否可以考A证，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27697411",
+   "url": "https://sft.guizhou.gov.cn/?id=27697411",
+   "question": "对司法考试分数有异议申请核查，有关部门是否实实在在开展核查工作不透明，申请人不知晓，是否存在流于形式敷衍情况？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27681622",
+   "url": "https://sft.guizhou.gov.cn/?id=27681622",
+   "question": "请问司法所制服有最新进展吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27677187",
+   "url": "https://sft.guizhou.gov.cn/?id=27677187",
+   "question": "您好，我本人户籍不在仁怀，户籍在遵义市的其他放宽地区，2021年取得法律执业资格证C证，请问我现在是否可以在遵义市仁怀市执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27659883",
+   "url": "https://sft.guizhou.gov.cn/?id=27659883",
+   "question": "我是2019年的自考本科考籍，在2024年获得本科毕业证，没有学位证，我是在放宽地区，请问我是否需要学位证才获得法考报考资格，还是说只要有毕业证就能报考呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27658643",
+   "url": "https://sft.guizhou.gov.cn/?id=27658643",
+   "question": "你好，请问想转至外省律所执业，需要办理哪些手续呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27645729",
+   "url": "https://sft.guizhou.gov.cn/?id=27645729",
+   "question": "国家统一法律职业资格考试实施办法第九条第一款第五项规定“具备全日制普通高等学校法学类本科学历并获得学士及以上学位全日制普通高等学校非法学类本科及以上学历，并获得法律硕士、法学硕士及以上学位全日制普通高等学校非法学类本科及以上学历并获得相应学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27634648",
+   "url": "https://sft.guizhou.gov.cn/?id=27634648",
+   "question": "尊敬的司法厅工作人员，我户籍地是贵州省黔南州龙里县。取得c证，想请问一下，我能否在都匀市申请律师执业。如不能，能在黔南地区那些地区申请执业，和全省那些地区能申请。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27630067",
+   "url": "https://sft.guizhou.gov.cn/?id=27630067",
+   "question": "请问法律职业资格证书如何查询真伪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27614507",
+   "url": "https://sft.guizhou.gov.cn/?id=27614507",
+   "question": "请问下24年基层法律服务工作者资格考试是什么时间？怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27595201",
+   "url": "https://sft.guizhou.gov.cn/?id=27595201",
+   "question": "1、是否存在“黔西南州仲裁委员会”？ 2、黔西南州是否有商事仲裁委员会？ 3、合同约定的提交“黔西南州仲裁委员会”仲裁，是否属于约定不明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27585704",
+   "url": "https://sft.guizhou.gov.cn/?id=27585704",
+   "question": "尊敬的领导您好，我一名在职人员，想要今年参加法律职业资格证考试，我所工作的地方和户籍是放宽政策地区，但我的户籍是集体户口类型，没有户口簿，只能开具公安机关的户籍证明材料。我想咨询，能用户籍证明来报名和申领法律职业资格证吗？望领导解疑答惑为谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27578833",
+   "url": "https://sft.guizhou.gov.cn/?id=27578833",
+   "question": "各位领导，你们好，请问下，基层法律工作者申请执业核准，是否有地域限制？在县城所在地法律服务所是否可以申请执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27574429",
+   "url": "https://sft.guizhou.gov.cn/?id=27574429",
+   "question": "请问一下，申请公职律师工作证要多长时间，我看政务网上公示的办理进度很多还是2023年12月就申请的，3个月都未办结",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27572539",
+   "url": "https://sft.guizhou.gov.cn/?id=27572539",
+   "question": "你好，我是之前在贵安新区执业的律师，律师证上是C证证号，现在已经领取新A证法律职业资格证，现在我要变更到观山湖区律所执业，能否直接申请变更执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27570874",
+   "url": "https://sft.guizhou.gov.cn/?id=27570874",
+   "question": "尊敬的省领导，您好 我是之前取得C证在威宁县执业的律师，今年过了A证，想换到贵阳执业，在办理转所手续的时候，我可以直接在贵阳申请A证执业吗，还是需要在威宁的律所申请更换了A证，然后再申请转所呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27569901",
+   "url": "https://sft.guizhou.gov.cn/?id=27569901",
+   "question": "尊敬的司法厅：您好！请问公民认为贵州省自然资源厅做出的“依申请公开”答复的内容有误，申请行政复议的渠道有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27569312",
+   "url": "https://sft.guizhou.gov.cn/?id=27569312",
+   "question": "请问关于：第二十二条 本办法实施前已取得学籍(考籍)或者已取得相应学历的高等学校法学类专业本科及以上学历毕业生，或者高等学校非法学类专业本科及以上学历毕业生并具有法律专业知识的，可以报名参加国家统一法律职业资格考试。 本人于2010年取得法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27567858",
+   "url": "https://sft.guizhou.gov.cn/?id=27567858",
+   "question": "尊敬的省厅工作人员，你们好！我想请问一下在黔西南州取得律师职业资格证C证的实习律师可否在遵义市仁怀市申请律师执业，该实习律师实习期已满且通过了实习考核，户口也迁入了仁怀市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27562334",
+   "url": "https://sft.guizhou.gov.cn/?id=27562334",
+   "question": "司法厅领导，你们好，我于2023年参加基层法律服务工作者第二阶段考试，并通过了要求的分数线，请问合格证是否还需要提交什么材料，如果需要，需要提交什么，什么时间之前要提交。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27560655",
+   "url": "https://sft.guizhou.gov.cn/?id=27560655",
+   "question": "您好，我是一名取得法律职业资格c证的人员，户籍地遵义习水，现在贵阳工作。在查阅律师法，律师执业管理办法等规定后，并未发现明确的执业地申请规定。现向贵厅咨询以下问题：一是申请实习地是否有省、市、县地域限制？二是申请执业地是否有省、市、县地域限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27560246",
+   "url": "https://sft.guizhou.gov.cn/?id=27560246",
+   "question": "请问法考通过并在网上进行资格申请后，由于本人现在正在国外留学，现场提交材料可以委托亲属代为提交吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27556872",
+   "url": "https://sft.guizhou.gov.cn/?id=27556872",
+   "question": "您好，想咨询一下公证遗产房需要带什么材料？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27554523",
+   "url": "https://sft.guizhou.gov.cn/?id=27554523",
+   "question": "各位领导：请问2023年下半年还要基层法律服务工作者考试吗？如果举行，大概会在什么时间报名和考试？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27553349",
+   "url": "https://sft.guizhou.gov.cn/?id=27553349",
+   "question": "您好，想咨询一下省司法厅下面的企业或二级单位会在贵州省司法厅网站上发布招聘工作人员的公示吗？有发布的话一般在网站的哪个栏目可以看到呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27547827",
+   "url": "https://sft.guizhou.gov.cn/?id=27547827",
+   "question": "请问2023年是否开展基层法律服务工作者的考试工作。如果开展请问具休时间！请回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27547749",
+   "url": "https://sft.guizhou.gov.cn/?id=27547749",
+   "question": "我户籍是贵州省印江县的，持有的是司法职业资格证C证，目前在修文县作为实习律师实习，请问我实习期结束后能够在修文县执业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27546902",
+   "url": "https://sft.guizhou.gov.cn/?id=27546902",
+   "question": "尊敬的贵州省司法厅领导您们好，我是一名参加法考客观题的考生，于2023.9.17下午在贵州省建设职业技术学院考场遗失了身份证，对生活和工作带来了许多不便，后联系了学校老师和贵阳市司法局法律职业资格管理科，老师和工作人员积极为我寻找，找到后及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27540526",
+   "url": "https://sft.guizhou.gov.cn/?id=27540526",
+   "question": "领导好，我是遵义务川户籍报告的法律执业资格证，获得的C证，我想知道能不能在贵阳市申请律师证？ C证的律师执业申请范围是那个地区？是全省都可以申请执业，还是遵义市？还是务川县？这个很迷茫。请详细告知。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27538952",
+   "url": "https://sft.guizhou.gov.cn/?id=27538952",
+   "question": "中央司法警官学院2023年在贵州省招生提前批录取专业 面试、体检、体能测试于7月5日结束，录取于7月12日完毕；浙江警官职业学院2023年在贵州省招生提前批录取专业 面试、体检、体能测试于7月9日结束，录取于8月7日开始，但司法厅一直未公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27538258",
+   "url": "https://sft.guizhou.gov.cn/?id=27538258",
+   "question": "2023年应届毕业生已于7月21日集体申请领取法律职业资格证书，规定的是20个工作日之内提交司法部审核，司法部20个工作日内审核反馈。现已经八月份，请问省厅是否已经提交司法部审核？预计是否能在八月份内进行证书的发放工作？望省厅及时回复，应届",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27535905",
+   "url": "https://sft.guizhou.gov.cn/?id=27535905",
+   "question": "请问一下，安顺的C证可以在贵阳的律师事务所挂证实习吗？如果不可以，能在哪儿挂？过实习期之后，可以在贵阳的律师事务所工作吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27497823",
+   "url": "https://sft.guizhou.gov.cn/?id=27497823",
+   "question": "尊敬的领导，您好！ 咨询一下，我2021年客观题过了C线，主观题没过。2022年参加客观题考试，过了A线，但是2022年的主观题连C线也没达到，请问客观的成绩在2023年有效吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27497211",
+   "url": "https://sft.guizhou.gov.cn/?id=27497211",
+   "question": "一：这是2022年贵州法考关于同等学历应届硕士研究生的相关内容，【2022年国家统一法律职业资格考试报名时已经完成学业但尚未取得学历学位证书的普通高等学校、军队院校2022年应届本科毕业生和以同等学力报考的应届硕士研究生及继续教育（包括网络",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27494082",
+   "url": "https://sft.guizhou.gov.cn/?id=27494082",
+   "question": "司法厅工作人员，您好！我是18年9月入学，22年毕业的本科生，非法本科，户籍在毕节市七星关区，是否符合2023法考报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27493811",
+   "url": "https://sft.guizhou.gov.cn/?id=27493811",
+   "question": "2021年领取c证，2022年客观过a主观没过，现在如果挂证开始实习的话今年客观题成绩会保留吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27488930",
+   "url": "https://sft.guizhou.gov.cn/?id=27488930",
+   "question": "请问《贵州省人民政府关于行政处罚较大数额罚款标准的规定》省政府令87号是否有效？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27452250",
+   "url": "https://sft.guizhou.gov.cn/?id=27452250",
+   "question": "21年的主观卷考试时，五笔输入法输入后很久才弹出候选字反应太慢，严重影响打字速度，当时也向监考老师反应此情况，老师说用的人太多没有办法。不知今年的五笔输入法是否有改进。考点黔西南民族职业技术学院。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27452038",
+   "url": "https://sft.guizhou.gov.cn/?id=27452038",
+   "question": "尊敬的领导：我是一个法考主观二战的考生，经过去年的主观考试，六盘水市考点的机子输入法全部是全拼输入，可否安装一个搜狗输入法（不是搜狗全拼输入法），因为全拼不能连打，需要一个一个字的输入，这种输入很慢，导致时间不够，所以希望各位领导了解一下，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27450955",
+   "url": "https://sft.guizhou.gov.cn/?id=27450955",
+   "question": "请问2023年基层法律工作者第二阶段考试时间是多久？从什么渠道可以得知？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27450070",
+   "url": "https://sft.guizhou.gov.cn/?id=27450070",
+   "question": "我是2015年考过法律资格C证，当时户籍所在地是碧江区。2022年户籍转到观山湖区，请问我如果想在贵阳申请执业律师，可以在贵阳市三县一市和贵安新区申请执业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27434089",
+   "url": "https://sft.guizhou.gov.cn/?id=27434089",
+   "question": "你好，我是取得的C证，现在将要申请执业，我取得C证时的户籍是填写的遵义市习水县，现在的户籍在遵义市红花岗区，我现在如果不在习水县执业，那在遵义市哪些地区能申请执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27432393",
+   "url": "https://sft.guizhou.gov.cn/?id=27432393",
+   "question": "我想请问下实习律师实习面试考核通过后，需要在多久内申请执业呢，申请执业是否有时间限制，若有，时间是从申请执业的日期起算还是从实习面试考核通过的日期还是算呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27431233",
+   "url": "https://sft.guizhou.gov.cn/?id=27431233",
+   "question": "2022年法律职业资格考试还会举行吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27423892",
+   "url": "https://sft.guizhou.gov.cn/?id=27423892",
+   "question": "我2015年入学普通全日制大专，于2018年7月毕业，后2019年3月入学函授本科法学专业，于2021年6月毕业，想参加2023年司法考试，请问是否有资格报名考试，我看考试公告中‘’对2022年国家统一法律职业资格考试报名时已经完成学业但尚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27422585",
+   "url": "https://sft.guizhou.gov.cn/?id=27422585",
+   "question": "您好，请问一下2022年法律职业资格考试客观题有大概的考试时间吗？主观题会不会延期到2023年1月份举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27421252",
+   "url": "https://sft.guizhou.gov.cn/?id=27421252",
+   "question": "您好，请问2022年国家法律职业资格考试客观题考试时间是否确定？大概什么时候举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27419578",
+   "url": "https://sft.guizhou.gov.cn/?id=27419578",
+   "question": "您好，请问一下2022年司法考试客观题考试拟于什么时候举行呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27418724",
+   "url": "https://sft.guizhou.gov.cn/?id=27418724",
+   "question": "您好，我是今年参加法考主观题的考生，请问一下考试时间定了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27417522",
+   "url": "https://sft.guizhou.gov.cn/?id=27417522",
+   "question": "请问贵厅今年还有招录司法行政基层单位公务员的计划吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27416995",
+   "url": "https://sft.guizhou.gov.cn/?id=27416995",
+   "question": "请问今年的司法考试什么时候能考 有大概的时间吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27416206",
+   "url": "https://sft.guizhou.gov.cn/?id=27416206",
+   "question": "你好，贵州省内律师执业机构变更需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27413830",
+   "url": "https://sft.guizhou.gov.cn/?id=27413830",
+   "question": "您好，想咨询一下关于今年关于法律子夜资格考试的通知在哪可以看到？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27412132",
+   "url": "https://sft.guizhou.gov.cn/?id=27412132",
+   "question": "请问2022年法律职业资格考试延期多久恢复？今年之内还能举行考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27411788",
+   "url": "https://sft.guizhou.gov.cn/?id=27411788",
+   "question": "法律职业资格证书副本不慎遗失，请问怎么补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27411671",
+   "url": "https://sft.guizhou.gov.cn/?id=27411671",
+   "question": "您好，请问一下，我在司法部官网规定时间主观题报名时间内报名成功，什么时候缴报名费，我有没有错过缴费时间，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27411627",
+   "url": "https://sft.guizhou.gov.cn/?id=27411627",
+   "question": "您好！问下您2022年司法考试客观题什么时候考呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27411363",
+   "url": "https://sft.guizhou.gov.cn/?id=27411363",
+   "question": "请问一下多久公布法考客观题考试时间啊，学生们要焦虑死了，这都快一个月了，疫情都清0了，拜托了，各位领导能给个定心丸吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27411227",
+   "url": "https://sft.guizhou.gov.cn/?id=27411227",
+   "question": "我是贵州省2021客观题保留考生，主观题是等贵州省客观题考完成绩公布后再一起按程序报名确认吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27407838",
+   "url": "https://sft.guizhou.gov.cn/?id=27407838",
+   "question": "本人18年以前毕业的非法本全日制本科生，想要报名2023年法考。但本人的学位证书不慎遗失。是否可以报名法考。如果可以，请问怎么做？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405721",
+   "url": "https://sft.guizhou.gov.cn/?id=27405721",
+   "question": "因疫情防控要求，贵阳市观山湖区全体静默中，无法前往黔南考区异地参加考试，恳请司法厅考虑考生实际困难，尽快确定是否延期考试或异地考生的紧急处理方案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405720",
+   "url": "https://sft.guizhou.gov.cn/?id=27405720",
+   "question": "异地考生因疫情原因，学校推迟外省学生返校，且贵阳市区处于静态管理中，异地考生处于无法提前到达考点所在城市的状态。如果如期考试，如果需要提前七天到考点所在市区，不仅风险大，跨省流动后异地考生需要自行隔离，学生个人承担隔离费用太高。故向贵州司法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405661",
+   "url": "https://sft.guizhou.gov.cn/?id=27405661",
+   "question": "在花果园酒店 高风险区 每天不仅要支付高昂房费 而且书本不在身旁 离考试还有半个月的时候就住在酒店了 本来只想住一天的 直接被隔离 关键时间个人笔记都不能翻越 太痛苦了 实名请求延迟 拜托拜托！请求延期！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405630",
+   "url": "https://sft.guizhou.gov.cn/?id=27405630",
+   "question": "由于现在贵阳市疫情严重每天都有新增，今年的司法考试能否延期？如不延期或者延期大概什么时候发公告告知考生。感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405608",
+   "url": "https://sft.guizhou.gov.cn/?id=27405608",
+   "question": "咨询一下2022年法律资格考试是否会延期，以及相关事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405598",
+   "url": "https://sft.guizhou.gov.cn/?id=27405598",
+   "question": "您好，现在贵阳市因为疫情处于静默状态，不知道17号18号的司法考试正常举行还是延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405587",
+   "url": "https://sft.guizhou.gov.cn/?id=27405587",
+   "question": "由于疫情突发，无法预知是否按照原定时间举行考试，还是延期举行。因为考区不在贵阳市，需要到地州考试，是否能出一个通知，毕竟明天就要打印准考证了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405580",
+   "url": "https://sft.guizhou.gov.cn/?id=27405580",
+   "question": "因疫情特申请法考延期举行",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405501",
+   "url": "https://sft.guizhou.gov.cn/?id=27405501",
+   "question": "尊敬的领导，因疫情影响，西藏已经收到了延期考试的短信。贵州疫情现在也是突发阶段，我们的情况也不容乐观。请问我们的法考可以延期吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405487",
+   "url": "https://sft.guizhou.gov.cn/?id=27405487",
+   "question": "尊敬的贵州司法厅您好！ 我是今年参加法考的考生，我的报考点位于贵阳，但我现在身处黔南，目前贵阳多辆列车已停运，全国疫情遍地多发很担心不能赶回贵阳考试，国家CPA考试已经发出公告通知延期举行考试，身边考生以及我每天都在苦等司法部或者贵州司法厅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405474",
+   "url": "https://sft.guizhou.gov.cn/?id=27405474",
+   "question": "尊敬的省司法厅您好，我是备考2022年法律职业资格考试的考生。9月17日开始法考，9月7日即将开始打印准考证，但贵州贵阳疫情严重，黔东南地区也受相关影响。为各位考生及工作人员安全考虑，特向贵单位询问今年法考是否会进行延期考试？感谢解答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405466",
+   "url": "https://sft.guizhou.gov.cn/?id=27405466",
+   "question": "你好，我想咨询一下，在当前疫情情况下，法律职业资格考试会不会有影响，会不会延期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405382",
+   "url": "https://sft.guizhou.gov.cn/?id=27405382",
+   "question": "希望2022法律资格考试贵州地区延期，如果不延期希望提前公开考试场地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405359",
+   "url": "https://sft.guizhou.gov.cn/?id=27405359",
+   "question": "请求贵州司法考试延期开考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405191",
+   "url": "https://sft.guizhou.gov.cn/?id=27405191",
+   "question": "尊敬的领导，关于2022参加法考的延期与否可否能有确定的消息？因现贵州省内疫情情况突发，导致贵阳市区几乎全市静默。而考试时间也近在咫尺，考点也处于疫区，对于现在的情况，领导能否将考试是否延期的情况告知考生，好让考生早做打算。谢谢领导",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405133",
+   "url": "https://sft.guizhou.gov.cn/?id=27405133",
+   "question": "尊敬的司法厅领导！您好！最近贵州疫情蔓延，本土病例突增，请问法考时间是否会如期举行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405103",
+   "url": "https://sft.guizhou.gov.cn/?id=27405103",
+   "question": "请求贵州省可以延期举行法律职业资格考试。距离9.17和9.18法考客观题时间只有13天，临近考试时间，贵阳市疫情却逐渐扩大，今早贵阳疫情发布会公布新增阳性初筛77例，累计达104例。许多在贵阳本地的考生因贵阳考位有限，无法留在贵阳考试，只能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27405056",
+   "url": "https://sft.guizhou.gov.cn/?id=27405056",
+   "question": "请问贵阳的此次疫情，是否会影响贵阳考生的法考如期进行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27404900",
+   "url": "https://sft.guizhou.gov.cn/?id=27404900",
+   "question": "尊敬的各位领导：您好！我是贵州省贵阳市一名即将要参加今年全国法律执业资格考试的考生。近期，贵州省特别是贵阳市疫情爆发，本人及其家人饱受疫情防控困扰。为了广大考生的安全，以及防范规避疫情感染风险责任，我瑾代表广大考生申请今年考试延期举行，望得",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27398700",
+   "url": "https://sft.guizhou.gov.cn/?id=27398700",
+   "question": "你好，我之前由于犯罪轻微，检察院做出相对不起诉。现在由于工作需要开具无犯罪记录。我查询了贵州省公安派出所出具证明工作规范（2020年试行），规定了犯罪记录包括相对不起诉，所以没能开出无犯罪记录。但是根据公安部2021年12月31日发布的关于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27396486",
+   "url": "https://sft.guizhou.gov.cn/?id=27396486",
+   "question": "您好，我想咨询一下今年贵州省有没有关于教育方面的政策文件发布？在哪可以看到已经发布的政策文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27393211",
+   "url": "https://sft.guizhou.gov.cn/?id=27393211",
+   "question": "您好 ，我的户籍属于黔南州，我的法律职业资格证是C证，请问在贵阳清镇市的律师事务所可以申请实习吗？除了这里，贵阳还有哪些地方可以申请C证实习呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27392559",
+   "url": "https://sft.guizhou.gov.cn/?id=27392559",
+   "question": "你好，我是2016年全日制专科毕业，2018年9月网络教育专升本入学，法学专业，2021年6月毕业，请问下我可以报名参加法考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27388376",
+   "url": "https://sft.guizhou.gov.cn/?id=27388376",
+   "question": "请问2022年法律职业考试“谷歌双拼输入法”版本号？“谷歌双拼输入法”双拼方案是哪一个？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27383693",
+   "url": "https://sft.guizhou.gov.cn/?id=27383693",
+   "question": "首次在贵阳市申请律师执业证书需向那个部门申请及需提供什么申请材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27382969",
+   "url": "https://sft.guizhou.gov.cn/?id=27382969",
+   "question": "执业申请已经通过了，但是省厅执业证已经用完了，大概什么时候可以领取执业证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27382511",
+   "url": "https://sft.guizhou.gov.cn/?id=27382511",
+   "question": "本人了解到，司法部建立了统一的行政复议平台（网址：https://xzfy.moj.gov.cn/），但是该平台的局限性较大，目前只能以政府以及部分政府部门为被申请人提起行政复议，对于多数政府部门（例如贵州省民政厅）作出的行为无法在该平台申",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27378202",
+   "url": "https://sft.guizhou.gov.cn/?id=27378202",
+   "question": "2021年的法考证颁发时间是否已提上日程？具体时间确定否？会否受疫情影响而延后？盼复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27378155",
+   "url": "https://sft.guizhou.gov.cn/?id=27378155",
+   "question": "往年都是在4月底发放，请问2021年法考职业资格证何时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27377841",
+   "url": "https://sft.guizhou.gov.cn/?id=27377841",
+   "question": "去年的这个时候一开始领取上年度的资格证了，今年领证时间是在什么时间了？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27377528",
+   "url": "https://sft.guizhou.gov.cn/?id=27377528",
+   "question": "请问2021通过法考的考生什么时候发放资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27377306",
+   "url": "https://sft.guizhou.gov.cn/?id=27377306",
+   "question": "尊敬的司法厅领导：本人通过了2021年度国家统一法律职业资格考试，现阶段等待法律职业资格证书的领取。本人是黔东南州县城一所中等职业学校在编教师，本人特别想申请公职律师，特向厅领导咨询中等职业学校教师能否申请公职律师？望答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27377240",
+   "url": "https://sft.guizhou.gov.cn/?id=27377240",
+   "question": "您好！想咨询在2004年已经取得成人教育非法学专业的大专学历，2021年取得开放教育的非法学的本科学历，这种情况符合法律职业资格考试中的“老人老办法”的条件吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27376224",
+   "url": "https://sft.guizhou.gov.cn/?id=27376224",
+   "question": "请问“先上岗，后考证”政策是否适用于2022届毕业生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27376122",
+   "url": "https://sft.guizhou.gov.cn/?id=27376122",
+   "question": "尊敬的领导您好！我想咨询一下2022年第一批次法律职业资格证书的办理进度以及授予时间是多久？期待您的答复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27376066",
+   "url": "https://sft.guizhou.gov.cn/?id=27376066",
+   "question": "取得实习律师证后，在实习之余，能否兼职从事其他社会服务性工作吗？是否可以兼职从事例如：公司法务、建筑施工、快递或客运等行业。有相关禁止性规定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27375852",
+   "url": "https://sft.guizhou.gov.cn/?id=27375852",
+   "question": "您好，我想请问下，2021年法律职业资格证书的审查情况，，大约什么时候可以发证啊，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27375732",
+   "url": "https://sft.guizhou.gov.cn/?id=27375732",
+   "question": "您好，我于2021年通过法律职业资格考试，于2022年1月网上上传了申请法律职业资格的认证资料，2月完成了现场确认，想询问一下何时可以取得法律职业资格证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27374608",
+   "url": "https://sft.guizhou.gov.cn/?id=27374608",
+   "question": "主要是想知道法考证编号，好填表，申请执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27365206",
+   "url": "https://sft.guizhou.gov.cn/?id=27365206",
+   "question": "司法厅领导： 您好！本人为贵州省锦屏县人，通过国家法律职业资格考试获C证。现请教您以下2个问题： 1、本人申请实习的律所除了可在锦屏县注册的律所之外，还能在哪些律所实习？请问是否有相关文件可以查询C证人员可申请实习地点？若有，烦请提供该文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27356761",
+   "url": "https://sft.guizhou.gov.cn/?id=27356761",
+   "question": "司法厅工作人员您好！ 我现在是贵安新区一名执业律师（执C证），21年在广州参加了法律职业资格考试，通过了A证分数线，也在广州提交领取A证的申请，我取到A类法律职业资格证书后，我要申请更换我律师执业证上的法律资格证书号需要哪些流程？盼答复！祝",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27356478",
+   "url": "https://sft.guizhou.gov.cn/?id=27356478",
+   "question": "司法厅工作人员你好！ 请问取得法律职业资格证书（C证）后，能否在贵阳中心城区申请实习？若能申请实习，在实习期可否考取A证？考取A证后实习期是否重新计算？若无需重新计算，实习期满后能否直接申请在贵阳中心城区执业？盼答复！祝身体健康、工作顺利！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27356368",
+   "url": "https://sft.guizhou.gov.cn/?id=27356368",
+   "question": "我于2015年进入专科学校学习，2018年毕业；同年报考专升本进入全日制本科学习两年（非法学本科），2020年拿到本科毕业证和学位证，请问我的条件符合法考报名条件吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27355466",
+   "url": "https://sft.guizhou.gov.cn/?id=27355466",
+   "question": "请问2021年12月司法厅组织的全省基层法律服务工作者考试合格证什么时候颁发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27355033",
+   "url": "https://sft.guizhou.gov.cn/?id=27355033",
+   "question": "恳请贵州省司法厅关于一下全省狱警同志的身心健康，疫情两年多以来，监狱一线民警改变了值班模式，让本就压力很大的一线值班民警压力骤增，而且值班战线过长，严重摧残这狱警的身心健康，以及他们身后上有劳、下有小的家庭。我们深知疫情防控人人有责。也积极",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27354585",
+   "url": "https://sft.guizhou.gov.cn/?id=27354585",
+   "question": "请问一下各位领导：咨询一下2021年基层法律工作组考试合格的考生，省司法厅要发合格证吗？如发，何时发？请贵厅回复一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27338368",
+   "url": "https://sft.guizhou.gov.cn/?id=27338368",
+   "question": "司法厅的工作人员你们好，我是通过2021年法考的考生，但法律职业资格证还未申领，我想咨询的是这种情况是否可以根据贵厅2020年5月9日发布的《关于对申请律师执业实习的人员实施“先上岗 再考证”阶段性措施的通知》先到律师事务所申请实习？请予以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27333466",
+   "url": "https://sft.guizhou.gov.cn/?id=27333466",
+   "question": "贵州省今年面向中央司法警官学院招录2022届司法行政警察类（贵州籍）公务员多少人？笔试合格分数线是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27331155",
+   "url": "https://sft.guizhou.gov.cn/?id=27331155",
+   "question": "您好，我看到安徽省司法厅关于2021年不延考地区法考主观题的答复，成绩可能要2022年1月10号左右出，请问下贵州地区的出成绩时间是一致的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27328478",
+   "url": "https://sft.guizhou.gov.cn/?id=27328478",
+   "question": "您好，我想咨询关于2021年的法考主观题成绩何时公布呢，或者会与延考地区一起公布吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27327459",
+   "url": "https://sft.guizhou.gov.cn/?id=27327459",
+   "question": "法律职业资格证书，不进行年审是否继续有效",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27323322",
+   "url": "https://sft.guizhou.gov.cn/?id=27323322",
+   "question": "请问贵州省征用村民土地（建设运输电的铁塔），以及青苗补助，征收文件是哪个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27321115",
+   "url": "https://sft.guizhou.gov.cn/?id=27321115",
+   "question": "您好，请问如何查看贵单位2018-2021年度文件清理、废止情况目录。主要是用于学习，了解政府网站的文件清理情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27321006",
+   "url": "https://sft.guizhou.gov.cn/?id=27321006",
+   "question": "你好！请问2020年客观题过了C证线，如果2021年报名参加客观题考试，若过了A证线，继续参加主观考试，客观的分数是以A证为准吗？如果2021年的客观考试C证线都没达到，是否可以以2020年客观分数，继续参加主观题考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27316925",
+   "url": "https://sft.guizhou.gov.cn/?id=27316925",
+   "question": "老师您好： 我现在是一名全日制非法学本科生，能否在获得（自考，成人教育，夜大）等非全日制法学学位后参加贵州省法考。望解答，学习。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27314360",
+   "url": "https://sft.guizhou.gov.cn/?id=27314360",
+   "question": "任职公司需要证书认证信息来判断真假，请问应当在哪里认证、认证需要什么材料？我是在遵义领取的证书，能否在贵阳认证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27312709",
+   "url": "https://sft.guizhou.gov.cn/?id=27312709",
+   "question": "尊敬的领导您好 由于今年我的毕业证书七月二十七号才发下来 错过了网申时间，八月十号才把相关材料报上去，现在法律职业资格证也没有发下来，所以我想咨询一下 延迟提交申请材料的考试合格人员多久能领到法律职业资格证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27310979",
+   "url": "https://sft.guizhou.gov.cn/?id=27310979",
+   "question": "请问一下，2021年8月23日提交申请律师执业申请，8月27日收到贵阳市司法局短信答复，律师执业申请审批完成，要到什么时候才可以领取律师执业证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27309515",
+   "url": "https://sft.guizhou.gov.cn/?id=27309515",
+   "question": "请问2021法考延期后，具体考试时间多久能公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27309259",
+   "url": "https://sft.guizhou.gov.cn/?id=27309259",
+   "question": "尊敬的贵州省司法厅的领导： 您好！ 我是遵义市红花岗区的市民彭林，现在有法律问题需要请示： 一、《贵州省物业管理服务收费管理办法》是否还有效？ 二、如果《贵州省物业管理服务收费管理办法》已经失效，请问是哪个规范性文件明确它已经失效的？ 三、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27303401",
+   "url": "https://sft.guizhou.gov.cn/?id=27303401",
+   "question": "尊敬的领导：想咨询 1.了解今年贵州省面向中央司法警官学院招录2021届司法行政警察类毕业生（便捷入警)工作情况。 2.今年参考多少人，招录多少人？目前工作进展到什么阶段？ 3.若通过，最后将如何进行选岗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27298967",
+   "url": "https://sft.guizhou.gov.cn/?id=27298967",
+   "question": "本人在贵阳市司法局办理兼职律师职业申请时，工作人员提出现在的贵州民族大学人文科技学院（民办高校），按照贵州省司法厅律师执业证申领变更注销工作指南第五条之规定，不在受理范围，不接受我的兼职职业申请，本人认为，在第五条中并没有把高等院校作区别说",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27296610",
+   "url": "https://sft.guizhou.gov.cn/?id=27296610",
+   "question": "您好！取得法律职业资格证书后，未执业的，是否要参加后续教育和年检？如何参加后续教育？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27293945",
+   "url": "https://sft.guizhou.gov.cn/?id=27293945",
+   "question": "尊敬的领导，您好！本人第一次报名参加司法考试不了解报名机位限制，请问目前显示报名地为贵阳市机位已满，之后是否还会增加机位？盼复，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27293422",
+   "url": "https://sft.guizhou.gov.cn/?id=27293422",
+   "question": "想咨询：贵州省今年面向中央司法警官学院招录2021届司法行政警察类（贵州籍）公务员多少人？笔试合格分数线是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27293140",
+   "url": "https://sft.guizhou.gov.cn/?id=27293140",
+   "question": "尊敬的领导，距离法律资格考试报名截止还有7天，现系统提示全省机位均已满，能否增加机位，不然又得再等一年了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27291967",
+   "url": "https://sft.guizhou.gov.cn/?id=27291967",
+   "question": "我为全日制中专必要，现在有函授本科非法学专业文凭，在县直部门从事法治工作岗位工作，请问一下是否可以报考法律从业资格证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27291781",
+   "url": "https://sft.guizhou.gov.cn/?id=27291781",
+   "question": "尊敬的领导，您好！我于2011年6月毕业于一所985院校哲学系，获得全日制本科毕业证及哲学学士学位证，现就职与一家商业银行，已有5年以上银行业工作经历，由于业务工作关系，经常会处理关于银行与相关客户的经济纠纷、合同纠纷事宜，但发现自身法律知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27291016",
+   "url": "https://sft.guizhou.gov.cn/?id=27291016",
+   "question": "领导，您好！&nbsp; 我想了解一下关于法考资格的问题，还请领导解答。我的基本情况如下:&nbsp; 本人于2015年于全日制大专（建筑工程）毕业，2019年在贵州大学继续教育学院（成考）进修法学，于本年7月毕业。我想请问一下，我现在是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27289800",
+   "url": "https://sft.guizhou.gov.cn/?id=27289800",
+   "question": "我于1997年12月法律自考专科毕业（主考学校贵州大学），咨询一下，我现在准备参加法学本科自考或网络教育，如果取得法学本科学历后，是否可以参加法考？盼复！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27288564",
+   "url": "https://sft.guizhou.gov.cn/?id=27288564",
+   "question": "2020年我参加法考，通过客观题考试，但未通过主观题。当时我的户口是贵州省贵阳市花溪区。今年6月，因一些特殊情况，要将户口从贵阳迁出，迁入重庆市，但是经常居住地仍在贵阳。请问我今年报考主观题，还能在贵阳市考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27286397",
+   "url": "https://sft.guizhou.gov.cn/?id=27286397",
+   "question": "请问想申报2021年司法厅法治理论研究的课题，但不知道申报书，活页在哪里下载？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27285843",
+   "url": "https://sft.guizhou.gov.cn/?id=27285843",
+   "question": "请问应届毕业生在八月份领取法律职业资格证书的时候需要些什么证件？包括毕业证和学位证吗？还是只需要毕业证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27285588",
+   "url": "https://sft.guizhou.gov.cn/?id=27285588",
+   "question": "请问一下，经单位同意本人申请公职律师，请问在哪里可以下载《贵州省公职律师申请表》？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27285226",
+   "url": "https://sft.guizhou.gov.cn/?id=27285226",
+   "question": "我户籍所在地为贵州贵阳，2008年9月入学全日制普通专科，2011年6月专科毕业，2019年9月以网络教育的形式就读法学本科专业，预计毕业时间为2022年1月30日。请问我这样的情况，是否能够报考2021年的法律职业资格考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27284834",
+   "url": "https://sft.guizhou.gov.cn/?id=27284834",
+   "question": "你好，本人户籍所在地为贵州省六盘水市盘州市，本人目前大专学历，于2020年首次参加自考（法学）提升学历，成绩合格三科，预计于2023年6月取得本科毕业证，请问毕业后我可以报名参加司法考试吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27282475",
+   "url": "https://sft.guizhou.gov.cn/?id=27282475",
+   "question": "您好，请问一下证书多久发放，我看其他省份已经有了相关通知了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27281326",
+   "url": "https://sft.guizhou.gov.cn/?id=27281326",
+   "question": "请问一下今年颁发法律职业资格证书的时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27281082",
+   "url": "https://sft.guizhou.gov.cn/?id=27281082",
+   "question": "你好，我是2015年本科入学，学的专业是环境科学，本科四年，于2019年6月取得毕业证。请问我这种情况可以报名法考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27280727",
+   "url": "https://sft.guizhou.gov.cn/?id=27280727",
+   "question": "现在本人是执业律师，因为个人经济原因，可能需要转做其他行业以供生活。请问以后再行申请律师执业是否需要再进行重新实习和考核。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27274161",
+   "url": "https://sft.guizhou.gov.cn/?id=27274161",
+   "question": "请问实习律师申请实习证以及期满后申请执业，是否要提交社保缴纳记录等资料？如果需要，需要缴纳几个月？麻烦详细告知。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27265044",
+   "url": "https://sft.guizhou.gov.cn/?id=27265044",
+   "question": "&nbsp; &nbsp; &nbsp; &nbsp; 您好，请问主观题成绩复核需要提供哪些材料？如果本人不在报名地，可否通过邮寄形式将所需材料寄到，进行主观题成绩的复核？如果可以的话，请您提供一下寄件地址，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27264968",
+   "url": "https://sft.guizhou.gov.cn/?id=27264968",
+   "question": "你好！请问2020年客观题过了C证线，如果2021年报名参加客观题考试，若过了A证线，继续参加主观考试，客观的分数是以A证为准吗？如果2021年的客观考试C证线都没达到，是否可以以2020年客观分数，继续参加主观题考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27262297",
+   "url": "https://sft.guizhou.gov.cn/?id=27262297",
+   "question": "您好，我想请问一下，我2019年通过了法律职业资格考试C证（毕节市织金县户籍），目前居住在遵义市想从事律师行业，之前听新蒲新区的律师朋友说，贵州贵安新区和新蒲新区没有执业地域限制，请问是真的吗，我毕节织金县户籍所持的C证能否在上述两个区执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27261594",
+   "url": "https://sft.guizhou.gov.cn/?id=27261594",
+   "question": "&nbsp; &nbsp; &nbsp;本人系贵州省铜仁市思南县大坝场镇人士，于前段时间遇交警查车，按照流程出示身份证驾驶证后，被告知系17年刑满释放人员，但实际本人情况一直在外务工，作为一名中国公民，一直以来谨记党纪国法，遵纪守法，并无任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27255793",
+   "url": "https://sft.guizhou.gov.cn/?id=27255793",
+   "question": "领导，你好：&nbsp; &nbsp; &nbsp; &nbsp;我帮我朋友询问一下2020年及2021年报名参加司法考试的条件，我朋友是2014年全日制本科学历毕业，专业是数学与应用数学，户籍是贵州省桐梓县，现在户口在遵义市汇川区的。我想",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27250186",
+   "url": "https://sft.guizhou.gov.cn/?id=27250186",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27250053",
+   "url": "https://sft.guizhou.gov.cn/?id=27250053",
+   "question": "我是贵州警察学院前身贵州警官职业学院04届法律专业，于07年毕业；想咨询一下2021年我是否能报考国家统一法律职业资格考试；无论是否能参考，希望得到明确答复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27249361",
+   "url": "https://sft.guizhou.gov.cn/?id=27249361",
+   "question": "您好，请问如何获取贵单位2019年的政府信息公开年报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27249307",
+   "url": "https://sft.guizhou.gov.cn/?id=27249307",
+   "question": "贵厅今年所发的2020年律师职称评定通知中明确在省内工作且持有《律师工作证（试用）》的公职律师、公司律师、法律援助律师，参照《申报评审条件》进行申报评审。但是《关于印发〈贵州省律师系列专业技术职务任职资格申报评审条件（试行）〉的通知》（黔人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27248909",
+   "url": "https://sft.guizhou.gov.cn/?id=27248909",
+   "question": "您好，请问如何获取贵单位2019年的政府网站工作年度报表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27248195",
+   "url": "https://sft.guizhou.gov.cn/?id=27248195",
+   "question": "您好，请问如何查阅哪位部门领导分管政务公开工作的信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27242127",
+   "url": "https://sft.guizhou.gov.cn/?id=27242127",
+   "question": "请问法律执业考试的每日健康打卡漏打一天会影响考试资格吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27241583",
+   "url": "https://sft.guizhou.gov.cn/?id=27241583",
+   "question": "20年司法考试黔西南州考点黔西南民族职业技术学院，地址：兴义市凤仪路2号。兴义市凤仪路2号没有学校，黔西南民族职业技术学院地址是在兴义市民航大道，准考证上记载的地址是否有误？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27241293",
+   "url": "https://sft.guizhou.gov.cn/?id=27241293",
+   "question": "我在网上查询说自治州属于放宽条件地区，学历要求可以只要求到本科学历，所以我想请问台江县非全日制本科能够参加法考吗，黔东南州台江县算不算放宽条件地区？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27240836",
+   "url": "https://sft.guizhou.gov.cn/?id=27240836",
+   "question": "尊敬相关部门领导您好！咨询您几个问题1.法考C证能否在贵阳市观山湖区申请律师实习？2.法考C证能否在清镇市申请律师执业？3.贵安新区是否属于非中心城区？法考C证能否在贵安新区申请律师执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27239333",
+   "url": "https://sft.guizhou.gov.cn/?id=27239333",
+   "question": "公司律师经授权，能否代理控股、参股子公司案件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27231119",
+   "url": "https://sft.guizhou.gov.cn/?id=27231119",
+   "question": "请问 2018年9月入学的全日制法本能不能参加2021年法考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27223643",
+   "url": "https://sft.guizhou.gov.cn/?id=27223643",
+   "question": "您好，我是今年要参加考基层法院选调生的考生，需要用到法考成绩通知单，我报名地是在长春市，申领地市铜仁市，我应该去哪里打印法考成绩单？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27223501",
+   "url": "https://sft.guizhou.gov.cn/?id=27223501",
+   "question": "您好！我是2020届毕业生，具体问题如下：1. 2019年我在贵阳参加法考并达到放宽地区分数线标准。其中报名地为贵阳市，申领地为毕节市。2.我报名参加了今年的法院选调生考试，其中需要提供法考成绩单。请问如果打印成绩单。应当到毕节市司法局还是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27223389",
+   "url": "https://sft.guizhou.gov.cn/?id=27223389",
+   "question": "请问选调生报名所需要的法考通过成绩单只能在报名地司法行政机关打印还是户籍地或是工作地均可？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27222710",
+   "url": "https://sft.guizhou.gov.cn/?id=27222710",
+   "question": "你好，我是遵义某高校的教师，由于我们学校没有法学院，也没有法律专业，本人一直在学校的马克思主义学院讲授法学概论、青少年法学等相关课程。现在实习期间快满，请问我需要提供什么材料转成兼职律师。本人学校能提供讲授法律课程的相关证明以及出具同意兼职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27218958",
+   "url": "https://sft.guizhou.gov.cn/?id=27218958",
+   "question": "你好，我是2020应届毕业生，此前报名了贵州省省考选调生的职位。因选调生加分材料需要提供2020年法考成绩单或者法律职业资格证书，想问问应届生什么时候才能申领法律职业资格证书?又或者贵州省的地市级司法局能否给我提供成绩通知单打印呢？Ps.本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27214588",
+   "url": "https://sft.guizhou.gov.cn/?id=27214588",
+   "question": "你好，根据以往，应届生的法律职业资格证的发放申请都在6月中旬，但今年都7月8日了还没相关通知，望贵厅能给予回复一下2020年应届毕业生法律职业资格证时间的安排。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27214499",
+   "url": "https://sft.guizhou.gov.cn/?id=27214499",
+   "question": "请问，通过2019年法考的应届生，证书何时发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27213505",
+   "url": "https://sft.guizhou.gov.cn/?id=27213505",
+   "question": "您好，我是一名2021年毕业的大学生，原户口是在贵州省铜仁市碧江区，为了上学方便我将户口迁到了学校所在地上海市，打算等明年毕业再将户口迁回贵州省，请问我报名今年2020年法考可以享受放款地区政策吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27209757",
+   "url": "https://sft.guizhou.gov.cn/?id=27209757",
+   "question": "您好！请问应届毕业生什么时候可以申请法律职业资格证呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27204835",
+   "url": "https://sft.guizhou.gov.cn/?id=27204835",
+   "question": "贵州省司法厅的工作人员，您好！我是2018年6月全日制法律专科的毕业生，在2019年的3月时候入学了成人教育法学本科，学信网上毕业时间显示为2021年6月，我的户籍是普安县，根据司法部的相关规定属于放宽地区，请问我这种情况是否属于司法考试报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27203889",
+   "url": "https://sft.guizhou.gov.cn/?id=27203889",
+   "question": "请问按照司法部关于国家统一法律职业资格考试放宽地方名单政策执行到那年结束？我所在区域威宁县。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27197138",
+   "url": "https://sft.guizhou.gov.cn/?id=27197138",
+   "question": "我是四川自贡的执业律师，持有法律资格证C证，户籍地四川自贡，于2019年注销律师执业资格证，不知能否在毕节市大同县申请执业？需要哪些材料申请执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27195070",
+   "url": "https://sft.guizhou.gov.cn/?id=27195070",
+   "question": "尊敬的贵州省司法厅工作人员： 您好！本人于2019年12月26日有过咨询，本人是2016年法律专科毕业生，得益于国家政策的照顾，2016年以放宽地区的法律专科学历报名参加国家司法考试通过放宽地区分数线，于2017年获得了C证。大学在校期间，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27194888",
+   "url": "https://sft.guizhou.gov.cn/?id=27194888",
+   "question": "请问下贵州省司法厅的各位领导，我省水城县2020年是不是法考放宽地区，如果是，我好迁户口！另外个问题就是，我省放宽地区持续到哪年结束？我咨询司法部了，司法部叫我本人咨询贵州省司法厅，请司法厅工作人员尽快回答我信息！谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27194712",
+   "url": "https://sft.guizhou.gov.cn/?id=27194712",
+   "question": "人力资源部与司法部等多部门发布的&quot;先上岗，再考证&quot;的文件中说应届毕业生还未取得法律职业资格证书的可以先申请成为实习律师。我想请问一下什么时候可以开始依据这一文件申请成为实习律师。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27194203",
+   "url": "https://sft.guizhou.gov.cn/?id=27194203",
+   "question": "人力资源社会保障部 教育部 司法部 农业农村部文化和旅游部 国家卫生健康委 国家知识产权局关于应对新冠肺炎疫情影响实施部分职业资格“先上岗、再考证”阶段性措施的通知，文 号: 人社部发〔2020〕24号中第三点:&quot;三、尚未取得法律",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27189033",
+   "url": "https://sft.guizhou.gov.cn/?id=27189033",
+   "question": "省司法厅，您好。我是一名自考考生，可以参加司法考试，但因为还有一科考试没通过，很担心。原本今年4月12日的自学考试统考的话，有机会参加今年司法考试。往年自考的要求全部科目通过考试才能考，今年这个疫情影响到考试，不知道多久才能自考的统考。我相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27187255",
+   "url": "https://sft.guizhou.gov.cn/?id=27187255",
+   "question": "没有执业的法律职业资格证是否需要年审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27184804",
+   "url": "https://sft.guizhou.gov.cn/?id=27184804",
+   "question": "为什么贵阳银行不执行中国人民银行发布的利率转换政策？政策要求2020年3月1日起针对贷款要实施LPR，但是联系贵阳银行要求办理LPR时，分行说要总行发问要求，总行说让联系贷款分行，相互推诿，请政府督促贵行尽快处理！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27161869",
+   "url": "https://sft.guizhou.gov.cn/?id=27161869",
+   "question": "尊敬的司法厅领导你好！我是2019通过法考的人，咨询一下，一般我省领取法律职业资格证书是三月中旬和下下旬，因为疫情影响，今年领取法律职业资格证书是否延迟？我想咨询一下，2020年我省是否组织基层法律服务工作者的相关考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27161614",
+   "url": "https://sft.guizhou.gov.cn/?id=27161614",
+   "question": "去年12月份参加网上培训行政执法证考试，并已经通过，请问什么时候证件可以发下来？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "27159622",
+   "url": "https://sft.guizhou.gov.cn/?id=27159622",
+   "question": "请问下贵州省基层法律服务工作者资格考试是什么时间？怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "26999359",
+   "url": "https://sft.guizhou.gov.cn/?id=26999359",
+   "question": "您好！本人是2016年法律专科毕业生，得益于国家政策的照顾，2016年以放宽地区的法律专科学历报名参加国家司法考试通过放宽地区分数线，于2017年获得了C证。2013年9月刚进入大学不久，就报名了“高等教育自学考试”，取得自学考试的自考本科",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "26736340",
+   "url": "https://sft.guizhou.gov.cn/?id=26736340",
+   "question": "我想论文投稿，投在贵州司法厅，但是不知道通过哪种渠道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "22684346",
+   "url": "https://sft.guizhou.gov.cn/?id=22684346",
+   "question": "鉴于目前全省实施的行政执法人员网络培训和办证模式，本人提一点建议：总体而言，加强执法人员培训和考试，动真格考试，严格执法前事前准入资格，具体而言，1由司法厅每年定期（建议每年两期以上）组织线下各市州区县司法局相关人员培训，培训采取封闭式集中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "11229115",
+   "url": "https://sft.guizhou.gov.cn/?id=11229115",
+   "question": "您好，请问如何获取贵单位2018年财政决算和2019年财政预算，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "11228452",
+   "url": "https://sft.guizhou.gov.cn/?id=11228452",
+   "question": "请问如何获取贵单位较为全面、规范、准确的行政权力清单和责任清单？能否提供一份学习研究，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2453045",
+   "url": "https://sft.guizhou.gov.cn/?id=2453045",
+   "question": "我是贵阳市户籍，于2013年参加法律资格考试，获得C证，现在想申请律师执业，是否可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2452930",
+   "url": "https://sft.guizhou.gov.cn/?id=2452930",
+   "question": "请问2019年法考主观题配备的法条是2018年版本加修订本呢还是2019年新版呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2452630",
+   "url": "https://sft.guizhou.gov.cn/?id=2452630",
+   "question": "请问2019主观题对电子版法条和纸质版法条可以进行选择吗?还是说两者都配备?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2452498",
+   "url": "https://sft.guizhou.gov.cn/?id=2452498",
+   "question": "您好，请问：（1）法律职业资格考试主观题题干信息可以标记复制吗？（2）六盘水考区的法条是同时配备电子版与纸质版对吧？（3）还想向您建议，请多备一些草稿纸，每人一张可能不够用，客观题考试的时候考场就是只给一张草稿纸，不够用。大案例法律关系太复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2451776",
+   "url": "https://sft.guizhou.gov.cn/?id=2451776",
+   "question": "有其他省份的司法厅告知考生，本次主观题提供电子版法条。我想询问一下，我们省是提供电子版法条还是纸质版法条？如果是电子版，可以检索吗？检索范围是仅限标题还是其他？可以粘贴复制吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2451745",
+   "url": "https://sft.guizhou.gov.cn/?id=2451745",
+   "question": "由于在网上了解到今年外省有些地方法考主观题配备的法条是电子版的，想咨询下我们贵州今年使用的是电子版还是纸质版？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2451600",
+   "url": "https://sft.guizhou.gov.cn/?id=2451600",
+   "question": "请问2019年法考主观题是否只有贵阳一个考区，我看了省司法厅的公告，载明主观题考试拟设贵阳考区，但是我在主观题报名 的时候，里面有六个考区可以选择，请问是可以任意选一个，还是只能选贵阳。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2450749",
+   "url": "https://sft.guizhou.gov.cn/?id=2450749",
+   "question": "会计师事务所想要获得司法鉴定资质需要哪些条件和手续？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2450523",
+   "url": "https://sft.guizhou.gov.cn/?id=2450523",
+   "question": "首先谢谢你们对我这样举报的重视，我收到了你们对我的回复，真心感谢。就是不清楚后续是怎么回复和处理的，请原谅我为了我个人隐私问题不能直接给你们打电话提供相关线索，我可以再向你们提供一条线索仅供参考，张某雷在假释期间不仅出境还参与境外赌博，在近",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2450469",
+   "url": "https://sft.guizhou.gov.cn/?id=2450469",
+   "question": "律师执业证注销后如何重新申请，是否需要重新实习。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "2450010",
+   "url": "https://sft.guizhou.gov.cn/?id=2450010",
+   "question": "举报联智房开商不履行合约故意侵占兴义监狱14户干警房屋恶行 举报人： 程蜀黔（兴义监狱八监区副监区长） 罗克银（兴义监狱一监区副监区长） 谢广林（兴义监狱二监区分监区长） 吴治宏（兴义监狱特警队副队长） 李山林（兴义监狱八监区主任科员） 唐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "446281",
+   "url": "https://sft.guizhou.gov.cn/?id=446281",
+   "question": "法律职业资格证遗失是否能补办？如果能补办。需要哪些材料？望告知。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "446111",
+   "url": "https://sft.guizhou.gov.cn/?id=446111",
+   "question": "法考登录密码遗忘，密保密码一直尝试也都不正确，于是向贵阳市司法局打电话咨询，接电话的工作人员一开始推脱说他们也没办法，后又要求我带着身份证亲自去单位办理。但最近复习进度比较大，我来回要花费掉一天的宝贵时间，因此建议是否可以通过视频的方式来验",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "446107",
+   "url": "https://sft.guizhou.gov.cn/?id=446107",
+   "question": "江西省司法厅为认真贯彻《关于新形式下加强司法行政队伍建设的实施意见》切实增强广大干警的集体归属感和幸福指数。启动干警异地团圆机制，解决一批干警夫妻分居问题。免除广大干警的后顾之忧，极大的鼓励的担当实干、干事创业的热情。贵州省司法行政干部异地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-sft",
+   "id": "59302",
+   "url": "https://sft.guizhou.gov.cn/?id=59302",
+   "question": "你好!本人是事业单位工作人员，从事高中教学任务工作，已经通过法律职业资格考试，请问在不影响本职工作前提下我能否从事律师工作？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ]
+}

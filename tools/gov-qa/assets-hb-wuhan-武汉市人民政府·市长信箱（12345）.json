@@ -1,0 +1,2835 @@
+{
+ "A_考卷": [
+  {
+   "source": "hb-wuhan-8",
+   "id": "31727",
+   "url": "https://www.wuhan.gov.cn/?id=31727",
+   "question": "武汉东湖新技术开发区高新技术企业名录，包含企业名称、所属行业和所属园区。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64733",
+   "url": "https://www.wuhan.gov.cn/?id=64733",
+   "question": "科经局领导您好： 我们家为还建小区，楼对面10米有一个武汉市铁塔公司在没有经过任何人同意私自安装信号塔，信号塔安装的地为我们村集体土地是在政府确定我们这块地为还建小区下地基之前就安装的，上面铁塔公司移动公司违规安装40多个发射器，这个已经远",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国电信条例",
+     "lib_no": "电信条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "建设项目环境保护管理条例",
+     "lib_no": "建设项目环境保护管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "电磁辐射防护规定",
+    "GB8702-88"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64285",
+   "url": "https://www.wuhan.gov.cn/?id=64285",
+   "question": "武汉市经济和信息化局党组书记、局长李世涛： 领导您好！ 2025年3月市经信局办公室要求武汉经贸发展总公司再次提交公司“改制遗留共性问题处理案”。4月17日公司向市经信局提交了《有关武汉经贸发展总公司遗留共性问题处理方案的汇报》 局办公室8",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "武汉经贸发展总公司遗留共性问题处理方案",
+    "关于武汉市经贸发展总公司反应三金问题处理方案法律意见书",
+    "关于经贸发展总公司遗留共性问题处理方案"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hb-wuhan-6",
+   "id": "52971",
+   "url": "https://www.wuhan.gov.cn/?id=52971",
+   "question": "中华人民共和国国家发展和改革委员会颁发的《市场准入负面清单（2022年版）》附件1—2《与市场准入相关的禁止性规定》第53条对应的武汉市的管理部门、执行部门、责任部门是哪个部门？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场准入负面清单（ 2022年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-6",
+   "id": "45912",
+   "url": "https://www.wuhan.gov.cn/?id=45912",
+   "question": "问题1：（供电）用户房屋租赁合同到期后拒绝退出，没有有效“用电地址物权证件”，供电公司继续供电是否合法合规？ 问题2：相关法规明确（转供户视同供电企业的直供户，与直供户享有同样的用电权利）。供电公司是否应对维护转供户用电权利负责任？ 问题3",
+   "cited_hits": [],
+   "cited_missing": [
+    "供电营业规则",
+    "供电营业规则",
+    "供电营业规则"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-6",
+   "id": "44708",
+   "url": "https://www.wuhan.gov.cn/?id=44708",
+   "question": "我听装光伏的商家说现在个人光伏电站不能并网了，想确认一下发改委这边是不是不能备案了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强分布式光伏发电项目全过程管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "13870",
+   "url": "https://www.wuhan.gov.cn/?id=13870",
+   "question": "本人在武汉有房产，但不是武汉户口，请问后期小孩幼儿园一直到高中是否能正常在武汉上公立学校",
+   "cited_hits": [],
+   "cited_missing": [
+    "通知书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "4742",
+   "url": "https://www.wuhan.gov.cn/?id=4742",
+   "question": "2020届武汉的毕业生们，现在都已经毕业了，档案之类的也基本都不在学校里，大多数也没有武汉的户籍，那请问还能否在武汉市认定，或者说这个群体，现在应该如何认定，教育局和学校不应该互相推诿",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步规范我省高等学校和中等师范学校应届毕业生教师资格认定工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "4415",
+   "url": "https://www.wuhan.gov.cn/?id=4415",
+   "question": "2020年度教师资格认定什么时候开始，成绩的有效期是多久？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于将2020年上半年中小学教师资格考试推迟至下半年一并组织实施的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "51287",
+   "url": "https://www.wuhan.gov.cn/?id=51287",
+   "question": "高企认定过程中，有的地区对资本化的研发支出不允许计入研发费总额，想请问下武汉市的口径，是只能算当年入费用化的部分，还是当年入费用化和入资本化的都可以包含",
+   "cited_hits": [],
+   "cited_missing": [
+    "高新技术企业认定管理工作指引",
+    "工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "50816",
+   "url": "https://www.wuhan.gov.cn/?id=50816",
+   "question": "我们公司是经开区一家高新企业，今年11月份变更了公司名称，高新企业认证网变更资料已经填写上传了盖章资料，纸质的资料是今年提交到市科技局还是明年1月份提交，提交到市科技局哪个部门",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2024年度高新技术企业更名及重大变化申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "49279",
+   "url": "https://www.wuhan.gov.cn/?id=49279",
+   "question": "武汉市自然资源和城乡建设局及其二级单位是否能申报湖北省重点实验室，如果能，需要准备那些材料。",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省重点实验室管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "47517",
+   "url": "https://www.wuhan.gov.cn/?id=47517",
+   "question": "申请成为武汉市概念验证中需要什么条件，备案流程是怎么样的？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市概念验证中心管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "45535",
+   "url": "https://www.wuhan.gov.cn/?id=45535",
+   "question": "请问如何申请成为技术合同登记站，目前关于申请成为技术合同登记站的相关流程是什么和相关材料有哪些，申请渠道是需要在网上进行申请还是将有关申请材料线下递交给相关部门？",
+   "cited_hits": [],
+   "cited_missing": [
+    "技术合同认定登记工作指引"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "38246",
+   "url": "https://www.wuhan.gov.cn/?id=38246",
+   "question": "关于校外科技类培训机构场地，从业人员以及收费方面有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市科技类校外培训机构设置标准审批流程实施细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "32672",
+   "url": "https://www.wuhan.gov.cn/?id=32672",
+   "question": "企业营收必须达到两千万吗，有建筑资质的企业营收达到1600万，其他条件都符合可以备案吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市企业研究开发中心备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "29826",
+   "url": "https://www.wuhan.gov.cn/?id=29826",
+   "question": "目前我在科学技术局的官网上查到了区级登记的条件，我想咨询一下详细的操作步骤，我应该找谁，以及拿些什么材料去，比如20个创业工位，是什么样要求的工位，还有专职孵化服务人员的职业证书如何得到?",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市科技企业孵化器和众创空间管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "28038",
+   "url": "https://www.wuhan.gov.cn/?id=28038",
+   "question": "《武汉市科技成果转化中试平台（基地）备案管理办法》中提到“鼓励各区、中试平台建设主体单位整体引进专业检验检测机构，建设集研发创新、中试服务、检验检测等多功能于一体的综合性、一站式中试平台”，想了解建设主体单位（民营企业）申请备案，如何整体引",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市科技成果转化中试平台（基地）备案管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "27979",
+   "url": "https://www.wuhan.gov.cn/?id=27979",
+   "question": "请问贵局重大专项项目资金使用预算中的人力资源费包括哪些内容？是否包含绩效支出，支出比例是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市科技计划项目和科技研发资金管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "27419",
+   "url": "https://www.wuhan.gov.cn/?id=27419",
+   "question": "湖北省教育厅已于今年4月份发文，将面向义务教育阶段学生提供编程、机器人、科学试验等各类科学技术非学历教育培训服务，纳入武汉市科技局管理。目前半年过去仍未有相关进展，同一批划分的艺术类和体育类培训机构，文旅局和体育局都已制定发布了管理规范。关",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖北省科技类校外培训机构设置标准（试行）",
+    "湖北省科技类校外培训机构审核流程（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "25376",
+   "url": "https://www.wuhan.gov.cn/?id=25376",
+   "question": "我公司建有公司级的工程技术研究中心，拟备案武汉市研发中心，未找到备案申报材料模板，希望提供，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "市科技局关于开展武汉市企业研究开发中心备案工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "23874",
+   "url": "https://www.wuhan.gov.cn/?id=23874",
+   "question": "机器人编程科技类机构 政府管理主体是 科技局还是 教育局？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省教育厅等六部门关于做好非学科类校外培训机构分类管理的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "23298",
+   "url": "https://www.wuhan.gov.cn/?id=23298",
+   "question": "外地高新技术企业搬迁至武汉有何优惠政策？有相关补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人民政府关于印发武汉市进一步加快创新发展若干政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "21025",
+   "url": "https://www.wuhan.gov.cn/?id=21025",
+   "question": "请问武汉市是否有市级重点实验室，怎么申请，是否有相关申报指南？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市技术创新中心管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "18454",
+   "url": "https://www.wuhan.gov.cn/?id=18454",
+   "question": "您好，我是西安外国语大学的一名研究生，目前正在做中国城市创新的学术研究，由于在省市统计年鉴和统计局、科技厅、科技局上未查询到相关数据，现需2009-2019年武汉市R&amp;D人员、R&amp;D人员全时当量、R&amp;D经费支出的数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "研究与试验发展（R&amp;D）投入统计规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16709",
+   "url": "https://www.wuhan.gov.cn/?id=16709",
+   "question": "您好，我是一名博士研究生，由于最近在研究有关城市创新的相关课题，需要用到武汉市最近三年的全社会R&amp;D人员全时当量数据，因为该数据在统计年鉴和公报中无法获得，不知贵单位是否可以公开此数据。万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "研究与试验发展（R&amp;D）投入统计规范（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16588",
+   "url": "https://www.wuhan.gov.cn/?id=16588",
+   "question": "请问科技局企业技术创新项目中关于支持企业围绕主营业务开展技术研发，鼓励企业开展国际科技合作研发，支持企业研发项目100项左右，每项50万元。这条政策针针对企业技术研发支持这块的具体要求和标准是什么？是针对那些行业还是所有行业？对企业自身的要",
+   "cited_hits": [],
+   "cited_missing": [
+    "市科技局关于进一步优化调整武汉市科技计划体系的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16461",
+   "url": "https://www.wuhan.gov.cn/?id=16461",
+   "question": "请问2021年武汉市科技局的科技项目申报大概什么时间开始？",
+   "cited_hits": [],
+   "cited_missing": [
+    "市科技局关于组织申报2021年度人工智能创新专项项目的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "11645",
+   "url": "https://www.wuhan.gov.cn/?id=11645",
+   "question": "中国创新创业大赛网络报名只能显示直通车噢，个人参与一直无法报名,心急如焚，本人项目《智慧中国房产共享》能否帮我人工报名，我可以拿全国前三给武汉和湖北争光。专利苦心努力了5年才成功",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于组织做好第十届中国创新创业大赛（湖北赛区）报名工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "2881",
+   "url": "https://www.wuhan.gov.cn/?id=2881",
+   "question": "请问武汉市科技特派员有相应津贴发放吗？2018/2019年度的津贴是否已经发放？由哪个处室负责？联系电话？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市推行科技特派员工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "2882",
+   "url": "https://www.wuhan.gov.cn/?id=2882",
+   "question": "请问武汉市科技特派员有相应津贴发放吗？2018/2019年度的津贴是否已经发放？由哪个处室负责？联系电话？",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市推行科技特派员工作实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1152",
+   "url": "https://www.wuhan.gov.cn/?id=1152",
+   "question": "场所面积220平米 之前做了14年代账公司,有中小企业服务经验,想申请成为众创空间,请问具体该怎么做,需要什么硬性条件呢?",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市科技企业孵化器和众创空间管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "67716",
+   "url": "https://www.wuhan.gov.cn/?id=67716",
+   "question": "武汉企业如何申请算力补贴，请帮忙发下申请链接与流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市促进人工智能产业发展若干政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64786",
+   "url": "https://www.wuhan.gov.cn/?id=64786",
+   "question": "我司参加明年深圳5月份的电池展，想咨询是否有相关补贴政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉名优创新产品推广资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "43752",
+   "url": "https://www.wuhan.gov.cn/?id=43752",
+   "question": "近日武汉市人民政府发布了《武汉市支持数字经济加快发展若干政策》，其中“（六）支持软件企业发展。对我市年营业收入500万元及以上且年研发投入占年营业收入比例达到15%及以上的软件企业，按照不超过企业年研发投入的10%给予最高100万元补助；对",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市软件产业发展专项资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "38201",
+   "url": "https://www.wuhan.gov.cn/?id=38201",
+   "question": "咨询一下武汉市经信局关于2023年省制造业创新中心申报具体要求，是否有相关书面通知，何时截止申报。",
+   "cited_hits": [],
+   "cited_missing": [
+    "市经信局关于开展2023年度省级制造业创新中心培育建设工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "37945",
+   "url": "https://www.wuhan.gov.cn/?id=37945",
+   "question": "国家对企业融资借款过桥资金支持是否有政策，若有，条件是什么？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人民政府印发关于进一步优化发展环境激发市场活力推动中小企业突破性发展若干政策措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "37624",
+   "url": "https://www.wuhan.gov.cn/?id=37624",
+   "question": "今年有哪些惠及中小型企业的政策？信件回复即可，不用电话回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步优化发展环境激发市场活力推动中小企业突破性发展若干政策措施",
+    "关于激发市场主体活力推动经济高质量发展政策措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32344",
+   "url": "https://www.wuhan.gov.cn/?id=32344",
+   "question": "2022年“万企育才”工程项目培训之《企业法律风险管理》开班方案（第二期）的报名网站几链接",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业法律风险防范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32040",
+   "url": "https://www.wuhan.gov.cn/?id=32040",
+   "question": "车主：方志英，身份证号4****************7 2022年12月初购买的零跑C11新能源汽车，旧车交经销商操作进行置换，根据政策可享受湖北省汽车置换补贴待遇，但将近半年，迟迟未见补贴到账，咨询经销商总是说已经过了审核，但资金还未",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快消费恢复提振的若干措施",
+    "关于开展2022年汽车以旧换新专项行动的通知",
+    "关于湖北省2022年汽车以旧换新专项行动汽车授权经销商名单的公告",
+    "关于做好武汉市2022年汽车以旧换新专项行动有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31014",
+   "url": "https://www.wuhan.gov.cn/?id=31014",
+   "question": "对企业的要求以及相关的补贴发放时什么情况呢",
+   "cited_hits": [],
+   "cited_missing": [
+    "武汉市标准创新贡献奖励办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "29404",
+   "url": "https://www.wuhan.gov.cn/?id=29404",
+   "question": "本人于八月底在宜昌极氪公司订购一台新能源汽车，十一月初交付尾款并提车，但是新车开具的武汉市的发票，鉴于本人旧车和新车均为宜昌牌照。先想申请旧车置换新能源5000元补贴，是否可以申请下来。对于武汉经信局的文件要求武汉牌照，但是武汉经信局关于促",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快消费恢复提振的若干措施",
+    "关于开展2022年汽车以旧换新专项行动的通知",
+    "关于湖北省2022年汽车以旧换新专项行动汽车授权经销商名单的公告",
+    "关于做好武汉市2022年汽车以旧换新专项行动有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "27066",
+   "url": "https://www.wuhan.gov.cn/?id=27066",
+   "question": "武汉市中小企业发展促进中心招聘考试因疫情推迟推送短信给考生，为什么重新开考不短信通知开考？谁能天天有时间去官网上查看开考信息，就算天天查看，也难免错漏吧？交了考试费却不给相应的考试服务，可以退钱吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于恢复武汉市中小企业发展促进中心2022年度专项招聘笔试和打印准考证时间的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "25218",
+   "url": "https://www.wuhan.gov.cn/?id=25218",
+   "question": "想了解一下两化融合贯标的政策，申报条件，认定流程及奖励补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "市人民政府关于印发武汉市推进制造业与互联网融合发展行动计划（2016-2020年）的通知",
+    "加快发展数字经济培育新的经济增长点的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "24666",
+   "url": "https://www.wuhan.gov.cn/?id=24666",
+   "question": "根据《武汉市加快消费恢复提振若干措施》落实汽车以旧换新补贴政策，2022年6月至12月期间，报废旧车并购买新能源汽车的补贴8000元/辆、购买燃油汽车的补贴3000元/辆；转出旧车并购买新能源汽车的补贴5000元/辆、购买燃油汽车的补贴20",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加快消费恢复提振的若干措施",
+    "关于做好武汉市2022年汽车以旧换新专项行动有关工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hb-wuhan-6",
+   "id": "59907",
+   "url": "https://www.wuhan.gov.cn/?id=59907",
+   "question": "目前武汉市场充电价格较低，场地经营基本属于亏本，咨询一下，武汉市政府是否有充电桩运营补贴是由有相应的政策，其他城市均已出台并执行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-6",
+   "id": "43580",
+   "url": "https://www.wuhan.gov.cn/?id=43580",
+   "question": "尊敬的孟武康主任： 您好！我们是汉阳区洲头街道星汇云锦小区居民，感谢您能在百忙之中看到我们这封建议书，倾听我们的心声。 近年，随着我们居住区域的发展，不断兴建的住宅小区一批批落地，而附近配套的中学教育资源却未能跟上建设步伐。自交房以来，我们",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-6",
+   "id": "43320",
+   "url": "https://www.wuhan.gov.cn/?id=43320",
+   "question": "地铁九号线是个什么情况 大概什么时候审批下来然后开始建设 庙山非常的拥堵",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-6",
+   "id": "43074",
+   "url": "https://www.wuhan.gov.cn/?id=43074",
+   "question": "建议武汉市硚口区古田二路地铁23号线尽快建设。 古田二路小区与日俱增，人口激增，由于没有地铁线路，导致营商环境太差，居民出行不便。本次雪灾更加暴露无遗。希望尽快建设地铁23号线，联通古田二路与汉口火车站，天河机场，让古田二路成为通达地区，而",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "23422",
+   "url": "https://www.wuhan.gov.cn/?id=23422",
+   "question": "2022年2月在鹰视教育的欺诈下报名了自考专科课程，后查询到该公司并无办学许可证，便提出退款，遭到拒绝。自学考试属于学历教育，而根据民办教育促进法规定，举办实施学历教育需要取得教学许可证。本人曾向东湖新技术开发区教育局反映该机构无证非法办学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "23125",
+   "url": "https://www.wuhan.gov.cn/?id=23125",
+   "question": "公司名称：湖北效信宏品教育科技有限公司 社会信用代码：91420100M*****UN52 公司名称：武汉效信教育咨询有限公司 社会信用代码：91420106M*****1249 这2家公司对外宣称：1. 武汉教育厅指定报名机构，2.各大院",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "22931",
+   "url": "https://www.wuhan.gov.cn/?id=22931",
+   "question": "您好！ 本人是武汉纺织大学大四学生，现正值毕业季，学校安排毕业返校收拾行李，但要求所有非武汉市的学生强制集中隔离，且隔离宿舍四人一间，隔离点仅有木板可睡。 问了其他高校学生，没有一所学校返校需要隔离。经查询，低风险地区进入武汉市仅需48小时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "22148",
+   "url": "https://www.wuhan.gov.cn/?id=22148",
+   "question": "我去年在抖音看到抖音认证号《杨锐电气设备经营部认证账号》的直播，讲西门子PLC培训，然后通过直播间添加微信报名了课程线上培训，老师又推荐了一个不用到现场考试就可以拿到中级工程师证书，我当时就缴费报名了，费用一共1000多元。最近由于公司需要",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "22046",
+   "url": "https://www.wuhan.gov.cn/?id=22046",
+   "question": "2022年3月30日报名了鹰视教育的专升本汉语言文学专业，当天提出退款，机构答应退款但是一直在推脱不受理，希望教育局能够监督该机构处理退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "21970",
+   "url": "https://www.wuhan.gov.cn/?id=21970",
+   "question": "学校表面封校，但是只封了大一的学生，大二学生和老师可以自由出入学校，还有校外培训人员自由进出，大二学生在校外习惯性不带口罩，而且校外培训人员入校后也有很多不带口罩跟封在学校的学生有接触，这跟没封校有区别？？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "21947",
+   "url": "https://www.wuhan.gov.cn/?id=21947",
+   "question": "武汉诚毅教育研究院（有限合伙）涉嫌无证办学，违法办学。武汉诚毅教育研究院（有限合伙）未提供相关的办学许可证，且经营范围上没有办学一词。因担心其合法性及自己日后的安排，提出退课，但已经过去6天，对方态度敷衍，拒绝协商，甚至直接挂断电话。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "19655",
+   "url": "https://www.wuhan.gov.cn/?id=19655",
+   "question": "尊敬的教育局领导，你们好， 毫无征兆的情况下，幼儿园通知停课，作为家长措手不及。 希望能告知，这一轮停课要停多久？好让我们提前安排好时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "19240",
+   "url": "https://www.wuhan.gov.cn/?id=19240",
+   "question": "我是一名2019级第二批高职扩招生，根据学信网及学校给的毕业时间为2022年12月30日，根据专升本政策需要毕业证书所以是不是无法参加2022年6月的专升本考试，如不能，是否可以参加2023年6月的专升本，根据政策是需要应届生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "18918",
+   "url": "https://www.wuhan.gov.cn/?id=18918",
+   "question": "请问可以尽快发布湖北省专升本考试时间嘛 别的省份提前考试，都已经发布了。 提前发布，才容易选学校和专业，不然到时候大家很可能因为时间很紧，而没有选择自己想考的那个学校。(๑˙ー˙๑)拜托了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "18387",
+   "url": "https://www.wuhan.gov.cn/?id=18387",
+   "question": "本人是2011级本科毕业于武汉音乐学院音乐教育学院，音乐学（音乐教育）专业的学生，现有一疑惑，我们本科专业所属音乐教育学院，并且在课程设置上都是遵照师范类专业，大四进行教学实习且有实习成绩，教师资格证当年完成比选修课程，加上普通话等级考试通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "17491",
+   "url": "https://www.wuhan.gov.cn/?id=17491",
+   "question": "尊敬的领导，您好！我是湖北省的一名教育硕士，专业是学科教学 主要事实：根据教育部政策，2021年开始，教育硕士可以免试认定教师资格证，现在也确实可以免试认定，但是是在毕业年级，例如，湖北大学要在2022年上半年才给2022届的教育硕士免试认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "16437",
+   "url": "https://www.wuhan.gov.cn/?id=16437",
+   "question": "我儿读初中把别人烫了，但别人愿意跟他玩，因为读书聪明，这件事会被写进档案里吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "14653",
+   "url": "https://www.wuhan.gov.cn/?id=14653",
+   "question": "我家孩子2020年底参加了武汉市中小学生研学旅行暨第四届“公园大课堂”自然笔记比赛，2021年1月22日在网上也公布了拟获奖名单，我家孩子在二等奖的获奖名单中，但迟迟没收到奖证。去学校询问，学校也只收到文件说孩子是在获奖名单里，但奖证之类也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "13636",
+   "url": "https://www.wuhan.gov.cn/?id=13636",
+   "question": "关于双减政策。咨询一下。现在有好多培训机构把培训时间都改成了周一 到周五晚上进行。这个做法符合规定政策吗。如果这样，我个人认为是没有减轻任何负担，反而更加深了学生和家长的负担。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "10245",
+   "url": "https://www.wuhan.gov.cn/?id=10245",
+   "question": "武汉市东西湖区教师资格证认定指定的体检医院有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "8406",
+   "url": "https://www.wuhan.gov.cn/?id=8406",
+   "question": "去年由于疫情原因，我本科所在学校未开展毕业生教师资格证认定的相关工作了，故去年未认定。现在想咨询一下，湖北省今年上半年是否会开展教师资格证认定工作，还是像去年一样，一年只认定一次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "7938",
+   "url": "https://www.wuhan.gov.cn/?id=7938",
+   "question": "尊敬的领导： 您好，我于2018年在武汉考取教师合格证，有效期到2021年6月30，请问2021年上半年是否有教师资格认定？我能否通过这个教师合格证获得教师资格证？ 期待您的回复，祝您身体健康，工作顺利，新年愉快！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "4915",
+   "url": "https://www.wuhan.gov.cn/?id=4915",
+   "question": "您好！我是今年2020级研究生新生，本科期间户口一直在武汉江夏区的本科学校，但研究生将户口迁移到中南财经政法大学，目前集体户口仍尚未转移办好。请问教资认定应选哪一个区的教育局？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "4431",
+   "url": "https://www.wuhan.gov.cn/?id=4431",
+   "question": "领导您好！我想咨询一下，小孩是武汉市江岸区丹水池户口，19年9月到了入学年纪，我们也收到了所住区域的公立小学的入学通知书，但是由于一家人都在东莞务工，所以选择了在东莞这边入读小学，如果后期想转回武汉上学，能否入读武汉市小孩户口所在地的公立小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "4119",
+   "url": "https://www.wuhan.gov.cn/?id=4119",
+   "question": "武汉市教师资格证认定外地是可以用临时居住证吗？居住证办理需要3个月，但是离报名时间还有几天了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "3825",
+   "url": "https://www.wuhan.gov.cn/?id=3825",
+   "question": "户籍在黄陂区，在江苏上的小学初中，想在高中的时候转回武汉上学，需要怎么申请，准备什么材料，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "2188",
+   "url": "https://www.wuhan.gov.cn/?id=2188",
+   "question": "东湖高新要求小学入学需满足户口及不动产证满一年。若入学前一年内，户口及不动产证在同一学区范围呢变动，是否影响2021年入学？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "783",
+   "url": "https://www.wuhan.gov.cn/?id=783",
+   "question": "关于2020届毕业生，求职创业1400元补贴，学校规定要求学生上传身份证，由学校统一办理农业银行，后期再发放，大一入学学校已经进行办理过银行卡，毕业再次办一次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "585",
+   "url": "https://www.wuhan.gov.cn/?id=585",
+   "question": "湖北生物科技职业学院，信息传媒学院，计算机应用专业辅导员要求签订校企合作的书籍，网络课程，告知总价却无没有收费明细，学生反复问也没有正面回答。请有关部门调查其中所谓的校企合作是否合法，利用社会培训机构提供的书籍，网课是否符合教育标准？为什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-7",
+   "id": "354",
+   "url": "https://www.wuhan.gov.cn/?id=354",
+   "question": "5月6号入校(新洲高级职业中学)要求我们做核酸检查150一位自费请问是否属实，政府不提供核酸检测费用吗 ，住宿费用网上说好像也要退请问是否属实，占用您一点点时间了，抱歉。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "69854",
+   "url": "https://www.wuhan.gov.cn/?id=69854",
+   "question": "您好，我们公司想申请湖北省重点实验室，我想问一下怎么申请啊？一直没有看到流程以及在哪里申报，有相关截止日期和开始日期吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "68021",
+   "url": "https://www.wuhan.gov.cn/?id=68021",
+   "question": "企业名称：接班人（武汉）科技有限公司 统一社会信用代码：91420100M*****P28Y 2025 年高新技术企业认定申报编号：G*****42009662 问题描述：我司 2025 年高新技术企业认定已通过（系统状态：认定通过），但湖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "67437",
+   "url": "https://www.wuhan.gov.cn/?id=67437",
+   "question": "您好，想在武汉注册一家科技公司，目前有目标客户，但短期内可能无从盈利或甚微，从节约成本的角度考虑，请问武汉市是否有可免费提供注册地址的孵化机构，谢谢！如有，请将联络方式告知，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "63276",
+   "url": "https://www.wuhan.gov.cn/?id=63276",
+   "question": "我司现注册地址发生变更，迁入江汉区，需要跟进高企相关工作，请告知对应办公电话或工作群信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "60007",
+   "url": "https://www.wuhan.gov.cn/?id=60007",
+   "question": "你好，我是武汉经开区一家医疗器械的生产企业员工，我想咨询一下分别取得一个有源三类和无菌二类的医疗器械有哪些优惠政策和奖励",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "59520",
+   "url": "https://www.wuhan.gov.cn/?id=59520",
+   "question": "研发加计扣除网站上的研发项目内容填错了，然后错误提交了，现在需要重新修改错误提交的部分，应该找哪位政府人员退回",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "57569",
+   "url": "https://www.wuhan.gov.cn/?id=57569",
+   "question": "请问在（武汉市科技贷款贴息贴保项目管理办法）文件中提到的满足贴息条件第八条：未获市级财政其他专项资金贴息贴保资助。请问汉融通贴息通过了是不是就不能申请了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "56201",
+   "url": "https://www.wuhan.gov.cn/?id=56201",
+   "question": "2025年武汉市科普讲解大赛还举办吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "54889",
+   "url": "https://www.wuhan.gov.cn/?id=54889",
+   "question": "咨询下25年的高新技术企业补贴什么时候可以发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "54029",
+   "url": "https://www.wuhan.gov.cn/?id=54029",
+   "question": "2025年度省科学技术奖提名工作大概什么时候开始呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "53284",
+   "url": "https://www.wuhan.gov.cn/?id=53284",
+   "question": "2025年武汉市科普视频大赛什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "51754",
+   "url": "https://www.wuhan.gov.cn/?id=51754",
+   "question": "我们单位是2022年审定的高新技术企业，23年已拿到补贴，想咨询下24年的补贴什么时候可以拿到？2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "50653",
+   "url": "https://www.wuhan.gov.cn/?id=50653",
+   "question": "公司财务要求合同受托方在武汉市科技局网站做合同登记备案，以便国家税局研发费用加计扣除，请问相关流程？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "50228",
+   "url": "https://www.wuhan.gov.cn/?id=50228",
+   "question": "请问今年的技术转移示范机构认定工作什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "48731",
+   "url": "https://www.wuhan.gov.cn/?id=48731",
+   "question": "武汉效信教育科技有限公司只是一家在各个平台拉客的教育机构，请查明其是否符合高新企业评选的相关标准，是否有真实的研发创新能力。我会持续关注此事，若发现舞弊，必实名举报相关部门！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "47323",
+   "url": "https://www.wuhan.gov.cn/?id=47323",
+   "question": "二类医疗器械注册证可以享受哪些优惠政策和一次性补贴，具体有哪些，，有哪些要求，如何享受",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "45799",
+   "url": "https://www.wuhan.gov.cn/?id=45799",
+   "question": "咨询科技型中小企业什么时候可以认证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "43734",
+   "url": "https://www.wuhan.gov.cn/?id=43734",
+   "question": "如何在武汉科学技术局网上做合同技术备案，研发加计用。具体的办理流程是怎么样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "43043",
+   "url": "https://www.wuhan.gov.cn/?id=43043",
+   "question": "个人有一个重要的物理实验想做，能申请立项吗？不是科研院校的工作人员，也不是学生，这个实验是别人在14年前已经做了的，非常重要需要重做仔细求证。怎样才能申请立项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "42780",
+   "url": "https://www.wuhan.gov.cn/?id=42780",
+   "question": "&nbsp;领导你好，本人是一名96年的程序员，目前有申请专业技术书《深入理解文件系统原理和实践》，ISBN 978-7-89381-214-9,填补国内在操作系统的细分领域技术书空缺，但是后续计划再出第二版的时候，受限于个人资金能力有限，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "40848",
+   "url": "https://www.wuhan.gov.cn/?id=40848",
+   "question": "你好，我是一名硕士研究生，因写作论文，需要武汉市科技创新中心有关进展及数据、下一步工作计划，特别是关于近5年科研投入金额，可否提供一下，发送至我的邮箱350285304@qq.com，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "40749",
+   "url": "https://www.wuhan.gov.cn/?id=40749",
+   "question": "科技金融工作站复核要求是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "40108",
+   "url": "https://www.wuhan.gov.cn/?id=40108",
+   "question": "关于《市科技局关于印发《武汉市新型研发机构管理办法（试行）》的通知》，如何申请新型研发机构资质，是有有标准化申请模板？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "39123",
+   "url": "https://www.wuhan.gov.cn/?id=39123",
+   "question": "您好，我是武汉一所大学的老师，我有一个横向科研进账需要办理免税。我所在学校科技处集中报送材料至武汉科技局办理免税手续时间是固定频率，需至少一周左右，但考虑到目前接近年底，时间较为紧迫。我想咨询的是：1、武汉市科技局是否接受个人办理手续好流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "38148",
+   "url": "https://www.wuhan.gov.cn/?id=38148",
+   "question": "贵局好！我们今年在参加晋升，大家有些问题不是很明白，所以想在此请教下：因为文件里说市级以上项目是指市科技局下达项目，那么：1、市科技局项目是指哪些项目？可以在这个网站查到吗？每年有一个固定的发布时间吗？2、武汉药学会与科技局有从属关系吗？它",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "37236",
+   "url": "https://www.wuhan.gov.cn/?id=37236",
+   "question": "入选武汉市科学技术局专家库是否有红头文件发布或专家证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "36940",
+   "url": "https://www.wuhan.gov.cn/?id=36940",
+   "question": "你好，我是湖北技术交易所战略规划部的一名专员，现正撰写相关软课题研究。需要武汉市R&amp;D数据，在贵单位网站收集整理后，现还缺少武汉市2010年、2011年以及2021年全社会R&amp;D经费内部支出三个数据，请问能否告知一下，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "35494",
+   "url": "https://www.wuhan.gov.cn/?id=35494",
+   "question": "您好，请问一下本次的事业编统考录取名单什么时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "35476",
+   "url": "https://www.wuhan.gov.cn/?id=35476",
+   "question": "今年的武汉市知识创新专项7月5日就公示结束了，为何这么久还不发文呢？去年公示结束不超过一周就发文了。又在等待什么呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "34369",
+   "url": "https://www.wuhan.gov.cn/?id=34369",
+   "question": "作为普通个人是否能考取孵化器培训资格证及创业导师证，有什么要求？具体如何报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "34311",
+   "url": "https://www.wuhan.gov.cn/?id=34311",
+   "question": "您好，请问关于2022年“武汉英才”计划培育支持专项先进制造领域人才选拔结果什么时候出来，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "32773",
+   "url": "https://www.wuhan.gov.cn/?id=32773",
+   "question": "武汉市是否有技术合同范本可供参考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "32551",
+   "url": "https://www.wuhan.gov.cn/?id=32551",
+   "question": "你好，我是一名硕士研究生，因写作论文，需要武汉市科技保险有关数据，包括2007年到2022年科技保险领域保费、保额、财政补贴额的数据，官网上只能找到2014、2015年两年的数据且不完善。可否提供一下，发送至我的邮箱hyjlzp1314@1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "31878",
+   "url": "https://www.wuhan.gov.cn/?id=31878",
+   "question": "请问武汉市知识创新专项项目基础研究和曙光计划的官方英文名称是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "31109",
+   "url": "https://www.wuhan.gov.cn/?id=31109",
+   "question": "我想知道 湖北省教育厅科学研究计划中青年人才项目(Q20211113) 这个项目官方英文名称叫什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "30435",
+   "url": "https://www.wuhan.gov.cn/?id=30435",
+   "question": "如何查询企业市级研究开发中心是否失效？ 2019年申报绩效考核后，下次是在2022年还是2023年进行绩效考核？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "30031",
+   "url": "https://www.wuhan.gov.cn/?id=30031",
+   "question": "有效期内高新企业其中一年研发费用未达到5%研发费用占比，被取消当年10%企业所得税减免，请问税法处理依据是什么，是否符合高新税收减免政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "29597",
+   "url": "https://www.wuhan.gov.cn/?id=29597",
+   "question": "请问贵局近期发布的【市科技局关于征集汽车领域创新资源的通知】，这个征集后续对江夏区符合该领域范围的大型企业是否有比较明确的政策支持？如有，可否简要介绍一下？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "29475",
+   "url": "https://www.wuhan.gov.cn/?id=29475",
+   "question": "湖北峰大能源工程有限公司就是一家空壳公司，欠员工工资不给，目前公司没有在运营，仅有法人和监事（夫妻二人），无其他员工，若此公司能申报高新技术企业，肯定有虚假包庇等重大违法行为，我会一直关注此公司，若发现期违法行为，必定实名举报相关部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "29090",
+   "url": "https://www.wuhan.gov.cn/?id=29090",
+   "question": "您好，请问2020年和2021年武汉市全社会R&amp;D经费投入绝对值分别是多少？2021年武汉市全社会R&amp;D人员全时当量绝对值是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "28769",
+   "url": "https://www.wuhan.gov.cn/?id=28769",
+   "question": "领导您好，我想咨询一下2022科技小巨人通知什么时候出，今年是否还会出科技小巨人的申报通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "28542",
+   "url": "https://www.wuhan.gov.cn/?id=28542",
+   "question": "公司的高企证书不慎丢失，想要补办，请问补办流程是什么？需要准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "28142",
+   "url": "https://www.wuhan.gov.cn/?id=28142",
+   "question": "尊敬的市科技局领导： 这里是武汉芯宝科技有限公司。我公司于2010年专为开发电子电路（芯片）ESD防护项目（包括全抗电磁脉冲）而成立。项目历时12年，总研发投入4700多万元，主体内容于2022年3月全部研发完成，现已进入推广期。全世界研发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "27952",
+   "url": "https://www.wuhan.gov.cn/?id=27952",
+   "question": "您好！我是一名博士研究生，因论文研究需要武汉市2006-2021年全社会RD经费支出，全社会RD经费支出占地区生产总值比重，全社会RD人员全时当量及新产品销售收入等数据，目前能在网上搜寻到的数据较为有限，若贵单位有相关数据，是否可发至我的邮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "27133",
+   "url": "https://www.wuhan.gov.cn/?id=27133",
+   "question": "武汉光谷机电科技有限公司2019年“武汉市企业研究开发中心”的复审是否通过？如何查询？我们通过武汉市科技局的网站登录上去也看不到复审结果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "27047",
+   "url": "https://www.wuhan.gov.cn/?id=27047",
+   "question": "我司于2016年取得武汉市企业研究开发中心认定，原则上每三年接受一次绩效评价。2022年，即今年应该是第二次考核。绩效评价是要等通知吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "26926",
+   "url": "https://www.wuhan.gov.cn/?id=26926",
+   "question": "申报单位不是在武汉市行政区域内注册的独立法人单位或法人内设机构可以申报2022年度武汉市技术转移示范机构申报认定吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "26378",
+   "url": "https://www.wuhan.gov.cn/?id=26378",
+   "question": "每天晚上，位于湖北省武汉市蔡甸区奓山街常欢大道汉津阳光城都能闻到像是橡胶烧焦的刺鼻味道，闻到后身体不适，导致无法开窗，早上后气味就变淡，合理怀疑附件工厂趁居民和政府工作人员休息时间段，排放不达标废气，严重影响到周围居民的身体健康和日常休息，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "26362",
+   "url": "https://www.wuhan.gov.cn/?id=26362",
+   "question": "2022年武汉市科技计划前资助项目今年还会出么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "26346",
+   "url": "https://www.wuhan.gov.cn/?id=26346",
+   "question": "用户找回密码为什么提交进去找不回密码",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "25921",
+   "url": "https://www.wuhan.gov.cn/?id=25921",
+   "question": "登陆密码忘记，通过手机号码无法登录系统，营业执照找回没有授权书模板",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "25875",
+   "url": "https://www.wuhan.gov.cn/?id=25875",
+   "question": "请问中试平台何时可以开始申报？科技局网站上发布了中试平台的管理办法，但是没有看到申报通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "24774",
+   "url": "https://www.wuhan.gov.cn/?id=24774",
+   "question": "如何认定市级重点实验室？应向哪个单位申请认定？需要满足哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "24547",
+   "url": "https://www.wuhan.gov.cn/?id=24547",
+   "question": "贵局的“武汉市工程技术研究中心一览表”中（http://kjj.wuhan.gov.cn/kjzy/kjcxpt/gcjsyjzx/202009/t20200907_1445092.html），更新到了2017年，不知道现在（2022年7月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "24516",
+   "url": "https://www.wuhan.gov.cn/?id=24516",
+   "question": "高新企业认定后需要做哪些工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "22322",
+   "url": "https://www.wuhan.gov.cn/?id=22322",
+   "question": "我校拟建设一个P2实验室，有什么要求，需要向哪个部门备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "21962",
+   "url": "https://www.wuhan.gov.cn/?id=21962",
+   "question": "今年3月22日发布的《武汉市企业研究开发中心备案管理办法》介绍说由市科技局常年网上受理，请问网上申报渠道是否已经开通？若已经开通，为何在网上办事大厅内无法找到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "20660",
+   "url": "https://www.wuhan.gov.cn/?id=20660",
+   "question": "如何加入武汉发明协会，入会的条件是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "20553",
+   "url": "https://www.wuhan.gov.cn/?id=20553",
+   "question": "因毕业论文写作需要，想贵局咨询武汉市2020年全社会R&amp;D人员数量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "20039",
+   "url": "https://www.wuhan.gov.cn/?id=20039",
+   "question": "我想问一下外委科技项目在武汉本地备案的流程和所需的资料，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "19834",
+   "url": "https://www.wuhan.gov.cn/?id=19834",
+   "question": "我想请问一下，武汉市东湖新技术开发区辖内的高新技术企业,去年7月份领到了高新区奖励的10万元，另外的10万什么时候可以下来啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "19446",
+   "url": "https://www.wuhan.gov.cn/?id=19446",
+   "question": "尊敬的市局领导： 我是洪山区一家医疗器械的生产企业，想请问下市政府于2021年11日16日发布的《进一步推进大健康和生物技术产业发展政策措施》（ 武政规〔2021〕18号）中有关由市科技局牵头的推动医疗器械提档升级的政策措施于什么时间执行实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "18782",
+   "url": "https://www.wuhan.gov.cn/?id=18782",
+   "question": "之前在贵单位网上互动栏目中看到贵单位回复网友提问中说会有知识创新项目申报，请问该项目的申报时间是否已过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "17815",
+   "url": "https://www.wuhan.gov.cn/?id=17815",
+   "question": "武汉市今年是否有科研项目可以申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "17674",
+   "url": "https://www.wuhan.gov.cn/?id=17674",
+   "question": "想咨询一下2022年武汉市级研发机构如何认定，及相关要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "17468",
+   "url": "https://www.wuhan.gov.cn/?id=17468",
+   "question": "请示是否有专业靠谱的专利代理机构推荐",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16885",
+   "url": "https://www.wuhan.gov.cn/?id=16885",
+   "question": "咨询高新企业入驻相关政策及入驻流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16774",
+   "url": "https://www.wuhan.gov.cn/?id=16774",
+   "question": "我们公司“湖北四环制药有限公司”2021年通过了药品盐酸曲美他嗪片的一致性评价，请问今年有没有政策予以奖励？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "16529",
+   "url": "https://www.wuhan.gov.cn/?id=16529",
+   "question": "因学术研究需要，现需截止到2021年武汉市高新技术企业名单。所有信息不对外公开发布，谢谢您!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "15606",
+   "url": "https://www.wuhan.gov.cn/?id=15606",
+   "question": "请问申请省级专精特新小巨人，市里面会有配套奖励补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "15501",
+   "url": "https://www.wuhan.gov.cn/?id=15501",
+   "question": "关于外国人直接在境内申请工作许可通知一事，政策里面有一“符合自由贸易区、全面创新改革试验区相关优惠政策的”，请问该条政策包含哪些情形，麻烦政策解读一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "15499",
+   "url": "https://www.wuhan.gov.cn/?id=15499",
+   "question": "官文还没出，今年还举办这个项目吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "15385",
+   "url": "https://www.wuhan.gov.cn/?id=15385",
+   "question": "高新企业的税收优惠和政府奖励是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "15318",
+   "url": "https://www.wuhan.gov.cn/?id=15318",
+   "question": "因学术研究需要，现需2009-2019年武汉市R&amp;D人员数量、R&amp;D人员全时当量、R&amp;D经费支出的数据。所有数据均作为研究的中间变量，不对外公开发布，谢谢您!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "13288",
+   "url": "https://www.wuhan.gov.cn/?id=13288",
+   "question": "请问怎么申报科技小巨人，具体操作流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "13187",
+   "url": "https://www.wuhan.gov.cn/?id=13187",
+   "question": "2019年全社会研发经费及2019年全社会研发经费占GDP比重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "13155",
+   "url": "https://www.wuhan.gov.cn/?id=13155",
+   "question": "今年武汉市的科技项目什么时候开始申报，已经8月份了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "12443",
+   "url": "https://www.wuhan.gov.cn/?id=12443",
+   "question": "湖北省科技厅下发的《关于推荐2020年全国优秀科普作品的通知》，应该由那个部门负责？我问了省市科协，都说不归她们管。我有一本科普书籍《纪光伟大夫谈健康：送给爸妈的健康书》想申报，请问联系哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "12033",
+   "url": "https://www.wuhan.gov.cn/?id=12033",
+   "question": "你好，最近在写有关全国城市科技创新水平的论文，请问能否告知2017-2019年武汉市R&amp;D内部支出中基础研究、应用研究与试验发展的具体数据呢，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "11629",
+   "url": "https://www.wuhan.gov.cn/?id=11629",
+   "question": "请问今年武汉科技项目什么时候开始申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "11520",
+   "url": "https://www.wuhan.gov.cn/?id=11520",
+   "question": "我的工作单位发生变化，如何变更原注册信息（工作单位），如何由企业注册变更为科研院所。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "11291",
+   "url": "https://www.wuhan.gov.cn/?id=11291",
+   "question": "听说高企补贴已经开始陆续发放，但公司账户一直没有收到，请问具体发放时间是什么时候？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "11069",
+   "url": "https://www.wuhan.gov.cn/?id=11069",
+   "question": "请问高新补贴什么时候能发放到公司？现在已经6月份了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "10808",
+   "url": "https://www.wuhan.gov.cn/?id=10808",
+   "question": "您好，我是准备再武汉申请创业工位的毕业生，想咨询相关情况但是，打创业工位的咨询电话和相应负责人电话都是空号，不明白为什么会给空号，02785709746，02785709741，02765692200，还不如不留。望回复！感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "10408",
+   "url": "https://www.wuhan.gov.cn/?id=10408",
+   "question": "我公司高新补贴申报已办理完毕，请问高新补贴什么时候能发放？前面有看到五一后会出高新补贴名单，请问名单什么时候能公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "10370",
+   "url": "https://www.wuhan.gov.cn/?id=10370",
+   "question": "请问今年的市级科技项目申报大概什么时候开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "10209",
+   "url": "https://www.wuhan.gov.cn/?id=10209",
+   "question": "请问有武汉市2019年有关高校的数据年报吗，需要本专科科高校数，R＆D人员与经费这类数据，还有其他相关的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "10137",
+   "url": "https://www.wuhan.gov.cn/?id=10137",
+   "question": "我们企业已完成高新补贴的网上申请，请问什么时候高新补贴可以发到企业帐户。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9833",
+   "url": "https://www.wuhan.gov.cn/?id=9833",
+   "question": "您好，请问可以提供一下2019年武汉市全社会R＆D人员人数吗，我看统计年鉴上只有折合全时当量，写毕业论文急求，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9806",
+   "url": "https://www.wuhan.gov.cn/?id=9806",
+   "question": "您好，我是辽宁工程技术大学在读研究生，因论文需要，想获取武汉市企业办有研发机构数，请问是否可以将相关2010-2020数据发至邮箱，谢谢！不胜感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9674",
+   "url": "https://www.wuhan.gov.cn/?id=9674",
+   "question": "全降解垃圾袋工厂可以申请高新技术企业吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9406",
+   "url": "https://www.wuhan.gov.cn/?id=9406",
+   "question": "您好，我一个朋友在科技厅参加了亚马逊网店的孵化器项目，成果很好，我也想参加 请问我应该怎么联系你们？ 能否给一个联系方式 ？ 盼答复 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9171",
+   "url": "https://www.wuhan.gov.cn/?id=9171",
+   "question": "外地高新技术企业在武汉的分公司员工是否可以在武汉享受高新技术企业的人才政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "9024",
+   "url": "https://www.wuhan.gov.cn/?id=9024",
+   "question": "请问如何申请成为技术合同登记站？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8844",
+   "url": "https://www.wuhan.gov.cn/?id=8844",
+   "question": "请问武汉市2021年应用基础前沿项目什么时候开始申报？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8702",
+   "url": "https://www.wuhan.gov.cn/?id=8702",
+   "question": "您好，请问2019年武汉市全社会研究开发费（R&amp;D）绝对值是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8703",
+   "url": "https://www.wuhan.gov.cn/?id=8703",
+   "question": "您好，请问2019年武汉市全社会研究开发费（R&amp;D）绝对值是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8550",
+   "url": "https://www.wuhan.gov.cn/?id=8550",
+   "question": "武汉市2021年技术经济人培训几时开始，在那里报名，请告知，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8486",
+   "url": "https://www.wuhan.gov.cn/?id=8486",
+   "question": "请问市科技局创新平台处有效联系方式，65692200这个电话打不通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8439",
+   "url": "https://www.wuhan.gov.cn/?id=8439",
+   "question": "认定是需要专业技术人员多少人？请及时回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8397",
+   "url": "https://www.wuhan.gov.cn/?id=8397",
+   "question": "我是原武汉柴油机厂退休多年的老职工，多年前想研发转子发动机，因家庭成份问题没有得以实行。一直到现在我仍怀有这个愿望。我知道发动机研发是一个相当复杂的事情，不是我一个的力量就能办到，虽然我只是一名机械工人，但我对机械的熟悉程度，加上对发动机的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "8064",
+   "url": "https://www.wuhan.gov.cn/?id=8064",
+   "question": "我司是制造型企业，每年会自主发生研发项目且会进行研发费加扣的申请，请问我司自主进行的研发项目是否可以自主提交至科委进行项目审核/备案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "7977",
+   "url": "https://www.wuhan.gov.cn/?id=7977",
+   "question": "武汉市科技局官网改版前，是有一个像地图一样的链接，可以分地区查看武汉市所有的国家和省级众创孵化平台地址和联系方式的，这样方便计划入孵的企业对接联系，但是现在改版后完全看不到，请问可以公开一下吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "7914",
+   "url": "https://www.wuhan.gov.cn/?id=7914",
+   "question": "尊敬的科技局领导您好，我是江苏大学一名即将毕业的研究生，因毕业论文数据需要，先想向贵局咨询2018年武汉市R&amp;D经费中境外资金金额及R&amp;D经费金额，2018年武汉市规上企业外商及港澳台商投资企业工业总产值，铁路营业里程，外商",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "6128",
+   "url": "https://www.wuhan.gov.cn/?id=6128",
+   "question": "想咨询下您单位具体的办公时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "6129",
+   "url": "https://www.wuhan.gov.cn/?id=6129",
+   "question": "想咨询下您单位具体的办公时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "6127",
+   "url": "https://www.wuhan.gov.cn/?id=6127",
+   "question": "想咨询下您单位具体的办公时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5880",
+   "url": "https://www.wuhan.gov.cn/?id=5880",
+   "question": "请贵单位工作人员帮助办理登录密码重置，我单位已按照网页说明，将信用代码证及其他信息发至贵单位工作邮箱一周，无人办理此事，请贵单位查看办理，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5716",
+   "url": "https://www.wuhan.gov.cn/?id=5716",
+   "question": "我是一个普通的工厂电工，在工作之余发明了这几项专利（Z*****111308334 &nbsp;Z*****215805825 &nbsp; Z*****215849295）由于无法单独完成转化实施，基于该专利对环保，家居的重大社会价值，敬",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5717",
+   "url": "https://www.wuhan.gov.cn/?id=5717",
+   "question": "我是一个普通的工厂电工，在工作之余发明了这几项专利（Z*****111308334 &nbsp;Z*****215805825 &nbsp; Z*****215849295）由于无法单独完成转化实施，基于该专利对环保，家居的重大社会价值，敬",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5689",
+   "url": "https://www.wuhan.gov.cn/?id=5689",
+   "question": "局长您好！我们是一家知识产权服务机构，为了响应国家号召，咱们一直都在帮助个人、企业保护自己的权利。奈何现在有些不正规、不负责的机构给我们这个行业造成了诚信方面的问题，导致产权服务机构在企业经营者眼里的诚信度大打折扣，既給我们的业务开展带来了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5542",
+   "url": "https://www.wuhan.gov.cn/?id=5542",
+   "question": "我们是武汉市外的一家高新企业，2020年9月迁入武汉经济技术开发区，16日询问，次日高新处的胡工给我回电话，我正在开车没细说，胡工叮嘱注意安全，本来约好次日我回电话的，一直在车间，忘了这个事了，胡工主动与我联系：讲解了两遍申报内容，又把流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5541",
+   "url": "https://www.wuhan.gov.cn/?id=5541",
+   "question": "我们是武汉市外的一家高新企业，2020年9月迁入武汉经济技术开发区，16日询问，次日高新处的胡工给我回电话，我正在开车没细说，胡工叮嘱注意安全，本来约好次日我回电话的，一直在车间，忘了这个事了，胡工主动与我联系：讲解了两遍申报内容，又把流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "5051",
+   "url": "https://www.wuhan.gov.cn/?id=5051",
+   "question": "公司开发了一套程序，想问一下是否可以申请专利。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4789",
+   "url": "https://www.wuhan.gov.cn/?id=4789",
+   "question": "能否提供《院士专家引领十大高端产业发展行动计划（2020-2025）》电子版文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4720",
+   "url": "https://www.wuhan.gov.cn/?id=4720",
+   "question": "2018年，2019年武汉市全社会研究与试验发展经费投入（R&amp;D）分别是多少亿元？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4691",
+   "url": "https://www.wuhan.gov.cn/?id=4691",
+   "question": "2018年，2019年武汉市研究与试验发展经费投入（R&amp;D)分别是多少亿元？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4558",
+   "url": "https://www.wuhan.gov.cn/?id=4558",
+   "question": "科技成果鉴定的流程以及手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4246",
+   "url": "https://www.wuhan.gov.cn/?id=4246",
+   "question": "武汉市对互联网行业公司的自主软件开发类项目有没有补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "4245",
+   "url": "https://www.wuhan.gov.cn/?id=4245",
+   "question": "武汉市对互联网行业公司的自主软件开发类项目有没有补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3711",
+   "url": "https://www.wuhan.gov.cn/?id=3711",
+   "question": "高新企业认定时，审计有没有补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3572",
+   "url": "https://www.wuhan.gov.cn/?id=3572",
+   "question": "您好，在武汉市科技局网站看到2017年的“市科技局关于组织申报2017年度市级科技创新平台认定的通知”，2018、2019、2020年均未有该认定的申报通知，请问，后续是否还会组织此类创新平台认定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3573",
+   "url": "https://www.wuhan.gov.cn/?id=3573",
+   "question": "您好，在武汉市科技局网站看到2017年的“市科技局关于组织申报2017年度市级科技创新平台认定的通知”，2018、2019、2020年均未有该认定的申报通知，请问，后续是否还会组织此类创新平台认定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3467",
+   "url": "https://www.wuhan.gov.cn/?id=3467",
+   "question": "请问中科院武汉岩土力学研究所的归口管理单位是否是武汉市科学技术局？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3468",
+   "url": "https://www.wuhan.gov.cn/?id=3468",
+   "question": "请问中科院武汉岩土力学研究所的归口管理单位是否是武汉市科学技术局？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3466",
+   "url": "https://www.wuhan.gov.cn/?id=3466",
+   "question": "请问中科院武汉岩土力学研究所的归口管理单位是否是武汉市科学技术局？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "3465",
+   "url": "https://www.wuhan.gov.cn/?id=3465",
+   "question": "请问中科院武汉岩土力学研究所的归口管理单位是否是武汉市科学技术局？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1797",
+   "url": "https://www.wuhan.gov.cn/?id=1797",
+   "question": "武汉耐恩贝有色金属科技有限公司通过抖音网络平台进行广告推广，宣传其技术为专利技术，专利号为C*****10310500.8，经查此专利并未授权，但其在网站以及宣传材料中虚假宣传其公司技术获得了国家知识产权局的发明专利证书。耐恩贝公司暂未与本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1740",
+   "url": "https://www.wuhan.gov.cn/?id=1740",
+   "question": "经过了解，凡技术合同登记均需要提交符合技术合同模版要求的合同，但是在科技局网上没有下载到模版，想咨询一下，是否有模版？还是不需要固定的模版？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1633",
+   "url": "https://www.wuhan.gov.cn/?id=1633",
+   "question": "请问一下，2020年的武汉市创新产品认定工作开始了么?如果没有开始，大概什么时候开始？具体是哪个部门负责？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1623",
+   "url": "https://www.wuhan.gov.cn/?id=1623",
+   "question": "我公司从事软件开发项目，想申请认定为软件企业，请问流程和申请细则？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1463",
+   "url": "https://www.wuhan.gov.cn/?id=1463",
+   "question": "6月初在省科技厅网站看到有关于推进2020年度企校联合创新中心建设的通知，想咨询一下武汉市、武昌区有没有相关具体政策出台？如果有，要联系哪个部门了解相关政策或办理相关事项？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1429",
+   "url": "https://www.wuhan.gov.cn/?id=1429",
+   "question": "用户无法登陆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "1327",
+   "url": "https://www.wuhan.gov.cn/?id=1327",
+   "question": "年薪 20 万元以上且符合相关文件规定的高层次人才，这个细则在哪里可以获取，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "805",
+   "url": "https://www.wuhan.gov.cn/?id=805",
+   "question": "2019高新技术企业证书领取流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "790",
+   "url": "https://www.wuhan.gov.cn/?id=790",
+   "question": "求靠谱的专利转让交易平台或机构，线上和线下的都可以，谢谢，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-8",
+   "id": "734",
+   "url": "https://www.wuhan.gov.cn/?id=734",
+   "question": "尊敬的领导： 您好！ 我叫张朔语（张豪帝）。我之前写了一篇文章，交给派出所。他们一级一级的往上报，想必您也曾看到过。文章的大概内容是：我在看了关于爱因斯坦的故事以后，觉得他举得相对论的一个例子不太妥当。他说：你同你最亲的人坐在火炉边，一个钟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "70503",
+   "url": "https://www.wuhan.gov.cn/?id=70503",
+   "question": "2026年先进制造业企业增值税加计抵减政策申报什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "69847",
+   "url": "https://www.wuhan.gov.cn/?id=69847",
+   "question": "您好，我想查询武汉企业新增投资（例如ERP系统升级，新投资生产设备和厂房）的相关补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "68899",
+   "url": "https://www.wuhan.gov.cn/?id=68899",
+   "question": "泄露个人隐私，暴力催收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "68897",
+   "url": "https://www.wuhan.gov.cn/?id=68897",
+   "question": "我想查询武汉市2015-2024年每一年4G和5G基站累计建成数量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "68533",
+   "url": "https://www.wuhan.gov.cn/?id=68533",
+   "question": "经信方向与企业相关的惠企政策汇编有没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "68240",
+   "url": "https://www.wuhan.gov.cn/?id=68240",
+   "question": "原武汉市无线电线材厂职工，档案缺失招工表，毕业生分配表，报到证，派遣证，入职登记表等证明工龄的材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "67306",
+   "url": "https://www.wuhan.gov.cn/?id=67306",
+   "question": "我们公司注册地址在江岸区，公司有应用场景示范（内容创作中心），根据之前经信局发的岸九条政策（应用场景示范工程），公司能申请政策补贴吗？如果可以，需要怎么申请？需要哪些资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "66817",
+   "url": "https://www.wuhan.gov.cn/?id=66817",
+   "question": "2026年申报武汉市智能工厂政策，如何申报，需具备哪些条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "66819",
+   "url": "https://www.wuhan.gov.cn/?id=66819",
+   "question": "我公司想申请资金扶持，目前在做智能仓储+配送+运输的智能化系统，听说上你们网站日剧提交 申请 ，但找不到申请窗口，如何操作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "66226",
+   "url": "https://www.wuhan.gov.cn/?id=66226",
+   "question": "尊敬的中共中央社会工作部相关部门领导： 您好！ 我叫黄德彩，是武汉市武衡设备制造公司的一名职工。现特向贵部门反映武汉市武衡设备制造公司在改制过程中，对符合企业劳动保障规定的生活费、医药费和职工住房补贴久拖不决的问题，恳请贵部门予以监督督办，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "65800",
+   "url": "https://www.wuhan.gov.cn/?id=65800",
+   "question": "我想咨询下参加2026年台北展会的补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "65537",
+   "url": "https://www.wuhan.gov.cn/?id=65537",
+   "question": "智节云联（武汉）科技有限公司是一家初创型科技公司，公司定位是以科技驱动打造0碳城市的城市运营服务商，公司自9月份成立以来成功打造了“梯能宝”电梯能量智能回收装置，并在市场上取得了很好的反响，平均为物业企业节能30%-40%。同时改设备通过了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "65472",
+   "url": "https://www.wuhan.gov.cn/?id=65472",
+   "question": "本人系武汉逸书堂文化艺术传播有限公司（统一社会信用代码：91420105M*****AX45）法定代表人。现反映武汉君悦达酒店管理有限公司（地址：汉阳区鹦鹉大道鹦鹉巷子，电话：1*********8）违规停电、封门，侵害我司权益，恳请贵局依",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64847",
+   "url": "https://www.wuhan.gov.cn/?id=64847",
+   "question": "尊敬的各位领导： 您们好！ 投诉中国长江三峡集团有限公司 事件起因:我司长沙业景环保科技有限公司与中国长江三峡集团有限公司旗下公司惠安纳川基础设施投资有限公司2019年6月4日签订了《设备采购合同》，与中国长江三峡集团有限公司旗下公司惠安纳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64433",
+   "url": "https://www.wuhan.gov.cn/?id=64433",
+   "question": "对于3月18日发布文件《东湖高新区加快促进软件和信息技术服务业创新发展的若干措施》中提到的第八点：支持开源原生应用开发 。 这一项是否指的是东湖高新区的企业通过开发鸿蒙的原生应用并正式上架应用市场，即可获得该补贴？若不是的话，能否麻烦列举一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64283",
+   "url": "https://www.wuhan.gov.cn/?id=64283",
+   "question": "“电缆宝”作为一家湖北本土的产业互联网平台，正以“数字基础设施”的定位，积极探索一条以数据驱动、平台赋能、生态协同为核心的线缆产业转型升级新路径，其“交易+金融+数据”三位一体的创新模式，高度契合国家关于“推动工业品B2B电商高质量发展”“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "64891",
+   "url": "https://www.wuhan.gov.cn/?id=64891",
+   "question": "计划申请国家级绿色供应链企业，请问2026年可以申请吗？什么入口申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "63989",
+   "url": "https://www.wuhan.gov.cn/?id=63989",
+   "question": "2025年武汉英才先进制造有申报计划吗，如果有大概什么时间，如果没有明年有计划吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "63020",
+   "url": "https://www.wuhan.gov.cn/?id=63020",
+   "question": "如何申请省级绿色工厂认证，省级绿色工厂认定标准及申报通知发布时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "62140",
+   "url": "https://www.wuhan.gov.cn/?id=62140",
+   "question": "2025年9月30日下午，我就沈丹退休事宜查询龙威集团是否还存在，肖老师三点半即回应，10月9日上午即落实到相关单位，我们终于找到了当年的报到证。为这个事情，我找了省市区档案馆，相关大学，市人才中心，都没有用，感谢肖老师的勤勉尽职，帮我们解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "62174",
+   "url": "https://www.wuhan.gov.cn/?id=62174",
+   "question": "原二轻局下武汉市灯具公司光辉五金灯具厂员工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59947",
+   "url": "https://www.wuhan.gov.cn/?id=59947",
+   "question": "抖音购买组装电脑，商家一直拖着处理，并且欺骗消费者，说是安排人员上门，迟迟没有处理。最后寄坏件。导致电脑无法开机，致电当地市长热线，总是没结果，过两天自动结案。商家名称武汉智己科技有限公司。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59909",
+   "url": "https://www.wuhan.gov.cn/?id=59909",
+   "question": "您好，我们是湖北经济学院统计与数学学院的学生，目前正在参加“第十六届全国大学生市场调查与分析大赛”，希望了解武汉政府关于labubu等盲盒潮玩的一些看法,旨在通过此次调查研究后更好的为相关企业与店家提出更多实质性建议。本次采访仅作为研究使用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59566",
+   "url": "https://www.wuhan.gov.cn/?id=59566",
+   "question": "如何申报武汉市企业技术中心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59567",
+   "url": "https://www.wuhan.gov.cn/?id=59567",
+   "question": "中福公益APP是湖北武汉易企科技有限公司开发的，提供给其它公司打着助力公益进行网上诈骗。 此APP以提供内幕消息为由，引诱人购买彩票，承诺中奖2000元以下归彩民所有，2000元以上公司提成15%，不中奖每天可报销90元购彩票费用，注册入群",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59568",
+   "url": "https://www.wuhan.gov.cn/?id=59568",
+   "question": "你局于2025年3月21日发布了武汉市中小企业（民营经济）发展专项资金管理办法（征求意见稿），我想咨询关于该管理办法的正式文件是否已经公布，公示在哪？如若未公布，请问何时才能公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "59040",
+   "url": "https://www.wuhan.gov.cn/?id=59040",
+   "question": "请问2024年“武汉英才”计划培育支持专项先进制造领域人才选拔结果出了吗，哪里可以看到公示名单呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "58892",
+   "url": "https://www.wuhan.gov.cn/?id=58892",
+   "question": "盘龙城龙城天居园107栋绿化带进行《黄陂龙城天居园专改公》工程。（此工程经查实不属于电网部门工程）该工程施工处，无任何工程信息公示，无施工单位，无工程总平面图，无开竣工日期，无监理单位信息。 现场施工人员使用初设文件进行施工，且无法提供正式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "58896",
+   "url": "https://www.wuhan.gov.cn/?id=58896",
+   "question": "您好，请问2024年“武汉英才”计划培育支持专项先进制造领域人才项目目前是否已经出了结果？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "58612",
+   "url": "https://www.wuhan.gov.cn/?id=58612",
+   "question": "想把公司地址更改一下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "58202",
+   "url": "https://www.wuhan.gov.cn/?id=58202",
+   "question": "我司是位于东西湖区的金银潭地铁附近的初创型科技公司，主营大数据、信息技术、人工智能相关产品研发，希望申请到低成本的政府扶持的孵化器办公场地，用于扩大招聘和办公。请问有哪些途径获取到政策信息以及申请到所需场地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "57168",
+   "url": "https://www.wuhan.gov.cn/?id=57168",
+   "question": "请问CSMM的官方网站在哪里，我查询的信息有真有假，搜索不到官方网站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "56200",
+   "url": "https://www.wuhan.gov.cn/?id=56200",
+   "question": "湖北省经信厅已于2025年4月15日将湖北联投存在应收政府拖欠账款的项目清单及金额下发至各地市经信局，并逐步向下属各区、县转办。截至目前，荆州、宜昌、孝感、襄阳、黄石、鄂州、黄冈、仙桃等地政府部门均已收到湖北联投应收拖欠账款清单，只有武汉市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "55719",
+   "url": "https://www.wuhan.gov.cn/?id=55719",
+   "question": "湖北省首版次软件申报的流程或管理办法，2025年首版次软件申报工作开展的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "54011",
+   "url": "https://www.wuhan.gov.cn/?id=54011",
+   "question": "官方申报渠道、网址、申报时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "53956",
+   "url": "https://www.wuhan.gov.cn/?id=53956",
+   "question": "企业注册号91*********5650336冷链在线（武汉）信息技术有限公司，我在该商家买家电之后询问国补费用，该商家说没有申请，我想查询一下但没有找到查询入口，能帮忙查询一下吗？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "53986",
+   "url": "https://www.wuhan.gov.cn/?id=53986",
+   "question": "您好！我们是一家武汉市科技型企业，目前新研发出一款小型智能无人船舶，主要用于湖泊垃圾清洁与水草切割，目前有一家水务环保公司意向与我们合作。我们希望了解以下问题：1.企业生产内河湖泊使用的小型智能无人船舶需要办理哪些生产资质与许可？以及如何办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "54012",
+   "url": "https://www.wuhan.gov.cn/?id=54012",
+   "question": "领导您好，我是经纬创投的投资助理，我们是国内头部的风险投资机构，基金规模达700亿人民币，我们了解到武汉禹工水导激光科技有限公司，我们对公司很感兴趣，希望有机会和公司负责人聊聊，如果方便的话，希望能通过您这边帮忙转达企业，若企业有意愿认识，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "53946",
+   "url": "https://www.wuhan.gov.cn/?id=53946",
+   "question": "获悉经信局在统计武汉市数据标准的企业，想知道怎样申报加入？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "53320",
+   "url": "https://www.wuhan.gov.cn/?id=53320",
+   "question": "武汉软件行业协会联系我们企业 说是经信局的官方协会 强制要求入会 入会后可以发武汉优秀软件企业牌子 同时可以申请武汉软件政策资金 说政策都是通过他们申报 不通过他们 不能申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "52639",
+   "url": "https://www.wuhan.gov.cn/?id=52639",
+   "question": "2023年度武汉英才补助部分人员已发放，部分人员未发放，是否有发放计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "52141",
+   "url": "https://www.wuhan.gov.cn/?id=52141",
+   "question": "领导，您好！本人近期前往企业服务大楼办事，工作人员介绍一楼是企业服务超市。然而，我并未发现与企业直接相关的展示内容，例如企业产品展示或企业家介绍等，这让我感到意外。建议增设一个展示企业家风采和产品的窗口。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "51572",
+   "url": "https://www.wuhan.gov.cn/?id=51572",
+   "question": "武汉市中小企业发展局、武汉市中小企业发展处、武汉市中小企业发展促进中心，三者有什么区别和联系",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "50986",
+   "url": "https://www.wuhan.gov.cn/?id=50986",
+   "question": "您好，请问2024年“武汉英才”计划培育支持专项先进制造领域人才项目进展到哪个阶段了？大概什么时候能出结果？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "47734",
+   "url": "https://www.wuhan.gov.cn/?id=47734",
+   "question": "中国铁塔武汉分公司明知基站建设需要取得业主同意，却置之不理，在施工过程中无视我小区业主反对，其工作人员一意孤行偷偷施工。不仅是对我们小区业主权益的侵犯，更是打着通讯基础设施建设的幌子，蔑视法律的尊严。我们这些业主们强烈要求中国铁塔武汉分公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "46364",
+   "url": "https://www.wuhan.gov.cn/?id=46364",
+   "question": "湖北联投东湖高新旗下光谷环保，响应鄂政发【2023】8号文，力争成为为湖北节能环保行业“链主”地位。本次想咨询交流关于具体实施政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "45168",
+   "url": "https://www.wuhan.gov.cn/?id=45168",
+   "question": "工业上规企业的资金奖励通知已下发，服务业上规企业有吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "44870",
+   "url": "https://www.wuhan.gov.cn/?id=44870",
+   "question": "家乡政府，你好。我的问题通过交警说，武汉市无人驾驶汽车是由你们牵头的？就无人驾驶汽车，车子在路上出故障，要不要摆放三角警示牌问题？百度萝卜快跑根本就不重视我提出的问题，我只好向你们反应，交警也说了，按照道交法，百度无人驾驶汽车是没办法摆放三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "43552",
+   "url": "https://www.wuhan.gov.cn/?id=43552",
+   "question": "您好，我想咨询下，加油站企业是否有规上企业和规下企业之分？若有，是如何判定的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "43102",
+   "url": "https://www.wuhan.gov.cn/?id=43102",
+   "question": "在武汉市经济和信息化局你们的官网上面转载文章到某个公司官网行业新闻版块会侵权吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "42753",
+   "url": "https://www.wuhan.gov.cn/?id=42753",
+   "question": "现在介绍中国政府的最低生活保障制度,廉租住房制度,特困供养制度和临时救助制度： &nbsp; https://www.mca.gov.cn/mzsj/tjjb/2022/202201dbbz.html https://www.mca.gov",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "42752",
+   "url": "https://www.wuhan.gov.cn/?id=42752",
+   "question": "现在介绍中国政府的最低生活保障制度,廉租住房制度,特困供养制度和临时救助制度： &nbsp; https://www.mca.gov.cn/mzsj/tjjb/2022/202201dbbz.html https://www.mca.gov",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "42679",
+   "url": "https://www.wuhan.gov.cn/?id=42679",
+   "question": "我司在2021年采购华为云服务并收到政府奖补，想了解现在是否还有相关采购云服务的政府奖补，以平衡我司采购成本，感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "42429",
+   "url": "https://www.wuhan.gov.cn/?id=42429",
+   "question": "如何申请武汉市中小企业服务商名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "41712",
+   "url": "https://www.wuhan.gov.cn/?id=41712",
+   "question": "2024企业“科技副总”需求 与技术创新难题信息表需要提交到局里哪个部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "40708",
+   "url": "https://www.wuhan.gov.cn/?id=40708",
+   "question": "您好，我是国企产业园区的招商人员，近期在了解数字经济产业园的相关政策，经信局网站上不能找到《关于印发和的通知》的原文，烦请回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "40393",
+   "url": "https://www.wuhan.gov.cn/?id=40393",
+   "question": "我想咨询武汉市新颁布的“工业上楼”政策应该找哪个部门咨询办理，联系方式。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "39966",
+   "url": "https://www.wuhan.gov.cn/?id=39966",
+   "question": "中铁大桥局武汉桥梁特种技术有限公司，于2018年与分包单位中铁山桥集团有限公司签订工程项目，徐州310国道中运河桥危桥改造工程项目，项目位于江苏省徐州市邳州市车辐山镇山南村，项目建设单位为徐州公路管理处，项目于2021年完工，双方签署封账协",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "39781",
+   "url": "https://www.wuhan.gov.cn/?id=39781",
+   "question": "2024年武汉市企业参加境外展会是否有相关补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "39717",
+   "url": "https://www.wuhan.gov.cn/?id=39717",
+   "question": "1.2024年什么时候审报2.可以申报几次3.需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "38351",
+   "url": "https://www.wuhan.gov.cn/?id=38351",
+   "question": "四川众智公路交通工程有限公司承包了中建三局第二建设工程有限责任公司（中建三局二公司）位于四川省雅安市名山区成雅快速通道（雅安段）新建项目的一标一工区的交安工程、信号灯交安工程、波形钢护栏工程。该项目已交工验收合格，并于2022年5月30日1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "38350",
+   "url": "https://www.wuhan.gov.cn/?id=38350",
+   "question": "中国联通未进行任何提醒的前提下将用户手机号码关停，用户手机号码未开展任何违法违规活动，中国联通无法明确告知关停原因。用户因急需恢复手机号码正常通信功能，于当天前往营业厅签署承诺书，恢复手机号码通信。签署承诺书时未告知号码封停原因，未预警任何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "37334",
+   "url": "https://www.wuhan.gov.cn/?id=37334",
+   "question": "我们在申请软件政策项目的时候 武汉市软件行业协会和我们联系 要我们现场听政策宣讲 要通过他们申请才能申请政策 说后期是他们评审核查 如果不通过他们就无法申请项目 即使申请了也无法通过 他们是经信局的二级单位 我想核实是否是这样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "34645",
+   "url": "https://www.wuhan.gov.cn/?id=34645",
+   "question": "我是江岸区的一名中学生，同时也是一名无线电爱好者 &nbsp; &nbsp; &nbsp; &nbsp;近期我发现无线电频率430MHz至440MHz有许多对讲机用户违规占用无线电频率的情况，他们干扰到了我们（业余无线电爱好者）的正常通信。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "34543",
+   "url": "https://www.wuhan.gov.cn/?id=34543",
+   "question": "关于2022年“武汉英才”计划培育支持专项先进制造领域人才名单会进行公布，会有相关证书吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "34276",
+   "url": "https://www.wuhan.gov.cn/?id=34276",
+   "question": "请问市区是否有发布征集2023年新一代信息技术典型案例通知，何时截止申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "34008",
+   "url": "https://www.wuhan.gov.cn/?id=34008",
+   "question": "您好，请问关于2022年“武汉英才”计划培育支持专项先进制造领域人才选拔结果什么时候出来，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "34009",
+   "url": "https://www.wuhan.gov.cn/?id=34009",
+   "question": "2022武汉汽车保有量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "33856",
+   "url": "https://www.wuhan.gov.cn/?id=33856",
+   "question": "2023年武昌区针对新办I*****01和I*****00是否有补贴计划？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "33231",
+   "url": "https://www.wuhan.gov.cn/?id=33231",
+   "question": "本人于2022年11月23日因政策在东湖高新区三环海通购买通用别克微蓝6插混新能源汽车，按政策报废了旧车，提交了材料，经销商以政府补贴资金并未下发为由，让我等待至今，现如今时隔半年有余补贴是否下发？如未下发材料是否过审？希望有关部门答疑解惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32949",
+   "url": "https://www.wuhan.gov.cn/?id=32949",
+   "question": "我是武汉市博钛新材料科技有限公司法人，我司是国内独家掌握高频感应焊接制管核心技术的科技型企业，多次获得国家级和省级大赛奖，2021年获得1000万元天使融资。我司现有两条自主多金属高速制管线，速度是传统工艺的10倍以上，产品质量超过现有国标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32772",
+   "url": "https://www.wuhan.gov.cn/?id=32772",
+   "question": "电信号码在落地苏丹后无服务，无法拨打电话及收发短信验证码，在其他大多数国家正常，移动联通在苏丹有信号，由于电信与苏丹运营商无漫游协议导致电信号码无法收发短信及来电，进而影响撤侨回国，请推动电信解决！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32600",
+   "url": "https://www.wuhan.gov.cn/?id=32600",
+   "question": "目前国内掀起一片新能源汽车热，一度有取代燃油车的趋势，而电池驱动汽车被公认为存在续航短不敢开空调等一系列问题。同时无论国内或者国外都有人提出要以氢能代替汽油燃烧，然氢气作为燃料使用对纯度有很高的要求，电解氢气无论储存还是生成效率都是很大的问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32605",
+   "url": "https://www.wuhan.gov.cn/?id=32605",
+   "question": "您好，请问2022年“武汉英才”计划培育支持专项先进制造领域人才的评选工作什么时候可以出结果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "32495",
+   "url": "https://www.wuhan.gov.cn/?id=32495",
+   "question": "武汉市企业2023年参加境外展会补贴比例是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31721",
+   "url": "https://www.wuhan.gov.cn/?id=31721",
+   "question": "2023年3月16日凌晨不知哪个单位，在武昌区东亭路九号审计干部培训中心宿舍院外建起一座信号塔，离居民楼不足8米（查询此类信号塔最少要离居民楼200米）。3月16日早上居民们发现门前出现的塔后，纷纷向多方投诉！市长热线电话，微信号，武汉城市",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31620",
+   "url": "https://www.wuhan.gov.cn/?id=31620",
+   "question": "武汉小微企业创业园位于汉口中一路特一号，为市经济和信息化局下开展的针对扶持中小微企业的孵化园区，在日常工作配套的会议室配备方面从2021年小微企业服务中心接手管理以来，园区一楼3个会议室从2021年起开始不让入驻的企业使用，无理由，无原因的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31207",
+   "url": "https://www.wuhan.gov.cn/?id=31207",
+   "question": "想咨询一下现在汽配企业做两化融合贯标，市和区是否还有相应的政策，今年能申报吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31016",
+   "url": "https://www.wuhan.gov.cn/?id=31016",
+   "question": "近日武汉市人民政府发布了《武汉市支持数字经济加快发展若干政策》，其中“（六）支持软件企业发展。对我市年营业收入500万元及以上且年研发投入占年营业收入比例达到15%及以上的软件企业，按照不超过企业年研发投入的10%给予最高100万元补助；对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "31017",
+   "url": "https://www.wuhan.gov.cn/?id=31017",
+   "question": "请问我的平台申报成功为工信部授权的特色型平台后，能否申请特色平台奖补，申请流程是什么样的，奖补金额的规则是什么样的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "30279",
+   "url": "https://www.wuhan.gov.cn/?id=30279",
+   "question": "22年年底下证，23年申请补助，今年大概什么时候下发文件通知，往年申请补助都需要准备什么资料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "29336",
+   "url": "https://www.wuhan.gov.cn/?id=29336",
+   "question": "1.私自盗用我爸爸的身份证给别人拉宽带和办卡。湖北省公安县甘家厂乡的营业厅跑到我家里，跑到我家里说给我我们拉一条宽带，结果后来没拉，给本村二组的人拉了一条129元/月套餐宽带，还办了一张电话卡，而我爸爸身份证地址在四组，我多次要求后，使用差",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "27837",
+   "url": "https://www.wuhan.gov.cn/?id=27837",
+   "question": "企业隐形冠军称号现在怎么申请？在哪里申请？申请条件有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "27701",
+   "url": "https://www.wuhan.gov.cn/?id=27701",
+   "question": "您好，想了解下科技成果评价报告如何申请办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "26221",
+   "url": "https://www.wuhan.gov.cn/?id=26221",
+   "question": "现在投标时需要投标人出具《中小企业声明函》，请问：1.中小企业的认定是否需要贵局办理？2.声明函贵局是否有模板下载。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "25380",
+   "url": "https://www.wuhan.gov.cn/?id=25380",
+   "question": "我司目前在做相关产业，想了解一下武汉政府这边的相关政策，或者是东湖高新区的区级政策也行。目前出台的元宇宙提案里面没有很详细的说明。可以来电或发我邮箱，打扰了，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "24752",
+   "url": "https://www.wuhan.gov.cn/?id=24752",
+   "question": "&nbsp; &nbsp; 1、《政府信息公开条例》第二十九条规定：公民、法人或者其他组织申请获取政府信息的，应当向行政机关的政府信息公开工作机构提出，并采用包括信件、数据电文在内的书面形式；采用书面形式确有困难的，申请人可以口头提出，由受",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hb-wuhan-9",
+   "id": "23758",
+   "url": "https://www.wuhan.gov.cn/?id=23758",
+   "question": "企业申请创业之家的条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

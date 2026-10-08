@@ -1,0 +1,286 @@
+{
+ "A_考卷": [
+  {
+   "source": "heb-czt",
+   "id": "t20260115_2316212",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202601/t20260115_2316212.html",
+   "question": "咨询政府采购",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "heb-czt",
+   "id": "t20260815_2413225",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202608/t20260815_2413225.html",
+   "question": "城市基础设施配套费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省人民政府关于进一步调整和规范城市基础设施配套费管理的实施意见",
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260509_2362082",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202605/t20260509_2362082.html",
+   "question": "框架协议采购预算不足",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省政府集中采购目录及标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260302_2332497",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202603/t20260302_2332497.html",
+   "question": "非营利组织免税资格认证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于非营利组织免税资格认定管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20251124_2291326",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202511/t20251124_2291326.html",
+   "question": "关于申请非营利组织免税资格认定的申请时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于非营利组织免税资格认定管理有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20251016_2273218",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202510/t20251016_2273218.html",
+   "question": "关于2017年金融企业呆账核销管理办法是否有效的提问",
+   "cited_hits": [],
+   "cited_missing": [
+    "金融企业呆账核销管理办法（2017年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250925_2263845",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202509/t20250925_2263845.html",
+   "question": "异地范围如何界定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省政府采购评审专家管理实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250924_2262827",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202509/t20250924_2262827.html",
+   "question": "配套费减免政策适用咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步调整和规范城市基础设施配套费管理的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250620_2209160",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202506/t20250620_2209160.html",
+   "question": "寻找冀财税[2009]76号文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部、国家税务总局、中宣部关于转制文化企业名单及认定问题的通知",
+    "关于文化体制改革中经营性文化事业单位转制为企业税收政策的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250529_2196847",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202505/t20250529_2196847.html",
+   "question": "如何核定配套费收费标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省财政厅关于征收城市基础设施配套费几个具体事项的通知",
+    "建设工程规划许可证",
+    "建设工程规划许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250409_2171337",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202504/t20250409_2171337.html",
+   "question": "资产处置",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省行政事业性国有资产管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250321_2163135",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202503/t20250321_2163135.html",
+   "question": "咨询交管12123收费及票据问题是否合法",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家物价局 财政部〈关于发布中央管理的公安系统行政事业性收费项目及标准的通知〉",
+    "政府非税收入管理办法",
+    "河北省政府非税收入管理规定",
+    "国家发展改革委 财政部关于加强和规范机动车牌证工本费等收费标准管理有关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250314_2160035",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202503/t20250314_2160035.html",
+   "question": "石家庄汽车置换补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省2024年进一步推动汽车以旧换新方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250224_2149887",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202502/t20250224_2149887.html",
+   "question": "财政部政府采购管理交易系统",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购代理机构管理暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250213_2146280",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202502/t20250213_2146280.html",
+   "question": "请问非税通用票据和一般缴款书的区别是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政票据管理办法",
+    "河北省政府非税收入管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20241013_2089531",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202410/t20241013_2089531.html",
+   "question": "关于初级会计证书领取",
+   "cited_hits": [],
+   "cited_missing": [
+    "河北省财政厅关于做好2024年度会计专业技术人员专业科目继续教育的公告"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "heb-czt",
+   "id": "t20260613_2380984",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202606/t20260613_2380984.html",
+   "question": "关于河北省预算管理一体化平台建设相关情况的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260509_2362387",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202605/t20260509_2362387.html",
+   "question": "河北衡水武强县的惠农补贴何时发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260403_2347134",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202604/t20260403_2347134.html",
+   "question": "咨询“一卡通”含义",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260207_2326530",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202602/t20260207_2326530.html",
+   "question": "关于老旧住宅加装电梯",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20260114_2316005",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202601/t20260114_2316005.html",
+   "question": "两次下发免保育教育费补助是分别补助哪几个月？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20251107_2283989",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202511/t20251107_2283989.html",
+   "question": "2024年一月一9月退休中人什么时候补发工资",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20251020_2274177",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202510/t20251020_2274177.html",
+   "question": "什么时候征集政府采购评审专家",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250818_2242993",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202508/t20250818_2242993.html",
+   "question": "会计证书丢失补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20250630_2214052",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202506/t20250630_2214052.html",
+   "question": "中央财政衔接资金以工代赈项目资金如何拨付",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "heb-czt",
+   "id": "t20241101_2099330",
+   "url": "http://czt.hebei.gov.cn/hdjl/qzxx/202411/t20241101_2099330.html",
+   "question": "2024年中级成绩复核申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

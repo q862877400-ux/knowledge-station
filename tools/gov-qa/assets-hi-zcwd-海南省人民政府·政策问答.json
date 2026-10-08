@@ -1,0 +1,2088 @@
+{
+ "A_考卷": [
+  {
+   "source": "hi-zcwd",
+   "id": "395a9576ffef4a8aa48397bf6933a89c",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/395a9576ffef4a8aa48397bf6933a89c.shtml",
+   "question": "严重精神障碍发病报告是什么?",
+   "cited_hits": [
+    {
+     "name": "精神卫生法",
+     "lib_no": "精神卫生法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "严重精神障碍发病报告管理办法(试行)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "cad0c5ec9d4e4001aecb8900d2abe460",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/cad0c5ec9d4e4001aecb8900d2abe460.shtml",
+   "question": "在海南省哪些项目需要编报水土保持方案？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水土保持法",
+     "lib_no": "水土保持法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "海南省实施&lt;中华人民共和国水土保持法&gt;办法",
+     "lib_no": "水土保持法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6d2d588093d347949a11a9b1bc5ce53f",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/6d2d588093d347949a11a9b1bc5ce53f.shtml",
+   "question": "我国林草植物新品种保护发展历程是怎样的？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国植物新品种保护条例",
+     "lib_no": "植物新品种保护条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国植物新品种保护条例实施细则(林业部分)",
+     "lib_no": "植物新品种保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "种业振兴行动方案",
+    "中华人民共和国植物新品种保护名录(林业部分)(第一批)",
+    "林业植物新品种测试管理办法",
+    "林业植物新品种保护行政执法办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "af4f15a1347048ecac4aabec7fb16899",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/af4f15a1347048ecac4aabec7fb16899.shtml",
+   "question": "《出生医学证明》属于国家机关证件还是属于企事业单位证明文件?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国母婴保健法",
+     "lib_no": "母婴保健法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "出生医学证明",
+    "母婴保健技术服务许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "0e336e49fe324943a75c129d69f00e9f",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/0e336e49fe324943a75c129d69f00e9f.shtml",
+   "question": "中医医术确有专长人员医师资格考核有什么要求?后续是否继续开展?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "海南省中医医术确有专长人员医师资格考核注册管理实施细则(暂行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "cfa9c6057fbf49baa425a2e9ea3c587c",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/cfa9c6057fbf49baa425a2e9ea3c587c.shtml",
+   "question": "女职工如何休产假?",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "海南省人口与计划生育条例",
+    "海南省人口与计划生育条例",
+    "海南省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6f06d17c3a6642b5ad0471066d4394de",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/6f06d17c3a6642b5ad0471066d4394de.shtml",
+   "question": "海南省对流产假有什么样的规定?",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6bf8e67edbbd49f29f80ad7d8ed495b3",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/6bf8e67edbbd49f29f80ad7d8ed495b3.shtml",
+   "question": "《少数民族事业发展专项资金管理办法》中如何监督与绩效管理?",
+   "cited_hits": [
+    {
+     "name": "财政违法行为处罚处分条例",
+     "lib_no": "财政违法行为处罚处分条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c2e5f93f6bfc410b9dfed5c62b177cee",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/c2e5f93f6bfc410b9dfed5c62b177cee.shtml",
+   "question": "公路塌陷成坑致行人受伤，由谁承担责任?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "edaff23918104c7a953f3f01b5277896",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/edaff23918104c7a953f3f01b5277896.shtml",
+   "question": "法定代表人因执行职务导致他人受到伤害，由谁承担民事责任?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4f93708c2179421c8ad458f1eb5dde8c",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/4f93708c2179421c8ad458f1eb5dde8c.shtml",
+   "question": "企业的债务人怠于行使对第三人享有的到期债权，以致无法履行对企业的债务，企业应如何维护自身权益?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "abaed71599b24cf4bdbec38e9c7e3dd2",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/abaed71599b24cf4bdbec38e9c7e3dd2.shtml",
+   "question": "企业在经营活动中违约，但对方主张的违约金额远远超过实际损失，企业可以主张调整吗?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "45ba066686d34a9d9e142b115208ad5b",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/45ba066686d34a9d9e142b115208ad5b.shtml",
+   "question": "企业在经营活动中，明知对方提供的产品存在质量问题而继续生产并造成损失的，责任应如何归属?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f6cf389968e549a493d3408f5ffbb9db",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/f6cf389968e549a493d3408f5ffbb9db.shtml",
+   "question": "劳务派遣期间，被派遣的工作人员因执行工作任务造成他人损害的，由谁承担责任?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1d947b03665d490bb82cdf850dfa7f55",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/1d947b03665d490bb82cdf850dfa7f55.shtml",
+   "question": "员工“恶意”利用职务行为产生侵权责任，企业承担责任后，应如何救济自身权利?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "efa4ffdf5f20418e80c21ae8dcd7bd6a",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/efa4ffdf5f20418e80c21ae8dcd7bd6a.shtml",
+   "question": "法人与法定代表人一样吗?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f8c2776b7eef4343968fc7d13ff91c84",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/f8c2776b7eef4343968fc7d13ff91c84.shtml",
+   "question": "采用数据电文方式订立合同的，合同什么时候成立?",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hi-zcwd",
+   "id": "a9a856a3a2144431a4e43cffebb9b49b",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/a9a856a3a2144431a4e43cffebb9b49b.shtml",
+   "question": "医疗机构开展互联网诊疗需要什么资质?",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网医院基本标准(试行)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b032a5a8c6a34716b8874953c494be21",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/b032a5a8c6a34716b8874953c494be21.shtml",
+   "question": "海南所指的“互联网医院”包含哪两类?",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗机构执业许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5e8381ba86f4421fbb782cabb3d99b13",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/5e8381ba86f4421fbb782cabb3d99b13.shtml",
+   "question": "为什么推行春秋假制度?实施春秋假制度的背景是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府工作报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "af88f4e8c9af48259072b170fb122aaf",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202610/af88f4e8c9af48259072b170fb122aaf.shtml",
+   "question": "什么是正常劳动?",
+   "cited_hits": [],
+   "cited_missing": [
+    "最低工资规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9bd49bff8d38485d9f4248de78bf82a8",
+   "url": "https://www.hainan.gov.cn/hainan/c100596/202610/9bd49bff8d38485d9f4248de78bf82a8.shtml",
+   "question": "高端紧缺人才享受海南自贸港个人所得税优惠政策是否需要单位或个人提交申请?",
+   "cited_hits": [],
+   "cited_missing": [
+    "清单管理办法",
+    "海南自由贸易港特定行业人员享受个人所得税优惠申请表",
+    "清单管理办法",
+    "清单管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "235d84dcb93546ab956bba2c5ec91e33",
+   "url": "https://www.hainan.gov.cn/hainan/c100596/202610/235d84dcb93546ab956bba2c5ec91e33.shtml",
+   "question": "高端紧缺人才享受个人所得税优惠政策有哪些需要注意的事项?",
+   "cited_hits": [],
+   "cited_missing": [
+    "清单管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2427cca7a2554bd9826c27703fababa6",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/2427cca7a2554bd9826c27703fababa6.shtml",
+   "question": "申请 2026 年海南省汽车报废更新补贴需要提供哪些材料?",
+   "cited_hits": [],
+   "cited_missing": [
+    "报废机动车回收证明",
+    "机动车注销证明",
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7622024d874a4013b766ae2dc5674f19",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/7622024d874a4013b766ae2dc5674f19.shtml",
+   "question": "对参与申领 2026 年海南省汽车报废更新补贴新车的发票开具地和注册登记地有何要求?",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车销售统一发票",
+    "机动车登记证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fd5781dd72494a0086703f22cd8ca474",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/fd5781dd72494a0086703f22cd8ca474.shtml",
+   "question": "对参与申领 2026 年海南省汽车报废更新补贴的旧车，登记在申请人名下时间有什么要求?",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委 财政部关于 2025 年加力扩围实施大规模设备更新和消费品以旧换新政策的通知",
+    "商务部等 8 部门办公厅关于做好 2025 年汽车以旧换新工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7cb61c2b30a04a80a2eb9088b4e8300a",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/7cb61c2b30a04a80a2eb9088b4e8300a.shtml",
+   "question": "对参与申领 2026 年海南省汽车报废更新补贴新车的车型或排量有什么要求?",
+   "cited_hits": [],
+   "cited_missing": [
+    "减免车辆购置税的新能源汽车车型目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "448f68f456174592928ca0c97adc88bd",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/448f68f456174592928ca0c97adc88bd.shtml",
+   "question": "2026 年海南省汽车报废更新补贴标准是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "机动车销售统一发票"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "915faf2db51e4f7e81a5ba9a404b28fd",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/915faf2db51e4f7e81a5ba9a404b28fd.shtml",
+   "question": "已发放贷款的利率要从次年开始执行新的贷款利率的规定是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金个人住房贷款业务规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9a2ef799786a411cae683304bb7dd28f",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/9a2ef799786a411cae683304bb7dd28f.shtml",
+   "question": "商业贷款可以约定利率调整周期可选择3个月、6个月或12个月，公积金贷款也可申请重定价周期吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房公积金个人住房贷款业务规范",
+    "GB/T 51267-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "a69c9992d4424b3cb29cbbf790bd6f57",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/a69c9992d4424b3cb29cbbf790bd6f57.shtml",
+   "question": "在降低自主就业退役士兵创业成本上有哪些政策?",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步扶持自主就业退役士兵创业就业有关税收政策的通知",
+    "海南省就业补助资金管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "308034344c3e42c29a87bc355c3fbcdc",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/308034344c3e42c29a87bc355c3fbcdc.shtml",
+   "question": "什么情况下取水需要办理取水许可证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省取水许可和水资源征收管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1964f51ad8f34fc298bee84183fcad47",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/1964f51ad8f34fc298bee84183fcad47.shtml",
+   "question": "办理取水许可申请时，什么情况编制水资源论证报告表，什么情况编制水资源论证报告书?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省取水许可和水资源征收管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "16a72adced134823a6d1388c24500cc4",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/16a72adced134823a6d1388c24500cc4.shtml",
+   "question": "办理取水许可事项申请时，哪些需报省水务厅审批，哪些报市县审批?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省取水许可和水资源征收管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4afc4c7e67094e3693269811c30323cd",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/4afc4c7e67094e3693269811c30323cd.shtml",
+   "question": "海南省各市县用水数据在哪能查到?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省水资源公报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "a290c878dcb341ba93a13019bb95effd",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/a290c878dcb341ba93a13019bb95effd.shtml",
+   "question": "如何进行水利水电领域专业技术职称确认?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省人力资源和社会保障厅关于进一步完善流动人员专业技术资格确认有关问题的通知",
+    "流动人员专业技术资格确认申报表",
+    "专业技术资格证书",
+    "专业技术资格评审表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2066ef02cbe340d7bc623e57313c2651",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/2066ef02cbe340d7bc623e57313c2651.shtml",
+   "question": "已办理取水许可证的供水公司如何申请增加取水量？",
+   "cited_hits": [],
+   "cited_missing": [
+    "取水许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3b8e8f839dc445429afd744cc006d218",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/3b8e8f839dc445429afd744cc006d218.shtml",
+   "question": "什么是“抄表到户”?为何很多居民住宅小区没有实现“抄表到户”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "城镇供水价格管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "71cdfc08442342b2b6ae61ba54173ad3",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/71cdfc08442342b2b6ae61ba54173ad3.shtml",
+   "question": "自来水颜色浑浊或呈黄色、黑色，颜色深浅不一有哪些原因?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省城乡供水管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "192396f3c9ec4368a3cc6f00c1004e1a",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/192396f3c9ec4368a3cc6f00c1004e1a.shtml",
+   "question": "自来水收费有哪些相关依据?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省城乡供水管理条例",
+    "供水条例",
+    "海口市物价局关于调整海口市自来水价格的批复",
+    "海口市物价局关于海口市自来水价格政策有关问题的补充通知",
+    "海口市发展和改革委员会关于调整海口市污水处理收费标准的通知",
+    "关于海口市城镇生活垃圾处理收费标准的批复"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "817e8f7e2aa44330a5da05d0bb0d7a3d",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/817e8f7e2aa44330a5da05d0bb0d7a3d.shtml",
+   "question": "居民住宅小区内部蓄水池、泵房、二次供水设施、供水管道及其附属设施是否应由供水企业进行管理维护？",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省城乡供水管理条例",
+    "供水条例",
+    "供水条例",
+    "供水条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "68d3e86388bb42d3b9e2770786ea41ff",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/68d3e86388bb42d3b9e2770786ea41ff.shtml",
+   "question": "APEC卡计划是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "APEC旅行卡操作框架"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5398788b285e4853ab791ed4236fe152",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202605/5398788b285e4853ab791ed4236fe152.shtml",
+   "question": "海南省房屋建筑和市政工程综合评标专家报名方式（流程）是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省公共资源交易综合评标评审专家库专家申请表",
+    "关于公开征集海南省房屋建筑和市政工程综合评标专家的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "0f4e29e5bfc3476fb6aeedb09eb40e50",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202605/0f4e29e5bfc3476fb6aeedb09eb40e50.shtml",
+   "question": "海南省项目关键岗位人员撤离（变更）流程是怎样的?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省关键岗位人员履职管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "81f916c669c14e90a165dab2d45fc94b",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/81f916c669c14e90a165dab2d45fc94b.shtml",
+   "question": "通过捕捞、垂钓等方式获得的非人工养殖水产品是否需要开具承诺达标合格证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "66163c190c4d4c4e9ea00a53f9dc766b",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/66163c190c4d4c4e9ea00a53f9dc766b.shtml",
+   "question": "屠宰或分割后的产品是否需要开具承诺达标合格证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fdd67dffc44c432fbf51f62b8d57ab46",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/fdd67dffc44c432fbf51f62b8d57ab46.shtml",
+   "question": "收购主体对收购的农产品进行分装或混装销售时，按批次对所销售的农产品开具承诺达标合格证后，按箱对外进行销售，是否可以按车附具承诺达标合格证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3b821f5358d642319c0d938c33644798",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/3b821f5358d642319c0d938c33644798.shtml",
+   "question": "通过网络平台销售农产品的，应当附具承诺达标合格证，是指发货时附带对应的承诺达标合格证还是需要在线上公示?",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8319dc0dffaa4fcfa0a41b7a06582af9",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/8319dc0dffaa4fcfa0a41b7a06582af9.shtml",
+   "question": "如养殖主体未开合格证，屠宰场能否拒绝屠宰?",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ff3cd0e942884433962b624b16a69f57",
+   "url": "https://www.hainan.gov.cn/hainan/c100546/202603/ff3cd0e942884433962b624b16a69f57.shtml",
+   "question": "《海南省关于支持旅游演艺实施细则》中有几种奖补标准?",
+   "cited_hits": [],
+   "cited_missing": [
+    "实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8b5a807facd84eda8339f4c87f7c735f",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/8b5a807facd84eda8339f4c87f7c735f.shtml",
+   "question": "外省申请的特种作业操作证是否可以在海南复审换证?",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种作业人员安全技术培训考核管理规定(国家安全生产监督管理总局第30号令)"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "e6fb1abf8b57417a9e5beb6a906dbf18",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/e6fb1abf8b57417a9e5beb6a906dbf18.shtml",
+   "question": "女职工申请休哺乳假条件是什么?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省妇女权益保障若干规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3a75907d783f43f7b88e904ce112ae48",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/3a75907d783f43f7b88e904ce112ae48.shtml",
+   "question": "海南省对育儿假有什么样的规定?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ef768c7d1b0b4ce7962270c6f992b3fc",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/ef768c7d1b0b4ce7962270c6f992b3fc.shtml",
+   "question": "海南省对婚假有什么样的规定?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "44d22643f1214e348f811e11739698be",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/44d22643f1214e348f811e11739698be.shtml",
+   "question": "新生儿出生“一件事”可以办理的业务有哪些?",
+   "cited_hits": [],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c301e94627e147dfa746d2ffcd9c226f",
+   "url": "https://www.hainan.gov.cn/hainan/c100557/202511/c301e94627e147dfa746d2ffcd9c226f.shtml",
+   "question": "从业资格考试的组织要求有哪些?",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "30a7b3e422894b24b3f51824e14689c5",
+   "url": "https://www.hainan.gov.cn/hainan/c100557/202511/30a7b3e422894b24b3f51824e14689c5.shtml",
+   "question": "如何信息化管理从业资格证件?",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定",
+    "道路运输电子证照从业资格证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6ffa41fa1faf416a97c388e2650cd2d6",
+   "url": "https://www.hainan.gov.cn/hainan/c100557/202511/6ffa41fa1faf416a97c388e2650cd2d6.shtml",
+   "question": "从业资格证件的有效期是多久?",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "49d83a91d54a4fd28f48d6a35dc252c0",
+   "url": "https://www.hainan.gov.cn/hainan/c100557/202511/49d83a91d54a4fd28f48d6a35dc252c0.shtml",
+   "question": "从业资格证件需要年审吗?",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路运输从业人员管理规定",
+    "道路运输驾驶员诚信考核办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6004a547810f4b44b0556204f55674e2",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/6004a547810f4b44b0556204f55674e2.shtml",
+   "question": "根据《宗教教职人员网络行为规范》，宗教教职人员可以从事哪些网络行为?",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "e8358c29fffd4a069e485d5d0d0a03ec",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/e8358c29fffd4a069e485d5d0d0a03ec.shtml",
+   "question": "《少数民族事业发展专项资金管理办法》中资金定义与支持重点?",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;海南省少数民族学生考取“双一流”建设高校和全日制毕业研究生奖励办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "22021fa25b4e4c8ea6877d72352b7ec6",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/22021fa25b4e4c8ea6877d72352b7ec6.shtml",
+   "question": "劳动能力鉴定结论书应当包含哪些内容?",
+   "cited_hits": [],
+   "cited_missing": [
+    "劳动能力鉴定管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "945e8966c5654e37b2042cb9c894e7e9",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/945e8966c5654e37b2042cb9c894e7e9.shtml",
+   "question": "出现哪种情况了，当次的劳动能力鉴定终止?",
+   "cited_hits": [],
+   "cited_missing": [
+    "劳动能力鉴定管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "779984acbad44fa99b789d1512a2ee0b",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/779984acbad44fa99b789d1512a2ee0b.shtml",
+   "question": "申请劳动能力鉴定需要提交哪些材料?应当填写劳动能力鉴定申请表，并提交下列材料?",
+   "cited_hits": [],
+   "cited_missing": [
+    "劳动能力鉴定管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5429ac3be4cb47cc8d2a6a1e9974a9e7",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/5429ac3be4cb47cc8d2a6a1e9974a9e7.shtml",
+   "question": "工伤职工、因病或非因工致残人员因身体等原因无法提出劳动能力鉴定申请的，能否由其近亲属代为提出?",
+   "cited_hits": [],
+   "cited_missing": [
+    "劳动能力鉴定管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5095e3f87e6d40fc8d7f1d4e67627b1a",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/5095e3f87e6d40fc8d7f1d4e67627b1a.shtml",
+   "question": "参保单位要如何申请阶段性降费率政策?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省人力资源和社会保障厅等三部门关于延续实施失业保险援企稳岗政策的通知",
+    "海南省人力资源和社会保障厅等四部门关于延续实施阶段性降低工伤保险费率工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "62636bf46ef44ef48e4763eec5160771",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/62636bf46ef44ef48e4763eec5160771.shtml",
+   "question": "创业担保贷款额度、申请次数、财政贴息多少?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省人力资源和社会保障厅等四部门关于印发&lt;海南省创业担保贷款管理办法&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4fbf189ae58844d796fee5c15e033d1a",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/4fbf189ae58844d796fee5c15e033d1a.shtml",
+   "question": "一次性吸纳就业补贴的有什么申办方式?",
+   "cited_hits": [],
+   "cited_missing": [
+    "海南省财政厅 海南省人力资源和社会保障厅关于印发〈海南省就业补助资金管理办法〉的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hi-zcwd",
+   "id": "6dbd72d854e34bddbea62b71e1291bb3",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/6dbd72d854e34bddbea62b71e1291bb3.shtml",
+   "question": "申请设置互联网医院需要提交哪些核心材料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "61280eefe74842fea7620f7a1c8828bf",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/61280eefe74842fea7620f7a1c8828bf.shtml",
+   "question": "什么是预防接种异常反应?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8593e9330c334f7ea75f6db44a1a0877",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/8593e9330c334f7ea75f6db44a1a0877.shtml",
+   "question": "精神障碍的诊断依据是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3b19d7582bf44239b8781069c4a182af",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/3b19d7582bf44239b8781069c4a182af.shtml",
+   "question": "疑似精神障碍者送诊的规定是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "d688200b4fcd4367ab55aaabe6bd932a",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202610/d688200b4fcd4367ab55aaabe6bd932a.shtml",
+   "question": "精神障碍患者住院治疗的原则是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1fb3ee451b7c46debf55ec68d2156dcf",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/1fb3ee451b7c46debf55ec68d2156dcf.shtml",
+   "question": "春秋假期间有哪些保障孩子出行的服务?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "273e8db8215748f7984068dfde58dde9",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/273e8db8215748f7984068dfde58dde9.shtml",
+   "question": "如何保障家长春秋假期间带娃出行的权益?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6979c635ec35472796b93571e98057aa",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/6979c635ec35472796b93571e98057aa.shtml",
+   "question": "春秋假期间家长要上班，孩子没人看管怎么办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2a40fbbac9c44c0fbca3897a3a2ea17d",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/2a40fbbac9c44c0fbca3897a3a2ea17d.shtml",
+   "question": "春秋假期间有作业?会补课吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7f550e86391c4799b12b6b0e18447c0e",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/7f550e86391c4799b12b6b0e18447c0e.shtml",
+   "question": "放了春秋假，教学时长会减少吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c6f2accac9d7456a8151547af0eccd2a",
+   "url": "https://www.hainan.gov.cn/hainan/c100550/202610/c6f2accac9d7456a8151547af0eccd2a.shtml",
+   "question": "海南中小学春秋假具体怎么放?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "555e88e729d24d6c81896a1d52c6dc4e",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202610/555e88e729d24d6c81896a1d52c6dc4e.shtml",
+   "question": "最低工资标准包括哪些项目?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "889ac7bc00044741b90294081a7b753e",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202610/889ac7bc00044741b90294081a7b753e.shtml",
+   "question": "《关于调整全省最低工资标准的通知》的适用范围是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f589ea3d9ef242fd85236d3e56b68702",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202610/f589ea3d9ef242fd85236d3e56b68702.shtml",
+   "question": "什么是最低工资标准?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "62f5d3c53e7743e6a1d0e0954ea18d58",
+   "url": "https://www.hainan.gov.cn/hainan/c100596/202610/62f5d3c53e7743e6a1d0e0954ea18d58.shtml",
+   "question": "税务部门为自贸港高端紧缺人才享惠提供了哪些便利化服务举措?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9fe8db3882a94685834a523bc9350051",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/9fe8db3882a94685834a523bc9350051.shtml",
+   "question": "对参与申领 2026 年海南省汽车报废更新补贴的新车，在补贴申请审核期间是否可以转让?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "759c5787b0b84c34875aa4be9f4bc28c",
+   "url": "https://www.hainan.gov.cn/hainan/c100589/202608/759c5787b0b84c34875aa4be9f4bc28c.shtml",
+   "question": "对参与申领 2026 年海南省汽车报废更新补贴旧车的注册登记时间有什么要求?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "474f52c1f5fe43f98917744e56df1688",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/474f52c1f5fe43f98917744e56df1688.shtml",
+   "question": "水环境热污染是怎么回事?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b38f3d015fb3436992e1264bd3497c34",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/b38f3d015fb3436992e1264bd3497c34.shtml",
+   "question": "水体中的氮、磷为何导致污染?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "788c4b7651124f89af913531b7d2ef45",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/788c4b7651124f89af913531b7d2ef45.shtml",
+   "question": "什么是有机污染?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "286dadf70f874f93a71888640411fcbd",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/286dadf70f874f93a71888640411fcbd.shtml",
+   "question": "什么是重金属污染?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9442f7ad62f44ded8235eaf74323ad42",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/9442f7ad62f44ded8235eaf74323ad42.shtml",
+   "question": "什么是第一类污染物?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f54cb8d498e74113a71c07b1336da103",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/f54cb8d498e74113a71c07b1336da103.shtml",
+   "question": "城市污染源有哪些特点?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f0b163a0112c4f868bd590d968d75774",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/f0b163a0112c4f868bd590d968d75774.shtml",
+   "question": "什么是 “国际无废日”?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4d75992069e64277a1dad302bab372d4",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/4d75992069e64277a1dad302bab372d4.shtml",
+   "question": "为什么要建设 “无废城市”?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1354e09f1f35475aa93266aba65fcf33",
+   "url": "https://www.hainan.gov.cn/hainan/c100547/202608/1354e09f1f35475aa93266aba65fcf33.shtml",
+   "question": "什么是 “无废城市”?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6d27d56270d74353a514b6ddff7f767d",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/6d27d56270d74353a514b6ddff7f767d.shtml",
+   "question": "贷款展期后会影响贷款利率吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "32bd0d899ffb4800a6fd98366d5beea9",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/32bd0d899ffb4800a6fd98366d5beea9.shtml",
+   "question": "贷款缩期后会影响贷款利率吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5f18b4a5875c4d70bd641d30c06ccd28",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/5f18b4a5875c4d70bd641d30c06ccd28.shtml",
+   "question": "可以在哪里看到我的贷款利率是否调整?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "cbe9652706c74d4eb2e369a45cde83c1",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/cbe9652706c74d4eb2e369a45cde83c1.shtml",
+   "question": "二套房标准是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "32904d71e7914bb8aa9ff07e3f493c82",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/32904d71e7914bb8aa9ff07e3f493c82.shtml",
+   "question": "首套房公积金贷款利率是多少，执行标准是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2fa63480fc7c4de4a4fd1834fbd29655",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/2fa63480fc7c4de4a4fd1834fbd29655.shtml",
+   "question": "当月商贷约提转款失败后，下月是否补充划款?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8a78caed16194814ac147762be531f51",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/8a78caed16194814ac147762be531f51.shtml",
+   "question": "哪些情形会终止商贷约提?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6077b3a3566046ab83bcab177b97ddaf",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/6077b3a3566046ab83bcab177b97ddaf.shtml",
+   "question": "如何终止商贷约提?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5922d436b3fb4f228a69995d0e1d454f",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/5922d436b3fb4f228a69995d0e1d454f.shtml",
+   "question": "如何查询商贷约提的转账情况?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c5742d3bc328435884167474c8baf5ab",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/c5742d3bc328435884167474c8baf5ab.shtml",
+   "question": "商贷约提需要什么材料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "818c734647be45c4862de204d89bc6cd",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/818c734647be45c4862de204d89bc6cd.shtml",
+   "question": "商贷约提的条件?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "40dd8c0233684218b3ef6c3d81bc45d9",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/40dd8c0233684218b3ef6c3d81bc45d9.shtml",
+   "question": "如何办理商贷约提?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9bd2299a1e764066beb8bf4feaf4f293",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/9bd2299a1e764066beb8bf4feaf4f293.shtml",
+   "question": "本省的商业贷款办理还贷提取，需要什么材料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "0f6cb5d508b949f4aa160c7650eb752a",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/0f6cb5d508b949f4aa160c7650eb752a.shtml",
+   "question": "在海南省缴存公积金、在省外购房办理商业住房贷款，能否提取公积金还贷?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4283cd0e9e9e44939b75f73833f5221c",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202607/4283cd0e9e9e44939b75f73833f5221c.shtml",
+   "question": "本省商业贷款，办理还贷提取有什么要求?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b9ba3134b6ab43c597d09e97b2a5d01b",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/b9ba3134b6ab43c597d09e97b2a5d01b.shtml",
+   "question": "政府对自主就业退役士兵创业有哪些金融扶持政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "9456098c9d2f4ad581f021525d25404e",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/9456098c9d2f4ad581f021525d25404e.shtml",
+   "question": "自主就业退役士兵创业享受哪些税收优惠政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f76730a5ed404990af7f9de628561a3f",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/f76730a5ed404990af7f9de628561a3f.shtml",
+   "question": "在加强退役军人师范专业人才培养方面，国家有哪些支持政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8f28f55955b64428a50841198f12d418",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/8f28f55955b64428a50841198f12d418.shtml",
+   "question": "自主就业退役士兵接受高等教育享受哪些助学金政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "5411a0ab82d84405ac14baed746bdd5e",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/5411a0ab82d84405ac14baed746bdd5e.shtml",
+   "question": "自主就业退役士兵接受高等教育可享受哪些学费减免政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "4f08995b6fe343158674f7006726a308",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/4f08995b6fe343158674f7006726a308.shtml",
+   "question": "退役大学生士兵选择考研有什么优惠政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "00086740b3114aadac68453456663b77",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/00086740b3114aadac68453456663b77.shtml",
+   "question": "自主就业退役士兵参加全国普通高考有什么优惠政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8b8e68a920954b1ea55913386ec0dd2d",
+   "url": "https://www.hainan.gov.cn/hainan/c100561/202605/8b8e68a920954b1ea55913386ec0dd2d.shtml",
+   "question": "退役大学生士兵入学或复学有哪些政策?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6c5763d385954dc796efbe854a58f8a3",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/6c5763d385954dc796efbe854a58f8a3.shtml",
+   "question": "水利水电领域职称评审申报范围有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f9823976e63e4d488c44db8d024fd177",
+   "url": "https://www.hainan.gov.cn/hainan/c100560/202605/f9823976e63e4d488c44db8d024fd177.shtml",
+   "question": "水行政审批如何申请?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "69930afb623c4075a74f8c09a11c719d",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/69930afb623c4075a74f8c09a11c719d.shtml",
+   "question": "出国签证的形式有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "dcefcd4f893c49b4a51a879bd58ad06f",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/dcefcd4f893c49b4a51a879bd58ad06f.shtml",
+   "question": "出国签证种类有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "e4437e0d5bff46839fdcc4e704ca0043",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/e4437e0d5bff46839fdcc4e704ca0043.shtml",
+   "question": "出国签证类别有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3eb0a99fbac5476abff0608824e5488e",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/3eb0a99fbac5476abff0608824e5488e.shtml",
+   "question": "什么是“领事婚姻”?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "650c9b31d1b84d12b7acea9f1a7b4d87",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/650c9b31d1b84d12b7acea9f1a7b4d87.shtml",
+   "question": "领事业务“一网通办”是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "08089deddc454e56bdbe945ccf0dd968",
+   "url": "https://www.hainan.gov.cn/hainan/c100559/202605/08089deddc454e56bdbe945ccf0dd968.shtml",
+   "question": "哪类人有资格申办APEC商务旅行卡?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c1e6b07c648441cc9d93e9b872ff46e8",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202605/c1e6b07c648441cc9d93e9b872ff46e8.shtml",
+   "question": "外省检测单位如何做诚信登记?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7ad6d43caccc430e8d5ab0c3ff280b27",
+   "url": "https://www.hainan.gov.cn/hainan/c100556/202605/7ad6d43caccc430e8d5ab0c3ff280b27.shtml",
+   "question": "营业执照变更内容后，是否需要变更资质证书和安全生产许可证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "bdec01afa2be4d6491f2ff3823f9d407",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/bdec01afa2be4d6491f2ff3823f9d407.shtml",
+   "question": "收购主体大批量收购农产品时，按规定要采取随机抽取方式保存承诺达标合格证，具体抽取多少数量的承诺达标合格证，是否有相关标准?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ac5bd227154547b1b6ab5219203be046",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/ac5bd227154547b1b6ab5219203be046.shtml",
+   "question": "以礼盒形式销售农产品的，礼盒内包含多个种类农产品，是否需要为每个种类农产品分别开具承诺达标合格证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3f5412e178884ffab3681e3ec25d0b86",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/3f5412e178884ffab3681e3ec25d0b86.shtml",
+   "question": "家庭农场是否适用本办法的相关规定，是否被要求强制开具承诺达标合格证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "87d2ad9cbf2d4e80801bc37aac84f772",
+   "url": "https://www.hainan.gov.cn/hainan/c100548/202603/87d2ad9cbf2d4e80801bc37aac84f772.shtml",
+   "question": "应当开具承诺达标合格证的农产品是否包括药食同源农产品?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b78d39aa8ba74d46aa2b9162cd1fd573",
+   "url": "https://www.hainan.gov.cn/hainan/c100546/202603/b78d39aa8ba74d46aa2b9162cd1fd573.shtml",
+   "question": "《海南省关于支持大型演唱会、音乐节及高品质优秀剧目文艺演出实施细则》中对在高品质优秀剧目文艺演出方面有什么支持?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b4edd500b1ba4247a418d5f4fe8421e5",
+   "url": "https://www.hainan.gov.cn/hainan/c100546/202603/b4edd500b1ba4247a418d5f4fe8421e5.shtml",
+   "question": "《海南省关于支持大型演唱会、音乐节及高品质优秀剧目文艺演出实施细则》中对在大型演唱会、音乐节方面有什么支持?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "891c8a317516407a9a3791f2012379dd",
+   "url": "https://www.hainan.gov.cn/hainan/c100546/202603/891c8a317516407a9a3791f2012379dd.shtml",
+   "question": "《海南省进一步促进文体旅商展联动扩大消费若干措施》中“影视+旅游”影视精品创作资金申报时，有哪些具体的资格要求和需要提交的材料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7aa1a9a5a7c54b57a0e75cbfbdf71ac5",
+   "url": "https://www.hainan.gov.cn/hainan/c100546/202603/7aa1a9a5a7c54b57a0e75cbfbdf71ac5.shtml",
+   "question": "《海南省进一步促进文体旅商展联动扩大消费若干措施》中“影视+旅游”影视精品创作资金申报时，申报材料中要求提供“版权承诺书”和“企业信用报告”，如果项目为多方联合出品，版权归属应如何界定?是否所有合作方均需提供信用证明?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "dfb5b92708bf44308ce92ba61faa9881",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/dfb5b92708bf44308ce92ba61faa9881.shtml",
+   "question": "如何选择安全生产培训机构?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "feb75ba32acf46db9babb8a3e9e4430e",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/feb75ba32acf46db9babb8a3e9e4430e.shtml",
+   "question": "如何查询特种作业操作证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3bca28e510234a979af9495db5d80853",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/3bca28e510234a979af9495db5d80853.shtml",
+   "question": "如何下载特种作业操作证?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fb4a1986e959421bbe593a702378e2b3",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/fb4a1986e959421bbe593a702378e2b3.shtml",
+   "question": "如何在国家安全考试网更改登陆手机号?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "530ccae3d37641e8bbb24d73a44ed043",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/530ccae3d37641e8bbb24d73a44ed043.shtml",
+   "question": "危险化学品经营企业负责人证书到期如何办理续签?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ba8432289f40446ba8b28ca59f417c13",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/ba8432289f40446ba8b28ca59f417c13.shtml",
+   "question": "外省的电工证是否可以在海南省使用?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2da50a2b0df14461acf60488955c69dd",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/2da50a2b0df14461acf60488955c69dd.shtml",
+   "question": "如何报名参加特种作业操作证考试?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "cdbc8f81819041e49fc8e6caba1e0852",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/cdbc8f81819041e49fc8e6caba1e0852.shtml",
+   "question": "持有高压电工特种作业证能否从事低压电力工作?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "481e04711a3e4068904af0f68f3d6ce5",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/481e04711a3e4068904af0f68f3d6ce5.shtml",
+   "question": "查验证书真伪的平台渠道有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fe37c6ae51b24e56a35ff37d68890f37",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/fe37c6ae51b24e56a35ff37d68890f37.shtml",
+   "question": "安全生产考试点的设立流程有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "abe4c0c40d994306a9679ad8b90ff9b0",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/abe4c0c40d994306a9679ad8b90ff9b0.shtml",
+   "question": "安全生产培训机构通用要求有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b40805475088450196f25d851efda8ee",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/b40805475088450196f25d851efda8ee.shtml",
+   "question": "企业主要负责人和安全生产管理人员培训条件有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "e40247a8456e4c31bedd4bd46bbff665",
+   "url": "https://www.hainan.gov.cn/hainan/c100562/202603/e40247a8456e4c31bedd4bd46bbff665.shtml",
+   "question": "特种作业人员培训条件有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fc71af3af20e41608253f557341f22ab",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/fc71af3af20e41608253f557341f22ab.shtml",
+   "question": "计划生育家庭特别扶助对象确认程序是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "01abb7706ecc4eb4a647234561810251",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/01abb7706ecc4eb4a647234561810251.shtml",
+   "question": "《古树名木保护条例》对传承古树名木文化是怎么规定的?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b1670aa689754e96996150e86fa05a85",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/b1670aa689754e96996150e86fa05a85.shtml",
+   "question": "《古树名木保护条例》对采伐和移植古树名木作了哪些规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ec9c23a2ef654d06b52ea71680e3a862",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/ec9c23a2ef654d06b52ea71680e3a862.shtml",
+   "question": "《古树名木保护条例》对古树名木日常养护管理是怎么规定的?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "63ffeda68d674bd58eaba62733b32cd7",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/63ffeda68d674bd58eaba62733b32cd7.shtml",
+   "question": "《古树名木保护条例》对政府及其有关部门在古树名木保护管理职责分工方面作了哪些规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "34538b5c7d3d4ad2877b3c959132fb9b",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/34538b5c7d3d4ad2877b3c959132fb9b.shtml",
+   "question": "《集体林地经营权流转管理办法》对林地经营权流转监督管理有哪些规定?会不会影响林业经营者流转林地经营权的积极性?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "83839e6095e242218c85ebd0527bfa84",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/83839e6095e242218c85ebd0527bfa84.shtml",
+   "question": "《集体林地经营权流转管理办法》是如何界定“工商企业等社会资本”的?对工商企业等社会资本通过流转取得林地经营权审批有哪些规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "555abb457bea4b46ad3f4dc1c4f8222b",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/555abb457bea4b46ad3f4dc1c4f8222b.shtml",
+   "question": "《集体林地经营权流转管理办法》对林地经营权流转的原则、程序、条件以及合同有哪些规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "d3eb500d0d7944aa84cd0cdb98e89ceb",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/d3eb500d0d7944aa84cd0cdb98e89ceb.shtml",
+   "question": "林草植物新品种保护主管部门在《中华人民共和国植物新品种保护条例》宣贯实施上有哪些具体工作安排?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "d3424a8db96f4625ac5a0cdb95dfb243",
+   "url": "https://www.hainan.gov.cn/hainan/c100598/202602/d3424a8db96f4625ac5a0cdb95dfb243.shtml",
+   "question": "此次修订的《中华人民共和国植物新品种保护条例》中，主要突出了林草植物新品种保护的哪些亮点和特色?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "3b2368ddb5054567aa8aa2bd89abd873",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/3b2368ddb5054567aa8aa2bd89abd873.shtml",
+   "question": "母亲失踪，在家自产，父子已做亲子鉴定，如何补办出生医学证明?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "0f44063f743648fd87e585a006a18f43",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/0f44063f743648fd87e585a006a18f43.shtml",
+   "question": "计划生育家庭特别扶助资金怎么发放?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "f051c96f0d4a4b70ad5e44abc0f26c07",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/f051c96f0d4a4b70ad5e44abc0f26c07.shtml",
+   "question": "农村部分计划生育家庭奖励扶助金怎么发放?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1c7cabfc61b945218a98f3e159173039",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/1c7cabfc61b945218a98f3e159173039.shtml",
+   "question": "农村部分计划生育家庭奖励扶助对象确认程序是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "185399217fb744138293f4005a917c10",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/185399217fb744138293f4005a917c10.shtml",
+   "question": "农村部分计划生育家庭奖励扶助对象确认条件是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b1568886174f4755a2b7825a4ab12759",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/b1568886174f4755a2b7825a4ab12759.shtml",
+   "question": "农村部分计划生育家庭奖励扶助制度内容是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "db25a1829c6f4473a453e9e56170a2e3",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/db25a1829c6f4473a453e9e56170a2e3.shtml",
+   "question": "个人居民健康档案查询途径有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ea4abdad8e9643e08a66089f996ed975",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/ea4abdad8e9643e08a66089f996ed975.shtml",
+   "question": "目前“三医联动”一张网具有什么样的功能?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "a524e411f78c4d2d9b2b1eecc1803471",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/a524e411f78c4d2d9b2b1eecc1803471.shtml",
+   "question": "卫生人才引进有什么样的规定?目前我省有几种形式?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "bda78260963849be89fe7d668712b17e",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/bda78260963849be89fe7d668712b17e.shtml",
+   "question": "举办托育机构的政策和途径有哪些，政府有何补助补贴?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "06ca6feb57a544e38a01329febf877d2",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/06ca6feb57a544e38a01329febf877d2.shtml",
+   "question": "大学生乡村医生招聘的岗位是在乡镇卫生院还是在村卫生室工作，要在基层服务多长时间?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "28708d7d36164323bc6f3b8b4f9743d3",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/28708d7d36164323bc6f3b8b4f9743d3.shtml",
+   "question": "新生儿出生“一件事”办理流程是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7f3b3f911aee47a79c70fe60f3ee1bc4",
+   "url": "https://www.hainan.gov.cn/hainan/c100551/202601/7f3b3f911aee47a79c70fe60f3ee1bc4.shtml",
+   "question": "计划生育家庭特别扶助制度等问题(含失独家庭)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "ef7e4f4dc0804739be8396212e524cd5",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/ef7e4f4dc0804739be8396212e524cd5.shtml",
+   "question": "新用户想报量，没有账号怎么办?老用户忘记账号和密码怎么办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "335487381c3345878df137ef7626d2a5",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/335487381c3345878df137ef7626d2a5.shtml",
+   "question": "医保定点民营医疗机构、医保定点零售药店是否可以参加集采报量?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "38d8a86d4d6e44af9049d93d943f1fbc",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/38d8a86d4d6e44af9049d93d943f1fbc.shtml",
+   "question": "在集采中选结果落地执行过程中，协议量有何要求?如果医疗机构已完成协议采购量，还需要继续采购中选产品吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "284cd7c3d6fa45019e7c6d19840ae137",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/284cd7c3d6fa45019e7c6d19840ae137.shtml",
+   "question": "第十一批集采55个品种中，有2个品种是6家企业出现在报量名单。而此前发布公告说的是达到7家才集采，怎么理解?这2个品种后续是否会纳入集采范围?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "96d4a0ae726a4096bdb11445c9980373",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/96d4a0ae726a4096bdb11445c9980373.shtml",
+   "question": "针对儿童适宜品规，本次集采有哪些特殊考虑?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "773f090877a34100870c9ffe11bf0b9e",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/773f090877a34100870c9ffe11bf0b9e.shtml",
+   "question": "未过评规格、基本药物规格如何报量?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "a0a84cd86e934ca7af96ccd99b7bee6c",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/a0a84cd86e934ca7af96ccd99b7bee6c.shtml",
+   "question": "如果医疗机构报量难以达到近两年平均采购量的80%，怎么处理?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "09c27ccf30b14a9f88ec2b68da9a74f1",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/09c27ccf30b14a9f88ec2b68da9a74f1.shtml",
+   "question": "要求医疗机构报量达到历史采购量的80%，这个比例如何计算?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "32ec261a2a6c433e9635a475ef4f73e5",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/32ec261a2a6c433e9635a475ef4f73e5.shtml",
+   "question": "集采报量是否一定要选择厂牌?可以选择几个厂牌?选择报量的厂牌后续都要使用吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "2ba11a2075c94ddda63f50c445b4e3e8",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/2ba11a2075c94ddda63f50c445b4e3e8.shtml",
+   "question": "集采报量可供选择的厂牌是如何确定的?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "bd2809d449044d248a38922db5bb5305",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/bd2809d449044d248a38922db5bb5305.shtml",
+   "question": "我已办理备案，为什么异地就医仍无法直接结算?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "57b24fe692084247a22aded65444744d",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/57b24fe692084247a22aded65444744d.shtml",
+   "question": "异地就医忘记备案，医疗费用就只能自费?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "1c6da36013b343d6aaaf080654f3cdcd",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/1c6da36013b343d6aaaf080654f3cdcd.shtml",
+   "question": "我办理了异地就医备案，回参保地还能用医保吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "7b4941177a4d43f4b4a51515ffc9ec17",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/7b4941177a4d43f4b4a51515ffc9ec17.shtml",
+   "question": "如果去的医院，不是跨省联网定点医院，怎么办?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "34205ac172a1468282841e67b4bc149f",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/34205ac172a1468282841e67b4bc149f.shtml",
+   "question": "如何备案?一定要去线下吗?有效期多久?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "78a2eebc904743e3aa082a474dc2b793",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/78a2eebc904743e3aa082a474dc2b793.shtml",
+   "question": "备案前我需要做什么准备吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b61abb0ce3f142d4aa6ae5082515dc6f",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/b61abb0ce3f142d4aa6ae5082515dc6f.shtml",
+   "question": "异地就医能报销哪些费用?报销比例是多少?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "241b5aba9d26487a82bddab94608a18e",
+   "url": "https://www.hainan.gov.cn/hainan/c100567/202512/241b5aba9d26487a82bddab94608a18e.shtml",
+   "question": "什么是异地就医备案?为什么它这么重要?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "a8fe5b72a37c4c07a3dc55dba3f3417d",
+   "url": "https://www.hainan.gov.cn/hainan/c100557/202511/a8fe5b72a37c4c07a3dc55dba3f3417d.shtml",
+   "question": "如何查询、辨别从业资格证件真伪?对于已取得的从业资格证件?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "452a35a05486407c8c55893019ed947a",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/452a35a05486407c8c55893019ed947a.shtml",
+   "question": "《宗教教职人员网络行为规范》对宗教教职人员不得从事网络行为方面有哪些规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "c34a9896668243f184cfc060f861c927",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/c34a9896668243f184cfc060f861c927.shtml",
+   "question": "《宗教教职人员网络行为规范》对宗教教职人员培养良好网络习惯有什么要求?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "fcdbe3442dc14b8eae52c5f52749e17c",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/fcdbe3442dc14b8eae52c5f52749e17c.shtml",
+   "question": "《宗教教职人员网络行为规范》对宗教教职人员网络行为有哪些原则要求?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "8e2467d106d74d38a42c1723eb67bb45",
+   "url": "https://www.hainan.gov.cn/hainan/c100555/202511/8e2467d106d74d38a42c1723eb67bb45.shtml",
+   "question": "《少数民族事业发展专项资金管理办法》中资金分配与管理机制是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "b02fa6a147574dba9686695e45596624",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/b02fa6a147574dba9686695e45596624.shtml",
+   "question": "社保卡有什么功能?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "974ec80979024ba6858c6d09fff038d0",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/974ec80979024ba6858c6d09fff038d0.shtml",
+   "question": "阶段性降费率政策内容是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "955bf10237db410fa29f594a3ef8324d",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/955bf10237db410fa29f594a3ef8324d.shtml",
+   "question": "一次性扩岗补助政策有效期?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "6b6b440f7e84451cad165ae08db95185",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/6b6b440f7e84451cad165ae08db95185.shtml",
+   "question": "一次性扩岗补助政策的受益对象有哪些?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "0531c8e32eba403e9cb3cb66035933d2",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/0531c8e32eba403e9cb3cb66035933d2.shtml",
+   "question": "哪些小微企业可申请创业担保贷款?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hi-zcwd",
+   "id": "891a0140b49d4e16ba9ede6de4af6b77",
+   "url": "https://www.hainan.gov.cn/hainan/c100597/202509/891a0140b49d4e16ba9ede6de4af6b77.shtml",
+   "question": "招用高校毕业生奖励补贴对象和标准是什么规定?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

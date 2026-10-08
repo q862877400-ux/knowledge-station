@@ -1,0 +1,2345 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-agri",
+   "id": "525bef3b46594867840d314c47ebdf6b",
+   "url": null,
+   "question": "“被征地农民”是指在征地时享有农村集体土地承包权且为当地集体经济组织成员的人员，这个解读错误",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "10fea70c7b914b608db4eccad8addce9",
+   "url": null,
+   "question": "咨询“被征地农户”和“被征地农民”的法定主体认定问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农业农村厅解读 &lt; 关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知 &gt; "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "94367be752e045a6861248e11b5c694f",
+   "url": null,
+   "question": "咨询关于土地延包政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于规范农村土地承包合同变更程序的通知",
+    "农村土地承包经营权证",
+    "农村土地承包经营权调查规程"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4503a2aa7467430e9871d9a9e099018c",
+   "url": null,
+   "question": "农村宅基地",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国土地管理法 ",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施〈中华人民共和国土地管理法〉办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6f33c44ecfce403db6cffcc2f4f673b2",
+   "url": null,
+   "question": "关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知，湘政办发202620号中的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9dc99a9afcd84eb5ac4afbe6646771ab",
+   "url": null,
+   "question": "咨询《湖南省人民政府办公厅关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知》（湘政办发〔2026〕20号)中的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知",
+    "湖南省人力资源和社会保障厅等七部门关于进一步做好被征地农民社会保障工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b7ab79f5f42346579ed1b462b83e9ce7",
+   "url": null,
+   "question": "关于农村集体经济组织征地补偿费分配使用监督管理方面的问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法实施条例",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于加强农村集体经济组织征地补偿费分配使用监督管理的通知",
+    "关于公布规范性文件清理结果的决定",
+    "湖南省人民政府办公厅关于加强农村集体经济组织征地补偿费分配使用监督管理的通知",
+    "关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知（征求意见稿）",
+    "关于加强农村集体经济组织征地补偿费分配使用监督管理的通知",
+    "通知（征求意见稿）",
+    "湖南省人力资源和社会保障厅等七部门关于进一步做好被征地农民社会保障工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7d3af0bfb3ec4a6aa53b960e818379d1",
+   "url": null,
+   "question": "依据《湖南省农村住房建设管理办法》（省政府令第299号）咨询以下政策问题：",
+   "cited_hits": [
+    {
+     "name": "湖南省实施 &lt;中华人民共和国土地管理法&gt;办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农村住房建设管理办法",
+    "湖南省农村住房建设管理办法",
+    "湖南省农村住房建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "fd264be02c8044a09628018b34341754",
+   "url": null,
+   "question": "黄缘闭壳龟的繁育许可证书",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f935e180720549c4bc98f458461495b9",
+   "url": null,
+   "question": "农村建房问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "湖南省实施 &lt;中华人民共和国农村集体经济组织法&gt;若干规定",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "c29a5df321e645a181c44f82965ee457",
+   "url": null,
+   "question": "养殖场疫苗瓶等如何处理",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗废物管理条例",
+     "lib_no": "医疗废物管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "危险废物经营许可证",
+     "lib_no": "危险废物经营许可证管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家危险废物名录",
+    "医疗废物分类目录",
+    "动物诊疗机构管理办法",
+    "医疗废弃物管理条例",
+    "执业兽医和乡村兽医管理办法",
+    "动物诊疗机构管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9f0f28f655f140d09cabeeb10f571891",
+   "url": null,
+   "question": "关于《进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知》的咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f029e3ea8c6e4527b0daf745708564da",
+   "url": null,
+   "question": "宅基地面积",
+   "cited_hits": [
+    {
+     "name": "湖南省实施〈中华人民共和国土地管理法〉办法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "d0f0cbb612b14f7683a17784366d8b4c",
+   "url": null,
+   "question": "对湖南省农业农村厅于2026年1月5日答复“农村集体组织经济分配问题”的疑惑",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国务院关于深化改革严格土地管理的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "88f3e7abd99144caa28ecc7352f37068",
+   "url": null,
+   "question": "集体经济成员认定咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中共中央国务院关于稳步推进农村集体产权制度改革的意见",
+    "中共湖南省委湖南省人民政府关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "53f633a299a04fe9a2be696dc9d22b58",
+   "url": null,
+   "question": "农村集体组织经济分配问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "381ed5cdd63a4b7daf1b5c0fddb83210",
+   "url": null,
+   "question": "《农村土地承包经营权证》有法律效应吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国农村土地承包经营权证",
+    "中共中央国务院关于保持土地承包关系稳定并长久不变的意见",
+    "中华人民共和国农村土地承包经营权证",
+    "湖南省农村土地承包数据管理办法（试行）",
+    "中华人民共和国农村土地承包经营权证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "fedd6b772a234c12a9fc7cf6bf07f4de",
+   "url": null,
+   "question": "农资经销商如何登陆湖南农药数字监督管理平台？",
+   "cited_hits": [
+    {
+     "name": "农药管理条例",
+     "lib_no": "农药管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农药经营许可管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0ffa15cfca0a4101a29d7188628f983d",
+   "url": null,
+   "question": "农村集体经济成员身份恢复如何操作",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ce454c5c0e2b4a49b6ca34fa45d6dfc9",
+   "url": null,
+   "question": "湖南农药监管平台",
+   "cited_hits": [
+    {
+     "name": "农药管理条例",
+     "lib_no": "农药管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "eff5438ca7664ed78c5864380d22d790",
+   "url": null,
+   "question": "宅基地审批",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农村住房建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "72e20e98fac14696a96551bd6204e60e",
+   "url": null,
+   "question": "咨询生猪奖励资金政策",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "生猪奖励资金政策",
+    "动物防疫条审查办法",
+    "动物防疫条件合格证",
+    "湖南省生猪调出大县奖励资金监管办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "01b8d30f8e4f473fba1d6f1def6d4f7b",
+   "url": null,
+   "question": "关于《湖南省生猪屠宰管理条例》",
+   "cited_hits": [
+    {
+     "name": "生猪屠宰管理条例",
+     "lib_no": "生猪屠宰管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "110a99ee002c4ef8bd079c798f8bf021",
+   "url": null,
+   "question": "农田占用问题",
+   "cited_hits": [
+    {
+     "name": "城乡规划法",
+     "lib_no": "城乡规划法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7227fcc78af940729cfbe10db20ed641",
+   "url": null,
+   "question": "“湘赣红”区域公共品牌名单公示",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农业农村厅政府信息公开申请表",
+    "申请表",
+    "申请表",
+    "申请表",
+    "申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "59b9253801d74044b86dadf139acdee9",
+   "url": null,
+   "question": "咨询湖南省2020/19年农业产业化省级联合体名单及省级示范联合体",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农业农村厅政府信息公开申请表",
+    "申请表",
+    "申请表",
+    "申请表",
+    "申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4e96bdd62ddc492485e7ec88c6d27654",
+   "url": null,
+   "question": "关于农村自建房的审批手续、面积问题",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "湖南省农村住房建设管理办法",
+    "关于印发&lt;湖南省农村村民住房建设管理流程图&gt;的通知",
+    "湖南省土地管理办法",
+    "关于农村乱占耕地建房“八不准”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "d124307cfa184a4889abd622b49bef56",
+   "url": null,
+   "question": "农村农民身份的确认",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于农村农民身份的确认",
+    "中共湖南省委湖南省人民政府关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b7fb5d9a14d24fdf85a0329280512045",
+   "url": null,
+   "question": "新化县兽牧局、游家镇兽牧站工作人员不作为",
+   "cited_hits": [
+    {
+     "name": "畜禽规模养殖污染防治条例",
+     "lib_no": "畜禽规模养殖污染防治条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "畜禽规模养殖污染防治条例",
+     "lib_no": "畜禽规模养殖污染防治条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "畜禽养殖禁养区划定技术指南",
+    "关于稳定生猪生产促进转型升级的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "af11e083d6cc4b0f8a51296265de535d",
+   "url": null,
+   "question": "渔业",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国渔业法实施细则",
+     "lib_no": "渔业法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "1b0dd14a49b8413cb47e6e786564bf59",
+   "url": null,
+   "question": "咨询肥料试验",
+   "cited_hits": [
+    {
+     "name": "缓释肥料效果试验和评价要求",
+     "lib_no": "GB/T 23348-2009",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "咨询肥料试验",
+    "关于肥料登记行政审批有关事项的通知",
+    "登记肥料肥效试验技术规程(暂行)",
+    "肥料效果试验和评价通用要求",
+    "肥料增效剂效果试验和评价要求",
+    "土壤调理剂效果试验和评价要求",
+    "微生物肥料田间试验技术规程及肥效评价指南"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-agri",
+   "id": "8dff3db55e2647b9817518ba38db555c",
+   "url": null,
+   "question": "广西生猪供湘屠宰场需调出场具备哪些资质、办理哪些手续方可跨省调运生猪。",
+   "cited_hits": [],
+   "cited_missing": [
+    "入湘生猪 “点对点”调运备案表",
+    "入湘生猪“点对点”调运审查表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bfbdfc80302b44f2a5bff8cb3e4c2409",
+   "url": null,
+   "question": "我对信件编号：2026071400000005，信件标题：咨询“被征地农户”和“被征地农民”的法定主体认定问题的回复有异议",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知",
+    "湖南省农业农村厅解读 &lt; 关于进一步加强农村集体经济组织征地补偿费分配使用监督管理的通知 &gt; ",
+    "国务院关于深化改革严格土地管理的决定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "427d8ce03dd44da3b242f36ad447f223",
+   "url": null,
+   "question": "农村宅基地问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府办公厅关于进一步加强村庄建设的意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "cab1152461654c5982db14f5f5aadfff",
+   "url": null,
+   "question": "种植类施工与农田类施工的定义",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业工程建设项目招标投标管理办法（湘农发〔2022〕34号）",
+    "湖南省农业工程建设项目“机器管招投标”模块化招标文件（施工）（2025年第2版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "eabccd2a27d7444da0971ae0e3444b5a",
+   "url": null,
+   "question": "关于农村基本建设项目施工招标是否必须公开初步设计文件的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业基本建设项目招标投标管理规定（农计发[2004]10号）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6dcdcbdf0ca846e88f04f871a5083396",
+   "url": null,
+   "question": "无公害养殖基地的证件是否被取消",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好无公害农产品认证制度改革过渡期间有关工作的通知",
+    "无公害农产品产地认定证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "c84eb1ac4fe446e2bba74425cbb2bbf7",
+   "url": null,
+   "question": "关于《湖南省农田建设项目工程施工“机器管招投标”模块化招标文件范本(2025年版)》中调度分业绩的认可",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农田建设项目工程施工“机器管招投标”模块化招标文件范本(2025年版)",
+    "湖南省农田建设项目工程施工‘机器管招投标’模块化招标文件范本(2025 年版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "697004a266524a208a05da11bf9497b5",
+   "url": null,
+   "question": "受灾面积/农业受灾损失数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发 &lt;自然灾害情况统计制度&gt; 的通知",
+    "湖南省自然灾害灾情统计、会商及发布办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "19ecaceaaede4767b84d0ac11c977379",
+   "url": null,
+   "question": "养牛补贴政策咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好中央转移支付现代畜牧业产业发展资金项目储备工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e9a7b42278574e66910a136afa795d80",
+   "url": null,
+   "question": "湖南省农田建设项目工程施工“机器管招投标”模块化招标文件范本(2025年版)》关于招标文件人员在建的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农田建设项目工程施工“机器管招投标”模块化招标文件范本(2025年第2版)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "77a215773f154be1896111a4a34ba85a",
+   "url": null,
+   "question": "农业支持保护补贴数据申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业支持保护补贴数据申请"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "71a1905dc59d43d5a885b589bbfcc031",
+   "url": null,
+   "question": "计划生育家庭奖励和扶持",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "510ef600f62649efa7cc99e3daa9c28e",
+   "url": null,
+   "question": "职业技能鉴定考试入口",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业部关于修改和废止部分规定章、规范性文件的规定",
+    "饲料工业行业检验化验员等三个职业实行就业准入制度实施方案",
+    "饲料生产企业许可条件",
+    "混合型饲料添加剂生产企业许可条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "14fb0d69de084f3b8989a4f867f5b8ba",
+   "url": null,
+   "question": "关于湖南打造“洞庭粮仓”省级农业区域公用品牌的建议方案",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于湖南打造“洞庭粮仓”省级农业区域公用品牌的建议方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a5080b6fd91240e6ab913f382be823fc",
+   "url": null,
+   "question": "关于高标准农田项目设计负责人变更后用于机管项目投标中的相关事宜咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业工程项目“机器管招投标”模块化招标文件（勘察设计）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4f58aee6a07b4945b5180b5545515e26",
+   "url": null,
+   "question": "关于农业生态工程中的“水污染防治工程业绩”类型的询问函",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业工程建设项目招标投标管理办法（湘农发〔2022〕34号）",
+    "湖南省农业工程建设项目“机器管招投标”模块化招标文件（施工）（2025年第2版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f365d32fa22f405baec711c620ae0f5a",
+   "url": null,
+   "question": "咨询2025年度（稻谷目标价格补贴）发放事宜",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省稻谷目标价格补贴政策实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "c01e2157952c4ae6bc2841762d26f84d",
+   "url": null,
+   "question": "关于农业项目中农业生态工程类似业绩的界定",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业工程建设项目招标投标管理办法（湘农发〔2022〕34号）",
+    "湖南省农业工程建设项目“机器管招投标”模块化招标文件（施工）（2025年第2版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "895b5ed89a2043e2a3a313b0a3bd000e",
+   "url": null,
+   "question": "关于在湖南省农田建设项目工程施工招标中放宽资质要求及业绩要求的建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于在湖南省农田建设项目工程施工招标中放宽资质要求及业绩要求的建议",
+    "湖南省农田建设项目工程施工 “机器管招投标”模块化招标文件范本（2025年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "3caa8d3c54984f4c824a23d9ed87f1f2",
+   "url": null,
+   "question": "办理动物诊疗许可证",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物诊疗机构管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "756b52a11b3b428cb0e3ec61abc13cb2",
+   "url": null,
+   "question": "公职人员子女能不能认定为集体经济组织成员？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国集体经济组织法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "38925c68796d454ca9a90b3e3bde2484",
+   "url": null,
+   "question": "农产品价格在哪查询",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南主要农产品批发价格监测周报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "68180d3683954a8c81bba42e23c700a4",
+   "url": null,
+   "question": "2024年农业系列高级职称申报评价标准与申报评审材料要求",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2024年度全省农业系列职称申报评审工作的提示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "817aed3e358c49319c0e97fdb781ba4c",
+   "url": null,
+   "question": "高标准农田建设项目招投标的有关问题咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "示范文本",
+    "湖南省农田建设项目工程电子招标投标施工招标文件示范文本",
+    "示范文本",
+    "示范文本",
+    "湖南省建筑市场责任主体不良行为记录",
+    "示范文本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a146625220c44679b3b3aee28ba5cbfa",
+   "url": null,
+   "question": "关于我省高标准农田建设项目中标后的监管是否有相应管理平台",
+   "cited_hits": [],
+   "cited_missing": [
+    " 湖南省农田建设项目工程电子招标投标施工招标文件示范文本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "947ae32b05984d96aa0d1fa328a268d4",
+   "url": null,
+   "question": "矿物类土壤调理剂是否属于肥料",
+   "cited_hits": [],
+   "cited_missing": [
+    "肥料登记管理办法",
+    "肥料登记生产企业考核表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "3f710086291648e5952d99aba3764482",
+   "url": null,
+   "question": "水生野生动物人工繁育许可证如何年检，2019年12月颁发的",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国水生野生动物利用特许办法",
+    "申请表",
+    "猎捕证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "32b0d94fbb5d4d6ab7f6f053a8edeab0",
+   "url": null,
+   "question": "关于蔬菜育苗是否需要办理《种子生产经营许可证》",
+   "cited_hits": [],
+   "cited_missing": [
+    "种子生产经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ea2b81bd9e2b4b4bb7063f09f11b989e",
+   "url": null,
+   "question": "关于湖南省邵阳县农村旱厕改造相关补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村厕所建设技术导则",
+    "关于扎实推进 “十四五”农村厕所革命的实施意见",
+    "农村厕所建设与管理规范",
+    "关于建立健全农村厕所长效管护机制的指导意见（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "308690dc7b1848f68b19f6557d025759",
+   "url": null,
+   "question": "咨询钓鱼相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省禁捕水域垂钓管理办法",
+    "关于加强长江流域禁捕执法管理工作的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "508570b3052d4abd894e6791b0540694",
+   "url": null,
+   "question": "在农村非禁养区域建设大型养猪场相关问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "在农村非禁养区域建设大型养猪场相关问题",
+    "动物防疫条件审查办法",
+    "湖南省动物防疫条件审查选址风险评估暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b785516a91a644bd90ac4b6985134f3e",
+   "url": null,
+   "question": "黄缘闭壳龟家庭饲养",
+   "cited_hits": [],
+   "cited_missing": [
+    "世界自然保护联盟濒危物种红色名录",
+    "濒危野生动植物种国际贸易公约",
+    "国家重点保护野生动物名录",
+    "中国生物多样性红色名录-脊椎动物卷",
+    "中国濒危动物红皮书",
+    "中华人民共和国水生野生动物利用特许办法",
+    "经营利用证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9ddc1f7de6094ca59f14e70364215b3e",
+   "url": null,
+   "question": "中药材农业经营主体的划分标准",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省家庭农场名录管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "99f5d4dcadb5427bb31689514acaa0c9",
+   "url": null,
+   "question": "个体户牧场问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于 黑山羊养殖政策问题 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "442d933c2fc2439dbb802a1b39f4883e",
+   "url": null,
+   "question": "关于（湘防重病［2021］4号文件的时效性的咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好非洲猪瘟防控工作的通知",
+    "关于进一步抓实抓细非洲猪瘟防控工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "049f26d2f0c748e39994fa8441c56be9",
+   "url": null,
+   "question": "成立农场需要哪些资质证件",
+   "cited_hits": [],
+   "cited_missing": [
+    "家庭牧场认定申请表",
+    "家庭牧场认定申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "75985e8384784f8b98594f7b810089fb",
+   "url": null,
+   "question": "养猪有补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    " 养猪有补贴吗 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bc9671fb53dc49d2b90e55c42dde86f1",
+   "url": null,
+   "question": "垃圾中转站和养猪场的安全距离是多少",
+   "cited_hits": [],
+   "cited_missing": [
+    " 垃圾中转站和养猪场的安全距离是多少 ",
+    "动物防疫条件审查办法",
+    "动物防疫条件审查办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6d45590399e049c78d976d166bcddc52",
+   "url": null,
+   "question": "猪场报建流程与审批",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于猪场报建流程与审批"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "2f582a3d2ff2412d9c6a8ac8702046cb",
+   "url": null,
+   "question": "水产养殖",
+   "cited_hits": [],
+   "cited_missing": [
+    "稻渔综合种养技术规范通则",
+    "自然资源部、农业农村部、国家林草局关于严格耕地用途管制有关问题的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "25a1beaaad874e3490f9b550486e6e8e",
+   "url": null,
+   "question": "祁阳市黎家坪镇私设屠宰场,违法经营何时休",
+   "cited_hits": [],
+   "cited_missing": [
+    "祁阳市黎家坪镇私设屠宰场 ,违法经营何时休",
+    "责令改正通知书",
+    "提醒函",
+    "询问笔录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "61470f14ec3b4b188ab59602ff6809a3",
+   "url": null,
+   "question": "离农村村民住宅区及水源地不足200米，能否新建大型养猪户？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省畜禽规模养殖污染防治规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4416f0392656483aafbd13138fff2d1d",
+   "url": null,
+   "question": "关于最新的生猪养殖补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "动物防疫条件合格证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f691fe5302b04fc3bfdb498f5b0f45ea",
+   "url": null,
+   "question": "非生产性个人休闲垂钓一人一杆一线一钩是否允许？如不允许政策或者文件依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部关于加强长江流域禁捕执法管理工作的意见",
+    "关于加强和规范长江流域垂钓管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "85adc77cba3440069abcb5fcddc71b8b",
+   "url": null,
+   "question": "农村家庭农场养殖注册要求和相关补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省家庭农场名录管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f57dd76683a84d1d90661dade22ef4a1",
+   "url": null,
+   "question": "2020建设生猪养殖场有什么政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "生猪规模化养殖场建设项目中央预算内投资计划申报表",
+    "关于做好新型农业经营主体贷款贴息工作的通知",
+    "种猪场和规模猪场流动资金贷款贴息申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bc633e1ca6094a52ac9e4b302ce7b695",
+   "url": null,
+   "question": "农村土地承包经营权证如何补办",
+   "cited_hits": [],
+   "cited_missing": [
+    "中华人民共和国农村土地承包经营权证管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "8d73db97bb1147ab83ab6007f76e91bd",
+   "url": null,
+   "question": "化肥减量增效示范县",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业委员会政府信息公开申请表",
+    "申请表",
+    "申请表",
+    "申请表",
+    "申请表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ffdecf7e648e441ba25ce97dee545dc8",
+   "url": null,
+   "question": "关于请求批准湖南省三可食品有限公司在洞口市场实施定点屠宰公平竟争申述报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于请求湖南省三可食品有限公司在洞口市场实施定点屠宰公平竞争申述报告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0004b69ccf5e42c3845c0c4f74e8236a",
+   "url": null,
+   "question": "湘江禁渔",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府 关于湖南省长江流域重点水域禁捕的通告 ",
+    " 关于加强和规范长江流域垂钓管理工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ad16e0cb77f94ea592c43daf6e85fe77",
+   "url": null,
+   "question": "办理养殖黑斑蛙需要准备哪些材料及办理流程",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省渔业条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "214be130ca284436a0b27a1553980fce",
+   "url": null,
+   "question": "衡南县云集镇鸿发屠宰场违规事项",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于云集鸿发屠宰场有关问题举报的函",
+    "农业农村部关于调整动物防疫条件审查有关规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "baf86074ae4940108b2e0e4db5487307",
+   "url": null,
+   "question": "2020年湘江禁渔新规中，路亚钓鱼是否在禁止范围内",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省人民政府 关于湖南省长江流域重点水域禁捕的通告 ",
+    " 关于加强和规范长江流域垂钓管理工作的通知 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b5207fa054294793a981f9d79be4938a",
+   "url": null,
+   "question": "关于个人农村集体经济组织成员资格",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于个人农村集体经济组织成员资格认定",
+    "中共中央国务院关于稳步推进农村集体产权制度改革的意见",
+    "中共湖南省委湖南省人民政府关于稳步推进农村集体产权制度改革的实施意见",
+    "长沙县农村集体经济组织成员资格界定指导意见",
+    "指导意见",
+    "成员资格界定办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-agri",
+   "id": "74d3e493428b42b988f1413ee7f3b7c8",
+   "url": null,
+   "question": "湖南永州市蓝山县生猪非法贩运",
+   "cited_hits": [],
+   "cited_missing": [
+    "嘉禾县打击私屠滥宰行动方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b382aa5c18b5421f81cbed08813151c4",
+   "url": null,
+   "question": "常住人口3200余人的村，通往村卫生室门口的水泥硬化道路，何时有？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农村人居环境整治三年行动方案2018-2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "29a6bf6c5fd04f448bdca58abdf26390",
+   "url": null,
+   "question": "关于大学生农村集体经济组织成员资格认定权益",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央国务院关于稳步推进农村集体产权制度改革的意见",
+    "中共湖南省委湖南省人民政府关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "47154e3a9ad644c8bba21f2e54970a1e",
+   "url": null,
+   "question": "村委会违法调整土地、农田长期无国家直接补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于临湘市坦渡镇新湖村王洪军信访的回复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "630b9846aed143a0a2c4830caf4b5f11",
+   "url": null,
+   "question": "湖南临湘新湖村村委会冒签农村土地承包合同、长期大量扣押农村土地承包经营权证，镇党委包庇姑息养奸",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于临湘市坦渡镇新湖村王洪军信访的回复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "1ceae9fa35724ba3bf98667357a77fdc",
+   "url": null,
+   "question": "村委会冒签土地承包合同签名、长期扣押权证至今",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于临湘市坦渡镇新湖村王洪军信访的回复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7e5df3d8c27d4aa28ddef27432f2b618",
+   "url": null,
+   "question": "关于农业&quot;三项补贴&quot;政策的落实",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业“三项补贴”改革试点方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6c2436d9ff014f34ad52b8c00e989e71",
+   "url": null,
+   "question": "双季稻和再生稻有何区别？能否都有175元/亩的补贴？",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省农业“三项补贴”改革试点方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "60c1b231eac243579c44d6197b9a3d43",
+   "url": null,
+   "question": "黑心“化肥商”卖给我家化肥至使我家柑橘树死掉上1000棵",
+   "cited_hits": [],
+   "cited_missing": [
+    "黑心“化肥商”卖给我家化肥至使我家柑橘树死掉上1000棵"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-agri",
+   "id": "5709ff6dcd554626a5de85263cc4c56e",
+   "url": null,
+   "question": "农业补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "81ce080615cb4f828711b8304c2731dd",
+   "url": null,
+   "question": "石硫合剂现在在麻阳苗族自治县这个温度可以喷洒吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "3b8988a6682d4bfb9d30f59f5167b939",
+   "url": null,
+   "question": "湖南省国有农用地数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "22c2ab0909664d1e96107c2ea84b2df5",
+   "url": null,
+   "question": "关于联合体项目中个人业绩认定的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f0e57d255b8b4c549006947f8dc39c3e",
+   "url": null,
+   "question": "湘农办发【2024】65号哪里可以看到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "35480a22cf434a8cbed1795122070b31",
+   "url": null,
+   "question": "关于农作物受灾面积数据的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b25a98771ad549119ec9db835c24f9a0",
+   "url": null,
+   "question": "2010-2023年湖南省各市州农作物受灾面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b918ffdae2aa43308b08b824f1b01e84",
+   "url": null,
+   "question": "查询湖南省各市州2010-2023年农作物受灾面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6b8805707f774977b278784ded464611",
+   "url": null,
+   "question": "湖南省石门县农产品滞销问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "25a5e439366f494faac893e140e1f963",
+   "url": null,
+   "question": "咨询退休劳动模范（农业劳模）生活补助问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "26842176ef8b4f4bb6d5f3ad770ae549",
+   "url": null,
+   "question": "咨询由贵厅在湘潭市区组织的“高素质农民培育”有关方面的主题理论培训今年年底-明年年前还会举办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "cf74acfec9304eeb8fa48697d1756e9a",
+   "url": null,
+   "question": "湖南省内现有的国家地理标志农产品明细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "043ed819b13b47edb05ffee43a0da20e",
+   "url": null,
+   "question": "2025年农业补贴是否发放到位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b72a24c7340243d5a1dd26423bf47e66",
+   "url": null,
+   "question": "请求解决老宅出行困难的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "76c8291636a44ef2875ce4a423a18446",
+   "url": null,
+   "question": "关于湘潭经开区、响水乡、映山村、东湖组响水驾校至桑顿新能源厂区修水泥路问题咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "fd184c55bd5149b4b732b852b55ca3be",
+   "url": null,
+   "question": "湖南省历年农业保险相关文件及政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a9bdc800c1024481a7d2c3333db84d52",
+   "url": null,
+   "question": "关于《湖南省畜禽强制免疫“先打后补”实施方案》中补贴的对象的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0daa286329c54c90b948d078c1435c7e",
+   "url": null,
+   "question": "关于湖南省农业农村厅办公室关于印发《湖南省农业综合行政执法规范化建设指南》的通知（湘农办发〔2023〕128号）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ec19d89643ef4baba6c0fc0330572ac8",
+   "url": null,
+   "question": "2023年湖南省农业系列高级职称缴费问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "45a5e13d43394a6f945cebe14c7cb0fe",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "886862e3c5f349b79e1154bd9e9f6379",
+   "url": null,
+   "question": "农技特岗咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bda3289f554d4270a1071f5d62b4526c",
+   "url": null,
+   "question": "您好，我想确认畜牧蚊香这个产品是否办理农药登记证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "49c7788804db4620b70110cdb7f629f0",
+   "url": null,
+   "question": "个人玩家购买黄缘闭壳龟",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "70617f99b3324d7499468a11f0d33e90",
+   "url": null,
+   "question": "新型农业机械",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "74ea0ac6dff142749c521b46cc399025",
+   "url": null,
+   "question": "账号咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f00ec811434c4811a23426cb018bc244",
+   "url": null,
+   "question": "（万安堂农林农民专业合作社）强烈想和湖南省农担达成和解协议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0ea4f23929df4e37bd20fc68b498bd59",
+   "url": null,
+   "question": "个人如何合法饲养黄缘闭壳龟做宠物",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "96d0086f17704d1c95fce72a3933fe1d",
+   "url": null,
+   "question": "关于我村是否属于无公害蔬菜生产基地问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "2f1b1aea84e14017818cdb611d316f0f",
+   "url": null,
+   "question": "农民大学生培养计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "528115c59e5544e99ca748fec37d681a",
+   "url": null,
+   "question": "数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a53447c5747541e39274b50fa34d711e",
+   "url": null,
+   "question": "咨询2014年农产品质量安全检测员证书事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4262258221eb4b30857bf53c8c8e6dde",
+   "url": null,
+   "question": "农村改厕奖补政策解读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "1a836f370a0e4cc7a39a52159dd3eb29",
+   "url": null,
+   "question": "休闲垂钓是否有区域限制",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ed8cc0d10b9640e7b5f27c6be436317d",
+   "url": null,
+   "question": "宅基地申请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "37d867d59e2246c6ac8a9608797b7684",
+   "url": null,
+   "question": "新化县花山村土地确权证一直未下发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "5f26f3a248614b3daf67ddf212e89e3e",
+   "url": null,
+   "question": "渔政执法是不是有点过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e6ea16b60ef149fa8a98a8c5409eb0c2",
+   "url": null,
+   "question": "关于果蔬烘干机采购补贴的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4c540e156aea4a629777b5449b485ad8",
+   "url": null,
+   "question": "145期间三农现状和变革建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7350392b90544dd894aa962727784182",
+   "url": null,
+   "question": "农村合作社办理程序",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0ad0442877644354bd4232aa0b167b92",
+   "url": null,
+   "question": "恳求同仁、同速、同快解决农机人员的待遇问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bc007385e98c4ae0979e69fdc2c5f3a5",
+   "url": null,
+   "question": "关于无土栽培技术的培训与推广",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7fced8e6bd8643b781e7a37450a5b1b1",
+   "url": null,
+   "question": "秸秆的利用应该有更高的技术支持，追求更高的附加值，即便以后没有政策支持也可长久良性发展。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "5d1cd89838164d16a462588e1a9e6278",
+   "url": null,
+   "question": "房、地证农转用补办手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a3f4f12ece084220ab4f50719602f97e",
+   "url": null,
+   "question": "关于乡村",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "2fe74765a6584dd98a2a153dc43c0155",
+   "url": null,
+   "question": "乌龟养殖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "449094303c6449b1900ad4ca8642a9dc",
+   "url": null,
+   "question": "在人工水库使用使用活饵(泥鳅)进行作业性捕捞是否违法违规",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "205aac79b1bd4bdaa1dc5d3b7c07caba",
+   "url": null,
+   "question": "农村乱泥巴路望政府急处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f0f7c69676964d55baddb138c64370c2",
+   "url": null,
+   "question": "湖南省郴州市2000-2020年农产品贸易的出口规模以及出口结构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9ab774a02e834c45af3d23ec1eb983d8",
+   "url": null,
+   "question": "湖南省农产品对日出口数据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7df445ed45094424bf1c6a1b066b6ac5",
+   "url": null,
+   "question": "咨询农技推广服务机构需求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "abbac8bae8ce421fb3ba5ab6fda7bb23",
+   "url": null,
+   "question": "关于水生执业兽医报考资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "32d3eff360974ef8a0a86d80fc4ef850",
+   "url": null,
+   "question": "人类的粪污应该往哪里去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e17a0a30edb540abadedcc3d3285eca0",
+   "url": null,
+   "question": "新型职业农民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "64a947eb620b4a488caa6236618cb010",
+   "url": null,
+   "question": "关于湖南省桃源县沙坪镇向阳村24组（原芦花潭乡马王溪村二组）退耕还林2019年通过林业部门验收，面积上报后，说没有指标了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "026dedfef1654b49add88fc7cb29cbe6",
+   "url": null,
+   "question": "如何申请办理中高级新型职业农民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "75f6c5a3b4d24e61852333d92c771412",
+   "url": null,
+   "question": "乡村振兴补贴项目申报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "74ad4da794c4459bba5fcbcb452b324a",
+   "url": null,
+   "question": "湖南省省级及省级以上田园综合体建设试点名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "91199046d7074f0ea1c5573d889f9355",
+   "url": null,
+   "question": "2015年每个农机合作社补贴三十万需要什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0fa54688115f47d0aa23475428f4c5aa",
+   "url": null,
+   "question": "强占农田问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9060a1b6034f4f04bcb53de7cad5a195",
+   "url": null,
+   "question": "2008-2017年湖南省农业科技贡献率",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7c967e64d6fb4a34bf85298dca308ca9",
+   "url": null,
+   "question": "施用有机肥补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "83e83e83f7a54e4da3e5ecab5991c6fb",
+   "url": null,
+   "question": "张家界市江垭水库退捕渔民补偿标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "1aa6658e0a1c4168b693a37ed7c93a18",
+   "url": null,
+   "question": "问题标题关于《湖南省长江流域重点水域禁捕退捕工作实施方案》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "0c18e0b47f7747eb8d389d0d8fad21e0",
+   "url": null,
+   "question": "农贸市场是否可以销售青蛙？需要哪些手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "8be2f9de2e83407ebd50ebfdda0f8320",
+   "url": null,
+   "question": "《湖南省农村厕所建设技术导则》下载",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f602d81c44ea4cb087032347c96f3107",
+   "url": null,
+   "question": "湖南省各县级市主要作物的种植面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "018bcd22fa9f4c93b088a743d2487ce6",
+   "url": null,
+   "question": "个人咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f6b5b1cd76394a2f9b0b3b0361487181",
+   "url": null,
+   "question": "怀化职业技术学院高考招生录取违规，随意核减变更已经公示的高考招生计划",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b6c73d011b08477db984f1f9c2a47287",
+   "url": null,
+   "question": "关于征集农机装备及技术创新研发项目的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "a844b6e2a1484d90aa099fd949bd9c00",
+   "url": null,
+   "question": "我成立了农业公司承包土地种粮，可以申请种粮大户吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4ed0e4a15d08462e87f2870357503961",
+   "url": null,
+   "question": "关于村级土地集中化管理及提高土地利用率建议",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "8d740c97b2c748b9a76cb4ab25cc9e2e",
+   "url": null,
+   "question": "保护动物损害农民财产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "408ed8ee18b045e492dea27d1209962e",
+   "url": null,
+   "question": "关于湖南农业信息数据化建议--布瑞克农信集团",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6ad0b0e1eb2741c3bef5e2ddaa8d1f01",
+   "url": null,
+   "question": "关于农村宅基地量房备案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "80c522e43b1340af974f8f4b4baf61d2",
+   "url": null,
+   "question": "劳动纠纷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "dcc46fdd80e6417dabd902bbc6f6a951",
+   "url": null,
+   "question": "关于湖南省长江流域重点水域禁捕对副业队渔民的补贴问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "27b451fa840a4ebdbddc1a11872ed392",
+   "url": null,
+   "question": "助理农艺师和农艺师是怎么评的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "c9f5e3da574d4de8bd1c09ad04467540",
+   "url": null,
+   "question": "活动振兴--乡村振兴的突破口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "40c5c58a2fc84b40bdcdf0b9881b1889",
+   "url": null,
+   "question": "宁乡市农村土地流转政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "587021c9271142d9a92b78ef07f2c29c",
+   "url": null,
+   "question": "关注湖南油菜菌核病的发生与防治",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "6b665b6d74194657ac5ed55c5a7b681c",
+   "url": null,
+   "question": "种子补贴咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "396c29b7f809410bbcc285b6793c9a89",
+   "url": null,
+   "question": "关于举报金刚镇人民政府在“金刚大道项目中”不作为及浏阳市自然资源局违规渎职严重损害茶园组被征地农民合法权益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "ffa76234ff5d45d08fa9a8f1f4df1687",
+   "url": null,
+   "question": "浏阳市2000-2010年金桔产量及种植面积",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e78f2151c6ee4f29b333aaca3b331628",
+   "url": null,
+   "question": "益阳市岳家桥镇枫树山村自来水供水每天限时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "3cc405969b934e8c9a1281e3dc550fbf",
+   "url": null,
+   "question": "我要投诉邵东县修建公路把灌溉农田的水渠堵了，一直不予修复，敷衍了事。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b3b141e1c444444fa5cdebcf1039c980",
+   "url": null,
+   "question": "举报：兴隆街道茶园村书记违法乱纪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "641c90050395494189ece0744bf794e1",
+   "url": null,
+   "question": "关于对农村土地承包法第41条的理解咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "608918aad3ab44589f5d66ebfe573bb0",
+   "url": null,
+   "question": "咨询乡镇工作高级农艺师破格参评条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "098412c86a7247f7a76b0cadff255bbd",
+   "url": null,
+   "question": "咨询湖南三农网信息投稿电子邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "27cf50db532e43fb82b3d97acff23658",
+   "url": null,
+   "question": "生态水稻种植有扶持么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e8ee01b10b8c48ca954d666f5bb3ff17",
+   "url": null,
+   "question": "基层农技人员也要活下去",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "373bde79462e4fa48b473a0a2045969e",
+   "url": null,
+   "question": "注册有关绿色防控公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "33a36173af334176be1f136db010ee76",
+   "url": null,
+   "question": "请求指导，关于湖南省农.林业新科技推广！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "bbe2d335ecb34d798bbdd2cafae21886",
+   "url": null,
+   "question": "湖南衡阳市林科所申时利车祸造成手掌骨折筹病款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "270fe6b97676450fb096db4b39ba3d42",
+   "url": null,
+   "question": "安仁县牌楼乡联扩村欠工程款及押金逾期20年未还！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "12b0cfff383a43dca3c4ac76c547faf8",
+   "url": null,
+   "question": "建议省农业委员会进行中水洁厕改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "4a29f975efcd42e6a74497a32e7eae61",
+   "url": null,
+   "question": "关于农民工返乡创业无抵押贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b004871961cb4a4986e39b2555629536",
+   "url": null,
+   "question": "为养蜂户争取国家惠农政策扶持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "e4b6bbcdb5044c3aac276036850ec6aa",
+   "url": null,
+   "question": "请问邵东可以种植冬枣和中油5号吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "72553065fde14e37a9ed6e72fa45bada",
+   "url": null,
+   "question": "咨询生姜保鲜存放方法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "9d96322885f1408b9ce87621a5946dcc",
+   "url": null,
+   "question": "蔬菜基地相关政策支持问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "fbbf6e8c95ed4b3098e86f5383969ce3",
+   "url": null,
+   "question": "国家某科研单位将韭菜的基因与椿树的基因进行组合，得到椿树新品种，是真的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "160ae5bbd90a4b36b447eff12fe4d536",
+   "url": null,
+   "question": "永州地区有养黄粉虫的公司吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "463c3f32e7974fb6b6995c28e427d2cb",
+   "url": null,
+   "question": "种植再生稻，是否可以申报种粮大户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "7b01b54b48f1405aac52297d77e21dcb",
+   "url": null,
+   "question": "建猪场有没有贷款扶持政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-agri",
+   "id": "5d4b56e53d714dcf8cd8a2dd591147db",
+   "url": null,
+   "question": "创业养殖为什么不给贷款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

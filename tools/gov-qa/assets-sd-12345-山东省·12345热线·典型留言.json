@@ -1,0 +1,724 @@
+{
+ "A_考卷": [
+  {
+   "source": "sd-12345",
+   "id": "250624104252046500",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250624104252046500",
+   "question": "张女士来电反映：青岛市企业 ，咨询企业《药品经营许可证》中的质量负责人，能否担任该公司（同一企业）的二类医疗器械质量负责人。",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医疗器械经营质量管理规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250512180727032300",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250512180727032300",
+   "question": "关女士来电反映：参加山东省医保剖腹产生育，咨询剖腹产是否可以按照难产政策增加15天产假。",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-12345",
+   "id": "250421145801088000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250421145801088000",
+   "question": "刘先生来电反映：自己是青岛市医院职工，咨询医院内哪些大型设备操作必须持有医疗设备操作证，及大型医疗设备界定的标准。",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发大型医用设备配置与使用管理办法（试行）的通知（国卫规划发〔2018〕12号）",
+    "医疗卫生机构医学装备管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "92C3F6E0-671B-4D28-9C78-D4A7CF97FE59",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=92C3F6E0-671B-4D28-9C78-D4A7CF97FE59",
+   "question": "杨先生：您好，我是青岛某食品配料有限公司，想咨询一下大包装工业食用盐的证件如何办理问题，能否办理的事宜。希望相关单位落实处理。",
+   "cited_hits": [
+    {
+     "name": "食盐专营办法",
+     "lib_no": "食盐专营办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "盐业体制改革实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sd-12345",
+   "id": "250521155813006600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250521155813006600",
+   "question": "张先生来电反映：因工作需要，现在想要通过山东省住建厅下属的山东省建筑市场监管与诚信建筑一体化平台查询企业的资质信息，但此平台上企业资质编号信息不显示，咨询如何获取到此类信息。",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房和城乡建设部办公厅关于做好建筑业“证照分离”改革衔接有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250417110129085100",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250417110129085100",
+   "question": "姚女士来电反映：山东省住建厅在2006年颁布的文件，文件名称：关于全省城市居民用水实施一户一表计量出户改造工作的指导意见，文件编号：鲁建发【2006】2号文件，目前在住建厅官网查不到此文件，咨询此文件是否正常沿用。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省住房和城乡建设厅关于公布规范性文件清理结果的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250403173534097000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250403173534097000",
+   "question": "朱女士来电反映：近期看到省残联发布的《关于印发山东省残疾人就业保障金征收使用管理办法的通知》，咨询残疾人保障金收取对象是职工个人还是企业法人。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省残疾人就业保障金征收使用管理办法",
+    "山东省残疾人就业办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-12345",
+   "id": "250103192418029400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250103192418029400",
+   "question": "陈先生来电反映：5座小客车，办理山东高速ETC，从长清大学城高速入口到德州齐河生态园高速出口，咨询高速每公里收取多少钱。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于高速公路车辆通行费有关事项的通知",
+    "关于规范收费公路车辆通行费有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241113153259014400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241113153259014400",
+   "question": "张女士来电反映：咨询绕城高速二环线北环段通行费收费标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人民政府关于济南绕城高速二环线北环段设置收费站的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241104173202019800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241104173202019800",
+   "question": "王先生来电反映：潍坊市寿光市羊口镇的渔民，从潍坊港出海打渔，省内的渔业资源匮乏想要跨省打渔，咨询省内的小型渔船能否跨省捕鱼，省内的A类渔区包括哪些区域。",
+   "cited_hits": [],
+   "cited_missing": [
+    "渔业捕捞许可管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sd-12345",
+   "id": "241014103452053500",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241014103452053500",
+   "question": "李先生来电反映：咨询《山东省教育厅关于课后延时服务费明细》政策中针对中小学课后延时服务的收费标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅国务院办公厅关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见",
+    "山东省义务教育学校课后服务经费保障办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241011154007009000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241011154007009000",
+   "question": "尹女士来电反映：博士后出站在外省工作三年再次来山东工作，咨询是否符合高层次人才高级职称评审直通车的范围。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人力资源和社会保障厅关于下放职称服务管理权限和建立高层次人才高级职称评审“直通车”制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240904183535092600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240904183535092600",
+   "question": "谷先生来电反映：咨询莱芜高新区收费站大型吊车能否上高速及可以上高速时需要提交何种资料和办理手续。",
+   "cited_hits": [],
+   "cited_missing": [
+    "大件运输许可业务规范和技术要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240801095741045400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240801095741045400",
+   "question": "张女士来电反映：山东省食品发酵院经办人，属于事业单位，目前需要将生物技术转让给国外企业，咨询菌种如何带到国外企业，需要办理什么手续以及具体流程。",
+   "cited_hits": [],
+   "cited_missing": [
+    "对外提供农作物种质资源准许证",
+    "对外提供农作物种质资源准许证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240703180741097700",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240703180741097700",
+   "question": "杨先生来电反映：在百度上查询到原山东省物价局曾发布过《山东省价格鉴证操作规范》（2006年修订版），内容里写明2006年7月1日在全省实施，来电咨询，该文件现在是否正在使用，是否仍有效力，及文件是否只是物价部门内部适用，还是其他相关行业也适",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省物价局关于公布保留的规范性文件目录的通知",
+    "山东省价格鉴证操作规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240513135517025600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240513135517025600",
+   "question": "辛女士来电反映：在山东省人力资源和社会保障厅官网上无法查询到《转发劳动部〈关于发布《企业职工患病或非因工负伤医疗期规定》的通知〉的通知》（鲁劳发〔1995〕67号）文件，咨询应该通过何种途径可查询到此红头文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "转发劳动部〈关于发布《企业职工患病或非因工负伤医疗期规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240405211029048501",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240405211029048501",
+   "question": "张女士来电反映：咨询市中区山东省体育中心山东高速篮球馆停车场的收费标准。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化我市机动车停车收费政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240118083610000700",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240118083610000700",
+   "question": "高先生来电反映：山东省人力资源和社会保障厅出台了博士后补助的政策《山东省人力资源和社会保障厅关于组织2023年度山东省有关博士后生活补助发放工作通知》，咨询已在职博士后的身份到企业从事研究工作能否申请补助。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发山东省有关博士（后）生活补助核定发放办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "157A7919-9713-4A28-B29B-808A64982135",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=157A7919-9713-4A28-B29B-808A64982135",
+   "question": "臧先生：日照市企业，准备通过抖音出售养殖海马，咨询办理水生野生动物经营利用许可证的具体办理流程和所需材料。",
+   "cited_hits": [],
+   "cited_missing": [
+    "水生野生动物经营利用许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "94A1A3E3-2F77-4BEF-ABA8-24167085B59A",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=94A1A3E3-2F77-4BEF-ABA8-24167085B59A",
+   "question": "王女士：咨询如何在山东省招生考试院网站上查询高考成绩并进行打印。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开通高考证明网上办理业务的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "2BD5E704-3CC9-4771-AF8C-3B2AA6C87551",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=2BD5E704-3CC9-4771-AF8C-3B2AA6C87551",
+   "question": "丁先生：在网上看到2022年11月29日山东省发改委发布的文件，文件名称山东省发改委关于工商业分时电价政策有关事项的通知，告知自2023年开始执行新的用电政策，咨询是否属实。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家发展改革委关于进一步完善分时电价机制的通知",
+    "关于工商业分时电价政策有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "18668A37-EFAE-4B2C-B462-E565E08E3CB5",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=18668A37-EFAE-4B2C-B462-E565E08E3CB5",
+   "question": "倪女士：想到省中医西院区急诊就医，咨询疫情期间医院的就医要求，就医需要的资料，是否需要核酸报告。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步加强各类场所和聚集性活动核酸检测证明查验工作的紧急通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "EB50FC8B-E9B8-4D9E-9F85-3FBB0EB608FA",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=EB50FC8B-E9B8-4D9E-9F85-3FBB0EB608FA",
+   "question": "田女士：山东省人民政府办公厅发布《关于省级财政科研经费管理的实施意见》（鲁政办发[2022]6号），咨询文件中第5大项第16条间接费用比例的数值对应的是间接费用还是项目财政经费总额。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "山东省人民政府办公厅关于改革完善省级财政科研经费管理的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "EA84128E-62AE-4EA2-B4BF-CFAABBEFBB49",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=EA84128E-62AE-4EA2-B4BF-CFAABBEFBB49",
+   "question": "田女士：单位位于市中区，想要考取中级构筑物消防员证相关的消防类证书，不清楚到何处考取，希望帮助落实应如何报名，以及如何考取，希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "消防设施操作员"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sd-12345",
+   "id": "250715102511053200",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250715102511053200",
+   "question": "巩先生来电反映：2024年在济南参加二级造价师的考试，目前已经出成绩，需要领取证书，咨询线下领取的地址或线上申请的流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250706222551025100",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250706222551025100",
+   "question": "丁女士来电反映：咨询历城区工业北路的郭店高速口何时开通。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250629152926067000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250629152926067000",
+   "question": "肖先生来电反映：2024年考出的注册监理工程师证书，考出后一直未注册，咨询注册监理工程师是否有时间限制，是否必须2年内注册完毕，超过2年就不能再注册。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250629094312001800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250629094312001800",
+   "question": "李先生来电反映：历下区文化西路齐鲁医院地下停车场有两种收费标准，就医人员一种收费标准，普通停车的是另外一种标准，来电咨询提供什么就医证明可以按照就医人员的停车收费标准进行收取停车费，是否需要纸质的凭证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250627090923053300",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250627090923053300",
+   "question": "韩先生来电反映：咨询2025年山东省体育高考综合分一分一档何时发布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250619103501005400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250619103501005400",
+   "question": "郭先生来电反映：4月在烟台市林业局申请烟台市野生动物繁育许可证，但是工作人员告知省林业厅已经停止办理许可证，咨询目前是否可以继续办理野生动物繁育许可证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250527185519036800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250527185519036800",
+   "question": "崔女士来电反映：天桥区小清河北路滨河商务中心山大二院健康管理中心的体检处，咨询能否在周六进行体检。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250522103017036000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250522103017036000",
+   "question": "高女士来电反映：自己的一级注册消防工程师，发证单位是山东省应急厅，现在需要办理一级注册消防工程师转注册，咨询如何办理注册消防工程师转注册以及需要何种材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250512144021017400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250512144021017400",
+   "question": "张先生来电反映：对象的人事档案在省人才中心，需要转出到烟台市招远市人才中心，烟台招远已经开好调档函，现需要联系省人才中心，咨询如何帮对象代办，需要准备什么材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250419103041031800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250419103041031800",
+   "question": "刘女士来电反映：想要考取专职安全员C类的证书，了解到可能存在分数变动的情况，咨询山东省住房和城乡建设厅发布的专职安全员C类考试满分是多少分，多少分可以合格拿到证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250416145608019601",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250416145608019601",
+   "question": "王女士来电反映：自己是山东省博士后，青岛市缴纳社保，咨询是否可以申请山东省自然科学基金青年科学基金。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250413182003022300",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250413182003022300",
+   "question": "李女士来电反映：咨询山东省教育厅颁布的泰山青年学者，可以享受哪些待遇。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250409202533059800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250409202533059800",
+   "question": "刘女士来电反映：缴纳省直医保，通过爱山东APP打印2025年省直基本医疗保险统筹费用结算汇总单用于二次报销，但是无法下载到手机上，咨询如何下载并打印。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250330090410064100",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250330090410064100",
+   "question": "于先生来电反映：山东省体育中心南侧有一处露天足球场，足球场有门禁，不清楚是否收费以及收费的时间段，收费标准是什么，咨询足球场什么时间可以免费进入。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250327101422099800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250327101422099800",
+   "question": "焦女士来电反映：泰安市山东交通职业学院（泰安校区），咨询2025年学校是否招收初中起点五年一贯的学生。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250324143928064600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250324143928064600",
+   "question": "李先生来电反映：山东财经大学舜耕校区校园内社会车辆可以进入停放，停放车辆收取费用，没有免费停车的时间段，进入停车就开始收费，咨询是否符合规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250311163748032800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250311163748032800",
+   "question": "邱先生来电反映：咨询2025年保卡山东省水利水电工程施工企业主要负责人安全生产管理人员考核证B证的考试时间，以及考试次数的相关政策。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250310170533038100",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250310170533038100",
+   "question": "于先生来电反映：孩子在山东省千佛山医院出生，咨询新生儿办理出生医学证明是否有时间限制。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250303190510021800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250303190510021800",
+   "question": "袁女士来电反映：2022年2月份孩子在历下区文化西路齐鲁医院出生，出生证明丢失，咨询如何补办。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250228101816000700",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250228101816000700",
+   "question": "赵先生来电反映：自己是济南的居民，目前已经参加工作，是大学全日制本科学历，咨询教育部门社会人员是否可以参加大学的六级英语考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250111113345005600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250111113345005600",
+   "question": "王女士来电反映：咨询山东省法律援助中心搬迁后的具体地址。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250107090748029700",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250107090748029700",
+   "question": "樊女士来电反映：咨询山东省省直医保门诊和住院报销比例及起付线。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "250105094355076100",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=250105094355076100",
+   "question": "王女士来电反映：缴纳省直医保，咨询2025年1月1日开始产检是否纳入统筹报销范围内。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241228113136072300",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241228113136072300",
+   "question": "吴先生来电反映：车辆停放在省体育中心，咨询是否有摆渡车可以直达齐鲁医院。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241028131206034200",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241028131206034200",
+   "question": "毛女士来电反映：山东省科学技术厅官网在科技云平台公示的关于2022和2023省重点研发计划（重大科技创新工程）第一批拟立项的项目，公示时间是2023年9月21日-2023年9月27日，但自己通过此平台未查询到该公示项目，咨询如何查询关于20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "241017172454065800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=241017172454065800",
+   "question": "卓先生来电反映：货车重型牵引车，咨询空港路是否是禁行道路及如何办理通行证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240922095847032600",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240922095847032600",
+   "question": "边先生来电反映：历城区凤鸣路1000号山东建筑大学，自己想到校内游览，咨询是否对社会人士开放。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240508095829015900",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240508095829015900",
+   "question": "于先生来电反映：自己想要带孩子去山东省防震减灾科普馆，地址在济南市旅游路，显示山东省防震减灾科普馆属于地震局管辖，咨询如何进行提前预约以及入馆是否需要收费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240412100418041800",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240412100418041800",
+   "question": "马先生来电反映：注册建筑工程类的监理工程师，咨询逾期初始注册的流程和材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240406102058000500",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240406102058000500",
+   "question": "董先生来电反映：参加省直医保，咨询试管婴儿是否报销。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240323122744042700",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240323122744042700",
+   "question": "侯女士来电反映：咨询市中区经十路体育中心跑步场地是否对外开放，以及开放时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240130140358006000",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240130140358006000",
+   "question": "侯先生来电反映：咨询英语四级非在校大学生能否单独报名考试。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "240103115826082400",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=240103115826082400",
+   "question": "丁先生来电反映：2023年12月29日在山东省人民政府网发布的《山东省人民政府关于印发2024年促进经济巩固向好加快绿色低碳高质量发展政策清单（第一批通知）》鲁政发【2023】13号（牵头单位是山东省发展和改革委员会）第十三条对于能源号牌汽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "E68AA9E5-6800-485E-9FE7-16363DC10958",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=E68AA9E5-6800-485E-9FE7-16363DC10958",
+   "question": "武先生：公司经办人，单位需要申请水生野生动物经营利用许可证，咨询具体办理流程和所需材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "B82398EE-359F-4CB7-B71C-E91C1F719758",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=B82398EE-359F-4CB7-B71C-E91C1F719758",
+   "question": "郭先生：公司属于监理企业，准备办理公路工程监理企业资质许可，咨询办理的条件流程和所需材料。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "399CF4F8-2B8B-46AA-9DF5-E4CEF09C4D5B",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=399CF4F8-2B8B-46AA-9DF5-E4CEF09C4D5B",
+   "question": "栗先生：咨询省直医保卡重新办理后是否需要重新办理异地启用手续，希望相关单位帮助落实解答。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "0DEB9618-1CD5-4D17-9206-D671EFADF018",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=0DEB9618-1CD5-4D17-9206-D671EFADF018",
+   "question": "韦先生：咨询进入山东省美术馆是否需要身份证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "FC647675-DE7C-400E-AC7B-32D5AE392BBA",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=FC647675-DE7C-400E-AC7B-32D5AE392BBA",
+   "question": "范女士：咨询泰安市到历下区山东大学齐鲁医院就诊是否需要携带48小时核酸检测报告。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "727DB91A-6CE6-40A7-BA0C-2D1813227447",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=727DB91A-6CE6-40A7-BA0C-2D1813227447",
+   "question": "李先生：我是外省的招标代理机构工作人员，想进入山东省做一些业务，目前有几个问题需要咨询。 1.外省招标代理机构进入山东做业务，是否需要在公共资源交易中心备案； 2.工程类项目，前期资料是否在公共资源交易中心进行开评标； 3.施工标，资格审查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "B9358490-ADA3-4051-A222-B50F8DD97C6F",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=B9358490-ADA3-4051-A222-B50F8DD97C6F",
+   "question": "武女士：咨询从北京将职称（中级工程师）调入至济南市历城区某国企的相关手续及办理流程。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "D8B041B5-D047-4BE1-9572-FF2D1158047F",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=D8B041B5-D047-4BE1-9572-FF2D1158047F",
+   "question": "姜先生：济南市居民，咨询职业本科能否参与山东省考研，考试限制要求。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "811E71E3-11CA-4A3A-947D-4B315CFAB372",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=811E71E3-11CA-4A3A-947D-4B315CFAB372",
+   "question": "张先生：天桥区制锦市街道制锦市街居民，附近是省残疾人联合会，咨询内部有无停车位开放的政策。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "4C98C3BE-064F-45CB-841B-408A9FA08E1E",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=4C98C3BE-064F-45CB-841B-408A9FA08E1E",
+   "question": "胡先生：咨询何时举办山东省监理工程师考试。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "B6623FC0-BC64-43EE-A0C1-32F6423465CF",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=B6623FC0-BC64-43EE-A0C1-32F6423465CF",
+   "question": "李先生：山东省市场监督管理局颁布的《山东省食品小作坊小餐饮和食品摊点管理条例》规定哪些产品没有标签的情况下不属于三无产品，咨询桶装使用花生油是否在此范围内。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "1F6EA9FD-06D3-4DE9-9ED8-5C5356D20374",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=1F6EA9FD-06D3-4DE9-9ED8-5C5356D20374",
+   "question": "王女士：参加山东省交通运输厅组织的公路水运工程实验检测考试，受疫情影响，咨询有无延迟考试的政策。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "34739063-560A-4B84-8529-F73EA452C006",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=34739063-560A-4B84-8529-F73EA452C006",
+   "question": "李先生：想要进行二级建造师继续教育，近期疫情原因，需要在山东省人民政府网上学习，但不清楚操作步骤，咨询如何网上进行二级建造师继续教育的学习。希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sd-12345",
+   "id": "47ACB5C5-C804-473B-A36A-EBF293070E41",
+   "url": "http://www.shandong.gov.cn/12345/szfwz/DxalView.aspx?id=47ACB5C5-C804-473B-A36A-EBF293070E41",
+   "question": "付先生：自己是长清区居民，根据省商务厅发布的《关于促进汽车消费若干措施的通知》文件，咨询汽车消费券的具体发放时间以及使用时间，希望相关单位落实处理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

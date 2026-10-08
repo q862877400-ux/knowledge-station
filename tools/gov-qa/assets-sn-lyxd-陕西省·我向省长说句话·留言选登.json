@@ -1,0 +1,1944 @@
+{
+ "A_考卷": [
+  {
+   "source": "sn-lyxd",
+   "id": "t20260924_3698666",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202609/t20260924_3698666.html",
+   "question": "请政府关注石棉遗留问题，目前的情况是这样的 ：1.乡镇农村及城市棚户区存有破损散落的老旧石棉瓦。 2.石棉瓦的处理过程无规范措施，在挪动或者拆卸过程中石棉瓦粉尘随意飘动。石棉间接影响周边人群，污染田间地头、晾晒场的农作物进而影响整个食品供应",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国固体废物污染环境防治法",
+     "lib_no": "固体废物污染环境防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家危险废物名录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260310_3619001",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202603/t20260310_3619001.html",
+   "question": "我想咨询一下灭火器现在还需要检验吗，有没有相关的执行标准？",
+   "cited_hits": [
+    {
+     "name": "消防设施通用规范",
+     "lib_no": "GB 55036-2022",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "建筑灭火器配置验收及检查规范",
+    "通用规范",
+    "GB 50444-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260212_3613298",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202602/t20260212_3613298.html",
+   "question": "请问 药食同源类是不是不在预包装备案范围内，属于农副产品，经过加工也办理不了？",
+   "cited_hits": [
+    {
+     "name": "食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260310_3619019",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202603/t20260310_3619019.html",
+   "question": "想问一下我们中西医结合专业能申请注册医学影像与放射治疗二级科目吗，我是中西医结合专业，能否在医院从事超声诊断及介入工作，是否超范围？",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240723_2367473",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202407/t20240723_2367473.html",
+   "question": "如何申请应急备用水源，应向哪个部门提出申请，应急备用水源确定的流程是什么？请提供相关政策支持，谢谢。",
+   "cited_hits": [
+    {
+     "name": "取水许可和水资源费征收管理条例",
+     "lib_no": "取水许可和水资源费征收管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "城市供水应急和备用水源工程技术标准",
+    "陕西省取水许可管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230707_2293005",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202307/t20230707_2293005.html",
+   "question": "我想咨询退役士兵参加公务员考试的相关加分政策。",
+   "cited_hits": [
+    {
+     "name": "陕西省实施〈退役士兵安置条例〉办法",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "陕西省2023年统一考试录用公务员报考指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230313_2278227",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202303/t20230313_2278227.html",
+   "question": "目前就西咸新区的问题，大众普遍认为存在行政区划的问题，此问题阻碍了很多人在此置业投资，在此处生活的人们也因为到底是西安还是咸阳的问题，备受困扰。 所以想咨询下西咸新区直管区行政区划的问题，有没有变更的可能性？",
+   "cited_hits": [
+    {
+     "name": "行政区划管理条例",
+     "lib_no": "行政区划管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220907_2250570",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220907_2250570.html",
+   "question": "经开区凤鸣路佳家花园12号楼比邻的居然之家中联至尊店，在没有任何环评、稳评、安评等各项手续的情况下违规建设网球场，完全改变了房屋结构及外立面。网球场也存在严重的安全隐患，恳请及时拆除，还周边老百姓一缕阳光，一丝宁静。另外，该店的大型中央空调",
+   "cited_hits": [
+    {
+     "name": "社会生活环境噪声排放标准G*****7-2008",
+     "lib_no": "GB 22337-2008",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法通则",
+    "西安市违法建设认定工作规程（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220907_2250524",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220907_2250524.html",
+   "question": "包茂高速(曲江段）噪音扰民，在室内噪音非常大，请求政府相关部门解决，都说没有直接管辖权。希望政府牵头在高速公路两边安装隔音板，从噪声源处降低噪音的分贝值，帮助老百姓解决噪音扰民的民生问题。 噪声扰民严重的小区有三迪枫丹、南湖艺境二期、招商依",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200928_1643770",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202009/t20200928_1643770.html",
+   "question": "省长同志您好，汽车做为目前居民较大的支出项目之一，对国民经济起着较大的影响，受疫情影响全国多个省市均启动了购车补贴的相关政策刺激市场，我省5月15日也曾印发了《陕西省人民政府关于促进市场消费积极应对新冠肺炎疫情影响的若干措施》，四个多月过去",
+   "cited_hits": [
+    {
+     "name": "消费者权益保护法",
+     "lib_no": "消费者权益保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "陕西省新能源公交车推广应用实施方案",
+    "陕西省人民政府办公厅关于印发高排放老旧机动车淘汰更新实施计划（2018—2020年）的通知",
+    "陕西省促进高排放老旧机动车淘汰更新补助暂行办法",
+    "汽车销售管理办法",
+    "陕西省人民政府办公厅关于印发促进市场消费积极应对新冠肺炎疫情影响若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200326_1544031",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202003/t20200326_1544031.html",
+   "question": "协管员工作十分辛苦，在不同的岗位上，创造了很多不平凡事，大部分同志取得的成绩和付出的代价早已超出了协管员，应该有的程度，他们的倾情付出，需要社会和国家给予相应和对应的回报和回应。我代协管员群体提出以下几点要求:一是要求成千上万协管员有自己的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国社会保险法",
+     "lib_no": "保险法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "陕西省公益性岗位开发管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20181204_1543285",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201812/t20181204_1543285.html",
+   "question": "省长你好！ 关于取消质量4.5吨以下营运货运车辆双证的消息，今年5月份国务院就明确提出，而且很多省份相继执行，请问我省的这项政策何时实施？？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于印发促进道路货运行业健康稳定发展行动计划（2017-2020年）的通知",
+    "关于印发&lt;陕西省促进道路货运行业健康稳定发展实施方案（2017-2020年）&gt;的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "sn-lyxd",
+   "id": "t20260617_3648437",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202606/t20260617_3648437.html",
+   "question": "本人于全面二孩政策实施前只生育一名子女，符合独生子女法定条件。但因政策宣传不足等客观原因，当年未能及时申领《独生子女父母光荣证》，现是否可依据事实独生子女身份申请各类计生补助待遇？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人口与计划生育条例",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "陕西省城镇独生子女父母补助金发放办法",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260510_3636830",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202605/t20260510_3636830.html",
+   "question": "请问通过公开合法繁育基地购买的，带有真实身份信息标识卡的金刚鹦鹉，可以在西安市范围内个人饲养吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函",
+    "国家林业和草原局关于妥善解决人工繁育鹦鹉有关问题的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260526_3641691",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202605/t20260526_3641691.html",
+   "question": "我是外省退休人员，退休后随儿子常住西安市快十年了， 2026年4月公布的《陕西省老年人优待服务办法》对65岁以上老年人有很多优待，真是太好了，65岁以上老年人可以免费乘坐公共交通，每年免费体检等，请问领导，这项优待服务对我们这些常住西安市的",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省敬老优待证",
+    "陕西省敬老优待证",
+    "陕西省敬老优待证",
+    "陕西省老年人优待服务办法",
+    "陕西省老年人优待服务办法",
+    "陕西省老年人优待服务办法",
+    "陕西省老年人优待服务办法",
+    "陕西省老年人优待服务办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20251209_3594366",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202512/t20251209_3594366.html",
+   "question": "西咸新区泾河新城汉景西街，没有非机动车道，没有路灯，绿化带被破坏， 乱停车现象严重，行人安全隐患极大，希望相关部门能解决这些问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路工程技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250912_3566076",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202509/t20250912_3566076.html",
+   "question": "请问13天婚假是否包含公休、周末、法定节假日？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于国营企业职工请婚丧假和路程假问题的通知",
+    "陕西省人口与计划生育条例",
+    "陕西省卫生健康委关于贯彻落实&lt;陕西省人口与计划生育条例&gt;实施三孩生育政策及配套措施的指导意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250815_3555231",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202508/t20250815_3555231.html",
+   "question": "您好，请问陕西省的最低小时工资标准是否包含社保和公积金？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省最低工资规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250313_3461251",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202503/t20250313_3461251.html",
+   "question": "三原县西闸口铁路道口在上班上学高峰期 经常有火车过往， 严重影响两侧人民的出行，建议政府调研下，看看是否能在此路口修隧道或者架桥，方便人民群众的出行不受影响。",
+   "cited_hits": [],
+   "cited_missing": [
+    "三原县国土空间总体规划（2021年—2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250116_3352092",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202501/t20250116_3352092.html",
+   "question": "1.目前大部分省份均已支持城乡居民基本养老保险已缴费年度提档补缴（追加缴费），但是我省依然还不支持，建议参考借鉴有关省份做法，完善相关政策。 2.目前我省城乡居民基本养老保险个人最高缴费档次为每年3000元，山东为5000元，四川为6000",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于建立统一的城乡居民基本养老保险制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20241227_3274504",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202412/t20241227_3274504.html",
+   "question": "请问《独生子女父母光荣证》遗失能否补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人口与计划生育条例",
+    "领取独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20241028_3065339",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202410/t20241028_3065339.html",
+   "question": "企业收到失业保险稳岗返还发放，可以以货币形式发放给本单位员工吗？失业保险稳岗补贴基金使用的范围是什么？有相关文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于延续实施失业保险援企稳岗政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240908_2592706",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202409/t20240908_2592706.html",
+   "question": "小区地下车库出入口属于消防疏散通道、安全出口吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "汽车库、修车库、停车场设计防火规范",
+    "GB50067-2014"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240426_2327435",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202404/t20240426_2327435.html",
+   "question": "您好，生态环境部发布了HJ1210-2021《士壤和沉积物13种苯胺类和2种联苯胺类化合物的测定 液相色谱-三重四级杆质谱法》，是否2022年之后土壤调查类项目中苯胺类必须严格按照该方法执行？之前苯胺一直使用的是用HJ834为依据的非标方法",
+   "cited_hits": [],
+   "cited_missing": [
+    "土壤环境质量建设用地土壤污染风险管控标准（试行）",
+    "土壤和沉积物 苯胺类和联苯胺类的测定 液相色谱-三重四极杆质谱法",
+    "合格评定 化学分析方法确认和验证指南",
+    "环境监测分析方法标准制修订技术导则",
+    "土壤和沉积物半挥发性有机物的测定 气相色谱-质谱法",
+    "GB 36600-2018",
+    "GB/T27417-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240312_2322568",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202403/t20240312_2322568.html",
+   "question": "我省最低工资标准是指个人月度应付工资，还是通过银行实际发放的工资？希望了解，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省最低工资规定",
+    "陕西省最低工资规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240219_2317550",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202402/t20240219_2317550.html",
+   "question": "在村级的实际工作中，独生子女双女户家庭申请补助前，需要进行认定，想咨询认定标准，比如，对于重组家庭如何认定，对于离异家庭如何认定，想得到一个明确的完整的相关政策依据，也更好的向群众解释政策，执行政策。谢谢!",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240130_2315730",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202401/t20240130_2315730.html",
+   "question": "目前，全国许多省份已经提高了农村居民养老保险缴费档次，并可以追加缴费，望陕西省也增加农民缴费档次，同意农民追交，使农村居民真正的老有所养，现在农村老人每月100多元养老金着实太低，增加个人自愿缴费基数使农村居民真正的老有所养。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院关于建立统一的城乡居民基本养老保险制度的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20231207_2309782",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202312/t20231207_2309782.html",
+   "question": "中央全面深化改革委员会审议通过了《关于县以下事业单位建立管理岗位职员等级晋升制度的意见》，明确了会全面推行县以下事业单位建立管理岗位职员等级晋升制度，改造现有职员等级，将县以下事业单位职员等级与岗位等级适当分离，拓展县以下事业单位管理人员职",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于贯彻落实&lt;关于县以下事业单位建立管理岗位职员等级晋升制度的意见&gt;通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20231114_2306954",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202311/t20231114_2306954.html",
+   "question": "咨询 西医临床执业医师，考取了中医专长医师资格证书，但在注册执业证时，却只能“二选一”，新考取的资格证书不能按时注册的问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20231018_2303959",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202310/t20231018_2303959.html",
+   "question": "西安地铁10号线二期是否已批复，有无最新规划设计？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于西安市城市轨道交通第三期建设规划（2019-2024年）的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20231018_2303971",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202310/t20231018_2303971.html",
+   "question": "建议将商业车位按照半小时为单位收费。以便减少群众的生活成本。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步完善机动车停放服务收费政策的指导意见",
+    "西安市机动车停车条例",
+    "西安市机动车停车服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230928_2302281",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202309/t20230928_2302281.html",
+   "question": "宝鸡扶风县的各种无牌无证2轮3轮4轮，随意行驶，无证无照，不戴头盔，闯红灯，成为社会交通的最大毒瘤，交警查处的力度太弱了。",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省电动自行车登记管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230817_2297647",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202308/t20230817_2297647.html",
+   "question": "陕西省空气污染改善不明显，有地理位置原因，但也有一定的内部因素，建议政府加大治理力度，京津冀近几年关停或搬迁了所有污染企业，空气才能持续改善，陕西现阶段应该放慢追求GDP，在污染企业关停、搬迁，煤改气、新能源车补贴力度方面投入资金，并加大督",
+   "cited_hits": [],
+   "cited_missing": [
+    "西安市大气污染治理专项行动方案（2023—2027年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230721_2294672",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202307/t20230721_2294672.html",
+   "question": "护城河一年四季都有人在垂钓，保安屡禁不止，各种游击战，老人、年轻人、小孩各种人群都有，既然禁止不住，那可否在护城河某一段开辟一块垂钓区域供市民垂钓，合理收取一定的垂钓费用供投放鱼种？",
+   "cited_hits": [],
+   "cited_missing": [
+    "西安城墙保护条例",
+    "西安城墙保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230322_2279398",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202303/t20230322_2279398.html",
+   "question": "网上其他城市都在陆陆续续淘汰国三，国四标准的营运车辆，好像陕西省各市县还有大批国三排放标准的车辆在营运，所以咨询政府相关单位看一下到底对此政策是什么，如果是不允许国三排放标准的车辆营运那就及时制止，促进环境的改善，如果允许营运，那就希望政府",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人民政府办公厅关于印发高排放老旧机动车淘汰更新实施计划（2018-2020年）",
+    "关于柴油货车通行管理的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230201_2273546",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202302/t20230201_2273546.html",
+   "question": "您好！《陕西省住房和城乡建设厅关于全省统一停止收缴建筑业劳保费用的通知 》（陕建发 〔2021〕 1021号）中通知自2021年3月15日起，陕西省不再统一收缴建筑业劳保统筹费用。我们的疑问是： 我们是2018年签订的施工合同，其中在给施工",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全省统一停止收缴建筑业劳保费用的通知",
+    "关于加强建筑行业养老保险缴费用和养老保险费用计价监管有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230112_2271461",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202301/t20230112_2271461.html",
+   "question": "西安市在职女职工的产假为多长时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230112_2271472",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202301/t20230112_2271472.html",
+   "question": "现有一批防毒半面罩，已过有效期，请问该如何妥善处理或销毁？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家危险废物名录（2021年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221223_2269626",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202212/t20221223_2269626.html",
+   "question": "国家防疫新十条后，社会面已处于感染高峰期。在陕高校大多已提前放假，学生均离校回家。但我在同亲戚，朋友，小区业主群的交谈中发现，仍有部分留校考研学生，未解封在陕军校学员仍面临防疫药品物资短缺的情况。很多学生感染后并无有效药品止痛退烧，陕西省作",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布陕西高校疫情防控咨询服务电话和邮箱的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221223_2269623",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202212/t20221223_2269623.html",
+   "question": "2023年事业单位岗位计划申报在即，请在岗位申报计划的时候，拿出一定比例的岗位面向服务期满的“三支一扶”人员招考，公务员招考（国考、省考）已经落实了此项政策。陕西事业单位前期招考还未落实此项政策，虽然陕西目前 “三支一扶” 期满落编，但是局",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省“三支一扶”人员管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221124_2266169",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202211/t20221124_2266169.html",
+   "question": "我是大学毕业从外省来到西安，随着人才引进的大潮来西安就业、生活、结婚、育儿。 由于近三年的各种影响，收入下滑，面对高额的房贷已经倍感吃力。 希望西安能马上实施商转公政策，缓解房贷压力，让我们能更好的抚养子女，给子女更好的教育。&nbsp;",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步稳定住房市场发展有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220907_2250537",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220907_2250537.html",
+   "question": "关于小区内地面、地下停车收费标准有没有相应的条例有规定，是哪个条例？如何规定的（收费标准）？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "西安市物业服务收费管理办法",
+    "西安市物业服务收费管理办法",
+    "前期物业服务合同",
+    "民法典",
+    "民法典",
+    "市办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220907_2250552",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220907_2250552.html",
+   "question": "机场高速联络线马家堡至泾阳公路项目在终点处以桥梁形式跨越泾河，涉及陕西泾阳泾河国家湿地公园，是否违反了湿地范围内不得建设大临工程的相关规定？此项目虽然在此路段设置了声屏障，同时对乐华一路段采取SMA路面，但是对于噪音污染，大气污染，光污染作",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省省级公路网规划（2018-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220815_2245906",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202208/t20220815_2245906.html",
+   "question": "您好，想咨询下新计生条例中关于育儿假，3胎政策及护理假是否会出相关细则或者指导意见，大概什么时候能出？作为企业，想了解条例相关内容应咨询哪里，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220713_2228606",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202207/t20220713_2228606.html",
+   "question": "西安风险地区等级的划分依据是什么？ 为什么给人感觉风险地区比确诊人数还要多，划定风险等级时是否遵循国家卫健委的划分标准来的？ 划分高风险对普通民众的工作生活的影响是否考虑进去？",
+   "cited_hits": [],
+   "cited_missing": [
+    "新型冠状病毒肺炎防控方案（第九版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220505_2219700",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202205/t20220505_2219700.html",
+   "question": "2021年12月27日发布的《关于加强节约集约用地促进高质量发展的意见》（陕政办发 〔2021〕 21 号）中：（十二）同一宗土地兼容两种以上用途的，可依据建筑面积占比或功能的重要性确定主用途，并依据主用途确定供应方式。鼓励工业、仓储、研发",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强节约集约用地促进高质量发展的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220306_2212915",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202203/t20220306_2212915.html",
+   "question": "领导您好！ 3月1号要执行的《办法》是为了让有宗教信仰的人对国家安全统一做出贡献，并且与社会主义核心价值观一致，也要作为公民在社会上尽本分，如同习近平总书记在宗教会议上的讲话精神中提到的，要深入推进我国宗教中国化，引导和支持我国宗教以社会主",
+   "cited_hits": [],
+   "cited_missing": [
+    "互联网宗教信息服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211207_2203198",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202112/t20211207_2203198.html",
+   "question": "对于异地工作的年轻人，结个婚请假就只有三天，路远的来回路上就一天半没了，家里筹备婚礼的时间不够，请酌情考虑延长婚假，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211112_2200178",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202111/t20211112_2200178.html",
+   "question": "请问，哪里能找到陕西省委、省政府转发《省委依法治省办、省委宣传部、省委普法办、省司法厅关于在公民中开展法治宣传教育的第八个五年规划（2021—2025年）》的原文？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省委依法治省办、省委宣传部、省委普法办、省司法厅关于在公民中开展法治宣传教育的第八个五年规划（2021—2025年）",
+    "陕西日报"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211103_2197920",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202111/t20211103_2197920.html",
+   "question": "秦岭重点保护区产业允许目录（试行）中关于禁止在河流两岸、铁路、公路和重要旅游线路两侧直观可视范围内，进行露天开采石材石料等非金属矿产资源的行为。该规定中的直观可视范围如何界定呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省开山采石削山建房管理办法",
+    "陕西省秦岭生态环境保护总体规划"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211015_2194462",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202110/t20211015_2194462.html",
+   "question": "目前流动摊贩的管理现状过于一刀切，建议政府在全市范围内尽可能多划设永久地摊摆放点，引导小摊贩前往指定地点，更多的在卫生，噪音，摆放整齐整洁方面做约束。地摊是很多人梦想的起点，也创造出了不计其数的就业岗位。恳请政府为这个群体多出一些政策，支持",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强临时占道摊群点（夜市）设置管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211101_2197655",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202111/t20211101_2197655.html",
+   "question": "请问，陕西省国有资本投资运营公司试点开展情况如何？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人民政府关于印发推进国有资本投资、运营公司改革试点实施方案的通知",
+    "关于同意组建长安汇通有限责任公司的批复"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210917_2191069",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202109/t20210917_2191069.html",
+   "question": "请问西安的高温补贴政策什么时候能出来？",
+   "cited_hits": [],
+   "cited_missing": [
+    "防暑降温措施管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210818_2187273",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202108/t20210818_2187273.html",
+   "question": "很多市县的农业综合执法局已经成立运转，建议华阴市农业综合执法局能尽快人员到位运行。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发华阴市四大领域综合行政执法改革试点工作方案的通知",
+    "华阴市四个领域综合行政执法改革试点工作方案",
+    "华阴市农业综合执法改革实施方案",
+    "关于印发华阴市农业农村局所属事业单位机构编制有关规定的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210519_2175973",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202105/t20210519_2175973.html",
+   "question": "1.请问陕西省住房和城乡建设厅、陕西省物价局《关于加强房地产开发项目车位车库租售管理工作有关问题的通知》(陕建发[2011]116号)，目前是否失效； 2.如失效，现在的房地产开发项目车位车库租售管理工作由哪个部门管理？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强房地产开发项目车位车库租售管理工作有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210425_2161184",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202104/t20210425_2161184.html",
+   "question": "您好，请问省人社厅和省工商联发布的关于2020年工程系列职称评审申报中，发文要求申报工程师的，大学本科学历或学士学位，聘任助理工程师 4 年以上中。只要申报人具备4年的助理工程师工作经历即可，还是必须要求申报人联系工作满4年？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化工程技术人才职称制度改革有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210415_2159906",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202104/t20210415_2159906.html",
+   "question": "西安火车站北广场及周边配套设施建设，是进一步完善西安铁路客运枢纽功能，对服务第十四届全运会具有重要意义，本质上来说也是一项惠民工程！但是，沿大明宫遗址公园北部连接太华路和建强路的这一段群众出行唯一通道，扬尘污染特别特别严重，特别是早上7点至",
+   "cited_hits": [],
+   "cited_missing": [
+    "西安市大气污染防治条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210415_2159905",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202104/t20210415_2159905.html",
+   "question": "为保护秦岭生态，保护中央水塔，涵养关中水源，防治关中南环线（107、108）空气污染，防风降尘，建议借助国家退耕还林政策，在秦岭北坡潼关至宝鸡山地与平川结合部的低山丘陵地带，规划建设100米---1000米不等、永久性的秦岭生态防护林带，重",
+   "cited_hits": [],
+   "cited_missing": [
+    "秦岭生态空间治理十大行动"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210415_2159907",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202104/t20210415_2159907.html",
+   "question": "领导，您好！最近看到《陕西省住房和城乡建设厅关于全省统一停止收缴建筑业劳保费用的通知 》（陕建发2021【1021】号），其中通知自2021年3月15日起，陕西省不再统一收缴建筑业劳保统筹费用。我们的疑问是： 我们是2020年或者2020年",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于全省统一停止收缴建筑业劳保费用的通知",
+    "关于加强建筑行业养老保险缴费用和养老保险费计价监管有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210330_2158211",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202103/t20210330_2158211.html",
+   "question": "建议：1、放宽事业单位教师类招聘考试，少数限制应届生，给予往届生多方面就业的机会；2、对限制应届生，但不具备开考条件被取消的岗位，取消限制应届生，再进行重新报名。我认为一个地区需要发展，就必须给予人的多方面就业机会，才可以使一个地区欣欣向荣",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于应对新冠肺炎疫情影响强化稳就业举措的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210330_2158215",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202103/t20210330_2158215.html",
+   "question": "尊敬的省长: 您好! 我们是来自西安**大学的一群大学生。从去年12月起我们开始了一场调查秦腔发展现状的调研活动，并为团队取名为“秦之声保护小队”，采访了校内外各界人士。 在进行问卷调查时，我们发现许多人对秦腔都不了解，但大家却为秦腔在陕西",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省秦腔艺术振兴保护条例",
+    "陕西省秦腔艺术振兴保护条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210106_2148313",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202101/t20210106_2148313.html",
+   "question": "你好，我的儿子出生于2011年*月*日，以后几年一直没有在老家呆，村里也没有通知办理独生子女证，前几天才听人家说，我就是想问问现在可以办理吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20201120_2046873",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202011/t20201120_2046873.html",
+   "question": "领导您好，去年中央下发了相关文件，针对现役军人，退役军人，军人家属应该在生活中享受的优待问题进行了明确规范，但是我们西安市地铁还未对现役军人进行免费。希望领导能够尽快解决此问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实行现役军人和国家综合性消防救援队伍人员免费乘坐市内公共交通工具有关政策的通知（代拟稿）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200828_1544317",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202008/t20200828_1544317.html",
+   "question": "西安市的秦岭保护条例为什么没有四址界线，基层凭口头说由107省道向北一公里属于保护区，省的条例都有四址界线，为什么西安市的条例里面没有，严重影响农民的生活收入。",
+   "cited_hits": [],
+   "cited_missing": [
+    "西安市秦岭生态环境保护条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200807_1544263",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202008/t20200807_1544263.html",
+   "question": "我是陕西省安康市旬阳县小河坪槐村村民 ，向您求助乡村土路出行严重阻碍生活得问题 ，安康市旬阳县小河镇坪槐村五组至八组土路修建于2008年，过去了12年，至今未硬化。在过去的这么多年里我们长年面临雨天无路，冬季结冰无路，出行基本靠走。之前也有",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发旬阳县规范政府投资基本建设项目管理若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200623_1544222",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200623_1544222.html",
+   "question": "尊敬的各位领导： 自从国家教育部2017年考研改革后，将MPACC（会计专硕）非全日制纳入国家统考后，实行三年学制，将于今年2020年毕业。根据国家教研厅（2019）1号文件，文件第二条强化就业权益保护中提到：各级公务员招录、事业单位及国有",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省公务员录用职位专业参考目录（修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200605_1544198",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200605_1544198.html",
+   "question": "您好！汽车作为目前居民较大的支出项之一，对国民经济起着较大的影响。受疫情影响，全国多个省市均启动了购车补贴的相关政策以尽快激活市场，请问陕西省是否计划开展相关政策。",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省人民政府关于应对新冠肺炎疫情影响促进市场消费的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200525_1544166",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202005/t20200525_1544166.html",
+   "question": "我考取了AAIA英国国际注册会计师和IFM国际财务管理师，请问这类国际注册会计师证书和国际财务证书能在陕西省财政厅的会计人员信息档案里备案吗？持有这类证书的人属于陕西省人才认定里的人才吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "人力资源社会保障部关于公布国家职业资格目录的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200520_1544154",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202005/t20200520_1544154.html",
+   "question": "榆林境内高速路服务区没有充电桩？从西安到榆林，铜川延安各个服务区都有国家电网的充电桩，电动汽车充电非常方便。但一过延安，靖边服务区、横山服务区、清涧、绥德、榆林南等各个服务区都没充电桩，这些都是地方电力服务的范围吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "榆林市电动汽车充电基础设施专项规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200511_1544130",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202005/t20200511_1544130.html",
+   "question": "新生儿出生第二天住院，4月份前往社区办理新生儿居民医保时被告知错过了集中缴费期，无法缴费，想咨询关于新生儿医保参保缴费的问题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省医疗保障局国家税务总局陕西省税务局陕西省财政厅关于进一步做好疫情防控期间城乡居民参保缴费工作决战决胜脱贫攻坚的通知",
+    "关于疫情期间城乡居民2020年度参保缴费开通补办窗口期的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200417_1544088",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202004/t20200417_1544088.html",
+   "question": "目前市、区、县政府网站互动栏目内容设置不同，有市长信箱、县长信箱、咨询投诉建议、12345政务咨询投诉，实际基层承办的类似业务还包括人民网、华商网、西部网、电视台热线、市长专线、县长专线、互联网+政务等网络媒体平台转办的群众来信，且受理范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅秘书局关于印发政府网站与政务新媒体检查指标、监管工作年度考核指标的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190124_1543384",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201901/t20190124_1543384.html",
+   "question": "西成高铁的开通让汉中有了高铁，宝鸡市银渝高铁(银川—宝鸡—汉中段)建设项目前期工作获得批复立项。宝鸡、汉中、巴中3市共商宝汉段、汉巴段事宜。 汉巴南对汉中有更好的地质条件、连网成南达、几十公里的投入让汉中多一条南下的便捷通道。因此250（含",
+   "cited_hits": [],
+   "cited_missing": [
+    "中长期铁路网规划",
+    "长江经济带综合立体交通走廊规划"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20181205_1543305",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201812/t20181205_1543305.html",
+   "question": "请问，在PPP模式运营下，我省县城供水项目与以往相比存在哪些优势？是否还有可以改进的地方？如果要了解详情的话，我应该去哪个部门比较好？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于鼓励和引导民间投健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20181127_1543251",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201811/t20181127_1543251.html",
+   "question": "事业单位改革据党中央国务院指导意见的要求时限只有两年了，辽宁省事业单位改革已经完成，黑龙江省事业单位改革提出了2019年全面完成的目标和节点要求。我们省事业单位改革为什么还没有公布具体方案呢？建议尽快完成事业单位改革，为全省社会发展提供有力",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于分类推进事业单位改革的指导意见",
+    "事业单位模拟分类目录",
+    "陕西省分类推进事业单位改革实施意见",
+    "陕西省事业单位分类工作方案",
+    "关于陕西省开展承担行政职能事业单位改革试点工作的实施意见",
+    "关于地方机构改革有关同题的指导意见",
+    "关于印发〈陕西省幼儿园编制标准（暂行）的通知",
+    "关于统一全省城乡中小学教职工编制标准的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20181123_1543229",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201811/t20181123_1543229.html",
+   "question": "我是一名普通的文艺工作者，从事演出行业已经有十五年了，跟陕西的院团专家和各大剧场剧院都有很多交往，也在其他省份的剧场剧院参加过多次演出和交流，就目前陕西的剧场剧院建设我个人提出一些自己的看法，现在好多剧场剧院的配套建设都不满足或者低于其他省",
+   "cited_hits": [],
+   "cited_missing": [
+    "剧场建筑设计规范",
+    "剧场建筑设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20170726_1543096",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201707/t20170726_1543096.html",
+   "question": "您好，因为四川老家地理环境不好，我舅舅一家5口在3年前搬至我们村。去年去我们镇上提交资料办理居住证，但是一年多都没有办到。前几天我和舅妈又去提交了一次资料，派出所工作人员说他们只负责信息的提取并不负责居住证的办理。希望政府能够帮助我们办理居",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省居住证及流动人口服务管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20170720_1729228",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201707/t20170720_1729228.html",
+   "question": "老家在乾县，现在在京东做了三年电商，想回家让家乡的农产品搭上电商的平台销售出去，苦于无资金扶持。政府在这方面有什么切实的优惠政策，我回到乾县应该找那个政府部门？",
+   "cited_hits": [],
+   "cited_missing": [
+    "陕西省关于支持返乡下乡人员创业创新促进农村一二三产业融合发展的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "sn-lyxd",
+   "id": "t20260924_3698682",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202609/t20260924_3698682.html",
+   "question": "你好!我是咸阳市旬邑县某镇某村的村民。我们村里不少农户仍在使用老旧旱厕，设施简陋，没有冲水、防渗设施，夏天异味大，卫生条件差，给日常生活带来很大困扰。为此提出几点建议：恳请安排工作人员到我们村镇实地走访摸排，摸清户厕现状、群众实际困难和改造",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260901_3673130",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202609/t20260901_3673130.html",
+   "question": "您好！ 我是商州区本地居民，目前我区没有免费对外开放的标准室外公共硬排球场，爱好者只能在广场空地临时打球或在气排球场地打，希望相关部门实地调研增设公共硬排球场地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260901_3673179",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202609/t20260901_3673179.html",
+   "question": "我是西安市鄠邑区居民，长期往返鄠邑与西安主城区通勤。京昆高速鄠邑至河池寨段是核心通勤通道，目前未开通通行费包年政策，小型客车单次 11 元，每日往返 22 元，年通勤费近 5000 元。 对比周边，西安绕城、西阎高速等实施包年政策，陕 A/",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260716_3657471",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202607/t20260716_3657471.html",
+   "question": "根据《关于G70福银高速蓝田南枢纽至陕鄂界段实施交通管制的通知》，对天竺山收费站实行封闭，另外高铁施工期间造成天竺山收费站附近地方道路受损严重，影响当地日常生活出行，建议开放天竺山收费站。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260617_3648425",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202606/t20260617_3648425.html",
+   "question": "临近幼升小阶段，看到西安市教育部门发布了有关教育入学的事宜，其中有长幼同校的政策，询问一下西安高新区幼升小长幼同校怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260617_3648444",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202606/t20260617_3648444.html",
+   "question": "为贯彻落实《深化医疗服务价格改革试点方案》，推进全国医疗服务价格项目规范工作，按照“成熟一批、发布一批”的工作思路，近日国家医保局编制印发《口腔类医疗服务价格项目立项指南（试行）》，参考2023年版医疗服务项目技术规范，将现行口腔类价格项目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260509_3636679",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202605/t20260509_3636679.html",
+   "question": "陕西渭北地处北纬35度黄金奶源带，干旱气候、光照充足、中草药饲草，造就了品质上乘、温补养身的优质羊奶，具有得天独厚、不可复制的资源优势。发展渭北羊奶产业，不仅能带动当地群众增收致富、助力乡村振兴，更能打造陕西特色农业新名片，形成千亿乃至万亿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260407_3627905",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202604/t20260407_3627905.html",
+   "question": "2025年9月至今，西安市雁塔区青龙东路的路灯一盏不亮，附近学校学生晚间出行一片漆黑。请相关单位查明该路段路灯长期不亮的原因并立即修复，恢复夜间照明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20260115_3605317",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202601/t20260115_3605317.html",
+   "question": "去年春节除夕的凌晨，小区附近燃放爆竹，噪声扰民，希望今年政府部门能够重视，管控烟花爆竹燃放，控制噪声污染和环境污染。去年春节期间，大唐西市商业楼（南二环边）附近频繁燃放烟花爆竹，希望对他们重点管控。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20251209_3594363",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202512/t20251209_3594363.html",
+   "question": "福银高速彬州市瑶池头村段南侧（靠近泾河一侧）为居住生活区，居民住房离高速路只有20-30m左右距离，该高速路段无任何隔音措施，来往车流量大，噪音特别大，下雨的时候更甚，严重影响附近居民生活质量，希望相关管理部门解决！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20251124_3588080",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202511/t20251124_3588080.html",
+   "question": "近期世纪大道施工，多数拉土车闯红灯、超速、拐弯不减速还加速，对非机动车和行人构成潜在危险，由于没有路灯和监控，助长了他们的侥幸心理，希望交警部门能严查！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20251031_3580650",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202510/t20251031_3580650.html",
+   "question": "陕西省上一次调整最低工资标准是在2023年，根据《陕西省最低工资规定》第十条：“最低工资标准每两年至少调整一次”的规定，请问今年是否调整，请多关注底层打工老百姓的收入问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20251031_3580658",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202510/t20251031_3580658.html",
+   "question": "目前西安的灵活就业养老缴纳还是每年10月份才开放缴费？为什么不能实现月缴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250926_3571146",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202509/t20250926_3571146.html",
+   "question": "您好，我的 学信网上的学位信息中的专业名称有误，跟纸质学位证上的专业名称不一致，请问如何申请修改学信网上学位的专业名称? 具体应该怎么办理？需要哪些申请资料?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250915_3567515",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202509/t20250915_3567515.html",
+   "question": "目前泾河新城瀛洲新苑住户越来越多，但交通出行太不方便，特别是到泾阳或西安，建议西咸新区泾河新城管委会与泾阳县协调一下，可否给泾西1号线在灜洲新苑设立一个站点，方便灜洲新苑的住户到泾阳县或西安。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250703_3539235",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202507/t20250703_3539235.html",
+   "question": "请问领取生育津贴，是以用人单位上年度平均工资为基数还是以职工本人上年度平均工资为基数？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250603_3527257",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202506/t20250603_3527257.html",
+   "question": "首先感谢政府前段时间的努力，高新区泥叫叫巷和鱼化寨街部分路灯终于亮了起来，周边居民终于不用摸黑出行了，但是前几天，这些路灯又不亮了，这次不光路灯不亮了，连旁边的皂河公园都黑了，整个都是一片漆黑，希望能够尽快处理恢复照明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250430_3510616",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202504/t20250430_3510616.html",
+   "question": "曲江龙游北路东口两侧非机动车道长期被违停机动车占道，早晚高峰期大批接送孩子的非机动车被迫穿梭在机动车道，安全隐患非常大，请相关部门重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250221_3449330",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202502/t20250221_3449330.html",
+   "question": "绕城高速雁塔出口为市民的日常出行提供了极大的便利，然而，出收费站后，通往南三环南方向的匝道存在设计缺陷。多条车道在此处骤然汇聚成一条车道，大大限制了路口的通行能力，从而形成了交通瓶颈。特别是在工作日的17点至20点这一高峰时段，车辆拥堵情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20250206_3428083",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202502/t20250206_3428083.html",
+   "question": "西安市鄠邑区余下镇仪表厂十字路口附近的豆制品加工厂，长期在旁边水道排放污水，腐烂物臭气熏天，冬天远距离居民楼关窗户都能闻见，夏天更甚。希望整治。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20241220_3253441",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202412/t20241220_3253441.html",
+   "question": "中医执业医师是否可以开具西药？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20241028_3065338",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202410/t20241028_3065338.html",
+   "question": "西安地铁1号线自开通至今，11年过去了，长乐坡地铁站南侧出入口依然没有建设和计划。长乐坡地铁站附近的实际情况是大部分人居住于已开通地铁口道路南侧，乘坐地铁需横穿马路，特别是该区域交通严重堵塞，地面沉陷，一遇雨天，交通基本处于瘫痪状态，人车互",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20241028_3065349",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202410/t20241028_3065349.html",
+   "question": "关于睦邻路车辆乱停乱放的投诉： 1.青葵路和睦邻路车辆乱停乱放：西安市雁塔区第六小学已投入使用4年，随着新一届入学儿童的增加，出入学校唯一的路青葵路和睦邻路车辆乱放，使原本双向六车道的路变成单向一车道，而且车辆随意停放堵住非机动车道入口，使",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240908_2592707",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202409/t20240908_2592707.html",
+   "question": "上林路大桥是一条主干道，车流量很大，又是上下坡路段，尤其大车货车经过，噪音非常大。每年都有附近住户咨询投诉上林桥车辆噪音问题，希望政府有关部门真正切实重视并解决下这个问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240731_2379443",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202407/t20240731_2379443.html",
+   "question": "请问我省的蛋奶工程目前的实施情况如何？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240731_2379419",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202407/t20240731_2379419.html",
+   "question": "请问太白山保护区（太白山国家森林公园高山区）今年还会向社会公众开放吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240708_2348385",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202407/t20240708_2348385.html",
+   "question": "您好，请问执业证书类别是中医，专业是中医学（非针灸专业），这样的医师证可以给病人做针灸吗，因为针灸推拿也是中医的一部分，本科阶段也有相应的课程教育及实践。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240731_2379402",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202407/t20240731_2379402.html",
+   "question": "S306省道大有村-彬州市市区路段年久失修，所有坡道均有大小不同的坑洼，现已导致车辆无法正常行驶，请问该情况是否会有部门进行核实和解决？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240426_2327433",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202404/t20240426_2327433.html",
+   "question": "我是2024届应届毕业生，刚在西安找到了一份工作，但工资很低，在西安租房是一笔很大的开销，我想咨询一下西安市适合大学生申请的公租房如何申请？怎么能快速申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240426_2327436",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202404/t20240426_2327436.html",
+   "question": "咸阳市秦都区文兴路板块上是5家房企开发楼盘，融创、恒大、金科、龙湖等到今年以后陆续将交房，为了方便周边群众出行，能否加快经电北路中段的施工，因为经电北路贯穿南北路，到咸阳西站（地铁1号线），目前经电北路就剩下下穿铁路中段，也希望加快周边路的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240426_2327434",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202404/t20240426_2327434.html",
+   "question": "请问目前西安市出租车运输收费价格标准是怎样的，有详细说明吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240108_2313226",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202401/t20240108_2313226.html",
+   "question": "我想对咸兴大道提升改造提几个建议，目前南幅正在施工，但是北幅没有处理好，存在以下几个问题：&nbsp; 1.路面破损的问题：北幅向西方向划了三条车道，只有最左侧车道勉强能通行，中间国道大坑连着小坑，而且每天都有多处被围起来，最右侧车道破损不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20240108_2313235",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202401/t20240108_2313235.html",
+   "question": "您好！我们三原县冬天取暖、做饭、洗澡主要采用天燃气，而一到冬天，天燃气压力不足，我们的壁挂炉启动不起来，燃气灶也不行，每天做饭都成问题了，家里有老人，孩子，都冻得没法生活了，室外零下几度的天气，我们室内也就10度，这直接影响到居民生活了，我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20231018_2303966",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202310/t20231018_2303966.html",
+   "question": "您好！ 我是一名从县城来西安的打工者，多年的努力，在我自己能力承受范围区域内，在西安贷款买了一套属于自己的房子，房子在北郊未央区，现在有了自己的家庭，生活也一步一步走向正轨，但孩子将来的学习总是我们担心的事情，好的教育资源基本都在市中心、高",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230928_2302291",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202309/t20230928_2302291.html",
+   "question": "彬州市新民镇花园十字大路口路段，红绿灯下乱摆摊占道，严重影响道路交通安全，请问，是否可以禁止此种行为，杜绝交通安全隐患。彬湫路是彬州市至旬邑连接211国道，经过此路口，来往车流量很大，尤其很多大型货运车辆在此通过，此路口路段容易发生交通事故",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230908_2300113",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202309/t20230908_2300113.html",
+   "question": "您好！ 之前看新闻说是渭河干流生态补水水源通关河水库工程计划上半年启动建设，现在已经快9月份了，但是没有看到通关河水库开工信息？这现在是进展到哪儿？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230908_2300112",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202309/t20230908_2300112.html",
+   "question": "请问“ 三支一扶”人员未满服务期是否可以报考非特设公务员岗位？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230529_2288018",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202305/t20230529_2288018.html",
+   "question": "请问高新区的公租房怎么申请？要什么条件和手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230517_2286582",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202305/t20230517_2286582.html",
+   "question": "五一准备西安出游，查了一下对退役军人优待的景区没几个，其他省的旅游景点对有优待证的退役军人大部分是免费的，我们陕西没有什么针对退役军人的优待，就那么几个也是半价或者首进半价，建议政府能对退役军人开放更多的优待旅游景点。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230417_2282792",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202304/t20230417_2282792.html",
+   "question": "现在农村户口老人每人每月的养老金为120元左右,建议优化实行随年龄增长阶梯增加农村养老金的比例。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230220_2275483",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202302/t20230220_2275483.html",
+   "question": "在高新区科技四路、科技五路及化龙一路，大量车辆在道路两侧违章停放，尤其是科技五路和化龙一路，违章停车至少排成4列，道路变成停车场，即使保利天悦小区和鸿基新城小区内有停车位，广大车主也不愿花钱，直接把车停在路边，称法不责众！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230131_2273451",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202301/t20230131_2273451.html",
+   "question": "《陕西省人口与计划生育条例》第五十七条指出，设立独生子女父母陪护假制度。在国家提倡一对夫妻生育一个子女期间的独生子女家庭，独生子女父母单方年满六十周岁的，给予其子女每年累计不低于15天的陪护假。 1 .请问陪护假是否必须父母住院情况下，开具",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230112_2271481",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202301/t20230112_2271481.html",
+   "question": "目前全国不少城市都支持异地公积金购房，不知西安是否会调整公积金政策？ 本人建议可以放宽一些异地公积金政策，如允许有购房资格且为个人名下首套房产的，予以异地公积金在西安购房贷款支持。原因如下：购买个人首套房产，从侧面表现出其愿意留在西安或者未",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221223_2269625",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202212/t20221223_2269625.html",
+   "question": "你好，消防技术服务机构对业主单位可以同时进行维保和检测（在维保期限内进行年度检测）吗？若可以同时进行，对消防技术服务机构的项目负责人和技术负责人有什么要求？维保的项目负责人是否可以同时担任检测的项目负责人？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221223_2269624",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202212/t20221223_2269624.html",
+   "question": "2022年5月公安部下发了“一证通办”，福建、贵州、内蒙古等地相继实现二手私家车转移登记“全省通办”，省籍居民购置非营运二手小微型汽车凭身份证在全省任一地市均可办理转移，不再需要居住证。咱们陕西什么时候能实现这种便利？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221124_2266171",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202211/t20221124_2266171.html",
+   "question": "请问实习律师一年实习期满取得律师执业证后，如果再去读全日制研究生，读完之后再回来执业是否需要重新进行一年期的实习？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221124_2266170",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202211/t20221124_2266170.html",
+   "question": "想请问陕西省环保机构监测监察执法垂直管理制度改革完成的具体时间是？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20230201_2273555",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202302/t20230201_2273555.html",
+   "question": "沣东新城能源金贸区 小区旁边的高压线迟迟不能落地，每天都要经过，听着刺刺拉拉的声音都害怕，而且作为进入能源金贸区最核心的入口，也不是很美观，希望可以规划落地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221027_2257280",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202210/t20221027_2257280.html",
+   "question": "请问2023年还有新能源汽车安装充电桩补贴政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221018_2256201",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202210/t20221018_2256201.html",
+   "question": "我们汉中市略阳县黑河镇李家坪村， 几百名村民长期通过泥泞狭窄的“泥水路”出行， 遇到下雨天，道路泥泞难行，无处下脚，摔伤的，弄脏衣裤的大有人在。虽然前几年道路有拓宽，但没有硬化，道路未硬化的弊端非常明显：1.行车不安全。雨雪天气，山路泥泞，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221018_2256202",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202210/t20221018_2256202.html",
+   "question": "西咸新区泾河新城茶驼大道连接泾阳县城几百米的路修了三年，到现在还是停工状态，现在因为一百多米的文物（吊庄遗址），已发掘完，但不出方案，道路不通，致使周围群众这几年绕行出入。请尽快开通此路，方便泾河新城和泾阳县城人员往来。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20221018_2256206",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202210/t20221018_2256206.html",
+   "question": "您好，我是永城路华远枫悦小区居民，自从西侧空地建设废品回收站后，导致周边环境恶化，吹风天气，有废品乱飞，同时废品站作业无固定时间，常常凌晨或者深夜有作业车，并发出较大的噪声。对于我小区的居民生活造成了较大的影响，希望领导可以给废品站重新选址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220916_2252537",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220916_2252537.html",
+   "question": "陕西省榆林市过敏性鼻炎患者达几十万之多，恳请政府关注，督促地方政府高度重视并能拿出行之有效的办法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220916_2252541",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202209/t20220916_2252541.html",
+   "question": "渭南市临渭区向阳街道老街景区一直没有绿化带，路人夏天特别热，而且裕丰昌对面被圈占好多年了，说是要修建便民广场和公园，直到现在还没见动静。希望这次国家的“口袋公园”政策能够尽快落实落地！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220610_2224182",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202206/t20220610_2224182.html",
+   "question": "汉中市略阳县黑河镇李家坪村张家沟组所属的唐家沟组就已经通了水泥路，然而十多年来这条路却始终未能进一步延伸，多年来一直未硬化，路面布满坑洼，尤其是雨雪天，“泥水路”就会变成“沼泽”与“河流”，泥泞不堪，导致村民们出行极为不便，叫苦不迭。我们组",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220610_2224178",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202206/t20220610_2224178.html",
+   "question": "我是河南省郑州市一名大专学生，因为我毕业返回家，家里条件不是特别好，返回家乡的当天县政府让我集中隔离，我当时也没有密接任何人，因为是我们学校统一把我们送到高铁站的 ，到了西安市让我集中隔离，我感觉隔离14天是一个非常不合理的事情，我想需要一",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220519_2221526",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202205/t20220519_2221526.html",
+   "question": "我想问下陕西省对于红白喜事是什么政策，西安酒店已经可以办理一次30桌，但是合阳县还是说让缓办，或者最多不能超过5桌。这是土政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220406_2216427",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202204/t20220406_2216427.html",
+   "question": "我和我现在的媳妇是二婚，我俩之前都各有一个孩子，离婚后孩子都没在自己身边，我媳妇现在怀孕了，要分娩，我这个算几胎？要准生证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220316_2214115",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202203/t20220316_2214115.html",
+   "question": "请问2022年三类人员水利安全员B证的考试安排时间和计划，什么时间报名，什么时间考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220316_2214116",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202203/t20220316_2214116.html",
+   "question": "我想咨询一下本科临床医学毕业，有毕业证，没有学位证，可以报考执业医师吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220210_2210156",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202202/t20220210_2210156.html",
+   "question": "我是雁塔金地西沣公元小区居民，小区周边常住人口已超过9万，目前大家买菜水果是在沈家桥二路和西沣四路旁设置的晚市，下午5点到9点允许商贩摆摊，但是因卫生检查、中高考、大型赛事以及下雨等各类因素影响，晚市常停业，今年1月以来已停业十多次，累计三",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220117_2208026",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202201/t20220117_2208026.html",
+   "question": "你好，我是宝鸡文理学院在校生，请问宝鸡从疫情开始到现在都属于低风险地区，从未出现阳性病例，请问我们低风险地区（宝鸡文理学院）何时放假呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20220117_2208027",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202201/t20220117_2208027.html",
+   "question": "目前渭南的医保卡无法在西安、咸阳等外市区使用，希望相关部门积极统筹，制定措施，打通医保卡跨市域无法使用的限制，方便群众就医看病。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211227_2205699",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202112/t20211227_2205699.html",
+   "question": "由于西安疫情严重，各地通往西安的公共交通关闭，而大部分考研学生还未前往西安。因此，我认为可以统计各市即将前往西安参加考研的学生人数，由各市政府统一安排大巴送往西安，并统一将学生接回，随后统一隔离。此种方法比较适合当下的紧迫形势，所耗费的人力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211221_2205153",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202112/t20211221_2205153.html",
+   "question": "12月份我在使用陕西省医保卡时被告知现无法使用，并非我个人原因。我想咨询省医保卡什么时候能正常使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211015_2194460",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202110/t20211015_2194460.html",
+   "question": "尊敬的领导，2016年9月交通厅联合公安厅发布的调整沪陕高速最高限速公告中的洛南至岔口铺段高速“岔口铺至洛南方向全线小客车限速值100km/h，其他机动车限速值80km/h”表述与路段实际限速标志（K5-K0所有车辆均为80Km/h）不相符",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20211015_2194461",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202110/t20211015_2194461.html",
+   "question": "您好，我注意到陕西保障14省煤炭供电，我想了解一下详细的情况？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210909_2190154",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202109/t20210909_2190154.html",
+   "question": "新买的电动自行车需要上牌，而有些市民周内没有时间去上牌，交警部门能否开通合规电动自行车网上自助挂牌，车牌邮寄到家的便民服务呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210804_2185639",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202108/t20210804_2185639.html",
+   "question": "身份证快到期了，需要提前多久办理？网上申办流程是什么？哪个部门负责？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210729_2184978",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202107/t20210729_2184978.html",
+   "question": "西安火车站北广场有黑摩的、黑电动车载客，有些人赶车为了快乘坐这些黑车，他们不管交通规则就随便逆行，乱停乱放，车速还很快，也不走非机动车道，这跟之前的火车站南广场有啥区别，马上十四运，大家都是为了努力看到西安美好的一面，火车站也是外地人下车 ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210708_2182453",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202107/t20210708_2182453.html",
+   "question": "现在都已经6月份了， 请问陕西2020年非公经济工程系列中级工程师评审什么时候能出来结果呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210629_2181291",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202106/t20210629_2181291.html",
+   "question": "初级注册安全工程师职业资格考试由各省自主命题并组织实施，北京、重庆、浙江等省市已经组织实施，请问，陕西省什么时候会有初级注册安全工程师的职业资格考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210318_2156957",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202103/t20210318_2156957.html",
+   "question": "感谢您在百忙之中抽出时间来细读这份留言。作为陕西科技大学一名普通教师，关于西安地铁14号线沿线站牌命名，我有些话想说给您听。 西安地铁14号线即将试运营，公开信息显示，离我校最近的一站距我校仅100米，而这一站的站名并未体现陕西科技大学，而",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210304_2155018",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202103/t20210304_2155018.html",
+   "question": "请问陕西省境内有回族吗？多集中在什么区域？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210208_2152795",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202102/t20210208_2152795.html",
+   "question": "目前对返回西安的人员的防疫具体都有哪些要求？我在网上没有找到，请予回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210121_2149973",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202101/t20210121_2149973.html",
+   "question": "请问陕西省内有哪些机构可以提供英文版的核酸检测报告？在哪里可以查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20210111_2148861",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202101/t20210111_2148861.html",
+   "question": "领导你好： 我咨询一下独生子女补助政策，独生子女户父母，男满60女满55周岁每月有补助费是不是真的？我已满55周岁了，有的话，这是针对职工家庭独生子女户的呢，还是所有的陕西省内独生子女户？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20201228_2147038",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202012/t20201228_2147038.html",
+   "question": "目前陕西政务服务网已进入试运行，为群众办事提供了方便，但存在应用率不高、流程不透明的问题。比如在西安市政务中心现场提交某办事材料，既未有受理回执亦不能查看办理进度，只能静等。尤其是涉及省市两级部门的审批事项，更是无法查看审批节点。希望所有办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20201228_2147039",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202012/t20201228_2147039.html",
+   "question": "你好，我是陕西省渭南市华州区人，一直在咨询宅基地退出和土地退出政策，陕西省自然资源厅，陕西省农业农村厅，渭南市自然资源局，渭南市农业农村局，华州区自然资源局等多个部门，都说不出所以然来，我多方查找相关文件，以及在农业部和总理信箱咨询，陕西省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20201214_2145621",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202012/t20201214_2145621.html",
+   "question": "我想咨询陕西省城镇单位就业人员平均工资2012-2019年数据，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20201120_2046874",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202011/t20201120_2046874.html",
+   "question": "西安市空军大学东侧浐河西路，两根特高压电线成“冈”字形，矗立浐河西路由南向北方向道路中心，影响浐河景观形象，影响西安市城市形象，同时对道路行车安全造成安全隐患，2021年全运会将在西安举办，浐灞作为全运会主会场将以最靓丽的姿态迎接全国各地体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200909_1632277",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202009/t20200909_1632277.html",
+   "question": "有亲戚是西安市民，在当地缴纳公积金，想到咸阳使用异地公积金贷款，是否可行?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200724_1544252",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202007/t20200724_1544252.html",
+   "question": "请问合凤高速项目目前进展如何，什么时候可以全段通车。方便群众出行。该路段建成将对关中北部发展起到重要促进作用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200724_1544241",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202007/t20200724_1544241.html",
+   "question": "1、洋县仅2座跨汉江大桥,一座大桥为西汉高速修建时修建的，另一座桥年代久远（目前仅供电动自行车、摩托车等通行）； 2、地处洋县东部的龙亭镇至黄安镇就一河之隔，要绕行至十多公里开外城西的大桥，才能到汉江河对岸，继而南下连接西乡等地。前去西乡也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200623_1544230",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200623_1544230.html",
+   "question": "您好，我是一名在职公务员，已在基层工作多年，长期面临与丈夫、孩子两地分居的情况，本来希望能够通过陕西省公务员考试考到一个离家较近的单位，但是现在得知2020年公务员考试公告规定，在职公务员不能报考，请问这个规定是出于什么样的初衷？遴选岗位少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200623_1544208",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200623_1544208.html",
+   "question": "领导您好： 我是一名高校毕业生，陕西省公务员考试公告已出，考试时间在7月25日。陕西特岗预公告也是7月25日考试，两项考试如果时间一致，将面临疫情防工作难度增加，也会造成公民和考生公共出行和住宿等严重拥堵、紧张问题。另外还有一些同时备考特岗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200605_1544189",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200605_1544189.html",
+   "question": "尊敬的省长您好：我是一名宝鸡市民，我想咨询一下省文物局一个问题：宝鸡南站仰韶遗址古墓是何时发现的?何时确定要建立仰韶遗址古墓公园的?有没有下发相关通知和文件?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200604_1544176",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202006/t20200604_1544176.html",
+   "question": "习近平总书记4月份在陕考察时专门提出来“加快西咸一体化进程”，既是对西安（西北唯一的国家中心城市）的明确要求也是对西安的真切希望和深厚感情。西部强，西安必须强；一带一路强，西安也必须强，这是国家交给西安的历史使命。西安做大做强的关键就在于西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200513_1544142",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202005/t20200513_1544142.html",
+   "question": "为什么每次开放四价九价HPV疫苗预约都很难约到，有这么大的需求量，陕西为什么不加大疫苗的生产供应呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200426_1544106",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202004/t20200426_1544106.html",
+   "question": "省长您好，今天看到习近平总书记到交大的现场视频，朴实而有高度。感慨良多，所以在此向您阐述一点不成熟的建议。陕西是一个非常有特色的地方，历史悠久、美食多样、高校众多。交大的工科、四医大的医学、西工大的航空与自动化、西北农林的农业、长安大学建大",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200312_1543961",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202003/t20200312_1543961.html",
+   "question": "省委一号文件着重介绍今年陕西省三农工作的具体任务，三农工作历来是发展农业经济的关键性工作。省委省政府今年新建200万亩高标准农田任务艰巨。对于陕北人民来说，发展农业是农民致富的有效途径，通过打通“最后一公里”的道路，从而使农民能够切实致富。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200217_1543902",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202002/t20200217_1543902.html",
+   "question": "尊敬的省领导您好：兴平作为关中城市群中一个重要连接点和西咸一体化未来发展的重要区域之一，在陕西发展建设中具有举足轻重的作用。但是时至今日，兴平却没有高铁站，这与满足兴平人民对美好生活的需求以及兴平在陕西经济发展中作用的发挥不相适应。西宝高铁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20200120_1543891",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/202001/t20200120_1543891.html",
+   "question": "尊敬的领导：您好！！我是一位准新娘，与我未婚夫在外地工作，我由于平日工作的繁忙及特殊性，俩人常常休息时间相互错开。我们非常想在2020年02月02日，也恰逢周日，办理结婚登记。因为2020−02−02是一个特殊幸福甜蜜的日，寓意长长久久，央",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20191014_1543726",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201910/t20191014_1543726.html",
+   "question": "刘省长您好！渭南市澄城县城内和乡村公交车不知何原因近两年都停运了，居民出行受到很大影响，根据《国务院关于城市优先发展公共交通的指导意见》（国发〔2012〕64号）、交通运输部印发《城市公共交通“十三五”发展纲要》等均对城市优先发展公共交通提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190911_1543656",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201909/t20190911_1543656.html",
+   "question": "商洛市柞水县乾佑街道办事处石镇社区二片区祥瑞医院至石镇小学段高速路，由于距离居民楼较近，高速路上的来往车辆噪音影响附近居民生活。如果符合相关规定的话，建议在原有的基础上增加隔音装置。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190719_1543622",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201907/t20190719_1543622.html",
+   "question": "省长您好，各级有关领导你们好。我是来自陕西省宁强县燕子砭镇的一位人民群众，家乡饱受无桥之苦，特在此反映下情况。陕西省宁强县燕子砭镇嘉陵江北岸大约有一万二千人口。由于许多原因，国家至今都没有为嘉陵江北岸的人民修建一座大桥。这在二o二一年即将全",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190515_1543550",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201905/t20190515_1543550.html",
+   "question": "有个问题咨询一下退役军人事务厅的领导，对于地方政府已接收的、长期在我省异地居住的，且取得异地户口的军队退休伤病残干部，其在异地的日常管理、医疗保障、生活待遇目前执行的什么政策？（请已安置地在铜川，异地居住地在西安为例说明，主要是就医看病方面",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190403_1543463",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201904/t20190403_1543463.html",
+   "question": "敬爱的省长： 您好！ 我家女宝宝1岁被确诊为罕见病：脊髓性肌肉萎缩症（简称SMA），她属于严重的二型，此病时刻威胁着她的生命。作为妈妈亲眼看着女儿的病情每天都在退化，身体各个功能在逐渐丧失，骨骼开始变形，肌肉萎缩，全身变得瘫软，却无能为力，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190328_1543451",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201903/t20190328_1543451.html",
+   "question": "尊敬的刘省长你好，我想通过这个留言平台向司法厅提出一些我的个人建议，希望采纳。本人于2015年通过法律职业资格考试后申领了法律职业资格考试证书，但是未从事相关法律职业工作，每年第一季度都要前往市司法局进行备案登记，但是本人工作单位距离市区较",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190325_1543441",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201903/t20190325_1543441.html",
+   "question": "政府部门设立官方网站是为了传达政策，吸取民意，但是延安市统征办的官网却自2016年5月24日之后再无更新，没有任何工作动态及与民众的互动，对统征工作没有具体的介绍，不能让民众知晓当前统征工作的具体计划，以及正在进行的统征项目的目的，阻塞了交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190320_1543419",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201903/t20190320_1543419.html",
+   "question": "你好，省长，我省区位优势明显，但是产业不繁荣，和物流不无关系，陕西深居内陆，不沿边，不靠海，发展最关键靠航空物流，高附加值的产业更是对航空物流有很大需求。然而西咸空港新城面积过小，不足以承载重大产业项目的落地，使陕西不能实现跨越式发展。希望",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190311_1543413",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201903/t20190311_1543413.html",
+   "question": "尊敬的各位领导：您们好，我是西安石油大学的应届毕业生，我想请问一下今年陕西省招录公务员吗？如果招录的话我就不签三方协议就业了，安心备考噢，谢谢领导。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20190201_1543394",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201902/t20190201_1543394.html",
+   "question": "尊敬的刘省长： 延志吴高速公路是我省高速公路“2367”路网规划七横中延吴线（延水关～吴起）的重要一段。起于包茂高速延安至靖边段沿河湾立交处，止于吴起县走马台，全长109.846公里。建成通车对做大做强延安“红色旅游业”，促进三县石油工业产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20181123_1543221",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201811/t20181123_1543221.html",
+   "question": "省长您好！ 大学生省进政府见习活动，是一项特别有意义、有影响、有温度、接地气的活动，给未走向社会的大学生提供一次认识实习的机会；也是给青年一代关注政府的日常工作，增加认同感，归属感。目前，进省政府见习的条件是须是省内高校，还有许多在外省求学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20180211_1543172",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201802/t20180211_1543172.html",
+   "question": "我是一名刚毕业的大学生，想学习驾驶技能以便于更好的服务自己的工作，可由于车管所网站一直进不去，无法备案预约科一，现已将近一月时间。我想还有许多和我一样满怀期待与焦急的心态渴求学车的公民，还请一些相关领导部门加快一下网站维护或者升级的进程，满",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20180125_1543162",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201801/t20180125_1543162.html",
+   "question": "您好！我是一名在陕投资汽车企业的普通员工。我公司主营生产客车类车型，车辆在出厂前要试车路试验证，需要办理临牌。但目前在车辆临牌办理方面碰到困难，影响企业正常运营。 &nbsp; 按照国家车辆临牌管理办法，车辆办理临牌需要提供整车合格证、机动",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "sn-lyxd",
+   "id": "t20171225_1543145",
+   "url": "https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/201712/t20171225_1543145.html",
+   "question": "陕西省公务用车改革已经启动两了，公务员车补都已经发到位了。为什么省属事业单位迟迟没有消息？希望领导能关注事业单位车改。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

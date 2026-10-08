@@ -1,0 +1,367 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-gzw",
+   "id": "27612349",
+   "url": "https://gzw.guizhou.gov.cn/?id=27612349",
+   "question": "根据新《公司法》相关规定，想咨询一下： 1国有独资公司是否能设置执行董事？有没有相关制度支撑？ 2设置董事会的国有独资公司，外部董事如何设置？审计委员会如何选择和履职？",
+   "cited_hits": [
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "深化国有企业监事会改革实施方案",
+    "深化国有企业监事会改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27548728",
+   "url": "https://gzw.guizhou.gov.cn/?id=27548728",
+   "question": "关于由县国资监管部门出资成立企业实物资产处置有几个问题需要咨询： 1.同一个出资人出资企业直接，实物（如房屋、土地）资产能否无偿划转？是否有相关制度？需要哪些程序？ 2.国资监管部门是否有权利处置已卖给国有公司的土地、房屋等实物资产？是否有",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "企业国有产权无偿划转管理暂行办法",
+    "企业国有产权无偿划转工作指引"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27543117",
+   "url": "https://gzw.guizhou.gov.cn/?id=27543117",
+   "question": "咨询一下国有企业经营性固定资产出租相关规定等事宜： 1.国有企业经营性固定资产出租是否有相关制度规定？ 2.国有企业经营性固定资产出租是否应该参照国有资产交易监督管理等办法，或者有其他可参照的制度？ 3.国有企业经营性固定资产出租是否属于企",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "咨询国有企业经营性固定资产出租相关规定等事宜",
+    "贵州省企业国有资产交易监督管理办法",
+    "贵州省企业国有资产交易监督管理办法",
+    "贵州省企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27499502",
+   "url": "https://gzw.guizhou.gov.cn/?id=27499502",
+   "question": "请问《贵州省国资委国有资产评估管理暂行办法》是否适用于国有企业债权投资，对抵押物及质押物的评估",
+   "cited_hits": [
+    {
+     "name": "贵州省国资委国有资产评估管理办法",
+     "lib_no": "国有资产评估管理办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省国资委监管企业国有资产评估管理晢行办法",
+    "暂行办法",
+    "暂行办法",
+    "暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27383727",
+   "url": "https://gzw.guizhou.gov.cn/?id=27383727",
+   "question": "1.《国有企业监事会暂行条例》（2000年3月15日中华人民共和国国务院令第283号发布）于2022年5月1日废止，现目前是否出台新的监事会办法？？ 2.由其他政府部门出资成立（履行出资人职责）的企业，国有资产监督管理部门是否还需要进行管理",
+   "cited_hits": [
+    {
+     "name": "国有企业监事会暂行条例",
+     "lib_no": "国有企业监事会暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "国有企业监事会暂行条例",
+     "lib_no": "国有企业监事会暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "公司法",
+     "lib_no": "公司法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "贵州省国资委监管企业监事管理暂行办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-gzw",
+   "id": "27687977",
+   "url": "https://gzw.guizhou.gov.cn/?id=27687977",
+   "question": "您好，我司为省国资委履行出资人职责的监管企业下属三级子企业，拟以一宗以出让方式取得的土地使用权作价出资与外单位设立合资公司。拟聘请评估机构出具土地评估报告，作为出资的价值依据。经咨询相关评估机构，其称：1.仅评估土地使用权，应当具备的资质为",
+   "cited_hits": [],
+   "cited_missing": [
+    "···土地估价报告",
+    "···土地估价报告",
+    "资产评估行业财政监督管理办法",
+    "贵州省国资委监管企业国有资产评估管理暂行办法（修订）",
+    "贵州省国资委监管企业国有资产评估管理暂行办法（修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27623691",
+   "url": "https://gzw.guizhou.gov.cn/?id=27623691",
+   "question": "请问省国有资产监督管理研究和服务中心、省人民政府发展研究中心和省企业决策研究会联合创办的刊物《企业决策》如何订阅",
+   "cited_hits": [],
+   "cited_missing": [
+    "企业决策"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27616109",
+   "url": "https://gzw.guizhou.gov.cn/?id=27616109",
+   "question": "《贵州省企业国有资产交易监督管理办法》第五十二条规定：“企业以下国有资产交易事项经国家出资企业内部决策程序决策后，报履行出资人职责的机构批准，可以采取非公开协议方式进行：（四）企业债权人将所持该企业债权转股权的（同一国家出资企业内部债权转股",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省企业国有资产交易监督管理办法",
+    "国务院关于积极稳妥降低企业杠杆率的意见",
+    "关于市场化银行债权转股权的指导意见",
+    "贵州省企业国有资产交易监督管理办法",
+    "贵州省国资委监管企业投资管理办法",
+    "贵州省国资委监管企业投资项目监管清单（2021年版）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27608278",
+   "url": "https://gzw.guizhou.gov.cn/?id=27608278",
+   "question": "尊敬的国资委领导，你好。我想咨询一下《贵州省国资委监管企业担保管理办法》所称的“监管企业”是否包含一般的国有公司？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省国资委监管企业担保管理办法",
+    "贵州省国资委监管企业担保管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27599088",
+   "url": "https://gzw.guizhou.gov.cn/?id=27599088",
+   "question": "你好，想咨询一下，《贵州省国资委监管企业实物资产处置规范指南（试行）》（黔国资产权〔2013〕168号）于2024年7月22日被废止了，请问就该指南是否有相关的承继文件出台呢。是否有更新的国企实物资产处置指南呢，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省国资委监管企业实物资产处置规范指南（试行）",
+    "贵州省国资委监管企业实物资产处置规范指南（试行）",
+    "贵州省企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27452826",
+   "url": "https://gzw.guizhou.gov.cn/?id=27452826",
+   "question": "关于贵州省企业国有资产交易监督管理办法中第五十三条第四点“国家出资企业内部或特定行业的资产转让，确需在国有及国有控股、国有实际控制企业之间非公开转让的，由转让方逐级报国家出资企业审核批准。”，请问那些属于出资企业内部资产转让，区属国有企业和",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省企业国有资产交易监督管理办法咨询",
+    "贵州省企业国有资产交易监督管理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-gzw",
+   "id": "27764224",
+   "url": "https://gzw.guizhou.gov.cn/?id=27764224",
+   "question": "尊敬的领导您好，我是一名硕士研究生，出于科研目的，请问贵州省国资国企在线监管系统是否上线，如已上线的话，请问系统首次上线（试运行和正式上线）的具体时间、开始建设的具体时间，非常感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27752876",
+   "url": "https://gzw.guizhou.gov.cn/?id=27752876",
+   "question": "您好，我们想咨询了解贵州省国资委监管企业情况的内容，请问可以提供一份名单或资料吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27698083",
+   "url": "https://gzw.guizhou.gov.cn/?id=27698083",
+   "question": "关于建立贵州省国有企业有关信息发布的建议贵州省人民政府国有资产监督管理委员会：为进一步提升我省国有企业信息透明度，优化人才引进机制，畅通社会公众及求职者信息获取渠道，树立贵州国企规范、开放、高效的良好形象，现就统筹建立贵州省国有企业统一信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27671103",
+   "url": "https://gzw.guizhou.gov.cn/?id=27671103",
+   "question": "你好我想咨询一下习酒下半年的生产岗招聘是限制25届应届生吗我是24届应届生可以报名参考吗？另外茅台和义兴今年无生产岗校招和社招了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27630546",
+   "url": "https://gzw.guizhou.gov.cn/?id=27630546",
+   "question": "您好 我是一名大学毕业生，想参加2025年茅台集团和习酒公司招聘考试，想咨询一下2025年贵州省是否会像举办国有企业专场招聘会。如果要举办的话，请告知具体的招聘时间。以便提前备考 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27577095",
+   "url": "https://gzw.guizhou.gov.cn/?id=27577095",
+   "question": "贵州近期将会举办第十二届贵州省人才博览会，请问贵州省的国有企业也会参加吗？如果有，招聘公告具体时间什么时候发布呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27564514",
+   "url": "https://gzw.guizhou.gov.cn/?id=27564514",
+   "question": "您好！ 我是一名大学毕业生，想参加2024年茅台集团招聘考试，想咨询一下2024年贵州省是否还会像2023年一样，举办国有企业专场招聘会。如果要举办的话，请告知具体的招聘时间。以便提前备考！ 谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27556931",
+   "url": "https://gzw.guizhou.gov.cn/?id=27556931",
+   "question": "您好，想咨询一下省国资委办公地址是哪里？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27553588",
+   "url": "https://gzw.guizhou.gov.cn/?id=27553588",
+   "question": "您好，想咨询一下省国资委一般将企事业单位的招聘通知放在哪个栏目？方便的话提供一下网址，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27434478",
+   "url": "https://gzw.guizhou.gov.cn/?id=27434478",
+   "question": "请问对省属国有企业的办公用房使用面积是否有明确规定？在哪里可以查询到具体文件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27415999",
+   "url": "https://gzw.guizhou.gov.cn/?id=27415999",
+   "question": "您好，我想问一下贵州省办理ETC需要带什么证件？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27396763",
+   "url": "https://gzw.guizhou.gov.cn/?id=27396763",
+   "question": "您好，我想问一下今年贵单位有没有招聘通知，有的话能提供一下网址吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-gzw",
+   "id": "27355573",
+   "url": "https://gzw.guizhou.gov.cn/?id=27355573",
+   "question": "请问贵州省属设立/试点的国有资本投资公司、国有资本运营公司分别有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

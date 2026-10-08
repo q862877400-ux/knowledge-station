@@ -1,0 +1,1974 @@
+{
+ "A_考卷": [
+  {
+   "source": "hunan-sft",
+   "id": "be0b1268aba542939620762c98b414cd",
+   "url": null,
+   "question": "行政复议违法违规",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2f0d78abb0ff4a2a803b0194e9f94f77",
+   "url": null,
+   "question": "司法行政类鉴定",
+   "cited_hits": [
+    {
+     "name": "最高人民法院关于适用〈中华人民共和国刑事诉讼法〉的解释",
+     "lib_no": "刑事诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 最高人民法院关于民事诉讼证据的若干规定 ",
+     "lib_no": "最高人民法院关于民事诉讼证据的若干规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "个人信息保护法",
+     "lib_no": "个人信息保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "司法鉴定人执业证",
+    "司法鉴定人执业证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a225fea541eb498eb71e062ff17cdaa5",
+   "url": null,
+   "question": "脑控",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国刑法",
+     "lib_no": "刑法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国海关法",
+     "lib_no": "海关法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "立法法",
+     "lib_no": "立法法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "475456a5725c44f2a2fcffdec7a30653",
+   "url": null,
+   "question": "行政复议维持原判是否可以申请监督",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政复议法",
+     "lib_no": "行政复议法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6774405e49a64db3b24c91eadc5adeb9",
+   "url": null,
+   "question": "商品房合同纠纷案判决不公",
+   "cited_hits": [
+    {
+     "name": "民事诉讼法",
+     "lib_no": "民事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "83d5f0b66f2749eebdea599fd88beb47",
+   "url": null,
+   "question": "关于对衡阳仲裁委员会作出（2022）衡仲裁字第146号裁决书仲裁裁决的不公平裁决的投诉",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国仲裁法",
+     "lib_no": "仲裁法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0b2360f360584b7895402a70b3ab30fc",
+   "url": null,
+   "question": "关于查询企业破产管理人信息的事项",
+   "cited_hits": [
+    {
+     "name": "企业破产法",
+     "lib_no": "企业破产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "9c3f12e1969a47d6b7a5b5bc676db459",
+   "url": null,
+   "question": "投诉湖南恒立资产评估公司",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国资产评估法",
+     "lib_no": "资产评估法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "全国人民代表大会常务委员会关于司法鉴定管理问题的决定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "71a4b89ab68244a4a810defa8a298e26",
+   "url": null,
+   "question": "衡州监狱干警滥用职权虐待犯人，肆意克扣服刑人员报酬据为己有",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国刑事诉讼法",
+     "lib_no": "刑事诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2b7fd02fa965402a90b83574c119d581",
+   "url": null,
+   "question": "法律咨询",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国行政诉讼法",
+     "lib_no": "行政诉讼法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "最高人民法院关于适用〈中华人民共和国行政诉讼法〉的解释",
+     "lib_no": "行政诉讼法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "hunan-sft",
+   "id": "a84a9b7991a04bd9b2793e9ea735c3c2",
+   "url": null,
+   "question": "向长沙县司法局请求对长沙县行政执法局进行行政监督-问题补充",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省行政执法监督条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2dffeae862d64e21836080dc9d07ebe6",
+   "url": null,
+   "question": "长沙新奥燃气未履行听证程序涨价",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省行政程序规定",
+    "湖南省规范性文件管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "be96b5b10a4d4fd0b3f052040ffb93cd",
+   "url": null,
+   "question": "投诉李振锋",
+   "cited_hits": [],
+   "cited_missing": [
+    "律师事务所管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "fd73494f47b14f089c42f24d7d08070f",
+   "url": null,
+   "question": "湖南省行政处罚听证程序规定条文理解",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省行政处罚听证程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1ad7146e0faa48f0bd305f08bf7ce182",
+   "url": null,
+   "question": "交通事故痕迹司法鉴定人报考条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "法医类 物证类 声像资料司法鉴定机构登记评审细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f0ad6f5b20f24743bb3f3b62c8b79295",
+   "url": null,
+   "question": "关于建议废除景区内交通运输服务“对14周岁以下的儿童免票”条款",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省行政程序规定",
+    "湖南省规范性文件管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "4563e90025dd47b2b65812022c8100e6",
+   "url": null,
+   "question": "投诉湖南湖大土木建筑工程检测有限公司在无相关鉴定资质的情况下出具鉴定意见。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国人民代表大会常务委员会关于司法鉴定管理问题的决定",
+    "最高人民法院、最高人民检察院、司法部关于将环境损害司法鉴定纳入统一登记管理范围的通知",
+    "司法鉴定机构登记管理办法",
+    "司法鉴定人登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "d9f4f1ec580f4bb692f2a924bf7428e2",
+   "url": null,
+   "question": "湖南省行政应诉工作平台工作建议",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推广应用全国行政复议行政应诉工作平台的通知",
+    "湖南省行政应诉工作规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cb3378d2cdf94ababed1892ea3f2a6f0",
+   "url": null,
+   "question": "关于投诉湖南湖大土木建筑工程检测有限公司超范围鉴定、胡乱鉴定，干扰司法审判事宜的报告",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国人民代表大会常务委员会关于司法鉴定管理问题的决定",
+    "最高人民法院、最高人民检察院、司法部关于将环境损害司法鉴定纳入统一登记管理范围的通知",
+    "司法鉴定机构登记管理办法",
+    "司法鉴定人登记管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6f134c1768a244818c2f1e2fcf8c22e5",
+   "url": null,
+   "question": "鉴定人违反回避规定，违法出具司法鉴定，损害公民合法权益，申请实行停止执业制度。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国人民代表大会常务委员会关于司法鉴定管理问题的决定",
+    "司法鉴定机构登记管理办法",
+    "司法鉴定人登记管理办法",
+    "最高人民法院、最高人民检察院、司法部关于将环境损害司法鉴定纳入统一登记管理范围的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f53533f6de6d4c47af9857de1de4aa64",
+   "url": null,
+   "question": "老基层法律工作者注册问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法",
+    "关于贯彻实施〈基层法律服务所管理办法〉和〈基层法律服务工作者管理办法〉若干问题的意见",
+    "关于2000年全国基层法律服务工作者执业资格考试合格确认资格授予和重新办理执业登记工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6fcca839fbde4f55bbe785be8fc5d28c",
+   "url": null,
+   "question": "湖南省白马垅强制戒毒所于晶违纪违规",
+   "cited_hits": [],
+   "cited_missing": [
+    "小额借款服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "eb0229e83f0246f6ba77737edacb73d0",
+   "url": null,
+   "question": "湖南省白马垅强制戒毒所于晶违规违纪",
+   "cited_hits": [],
+   "cited_missing": [
+    "小额借款服务合同"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "965d76a602ba406c987ae828a09faa11",
+   "url": null,
+   "question": "疫情原因无法返校参加法考",
+   "cited_hits": [],
+   "cited_missing": [
+    "温馨提示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0d5c16048edd4bfa957f6577f4e85555",
+   "url": null,
+   "question": "湖南省《关于完善法律援助制度的实施意见》是否还能适用",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央办公厅国务院办公厅印发&lt;关于完善法律援助制度的意见&gt;的通知",
+    "中共湖南省委办公厅 湖南省人民政府办公厅印发&lt;关于完善法律援助制度的实施意见&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a2d2acba0f7546378d0538b60be0ab21",
+   "url": null,
+   "question": "依法查处湘雅二医院司法鉴定中心刘名旭、谭利华、王锐三人枉法鉴定的举报",
+   "cited_hits": [],
+   "cited_missing": [
+    "司法鉴定执业活动投诉处理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "7dd988f014d3462d8954baf54f935453",
+   "url": null,
+   "question": "申请立法监督",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "535e13c4bd4f42f894e49040cba05f8b",
+   "url": null,
+   "question": "立法监督申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省物业服务收费管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0683f0f26e1e408a8dc6caa64fb804a9",
+   "url": null,
+   "question": "司法鉴定人申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于司法鉴定管理问题的决定、《司法鉴定人登记管理办法",
+    "法医类 物证类 声像资料 司法鉴定机构登记评审细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "dc9c21ae0be44675a39af70dad050973",
+   "url": null,
+   "question": "司法鉴定收费问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于重新规范我省司法鉴定收费有关问题的通知",
+    "湖南省司法鉴定收费项目和收费标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6ee3f872563a4005ac014047c1e14373",
+   "url": null,
+   "question": "法规适用问题",
+   "cited_hits": [],
+   "cited_missing": [
+    "人民法院工作人员近亲属禁业清单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "821851929c084f85b8be1dde961466ae",
+   "url": null,
+   "question": "请问我省下一届基层法律工作者资格考试何时举行？必须具备哪些报名条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "基层法律服务工作者管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "7393d515816a4a278731d03c8c360f77",
+   "url": null,
+   "question": "建议取消公职律师会费，或者出台相应规定公职律师可以获得相应补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "公职律师管理办法",
+    "湖南省律师协会章程",
+    "湖南省律师协会会费收缴管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "5a37f3c1b7834fdb8af91072ba1b0aa4",
+   "url": null,
+   "question": "湘司发通〔2020〕55号文件哪里可以下载，找了很久找不到",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省司法厅政府信息公开指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f0ef594698cf41a3a632ecf4a8832a53",
+   "url": null,
+   "question": "律师辱骂威胁残疾军人及现役军人家属",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省司法行政机关律师和律师事务所投诉处理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "hunan-sft",
+   "id": "51269b71b5cd402c8462297ac6c78995",
+   "url": null,
+   "question": "湖南君富律师事务所陈军律师完全不履约还不退钱",
+   "cited_hits": [],
+   "cited_missing": [
+    "湖南省司法行政机关律师和律师事务所投诉处理办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "hunan-sft",
+   "id": "d237844d1f6e4361bd0db76248e4d251",
+   "url": null,
+   "question": "湖南湘法律师事务所收钱不办事和虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3421fef0980947c3b2dc33c3f4d72eca",
+   "url": null,
+   "question": "投诉湖南先忧律师事务所（统一社会信用代码：31430000MD03844356）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6797a35e45d14c62a6600bc3ac4dbfc5",
+   "url": null,
+   "question": "维权退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6ba7a20c62ad4ce8a67316e2106f9d19",
+   "url": null,
+   "question": "请问2026年会有基层法律工作者考试安排吗？具体是什么时间？一般一年一次还是几年一次？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "441ede8916ba4639b475cfb444ac59db",
+   "url": null,
+   "question": "基层法律工作者考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b5463a24bab241e3ba42c5978c55dc2d",
+   "url": null,
+   "question": "湖南省的人民调解员怎么考取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b555c0cd132b492f9fc12ff31ebcf0d8",
+   "url": null,
+   "question": "虚假宣传、诱导消费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "462ae22b3ea0401f81f6f847e6a8579a",
+   "url": null,
+   "question": "关于法律资格证主观题考试时间与成人高考时间冲突问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e282d36b040b48839754bbc452353f87",
+   "url": null,
+   "question": "律师职业资格考试报名条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e3f4ee6cbfce42d99335c04ee37a8e2a",
+   "url": null,
+   "question": "我是退役军人，帮孩子申请医疗纠纷法律援助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "90556fc354ba40238a4d2911f21b82e4",
+   "url": null,
+   "question": "欺诈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "9a55e35e2c1142aeafccea91118c54f8",
+   "url": null,
+   "question": "投诉湖南华硕律师事务所涉嫌违规执业和违规催收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2b3932ff8ae14582aba7f291230e162e",
+   "url": null,
+   "question": "以下法规是否过期？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "28235af1594243a98e988868c1919b63",
+   "url": null,
+   "question": "湖南湘通律师事务所虚假宣传，诱导消费者，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "5265dd98392c4eb2919ee494e73a405f",
+   "url": null,
+   "question": "申请授予法律职业资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cb9e6e2c1461455ba930c96a38636697",
+   "url": null,
+   "question": "公职律师的申请具体条件和所需材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3ea9fbfd2e7946b79f0ee6e70edfeff1",
+   "url": null,
+   "question": "湖南荣湘律师事务所给了8000费用事情没做不退款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "aba1e232bb034e8d9a7f27adbf0ec694",
+   "url": null,
+   "question": "关于“学法考法”练习题选项设置的疑问反馈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "9f82a3f07e734f4189c05d3a992f2c67",
+   "url": null,
+   "question": "关于前往湖南省株洲监狱会见在押罪犯律师人数事宜",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2df88d714fae4583bd01934858b58841",
+   "url": null,
+   "question": "退役伤残大学生参加司法联考是否有优待",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c667b00235964b95a9ba5a21015e3b9f",
+   "url": null,
+   "question": "法律职业资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "05f6580944be44cfbd17319c640998b5",
+   "url": null,
+   "question": "请问2025年还有基层法律服务工作者考试吗？什么时候考？怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f3e6415a91f14ca0879c757b325b4018",
+   "url": null,
+   "question": "基层法律工作者考试安排",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c841ad9f24f04e4282e70cf5ea5225de",
+   "url": null,
+   "question": "两个村民起诉全村",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "82101629e93c458792bad720e2e433a3",
+   "url": null,
+   "question": "投诉湖南悦凌律师事务所",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "48242be0066a4b458843d876e768b470",
+   "url": null,
+   "question": "请问还有基层法律服务工作者考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1091a644f76e49099357760e75797826",
+   "url": null,
+   "question": "2025年湖南省法律职业资格考试的公告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "737337db24534e7c9072e7ee489b5c15",
+   "url": null,
+   "question": "基层法律服务工作者考试时间咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "7997c325ead94665a856cb0b4fb974e2",
+   "url": null,
+   "question": "投诉湖南怀治律所暴力催收物业费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a159daa00cc341b1a4a3664349376c7d",
+   "url": null,
+   "question": "湖南芙蓉律师事务所这样做广告是否合适？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "bf2362d9503f4989aff3e62df9ed2e2c",
+   "url": null,
+   "question": "律师执业档案跨省调档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "023fba6068a9419da5c869056df51acb",
+   "url": null,
+   "question": "湖南省司法厅信息公开电子版申请表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "453ea0e0d30d48d68efae310f6a6c00a",
+   "url": null,
+   "question": "法院内部混乱，立案迟迟未立上还弄丢材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2806bb509d624a28874e06d5ec08f811",
+   "url": null,
+   "question": "司法考试已缴费后可否申请退费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6b266e8a9edf4270acbdbc86abd1bc2e",
+   "url": null,
+   "question": "2024年司法考试报名时间以及报名入口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b3d1fcaa5f8240568bca7a6865d0ed08",
+   "url": null,
+   "question": "2024年湖南省行政资格执法考试什么时候开始报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "aedbc4a05e924a1e847593f95a601c71",
+   "url": null,
+   "question": "执法证考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0f7781e0baaa4533a21f65a4656cd7ee",
+   "url": null,
+   "question": "2023年法律职业资格证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "da9b8d15471b45bb89afa23d159eee16",
+   "url": null,
+   "question": "2024年法考报名条件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3110b92c8d3f471381bdbb390fecc0b5",
+   "url": null,
+   "question": "关于委托他人领取法律职业资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f65336def7df491a9843948a3af2530c",
+   "url": null,
+   "question": "律师",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "24cb124758d34a4db035d327aee413a1",
+   "url": null,
+   "question": "探监",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b94cbc3f62f7494db3d11b82579754fb",
+   "url": null,
+   "question": "法考现场资格审查短信未收到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "527549d944a04c268fcd67e9fd7c1bcd",
+   "url": null,
+   "question": "申请法制职业资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a5e601d7443249d5bd129ee340b0ecc3",
+   "url": null,
+   "question": "湖南省的中华人民共和国行政执法证在哪里查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a481fbfedf4243ee8245d5cbad16b908",
+   "url": null,
+   "question": "报名信息填写错误是否影响申领法律职业资格证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ef229797b24a427482d0a3ae44dc6e4b",
+   "url": null,
+   "question": "法律职业资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3f9f3d5737e047828b3bffe2f2b3f56d",
+   "url": null,
+   "question": "法律咨询缴费后不服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "de74228882fd463798c93beb253d28e2",
+   "url": null,
+   "question": "自考非全日值非法学专业2018年6月本科毕业且无学位证书能否报名法考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "eaaf63c64e81426e83052b39669fcad9",
+   "url": null,
+   "question": "地址咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "60fbbf70d7f749488f88dfb124135d9c",
+   "url": null,
+   "question": "法考主观题考试系统问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e7fcd08ddc68437d9c1a1337c5e292e3",
+   "url": null,
+   "question": "欠钱不还给我拉黑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "717cc13d250647419fa27ce4be94dcc2",
+   "url": null,
+   "question": "道县法院执行庭不作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0384c6ac9a624927aa436de1126f5c78",
+   "url": null,
+   "question": "想咨询一下法考报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2f53c1da18044d6aa4b6cf8a75783530",
+   "url": null,
+   "question": "司法资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "42f496a275ee49728f5f8d2348f7ad94",
+   "url": null,
+   "question": "基层法律服务工作者考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "4c5693ea656344e681f3fa7fc711c30e",
+   "url": null,
+   "question": "法院拍卖的房产法院不给处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "11a2b47357044ee4aa7187f533b46791",
+   "url": null,
+   "question": "投诉株洲市律师肖何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1d5fe0facc2b4bd48187406e1bef4f22",
+   "url": null,
+   "question": "株洲市石峰区人民法院石婷违法违纪类案不同判",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e3dfd24258734a5bab09abcdb91bb836",
+   "url": null,
+   "question": "法考报名资格咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "91d35873b1324a3aada681cda20a8643",
+   "url": null,
+   "question": "文件咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cd319cddc9e3468eb00e85bbeb36b89f",
+   "url": null,
+   "question": "合同纠纷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "117e9860e8d74143aa104c9543364f89",
+   "url": null,
+   "question": "重大疾病是否可申请授予法律职业资格延期领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e76f55896ee4488f8d82fe09616bbb1e",
+   "url": null,
+   "question": "我是石门县的一名退伍军人，去年报考了法考，咨询一下，客观题我考了150分，如果是C证的话，过了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "edb7fcb28f7243af89c78cbd5a509ad6",
+   "url": null,
+   "question": "逾期交房不按合同赔偿按租房补贴赔付是否合理合法，租房补贴标准依据是什么?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "377484a7bd47411cabecc82de4ec74cb",
+   "url": null,
+   "question": "湘鼎律师事务所存在非法催收行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6ebb9ee0dad140feb537558d784930cd",
+   "url": null,
+   "question": "您好，请问2017年6月毕业的全日制非法学专科，2023年6月获得成人教育的专升本非法学本科学历证书（没有学位），可以考法考吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f5f79ddc3e43402ca2e6bd0b00be1867",
+   "url": null,
+   "question": "交警处理无证驾车的程序规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "fc1f012bb7c34593b410202d9139cc7b",
+   "url": null,
+   "question": "执法证考试应该提供纸质题库",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e5f92b96f14048a7bfd8132b564a0d75",
+   "url": null,
+   "question": "工厂将撞伤的汽车修补后作新车出售",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3566d8a17e4a45f981b4eaac30a32c8b",
+   "url": null,
+   "question": "长沙市网络预约出租汽车经营服务管理实施细则第三条涉嫌违法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1b49e1c754a8473eb7b2eb86d304601f",
+   "url": null,
+   "question": "不作为乱作为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "595d93b1a3d149b7a61b62979ecc43c4",
+   "url": null,
+   "question": "湖南省市场监督管理局恶意指使宜昌县市场监督管理局恶意对市场主体罚款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6e903f4ac4fb4e919e5aeba2f616b61b",
+   "url": null,
+   "question": "广东德纳（长沙）律师事务所拒不履行服务且知法犯法对顾客进行造谣诬陷",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "d8e48a8675b84c10a557e454ee33ab8d",
+   "url": null,
+   "question": "请督促郴州律协协调处理黑律师不退钱一事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "deb0f8815ce54bdd9c5dc982269bd9cd",
+   "url": null,
+   "question": "湖南湘鼎律师事务所在事实没有调查清楚的情况下采用多次威胁，搔扰等手段性质恶劣有黑社会现象",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cd32cc7293d5463aac3429b5868a403e",
+   "url": null,
+   "question": "实名投诉杨凯律师，严重违反律师法、民事诉讼法，未经本人委托授权，冒用本人名义，启动虚假诉讼，对本人工作生活造成了严重的负面影响",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "a55795c9f602485e88db7b6462d01bbf",
+   "url": null,
+   "question": "检举控告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b184a4604dcb4079ac1b727b1592b420",
+   "url": null,
+   "question": "关于法考报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "d516b47b20c04eadae5349052681a0c5",
+   "url": null,
+   "question": "2022法考主观题考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "d1ce51c55c824c7985a32e73f8431fcd",
+   "url": null,
+   "question": "湖南省行政执法证换证工作何时开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f284561245eb4564874102492ed81198",
+   "url": null,
+   "question": "法考主观题报名事项",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "956a12f2922547b3867799bf705d1f9a",
+   "url": null,
+   "question": "投诉郴州两律师收我18万不办事，也不开发票的违规行为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "d2ad8fd92ce543a082565366c14adae3",
+   "url": null,
+   "question": "基层法律工作者证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "aa05f3751a7d4e8d8e176fbd9774fbdb",
+   "url": null,
+   "question": "武冈市自然资源局不肯公开其负责制作保管的政府信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3faf8d25c7db4ac68d44c5220107912a",
+   "url": null,
+   "question": "法考主观题时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "7b603a8ee47e484b868d2c26395173e1",
+   "url": null,
+   "question": "律师执业证恢复执业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cb2cc2a90fda43acad0e9ad0716ff7bc",
+   "url": null,
+   "question": "有关实习律师行为规范的问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "60fc5671ed6848e5a3caab9c2b574544",
+   "url": null,
+   "question": "关于湖南思博达律师事务所使用两个公章的问题投诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "409d2e88298740fe8eaee3935023e0ae",
+   "url": null,
+   "question": "法律资格考试",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e4c0769e00724bb7bf21acd76f6968e2",
+   "url": null,
+   "question": "湖南省江永县人民法院枉法裁判",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "27a1d83062b84a5db50e013265405ed4",
+   "url": null,
+   "question": "一份没有遮羞布的枉法判决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f5092f2e2e22405cb9ca0c377cdf6908",
+   "url": null,
+   "question": "公职律师可以申请职称吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cc2aafebaa7740daac546c9b7c7f4514",
+   "url": null,
+   "question": "法考老人老办法与法律职业资格管理办法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "abaddf5f6b254169b565cef1505013f6",
+   "url": null,
+   "question": "湖南省坪塘强制隔离戒毒所员工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "364149e67d3e495abdcdc5d23ca88e29",
+   "url": null,
+   "question": "外地法院赴雁北监狱开庭",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c33a61d0f8104050863531714889c846",
+   "url": null,
+   "question": "原告在民事诉讼中提供虚假陈述，以捏造的事实做司法鉴定，应受到法律制裁！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f0455c3c84b54a8b8428d00f8f1281ea",
+   "url": null,
+   "question": "为什么非运营车辆载家人里人多一个人还得罚款？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cb453dedf0a8414597f8d01de07c46da",
+   "url": null,
+   "question": "2022正式举报湖南金州律师事务所律师陈宏贤",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "45855f94c38147b893ac5f3b433cef53",
+   "url": null,
+   "question": "咨询社区缓刑人员社区矫正的规定",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3e2e51b76e764bb7b752b0ea34b01be7",
+   "url": null,
+   "question": "检举控告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "59a67bac669f4c14be56c16f05948407",
+   "url": null,
+   "question": "投诉李婧铱法官判罚不公平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ca6e6fdab94e4abcbccef22ab8cedc4f",
+   "url": null,
+   "question": "性别更改变更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c0aabf37c8cf47a48a2a03062b015e31",
+   "url": null,
+   "question": "湖南省人民监督员履职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "aedac228c89d4c3ab5fbdd069511281f",
+   "url": null,
+   "question": "下一轮基层执法人员的执法证什么时候考？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1495e5ccd5a242f1b43e94e8329a3e48",
+   "url": null,
+   "question": "一把巨大的保护伞笼罩在涟源的上空,让陈历腾在当地只手遮天.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3c4317bd9b294b5ab8138f53a3f3c736",
+   "url": null,
+   "question": "关于法考报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "8b63d818fce7437b9c1ab0610b6f98f4",
+   "url": null,
+   "question": "请求征收人履行法定补偿职责",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ea7c6bc05b0d418ca8ae8658205c685f",
+   "url": null,
+   "question": "关于交通事故中被扶养人生活费的疑问？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "8d1753e82bf7420bbe82802f3748cb58",
+   "url": null,
+   "question": "为何被害人啥消息也接收不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ed35b3e0903b4c8bab092459c6caefb3",
+   "url": null,
+   "question": "实名举报郴州市司法局公共法律服务管理科科长彭春华失职、渎职",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ccc34e0ad8254c208c4caa90fed7de67",
+   "url": null,
+   "question": "衡阳市基层法律服务工作者协会的老会员欺负我这名新会员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0b9195311e8e4efd9b82d02c137f8111",
+   "url": null,
+   "question": "湖南天戈律师事务所违法办理业务并垄断性的开展劳动纠纷业务的处置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c8a7cb97723d4c0cb446d1ae3878b2ef",
+   "url": null,
+   "question": "关于湖南省司法考试考生参考应具备的资格文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "128a5c8a1c6548ad82091596ac2ce319",
+   "url": null,
+   "question": "关于涉及“法治湖南基层行”的咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0df5d6d47c884048b37e5a6f9fb4a9a1",
+   "url": null,
+   "question": "投诉湘潭市雨湖区人民法院审限超期",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f5eeb62c02a2442da3641cb8bda4de79",
+   "url": null,
+   "question": "2022年度行政执法人员执法证考证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "03156e011eac4138bced883d060c75f8",
+   "url": null,
+   "question": "恳请解答《湖南省物业管理条例》的部分疑惑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "156053bb02e0434e8b0ce556bb8786b8",
+   "url": null,
+   "question": "人民法院怕“黑”，百姓无可“赖”何",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "226d31a7e57245e6876fd27ab6106645",
+   "url": null,
+   "question": "关于湘西新龙腾司法鉴定中心司法鉴定意见书存在不客观、不合理情形",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6aa6043d5d1a42c397a586a4834d7b62",
+   "url": null,
+   "question": "为什么江永县不是司法考试宽松地区?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1af9d4bcf6b446eba5447671cdd647c4",
+   "url": null,
+   "question": "法律法规咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "394a79569cb84759ade9785200ffb86f",
+   "url": null,
+   "question": "株洲众一司法鉴定所交通事故车速鉴定结果与事实严重不符侵害受害人权益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "501f6cd2b3354f8aa7de7a0865150fcc",
+   "url": null,
+   "question": "现在监狱对罪犯的惩治教育无能无用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e65d96fe1758408fa8c3b4dd0e9afdc9",
+   "url": null,
+   "question": "关于法律执业资格证调档",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "65401927b1a34fde9bf0b0f2bf94a6dd",
+   "url": null,
+   "question": "长沙市公安局执法不规范，且不支付劳动报酬",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "6b39bf099d4d493e92e670e83d02a25e",
+   "url": null,
+   "question": "个别法官罔顾事实，随意下结论判案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "091355f6545043e6a0e95766082bb72e",
+   "url": null,
+   "question": "公安违规办案，作假材料、毁灭证据，请立案调查",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "4487979f8ef84c369d91aeedb5842c8a",
+   "url": null,
+   "question": "湖南司法厅不作为，懒政啊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e99753cbbaa24dec9443c294fafebd00",
+   "url": null,
+   "question": "2022年司法考试资格",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1fafc51930e646bf987cc3e3fe5670c2",
+   "url": null,
+   "question": "有法考C证，户籍地所在县是放宽地区，工作单位在县所属地级市，是否可以申请公职律师？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "4228b20de44d4d9aa293b995d8ebbce3",
+   "url": null,
+   "question": "因车贷逾期，车辆被车贷公司中间代理商偷开走，偿还车贷后依旧被扣押车辆。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "250abba4d3614c7c981c1b12d5927cf8",
+   "url": null,
+   "question": "关于对湖南正赢律师事务所及该所律师张仕勇伪造代理协议、限制委托人诉权等侵害委托人合法权益事项的举报",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "55938f09eb2d4354abf02a078bdfc2d1",
+   "url": null,
+   "question": "律师首次职业申请期限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "2be1ec2f5df04921805a367f3a1d4a50",
+   "url": null,
+   "question": "湖南省衡阳县自然资源局腐败",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "308db98f23e849a2bca1138dbeabcb86",
+   "url": null,
+   "question": "无良律师枉法仲裁，行政监督已显盲区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "227d9f0c0927466894083f580cbbc107",
+   "url": null,
+   "question": "举报政府对律师行业的监管盲区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c5eaaae3fe2748279c5110269e5dd361",
+   "url": null,
+   "question": "举报政府对律师行业的监管盲区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "fa51ecc1b1b345e49c555ebf0ea95d2b",
+   "url": null,
+   "question": "申请网上探监流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "40e57027c5ca43fc8e03f9e2f4af886c",
+   "url": null,
+   "question": "湘潭县司法局电话接通出现噪音，无法沟通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "ccddbb35671e4401a654dfc461a14314",
+   "url": null,
+   "question": "法考证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "cda3269dc58a44d88eaeba80ce7da244",
+   "url": null,
+   "question": "请为全国7万名基层法律工作者立法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "fab6edc181b142b3ba6c3148a9e9ba0d",
+   "url": null,
+   "question": "法考报名条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b2679c23b1ed47d1b71d1effd9be7560",
+   "url": null,
+   "question": "不按行政处罚法罚款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e3bad27a938d4fb9a509eb64ef86745e",
+   "url": null,
+   "question": "不按行政处罚法罚款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "420bd5272c944976a63f98347efc4054",
+   "url": null,
+   "question": "关于湖南省卫健委违法实施行政许可的举报信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "1999308a02f9478286eec3b73bd5dbd6",
+   "url": null,
+   "question": "湖南省执业律师转广东省执业的流程和时间跨度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "5afd4543f26848cba28b22ea0dfce692",
+   "url": null,
+   "question": "湖南省行政执法证管理改进意见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e7eb9309d03f41acb8fc5fb0fede1c75",
+   "url": null,
+   "question": "我要探监，湖南省郴州监狱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "c46c1d2175b84126a8ac0d1de4fac7ae",
+   "url": null,
+   "question": "申请视频会见需要带什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "4acf9aaaf98540f192404fc8713a1b95",
+   "url": null,
+   "question": "如何申请了视频会见，还可以过去监狱那边会见么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "91a41c62bc3b4e36808f0a5b3f90a329",
+   "url": null,
+   "question": "律师资格证考试报名入口在哪里？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "38c1cf9a5fd1433f8d35620e35e126a9",
+   "url": null,
+   "question": "关于法考放宽地区政策咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "75cbda257a1d43568ff1e45b20bfd98b",
+   "url": null,
+   "question": "申请视频会见",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "0f08dcbc4298445f95a1df2f768526b9",
+   "url": null,
+   "question": "湖南嘉禾互联网纠纷人民调解中心立场不公正，软暴力催收",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "b24d3101b1c54374bed09ca81ba72dce",
+   "url": null,
+   "question": "如何申请报考“湖南省基层法律服务工作者核准考试“",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "f08acaec76b14c5d86dc4705cd9166ca",
+   "url": null,
+   "question": "湖南省法律职业资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "08cc9d4f0c8646fe998bed718561d439",
+   "url": null,
+   "question": "关于2021年法律职业资格证领取时间问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "8706daed5fd04f9d9d6732af34cb2ae6",
+   "url": null,
+   "question": "投诉湖南嘉禾经开区互联网纠纷人民调解委员会",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "5ab5a61d449140aa99838d0dce6038e0",
+   "url": null,
+   "question": "关于法律职业资格证书的发放时间问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "89e3706cad4242a8b51cb30df10b061b",
+   "url": null,
+   "question": "2021年法考证书领取时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "3e12291fcf814713ab77888e5af84be8",
+   "url": null,
+   "question": "法律专业的非全日制本科（成人高等教育）是否可以参加，司法考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "fa8a5a86d154432b90b2bf08f2288081",
+   "url": null,
+   "question": "鉴定机构拖延",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "hunan-sft",
+   "id": "e8554fc09fe84c618611b4b2bee9829e",
+   "url": null,
+   "question": "投诉常德市汉寿县人民法院第六法庭不作为，懒政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
