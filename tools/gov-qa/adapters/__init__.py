@@ -357,6 +357,29 @@ ADAPTERS: dict[str, str] = {
     #    改走省一体化平台按 areaCode 过滤，**不带 encrypt 头回明文 JSON**（绕过国密）。基座 adapters/_sczwfw_common.py。
     #    证据 recon/city-sc-probe44.txt ——
     "sc-chengdu": "adapters.sc_chengdu",      # 成都市·政民互动（省平台 areaCode=510100000000，咨询33366+建议1664+投诉7875）
+    # —— 四川政务服务网「政民互动」· 其余 20 市州补源（2026-10-09 worker-mopup）：
+    #    key 用 sc-<拼音>-zwfw 与本地门户源 sc-<拼音> 区分；净增量合计 7,419 条（与本地门户不重叠）。
+    #    生成器 recon/gen-sc-zwfw-city-adapters.py；区划码实测复核 SUM=7419 ——
+    "sc-zigong-zwfw": "adapters.sc_zigong_zwfw",            # 自贡市 areaCode=510300000000（58）
+    "sc-panzhihua-zwfw": "adapters.sc_panzhihua_zwfw",      # 攀枝花市 areaCode=510400000000（1292）
+    "sc-luzhou-zwfw": "adapters.sc_luzhou_zwfw",            # 泸州市 areaCode=510500000000（454）
+    "sc-deyang-zwfw": "adapters.sc_deyang_zwfw",            # 德阳市 areaCode=510600000000（268）
+    "sc-mianyang-zwfw": "adapters.sc_mianyang_zwfw",        # 绵阳市 areaCode=510700000000（708）
+    "sc-guangyuan-zwfw": "adapters.sc_guangyuan_zwfw",      # 广元市 areaCode=510800000000（821）
+    "sc-suining-zwfw": "adapters.sc_suining_zwfw",          # 遂宁市 areaCode=510900000000（209）
+    "sc-neijiang-zwfw": "adapters.sc_neijiang_zwfw",        # 内江市 areaCode=511000000000（721）
+    "sc-leshan-zwfw": "adapters.sc_leshan_zwfw",            # 乐山市 areaCode=511100000000（68）
+    "sc-nanchong-zwfw": "adapters.sc_nanchong_zwfw",        # 南充市 areaCode=511300000000（633）
+    "sc-meishan-zwfw": "adapters.sc_meishan_zwfw",          # 眉山市 areaCode=511400000000（308）
+    "sc-yibin-zwfw": "adapters.sc_yibin_zwfw",              # 宜宾市 areaCode=511500000000（203）
+    "sc-guangan-zwfw": "adapters.sc_guangan_zwfw",          # 广安市 areaCode=511600000000（536）
+    "sc-dazhou-zwfw": "adapters.sc_dazhou_zwfw",            # 达州市 areaCode=511700000000（148）
+    "sc-yaan-zwfw": "adapters.sc_yaan_zwfw",                # 雅安市 areaCode=511800000000（237）
+    "sc-bazhong-zwfw": "adapters.sc_bazhong_zwfw",          # 巴中市 areaCode=511900000000（72）
+    "sc-ziyang-zwfw": "adapters.sc_ziyang_zwfw",            # 资阳市 areaCode=512000000000（289）
+    "sc-aba-zwfw": "adapters.sc_aba_zwfw",                  # 阿坝州 areaCode=513200000000（119）
+    "sc-ganzi-zwfw": "adapters.sc_ganzi_zwfw",              # 甘孜州 areaCode=513300000000（179）
+    "sc-liangshan-zwfw": "adapters.sc_liangshan_zwfw",      # 凉山州 areaCode=513400000000（96）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
