@@ -1,0 +1,44 @@
+======================================================================
+## 淄博 zibo
+  GET http://www.zibo.gov.cn/jact/front/mailpublist.do?sysid=1 → 200 len=502
+     api: http://www.zibo.gov.cn/jact/front/main.do?sysid=54
+  GET http://www.zibo.gov.cn/jact/front/main.do?sysid=54 → 200 len=22370
+     api: maildetail.do?sysid=1
+     api: maillist.do?sysid=54
+     api: ../verifyCode.do?random=
+     api: frontFindpsw.do?sysid=54
+     api: ../verifyCode.do?var=frontlogin&random=
+     api: query.do?sysid=54
+     api: maildetail.do?sysid=54
+     api: mailpublist.do?sysid=54
+     api: mailstat.do?sysid=54
+     api: ../verifyCode.do
+     api: logout.do?sysid=54
+     api: ../verifyCode.do?var=frontlogin
+     api: ).contentWindow.document;
+
+
+        //     var tyyhdjlogineleA = tyyhdjloginele.getElementsByTagName(
+     api: login.do
+     api: reg.do?sysid=54
+     api: mailwrite.do?sysid=54&groupid=4
+     api: main.do?sysid=54
+     api: main.do
+     api: comquestionlist.do?sysid=54
+     api: mailhotlist.do?sysid=54
+     api: https://www.zibo.gov.cn/jact/front/mailwrite.do?sysid=54
+     api: mailwrite.do?sysid=54
+     api: https://www.zibo.gov.cn/jact/front/main.do?sysid=1
+     api: reg_checkregcode.do
+  GET http://www.zibo.gov.cn/jact_files/pagemodel/default-template/page.js → 404 len=544
+
+======================================================================
+## 济南 jinan
+  GET http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=HTMi0SM6aXpdnEJDZH931&govOpen=1 → 200 len=12162
+  GET http://www.jinan.gov.cn/jact_files/pagemodel/default-template/page.js → 200 len=3521
+  GET http://www.jinan.gov.cn/jact_files/pagemodel/default-template/domain.js → 200 len=29639
+
+======================================================================
+## 青岛 qingdao
+  GET http://www.qingdao.gov.cn/mailboxpage-qd/city/NewGovMailTopList.html → 200 len=4805
+  GET http://www.qingdao.gov.cn/qdgov-web/qdlist → 200 len=6378

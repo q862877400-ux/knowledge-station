@@ -1,0 +1,137 @@
+======================================================================
+## 东营 dongying (jact sysid=129)
+  GET http://www.dongying.gov.cn/jact/front/main.do?sysid=129 → 200 (81173 bytes)
+  GET http://www.dongying.gov.cn/jact/front/mailpublist.do?sysid=129 → 200 (41755 bytes)
+  POST http://www.dongying.gov.cn/jact/front/dataproxy_mailpublist.do?startrecord=1&endrecord=19&perpage=19&groupSize=3 → 200 (14877 bytes) body[:120]='totalRecord=20299.0;totalPage=1069;dataStore = ["<tr>\t<td align=\'center\' width=\'130\' class=\'tr_main_value_odd\' title=\'BM'
+     totalRecord=20299.0
+
+======================================================================
+## 济南 jinan (jact api-gateway)
+  GET http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=HTMi0SM6aXpdnEJDZH931&govOpen=1&submitTargetIds=0114,0171,0115,0116,0117,0118,0119,0120,0121,0123,0124,0126,0127,0128,0130,0132,0134,0135,0140,0141,0144,0146,0148,0151,0156,0133,0159,0160,0163,0161,0137,0166,0138,0149,0513,2203,2414,2422,0515,2479,2583,0145,622fntKBvD,sk7AtT5lCN,0147,1BF7PVWSQb,0152,0324,1921 → 200 (12162 bytes)
+     body[:300]='<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset="UTF-8">\n        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">\n        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n        <meta name="renderer" content="webkit">\n        <meta name="renderer" content='
+     finger-hit: jact
+  GET http://www.jinan.gov.cn/jact/front/main.do → 200 (678 bytes)
+  GET http://www.jinan.gov.cn/col/col156/yhdlts/index.html → 200 (3166 bytes)
+
+======================================================================
+## 青岛 qingdao
+  GET http://www.qingdao.gov.cn/zmhd/ → 200 (61993 bytes)
+     finger-hits: []
+       [政民互动] http://www.qingdao.gov.cn/zmhd/
+       [] http://12345wx.qingdao.gov.cn:81/hotline12345/szfwz/base_Seekcode.htm
+       [书记信箱] http://www.qingdao.gov.cn/GovernmentSJXX/MainFrmNew.aspx
+       [联系企业(项目)高校院所信箱] http://www.qingdao.gov.cn/contact-enterprises-page/szlxry/
+       [人大建议政协提案] http://www.qingdao.gov.cn/zmhd/jyta/
+  GET http://www.qingdao.gov.cn/zmhd/index.html → 200 (1169 bytes)
+     finger-hits: []
+       [政民互动] http://www.qingdao.gov.cn/zmhd/
+
+======================================================================
+## 淄博 zibo
+  GET http://www.zibo.gov.cn/col/col6/index.html → 200 (26904 bytes)
+     finger-hits: ['jact', 'mailpub']
+       [···] http://www.zibo.gov.cn/col/col4011/index.html
+       [部门监督投诉] http://www.zibo.gov.cn/jact/front/mailpublist.do?sysid=1
+       [区县监督投诉] http://www.zibo.gov.cn/col/col14599/index.html
+       [公务员效能投诉] http://www.zibo.gov.cn/col/col1252/index.html
+       [生活热点投诉] http://www.zibo.gov.cn/col/col1253/index.html
+       [] http://www.zibo.gov.cn/col/col1464/index.html
+       [我要咨询] http://www.zibo.gov.cn/jact/front/main.do?sysid=54
+       [区县政府信箱] http://www.zibo.gov.cn/col/col6061/index.html
+       [建议征集] http://www.zibo.gov.cn/col/col15607/index.html
+  GET https://www.zibo.gov.cn/col/col1464/index.html → 200 (7024 bytes)
+     finger-hits: []
+       [淄博12345政务服务热线] https://www.zibo.gov.cn/col/col1464/index.html
+       [淄博12345政务服务便民热线办理进度查询入口] http://www.zibo.gov.cn/zbywtb/front/appeal/toAppealIndex
+
+======================================================================
+## 枣庄 zaozhuang
+  GET http://www.zaozhuang.gov.cn/zmhd/ → 200 (31757 bytes)
+     finger-hits: ['openGovmsgbox', 'listGovmsgboxs', '/IGI/']
+       [繁体] http://www.zaozhuang.gov.cn/zmhd/
+       [市长信箱] http://www.zaozhuang.gov.cn/zmhd/szxx/
+       [&nbsp;&nbsp;&nbsp;我要留言] https://tysfrz.isdapp.shandong.gov.cn/jis-web/login?appMark=ZAOZHSHIHUIDJDS&userType=1
+       [12345热线] http://www.zaozhuang.gov.cn/zmhd/rex/
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/
+       [9月16日，枣庄市委常委、副市长张庆伟走进《...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202609/t20260915_2329205.html
+       [张国洲到市市民诉求办理服务中心现场办公] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202608/t20260804_2313214.html
+       [“枣解决·枣满意”： 办好“微诉求” 打造城...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260512_2282461.html
+       [张国洲到市市民诉求办理服务中心现场办公并调...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260503_2278641.html
+       [翟军调研社会工作和市民诉求办理工作] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202603/t20260309_2254785.html
+       [2月27日，枣庄市副市长朱清彬走进 《市长上线...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202603/t20260309_2254784.html
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/
+       [做好道路清理 保障出行畅通] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202601/t20260106_2227156.html
+       [维修社区电梯 保障居民安全] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202601/t20260106_2227155.html
+       [地下车库湿滑难行 社区聚力保平安] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202509/t20250905_2149726.html
+       [移除占道铁棚  保障居民出行] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202507/t20250707_2112273.html
+       [秸秆清运解民忧  农田复耕保农时] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202507/t20250707_2112272.html
+       [整治工地扬尘污染 守护城市环境] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202506/t20250606_2100117.html
+       [&nbsp;更多2] http://www.zaozhuang.gov.cn/zmhd/yjzj/
+       [&nbsp;更多1] http://www.zaozhuang.gov.cn/zmhd/wsdc/
+       [&nbsp;更多1] http://www.zaozhuang.gov.cn/zmhd/hygq/
+       [枣庄市民营企业知识产权保护现状如何？这份调...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202605/t20260522_2286431.html
+       [关于对中心城区部分道路命（更）名和变更起止...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202509/t20250915_2153421.html
+       [关于对薛城区部分道路命名向社会各界征求意见...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202409/t20240905_1935196.html
+       [枣庄市政府网站与政务新媒体建设管理调查问卷] http://www.zaozhuang.gov.cn/zmhd/wsdc/202306/t20230609_1676834.html
+       [关于《枣庄市烟花爆竹燃放管理条例（草案修改...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202209/t20220914_1505336.html
+       [关于《枣庄市优化营商环境条例 （草案修改稿...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202209/t20220914_1505484.html
+       [关于公开征集《对部分中重型燃油（气）货车和...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202201/t20220129_1387391.html
+       [庆祝中华人民共和国成立77周年招待会在京举行...] http://www.zaozhuang.gov.cn/zmhd/hygq/202610/t20261001_2335596.html
+       [习近平同美国总统特朗普会谈] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260926_2333674.html
+       [中共中央政治局召开会议 讨论拟提请二十届五...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260921_2331804.html
+       [习近平就发展先进制造业作出重要指示] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260917_2330287.html
+       [习近平给福建省“漳州110”全体队员回信] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260915_2329464.html
+       [习近平向全国广大教师和教育工作者致以节日祝...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260909_2327420.html
+       [习近平出席上海合作组织成员国元首理事会第二...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260901_2323874.html
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/zxft/
+       [] http://www.zaozhuang.gov.cn/zmhd/zxft/202512/t20251218_2216750.html
+       [市委书记翟军接受大众日报专访] http://www.zaozhuang.gov.cn/zmhd/zxft/202512/t20251209_2212255.html
+       [锚定目标争先进位 笃定实干奋勇争先 ——访峄...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260109_2228521.html
+       [一张蓝图绘到底 久久为功抓落实 奋力蹚出资源...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260106_2226825.html
+       [奋楫扬帆勇争先 转型发展开新局 全力谱写强工...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260105_2226374.html
+       [&nbsp;&nbsp;&nbsp;办事咨询] http://zzzwfw.sd.gov.cn/zz/icity/consult
+  GET http://www.zaozhuang.gov.cn/zmhd/index.html → 200 (31757 bytes)
+     finger-hits: ['openGovmsgbox', 'listGovmsgboxs', '/IGI/']
+       [繁体] http://www.zaozhuang.gov.cn/zmhd/index.html
+       [&nbsp;政民互动] http://www.zaozhuang.gov.cn/zmhd/
+       [市长信箱] http://www.zaozhuang.gov.cn/zmhd/szxx/
+       [&nbsp;&nbsp;&nbsp;我要留言] https://tysfrz.isdapp.shandong.gov.cn/jis-web/login?appMark=ZAOZHSHIHUIDJDS&userType=1
+       [12345热线] http://www.zaozhuang.gov.cn/zmhd/rex/
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/
+       [9月16日，枣庄市委常委、副市长张庆伟走进《...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202609/t20260915_2329205.html
+       [张国洲到市市民诉求办理服务中心现场办公] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202608/t20260804_2313214.html
+       [“枣解决·枣满意”： 办好“微诉求” 打造城...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260512_2282461.html
+       [张国洲到市市民诉求办理服务中心现场办公并调...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260503_2278641.html
+       [翟军调研社会工作和市民诉求办理工作] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202603/t20260309_2254785.html
+       [2月27日，枣庄市副市长朱清彬走进 《市长上线...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202603/t20260309_2254784.html
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/
+       [做好道路清理 保障出行畅通] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202601/t20260106_2227156.html
+       [维修社区电梯 保障居民安全] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202601/t20260106_2227155.html
+       [地下车库湿滑难行 社区聚力保平安] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202509/t20250905_2149726.html
+       [移除占道铁棚  保障居民出行] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202507/t20250707_2112273.html
+       [秸秆清运解民忧  农田复耕保农时] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202507/t20250707_2112272.html
+       [整治工地扬尘污染 守护城市环境] http://www.zaozhuang.gov.cn/zmhd/rex/bjxd/202506/t20250606_2100117.html
+       [&nbsp;更多2] http://www.zaozhuang.gov.cn/zmhd/yjzj/
+       [&nbsp;更多1] http://www.zaozhuang.gov.cn/zmhd/wsdc/
+       [&nbsp;更多1] http://www.zaozhuang.gov.cn/zmhd/hygq/
+       [枣庄市民营企业知识产权保护现状如何？这份调...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202605/t20260522_2286431.html
+       [关于对中心城区部分道路命（更）名和变更起止...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202509/t20250915_2153421.html
+       [关于对薛城区部分道路命名向社会各界征求意见...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202409/t20240905_1935196.html
+       [枣庄市政府网站与政务新媒体建设管理调查问卷] http://www.zaozhuang.gov.cn/zmhd/wsdc/202306/t20230609_1676834.html
+       [关于《枣庄市烟花爆竹燃放管理条例（草案修改...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202209/t20220914_1505336.html
+       [关于《枣庄市优化营商环境条例 （草案修改稿...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202209/t20220914_1505484.html
+       [关于公开征集《对部分中重型燃油（气）货车和...] http://www.zaozhuang.gov.cn/zmhd/wsdc/202201/t20220129_1387391.html
+       [庆祝中华人民共和国成立77周年招待会在京举行...] http://www.zaozhuang.gov.cn/zmhd/hygq/202610/t20261001_2335596.html
+       [习近平同美国总统特朗普会谈] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260926_2333674.html
+       [中共中央政治局召开会议 讨论拟提请二十届五...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260921_2331804.html
+       [习近平就发展先进制造业作出重要指示] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260917_2330287.html
+       [习近平给福建省“漳州110”全体队员回信] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260915_2329464.html
+       [习近平向全国广大教师和教育工作者致以节日祝...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260909_2327420.html
+       [习近平出席上海合作组织成员国元首理事会第二...] http://www.zaozhuang.gov.cn/zmhd/hygq/202609/t20260901_2323874.html
+       [&nbsp;更多] http://www.zaozhuang.gov.cn/zmhd/zxft/
+       [] http://www.zaozhuang.gov.cn/zmhd/zxft/202512/t20251218_2216750.html
+       [市委书记翟军接受大众日报专访] http://www.zaozhuang.gov.cn/zmhd/zxft/202512/t20251209_2212255.html
+       [锚定目标争先进位 笃定实干奋勇争先 ——访峄...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260109_2228521.html
+       [一张蓝图绘到底 久久为功抓落实 奋力蹚出资源...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260106_2226825.html
+       [奋楫扬帆勇争先 转型发展开新局 全力谱写强工...] http://www.zaozhuang.gov.cn/zmhd/zxft/202601/t20260105_2226374.html
+       [&nbsp;&nbsp;&nbsp;办事咨询] http://zzzwfw.sd.gov.cn/zz/icity/consult

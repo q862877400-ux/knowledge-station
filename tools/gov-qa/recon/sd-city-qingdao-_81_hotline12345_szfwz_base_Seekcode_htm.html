@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        img
+        {
+            border: 0;
+        }
+        ul, li
+        {
+            list-style-type: none;
+        }
+        .turn
+        {
+            width: 630px;
+            height: 334px;
+            border: 1px #000100 solid;
+            margin: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .turn-loading
+        {
+            width: 302px;
+            height: 134px;
+            position: absolute;
+            z-index: 4;
+            overflow: hidden;
+            background: #202f42;
+        }
+        .turn-loading img
+        {
+            width: 32px;
+            height: 32px;
+            margin: 51px 0 0 135px;
+        }
+        .turn-pic li
+        {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            filter: alpha(opacity=0);
+            opacity: 0;
+        }
+        .turn-pic li img
+        {
+            width: 630px;
+            height: 334px;
+            overflow: hidden;
+        }
+        .turn-bg
+        {
+            width: 630px;
+            height: 32px;
+            overflow: hidden;
+            background: #000;
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+        }
+        .turn-tit
+        {
+            font-size: 12px;
+        }
+        .turn-tit a
+        {
+            color: #afafaf;
+            text-decoration: none;
+        }
+        .turn-tit a:hover
+        {
+            color: #ffb02b;
+            text-decoration: none;
+        }
+        .turn-tit li
+        {
+            position: absolute;
+            z-index: 3;
+            bottom: -20px;
+            left: 5px;
+        }
+        .turn-btn
+        {
+            position: absolute;
+            z-index: 3;
+            font-size: 12px;
+            color: #afafaf;
+            bottom: 8px;
+            right: 15px;
+        }
+        .turn-btn .lb, .turn-btn .rb
+        {
+            width: 6px;
+            height: 9px;
+            background: url(img/btn.png) no-repeat;
+            overflow: hidden;
+            position: absolute;
+            top: 3px;
+            left: -10px;
+            cursor: pointer;
+        }
+        .turn-btn .rb
+        {
+            background-position: -6px 0;
+            left: 21px;
+        }
+        .turn-btn span
+        {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/stylenew.css" type="text/css">
+   <!-- <link rel="stylesheet" href="css/combo.select.css" type="text/css" />-->
+    <link rel="stylesheet" type="text/css" href="scripts/layui/css/layui.css" />
+    <script src="scripts/layui/layui.all.js" type="text/javascript"></script>
+    <!--<script src="../Support/JQuery/jquery-1.12.4.min.js" type="text/javascript"></script>-->
+    <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
+    <script src="../Support/JQuery/jquery.query-object.js" type="text/javascript"></script>
+   <!-- <script src="scripts/jquery.combo.select.js" type="text/javascript"></script>-->
+    <script src="scripts/base_info.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.6.0.min(1).js" type="text/javascript"></script>
+    <script src="scripts/echarts.min(1).js" type="text/javascript"></script>
+    <script>
+        function ToSubmit() {
+            window.open("base_submit.htm");
+        }
+    </script>
+</head>
+<body>
+<iframe src="http://www.qingdao.gov.cn/public/hdtb/hdyemei.shtml" height="250" frameborder="0" width="100%" scrolling="no"></iframe>
+    <div class="header" id="div1">
+        <!--<div class="time" id="showDate"></div>-->
+    </div>
+    <div class="banner">
+        <div class="index" >
+            	<div class="floatleft znwd sk" onclick="ToSubmit()"><a class="anniu floatleft"  href="#"><img src="images/znwd.png"></a><a class="wzznwd floatleft" href="#" target="_blank">网上受理入口</a></div>
+	  
+            <div class="floatleft cx sk">
+                <p>
+                    诉求进度查询(试运行)</p>
+                <span class="zn">来电号码：</span>
+                <input class="search_txt search_txt1 canRead" id="phone" title="请输入来电号码" placeholder="填写来电号码">
+                <span class="zn text-tag canRead">查询密码：</span>
+                <input class="search_txt search_txt2  canRead" id="seekcode">
+                <input class="search_txt search_txt4 canRead" value="查询" title="查询"onclick="searchbanliinfo()">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <!--	<div class="index">
+	<div class="tittle" class="nav nav-tabs">
+	<ul>
+	<li class="active" style=" display:inline-block"><a href="javascript:">政策知识</a></li>
+	<li  style=" display:inline-block"><a href="javascript:">典型案例</a></li>
+	</ul>
+	</div>
+	<div class="tabbox">
+	
+	<div class="ewb-con-bd con show" >
+	 
+ <ul class="ewb-con-items" id="KnowledgeTop">   </ul>
+
+	</div>
+	<div class="ewb-con-bd con ">
+
+	 <ul class="ewb-con-items" id="anliTop">   </ul>
+  
+	</div>
+	</div>
+
+	<script type="text/javascript">//知识库tab标签切换
+	$(function(){
+	$("li").click(function(){
+	var index=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".con").eq(index).addClass("show").siblings().removeClass("show");
+	
+	});
+	});
+
+</script>
+	
+	</div>-->
+    <div class="xuan">
+    </div>
+    <iframe frameborder="0" height="280" name="I1" scrolling="no" src="http://www.qingdao.gov.cn/public/hdwb/hdyejiao.shtml" width="100%"></iframe>
+    <script type="text/javascript">        //倒计时
+        function htmlScroll() {
+            return;
+            var elFix = document.getElementById('div21');
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if (elFix.data_top < top) {
+                elFix.style.position = 'fixed';
+                elFix.style.top = 0;
+                elFix.style.left = elFix.data_left;
+            }
+            else {
+                elFix.style.position = 'static';
+            }
+        }
+
+        function htmlPosition(obj) {
+            var o = obj;
+            var t = o.offsetTop;
+            var l = o.offsetLeft;
+            while (o = o.offsetParent) {
+                t += o.offsetTop;
+                l += o.offsetLeft;
+            }
+            obj.data_top = t;
+            obj.data_left = l;
+        }
+
+        var oldHtmlWidth = document.documentElement.offsetWidth;
+        window.onresize = function () {
+            var newHtmlWidth = document.documentElement.offsetWidth;
+            if (oldHtmlWidth == newHtmlWidth) {
+                return;
+            }
+            oldHtmlWidth = newHtmlWidth;
+            elFix.style.position = 'static';
+            htmlPosition(elFix);
+            htmlScroll();
+        }
+        window.onscroll = htmlScroll;
+        $(document).ready(function () {
+            var elFix = document.getElementById('div21');
+
+            htmlPosition(elFix);
+
+            var date = new Date();
+            date.getYear(); //获取当前年份(2位) 
+            date.getFullYear(); //获取完整的年份(4位,2014) 
+            date.getMonth(); //获取当前月份(0-11,0代表1月) 
+            date.getDate(); //获取当前日(1-31) 
+            date.getDay(); //获取当前星期X(0-6,0代表星期天) 
+            date.getTime(); //获取当前时间(从1970.1.1开始的毫秒数) 
+            date.getHours(); //获取当前小时数(0-23) 
+            date.getMinutes(); //获取当前分钟数(0-59) 
+            date.getSeconds(); //获取当前秒数(0-59) 
+            date.getMilliseconds(); //获取当前毫秒数(0-999) 
+            date.toLocaleDateString(); //获取当前日期 如 2014年6月25日 
+            date.toLocaleTimeString(); //获取当前时间 如 下午4:45:06 
+            date.toLocaleString(); //获取日期与时间 如 2014年6月25日 下午4:45:06
+        });
+        // 获取当前日期时间
+        function getDatetime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hh = now.getHours();
+            var mm = now.getMinutes();
+            var ss = now.getSeconds();
+            var clock = year + "-";
+            if (month < 10)
+                clock += "0";
+            clock += month + "-";
+            if (day < 10)
+                clock += "0";
+            clock += day + " ";
+            if (hh < 10)
+                clock += "0";
+            clock += hh + ":";
+            if (mm < 10) clock += '0';
+            clock += mm + ":";
+            if (ss < 10) clock += '0';
+            clock += ss;
+            return clock;
+        }
+        // 获取当前日期时间
+        function timestampToTime(timestamp) {
+            var date = new Date(timestamp);
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate() + ' ';
+            var hh = date.getHours() < 10 ? '0' + date.getHours() : date.getHours() + ':';
+            var mm = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() + ':';
+            var ss = date.getSeconds() < 10 ? '0' + date.getDate() : date.getSeconds();
+            return Y + M + D + hh + mm + ss;
+        }
+    </script>
+    <script type="text/javascript">        //倒计时
+        // $(function () {
+        //     setInterval("getTime();", 1000); //每隔一秒执行一次 
+        // })
+        //取得系统当前时间 
+        // function getTime() {
+        //     var myDate = new Date();
+        //     var date = myDate.toLocaleDateString();
+        //    var hours = myDate.getHours();
+        //     var minutes = myDate.getMinutes();
+        //     var seconds = myDate.getSeconds();
+        //     $("#showDate").html(date + " " + hours + ":" + minutes + ":" + seconds); //将值赋给div 
+        // } 
+    </script>
+    <script type="text/javascript">
+        function searchbanliinfo() {
+            //alert("此功能正在拼命搭建中……");return;
+            var phone = $("#phone").val();
+            var seekcode = $("#seekcode").val();
+            if (phone == "") {
+                alert("请输入联系方式"); return;
+            }
+            if (seekcode == "") {
+                alert("请输入查询码"); return;
+            }
+            //window.open("base_infoSearch.htm?id="+id+"&searchSecret="+searchSecret, "_blank");
+            window.open("base_workformlist.htm?phone=" + phone + "&seekcode=" + seekcode, "_blank");
+//            window.open("../DiagramStatistics/showInfoLine.aspx?id=" + id + "&searchSecret=" + searchSecret, "_blank");
+        }
+    </script>
+    <style type="text/css">
+        #KnowledgeTable
+        {
+            border: 1px solid #BEBEBE;
+            border-collapse: collapse;
+        }
+        #KnowledgeTable td
+        {
+            background-color: #ffffff;
+            border: 1px solid #BEBEBE;
+        }
+    </style>
+</body>
+</html>

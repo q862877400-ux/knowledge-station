@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+	书记信箱
+</title><meta content="青岛政府网" name="SiteName" /><meta content="www.qingdao.gov.cn" name="SiteDomain" /><meta content="3702000025" name="SiteIDCode" /><meta content="书记信箱" name="keywords" /><meta content="书记信箱" name="SiteName" /><link href="Css/govcss.css" rel="Stylesheet" type="text/css" /><link href="CSS/govMaintabs.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="http://login.qingdao.gov.cn/login_dialog_f.js"></script>
+
+    <script type="text/javascript" src="support/layer/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="support/layer/layer.min.js"></script>
+    <script type="text/javascript" src="GovWebSite/support/submit.js"></script>
+    <script type="text/javascript" src="GovWebSite/support/query.js" charset="gb2312"></script>
+    <script type="text/javascript" src="support/wcl.js"></script>
+    <script type="text/javascript" src="GovWebSite/support/LoginJS.js"></script>
+    <script type="text/javascript" src="GovWebSite/support/Pop.js"></script>
+    <script type="text/javascript" src="support/My97DatePicker/WdatePicker.js"></script>
+    <link href="support/DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css" /><link href="support/css/home.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {// 初始化内容
+            var havlogin = document.getElementById("isLogin").value;
+            if (havlogin == "0") {
+                $("#Tab_List").hide();
+                $("#bg").hide();
+                $("#Tab_Login").show();
+                XXXZ();
+            }
+            else {
+                $("#Tab_List").show();
+                $("#bg").show();
+                $("#Tab_Login").hide();
+            }
+
+        });
+
+        //选择收件部门列表
+        function XXXZ() {
+            try {
+                $.layer({
+                    type: 2,
+                    title: ['温馨提示', 'text-align:left;'],
+                    maxmin: true,
+                    closeBtn: [0, true], //去掉默认关闭按钮
+                    shadeClose: false, //开启点击遮罩关闭层
+                    area: ['600px', '360px'],
+                    offset: ['20px', ''],
+                    iframe: { src: 'GovWebSite/zfxxtips.aspx' },
+                    end: function (layero, index) {
+                        //logShowLogin();
+                    }
+                });
+            }
+            catch (e) { }
+        }
+    </script>
+    <style type="text/css">
+        <!--
+        body {
+            background-image: url(images/index_01.gif);
+            background-repeat: repeat-x;
+            background-color: #E6F4FF;
+            text-align: center;
+        }
+
+        .container1 {
+            background-image: url(images/box_01.png);
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            padding-bottom: 10px;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .main {
+            background-image: url(images/box_01.png);
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+        -->
+    </style>
+
+</head>
+<body>
+    <form method="post" action="./MainFrmNew.aspx" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="vZV8UNUF9sEFE0KK+RCt/d4T6mVyRLrprCFKLYIG5vRPsBvdQ08t9Tl3eNAgPli/a611wANVUDlJWUNnMxtzaAhADAVBIyNB4kgY3M/oM3ldslcPsUZPqyRm0dZv7d5gJNFrVerLpIWP6t418k3qTCSjhFQFQRwjufASlSyMk5chhSRppv4U8wsFZmVJ5lEMEw47OSWuE4zAQrzYBIAvHbbIQgbvq+MCAUQZSKkZHRG9J2Uxl1+SengO6c7UA0qu7EVWkw==" />
+</div>
+
+
+<script type="text/javascript" src="/GovernmentSJXX/ajaxpro/prototype.ashx"></script>
+<script type="text/javascript" src="/GovernmentSJXX/ajaxpro/core.ashx"></script>
+<script type="text/javascript" src="/GovernmentSJXX/ajaxpro/converter.ashx"></script>
+<script type="text/javascript" src="/GovernmentSJXX/ajaxpro/Yawei.Government.GovWebSite.GovReceiveQueAjax,Yawei.Government.ashx"></script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="663606D3" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/p/vZVLAEN93M0Po760KWOgxldnQIDY+EZp1ttQBnASyvp6v5w0QbolYVOzviDG0ZyTAOqUmUX6umLFnkXzIHQT/u2Ald3Nl2gfZ5lOeP4jvpQyvY9qrV780QPSO5AokYLMNsBZceWw7D0tfnAWMwPuwR9+xKvtPmhOPinjfJrwm0toy+prXXWO1BQfwjPah9zFenk+tV8nnEBgB3lF0QZyFOdUGEWvGUAx6DUyWkWm+LTwcV/KOw8P5DIK2bRuql7IbCA==" />
+</div>
+
+       <div class="container">
+            <iframe src="http://www.qingdao.gov.cn/public/header/hudong_header_zmgt2_150.shtml" id="head" height="170" frameborder="0" width="1000" scrolling="no"></iframe>
+        </div>
+        <div class="clearfloat">
+        </div>
+        <div class="container1">
+            <div class="main" style="overflow: hidden">
+                <!--left页面-->
+                <div class="l_side">
+                    
+<div class="l_side">
+    <div id="GovMainLeftControlNew_Div_User_Info" style="border:1px solid #CCCCCC;width:200px;display:none;">
+        <span id="GovMainLeftControlNew_Span_User"></span>
+        <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+            <tr>
+                <td width="100%" align="center" valign="bottom">
+                    <a href="javascript:void(0);" onclick="zhuxiao();">
+                        <img src="images/button_06.gif" style="cursor: hand" width="72" height="23" /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+ 
+    <div class="l_side_box">
+        <div class="piclist">
+            <ul>
+                <li><a href="javascript:void(0);" onclick="DeURLNew()">
+                    <img src="images/piclink_01.jpg" width="200" height="65" border="0" /></a></li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="l_side_box">
+        <h3>
+            <img src="images/lm_01.gif" width="200" height="36" /></h3>
+        <div class="l_side_boxtext">
+        
+                <img src="images/xinfang-zuoliucheng.jpg"  />
+                
+        
+           
+        </div>
+    </div>
+  
+
+    <input name="GovMainLeftControlNew$hidControlID" type="hidden" id="GovMainLeftControlNew_hidControlID" class="ControlIDCSS" value="GovMainLeftControlNew" />
+</div>
+
+                </div>
+                <!--列表页面-->
+                <div class="r_main" style="height: 580px; background-image: url(images/box_02.png); background-repeat: no-repeat;">
+                    <div class="r_main_box">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table border="0" cellspacing="0" cellpadding="0" id="bg" class="xixi1">
+                                        <tr>
+                                            <td>
+                                                <div class="zheng_1" onclick="setTabSrc('MainFrm.aspx');"
+                                                    style="cursor: pointer">
+                                                    答复列表
+                                                </div>
+                                            </td>
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="Tab_List" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <div id="TabTab01Con1" style="margin: 0px 7px 0px 7px;">
+                                        <div class="box1_list_title">
+                                            <ul>
+                                                <li class="typic1">标 题</li>
+                                                <li class="typic2">回复单位</li>
+                                                <li class="typic3">类 型</li>
+                                                <li class="typic3">评 价</li>
+                                                <li class="typic4">回复时间</li>
+                                            </ul>
+                                        </div>
+                                        <div class="box1_list_text">
+                                            <ul>
+                                                <font color='#0000ff'>暂时没有记录！</font>
+                                            </ul>
+                                        </div>
+                                        <div style="max-width: 750px; _width: 770px;">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px; line-height: 30px; text-align: center;">
+                                                <tr>
+                                                    <td style="text-align: center; height: 30px; padding-right: 20px;">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div style="text-align: left; margin: 0px 8px 0px 7px;">
+                                            <table width="750px" border="0" cellspacing="0" cellpadding="0" style="float: left">
+                                                <tr style="display: none">
+                                                    <td width="35px">&nbsp;&nbsp;
+                                                    </td>
+                                                    <td width="25px" style="font-size: 12px;">注：
+                                                    </td>
+                                                    <td style="font-size: 12px; line-height: 130%;">黑色字体信件是写信人设定的不公开信件，须凭写信人账户信息或查询码打开信件
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="Tab_Login" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            
+                            <tr>
+                                <td valign="top">
+                                    <table width="760" border="0" cellspacing="0" cellpadding="0" >
+                                        <tr>
+                                            <td height="520">
+                                                <iframe src="login2New.aspx" frameborder="0" width="760" height="580" scrolling="no"></iframe>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfloat">
+        </div>
+        <div class="container">
+            <iframe src="http://www.qingdao.gov.cn/public/footer/footer_other.shtml" id="foot" height="355" frameborder="0" width="100%" scrolling="no"></iframe>
+        </div>
+
+        <input name="hdSeekCode" type="hidden" id="hdSeekCode" />
+
+        <!--是否登陆,0未登录;1登陆-->
+        <input name="isLogin" type="hidden" id="isLogin" value="0" />
+
+        <input name="H_username" type="hidden" id="H_username" value="0" />
+        <input name="H_pwd" type="hidden" id="H_pwd" value="0" />
+        <input type="submit" name="loginBtn" value="登录" id="loginBtn" style="display: none" />
+    </form>
+</body>
+</html>

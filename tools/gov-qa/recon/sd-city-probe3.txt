@@ -1,0 +1,225 @@
+======================================================================
+## 枣庄 zaozhuang (IGI siteId=124 appId=84)
+  GET http://www.zaozhuang.gov.cn/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=124&order=1&appId=84&pageIndex=1&pageSize=20 → 200 datas_n=20 len=20351
+     sample TITLE='结婚问题' ISREPLY=1 chain=None/None/None
+  明细 mid=224200 → 200 REPLYS=1 first_ans_len=456
+
+======================================================================
+## 淄博 zibo (jact)
+  jact POST sysid=1 http://www.zibo.gov.cn → 200 totalRecord=? len=68
+  jact POST sysid=54 http://www.zibo.gov.cn → 200 totalRecord=? len=68
+
+======================================================================
+## 济南 jinan
+  GET mail-pub-list → 200 len=12162
+     api-cand: /jact_files/pagemodel//js/jquery.min.js
+     api-cand: /jact_files/pagemodel//js/layui/layui.js
+     api-cand: /jact_files/pagemodel//default-template/page.js
+     api-cand: /jact_files/pagemodel//default-template/page.js?v=
+     api-cand: /jact_files/pagemodel//js/layui/css/layui.css
+     api-cand: /jact_files/pagemodel/jact-MSLX/images/hanweb.css
+     api-cand: /jact_files/pagemodel/jact-MSLX/images/jact_bs.css
+     api-cand: /jact_files/pagemodel//default-template/gklb.css
+     api-cand: /jact_files/pagemodel//default-template/mslx_logo3.png
+     api-cand: /jact_files/pagemodel/default-template/jiucuo.png
+     api-cand: /jact_files/pagemodel/default-template/domain.js
+     api-cand: /jact_files/pagemodel/default-template/mslx_foot.js
+  jact POST sysid=1 http://www.jinan.gov.cn → 200 totalRecord=? len=678
+  jact POST sysid=2 http://www.jinan.gov.cn → 200 totalRecord=? len=678
+  jact POST sysid=54 http://www.jinan.gov.cn → 200 totalRecord=? len=678
+
+======================================================================
+## 青岛 qingdao
+  GET http://www.qingdao.gov.cn/zmhd/ → 200 len=61993
+     cand: )[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script>
+    var config = {
+        apiUrl: 
+     cand: ,
+        //     url: config.apiUrl + 
+     cand: ulSearchList
+     cand: nav_list  js_showModel
+     cand: searchul js_ulSearchList
+     cand: ulSearchList1
+     cand: http://www.qingdao.gov.cn/mailboxpage-qd/city/NewGovMailTopList.html
+     cand: http://12345wx.qingdao.gov.cn:81/hotline12345/szfwz/base_Seekcode.htm
+     cand: http://www.qingdao.gov.cn/qdgov-web/qdlist
+     cand: http://www.qingdao.gov.cn/mailboxpage-qd/city/NewGovMailTopList.html
+     cand: http://www.qingdao.gov.cn/qdgov-web/qdlist
+     cand: http://www.dongying.gov.cn/
+     cand: code_list
+     cand: footer_web_list js_footer_web_list
+     cand: mlink_listbox
+  GET http://www.qingdao.gov.cn/GovernmentSJXX/MainFrmNew.aspx → 200 len=12489
+     cand: #Tab_List
+     cand: #Tab_List
+     cand: /GovernmentSJXX/ajaxpro/prototype.ashx
+     cand: /GovernmentSJXX/ajaxpro/core.ashx
+     cand: /GovernmentSJXX/ajaxpro/converter.ashx
+     cand: /GovernmentSJXX/ajaxpro/Yawei.Government.GovWebSite.GovReceiveQueAjax,Yawei.Government.ashx
+     cand: piclist
+     cand: Tab_List
+     cand: box1_list_title
+     cand: box1_list_text
+     cand: hdSeekCode
+     cand: hdSeekCode
+  GET http://12345wx.qingdao.gov.cn:81/hotline12345/szfwz/base_Seekcode.htm → 200 len=11419
+     cand:  />
+    <title></title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        img
+        {
+            border: 0;
+        }
+        ul, li
+        {
+            list-style-type: none;
+        }
+        .turn
+        {
+            width: 630px;
+            height: 334px;
+            border: 1px #000100 solid;
+            margin: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .turn-loading
+        {
+            width: 302px;
+            height: 134px;
+            position: absolute;
+            z-index: 4;
+            overflow: hidden;
+            background: #202f42;
+        }
+        .turn-loading img
+        {
+            width: 32px;
+            height: 32px;
+            margin: 51px 0 0 135px;
+        }
+        .turn-pic li
+        {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            filter: alpha(opacity=0);
+            opacity: 0;
+        }
+        .turn-pic li img
+        {
+            width: 630px;
+            height: 334px;
+            overflow: hidden;
+        }
+        .turn-bg
+        {
+            width: 630px;
+            height: 32px;
+            overflow: hidden;
+            background: #000;
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+        }
+        .turn-tit
+        {
+            font-size: 12px;
+        }
+        .turn-tit a
+        {
+            color: #afafaf;
+            text-decoration: none;
+        }
+        .turn-tit a:hover
+        {
+            color: #ffb02b;
+            text-decoration: none;
+        }
+        .turn-tit li
+        {
+            position: absolute;
+            z-index: 3;
+            bottom: -20px;
+            left: 5px;
+        }
+        .turn-btn
+        {
+            position: absolute;
+            z-index: 3;
+            font-size: 12px;
+            color: #afafaf;
+            bottom: 8px;
+            right: 15px;
+        }
+        .turn-btn .lb, .turn-btn .rb
+        {
+            width: 6px;
+            height: 9px;
+            background: url(img/btn.png) no-repeat;
+            overflow: hidden;
+            position: absolute;
+            top: 3px;
+            left: -10px;
+            cursor: pointer;
+        }
+        .turn-btn .rb
+        {
+            background-position: -6px 0;
+            left: 21px;
+        }
+        .turn-btn span
+        {
+            text-align: center;
+        }
+    </style>
+    <link rel=
+     cand: seekcode
+     cand: );
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if (elFix.data_top < top) {
+                elFix.style.position = 
+     cand: ;
+            }
+        }
+
+        function htmlPosition(obj) {
+            var o = obj;
+            var t = o.offsetTop;
+            var l = o.offsetLeft;
+            while (o = o.offsetParent) {
+                t += o.offsetTop;
+                l += o.offsetLeft;
+            }
+            obj.data_top = t;
+            obj.data_left = l;
+        }
+
+        var oldHtmlWidth = document.documentElement.offsetWidth;
+        window.onresize = function () {
+            var newHtmlWidth = document.documentElement.offsetWidth;
+            if (oldHtmlWidth == newHtmlWidth) {
+                return;
+            }
+            oldHtmlWidth = newHtmlWidth;
+            elFix.style.position = 
+     cand: ).val();
+            var seekcode = $(
+     cand: ); return;
+            }
+            if (seekcode == 
+     cand: base_workformlist.htm?phone=
+     cand: &seekcode=

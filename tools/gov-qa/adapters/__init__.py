@@ -142,6 +142,11 @@ ADAPTERS: dict[str, str] = {
     "xj-dchs": "adapters.xj_dchs",             # 新疆·互联网+督查·督查回声（静态 227 条）
     "gx-mailbox": "adapters.gx_mailbox",       # 广西·自治区人民政府信箱（IGI，138 条；带省/市/区三级归属）
     "sd-12345": "adapters.sd_12345",           # 山东·12345热线·典型留言（ashx JSON，71 条）
+    # —— 山东地市级试点（2026-10-08）：4 市可采，青岛为加密接口待定。证据 recon/sd-city-*.txt ——
+    "sd-jinan": "adapters.sd_jinan",           # 济南市·互动交流·回应关切（jpaas-jact 网关，count=250）
+    "sd-zibo": "adapters.sd_zibo",             # 淄博市·政民互动·我要咨询（jact http GET，sysid=54，376）
+    "sd-zaozhuang": "adapters.sd_zaozhuang",   # 枣庄市·政民互动·市长信箱（IGI http，siteId=124，appId=84）
+    "sd-dongying": "adapters.sd_dongying",     # 东营市·政民互动·网上民生（jact http POST，sysid=129，20299）
     "qh-wsxf": "adapters.qh_wsxf",             # 青海·互动交流·群众诉求回应（静态 27 页）
     "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "heb-szj": "adapters.heb_szj",             # 河北·数据和政务服务局·留言公开（EWB 平台，1043 条）

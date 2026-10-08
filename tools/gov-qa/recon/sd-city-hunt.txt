@@ -1,0 +1,48 @@
+
+======================================================================
+## 济南 (jinan)
+  http://www.jinan.gov.cn/ → 200 (186436 bytes)
+      [互动交流] http://www.jinan.gov.cn/col/col26/index.html
+      [互动交流] http://www.jinan.gov.cn/col/col26/index.html
+      [企业诉求“接诉即办”] https://12345.e23.cn/jnjsjb/index.html?from=jnzf
+      [回应关切] http://www.jinan.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=HTMi0SM6aXpdnEJDZH931&govOpen=1&submitTargetIds=0114,0171,0115,0116,0117,0118,0119,0120,0121,0123,0124,0126,0127,0128,0130,0132,0134,0135,0140,0141,0144,0146,0148,0151,0156,0133,0159,0160,0163,0161,0137,0166,0138,0149,0513,2203,2414,2422,0515,2479,2583,0145,622fntKBvD,sk7AtT5lCN,0147,1BF7PVWSQb,0152,0324,1921
+      [【市公安局】关于公开征求《济南市保安服务管理办法（草案征求意见稿）》意见建议的公] http://www.jinan.gov.cn/col/col112948/art/2026/art_bbce82ea09714f5f9e91f60408a485cd.html
+      [【济南市城市管理局】关于公开征求《济南市城市照明管理办法（修订草案征求意见稿）》] http://www.jinan.gov.cn/col/col112948/art/2026/art_d47995fdd7804373a3baea5831a6b7bc.html
+      [市长信箱] http://www.jinan.gov.cn/col/col156/yhdlts/index.html
+      [建议提案] http://www.jinan.gov.cn/col/col115813/index.html
+  https://www.jinan.gov.cn/ → 200 (186436 bytes)
+
+======================================================================
+## 青岛 (qingdao)
+  http://www.qingdao.gov.cn/ → 200 (67583 bytes)
+      [政民互动] http://www.qingdao.gov.cn/zmhd/
+      [政民互动] http://www.qingdao.gov.cn/zmhd/
+  https://www.qingdao.gov.cn/ → ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.
+
+======================================================================
+## 淄博 (zibo)
+  http://www.zibo.gov.cn/ → 200 (62530 bytes)
+      [政民互动] http://www.zibo.gov.cn/col/col6/index.html
+      [淄博12345政务服务便民热线] https://www.zibo.gov.cn/col/col1464/index.html
+      [区县政府信箱] https://www.zibo.gov.cn/col/col6061/index.html
+      [建议征集] http://www.zibo.gov.cn/col/col15607/index.html
+  https://www.zibo.gov.cn/ → 200 (62530 bytes)
+
+======================================================================
+## 枣庄 (zaozhuang)
+  http://www.zaozhuang.gov.cn/ → 200 (72993 bytes)
+      [&nbsp;政民互动] http://www.zaozhuang.gov.cn/zmhd/
+      [建议提案] http://www.zaozhuang.gov.cn/zwgk/zt/jytabl/
+      [张国洲到市市民诉求办理服务中心现场办公] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202608/t20260804_2313214.html
+      [“枣解决·枣满意”： 办好“微诉求” 打造城...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260512_2282461.html
+      [张国洲到市市民诉求办理服务中心现场办公并调...] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202605/t20260503_2278641.html
+      [翟军调研社会工作和市民诉求办理工作] http://www.zaozhuang.gov.cn/zmhd/rex/rxdt/202603/t20260309_2254785.html
+  https://www.zaozhuang.gov.cn/ → ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c
+
+======================================================================
+## 东营 (dongying)
+  http://www.dongying.gov.cn/ → 200 (123479 bytes)
+      [我要留言] http://www.dongying.gov.cn/jact/front/main.do?sysid=129
+      [留言指南] http://www.dongying.gov.cn/col/col307962/index.html
+      [回应关切] http://www.dongying.gov.cn/col/col41818/index.html
+  https://www.dongying.gov.cn/ → ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, c

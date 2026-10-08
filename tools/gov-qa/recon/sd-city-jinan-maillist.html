@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="renderer" content="webkit">
+        <meta name="renderer" content="ie-stand">
+        <meta name="format-detection" content="telephone=no">
+        <title>公开查询</title>
+        <style>
+            option {
+                width: 100%;
+            }
+
+            .layui-table-page select {
+                line-height: 18px;
+            }
+
+            .header .nav {
+                height: 80px;
+                background: none;
+            }
+
+            .header .nav ul li a {
+                font-size: 24px;
+                width: auto;
+            }
+            .layui-table-body{
+                overflow: hidden;
+            }
+            .layui-table-grid-down .layui-icon{
+                top: 0!important;
+                left: 0!important;
+                margin: 0!important;
+            }
+            .layui-table-tips-c.layui-icon-close:before{
+                right: 3px;
+                top: -3px;
+            }
+
+            /*  */
+            .dqwz {
+                height: 70px !important;
+                line-height: 70px !important;
+                margin-left: 40px;
+                font-size: 18px !important;
+            }
+            .center_1 {
+                width: 1560px !important;
+            }
+            .main {
+                background-size: 100% !important;
+                padding: 160px 35px 35px 35px !important;
+            }
+            .wtsd {
+                padding-left: 200px !important;
+            }
+            .laytable-cell-1-0-0 {
+                width: 240px !important;
+            }
+            .laytable-cell-1-0-1 {
+                width: 434px !important;
+            }
+            .laytable-cell-1-0-2,
+            .laytable-cell-1-0-3 {
+                width: 215px !important;
+            }
+            .laytable-cell-1-0-4 {
+                width: 310px !important;
+            }
+            .layui-table-header th {
+                font-size: 24px !important;
+                border: 2px solid #fff !important;
+            }
+            .layui-table-body tr td {
+                font-size: 21px !important;
+            }
+            .layui-table-page {
+                padding: 14px 7px 0 !important;
+            }
+            .layui-icon {
+                font-size: 22px !important;
+            }
+            .layui-table-page .layui-laypage a,
+            .layui-table-page .layui-laypage span {
+                font-size: 18px;
+            }
+
+
+            /*关怀版*/
+            .jnpageold .dqwz{
+                font-size: 28px;
+                height: 60px;
+                line-height: 60px;
+                background-size: 24px;
+                padding-left: 30px;
+                margin-top: 20px;
+            }
+            .jnpageold .dqwz a{
+                font-size: 28px;
+            }
+            .jnpageold .main{
+                margin-top: 20px;
+                padding-top: 180px;
+                background-size: 126%;
+            }
+            .jnpageold .wtsd{
+                height: auto;
+            }
+            .jnpageold .wtsd input{
+                height: 80px;
+                line-height: 80px;
+                font-size: 32px;
+            }
+            .jnpageold .wtsd input#time{
+                background-size: 36px !important;
+            }
+            .jnpageold .wtsd input.searchtwo{
+                width: 120px;
+            }
+            .jnpageold .layui-table-header th{
+                height: 60px;
+                line-height: 60px;
+                font-size: 34px;
+            }
+            .jnpageold .layui-table-cell{
+                height: auto;
+                line-height: 58px;
+                font-size: 20px;
+            }
+            .jnpageold .laytable-cell-1-0-1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .jnpageold .laytable-cell-1-0-2{
+                width: 126px;
+            }
+            .jnpageold .layui-table-body tr a{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                display: inline-block;
+            }
+            .jnpageold .layui-table-page{
+                height: auto;
+                padding-top: 30px;
+            }
+            .jnpageold .layui-table-page>div{
+                text-align: center;
+                height: auto;
+            }
+            .jnpageold .layui-table-page .layui-laypage a,
+            .jnpageold .layui-table-page .layui-laypage span{
+                font-size: 24px;
+                height: 40px;
+                line-height: 40px;
+                margin: 0 6px;
+            }
+            .jnpageold .layui-icon{
+                font-size: 24px;
+            }
+            .jnpageold .layui-table-page .layui-laypage button,
+            .jnpageold .layui-table-page .layui-laypage input{
+                height: 40px;
+                line-height: 38px;
+            }
+            .jnpageold .layui-table-page select{
+                height: 38px;
+                line-height: 38px;
+                padding: 0 10px;
+            }
+            .jnpageold .layui-table-tips-main{
+                font-size: 22px;
+                margin-top: -58px !important;
+            }
+            .jnpageold .layui-table-tips-c:before{
+                right: 2px;
+                bottom: 6px;
+                font-size: 18px;
+            }
+          @media only screen and (max-width: 1000px) {
+           .center_1 {
+              width: 100% !important;
+            }
+            .main {
+                padding: 100px 35px 35px 35px !important;
+            }
+            .wtsd {
+              padding-left: 0px !important;
+              text-align: center;
+          	}
+            .wtsd input {
+              width: 40% !important;
+              margin: 10px 5% !important;
+              display: block;
+              float: left !important;
+            }
+            .wtsd {
+                height: auto !important;
+            }
+            .wtsd input.searchtwo {
+                width: 20% !important;
+                float: right !important;
+            }
+          }
+        </style>
+    </head>
+
+<body id="page_type" alt="列表页">
+<div id="barrierfree_container">
+        <script type="text/javascript" src="/jact_files/pagemodel//js/jquery.min.js"></script>
+        <script type="text/javascript" src="/jact_files/pagemodel//js/layui/layui.js"></script>
+        <!--<script type="text/javascript" src="/jact_files/pagemodel//default-template/page.js"></script>-->
+<script>
+    document.write('<script src="/jact_files/pagemodel//default-template/page.js?v=' + Date.now() + '"><\/script>');
+  </script>
+        <link rel="stylesheet" href="/jact_files/pagemodel//js/layui/css/layui.css">
+        <link rel="stylesheet" href="/jact_files/pagemodel/jact-MSLX/images/hanweb.css" />
+        <link rel="stylesheet" href="/jact_files/pagemodel/jact-MSLX/images/jact_bs.css" />
+        <link rel="stylesheet" href="/jact_files/pagemodel//default-template/gklb.css">
+        <div class="jn_head">
+            <script src="/cms_files/filemanager/49/script/20252/4B8DB6CBC8F7F2B4BBCF0A8ECC4280E6.js"></script>
+        </div>
+        <div class="other_head">
+            <div class="w1200">
+                <p class="wzmc">
+                    <a href="/">济南市人民政府</a>
+                    <img src="/jact_files/pagemodel//default-template/mslx_logo3.png" alt="民声连线">
+                </p>
+            </div>
+        </div>
+        <div class="jact_main">
+            <div class="center_1">
+                <div class="dqwz" ergodic="navigation">
+                    <a href="javascript:void(0);">互动交流</a>&gt;
+                    <a href="javascript:void(0);">回应关切</a>
+                </div>
+                <div class="main" ergodic="view">
+                    <!-- <div class="cxlbtitle">
+                        <span>信件检索</span>
+                    </div> -->
+                    <div class="wtsd">
+                        <input type="hidden" id="platformUid" value="HTMi0SM6aXpdnEJDZH931">
+                        <input type="hidden" id="submitTargetIds" value="">
+                      <input type="hidden" id="govOpen" value="">
+                        <input type="text" class="searchone" placeholder="请输入标题/内容" />
+                        <input type="text" class="layui-input" id="time" placeholder="请选择日期"
+                               style="float:left;margin-left:10px;margin-right: 15px;width: 290px;background:url(/jact_files/pagemodel//default-template/time.png) no-repeat right 10px center;"
+                               readonly>
+                        <input type="button" class="searchtwo" name="" value="搜索" />
+                    </div>
+                    <table id="table" lay-filter="test" style="clear: both;"></table>
+                    <!-- <div id="page" style="text-align: right"></div> -->
+                </div>
+            </div>
+        </div>
+    <script>
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if (r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
+        var submitTargetIds = getUrlParam('submitTargetIds')
+		console.info("提交机构参数："+submitTargetIds)
+        $('#submitTargetIds').val(submitTargetIds)
+      var govOpen = getUrlParam('govOpen')
+        $('#govOpen').val(govOpen)
+</script>
+        <div class="jn_foot">
+            <script src="/cms_files/filemanager/49/script/20252/E9B166DC3FA08D4B3F521EC0A5ACA1DC.js"></script>
+        </div>
+        <div class="other_foot">
+            <div class='footer'>
+                <div class='footer-box'>
+                    <div class='bottom' ergodic='serve'>
+                        <div class='fl bottom-left'>
+                            <a class="dzjg_url"
+                               href='https://bszs.conac.cn/sitename?method=show&id=08313DE5361E449BE053012819AC9285'
+                               target='_blank' readlabel='图片链接：党政机关' tabindex='0'><img
+                                    src='/cms_files/jcms1/web1/site/picture/1307/2404091435039103260.png'
+                                    style='margin-left: 10px;margin-right: 63px;' class='dzjg'></a>
+                            <a class="wzzc"
+                               href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3701000001&url=http%3A%2F%2Fwww.jinan.gov.cn%2F"><img
+                                    src="/jact_files/pagemodel/default-template/jiucuo.png"></a>
+                        </div>
+                        <div class='bottom-center fl' style="width: 70%;">
+                            <p>版权所有：中国·济南 济南市人民政府办公厅主办</p>
+                            <p readexclude><span>网站标识码：3701000001</span> <a href='https://beian.miit.gov.cn'
+                                                                                 target='_blank'>鲁ICP备：05041920号</a>　　<a
+                                    href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001191'
+                                    target='_blank'><img src='/cms_files/jcms1/web1/site/picture/1307/2404091435039448149.png'
+                                                         style='margin-top:-4px;margin-right: 9px;' class='old_hide'><img
+                                    src='/cms_files/jcms1/web1/site/picture/1307/2404111436580551224.png'
+                                    style='margin-top:-4px;margin-right: 20px;' class='old_show'>鲁公网安备
+                                37010202001191号</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+<script src="/jact_files/pagemodel/default-template/domain.js"></script>
+<script src="/jact_files/pagemodel/default-template/mslx_foot.js"></script>
+</body>
+
+</html>
