@@ -6,7 +6,7 @@
  · EWB（Epoint Web Builder，`/js/webBuilderCommon.js` 定义
    `siteInfo={siteGuid:"7eb5f7f1-9041-43ad-8e13-8fcb82ea831a",projectName:"/EWB-FRONT"}`）。
  · 列表：`POST /EWB-FRONT/rest/letterlistaction/getLetterInfoListXZ`
-     form 单字段 `params=<JSON>`，`{siteGuid, searchTitle:"", pageIndex:<偏移>, pageSize:10}`
+     form 单字段 `params=<JSON>`，`{siteGuid, searchTitle:"", pageIndex:<页码>, pageSize:<n>}`
      → `{"RowCount":1430,"Table":[{ROWGUID, subject, mailtype, bm, consultflowsn,
         postdate, operatedate}, …]}`。
  · 明细：`POST /EWB-FRONT/rest/frontAppNotNeedLoginAction/getLetterDetail`
@@ -14,8 +14,11 @@
      → `custom.data={subject, content(问题), replycontent(答复), postdate, operatedate,
         rowguid, consultflowsn}`。
  · ⚠ 两个 EWB 坑：① 必须 POST + `params=JSON`（GET 405，平铺字段 400）；
-   ② ★ `pageIndex` 是**起始记录偏移量**（0,10,20…），不是页码 —— 传页码会每页只滑 1 条、
-   漏 89%（与河北 EWB 同坑，见 `heb_szj.py`）。
+   ② ★★ `pageIndex` 是**0 基页码**（服务端按 `offset = pageIndex × pageSize` 取），
+   **不是记录偏移**。2026-10-09 实测：`pageIndex=1&pageSize=10` → 第 10-19 条；
+   `pageIndex=142&pageSize=10` → 末页；`pageIndex=143` → 空。
+   旧版误当偏移（传 `page×pageSize`）⇒ 每轮跳 10 页、1430 条只收到 150 条（10%）。
+   （前端 `interactive/js/selectList.js` 的 `mricode.pagination` 传的就是 0 基页码。）
  · 样例：来信「徐州市以发展玉米产品加强农旅融合的建议」→ 市农业农村局答复。
 """
 from __future__ import annotations
@@ -39,7 +42,7 @@ LIST_URL = BASE + "/EWB-FRONT/rest/letterlistaction/getLetterInfoListXZ"
 DETAIL_URL = BASE + "/EWB-FRONT/rest/frontAppNotNeedLoginAction/getLetterDetail"
 SITE_GUID = "7eb5f7f1-9041-43ad-8e13-8fcb82ea831a"
 REFERER = SITE["entry"]
-PAGE_SIZE = 10
+PAGE_SIZE = 100          # 实测 pageSize=100 有效（pageIndex=0 → 前 100 条）
 PAUSE = 1.5
 TAG_RE = re.compile(r"<[^>]+>")
 
@@ -56,8 +59,11 @@ def _post(fetch, url: str, payload: dict):
                       headers={"Referer": REFERER})
 
 
-def harvest(fetch, *, limit: int | None = None, max_pages: int = 300) -> list[dict]:
-    """翻页取徐州来信选登（问题 + 答复原文）。"""
+def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[dict]:
+    """翻页取徐州来信选登（问题 + 答复原文）。
+
+    `pageIndex` 是 **0 基页码**（见模块 docstring），`offset = pageIndex × PAGE_SIZE`。
+    """
     out: list[dict] = []
     seen: set[str] = set()
     total = None
@@ -67,7 +73,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 300) -> list[di
         if page:
             time.sleep(PAUSE)
         r = _post(fetch, LIST_URL, {"siteGuid": SITE_GUID, "searchTitle": "",
-                                    "pageIndex": page * PAGE_SIZE, "pageSize": PAGE_SIZE})
+                                    "pageIndex": page, "pageSize": PAGE_SIZE})
         if getattr(r, "status_code", 0) != 200:
             print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP "
                   f"{getattr(r, 'status_code', '?')}（停）")
