@@ -48,12 +48,63 @@ def count_lines(path: str) -> int:
     return n
 
 
+def show_fields() -> int:
+    """各字段非空率 —— 用来发现「整列全空」的静默数据缺陷。
+
+    动机：四川内江/绵阳/阿坝三个源的 `answered_at` 全为 None，
+    接口里 `replyContents[].replyTime` 一直存在、是适配器硬编码漏取。
+    **光看条数发现不了这种缺陷** —— 数据看着有、字段是空的。
+    """
+    fields = ("question", "answer", "url", "dept", "channel", "asked_at", "answered_at")
+    tot = 0
+    nonempty = dict.fromkeys(fields, 0)
+    extras: dict[str, int] = defaultdict(int)
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.strip() or not line.lstrip().startswith("{"):
+                    continue
+                try:
+                    r = json.loads(line)
+                except Exception:                                   # noqa: BLE001
+                    continue
+                tot += 1
+                for k in fields:
+                    v = r.get(k)
+                    if v not in (None, "", [], {}):
+                        nonempty[k] += 1
+                ex = r.get("extra") or {}
+                if isinstance(ex, dict):
+                    for k, v in ex.items():
+                        if v not in (None, "", [], {}):
+                            extras[k] += 1
+    if not tot:
+        print("无数据")
+        return 0
+    print(f"总记录 {tot:,}")
+    print("\n=== 主字段非空率（⚠ 某列接近 0% 就是静默缺陷）===")
+    for k in fields:
+        n = nonempty[k]
+        flag = "   ← ⚠ 整列几乎全空！" if n / tot < 0.05 else ""
+        print(f"  {k:14s} {n:8,d}  {n / tot * 100:6.1f}%{flag}")
+    print("\n=== extra 子字段出现率 top20 ===")
+    for k, n in sorted(extras.items(), key=lambda kv: -kv[1])[:20]:
+        print(f"  {k:26s} {n:8,d}  {n / tot * 100:6.1f}%")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="数据落盘核查")
     ap.add_argument("--empty", action="store_true", help="只看零数据的适配器")
     ap.add_argument("--thin", type=int, default=0, help="只看条数 < N 的适配器")
+    ap.add_argument("--fields", action="store_true",
+                    help="输出各字段非空率（发现「整列全空」的静默缺陷）")
     ap.add_argument("--key", default="", help="只看某前缀的 key")
     args = ap.parse_args()
+
+    if args.fields:
+        return show_fields()
+
 
     os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::1")
     import adapters
