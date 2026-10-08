@@ -1,0 +1,25 @@
+===== 达州 xinxiang 子页 letter-city.html =====
+  https://www.dazhou.gov.cn/xinxiang/html/letter-city.html -> 404 ct=text/html len=548
+  https://www.dazhou.gov.cn/xinxiang/js/index.js -> 200 ct=application/javascript len=5478
+   $(function () { $('.content-center').load('html/home.html'); $('.footer-box').load('html/footer.html'); $('.n_list li').click(function () { var i = $(this).index(); var name = $(this).attr('data-name'); if(!$.cookie('token') || $.cookie('token') == 'null') { if(name == 'html/my-letter.html') { alert('请先登录') return } } $('.n_list li .tab-text').removeClass('text-active'); $('.n_list li .tab-tip').removeClass('tip-active'); $(this).children('.tab-text').addClass('text-active'); $(this).children('.tab-tip').addClass('tip-active'); $('.content-center').load(name); }) // $('.mask').click(function(event){ // $('.mask').hide(); // $('.mask-box').hide(); // event.stopPropagation(); // 阻止事件冒泡 // }); // $('#my-close').click(function(event) { // $('.mask').hide(); // $('.mask-box').hide(); // }); // $('.mask-del').click(function() { // $('.mask').hide(); // $('.mask-box').hide(); // }) // // 跳转到登录页面 // $('.to-login').click(function(event) { // if($.cookie('token') && $.cookie('token') != 'null') { // $.ajax({ // url: url+'Login/getUserInfo', // data: { // token: $.cookie('token') // }, // dataType: "jsonp", // success: function(res) { // if(res.code == 1) { // $('#my-name').text(res.data.user
+   [data-name] ) { var i = $(this).index(); var name = $(this).attr('data-name'); if(!$.cookie('token') || $.cookie('token') == 'null') { if(name == 'html/my-letter.html') { alert('请先登录') return } } $('.n_list li .tab-text').removeClass('
+   [.ajax] $.cookie('token') && $.cookie('token') != 'null') { // $.ajax({ // url: url+'Login/getUserInfo', // data: { // token: $.cookie('token') // }, // dataType: "jsonp", // success: function(res) { // if(res.code == 1) { // $('#m
+   [url:] ) && $.cookie('token') != 'null') { // $.ajax({ // url: url+'Login/getUserInfo', // data: { // token: $.cookie('token') // }, // dataType: "jsonp", // success: function(res) { // if(res.code == 1) { // $('#my-name').text(re
+   [.ajax] val()) { // alert('请输入昵称') // return // } // $.ajax({ // url: url+'Login/editInfo', // data: { // token: $.cookie('token'), // nickname: $('#my-nickname').val() // }, // dataType: "jsonp", // success: function(res) { // if(res.code
+   [url:]  alert('请输入昵称') // return // } // $.ajax({ // url: url+'Login/editInfo', // data: { // token: $.cookie('token'), // nickname: $('#my-nickname').val() // }, // dataType: "jsonp", // success: function(res) { // if(res.code == 1) { // 
+  https://www.dazhou.gov.cn/xinxiang/js/letter-city.js -> 404 ct=text/html len=548
+
+===== 达州 试 letter-city 数据接口 =====
+  https://www.dazhou.gov.cn/xinxiang/data/letter-city.json -> 404 ct=text/html len=548
+  https://www.dazhou.gov.cn/index.php?s=xinxiang&c=home&m=list -> 403 ct=text/html; charset=utf-8 len=42
+  https://www.dazhou.gov.cn/xinxiang/letter/list -> 404 ct=text/html len=548
+
+===== 眉山 Session 翻页（GET 拿 cookie 再 POST）=====
+  GET list -> 200 cookies=['JSESSIONID']
+  page1 guid 数=10 首=['c592f5c1-26f5-416b-9daa-2677c2eaad2c', 'f4ce5876-2539-4f36-897c-a14c67ef86aa']
+  POST pageNumber=2 -> 200 len=24732 do_detail=10 首=['c592f5c1-26f5-416b-9daa-2677c2eaad2c', 'f4ce5876-2539-4f36-897c-a14c67ef86aa']
+  POST pageNumber=3 -> 200 len=24732 do_detail=10 首=['c592f5c1-26f5-416b-9daa-2677c2eaad2c', 'f4ce5876-2539-4f36-897c-a14c67ef86aa']
+
+===== 眉山 Session 详情（do_detail 到 list_content_ldxxnew.jsp）=====
+  -> 200 len=15966
+  信件流水号 信件查询码 --> 暂无数据 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028-38119999（非眉山区域拨打） 网站标识码：5114000002&nbsp; &nbsp; 蜀ICP备12025919号-1 &nbsp;川公网安备51140202000001 推荐使用1366*768分辨率以上显示器及IE8.0以上版本浏览器进行浏览 "六稳""六保" "互联网+督查" 政务好差评 眉山发布微信 

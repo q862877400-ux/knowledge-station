@@ -1,0 +1,22 @@
+detail len=20236
+
+  [标题] @3934
+    = "") { alert('当前地址为空,无法收藏！'); } if (sTitle == undefined || sTitle == null || sTitle.trim() == "") { alert('当前标题为空,无法收藏！'); } if (sTitle.length > 60) { sTitle = sTitle.substr(0, 57) + "..."; } $.ajax({ url: '/system/resource/myspace/addfavorite.jsp', data: { link: sURL, name: sTitle }, success: function (d) { if (d) { alert(d.trim()); } else { alert("收藏出错！"); } } }); } 
+
+  [反映诉求] @13484
+    ACKGROUND-COLOR: #fff;">东坡区热线,东坡区卫生健康局</span></TD></TR> <TR> <TD colspan="2" style="text-align: center;font-size: 16px;"><strong>反映诉求</strong></TD></TR> <TR> <TD colspan="2" style="height: 80px;COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;PADDING-LEFT: 10px;PADDING-RIGHT: 10px;PADDING-TOP: 0px;"> <span>孩子曾5月时在眉山市中医院急诊科、ICU、身心疾病科住院，各科室医护人员工作认真负责，尤其是ICU的医生，对孩子病情沟通到位，工作非常负责。特来电表示感谢。</span> </TD></TR> <TR> <TD colspan="2" style="text-align: center;font-size: 16px;"><strong>办理结果</strong></TD></TR> <TR> 
+
+  [办理结果] @13946
+    ，对孩子病情沟通到位，工作非常负责。特来电表示感谢。</span> </TD></TR> <TR> <TD colspan="2" style="text-align: center;font-size: 16px;"><strong>办理结果</strong></TD></TR> <TR> <TD colspan="2" style="height: 200px;COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;PADDING-BOTTOM: 10px;PADDING-LEFT: 10px;PADDING-RIGHT: 10px;PADDING-TOP: 0px;"> <span>您好！您的诉求已收悉，现将有关情况回复如下： 衷心感谢您对眉山市中医医院医疗卫生工作的理解与肯定。我局已将您的表扬转达至医院及相关科室，医院将对医生及全体在岗医护人员予以通报表扬，激励全体医务工作者坚守医者初心、精进诊疗业务，持续优化医疗服务质量、提升医患沟通效能，为群众提供更加优质、暖心的医疗卫生服务。 感谢您对我们工作的理解与支持！</span> <br><br> 
+
+  [承办部门] @13235
+     14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">2026-10-08</span></TD></TR> <TR> <TD colspan="2"><strong>承办部门:</strong><span style="COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">东坡区热线,东坡区卫生健康局</span></TD></TR> <TR> <TD colspan="2" style="text-align: center;font-size: 16px;"><strong>反映诉求</strong></TD></TR> <TR> <TD colspan="2" style="height: 80px;COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;PADDING-LEFT: 10px;PADDING-RIGHT: 10px;PADDING-TOP: 0px;"> 
+
+  [回复时间] @13033
+    7px;BACKGROUND-COLOR: #fff;">主动公开</span></TD> <TD class="contentstyle44025" style="text-align: left;" colspan="2"><strong>回复时间:</strong><span style="COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">2026-10-08</span></TD></TR> <TR> <TD colspan="2"><strong>承办部门:</strong><span style="COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">东坡区热线,东坡区卫生健康局</span></TD></TR> <TR> <TD colspan="2" style="text-align: center;font-size: 16px;"><strong>反映诉求</strong></TD></TR> <TR> 
+
+  [编号] @12012
+    ROUND-COLOR: #fff;">关于群众反映医护人员的表扬</span></TD> <TD class="contentstyle44025" style="text-align: left;" colspan="2"><strong>编号:</strong><span style="COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">RGDH995114002026093000760</span></TD></TR> <TR> <TD width="50%" class="titlestyle44025" nowrap="" style="text-align: left;"><strong>内容分类:</strong><span style="COLOR: #626262;FONT-SIZE: 14px;TEXT-DECORATION: none;LINE-HEIGHT: 27px;BACKGROUND-COLOR: #fff;">表扬</span></TD> <TD class="contentstyle44025" style="text-align: left;" colsp
+
+===== 眉山 列表页原始行（do_detail 附近）=====
+  >发布时间</SPAN></TD> </TR> <TR height="0px" align="center"> <TD align="left" style="padding-left: 3px;"> <A style="cursor: pointer;" onclick="do_detail('c592f5c1-26f5-416b-9daa-2677c2eaad2c')" title="关于群众反映医护人员的表扬" target="_blank"> <SPAN class="titlestyle44098">关于群众反映医护人员的表扬</SPAN> </A> </TD> <TD align="center">表扬 </TD> <TD align="center">2026-10-08</TD> </TR> <TR height="0px" align="center"> <TD align="l

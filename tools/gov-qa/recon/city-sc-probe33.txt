@@ -1,0 +1,36 @@
+===== 眉山 首页 互动相关链接 =====
+  H 17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+  H https://liuyan.www.gov.cn/2025wwzfgzbgtjy/bmdf.html?q=sc
+  H http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+  H http://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+  H mail12345/wwqzbssxjtj.jsp?urltype=tree.TreeTempUrl&wbtreeid=6033
+  [12345]  <a href="http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 971045726, 5
+  [政民互动] ss="img2 _413231953d442f2f" src="images/16644c78ffdd48c78fe5be81f0ec7756.png"> 政民互动 
+  [互动交流] href="17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010" target="_blank" rel="noopener noreferrer" title="互动交流">互动交流 <a href="msgk.htm" target="_blank" rel="noope
+
+===== 眉山 候选接口探测 =====
+  https://www.ms.gov.cn/mail12345/ -> 404 len=2414 title=系统提示
+  https://www.ms.gov.cn/mail12345/index.jsp -> 404 len=2414 title=系统提示
+  https://www.ms.gov.cn/mail12345/list.jsp -> 404 len=2414 title=系统提示
+  https://www.ms.gov.cn/hdjl/index.html -> 404 len=1693 title=404错误提示
+  https://www.ms.gov.cn/zmhd/ -> 404 len=2414 title=系统提示
+  https://www.ms.gov.cn/szxx/index.html -> 404 len=1693 title=404错误提示
+  https://www.ms.gov.cn/api/mail/list -> 404 len=1693 title=404错误提示
+
+===== 达州 首页 互动相关链接 =====
+  H http://www.dazhou.gov.cn/news-list-hdjl.html
+  H https://tousu.www.gov.cn/dc/2024zhdc/index.htm
+  H https://www.dazhou.gov.cn/xxgk-list-szxtabl.html
+  H https://www.dazhou.gov.cn/news-list-hdjl.html
+  [市长信箱] -list-hdjl.html">书记信箱 市长信箱 <a href="https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=
+  [书记信箱] l class="nav_sub_ul"> 书记信箱 市长信箱 
+  [政民互动]  政民互动 <a href="http://www.dazhou.g
+  [在线访谈]  在线访谈 <a href="https://www.dazhou.gov.cn/news-list-hygq.html" target="_blank
+
+===== 达州 候选路径（含 http）=====
+  https://www.dazhou.gov.cn/zmhd/ -> 403 len=42 title=
+  http://www.dazhou.gov.cn/zmhd/index.html -> 403 len=42 title=
+  https://www.dazhou.gov.cn/hdjl/index.html -> 403 len=42 title=
+  https://www.dazhou.gov.cn/szxx/index.html -> 403 len=42 title=
+  https://www.dazhou.gov.cn/mail/ -> 403 len=42 title=
+  http://www.dazhou.gov.cn/ -> 200 len=88661 title=达州市人民政府

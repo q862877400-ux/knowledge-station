@@ -1,0 +1,23 @@
+===== 达州 市长信箱 /xinxiang/ 全文（去标签）=====
+   市长信箱 --> --> 登录 --> --> --> --> 注册 --> --> 2020年10月25日 星期五 13:13:10 --> --> --> 登录 --> --> --> --> 注册 --> --> --> 首&nbsp;&nbsp;&nbsp;&nbsp;页 来信选登 --> 来信统计 --> --> --> 我的信件 个人资料 用户名： --> xxx 昵称： --> 4567894567894567898 --> 手机号： --> 12345649865446 电子邮件： --> 12345678913245@qq.com 修改密码 确认 取消 
+  --- 链接 ---
+  --- AJAX ---
+
+===== 眉山 list_ldxx.jsp 表单字段 + 行结构 =====
+  [form head] <FORM name="leadermailform245916" id="leadermailform245916" style="display: inline;" action="./list_content_ldxxnew.jsp?urltype=tree.TreeTempUrl&wbtreeid=7433" method="post"> <input type="hidden" name="pageNumber245916" id="pageNumber245916" value=""/> <INPUT type="hidden" name="guid" id="guid" value=""/> <DIV class="govitemcontent44098"> <TABLE width="100%" class="winstyle4409
+  INPUT <input type="hidden" name="pageNumber245916" id="pageNumber245916" value=""/>
+  INPUT <INPUT type="hidden" name="guid" id="guid" value=""/>
+  INPUT <input type="button" value="转到" onclick="changeleadermailpage2()"/>
+  INPUT <input type="text" value="" size="4" name="pageznum245916" id="pageznum245916"/>
+  --- 行结构（do_detail 附近）---
+  ROW ak-all;" border="0" cellspacing="0" cellpadding="0"> <TBODY> <TR height="0px" class="titlewinstyle44098"> <TD align="center"><SPAN>标题</SPAN></TD> <TD align="center"><SPAN>信件类型</SPAN></TD> <TD align="center"><SPAN>发布时间</SPAN></TD> </TR> <TR height="0px" align="center"> <TD align="left" style="padding-left: 3px;"> <A style="cursor: pointer;" onclick="do_detail('c592f5c1-26f5-416b-9daa-2677c2eaad2c')" title="关于群众反映医护人员的表扬" target="_blank"> <SPAN 
+  do_detail 出现次数：11
+  guid 样例：c592f5c1-26f5-416b-9daa-2677c2eaad2c, f4ce5876-2539-4f36-897c-a14c67ef86aa, a796cf5e-1635-4544-aae9-4fe94b4b84de, 6ed192c6-d8d2-458f-b85f-c21369aff76f, 28a8c8e1-000e-484b-8226-81628a1f2665
+
+===== 眉山 翻页（POST pageNumber245916=2）=====
+  page2 -> 200 len=24732 do_detail=10 首 guid=['c592f5c1-26f5-416b-9daa-2677c2eaad2c', 'f4ce5876-2539-4f36-897c-a14c67ef86aa', 'a796cf5e-1635-4544-aae9-4fe94b4b84de']
+  统计: 共5658条
+
+===== 眉山 详情（POST guid=<首个guid>）=====
+  detail guid=c592f5c1-26f5-416b-9daa-2677c2eaad2c -> 200 len=24732
+   来信选登-中共眉山市委 眉山市人民政府 门户网站 简体 繁体 无障碍浏览 天地图（眉山） 加入收藏 [退出] 个人中心 首页 领导之窗 党政要闻 政务公开 政务服务 互动交流 走进眉山 投资眉山 来信选登 来信选登 回应关切 在线访谈 访谈计划 意见征集 结果反馈 决策结果 网上调查 互动常见问题知识库 来信选登 当前位置： 首页 >> 互动交流 >> 来信选登 信件流水号 信件查询码 --> 【信件办理统计】 诉求总数: 55870 回复总数: 50357 今日来信: 0 今日回复数: 0 --> .govitemcontent44098a:link { } .govitemcontent44098a:visited { } .govitemcontent44098a:active { } .govitemcontent44098a:hover { } .govitemcontent44098 a {text-decoration: none;} .govitemcontent44098 table { border-collapse: collapse; border:1px #FFA366 solid; } .govitemcontent44098 td { border:1px #FFA366 solid;padding:6px } 标题 信件类型 发布时间 关于群众反映医护人员的表扬 表扬 2026-10-08 关于群众反映对民警和辅警的表扬 表扬 2026-10-08 关于群众反映对警员的表扬 表扬 2026-10-08 关于群众反映遵守交通规则执法的求助 求助 2026-10-08 关于群众反映对景区的投诉 投诉 2026-10-08 关于群众反映修剪绿化带的求助 求助 2026-10-08 关于群众反映拆除蜂巢的求助 求助 2026-10-08 关于群众反映对派出所的表扬 表扬 2026-10-08 关于群众反映垃圾车的求助 求助 2026-10-08 关于群众反映对社区干部的表扬 表扬 2026-10-08 共5658条&nbsp;&nbsp;&nbsp;&nbsp;1页/566页&nbsp;&nbsp;&nbsp;&nbsp;首页&nbsp;&nbsp;上一页&nbsp;&nbsp; 下一页 &nbsp;&nbsp; 尾页 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 页 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028

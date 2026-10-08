@@ -1,0 +1,20 @@
+===== 达州 /xinxiang/ 原始 HTML 片段 =====
+  len=8890
+  [来信选登] city.html" class="tab-box" style="margin-right: 0.2rem;"> <div class="tab-text">来信选登</div> <div class="tab-tip"></div> </li> <!--<li data-name="html/statistics.html" class="tab-box">--> 
+  [来信统计]  data-name="html/statistics.html" class="tab-box">--> <!-- <div class="tab-text">来信统计</div>--> <!-- <div class="tab-tip"></div>--> <!--</li>--> <li data-name="html/my-letter.html" class="tab
+  [href] ame="ColumnType" content="市长信箱"> <title>市长信箱</title> <link rel="stylesheet" type="text/css" href="css/index.css" /> <link rel="stylesheet" href="css/jquery.datetimepicker.css"> <link rel="stylesheet" type="text/css" href="css/kkpager_orange.css
+  [src=] el="stylesheet" type="text/css" href="css/kkpager_orange.css" /> <script type="text/javascript" src="js/echarts.min.js"></script> <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> <script src="js/jquery.datetimepicker.full.min.
+
+===== 达州 首页 AJAX 片段（书记信箱/市长信箱区域）=====
+  [xinxiang] i"><a href="http://www.dazhou.gov.cn/news-list-hdjl.html">书记信箱</a></li> <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/xinxiang/">市长信箱</a></li> <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml">意见征集与调查</a></li> <li class="nav_sub_li"><a href="http://z
+  [dzmyzjList] t> </div> </div> <!-- end --> </div> <script> function getList() { $.ajax({ url: '/index.php?s=dzmyzj&c=home&m=dzmyzjList', type: 'GET', data: { page: 1, limit: 7 }, success: function(res) { let data = JSON.parse
+  [dzmyzjDetail] a[i].title+`">`+data[i].title+`</a></li>` }else { str += `<li><a href="/index.php?s=dzmyzj&c=home&m=dzmyzjDetail&id=`+data[i].id+`" title="`+data[i].title+`">`+data[i].title+`</a></li>` } } $('.myzx-list').html(str); }
+  [书记信箱] l">政民互动</a> <ul class="nav_sub_ul"> <li class="nav_sub_li"><a href="http://www.dazhou.gov.cn/news-list-hdjl.html">书记信箱</a></li> <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/xinxiang/">市长信箱</a></li> <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home
+
+===== 眉山 POST 到 list_content_ldxxnew.jsp（翻页 pageNumber245916=2）=====
+  -> 200 len=15966 do_detail=0 首 guid=[]
+   来信内容详情-中共眉山市委 眉山市人民政府 门户网站 简体 繁体 无障碍浏览 天地图（眉山） 加入收藏 [退出] 个人中心 首页 领导之窗 党政要闻 政务公开 政务服务 互动交流 走进眉山 投资眉山 来信选登 来信选登 回应关切 在线访谈 访谈计划 意见征集 结果反馈 决策结果 网上调查 互动常见问题知识库 来信内容详情 当前位置： 首页 >> 互动交流 >> 来信选登 >> 来信内容详情 信件流水号 信件查询码 --> 暂无数据 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028-38119999（非眉山区域拨打） 网站标识码：5114000002&nbsp; &nbsp; 蜀ICP备12025919号-1 &nbsp;川公网安备51140202000001 推荐使用1366*768分
+
+===== 眉山 POST 详情（guid=c592f5c1-…）=====
+  -> 200 len=15966
+  信件流水号 信件查询码 --> 暂无数据 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028-38119999（非眉山区域拨打） 网站标识码：5114000002&nbsp; &nbsp; 蜀ICP备12025919号-1 &nbsp;川公网安备51140202000001 推荐使用1366*768分辨率以上显示器及IE8.0以上版本浏览器进行浏览 "六稳""六保" "互联网+督查" 政务好差评 眉山发布微信 

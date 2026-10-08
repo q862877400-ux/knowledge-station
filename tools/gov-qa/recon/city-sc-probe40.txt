@@ -1,0 +1,25 @@
+===== 达州 /xinxiang/ 所有 data-name =====
+  data-name: html/home.html, html/publicity.html, html/statistics.html, html/my-letter.html
+  html/home.html -> 200 ct=text/html len=7418
+      梁&nbsp;磊 市委副书记，市长 市长简介 我要写信 登录 注册 来信查询 查询编号： 查询密码： 验证码： --> 查询 重置 登录 注册 我要写信 来信查询 来信选登 查看更多>> 回复时间 --> --> 123456789 关于相关部门督促万源智慧停车场宏源领地... 2020-01-16 --> 来信统计 - 查询 查看更多>> --> 来信查询 查询编号： 查询密码： 验证码： --> 确认 取消 
+  html/publicity.html -> 200 ct=text/html len=2615
+      快速查询： 请选择受理类型 --> 二级菜单1 二级菜单2 二级菜单3 --> 信件主题检索： 请选择受理类型 --> 查找 重置 信件主题 信件类型 来信时间 回复时间 办理部门 当前节点 反映涟钢奶牛山小区710栋301室卫生问题莱克斯顿防溺水 求助 2020-11-13 15:38:20 2020-11-13 15:38:20 政府办 当前节点 --> 
+     [page] d">当前节点</td> </tr> --> </table> <div id="kkpager" style="margin-top: 20px;"></div> </div> <script type="text/javascript" src="js/publicity.js"></script> 
+  html/statistics.html -> 200 ct=text/html len=2148
+      信件数量： --> 8489 --> 办结数量： --> 8489 --> 处理中： --> 45 --> 开始时间： 结束时间： 查找 重置 单位名称 信件数量 办结数量 处理中 办结率 --> 教育局 --> 1333 --> 13 --> 23 --> 78% --> --> 
+     [page] %</td>--> <!--</tr>--> </table> <div id="kkpager" style="margin-top: 20px;"></div> </div> 
+  html/my-letter.html -> 200 ct=text/html len=2542
+      信件快速查询： 请选择受理类型 --> 信件主题检索： 请选择受理类型 --> 查找 重置 --> 信件主题 --> 信件类型 --> 来信时间 --> 回复时间 --> 办理部门 --> 当前节点 --> --> --> 反映涟钢奶牛山小区710栋301室卫生问题莱克斯顿防溺水 --> 求助 --> 2020-11-13 15:38:20 --> 2020-11-13 15:38:20 --> 政府办 --> 当前节点 --> --> 
+     [page] </td>--> <!--</tr>--> </table> <div id="kkpager" style="margin-top: 20px;"></div> </div> <script type="text/javascript" src="js/my-letter.js"></script>
+
+===== 眉山 GET 详情（guid 作为 query）=====
+  -> 200 len=20236 有数据=True
+     信件流水号 信件查询码 --> .govitemcontentdetal44025 table { border-collapse:collapse; border:1px #ecc197 solid; } .govitemcontentdetal44025 td { border:1px #ecc197 solid; padding:6px } .govitemcontent45231 input[type="submit"]{padding:5px 15px; background-color: #cb0306;border:0;margin:0; color: #fff;} 标题: 关于群众反映医护人员的表扬 编号: RGDH995114002026093000760 内容分类: 表扬 来电/信时间: 2026-09-30 是否公开: 主动公开 回复时间: 2026-10-08 承办部门: 东坡区热线,东坡区卫生健康局 反映诉求 孩子曾5月时在眉山市中医院急诊科、ICU、身心疾病科住院，各科室医护人员工作认真负责，尤其是ICU的医生，对孩子病情沟通到位，工作非常负责。特来电表示感谢。 办理结果 您好！您的诉求已收悉，现将有关情况回复如下： 衷心感谢您对眉山市中医医院医疗卫生工作的理解与肯定。我局已将您的表扬转达至医院及相关科室，医院将对医生及全体在岗医护人员予以通报表扬，激励全体医务工作者坚守医者初心、精进诊疗业务，持续优化医疗服务质量、提升医患沟通效能，为群众提供更加优质、暖心的医疗卫生服务。 感谢您对我们工作的理解与支持！ 东坡区热线,东坡区卫生健康局 2026-10-08 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028-38119999（非眉山区域拨打） 网站标识码：5114000002&nbsp; &nbsp; 蜀ICP备12025919号-1 &nbsp;川公网安备51140202000001 推荐使用1366*768分辨率以上显示器及IE8.0以上
+  -> 200 len=20236 有数据=True
+     信件流水号 信件查询码 --> .govitemcontentdetal44025 table { border-collapse:collapse; border:1px #ecc197 solid; } .govitemcontentdetal44025 td { border:1px #ecc197 solid; padding:6px } .govitemcontent45231 input[type="submit"]{padding:5px 15px; background-color: #cb0306;border:0;margin:0; color: #fff;} 标题: 关于群众反映医护人员的表扬 编号: RGDH995114002026093000760 内容分类: 表扬 来电/信时间: 2026-09-30 是否公开: 主动公开 回复时间: 2026-10-08 承办部门: 东坡区热线,东坡区卫生健康局 反映诉求 孩子曾5月时在眉山市中医院急诊科、ICU、身心疾病科住院，各科室医护人员工作认真负责，尤其是ICU的医生，对孩子病情沟通到位，工作非常负责。特来电表示感谢。 办理结果 您好！您的诉求已收悉，现将有关情况回复如下： 衷心感谢您对眉山市中医医院医疗卫生工作的理解与肯定。我局已将您的表扬转达至医院及相关科室，医院将对医生及全体在岗医护人员予以通报表扬，激励全体医务工作者坚守医者初心、精进诊疗业务，持续优化医疗服务质量、提升医患沟通效能，为群众提供更加优质、暖心的医疗卫生服务。 感谢您对我们工作的理解与支持！ 东坡区热线,东坡区卫生健康局 2026-10-08 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长热线）电话2：&nbsp;028-38119999（非眉山区域拨打） 网站标识码：5114000002&nbsp; &nbsp; 蜀ICP备12025919号-1 &nbsp;川公网安备51140202000001 推荐使用1366*768分辨率以上显示器及IE8.0以上
+  -> 200 len=25180 有数据=True
+     信件流水号 信件查询码 --> 【信件办理统计】 诉求总数: 55870 回复总数: 50357 今日来信: 0 今日回复数: 0 --> .govitemcontent44098a:link { } .govitemcontent44098a:visited { } .govitemcontent44098a:active { } .govitemcontent44098a:hover { } .govitemcontent44098 a {text-decoration: none;} .govitemcontent44098 table { border-collapse: collapse; border:1px #FFA366 solid; } .govitemcontent44098 td { border:1px #FFA366 solid;padding:6px } 标题 信件类型 发布时间 关于群众反映医护人员的表扬 表扬 2026-10-08 关于群众反映对民警和辅警的表扬 表扬 2026-10-08 关于群众反映对警员的表扬 表扬 2026-10-08 关于群众反映遵守交通规则执法的求助 求助 2026-10-08 关于群众反映对景区的投诉 投诉 2026-10-08 关于群众反映修剪绿化带的求助 求助 2026-10-08 关于群众反映拆除蜂巢的求助 求助 2026-10-08 关于群众反映对派出所的表扬 表扬 2026-10-08 关于群众反映垃圾车的求助 求助 2026-10-08 关于群众反映对社区干部的表扬 表扬 2026-10-08 共5658条&nbsp;&nbsp;&nbsp;&nbsp;1页/566页&nbsp;&nbsp;&nbsp;&nbsp;首页&nbsp;&nbsp;上一页&nbsp;&nbsp; 下一页 &nbsp;&nbsp; 尾页 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 页 关于我们 | 网站地图 主管:中共眉山市委眉山市人民政府&nbsp;&nbsp;&nbsp;&nbsp; 主办:眉山市人民政府办公室 眉山市12345政务服务热线（市长热线）电话1：028-12345（眉山区域拨打） &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 眉山市12345政务服务热线（市长
+
+===== 眉山 GET 翻页（pageNumber245916 query）=====
+  pageNumber=2 -> 200 len=24844 首guid=['face47e8-1593-46fc-be63-0f23f608dcd3', '72545405-8e3f-44a6-bb99-f81ed5437e3a']
+  pageNumber=3 -> 200 len=24844 首guid=['c48ef1eb-5eaf-4812-aa69-594b7af53b0a', 'ca24aadb-0bd1-4b3b-a88a-72c385461192']

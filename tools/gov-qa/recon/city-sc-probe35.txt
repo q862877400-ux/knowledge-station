@@ -1,0 +1,43 @@
+===== 达州 民议征集列表 JSON =====
+  https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjList&page=1 -> 200 ct=text/html; charset=utf-8 len=7275581
+  	{"code":"200","message":"\u6210\u529f","total":123,"row":[{"id":"152","displayorder":"0","title":" \u8fbe\u5dde\u5e02\u53f8\u6cd5\u5c40\u5173\u4e8e\u516c\u5f00\u5f81\u96c6\u5e02\u653f\u5e9c2027\u5e74\u7acb\u6cd5\u9879\u76ee\u5efa\u8bae\u7684\u516c\u544a","organization_id":"8","status":"1","news_id":null,"start_time":"1788770022","end_time":"1791621234","message_astrict":"0","outlink":"","auth_code":"0","abstract":"","content":"<p><br\/><\/p><p style=\";text-align: justify;font-family: Calibri;font-size: 14px;text-wrap: wrap;text-indent: 43px;line-height: 39px\"><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\"><span style=\"font-family:\u4eff\u5b8b\">\u4e3a\u79d1\u5b66\u7f16\u5236<\/span><span style=\"font-family:\u4eff\u5b8b\">202<\/span><\/span><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\">7<\/span><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\"><span sty
+  https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjList&page=2 -> 200 ct=text/html; charset=utf-8 len=7275581
+  	{"code":"200","message":"\u6210\u529f","total":123,"row":[{"id":"152","displayorder":"0","title":" \u8fbe\u5dde\u5e02\u53f8\u6cd5\u5c40\u5173\u4e8e\u516c\u5f00\u5f81\u96c6\u5e02\u653f\u5e9c2027\u5e74\u7acb\u6cd5\u9879\u76ee\u5efa\u8bae\u7684\u516c\u544a","organization_id":"8","status":"1","news_id":null,"start_time":"1788770022","end_time":"1791621234","message_astrict":"0","outlink":"","auth_code":"0","abstract":"","content":"<p><br\/><\/p><p style=\";text-align: justify;font-family: Calibri;font-size: 14px;text-wrap: wrap;text-indent: 43px;line-height: 39px\"><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\"><span style=\"font-family:\u4eff\u5b8b\">\u4e3a\u79d1\u5b66\u7f16\u5236<\/span><span style=\"font-family:\u4eff\u5b8b\">202<\/span><\/span><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\">7<\/span><span style=\"font-family: \u4eff\u5b8b;font-size: 21px\"><span sty
+
+===== 达州 民议征集详情 =====
+  id=1 -> 200 ct=text/html; charset=utf-8 len=29454
+  	<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="//www.dazhou.gov.cn/statics/www/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  	<meta name=renderer  content=webkit>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <title>达州市人民政府_民意征集_</title>
+    <meta name="SiteName" content="达州市人民政府">
+    <meta name="SiteDomain" content="http://www.dazhou.gov.cn/">
+    <meta name="SiteIDCode"  content="360900000000">    
+    <meta name="ColumnName" content="民意征集">
+    <meta name="ColumnDescription" content="意见征集"/>
+    <meta name="Column
+
+===== 达州 书记信箱 news-list-hdjl.html 列表条目 =====
+  [show 199910] ve"> 首页 走进达州 达州概况 <a href="http://www.
+  [/index.php]  <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml">意见征集与调查</a></li> <li class="nav_sub_li"><a href="http://zxbl.sczwfw.gov.cn/app/serviceYouHua/newMainDh?areaCode=511700000000">我要办事</a></li> <li
+  [list-hdjl]  <li class="hd_nav_li"> <a href="http://www.dazhou.gov.cn/news-list-hdjl.html">政民互动</a> <ul class="nav_sub_ul"> <li class="nav_sub_li"><a href="htt
+
+===== 眉山 WCM 来信选登 list_ldxx.jsp =====
+  len=24732
+  H list_ldxx.vsb.css
+  H list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761
+  H ../17_hudong/list_hygq.jsp?urltype=tree.TreeTempUrl&wbtreeid=4891
+  H zxft_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=2048
+  H ../17_hudong/yjzj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=4869
+  H ../17_hudong/jgfk_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=4870
+  H ../17_hudong/copy_1_jgfk_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=5832
+  H list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761
+  H https://bszs.conac.cn/sitename?method=show&id=08207C38070344E6E053022819AC5C0C
+   来信选登-中共眉山市委 眉山市人民政府 门户网站 简体 繁体 无障碍浏览 天地图（眉山） 加入收藏 [退出] 个人中心 首页 领导之窗 党政要闻 政务公开 政务服务 互动交流 走进眉山 投资眉山 来信选登 来信选登 回应关切 在线访谈 访谈计划 意见征集 结果反馈 决策结果 网上调查 互动常见问题知识库 来信选登 当前位置： 首页 >> 互动交流 >> 来信选登 信件流水号 信件查询码 --> 【信件办理统计】 诉求总数: 55870 回复总数: 50357 今日来信: 0 今日回复数: 0 --> .govitemcontent44098a:link { } .govitemcontent44098a:visited { } .govitemcontent44098a:active { } .govitemcontent44098a:hover { } .govitemcontent44098 a {text-decoration: none;} .govitemcontent44098 table { border-collapse: collapse; border:1px #FFA366 solid; } .govitemcontent44098 td { border:1px #FFA366 solid;padding:6px } 标题 信件类型 发布时间 关于群众反映医护人员的表扬 表扬 2026-10-08 关于群众反映对民警和辅警的表扬 表扬 2026-10-08 关于群众反映对警员的表扬 表扬 2026-10-08 关于群众反映遵守交通规则执法的求助 求助 
+  [page] e=tree.TreeTempUrl&wbtreeid=7433" method="post"> <input type="hidden" name="pageNumber245916" id="pageNumber245916" value=""/> <INPUT type="hidden" name="guid" id="guid" value=""/> <DIV cl
+  [下一页] p;&nbsp;上一页&nbsp;&nbsp;<a href="javascript:;" onclick="changeleadermailpage(1)">下一页</a>&nbsp;&nbsp;<a href="javascript:;" onclick="changeleadermailpage(565)">尾页</a>&nbsp;&nbsp;&nbsp;&nbsp;<input type=
+  [共] <!DOCTYPE html><HTML><HEAD><TITLE>来信选登-中共眉山市委 眉山市人民政府 门户网站</TITLE> <!-- 站点类 --> <META Name="SiteName" Content="中共眉山市委 眉山市人民政府 门户网站" /> <META Name="SiteDomai

@@ -1,0 +1,119 @@
+===== 眉山 互动交流 /17_hudong/hdjl_index.jsp =====
+  len=43483
+  H hdjl_index.vsb.css
+  H https://open.sczwfw.gov.cn/open-platform-exchange/exchange/getResource?resourceCode=ZYZC2019112500000197&applyCode=YYSQ2021040700001723&sysCode=0003&t
+  H /system/resource/getcaurl.jsp?base64url=true
+  H hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+  H http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=5999
+  H ../old13/list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761
+  H ../hdjl/hdcjwtzsk.htm
+  H ../old13/zxft_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=2048
+  H ../hdjl/ftjh.htm
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUzMA%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUzMA%3D%3D
+  H ../old13/ftytw.jsp?urltype=tree.TreeTempUrl&wbtreeid=5015&interview=MjUzMQ%3D%3D
+  H jgfk_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=4870
+  H yjzj_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=4869
+  H jgfk_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=4870
+  H yjzj.jsp?urltype=opinioncollect.OpinionContentUrl&wbtreeid=1010&wbopinioncollectionid=3764
+  H yjzj.jsp?urltype=opinioncollect.OpinionContentUrl&wbtreeid=1010&wbopinioncollectionid=3761
+  H yjzj.jsp?urltype=opinioncollect.OpinionContentUrl&wbtreeid=1010&wbopinioncollectionid=3752
+  H yjzj.jsp?urltype=opinioncollect.OpinionContentUrl&wbtreeid=1010&wbopinioncollectionid=3746
+  H yjzj.jsp?urltype=opinioncollect.OpinionContentUrl&wbtreeid=1010&wbopinioncollectionid=3745
+  H jgfk.jsp?urltype=opinioncollect.OpinionResultContentUrl&wbtreeid=1010&wbopinionresultid=2964
+  H jgfk.jsp?urltype=opinioncollect.OpinionResultContentUrl&wbtreeid=1010&wbopinionresultid=2963
+  H jgfk.jsp?urltype=opinioncollect.OpinionResultContentUrl&wbtreeid=1010&wbopinionresultid=2962
+  H jgfk.jsp?urltype=opinioncollect.OpinionResultContentUrl&wbtreeid=1010&wbopinionresultid=2961
+  H jgfk.jsp?urltype=opinioncollect.OpinionResultContentUrl&wbtreeid=1010&wbopinionresultid=2951
+  H list_hygq.jsp?urltype=tree.TreeTempUrl&wbtreeid=4891
+  H ../old13/zxft_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=2048
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUzMA%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUyOQ%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUyOA%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUyNw%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjUyNg%3D%3D
+  H ../old13/zxft_nr.jsp?urltype=interview.InterviewContentURL&wbtreeid=1010&interview=MjQ3MQ%3D%3D
+  H ../hdjl/wsdc.htm
+  H ../old13/dcwj.jsp?urltype=survey.SurveyContentUrl&wbtreeid=1010&surveyid=5509
+  H ../old13/dcwj.jsp?urltype=survey.SurveyContentUrl&wbtreeid=1010&surveyid=5498
+  H ../old13/dcwj.jsp?urltype=survey.SurveyContentUrl&wbtreeid=1010&surveyid=5491
+  H ../old13/dcwj.jsp?urltype=survey.SurveyContentUrl&wbtreeid=1010&surveyid=5471
+  H ../old13/dcwj.jsp?urltype=survey.SurveyContentUrl&wbtreeid=1010&surveyid=5458
+  H https://bszs.conac.cn/sitename?method=show&id=08207C38070344E6E053022819AC5C0C
+  [信箱] ColumnType" Content="互动交流" /> <SCRIPT src="https://hm.baidu.com/hm.js?ce25b27836955eea
+  [互动]  互动交流-中共眉山市委 眉山市人民政府 门户网站 <META Name="SiteDomain" Content="ww
+  [办理]  left"> 【信件办理统计】 诉求总数: 55870 <td style="padding-left: 20px;
+  [选登] > 来信选登 政民互动常见问题知识库 <DIV c
+  [公开]  政务公开 <a href="http://mss.sczwfw.gov.cn/?areaCode=511400000000" target="_bl
+
+===== 眉山 市长信箱 swmail.jsp =====
+  len=14895
+  H swmail.vsb.css
+  H https://open.sczwfw.gov.cn/open-platform-exchange/exchange/getResource?resourceCode=ZYZC2019112500000197&applyCode=YYSQ2021040700001723&sysCode=0003&t
+  H /system/resource/getcaurl.jsp?base64url=true
+  H ../17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+  H https://bszs.conac.cn/sitename?method=show&id=08207C38070344E6E053022819AC5C0C
+   给市委书记/市长写信-中共眉山市委 眉山市人民政府 门户网站 简体 繁体 无障碍浏览 天地图（眉山） 加入收藏 [退出] 个人中心 首页 领导之窗 党政要闻 政务公开 政务服务 互动交流 走进眉山 投资眉山 我要写信 受理查询 受理编号: 提 取 码: 写信须知 （一）请您在写信活动中遵守宪法、法律、法规、规章以及社会公德。 （二）写信时请您认真填写表格（带*的为必填项，不能为空），留下您的真实姓名、联系电话、联系地址等，以便有关方面在处理时可以更好地与您联系。 （三）写信时请保持内容完整、表述清楚，就事论事、详略得当，避免语言过激，同时请不要用链接网页或下载其他媒体报道的形式代替写信。 （四）请您如实反映情况，不得捏造、歪曲事实、诽谤、诬告、陷害他人。不得发表含有猥亵、色情、人身攻击和反政府言论。 （五）提交信件成功后，请您将得到的信件查询码妥善保存，以备查用。 （六）本栏目由眉山市12345市民服务热线负责管理维护，各县（区）、市政府各部门、各相关单位配合答复。 （七）如在本栏发言，即表明已阅读并接受了上述各项条款。 （八） *按照政府网站管理要求，本站“写信功能”须通过“四川政
+
+===== 达州 民议征集 index.php?s=dzmyzj =====
+  https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=index -> 403 len=42 title=
+  https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home -> 403 len=42 title=
+  https://www.dazhou.gov.cn/index.php?s=dzmyzj -> 403 len=42 title=
+  http://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home -> 403 len=42 title=
+
+===== 达州 news-list-hdjl.html =====
+  len=27377
+  H /statics/www/css/hdjl.css
+  H javascript:free_Web.Function.show.Start();
+  H http://www.dazhou.gov.cn/news-list-zoujindazhou.html
+  H http://www.dazhou.gov.cn/news-show-199910.html
+  H http://www.dazhou.gov.cn/news-list-dzxcj.html
+  H http://www.dazhou.gov.cn/news-list-dazhoufazhan.html
+  H http://www.dazhou.gov.cn/news-list-touzidazhou.html
+  H http://www.dazhou.gov.cn/news-list-wenludazhou.html
+  H http://www.dazhou.gov.cn/news-list-dznj.html
+  H http://www.dazhou.gov.cn/news-list-hongsedazhou.html
+  H http://www.dazhou.gov.cn/news-list-zfld.html
+  H http://www.dazhou.gov.cn/news-list-liangleidz.html
+  H http://www.dazhou.gov.cn/news-list-zfld.html
+  H http://www.dazhou.gov.cn/news-list-lizhurong.html
+  H /news-list-zfcwhy.html
+  H http://www.dazhou.gov.cn/news-list-zfld.html
+  H http://www.dazhou.gov.cn/news-list-jigouzhineng.html
+  H http://www.dazhou.gov.cn/news-list-jigouzhineng.html
+  H http://www.dazhou.gov.cn/news-list-jigouzhineng.html
+  H http://www.dazhou.gov.cn/news-list-dazhouzixun.html
+  H http://www.dazhou.gov.cn/news-list-jinridazhou.html
+  H http://www.dazhou.gov.cn/news-list-tongmeng.html
+  H http://www.dazhou.gov.cn/news-list-zfld.html
+  H http://www.dazhou.gov.cn/news-list-bumendongtai.html
+  H http://www.dazhou.gov.cn/news-list-xsqdt.html
+  H http://www.dazhou.gov.cn/news-list-gsgg.html
+  H http://www.dazhou.gov.cn/news-list-zwgk.html
+  H http://www.dazhou.gov.cn/xxgk-show-11.html
+  H http://www.dazhou.gov.cn/news-list-zfwj.html
+  H http://www.dazhou.gov.cn/news-list-hygq.html
+  H http://www.dazhou.gov.cn/news-list-hdjl.html
+  H http://www.dazhou.gov.cn/news-list-hdjl.html
+  H http://www.dazhou.gov.cn/news-list-hdjl.html
+  H https://www.dazhou.gov.cn/news-list-zhengminghudong.html
+  H http://www.dazhou.gov.cn/news-list-hygq.html
+  H http://www.dazhou.gov.cn/news-list-hygq.html
+  H http://www.dazhou.gov.cn/news-list-jieguofankui.html
+  H http://www.dazhou.gov.cn/news-show-271156.html
+  H http://www.dazhou.gov.cn/news-show-270827.html
+  H http://www.dazhou.gov.cn/news-show-270825.html
+  H http://www.dazhou.gov.cn/news-show-270669.html
+  H http://www.dazhou.gov.cn/news-show-270588.html
+  H http://www.dazhou.gov.cn/news-show-270544.html
+  H http://www.dazhou.gov.cn/news-list-zaixianfangtanliebiao.html
+  H http://www.dazhou.gov.cn/news-list-zaixianfangtanliebiao.html
+  H http://www.dazhou.gov.cn/news-list-zaixianfangtanshouye.html
+  H http://www.dazhou.gov.cn/news-list-zaixianfangtanshouye.html
+  H api-zxft-show-430.html
+  H api-zxft-show-432.html
+  H http://www.dazhou.gov.cn/news-list-zwxmtjz.html
+  H /news-list-wangzhandaohang.html
+  H /news-show-185149.html
+  H /xxgk-show-11.html
+   达州市人民政府_政民互动 中央人民政府网&nbsp;&nbsp; | &nbsp;&nbsp; 四川省政府网 简&nbsp; | &nbsp; 繁&nbsp; | &nbsp; 无障碍浏览&nbsp; | &nbsp; &nbsp; | &nbsp; 统一用户登录&nbsp; | &nbsp; --> 网站支持IPv6 关闭 --> 首页 走进达州 达州概况 达州新成就 达州发展 --> 投资达州 文旅达州 达州志鉴 红色达州 --> 政府领导 市长 副市长 秘书长 市政府常务会议 市政府领导活动 机构职能 市政府工作部门 县（市、区）政府 达州新闻 今日达州 书记活动 市长活动 市政府 部门动态 县（市、区）动态 公示公告 政务公开 政府信息公开 政府文件 回应关切 政务服务 个人服务 法人服务 政务公开 公共服务清单 政民互动 书记信箱 市长信箱 意见征集与调查 我要办事 智能问答 热点问答 数据开放 搜索 童&nbsp;梦 中共达州市委书记 给我写信 梁&nbsp;磊 市委副书记，市长 给我写信 意见征集与调查 更多>> 回应关切 更多>> 结果反馈 更多>> 达州市生态环境局关于《达... 2026-07-13 达州市司法局关于公开征求... 2026-06-15 达州市市场监督管理局关于... 2026-06-11 达州市财政局关于公开征求... 2026-06-08 

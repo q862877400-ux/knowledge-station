@@ -1,0 +1,32 @@
+===== 达州 市长信箱 /xinxiang/ =====
+  https://www.dazhou.gov.cn/xinxiang/ -> 200 ct=text/html; charset=utf-8 len=9354 title=市长信箱
+  https://www.dazhou.gov.cn/xinxiang/index.html -> 200 ct=text/html; charset=utf-8 len=9354 title=市长信箱
+  https://www.dazhou.gov.cn/xinxiang/list.html -> 404 ct=text/html len=548 title=404 Not Found
+
+===== 达州 news-list-hdjl.html 正文与 AJAX =====
+  [/index.php?s=] i> <li class="nav_sub_li"><a href="https://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml">意见征集与调查</a></li> <li class="nav_sub_li"><a href="http://zxbl.sczwfw.gov.cn/app/serviceYouHua/newMainDh?areaCode=511700000000">我要办事</a></li> <li class="nav_sub_li"><a href="https://www
+  [/index.php?s=] yle="margin-top: 20px;"> <a target="_blank" href="http://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml" class="news_name ">意见征集与调查</a> <a target="_blank" href="http://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml" class="news_more ">更多>></a> </div> <ul class="ul_box ul_boxs" id="" style="margin-
+  [/index.php?s=] "news_name ">意见征集与调查</a> <a target="_blank" href="http://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml" class="news_more ">更多>></a> </div> <ul class="ul_box ul_boxs" id="" style="margin-top: 0;width: 100%;height: 207px; padding-left: 10px;padding-right: 19px;font-size: 16px;"data= > </ul> <div class="n
+  [/index.php?s=] s="news_tit clearfix "> <a target="_blank" href="http://www.dazhou.gov.cn/index.php?s=dzmyzj&c=home&m=dzmyzjHtml" class="news_name ">结果反馈</a> <a target="_blank" href="http://www.dazhou.gov.cn/news-list-jieguofankui.html" class="news_more ">更多>></a> </div> <li> <a target="_blank" class="as clearfix" h
+  [getList] ); } } }); }) </script> <script> function getList() { $.ajax({ url: '/index.php?s=dzmyzj&c=home&m=dzmyzjList', type: 'GET', data: { page: 1, limit: 6 }, 
+  [.ajax] }) </script> <script> function getList() { $.ajax({ url: '/index.php?s=dzmyzj&c=home&m=dzmyzjList', type: 'GET', data: { page: 1, limit: 6 }, success: funct
+  [url:]  function getList() { $.ajax({ url: '/index.php?s=dzmyzj&c=home&m=dzmyzjList', type: 'GET', data: { page: 1, limit: 6 }, success: function(res) { 
+  [/index.php?s=]  function getList() { $.ajax({ url: '/index.php?s=dzmyzj&c=home&m=dzmyzjList', type: 'GET', data: { page: 1, limit: 6 }, success: function(res) { l
+  [/index.php?s=] e { str += `<li class="lis"><a class="left" href="/index.php?s=dzmyzj&c=home&m=dzmyzjDetail&id=`+data[i].id+`" title="`+data[i].title+`"><img src="/statics/www/images/ztlogo.png" >`+data[i].title+`</a><a target="_blank" href="">`+timea+`</a></li>` } 
+  [getList] ml(str); } }) } getList(); $(function(){ tabIndex('.briefing_title p', '.briefing_cent_fr ul'); $(".tempWrap").css("width","1200px"); }); </script> </html>
+  PAGELINK /statics/www/css/hdjl.css
+  PAGELINK http://www.dazhou.gov.cn/news-list-hdjl.html
+  PAGELINK http://www.dazhou.gov.cn/news-list-hdjl.html
+  PAGELINK http://www.dazhou.gov.cn/news-list-hdjl.html
+
+===== 眉山 WCM changeleadermailpage 函数 + 详情链接 =====
+  [js]  src="../13/images/lead/mail-box_tj.jpg" border="0"></SPAN> </A> </TD> </TR></TBODY></TABLE> <TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> <TBODY> <TR> <TD align="center"> 共5658条&nbsp;&nbsp;&nbsp;&nbsp;1页/566页&nbsp;&nbsp;&nbsp;&nbsp;首页&nbsp;&nbsp;上一页&nbsp;&nbsp;<a href="javascript:;" onclick="changeleadermailpage(1)">下一页</a>&nbsp;&nbsp;<a href="javascript:;" onclick="changeleadermailpage(565)">尾页</a>&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="转到" onclick="changeleadermailpage2()"/>&nbsp;<input type="text" value="" size="4" name="pageznum245916" id="pageznum245916"/>页 </TD></TR></TBODY></TABLE> </FORM> <script type="text/javascript"> function do_detail(guid) { document.getElementById("guid").value = guid; document.getElementById("leadermailform245916").submit(); } </script> <script> function changeleadermailpage(page) { document.getElementById("pageNumber245916").value = page; document.getElementById("leadermailform245916").action = ""; document.getElementById("leadermailform245916").submit(); } function changeleadermailpage2() { if (document.getElementById("pageznum245916")) { 
+  --- 信件条目链接 ---
+  D list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761
+  D list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761
+  D ../mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+  [list area] 信件流水号<input type="text" name="acceptNo" id="acceptNo" style="width:120px" > </td> <td nowrap="nowrap"> 信件查询码<input type="text" name="acceptPwd" id="acceptPwd" style="width:120px" > </td> <td align="absmiddle"><input type="image" src="../images/xxgk_r6_c8.jpg" valign="bottom" style="cursor:hand"></td> </tr> </table> </form></DIV></TD></TR><!-- <TR> <TD height="25" valign="top"><A href="/system/go.jsp?treeid=2587&amp;apptype=treetemp&amp;urltype=tree.TreeTempUrl" target="_blank"><IMG border="0" hspace="0" src="images/xx-pic/bmxxtjlb.png" width="726" height="66"></A></TD></TR> --> <TR> <TD height="25" valign="top"> <table style="font-size: 15px;margin-top: 15px;"> <tr> <td rowspan="2">【信件办理统计】</td> <td style="padding-left: 20px;">诉求总数:</td><td><p style="color:red">55870 </p></td> <td style="padding-left: 20px;">回复总数:</td><td><p style="color:red">50357 </p></td> </tr> <tr> <td style="padding-left: 20px;">今日来信:</td><td><p style="color:red">0 </p></td> <td style="padding-left: 20px;">今日回复数:<
+
+===== 眉山 明细候选（从列表抓 id）=====
+  http://www.ms.gov.cn/old13/content_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761 -> 404 len=2414
+  http://www.ms.gov.cn/old13/ldxx_nr.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761 -> 404 len=2414
