@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/cms_files/webgansushengzhengwufuwuwang/tplobject/defaultSet/U9n4tqGONvRFPLTrm4cBP/images/zmhd.css">
+</link></meta></meta><script src="/cms_files/default/script/jslib/jquery.js"></script>
+ <script src="/cms_files/default/script/jslib/jquery.cookie.js"></script>
+ <script src="/cms_files/default/script/layui/layui.all.js"></script>
+ <script src="/cms_files/default/script/layui/layer/layer.js"></script>
+ <script src="/script/webglobal.js"></script>
+ <script src="/plugins/libs/require.js"></script>
+ <script src="/plugins/libs/load.js"></script>
+ <script src="/script/webgray.js"></script>
+ <script src="/script/webgray_d0df1ab25aa64c83811b2aba6cd4e271.js"></script>
+ <link rel="stylesheet" href="/cms_files/default/css/iconfont.css" />
+<link rel="stylesheet" href="/cms_files/default/script/layui/css/layui.css" />
+<title>政民互动</title>
+<meta name="ColId" content="d0df1ab25aa64c83811b2aba6cd4e271">
+<meta name="SiteName" content="甘肃政务服务网">
+<meta name="SiteDomain" content="https://zwfw.gansu.gov.cn">
+<meta name="SiteIDCode" content="6200000113">
+<meta name="ColumnName" content="政民互动">
+<meta name="ColumnType" content="政民互动">
+<meta name="ColumnDescription" content="">
+<meta name="ColumnKeywords" content="政民互动">
+<meta name="server" content="https://zwfw.gansu.gov.cn/zmhd/index.html">
+<meta name="MakeTime" content="2026-08-27 15:03:20">
+
+<meta id="pagetype" content="2">
+</meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></head>
+<body><div id='barrierfree_container'>
+<script src="/cms_files/filemanager/892888968/script/20217/bc1cfe0691c34ead987e22155897f754.js"></script>    <!-- Banner部分 -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title">政民互动</h1>
+            <p class="banner-description">围绕网上办事，向办事人提供咨询、投诉、建议等互动服务。</p>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- 第一块：12345 -->
+        <div class="card">
+            <div class="card-logo"><img src="/cms_files/webgansushengzhengwufuwuwang/tplobject/defaultSet/U9n4tqGONvRFPLTrm4cBP/images/12345.png" /></div>
+            <h3 class="card-title">12345</h3>
+            <a href="https://zwfw.gansu.gov.cn/szgs/hdjl/showIndex12345.do" class="card-button">点击进入</a>
+        </div>
+
+        <!-- 第二块：我要咨询 -->
+        <div class="card">
+            <div class="card-logo"><img src="/cms_files/webgansushengzhengwufuwuwang/tplobject/defaultSet/U9n4tqGONvRFPLTrm4cBP/images/wyzx.png" /></div>
+            <h3 class="card-title">我要咨询</h3>
+            <a href="https://zwfw.gansu.gov.cn/szgs/hdjl/showIndex.do" class="card-button">点击进入</a>
+        </div>
+
+        <!-- 第三块：我要投诉 -->
+        <div class="card">
+            <div class="card-logo"><img src="/cms_files/webgansushengzhengwufuwuwang/tplobject/defaultSet/U9n4tqGONvRFPLTrm4cBP/images/wyts.png" /></div>
+            <h3 class="card-title">我要投诉</h3>
+            <a href="https://zwfw.gansu.gov.cn/szgs/hdjl/showIndexts.do?areaCode=620000000000&zwzxid=9b71f0517b234581b5a911068fd02de5" class="card-button">点击进入</a>
+        </div>
+
+        <!-- 第四块：我要建议 -->
+        <div class="card">
+            <div class="card-logo"><img src="/cms_files/webgansushengzhengwufuwuwang/tplobject/defaultSet/U9n4tqGONvRFPLTrm4cBP/images/wyjy.png" /></div>
+            <h3 class="card-title">我要建议</h3>
+            <a href="https://zwfw.gansu.gov.cn/szgs/hdjl/showIndexjy.do?areaCode=620000000000&zwzxid=9b71f0517b234581b5a911068fd02de5" class="card-button">点击进入</a>
+        </div>
+    </div>
+
+    <script>
+        // 为每个卡片添加点击事件
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                // 如果点击的是按钮，不触发卡片点击事件
+                if (e.target.classList.contains('card-button')) {
+                    return;
+                }
+                
+                // 获取卡片中的按钮链接
+                const button = this.querySelector('.card-button');
+                if (button) {
+                    button.click();
+                }
+            });
+
+            // 添加鼠标进入和离开的动画效果
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // 添加页面加载动画
+        window.addEventListener('load', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script src="/cms_files/filemanager/892888968/script/20217/ff8118e005514463b6ba11fa4b932d4e.js"></script></div></body>
+</html>

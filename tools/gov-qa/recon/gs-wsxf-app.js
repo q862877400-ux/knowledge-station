@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=renderer content=webkit><meta http-equiv=X-UA-Compatible content="IE=edge"><link rel=stylesheet href=/static/css/_common.css><link rel=stylesheet href=/static/css/footstyle.css><link rel="shortcut icon" href=./favicon.ico><title>甘肃省网上信访受理平台</title><script>if (window.HTMLElement) {
+              if (Object.getOwnPropertyNames(HTMLElement.prototype).indexOf('dataset') === -1) {
+                  Object.defineProperty(HTMLElement.prototype, 'dataset', {
+                      get: function () {
+                          let attributes = this.attributes; // 获取节点的所有属性
+                          let name = [];
+                          let value = [];   // 定义两个数组保存属性名和属性值
+                          let obj = {};     // 定义一个空对象
+                          for (let i = 0; i < attributes.length; i++) { // 遍历节点的所有属性
+                              if (attributes[i].nodeName.slice(0, 5) === 'data-') { // 如果属性名的前面5个字符符合"data-"
+                                  // 取出属性名的"data-"的后面的字符串放入name数组中
+                                  name.push(attributes[i].nodeName.slice(5));
+                                  // 取出对应的属性值放入value数组中
+                                  value.push(attributes[i].nodeValue);
+                              }
+                          }
+                          for (var j = 0; j < name.length; j++) { // 遍历name和value数组
+                              obj[name[j]] = value[j]; // 将属性名和属性值保存到obj中
+                          }
+                          return obj // 返回对象
+                      }
+                  })
+              }
+          }</script><link href=/css/chunk-0c7b3610.5a793cec.css rel=prefetch><link href=/css/chunk-0f151ee3.cd7f5993.css rel=prefetch><link href=/css/chunk-22d0b7c0.34849e65.css rel=prefetch><link href=/css/chunk-3765b31e.fea2af82.css rel=prefetch><link href=/css/chunk-3aa1f967.5345e0b8.css rel=prefetch><link href=/css/chunk-3c0016e1.0f878ccf.css rel=prefetch><link href=/css/chunk-42d504f0.f3430e14.css rel=prefetch><link href=/css/chunk-4346fe50.6c58bf14.css rel=prefetch><link href=/css/chunk-4548cbbb.d5af33be.css rel=prefetch><link href=/css/chunk-45ccede5.67823fca.css rel=prefetch><link href=/css/chunk-4f7acae8.0518d26a.css rel=prefetch><link href=/css/chunk-525d3e44.5283b59f.css rel=prefetch><link href=/css/chunk-57d55e3e.784016d7.css rel=prefetch><link href=/css/chunk-58447313.40aa5574.css rel=prefetch><link href=/css/chunk-5d30c29a.cd61087d.css rel=prefetch><link href=/css/chunk-5e96e36d.f5c169ac.css rel=prefetch><link href=/css/chunk-6645ecd8.01020453.css rel=prefetch><link href=/css/chunk-6694f7ec.e6b12fe3.css rel=prefetch><link href=/css/chunk-6882c174.e75e2dfd.css rel=prefetch><link href=/css/chunk-69ee9aa6.186b5770.css rel=prefetch><link href=/css/chunk-6b5af474.4d13e12f.css rel=prefetch><link href=/css/chunk-71d50dae.0d55b28f.css rel=prefetch><link href=/css/chunk-842ab0a8.4048ca7f.css rel=prefetch><link href=/css/chunk-a5997d98.61270a28.css rel=prefetch><link href=/css/chunk-b6847ec0.ee3a71c8.css rel=prefetch><link href=/css/chunk-bc388006.1268e709.css rel=prefetch><link href=/css/chunk-c3f3257a.b9d0649b.css rel=prefetch><link href=/css/chunk-c9310f1e.a7d2ba24.css rel=prefetch><link href=/css/chunk-d59eb1b2.f3c00656.css rel=prefetch><link href=/js/chunk-0c7b3610.a1e7d1cb.js rel=prefetch><link href=/js/chunk-0f151ee3.dba7a071.js rel=prefetch><link href=/js/chunk-22d0b7c0.97bf5753.js rel=prefetch><link href=/js/chunk-2d0b309a.cecc5a8f.js rel=prefetch><link href=/js/chunk-2d0d5c40.9e58b4cd.js rel=prefetch><link href=/js/chunk-3765b31e.0cee88db.js rel=prefetch><link href=/js/chunk-3aa1f967.6cb987f5.js rel=prefetch><link href=/js/chunk-3c0016e1.1562b4ff.js rel=prefetch><link href=/js/chunk-42d504f0.c578c9e5.js rel=prefetch><link href=/js/chunk-4346fe50.92a5f5d0.js rel=prefetch><link href=/js/chunk-4548cbbb.2217e0c6.js rel=prefetch><link href=/js/chunk-45ccede5.802872d6.js rel=prefetch><link href=/js/chunk-4f7acae8.89900b8a.js rel=prefetch><link href=/js/chunk-525d3e44.f225689b.js rel=prefetch><link href=/js/chunk-57d55e3e.a5ebbacb.js rel=prefetch><link href=/js/chunk-58447313.2beb7f93.js rel=prefetch><link href=/js/chunk-5d30c29a.f49753a7.js rel=prefetch><link href=/js/chunk-5e96e36d.dd49cbde.js rel=prefetch><link href=/js/chunk-6645ecd8.efc86956.js rel=prefetch><link href=/js/chunk-6694f7ec.fc368124.js rel=prefetch><link href=/js/chunk-6882c174.bb6877da.js rel=prefetch><link href=/js/chunk-69ee9aa6.726c0820.js rel=prefetch><link href=/js/chunk-6b5af474.f78d7cb6.js rel=prefetch><link href=/js/chunk-71d50dae.a93a5424.js rel=prefetch><link href=/js/chunk-842ab0a8.a687e6e9.js rel=prefetch><link href=/js/chunk-a5997d98.763f5b93.js rel=prefetch><link href=/js/chunk-b6847ec0.46dedfe4.js rel=prefetch><link href=/js/chunk-b8a43d1c.97a04836.js rel=prefetch><link href=/js/chunk-bc388006.090c6341.js rel=prefetch><link href=/js/chunk-c3f3257a.8fcdbdc5.js rel=prefetch><link href=/js/chunk-c9310f1e.5f5b1d53.js rel=prefetch><link href=/js/chunk-d59eb1b2.b6cb910c.js rel=prefetch><link href=/css/app.f703220d.css rel=preload as=style><link href=/css/chunk-vendors.078cf925.css rel=preload as=style><link href=/js/app.9bf1052d.js rel=preload as=script><link href=/js/chunk-vendors.a0aee21f.js rel=preload as=script><link href=/css/chunk-vendors.078cf925.css rel=stylesheet><link href=/css/app.f703220d.css rel=stylesheet></head><body><div id=app></div><script src=/js/chunk-vendors.a0aee21f.js></script><script src=/js/app.9bf1052d.js></script></body><script>/* (function(){
+            let bool = false;
+            let scale = 1;
+
+            if(/android/i.test(navigator.userAgent)) {
+            //document.write("This is Android'browser.");//这是Android平台下浏览器
+                bool = true;
+                scale = document.body.clientWidth / window.devicePixelRatio / 1200
+            }
+            if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            //document.write("This is iOS'browser.");//这是iOS平台下浏览器
+                bool = true;
+                scale = document.body.clientWidth / 3 / 1200
+            }
+
+            if(bool){
+                document.body.className = 'is_mobile';
+                document.getElementById("view").setAttribute('content','width=width=device-width, user-scalable=no, initial-scale='+ scale +', maximum-scale=2, minimum-scale=0.2');
+            }
+        })()*/</script></html>

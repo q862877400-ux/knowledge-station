@@ -37,6 +37,8 @@ PROVINCE_PREFIX = {
     "xj-": "新疆维吾尔自治区", "gx-": "广西壮族自治区", "sd-": "山东省",
     "qh-": "青海省", "hi-": "海南省",
     "heb-": "河北省",
+    "ah-": "安徽省", "ln-": "辽宁省", "sc-": "四川省",
+    "hb-": "湖北省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 

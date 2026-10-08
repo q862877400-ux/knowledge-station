@@ -1,0 +1,206 @@
+================================================================================
+【甘肃】【湖北】省政府门户 + 省直部门 公开问答库 站点侦察
+工具：general-purpose-2    日期：2026-10-08
+工作目录：tools/gov-qa
+================================================================================
+
+背景：全国全覆盖还差几个省。本文件记录甘肃、湖北两省的逐项实测。
+纪律：请求间隔 >=1.5s；403/412 立即停该线；未改 adapters/__init__.py、data/、
+      recon/coverage-matrix.py、任何 *.md、别人已有的 adapters/*.py。
+产物：
+  recon/gs-hb-hub-probe.py / .txt        门户/子域/中间件指纹可达性矩阵
+  recon/gs-wsxf-app.js                   甘肃网上信访 SPA 首页（实为 index.html）
+  recon/hb-zwfw-home.html / hb-zwfw-index.js   湖北政务服务网首页与其 index JS
+  recon/gs-zwfw-zmhd2.html               甘肃政务服务网·政民互动入口页
+  recon/hb-rst-zxjylygk-list.html        湖北省人社厅·政务咨询留言列表
+  recon/hb-rst-detail-sample.html        湖北省人社厅·问答明细样例（含答复原文）
+  recon/gs-hb-igi-sites.txt              湖北/武汉 IGI siteId 全量枚举结果
+  adapters/hb_hdjl.py  adapters/hb_wuhan.py  adapters/hb_rst.py   新适配器
+
+--------------------------------------------------------------------------------
+零、一句话结论
+--------------------------------------------------------------------------------
+· 甘肃：**未通**（省门户 www.gansu.gov.cn 及全部 *.gansu.gov.cn 省直部门被
+  瑞数动态防护 412 拦死；门户互动=SSO 登录；信访=SPA+查询码）。
+· 湖北：**已通，大丰收**。命中 **IGI 中间件**——湖北省门户 15 个 site / 3535 条，
+  武汉市门户 32 个 site / 6541 条（更多待枚举），明细均含**答复原文**且带省/市/区
+  三级归属。零改造复用 `adapters/_igi_common.py`。另有湖北省人社厅静态问答列
+  （政务咨询留言，含答复原文）作补充。
+
+--------------------------------------------------------------------------------
+一、甘肃（gansu.gov.cn）——逐项实测
+--------------------------------------------------------------------------------
+
+【门户 www.gansu.gov.cn】HTTP/HTTPS 均 **412**（瑞数动态防护，JS challenge）
+  http://www.gansu.gov.cn/   -> 412  6318B
+  https://www.gansu.gov.cn/  -> 412  6307B
+  特征：响应头 `server: ******`；body 内联混淆 JS `$_ts.cd="..."` + `<meta content=".." r="m">`
+        + `<script r='m'>`；set-cookie 一个 `HttpOnly` 长效 cookie（expires 2036）。
+  ⇒ 这是**瑞数信息(RiverSecurity)动态防护**：需执行 JS 计算二级 cookie，纯 httpx 无解。
+  cookie 重放实测：带首访 cookie 二次请求仍 412/6330B（未通过）。
+
+【省直部门批量探测】全部 412（同一瑞数防护覆盖整个 gansu.gov.cn 主域）
+  rst / sthj / scjg / gxt / czt / jyt / mzt / sjt / jgsw / swt / zrzy .gansu.gov.cn -> 412
+  （另有 ybj/swj/fzggw/lyt/jrj/nyy/dsj/rlzy/gaj/spj/jtyst/wsjkw/lyj 等子域 DNS 不存在）
+
+【省门户 IGI / WAS5 / jact 指纹】均 412（同域被拦）
+  /IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=&appId=  -> 412 6474B
+  /was5/web/search?channelid=1                                      -> 412 6362B
+  /jact/front/mailpubdetail.do                                      -> 412 6398B
+
+【门户自定义 404 路径】/hdjl/ /zmhd/ 均 412（非真 404，被 WAF 拦）
+
+【甘肃政务服务网 zwfw.gansu.gov.cn】**可达 200**（不同基础设施，无瑞数）
+  http://zwfw.gansu.gov.cn/  -> 200 74752B  （站群 CMS：webgansushengzhengwufuwuwang）
+  /zmhd/ 政民互动 -> 200 5592B，列出四个入口：
+      szgs/hdjl/showIndex12345.do      （12345）
+      szgs/hdjl/showIndex.do           （政民互动）
+      szgs/hdjl/showIndexts.do?areaCode=6200000000   （投诉）
+      szgs/hdjl/showIndexjy.do?areaCode=6200000000   （建议）
+  ⚠ 实测以上入口 **302 到 zwfw.gansu.gov.cn/gsjis/... 统一身份认证平台-用户登录**
+    （title=「甘肃省统一身份认证平台-用户登录」81270B）⇒ **需要登录账号**。
+  ⇒ 甘肃政务服务网互动 **未通（需登录）**。
+
+【甘肃信访局 www.gsxfj.gov.cn】**可达 200**（56780B，站群 CMS）
+  导航里「网上投诉/建议征集/查询评价」全部指向
+      https://www.gsxfj.gov.cn:8088/wsxf-online/  （Vue SPA「甘肃省网上信访受理平台」）
+  /wsxf-online/ 及其子路径一律返回同一 index（6439B，#app 挂载点，接口由
+      https://www.gsxfj.gov.cn:8088/wsxf-online/js/app.9bf1052d.js 驱动）。
+  站内其余栏目（shizhengxinwen/gongzuodongtai/lingdaojiefang/gonggaogongshi 等）
+      均为**新闻/通知类静态文章**，**无任何「信件选登/办理公开」问答列**。
+  ⚠ 网上信访需登录 + 查询码 ⇒ 按判断标准第③条 **未通**。
+  （注：wsxf.gsxfj.gov.cn 与 xf.gansu.gov.cn 均 DNS 不存在；只有 www.gsxfj.gov.cn:8088 在线）
+
+【甘肃结论】**未通**。原因：整省主域被瑞数 412 拦死（门户+全部省直部门）；
+  唯二可达的 zwfw.gansu.gov.cn（互动=SSO 登录）与 www.gsxfj.gov.cn（信访=SPA+查询码）
+  都不满足「不需登录/查询码」。
+  待登记 key 清单：无（未拿到任何可用问答源）。
+
+--------------------------------------------------------------------------------
+二、湖北（hubei.gov.cn）——逐项实测
+--------------------------------------------------------------------------------
+
+【门户 www.hubei.gov.cn】HTTP/HTTPS 根路径均 **412**（同为瑞数防护，body 为 `$_ss.cd`）
+  http://www.hubei.gov.cn/   -> 412 3113B
+  https://www.hubei.gov.cn/  -> 412 3128B
+  /hdjl/ /zmhd/ /hd/ /was5/web/search  -> 全部 412（3061~3195B）
+  但见下【★ IGI 例外】。
+
+★★★【命中：湖北省门户 IGI 中间件】（瑞数该路径放行）
+  https://www.hubei.gov.cn/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs&pageIndex=1&pageSize=1&siteId=<N>
+    -> **200**，JSON {statusCode:200,message:"获取成功",datas:{data:[...],pageInfo:{totalResults}}}
+  ⚠ 空 siteId 且空 regions 时报 {"statusCode":301,"message":"siteId与regions不能同时为空"}
+    ⇒ 与 `_igi_common.py` 完全同构，参数名 siteId/pageIndex/pageSize 一致，appId 可留空。
+  ⚠ 湖北/武汉 IGI **不需要 Referer**（实测无 Referer 也 200）——与宁夏/山西不同。
+  枚举 siteId=1..120 命中 15 个 site（详见 recon/gs-hb-igi-sites.txt）：
+      siteId  条数   部门
+       4        3   拓思达
+      10        6   造价站
+      16      122   湖北省建设信息中心
+      19        4   湖北省统计局
+      25      289   湖北省疾病预防控制中心
+      26       23   行政审批处
+      28        1   佳软
+      48       12   湖北省生态环境厅
+      50        3   佳软
+      57       20   湖北省水利厅
+      58        4   办公室
+      63      948   神农架文旅局
+      71     2062   潜江市园林街道办事处
+      88       37   省交易采购中心
+     112        1   拓思达
+  ⇒ **合计 15 site / 3535 条**。
+  明细（实测 200）：
+    .../openGovmsgbox.do?method=viewGovmsgbox&siteId=25&metadataId=<id>
+    -> datas.REPLYS[].REPLYHTMLCONTENT = 官方答复原文，REPLYDEPTEXTNAME = 答复部门。
+  样例（siteId=25 疾控中心，metadataId=6832）：
+    问：请问能否让学校提前公布第二天要预约的疫苗名称……
+    答：可以跟学校建议，通知预约时提前告知疫苗的名称和厂家。
+  字段含 PROVINCE/CITY/AREA 三级归属（如「湖北省/武汉市/市辖区」）。
+
+★★★【命中：武汉市门户 IGI 中间件】（同为 IGI，另一实例，量更大）
+  https://www.wuhan.gov.cn/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=<N>
+    -> 200，同一 JSON 契约。
+  枚举 siteId=1..120 命中 32 个 site（节选，详见 recon/gs-hb-igi-sites.txt）：
+      siteId  条数   部门
+       6        8   武汉市发展和改革委员会
+       7       29   武汉市教育局
+       8      162   办公室
+       9      174   武汉市经济和信息化局
+      10     3228   武汉住房公积金管理中心  ★最大
+      21       36   武汉市供销合作总社
+      23       11   武汉市交通运输局
+      25      102   武汉市农业农村局
+      26      106   武汉市商务局
+      27       53   武汉市文化和旅游局
+      28        7   武汉市卫生健康委员会
+      30      138   局思想政治和权益维护处
+      31      109   武汉市应急管理局
+      43     1391   区住更局  ★
+      49       40   武汉市统计局
+      51      264   武汉市园林和林业局
+      52      201   武汉市医疗保障局
+      54       67   武汉市国防动员办公室
+      57      101   中共武汉市委金融委员会办公室
+      58       72   武汉市政务服务和大数据管理局
+      59       33   武汉市机关事务管理局
+      65       60   武汉市市场监督管理局
+      98       13   长江新区投资促进局
+      ...
+  ⇒ **合计 32 site / 6541 条**（枚举上限取 1..120；更大 siteId 可能有更多）。
+  分页实测：siteId=10 → totalResults=3228, totalPages=162，pageIndex 逐页有效。
+  明细（实测 200）：同湖北，datas.REPLYS[].REPLYHTMLCONTENT = 答复原文。
+  样例（siteId=10 公积金，metadataId=70759）：
+    问：关于《湖北出台二十条举措…住房需求》落实细则及时间
+    答：「……根据《湖北省进一步满足刚性和改善性住房需求的若干措施》（鄂建文[2026]11号）
+        中关于优化住房公积金政策，第十四条明确：……」
+    （答复点名条例文号，质量高）
+
+【湖北省人社厅 rst.hubei.gov.cn —— 静态问答列（IGI 之外的补充）】
+  ⚠ 湖北省直部门子域 **不受瑞数影响，直接 200**：
+      rst/nyt/wjw/zjt .hubei.gov.cn 均 200。
+  http://rst.hubei.gov.cn/hdjl/lxgs/zxjylygk/  「政务咨询留言（留言公开）」
+    -> 200 36577B；列表静态分页 createPageHTML(6, 0, "index", "shtml", …) ⇒
+       index.shtml / index_1.shtml … index_5.shtml（6 页）。
+    明细形态：/hdjl/lxgs/zxjylygk/YYYYMM/tYYYYMMDD_ID.shtml（TRS 静态，含问答）
+    实测明细 200 66053B，正文含：
+        咨询内容：……（问题）
+        答复时间 / 承办单位 / **办理情况公开：……（答复原文）**
+    样例：陈某咨询建筑行业劳务用工人员能否参加工伤保险的问题
+          → 湖北省人社厅答复「根据国家政策法规规定，建筑施工企业相对固定的职工，
+            应按用人单位参加工伤保险；……可按《工伤保险条例》有关规定享受工伤保险待遇。」
+  ⚠ 该列每页仅 2 条（模块内联 2 条），6 页约 12 条，量小；且属静态型、非 IGI。
+  其他省直部门（wjw/nyt/zjt）的 hdjl/lxgs 多为「月度信访情况汇总」文章，非逐条问答。
+
+【其他湖北线索（均未通/不优先）】
+  · 湖北政务服务网 zwfw.hubei.gov.cn：**TLS 需 legacy 重协商**（默认
+      ConnectError: UNSAFE_LEGACY_RENEGOTIATION_DISABLED）；用
+      ssl SECLEVEL=1 + OP_LEGACY_SERVER_CONNECT 可 200（58751B）。
+      但「政民互动/我要咨询」→ /webview/bszn/zxts.html 需 **checkLogin** 登录 ⇒ 不可采。
+  · 12345.hubei.gov.cn：域名存在，但根与常见路径一律统一 404（682B）⇒ 无公开列表。
+  · xfj.hubei.gov.cn：412。wsxf.hubei.gov.cn / hbj.hubei.gov.cn：DNS 不存在。
+
+【湖北结论】**已通**。首选湖北/武汉门户 **IGI**（15+32 site，约 1 万余条，含答复原文 +
+  三级归属，零改造复用 `_igi_common.py`）；次选湖北省人社厅静态问答列（量小）。
+  待登记 key 清单（建议）：
+      hb-hdjl      湖北省人民政府·政民互动（IGI，域名 www.hubei.gov.cn，15 site）
+      hb-wuhan     武汉市人民政府·市长信箱/12345（IGI，域名 www.wuhan.gov.cn，32 site）
+      hb-rst       湖北省人力资源和社会保障厅·政务咨询留言（静态列，可选）
+
+--------------------------------------------------------------------------------
+三、瑞数 412 的处置备忘（给接手的人）
+--------------------------------------------------------------------------------
+· 甘肃全省、湖北门户根路径 = **瑞数动态防护**，纯 HTTP 客户端过不去（需 JS 引擎）。
+· **但 IGI 路径 `/IGI/nbhd/openGovmsgbox.do` 在湖北/武汉门户被放行**（200）——
+  这是本次最大的意外收获：WAF 只拦 HTML 页面路径，未拦该 JSON 接口。
+· 结论：**遇到 412 省份，务必单独试 `/IGI/` 路径**，很可能接口层未被拦。
+· 甘肃门户 `/IGI/` 实测仍 412 ⇒ 甘肃是整域拦截，无此例外。
+
+--------------------------------------------------------------------------------
+四、参考实现
+--------------------------------------------------------------------------------
+· 复用 `adapters/_igi_common.py:harvest_igi`（未改动一行），湖北只需补
+  base / site_id / app_id / referer。
+· 新增 adapters/hb_hdjl.py（湖北门户 IGI 多 site）、adapters/hb_wuhan.py（武汉门户
+  IGI 多 site）、adapters/hb_rst.py（湖北省人社厅静态列）。
+· 甘肃未落适配器（无可用源）。

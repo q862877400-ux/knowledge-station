@@ -146,6 +146,8 @@ ADAPTERS: dict[str, str] = {
     "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "heb-szj": "adapters.heb_szj",             # 河北·数据和政务服务局·留言公开（EWB 平台，1043 条）
     "heb-czt": "adapters.heb_czt",             # 河北·财政厅·群众信箱（静态，26 条）
+    "hb-hdjl": "adapters.hb_hdjl",             # 湖北省·政民互动（IGI，15 site / 3535 条；★ 瑞数 WAF 放行 /IGI/ 路径）
+    "hb-wuhan": "adapters.hb_wuhan",           # 武汉市·市长信箱/12345（IGI，32 site / 6541 条）
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
