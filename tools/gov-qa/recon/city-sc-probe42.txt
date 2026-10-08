@@ -1,0 +1,40 @@
+
+===== 成都 主域与替代 =====
+  https://www.chengdu.gov.cn/ -> 412 len=2367 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60s0yC7ub5fFPvG7tv_oQCB_QZs_vFkjT2qLJI5D.jhEiVThSuGNj0_4BbEUnJYZJP677UT4Qkw1yzzWnlH1BVSA; Path=/; expires=
+  https://www.chengdu.gov.cn/chengdu/index.shtml -> 412 len=2444 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60nDnfQuyplOeixAg1F4CmYt3J7qbAQl3vKj7sBoCoNQDVKIJKHWeDDVGlyA2qbwvYPIkotTKW4QlRKgQxaE7GZq; Path=/; expires=
+  https://cd12345.chengdu.gov.cn/ -> 412 len=2358 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60sFV2KGsUdCJaJY1yBC5wnnS2vN.Cxa1Ff9.2mjf82u.DyhCXeQYbAAlCT1HJXtFCD3fT2WOMsEGHujTCsNipEq; Path=/; expires=
+  https://12345.chengdu.gov.cn/ -> 412 len=2372 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60RtcdzIQ_3dfrU0HRsrFjuIxaEwGR_n..w.k9b..UiKF.6Qqpi9NX3lUy7Wg.sah4wvpcejDsSXJ7LFIJALr.Va; Path=/; expires=
+  https://wlzl.chengdu.gov.cn/ -> 412 len=2367 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60LEJUtNCz46T94f_TWWATc2JPTWCrWsfqnJDliQEtYHpSutKTUg_PorZaWbVurPmV15fVbaKz_Zw6R2JtdHdbYq; Path=/; expires=
+  https://www.chengdu.gov.cn/wlzl/ -> 412 len=2463 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=6041BamfCRM5ZIIRh9gXhPrtbTCGw6X_P8WLAp4zUVx1zTOzj0haDWqAugbVpI1WMJG971ylc38dwlNIMC3X.oDG; Path=/; expires=
+  https://m.chengdu.gov.cn/ -> 412 len=2355 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60MsrHi.nJmuG0jIsq2AsJe534ZGpO_Tra3Bm4.MACs6NDIi1e10TJJihe2OgFh0YtbrQtSfab9S7UrJ8qtJvdnG; Path=/; expires=
+  https://www.chengdu.gov.cn/hdjl/ -> 412 len=2408 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=600bG.tcv93C29VB1mo0wE6oxhIdOvJCXgCGSm18i3d2gO3o56VartWs3Z2t9PJrN2jTrBzE0udaJ5_Lod1ohYDq; Path=/; expires=
+
+===== 成都 移动 UA =====
+  https://www.chengdu.gov.cn/ -> 412 len=2386 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60niYMuijyGvnmGnwbHRyYypQZJN6ng.A4dNhoXF.am9vQ4nrPoI_a3LE.X1qCx6.T0gu_H_M6GZJloOuRtlZ02G; Path=/; expires=
+  https://www.chengdu.gov.cn/hdjl/ -> 412 len=2385 ct=text/html; charset=utf-8 title=
+     SC azSsQE5NvspcO=60oaRquZgeg5VpdK8PmYIzfmIrIc4exeE4e6ejLxLi2TAN2cNiRsM2j7Y3oKDHaPVAAT1M6S00cPQ0pqN7Q1aNaq; Path=/; expires=
+
+===== 广元 主域与替代 =====
+  https://www.cngy.gov.cn/ -> 412 len=2051 ct=text/html title=加载中
+  http://www.cngy.gov.cn/ -> 405 len=2051 ct=text/html title=加载中
+  https://cngy.gov.cn/ -> ERR HTTPSConnectionPool(host='cngy.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  https://www.guangyuan.gov.cn/ -> ERR HTTPSConnectionPool(host='www.guangyuan.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  https://12345.cngy.gov.cn/ -> ERR HTTPSConnectionPool(host='12345.cngy.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  https://www.cngy.gov.cn/hdjl/ -> 405 len=2051 ct=text/html title=加载中
+  https://m.cngy.gov.cn/ -> ERR HTTPSConnectionPool(host='m.cngy.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+
+===== 广元 移动 UA =====
+  https://www.cngy.gov.cn/ -> 405 len=2051 ct=text/html title=加载中
+
+===== 省级/其他候选 =====
+  https://www.sc.gov.cn/ -> 200 len=99541 ct=text/html; charset=utf-8 title= 四川省人民政府网站 
+  https://12345.sc.gov.cn/ -> ERR HTTPSConnectionPool(host='12345.sc.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))

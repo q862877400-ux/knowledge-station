@@ -1,0 +1,12 @@
+===== 突破口：主站瑞数 412 vs 信箱端口 9050 =====
+  https://www.cngy.gov.cn/ -> 412 len=2051 title=加载中
+  http://qgj.cngy.gov.cn:9050/ldxx/szxx/index -> 200 len=9327 title=市长信箱-广元市人民政府
+
+===== 列表 API：POST /ldxx/szxx/publish/data =====
+  X-XSRF-TOKEN = 44c02ac5-eaa8-4327-8070-9d859176675c；cookies = {'XSRF-TOKEN': '44c02ac5-eaa8-4327-8070-9d859176675c', 'SESSION': 'YjkyZDBhNTItZGM4OS00ZmZhLWJjMWUtOWJiZDkxNjUwOTcw'}
+  -> 200 count=438 rows=10
+  首条：{"id": "1da851b88e374a2fb3b4e8c74d28ab08", "xfjbm": "5108000200604202609110002S", "tsbt": "关于申请广元翠云廊相关资料用于学术毕业论文的政府信息公开申请", "gkr": null, "gkjg": null, "gkjgxzqhdm": null, "gksj": "2026-10-08", "gkzt": null, "tsnr": null, "djsj": null, "xfrq": "2026-09-10", "hfnr": null}
+
+===== 详情：GET /ldxx/szxx/publish/<id> =====
+  -> 200 len=11545
+  答复前 200：20260915关于“申请广元翠云廊相关资料用于学术毕业论文的政府信息公开申请”的答复.docx

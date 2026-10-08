@@ -351,6 +351,7 @@ ADAPTERS: dict[str, str] = {
     "sc-yaan": "adapters.sc_yaan",            # 雅安市·党政领导信箱（服务端渲染 HTML /mail/index→34部门uuid→mailbox?page→view，≈34部门×N页）
     "sc-meishan": "adapters.sc_meishan",      # 眉山市·政民互动·来信选登（WCM 站群，list_ldxx?pageNumber=N + list_content_ldxxnew?guid=，共5658条）
     "sc-dazhou": "adapters.sc_dazhou",        # 达州市·政民互动·市长信箱（ThinkPHP JSON xinxiang/api/Letter，total=259）
+    "sc-guangyuan": "adapters.sc_guangyuan",  # 广元市·市长信箱·信件公开（★ 主站瑞数拦，信箱在 qgj.cngy.gov.cn:9050，layui table POST + 服务端渲染详情，count=438）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
