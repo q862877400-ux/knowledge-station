@@ -243,6 +243,8 @@
 >   它与索引口径无关（可做在入库侧或提问侧）。⇒ **本序（§三序 7）至此收口，不再是待办**。
 > - **产物**：[古籍切分口径证据](research/classical-chinese-segmentation-evidence.md)；
 >   详细记录 [开发史 §10.208](DEVELOPMENT-HISTORY.md)。
+> - **判据自验**：`tests/test_classical_segmentation_ruler.py`（5 条）—— 原样件 5 passed；
+>   两处变异（单字占比 `cnt`→`doc`、字级查询也丢单字）**各被抓**；变异后按 SHA256 **逐字节还原**。
 > - **诚实边界**：绝对值是**送分题**；词典是**机械自挖 n-gram**；**未做**法规侧副作用对照、bigram 字级。
 > - ⚠ 属"结论由作者自己的检查得出"的**必验类别**，已冻结 tag **待派独立复核**（见交接单 ② 段）。
 

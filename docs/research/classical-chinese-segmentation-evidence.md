@@ -172,7 +172,24 @@
 * 字级口径的查询侧**不能复用 `fts_match_expr`**：它那条"丢弃单字符词"的规则会把字级查询清空
   ⇒ **选字级就必须同时改 `fts_match_expr`**，这不是免费的索引选项。
 
-## 八、未做（登记）
+## 八、判据自验（`tests/test_classical_segmentation_ruler.py`，5 条）
+
+尺子上的三个判据各有一条**很容易踩回去**的坑，每一条都在本轮**真实发生过**，所以都钉了测试：
+
+| 判据 | 钉的是什么 | 变异验证（改坏 ⇒ 必须变红） |
+|---|---|---|
+| `test_single_ratio_counts_occurrences_not_documents` | 单字占比按 **`cnt`（出现次数）** 算，不是 `doc`（含该词的段数） | 尺子改回 `doc` ⇒ **1 failed / 4 passed** ✅ |
+| `test_char_level_requires_relaxing_the_single_char_drop` | 字级查询**不能**复用 `fts_match_expr`（那条"丢弃单字符词"的规则会把查询清空） | 字级查询式也丢单字 ⇒ **1 failed / 4 passed** ✅ |
+| `test_ngram_counts_segments_not_occurrences` | n-gram 计数单位是**段**不是**次** | （与上两条同批跑，原样件 5 passed） |
+| `test_no_drop_expr_differs_from_production_only_by_the_single_char_rule` | A+ **只**改了那一条规则（多字词上必须与现状逐字节相同） | 同上 |
+| `test_char_seg_gives_one_token_per_cjk_char` | 字级口径 = 每个汉字一个 token | 同上 |
+
+* **原样件 5 passed**；两处变异**各被抓**（且只红那一条）；**变异后按 SHA256 逐字节还原**
+  （`a8baac47…` 前后一致）—— 变异与门禁**没有并发**（本仓踩过"变异与门禁并发 ⇒ 假红"）。
+* ⚠ 本文件**不测** `main()`（要 1.86 MB 语料 + 几十秒）；尺子的**可复跑性**由
+  "连跑两次剔除耗时行后逐字节相同"另行取证。⚠ 新测试会抬高 pytest 总账（未跑 `-Full -UpdateBaseline`）。
+
+## 九、未做（登记）
 
 * **法规语料上的对照**（A+ / B / C 在 522k 条法规上有没有副作用）—— 本轮未做，
   也是 §五 列为"要改之前必须有"的第一条证据。
@@ -182,7 +199,7 @@
 * **B 的口径还可细分**：本轮只试了"单字"；**相邻二字（bigram）**是 CJK 检索的经典做法，
   本轮**没试**。
 
-## 九、留痕：本批我自己纠掉的两处口径错
+## 十、留痕：本批我自己纠掉的两处口径错
 
 1. **单字占比一开始算错了口径**：第一版用 `fts5vocab` 的 **`doc`（含该词的段数）**，
    得到 A = **31.8%** —— 而 cross-language 尺子量的是**出现次数**，同一份语料是 **30.2%**。

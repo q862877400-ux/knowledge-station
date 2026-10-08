@@ -549,7 +549,9 @@ B 要改两处口径 + **重建 522k 索引**；C 需要一部**正经**词典�
 ③ 一部有出处的**人编**古籍词典；④ **法规侧无回归**（A+ 尤其，`eval/golden/knowledge-snapshot.db` 现成）。
 若将来只做一件 ⇒ 先试 **A+**（唯一不动索引的），但必须先验法规副作用（**本轮未做**）。
 
-**产物**：[古籍切分口径证据](research/classical-chinese-segmentation-evidence.md)（含判定、边界、两处口径错留痕）。
+**产物**：[古籍切分口径证据](research/classical-chinese-segmentation-evidence.md)（含判定、边界、判据自验、两处口径错留痕）。
+**判据自验**：`tests/test_classical_segmentation_ruler.py`（5 条）—— 原样件 5 passed；
+两处变异（单字占比 `cnt`→`doc`、字级查询也丢单字）**各被抓**；变异后按 SHA256 **逐字节还原**。
 **诚实边界**：绝对值是**送分题**（查询词从原文抄）；词典是**机械自挖 n-gram**；
 C 的词典只从前半段挖 ⇒ 后半段独有词 C 也切不出；**未做**：法规语料上的副作用对照、bigram 字级、向量侧在文言上的表现。
 
