@@ -1,0 +1,244 @@
+{
+ "nmg": {
+  "label": "内蒙古",
+  "pages": {
+   "https://www.nmg.gov.cn/zmhd/fkhy_1/index_13317.html": {
+    "status": 200,
+    "bytes": 56725,
+    "hits": {
+     "api_path": [
+      "https://beian.mps.gov.cn/#/query/webSearch?code=15010502000333",
+      "https://www.nmg.gov.cn/xinxiang/api/getCaseInfo?rowguid="
+     ],
+     "js_src": [
+      "../../material/2025/js/jquery.min.js",
+      "../../material/2025/js/jquery-migrate.min.js",
+      "../../material/2025/js/jquery.SuperSlid.js",
+      "../../material/2025/js/common.js",
+      "../../material/2025/js/rem.js",
+      "../../material/js/jiucuo.js",
+      "../../material/js/layer.js",
+      "../../material/js/esdToolsInit.js",
+      "https://auth.mangren.com/boots/nmg.gov.cn/esdToolsInit.js",
+      "//ta.trs.cn/c/js/ta.js?mpid=4643",
+      "../../material/images/trs_report_sdk.js"
+     ],
+     "deptvar": [
+      "30875",
+      "32",
+      "currSiteId",
+      "parseInt",
+      "siteid"
+     ]
+    },
+    "title": "反馈回应_\n        内蒙古自治区人民政府"
+   },
+   "https://www.nmg.gov.cn/zmhd/": {
+    "status": 200,
+    "bytes": 81500,
+    "hits": {
+     "api_path": [
+      "https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList",
+      "https://beian.mps.gov.cn/#/query/webSearch?code=15010502000333"
+     ],
+     "rel_api": [
+      "/open/openInterview/list?siteId=",
+      "/opinion/web/list?siteId=32&pageIndex=1&pageSize=6&orderBy=startTime_desc"
+     ],
+     "js_src": [
+      "../material/2025/js/jquery.min.js",
+      "../material/2025/js/jquery-migrate.min.js",
+      "../material/2025/js/jquery.SuperSlid.js",
+      "../material/2025/js/common.js",
+      "../material/js/time.js",
+      "../material/js/jiucuo.js",
+      "../material/js/layer.js",
+      "../material/js/esdToolsInit.js",
+      "https://auth.mangren.com/boots/nmg.gov.cn/esdToolsInit.js",
+      "//ta.trs.cn/c/js/ta.js?mpid=4643",
+      "../material/images/trs_report_sdk.js",
+      "../material/2025/js/amCharts-Pie3D.min.js",
+      "../material/2025/js/12345.js"
+     ],
+     "deptvar": [
+      "3445",
+      "32",
+      "currSiteId",
+      "parseInt",
+      "siteid"
+     ]
+    },
+    "title": "政民互动_\n        内蒙古自治区人民政府"
+   }
+  },
+  "js": {}
+ },
+ "hlj": {
+  "label": "黑龙江",
+  "pages": {
+   "https://www.hlj.gov.cn/hlj/c115707/wycx.shtml": {
+    "status": 200,
+    "bytes": 73597,
+    "hits": {
+     "rel_api": [
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/xhtml/libs/ajaxFun.js",
+      "/hlj/c107856/list.shtml",
+      "/hlj/c107857/soretimelist.shtml",
+      "/hlj/c107858/soretimelist.shtml",
+      "/hlj/c107859/list_pic.shtml",
+      "/hlj/c107860/list.shtml",
+      "/hlj/c107861/list.shtml",
+      "/hlj/c107862/list.shtml",
+      "/hlj/c107863/list.shtml",
+      "/hlj/c107878/listsd.shtml",
+      "/hlj/szfgzbg/list.shtml",
+      "/hlj/c108472/fbhlist.shtml",
+      "/hlj/c115777/dep_list.shtml",
+      "/hlj/c108476/list_nodate.shtml",
+      "/znwd/policy/#/index?searchword=医保#/login",
+      "/znwd/policy/#/index?searchword=个人所得税#/login",
+      "/znwd/policy/#/index?searchword=养老#/login",
+      "/znwd/policy/#/index?searchword=民生#/login",
+      "/znwd/policy/#/index?searchword=户籍#/login",
+      "/znwd/policy/#/index?searchword=公积金#/login",
+      "/znwd/policy/#/index?searchword=放假#/login",
+      "/znwd/policy/#/index?searchword=劳动关系#/login",
+      "/znwd/policy/#/index?searchword=%E5%B0%B1%E4%B8%9A#/login",
+      "/znwd/policy/#/index?searchword=投资信贷#/login",
+      "/znwd/policy/#/index?searchword=补贴政策#/login",
+      "/znwd/policy/#/index?searchword=财税政策#/login",
+      "/znwd/policy/#/index?searchword=优化营商环境#/login",
+      "/znwd/policy/#/index?searchword=进出口货物",
+      "/znwd/policy/#/index?searchword=实施意见#/login"
+     ],
+     "js_src": [
+      "/hlj/xhtml/libs/layui/layui.js",
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/xhtml/libs/ajaxFun.js",
+      "/hlj/xhtml/libs/aes.js",
+      "/hlj/xhtml/libs/aejpublic.js",
+      "/hlj/xhtml/libs/trans.js",
+      "/hlj/xhtml/js/header.js",
+      "//gov.govwza.cn/dist/aria.js?appid=32c4ff43716a481893d15d74fe1cdf30",
+      "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+      "/hlj/xhtml/js/public.js",
+      "//www.hlj.gov.cn/phpstat/count/10000001/10000001.js",
+      "/hlj/xhtml/libs/page.plug.js",
+      "/hlj/xhtml/js/wycx.js",
+      "/hlj/xhtml/js/listpage_lyhf.js"
+     ]
+    },
+    "title": "留言公开-黑龙江省人民政府"
+   },
+   "https://www.hlj.gov.cn/hlj/c115777/dep_list.shtml": {
+    "status": 200,
+    "bytes": 68827,
+    "hits": {
+     "rel_api": [
+      "/hlj/xhtml/css/list.css",
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/c107856/list.shtml",
+      "/hlj/c107857/soretimelist.shtml",
+      "/hlj/c107858/soretimelist.shtml",
+      "/hlj/c107859/list_pic.shtml",
+      "/hlj/c107860/list.shtml",
+      "/hlj/c107861/list.shtml",
+      "/hlj/c107862/list.shtml",
+      "/hlj/c107863/list.shtml",
+      "/hlj/c107878/listsd.shtml",
+      "/hlj/szfgzbg/list.shtml",
+      "/hlj/c108472/fbhlist.shtml",
+      "/hlj/c115777/dep_list.shtml",
+      "/hlj/c108476/list_nodate.shtml",
+      "/znwd/policy/#/index?searchword=医保#/login",
+      "/znwd/policy/#/index?searchword=个人所得税#/login",
+      "/znwd/policy/#/index?searchword=养老#/login",
+      "/znwd/policy/#/index?searchword=民生#/login",
+      "/znwd/policy/#/index?searchword=户籍#/login",
+      "/znwd/policy/#/index?searchword=公积金#/login",
+      "/znwd/policy/#/index?searchword=放假#/login",
+      "/znwd/policy/#/index?searchword=劳动关系#/login",
+      "/znwd/policy/#/index?searchword=%E5%B0%B1%E4%B8%9A#/login",
+      "/znwd/policy/#/index?searchword=投资信贷#/login",
+      "/znwd/policy/#/index?searchword=补贴政策#/login",
+      "/znwd/policy/#/index?searchword=财税政策#/login",
+      "/znwd/policy/#/index?searchword=优化营商环境#/login",
+      "/znwd/policy/#/index?searchword=进出口货物",
+      "/znwd/policy/#/index?searchword=实施意见#/login"
+     ],
+     "js_src": [
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/xhtml/libs/html5.min.js",
+      "/hlj/xhtml/libs/respond.min.js",
+      "/hlj/xhtml/libs/trans.js",
+      "/hlj/xhtml/js/header.js",
+      "//gov.govwza.cn/dist/aria.js?appid=32c4ff43716a481893d15d74fe1cdf30",
+      "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+      "/hlj/xhtml/js/public.js",
+      "//www.hlj.gov.cn/phpstat/count/10000001/10000001.js",
+      "/hlj/xhtml/libs/idangerous.swiper.min.js",
+      "/hlj/xhtml/libs/page.plug.js",
+      "/hlj/xhtml/js/listpage.js"
+     ]
+    },
+    "title": "部门互动 - 黑龙江省人民政府"
+   },
+   "https://www.hlj.gov.cn/hlj/c108467/zmhd.shtml": {
+    "status": 200,
+    "bytes": 82950,
+    "hits": {
+     "rel_api": [
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/xhtml/libs/ajaxFun.js",
+      "/hlj/c107856/list.shtml",
+      "/hlj/c107857/soretimelist.shtml",
+      "/hlj/c107858/soretimelist.shtml",
+      "/hlj/c107859/list_pic.shtml",
+      "/hlj/c107860/list.shtml",
+      "/hlj/c107861/list.shtml",
+      "/hlj/c107862/list.shtml",
+      "/hlj/c107863/list.shtml",
+      "/hlj/c107878/listsd.shtml",
+      "/hlj/szfgzbg/list.shtml",
+      "/hlj/c108472/fbhlist.shtml",
+      "/hlj/c115777/dep_list.shtml",
+      "/hlj/c108476/list_nodate.shtml",
+      "/znwd/policy/#/index?searchword=医保#/login",
+      "/znwd/policy/#/index?searchword=个人所得税#/login",
+      "/znwd/policy/#/index?searchword=养老#/login",
+      "/znwd/policy/#/index?searchword=民生#/login",
+      "/znwd/policy/#/index?searchword=户籍#/login",
+      "/znwd/policy/#/index?searchword=公积金#/login",
+      "/znwd/policy/#/index?searchword=放假#/login",
+      "/znwd/policy/#/index?searchword=劳动关系#/login",
+      "/znwd/policy/#/index?searchword=%E5%B0%B1%E4%B8%9A#/login",
+      "/znwd/policy/#/index?searchword=投资信贷#/login",
+      "/znwd/policy/#/index?searchword=补贴政策#/login",
+      "/znwd/policy/#/index?searchword=财税政策#/login",
+      "/znwd/policy/#/index?searchword=优化营商环境#/login",
+      "/znwd/policy/#/index?searchword=进出口货物",
+      "/znwd/policy/#/index?searchword=实施意见#/login"
+     ],
+     "js_src": [
+      "/hlj/xhtml/libs/jquery.min.js",
+      "/hlj/xhtml/libs/SuperSlide.2.js",
+      "/hlj/xhtml/libs/idangerous.swiper.min.js",
+      "/hlj/xhtml/libs/ajaxFun.js",
+      "/hlj/xhtml/libs/aes.js",
+      "/hlj/xhtml/libs/aejpublic.js",
+      "/hlj/xhtml/libs/trans.js",
+      "/hlj/xhtml/js/header.js",
+      "//gov.govwza.cn/dist/aria.js?appid=32c4ff43716a481893d15d74fe1cdf30",
+      "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+      "/hlj/xhtml/js/public.js",
+      "//www.hlj.gov.cn/phpstat/count/10000001/10000001.js",
+      "/hlj/xhtml/js/zmhd.js"
+     ]
+    },
+    "title": "政民互动-黑龙江省人民政府"
+   }
+  },
+  "js": {}
+ }
+}
