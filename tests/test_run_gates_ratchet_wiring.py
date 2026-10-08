@@ -23,13 +23,20 @@
 
 ⇒ 验收要求的「**任意一处**改坏 ⇒ 有测试变红」**当时并不成立**。本文件补上这一条。
 
-## 判据（四条，互为对照）
+## 判据（四条 + 一条守卫，互为对照）
 
 1. **计数**：代码行（去掉**整行注释**）里 `$totalForRatchet` 恰好 8 次。
 2. **赋值点唯一且是口径算式**：
    `$totalForRatchet = if ($caliberOk) { $totalRan - $trackedExcluded } else { $totalRan }`。
 3. **不许混用**：含 `$baseTotal`（比较基准）/ `$totalToRecord`（记账）/ `$prevPassed`（派生）
    的代码行，**不得**出现 `$totalRan`。
+   ⚠ 这一条是**前瞻式**的，别误读成"原样件在它上面成立"：原样件里**没有任何代码行**同时含锚点与
+   `$totalRan`（全脚本唯一同现处在 `run-gates.ps1:180` 的**注释**里，且注释已被剥掉）
+   ⇒ 它的价值是"**将来**有人写出混用行时抓住"，不是"当下有东西可抓"。
+   本文件用**注入行**把它钉住（`test_anchor_mixing_is_caught`）—— 那是它唯一可测的形态。
+3'. **锚点存在性（判据 3 的前置守卫，2026-10-09 补）**：`$baseTotal` / `$totalToRecord` /
+   `$prevPassed` **必须各自出现在至少一行代码里**；缺一即报。
+   为什么必须有：判据 3 是**同现式**检查 —— 锚点名一改，就没有任何行再含它 ⇒ **静默失效**。
 4. **判据自己要被验**（否则「扫描器恒真」就是新的假绿）：把 8 处**逐处**改回 `$totalRan`，
    每一处都必须被本检测器报出；原样件必须零报；无关改动必须零报。
 
@@ -45,7 +52,10 @@
   「不许混用」检查**没有任何行再含 `$baseTotal`** ⇒ **静默失效**，即该锚点是
   **fail-open（静默失去保护）**，**不是** fail-closed。真正有牙的是**计数检查**（8 处变 7 处必红）。
   ⇒ 改这三个锚点名字时**不会有任何测试提醒你**，得自己记得同步本文件；
-  想把它变成 fail-closed，须补一条「三个锚点必须都出现在代码行里」的前置断言（**已登记，本轮未做**）。
+  想把它变成 fail-closed，须补一条「三个锚点必须都出现在代码行里」的前置断言。
+  ✅ **2026-10-09（第 3 轮）已补** —— 见 `find_violations` 里「判据 3'」那一段，配套两条测试
+  `test_anchor_names_are_present_in_code_lines` / `test_anchor_rename_is_caught`。
+  实测：`$baseTotal` 全文改名成 `$ratchetBase` 后，本文件**由 `7 passed` 变红**（fail-closed 成立）。
 - 跑在 `pytest` 里 ⇒ 属 `-Full` 档；`-Quick` 档仍由 `pssa-guard` 兜「全改」那一种。
 """
 from __future__ import annotations
@@ -110,6 +120,18 @@ def find_violations(text: str) -> list[str]:
             f"`{TOKEN} = if ($caliberOk) {{ $totalRan - $trackedExcluded }} else {{ $totalRan }}`）："
             + assigns[0].strip()
         )
+
+    # 判据 3'（**判据 3 的前置守卫**，2026-10-09 补）：三个锚点必须**都还在代码行里**。
+    # ⚠ 为什么必须有：判据 3 是**同现式**检查 —— 锚点名一改，就没有任何行再含它 ⇒
+    #   **静默失效（fail-open）**。实测（独立复核 `verify-freeze-ratchet-1` 打回 + 我在主仓复现）：
+    #   把 `$baseTotal` 全文改名成 `$ratchetBase`（只改名、语义不变）⇒ 原实现照绿 `7 passed`。
+    #   ⇒ 锚点缺一即报；真改了名就**必须**同步本文件的 `_ANCHORS`（这条把它变成 fail-closed）。
+    for anchor in _ANCHORS:
+        if not any(anchor in ln for ln in code):
+            problems.append(
+                f"锚点 {anchor} 在代码行里一次都没出现 ⇒ 判据 3（不许混用）**静默失效**（fail-open）；"
+                f"若确实改了名，请同步本文件的 `_ANCHORS`"
+            )
 
     # 判据 3：不许混用（比较基准 / 记账 / 派生 三处所在行不得出现旧写法）
     for anchor in _ANCHORS:
@@ -190,6 +212,58 @@ def test_all_reads_mutation_is_caught() -> None:
     for idx in sites:
         mutated = _mutate_line(mutated, idx)
     assert find_violations(mutated), "全改回的变异件没被报出"
+
+
+# ─────────────── 判据 3'：锚点存在性（判据 3 的 fail-closed 守卫）───────────────
+
+
+def test_anchor_names_are_present_in_code_lines() -> None:
+    """三个锚点必须各自出现在**至少一行代码**里（缺一 ⇒ 判据 3 静默失效）。
+
+    ⚠ 这是 2026-10-09 独立复核打回后补的守卫：原实现里锚点名一改，
+    同现式检查**没有任何行再含它** ⇒ 静默失效（fail-open），而本文件**照绿**。
+    """
+    code = _code_lines(_read())
+    missing = [a for a in _ANCHORS if not any(a in ln for ln in code)]
+    assert missing == [], (
+        "以下锚点在代码行里一次都没出现 ⇒ 判据 3（不许混用）会静默失效（fail-open）："
+        f"{missing}；若确实改名了，请同步本文件的 `_ANCHORS`"
+    )
+
+
+def test_anchor_rename_is_caught() -> None:
+    """**核心**：把任一锚点全文改名（只改名、语义不变）⇒ 必须报违规。
+
+    ⚠ 变异用**不含原锚点子串**的新名（如 `$baseTotal` → `$ratchetBase`）：
+    若用 `$baseTotal2` 这类"含原串"的名字，子串检查仍会命中，测不出这条守卫。
+    """
+    text = _read()
+    renames = {
+        "$baseTotal": "$ratchetBase",
+        "$totalToRecord": "$totalToPersist",
+        "$prevPassed": "$previousPassed",
+    }
+    for anchor, new_name in renames.items():
+        mutated = text.replace(anchor, new_name)
+        assert mutated != text, f"前置不成立：脚本里找不到 {anchor}"
+        problems = find_violations(mutated)
+        assert problems, f"{anchor} 改名成 {new_name} 后**没被报出**（fail-open 复现）"
+
+
+def test_anchor_mixing_is_caught() -> None:
+    """注入一行「锚点 + `$totalRan`」混用 ⇒ 必须报出（证明判据 3 不是空转）。
+
+    ⚠ 原样件里没有任何**代码行**同时含两者（唯一同现处在 `run-gates.ps1:180` 的注释里，
+    已被剥掉）⇒ 这一条不靠原样件成立，靠"将来有人写出混用行时抓住"。
+    这里用**注入行**把它钉住 —— 那是判据 3 唯一可测的形态。
+    """
+    text = _read()
+    injected = text + "\nif ($baseTotal -lt $totalRan) { }\n"
+    problems = find_violations(injected)
+    assert problems, "锚点行混用没被报出（判据 3 空转）"
+    assert any("$baseTotal" in p and "$totalRan" in p for p in problems), (
+        "报出的不是「混用」那一条：\n  - " + "\n  - ".join(problems)
+    )
 
 
 def test_detector_is_not_always_true() -> None:
