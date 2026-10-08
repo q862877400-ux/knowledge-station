@@ -154,6 +154,7 @@ ADAPTERS: dict[str, str] = {
     "sd-binzhou": "adapters.sd_binzhou",       # 滨州市·政民互动·领导信箱（jact http GET，sysid=1206，179）
     "sd-linyi": "adapters.sd_linyi",           # 临沂市·政民互动·网上信箱（服务端渲染 JSP，约 63 页 / 945 条）
     "sd-liaocheng": "adapters.sd_liaocheng",   # 聊城市·政民互动·网上信箱（api.min.js，列表自带答复，total≈1249）
+    "sd-dezhou": "adapters.sd_dezhou",         # 德州市·政民互动·回应关切（服务端渲染 17 页，去重 161 条）
     "qh-wsxf": "adapters.qh_wsxf",             # 青海·互动交流·群众诉求回应（静态 27 页）
     "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "heb-szj": "adapters.heb_szj",             # 河北·数据和政务服务局·留言公开（EWB 平台，1043 条）
