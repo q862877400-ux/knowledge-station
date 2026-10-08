@@ -2568,3 +2568,20 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R12（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+- 本轮（自动续接链第 6 轮）做的是 **E4 第二轮验证**（`NEXT-DEV-PLAN §三序` 之外的候选，
+  硬约束点名"E4 第二轮验证照常跑、不要跳过"）：**A 提问侧成本**（Qwen3 GPU warm p50 32.02 ms /
+  峰值显存 1164 MiB / 只占向量路扫描的 2.98%）+ **B 查询侧指令前缀**（Vector@1000 主结果 120 条
+  0.6833 → 0.8417，**+15.84pt**，簇级 CI [+9.43, +22.73]）。
+  **详细记录在它自己的归属层** —— [开发史 §10.209](DEVELOPMENT-HISTORY.md)、
+  [施工总纲 P2 段后](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [E4 第二轮 README](eval/recall-funnel/exp-4b-embedding-round2/README.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`），渠道台账状态与 R11 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
