@@ -171,6 +171,7 @@ ADAPTERS: dict[str, str] = {
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
+    "ln-8890": "adapters.ln_8890",     # 辽宁省·12345民心智慧听（公开接口：知识库13942 + 咨询投诉8210）
     "jl-st": "adapters.jl_sthjt",      # 吉林省生态环境厅（海云平台接口，省/市/区三级归属）
     "gz-st": "adapters.gz_sthjt",      # 贵州省生态环境厅（同款 IGI 平台，省/市/区三级归属）
     "gz-wjw": "adapters.gz_wjw",       # 贵州省卫健委（同款 IGI 平台）
