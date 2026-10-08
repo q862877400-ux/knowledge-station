@@ -1,6 +1,6 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **53541** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **53710** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
@@ -13,14 +13,15 @@
 | 山西省 | 736 | sx-szxx 700、people-liuyan-prov 36 |
 | 上海市 | 628 | sh-12345 600、people-liuyan-prov 28 |
 | 宁夏回族自治区 | 615 | nx-zxxx 597、people-liuyan-prov 18 |
+| 湖北省 | 549 | hb-wuhan-8 161、hb-hdjl-16 119、hb-wuhan-9 103、hb-rst 79、hb-wuhan-7 29、hb-hdjl-25 22 …共 10 个来源 |
 | 天津市 | 511 | tj-hdjl 497、people-liuyan-prov 14 |
-| 湖北省 | 470 | hb-wuhan-8 161、hb-hdjl-16 119、hb-wuhan-9 103、hb-wuhan-7 29、hb-hdjl-25 22、people-liuyan-prov 20 …共 9 个来源 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
 | 海南省 | 228 | hi-zcwd 200、people-liuyan-prov 28 |
 | 青海省 | 215 | qh-wsxf 200、people-liuyan-prov 15 |
 | 陕西省 | 202 | sn-lyxd 184、people-liuyan-prov 18 |
 | 广西壮族自治区 | 166 | gx-mailbox 138、people-liuyan-prov 28 |
 | 河北省 | 164 | heb-szj 114、heb-czt 26、people-liuyan-prov 24 |
+| 新疆维吾尔自治区 | 105 | xj-dchs 100、people-liuyan-prov 5 |
 | 山东省 | 93 | sd-12345 71、people-liuyan-prov 22 |
 | 辽宁省 | 60 | people-liuyan-prov 36、ln-st 24 |
 | 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
@@ -34,7 +35,6 @@
 | 河南省 | 20 | people-liuyan-prov 20 |
 | 云南省 | 18 | people-liuyan-prov 18 |
 | 甘肃省 | 18 | people-liuyan-prov 18 |
-| 新疆维吾尔自治区 | 15 | xj-dchs 10、people-liuyan-prov 5 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
 
 ## 各来源总量

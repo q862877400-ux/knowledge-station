@@ -170,20 +170,21 @@
    "nx-zxxx": 597,
    "people-liuyan-prov": 18
   },
-  "天津市": {
-   "tj-hdjl": 497,
-   "people-liuyan-prov": 14
-  },
   "湖北省": {
    "hb-wuhan-8": 161,
    "hb-hdjl-16": 119,
    "hb-wuhan-9": 103,
+   "hb-rst": 79,
    "hb-wuhan-7": 29,
    "hb-hdjl-25": 22,
    "people-liuyan-prov": 20,
    "hb-wuhan-6": 7,
    "hb-hdjl-10": 5,
    "hb-hdjl-19": 4
+  },
+  "天津市": {
+   "tj-hdjl": 497,
+   "people-liuyan-prov": 14
   },
   "国家级（部委）": {
    "mee": 145,
@@ -210,6 +211,10 @@
    "heb-szj": 114,
    "heb-czt": 26,
    "people-liuyan-prov": 24
+  },
+  "新疆维吾尔自治区": {
+   "xj-dchs": 100,
+   "people-liuyan-prov": 5
   },
   "山东省": {
    "sd-12345": 71,
@@ -253,10 +258,6 @@
   "甘肃省": {
    "people-liuyan-prov": 18
   },
-  "新疆维吾尔自治区": {
-   "xj-dchs": 10,
-   "people-liuyan-prov": 5
-  },
   "西藏自治区": {
    "people-liuyan-prov": 14
   }
@@ -271,14 +272,15 @@
   "山西省": 736,
   "上海市": 628,
   "宁夏回族自治区": 615,
+  "湖北省": 549,
   "天津市": 511,
-  "湖北省": 470,
   "国家级（部委）": 242,
   "海南省": 228,
   "青海省": 215,
   "陕西省": 202,
   "广西壮族自治区": 166,
   "河北省": 164,
+  "新疆维吾尔自治区": 105,
   "山东省": 93,
   "辽宁省": 60,
   "四川省": 43,
@@ -292,7 +294,6 @@
   "河南省": 20,
   "云南省": 18,
   "甘肃省": 18,
-  "新疆维吾尔自治区": 15,
   "西藏自治区": 14
  },
  "source_totals": {
@@ -389,12 +390,14 @@
   "jl-fgw": 105,
   "hb-wuhan-9": 103,
   "hunan-wjw": 100,
+  "xj-dchs": 100,
   "gd-gdjyj": 98,
   "hunan-tyjrswt": 94,
   "jl-st": 94,
   "gz-gxt": 86,
   "hunan-mpa": 83,
   "gz-kjt": 79,
+  "hb-rst": 79,
   "jl-gxj": 79,
   "gd-dfz": 78,
   "gd-gdwsxf": 78,
@@ -458,11 +461,10 @@
   "jl-gat": 20,
   "hunan-gzw": 19,
   "sc-st": 15,
-  "xj-dchs": 10,
   "hb-wuhan-6": 7,
   "hb-hdjl-10": 5,
   "hb-hdjl-19": 4
  },
- "grand_total": 53541,
+ "grand_total": 53710,
  "n_provinces_covered": 31
 }
