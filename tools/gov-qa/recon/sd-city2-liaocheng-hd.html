@@ -1,0 +1,1044 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		
+		<title>聊城市人民政府 - 市民热线网上受理</title>
+		
+		    
+		            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		        
+		
+		
+		
+		<link rel="icon" type="image/x-icon" href="/static/dist/images/x-icon-logo.png">
+		
+		
+		
+		
+		<meta name="SiteName" content="聊城市人民政府">
+		<meta name="SiteDomain" content="http://www.liaocheng.gov.cn/">
+		<meta name="SiteIDCode" content="3715000063">
+		<meta name="ColumnName" content="市民热线网上受理">
+		<meta name="ColumnType" content="市民热线网上受理">
+		
+		
+		<meta name="ColumnDescription" content="市长信箱【勿操作】">
+		<meta name="ColumnKeywords" content="政民互动，市民热线网上受理">
+		
+		
+		<!-- 归档 -->
+		
+		
+		<script>
+		    // var _domain = "/";
+		    var _domain = "/",
+		         apiHead = '/api';
+		</script><link rel="stylesheet" type="text/css" href="/static/dist/layui/css/layui.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/layui/css/modules/layer.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/layui/css/modules/laydate.css">
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/barrierfree-icon.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/sk.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/src/css/lcIconfont.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/liaocheng-icon.css">
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/barrierfree.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/dist/css/style.min.css" id="commStyle" />
+		
+		<script>
+		    let comFileStyle = [],
+		        comFileScript = [],
+		        linkSrc = [],
+		        scriptSrc = [];
+		</script>
+		
+		
+		
+
+		<link rel="stylesheet" type="text/css" href="/static/63242115c5281b1c6bcff28a/./dist/css/style.min.css" />
+	</head>
+	<body>
+		
+		<link rel="stylesheet" href="/static/components/lc_header_2/dist/css/style.min.css">
+		
+		<div class="lc_header_2">
+		    <div class="top-tools">
+		        <div class="sk-container">
+		            <div class="sk-col-lg6 sk-col-md6 sk-col-sm12 sk-col-xs12 left">
+		                <div class="date"></div>
+						<iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=1&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=0&c=54806&w=180&h=36&align=center"></iframe>
+		            </div>
+		            <div class="sk-col-lg6 sk-col-md6 sk-col-sm12 sk-col-xs12 right">
+		                <a href="https://tysfrz.isdapp.shandong.gov.cn/jpaas-jis-sso-server/sso/entrance/auth-center?appMark=LIAOCZWFZQUNTJYS&userType=1&backUrl=http://www.liaocheng.gov.cn/retrace/jis/?gotourl=http://www.liaocheng.gov.cn/vrender/main?logintpye=1:modulebranch=1" target="_blank">登录个人中心</a>
+		                <span>|</span>
+		                <a href="http://www.liaocheng.gov.cn/channel_6323f40c450864af6c64df2c/"target="_blank">智能问答</a>
+		                <span>|</span>
+		                <span class="simplified" onclick="switchFont(Simplized)" style="display: none;">简体</span>
+		                <span class="traditional" onclick="switchFont(Traditionalized)">繁體</span>
+		                <span>|</span>
+		                <span onclick="toggleToolBar()">无障碍阅读</span>
+		                <span>|</span>
+		                <a href="http://www.liaocheng.gov.cn/channel_t_156_11786/"
+		                    target="_blank" title="站群导航"><i class="iconfont icon-zhanqundaohang"></i>站群导航</a>
+		                
+		            </div>
+		        </div>
+		    </div>
+		    <div class="banner">
+		        <div class="sk-container">
+		            <div class="logo sk-col-md3">
+		                <img src="/static/components/lc_header_2/dist/images/logo.png" alt="">
+		            </div>
+		            <div class="nav sk-col-md9">
+		                
+		                                    
+		                                        <a class="" href="/">首页</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://www.liaocheng.gov.cn/channel_t_156_11221/">要闻动态</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://www.liaocheng.gov.cn/channel_t_156_11248/">政务公开</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://www.liaocheng.gov.cn/channel_t_156_11521/">办事服务</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://www.liaocheng.gov.cn/channel_t_156_11559/">政民互动</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://lcdata.sd.gov.cn/">数据开放</a>
+		                                        
+		                                
+		                                    
+		                                        <a class="" href="http://www.liaocheng.gov.cn/channel_t_156_11744/">走进聊城</a>
+		                                        
+		                                
+		                <button class="elder-pattern">
+		                    <a href="http://www.liaocheng.gov.cn/channel_634e4a5f450864af6c64dfed/">长者模式</a>
+		                </button>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="mobile-nav">
+		        <div class="menu-icon">
+		            <span>menu</span>
+		        </div>
+		        <div class="mobile-menu-item">
+		            
+		                            
+		                                <div>
+		                                    <a href="/" class="" target="_blank">首页</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://www.liaocheng.gov.cn/channel_t_156_11221/" class="" target="_blank">要闻动态</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://www.liaocheng.gov.cn/channel_t_156_11248/" class="" target="_blank">政务公开</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://www.liaocheng.gov.cn/channel_t_156_11521/" class="" target="_blank">办事服务</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://www.liaocheng.gov.cn/channel_t_156_11559/" class="" target="_blank">政民互动</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://lcdata.sd.gov.cn/" class="" target="_blank">数据开放</a>
+		                                </div>
+		                                
+		                        
+		                            
+		                                <div>
+		                                    <a href="http://www.liaocheng.gov.cn/channel_t_156_11744/" class="" target="_blank">走进聊城</a>
+		                                </div>
+		                                
+		                        
+		        </div>
+		    </div>
+		</div>
+		<script class="delScript">
+		    // comFileStyle.push('lc_header_2')
+		    comFileScript.push('lc_header_2')
+		</script>
+		<div class="szxx_2022">
+			<div class="sk-container">
+				<div class="szxx_2022-nav">
+					<ul class="szxx_2022-tab">
+						<li data-name="wyly" class="tab-li ">
+							<p>我要留言</p>
+						</li>
+						<li>
+							<a href="https://tysfrz.isdapp.shandong.gov.cn/jpaas-jis-sso-server/sso/entrance/auth-center?appMark=LIAOCZWFZQUNTJYS&userType=1&backUrl=http://www.liaocheng.gov.cn/retrace/jis/?gotourl=http://www.liaocheng.gov.cn/vrender/main?logintpye=1:modulebranch=1" target="_blank">留言查询</a>
+						</li>
+						<li data-name="jdcx" class="tab-li">
+							<p>12345办理<br>进度查询</p>
+						</li>
+						<li data-name="blqk" class="tab-li active">
+							<p>办理情况</p>
+						</li>
+						<!-- <li data-name="rxxd" class="tab-li">
+							<p>12345热线在行动</p>
+						</li> -->
+					</ul>
+					<ul class="szxx_2022-content">
+						<div class="switch wyly ">
+							<div class="wyly-title">
+								<img src="/static/63242115c5281b1c6bcff28a/./dist/images/wyly-icon.png" alt="">
+								<a href="https://tysfrz.isdapp.shandong.gov.cn/jpaas-jis-sso-server/sso/entrance/auth-center?appMark=LIAOCZWFZQUNTJYS&userType=1&backUrl=http://www.liaocheng.gov.cn/retrace/jis/?gotourl=http://www.liaocheng.gov.cn/vrender/main?logintpye=1:modulebranch=1" target="_blank">我要留言</a>
+							</div>
+							<div class="wyly-content">
+								一、对下列留言范围不予受理：
+								<br />
+								（一）违反宪法和法律法规规定的；
+								<br />
+								（二）煽动颠覆国家政权，推翻社会主义制度的；
+								<br />
+								（三）捏造或者歪曲事实，散布谣言，扰乱社会秩序的；
+								<br />
+								（四）公开侮辱他人、捏造事实诽谤他人或者恶意攻击他人的；
+								<br />
+								（五）反映非行政管辖范围内问题的；
+								<br />
+								（六）不属于政务职能范畴的。
+								<br />
+								二、注意事项：
+								<br />
+								1、留言内容要一事一件，提交留言成功后，工作人员会及时处理，请不要再重复提交；同时您将得到受理编号、查询码，请妥善保存，以备查询办理结果。
+								<br />
+								2、反映问题，要客观公正，具体详细，不要故弄玄乎，不能以个人好喜来歪曲事实； 看问题要全面统一，不能片面地产生歧义。
+								<br />
+								3、您需承担因您的留言内容而直接或间接引起的法律责任。
+								<br />
+								4、反映有关情况应按规定格式填写，并留下真实联系方式，以便在受理过程中进一步了解情况，您的个人信息会受到保护；特别是要写明留言有关时间、地点、事实，力求简明扼要，字数一般不要超过500字。
+								<br />
+								5、请您在留言中使用文明用语，对于含有不文明用语的留言，概不予受理。
+							</div>
+							<div class="wyly-btn">
+								<a href="https://tysfrz.isdapp.shandong.gov.cn/jpaas-jis-sso-server/sso/entrance/auth-center?appMark=LIAOCZWFZQUNTJYS&userType=1&backUrl=http://www.liaocheng.gov.cn/retrace/jis/?gotourl=http://www.liaocheng.gov.cn/vrender/main?logintpye=1:modulebranch=1" target="_blank">开始留言</a>
+							</div>
+						</div>
+						<div class="switch jdcx">
+							<!-- <ul class="jdcx-tab">
+								<li class="active">
+									<p>留言办理情况查询</p>
+								</li>
+								<li>
+									<p>12345办理进度查询</p>
+								</li>
+							</ul> -->
+							<ul class="jdcx-content">
+								<!-- <li class="blqkcx">
+									<div class="query-criteria">
+										<div class="user-name">
+											<input type="text" placeholder="请输入用户姓名">
+										</div>
+										<div class="query-code">
+											<input type="text" placeholder="请输入查询码">
+										</div>
+										<div class="query-btn">
+											<button>
+												<img src="/static/63242115c5281b1c6bcff28a/./dist/images/query-icon.png" alt="">
+												<span>查询</span>
+											</button>
+										</div>
+									</div>
+									<div class="query-results">
+										<img src="/static/63242115c5281b1c6bcff28a/./dist/images/jdcx-banner.png" alt="">
+										<div>
+											<p>查询结果</p>
+											<ul class="returnData"></ul>
+										</div>
+									</div>
+								</li> -->
+								<li class="bljdcx">
+									<div class="query-criteria">
+										<div class="user-name">
+											<input type="number" placeholder="请输入手机号码">
+										</div>
+										<div class="query-code">
+											<input type="text" placeholder="请输入查询码">
+										</div>
+										<div class="query-btn">
+											<button>
+												<img src="/static/63242115c5281b1c6bcff28a/./dist/images/query-icon.png" alt="">
+												<span>查询</span>
+											</button>
+										</div>
+									</div>
+									<div class="query-results">
+										<img src="/static/63242115c5281b1c6bcff28a/./dist/images/jdcx-banner.png" alt="">
+										<div>
+											<p>查询结果</p>
+											<ul class="returnData"></ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="switch blqk clear active">
+							<div class="blqk-left">
+								<div class="blqk-title">
+									<img src="/static/63242115c5281b1c6bcff28a/./dist/images/blqk-icon.png" alt="">
+									<p>留言办理情况统计</p>
+								</div>
+								<p class="left-time">【2020年1月1日-至今】</p>
+								<ul>
+									<li class="total">
+										<p>留言总量</p>
+										<span></span>
+									</li>
+									<li class="reply">
+										<p>已回复量</p>
+										<span></span>
+									</li>
+									<li class="finish">
+										<p>已办结量</p>
+										<span></span>
+									</li>
+								</ul>
+							</div>
+							<div class="blqk-right">
+								<div class="blqk-title">
+									<img src="/static/63242115c5281b1c6bcff28a/./dist/images/blqk-icon.png" alt="">
+									<p>留言办理情况</p>
+								</div>
+								<table class="right-form" align='center' style="border-collapse:collapse;">
+									<thead>
+										<tr>
+											<th>留言编号</th>
+											<th>标题</th>
+											<th>类型</th>
+											<th>办理情况</th>
+										</tr>
+									</thead>
+									
+									<tbody></tbody>
+								</table>
+								<div class="position">
+									<div id="pagination-list"></div>
+									<div class="jump-page">
+										<input type="number">
+										<button>GO</button>
+									</div>
+								</div>
+							</div>
+							<div class="blqk-mask">
+								<div class="mask-title">
+									<p></p>
+									<div class="mask-return">
+										<img src="/static/63242115c5281b1c6bcff28a/./dist/images/return.png" alt="">
+										<span>返回</span>
+									</div>
+								</div>
+								<table class="mask-zxxx">
+									<thead>
+										<tr></tr>
+										<tr>
+											<th>
+												<img src="/static/63242115c5281b1c6bcff28a/./dist/images/zxxx.png" alt="">
+												<span>咨询信息</span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>留言标题</td>
+											<td>留言时间</td>
+											<td>留言内容</td>
+										</tr>
+										<tr>
+											<td class="stay-title"></td>
+											<td class="stay-time"></td>
+											<td class="stay-content">
+												<span></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="mask-hfxx">
+									<thead>
+										<tr></tr>
+										<tr>
+											<th>
+												<img src="/static/63242115c5281b1c6bcff28a/./dist/images/hfxx.png" alt="">
+												<span>回复信息</span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>回复单位</td>
+											<td>回复时间</td>
+											<td>回复内容</td>
+										</tr>
+										<tr>
+											<td class="reply-title"></td>
+											<td class="reply-time"></td>
+											<td class="reply-content">
+												<span></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- <div class="switch rxxd clear">
+							<div class="rxxd_area1">
+								<div class="rxxd_list"></div>
+								<div class="rxxd_pages">
+									<div class="position">
+										<div id="pagination-rxxd"></div>
+									</div>
+								</div>
+							</div>
+							<div class="rxxd-content">
+								<div class="rxxdmask-title">
+									<div class="rxxd-return">
+										<img src="/static/63242115c5281b1c6bcff28a/./dist/images/return.png" alt="">
+										<span>返回</span>
+									</div>
+								</div>
+								<div class="rxxd_mastCon"></div>
+							</div>
+						</div> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			let mperpage = '8'; // 每页文章数量
+			let mpage = '1'; // 当前页码
+			let organization = 'lcsrmzf'; //当前站点
+			let mId = ''; // 详情id
+		</script>
+		
+		<script>
+			var accessToken = "Bearer "
+			let RequestBasic = '/api'
+			let jsjb = "64dec19589bd832356cf7627"
+		</script>
+		
+		<link rel="stylesheet" href="/static/components/lc_footer_1/dist/css/style.min.css">
+		
+		<div class="lc_footer_1">
+		    <div class="sk-container">
+		        <div class="footer-info clear">
+		            <div class="sk-col-md9 left ">
+		                
+		                                <div class="sk-col-md12 website-items clear">
+		                                    
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>国家部委网站</option>
+		                                                
+		                                                        <option data-href="http://www.fmprc.gov.cn">外交部</option>
+		                                                        
+		                                                        <option data-href="http://www.mod.gov.cn/">国防部</option>
+		                                                        
+		                                                        <option data-href="http://www.ndrc.gov.cn/">国家发展和改革委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.moe.gov.cn/">教育部</option>
+		                                                        
+		                                                        <option data-href="http://www.most.gov.cn/">科学技术部</option>
+		                                                        
+		                                                        <option data-href="http://www.miit.gov.cn/">工业和信息化部</option>
+		                                                        
+		                                                        <option data-href="http://www.seac.gov.cn/">国家民族事务委员会</option>
+		                                                        
+		                                                        <option data-href="https://www.mps.gov.cn/">公安部</option>
+		                                                        
+		                                                        <option data-href="javascript:;">国家安全部</option>
+		                                                        
+		                                                        <option data-href="http://www.mca.gov.cn/">民政部</option>
+		                                                        
+		                                                        <option data-href="http://www.saac.gov.cn/">国家档案局</option>
+		                                                        
+		                                                        <option data-href="http://www.oscca.gov.cn/">国家密码管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.gjbmj.gov.cn/">国家保密局</option>
+		                                                        
+		                                                        <option data-href="http://www.scs.gov.cn/">国家公务员局</option>
+		                                                        
+		                                                        <option data-href="https://www.nmpa.gov.cn/">国家药品监督管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.forestry.gov.cn/">国家公园管理局</option>
+		                                                        
+		                                                        <option data-href="javascript:;">出入境管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.safe.gov.cn/">国家外汇管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.chinacoal-safety.gov.cn/">国家煤矿安全监察局</option>
+		                                                        
+		                                                        <option data-href="http://www.ncha.gov.cn/">国家文物局</option>
+		                                                        
+		                                                        <option data-href="http://www.caac.gov.cn/index.html">中国民用航空局</option>
+		                                                        
+		                                                        <option data-href="http://www.satcm.gov.cn/">国家中医药管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.spb.gov.cn/">国家邮政局</option>
+		                                                        
+		                                                        <option data-href="http://www.forestry.gov.cn/">国家林业和草原局</option>
+		                                                        
+		                                                        <option data-href="http://www.mps.gov.cn/n2254996/">国家移民管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.nra.gov.cn/">国家铁路局</option>
+		                                                        
+		                                                        <option data-href="http://www.nea.gov.cn/">国家能源局</option>
+		                                                        
+		                                                        <option data-href="http://www.sastind.gov.cn/">国家国防科技工业局</option>
+		                                                        
+		                                                        <option data-href="http://www.chinagrain.gov.cn/index.html">国家粮食和物资储备局</option>
+		                                                        
+		                                                        <option data-href="http://www.gjxfj.gov.cn/">国家信访局</option>
+		                                                        
+		                                                        <option data-href="http://www.ccps.gov.cn/">国家行政学院</option>
+		                                                        
+		                                                        <option data-href="http://www.csrc.gov.cn/pub/newsite/">中国证券监督管理委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.cma.gov.cn/">中国气象局</option>
+		                                                        
+		                                                        <option data-href="javascript:;">中央广播电视总台</option>
+		                                                        
+		                                                        <option data-href="http://www.drc.gov.cn/">国务院发展研究中心</option>
+		                                                        
+		                                                        <option data-href="http://www.cssn.cn/">中国社会科学院</option>
+		                                                        
+		                                                        <option data-href="http://www.cas.ac.cn/">中国科学院</option>
+		                                                        
+		                                                        <option data-href="http://www.cae.cn/">中国工程院</option>
+		                                                        
+		                                                        <option data-href="http://www.cac.gov.cn/">国家互联网信息办公室</option>
+		                                                        
+		                                                        <option data-href="http://www.scio.gov.cn/index.htm">国务院新闻办公室</option>
+		                                                        
+		                                                        <option data-href="http://www.gwytb.gov.cn/">国务院台湾事务办公室</option>
+		                                                        
+		                                                        <option data-href="http://www.gqb.gov.cn/">国务院侨务办公室</option>
+		                                                        
+		                                                        <option data-href="http://203.192.6.89/xhs/">新华通讯社</option>
+		                                                        
+		                                                        <option data-href="http://www.gov.cn/guoqing/2018-06/22/content_5300522.htm">国务院研究室</option>
+		                                                        
+		                                                        <option data-href="http://www.hmo.gov.cn/">国务院港澳事务办公室</option>
+		                                                        
+		                                                        <option data-href="http://www.ncac.gov.cn/">国家新闻出版署（国家版权局）</option>
+		                                                        
+		                                                        <option data-href="http://www.sac.gov.cn/">国家标准化管理委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.cnca.gov.cn/">国家认证认可监督管理委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.ggj.gov.cn/">国家机关事务管理局</option>
+		                                                        
+		                                                        <option data-href="http://www.counsellor.gov.cn/">国务院参事室</option>
+		                                                        
+		                                                        <option data-href="http://www.cidca.gov.cn/">国家国际发展合作署</option>
+		                                                        
+		                                                        <option data-href="http://www.nhsa.gov.cn/">国家医疗保障局</option>
+		                                                        
+		                                                        <option data-href="http://www.samr.gov.cn/">国家市场监督管理总局</option>
+		                                                        
+		                                                        <option data-href="http://www.sasac.gov.cn/">国务院国有资产监督管理委员会</option>
+		                                                        
+		                                                        <option data-href="http://nnsa.mee.gov.cn/">国家核安全局</option>
+		                                                        
+		                                                        <option data-href="http://www.caea.gov.cn/">国家原子能机构</option>
+		                                                        
+		                                                        <option data-href="http://www.cnsa.gov.cn/">国家航天局</option>
+		                                                        
+		                                                        <option data-href="http://www.safea.gov.cn/">国家外国专家局</option>
+		                                                        
+		                                                        <option data-href="http://www.moe.gov.cn/jyb_sy/China_Language/">国家语言文字工作委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.mva.gov.cn/">退役军人事务部</option>
+		                                                        
+		                                                        <option data-href="http://www.mohrss.gov.cn/">人力资源和社会保障部</option>
+		                                                        
+		                                                        <option data-href="http://www.stats.gov.cn/">国家统计局</option>
+		                                                        
+		                                                        <option data-href="http://www.chinatax.gov.cn/">国家税务总局</option>
+		                                                        
+		                                                        <option data-href="http://www.audit.gov.cn/">审计署</option>
+		                                                        
+		                                                        <option data-href="http://www.customs.gov.cn/">海关总署</option>
+		                                                        
+		                                                        <option data-href="http://www.sport.gov.cn/">国家体育总局</option>
+		                                                        
+		                                                        <option data-href="http://www.mofcom.gov.cn/">商务部</option>
+		                                                        
+		                                                        <option data-href="https://www.mct.gov.cn/">文化和旅游部</option>
+		                                                        
+		                                                        <option data-href="http://www.mem.gov.cn/">应急管理部</option>
+		                                                        
+		                                                        <option data-href="http://www.nhc.gov.cn/">国家卫生健康委员会</option>
+		                                                        
+		                                                        <option data-href="http://www.mwr.gov.cn/">水利部</option>
+		                                                        
+		                                                        <option data-href="http://www.mohurd.gov.cn/">住房和城乡建设部</option>
+		                                                        
+		                                                        <option data-href="http://www.mot.gov.cn/">交通运输部</option>
+		                                                        
+		                                                        <option data-href="http://www.mee.gov.cn/">生态环境部</option>
+		                                                        
+		                                                        <option data-href="http://www.moj.gov.cn/">司法部</option>
+		                                                        
+		                                                        <option data-href="http://www.mnr.gov.cn/">自然资源部</option>
+		                                                        
+		                                                        <option data-href="http://www.mof.gov.cn/index.htm">财政部</option>
+		                                                        
+		                                                        <option data-href="http://www.moa.gov.cn">农业农村部</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>省内地市级网站</option>
+		                                                
+		                                                        <option data-href="http://www.jinan.gov.cn/">济南市</option>
+		                                                        
+		                                                        <option data-href="http://www.qingdao.gov.cn/">青岛市</option>
+		                                                        
+		                                                        <option data-href="http://www.zibo.gov.cn/">淄博市</option>
+		                                                        
+		                                                        <option data-href="http://www.zaozhuang.gov.cn/">枣庄市</option>
+		                                                        
+		                                                        <option data-href="http://www.dongying.gov.cn/">东营市</option>
+		                                                        
+		                                                        <option data-href="http://www.yantai.gov.cn/">烟台市</option>
+		                                                        
+		                                                        <option data-href="http://www.weifang.gov.cn/">潍坊市</option>
+		                                                        
+		                                                        <option data-href="http://www.jining.gov.cn/">济宁市</option>
+		                                                        
+		                                                        <option data-href="http://www.taian.gov.cn/">泰安市</option>
+		                                                        
+		                                                        <option data-href="http://www.weihai.gov.cn/">威海市</option>
+		                                                        
+		                                                        <option data-href="http://www.rizhao.gov.cn/">日照市</option>
+		                                                        
+		                                                        <option data-href="http://www.linyi.gov.cn/">临沂市</option>
+		                                                        
+		                                                        <option data-href="http://www.dezhou.gov.cn/">德州市</option>
+		                                                        
+		                                                        <option data-href="http://www.binzhou.gov.cn/">滨州市</option>
+		                                                        
+		                                                        <option data-href="http://www.heze.gov.cn/">菏泽市</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>本市重要网站</option>
+		                                                
+		                                                        <option data-href="http://renda.liaocheng.gov.cn/">聊城市人大</option>
+		                                                        
+		                                                        <option data-href="http://www.lcszx.gov.cn/">聊城市政协</option>
+		                                                        
+		                                                        <option data-href="http://jwjw.liaocheng.gov.cn/">聊城市纪委</option>
+		                                                        
+		                                                        <option data-href="http://zfw.liaocheng.gov.cn/">聊城市政法委</option>
+		                                                        
+		                                                        <option data-href="http://swbb.liaocheng.gov.cn/">聊城机构编制网</option>
+		                                                        
+		                                                        <option data-href="http://dag.liaocheng.gov.cn/">聊城市档案馆</option>
+		                                                        
+		                                                        <option data-href="http://skl.liaocheng.gov.cn/">聊城市社科联</option>
+		                                                        
+		                                                        <option data-href="http://www.lcwenlian.gov.cn/">聊城市文联</option>
+		                                                        
+		                                                        <option data-href="http://www.lczgw.gov.cn/">聊城组工网</option>
+		                                                        
+		                                                        <option data-href="http://www.lcjgdj.gov.cn/">聊城机关党建网</option>
+		                                                        
+		                                                        <option data-href="http://www.lcgonglu.org.cn/">聊城市公路事业发展中心</option>
+		                                                        
+		                                                        <option data-href="http://www.lcgxhzs.org.cn/">聊城市供销合作社</option>
+		                                                        
+		                                                        <option data-href="http://www.lcsmch.org.cn/">聊城市贸促会</option>
+		                                                        
+		                                                        <option data-href="http://www.lccdc.cn/">聊城市疾病预防控制中心</option>
+		                                                        
+		                                                        <option data-href="https://www.lcu.edu.cn/">聊城大学</option>
+		                                                        
+		                                                        <option data-href="http://www.lcsjsxy.cn/">聊城市技师学院</option>
+		                                                        
+		                                                        <option data-href="http://www.lctvu.sd.cn/">聊城职业技术学院</option>
+		                                                        
+		                                                        <option data-href="http://www.sdgcjs.com/">山东工程技术学院</option>
+		                                                        
+		                                                        <option data-href="http://www.lcsgxjt.com/">聊城市国兴城乡发展集团</option>
+		                                                        
+		                                                        <option data-href="http://gjj.liaocheng.gov.cn">聊城市住房公积金管理中心</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>市政府部门网站</option>
+		                                                
+		                                                        <option data-href="http://fgw.liaocheng.gov.cn">市发展改革委</option>
+		                                                        
+		                                                        <option data-href="http://jyty.liaocheng.gov.cn/">市教育体育局</option>
+		                                                        
+		                                                        <option data-href="http://kjj.liaocheng.gov.cn">市科技局</option>
+		                                                        
+		                                                        <option data-href="http://gxj.liaocheng.gov.cn/">市工业和信息化局</option>
+		                                                        
+		                                                        <option data-href="http://gaj.liaocheng.gov.cn">市公安局</option>
+		                                                        
+		                                                        <option data-href="http://smzj.liaocheng.gov.cn/">市民政局</option>
+		                                                        
+		                                                        <option data-href="http://sfj.liaocheng.gov.cn">市司法局</option>
+		                                                        
+		                                                        <option data-href="http://czj.liaocheng.gov.cn">市财政局</option>
+		                                                        
+		                                                        <option data-href="http://rsj.liaocheng.gov.cn">市人力资源社会保障局</option>
+		                                                        
+		                                                        <option data-href="http://zrzyhghj.liaocheng.gov.cn/">市自然资源和规划局</option>
+		                                                        
+		                                                        <option data-href="http://sthjj.liaocheng.gov.cn/">市生态环境局</option>
+		                                                        
+		                                                        <option data-href="http://zjj.liaocheng.gov.cn">市住房城乡建设局</option>
+		                                                        
+		                                                        <option data-href="http://jtj.liaocheng.gov.cn">市交通运输局</option>
+		                                                        
+		                                                        <option data-href="http://slj.liaocheng.gov.cn/">市水利局</option>
+		                                                        
+		                                                        <option data-href="http://nyncj.liaocheng.gov.cn/">市农业农村局</option>
+		                                                        
+		                                                        <option data-href="http://swj.liaocheng.gov.cn/">市商务局</option>
+		                                                        
+		                                                        <option data-href="http://tzcjj.liaocheng.gov.cn/">市投资促进局</option>
+		                                                        
+		                                                        <option data-href="http://wlj.liaocheng.gov.cn/">市文化和旅游局</option>
+		                                                        
+		                                                        <option data-href="http://wjw.liaocheng.gov.cn/">市卫生健康委员会</option>
+		                                                        
+		                                                        <option data-href="http://dva.liaocheng.gov.cn/">市退役军人事务局</option>
+		                                                        
+		                                                        <option data-href="http://yjj.liaocheng.gov.cn/">市应急局</option>
+		                                                        
+		                                                        <option data-href="http://sjj.liaocheng.gov.cn">市审计局</option>
+		                                                        
+		                                                        <option data-href="http://wsb.liaocheng.gov.cn/">市外办</option>
+		                                                        
+		                                                        <option data-href="http://gzw.liaocheng.gov.cn">市国资委</option>
+		                                                        
+		                                                        <option data-href="http://zwzx.liaocheng.gov.cn">市行政审批局</option>
+		                                                        
+		                                                        <option data-href="http://scjdglj.liaocheng.gov.cn/">市市场监管局</option>
+		                                                        
+		                                                        <option data-href="http://tjj.liaocheng.gov.cn">市统计局</option>
+		                                                        
+		                                                        <option data-href="http://jgsw.liaocheng.gov.cn/">市机关事务局</option>
+		                                                        
+		                                                        <option data-href="http://ylbzj.liaocheng.gov.cn/">市医保局</option>
+		                                                        
+		                                                        <option data-href="http://cgj.liaocheng.gov.cn">市城管局</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>各区县政府网站</option>
+		                                                
+		                                                        <option data-href="http://www.dongchangfu.gov.cn/">东昌府区</option>
+		                                                        
+		                                                        <option data-href="http://www.chiping.gov.cn/">茌平区</option>
+		                                                        
+		                                                        <option data-href="http://www.linqing.gov.cn/">临清市</option>
+		                                                        
+		                                                        <option data-href="http://www.guanxian.gov.cn/">冠县</option>
+		                                                        
+		                                                        <option data-href="http://www.sdsx.gov.cn/">莘县</option>
+		                                                        
+		                                                        <option data-href="http://www.yanggu.gov.cn/">阳谷县</option>
+		                                                        
+		                                                        <option data-href="http://www.sdde.gov.cn/">东阿县</option>
+		                                                        
+		                                                        <option data-href="http://www.gaotang.gov.cn/">高唐县</option>
+		                                                        
+		                                                        <option data-href="http://www.lckfq.gov.cn/">聊城经济技术开发区</option>
+		                                                        
+		                                                        <option data-href="http://www.lcgxq.gov.cn/">聊城高新技术产业开发区</option>
+		                                                        
+		                                                        <option data-href="http://www.lcdjq.gov.cn">聊城江北水城旅游度假区</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                        <div class="sk-col-lg2 sk-col-md4 sk-col-sm6">
+		                                            <select id="select">
+		                                                
+		                                                <option disabled selected>重要媒体</option>
+		                                                
+		                                                        <option data-href="http://www.people.com.cn/">人民网</option>
+		                                                        
+		                                                        <option data-href="http://www.xinhuanet.com/">新华网</option>
+		                                                        
+		                                                        <option data-href="http://www.cctv.com/">央视网</option>
+		                                                        
+		                                                        <option data-href="http://www.chinanews.com/">中新网</option>
+		                                                        
+		                                                        <option data-href="http://www.iqilu.com/">齐鲁网</option>
+		                                                        
+		                                                        <option data-href="http://www.lcxw.cn/">聊城新闻网</option>
+		                                                        
+		                                            </select>
+		                                        </div>
+		                                        
+		                                </div>
+		                                
+		                <div class="sk-col-md3 clear logos">
+		                    <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3715000063&url=http%3A%2F%2Fwww.liaocheng.gov.cn%2F">
+		                        <img src="/static/dist/images/jiucuo-icon.png" style="width: 120px;">
+		                    </a>
+		                    <a class="dzjg" href="https://bszs.conac.cn/sitename?method=show&id=06F2AA28272E0692E053012819AC1CDC">
+		                        <img src="/resources/public/20230130/63d7368c787f4e977e814eea.png" style="margin-left: 5px;width: 60px;">
+		                    </a>
+		                </div>
+		                <div class="sk-col-md9 website-info">
+		                    
+		                                            <div style="width: 100%;">聊城市人民政府办公室主办，各县（市、区）人民政府、市属开发区管委会，市直各部门（单位）联合内容保障</div>
+		                                        
+		                    
+		                                            <div style="width: 27%;">网站标识码：3715000063</div>
+		                                        
+		                    
+		                                            <div style="width: 35%;">
+		                                                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37150202000389">
+		                                                    <img src="/static/dist/images/national-icon.png" style="margin-right: 3px;">
+		                                                    <span>鲁公网安备 37150202000389号</span>
+		                                                </a>
+		                                            </div>
+		                                        
+		                    
+		                                            <div style="width: 38%;">
+		                                                <a href="https://beian.miit.gov.cn/#/Integrated/index">鲁ICP备18055133号</a>
+		                                            </div>
+		                                        
+		                    
+		                </div>
+		            </div>
+		            
+		                        <div class="sk-col-md3 right clear">
+		                            <div>
+		                                <a href="/channel_t_156_11782/doc_63948ca3f8ab1b32646a2f58.html" target="_blank">郑重声明</a>
+		                            </div>
+		                            <div>
+		                                <a href="/channel_t_156_11782/doc_639482b65042a20a2c246c79.html" target="_blank">隐私保护</a>
+		                            </div>
+		                            <div>
+		                                <a href="/channel_t_156_11782/doc_63948ca3f8ab1b32646a2f57.html" target="_blank">关于我们</a>
+		                            </div>
+		                            <div>
+		                                <a href="/channel_t_156_11783/" target="_blank">网站地图</a>
+		                            </div>
+		                        </div>
+		                        
+		        </div>
+		    </div>
+		</div>
+		
+		<script class="delScript">
+		    // comFileStyle.push('lc_footer_1')
+		    comFileScript.push('lc_footer_1')
+		</script><script src="/static/dist/js/jquery.min.js"></script>
+		<script src="/static/dist/js/jquery.cookie.js"></script>
+		<script src="/static/dist/layui/layui.js"></script>
+		<script src="/static/dist/js/layoutFun.min.js"></script>
+		<script src="/static/dist/js/barrierfree.js"></script>
+		<script src="/static/dist/js/barrierfreeYuyin.js"></script>
+		
+		<script src="/static/dist/js/polyfill.min.js"></script>
+		<script src="/static/dist/js/all.min.js"></script>
+		<script src="/static/dist/js/jsSourceFun.min.js"></script>
+		<script src="/static/dist/js/idangerous.swiper.min.js"></script>
+		<script src="/static/dist/js/swiper-bundle.min.js"></script>
+		<script src="/static/dist/js/scrollReveal.js"></script>
+		<script src="/static/dist/js/layout.min.js"></script>
+		<script src="/static/dist/js/jquery.share.min.js"></script>
+		<script src="/static/dist/js/jquery.qrcode.min.js"></script>
+		<script src="/static/dist/js/html2canvas.js"></script>
+		
+		<script src="/static/dist/js/tongji.js"></script>
+		
+		<div id="footer-divide"></div>
+		<script>
+			function deWeight(arr) {
+				var res = [];
+				for (var i in arr) {
+					if (res.indexOf(arr[i]) == -1) {
+						res.push(arr[i]);
+					}
+				}
+				return res;
+			}
+			var list = deWeight(comFileStyle);
+			var list2 = deWeight(comFileScript);
+			var list3 = deWeight(linkSrc);
+			var list4 = deWeight(scriptSrc);
+			for (var item in list) {
+				var style = document.createElement("link");
+				style.rel = "stylesheet";
+				style.type = "text/css";
+				style.href = "/static/components/".concat(
+					list[item],
+					"/dist/css/style.min.css"
+				);
+				var first = document.getElementById("commStyle");
+				first.parentNode.insertBefore(style, first);
+			}
+			for (var _item in list3) {
+				var _style = document.createElement("link");
+				_style.rel = "stylesheet";
+				_style.type = "text/css";
+				_style.href = list3[_item];
+				var _first = document.getElementById("commStyle");
+				_first.parentNode.insertBefore(_style, _first);
+			}
+			for (var _item2 in list4) {
+				var js = document.createElement("script");
+				js.src = list4[_item2];
+				var _first2 = document.getElementById("footer-divide");
+				_first2.parentNode.insertBefore(js, _first2);
+			}
+			for (var _item3 in list2) {
+				var _js = document.createElement("script");
+				_js.src = "/static/components/".concat(
+					list2[_item3],
+					"/dist/js/style.min.js"
+				);
+				var _first3 = document.getElementById("footer-divide");
+				_first3.parentNode.insertBefore(_js, _first3);
+			}
+			var delScript = document.querySelectorAll(".delScript");
+			for (var i = 0; i < delScript.length; i++) {
+				delScript[i].remove();
+			}
+		</script>
+		
+		
+		<!-- 委办局党政机关引用 -->
+		
+		
+		<script type="text/javascript">
+			document.write(unescape("%3Cspan id='_ideConac'%3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/16/248/0000/60415332/CA162480000604153320001.js' type='text/javascript'%3E%3C/script%3E"));
+			document.querySelector('.lc_footer_1 .footer-info .dzjg').innerHTML = unescape("%3Cspan id='_ideConac' %3E%3C/span%3E")
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<script src="/static/63242115c5281b1c6bcff28a/./dist/js/api.min.js" type="text/javascript" charset="utf-8">
+		</script>
+		<script src="/static/63242115c5281b1c6bcff28a/./dist/js/style.min.js" type="text/javascript" charset="utf-8">
+		</script>
+	</body>
+
+</html>

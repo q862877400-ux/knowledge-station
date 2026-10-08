@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市长信箱</title>
+  <meta name="SiteName" content="菏泽市人民政府">
+  <meta name="SiteDomain" content="www.heze.gov.cn">
+  <meta name="SiteIDCode" content="3717000034">
+  <meta name="ColumnName" content="政民互动">
+  <meta name="ColumnType" content="政民互动">
+  <meta name="ColumnDescription" content="政民互动">
+  <meta name="ColumnKeywords" content="政民互动">
+  <meta name="subsite" content="菏泽市人民政府">
+  <meta name="language" content="中文">
+  <meta name="location" content="">
+  <meta name="department" content="">
+  <meta name="Keywords" content="">
+  <meta name="Url" content="">
+  <meta name="level" content="0">
+  <meta name="serviceCategory" content="">
+  <meta name="serviceObject" content="">
+  <meta name="comments" content="">
+  <meta name="subject" content="">
+  <meta name="i_webid" content="0530">
+  <meta name="i_columnid" content="">
+  <meta name="pagetype" content="1">
+  <meta name="ArticleTitle" content="">
+  <meta name="PubDate" content="2025-11-08 08:13:54">
+  <meta name="ContentSource" content="">
+  <link rel="stylesheet" href="/0530/css/reset.css">
+  <link rel="stylesheet" href="/0530/css/szxx.css">
+  <link rel="stylesheet" href="/0530/css/main.css">
+  <link rel="stylesheet" href="/0530/css/swiper.min.css">
+  <link rel="stylesheet" href="/0530/wza/css/stylenew.css">
+  <script src="/0530/js/jquery-3.6.0.min.js"></script>
+  <script src="/0530/js/rem.js"></script>
+  <script src="/0530/js/swiper.min.js"></script>
+  <script type="text/javascript" src="/0530/js/url.js"></script>
+  <script src="http://www.heze.gov.cn/0530/js/public.js"></script>
+  <style type="text/css">
+    @media screen and (max-width: 768px) {
+      .search {
+        width: 90% !important;
+      }
+    }
+
+    #loading {
+      width: 100%;
+      height: 100%;
+      display: none;
+      position: fixed;
+      background: url(/0530/images/loading-2.gif) rgba(0, 0, 0, 0.6) center center no-repeat;
+      top: 0;
+      left: 0;
+      z-index: 10000
+    }
+  </style>
+  <script>
+    var districtId = '0530';
+    var dw = "", id = "", pageParams = {}, aa = "", attachFiles = [], dq = "菏泽市";
+    String.prototype.trim = function () {
+      return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    }
+    //设置cookie    
+    function setCookie(name, value, seconds) {
+      seconds = seconds || 0; //seconds有值就直接赋值，没有为0，这个根php不一样。    
+      var expires = "";
+      if (seconds != 0) { //设置cookie生存时间    
+        var date = new Date();
+        date.setTime(date.getTime() + (seconds * 1000));
+        expires = "; expires=" + date.toGMTString();
+      }
+      document.cookie = name + "=" + escape(value) + expires + "; path=/"; //转码并赋值    
+    }
+    //取得cookie    
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';'); //把cookie分割成组    
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i]; //取得字符串    
+        while (c.charAt(0) == ' ') { //判断一下字符串有没有前导空格    
+          c = c.substring(1, c.length); //有的话，从第二位开始取    
+        }
+        if (c.indexOf(nameEQ) == 0) { //如果含有我们要的name    
+          return unescape(c.substring(nameEQ.length, c.length)); //解码并截取我们要值    
+        }
+      }
+      return false;
+    }
+    function init() {
+      var url = location.href;
+      if (/\?/.test(url)) {
+        url.split("?")[1].split("&").forEach(function (item) {
+          pageParams[item.split("=")[0]] = decodeURIComponent(item.split("=")[1]);
+        })
+        /*dw = pageParams['dw'];*/
+        id = pageParams['id'];
+      }
+      yzm(0);
+    }
+    function getUuid(mustBind, path) {
+      if (mustBind == undefined) {
+        mustBind = true;
+      }
+      var _uuid = getCookie('uuid')
+
+      if (getCookie('uuid') != false && getCookie('uuid') != undefined && getCookie('token') != false && getCookie('token') != undefined) {
+      } else {
+        location.href = locationUrl.loginUrl + btoa(location.href);
+      }
+      return _uuid;
+    }
+    function parseParams(str) {
+      str = decodeURI(str);
+      var params = {};
+      if (str.indexOf("?") != -1) {
+        str.split("?")[1].split("&").forEach(function (item) {
+          var key = item.split("=")[0];
+          var value = item.split("=")[1];
+          params[key] = value
+        })
+        return {
+          url: str.split("?")[0],
+          params: params
+        };
+      } else
+        return {
+          url: str,
+          params: params
+        };
+    }
+    function getuser411(uuid) {
+      $.ajax({ //type 0. 用户上传 1.单位上传
+        url: locationUrl.yhdlUrl + "/api/sdlogin/detail/" + uuid,
+        type: "get",
+        dataType: "json",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        success: function (data) {
+          if (data.success) {
+            if (data.data.name != undefined && data.data.name != null && data.data.name != '' && data.data.papersnumber != undefined && data.data.papersnumber != null && data.data.papersnumber != '') {
+              $("#jzxx_name").val(data.data.name);
+              $("#jzxx_email").val(data.data.email);
+              $("#jzxx_call").val(data.data.mobile);
+              $("#jzxx_address").val(data.data.address)
+              $("#queryCode").val(data.data.papersnumber)
+            } else {
+              alert("请先进行实名认证")
+              clearCookie("uuid");
+              clearCookie("token");
+              location.href = 'https://zwfw.sd.gov.cn/col/col2408/index.html'
+            }
+          } else {
+            alert(data.message)
+            clearCookie("uuid");
+            clearCookie("token");
+            window.location.reload()
+          }
+        }
+      })
+    }
+    function clearForm() {
+      $("#jzxx_address").val("");
+      $("#jzxx_yb").val("");
+      $("#jzxx_title").val("");
+      $("#jzxx_content").val("");
+      $("#checkcodeinput").val("");
+      $("#attachFiles").html("");
+      $('#upload_excel_file').val('');
+    }
+    function yzm(sessionid) {
+      $.get(locationUrl.yjzjUrl + "yzm/checkcode/" + sessionid, function (data, textStatus, request) {
+        $("#yzm").attr('src', data)
+        aa = request.getResponseHeader('sessionid');
+      })
+    }
+    function saveAttach(xxid) {
+      if (attachFiles.length > 0) {
+        attachFiles.forEach(function (item) {
+          item.xxid = xxid;
+        });
+        $.ajax({ //type 0. 用户上传 1.单位上传
+          url: locationUrl.fileUrl + "file/addlist",
+          data: JSON.stringify(attachFiles),
+          type: "post",
+          dataType: "json",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          success: function (res) {
+            console.log(res)
+          }
+        })
+      }
+    }
+    // $(document).ready(function() {
+    $(function () {
+      if (!isWx()) {
+        return false;
+      }
+      init();
+      if (location.href.indexOf("uuid") != -1) {
+        var _uuid = atob(parseParams(decodeURIComponent(location.href)).params.uuid);
+        var token = atob(parseParams(decodeURIComponent(location.href)).params.token);
+        setCookie("uuid", _uuid, 7200);
+        setCookie("token", token, 7200);
+        if (window.location.search.indexOf("?uuid") != -1) {
+          window.location.href = window.location.pathname
+        }
+      }
+      if (getCookie('uuid') != false && getCookie('uuid') != undefined && getCookie('token') != false && getCookie('token') != undefined) {
+        getuser411(getCookie('uuid'))
+      } else {
+        var uuid = getUuid(true, "?id=" + id);
+      }
+      $(".yzm").click(function (event) {
+        event.stopPropagation();
+        yzm(aa)
+      });
+      $("#tj").click(function (event) {
+        event.stopPropagation();
+        if (!getCookie('uuid')) {
+          alert('登录失效，请重新刷新登录！');
+          location.reload()
+          return false;
+        }
+        if ($("#jzxx_name").val().trim() == "") {
+          alert("请填写姓名!");
+          $("#jzxx_name").focus();
+          return false;
+        }
+        var tel = $("#jzxx_call").val().trim();
+        if (tel == "") {
+          alert("请填写联系电话!");
+          $("#jzxx_call").val('');
+          $("#jzxx_call").focus();
+          return false;
+        } else {
+          var pattern = /^1(3|4|5|6|7|8|9)\d{9}$/;
+          if (tel.indexOf('*') == -1 && !pattern.test(tel)) {
+            alert('请填写有效的联系电话！');
+            $("#jzxx_call").val('');
+            $("#jzxx_call").focus();
+            return false;
+          }
+        }
+        if ($("#jzxx_email").val().trim() == "") {
+          alert("请填写E_mail!");
+          $("#jzxx_email").focus();
+          return false;
+        } else {
+          var myreg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          if ($("#jzxx_email").val().indexOf('*') == -1 && !myreg.test($("#jzxx_email").val())) {
+            alert('请填写有效的E_mail！');
+            $('#jzxx_email').val('').trigger("focus");
+            return false;
+          }
+        }
+        if ($("#queryCode").val().trim() == "") {
+          alert("请填写证件号码");
+          $("#queryCode").focus();
+          return false;
+        } else {
+          var _IDRe18 = /^([1-6][1-9]|50)\d{4}(18|19|[23]\d)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/
+          var _IDre15 = /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$/
+          if ($("#queryCode").val().indexOf('*') == -1 && !_IDRe18.test($("#queryCode").val()) && !_IDre15.test($("#queryCode").val())) {
+            alert('请填写有效的证件号码！');
+            $('#queryCode').val('').trigger("focus");
+            return false;
+          }
+        }
+        if ($("#jzxx_yb").val().trim() == "") {
+
+        } else {
+          var re = /^[1-9][0-9]{5}$/;
+          if (!re.test($("#jzxx_yb").val())) {
+            alert('请填写有效的邮政编码！');
+            $("#jzxx_yb").val('');
+            $("#jzxx_yb").focus();
+            return false;
+          }
+        }
+        if ($("#jzxx_address").val().trim() == "") {
+          alert("请填写地址");
+          $("#jzxx_address").focus();
+          return false;
+        } else if (GetStrLength($("#jzxx_address").val()) > 90) {
+          alert('地址信息太长,最大30字');
+          return false;
+        }
+        if ($("#jzxx_title").val().trim() == "") {
+          alert("请填写标题");
+          $("#jzxx_title").focus();
+          return false;
+        } else if (GetStrLength($("#jzxx_title").val()) > 90) {
+          alert('标题信息太长,最大30字');
+          return false;
+        }
+        if ($("#jzxx_content").val().trim() == "") {
+          alert("请填写内容");
+          $("#jzxx_content").focus();
+          return false;
+        } else if (GetStrLength($("#jzxx_content").val()) > 1200) {
+          alert('内容信息太长,最大400字');
+          return false;
+        }
+        if ($("#checkcodeinput").val().trim() == "") {
+          alert("请填写验证码");
+          $("#checkcodeinput").focus();
+          return false;
+        }
+        $("#tj").attr('disabled', true)
+        $.ajax({
+          type: "post",
+          url: url_service + "/tablememo-service/cmzweb/cx/1",
+          data: JSON.stringify({
+            "memo": $("#jzxx_content").val().trim() + $("#jzxx_title").val()
+              .trim()
+          }),
+          dataType: "json",
+          contentType: 'application/json;charset=utf-8',
+          success: function (data) {
+            console.log(data)
+            if (data.message == "无敏感词") {
+              let Num = ""
+              let str = "0123456789abcdefghijklmnopqrstuvwxyz";
+              for (var i = 0; i < 6; i++) {
+                Num += str.charAt(Math.floor(Math.random() * 36));
+              }
+              $.ajax({
+                type: "post",
+                url: locationUrl.hdjlUrl + "sysweb/add/" + $("#checkcodeinput").val(),
+                data: JSON.stringify({
+                  "addr": $("#jzxx_address").val().trim(),
+                  "category": "4",
+                  "decribe": $("#jzxx_content").val().trim(),
+                  "dept": "菏泽市人民政府办公室",
+                  "deptid": "2c908088819842f701819a3d70290060",
+                  "dq": dq,
+                  "dqid": "0530",
+				  "cityLevelDisplay":'1',
+                  "pt": 1,
+                  "ly": "菏泽市",
+                  "identity": $("#queryCode").val().trim(),
+                  "isopen": $("#isOpen option:selected").val() * 1,
+                  "issue": 0,
+                  "mail": $("#jzxx_email").val().trim(),
+                  "name": $("#jzxx_name").val(),
+                  "tel": $("#jzxx_call").val().trim(),
+                  "title": $("#jzxx_title").val().trim(),
+                  "userid": getCookie('uuid'),
+                  "verifyCode": $("#checkcodeinput").val().trim()
+                }),
+                dataType: "json",
+                contentType: 'application/json;charset=utf-8',
+                beforeSend: function (request) {
+                  request.setRequestHeader("sessionid", aa);
+                  $("#tj").attr('disabled', true)
+                },
+                complete: function () {
+                  //5.提交完成后按钮重新设置有效
+                  $("#tj").removeAttr('disabled');
+                },
+                success: function (data) {
+                  if (data.code == 10001) {
+                    yzm(aa)
+                    alert("验证码错误")
+                    $("#tj").removeAttr('disabled');
+                    return;
+                  }
+                  if (data.code == 10000) {
+                    yzm(aa)
+                    alert("提交成功！信件办理详情可以在个人中心进行查看");
+                    saveAttach(data.data);
+                    clearForm()
+                    $("#tj").removeAttr('disabled');
+                    location.href = '../../grzx/'
+                  } else {
+                    alert("提交失败");
+                    $("#tj").removeAttr('disabled');
+                  }
+                }
+              });
+            } else {
+              alert(data.message + "，请重新修改。")
+              $("#tj").removeAttr('disabled');
+              return false
+            }
+          }
+        });
+      })
+      function GetStrLength(str) {
+        var realLength = 0,
+          len = str.length,
+          charCode = -1;
+        for (var i = 0; i < len; i++) {
+          charCode = str.charCodeAt(i);
+          if (charCode >= 0 && charCode <= 128) realLength += 2;
+          else realLength += 3;
+        }
+        return realLength;
+      };
+      $("#cz").click(function (event) {
+        event.stopPropagation();
+        $("#jzxx_address").val("");
+        $("#jzxx_yb").val("");
+        $("#jzxx_title").val("");
+        $("#jzxx_content").val("");
+        $("#checkcodeinput").val("");
+        $("#attachFiles").html("");
+        $('#upload_excel_file').val('');
+      });
+      $("#close").click(function (event) {
+        event.stopPropagation();
+        $("#dialog").hide();
+      })
+      $("#close1").click(function (event) {
+        event.stopPropagation();
+        $("#dialog").hide();
+      })
+    });
+
+    function delFile(index) {
+      $("#attachFiles").empty()
+      attachFiles.splice(index, 1)
+      attachFiles.forEach(function (item, index) {
+        let html = "";
+        html +=
+          '<a style="padding-left:1vw;text-decoration: none;">' + item.filename +
+          '</a>';
+        html +=
+          '<sapn style="margin-left:10px;cursor: pointer;" onclick="delFile(' + index +
+          ')">删除</sapn><br/>'
+        $("#attachFiles").append(html);
+      })
+    }
+
+    function uploadFiles(event) { //attachFiles
+      let files = event.target.files;
+      console.log(event);
+      if (files.length <= 0) {
+        return;
+      }
+      let data = new FormData();
+      var fileType = ["jpg", "png", "txt", "doc", "docx", "ppt", "pptx", "pdf", "jpeg", "mp3", "mp4"]
+      var flge = false
+      for (let i = 0; i < files.length; i++) {
+        for (let a = 0; a < fileType.length; a++) {
+          if (files[i].name.indexOf(fileType[a]) != -1) {
+            flge = true
+          }
+        }
+        if (flge) {
+          data.append("file", files[i])
+          data.append("userId", getCookie('uuid'))
+        } else {
+          alert("上传失败，只允许上传" + fileType.toString() + "这些类型附件，请重新上传。")
+          return false
+        }
+      }
+      $("#loading").show()
+      $.ajax({ //type 0. 用户上传 1.单位上传
+        url: locationUrl.uploadUrl + "web/uploads/" + districtId + "/" + id,
+        data: data,
+        type: "post",
+        dataType: "json",
+        "contentType": false,
+        "processData": false,
+        success: function (res) {
+          $("#loading").hide()
+          var fileList = []
+          if (Array.isArray(res)) {
+            fileList = res
+          } else {
+            if (res.success) {
+              fileList = res.data
+            } else {
+              alert(res.message)
+              return
+            }
+          }
+          fileList.forEach(function (item, index) {
+            var filelj = ""
+            if (item.indexOf('upload-service') != -1) {
+              filelj = item;
+            } else {
+              filelj = fileUrl + id + "/" + item;
+            }
+            attachFiles.push({
+              filename: files[index].name,
+              filetype: files[index].type,
+              filesize: files[index].size,
+              type: 0,
+              fileurl: filelj
+            })
+            let html = "";
+            html +=
+              '<a style="padding-left:1vw;text-decoration: none;">' +
+              files[index].name + '</a>';
+            html +=
+              '<sapn style="margin-left:10px;cursor: pointer;" onclick="delFile(' + index +
+              ')">删除</sapn><br/>'
+            $("#attachFiles").append(html);
+          })
+          $('#upload_excel_file').val('');
+
+        }
+      })
+    }
+  </script>
+  <style>
+    .wzazzms .bt {
+      font-size: 50px;
+    }
+
+    .wzazzms .nr,
+    .wzazzms .grxx_nr li label,
+    .wzazzms .xjxx_nr li label {
+      font-size: 34px;
+      line-height: 45px;
+    }
+
+    .wzazzms .grxx_nr li input,
+    .wzazzms .grxx_nr li select,
+    .wzazzms .xjxx_nr li input,
+    .wzazzms .xjxx_nr li select {
+      font-size: 34px;
+      height: 75px;
+    }
+
+    .wzazzms #yzm {
+      width: 53% !important;
+    }
+
+    .wzazzms #cz,
+    .wzazzms #tj {
+      font-size: 34px;
+    }
+
+    @media screen and (max-width: 768px) {
+      #attachFiles {
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="index-bg1">
+  <script src="/0530/js/jquery-3.6.0.min.js"></script>
+<script src="/0530/js/jquery.cookie.js"></script>
+<script src="/0530/js/2020css_tyjs.v2.js"></script>
+<script src="/0530/js/url.js"></script>
+<script src="/0530/js/crypto-js.js"></script>
+<script type="text/javascript" src="/0530/js/axios.min.js"></script>
+<link rel="stylesheet" href="/0530/wza/css/stylenew.css">
+<style>
+#skin {
+    top: 305px;
+    left: 159px;
+}
+.search .search-box input[type='text'] {
+    font-size: 16px;
+    line-height: 58px;
+    padding-left: 50px;
+    width: 66.5%;
+}
+.d-search {
+    margin: 120px auto 50px auto;
+}
+.new_search_l {
+    width: 700px;
+    height: 58px;
+}
+.search .search-box .new_search>a::before {
+    background: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+.search .search-box .new_search>a::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    background: url(/0530/imgs/icons11/wenhao.png);
+    background-size: cover;
+    margin-left: 4px;
+}
+.search .search-box .new_search>a {
+    width: 100px;
+    height: 42px;
+    background: #376FC2;
+}
+.search .search-box::before {
+    width: 20px;
+    height: 19px;
+    background: url(/0530/imgs/icons11/sousuo.png) center center no-repeat;
+    top: 20px;
+}
+.new_search_l button, .search .search-box .new_search>a {
+    line-height: 42px;
+    font-size: 16px;
+}
+.new_search_l button {
+    background: #376FC2;
+    margin-top: 8px;
+}
+.reci a {
+    padding: 1px 11px;
+}
+.reci span {
+    font-size: 16px;
+}
+#spzd {
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.top {
+    background-color: rgba(36, 83, 153, .2);
+	line-height: 45px;
+}
+  #StranLink::after {
+    content: '';
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, .4);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .search {
+    width: 65%;
+  }
+
+
+#skin:hover .skin-03 {
+    left: 175px;
+    top: 55px;
+}
+#skin:hover .skin-04 {
+    left: 231px;
+    top: 55px;
+}
+
+  .isblueshow li a{
+    color: #125cb1 !important;
+  }
+  .isblueshow li a.on, .isblueshow li a:hover{
+    border-bottom: 3px solid #125cb1;
+  }
+  #skin li img{
+    border: 2px solid #d3efff;
+    border-radius: 50%;
+  }
+  @media screen and (max-width: 768px) {
+    #spzd {
+      display: none;
+    }
+
+    .search .search-box input[type='text'] {
+      width: 55% !important;
+    }
+
+    .search {
+      width: 90% !important;
+    }
+  }
+</style>
+<div id="zzmsys">
+  <div id="wrapper">
+    <div class="top">
+      <div aria-continuous="0" tabindex="0" aria-label=""></div>
+      <div class="big-container clearfix">
+        <div class="top-left pull-left">
+          <a href="http://www.gov.cn" target="_blank" class="border" tabindex="0" aria-label="中国政府网">中国政府网</a>
+          <a href="http://www.shandong.gov.cn" target="_blank" tabindex="0" aria-label="山东省人民政府网">山东省人民政府网</a>
+        </div>
+        <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页顶部服务区"></div>
+        <div class="top-right pull-right" aria-regiontype="4" tabindex="0"
+          aria-label="服务区，网页顶部服务区，包含长者模式，无障碍浏览，用户中心，智能问答，长者专区，政务新媒体等">
+          <a href="javascript:void(0)" class="border" tabindex="0" aria-label="长者模式"><img
+              src="/0530/images/zzb-icon.png" alt=""><span id="pdsfzz" class="side-entry aging-entry"
+              onclick="djzctc(event)">长者模式</span></a>
+          <span id="kw"></span>
+          <span class="side-entry aging-entry">
+            <a href="javascript:void(0)" class="border c-color-text toast" tabindex="0" aria-label="无障碍浏览"><img
+                src="/0530/images/wza.png" alt="">无障碍浏览</a>
+          </span>
+          <a href="javascript:void(0);" class="border" style="display: inline-block;" tabindex="0"
+            aria-label="用户中心"><img src="/0530/images/zhangzhe.png" alt=""><span id="userxx"><span
+                onclick="gouser()">用户中心</span></span></a>
+          <a href="/znjqr/" class="border zzmsycs" tabindex="0" aria-label="智能问答"><img src="/0530/images/znwd-icon.png"
+              alt="">智能问答</a>
+          <a href="/zzb/" class="border zzmsycs" tabindex="0" aria-label="长者专区">长者专区</a>
+          <script src="/0530/js/languagechange.js"></script>
+          <a href="/zwxmt/" class="zzmsycs" tabindex="0" aria-label="政务新媒体">政务新媒体</a>
+          <a href="javascript:void(0);" class="zzmsycs" onclick="return false;"
+            style="background: rgba(255,255,255,0.2);border-radius: 20px;padding: 4px 7px;cursor: default;" tabindex="0"
+            aria-label="网站支持IPv6">网站支持IPv6</a>
+        </div>
+        <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页顶部服务区"></div>
+      </div>
+    </div>
+    <!--导航-->
+    <div class="container clearfix">
+      <div class="d-logo pull-left" tabindex="0" aria-label="国徽，菏泽市人民政府">
+        <a href="/" class="changelogo"><img src="/0530/images/bluelogo.png" alt=""></a>
+      </div>
+      <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页顶部导航区"></div>
+      <div class="nav isblueshow d-nav pull-right" aria-regiontype="1" tabindex="0"
+        aria-label="导航区，网页顶部导航区，包含首页，要闻动态，政务公开，政务服务，政民互动，走进菏泽，数据开放">
+        <ul class="clearfix">
+          <li tabindex="0" aria-label="首页"><a href="/" target="_blank">首页</a></li>
+          <li tabindex="0" aria-label="要闻动态"><a href="/ywdt/" target="_blank">要闻动态</a></li>
+          <li tabindex="0" aria-label="政务公开"><a href="/zwgk/" target="_blank">政务公开</a></li>
+          <!--<li><a href="/zwfw/" target="_blank">政务服务</a></li>-->
+          <li tabindex="0" aria-label="政务服务"><a href="http://www.heze.gov.cn/zwfwnew/" target="_blank">政务服务</a>
+          </li>
+          <li tabindex="0" aria-label="政民互动"><a href="/zmhd/" target="_blank">政民互动</a></li>
+          <li tabindex="0" aria-label="走进菏泽"><a href="/zjhz/" target="_blank">走进菏泽</a></li>
+          <li tabindex="0" aria-label="数据开放"><a href="http://hzdata.sd.gov.cn/heze/index?siteCode=371700000000"
+              target="_blank">数据开放</a></li>
+        </ul>
+      </div>
+      <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页顶部服务区"></div>
+    </div>
+
+    <div class="m-nav" style="top: 75px;right:0.68rem;"><a href="/"><img src="/0530/images/m-nav.png" id="xdh"
+          style="width: 30px;"></a></div>
+    <div class="vh-100 ycdh">
+      <div class="card p-0" style="background-color: rgba(0, 0, 0, 0);">
+        <div class="card-body p-0">
+          <ul class="list-group list2 list-group-flush">
+            <li><a href="/" target="_blank">首页</a></li>
+            <li><a href="/ywdt/" target="_blank">要闻动态</a></li>
+            <li><a href="/zwgk/" target="_blank">政务公开</a></li>
+            <!--<li><a href="/zwfw/" target="_blank">政务服务</a></li>-->
+            <li><a href="http://www.heze.gov.cn/zwfwnew/" target="_blank">政务服务</a></li>
+            <li><a href="/zmhd/" target="_blank">政民互动</a></li>
+            <li><a href="/zjhz/" target="_blank">走进菏泽</a></li>
+            <li><a href="http://hzdata.sd.gov.cn/heze/index?siteCode=371700000000" target="_blank">数据开放</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //判断手机
+      var userAgentInfo = navigator.userAgent;
+      var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+      var flag = true;
+      for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false;
+          break;
+        }
+      }
+
+      //
+      //清除cookie   
+      function clearCookie(name) {
+        event.stopPropagation();
+        setCookie(name, "", -1);
+      }
+      //设置cookie    
+      function setCookie(name, value, seconds) {
+        seconds = seconds || 0; //seconds有值就直接赋值，没有为0，这个根php不一样。    
+        var expires = "";
+        if (seconds != 0) { //设置cookie生存时间    
+          var date = new Date();
+          date.setTime(date.getTime() + (seconds * 1000));
+          expires = "; expires=" + date.toGMTString();
+        }
+        document.cookie = name + "=" + escape(value) + expires + "; path=/"; //转码并赋值    
+      }
+      window.onload = function () {
+        console.log(getCookie('uuid'))
+        if (location.href.indexOf('111.34.18.7:9088/hzs') != -1) {
+          location.href = location.href.replace('111.34.18.7:9088/hzs', '111.34.18.16:9088')
+        }
+        $.ajax({
+          url: url_service + "/xwfx-service/sys/xwfx/",
+          type: "post",
+          data: JSON.stringify({
+            "belong": "1600662038357610496",
+            "lm": document.title,
+            "pagename": document.title,
+            "url": window.location.href
+          }),
+          dataType: "json",
+          contentType: 'application/json;charset=utf-8',
+          success: function (data) { }
+        })
+        if (getCookie('uuid') != false && getCookie('uuid') != undefined && getCookie('token') != false && getCookie('token') != undefined) {
+            
+          $.ajax({ //type 0. 用户上传 1.单位上传
+            url: url_service + "/sd-service/api/sdlogin/detail/" + getCookie('uuid'),
+            type: "get",
+            dataType: "json",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            success: function (data) {
+              if (data && data.code == 10000) {
+                document.getElementById('userxx').innerHTML = "<span onclick='gouser()'>" + data.data.name + "</span>" + "<span onclick='tclogin();' style='margin-left:10px;'>退出</span>"
+              }
+            }
+          })
+        }
+        if (localStorage.getItem("wzazzms") != null) {
+
+          document.getElementById('pdsfzz').innerHTML = "退出长者模式"
+          document.getElementById('zzmsys').classList.add('wzazzms')
+        } else {
+          document.getElementById('pdsfzz').innerHTML = "长者模式"
+          document.getElementById('zzmsys').classList.remove('wzazzms')
+        }
+        $("#xdh").click(function () {
+          $(".ycdh").show();
+          $(".ycdh").animate({
+            left: "50%"
+          }, "slow");
+          return false;
+        });
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        $(document).click(function () {
+
+          if (w < 768) {
+            $(".ycdh").hide();
+          }
+          $(".ycdh").animate({
+            left: "100%"
+          }, "slow")
+        });
+        $(".ycdh").click(function (event) {
+          event.stopPropagation();
+        });
+        $("#skin li").click(function (e) {
+          e.stopPropagation();
+          var url_img = $(this).attr("url_img");
+          var classname = $(this).attr("class");
+          if(classname == 'skin-02'){
+            $('.nav').removeClass('isblueshow')
+
+            $('.changelogo img').attr('src',"/0530/images/heze-logo.png")
+			 $(".index-bg1").css("background", "url(" + url_img + ") no-repeat center top");
+          }else{
+            $('.nav').addClass('isblueshow')
+
+            $('.changelogo img').attr('src',"/0530/images/bluelogo.png")
+			$(".index-bg1").css("background", "url(" + url_img + ") no-repeat center top");
+          }
+          
+          console.log(url_img,classname);
+        });
+      }
+      function getNav() {
+        urlinfo = window.location.href;
+        len = urlinfo.length;
+        lis = document.querySelectorAll(".nav ul li a");
+        if (urlinfo.indexOf('ywdt') != -1) {
+          lis[1].className = "on";
+        } else if (urlinfo.indexOf('zwgk') != -1) {
+          lis[2].className = "on";
+        } else if (urlinfo.indexOf('zwfw') != -1) {
+          lis[3].className = "on";
+        } else if (urlinfo.indexOf('zmhd') != -1) {
+          lis[4].className = "on";
+        } else if (urlinfo.indexOf('zjhz') != -1) {
+          lis[5].className = "on";
+        } else {
+          lis[0].className = "on";
+        }
+      }
+      $(function () {
+        getNav();
+        //$(".index-bg1").css("background", "url(" + "/0530/images/big1c.png) no-repeat center top");
+        /*var i = 1;
+          console.log('轮播'+i+'次');
+          var lunbo = setInterval(function(){
+            $(".index-bg1").css("background", "url(" + "/0530/images/big"+ i +"c.png) no-repeat center top");
+                i++;
+                if(i>2){
+                    i=1;
+                }
+            },8000);
+        */
+      })
+
+
+
+    </script>
+    <!--搜索-->
+    <div class="container">
+      <div class="search d-search">
+        <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入交互区，站内检索"></div>
+        <div class="search-box clearfix" aria-regiontype="3" tabindex="0" aria-label="交互区,站内检索">
+            <div class="new_search">
+                <div class="new_search_l">
+                    <input type="text" id="sousuo" placeholder="请输入要搜索的内容" tabindex="0" aria-label="请输入要搜索的内容">
+                    <button onclick="jiansuos(0)">本站搜索</button>
+                    <button onclick="jiansuos(1)">站群搜索</button>
+                </div>
+                <a href="/0530/2c908088819842f701819a3d70290060/1798271679588405248.html" target="_blank" tabindex="0"
+                aria-label="视频指导" id="spzd">视频指导</a>
+            </div> 
+            
+          <div class="search-log" id="my-search-log" style="display: none;">
+            <div id="searchHistoryDiv"></div>
+            <div class="log-title">热门搜索</div>
+            <div class="hot-search" id="hotSearchDiv">
+              <span onclick="reci('社保查询')">社保查询</span>
+              <span onclick="reci('居住证')">居住证</span>
+              <span onclick="reci('公积金')">公积金</span>
+              <span onclick="reci('适龄幼儿入园信息登记')">适龄幼儿入园信息登记</span>
+              <span onclick="reci('义务教育入学')">义务教育入学</span>
+            </div>
+            <ul class="department clearfix" id="hotSearchUl">
+              <li th:each="item,stat :${map.a1}" table="${doc}" params="${dqid:'0530',cataid:'1565970950296571904'}"
+                count="${6}">
+                <a th:if="${item.url==null||item.url==''}"
+                  th:href="'/'+${item.dq}+'/'+${item.dwid}+'/'+${item.xxid}+'.html'" th:text="${item.subject}"
+                  th:title="${item.subject}" target="_blank"></a>
+                <a th:if="${item.url!=''&&item.url!=null}" th:href="${item.url}" th:text="${item.subject}"
+                  th:title="${item.subject}" target="_blank"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开交互区，站内检索"></div>
+        <div class="reci clearfix">
+          <span tabindex="0" aria-label="热搜词">热搜词：</span>
+          <a href="javascript:void(0)" onclick="reci('社保')" tabindex="0" aria-label="社保">社保</a>
+          <a href="javascript:void(0)" onclick="reci('医疗')" tabindex="0" aria-label="医疗">医疗</a>
+          <a href="javascript:void(0)" onclick="reci('低保')" tabindex="0" aria-label="低保">低保</a>
+
+          <a href="javascript:void(0)" onclick="reci('营商环境')" tabindex="0" aria-label="营商环境">营商环境</a>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //enter键执行搜索
+      $("#sousuo").keydown(function (e) {//input id号
+        if (e.keyCode == 13) {
+          jiansuos();//调用搜索方法
+        }
+      });
+
+      function reci(i) {
+        window.open("/jiansuo/?keyword=" + i)
+      }
+      function jiansuos(num) {
+        var s = document.getElementById('sousuo').value;
+        if (s == '') {
+          alert("请输入关键词")
+        } else {
+          if (num == 0) {
+            window.open("/jiansuo/?keyword=" + s)
+          }
+          if (num == 1) {
+            window.open("/jiansuo/?allword=" + s)
+          }
+        }
+      }
+
+      function djzctc(a) {
+        event.stopPropagation();
+        if (a.target.innerHTML == "退出长者模式") {
+
+          document.getElementById('zzmsys').classList.remove('wzazzms')
+          document.getElementById('pdsfzz').innerHTML = "长者模式"
+          localStorage.removeItem("wzazzms")
+        } else if (a.target.innerHTML == "长者模式") {
+
+          document.getElementById('zzmsys').classList.add('wzazzms')
+          document.getElementById('pdsfzz').innerHTML = "退出长者模式"
+          localStorage.setItem("wzazzms", 1)
+        }
+      }
+      //跳转个人中心
+      function gouser() {
+        event.stopPropagation();
+        window.open("/grzx/")
+      }
+      //退出登录
+      function tclogin() {
+        event.stopPropagation();
+		var hroute = "http://58.57.217.169:9088/sd-service/yhdl/logout?gotourl=" + btoa(location.href);
+		clearCookie("uuid");
+		clearCookie("token");
+		location.href = "https://tysfrz.isdapp.shandong.gov.cn/jpaas-jis-sso-server/sso/entrance/ssoLoginOut?appMark=HZSRMINZHUWZDD&isBackToApp=true&backUrl=" + hroute
+        // $.ajax({
+        //   url: "/sd-service/yhdl/getEncryLogoutGoToUrl?gotoUrl=" + hroute,
+        //   type: "get",
+        //   success: function (data) {
+        //     clearCookie("uuid");
+        //     clearCookie("token");
+        //     location.href = "https://zwfw.sd.gov.cn/JIS/sso/logout.do?appmark=VGDYSYWRVS&usertype=1&gotourl=" + data
+        //   }
+        // })
+
+      }
+      jQuery("#skin").Drag();
+
+
+    </script>
+    <div id="skin">
+      <ul>
+        <!-- <li class="skin-01" url_img="/0530/images/big1d.png"><img src="/0530/images/1small.png" alt=""></li> -->
+		<li class="skin-01" url_img="/0530/imgs/hztopbg.png"><img
+                src="/0530/imgs/5smallx.png" alt=""></li>
+        <li class="skin-02" url_img="/0530/images/big1d.png"><img src="/0530/images/1small.png" alt=""></li>
+        <!-- <li class="skin-02" url_img="/0530/imgs/bg5dx.png"><img src="/0530/images/2small.png" alt=""></li> -->
+		<!--<li class="skin-03" url_img="/0530/imgs/bg3dx.png"><img
+                src="/0530/imgs/3smallx.png" alt=""></li> -->
+        
+      </ul>
+    </div>
+  <!-- 页面最外层需有个div包含全部页面代码，id必须设置为zzmsys， -->
+  <div id="zzmsys">
+    <div id="loading"></div>
+    <!-- 主要内容 -->
+    <div class="neirong">
+      <div class="nr_container">
+        <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页视窗区,受理须知"></div>
+        <div class="slxz" aria-regiontype="2" tabindex="0" aria-label="视窗区,受理须知">
+          <p class="title">
+            <span class="bt" tabindex="0" aria-label="受理须知">受理须知</span>
+          </p>
+          <p class="nr" tabindex="0" aria-label="菏泽市人民政府网站市长信箱是面向社会公众设立的专用电子信箱，是政府领导倾听人民群众对政府工作的意见和建议的重要渠道，是建设阳光政府实行政务公开的重要措施。为充分发挥市长信箱的作用，认真解决群众来信所反映的问题，维护社会稳定，构建和谐社会，促进经济和社会事业全面发展，特制定本办法。
+                        市长信箱受理范围：
+                        （一）对全市行政机关及其工作人员的意见、批评和建议；
+                        （二）对政府在经济和社会事业管理工作中的意见和建议；
+                        （三）对国家、省、市有关政策规定的咨询、意见和建议；
+                        （四）对影响群众生活的有关问题及突发事件的处理意见和建议；
+                        （五）其他涉及群众自身利益相关问题的意见和建议。
+                        市长信箱来信反映情况应遵守下列规定：
+                        （一）严格遵守宪法、法律、法规和社会公德，反映问题应客观、公正，不得捏造、歪曲事实，诽谤、诬告、陷害他人；
+                        （二）来信应署真实姓名，注明本人的具体联系方式；
+                        （三）来信要简明扼要，主题明确，表述清楚，原则上一信只反映一个问题。
+                        市长信箱由市长公开电话受理中心负责管理。 其职责是：
+                        （一）市长信箱的日常维护；
+                        （二）来信的收集、整理、交办、催办和反馈；
+                        （三）对群众来信按咨询、建议、投诉、举报、信访五个类别进行分类整理。对咨询类信件，由工作人员直接在政府网站上回复；对建议、投诉、举报、信访类信件，经市政府办公室领导提出拟办意见后，批转有关单位处理；情况比较复杂的，提请市政府有关领导批示处理，并及时反馈办理结果；
+                        （四）综合分析来信反映的问题，选择具有代表性的信件，将回复内容和相关办理结果予以公布，便于群众了解此类问题的相关政策和解决办法；
+                        （五）做好有关来信人的姓名和联系方式及反映问题保密工作。">
+            菏泽市人民政府网站市长信箱是面向社会公众设立的专用电子信箱，是政府领导倾听人民群众对政府工作的意见和建议的重要渠道，是建设阳光政府实行政务公开的重要措施。为充分发挥市长信箱的作用，认真解决群众来信所反映的问题，维护社会稳定，构建和谐社会，促进经济和社会事业全面发展，特制定本办法。
+            <br> 市长信箱受理范围：
+            <br> （一）对全市行政机关及其工作人员的意见、批评和建议；
+            <br> （二）对政府在经济和社会事业管理工作中的意见和建议；
+            <br> （三）对国家、省、市有关政策规定的咨询、意见和建议；
+            <br> （四）对影响群众生活的有关问题及突发事件的处理意见和建议；
+            <br> （五）其他涉及群众自身利益相关问题的意见和建议。
+            <br> 市长信箱来信反映情况应遵守下列规定：
+            <br> （一）严格遵守宪法、法律、法规和社会公德，反映问题应客观、公正，不得捏造、歪曲事实，诽谤、诬告、陷害他人；
+            <br> （二）来信应署真实姓名，注明本人的具体联系方式；
+            <br> （三）来信要简明扼要，主题明确，表述清楚，原则上一信只反映一个问题。
+            <br> 市长信箱由市长公开电话受理中心负责管理。 其职责是：
+            <br> （一）市长信箱的日常维护；
+            <br> （二）来信的收集、整理、交办、催办和反馈；
+            <br>
+            （三）对群众来信按咨询、建议、投诉、举报、信访五个类别进行分类整理。对咨询类信件，由工作人员直接在政府网站上回复；对建议、投诉、举报、信访类信件，经市政府办公室领导提出拟办意见后，批转有关单位处理；情况比较复杂的，提请市政府有关领导批示处理，并及时反馈办理结果；
+            <br> （四）综合分析来信反映的问题，选择具有代表性的信件，将回复内容和相关办理结果予以公布，便于群众了解此类问题的相关政策和解决办法；
+            <br> （五）做好有关来信人的姓名和联系方式及反映问题保密工作。
+          </p>
+        </div>
+        <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页视窗区,受理须知"></div>
+        <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页交互区,填写个人信息"></div>
+        <div class="grxx" aria-regiontype="3" tabindex="0" aria-label="交互区,填写个人信息">
+          <p class="title">
+            <span class="bt" tabindex="0" aria-label="请填写您的个人信息">请填写您的个人信息</span>
+          </p>
+          <ul class="grxx_nr">
+            <li>
+              <label for="" tabindex="0" aria-label="姓名"><i>*</i>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+              <input type="text" disabled id="jzxx_name" name="jzxx_name">
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="手机号码"><i>*</i>手机号码</label>
+              <input type="text" disabled id="jzxx_call">
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="联系地址"><i>*</i>联系地址</label>
+              <input type="text" id="jzxx_address">
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="E_MAIL"><i>*</i>E_MAIL</label>
+              <input type="text" id="jzxx_email">
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="邮政编码">邮政编码</label>
+              <input type="text" id="jzxx_yb">
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="证件号码"><i>*</i>证件号码</label>
+              <input type="text" disabled id="queryCode">
+            </li>
+          </ul>
+        </div>
+        <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页交互区,填写个人信息"></div>
+        <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页交互区,填写信件信息"></div>
+        <div class="xjxx" aria-regiontype="3" tabindex="0" aria-label="交互区,填写信件信息">
+          <p class="title">
+            <span class="bt" tabindex="0" aria-label="请填写您的信件信息">请填写您的信件信息</span>
+          </p>
+          <ul class="xjxx_nr">
+            <li>
+              <label for="" tabindex="0" aria-label="办件标题"><i>*</i>办件标题</label>
+              <input type="text" maxlength="50" id="jzxx_title">
+            </li>
+            <li>
+              <label for="" style="vertical-align: top;" tabindex="0"
+                aria-label="内容"><i>*</i>内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
+              <textarea name="" cols="30" rows="10" id="jzxx_content"></textarea>
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="上传附件">上传附件</label>
+              <input id="upload_excel_file" type="file" multiple oninput="uploadFiles(event)">
+              <div style="color: Red;font-size:13px;margin-left:75px;" tabindex="0" aria-label="每个用户单日上传附件限制50次">
+                每个用户单日上传附件限制50次</div>
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="附件">附&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件</label>
+              <div id="attachFiles" style="padding: 8px 0;width: 492px;display: inline-block;"></div>
+            </li>
+            <li>
+              <label for="" tabindex="0" aria-label="是否公开">是否公开</label>
+              <select name="isOpen" id="isOpen">
+                <option value="1" selected>是</option>
+                <option value="0">否</option>
+              </select>
+            </li>
+            <li class="clearfix">
+              <label for="" tabindex="0" aria-label="验证码">验&nbsp;证&nbsp;码</label>
+              <input type="text" name="checkcodeinput" id="checkcodeinput">
+              <div class="yzm pull-right" style="border: none;">
+                <img id="yzm" style="float:left;vertical-align:middle;width:100%;">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页交互区,填写信件信息"></div>
+        <div class="anniu">
+          <input type="button" id="cz" aria-label="按钮：重置" value="重置">
+          <input type="button" id="tj" aria-label="按钮：提交" value="提交">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/0530/js/jquery-3.6.0.min.js"></script>
+  <script src="/0530/js/2020css_tyjs.v2.js"></script>
+  <script src="/0530/js/jquery.cxslide.min.js"></script>
+  <script src="/0530/js/jquery.cookie.js"></script>
+  <script>
+    jQuery("#skin").Drag();
+    $(function () {
+      //背景伸缩动画
+      var off = true;
+      $(window).scroll(function () {
+        var t = $(document).scrollTop();
+        if (t > 80) {
+          off = false;
+          $(".div-floor").stop(true).animate({
+            height: '40px'
+          }, 500);
+          $(".banner_bg_an").addClass("on")
+        }
+      });
+      //读取cookie背景
+      if ($.cookie('url_img2') !== undefined) {
+        $(".index-bg1").css("background", "url(" + $.cookie('url_img2') + ") no-repeat center top");
+      }
+      //背景切换
+      $("#skin li").click(function (event) {
+        event.stopPropagation();
+        var url_img = $(this).attr("url_img");
+        $(".index-bg1").css("background", "url(" + url_img + ") no-repeat center top");
+        $.cookie('url_img2', url_img, {
+          expires: 7,
+          path: '/'
+        });
+        window.clearInterval(lunbo);
+      });
+      //背景轮播
+      if ($.cookie('url_img2') == undefined) {
+        var i = 1;
+        console.log('轮播' + i + '次');
+        var lunbo = setInterval(function () {
+          $(".index-bg1").css("background", "url(" + "/0530/images/big" + i +
+            "d.png) no-repeat center top");
+          i++;
+          if (i >= 5) {
+            i = 1;
+          }
+        }, 8000);
+      }
+    })
+  </script>
+  <style>
+    /* .footer-con{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } */
+	.contain_box1{
+       background: #D3DFF1;
+    }
+    .footer-con .info p{
+        line-height: 30px;
+    }
+    .contain_box2{
+        padding-top: 25px;
+       background: #f5f5f5;
+    }
+    .footer-con .info{
+        width: 72.5% !important;
+        color: #333333 !important;
+        font-size: 16px !important;
+    }
+    .footer-con .info a{
+        color: #333333 !important;
+    }
+    .f_four a::after{
+        content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 1px;
+    height: 15px;
+    background: #bdbdbd;
+    margin-left: 10px;
+    }
+    .f_four a:last-child:after{
+        background: none;
+    }
+    .footer-con .bzx{
+        width: 7.5% !important;
+        text-align: left !important;
+        margin-top: 10px;
+    }
+    .footer_newdiv1,.footer_newdiv2{
+        display: flex;
+        /* flex-wrap: wrap; */
+        align-items: center;
+    }
+    .footer_newdiv1{
+        margin-right: 40px;
+    }
+    .footer_newdiv2{
+        margin-right: 75px;
+    }
+    .footer_newdiv1 img,.footer_newdiv2 img{
+        margin-right: 9px;
+    }
+    .footer_newdiv1 img{
+        float: left;
+    }
+    .footer_newdiv2 img{
+        float: left;
+    }
+    .footer .link> li{
+        width: 170px !important;
+        height: 35px !important;
+        line-height: 35px !important;
+        font-size: 16px !important;
+        color: #666666 !important;
+        background: #E8EBF2 !important;
+        border: 1px solid #A2B0C4 !important;
+    }
+    .footer .link> li:last-child{
+        margin-right: 0 !important;
+    }
+    .footer .link> li:hover ul{
+        bottom: 34px !important;
+        background-color: #E8EBF2 !important;
+    }
+    .footer .link> li>ul>li:hover {
+        background-color: #A2B0C4 !important;
+    }
+    .footer .link> li>ul>li:hover p{
+        color: #FFFFFF !important;
+    }
+    .footer .link> li>ul>li>a{
+        color: #666666 !important;
+        font-size: 16px !important;
+    }
+    .footer .link>  li:hover ul::-webkit-scrollbar-track {
+        background-color: rgba(255,255,255,.4) !important;
+        border-radius: 5px !important;
+    }
+    .footer .link>  li:hover ul::-webkit-scrollbar {
+        width: 8px !important;
+    }
+
+    .footer .link>  li:hover ul::-webkit-scrollbar-thumb {
+        border-radius: 5px !important;
+        background-color: #A2B0C4 !important;
+    }
+    .footer .footer_newdiv{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .footer .zgzfw{
+        width: 100%;
+        font-family: Microsoft YaHei;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 38px;
+    }
+    .footer .zgzfweng{
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        font-size: 14px;
+        display: block;
+    }
+    .footer .link> li{
+        margin: 12px 24px 12px 0 !important;
+    }
+    .footer .link{
+        padding: 12px 0;
+    }
+    .footer .link> li::after{
+        content: '';
+        width: 14px;
+        height: 8px;
+        background-image: url(/0530/img/newjiantou.png);
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        display: block;
+        margin-top: -4PX;
+
+    }
+    .f_four a{
+        margin-right: 5px;
+    }
+    @media screen and (max-width:768px) {
+        .footer .footer_newdiv{
+            padding-left: 18%;
+        }
+        .footer_newdiv1{
+            margin-right: 0;
+        }
+        .footer_newdiv2{
+            margin-right: 0;
+        }
+        .footer .link{
+            padding: 15px 15px !important;
+            text-align: center !important;
+        }
+        .footer .link> li {
+            width: 48% !important;
+            margin: 15px 2% 0 0 !important;
+        }
+        .footer .link> li:nth-of-type(2n){
+            margin-right: 0 !important;
+        }
+        .footer-con .bzx, .footer-con .jc, .footer-con .info {
+            width: 100% !important;
+            text-align: center !important;
+        }
+        .footer .zfwzzc{
+            width: 50% !important;
+        }
+        .footer{
+            padding: 0 !important;
+            background-color: inherit !important;
+        }
+        .contain_box2{
+            padding: 15px;
+            overflow: hidden;
+        }
+        .footer-con .bzx  {
+            margin: 5px 0 15px !important;
+        }
+        footer{
+            background: whitesmoke !important;
+        }
+    }
+	.wzazzms .footer .link> li a,
+	.wzazzms .footer .link> li span{
+		font-size:26px;
+	}
+	.wzazzms .footer-con .info p,
+	.wzazzms .footer-con .info a{
+		font-size:24px;
+	}
+	.wzazzms .footer-con .jc{
+		display: flex;
+		justify-content: center;
+	}
+
+
+
+    .wzazzms .footer .footer_newdiv{
+		width:100%;
+		padding-left: 10%;
+        justify-content: center;
+    }
+    .wzazzms .footer_newdiv1{
+		width:50%;
+        margin-right: 0;
+    }
+    .wzazzms .footer_newdiv2{
+		width:50%;
+        margin-right: 0;
+    }
+    .wzazzms .footer .link{
+        padding: 15px 15px !important;
+        text-align: center !important;
+    }
+    .wzazzms .footer .link> li {
+		height: auto !important;
+		padding: 15px;
+        width: 48% !important;
+        margin: 25px 2% 0 0 !important;
+    }
+	.wzazzms .footer .link> li:nth-of-type(2n){
+        margin-right: 0 !important;
+    }
+    .wzazzms .footer-con .bzx,
+    .wzazzms .footer-con .jc,
+    .wzazzms .footer-con .info {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .wzazzms .footer .zfwzzc{
+        width: 50% !important;
+    }
+	.wzazzms .footer .zfwzzc img{
+		width:45%;
+	}
+	.wzazzms .footer .zgzfw{
+		font-size:38px;
+	}
+	.wzazzms .footer .zgzfweng{
+		font-size:26px;
+	}
+	.wzazzms .footer_newdiv1 img,
+	.wzazzms .footer_newdiv2 img{
+		width:13% !important;
+	}
+	.wzazzms .footer .link> li a, .wzazzms .footer .link> li span{
+		font-size: 26px !important;
+	}
+	.wzazzms .footer-con .info p{
+		margin-bottom:15px !important;
+	}
+	.wzazzms .footer .wzaimg2 img{
+		width:58% !important;
+	}
+	.wzazzms .footer .wzaimg2{
+		width:50% !important;
+	}
+	.wzazzms .footer .wzaimg1{
+		width: 10%;
+	}
+	.wzazzms .footer{
+	padding:0 !important;
+		background-color:inherit !important;
+	}
+</style>
+<div class="footer">
+    <div class="contain_box1">
+        <div class="container clearfix" style="padding:0;">
+            <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页底部导航区"></div>
+            <ul class="link clearfix" tabindex="0" aria-regiontype="1" aria-label="导航区，网页底部导航区，包含中国政府网，山东省人民政府，省级人民政府，市政府部门，县区人民政府，省内地市政府等">
+                <div class="footer_newdiv pull-left">
+                    <div class="footer_newdiv1">
+                        <img src="/0530/img/newlog.png" alt="图片：中国政府网">
+                        <a class="fllter_newa" href="https://www.gov.cn/" target="_blank" style="color: #FB0000;">
+                            <span class="zgzfw" tabindex="0" aria-label="中国政府网">中国政府网</span>
+                            <span class="zgzfweng" tabindex="0" aria-label="www.gov.cn">www.gov.cn</span>
+                        </a>
+                    </div> 
+                    <div class="footer_newdiv2">
+                        <img src="/0530/img/newlog.png" alt="图片：山东省人民政府">
+                        <a class="fllter_newa" href="http://www.shandong.gov.cn/" target="_blank" style="color: #033680;">
+                            <span class="zgzfw" tabindex="0" aria-label="山东省人民政府">山东省人民政府</span>
+                            <span class="zgzfweng" tabindex="0" aria-label="www.shandong.gov.cn">www.shandong.gov.cn</span>
+                        </a>
+                    </div> 
+                </div>
+                <li>
+                    <span tabindex="0" aria-label="省级人民政府" >省级人民政府</span>
+                    <ul class="footerdaoh" id="ddsjzf">
+                    </ul>
+                </li>
+                <li>
+                    <span tabindex="0" aria-label="市政府部门">市政府部门</span>
+                    <ul class="footerdaoh" id="hzszfbm-list1">
+                    </ul>
+                </li>
+                <li>
+                    <span tabindex="0" aria-label="县区人民政府">县区人民政府</span>
+                    <ul class="footerdaoh" id="hzsxqzf-list1">
+                    </ul>
+                </li>
+                <li>
+                    <span tabindex="0" aria-label="省内地市政府">省内地市政府</span>
+                    <ul class="footerdaoh" id="sdssfbm-list1">
+                    </ul>
+                </li>
+            </ul>
+            <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页底部导航区"></div>
+        </div>
+    </div>
+    <div class="contain_box2">
+        <div class="container" style="padding:0;">
+            <div class="aria-region-start" tabindex="0" aria-continuous="0" aria-label="您已进入网页底部服务区"></div>
+            <div class="footer-con clearfix" tabindex="0" aria-regiontype="4" aria-label="服务区，网页底部服务区，包含关于我们，网站地图，网站声明等">
+                <div class="bzx pull-left" tabindex="0" aria-label="党政机关">
+                    <a href="https://bszs.conac.cn/sitename?method=show&amp;id=0922FEF9FF477FF3E053022819AC34FD" target="_blank"><img class="wzaimg1" id="imgConac" vspace="0" hspace="0" border="0" src="/0530/img/newdzjg.png" data-bd-imgshare-binded="1"></a>
+                </div>
+    
+                <div class="info pull-left">
+                    <p class="f_four"><a href="http://www.heze.gov.cn/wzdt/" target="_blank" tabindex="0" aria-label="网站地图">网站地图</a> <a href="http://www.heze.gov.cn/gywm/" target="_blank" tabindex="0" aria-label="关于我们">关于我们</a> <a href="http://www.heze.gov.cn/lxwm/" target="_blank" tabindex="0" aria-label="联系我们">联系我们</a> <a href="http://www.heze.gov.cn/flsm/" target="_blank" tabindex="0" aria-label="网站声明">网站声明</a></p>
+                    <p tabindex="0" aria-label="菏泽市人民政府版权所有 菏泽市人民政府办公室主办">菏泽市人民政府版权所有&nbsp;&nbsp;&nbsp;菏泽市人民政府办公室主办</p>
+                    <p><a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" tabindex="0" aria-label="鲁ICP备05021639号-1">鲁ICP备05021639号-1</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37172902371875" target="_blank" tabindex="0" aria-label="鲁公网安备:37172902371875"><img style="vertical-align: top;padding-top: 4px;" src="/0530/img/gab.png">鲁公网安备:37172902371875</a> <span tabindex="0" aria-label="政府网站标识码:3717000034">政府网站标识码:3717000034</span></p>
+    
+                </div>
+                <div class="jc pull-left">
+                    <div class="bottom-logor zfwzzc" style="float: left; margin-top:0;" tabindex="0" aria-label="政府网站找错">
+                        <script id="_jiucuo_" sitecode="3717000034" src="/0530/js/jiucuo.js"></script>
+                    </div>
+                    <div class="wzaimg2" style="float: left;margin-left: 10px; width: 120px;border-radius: 5px;overflow: hidden;" tabindex="0" aria-label="适老化无障碍服务">
+                        <img src="http://www.shandong.gov.cn/picture/662/2201200039556826272.png" alt="适老化无障碍服务" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <div class="aria-region-end" tabindex="0" aria-continuous="0" aria-label="您已离开网页底部服务区"></div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+<script src="http://www.heze.gov.cn/0530/js/hzbmfooter1.js"></script>
+<script type="text/javascript" src="/0530/wza/js/other.js"></script>
+<script type="text/javascript" src="/0530/wza/js/jquery-1-edb203c114.10.2.js"></script>
+<script type="text/javascript" src="/0530/wza/js/esl-d776bfb1aa.js"></script>
+<script type="text/javascript" src="/0530/wza/js/all_async_search_66794fc.js"></script>
+<script type="text/javascript" src="/0530/wza/js/aging-tools-pc-9e81c30fcbnew.js"></script>
+<script type="text/javascript" src="/0530/wza/js/aging-tools-e41786b1c3.js"></script>
+<script type="text/javascript" src="/0530/wza/js/sbase-47057af807.js"></script>
+<script>
+    F._fileMap({
+        "/css/components/nav-c468ec637c.css": ["components/nav.css"]
+    });
+    F.use("lib/mod_evt", function (evt) {
+        F._setContextMethod("listen", function (modName, evtName, handler) {
+            evt.on(modName, evtName, handler)
+        });
+    });
+</script>
+<script src="/0530/wza/js/min_super-c04bc97b1c.js?id=1"></script>
+</body>
+
+</html>

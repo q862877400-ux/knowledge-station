@@ -6,7 +6,9 @@
  · **东营** `http://www.dongying.gov.cn/jact/`（sysid=129，**POST** 列表，totalRecord=20299）；
  · **淄博** `http://www.zibo.gov.cn/jact/`（sysid=54，**GET** 列表，totalRecord=376）；
  · 两站 https 均不可用（证书不匹配）⇒ 必须 http。
-故此处复用 `_jact_common` 的 `parse_list`，另实现可配 http/method 的采集循环。
+⇒ 复用 `_jact_common` 的 `parse_list` **与 `parse_detail`**（后者已含 `LABEL_ALIASES`
+  别名归一：答复内容/答复机构/答复时间 ↔ 内容回复/答复单位/回复日期），仅另实现
+  「http + POST/GET 可配」的采集循环。**明细解析不再自建，避免两套逻辑分叉。**
 
 ## 接口（与江苏同构）
  · 列表 `{base}/jact/front/dataproxy_mailpublist.do?startrecord=&endrecord=&perpage=&groupSize=3`
@@ -14,38 +16,15 @@
    · GET（淄博）：参数走 query string。
    返回 JS 文本：`totalRecord=N;dataStore=["<tr…transactId=…>…</tr>", …]`
  · 明细 `GET {base}/jact/front/mailpubdetail.do?transactId=<id>&sysid=<n>` → HTML 表格，
-   标签/值是**相邻两个 `<td>`**。
- · ⚠ 山东明细的答复标签是 **「答复内容」**（江苏是「内容回复」）；答复部门「答复部门」。
+   标签/值是**相邻两个 `<td>`**；由 `_jact_common.parse_detail` 归一。
 """
 from __future__ import annotations
 
-import re
 import time
+from urllib.parse import urlencode
 
-from adapters._jact_common import GROUP_SIZE, LIST_PATH, DETAIL_PATH, PAUSE, parse_list
-
-TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.S | re.I)
-TAG_RE = re.compile(r"<[^>]+>")
-
-#: 山东 jact 明细的标签集（含「答复内容」）
-LABELS = ("标题", "内容", "提交时间", "处理状态", "答复内容", "答复部门", "答复日期",
-          "办件编号", "办件分类", "回复日期", "内容回复", "答复单位")
-
-
-def _clean(html: str | None) -> str:
-    import html as _h
-    if not html:
-        return ""
-    return _h.unescape(re.sub(r"\s+", " ", TAG_RE.sub(" ", html))).strip()
-
-
-def parse_detail_sd(html: str) -> dict:
-    cells = [_clean(x) for x in TD_RE.findall(html or "")]
-    out: dict[str, str] = {}
-    for i, c in enumerate(cells):
-        if c in LABELS and i + 1 < len(cells):
-            out[c] = cells[i + 1]
-    return out
+from adapters._jact_common import (DETAIL_PATH, GROUP_SIZE, LIST_PATH, PAUSE,
+                                   parse_detail, parse_list)
 
 
 def harvest_jact_sd(fetch, *, SITE: dict, base: str, sysid: str,
@@ -71,7 +50,6 @@ def harvest_jact_sd(fetch, *, SITE: dict, base: str, sysid: str,
                 # ⚠ 必须把 query **拼进 URL**：服务端会 301 跳 https，若用 httpx 的
                 #   params= 参数，重定向后会丢掉 startrecord/endrecord/perpage ⇒ 服务端
                 #   返回 totalRecord=0（淄博实测踩坑）。
-                from urllib.parse import urlencode
                 r = fetch(f"{url}&{urlencode(params)}", headers={"Referer": ref})
             else:
                 r = fetch.post(url, data=params, headers={
@@ -103,8 +81,8 @@ def harvest_jact_sd(fetch, *, SITE: dict, base: str, sysid: str,
             if getattr(d, "status_code", 0) != 200:
                 time.sleep(pause)
                 continue
-            f = parse_detail_sd(d.text or "")
-            answer = (f.get("答复内容") or f.get("内容回复") or "").strip()
+            f = parse_detail(d.text or "")
+            answer = (f.get("内容回复") or "").strip()      # 别名归一后的答复键
             if not answer:
                 time.sleep(pause)
                 continue
@@ -118,13 +96,13 @@ def harvest_jact_sd(fetch, *, SITE: dict, base: str, sysid: str,
                 "question": question,
                 "answer": answer,
                 "asked_at": f.get("提交时间") or row.get("date"),
-                "answered_at": f.get("答复日期") or f.get("回复日期") or None,
-                "dept": f.get("答复部门") or f.get("答复单位") or None,
+                "answered_at": f.get("回复日期") or None,
+                "dept": f.get("答复单位") or None,
                 "channel": "政民互动·信件公开",
                 "extra": {
                     "base": base,
                     "sysid": str(sysid),
-                    "mail_number": row.get("num") or f.get("办件编号"),
+                    "mail_number": row.get("num"),
                     "handle_status": f.get("处理状态") or None,
                     "answer_kind": "办理答复（jact 信箱，多为办事指引/政策口径）",
                 },

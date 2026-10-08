@@ -1,0 +1,68 @@
+
+## 济宁 jining jact sysid=1 http://www.jining.gov.cn
+   POST: 200 total=? tid=-
+   GET: 200 total=6909.0 tid=306922
+
+## 威海 weihai jact sysid=61 http://www.weihai.gov.cn
+   POST: 200 total=? tid=-
+   GET: 200 total=936.0 tid=683255
+
+## 日照 rizhao jact sysid=383 http://www.rizhao.gov.cn
+   POST: 200 total=1662.0 tid=718695
+   GET: 200 total=1662.0 tid=718695
+
+## 滨州 binzhou jact sysid=1206 http://www.binzhou.gov.cn
+   POST: 200 total=179.0 tid=761806
+   GET: 200 total=179.0 tid=761806
+
+## 烟台 yantai jpaas-jact
+   网上民声 platformUid=TBCxiImkDT42EEoX3QnkW → 200 count=0 len=58
+   市长信箱 platformUid=YgMOPJeFKdxv803E2TKqr → 200 count=0 len=58
+
+## 潍坊 weifang
+   GET http://www.weifang.gov.cn/xxgk/hdlist/ → 200 (66405)
+      finger: []
+   GET http://www.weifang.gov.cn/xxgk/hdlist/ → TypeError: 'set' object is not subscriptable
+   GET http://www.weifang.gov.cn/xxgk/xhdjl/ → 200 (114374)
+      finger: []
+   GET http://www.weifang.gov.cn/xxgk/xhdjl/ → TypeError: 'set' object is not subscriptable
+
+## 泰安 taian
+   GET https://12345.taian.cn/website_web/ → 200 (21656)
+      finger: []
+   GET https://12345.taian.cn/website_web/ → TypeError: 'set' object is not subscriptable
+   GET http://www.taian.gov.cn/ → 200 (90259)
+      finger: ['api-gateway']
+   GET http://www.taian.gov.cn/ → TypeError: 'set' object is not subscriptable
+
+## 临沂 linyi
+   GET http://www.linyi.gov.cn/hd/szxx-list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1086 → 200 (47336)
+      finger: []
+   GET http://www.linyi.gov.cn/hd/szxx-list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1086 → TypeError: 'set' object is not subscriptable
+   GET http://www.linyi.gov.cn/hd/hygq.htm → 200 (43858)
+      finger: []
+   GET http://www.linyi.gov.cn/hd/hygq.htm → TypeError: 'set' object is not subscriptable
+
+## 德州 dezhou
+   GET http://www.dezhou.gov.cn/n1480/index.html → 200 (33815)
+      finger: ['content.html']
+   GET http://www.dezhou.gov.cn/n1480/index.html → TypeError: 'set' object is not subscriptable
+   GET http://www.dezhou.gov.cn/n1480/n59452804/index.html → 200 (15849)
+      finger: ['content.html']
+   GET http://www.dezhou.gov.cn/n1480/n59452804/index.html → TypeError: 'set' object is not subscriptable
+
+## 聊城 liaocheng
+   GET http://www.liaocheng.gov.cn/channel_t_156_11559/ → 200 (129429)
+      finger: []
+   GET http://www.liaocheng.gov.cn/channel_t_156_11559/ → TypeError: 'set' object is not subscriptable
+   GET http://www.liaocheng.gov.cn/channel_t_156_11571/?page=1 → 200 (55609)
+      finger: []
+   GET http://www.liaocheng.gov.cn/channel_t_156_11571/?page=1 → TypeError: 'set' object is not subscriptable
+
+## 菏泽 heze
+   GET http://www.heze.gov.cn/zmhd/ → 200 (83835)
+      finger: []
+   GET http://www.heze.gov.cn/zmhd/ → TypeError: 'set' object is not subscriptable
+   GET http://www.heze.gov.cn/zmhd/szxx/ → 200 (57526)
+      finger: []
+   GET http://www.heze.gov.cn/zmhd/szxx/ → TypeError: 'set' object is not subscriptable

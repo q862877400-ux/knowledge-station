@@ -143,10 +143,15 @@ ADAPTERS: dict[str, str] = {
     "gx-mailbox": "adapters.gx_mailbox",       # 广西·自治区人民政府信箱（IGI，138 条；带省/市/区三级归属）
     "sd-12345": "adapters.sd_12345",           # 山东·12345热线·典型留言（ashx JSON，71 条）
     # —— 山东地市级试点（2026-10-08）：4 市可采，青岛为加密接口待定。证据 recon/sd-city-*.txt ——
-    "sd-jinan": "adapters.sd_jinan",           # 济南市·互动交流·回应关切（jpaas-jact 网关，count=250）
+    "sd-jinan": "adapters.sd_jinan",           # 济南市·互动交流·回应关切（jpaas-jact 网关，count=6654）
+    "sd-yantai": "adapters.sd_yantai",         # 烟台市·互动交流·网上民声（jpaas-jact 网关，count=101152）
     "sd-zibo": "adapters.sd_zibo",             # 淄博市·政民互动·我要咨询（jact http GET，sysid=54，376）
     "sd-zaozhuang": "adapters.sd_zaozhuang",   # 枣庄市·政民互动·市长信箱（IGI http，siteId=124，appId=84）
     "sd-dongying": "adapters.sd_dongying",     # 东营市·政民互动·网上民生（jact http POST，sysid=129，20299）
+    "sd-jining": "adapters.sd_jining",         # 济宁市·政民互动·我要写信（jact http GET，sysid=1，6909）
+    "sd-weihai": "adapters.sd_weihai",         # 威海市·政民互动·市长信箱（jact http GET，sysid=61，936）
+    "sd-rizhao": "adapters.sd_rizhao",         # 日照市·政民互动·市长信箱（jact http GET，sysid=383，1662）
+    "sd-binzhou": "adapters.sd_binzhou",       # 滨州市·政民互动·领导信箱（jact http GET，sysid=1206，179）
     "qh-wsxf": "adapters.qh_wsxf",             # 青海·互动交流·群众诉求回应（静态 27 页）
     "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "heb-szj": "adapters.heb_szj",             # 河北·数据和政务服务局·留言公开（EWB 平台，1043 条）

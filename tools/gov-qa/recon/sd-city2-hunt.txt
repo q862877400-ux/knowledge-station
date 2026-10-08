@@ -1,0 +1,122 @@
+
+======================================================================
+## 烟台 (yantai) yantai.gov.cn
+  http://www.yantai.gov.cn/ → 200 (56848 bytes)
+     finger-hits: ['jact', 'jpaas-jact', 'mailpub']
+       [省内高速7日下午达返程车流高峰 建议避开下午至傍晚时段错峰返程] http://www.shandong.gov.cn/art/2026/10/7/art_97564_765779.html
+       [建议提案] http://www.yantai.gov.cn/col/col43345/index.html
+       [互动交流] http://www.yantai.gov.cn/col/col11783/index.html
+       [网上民声] http://www.yantai.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=TBCxiImkDT42EEoX3QnkW&type=1
+       [留言办理情况] http://www.yantai.gov.cn/col/col43379/index.html
+       [市长信箱] https://www.yantai.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-write.do?platformIid=YgMOPJeFKdxv803E2TKqr&appMark=jact-SZXX
+       [我要提问] https://www.yantai.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-write.do?platformIid=TBCxiImkDT42EEoX3QnkW&appMark=jact-WSMS
+  https://www.yantai.gov.cn/ → 200 (56848 bytes)
+
+======================================================================
+## 潍坊 (weifang) weifang.gov.cn
+  http://www.weifang.gov.cn/ → 200 (182928 bytes)
+     finger-hits: ['channelid']
+       [政民互动] http://www.weifang.gov.cn/xxgk/xhdjl/
+       [部门留言] http://www.weifang.gov.cn/xxgk/hdjl/step1.html
+       [互动交流] http://wfdata.sd.gov.cn/weifang/interact/
+       [建议提案办理结果] http://www.weifang.gov.cn/xxgk/xbjyta/
+       [部门留言反馈] http://www.weifang.gov.cn/xxgk/hdlist/
+  https://www.weifang.gov.cn/ → 200 (182928 bytes)
+
+======================================================================
+## 济宁 (jining) jining.gov.cn
+  http://www.jining.gov.cn/ → 200 (56634 bytes)
+     finger-hits: ['jact', 'mailpub']
+       [第二场部长通道 回应关切真抓实干（现场·部长通道）03-10] http://www.jining.gov.cn/art/2026/3/10/art_73549_2923635.html
+       [人大代表建议办理] http://www.jining.gov.cn/col/col33595/index.html?vc_xxgkarea=11370800004312466C-ZF&number=B1101&jh=263
+       [建议和提案总体情况] http://www.jining.gov.cn/col/col33597/index.html?number=B1103&jh=263
+       [我要写信] http://www.jining.gov.cn/jact/front/main.do?sysid=1
+       [留言查询] http://www.jining.gov.cn/jact/front/mailpublist.do?sysid=1 
+       [济宁市12345政务服务热线] http://www.jining.gov.cn/col/col2627/index.html
+  https://www.jining.gov.cn/ → 200 (56634 bytes)
+
+======================================================================
+## 泰安 (taian) taian.gov.cn
+  http://www.taian.gov.cn/ → 200 (90259 bytes)
+     finger-hits: []
+       [省内高速7日下午达返程车流高峰 建议避开下午...] http://www.shandong.gov.cn/art/2026/10/7/art_97564_765779.html
+       [泰安市12345政务服务便民热线管理办法] https://www.taian.gov.cn/art/2025/9/30/art_242032_321.html
+       [省企业诉求“接诉即办”] http://www.shandong.gov.cn/12345jsjb/
+       [12345热线受理] https://12345.taian.cn/website_web/
+  https://www.taian.gov.cn/ → 200 (90259 bytes)
+
+======================================================================
+## 威海 (weihai) weihai.gov.cn
+  http://www.weihai.gov.cn/ → 200 (139683 bytes)
+     finger-hits: ['jact', 'mailpub']
+       [关于公开征集2027年市政府规章立法计划建议项目的公告] http://tyjspt.weihai.gov.cn/dczj/dczj/idea/topic_19633.html
+       [政民互动] http://www.weihai.gov.cn/col/col58814/index.html
+       [热点回应] http://www.weihai.gov.cn/col/col58956/index.html
+       [市长信箱] https://www.weihai.gov.cn/jact/front/mailpublist.do?sysid=61
+       [建议提案] https://www.weihai.gov.cn/col/col58848/index.html
+  https://www.weihai.gov.cn/ → 200 (139683 bytes)
+
+======================================================================
+## 日照 (rizhao) rizhao.gov.cn
+  http://www.rizhao.gov.cn/ → 200 (47697 bytes)
+     finger-hits: ['jact']
+       [INTERACTION
+政民互动] http://www.rizhao.gov.cn/col/col207420/index.html
+       [我要写信] http://www.rizhao.gov.cn/jact/front/mailwrite.do?sysid=383
+       [市长信箱] http://www.rizhao.gov.cn/jact/front/mailwrite.do?sysid=383&groupid=7351&userids=G7351
+       [我要信访] http://wsxf.xfj.shandong.gov.cn/371100/web/index
+  https://www.rizhao.gov.cn/ → ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname m
+
+======================================================================
+## 临沂 (linyi) linyi.gov.cn
+  http://www.linyi.gov.cn/ → 200 (97357 bytes)
+     finger-hits: []
+       [建议提案] http://www.linyi.gov.cn/gk/jyta.htm
+       [市长信箱] http://www.linyi.gov.cn/hd/szxx-list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1086
+       [回应关切] http://www.linyi.gov.cn/hd/hygq.htm
+       [我要写信] http://www.linyi.gov.cn/hd/szxx-tjy.jsp?urltype=tree.TreeTempUrl&wbtreeid=4781
+       [12345热线] http://www.linyi.gov.cn/zwfw12345.htm
+  https://www.linyi.gov.cn/ → 200 (97357 bytes)
+
+======================================================================
+## 德州 (dezhou) dezhou.gov.cn
+  http://www.dezhou.gov.cn/ → 200 (82008 bytes)
+     finger-hits: []
+       [政民互动] http://www.dezhou.gov.cn/n1480/index.html
+       [德州市司法局关于公开征集2027年政府立法计划项目建议的...] http://www.dezhou.gov.cn/n42860412/n42860954/c102081037/content.html
+       [回应关切] http://www.dezhou.gov.cn/n1403/n38391604/n49185835/index.html
+       [建议提案] http://www.dezhou.gov.cn/n1403/n38391604/n38392197/n66411243/index.html
+       [回应关切] http://www.dezhou.gov.cn/n1480/n59452804/index.html
+  https://www.dezhou.gov.cn/ → 200 (82008 bytes)
+
+======================================================================
+## 聊城 (liaocheng) liaocheng.gov.cn
+  http://www.liaocheng.gov.cn/ → 200 (198821 bytes)
+     finger-hits: []
+       [政民互动] http://www.liaocheng.gov.cn/channel_t_156_11559/
+       [省内高速7日下午达返程车流高峰 建议避开下午至傍晚时段错峰返程] http://www.liaocheng.gov.cn/channel_t_156_11235/doc_6ac707320947516ffc23b818.html
+       [回应关切] http://www.liaocheng.gov.cn/channel_t_156_11571/?page=1
+  https://www.liaocheng.gov.cn/ → ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to 
+
+======================================================================
+## 滨州 (binzhou) binzhou.gov.cn
+  http://www.binzhou.gov.cn/ → 200 (82937 bytes)
+     finger-hits: ['jact', 'mailpub']
+       [省内高速7日下午达返程车流高峰 建议避开下午至傍晚时...] http://www.shandong.gov.cn/art/2026/10/7/art_97564_765779.html
+       [建议提案] http://www.binzhou.gov.cn/zfxxgk/web/#/page/jytabl
+       [市长信箱] http://www.binzhou.gov.cn/jact/front/mailpublist.do?sysid=1206
+       [反馈回应] http://www.binzhou.gov.cn/jact/front/main.do?sysid=1007
+       [领导信箱] http://www.binzhou.gov.cn/jact/front/main.do?sysid=1206
+  https://www.binzhou.gov.cn/ → ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of proto
+
+======================================================================
+## 菏泽 (heze) heze.gov.cn
+  http://www.heze.gov.cn/ → 200 (216301 bytes)
+     finger-hits: []
+       [政民互动] http://www.heze.gov.cn/zmhd/
+       [建议提案] http://www.heze.gov.cn/jyta/
+       [菏泽市城市管理局关于公开征求《菏泽市互联网租赁电动自行车管理办法(征求意] http://www.heze.gov.cn/yjzj/detail.html?id=2048577138952699904
+       [市长信箱] http://www.heze.gov.cn/zmhd/szxx/
+       [我要留言] http://hzzwfw.sd.gov.cn/hz/message
+       [我要留言] http://www.heze.gov.cn/zmhd/xzbm/
+  https://www.heze.gov.cn/ → ConnectError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (
