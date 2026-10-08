@@ -97,6 +97,45 @@ ADAPTERS: dict[str, str] = {
     "tj-hdjl": "adapters.tj_hdjl",             # 天津市·政民互动·留言选登（~500 条）
     "sn-lyxd": "adapters.sn_lyxd",             # 陕西省·我向省长说句话·留言选登（~290 条）
     "cq-hdjl": "adapters.cq_hdjl",             # 重庆市·互动交流·留言选登（~840 条）
+    "hlj-hdjl": "adapters.hlj_hdjl",           # 黑龙江省·政民互动（列表 total=4082）
+    "fj-hdjl": "adapters.fj_hdjl",             # 福建省·12345 诉求公开（avalon JS + /apigateway 接口）
+    "hn-hdjl": "adapters.hn_hdjl",             # 河南省·互动交流·网上咨询（~629 条）
+    # —— 江苏 jact 平台（2026-10-08）：省门户聚合多厅局，**一厅一 sysid**（同广东 hdjlpt 模式）。
+    #    基座 adapters/_jact_common.py；证据 recon/js-jact-hunt.txt ——
+    "js-sthjt": "adapters.js_sthjt",           # 江苏省生态环境厅（sysid=143，~431 条）
+    "js-jtyst": "adapters.js_jtyst",           # 江苏省交通运输厅（sysid=137）
+    "js-jtyst2": "adapters.js_jtyst2",         # 江苏省交通运输厅（第二实例）
+    "js-jyt": "adapters.js_jyt",               # 江苏省教育厅
+    "js-jyt2": "adapters.js_jyt2",             # 江苏省教育厅（第二实例）
+    "js-da": "adapters.js_da",                 # 江苏省档案局（sysid=107）
+    "js-da2": "adapters.js_da2",               # 江苏省档案局（第二实例）
+    "js-ybj": "adapters.js_ybj",               # 江苏省医疗保障局（sysid=200）
+    "js-ybj2": "adapters.js_ybj2",             # 江苏省医疗保障局（第二实例）
+    "js-tj": "adapters.js_tj",                 # 江苏省体育局（sysid=99）
+    "js-tj2": "adapters.js_tj2",               # 江苏省体育局（第二实例）
+    "js-czt": "adapters.js_czt",               # 江苏省财政厅（sysid=134）
+    "js-czt2": "adapters.js_czt2",             # 江苏省财政厅（第二实例）
+    "js-jswater": "adapters.js_jswater",       # 江苏省水利厅
+    "js-doc": "adapters.js_doc",               # 江苏省地方志办公室（sysid=120）
+    "js-jsgd": "adapters.js_jsgd",             # 江苏省广电局
+    "js-nynct": "adapters.js_nynct",           # 江苏省农业农村厅
+    "js-mzt": "adapters.js_mzt",               # 江苏省民政厅
+    "js-gxt": "adapters.js_gxt",               # 江苏省工业和信息化厅
+    "js-gxt2": "adapters.js_gxt2",             # 江苏省工业和信息化厅（第二实例）
+    "js-fzggw": "adapters.js_fzggw",           # 江苏省发展和改革委员会（sysid=112）
+    "js-jssxfj": "adapters.js_jssxfj",         # 江苏省信访局
+    "js-jsip": "adapters.js_jsip",             # 江苏省知识产权局
+    "js-jsip2": "adapters.js_jsip2",           # 江苏省知识产权局（第二实例）
+    "js-credit": "adapters.js_credit",         # 江苏省信用办
+    "js-jsdk": "adapters.js_jsdk",             # 江苏省地质矿产勘查局
+    "js-jsstyj": "adapters.js_jsstyj",         # 江苏省应急管理厅
+    "js-jsstyj2": "adapters.js_jsstyj2",       # 江苏省应急管理厅（第二实例）
+    # —— 北京 / 内蒙古（2026-10-08 由「24 省重探」发现，证据 recon/bj-nmg-hunt.txt）——
+    "bj-hdjl": "adapters.bj_hdjl",             # 北京市·政民互动·信件选登（195 条，答复常点名条例）
+    "nmg-xinxiang": "adapters.nmg_xinxiang",   # 内蒙古自治区·政民互动·反馈回应（67 条）
+    # —— 江西 / 云南（2026-10-08：江西挖到 SPA 里的真实接口；云南 WAS5 已弃用，改走信访站白名单）——
+    "jx-zf": "adapters.jx_zf",                 # 江西省·queryList 接口（我向省长建言 259 + 政策问答库 430）
+    "yn-xf": "adapters.yn_xf",                 # 云南省·信访站案例选登（免鉴权白名单接口，66 条全量）
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）

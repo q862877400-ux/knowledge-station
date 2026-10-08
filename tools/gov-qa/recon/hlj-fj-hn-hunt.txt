@@ -1,0 +1,78 @@
+黑龙江省 / 福建省 / 河南省 —— 静态列表型问答栏目侦察与适配器落地
+================================================================
+日期：2026-10-08   执行：general-purpose-3
+原始 HTML 样本：recon/hlj-list.html、hlj-detail.html、
+              recon/fj-list.html、fj-wycx.html、fj-12345list.html、fj-detail.html、
+              fj-zqztc.html、fj-12345detail.html、
+              recon/hn-list.html、hn-list-p2.html、hn-detail.html、
+              hn-wszx-list.html、hn-wszx-detail.html
+
+模板参照：adapters/ah_sthjt.py（列表翻页+静态明细）、adapters/ln_sthjt.py（问答内联列表）。
+
+--------------------------------------------------------------
+【黑龙江】 hlj-hdjl  ✅ 可采
+  栏目：政民互动·留言选登  https://www.hlj.gov.cn/hlj/c115707/wycx.shtml
+  形态：列表静态页只渲染 11 条，**翻页走 JS 接口**（/hlj/xhtml/js/wycx.js 的 table_ajax()）：
+        GET /common/search/<channelId>?_isAgg=false&_isJson=true&_pageSize=100
+            &_template=index&_rangeTimeGte=&_channelName=&page=<页码>
+        channelId=bec7146b06964311a4fb4b77e1eea17d（取自列表页 <meta name="channelId">）
+        → JSON {data:{total, results:[{title,url,…}]}}，**total=4082**，_pageSize 最大 100 有效（实测）。
+        明细 https://www.hlj.gov.cn<url>（/hlj/c115707/YYYYMM/c00_NNNNNNNN.shtml，静态）：
+        一张表，`留言内容`=问题、`受理回复`段 `回复内容`=答复原文，另带 回复单位/回复时间/回复编号。
+        ⚠ 列表页的答复是**截断**的，必须以明细页为准。
+        解析用标签锚点（<font>留言内容</font>/<font>回复内容</font> 后的 class="cont" 单元格），实测命中。
+  分页：page 参数递增（1..），每页 100 条，共约 41 页；翻完 total=4082。
+  实测：列表 200/total=4082；明细 200 且含问答。样例：
+        「香坊区民生东七道街违停车辆太多拥堵严重」→ 哈尔滨市公安局交通管理支队回复（2026-09-23）。
+        适配器 harvest(limit=3) 实抓 3 条（id=c00_31980015/31979997/31980051）。
+  结论：**可采**（答复带承办单位与时间，多为办理答复）。
+
+--------------------------------------------------------------
+【福建】 fj-hdjl  ✅ 可采
+  栏目：互动交流（咨询投诉）→ 信件选登  https://www.fj.gov.cn/hdjl/zxts/wycx/
+  形态：列表与明细**都是 avalon JS 渲染**，静态 HTML 只有模板（ms-text="el.…"）；
+        真实数据在 /apigateway/12345v3/sqeventreport/ 下的 JSON 接口（**别照静态页写正则**）。
+        列表接口（实测 200，**total=143**，10 条/页，翻页参数 current）：
+          GET /apigateway/12345v3/sqeventreport/sqDetailPublic
+              ?areacode=350000&isContainsLower=1&current=<页码>
+          请求头需带 encryptType: sm4（+ Referer）。
+          → {code:"200", content:{eventInfo:{total,size,records:[{uid,caseTitle,caseDesc,
+             incidentTime,position,billno,areacode}]}}}（caseDesc=诉求全文）。
+        明细（答复）接口：
+          GET /apigateway/12345v3/sqeventreport/getSqDetail2?uid=<uid>（同 encryptType: sm4）
+          → content.taskInfo[0].handledesc=答复原文、orgname=回复单位、handletime=回复时间。
+        静态明细页 /hdjl/zxts/wycx/index0329.htm?id=<uid> 仅供人看，采集走接口。
+  分页：current 参数递增（1..15），每页 10 条，翻完 total=143。
+  实测：列表 200/total=143（第 1、2 页各 10 条且不重复）；明细 200 且含答复。样例：
+        「土建专业高级职称评审论文相关事项咨询」→ 福建省住房和城乡建设厅答复（2026-08-14）。
+        适配器 harvest(limit=12) 跨页实抓 12 条（唯一 id 12）。
+  结论：**可采**（办理答复带单位与时间）。
+
+--------------------------------------------------------------
+【河南】 hn-hdjl  ✅ 可采（但**换了栏目**）
+  ⚠ 报告原判「豫政问答 /hdjl/hdjl/ = 文章型问答」——**实测确认不可采**：
+    那是**记者撰写的政策解读报道**（正文如「记者联系了河南省医疗保障局相关负责人了解详细情况」，
+    来源「河南政府网」、署名记者；标题如「豫政问答丨到2030年中小学全面普及，河南AI课怎么上？」），
+    全站**没有「提问人 + 答复单位 + 提问/答复时间」结构** ⇒ 是新闻稿不是问答记录。
+    （抽样 3 篇：3433533 / 3377951 / 3173796，形态一致。）
+  改用真问答栏目：互动交流·网上咨询  https://www.henan.gov.cn/hdjl/wszx/
+  形态：列表**服务端渲染静态 HTML**：<li class="list-li"><span class="date">YYYY-MM-DD</span>
+        <a href="https://www.henan.gov.cn/YYYY/MM-DD/ID.html">标题</a></li>（24 条/页）。
+        翻页是**静态页**（paging.js：reLoadUrl + 'index' + ('_'+(page-1)) + '.html'）：
+        第 1 页 /hdjl/wszx/，第 N(≥2) 页 /hdjl/wszx/index_{N-1}.html。
+        明细 /YYYY/MM-DD/ID.html（静态、无 JS）：<div class="content"> 内两张 table.xf-box——
+        ①「详细信息」表：标题 / 提交日期 / 内容(=问题)；②「受理回复」表：回复日期 / 回复单位 / 回复内容(=答复原文)。
+  分页：实测 index_26.html 尚有 4 条、index_27.html 404 ⇒ **共 27 页 / 约 629 条**（页大小 24）。
+  实测：列表 200；明细 200 且含问答。样例：
+        「关于药品经营许可证申请的问题」→ 河南省药品监督管理局答复（2026-08-19），
+        点名《药品经营和使用质量监督管理办法》（国家市场监督管理总局令第84号）第十一条。
+        适配器 harvest(limit=26) 跨页实抓 26 条（唯一 id 26）。
+  结论：**可采**（豫政问答弃用；网上咨询为真问答，答复常点名依据）。
+
+--------------------------------------------------------------
+适配器文件与 key（**待登记到 adapters/__init__.py**）：
+  adapters/hlj_hdjl.py  key = hlj-hdjl   （黑龙江省人民政府·政民互动·留言选登）
+  adapters/fj_hdjl.py   key = fj-hdjl    （福建省人民政府·互动交流·12345诉求公开）
+  adapters/hn_hdjl.py   key = hn-hdjl    （河南省人民政府·互动交流·网上咨询）
+统一记录格式已对齐 README 第二节；answer 均为答复原文，未清洗。
+本文件仅报证据；未改 adapters/__init__.py、未 git 提交。

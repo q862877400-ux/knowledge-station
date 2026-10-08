@@ -1,0 +1,288 @@
+================================================================================
+24 省（无适配器省份）问答/互动平台 系统性重探  证据文件
+工具：general-purpose-6    日期：2026-10-08
+================================================================================
+背景：HANDOVER 第四节第 6 条列了 24 个「未落适配器」的省级行政区；旧结论（2026-10-07）
+      只探了少数中间件指纹、且只探**厅局子域**，未系统探**省政府门户**。本次改为
+      「先探省政府门户 → 找互动栏目 → 挖接口 → 实测」。
+
+产物（本文件之外）：
+  recon/province-platform-hunt.py            阶段一：24 省门户可达性 + 互动栏目发现
+  recon/province-platform-hunt-dig.py        阶段二：栏目页/内联JS/外链JS 深挖接口
+  recon/province-platform-hunt-raw.py        抓单页原始 HTML 并打印含关键词的 JS 片段
+  recon/province-platform-hunt-stage1.json/.log    24 省门户扫描原始证据
+  recon/province-platform-hunt-stage2{a,b,c,d}.json 各栏目深挖原始证据
+  recon/province-platform-hunt-igi-sample.json     宁夏/山西 IGI 列表原始 JSON
+  recon/province-platform-hunt-test.py/.json       接口实测记录
+  recon/nx-hdjl.html / sx-zmhd.html / js-jact-list.html / js-jact-detail.html  原始页
+
+合规：请求间隔 ≥1.5s；403/412 立即停该站；域名连不上如实记录不重试。
+      未改 adapters/ data/ assets-* / *.md / __init__.py。
+
+--------------------------------------------------------------------------------
+一、总览（24 省结论）
+--------------------------------------------------------------------------------
+A. 接口型可用（5 省，最高价值）：
+   北京、宁夏、山西、内蒙古、江苏
+B. 列表型可采（静态列表 + 明细页，能当考卷）（7 省）：
+   天津、陕西、重庆、黑龙江、福建、河南(文章型问答)、海南(业务知识库，待确认)
+C. 有中间件/接口线索但未完全拿下（2 省）：
+   江西（SPA 列表，接口在 commonApi.js）、云南（TRS WAS5 在，问答 channelid 未拿下）
+D. 门户可达但问答不在门户、在别域名/SPA（5 省）：
+   上海(wsxf.sh.gov.cn 网上信访)、新疆(wsxf.xjxfj.gov.cn)、西藏(xzxf.xizang.gov.cn)、
+   河北(hb12345.szj.hebei.gov.cn SPA)、浙江(门户无互动栏目，未定位)
+E. 反爬 412（2 省）：甘肃、湖北
+F. 本机不可达（3 省）：青海(Timeout)、山东(ConnectError)、广西(ConnectError)
+
+================================================================================
+二、逐省台账
+================================================================================
+
+【天津】门户 www.tj.gov.cn [200]
+  试过路径：/hdjl/ /hd/ /gzhd/ /wzly/ /lyb/ /hdjlpt → 全 404（门户自定义404页 130KB）
+  发现栏目：/zmhd/ (政民互动) → 留言选登 /zmhd/wmfkxd/index_N.html（pager countPage=25）；
+            回应关切 /zmhd/hygqx/；市长信箱 /zmhd/szxx/szxxxz/
+  中间件：门户 CMS（无 WAS5/IGI/hdjlpt 指纹）
+  接口：无。列表与明细均为静态页
+  明细形态：/zmhd/wmfkxd/YYYYMM/tYYYYMMDD_ID.html（onclick jumpToDetail，静态）
+  实测：列表页 200（152KB，25 页），明细页静态可抓
+  结论：**列表型可采（静态）**。样例：西青道与津同路交口施工计划11月15日前完工(2026-09-17)
+
+【上海】门户 www.sh.gov.cn [200]
+  试过路径：/zmhd/ 200（33KB，无互动链接）；/zmhd/index.html 200
+  发现栏目：/zmhd/ (政民互动)；子页 www.shanghai.gov.cn/nw2/nw2314/nw38605/index.html → 404
+            明细线索：http://wsxf.sh.gov.cn/xf_swldxx/feedback_show.aspx?letterId=D91F59AA...
+  中间件：门户 CMS
+  接口：未定位
+  实测：wsxf.sh.gov.cn 直连 **RemoteProtocolError**（http 明文被断/协议错误）；政民互动子页 404
+  结论：门户可达，**问答列表在 wsxf.sh.gov.cn 网上信访、本机不通**，未采
+
+【北京】门户 www.beijing.gov.cn [200]  ★接口型
+  发现栏目：/hudong/ (政民互动) → 信件选登 /hudong/hdjl/sindex/hdjl-xjxd.html
+  中间件：Struts2（.action / .flow）
+  接口（列表，实测 200）：
+    POST https://www.beijing.gov.cn/hudong/hdjl/sindex/bjah-index-hdjl!letterListJson.action
+         ?keyword=&letterType=&page.pageNo=1&page.pageSize=20&orgtitleLength=26
+    → JSON {page:{totalCount:'215',totalPages:'43'}, result:[{originalId,letterTitle,
+            letterTypeName,writeDate,replyDate,orgNames,...}]}
+  接口（明细，实测 200）：GET /hudong/hdjl/com.web.consult.consultDetail.flow?originalId=<id>
+    → 含 问题 + 答复(点名依据) + 答复单位。样例：育儿假相关咨询 → 市卫生健康委答复点名
+      《北京市人口与计划生育条例》第十九条
+  实测：列表 totalCount=215；明细 200 且含问答
+  结论：**接口型可用**（省门户级统一信件库，答复点名依据，价值高）
+
+【浙江】门户 www.zj.gov.cn [200]
+  试过路径：/hdjl/ /zmhd/ /hd/ /gzhd/ /wzly/ /lyb/ /hdjlpt ... → 全 404（openresty）
+            /col/col1229019488/ col1229554597 col1229019487 → 404
+  发现栏目：首页 0 个互动栏目链接
+  中间件：无指纹
+  接口：无
+  结论：门户**未发现问答/互动栏目**（疑在浙江政务服务网 zjzwfw.gov.cn / 浙里办，本次未定位），未采
+
+【福建】门户 www.fj.gov.cn [200]
+  发现栏目：/hdjl/ (互动交流) → /hdjl/zxts/ (咨询投诉) → /hdjl/zxts/wycx/ (信件选登)
+            在线访谈 /hdjl/zxft/；回应关切 /jdhy/hygq/
+  中间件：TRS 站群（SiteInfo: was4doc=291575 等）+ avalon 前端
+  接口：列表为**服务端渲染 HTML**（/hdjl/zxts/ 内直接有 <a href="/hdjl/zxts/wycx/
+        szxxDetail.htm?articleId=N">…</a>）；明细 szxxDetail.htm?articleId=N（静态，含问答）
+        另有 /static/hdjlV3.json（办理量统计，非问答）、/ssp/search/api/word（联想词）
+  实测：/hdjl/zxts/ 200（285KB，含明细链接）；/hdjl/zxts/wyzx/ 200（表单页）
+  结论：**列表型可采**（静态 HTML 列表 + 明细，分页形式待定）。样例：工程技术人员中级职称申报咨询
+
+【宁夏】门户 www.nx.gov.cn [200]  ★★接口型（IGI，带三级归属）
+  发现栏目：/hdjl/ (互动交流) → 主席信箱 /hdjl/zxxx/
+  中间件：**IGI 平台**（/IGI/nbhd/openGovmsgbox.do，与贵州/吉林同族）
+  接口（列表，实测 200）：
+    GET https://www.nx.gov.cn/IGI/nbhd/openGovmsgbox.do
+        ?method=listGovmsgboxs&siteId=115&order=1&appID=4&pageIndex=1&pageSize=20
+        （⚠ 参数名是 appID 大写 D；必须带 Referer: https://www.nx.gov.cn/hdjl/）
+    → JSON statusCode=200, datas.pageInfo.totalResults=**667**, datas.data[] 字段：
+      TITLE/CONTENT/HTMLCONTENT/DEALDEPTNAME/SUBMITTIME/REPLYTIME/ISREPLY/GOVMSGBOXTYPE/
+      METADATAID/**PROVINCE/CITY/AREA/REGION**（★三级归属）
+  接口（明细，实测 200）：
+    GET .../openGovmsgbox.do?method=viewGovmsgbox&siteId=115&metadataId=<id>
+    → datas.REPLYS[].REPLYHTMLCONTENT = 官方答复（与 _igi_common.py 取值口径一致）
+  实测：列表 200/667 条；明细 200 且含答复（样例：住房公积金 → 自治区住建厅答复）
+  结论：**接口型可用，最高价值**（唯一能扩「县级」归属的通道；新落适配器需加 PROVINCE_PREFIX）
+
+【云南】门户 www.yn.gov.cn [200]
+  发现栏目：/hdjl/ (互动交流) → 我要咨询 /hdjl/wlwz/wlwzwyzx/、我要投诉 /hdjl/wlwz/wlwzwyts/
+            在线访谈 /hdjl/zxft1/fthz/
+  中间件：**TRS WAS5**（/was5/web/search 返回标题 TRSWAS5.1）+ 页面 params.channelId='639'/'3820'
+  接口：WAS5 存在但问答 channelid 调不出结果：
+        GET /was5/web/search?channelid=639&perpage=5&page=1 → 200 但 **711B 的 TRSWAS5.1 404 页**
+        （channelid 3820 同）；即 639/3820 是 CMS 栏目号、非 WAS5 检索频道
+  实测：hdjl 页 200（100KB）；WAS5 搜索返回空页
+  结论：**未通**（WAS5 在，问答检索 channelid 未拿下）。下一步：抓 /hdjl/wlwz/wlwzwyzx/ 的列表 JS 找真实接口
+
+【陕西】门户 www.shaanxi.gov.cn [200]
+  发现栏目：/hd/ (互动) → 信件选登 /hd/wxszsjh/lyxd/；知识问答 /hd/sxzswd/sjzswd/
+  中间件：门户 CMS（无指纹）
+  接口：无（静态）。列表 /hd/wxszsjh/lyxd/ 服务端渲染 10 条/页，明细
+        /hd/wxszsjh/lyxd/YYYYMM/tYYYYMMDD_ID.html（静态，含 提问+回答+回复单位+回复时间）
+  实测：列表 200（30KB）；明细 200 且含问答。样例：咨询口腔立项指南 → 省医疗保障局答复
+  结论：**列表型可采**（静态，含问答；分页形式待确认）
+
+【甘肃】门户 www.gansu.gov.cn → **412 反爬**（home 即 412，按纪律停）
+  结论：反爬，未采。HANDOVER 记真浏览器可过 → 可留待真浏览器挖接口
+
+【青海】门户 www.qinghai.gov.cn → **ConnectTimeout**
+  结论：本机不可达，未采
+
+【新疆】门户 www.xinjiang.gov.cn [200]
+  发现栏目：/xinjiang/zmhd/hd.shtml (政民互动) → 咨询评价
+            https://wsxf.xjxfj.gov.cn/html/onlineInquiry/queryIndex.jsp?regionCode=650000000000；
+            我要留言 /xinjiang/hlwdc/hlwdc.shtml
+  中间件：门户 CMS
+  接口：问答在**信访域名 wsxf.xjxfj.gov.cn**（queryIndex.jsp，200/7.5KB），本次未采
+  结论：门户可达，问答列表在信访系统，未采
+
+【西藏】门户 www.xizang.gov.cn [200]
+  发现栏目：/zmhd/ → 留言选登 http://xzxf.xizang.gov.cn/ocp/wsxx.html（200/21KB）；我要投诉 wyts.html
+  中间件：门户 CMS
+  接口：问答在**信访域名 xzxf.xizang.gov.cn/ocp/**，本次未采
+  结论：门户可达，问答在信访系统，未采
+
+【内蒙古】门户 www.nmg.gov.cn [200]  ★接口型
+  发现栏目：/zmhd/ (政民互动) → 反馈回应 /zmhd/fkhy_1/index_13317.html；政策问答库 /zmhd/zcwdk/
+  中间件：xinxiang 自建（/xinxiang/api/）
+  接口（列表，实测 200）：
+    POST https://www.nmg.gov.cn/xinxiang/api/getCaseInfoList
+         body {"title":"","first":1,"pageSize":5}  (Content-Type: application/json)
+    → JSON {code:200,data:{list:[{id,ticketTitle,finishTime,ticketId,status}]}}
+  接口（明细，实测 200）：
+    GET https://www.nmg.gov.cn/xinxiang/api/getCaseInfo?rowguid=<id>
+    → JSON data:{ticketTitle,ticketContent(问题),replyContent(答复),replyDept,replyTime,appealTime}
+  实测：列表 200；明细 200 且含问答。样例：外地户籍申请公租房应具备什么条件？→
+        鄂尔多斯市杭锦旗住建局答复（4 条条件）
+  结论：**接口型可用**
+
+【黑龙江】门户 www.hlj.gov.cn [200]
+  发现栏目：/hlj/c108467/zmhd.shtml (政民互动) → 留言选登 /hlj/c115707/wycx.shtml；
+            部门互动 /hlj/c115777/dep_list.shtml；我向省长说句话
+  中间件：门户 CMS（无指纹）
+  接口：无（静态）。明细 `.../cNNNNNN/YYYYMM/c00_NNNNNNNN.shtml`（静态）
+  实测：/hlj/c115707/wycx.shtml 200（73KB，含明细链接）
+  结论：**列表型可采**（静态）
+
+【江西】门户 www.jiangxi.gov.cn [200]
+  发现栏目：/jxsrmzf/hdjl/pc/list.html (互动)；我向省长建言 /jxsrmzf/zxzx/pc/list.html；
+            互动回应 /jxsrmzf/hygz/pc/list.html；智能问答 /ghwd/znwd/index.html
+  中间件：站群 CMS（channelId=17507383；js/config.js、js/commonApi.js）
+  接口线索：明细 /jxsrmzf/wxszj/relation/<id>-RelationArticle.json（RelationArticle）
+  实测：pc/list.html 200（118KB），列表由 commonApi.js 拉取（未逐一定位接口）
+  结论：**有接口线索未完全拿下**。下一步：读 /jxsrmzf/pc2024/js/commonApi.js 找列表接口
+
+【湖北】门户 www.hubei.gov.cn → **412 反爬**（home 即 412，按纪律停）
+  结论：反爬，未采
+
+【河南】门户 www.henan.gov.cn [200]
+  发现栏目：/hdjl/ (互动交流) → 豫政问答 /hdjl/hdjl/（文章型问答）；咨询回复 /hdjl/wszx/；
+            在线访谈 /hdjl/zxft/
+  中间件：站群 CMS（file.henan.gov.cn 静态资源）；wenda.henan.gov.cn 是 SPA（返回统一技术平台页）
+  接口：无（豫政问答是**文章型**静态页 /YYYY/MM-DD/ID.html，含问答正文）
+  实测：豫政问答文章 200 且含问答（记者联系厅局答问）
+  结论：**列表型可采（文章型问答）**；wenda 接口未通
+
+【山东】门户 www.shandong.gov.cn → **ConnectError**
+  结论：本机不可达，未采
+
+【海南】门户 www.hainan.gov.cn [200]
+  发现栏目：/hainan/hdjl/hd.shtml (互动) → 业务知识库 /hainan/ywzsk/list3.shtml（200/42KB）；
+            在线访谈 /hainan/newzxft/newzxft.shtml
+  中间件：门户 CMS
+  接口：未定位
+  结论：门户可达，业务知识库（问答库）可采性待确认，未完全拿下
+
+【重庆】门户 www.cq.gov.cn [200]
+  发现栏目：/hdjl/ (互动交流) → 留言选登 /hdjl/cqhlwdc/lyxd1/；留言统计 /hdjl/cqhlwdc/lyblqktj/
+            （接口 hdjllist.json）；政策问答 /zwgk/zfxxgkml/zcwd/
+  中间件：门户 CMS
+  接口：无（留言选登为静态）。列表 /hdjl/cqhlwdc/lyxd1/ 服务端渲染 35 条/页，明细
+        ./YYYYMM/tYYYYMMDD_ID.html（静态，含答复）
+  实测：列表 200（73KB，35 条明细链接）
+  结论：**列表型可采**（静态）
+
+【广西】门户 www.gxzf.gov.cn → **ConnectError**
+  结论：本机不可达，未采
+
+【山西】门户 www.shanxi.gov.cn [200]  ★★接口型（IGI）
+  发现栏目：/zmhd/ (政民互动) → 省长信箱 /zmhd/szxx/；来信选登 /zmhd/szxx/lxxd/；
+            回应关切 /zmhd/hygq/；在线访谈 /zmhd/zxft/；智能问答 /ghwd/znwd/index.html
+  中间件：**IGI 平台**（/IGI/nbhd/openGovmsgbox.do，与宁夏/贵州/吉林同族）
+  接口（列表，实测 200）：
+    GET http://www.shanxi.gov.cn/IGI/nbhd/openGovmsgbox.do
+        ?method=listGovmsgboxs&siteId=110&pageIndex=1&pageSize=20&appId=1742326
+        （⚠ 参数名 appId 小写 d；必须带 Referer: http://www.shanxi.gov.cn/zmhd/）
+    → JSON datas.pageInfo.totalResults=**1872**（另有 siteId=36/appId=584617 的第二块）
+  接口（明细，实测 200）：
+    GET .../openGovmsgbox.do?method=viewGovmsgbox&siteId=110&metadataId=<id>
+    → datas.REPLYS[].REPLYHTMLCONTENT = 官方答复
+  实测：列表 200/1872 条；明细 200 且含答复。样例：咨询直博生工龄认定问题 → 省人社厅答复
+        （注：本批 PROVINCE/CITY/AREA 为空，归属需另找或靠来源前缀）
+  结论：**接口型可用**（IGI 同族，量大 1872）
+
+【河北】门户 www.hebei.gov.cn [200]
+  发现栏目：/columns/da32bd93-.../index.html (互动交流)
+  中间件：门户 CMS
+  接口：问答指向 **hb12345.szj.hebei.gov.cn/ticket/zwpage/#/**（河北12345 SPA），本次未采
+  结论：门户可达，问答在 12345 SPA，未采
+
+【江苏】门户 www.jiangsu.gov.cn [200]  ★★接口型（jact，多厅局）
+  发现栏目：/col/col81602/index.html (咨询建言)；/col/col31338/index.html (政民互动)
+  中间件：**jact 平台**（万户 hanweb 系；/jact/front/）
+  接口（列表，实测 200）：
+    POST https://<厅局>.jiangsu.gov.cn/jact/front/dataproxy_mailpublist.do
+         ?startrecord=1&endrecord=19&perpage=19&groupSize=3
+         body(表单): sysid=<厅局号>&datadetailid=&dicvalue=&mailnumber=&querycode=&
+                     groupid=&mailstate=&starttime=&endtime=&keyword=
+    → JS 文本：totalRecord=431.0;totalPage=23;dataStore=["<tr>…<a href='mailpubdetail.do?
+      transactId=483417&sysid=143'>标题</a>…", ...]  （dataType=script，需 eval 风格解析）
+  接口（明细，实测 200）：
+    GET https://<厅局>.jiangsu.gov.cn/jact/front/mailpubdetail.do?transactId=<id>&sysid=<n>
+    → HTML 含 标题/内容(问题)/提交时间/回复日期/内容回复(答复)/答复单位
+  实测：生态环境厅 sysid=143 → totalRecord=**431**（23 页）；明细 200 且含问答，答复点名
+        《江苏省固体废物污染环境防治条例》第二十三条、《中华人民共和国生态环境法典》第四百八十一条
+  已知厅局 sysid（从门户 col81602 明细链接采集）：
+        生态环境厅 143 / 发改委 112 / 体育局 99 / 档案局 107 / 财政厅 134 / 医保局 200 /
+        农垦 24 / 地方志 120 ……（门户咨询建言聚合多厅局 jact 实例）
+  结论：**接口型可用，多厅局，价值高**（同广东 hdjlpt 模式：一厅一 sysid，全省一片）
+
+================================================================================
+三、可复用中间件「新增发现」小结
+================================================================================
+1. **IGI 平台扩两省**：宁夏(www.nx.gov.cn, siteId=115/appID=4, 667 条) 与
+   山西(www.shanxi.gov.cn, siteId=110/appId=1742326, 1872 条)。
+   路径 `/IGI/nbhd/openGovmsgbox.do`，接口 `method=listGovmsgboxs` + `method=viewGovmsgbox`，
+   **与 _igi_common.py 完全同构** ⇒ 直接复用基座，只需补 (base, siteId, appId, Referer)。
+   ⚠ 参数名大小写：宁夏 appID（大写D）、山西 appId（小写d）；两者都**必须带 Referer**。
+   ★ 宁夏列表带 PROVINCE/CITY/AREA 三级归属（如「宁夏回族自治区 吴忠市 青铜峡市」）——
+     这是本模块唯一能扩「县」的通道，新落适配器**务必**同步 coverage-matrix.py 的 PROVINCE_PREFIX。
+2. **江苏 jact 平台**（新中间件族）：`/jact/front/dataproxy_mailpublist.do`（POST，分页
+   startrecord/endrecord/perpage/groupSize）+ `mailpubdetail.do?transactId=&sysid=`。
+   与广东 hdjlpt 同为「省门户聚合多厅局问答」，一厅一 sysid ⇒ 找到厅局清单即可全省铺开。
+3. **内蒙古 xinxiang**：`/xinxiang/api/getCaseInfoList`（POST JSON）+ `/xinxiang/api/getCaseInfo?rowguid=`。
+4. **北京 站门户信件库**：`bjah-index-hdjl!letterListJson.action` + `consultDetail.flow?originalId=`。
+5. 静态列表型（能当考卷）：天津 / 陕西 / 重庆 / 黑龙江 / 福建 / 河南(文章型) / 海南(待确认)。
+
+================================================================================
+四、与旧负面结论的差异
+================================================================================
+- 旧记「四川 wz.sc.gov.cn 不可达 / 一批省域名连不上（含山西/江苏/山东/河南/湖北/广西/海南/
+  云南/陕西/青海/新疆/重庆）」——本次实测：山西/江苏/河南/海南/云南/陕西/新疆/重庆 的
+  **省门户均可达**（旧结论探的是厅局子域或另一个域名）。仅 **青海/山东/广西 不可达**，
+  **甘肃/湖北 412**。
+- 旧记「IGI 指纹在天津/上海/北京/浙江/福建/宁夏/云南/陕西 8 省未发现」——本次在
+  **宁夏/山西** 门户发现 IGI（旧扫描只探了厅局子域 sthjt.nx.gov.cn 等，漏了省门户 www.nx.gov.cn）。
+- 旧记「其他省没有 hdjlpt」——确认广东 hdjlpt 是特例，但**江苏有同类的 jact**。
+
+================================================================================
+五、下一步建议（若落适配器，最值得先做的 3 个省）
+================================================================================
+1. **宁夏**（IGI，667 条）：与 _igi_common.py 同构，**零改造**即可复用基座；且是唯一能给
+   三级（省/市/区）归属的通道 ⇒ 直接提升「县级覆盖」。
+2. **江苏**（jact，多厅局）：与广东 hdjlpt 同模式、量大（单厅局 431 起）；一次摸清厅局 sysid
+   清单即可全省铺开，复用「生成器产薄壳适配器」的做法。
+3. **北京**（站门户信件库，215 条 + 明细含点名依据）：省门户级统一库，答复质量高（常点名条例
+   条款），接口稳定（JSON），且可与留言板北京各区互补。
+（次选：山西 IGI 1872 条量大但归属字段空；内蒙古 xinxiang 接口干净但量未知。）

@@ -1,0 +1,91 @@
+================================================================================
+江西 + 云南 问答/互动平台挖掘证据
+任务：挖江西 SPA 接口 与 云南 WAS5 channelid（2026-10-08，general-purpose-4）
+只报证据；未改 __init__.py、未 commit。
+================================================================================
+
+--------------------------------------------------------------------------------
+【江西】www.jiangxi.gov.cn —— 数融站群 CMS（SPA 列表，接口在打包 JS 里）
+--------------------------------------------------------------------------------
+形态：省级门户是「数融站群」CMS，同一套引擎，各站以 webSiteCode 区分；
+      互动列表页是 SPA，真实接口不在 HTML 里，而在打包 JS。
+
+已抓 JS 样本（recon/）：
+  · jx-config.js          —— 站点配置：ajaxUrl、userIdObj{tenantId,deptId,siteId,qdId}、
+                             aggregationWebsiteCod（列了 34 个省直部门域名，即"多厅站"证据）
+  · jx-commonApi.js       —— 通用接口封装（线索来源）
+  · jx-list.js / jx-zmhd.js / jx-login.js / jx-usercenter.js / jx-transform.js 等
+  · jx-hdjl-list.html / jx-jxsrmzf_wxszj_pc_list.html.html / jx-jxsrmzf_zxzx_pc_list.html.html
+
+接口（实测 200）：
+  · 列表/详情  POST {host}/queryList
+       form 参数：current（页码）、pageSize、channelCode（栏目代号）、webSiteCode（站点代号）
+       响应：{data:{total, results:[{source:{id,title,pubDate,content:{content},metadata,urls}}]}}
+  · 按 id 取单篇  GET {host}/getManuscriptById?id=<id>（列表已带全文，通常不必再调）
+  实测：POST https://www.jiangxi.gov.cn/queryList
+        webSiteCode=jxsrmzf（省政府站）
+        channelCode=wxszj（我向省长建言）  → total 259
+        channelCode=hygz（政策问答库）     → total 430
+  样本：recon/jx-queryList-wxszj-sample.json、recon/jx-detail-sample.json
+
+字段/正文：
+  · wxszj「我向省长建言」259 条：问题在 content.content，**答复在 metadata.field_1596**，
+    回复单位 metadata.field_1662，提问/答复日期 field_1594/1595（答复常由多厅局分别作出）
+  · hygz「政策问答库」430 条：content.content 内联「问：… 答：…」（答复常点名依据）
+
+踩过的坑（反面证据）：
+  · /api/mail/list 返回 total:0 —— 多次换参（deptId/type/pageSize…）均 0，**不是**问答列表接口，
+    一度误判为"空站"；真正可用的是 /queryList。
+
+实测结果：limit=8 直跑适配器，返回真实建言（含跨厅局答复：文旅厅+商务厅+市场监管局同答一条）。
+适配器：adapters/jx_zf.py   key = "jx-zf"（kind=api, level=province）
+结论：**接口挖到并实测通过**（统一平台；换 webSiteCode/channelCode 可扩其它厅站）。
+
+--------------------------------------------------------------------------------
+【云南】www.yn.gov.cn（门户 CMS） + xfservice.yn.gov.cn（信访站） —— WAS5 线不通，
+        改走信访站免鉴权白名单接口（案例选登 66 条）
+--------------------------------------------------------------------------------
+一、门户 WAS5 这条线：**不通**
+   · 抓 /hdjl/wlwz/wlwzwyzx/（网络问政·我要咨询）页面 + 其链出 JS：
+     页面内**没有** was5/channelid 字样；搜索入口是 /searchfs/index_826.html?siteCode=ynzcwjk，
+     该页是 frameset，onload 把 frame.src 指向 **https://sheng.so-gov.cn/**（第三方站内搜索）。
+   · 旧记 /was5/web/search?channelid=639/3820 → 200 但 **711B 的 TRSWAS5.1 404 空页**；
+     639/3820 是 CMS 栏目号，非 WAS5 检索频道。**门户已无可用 WAS5 问答检索频道**。
+   · 该页真正的问答入口是：<iframe src="https://www.yn.gov.cn/userhome/12345/submit?channel=咨询">
+     （提交表单，非列表）+ 外链 xfservice.yn.gov.cn（信访站）。
+   样本：recon/yn-https__www.yn.gov.cn_hdjl_wlwz_wlwzwyzx.html、yn-searchfs-index_826.html、
+         yn-12345-*.js（12345 站 JS）
+
+二、12345 站（www.yn.gov.cn/userhome/12345/）：无公开列表
+   · 接口仅 /wzhd12345/{doUploadAppendix,getCaptcha,getMsgArea,getsmsvalicode,queryMsg,sendmsg}
+     —— 提交/验证码/短信/状态查询；queryMsg 需 受理编号+密码+验证码（非公开列表）。
+
+三、信访站 xfservice.yn.gov.cn：网关鉴权 + 一条白名单公开问答接口
+   · SPA（Vue）：/wsxf/mailbox?type=01/02（省委书记/省长信箱）等路由。
+   · 网关对**非白名单路径一律**回 `401 {"success":false,"code":"400","message":"无效请求头"}`
+     —— 关键：**伪路径（/zzzBogus/nonexistent）同样 401**，故不能据 401 判定"端点存在"；
+     加 Referer/Origin 也无用。其 Authorization 头 = 登录后 JWT（tokenHead+token，见
+     recon/yn-xf-service-B2yz_r3x.js 的 `Ml=()=>state.tokenHead+state.token` 与
+     `isToken===!0&&(t.headers.Authorization=Ml())`），公开抓取拿不到 → **mailbox 列表线不通**。
+   · 但存在**免鉴权白名单**接口 /api/website/v1/newsRends/*（实测 200）：
+       - 列表：GET {host}/api/website/v1/newsRends/pageList
+                 ?current=<页>&pageSize=<条>[&type=<栏目>&newsTypeId=<n>]
+                 无 type → total 141（含新闻/政策/案例）；type=case_selection&newsTypeId=1 → **total 66**
+       - 详情：GET {host}/api/website/v1/newsRends/query/<id>（content 与列表**逐字相等**，1269B 实测）
+   · 「案例选登」(/alxd/) 即公开问答：正文形如
+       `{日期}网民反映：{问} {日期}{单位}回复：{答}`；
+     答复标记实测有 3 种：①「回复：/答复：/回复;」②「官方回复」（后跟单位名+网民同志：您好！）
+     ③「{日期}{单位}：」（**无"回复"二字**）。列表 content 已含问+答全文，**无需再逐条抓明细**。
+   样本：recon/yn-xf-*.js、yn-xf-portal-index.html、yn-alxd-index.html、yn-alxd-detail.html、
+         yn-newsRends-all.json、yn-alxd-list-sample.json、yn-alxd-detail-sample.json
+
+实测结果：直跑适配器 **66/66 全量入库**（唯一 id 66/66，均有答复；4 条正文未点名单位故 dept 为空）。
+适配器：adapters/yn_xf.py   key = "yn-xf"（kind=api, level=province）
+结论：**WAS5 channelid 未找到（门户已弃用）；改走信访站白名单接口挖到公开问答，实测通过。**
+
+--------------------------------------------------------------------------------
+【待登记 key 清单】（请团队在 adapters/__init__.py 登记）
+--------------------------------------------------------------------------------
+  "jx-zf": "adapters.jx_zf"     # 江西省人民政府·数融互动（wxszj 259 + hygz 430）
+  "yn-xf": "adapters.yn_xf"     # 云南省网上信访平台·案例选登（免鉴权白名单，66 条）
+================================================================================

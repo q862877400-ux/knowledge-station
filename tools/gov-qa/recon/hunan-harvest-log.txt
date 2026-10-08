@@ -1,0 +1,389 @@
+# 湖南 30 厅局采集日志（--limit 200 封顶）  开始：2026-10-08 18:40:30
+### hunan-fgw
+
+[hunan-fgw] 湖南省发展和改革委员会 → hunan-fgw-湖南省发展和改革委员会.jsonl（已有 0 条）
+    [hunan-fgw] platform total=688 pageTotal=14
+    取到 200 条，其中**新增 200 条**（用时 24s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-fgw-湖南省发展和改革委员会.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-jyt
+
+[hunan-jyt] 湖南省教育厅 → hunan-jyt-湖南省教育厅.jsonl（已有 0 条）
+    [hunan-jyt] platform total=187 pageTotal=4
+    取到 187 条，其中**新增 187 条**（用时 39s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-jyt-湖南省教育厅.jsonl
+
+[harvest] 全部完成，新增合计 187 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-kjt
+
+[hunan-kjt] 湖南省科学技术厅 → hunan-kjt-湖南省科学技术厅.jsonl（已有 0 条）
+    [hunan-kjt] platform total=129 pageTotal=3
+    取到 129 条，其中**新增 129 条**（用时 19s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-kjt-湖南省科学技术厅.jsonl
+
+[harvest] 全部完成，新增合计 129 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 0 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    [hunan-gxt] 第 4 页 HTTP 500（停）
+    取到 150 条，其中**新增 150 条**（用时 45s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-gxt-湖南省工业和信息化厅.jsonl
+
+[harvest] 全部完成，新增合计 150 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzw
+
+[hunan-mzw] 湖南省民族宗教事务委员会 → hunan-mzw-湖南省民族宗教事务委员会.jsonl（已有 0 条）
+    [hunan-mzw] platform total=197 pageTotal=4
+    取到 197 条，其中**新增 197 条**（用时 45s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-mzw-湖南省民族宗教事务委员会.jsonl
+
+[harvest] 全部完成，新增合计 197 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gat
+
+[hunan-gat] 湖南省公安厅 → hunan-gat-湖南省公安厅.jsonl（已有 0 条）
+    [hunan-gat] platform total=5721 pageTotal=115
+    取到 200 条，其中**新增 200 条**（用时 45s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-gat-湖南省公安厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 0 条）
+    [hunan-mzt] 第 1 页 HTTP 500（停）
+    取到 0 条，其中**新增 0 条**（用时 18s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-sft
+
+[hunan-sft] 湖南省司法厅 → hunan-sft-湖南省司法厅.jsonl（已有 0 条）
+    [hunan-sft] platform total=712 pageTotal=15
+    取到 200 条，其中**新增 200 条**（用时 51s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-sft-湖南省司法厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-czt
+
+[hunan-czt] 湖南省财政厅 → hunan-czt-湖南省财政厅.jsonl（已有 0 条）
+    [hunan-czt] 第 1 页 HTTP 500（停）
+    取到 0 条，其中**新增 0 条**（用时 11s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-rst
+
+[hunan-rst] 湖南省人力资源和社会保障厅 → hunan-rst-湖南省人力资源和社会保障厅.jsonl（已有 0 条）
+    [hunan-rst] platform total=9231 pageTotal=185
+    [hunan-rst] 第 4 页 HTTP 500（停）
+    取到 149 条，其中**新增 149 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-rst-湖南省人力资源和社会保障厅.jsonl
+
+[harvest] 全部完成，新增合计 149 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-zrzyt
+
+[hunan-zrzyt] 湖南省自然资源厅 → hunan-zrzyt-湖南省自然资源厅.jsonl（已有 0 条）
+    [hunan-zrzyt] platform total=1753 pageTotal=36
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-zrzyt-湖南省自然资源厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-zjt
+
+[hunan-zjt] 湖南省住房和城乡建设厅 → hunan-zjt-湖南省住房和城乡建设厅.jsonl（已有 0 条）
+    [hunan-zjt] platform total=1101 pageTotal=23
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-zjt-湖南省住房和城乡建设厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-jtt
+
+[hunan-jtt] 湖南省交通运输厅 → hunan-jtt-湖南省交通运输厅.jsonl（已有 0 条）
+    [hunan-jtt] platform total=5991 pageTotal=120
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-jtt-湖南省交通运输厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-slt
+
+[hunan-slt] 湖南省水利厅 → hunan-slt-湖南省水利厅.jsonl（已有 0 条）
+    [hunan-slt] platform total=387 pageTotal=8
+    取到 200 条，其中**新增 200 条**（用时 53s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-slt-湖南省水利厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-agri
+
+[hunan-agri] 湖南省农业农村厅 → hunan-agri-湖南省农业农村厅.jsonl（已有 0 条）
+    [hunan-agri] platform total=1618 pageTotal=33
+    取到 200 条，其中**新增 200 条**（用时 44s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-agri-湖南省农业农村厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-swt
+
+[hunan-swt] 湖南省商务厅 → hunan-swt-湖南省商务厅.jsonl（已有 0 条）
+    [hunan-swt] platform total=1430 pageTotal=29
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-swt-湖南省商务厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-whhlyt
+
+[hunan-whhlyt] 湖南省文化和旅游厅 → hunan-whhlyt-湖南省文化和旅游厅.jsonl（已有 0 条）
+    [hunan-whhlyt] platform total=1189 pageTotal=24
+    取到 200 条，其中**新增 200 条**（用时 51s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-whhlyt-湖南省文化和旅游厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-wjw
+
+[hunan-wjw] 湖南省卫生健康委员会 → hunan-wjw-湖南省卫生健康委员会.jsonl（已有 0 条）
+    [hunan-wjw] platform total=100 pageTotal=2
+    取到 100 条，其中**新增 100 条**（用时 22s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-wjw-湖南省卫生健康委员会.jsonl
+
+[harvest] 全部完成，新增合计 100 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-tyjrswt
+
+[hunan-tyjrswt] 湖南省退役军人事务厅 → hunan-tyjrswt-湖南省退役军人事务厅.jsonl（已有 0 条）
+    [hunan-tyjrswt] platform total=94 pageTotal=2
+    取到 94 条，其中**新增 94 条**（用时 29s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-tyjrswt-湖南省退役军人事务厅.jsonl
+
+[harvest] 全部完成，新增合计 94 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-sjt
+
+[hunan-sjt] 湖南省审计厅 → hunan-sjt-湖南省审计厅.jsonl（已有 0 条）
+    [hunan-sjt] platform total=23 pageTotal=1
+    取到 23 条，其中**新增 23 条**（用时 5s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-sjt-湖南省审计厅.jsonl
+
+[harvest] 全部完成，新增合计 23 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-lyj
+
+[hunan-lyj] 湖南省林业局 → hunan-lyj-湖南省林业局.jsonl（已有 0 条）
+    [hunan-lyj] platform total=533 pageTotal=11
+    [hunan-lyj] 第 2 页 HTTP 500（停）
+    取到 50 条，其中**新增 50 条**（用时 22s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-lyj-湖南省林业局.jsonl
+
+[harvest] 全部完成，新增合计 50 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-amr
+
+[hunan-amr] 湖南省市场监督管理局 → hunan-amr-湖南省市场监督管理局.jsonl（已有 0 条）
+    [hunan-amr] platform total=817 pageTotal=17
+    取到 200 条，其中**新增 200 条**（用时 46s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-amr-湖南省市场监督管理局.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-tyj
+
+[hunan-tyj] 湖南省体育局 → hunan-tyj-湖南省体育局.jsonl（已有 0 条）
+    [hunan-tyj] platform total=246 pageTotal=5
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-tyj-湖南省体育局.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-tjj
+
+[hunan-tjj] 湖南省统计局 → hunan-tjj-湖南省统计局.jsonl（已有 0 条）
+    [hunan-tjj] platform total=6841 pageTotal=137
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-tjj-湖南省统计局.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-ybj
+
+[hunan-ybj] 湖南省医疗保障局 → hunan-ybj-湖南省医疗保障局.jsonl（已有 0 条）
+    [hunan-ybj] platform total=188 pageTotal=4
+    取到 188 条，其中**新增 188 条**（用时 44s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-ybj-湖南省医疗保障局.jsonl
+
+[harvest] 全部完成，新增合计 188 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mpa
+
+[hunan-mpa] 湖南省药品监督管理局 → hunan-mpa-湖南省药品监督管理局.jsonl（已有 0 条）
+    [hunan-mpa] platform total=83 pageTotal=2
+    取到 83 条，其中**新增 83 条**（用时 20s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-mpa-湖南省药品监督管理局.jsonl
+
+[harvest] 全部完成，新增合计 83 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-lshwzcbj
+
+[hunan-lshwzcbj] 湖南省粮食和物资储备局 → hunan-lshwzcbj-湖南省粮食和物资储备局.jsonl（已有 0 条）
+    [hunan-lshwzcbj] platform total=36 pageTotal=1
+    取到 36 条，其中**新增 36 条**（用时 8s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-lshwzcbj-湖南省粮食和物资储备局.jsonl
+
+[harvest] 全部完成，新增合计 36 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-jgswj
+
+[hunan-jgswj] 湖南省机关事务管理局 → hunan-jgswj-湖南省机关事务管理局.jsonl（已有 0 条）
+    [hunan-jgswj] platform total=47 pageTotal=1
+    取到 47 条，其中**新增 47 条**（用时 10s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-jgswj-湖南省机关事务管理局.jsonl
+
+[harvest] 全部完成，新增合计 47 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-xfj
+
+[hunan-xfj] 湖南省信访局 → hunan-xfj-湖南省信访局.jsonl（已有 0 条）
+    [hunan-xfj] platform total=1178 pageTotal=24
+    取到 200 条，其中**新增 200 条**（用时 43s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-xfj-湖南省信访局.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gzw
+
+[hunan-gzw] 湖南省人民政府国有资产监督管理委员会 → hunan-gzw-湖南省人民政府国有资产监督管理委员会.jsonl（已有 0 条）
+    [hunan-gzw] platform total=19 pageTotal=1
+    取到 19 条，其中**新增 19 条**（用时 4s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-gzw-湖南省人民政府国有资产监督管理委员会.jsonl
+
+[harvest] 全部完成，新增合计 19 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 0 条）
+    [hunan-mzt] platform total=121 pageTotal=3
+    [hunan-mzt] 第 2 页 HTTP 500（停）
+    取到 50 条，其中**新增 50 条**（用时 22s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-mzt-湖南省民政厅.jsonl
+
+[harvest] 全部完成，新增合计 50 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-czt
+
+[hunan-czt] 湖南省财政厅 → hunan-czt-湖南省财政厅.jsonl（已有 0 条）
+    [hunan-czt] platform total=307 pageTotal=7
+    取到 200 条，其中**新增 200 条**（用时 46s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-czt-湖南省财政厅.jsonl
+
+[harvest] 全部完成，新增合计 200 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 150 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    [hunan-gxt] 第 3 页 HTTP 500（停）
+    取到 100 条，其中**新增 0 条**（用时 33s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-rst
+
+[hunan-rst] 湖南省人力资源和社会保障厅 → hunan-rst-湖南省人力资源和社会保障厅.jsonl（已有 149 条）
+    [hunan-rst] platform total=9231 pageTotal=185
+    取到 200 条，其中**新增 51 条**（用时 59s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-rst-湖南省人力资源和社会保障厅.jsonl
+
+[harvest] 全部完成，新增合计 51 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-lyj
+
+[hunan-lyj] 湖南省林业局 → hunan-lyj-湖南省林业局.jsonl（已有 50 条）
+    [hunan-lyj] platform total=533 pageTotal=11
+    取到 200 条，其中**新增 150 条**（用时 54s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-lyj-湖南省林业局.jsonl
+
+[harvest] 全部完成，新增合计 150 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 50 条）
+    [hunan-mzt] platform total=121 pageTotal=3
+    取到 120 条，其中**新增 70 条**（用时 8s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-mzt-湖南省民政厅.jsonl
+
+[harvest] 全部完成，新增合计 70 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 150 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    取到 200 条，其中**新增 50 条**（用时 15s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\hunan-gxt-湖南省工业和信息化厅.jsonl
+
+[harvest] 全部完成，新增合计 50 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 120 条）
+    [hunan-mzt] platform total=121 pageTotal=3
+    取到 120 条，其中**新增 0 条**（用时 4s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 200 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    取到 200 条，其中**新增 0 条**（用时 5s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 120 条）
+    [hunan-mzt] platform total=121 pageTotal=3
+    取到 120 条，其中**新增 0 条**（用时 4s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 200 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    取到 200 条，其中**新增 0 条**（用时 5s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-mzt
+
+[hunan-mzt] 湖南省民政厅 → hunan-mzt-湖南省民政厅.jsonl（已有 120 条）
+    [hunan-mzt] platform total=121 pageTotal=3
+    取到 120 条，其中**新增 0 条**（用时 4s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### hunan-gxt
+
+[hunan-gxt] 湖南省工业和信息化厅 → hunan-gxt-湖南省工业和信息化厅.jsonl（已有 200 条）
+    [hunan-gxt] platform total=773 pageTotal=16
+    取到 200 条，其中**新增 0 条**（用时 6s）
+
+[harvest] 全部完成，新增合计 0 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+
+# ===== 汇总（2026-10-08 19:05:48）=====
+# 30 站全部拿到数据；合计新增 4823 条（--limit 200 封顶）。
+# 命中 200 封顶（后续轮次可续采）：agri amr czt fgw gat gxt jtt lyj rst sft slt swt tjj tyj whhlyt xfj zjt zrzyt
+# 中途 HTTP 500（瞬时限流，重试后恢复）：mzt/czt/gxt/lyj/rst（mzt 终值 120≈total121）

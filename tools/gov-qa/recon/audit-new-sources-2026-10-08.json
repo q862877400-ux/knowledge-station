@@ -1,0 +1,1316 @@
+{
+ "generated_at": "2026-10-08T19:04:36",
+ "criteria": [
+  "空答复",
+  "答复==问题",
+  "答复<10字",
+  "答复像问题",
+  "混入网友跟帖/站内导航",
+  "(附加)HTML实体残留"
+ ],
+ "audited_sources": 36,
+ "total_rows": 5874,
+ "totals": {
+  "empty": 0,
+  "same": 0,
+  "short": 61,
+  "ask": 0,
+  "code": 0,
+  "entity": 1843,
+  "nav": 9,
+  "net": 1
+ },
+ "missing_sources": [
+  "gz-czt",
+  "gz-mwr",
+  "gz-whhly",
+  "gz-tyjrswt",
+  "gz-yjgl",
+  "gz-sjt",
+  "gz-gzw",
+  "gz-tyj",
+  "gz-stjj",
+  "gz-ylbzj",
+  "gz-dsj",
+  "gz-lyj",
+  "gz-lshwzcb",
+  "gz-atcm",
+  "gz-invest",
+  "gz-stymj",
+  "gz-wsb",
+  "gz-wsg",
+  "gz-jyglj",
+  "gz-jdglj",
+  "gz-jkj",
+  "ah-kb",
+  "nx-zxxx",
+  "sx-szxx",
+  "tj-hdjl",
+  "sn-lyxd",
+  "cq-hdjl"
+ ],
+ "real_pollution_sources": [],
+ "html_entity_sources": [
+  {
+   "source": "gz-fgw",
+   "count": 279,
+   "n": 460
+  },
+  {
+   "source": "gz-kjt",
+   "count": 27,
+   "n": 79
+  },
+  {
+   "source": "gz-gxt",
+   "count": 40,
+   "n": 86
+  },
+  {
+   "source": "gz-mzw",
+   "count": 2,
+   "n": 28
+  },
+  {
+   "source": "gz-mzt",
+   "count": 47,
+   "n": 106
+  },
+  {
+   "source": "gz-sft",
+   "count": 7,
+   "n": 292
+  },
+  {
+   "source": "hunan-agri",
+   "count": 59,
+   "n": 200
+  },
+  {
+   "source": "hunan-amr",
+   "count": 124,
+   "n": 200
+  },
+  {
+   "source": "hunan-czt",
+   "count": 5,
+   "n": 200
+  },
+  {
+   "source": "hunan-fgw",
+   "count": 121,
+   "n": 200
+  },
+  {
+   "source": "hunan-gxt",
+   "count": 192,
+   "n": 200
+  },
+  {
+   "source": "hunan-gzw",
+   "count": 15,
+   "n": 19
+  },
+  {
+   "source": "hunan-jgswj",
+   "count": 11,
+   "n": 47
+  },
+  {
+   "source": "hunan-jtt",
+   "count": 72,
+   "n": 200
+  },
+  {
+   "source": "hunan-jyt",
+   "count": 60,
+   "n": 187
+  },
+  {
+   "source": "hunan-kjt",
+   "count": 112,
+   "n": 129
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "count": 26,
+   "n": 36
+  },
+  {
+   "source": "hunan-lyj",
+   "count": 81,
+   "n": 200
+  },
+  {
+   "source": "hunan-mpa",
+   "count": 9,
+   "n": 83
+  },
+  {
+   "source": "hunan-mzt",
+   "count": 22,
+   "n": 120
+  },
+  {
+   "source": "hunan-mzw",
+   "count": 64,
+   "n": 197
+  },
+  {
+   "source": "hunan-rst",
+   "count": 1,
+   "n": 200
+  },
+  {
+   "source": "hunan-sft",
+   "count": 9,
+   "n": 200
+  },
+  {
+   "source": "hunan-sjt",
+   "count": 7,
+   "n": 23
+  },
+  {
+   "source": "hunan-slt",
+   "count": 155,
+   "n": 200
+  },
+  {
+   "source": "hunan-swt",
+   "count": 22,
+   "n": 200
+  },
+  {
+   "source": "hunan-tjj",
+   "count": 6,
+   "n": 200
+  },
+  {
+   "source": "hunan-tyj",
+   "count": 9,
+   "n": 200
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "count": 73,
+   "n": 94
+  },
+  {
+   "source": "hunan-whhlyt",
+   "count": 1,
+   "n": 200
+  },
+  {
+   "source": "hunan-wjw",
+   "count": 42,
+   "n": 100
+  },
+  {
+   "source": "hunan-xfj",
+   "count": 25,
+   "n": 200
+  },
+  {
+   "source": "hunan-ybj",
+   "count": 21,
+   "n": 188
+  },
+  {
+   "source": "hunan-zjt",
+   "count": 79,
+   "n": 200
+  },
+  {
+   "source": "hunan-zrzyt",
+   "count": 18,
+   "n": 200
+  }
+ ],
+ "html_entity_samples": [
+  [
+   "gz-fgw",
+   "27330543",
+   "&nbsp; &nbsp; &nbsp; &nbsp;网民您好，您的来信已收悉，省委、省政府对铜仁至吉首铁路项目建设高度重视，在贵州和湖南两"
+  ],
+  [
+   "gz-fgw",
+   "27321099",
+   "&nbsp; &nbsp; &nbsp; &nbsp;网民您好，您的来信已收悉，通过贵州省发展和改革委员会门户网站“政务公开&gt;信息公开"
+  ],
+  [
+   "gz-fgw",
+   "27319786",
+   "网民您好，您的来信已收悉，现答复如下： 根据《中华人民共和国招标投标法》第四十条规定，评标委员会应当按照招标文件确定的评标标准和方法，对投标"
+  ],
+  [
+   "gz-fgw",
+   "27318619",
+   "&nbsp; &nbsp; &nbsp; &nbsp;网民您好的，您的来信已收悉，现答复如下：贵州省物价局 贵州省财政厅关于《贵州省会计师事"
+  ],
+  [
+   "gz-fgw",
+   "27303851",
+   "网民您好，您的来信已收悉，现将您咨询的问题答复如下：一、根据2015年6月16日经省政府同意下发的《贵州省发展改革委关于放开、下放第二批省级"
+  ],
+  [
+   "gz-fgw",
+   "27194530",
+   "网民您好，您的来信已收悉，感谢您对我委工作的关心和支持，现就您所咨询问题答复如下： &nbsp;问题1.请问2018年5月正式试行的《贵州省"
+  ],
+  [
+   "gz-fgw",
+   "27126498",
+   "网民您好，《贵州省城镇房地产开发经营管理条例》第31条规定：“商品房价格应当包括水、电等配套设施的建设安装费用。”对水、电以外的建设安装费用"
+  ],
+  [
+   "gz-fgw",
+   "27126479",
+   "网民您好，您所咨询的事项由我委西部开发处负责受理，具体办理流程及所需资料详见《贵州省发展和改革委员会确认西部地区鼓励类产业项目管理办法（暂行"
+  ],
+  [
+   "gz-fgw",
+   "27126416",
+   "&nbsp;网民您好，感谢对我委工作的关心和支持，《工程建设项目招标范围和规模标准规定》第七条规定:“勘察,设计、监理等服务的采购,估算在5"
+  ],
+  [
+   "gz-fgw",
+   "27126267",
+   "&nbsp;&nbsp; 2011年《贵州省物业管理条例》出台以后，原贵州省物价局 贵州省建设厅关于印发《贵州省物业管理服务收费管理办法》的"
+  ],
+  [
+   "gz-fgw",
+   "27126199",
+   "网民： &nbsp;&nbsp;&nbsp;&nbsp;您好！污水处理厂建设项目审批权限在市级发展改革部门，收到您的留言后，我们及时和贵阳市"
+  ],
+  [
+   "gz-fgw",
+   "27126184",
+   "感谢您对我委工作的关心和支持，我委行政权力清单和责任清单已按有关规定对外公开，您可自行前往政务公开—权责清单查阅。http://www.gz"
+  ],
+  [
+   "gz-fgw",
+   "27126158",
+   "&nbsp; 一、申报条件 &nbsp; （一）符合我省国民经济和社会发展相关规划以及国家产业政策，符合环保、安全、节能、资源综合利用等要求"
+  ],
+  [
+   "gz-fgw",
+   "27126154",
+   "&nbsp; 答复： 当前，我省鼓励通过 PPP 模式盘活基础设施存量资产，其中转让 - 运营 - 移交（ TOT ）模式是盘活基础设施存量"
+  ],
+  [
+   "gz-fgw",
+   "27126147",
+   "&nbsp;&nbsp;&nbsp; &nbsp;博物馆建设为核准制项目，如欲申请中央预算内投资资金，请向建设所在地州发改委提出申请，主要提"
+  ],
+  [
+   "gz-fgw",
+   "27126134",
+   "&nbsp; &nbsp;&nbsp;&nbsp; 答复：根据国家、省简政放权的要求，我委已将项目相关权限下放地方，你可以到项目所在地的县级"
+  ],
+  [
+   "gz-fgw",
+   "27126133",
+   "&nbsp; 答复：您可以登录贵州省发展和改革委员会门户网站&ldquo;政府和社会资本合作（PPP）&rdquo;专栏，我们已经将《贵州省"
+  ],
+  [
+   "gz-fgw",
+   "27126129",
+   "&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 答：您可以登录贵州省发展和改革委员会门户网站&ldquo;政府和社会资本合作"
+  ],
+  [
+   "gz-fgw",
+   "27126128",
+   "&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 答复：根据《省人民政府办公厅关于印发贵州省发展和改革委员会主要职"
+  ],
+  [
+   "gz-fgw",
+   "27126123",
+   "&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 答：黔北机场已纳《全国民用运输机场布局规划》。中国民"
+  ]
+ ],
+ "short_answer_sources": [
+  {
+   "source": "hunan-agri",
+   "count": 1
+  },
+  {
+   "source": "hunan-gat",
+   "count": 5
+  },
+  {
+   "source": "hunan-gzw",
+   "count": 1
+  },
+  {
+   "source": "hunan-jgswj",
+   "count": 1
+  },
+  {
+   "source": "hunan-lyj",
+   "count": 12
+  },
+  {
+   "source": "hunan-mzt",
+   "count": 1
+  },
+  {
+   "source": "hunan-mzw",
+   "count": 1
+  },
+  {
+   "source": "hunan-rst",
+   "count": 15
+  },
+  {
+   "source": "hunan-tyj",
+   "count": 18
+  },
+  {
+   "source": "hunan-whhlyt",
+   "count": 1
+  },
+  {
+   "source": "hunan-wjw",
+   "count": 1
+  },
+  {
+   "source": "hunan-zrzyt",
+   "count": 4
+  }
+ ],
+ "suspects": [
+  {
+   "source": "hunan-agri",
+   "id": "3b8988a6682d4bfb9d30f59f5167b939",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您在我厅官网的来信已收悉。您咨询的湖南省国有农用地、国有农场相关数据（面积、数量等），属于需按规定申请公开的政务信息，"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "77a215773f154be1896111a4a34ba85a",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您致我厅的《农业支持保护补贴数据申请》已收悉。现就您提出的资料申请事宜回复如下： 针对您申请的2016-2025年全省"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "f0e57d255b8b4c549006947f8dc39c3e",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您在我厅官网的来信已收悉。您咨询的问题需按实际情况，通过我厅官网“依申请公开信息”栏目申请办理，相关链接如下：依申请公"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "35480a22cf434a8cbed1795122070b31",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您在我厅官网的来信已收悉。您咨询的问题需按实际情况，通过我厅官网“依申请公开信息”栏目申请办理，相关链接如下：依申请公"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b25a98771ad549119ec9db835c24f9a0",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您在我厅官网的来信已收悉。您咨询的问题需按实际情况，通过我厅官网“依申请公开信息”栏目申请办理，相关链接如下：依申请公"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "b918ffdae2aa43308b08b824f1b01e84",
+   "category": "混入站内导航文字",
+   "snippet": "尊敬的来信人： 您好！您在我厅官网的来信已收悉。您咨询的问题需按实际情况，通过我厅官网“依申请公开信息”栏目申请办理，相关链接如下：依申请公"
+  },
+  {
+   "source": "hunan-agri",
+   "id": "74ad4da794c4459bba5fcbcb452b324a",
+   "category": "答复<10字",
+   "snippet": "您好，请见附件。"
+  },
+  {
+   "source": "hunan-gat",
+   "id": "d41a5249ed63480a972966aeb9fad911",
+   "category": "答复<10字",
+   "snippet": "您好！不可以。"
+  },
+  {
+   "source": "hunan-gat",
+   "id": "939952a7d0264819b34707a388328a58",
+   "category": "答复<10字",
+   "snippet": "可以"
+  },
+  {
+   "source": "hunan-gat",
+   "id": "02cd54499fa0470da40f09d854377d04",
+   "category": "答复<10字",
+   "snippet": "您好，可以补办"
+  },
+  {
+   "source": "hunan-gat",
+   "id": "05ec14b275d146109bc40f8be18ba0ab",
+   "category": "答复<10字",
+   "snippet": "你好 可以就近受理"
+  },
+  {
+   "source": "hunan-gat",
+   "id": "1253d11f30d64b0a8c632c1cc7ac55a9",
+   "category": "答复<10字",
+   "snippet": "您好 可以的"
+  },
+  {
+   "source": "hunan-gzw",
+   "id": "3bc1ecf907224926a05da1d78c380182",
+   "category": "答复<10字",
+   "snippet": "已回复。"
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "64dbf137ede544209445ff0a2a56fbb0",
+   "category": "疑似混入网友跟帖",
+   "snippet": "您好，您所咨询的问题，我局已收悉。根据省财政厅湘财资2026年6号文件《湖南省省级行政事业单位通用办公设备和办公家具配置限额标准》，附件2："
+  },
+  {
+   "source": "hunan-jgswj",
+   "id": "386919fd7bc84f5b95c01def4d0c416f",
+   "category": "答复<10字",
+   "snippet": "该件已另行回复"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "626590eeb68b4802bb4708d2a42c3dd4",
+   "category": "答复<10字",
+   "snippet": "网上回复"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "67e5304036534d54924600c050a27ee3",
+   "category": "答复<10字",
+   "snippet": "溆浦县涉林舆情回复"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "bbe8f96a734947b59bb0e778e35fdec6",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "eea40da0fe2c4e59964fc34159e42324",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "275d9c58637d40b494c0e060bb48daf0",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2fc28d08894742dd9341b9b213db8d15",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1057ededf4144debaae44191b68c4f6a",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "8d20cca07af9408bb9af7f9eca065eb2",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "2efd771cc73340d8bcac7fc68b6dfa2f",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "424c0a91c6f848a08d5636782bd07e02",
+   "category": "答复<10字",
+   "snippet": "详见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1e6b1107da564406bc25e5dffd079d77",
+   "category": "答复<10字",
+   "snippet": "回复内容见附件"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "bed33326876c4a249934a52f871c04ac",
+   "category": "答复<10字",
+   "snippet": "来信收到"
+  },
+  {
+   "source": "hunan-lyj",
+   "id": "1d92e0857b344415b24a76a45a874028",
+   "category": "混入站内导航文字",
+   "snippet": "关于“林业局和林业厅是同一个地方吗？”的回复：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 主办单位：湖南省林业厅、长沙市人"
+  },
+  {
+   "source": "hunan-mpa",
+   "id": "4ba47dbaf6c2434098e850f634562d67",
+   "category": "混入站内导航文字",
+   "snippet": "您好，根据《医疗器械经营监督管理办法》第二十一条规定：“从事第二类医疗器械经营的，经营企业应当向所在地设区的市级负责药品监督管理的部门备案。"
+  },
+  {
+   "source": "hunan-mzt",
+   "id": "af2a8b4d760249a4857747ec85e09451",
+   "category": "答复<10字",
+   "snippet": "可以。"
+  },
+  {
+   "source": "hunan-mzw",
+   "id": "87ad943d3fee4687a3220d19db017e1d",
+   "category": "答复<10字",
+   "snippet": "每个省"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "bb2484c5512349aa9e469bc032040a97",
+   "category": "答复<10字",
+   "snippet": "已电话回复。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "56185a20e74343928e0613a1e5150524",
+   "category": "答复<10字",
+   "snippet": "已电话回复当事人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "5dbe775911554df1a259287f262afdac",
+   "category": "答复<10字",
+   "snippet": "已联系当事人"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2d05a5f007364a8780bb4d1470ab8c07",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "106356d407774737b22aef3a8cc368b6",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "2314b9b635ab4e10a79cb9c09b1e1db3",
+   "category": "答复<10字",
+   "snippet": "已电话回复"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "13df3f86cb0c47bfaf7658dca81e0fe4",
+   "category": "答复<10字",
+   "snippet": "已电话回复。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "106854bf1fa542b4a878ddbacf030607",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "818c5d0ef32646949b364c7b28a354e7",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f11699bc6163405e93b00735f877df5b",
+   "category": "答复<10字",
+   "snippet": "已电话答复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "de87aaa1d07a47abb14100ae55387ce7",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "d8120d29d1dc4ee099262951230a617a",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "f109f599429a4a14b7299489dd5d9ed8",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "99955b78b2fa4a7aab83f4ecee121989",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-rst",
+   "id": "cdc4f4029e9149efb5e34c74b8c8d0f4",
+   "category": "答复<10字",
+   "snippet": "已电话回复。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "95cb4d5262f94baa9ffe9e12941f5316",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "c9e643b0c2eb4c87a8becf5d5fe85bda",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b800360a65de429cad808a019dcd9564",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2f52c827f40240938ae35a6c5d71b1f3",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "34b95829d51741f0ae88b11866db9509",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "dae2e98c3ff942738d82e87a238f2642",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "21b3decf058940058ecc8c904e7dfed0",
+   "category": "答复<10字",
+   "snippet": "已电话回复来信人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "52550d894fb4440fae9f2e6fc54c7fc8",
+   "category": "答复<10字",
+   "snippet": "已电话回复咨询人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "5a7e700714454abeaa4f6299d8330e8f",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "164a1a726d6740ee9da55a1fb6cb258d",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "5a0b4d8056a74a37b39d3ebfcc16389f",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "2078c95e0ae940cab1c6062a0b2dbd22",
+   "category": "答复<10字",
+   "snippet": "已电话联系回复。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "a630f4c88e884f61940d25142109ad49",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "0593a9f96f384438b31c94e3d1ec2a84",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b432d3f071be47b097958572614c65c5",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "808c31acb4984e2c90e69a890120cd48",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "b5a8934213884aedaf811de4ca973136",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-tyj",
+   "id": "4c90530ed6f2434f84241e1b5c55936f",
+   "category": "答复<10字",
+   "snippet": "已电话回复本人。"
+  },
+  {
+   "source": "hunan-whhlyt",
+   "id": "d06a2f47516646ca8e8829f245becbe5",
+   "category": "答复<10字",
+   "snippet": "测试件&nbsp;"
+  },
+  {
+   "source": "hunan-wjw",
+   "id": "09ca84f10b234bd28e4c0bf756fb4806",
+   "category": "答复<10字",
+   "snippet": "已审通过"
+  },
+  {
+   "source": "hunan-zjt",
+   "id": "fd387caa466b4916b849bc2ef1546dbd",
+   "category": "混入站内导航文字",
+   "snippet": "苏先生（女士） ： 您于 202 5 年 4 月 5 日在《 厅 长信箱》中 咨询建筑施工特种作业操作资格证中建筑起重机械司机（塔式起重机）"
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "91bb137c2f18479b8a8257aa3c81da10",
+   "category": "答复<10字",
+   "snippet": "好"
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "4e7d3fb17e894784940039d3ab9f1e50",
+   "category": "答复<10字",
+   "snippet": "您好，可以。"
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "7c365d2013a84fbb8a66ad8ac6accd08",
+   "category": "答复<10字",
+   "snippet": "已处理"
+  },
+  {
+   "source": "hunan-zrzyt",
+   "id": "0f4f4a4200ad438c9ef3adbe382a60d4",
+   "category": "答复<10字",
+   "snippet": "测试回复附件"
+  }
+ ],
+ "per_source": [
+  {
+   "source": "gz-fgw",
+   "file": "gz-fgw-贵州省发展和改革委员会·厅长信箱.jsonl",
+   "n": 460,
+   "median": 174,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 279,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "gz-kjt",
+   "file": "gz-kjt-贵州省科学技术厅·厅长信箱.jsonl",
+   "n": 79,
+   "median": 182,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 27,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "gz-gxt",
+   "file": "gz-gxt-贵州省工业和信息化厅·厅长信箱.jsonl",
+   "n": 86,
+   "median": 409,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 40,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "gz-mzw",
+   "file": "gz-mzw-贵州省民族宗教事务委员会·厅长信箱.jsonl",
+   "n": 28,
+   "median": 180,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 2,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "gz-mzt",
+   "file": "gz-mzt-贵州省民政厅·厅长信箱.jsonl",
+   "n": 106,
+   "median": 100,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 47,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "gz-sft",
+   "file": "gz-sft-贵州省司法厅·厅长信箱.jsonl",
+   "n": 292,
+   "median": 70,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 7,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-agri",
+   "file": "hunan-agri-湖南省农业农村厅.jsonl",
+   "n": 200,
+   "median": 295,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 59,
+   "nav": 6,
+   "net": 0
+  },
+  {
+   "source": "hunan-amr",
+   "file": "hunan-amr-湖南省市场监督管理局.jsonl",
+   "n": 200,
+   "median": 297,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 124,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-czt",
+   "file": "hunan-czt-湖南省财政厅.jsonl",
+   "n": 200,
+   "median": 125,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 5,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-fgw",
+   "file": "hunan-fgw-湖南省发展和改革委员会.jsonl",
+   "n": 200,
+   "median": 253,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 121,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-gat",
+   "file": "hunan-gat-湖南省公安厅.jsonl",
+   "n": 200,
+   "median": 37,
+   "empty": 0,
+   "same": 0,
+   "short": 5,
+   "ask": 0,
+   "code": 0,
+   "entity": 0,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-gxt",
+   "file": "hunan-gxt-湖南省工业和信息化厅.jsonl",
+   "n": 200,
+   "median": 120,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 192,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-gzw",
+   "file": "hunan-gzw-湖南省人民政府国有资产监督管理委员会.jsonl",
+   "n": 19,
+   "median": 199,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 15,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-jgswj",
+   "file": "hunan-jgswj-湖南省机关事务管理局.jsonl",
+   "n": 47,
+   "median": 127,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 11,
+   "nav": 0,
+   "net": 1
+  },
+  {
+   "source": "hunan-jtt",
+   "file": "hunan-jtt-湖南省交通运输厅.jsonl",
+   "n": 200,
+   "median": 324,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 72,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-jyt",
+   "file": "hunan-jyt-湖南省教育厅.jsonl",
+   "n": 187,
+   "median": 167,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 60,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-kjt",
+   "file": "hunan-kjt-湖南省科学技术厅.jsonl",
+   "n": 129,
+   "median": 1396,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 112,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-lshwzcbj",
+   "file": "hunan-lshwzcbj-湖南省粮食和物资储备局.jsonl",
+   "n": 36,
+   "median": 566,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 26,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-lyj",
+   "file": "hunan-lyj-湖南省林业局.jsonl",
+   "n": 200,
+   "median": 313,
+   "empty": 0,
+   "same": 0,
+   "short": 12,
+   "ask": 0,
+   "code": 0,
+   "entity": 81,
+   "nav": 1,
+   "net": 0
+  },
+  {
+   "source": "hunan-mpa",
+   "file": "hunan-mpa-湖南省药品监督管理局.jsonl",
+   "n": 83,
+   "median": 66,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 9,
+   "nav": 1,
+   "net": 0
+  },
+  {
+   "source": "hunan-mzt",
+   "file": "hunan-mzt-湖南省民政厅.jsonl",
+   "n": 120,
+   "median": 158,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 22,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-mzw",
+   "file": "hunan-mzw-湖南省民族宗教事务委员会.jsonl",
+   "n": 197,
+   "median": 162,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 64,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-rst",
+   "file": "hunan-rst-湖南省人力资源和社会保障厅.jsonl",
+   "n": 200,
+   "median": 76,
+   "empty": 0,
+   "same": 0,
+   "short": 15,
+   "ask": 0,
+   "code": 0,
+   "entity": 1,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-sft",
+   "file": "hunan-sft-湖南省司法厅.jsonl",
+   "n": 200,
+   "median": 85,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 9,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-sjt",
+   "file": "hunan-sjt-湖南省审计厅.jsonl",
+   "n": 23,
+   "median": 114,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 7,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-slt",
+   "file": "hunan-slt-湖南省水利厅.jsonl",
+   "n": 200,
+   "median": 261,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 155,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-swt",
+   "file": "hunan-swt-湖南省商务厅.jsonl",
+   "n": 200,
+   "median": 190,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 22,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-tjj",
+   "file": "hunan-tjj-湖南省统计局.jsonl",
+   "n": 200,
+   "median": 145,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 6,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-tyj",
+   "file": "hunan-tyj-湖南省体育局.jsonl",
+   "n": 200,
+   "median": 48,
+   "empty": 0,
+   "same": 0,
+   "short": 18,
+   "ask": 0,
+   "code": 0,
+   "entity": 9,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-tyjrswt",
+   "file": "hunan-tyjrswt-湖南省退役军人事务厅.jsonl",
+   "n": 94,
+   "median": 191,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 73,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-whhlyt",
+   "file": "hunan-whhlyt-湖南省文化和旅游厅.jsonl",
+   "n": 200,
+   "median": 64,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 1,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-wjw",
+   "file": "hunan-wjw-湖南省卫生健康委员会.jsonl",
+   "n": 100,
+   "median": 229,
+   "empty": 0,
+   "same": 0,
+   "short": 1,
+   "ask": 0,
+   "code": 0,
+   "entity": 42,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-xfj",
+   "file": "hunan-xfj-湖南省信访局.jsonl",
+   "n": 200,
+   "median": 97,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 25,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-ybj",
+   "file": "hunan-ybj-湖南省医疗保障局.jsonl",
+   "n": 188,
+   "median": 143,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 21,
+   "nav": 0,
+   "net": 0
+  },
+  {
+   "source": "hunan-zjt",
+   "file": "hunan-zjt-湖南省住房和城乡建设厅.jsonl",
+   "n": 200,
+   "median": 310,
+   "empty": 0,
+   "same": 0,
+   "short": 0,
+   "ask": 0,
+   "code": 0,
+   "entity": 79,
+   "nav": 1,
+   "net": 0
+  },
+  {
+   "source": "hunan-zrzyt",
+   "file": "hunan-zrzyt-湖南省自然资源厅.jsonl",
+   "n": 200,
+   "median": 79,
+   "empty": 0,
+   "same": 0,
+   "short": 4,
+   "ask": 0,
+   "code": 0,
+   "entity": 18,
+   "nav": 0,
+   "net": 0
+  }
+ ]
+}

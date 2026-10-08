@@ -1,0 +1,123 @@
+================================================================================
+江苏 jact 平台（统一咨询投诉 / 咨询建言）· 厅局信箱逐站台账
+工具：general-purpose-6   日期：2026-10-08
+================================================================================
+平台：江苏省政府门户「互动交流 → 咨询建言」（https://www.jiangsu.gov.cn/col/col81602/）
+      聚合各厅局**自己域名下部署的同款 jact 应用**（万户 hanweb 系，路径 /jact/front/）。
+      每个厅域名单独部署、数据各自独立；同一域名下可有多个 sysid（不同栏目，实测两两不重叠）。
+
+接口（详见 adapters/_jact_common.py 头注）：
+  列表 POST https://<host>/jact/front/dataproxy_mailpublist.do
+            ?startrecord=1&endrecord=19&perpage=19&groupSize=3
+       body(表单) sysid=<n>&datadetailid=&dicvalue=&mailnumber=&querycode=&groupid=&
+                  mailstate=&starttime=&endtime=&keyword=
+       header Referer: https://<host>/jact/front/mailpublist.do?sysid=<n>
+       → 返回 JS 文本（非 JSON）：totalRecord=..;dataStore=["<tr>…transactId=..</a>…", …]
+  明细 GET  https://<host>/jact/front/mailpubdetail.do?transactId=<id>&sysid=<n>
+       → HTML 表格（label 左 td / value 右 td）：标题 / 内容 / 提交时间 / 处理状态 /
+         回复日期 / 内容回复(答复) / 答复单位。
+
+sysid 来源：门户 col81602 的 jpage 数据（dataproxy.jsp 分页）里 <a href='...mailpubdetail.do?
+transactId=..&sysid=..'> 抠出 host+sysid，再逐个实测（**不猜**）。
+
+--------------------------------------------------------------------------------
+逐站台账（host / sysid / 实测 totalRecord / 明细含答复 / 结论）
+--------------------------------------------------------------------------------
+#   key           厅局(权威答复单位)            host                       sysid  total  明细  结论
+ 1  js-sthjt      江苏省生态环境厅              sthjt.jiangsu.gov.cn       143    431    ✅   通
+ 2  js-jtyst      江苏省交通运输厅              jtyst.jiangsu.gov.cn       105    944    ✅   通（最大户）
+ 3  js-jtyst2     江苏省交通运输厅              jtyst.jiangsu.gov.cn        43     15    ✅   通
+ 4  js-jyt        江苏省教育厅                  jyt.jiangsu.gov.cn         126    810    ✅   通
+ 5  js-jyt2       江苏省教育厅                  jyt.jiangsu.gov.cn          34    404    ✅   通
+ 6  js-da         江苏省药品监督管理局          da.jiangsu.gov.cn          107    710    ✅   通
+ 7  js-da2        江苏省药品监督管理局          da.jiangsu.gov.cn           55    165    ✅   通
+ 8  js-ybj        江苏省医疗保障局              ybj.jiangsu.gov.cn         200    457    ✅   通
+ 9  js-ybj2       江苏省医疗保障局              ybj.jiangsu.gov.cn         202    295    ✅   通
+10  js-tj2        江苏省统计局                  tj.jiangsu.gov.cn           95    453    ✅   通
+11  js-tj         江苏省统计局                  tj.jiangsu.gov.cn           39    111    ✅   通
+12  js-czt        江苏省财政厅                  czt.jiangsu.gov.cn         134    452    ✅   通
+13  js-czt2       江苏省财政厅                  czt.jiangsu.gov.cn          65    262    ✅   通
+14  js-jswater    江苏省水利厅                  jswater.jiangsu.gov.cn      77    451    ✅   通
+15  js-doc        江苏省商务厅                  doc.jiangsu.gov.cn         120    390    ✅   通
+16  js-jsgd       江苏省广播电视局              jsgd.jiangsu.gov.cn        185    289    ✅   通
+17  js-nynct      江苏省农业农村厅              nynct.jiangsu.gov.cn        57    245    ✅   通
+18  js-mzt        江苏省民政厅                  mzt.jiangsu.gov.cn         148    230    ✅   通
+19  js-gxt        江苏省工业和信息化厅          gxt.jiangsu.gov.cn         117    171    ✅   通
+20  js-gxt2       江苏省工业和信息化厅          gxt.jiangsu.gov.cn          50    140    ✅   通
+21  js-fzggw      江苏省发展和改革委员会        fzggw.jiangsu.gov.cn       112    143    ✅   通
+22  js-jssxfj     江苏省信访局                  jssxfj.jiangsu.gov.cn      208    107    ✅   通
+23  js-jsip2      江苏省知识产权局              jsip.jiangsu.gov.cn         85     71    ✅   通
+24  js-credit     江苏省·信用(credit)           credit.jiangsu.gov.cn      241     46    ✅   通（明细无「答复单位」行）
+25  js-jsip       江苏省知识产权局              jsip.jiangsu.gov.cn         30     39    ✅   通
+26  js-jsdk       江苏省地质局                  jsdk.jiangsu.gov.cn         24     36    ✅   通（明细无「答复单位」行）
+27  js-jsstyj     江苏省体育局                  jsstyj.jiangsu.gov.cn       29     25    ✅   通
+28  js-jsstyj2    江苏省体育局                  jsstyj.jiangsu.gov.cn       99     24    ✅   通
+—— 未通/排除 ——
+ X  wlt          江苏省文化和旅游厅(?)         wlt.jiangsu.gov.cn         190    —      ❌   HTTP 521（源站拒绝，未重试）
+ X  ybj3         江苏省医疗保障局              ybj.jiangsu.gov.cn         201    —      ❌   列表 total=null、dataStore 空（空栏目）
+
+合计（列表口径）：**28 个厅局信箱 / 约 7,916 条**（其中已答复可采 ≤ 此值，因部分为「办理中」）。
+
+--------------------------------------------------------------------------------
+抽样实测（明细含问答，答复点名依据 —— A 类考卷料）
+--------------------------------------------------------------------------------
+· js-sthjt 143  «关于固废利用类型归属的问题» → 答复点名《江苏省固体废物污染环境防治条例》第二十三条、
+              《中华人民共和国生态环境法典》第四百八十一条（ans 486 字）
+· js-sthjt 143  «医疗机构污水站在线监测运维人员资质» → 点名《生态环境监测条例》国务院令第820号第二十八条
+· js-sthjt 143  «咨询关于养殖场周边臭气浓度使用标准问题» → 点名《畜禽养殖业污染物排放标准》GB 18596-2001
+· js-jtyst 105  «公路水运项目持证» → 点名交通运输部办公厅考核管理办法通知（ans 243 字）
+· js-jtyst2 43  «公路工程造价管理暂行办法(部令2016年第67号)条文疑问» → 点名《江苏省公路水运工程造价管理实施细则》
+· js-jyt 126    «出国学籍处理» → 点名《江苏省义务教育学籍管理规定》
+· js-jyt2 34    «咨询高校学生复学政策» → 点名《普通高等学校学生管理规定》第二十九条
+· js-nynct 57   «关于农村集体经济组织成员认定问题» → 点名《中华人民共和国农村集体经济组织法》第十八条（ans 388 字）
+· js-fzggw 112  «关于分布式沼气发电项目上网电价的咨询» → 给出燃煤基准价 0.391 元/千瓦时
+· js-jsip 30    «西安铭泽知识产权代理事务所…» → 点名《专利代理条例》
+· js-da2 55     «长期未生产品种恢复生产» → 点名《已上市化学药品药学变更研究技术指导原则（试行）》
+· js-tj2 95     «数据咨询» → 点名《中华人民共和国政府信息公开条例》
+
+⚠ 归属：jact 明细页**不带**省/市/县结构化归属（与广东 hdjlpt 同）；来源前缀归省靠
+   coverage-matrix.py 的 PROVINCE_PREFIX（江苏 = 南京市等）。答复单位（dept）字段可作厅局归属。
+
+--------------------------------------------------------------------------------
+实现与验证
+--------------------------------------------------------------------------------
+· 基座 adapters/_jact_common.py：POST 列表 → 抠 `dataStore = [ … ];` 数组体 → `"([^"]*)"`
+  取元素（元素双引号包裹、内部 HTML 只用单引号，实测无内部 `"` ⇒ 安全，**不 eval**）→
+  transactId 从 `<a href='…transactId=..'>` 抠 → 逐条 GET 明细 → 逐 `<td>` 取文本、
+  「标签 td 的下一 td 即值」→ 只收有「内容回复」的（未答复跳过）。clean() 先剥标签再
+  html.unescape（与 bj_hdjl.py 同口径，答复常含 GB&nbsp;18596-2001 这类实体）。
+· 28 个薄壳 adapters/js_*.py 全部 `import` 通过、SITE.key 与文件名一致。
+· 端到端实测：js-sthjt(limit 4)、js-fzggw(limit 2)、js-czt2(limit 2) 均正常返回问答。
+· 礼貌抓取：请求间隔 1.5s；wlt/190 报 521 即停该线，未重试。
+
+--------------------------------------------------------------------------------
+待登记 key（请 team-lead 在 adapters/__init__.py 加行）
+--------------------------------------------------------------------------------
+"js-sthjt": "adapters.js_sthjt",     # 江苏省生态环境厅（jact 143；431）
+"js-jtyst": "adapters.js_jtyst",     # 江苏省交通运输厅（jact 105；944）
+"js-jtyst2": "adapters.js_jtyst2",   # 江苏省交通运输厅（jact 43；15）
+"js-jyt": "adapters.js_jyt",         # 江苏省教育厅（jact 126；810）
+"js-jyt2": "adapters.js_jyt2",       # 江苏省教育厅（jact 34；404）
+"js-da": "adapters.js_da",           # 江苏省药品监督管理局（jact 107；710）
+"js-da2": "adapters.js_da2",         # 江苏省药品监督管理局（jact 55；165）
+"js-ybj": "adapters.js_ybj",         # 江苏省医疗保障局（jact 200；457）
+"js-ybj2": "adapters.js_ybj2",       # 江苏省医疗保障局（jact 202；295）
+"js-tj": "adapters.js_tj",           # 江苏省统计局（jact 39；111）
+"js-tj2": "adapters.js_tj2",         # 江苏省统计局（jact 95；453）
+"js-czt": "adapters.js_czt",         # 江苏省财政厅（jact 134；452）
+"js-czt2": "adapters.js_czt2",       # 江苏省财政厅（jact 65；262）
+"js-jswater": "adapters.js_jswater", # 江苏省水利厅（jact 77；451）
+"js-doc": "adapters.js_doc",         # 江苏省商务厅（jact 120；390）
+"js-jsgd": "adapters.js_jsgd",       # 江苏省广播电视局（jact 185；289）
+"js-nynct": "adapters.js_nynct",     # 江苏省农业农村厅（jact 57；245）
+"js-mzt": "adapters.js_mzt",         # 江苏省民政厅（jact 148；230）
+"js-gxt": "adapters.js_gxt",         # 江苏省工业和信息化厅（jact 117；171）
+"js-gxt2": "adapters.js_gxt2",       # 江苏省工业和信息化厅（jact 50；140）
+"js-fzggw": "adapters.js_fzggw",     # 江苏省发展和改革委员会（jact 112；143）
+"js-jssxfj": "adapters.js_jssxfj",   # 江苏省信访局（jact 208；107）
+"js-jsip": "adapters.js_jsip",       # 江苏省知识产权局（jact 30；39）
+"js-jsip2": "adapters.js_jsip2",     # 江苏省知识产权局（jact 85；71）
+"js-credit": "adapters.js_credit",   # 江苏省·信用(credit)（jact 241；46）
+"js-jsdk": "adapters.js_jsdk",       # 江苏省地质局（jact 24；36）
+"js-jsstyj": "adapters.js_jsstyj",   # 江苏省体育局（jact 29；25）
+"js-jsstyj2": "adapters.js_jsstyj2", # 江苏省体育局（jact 99；24）
