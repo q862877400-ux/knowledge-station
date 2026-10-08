@@ -23,8 +23,13 @@
 （65 分钟一轮，别因一次中断全丢）。
 
 用法：
-  python recon/liuyan-fid-dense-scan.py                 # 默认 601..4100
-  python recon/liuyan-fid-dense-scan.py 601 1000        # 指定区间
+  python recon/liuyan-fid-dense-scan.py                      # 默认 601..4100 → liuyan-fid-dense-scan.jsonl
+  python recon/liuyan-fid-dense-scan.py 601 1000             # 指定区间
+  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl   # 指定输出（**多路并行时每路一个文件**）
+  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl 1.5   # 指定礼貌停顿秒数
+
+⚠ **多路并行**：不同路**必须写不同输出文件**（同一文件并发 append 会串行交错），
+跑完再合并。**同一条链路上别开太多路**（留言板有窗口限流，403 就停）。
 """
 from __future__ import annotations
 
@@ -39,7 +44,6 @@ os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::
 sys.path.insert(0, str(HERE.parent))
 from adapters._liuyan_common import BASE, _envelope, _headers  # noqa: E402
 
-OUT = HERE / "liuyan-fid-dense-scan.jsonl"
 PAUSE = 1.0
 RETRY = 2
 
@@ -73,25 +77,32 @@ def main() -> int:
 
     lo = int(sys.argv[1]) if len(sys.argv) > 1 else 601
     hi = int(sys.argv[2]) if len(sys.argv) > 2 else 4100
+    out = HERE / (sys.argv[3] if len(sys.argv) > 3 else "liuyan-fid-dense-scan.jsonl")
+    pause = float(sys.argv[4]) if len(sys.argv) > 4 else PAUSE
 
     done: set[str] = set()
-    if OUT.exists():
-        for ln in OUT.read_text(encoding="utf-8").splitlines():
+    if out.exists():
+        for ln in out.read_text(encoding="utf-8").splitlines():
             if ln.strip():
                 try:
                     done.add(str(json.loads(ln)["fid"]))
                 except Exception:                                       # noqa: BLE001
                     pass
     todo = [str(n) for n in range(lo, hi + 1) if str(n) not in done]
-    print(f"区间 {lo}..{hi}：已完成 {len(done)}，本次待扫 {len(todo)}", flush=True)
+    print(f"区间 {lo}..{hi} → {out.name}：已完成 {len(done)}，本次待扫 {len(todo)}，"
+          f"停顿 {pause}s", flush=True)
 
     hits = 0
     with httpx.Client(trust_env=False, timeout=20) as c, \
-            OUT.open("a", encoding="utf-8") as f:
+            out.open("a", encoding="utf-8") as f:
         for i, fid in enumerate(todo, 1):
             rec = probe(c, fid)
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
             f.flush()
+            if rec.get("status") == 403:
+                print(f"⚠ 遇到 403（第 {i} 个），**立即停止** —— 留言板有窗口限流，"
+                      f"别硬刷；已扫的都在 {out.name} 里，稍后续跑即可。", flush=True)
+                break
             if rec.get("n"):
                 hits += 1
                 p = " / ".join(rec.get("p") or [])
@@ -99,8 +110,8 @@ def main() -> int:
                       f"{(rec.get('forum') or '')[:22]}", flush=True)
             if i % 100 == 0:
                 print(f"  ... {i}/{len(todo)}，命中 {hits}", flush=True)
-            time.sleep(PAUSE)
-    print(f"扫描结束：本次 {len(todo)} 个 fid，命中 {hits} 个版块 → {OUT.name}", flush=True)
+            time.sleep(pause)
+    print(f"扫描结束：本次 {len(todo)} 个 fid，命中 {hits} 个版块 → {out.name}", flush=True)
     return 0
 
 
