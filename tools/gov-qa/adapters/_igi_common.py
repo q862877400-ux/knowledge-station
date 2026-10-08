@@ -73,14 +73,24 @@ def ts(ms) -> str | None:
 
 def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
                 group_id: str | None, referer: str,
-                limit: int | None = None, max_pages: int = 30,
+                limit: int | None = None, max_pages: int = 200,
                 skip_ids: set[str] | None = None) -> list[dict]:
     """翻页取列表（仅已答复），逐条取明细拿答复正文，返回统一记录。
 
-    `skip_ids`（可选，默认 None = 旧行为不变）：已落盘的 id 集合；命中则**不请求明细**、
-    不计入 `limit` ⇒ `limit` 语义变为「本轮新增条数」，可反复跑逐轮推进。
-    见 `existing_ids()` 的说明。
+    `skip_ids`：已落盘的 id 集合；命中则**不请求明细**、不计入 `limit` ⇒
+    `limit` 语义变为「本轮新增条数」，可反复跑逐轮推进（见 `existing_ids()`）。
+
+    ★ 2026-10-09 两处默认值改动（原因见 SITE-REGISTRY §十一，**影响另一个对话**）：
+     1. `skip_ids=None` 由「不跳过」改为「**自动取 `existing_ids(SITE['key'])`**」。
+        原因：85 个薄壳适配器（`gz_*` 36 + `jl_*` 38 + 其他）都没传这个参数，
+        它们的续采**恒 0 新增**（实测 `gz-zrzy --limit 5` 收 5 条全是旧记录）。
+        要显式关掉（例如想重刷已落盘条目的内容）传 `skip_ids=set()`。
+     2. `max_pages` 由 30 提到 200。原因：30 页 × 20 = **600 条硬顶**，
+        贵州 `gz-zrzy`(598) / `gz-portal`(571) / `gz-whhly`(505) 都卡在这个顶上，
+        而第 31 页以后**确实还有数据**（实测 200）；旧值让那部分永远取不到。
     """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     skipped = 0
     for page in range(1, max_pages + 1):
