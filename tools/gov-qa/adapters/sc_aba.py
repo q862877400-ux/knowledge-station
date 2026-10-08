@@ -108,6 +108,9 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 400) -> list[di
             question = title if not content else f"{title}\n{content}"
             dept = (it.get("deptName") or dd.get("deptName")
                     or (reps[0].get("allName") if reps else None))
+            # ★ replyContents[].replyTime 是答复时间（'YYYY-MM-DD HH:MM:SS'），取最后一个非空值。2026-10-09 修。
+            rtimes = [x.get("replyTime") for x in reps
+                      if isinstance(x, dict) and x.get("replyTime")]
             out.append({
                 "source": SITE["key"],
                 "id": sid,
@@ -115,7 +118,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 400) -> list[di
                 "question": question,
                 "answer": answer,
                 "asked_at": (it.get("createTime") or dd.get("createTime") or None),
-                "answered_at": None,
+                "answered_at": (rtimes[-1] if rtimes else None),
                 "dept": (dept or "").strip() or None,
                 "channel": "互动交流·领导信箱",
                 "extra": {
