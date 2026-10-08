@@ -149,6 +149,7 @@ ADAPTERS: dict[str, str] = {
     "hb-hdjl": "adapters.hb_hdjl",             # 湖北省·政民互动（IGI，15 site / 3535 条；★ 瑞数 WAF 放行 /IGI/ 路径）
     "hb-wuhan": "adapters.hb_wuhan",           # 武汉市·市长信箱/12345（IGI，32 site / 6541 条）
     "hb-rst": "adapters.hb_rst",               # 湖北省人社厅·政务咨询留言（静态列，约 12 条）
+    "xz-igi": "adapters.xz_igi",               # 西藏·政民互动 IGI（8 site / 355 条）★ 翻案来源
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
