@@ -15,6 +15,7 @@
 """
 from __future__ import annotations
 
+import hashlib
 import time
 
 SITE = {
@@ -50,12 +51,17 @@ def _row(r: dict, channel: str) -> dict | None:
     answer = (r.get("answerinfoTotal") or "").strip()
     if len(answer) < 10:
         return None
+    title = (r.get("title") or "").strip()
+    content = (r.get("content") or "").strip()
+    # ⚠ 常见问题（commonQuestionlist）返回的 id 为 null，须自造稳定 id（否则去重失效/无限追加）
+    rid = str(r.get("id") or r.get("qNum") or "")
+    if not rid:
+        rid = "c-" + hashlib.md5(f"{title}|{content}|{answer}".encode("utf-8")).hexdigest()[:16]
     return {
         "source": SITE["key"],
-        "id": str(r.get("id") or ""),
+        "id": rid,
         "url": REFERER,
-        "question": (r.get("title") or "").strip()
-                    + (("\n" + r.get("content").strip()) if r.get("content") else ""),
+        "question": title + (("\n" + content) if content else ""),
         "answer": answer,
         "asked_at": r.get("createTime"),
         "answered_at": r.get("bjTime"),
@@ -73,6 +79,7 @@ def _row(r: dict, channel: str) -> dict | None:
 def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE) -> list[dict]:
     """取科技部公众问答四个分类的问答（答复内联，无需明细）。"""
     out: list[dict] = []
+    seen: set[str] = set()
     for tid, name in TIDS:
         if limit and len(out) >= limit:
             break
@@ -92,10 +99,15 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE) -> l
                 print(f"    [{SITE['key']}] {name}（tid={tid}）total={total}")
             if not rows:
                 break
+            new_ids = 0
             for r in rows:
                 rec = _row(r, name)
-                if rec:
+                if rec and rec["id"] not in seen:
+                    seen.add(rec["id"])
                     out.append(rec)
+                    new_ids += 1
+            if new_ids == 0:            # 同页重复（服务端忽略分页）⇒ 立即停，防死循环
+                break
             if total is not None and page * page_size >= int(total):
                 break
             page += 1
@@ -103,6 +115,8 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE) -> l
     # 常见问题解答（接口同族；字段可能略有出入，容错）
     if not (limit and len(out) >= limit):
         page = 1
+        ctotal = None
+        seen: set[str] = set()
         while True:
             try:
                 j = _post_list(fetch, COMMON_API, {}, page, page_size)
@@ -110,16 +124,26 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE) -> l
                 print(f"    [{SITE['key']}] 常见问题 第 {page} 页失败 {type(e).__name__}（停）")
                 break
             rows = j.get("rows") or []
-            if page == 1:
-                print(f"    [{SITE['key']}] 常见问题解答 total={j.get('total')}")
+            if ctotal is None:
+                ctotal = j.get("total")
+                print(f"    [{SITE['key']}] 常见问题解答 total={ctotal}")
             if not rows:
                 break
+            # ⚠ commonQuestionlist **忽略 pageNum**（任何页都返回同一批，实测 total=15）
+            #   ⇒ 必须靠 (a) total 边界 (b) 去重集 双保险，否则**死循环**（踩过）。
+            new_ids = 0
             for r in rows:
                 rec = _row(r, "常见问题解答")
-                if rec:
+                if rec and rec["id"] not in seen:
+                    seen.add(rec["id"])
                     out.append(rec)
+                    new_ids += 1
             if limit and len(out) >= limit:
                 return out[:limit]
+            if new_ids == 0:
+                break
+            if ctotal is not None and page * page_size >= int(ctotal):
+                break
             page += 1
             time.sleep(PAUSE)
     print(f"    [{SITE['key']}] 收 {len(out)} 条")
