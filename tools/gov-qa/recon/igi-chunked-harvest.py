@@ -74,6 +74,11 @@ def main() -> int:
     ap.add_argument("--only", default="", help="只跑指定 siteId，逗号分隔")
     ap.add_argument("--limit", type=int, default=0, help="总量上限（0 = 不限）")
     ap.add_argument("--pause", type=float, default=1.2, help="siteId 之间的间隔秒数")
+    ap.add_argument("--retries", type=int, default=2,
+                    help="单个 siteId 失败后的重试次数（瞬时连接重置很常见）")
+    ap.add_argument("--cooldown", type=float, default=30.0, help="重试前的冷却秒数")
+    ap.add_argument("--abort-after", type=int, default=8,
+                    help="连续多少个 siteId 失败就中止整轮（疑似被限流，留待下次续采）")
     args = ap.parse_args()
 
     import httpx
@@ -90,6 +95,7 @@ def main() -> int:
     print(f"[{SITE['key']}] 待跑 {len(site_ids)} 个 siteId：{','.join(site_ids)}", flush=True)
 
     grand_new = 0
+    consec_fail = 0
     t_all = time.perf_counter()
     with httpx.Client(timeout=40, headers={"User-Agent": UA},
                       follow_redirects=True, trust_env=False) as cli:
@@ -101,15 +107,35 @@ def main() -> int:
             sub_site["key"] = f"{SITE['key']}-{sid}"
             remain = (args.limit - grand_new) if args.limit else None
             t0 = time.perf_counter()
-            try:
-                rows = harvest_igi(
-                    fetcher, SITE=sub_site, base=mod.BASE, site_id=sid,
-                    app_id=mod.APP_ID, group_id=mod.GROUP_ID, referer=mod.REFERER,
-                    limit=remain, max_pages=300)
-            except Exception as e:                                  # noqa: BLE001
-                print(f"  [{i}/{len(site_ids)}] siteId={sid} 失败 "
-                      f"{type(e).__name__}: {e}（跳过，继续）", flush=True)
+
+            # —— 取数：带重试 + 冷却（瞬时 WinError 10054 / ReadTimeout 很常见）——
+            rows = None
+            for attempt in range(args.retries + 1):
+                try:
+                    rows = harvest_igi(
+                        fetcher, SITE=sub_site, base=mod.BASE, site_id=sid,
+                        app_id=mod.APP_ID, group_id=mod.GROUP_ID, referer=mod.REFERER,
+                        limit=remain, max_pages=300)
+                    break
+                except Exception as e:                                  # noqa: BLE001
+                    if attempt < args.retries:
+                        print(f"  [{i}/{len(site_ids)}] siteId={sid} "
+                              f"{type(e).__name__}，{args.cooldown:.0f}s 后重试 "
+                              f"{attempt + 1}/{args.retries}", flush=True)
+                        time.sleep(args.cooldown)
+                    else:
+                        print(f"  [{i}/{len(site_ids)}] siteId={sid} 失败 "
+                              f"{type(e).__name__}: {e}（已重试 {args.retries} 次，跳过）",
+                              flush=True)
+            if rows is None:
+                consec_fail += 1
+                if consec_fail >= args.abort_after:
+                    print(f"  ⚠ 连续 {consec_fail} 个 siteId 失败 ⇒ 中止本轮"
+                          f"（疑似被限流，稍后再跑即可续采）", flush=True)
+                    break
                 continue
+            consec_fail = 0
+
             fresh = [r for r in rows if (r["source"], str(r["id"])) not in done]
             for r in fresh:
                 done.add((r["source"], str(r["id"])))
