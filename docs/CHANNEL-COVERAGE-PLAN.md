@@ -2525,3 +2525,16 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - 独立意义：这次的"数"**不走 `announce` 的解析器**（直接对原始 HTML 数链接），
   所以两条数字相符同时证明了**解析器的召回没有明显缺口**（与"导航链接被当公告"是相反方向的错，
   那个已由 `looks_like_article` 修掉）。
+
+### R9（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记，免得"没记"被读成"没人管"
+
+- 本轮（自动续接链第 3 轮）做的是**门禁棘轮线**的收口：`tests/test_run_gates_ratchet_wiring.py`
+  补锚点存在性守卫（fail-open → fail-closed）。**详细记录在它自己的归属层** ——
+  [开发史 §10.206](DEVELOPMENT-HISTORY.md) 与 [NEXT-DEV-PLAN 甲](NEXT-DEV-PLAN-2026-09-28.md)，
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  真库台账与 R8 时的快照状态一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
