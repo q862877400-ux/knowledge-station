@@ -79,12 +79,14 @@
    "gz-zrzy": 598,
    "gz-whhly": 505,
    "gz-fgw": 460,
+   "gz-portal-48": 368,
    "gz-tyj": 322,
    "gz-sft": 292,
    "gz-yjgl": 252,
    "gz-tyjrswt": 244,
    "gz-stjj": 200,
    "gz-ylbzj": 200,
+   "gz-portal-35": 183,
    "gz-czt": 166,
    "gz-mwr": 148,
    "gz-st": 120,
@@ -105,7 +107,9 @@
    "gz-mzw": 28,
    "gz-gzw": 24,
    "gz-sjt": 23,
-   "people-liuyan-prov": 15
+   "gz-portal-36": 16,
+   "people-liuyan-prov": 15,
+   "gz-portal-31": 4
   },
   "吉林省": {
    "jl-wlt": 338,
@@ -201,7 +205,8 @@
   },
   "陕西省": {
    "sn-lyxd": 184,
-   "people-liuyan-prov": 18
+   "people-liuyan-prov": 18,
+   "sn-igi": 5
   },
   "广西壮族自治区": {
    "gx-mailbox": 138,
@@ -249,6 +254,11 @@
   "重庆市": {
    "people-liuyan-prov": 24
   },
+  "西藏自治区": {
+   "people-liuyan-prov": 14,
+   "xz-igi-24": 7,
+   "xz-igi-22": 1
+  },
   "河南省": {
    "people-liuyan-prov": 20
   },
@@ -257,15 +267,12 @@
   },
   "甘肃省": {
    "people-liuyan-prov": 18
-  },
-  "西藏自治区": {
-   "people-liuyan-prov": 14
   }
  },
  "province_totals": {
   "广东省": 31112,
   "湖南省": 9202,
-  "贵州省": 4340,
+  "贵州省": 4911,
   "吉林省": 2679,
   "安徽省": 773,
   "北京市": 757,
@@ -277,7 +284,7 @@
   "国家级（部委）": 242,
   "海南省": 228,
   "青海省": 215,
-  "陕西省": 202,
+  "陕西省": 207,
   "广西壮族自治区": 166,
   "河北省": 164,
   "新疆维吾尔自治区": 105,
@@ -291,10 +298,10 @@
   "江苏省": 28,
   "浙江省": 28,
   "重庆市": 24,
+  "西藏自治区": 22,
   "河南省": 20,
   "云南省": 18,
-  "甘肃省": 18,
-  "西藏自治区": 14
+  "甘肃省": 18
  },
  "source_totals": {
   "gd-amr": 6134,
@@ -323,6 +330,7 @@
   "gd-mpa": 437,
   "gd-tyj": 398,
   "gd-jt": 381,
+  "gz-portal-48": 368,
   "gd-dva": 346,
   "jl-wlt": 338,
   "gd-szyyj": 334,
@@ -363,6 +371,7 @@
   "hunan-ybj": 188,
   "hunan-jyt": 187,
   "sn-lyxd": 184,
+  "gz-portal-35": 183,
   "gd-yj": 179,
   "jl-nynct": 179,
   "gd-zfcxjst": 177,
@@ -460,11 +469,16 @@
   "jl-gbdsj": 21,
   "jl-gat": 20,
   "hunan-gzw": 19,
+  "gz-portal-36": 16,
   "sc-st": 15,
   "hb-wuhan-6": 7,
+  "xz-igi-24": 7,
   "hb-hdjl-10": 5,
-  "hb-hdjl-19": 4
+  "sn-igi": 5,
+  "gz-portal-31": 4,
+  "hb-hdjl-19": 4,
+  "xz-igi-22": 1
  },
- "grand_total": 53710,
+ "grand_total": 54294,
  "n_provinces_covered": 31
 }

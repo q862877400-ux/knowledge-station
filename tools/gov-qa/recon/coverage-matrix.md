@@ -1,12 +1,12 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **53710** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **54294** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
 | 广东省 | 31112 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
 | 湖南省 | 9202 | hunan-st 3813、hunan-yj 538、hunan-agri 200、hunan-amr 200、hunan-czt 200、hunan-fgw 200 …共 33 个来源 |
-| 贵州省 | 4340 | gz-zrzy 598、gz-whhly 505、gz-fgw 460、gz-tyj 322、gz-sft 292、gz-yjgl 252 …共 30 个来源 |
+| 贵州省 | 4911 | gz-zrzy 598、gz-whhly 505、gz-fgw 460、gz-portal-48 368、gz-tyj 322、gz-sft 292 …共 34 个来源 |
 | 吉林省 | 2679 | jl-wlt 338、jl-nynct 179、jl-hrss 153、jl-scjd 137、jl-zyy 137、jl-ypj 120 …共 39 个来源 |
 | 安徽省 | 773 | ah-kb 600、ah-st 145、people-liuyan-prov 28 |
 | 北京市 | 757 | people-liuyan-df 490、people-liuyan-fid 245、people-liuyan-prov 22 |
@@ -18,7 +18,7 @@
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
 | 海南省 | 228 | hi-zcwd 200、people-liuyan-prov 28 |
 | 青海省 | 215 | qh-wsxf 200、people-liuyan-prov 15 |
-| 陕西省 | 202 | sn-lyxd 184、people-liuyan-prov 18 |
+| 陕西省 | 207 | sn-lyxd 184、people-liuyan-prov 18、sn-igi 5 |
 | 广西壮族自治区 | 166 | gx-mailbox 138、people-liuyan-prov 28 |
 | 河北省 | 164 | heb-szj 114、heb-czt 26、people-liuyan-prov 24 |
 | 新疆维吾尔自治区 | 105 | xj-dchs 100、people-liuyan-prov 5 |
@@ -32,10 +32,10 @@
 | 江苏省 | 28 | people-liuyan-prov 28 |
 | 浙江省 | 28 | people-liuyan-prov 28 |
 | 重庆市 | 24 | people-liuyan-prov 24 |
+| 西藏自治区 | 22 | people-liuyan-prov 14、xz-igi-24 7、xz-igi-22 1 |
 | 河南省 | 20 | people-liuyan-prov 20 |
 | 云南省 | 18 | people-liuyan-prov 18 |
 | 甘肃省 | 18 | people-liuyan-prov 18 |
-| 西藏自治区 | 14 | people-liuyan-prov 14 |
 
 ## 各来源总量
 
@@ -67,6 +67,7 @@
 | gd-mpa | 437 |
 | gd-tyj | 398 |
 | gd-jt | 381 |
+| gz-portal-48 | 368 |
 | gd-dva | 346 |
 | jl-wlt | 338 |
 | gd-szyyj | 334 |
@@ -100,4 +101,3 @@
 | hunan-tyj | 200 |
 | hunan-whhlyt | 200 |
 | hunan-xfj | 200 |
-| hunan-zjt | 200 |
