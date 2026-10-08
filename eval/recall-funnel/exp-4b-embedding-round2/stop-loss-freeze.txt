@@ -1,0 +1,8 @@
+E4 第二轮 止损线冻结
+文件: eval/recall-funnel/exp-4b-embedding-round2/stop-loss.json
+字节数: 6290
+行尾: LF
+sha256(raw) = 67aa10f282b5b9cc177431bd0b63412869df3dbc8881361b308f8dee08b9bde4
+sha256(LF归一) = 67aa10f282b5b9cc177431bd0b63412869df3dbc8881361b308f8dee08b9bde4
+冻结时刻: 2026-10-09T03:45:04+08:00
+本文件在任何第二轮跑分**之前**生成；跑完再补一律无效（FR-014）。

@@ -1,0 +1,103 @@
+{
+ "experiment": "E4 第二轮：成本/延迟/显存 + 查询侧指令前缀",
+ "stop_loss_sha256_note": "阈值取自 stop-loss.json（跑前落盘，哈希见 stop-loss-freeze.txt）",
+ "part_A_cost_latency": {
+  "reference_knn_scan_ms": 819.7,
+  "incumbent_cpu_warm_p50_ms": 1.38,
+  "qwen3_gpu_warm_p50_ms": 32.02,
+  "qwen3_gpu_warm_p90_ms": 34.74,
+  "qwen3_gpu_cold_start_ms": 5154.3,
+  "qwen3_peak_vram_reserved_MiB": 1164.0,
+  "embed_share_of_vector_path_pct": 3.91,
+  "decision": "可上线：相对现有扫描可忽略",
+  "vram_decision": "与本地大模型共存无压力",
+  "extra_qwen3_on_cpu": 72.88,
+  "extra_note": "附加抽样，不在冻结口径内",
+  "reference_on_real_db": {
+   "rows": 663634,
+   "scan_median_ms": 1074.7,
+   "embed_share_pct": 2.98,
+   "note": "真库比第一轮的副本**多了 141,656 条**（663,634 vs 521,978）⇒ 生产上真正的扫描参照是这一个，不是副本那个"
+  },
+  "recorded_reference_606ms": {
+   "ms": 606.0,
+   "rows": 521978,
+   "source": "docs/NEXT-DEV-PLAN-2026-09-28.md §四第 1 条（『本轮静机复测 606.0 ms（52 万行）』）",
+   "attribution": "⚠ **归因不了**：副本同是 521,978 行却量到 815.1 ms，差 35%。当时的量测口径/工具没有记录 ⇒ 两个数并列，**不猜**。"
+  }
+ },
+ "part_B_instruction_prefix": {
+  "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+  "headline120_noprefix": 0.6833,
+  "headline120_prefix": 0.8417,
+  "headline120_delta_pp": 15.84,
+  "all171_noprefix": 0.6667,
+  "all171_prefix": 0.807,
+  "all171_delta_pp": 14.03,
+  "flip_headline": {
+   "in": 19,
+   "out": 0
+  },
+  "flip_all": {
+   "in": 24,
+   "out": 0
+  },
+  "decision": "前缀有可分辨收益 ⇒ 进生产评估",
+  "threshold_rule": {
+   "< 8pt": "**不加前缀**（这条路放弃）",
+   "8 ~ 10pt": "灰区：不能据此改生产",
+   ">= 10pt": "前缀有可分辨收益 ⇒ 进生产评估"
+  },
+  "cluster_ci": {
+   "experiment": "E4 第二轮 · B 臂 簇级置信区间（配对簇级 bootstrap）",
+   "endpoint": "Vector rank@1000",
+   "cluster_unit": "gold_cr_id",
+   "method": "配对簇级 bootstrap，10000 次重抽，seed=20261009（写死 ⇒ 可复跑）",
+   "headline_120": {
+    "n": 120,
+    "n_clusters": 64,
+    "delta_pp": 15.83,
+    "ci95_pp": [
+     9.43,
+     22.73
+    ],
+    "p_two_sided": 0.0,
+    "flip_in": 19,
+    "flip_out": 0
+   },
+   "all_171": {
+    "n": 171,
+    "n_clusters": 79,
+    "delta_pp": 14.04,
+    "ci95_pp": [
+     8.84,
+     19.54
+    ],
+    "p_two_sided": 0.0,
+    "flip_in": 24,
+    "flip_out": 0
+   },
+   "compare_with_round1": {
+    "round1_model_swap_headline_delta_pp": 32.5,
+    "round1_ci95_pp": [
+     22.95,
+     42.52
+    ],
+    "note": "第一轮是**换模型**（bge→Qwen3，无前缀）；本轮是**同模型加查询指令前缀**。两个数不许相加当'总共'——它们不是同一条链上的独立增益（第一轮的两臂都无前缀）。"
+   }
+  }
+ },
+ "instrument_controls": {
+  "round1_selfcheck_mismatch_items": 0,
+  "fts_mismatch_items": 0,
+  "passed": true,
+  "meaning": "任一非 0 ⇒ 先查仪器；**不许**把 B 臂读数读成『前缀有效/无效』"
+ },
+ "what_this_does_not_answer": [
+  "A 臂的延迟是**本机**（RTX 4080 SUPER 16 GB）单机读数，不是部署环境的 SLA",
+  "冷启动**不含权重下载**（本机已缓存）⇒ 首次装机还要多一次下载",
+  "B 臂只测**一个**官方英文指令串；中文/领域定制指令**未测**，不许外推",
+  "B 臂考的仍是**未人工确认的 gold**（考卷本身的缺陷不因加前缀而消失）",
+  "两个子实验**互不替代**：A 说『等多久』，B 说『准不准』"
+ ]
+}

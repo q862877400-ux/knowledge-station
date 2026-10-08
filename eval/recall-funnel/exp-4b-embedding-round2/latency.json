@@ -1,0 +1,72 @@
+{
+ "experiment": "E4 第二轮 · A 臂：提问侧成本（单条查询延迟/冷启动/显存）",
+ "device": "NVIDIA GeForce RTX 4080 SUPER",
+ "torch": "2.13.0+cu126",
+ "dtype_gpu": "float16",
+ "n_queries": 171,
+ "sample": "eval/recall-funnel/benchmark-v2.jsonl 的 query 字段（171 条，全部）",
+ "warmup_calls": 5,
+ "path_incumbent_cpu_bge_small": {
+  "model": "BAAI/bge-small-zh-v1.5（fastembed/ONNX，CPU）",
+  "cold_start_ms": 712.4,
+  "cold_start_note": "本机权重已缓存 ⇒ **不含下载**；首次装机还要多一次下载",
+  "warm": {
+   "n": 171,
+   "p50_ms": 1.38,
+   "p90_ms": 1.58,
+   "max_ms": 1.95,
+   "mean_ms": 1.4,
+   "first_call_ms": 1.56
+  }
+ },
+ "reference_knn_scan": {
+  "table": "clause_vec",
+  "rows": 521978,
+  "dim": 512,
+  "k": 1000,
+  "repeat": 5,
+  "median_ms": 819.7,
+  "all_ms": [
+   37937.1,
+   850.4,
+   818.1,
+   818.9,
+   819.7
+  ],
+  "note": "**扫描**耗时（brute force，sqlite-vec）；与嵌入模型无关，只跟表大小/维度有关。本仓既有读数 606.0 ms（52 万行）—— 本轮同跑内复测，以本值为准。"
+ },
+ "path_experiment_gpu_qwen3": {
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "params": 595776512,
+  "dtype": "float16",
+  "device": "cuda",
+  "cold_start_ms": 5154.3,
+  "cold_start_note": "本机权重已缓存 ⇒ **不含下载**；含 tokenizer+model 装载与 H2D 搬运",
+  "peak_mem_allocated_MiB": 1149.5,
+  "peak_mem_reserved_MiB": 1164.0,
+  "warm": {
+   "n": 171,
+   "p50_ms": 32.02,
+   "p90_ms": 34.74,
+   "max_ms": 207.86,
+   "mean_ms": 33.51,
+   "first_call_ms": 34.53
+  },
+  "timing_note": "单条计时前后各 `torch.cuda.synchronize()`（否则量到的是排队时间）"
+ },
+ "extra_qwen3_on_cpu": {
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "dtype": "float32",
+  "device": "cpu",
+  "n": 30,
+  "note": "**附加、抽样 30 条，不是全部**；不在 `stop-loss.json` 的冻结口径内，只为回答『没有显卡的机器能不能跑』",
+  "warm": {
+   "n": 30,
+   "p50_ms": 72.88,
+   "p90_ms": 77.31,
+   "max_ms": 79.37,
+   "mean_ms": 72.43,
+   "first_call_ms": 69.4
+  }
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "experiment": "E4 第二轮 · B 臂 簇级置信区间（配对簇级 bootstrap）",
+ "endpoint": "Vector rank@1000",
+ "cluster_unit": "gold_cr_id",
+ "method": "配对簇级 bootstrap，10000 次重抽，seed=20261009（写死 ⇒ 可复跑）",
+ "headline_120": {
+  "n": 120,
+  "n_clusters": 64,
+  "delta_pp": 15.83,
+  "ci95_pp": [
+   9.43,
+   22.73
+  ],
+  "p_two_sided": 0.0,
+  "flip_in": 19,
+  "flip_out": 0
+ },
+ "all_171": {
+  "n": 171,
+  "n_clusters": 79,
+  "delta_pp": 14.04,
+  "ci95_pp": [
+   8.84,
+   19.54
+  ],
+  "p_two_sided": 0.0,
+  "flip_in": 24,
+  "flip_out": 0
+ },
+ "compare_with_round1": {
+  "round1_model_swap_headline_delta_pp": 32.5,
+  "round1_ci95_pp": [
+   22.95,
+   42.52
+  ],
+  "note": "第一轮是**换模型**（bge→Qwen3，无前缀）；本轮是**同模型加查询指令前缀**。两个数不许相加当'总共'——它们不是同一条链上的独立增益（第一轮的两臂都无前缀）。"
+ }
+}

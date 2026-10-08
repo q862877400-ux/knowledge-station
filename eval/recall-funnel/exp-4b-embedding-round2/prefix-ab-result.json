@@ -1,0 +1,97 @@
+{
+ "experiment": "E4 第二轮 · B 臂：查询侧指令前缀 A/B（Qwen3-Embedding-0.6B, 512d）",
+ "single_variable": "查询串上是否加 Qwen3 官方 instruct 前缀；条文侧一字不动",
+ "instruct_string": "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: {query}",
+ "prefix_scope": "前缀**只**进 qwen_vec()；FTS/exact/modality 用原始串（见脚本 fixed_five）",
+ "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+ "summary": {
+  "all_171": {
+   "n": 171,
+   "n_clusters": 79,
+   "noprefix": {
+    "rank@20": 0.2105,
+    "rank@100": 0.345,
+    "rank@1000": 0.6667,
+    "union_same@20": 0.2222,
+    "union_same@100": 0.3743,
+    "union_same@1000": 0.6784,
+    "union_prod": 0.2281,
+    "fts@1000": 0.1345
+   },
+   "prefix": {
+    "rank@20": 0.2632,
+    "rank@100": 0.4269,
+    "rank@1000": 0.807,
+    "union_same@20": 0.269,
+    "union_same@100": 0.4386,
+    "union_same@1000": 0.8187,
+    "union_prod": 0.269,
+    "fts@1000": 0.1345
+   },
+   "delta_pp": {
+    "rank@20": 5.27,
+    "rank@100": 8.19,
+    "rank@1000": 14.03,
+    "union_same@20": 4.68,
+    "union_same@100": 6.43,
+    "union_same@1000": 14.03,
+    "union_prod": 4.09,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 24,
+    "out": 0
+   }
+  },
+  "headline_120": {
+   "n": 120,
+   "n_clusters": 64,
+   "noprefix": {
+    "rank@20": 0.2417,
+    "rank@100": 0.3583,
+    "rank@1000": 0.6833,
+    "union_same@20": 0.25,
+    "union_same@100": 0.3917,
+    "union_same@1000": 0.6917,
+    "union_prod": 0.2583,
+    "fts@1000": 0.1417
+   },
+   "prefix": {
+    "rank@20": 0.3,
+    "rank@100": 0.475,
+    "rank@1000": 0.8417,
+    "union_same@20": 0.3,
+    "union_same@100": 0.4833,
+    "union_same@1000": 0.85,
+    "union_prod": 0.3,
+    "fts@1000": 0.1417
+   },
+   "delta_pp": {
+    "rank@20": 5.83,
+    "rank@100": 11.67,
+    "rank@1000": 15.84,
+    "union_same@20": 5.0,
+    "union_same@100": 9.16,
+    "union_same@1000": 15.83,
+    "union_prod": 4.17,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 19,
+    "out": 0
+   }
+  }
+ },
+ "instrument_control": {
+  "round1_selfcheck_mismatch_items": 0,
+  "round1_selfcheck_mismatch_i": [],
+  "meaning_1": "无前缀臂必须逐条复现第一轮 ctx 臂的 rank@1000；非 0 ⇒ 先查仪器，**不许**把它读成『前缀有效』",
+  "fts_mismatch_items": 0,
+  "meaning_2": "FTS 两臂必须完全相同（前缀不进 FTS）；非 0 ⇒ 前缀泄漏了"
+ },
+ "baseline_selfcheck": {
+  "round1_headline_vec@1000": 0.6833,
+  "round1_all_vec@1000": 0.6667
+ },
+ "elapsed_s": 636.5
+}

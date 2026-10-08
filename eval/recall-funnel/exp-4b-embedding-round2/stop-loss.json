@@ -1,0 +1,87 @@
+{
+ "_": "E4 第二轮验证 —— 止损线，**在跑之前落盘**。跑完再补一律无效（FR-014）。",
+ "experiment": "E4 第二轮：成本/延迟/显存 + 查询侧指令前缀（Qwen3-Embedding-0.6B，512 维）",
+ "written_at": "2026-10-09（**先于任何第二轮跑分**；哈希见 stop-loss-freeze.txt）",
+ "why_this_round": "E4 第一轮（exp-4-embedding-shadow）判决『进第二轮验证』：主终点 Vector@1000（主结果 120 条）0.3583 → 0.6833，+32.50pt，簇级 p=0.0000。但第一轮 README §八 自己列了四条**还没回答**的：① 成本与延迟没量（『生产每来一个问题要等多久』没量，那是换生产前必须先回答的）；② 1024 维；③ BGE-M3；④ 在清洗后的金标上重跑。本轮只做**最便宜、且决定『能不能上线』的那一条**（①），外加第一轮自己留作『第二刀』的**查询侧指令前缀**。",
+ "scope_this_round": [
+  "A 成本/延迟/显存：单条查询**两条路各量一次**（现役 CPU bge-small/fastembed/ONNX vs 实验 GPU Qwen3 fp16 CUDA）",
+  "B 查询侧指令前缀 A/B：无前缀 vs Qwen3 官方 `instruct: …\\nquery: …` 前缀"
+ ],
+ "explicitly_not_in_this_round": [
+  "1024 维（同模型升维 —— 要重算 521,978 条条文向量，约 1 小时级；本轮不做）",
+  "BGE-M3（要另下一个模型，属外部评估的第二候选；本轮不做）",
+  "在清洗后的金标上重跑（金标没换，本轮不碰）",
+  "微调 / 改条文文本配方 / 调 RRF / 接 E-F / 上 ANN（第一轮已冻结，本轮照旧）"
+ ],
+
+ "part_A_cost_and_latency": {
+  "量什么": [
+   "单条查询嵌入延迟：p50 / p90 / max（warm，模型已驻留）",
+   "冷启动：首次加载耗时（本机权重已缓存 ⇒ **不含下载**）",
+   "Qwen3 的 GPU 峰值显存（torch.cuda.max_memory_allocated / max_memory_reserved）",
+   "同跑内**复测**现有向量路扫描耗时（52 万行 brute force）—— 作为参照物，不采信二手数"
+  ],
+  "样本": "考卷 171 条**真实提问串**（`eval/recall-funnel/benchmark-v2.jsonl` 的 `query` 字段），不另造串",
+  "decision_rule": {
+   "参照物": "现有向量路**扫描**耗时（52 万行 brute force）。本仓既有读数 606.0 ms；**以本轮同跑内复测值为准**（转述的数字要回原始来源核）。",
+   "单条查询延迟_warm_GPU": {
+    "<= 100 ms": "可上线：相对现有扫描（约 0.6 s）可忽略",
+    "100 ms ~ 参照值": "灰区：与现有扫描同量级，须与『关掉向量路省 0.6 s ≈ 一次 Jev 调用』一起权衡",
+    "> 参照值": "成本翻倍以上 ⇒ 不能单独上线"
+   },
+   "冷启动": "如实报，**不设阈值**（桌面应用可常驻；但『启动即占显存』是决策点，如实报）",
+   "显存峰值": {
+    "<= 4096 MiB": "与本地大模型共存无压力",
+    "> 4096 MiB": "与本地大模型抢显存 ⇒ **决策点**（如实报，**不自动判失败**）"
+   },
+   "CUDA_OOM": "记 failed 并在交接单 ② 段显著写明『本轮需要显卡』；**不改判据、不跳过**"
+  }
+ },
+
+ "part_B_query_instruction_prefix": {
+  "唯一变量": "**查询侧**是否加 Qwen3 官方 instruct 前缀。条文侧**一字不动**、两臂都 KNN 同一张 `clause_vec_qwen`（第一轮已算好，512 维）。",
+  "前缀原串": "Instruct: Given a web search query, retrieve relevant passages that answer the query\\nQuery: {query}",
+  "前缀来源": "Qwen3-Embedding 官方检索用法（英文默认指令），**逐字照抄**、不自造中文版（自造即第二个变量）",
+  "前缀只进嵌入": "**不许**进 FTS / exact / modality 那几路（它是模型指令，不是检索文本）；污染即作废",
+  "主终点": "Vector @1000（主结果 120 条口径，与 E4 第一轮同口径）",
+  "副终点": ["Vector @20 / @100（120 与 171 两口径）", "全量 171 的 Vector @1000"],
+  "decision_rule": {
+   "< 8pt": "**不加前缀**（这条路放弃）",
+   "8 ~ 10pt": "灰区：不能据此改生产",
+   ">= 10pt": "前缀有可分辨收益 ⇒ 进生产评估"
+  },
+  "why_8pt": "沿用 E4 第一轮的三档（`../exp-4-embedding-shadow/stop-loss.json`），理由同：本仓实测主结果 120 条口径**显著性阈值 8.18pt**、**80% 把握度 MDE 11.68pt**（`../exp-1-contextual/power-factcheck.json`）。8pt 是**分辨率线**，不是生产切换线。",
+  "must_report_both_sides": "若加前缀**更差**，必须报『更差』，不许只报好的一侧。"
+ },
+
+ "baseline_selfcheck": {
+  "_source": "../exp-4-embedding-shadow/ab-result.json（第一轮实测）",
+  "qwen3_no_prefix_vector_at_1000_headline120": 0.6833,
+  "qwen3_no_prefix_vector_at_1000_all171": 0.6667,
+  "bge_small_vector_at_1000_headline120": 0.3583,
+  "note": "B 臂的对照 = 第一轮的 Qwen3 **无前缀**臂；本轮必须**同跑内复现**该臂，否则说明动了不该动的东西。"
+ },
+
+ "hard_fail_conditions": [
+  "真库（%APPDATA%\\KnowledgeStation\\database\\knowledge.db）的 clause_vec 行数或 mtime 发生变化 ⇒ 整次作废",
+  "两臂使用了**不同的条文文本**或**不同的候选集合** ⇒ 作废",
+  "指令前缀污染到 FTS/exact/modality 任一路的查询串 ⇒ 作废",
+  "B 臂无法同跑内复现第一轮的 Qwen3 无前缀 Vector@1000（120 条 0.6833 / 171 条 0.6667）⇒ 先查仪器，不解释为『前缀有效』"
+ ],
+
+ "measured_cost_reference": {
+  "source": "../exp-4-embedding-shadow/throughput.json（第一轮实测）",
+  "gpu_batch16_texts_per_s": 224.9,
+  "gpu_full_521978_min": 38.7,
+  "incumbent_fastembed_cpu_texts_per_s": 65.4,
+  "note": "**入库侧**成本（已量）；本轮量的是**提问侧**成本（没量过）。两者不许混说。"
+ },
+
+ "honesty_boundary": [
+  "A 臂的延迟是**本机**（RTX 4080 SUPER 16 GB）单机读数，不是部署环境的 SLA",
+  "冷启动**不含权重下载**（本机已缓存）⇒ 首次装机还要多一次下载",
+  "B 臂只测**一个**官方英文指令串；中文/领域定制指令**未测**，不许外推",
+  "B 臂考的仍是**未人工确认的 gold**（考卷本身的缺陷不因加前缀而消失）",
+  "两个子实验**互不替代**：A 说『等多久』，B 说『准不准』"
+ ]
+}
