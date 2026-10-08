@@ -2552,3 +2552,19 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R11（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+- 本轮（自动续接链第 5 轮）做的是 **P3.2 古籍/文言切分评估**：三条换法（查询侧不丢单字 / 字级 /
+  领域词典）在古籍语料上都优于现状（recall@5 30.8% → 34.3% / 40.2% / 42.3%），
+  但**判据不足以开工 ⇒ 决定不改**；并查清古籍的**主因是繁简**（简体提问在繁體原文上 0 命中）。
+  **详细记录在它自己的归属层** —— [开发史 §10.208](DEVELOPMENT-HISTORY.md)、
+  [施工总纲 P3.2 评估](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [古籍切分口径证据](research/classical-chinese-segmentation-evidence.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`），渠道台账状态与 R10 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
