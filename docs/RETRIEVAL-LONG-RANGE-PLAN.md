@@ -469,6 +469,15 @@
 **产物**：`eval/recall-funnel/exp-9-col-prior/`（`measure.py` / `result.json` /
 [VERDICT](eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没有收益.md)）。
 
+**✅ 独立复核：通过（无阻塞）** —— 冻结 tag `verify-freeze-e9-col-prior` = `db5c074`
+（`rev-list --count db5c074^..<tag>` = **1**），提取树 `D:/AI/verify-trees/e9`（HEAD 首尾一致、`git status` 首尾干净）。
+报告 [VERIFY-REPORT-e9-col-prior](verify-briefs/VERIFY-REPORT-e9-col-prior.md)（⚠ 按复核者消息**转录**，非字节级搬运）。
+复核独立重算三项读数**逐位一致**（0.608051 / 0.734232 / 加权 0.910524）、`result.json` 重跑**字节级相同**；
+变异（贪心顺序反转）三列 r95 全变 ⇒ **判据有牙**。
+**四条非阻塞发现**：① "8 列 ≥91%" 应为 **9 列**（≤1.10× 是 10 列）；② 随机基线中位名次 4,104 → **4,106**；
+③ `effective_year` 的 **89,082 行 NULL** 未交代归桶；④ 去重**不在 `r95` 路径上**（登记为防误用点）。
+①②③ 已在 VERDICT 就地更正。复核**未做**：未独立复算上游 `exp-8` 的 4,322。
+
 **⇒ 对本文 P2「做什么」那一行的修正**：清单里的"**片段长度**"这一项现在有数了 ——
 长度**有**分辨力（2.05× 富集）但**不可用**（不能当筛子）；"**同号条款次序**"与 `clause_number_shape`
 相关（1.45× 富集，同样不可用）。**下一步不在"给 A/D/E 找排序键"这条线上**（库里没有信号），
