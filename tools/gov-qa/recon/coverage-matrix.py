@@ -79,16 +79,25 @@ def main() -> int:
     matrix: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     totals: dict[str, int] = defaultdict(int)
     src_totals: dict[str, int] = defaultdict(int)
+    skipped = 0
     for f in sorted(DATA.glob("*.jsonl")):
-        for line in f.read_text(encoding="utf-8").splitlines():
+        for line in f.read_text(encoding="utf-8", errors="replace").splitlines():
             if not line.strip():
                 continue
-            rec = json.loads(line)
+            try:
+                rec = json.loads(line)
+            except Exception:                                       # noqa: BLE001
+                # ⚠ 采集进程可能正在往文件里追加 ⇒ 读到「半行」是正常的竞态。
+                #   跳过即可，不要整脚本崩掉（2026-10-08 踩过：跑到一半 JSONDecodeError）。
+                skipped += 1
+                continue
             prov = province_of(rec)
             src = str(rec.get("source") or f.stem)
             matrix[prov][src] += 1
             totals[prov] += 1
             src_totals[src] += 1
+    if skipped:
+        print(f"[matrix] 跳过 {skipped} 行（解析失败，多为采集进行中的半行）")
 
     out = {"by_province": {p: dict(sorted(s.items(), key=lambda kv: -kv[1]))
                            for p, s in sorted(matrix.items(), key=lambda kv: -sum(kv[1].values()))},
