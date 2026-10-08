@@ -30,8 +30,10 @@ ASCII 用单字母名），故 `cmap[混淆码位] → glyph 名 → 真字` 一
 from __future__ import annotations
 
 import io
+import json
 import re
 import time
+from pathlib import Path
 
 SITE = {
     "key": "zj-mhww",
@@ -40,7 +42,8 @@ SITE = {
     "level": "province",
     "entry": "https://zxts.zjzwfw.gov.cn/zwmhww/#/home/index/public",
     "status": "ok",
-    "note": "POST OTMrwgaxid?… 列表 + GET ?storeId= 明细；文字 woff 字体混淆，按 glyph 名解码；totalItem=49218",
+    "note": "POST OTMrwgaxid?… 列表 + GET ?storeId= 明细；文字 woff 字体混淆，按 glyph 名解码；"
+            "totalItem=49218；**可反复跑**（开跑跳过已落盘 id，limit=本轮新增）",
 }
 
 BASE = "https://zxts.zjzwfw.gov.cn"
@@ -59,6 +62,29 @@ HEADERS = {
 _FONT_CACHE: dict[str, dict[str, str]] = {}
 _FID_RE = re.compile(r"#([A-Za-z0-9_]+)otltag")
 _TAG_RE = re.compile(r"#[A-Za-z0-9_]*?otltag")
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
+
+def _existing_ids() -> set[str]:
+    """读本适配器**自己已落盘**的 `data/zj-mhww-*.jsonl`，取出已有 storeid。
+
+    ⚠ 为什么适配器要读自己的产物：列表接口**只按页码翻**，没有「从某条之后续采」的游标。
+    若每轮都从第 1 页跑，`harvest.py` 的按 id 去重会把新数据全挡掉 ⇒ **第二轮起恒 0 新增**，
+    浙江就永远卡在首批那几百条。预载已有 id 后，已知条目的明细请求被跳过，
+    配额全部花在真正的新数据上 ⇒ 反复跑即可逐轮推进（实测第 2 轮仍有新增）。
+    """
+    ids: set[str] = set()
+    try:
+        for p in DATA_DIR.glob(f"{SITE['key']}-*.jsonl"):
+            for line in p.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    sid = str(json.loads(line).get("id") or "").strip()
+                    if sid:
+                        ids.add(sid)
+    except Exception:                                                   # noqa: BLE001
+        pass
+    return ids
 
 
 def _glyph_char(gn: str) -> str | None:
@@ -111,15 +137,22 @@ def harvest(fetch, *, limit: int | None = None, max_records: int = 500,
             page_size: int = PAGE_SIZE) -> list[dict]:
     """翻页取「来件选登」，逐条取明细拿问题+答复（明细文字需按 woff 字体解码）。
 
-    ⚠ 每条记录 = 1 次明细 + 1 次字体下载 ⇒ 全量 4.9 万条代价很大；
-      默认 `max_records=500` 兜底，需要更多请显式传参 / 用 harvest.py 的 --limit。
+    **可反复跑、逐轮推进**：开跑先读 `data/zj-mhww-*.jsonl` 已有 id 并跳过，
+    所以 `limit` 指的是**本轮新增条数**，不是列表总位次。
+
+    ⚠ 每条记录 = 1 次明细 + 偶发 1 次字体下载 ⇒ 全量 4.9 万条代价很大；
+      `limit` 给了就按 `limit` 收，没给则用 `max_records`（默认 500）兜底。
     """
     out: list[dict] = []
-    seen: set[str] = set()
+    seen: set[str] = _existing_ids()
+    known = len(seen)
+    cap = limit if limit else max_records
+    if known:
+        print(f"    [{SITE['key']}] 已落盘 {known} 条，本轮跳过其明细，目标新增 {cap} 条")
     total = None
     page = 1
     while True:
-        if (limit and len(out) >= limit) or len(out) >= max_records:
+        if len(out) >= cap:
             break
         try:
             r = fetch.post(LIST_URL, json={"code": AREA, "bt": "", "bldw": "",
@@ -141,7 +174,7 @@ def harvest(fetch, *, limit: int | None = None, max_records: int = 500,
             break
         fresh = 0
         for it in rows:
-            if (limit and len(out) >= limit) or len(out) >= max_records:
+            if len(out) >= cap:
                 break
             sid = str(it.get("storeid") or "").strip()
             if not sid or sid in seen:

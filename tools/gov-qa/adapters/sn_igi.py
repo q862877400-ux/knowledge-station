@@ -22,7 +22,7 @@
 """
 from __future__ import annotations
 
-from adapters._igi_common import harvest_igi
+from adapters._igi_common import existing_ids, harvest_igi
 
 SITE = {
     "key": "sn-igi",
@@ -43,6 +43,11 @@ SITE_ID = "15"
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """采陕西省门户 IGI 留言选登（含答复原文）。"""
+    """采陕西省门户 IGI 留言选登（含答复原文）。
+
+    **可反复跑、逐轮推进**：先读已落盘 id 跳过（`limit` = 本轮新增条数）。
+    陕西 totalResults=4097，一次性跑完要 ~2 小时 ⇒ 按 800/轮分块推进，每轮跑完即落盘。
+    """
     return harvest_igi(fetch, SITE=SITE, base=BASE, site_id=SITE_ID, app_id=APP_ID,
-                       group_id=GROUP_ID, referer=REFERER, limit=limit, max_pages=300)
+                       group_id=GROUP_ID, referer=REFERER, limit=limit, max_pages=300,
+                       skip_ids=existing_ids(SITE["key"]))

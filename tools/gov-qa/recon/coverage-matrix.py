@@ -40,6 +40,8 @@ PROVINCE_PREFIX = {
     "ah-": "安徽省", "ln-": "辽宁省", "sc-": "四川省",
     "hb-": "湖北省",
     "xz-": "西藏自治区",
+    # —— 2026-10-08 补：甘肃此前漏登记 ⇒ gs-longnan 414 条掉进「未归属」——
+    "gs-": "甘肃省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 

@@ -18,8 +18,10 @@
 """
 from __future__ import annotations
 
+import json
 import re
 import time
+from pathlib import Path
 
 LIST_TPL = ("{base}/nbhd/openGovmsgbox.do?method=listGovmsgboxs"
             "&siteId={sid}&order=1&appId={aid}&pageIndex={p}&pageSize={n}")
@@ -29,6 +31,28 @@ DETAIL_TPL = ("{base}/nbhd/openGovmsgbox.do?method=viewGovmsgbox"
 PAUSE = 1.2
 PAGE_SIZE = 20
 TAG_RE = re.compile(r"<[^>]+>")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
+
+def existing_ids(site_key: str) -> set[str]:
+    """读 `data/<site_key>-*.jsonl` 已有 id（供适配器做**续采**用，可选）。
+
+    ⚠ 为什么需要它：IGI 列表接口**只按 `pageIndex` 翻页**，没有「从某条之后」的游标。
+    若每轮都从第 1 页跑，`harvest.py` 的按 id 去重会把新数据全挡掉 ⇒ **第二轮起恒 0 新增**
+    （实测 sn-igi/xz-igi 就卡在首批几条上）。适配器开跑前取一次已有 id 传进 `skip_ids`，
+    已知条目不再请求明细 ⇒ `limit` 变成「本轮新增条数」，反复跑即可逐轮推进。
+    """
+    ids: set[str] = set()
+    try:
+        for p in DATA_DIR.glob(f"{site_key}-*.jsonl"):
+            for line in p.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    mid = str(json.loads(line).get("id") or "").strip()
+                    if mid:
+                        ids.add(mid)
+    except Exception:                                                       # noqa: BLE001
+        pass
+    return ids
 
 
 def clean(html: str | None) -> str:
@@ -49,9 +73,16 @@ def ts(ms) -> str | None:
 
 def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
                 group_id: str | None, referer: str,
-                limit: int | None = None, max_pages: int = 30) -> list[dict]:
-    """翻页取列表（仅已答复），逐条取明细拿答复正文，返回统一记录。"""
+                limit: int | None = None, max_pages: int = 30,
+                skip_ids: set[str] | None = None) -> list[dict]:
+    """翻页取列表（仅已答复），逐条取明细拿答复正文，返回统一记录。
+
+    `skip_ids`（可选，默认 None = 旧行为不变）：已落盘的 id 集合；命中则**不请求明细**、
+    不计入 `limit` ⇒ `limit` 语义变为「本轮新增条数」，可反复跑逐轮推进。
+    见 `existing_ids()` 的说明。
+    """
     out: list[dict] = []
+    skipped = 0
     for page in range(1, max_pages + 1):
         if limit and len(out) >= limit:
             break
@@ -79,6 +110,9 @@ def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
             if limit and len(out) >= limit:
                 break
             mid = it.get("METADATAID")
+            if mid and skip_ids and str(mid) in skip_ids:
+                skipped += 1                      # 已落盘 ⇒ 省掉一次明细请求
+                continue
             answer = ""
             if mid:
                 time.sleep(PAUSE)
@@ -121,5 +155,6 @@ def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
                 "extra": extra,
             })
         time.sleep(PAUSE)
-    print(f"    [{SITE['key']}] 收 {len(out)} 条")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out
