@@ -1,0 +1,25 @@
+## 攀枝花 页面内 searchLetterPager 调用
+
+## 攀枝花 channelId 候选实测
+  channelId=1 -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  channelId=2 -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  channelId=3 -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  channelId=4 -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  channelId=szxx -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  channelId=mayor -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+
+## 自贡 szxx/pc/list.html 全文尾部
+++){
+      if(channelsTag.children[i].showOrNot && !channelsTag.children[i].redirectLink){
+        data = channelsTag.children[i];
+        break;
+      }
+    }
+    var url = data.redirectLink ? data.redirectLink : JSON.parse(data.urls) && JSON.parse(data.urls).pc;
+        window.location.href = url;
+    
+  </script>
+
+
+</body></html>
+  --- script src ---

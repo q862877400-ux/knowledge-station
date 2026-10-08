@@ -1,0 +1,53 @@
+## 自贡 /zgsrmzf/szxx/pc/list.html
+  status=200 len=3346
+     EP /zgsrmzf/bmxx/pc/list.html
+     EP /zgsrmzf/hdjl/pc/list.html
+     EP /zgsrmzf/lxxd/pc/list.html
+     EP /zgsrmzf/szxx/pc/list.html
+
+## 自贡 collect_list.js
+  status=200 len=3279
+
+## 绵阳 首页 script src + 互动关键词上下文
+     SRC /mysrmzf/xhtml/js/jquery.min.js
+     SRC /mysrmzf/xhtml/js/jquery.migrate.min.js
+     SRC /mysrmzf/xhtml/js/jquery.superslide.js
+     SRC /mysrmzf/xhtml/js/transform.js
+     SRC https://www.sc.gov.cn/10462/szfxx/szfxx.js
+     SRC https://zfwzgl.www.gov.cn/exposure/jiucuo.js
+     SRC /mysrmzf/xhtml/js/couplet.js
+     SRC /mysrmzf/xhtml/js/login.js
+     SRC //gov.govwza.cn/dist/aria.js?appid=d00a6183095aa54005903f02147f5fd1
+     SRC https://www.my.gov.cn/phpstat/count/10000001/10000001.js
+     SRC /mysrmzf/xhtml/js/swiper.min.js
+     SRC /default/xhtml/js/adMove.js
+     SRC /mysrmzf/xhtml/js/common.min.js
+     SRC /mysrmzf/xhtml/js/core_plugin.js
+     互动: 0
+     信箱: 0
+     12345: 0
+     hdjl: 0
+     szxx: 0
+     留言: 0
+
+## 攀枝花 mailbox.js ajax 上下文
+     URL "/mailbox/getMailboxInfo";
+     URL "/mailbox/getMailboxInfo";
+     URL "/mailbox/"+ searchNo +"/letterDetailJson";
+     URL "/mailbox/saveletter";
+     URL "/mailbox/saveApplyAjax";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/letterListJson";
+     URL "/mailbox/userletterList";
+     URL "/mailbox/historyUser";
+     URL "/mailbox/getHistoryLetter";
+     URL "/mailbox/getHistoryDetail";
+     URL "/mailbox/statistics";

@@ -1,0 +1,37 @@
+
+===== 成都 chengdu https://www.chengdu.gov.cn/ =====
+  https://www.chengdu.gov.cn/ -> 412 len=2414 final=https://www.chengdu.gov.cn/
+     （无匹配互动链接）
+
+===== 自贡 zigong https://www.zigong.gov.cn/ =====
+  http://www.zigong.gov.cn/ -> 502 len=52 final=http://www.zigong.gov.cn/
+     （无匹配互动链接）
+
+===== 攀枝花 panzhihua https://www.panzhihua.gov.cn/ =====
+  http://www.panzhihua.gov.cn/ -> 200 len=85798 final=http://www.panzhihua.gov.cn/
+     [12345æ¿å¡æå¡ä¾¿æ°ç­çº¿] /hdcy/zwfwbmrx/index.shtml
+
+===== 泸州 luzhou https://www.luzhou.gov.cn/ =====
+  https://www.luzhou.gov.cn/ -> 200 len=132125 final=https://www.luzhou.gov.cn/
+     [信访局] http://xfj.luzhou.gov.cn
+     [智能问答] /znjqrqr
+     [意见征集] /hd/yjzj/zzjh
+     [互动交流] /hd
+     [关于征集2027年度全省民生实事项目的公开信] /xw/gsgg/zfgg/content_1158272
+     [书记市长信箱(网上信访渠道)] /LetterBox/Home/Notice?letterCategoryId=141
+     [政民互动] https://www.luzhou.gov.cn/LetterBox/notice
+     [意见征集] http://www.luzhou.gov.cn/hd/yjzj/zzjh
+     [在线访谈] http://www.luzhou.gov.cn/onlineinterview/
+     [访谈解读] /onlineinterview
+     [标签：意见征集] /zt/zxzt/bmfwrl/hdfl/yjzj1
+     [书记市长信箱(网上信访渠道)] https://www.luzhou.gov.cn/LetterBox/sjszxx/List
+     [政民互动] http://www.luzhou.gov.cn/LetterBox/notice
+     [信访局] http://xfj.luzhou.gov.cn/
+
+===== 德阳 deyang https://www.deyang.gov.cn/ =====
+  https://www.deyang.gov.cn/ -> 200 len=105434 final=https://www.deyang.gov.cn/
+     （无匹配互动链接）
+
+===== 绵阳 mianyang https://www.mianyang.gov.cn/ =====
+  http://www.mianyang.gov.cn/ -> 200 len=85798 final=http://www.mianyang.gov.cn/
+     [12345æ¿å¡æå¡ä¾¿æ°ç­çº¿] /hdcy/zwfwbmrx/index.shtml

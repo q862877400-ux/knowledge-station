@@ -1,0 +1,45 @@
+## 攀枝花 mailbox 页面全部 /webapp 端点
+  --- /hdcy/szxx/szxx/index.shtml status=200 len=26684
+     /webapp/mailbox/getAllSubOrgan
+     /webapp/member/logout
+     /webapp/wxshare/signature
+     CALL /webapp/mailbox/getAllSubOrgan data={id: 2}
+  --- /hdcy/szfbmxx/index.shtml status=200 len=27852
+     /webapp/mailbox/getAllSubOrgan
+     /webapp/member/logout
+     /webapp/wxshare/signature
+     CALL /webapp/mailbox/getAllSubOrgan data={id: 15}
+  --- /hdcy/szxx/szxx/wyxx/index.shtml status=200 len=39282
+     /webapp/mailbox/uploadAttach
+     /webapp/member/logout
+     /webapp/wxshare/signature
+
+## 攀枝花 mailbox list 候选
+  /webapp/mailbox/getAllSubOrgan -> 200 ct=text/plain;charset=UTF-8 len=7214 '{"branchId":null,"processCount":null,"notAcceptCount":null,"orderNum":"7","authMgrUsers":null,"totalCount":null,"parentId":"1","crtime":"2023-08-07 14'
+  /webapp/mailbox/getMailList -> 404 ct=text/html;charset=UTF-8 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.'
+  /webapp/mailbox/getMailboxList -> 404 ct=text/html;charset=UTF-8 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.'
+  /webapp/mailbox/list -> 404 ct=text/html;charset=UTF-8 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.'
+  /webapp/mailbox/getMailbox -> 404 ct=text/html;charset=UTF-8 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.'
+  /webapp/mailbox/getMails -> 404 ct=text/html;charset=UTF-8 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.'
+
+## 成都 直接试 JSON/接口
+  https://www.chengdu.gov.cn/chengdu/hdjl/szxx/index.shtml -> 412 ct=text/html; charset=utf-8 len=2567 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or'
+  http://www.chengdu.gov.cn/chengdu/hdjl/szxx/index.shtml -> 412 ct=text/html; charset=utf-8 len=2455 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or'
+  https://www.chengdu.gov.cn/igs/front/search.jhtml -> 412 ct=text/html; charset=utf-8 len=2467 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or'
+  https://www.chengdu.gov.cn/cdsrmzf/c105742/xxgk_list.shtml -> 412 ct=text/html; charset=utf-8 len=2427 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or'
+
+## 绵阳备域
+  https://my.gov.cn/ -> ERR ProxyError
+  http://my.gov.cn/ -> 502 len=52 final=http://my.gov.cn/ title=?
+  https://www.my.gov.cn/ -> 200 len=155137 final=https://www.my.gov.cn/ title=
+        ç»µé³å¸äººæ°æ¿åº
+    
+  http://www.my.gov.cn/ -> 200 len=155137 final=https://www.my.gov.cn/ title=
+        ç»µé³å¸äººæ°æ¿åº
+    
+
+## 自贡重试
+  http://www.zigong.gov.cn/ -> 502 len=52 title=?
+  https://www.zigong.gov.cn/ -> ERR ProxyError HTTPSConnectionPool(host='www.zigong.gov.cn', port=443): Max
+  http://www.zg.gov.cn/ -> 200 len=321582 title=自贡市人民政府
+  https://www.zg.gov.cn/ -> 200 len=321582 title=自贡市人民政府

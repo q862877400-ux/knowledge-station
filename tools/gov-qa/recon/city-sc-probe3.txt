@@ -1,0 +1,87 @@
+## 泸州 sjszxx/List 内 ajax/query 上下文
+--[letterbox/query]-- ?letterCategoryId=141">我要写信</a></li>                         <li><a href="/LetterBox/sjszxx/List">信件公开</a></li>                         <li><a href="/letterbox/query">信件查询</a></li>                         <li><a href="/hd/myblqk">每月办理情况</a></li>                     </ul>                 </div>             </div>         </aside>     <!-- side E -->     <!-- mainContent S -->     <div class="mainContent">        
+--[$.ajax]--      if (hasLikes) {                 var url = $("#addlikeurl").data().addlikes;                 var text = JSON.stringify(likes);                 $.ajax({                     url: url,                     type: 'POST',                     data: { 'likeAndFavoriteViewModel': text },                     success: function (data) {                         if (data.status == 0) {                   
+--[ajax(]--    if (hasLikes) {                 var url = $("#addlikeurl").data().addlikes;                 var text = JSON.stringify(likes);                 $.ajax({                     url: url,                     type: 'POST',                     data: { 'likeAndFavoriteViewModel': text },                     success: function (data) {                         if (data.status == 0) {                    
+--[url:]--         var url = $("#addlikeurl").data().addlikes;                 var text = JSON.stringify(likes);                 $.ajax({                     url: url,                     type: 'POST',                     data: { 'likeAndFavoriteViewModel': text },                     success: function (data) {                         if (data.status == 0) {                                              
+--[LetterBox/]-- 3>信件公开</h3>                 </div>                 <div class="bd">                     <ul class="singleList">                         <li><a href="/LetterBox/Home/Notice?letterCategoryId=141">我要写信</a></li>                         <li><a href="/LetterBox/sjszxx/List">信件公开</a></li>                         <li><a href="/letterbox/query">信件查询</a></li>                         <li><a href="/hd/myblqk">每月办理情况</a
+
+## 泸州 /letterbox/query 试参
+  {'pageIndex': 1, 'pageSize': 10} -> 200 ct=text/html; charset=utf-8 len=47286 '<!DOCTYPE html>\n<html>\n<head>\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n    <meta name="application-name" co'
+  {'page': 1, 'rows': 10} -> 200 ct=text/html; charset=utf-8 len=47286 '<!DOCTYPE html>\n<html>\n<head>\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n    <meta name="application-name" co'
+  {'pageNum': 1, 'pageSize': 10} -> 200 ct=text/html; charset=utf-8 len=47286 '<!DOCTYPE html>\n<html>\n<head>\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n    <meta name="application-name" co'
+  {'letterCategoryId': 141, 'pageIndex': 1, 'pageSize': 10} -> 200 ct=text/html; charset=utf-8 len=47286 '<!DOCTYPE html>\n<html>\n<head>\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n    <meta name="application-name" co'
+
+## 德阳 iList / iListGKJson
+  https://www.deyang.gov.cn/info/iListGKJson.jsp {} -> 200 ct=text/html;charset=utf-8 len=30 '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{"data":[]}\n'
+  https://www.deyang.gov.cn/info/iListGKJson.jsp {'tm_id': '1'} -> 200 ct=text/html;charset=utf-8 len=30 '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{"data":[]}\n'
+  https://www.deyang.gov.cn/info/iListGKJson.jsp {'c': '1'} -> 200 ct=text/html;charset=utf-8 len=30 '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{"data":[]}\n'
+  https://www.deyang.gov.cn/info/iListGKJson.jsp {'classid': '1'} -> 200 ct=text/html;charset=utf-8 len=30 '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{"data":[]}\n'
+  https://www.deyang.gov.cn/info/iListGKJson.jsp {'t': '1'} -> 200 ct=text/html;charset=utf-8 len=30 '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{"data":[]}\n'
+  https://www.deyang.gov.cn/info/iList.jsp {} -> 200 ct=text/html;charset=utf-8 len=11 '\r\n\r\n\r\n\r\n\r\n\n'
+  https://www.deyang.gov.cn/info/iList.jsp {'tm_id': '1'} -> 200 ct=text/html;charset=utf-8 len=11 '\r\n\r\n\r\n\r\n\r\n\n'
+  https://www.deyang.gov.cn/info/iList.jsp {'c': '1'} -> 200 ct=text/html;charset=utf-8 len=11 '\r\n\r\n\r\n\r\n\r\n\n'
+  https://www.deyang.gov.cn/info/iList.jsp {'classid': '1'} -> 200 ct=text/html;charset=utf-8 len=11 '\r\n\r\n\r\n\r\n\r\n\n'
+  https://www.deyang.gov.cn/info/iList.jsp {'t': '1'} -> 200 ct=text/html;charset=utf-8 len=11 '\r\n\r\n\r\n\r\n\r\n\n'
+
+## 德阳 首页 互动关键词
+  互动: 0
+  信箱: 0
+  12345: 0
+  留言: 0
+  诉求: 0
+  访谈: 0
+  征集: 0
+
+## 攀枝花/绵阳 首页接口
+  攀枝花 -> 200 len=85798
+     EP /PeoplesGovernmentofPanzhihuaMunicipal/index.shtml
+     EP /fzlm/wzsm/flsm/517552.shtml
+     EP /fzlm/wzsm/gybz/1115438.shtml
+     EP /fzlm/wzsm/lxwm/517553.shtml
+     EP /fzlm/wzsm/wzdt/index.shtml
+     EP /hdcy/index.shtml
+     EP /hdcy/qxxx/index.shtml
+     EP /hdcy/szfbmxx/index.shtml
+     EP /hdcy/szxx/szxx/index.shtml
+     EP /hdcy/szxx/szxx/wyxx/index.shtml
+     EP /hdcy/yhgl/yhkj/index.shtml
+     EP /hdcy/yhgl/yhzc/index.shtml
+     EP /hdcy/ysqgkxb/index.shtml
+     EP /hdcy/zmhdcjwtzsk/index.shtml
+     EP /hdcy/zwfwbmrx/index.shtml
+     EP /hdcy/zwxmtjz/index.shtml
+     EP /index.shtml
+     EP /ldzc1/index.shtml
+     EP /tzfw/index.shtml
+     EP /zfxxgk1/zfxxgkzn1/index.shtml
+     EP /zjpzhtest/index.shtml
+     EP /zjpzhtest/yxpzh/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/csxm/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/kfjs/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/xfjy/index.shtml
+  绵阳 -> 200 len=85798
+     EP /PeoplesGovernmentofPanzhihuaMunicipal/index.shtml
+     EP /fzlm/wzsm/flsm/517552.shtml
+     EP /fzlm/wzsm/gybz/1115438.shtml
+     EP /fzlm/wzsm/lxwm/517553.shtml
+     EP /fzlm/wzsm/wzdt/index.shtml
+     EP /hdcy/index.shtml
+     EP /hdcy/qxxx/index.shtml
+     EP /hdcy/szfbmxx/index.shtml
+     EP /hdcy/szxx/szxx/index.shtml
+     EP /hdcy/szxx/szxx/wyxx/index.shtml
+     EP /hdcy/yhgl/yhkj/index.shtml
+     EP /hdcy/yhgl/yhzc/index.shtml
+     EP /hdcy/ysqgkxb/index.shtml
+     EP /hdcy/zmhdcjwtzsk/index.shtml
+     EP /hdcy/zwfwbmrx/index.shtml
+     EP /hdcy/zwxmtjz/index.shtml
+     EP /index.shtml
+     EP /ldzc1/index.shtml
+     EP /tzfw/index.shtml
+     EP /zfxxgk1/zfxxgkzn1/index.shtml
+     EP /zjpzhtest/index.shtml
+     EP /zjpzhtest/yxpzh/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/csxm/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/kfjs/index.shtml
+     EP /zjpzhtest/yxpzh/tkpzh/xfjy/index.shtml

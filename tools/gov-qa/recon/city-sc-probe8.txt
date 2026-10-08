@@ -1,0 +1,180 @@
+## 攀枝花 /static/js/mailbox.js
+  status=200 len=37559
+     ALL ['/webapp/static/expressInstall']
+
+## 自贡 /zgsrmzf/yjzj/pc/list.html
+  status=200 len=22599
+     EP /default/libs/jquery.min.js
+     EP /default/libs/jquery.pagination.js
+     EP /zgsrmzf/bmpd/pc/list.html
+     EP /zgsrmzf/czzq/pc/list.html
+     EP /zgsrmzf/fwrx12345/pc/list.html
+     EP /zgsrmzf/hdjl/pc/list.html
+     EP /zgsrmzf/hygq/pc/list.html
+     EP /zgsrmzf/hygq/zzzq/list.html
+     EP /zgsrmzf/jddh/pc/list.html
+     EP /zgsrmzf/jgfk/pc/list.html
+     EP /zgsrmzf/lxwm/pc/list.html
+     EP /zgsrmzf/pc2025/hd/css/collect_list.css
+     EP /zgsrmzf/pc2025/hd/js/collect_list.js
+     EP /zgsrmzf/szf/pc/list.html
+     EP /zgsrmzf/szxx/pc/list.html
+     EP /zgsrmzf/wsdc/pc/list.html
+     EP /zgsrmzf/wzdt/pc/list.html
+     EP /zgsrmzf/wzsm/pc/list.html
+     EP /zgsrmzf/xfjblm/pc/list.html
+     EP /zgsrmzf/xmtjz/pc/list.html
+
+## 自贡 首页 全部 nav a（前 70）
+     [中国政府网] //www.gov.cn/
+     [四川省人民政府] //www.sc.gov.cn
+     [智能机器人] /zgsrmzf/znwd/pc/list.html
+     [无障碍浏览] javascript:;
+     [适老版] javascript:;
+     [长者专区] /zgsrmzf/czzq/pc/list.html
+     [繁體] javascript:FJTBody()
+     [党中央国务院信息] /zgsrmzf/gwyxx/pc/list.html
+     [省委省政府信息] https://www.sc.gov.cn/10462/c110462/list_ft.shtml
+     [自贡要闻] /zgsrmzf/zgzx/pc/list.html
+     [自贡资讯] /zgsrmzf/zgzx/pc/list.html
+     [国务院政策文件库：] https://sousuo.www.gov.cn/zcwjk/policyDocumentLibrary?q=&t=zhengcelibrary&orpro=
+     [营商环境] /zgsrmzf/shfgf/pc/list.html
+     [政企联系] /zgsrmzf/zqlx/pc/list.html
+     [政策直播间] /zgsrmzf/zxft/pc/list.html
+     [政策推送] /zgsrmzf/zcjztspt/pc/list.html
+     [企呼我应] https://www.sczwfw.gov.cn/tftb/jmopenpub/jmopen_files/webapp/html5/zgsqysqfwpt_PCwmbhm/index.html#/?areaCode=510300000000
+     [市发展改革委] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=115102000082901617&areaCode=510300000000
+     [市经济和信息化局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=10005&areaCode=510300000000
+     [市教育体育局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=10002&areaCode=510300000000
+     [市科技局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=10007&areaCode=510300000000
+     [市公安局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=10003&areaCode=510300000000
+     [市民政局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=115102000082902848&areaCode=510300000000
+     [市司法局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=11510200008290268J&areaCode=510300000000
+     [市财政局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=10027&areaCode=510300000000
+     [市人社局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=115102000082902330&areaCode=510300000000
+     [市自规局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=11510200MB11012173&areaCode=510300000000
+     [市生态局] http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=11510200008290911F&areaCode=510300000000
+     [其他部门] http://www.sczwfw.gov.cn/jiq/front/channel/deptSwitch?areaCode=510300000000
+     [国家法律法规数据库] https://flk.npc.gov.cn
+     [省法规] https://rhpt.scspc.gov.cn/flfgkgzd
+     [省政府规章] https://www.sc.gov.cn/10462/c108923/zfgz_list.shtml
+     [市法规] https://www.zgsrdcwh.gov.cn/list/rdxq/lfgz/dfxfg.html
+     [市政府规章] /zgsrmzf/szfgz/pc/list.html
+     [规范性文件] /zgsrmzf/zfgfxwj387/pc/list.html
+     [信用自贡] http://credit.zg.gov.cn/
+     [政策文件] http://credit.zg.gov.cn/316/index.html
+     [守信红名单] http://credit.zg.gov.cn/creditsearch.redblacklistindex.dhtml?type=red&source_id=lVCKGc808rXnG6w2ApY
+     [失信曝光台] http://credit.zg.gov.cn/creditsearch.redblacklistindex.dhtml?type=black&source_id=csLqRYQGSbyh26aWd4z
+     [行政处罚决定] http://credit.zg.gov.cn/creditsearch.publicityIframe.dhtml
+     [失信被执行人查询] http://credit.zg.gov.cn/creditsearch.redblacklistindex.dhtml?templateID=&type=black&source_id=DJ9OkCaISnwuyKVtDux
+     [政策文件] https://www.sc.gov.cn/10462/c111441/list_ft.shtml
+     [行政执法人员信息查询] https://www.sczwfw.gov.cn/tftb/hos-server/pub/jmas/jmasbucket/jmopen_files/webapp/html5/sftxzzfryxxcxpc/index.html?areaCode=510300000000
+     [双随机——公开公告] https://sc.gsxt.gov.cn/corp-query-entprise-info-xxgg-510000.html
+     [食品药品] javascript:;
+     [药品数据查询] https://www.nmpa.gov.cn/datasearch/home-index.html#category=yp
+     [医疗器械数据查询] https://www.nmpa.gov.cn/datasearch/home-index.html#category=ylqx
+     [化妆品数据查询] https://www.nmpa.gov.cn/datasearch/home-index.html#category=hzp
+     [其他数据查询] https://www.nmpa.gov.cn/datasearch/home-index.html#category=qt
+     [食品安全标准查询] http://wsjkw.sc.gov.cn/scwsjkw/spaqbz1/spaqbzgl.shtml
+     [交通运输] javascript:;
+     [交通运输行政处罚结果] http://xy.scjtxxh.cn:8080/xzcfqd
+     [四川省道路营运驾驶员记分查询] https://jf.scsyg.cn/csq
+     [自然资源] javascript:;
+     [地质资料及档案服务] http://dnr.sc.gov.cn/scdnr/scdzzl/sc_dzzl.shtml
+     [四川省征地信息公开平台] http://dnr.sc.gov.cn/scdnr/zdxxpt/sc_zdxxgk.shtml
+     [全国矿业权人勘查开采信息公示系统] https://kyqgs.mnr.gov.cn/
+     [全国地质勘查行业监管服务平台] https://dkjgfw.mnr.gov.cn/#/site/home
+     [四川省城乡建设用地增减挂钩结余指标流传信息平台] http://mh.icdnrsc.net/FlowInfo/Home/Index
+     [四川省补充耕地指标异地流转信息平台] http://mh.icdnrsc.net/FlowInfo/Default/Index
+     [住房建设] javascript:;
+     [小住安全随手拍] http://jst.sc.gov.cn/scjst/wtyjgzzpt/manholeCover.shtml
+     [建筑市场监管与诚信一体化平台] http://202.61.88.188/xmgk/yth/index.aspx
+     [四川省建筑企业良好行为管理信息系统] http://dzzw.scjs.net.cn:8035/web/login/lhxwgl.html
+     [四川省房屋质量安全智慧监管平台（燃气企业端）] https://fwpc.scjs.net.cn/shengting/gassafe/#/org/login
+     [四川省建设工程质量检测监管平台] http://zljc.scjs.net.cn:8030/#/login
+     [生态环境] javascript:;
+     [空气、水环境等数据] http://sthjt.sc.gov.cn/sthjt/sjfw/newsjfw.shtml
+     [环境管理] http://sthjt.sc.gov.cn/sthjt/c104157/hjglnew.shtml
+     [企业环境信用评价系统（省厅公示端）] http://103.203.219.138:18081/#/indexNoLogin
+
+## 绵阳 首页 全部 a（前 80）
+     [æºè½é®ç­] http://www.my.gov.cn/znwd/
+     [ç¹é«] javascript:;
+     [ç®ä½] javascript:;
+     [EN] /mysrmzf/c102246/english.shtml
+     [ç»ä¸ç»å½] javascript:;
+     [æ éç¢] javascript:;
+     [éèç] javascript:;
+     [é¦ããé¡µ] /mysrmzf/index.shtml
+     [æ¿åºé¢å¯¼] /mysrmzf/c100121/zfld.shtml
+     [èµ°è¿ç»µé³] /mysrmzf/c100130/zjmy.shtml
+     [æ¿å¡å¬å¼] /mysrmzf/c100033/zwgk.shtml
+     [æ¿å¡æå¡] http://mys.sczwfw.gov.cn/?areaCode=510700000000
+     [æ¿æ°äºå¨] /mysrmzf/c100123/zmhd.shtml
+     [æ°æ®åå¸] /mysrmzf/c104113/sjfb.shtml
+     [å½å®¶æ¿ç­æä»¶ï¼] https://www.gov.cn/zhengce/xxgk/index.htm
+     [çæ¿åºæ¿ç­æä»¶ï¼] https://www.sc.gov.cn/10462/scszcwjkss/scszcwjkss.shtml
+     [ä¸ªäººæå¡] https://www.sczwfw.gov.cn/jiq/front/item/gr_index?areaCode=510000000000
+     [æ³äººæå¡] https://www.sczwfw.gov.cn/jiq/front/item/fr_index?areaCode=510000000000
+     [é¨é¨æå¡] https://www.sczwfw.gov.cn/jiq/front/channel/deptSwitch?areaCode=510000000000
+     [å¸åå±æ¹é©å§] https://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=729836822&areaCode=510700000000
+     [å¸ç»ä¿¡å±] https://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=1151060000841016XR&areaCode=510700000000
+     [å¸æä½å±] https://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=1151600008410223T&areaCode=510700000000
+     [å¸ç§æå±] https://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=008410573&areaCode=510700000000
+     [å¸å¬å®å±] https://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=008410258&areaCode=510700000000
+     [å¶ä»é¨é¨] https://www.sczwfw.gov.cn/jiq/front/channel/deptSwitch?areaCode=510700000000
+     [è·¨çéå] https://www.sczwfw.gov.cn/col/col61103/index.html?areaCode=510000000000
+     [çåéå] https://www.sczwfw.gov.cn/jiq/front/spec/pro_handle?areaCode=510000000000
+     [å½å®¶æ³å¾æ³è§] https://flk.npc.gov.cn/index
+     [åå·çæ³è§] https://rhpt.scspc.gov.cn/flfgkgzd
+     [åå·çæ¿åºè§ç«] https://www.sc.gov.cn/10462/c108923/zfgz_list.shtml
+     [ç»µé³å¸æ¿ç­æä»¶] /mysrmzf/c100061/xxgk_list.shtml
+     [æ¿ç­æä»¶] http://credit.my.gov.cn/64/index.html
+     [å®ä¿¡çº¢åå] https://credit.my.gov.cn/creditsearch.redandblacklist.dhtml?type=red
+     [å¤±ä¿¡æåå°] https://credit.my.gov.cn/creditsearch.redandblacklist.dhtml?type=black
+     [è¡æ¿å¤ç½å³å®] https://credit.my.gov.cn/612.snipet.block.dhtml
+     [ä¿¡ç¨ä¿®å¤] https://www.creditchina.gov.cn/xyxf/xfzn/
+     [æ¿ç­] /mysrmzf/c100061/xxgk_list.shtml
+     [ç»è¥å¼å¸¸åå½æ¥è¯¢] http://credit.my.gov.cn/snipet/557.html
+     [æ¿åºé¢å¯¼] /mysrmzf/c100114/xxgk_jgjj.shtml
+     [å¸æ¿åºå·¥ä½æºæ] /mysrmzf/c100114/xxgk_jgjj.shtml
+     [å¸æ¿åºå¸¸å¡ä¼è®®] /mysrmzf/c100093/list.shtml
+     [æ¿åºè§ç«] /mysrmzf/c100060/xxgk_gz.shtml
+     [è¡æ¿è§èæ§æä»¶] /mysrmzf/c100061/xxgk_list.shtml
+     [å¶ä»æä»¶] /mysrmzf/c100062/xxgk_list.shtml
+     [æ¿ç­è§£è¯»] /mysrmzf/c100064/xxgk_list.shtml
+     [æ´å¤>>] /mysrmzf/c100033/zwgk.shtml
+     [æ¿åºä¿¡æ¯å¬å¼æå] /mysrmzf/gkzn/zfxxgk_zn.shtml
+     [æ¿åºä¿¡æ¯å¬å¼å¶åº¦] /mysrmzf/gkzd/xxgk_list.shtml
+     [æ³å®ä¸»å¨å¬å¼åå®¹] /mysrmzf/c100114/xxgk_jgjj.shtml
+     [æ¿åºä¿¡æ¯å¬å¼å¹´æ¥] /mysrmzf/gknb/zfxxgknb.shtml
+     [ä¾ç³è¯·å¬å¼] /mysrmzf/ysqgk/zfxxgk_zn.shtml
+     [æåº¦æ°æ®] /mysrmzf/c100109/xxgk_list.shtml
+     [å­£åº¦æ°æ®] /mysrmzf/c100110/xxgk_list.shtml
+     [å¹´åº¦æ°æ®] /mysrmzf/c100111/xxgk_list.shtml
+     [æ°æ®åå¸] https://www.my.gov.cn/datamianyang/
+     [ç»è®¡å¹´é´] /mysrmzf/c104116/list.shtml
+     [ç»è®¡å¬æ¥] /mysrmzf/c104114/list.shtml
+     [ç»µé³å¸æ¿å¡å°å¾] /mysrmzf/c104219/zwdt.shtml
+     [å¸äººå¤§] http://rd.my.gov.cn/
+     [å¸æ¿å] http://zx.my.gov.cn/
+     [å¸ä¸­çº§äººæ°æ³é¢] https://sc.myfy.gov.cn/
+     [å¸äººæ°æ£å¯é¢] http://www.mianyang.jcy.gov.cn/
+     [å±äº§ååææºæ¥] https://12371.people.com.cn/
+     [ä¸­å½æ¿åºç½] http://www.gov.cn/
+     [å½å®¶é¨å§ç½ç«] https://www.gov.cn/home/2023-03/29/content_5748953.htm
+     [çåå±æ¹é©å§] http://fgw.sc.gov.cn/
+     [ç»æµåä¿¡æ¯åå] https://jxt.sc.gov.cn/
+     [æè²å] http://edu.sc.gov.cn/
+     [ç§æå] https://kjt.sc.gov.cn/
+     [çæ°æå®æå§] http://mzw.sc.gov.cn/
+     [å¬å®å] http://gat.sc.gov.cn/
+     [æ°æ¿å] http://mzt.sc.gov.cn/
+     [å¸æ³å] http://sft.sc.gov.cn/
+     [è´¢æ¿å] http://czt.sc.gov.cn/
+     [èªç¶èµæºå] http://dnr.sc.gov.cn/
+     [çæç¯å¢å] http://sthjt.sc.gov.cn/
+     [ä½æ¿åä¹¡å»ºè®¾å] http://jst.sc.gov.cn/
+     [äº¤éè¿è¾å] http://jtt.sc.gov.cn/
+     [æ°´å©å] http://slt.sc.gov.cn/
+     [åä¸åæå] http://nynct.sc.gov.cn/

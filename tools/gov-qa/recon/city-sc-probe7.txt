@@ -1,0 +1,69 @@
+## 攀枝花 /hdcy/szxx/szxx/index.shtml 全部 script src + 可见文本
+     SRC /static/js/jquery1.8.3.min.js
+     SRC /static/js/ecm.js
+     SRC /static/js/md5.js
+     SRC /static/js/jquery.focus.js
+     SRC /static/js/jquery.tab.js
+     SRC /static/js/jquery.roll.js
+     SRC /static/js/jquery.SuperSlide.js
+     SRC /static/js/common.js
+     SRC /static/js/jquery.tree.js
+     SRC /static/js/json2.js
+     SRC /static/js/analysis.js
+     SRC /static/js/comment.js
+     SRC /static/js/custom.js
+     SRC /static/js/document.js
+     SRC /static/js/mailbox.js
+     SRC /static/js/member.js
+     SRC /static/js/politics.js
+     SRC /static/js/survey.js
+     SRC /static/js/xxgk.js
+     SRC /static/js/pager.js
+     SRC /static/js/socrll.js
+     SRC /static/js/jquery.uploadify.min.js
+     SRC /static/js/My97DatePicker/WdatePicker.js
+     SRC /static/js/lang.js
+     SRC /xb_zwgk//js/jquery1.8.3.min.js
+     SRC /xb_zwgk//js/jquery.SuperSlide.2.1.2.js
+     SRC http://res2.wx.qq.com/open/js/jweixin-1.6.0.js
+     SRC https://zfwzgl.www.gov.cn/exposure/jiucuo.js
+     SRC //bf.intertid.com/wza/wza2.min.js?appid=c6AltBZk9GApWF1
+     SRC http://static.panzhihua.gov.cn/webmonitor/test/ja.min.js
+     SRC /static/js/animate.js
+     SRC /static/js/file_handling.js
+     URL /webapp/mailbox/getAllSubOrgan
+     URL /webapp/member/logout
+     URL  + window.location.href, (resp) => {
+		resp = JSON.parse(resp);
+		wx.config({
+		  //debug: true, // å¼å¯è°è¯æ¨¡å¼,è°ç¨çææapiçè¿åå¼ä¼å¨å®¢æ·ç«¯alertåºæ¥ï¼è¥è¦æ¥çä¼ å¥çåæ°ï¼å¯ä»¥å¨pcç«¯æå¼ï¼åæ°ä¿¡æ¯ä¼éè¿logæåºï¼ä»å¨pcç«¯æ¶æä¼æå°ã
+		  appId: resp.msg.appId, // å¿å¡«ï¼å¬ä¼å·çå¯ä¸æ è¯
+		  timestamp: resp.msg.timestamp, // å¿å¡«ï¼çæç­¾åçæ¶é´æ³
+		  nonceStr: resp.msg.nonceStr, // å¿å¡«ï¼çæç­¾åçéæºä¸²
+		  signature: resp.msg.signature,// å¿å¡«ï¼ç­¾å
+		  jsApiList: [
+     VISIBLE=å¸æ¿åºä¿¡ç®± æ³¨å | ç»å½ --> --> --> Androidç³»ç» --> å®åç --> ---> ç® | ç¹ | EN --> ç½ç«æ¯æIPv6 --> ç­ç¹æ¥è¯¢: åº·å » å ¬ç§¯é è±å ç¤¾ä¿ é¦é¡µ èµ°è¿ææè± é¢å¯¼ä¹çª æ¿å¡å ¬å¼ æ¿ç­æä»¶ æ¿ç­è§£è¯» ååºå ³å ä¾ç³è¯·å ¬å¼ æ¿åºä¿¡æ¯å ¬å¼ä¸æ  æ°æ®åå¸ æ°æ®å¼æ¾ æ¿å¡æå¡ ç½ç»çæ¿ å¸æ¿åºä¿¡ç®± å¸æ¿åºé¨é¨ä¿¡ç®± å¿ï¼åºï¼æ¿åºä¿¡ç®± æè§å¾é æ¿å¡æ°åªä½ç©éµ 12345æ¿å¡æå¡ä¾¿æ°ç­çº¿ æèµæå¡ æ æ¸¸æå¡ é¦é¡µ > ç½ç»çæ¿ > å¸é¿ä¿¡ç®± > å¸é¿ä¿¡ç®± ä¿¡ä»¶æµæ°´å·ï¼ è¯·éæ©ä½ è¦åä¿¡çé¢å
+     HIT mailbox/getAllSubOrgan
+
+## 攀枝花 mailbox 端点穷举
+  /webapp/mailbox/getLetterList -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getMailboxLetters -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getAllMail -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getMailsByOrg -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getOrgMailList -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getLetters -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/getLetter -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+  /webapp/mailbox/queryMail -> 404 len=1552 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm'
+
+## 自贡 www.zg.gov.cn 互动链接
+     [四川省市场监督管理局消费投诉信息公示系统] http://182.131.3.111:18090/
+     [意见征集] /zgsrmzf/yjzj/pc/list.html
+     [在线访谈] /zgsrmzf/zxft/pc/list.html
+
+## 绵阳 www.my.gov.cn 互动链接
+
+## 成都备域
+  https://12345.chengdu.gov.cn/ -> 412 len=2343 title=?
+  http://12345.chengdu.gov.cn/ -> 412 len=2400 title=?
+  https://www.chengdu.gov.cn:443/ -> 412 len=2355 title=?
+  https://cdzwfw.chengdu.gov.cn/ -> 412 len=2354 title=?

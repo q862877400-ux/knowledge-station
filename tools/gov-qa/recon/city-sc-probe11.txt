@@ -1,0 +1,50 @@
+## 攀枝花 getAllSubOrgan?id=2 树
+   root id=2 name=市政府领导
+   id=3 name=市长 channelId=None
+     id=4 name=范继跃 channelId=None
+   id=5 name=副市长 channelId=None
+     id=6 name=李堂兵 channelId=None
+     id=12 name=张  治 channelId=None
+     id=8 name=李  明 channelId=None
+     id=9 name=任礎军 channelId=None
+     id=11 name=周  强 channelId=None
+     id=13 name=许军峰 channelId=None
+     id=923 name=刘建波 channelId=None
+     id=925 name=邱  磊 channelId=None
+     id=926 name=袁晓 channelId=None
+   id=874 name=秘书长 channelId=None
+     id=14 name=彭骏 channelId=None
+
+## 攀枝花 /webapp/mailbox/letterListJson
+  {'channelId': 2, 'mailType': 1, 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<meta http-equiv="Conten'
+  {'channelId': '2', 'mailType': '1', 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<meta http-equiv="Conten'
+  {'channelId': 2, 'mailType': '', 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<meta http-equiv="Conten'
+  {'channelId': '', 'mailType': 1, 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<meta http-equiv="Conten'
+
+## 自贡 szxx/pc/list.html 全文
+<!doctype html>
+<html lang="en">
+
+<head>
+  <base href="/zgsrmzf/" /> 
+  <meta name="SiteName" content="自贡市人民政府" /> 
+  <meta name="SiteDomain" content="http://www.zg.gov.cn" /> 
+  <meta name="SiteIDCode" content="5103000007" /> 
+  <meta name="ColumnName" content="市长信箱" /> 
+  <meta name="ColumnDescription" content="本栏目发布自贡市人民政府网站“市长信箱”栏目相关信息" /> 
+  <meta name="ColumnKeywords" content="市长、信箱" /> 
+  <meta name="ColumnType" content="咨询投诉" /> 
+  <meta name="HtmlGenerateTime" content="2025-04-24 17:04:27" /> 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市长信箱-自贡市人民政府</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var channelsTag = {"code":"szxx","releaseTime":1752459598000,"showName":"<p>市长信箱</p>","channelType":"0","childCount":3,"fileFlag":"0","articleCount":0,"sort":1,"classification":"咨询投诉","describes":"本栏目发布自贡市人民政府网站“市长信箱”栏目相关信息","parentId":"942783815519047680","tags":"市长、信箱","urls":"{\"pc\":\"/zgsrmzf/szxx/pc/list.html\",\"form\":\"/zgsrmzf/mail/form.html\",\"detail\":\"/zgsrmzf/mail/detail.html\"}","crumbs":[{"urls":{"pc":"/zgsrmzf/hdjl/pc/list.html"},"name":"互动交流","redirectLink":""},{"urls":{"pc":"/zgsrmzf/szxx/pc/list.html","form":"/zgsrmzf/mail/form.html","detail":"/zgsrmzf/mail/detail.html"},"name":"市长信箱","redirectLink":""}],"children":[{"code":"lxxd","releaseTime":1746687848000,"showName":"<p>来信选登</p>","channelType":"0","childCount":0,"fileFlag":"0","articleCount":0,"sort":1,"classification":"咨询投诉","describes":"本栏目发布自贡市人民政府网站“来信选登”栏目相关信息","parentId":"942783816135610368","tags":"来信、选登","urls":"{\"pc\":\"/zgsrmzf/lxxd/pc/list.html\"}","crumbs":[{"urls":{"pc":"/zgsrmzf/hdjl/pc/list.html"},"name":"互动交流","redirectLink":""},{"urls":{"pc":"/zgsrmzf/szxx/pc/list.html","form":"/zgsrmzf/mail/form.html","detail":"/zgsrmzf/mail/detail.html"},"name":"市长信箱","redirectLink":""},{"urls":{"pc":"/zgsrmzf/lxxd/pc/list.html"},"name":"来信选登","redirectLink":""}],"name":"来信选登","showOrNot":1,"id":"942783816789921792","aggregationChannel":"0","redirectLink":""},{"code":"bmxx","releaseTime":1745996214000,"showName":"<p>部门信箱</p>","channelType":"0","childCount":0,"fileFlag":"0","articleCount":0,"sort":2,"classification":"咨询投诉","describes":"本栏目发布自贡市人民政府网站“部门信箱”栏目相关信息","parentId":"942783816135610368","tags":"部门、信箱","urls":"{\"pc\":\"/zgsrmzf/bmxx/pc/list.html\"}","crumbs":[{"urls":{"pc":"/zgsrmzf/hdjl/pc/list.html"},"name":"互动交流","redirectLink":""},{"urls":{"pc":"/zgsrmzf/szxx/pc/list.html","form":"/zgsrmzf/mail/form.html","detail":"/zgsrmzf/mail/detail.html"},"name":"市长信箱","redirectLink":""},{"urls":{"pc":"/zgsrmzf/bmxx/pc/list.html"},"name":"部门信箱","redirectLink":""}],"name":"部门信箱","showOrNot":1,"id":"942783817322598400","aggregationChannel":"0","redirectLink":""}],"name":"市长信箱","showOrNot":1,"id":"942783816135610368","aggregationChannel":"0","redirectLink":""};
+    var data = '';
+    for(var i = 0;i<channelsTag.children.length;i
+
+## 自贡 找 ajaxUrl 配置脚本

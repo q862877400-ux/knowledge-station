@@ -1,0 +1,102 @@
+## 攀枝花 /mailbox/letterListJson 实测
+  http://www.panzhihua.gov.cn {'pageIndex': 1, 'pageSize': 5} -> 404 ct=text/html len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+  http://www.panzhihua.gov.cn {'pageNum': 1, 'pageSize': 5} -> 404 ct=text/html len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+  http://www.panzhihua.gov.cn {'id': 2, 'pageIndex': 1, 'pageSize': 5} -> 404 ct=text/html len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+  http://www.panzhihua.gov.cn {'organId': 2, 'pageIndex': 1, 'pageSize': 5} -> 404 ct=text/html len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+  http://www.panzhihua.gov.cn/webapp {'pageIndex': 1, 'pageSize': 5} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<met'
+  http://www.panzhihua.gov.cn/webapp {'pageNum': 1, 'pageSize': 5} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<met'
+  http://www.panzhihua.gov.cn/webapp {'id': 2, 'pageIndex': 1, 'pageSize': 5} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<met'
+  http://www.panzhihua.gov.cn/webapp {'organId': 2, 'pageIndex': 1, 'pageSize': 5} -> 500 ct=text/html;charset=UTF-8 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<met'
+
+## 攀枝花 mailbox.js letterListJson 调用上下文
+  ... @param objId  数据列表html对象  * @param pageObjId 分页html对象  *  */   webappUtils.searchLetterPager = function(channelId,mailType,pageNum,pageSize,extParams,indexpage,objId,pageObjId){ 	var url = "/mailbox/letterListJson";  	 //请求参数     var baseParams =  {         "channelId": channelId,          "mailType": mailType,         "pageSize":pageSize,         "pageNum":pageNum, 		"orderStr":"replytime"     }; 	     var  queryData =  $.extend( baseParams, extParams );     //拼接列表数据     var  CallbackFn =  function(data){ 		var info = data.topics;         //数据列表 		var html='<table style="border-collapse: col
+
+## 自贡 collect_list.js 全文
+$(function () {
+  if ($('#collect-data-list').length > 0) {
+    //意见征集列表
+    getList(1, 10);
+  }
+});
+
+function getList(current, pageSize) {
+  var pageDom = '.pagination';
+  $.ajax({
+    url: ajaxUrl.sr.hd.collect.list,
+    type: 'get',
+    data: {
+      tenantId: defaultConfig.userIdObj.tenantId,
+      // deptId: defaultConfig.userIdObj.zgsrmzf.deptId,
+      siteId: defaultConfig.userIdObj.zgsrmzf.qdId,
+      current: current,
+      pagesize: pageSize,
+      sort: 'startTime',
+      collectStatus: '602,603'
+    },
+    success: function (res) {
+      var data = res.data
+      renderList(data, '#collect-data-list');
+      //分页
+      if ($(pageDom).length > 0) {
+        getPagination(res, current, pageSize, pageDom)
+      }
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+}
+
+//分页
+function getPagination(res, current, pageSize, pageDom) {
+  var total = res.total;
+  var pageCount = total % pageSize > 0 ? 1 + parseInt(total / pageSize) : parseInt(total / pageSize)
+  if (pageCount > 1) {
+    $(pageDom).pagination({
+      pageCount: pageCount, // 总页数
+      current: current, // 当前页
+      jump: true, //是否开启跳转到指定页数
+      coping: true, //是否开启首页和末页
+      homePage: '首页', // 首页按钮的文本
+      endPage: '末页', // 末页按钮的文本
+      count: 2,
+      prevContent: '<font class="none">上一页</font><i class="arrow arrow-left"></i>', //上一页按钮的文本
+      nextContent: '<font class="none">下一页</font><i class="arrow arrow-right"></i>', //下一页按钮的文本
+      total: true, //是否显示总条数和页数
+      totalData: total, //数据总条数
+      callback: function (api) { // 当你切换页面的时候会触发
+        // console.log(api.getCurrent())//获取当前是第几页
+        // console.log( getPageCount())//获取当前总页数
+        // console.log( getPageCount(page))//设置当前总页数 page为参数
+        getList(api.getCurrent(), pageSize)
+      }
+    });
+  } else if (pageCount == 1) {
+    $(pageDom).hide();
+  }
+}
+
+
+function renderList(data, dom) {
+  var _lis = '';
+  data.forEach(function (item, index) {
+    _lis += templ(item)
+  });
+  $(dom).html(_lis || '<li class="nodata">无相关数据</li>');
+}
+
+function templ(item) {
+  var _li = ''
+  var id = item.id
+  var title = item.title
+  var statusText = defaultConfig.statusCode[item.collectStatus]
+  var startTime = item.startTime.substring(0, 10)
+  var endTime = item.endTime.substring(0, 10)
+  var linkUrl = '/' + websiteCode + '/collect/detail.html?id=' + id
+  var iClass = statusText == '已结束' ? 'over' : 'ing';
+  var btnTxt = statusText == '已结束' 
+
+## 自贡 szxx/pc/list.html 内联 JS
+
+## 绵阳 首页 nav HTML 片段
+  NAV>>> <div class="navbar top-navbar"> <div class="nav clearfix"> <ul> <li><a href="/mysrmzf/index.shtml">é¦ããé¡µ</a></li> <li><a href="/mysrmzf/c100121/zfld.shtml">æ¿åºé¢å¯¼</a></li> <li><a href="/mysrmzf/c100130/zjmy.shtml">èµ°è¿ç»µé³</a></li> <li><a href="/mysrmzf/c100033/zwgk.shtml">æ¿å¡å ¬å¼</a></li> <li><a href="http://mys.sczwfw.gov.cn/?areaCode=510700000000" target="_blank">æ¿å¡æå¡</a> </li> <li><a href="/mysrmzf/c100123/zmhd.shtml">æ¿æ°äºå¨</a></li> <li><a href="/mysrmzf/c104113/sjfb.shtml">æ°æ®åå¸</a></li> </ul> </div> </div> </div> <div class="main"> <div class="container"> <div class="news"> <div class="news-section-1 clearfix"> <div class="news-pic"> <div class="slideBox"> <div class="hd"> <ul> <li></li> <li></li> <li></li> <li></li> </ul> </div> <div class="bd"> <ul> <li> <a href="javascript:void(0);" target="_blank"> <img src="/mysrmzf/c102256/202603/7670fa87aa754dfd86c5eb96925fb4fe/images/ecc734f0645c45aab31f78246d075511.png " /> <p> ä»¥âå¹²å¨å®å¤âçä½é£å¹²äºåä¸ ä»¥âèµ°å¨ååâçå²å¤´åå äºä¼ </p> </a> </li> <li> <a href="javascript:void(0);" target="_blank"> <img src="/mysrmzf/c102256/202603/2097327d3fe443c0bf0c2c272b5ecfa9/images/d6e952c1c6684559aba3c34dc9c4a99d.png " /> <p> æ¿æ¬å®å¹²ä¹å¿ æç¢ç»æµå¤§å¸æ å½ä¹è´£ </p> </a> </li> <li> <a href="https://liuyan.www.gov.cn/2025wwzfgzbgtjy/bmdf.html?q=sc" target="_blank"> <img src="/mysrmzf/c102256/202412/1d28cbc71bbc4a0686a95ccca600dcff/images/8df2740113e24b06b78a7b638f517111.jpg " /> <p> @å½å¡é¢ ææ¥è¯´ </p> </a> </li> <li> <a href="https://www.gov.cn/zhengce/zczhjd/" target="_blank"> <img src="/mysrmzf/c102256/202311/27356addfed94428b4d5e6e372bdf559/images/fa857c1476c441f5a80fafab08785b2c.jpg " /> <p> 

@@ -1,0 +1,35 @@
+## 自贡 /zgsrmzf/lxxd/pc/list.html
+  status=200 len=17691
+     SRC /default/libs/layui/layui.js
+     SRC /default/libs/jquery.min.js
+     SRC /default/libs/jquery.pagination.js
+     SRC /default/libs/config.js
+     SRC /zgsrmzf/pc2025/js/commonApi.js
+     SRC /default/libs/transform.full.js
+     SRC /default/libs/new_transform.js
+     SRC /zgsrmzf/pc2025/js/login.js
+     SRC /zgsrmzf/pc2025/js/header.js
+     SRC /default/libs/jiucuo.js
+     SRC /zgsrmzf/pc2025/js/footer.js
+     SRC //gov.govwza.cn/dist/aria.js?appid=5efaa6cf181c70e369068992cb88b14e
+     SRC /zgsrmzf/pc2025/js/common.js
+     SRC /zgsrmzf/pc2025/hd/js/mail_list.js
+     JS>>>  var websiteId = "1889555982521884672", websiteCode = "zgsrmzf", codeName = "lxxd", channelId = "942783816789921792"; 
+     JS>>>  var _yfx_trackdata = _yfx_trackdata || []; //事件采集 var _yfx_website = "10000001"; //站点编号（不可更改） (function() { var yfxjs = document.createElement("script"); yfxjs.charset = "utf-8"; yfxjs.src = "/report/yeefxcount.js"; var yfxjs_t = document.getElementsByTagName("script")[0]; yfxjs_t.parentNode.insertBefore(yfxjs, yfxjs_t); })(); 
+
+## 自贡 试 list API
+  https://www.zg.gov.cn/zgsrmzf/hd/api/list -> 404 ct=text/html; charset=utf-8 len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c'
+  https://www.zg.gov.cn/api/hd/list -> 404 ct=None len=110 '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>'
+  https://www.zg.gov.cn/zgsrmzf/lxxd/pc/listJson.html -> 404 ct=text/html; charset=utf-8 len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c'
+  https://www.zg.gov.cn/zgsrmzf/lxxd/listJson -> 404 ct=text/html; charset=utf-8 len=146 '<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</c'
+
+## 攀枝花 500 响应体
+   很抱歉，服务器响应异常！ body {margin: 0px; padding:0px; font-family:"微软雅黑", Arial, "Trebuchet MS", Verdana, Georgia,Baskerville,Palatino,Times; font-size:16px;} div{margin-left:auto; margin-right:auto;} a {text-decoration: none; color: #1064A0;} a:hover {color: #0078D2;} img { border:none; } h1,h2,h3,h4 { /* display:block;*/ margin:0; font-weight:normal; font-family: "微软雅黑", Arial, "Trebuchet MS", Helvetica, Verdana ; } h1{font-size:44px; color:#0188DE; padding:20px 0px 10px 0px;} h2{color:#0188DE; font-size:16px; padding:10px 0px 40px 0px;} #page{width:910px; padding:20px 20px 40px 20px; margin-top:80p
+
+## 攀枝花 getMailboxInfo
+  -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n<meta http-equiv="Conten'
+
+## 泸州 分页确认
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/List -> 200 信件数=20 例=['12868', '12908', '12928', '12935', '12936']
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/List_2 -> 200 信件数=20 例=['11869', '11975', '12023', '12038', '12039']
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/List_3 -> 200 信件数=16 例=['11549', '11586', '11598', '11660', '11664']

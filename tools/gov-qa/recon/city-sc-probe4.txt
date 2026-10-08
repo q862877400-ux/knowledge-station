@@ -1,0 +1,60 @@
+## 泸州 LetterBox/sjszxx/List 结构
+  status=200 len=59654
+     [我要写信] /LetterBox/Home/Notice?letterCategoryId=141
+     [信件公开] /LetterBox/sjszxx/List
+     [泸州市乒乓球裁判证考取通道] /LetterBox/15046
+     [泸州银河左岸音乐节] /LetterBox/15025
+     [关于请求优化泸州十二中方向公交线路的求助信] /LetterBox/14883
+     [白泥综合能源型加油站何时修建] /LetterBox/14892
+     [占道经营且噪音油烟扰民] /LetterBox/14877
+     [关于加密市区至云龙机场公交班次及优化车型的建议] /LetterBox/14786
+     [农房屋基产权证] /LetterBox/14753
+     [咨询泸州市区共享单车] /LetterBox/14648
+     [咨询] /LetterBox/14450
+     [公费师范生随配偶调动问题] /LetterBox/13193
+     [酒城中心上筑小区建渣堆放严重影响居民生活] /LetterBox/13203
+     [咨询叙永县被征地农民社保安置政策] /LetterBox/13178
+     [关于治理安福斯停车场出口楼上排污管道泄漏的建议] /LetterBox/13061
+     [契税缴纳政策咨询] /LetterBox/13037
+     [关于巧越牌核桃花生奶复合蛋白饮料是否合格的问题] /LetterBox/13011
+     [叙永县江门镇香港理文纸浆110亿省市重点项目进展情况] /LetterBox/12936
+     [建一点体育设施利民利国] /LetterBox/12928
+     [玩自行车场地建设] /LetterBox/12935
+     [泸州龙马潭区公园九街项目拖欠农民工工资] /LetterBox/12908
+     [关于保留泸州蓝田机场南端部分跑道与机坪以打造川南低空经济示范基地的建议] /LetterBox/12868
+     [下一页] /LetterBox/sjszxx/List_2
+     [尾页] /LetterBox/sjszxx/List_3
+     分页候选: ['1', '2', '3']
+     含「答复」: 0
+     含「回复」: 1
+     含「处理结果」: 0
+     含「信件内容」: 0
+     含「来信内容」: 0
+
+## 泸州 详情页探测
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/Detail/1 -> 404 len=12234
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/List_2 -> 200 len=59838
+  https://www.luzhou.gov.cn/LetterBox/Detail/1 -> 404 len=12234
+
+## 攀枝花 hdcy 子栏目
+  /hdcy/szxx/szxx/index.shtml -> 200 len=26684 title=å¸æ¿åºä¿¡ç®±
+       EP /static/js/json2.js
+  /hdcy/szfbmxx/index.shtml -> 200 len=27852 title=å¸æ¿åºé¨é¨ä¿¡ç®±
+       EP /static/js/json2.js
+  /hdcy/index.shtml -> 200 len=49120 title=ç½ç»çæ¿ Â· ææè±å¸äººæ°æ¿åº
+       EP /static/js/json2.js
+       EP /webapp/interView/subjectListJson
+       EP /webapp/politics/topicSummaryListJson
+  /hdcy/zwfwbmrx/index.shtml -> 200 len=32369 title=12345æ¿å¡æå¡ä¾¿æ°ç­çº¿ Â· ææè
+       EP /static/js/json2.js
+
+## 绵阳 hdcy 子栏目
+  /hdcy/szxx/szxx/index.shtml -> 502 len=52 title=?
+  /hdcy/szfbmxx/index.shtml -> 502 len=52 title=?
+  /hdcy/index.shtml -> 502 len=52 title=?
+  /hdcy/zwfwbmrx/index.shtml -> 502 len=52 title=?
+
+## 德阳 找信箱
+  https://www.deyang.gov.cn/hdjl/ -> 404 len=146
+  https://www.deyang.gov.cn/szxx/ -> 404 len=146
+  https://www.deyang.gov.cn/hd/ -> 404 len=146

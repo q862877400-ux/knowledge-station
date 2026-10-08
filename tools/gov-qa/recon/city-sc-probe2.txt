@@ -1,0 +1,53 @@
+
+===== 成都 =====
+  https://www.chengdu.gov.cn/ -> 412 len=2408 ct=text/html; charset=utf-8
+  http://www.chengdu.gov.cn/ -> 412 len=2408 ct=text/html; charset=utf-8
+
+===== 自贡 =====
+  https://www.zigong.gov.cn/ -> ERR
+  http://www.zigong.gov.cn/ -> ERR
+
+===== 攀枝花 hdcy =====
+  http://www.panzhihua.gov.cn/hdcy/zwfwbmrx/index.shtml -> ERR
+
+===== 绵阳 hdcy =====
+  http://www.mianyang.gov.cn/hdcy/zwfwbmrx/index.shtml -> ERR
+
+===== 泸州 LetterBox list =====
+  https://www.luzhou.gov.cn/LetterBox/sjszxx/List -> 200 len=59654 ct=text/html; charset=utf-8
+     P /contentmanage/ajax/ajaxaddanonymouslike
+     P /contentmanage/ajax/ajaxaddanonymousfavorite
+     P /LetterBox/sjszxx/List
+     P /letterbox/query
+     P /LetterBox/sjszxx/List
+     P /letterbox/query
+     P /LetterBox/sjszxx/List_2
+     P /LetterBox/sjszxx/List_3
+     P /LetterBox/sjszxx/List_2
+     P /LetterBox/sjszxx/List_3
+     P /LetterBox/sjszxx/List_1
+     P /LetterBox/sjszxx/List_2
+     P /LetterBox/sjszxx/List_3
+     P /User/ajaxlogin
+     P /User/ajaxphonelogin
+     P /User/ajaxcurrentusername
+     P /User/AjaxHasUnreadMessage
+  https://www.luzhou.gov.cn/LetterBox/notice -> 200 len=46454 ct=text/html; charset=utf-8
+     P /contentmanage/ajax/ajaxaddanonymouslike
+     P /contentmanage/ajax/ajaxaddanonymousfavorite
+     P /User/ajaxlogin
+     P /User/ajaxphonelogin
+     P /User/ajaxcurrentusername
+     P /User/AjaxHasUnreadMessage
+
+===== 德阳 =====
+  https://www.deyang.gov.cn/ -> 200 len=105434 ct=text/html
+     P /js/jquery.js
+     P /info/iList.jsp
+     P /js/jquery.js
+     P /info/iListGKJson.jsp
+  http://www.deyang.gov.cn/ -> 200 len=105434 ct=text/html
+     P /js/jquery.js
+     P /info/iList.jsp
+     P /js/jquery.js
+     P /info/iListGKJson.jsp
