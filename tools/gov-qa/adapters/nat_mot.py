@@ -55,6 +55,8 @@ PAGE_SIZE = 20
 PAUSE = 3.0
 #: 连续 403 达此值即停（避免硬刷把 IP 封更久）
 MAX_403 = 3
+#: 明细连续失败多少次就熔断（返回已收部分，避免长跑成果全丢）
+MAX_CONSEC_FAIL = 8
 
 SCRIPT_RE = re.compile(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
@@ -131,6 +133,7 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
     page = page_from if page_from is not None else _env_page_from()
     total = None
     f403 = 0
+    consec_fail = 0
     while True:
         if limit and len(out) >= limit:
             break
@@ -159,7 +162,21 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
             if not qid:
                 continue
             time.sleep(PAUSE)
-            d = fetch(DETAIL_API, params={"id": qid}, headers={"Referer": REFERER})
+            # ⚠ 明细请求必须兜异常：否则长跑中一条超时会让 harvest.py 整站丢弃、
+            #   已收的全丢（2026-10-09 在 nat-tax 上踩过：跑 63 分钟后零产出）。
+            try:
+                d = fetch(DETAIL_API, params={"id": qid}, headers={"Referer": REFERER})
+            except Exception as e:                                          # noqa: BLE001
+                consec_fail += 1
+                print(f"    [{SITE['key']}] 明细 {qid} {type(e).__name__}"
+                      f"（连续失败 {consec_fail}/{MAX_CONSEC_FAIL}）")
+                if consec_fail >= MAX_CONSEC_FAIL:
+                    print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 ⇒ 熔断，"
+                          f"返回已收 {len(out)} 条（下次续采）")
+                    return out
+                time.sleep(PAUSE * 3)
+                continue
+            consec_fail = 0
             code = getattr(d, "status_code", 0)
             if code == 403:
                 f403 += 1

@@ -48,6 +48,10 @@ def _env_sysids():
     want = {x.strip() for x in raw.split(",") if x.strip()}
     return [(sid, name) for sid, name in SYSIDS if str(sid) in want]
 
+
+#: 明细连续失败多少次就熔断（返回已收部分，避免长跑成果全丢）
+MAX_CONSEC_FAIL = 8
+
 SITE = {
     "key": "nat-cnipa",
     "name": "国家知识产权局·留言咨询",
@@ -145,6 +149,7 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
     out: list[dict] = []
     start_page = page_from if page_from is not None else _env_page_from()
     use = sysids or _env_sysids() or SYSIDS
+    consec_fail = 0
     for i, (sid, name) in enumerate(use):
         if limit and len(out) >= limit:
             break
@@ -167,8 +172,22 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
                 if limit and len(out) >= limit:
                     return out[:limit]
                 time.sleep(PAUSE)
-                d = fetch(DETAIL_API, params={"transactId": tid, "sysid": sid},
-                          headers={"Referer": f"https://www.cnipa.gov.cn/jact/front/main.do?sysid={sid}"})
+                # ⚠ 明细请求必须兜异常：否则长跑中一条超时会让 harvest.py 整站丢弃、
+                #   已收的几千条全丢（2026-10-09 在 nat-tax 上踩过）。
+                try:
+                    d = fetch(DETAIL_API, params={"transactId": tid, "sysid": sid},
+                              headers={"Referer": f"https://www.cnipa.gov.cn/jact/front/main.do?sysid={sid}"})
+                except Exception as e:                                      # noqa: BLE001
+                    consec_fail += 1
+                    print(f"    [{SITE['key']}] 明细 {tid} {type(e).__name__}"
+                          f"（连续失败 {consec_fail}/{MAX_CONSEC_FAIL}）")
+                    if consec_fail >= MAX_CONSEC_FAIL:
+                        print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 ⇒ 熔断，"
+                              f"返回已收 {len(out)} 条（下次续采）")
+                        return out
+                    time.sleep(PAUSE * 3)
+                    continue
+                consec_fail = 0
                 if getattr(d, "status_code", 0) != 200:
                     print(f"    [{SITE['key']}] 明细 {tid} HTTP {d.status_code}（跳过）")
                     continue

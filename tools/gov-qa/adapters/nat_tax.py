@@ -48,6 +48,8 @@ DETAIL_API = BASE + "/nszx/onlinemessage/detail"
 REFERER = BASE + "/nszx/onlinemessage/main"
 PAGE_SIZE = 8            # 服务端锁死，勿改
 PAUSE = 1.5
+#: 明细连续失败多少次就熔断（返回已收部分，避免长跑成果全丢）
+MAX_CONSEC_FAIL = 8
 
 TAG_RE = re.compile(r"<[^>]+>")
 SCRIPT_RE = re.compile(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", re.S | re.I)
@@ -96,12 +98,20 @@ def harvest(fetch, *, limit: int | None = None,
     out: list[dict] = []
     page = page_from if page_from is not None else _env_page_from()
     max_count = None
+    consec_fail = 0
     while True:
         if limit and len(out) >= limit:
             break
-        r = fetch.post(LIST_API,
-                       data={"currentPage": page, "nr": "", "jg": "", "zxjg": "", "lykssj": ""},
-                       headers={"Referer": REFERER, "X-Requested-With": "XMLHttpRequest"})
+        try:
+            r = fetch.post(LIST_API,
+                           data={"currentPage": page, "nr": "", "jg": "", "zxjg": "",
+                                 "lykssj": ""},
+                           headers={"Referer": REFERER,
+                                    "X-Requested-With": "XMLHttpRequest"})
+        except Exception as e:                                              # noqa: BLE001
+            print(f"    [{SITE['key']}] 列表第 {page} 页 {type(e).__name__}"
+                  f"（停，返回已收 {len(out)} 条）")
+            break
         if getattr(r, "status_code", 0) != 200:
             print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP {getattr(r, 'status_code', '?')}（停）")
             break
@@ -123,7 +133,23 @@ def harvest(fetch, *, limit: int | None = None,
             if not code:
                 continue
             time.sleep(PAUSE)
-            d = fetch(DETAIL_API, params={"id": code}, headers={"Referer": REFERER})
+            # ⚠ 明细请求必须自己兜异常：实测本站在长跑中会偶发 ReadTimeout，
+            #   若让异常冒泡，harvest.py 会整站丢弃、**已收的几十条/几千条全丢**
+            #   （2026-10-09 踩过：跑 63 分钟后一条超时 ⇒ 零产出）。
+            #   ⇒ 单条失败跳过；连续失败达阈值则熔断，**返回已收部分**。
+            try:
+                d = fetch(DETAIL_API, params={"id": code}, headers={"Referer": REFERER})
+            except Exception as e:                                          # noqa: BLE001
+                consec_fail += 1
+                print(f"    [{SITE['key']}] 明细 {code} {type(e).__name__}"
+                      f"（连续失败 {consec_fail}/{MAX_CONSEC_FAIL}）")
+                if consec_fail >= MAX_CONSEC_FAIL:
+                    print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 ⇒ 熔断，"
+                          f"返回已收 {len(out)} 条（下次续采）")
+                    return out
+                time.sleep(PAUSE * 3)
+                continue
+            consec_fail = 0
             if getattr(d, "status_code", 0) != 200:
                 print(f"    [{SITE['key']}] 明细 {code} HTTP {d.status_code}（跳过）")
                 continue
