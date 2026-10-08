@@ -1,0 +1,147 @@
+## 绵阳 my.gov.cn 常见路径
+  /hdjl/ -> 404 len=2417 title=404
+  /hdjl/index.html -> 404 len=2417 title=404
+  /szxx/ -> 404 len=2417 title=404
+  /zmhd/ -> 404 len=2417 title=404
+  /hd/ -> 200 len=8 title=?
+  /hdcy/ -> 404 len=2417 title=404
+  /mysrmzf/hdjl/ -> 404 len=2417 title=404
+  /mysrmzf/szxx/ -> 404 len=2417 title=404
+  /mysrmzf/zmhd/index.html -> 404 len=2417 title=404
+
+## 绵阳 首页全部 href 唯一值
+   /
+   /mysrmzf/c100002/202609/0314deecbfb6411b866ea1d68b749abd.shtml
+   /mysrmzf/c100003/202601/8d349f03156747a3a9a80c391e78d8a9.shtml
+   /mysrmzf/c100003/202609/0e044c06b01645d688c956b82cd49eef.shtml
+   /mysrmzf/c100003/202609/605f758ddc634358975b3dda62ec5b22.shtml
+   /mysrmzf/c100003/202609/8a312c8a22e4465c8b01516eb6435897.shtml
+   /mysrmzf/c100003/202609/b2153417c50a4b0285368ebcfb14e6d5.shtml
+   /mysrmzf/c100003/202609/eb9637a08609461cb68b2a28e410f64d.shtml
+   /mysrmzf/c100003/202609/ecd8f077ec8645c5bf31884eff7a7b7c.shtml
+   /mysrmzf/c100003/202610/1a835acbec5c460e8b6e3df2403cde6e.shtml
+   /mysrmzf/c100003/202610/372cd1ca57cd4ea78a79799a594efc2d.shtml
+   /mysrmzf/c100003/202610/625f58ae215b447fbf44f4f096cae730.shtml
+   /mysrmzf/c100003/202610/d11a31f1c7f343a4b55bcba2c0d3ad50.shtml
+   /mysrmzf/c100003/list.shtml
+   /mysrmzf/c100004/202609/341d07685b1341aca355b810b72f27da.shtml
+   /mysrmzf/c100004/202609/701cc85c6398457ab31f998f772b84ee.shtml
+   /mysrmzf/c100004/202609/99ee1be574cd4c48862321ca65a1a30c.shtml
+   /mysrmzf/c100004/202609/ac094154ccc34d7285e0f94a38ae21f9.shtml
+   /mysrmzf/c100004/202609/af11eaab8a1a4b89994a4a7658a8e21f.shtml
+   /mysrmzf/c100004/202609/d80bd2f8ba324c2fba2919bef9c5775d.shtml
+   /mysrmzf/c100004/202609/e6c7d7dc850341459c38fa2fdc3d7f0d.shtml
+   /mysrmzf/c100004/202610/1eaca587780f4cf2ab23b3144d6b0b31.shtml
+   /mysrmzf/c100004/202610/50837f8eed3d4ffa8b2dd295068e0c4e.shtml
+   /mysrmzf/c100004/list.shtml
+   /mysrmzf/c100006/list.shtml
+   /mysrmzf/c100008/list.shtml
+   /mysrmzf/c100014/202610/f79902590acd4a58a8c4e551756a199b.shtml
+   /mysrmzf/c100016/202610/0b942782522649e1b96b6fffb4c17659.shtml
+   /mysrmzf/c100016/202610/21be1ce66c0e4a37b4290ea0dd3ee666.shtml
+   /mysrmzf/c100017/202610/1ff532dc1cbf4e0e98c3bca9ec101188.shtml
+   /mysrmzf/c100017/202610/44bf612adaee43d09950cfc2d940d935.shtml
+   /mysrmzf/c100017/202610/75bc6fd58b5e44fabac5f1723280f33f.shtml
+   /mysrmzf/c100017/202610/e81ae37c51c047f8ab084d5a7189fecf.shtml
+   /mysrmzf/c100017/202610/f160d89ff3124df3a323ae3c1e66c441.shtml
+   /mysrmzf/c100021/202610/f381987ec9bd4055a6ed44b5d2627ce1.shtml
+   /mysrmzf/c100022/202610/0dee498f4c8b461ab0f195c11c870368.shtml
+   /mysrmzf/c100022/202610/2b9a51211f9c48728358f1b75e7026c9.shtml
+   /mysrmzf/c100022/202610/70506dc3a63f4955a0de423d294d21e4.shtml
+   /mysrmzf/c100022/202610/7d5e31ca62a74ad7bd6dd6cdebab9bfc.shtml
+   /mysrmzf/c100022/202610/8ea95005375143ec9a525c22799b4154.shtml
+   /mysrmzf/c100022/202610/9fc00c0a66d74b9f88d3b21bab1ce186.shtml
+   /mysrmzf/c100022/202610/a38abde8c8d14aa29852ab015b0e4f81.shtml
+   /mysrmzf/c100022/202610/cf5a1a475a6e4e4682e334c6d66dd310.shtml
+   /mysrmzf/c100022/202610/e2f89739bf0e45a1a996167b9d73b61e.shtml
+   /mysrmzf/c100022/list.shtml
+   /mysrmzf/c100033/zwgk.shtml
+   /mysrmzf/c100060/xxgk_gz.shtml
+   /mysrmzf/c100061/xxgk_list.shtml
+   /mysrmzf/c100062/xxgk_list.shtml
+   /mysrmzf/c100064/xxgk_list.shtml
+   /mysrmzf/c100093/list.shtml
+   /mysrmzf/c100104/jczwgk.shtml
+   /mysrmzf/c100109/202608/7b52029aa3ad4c07ab76d6a493894037.shtml
+   /mysrmzf/c100109/202609/1f7e4fa8c67347c2b461da619b5e758a.shtml
+   /mysrmzf/c100109/xxgk_list.shtml
+   /mysrmzf/c100110/202604/f647b0e6199740d8b86b98344d76e70b.shtml
+   /mysrmzf/c100110/202607/1d3d8f2d75484e66b6cb97ee962b79f7.shtml
+   /mysrmzf/c100110/xxgk_list.shtml
+   /mysrmzf/c100111/202504/e8fec16670bd4e2c9beb42aed3c278c5.shtml
+   /mysrmzf/c100111/xxgk_list.shtml
+
+## 德阳 常见路径
+  /hdjl/ -> 404 len=146 title=404 Not Found
+  /zmhd/ -> 403 len=146 title=403 Forbidden
+  /szxx/ -> 404 len=146 title=404 Not Found
+  /hd/ -> 404 len=146 title=404 Not Found
+  /hdcy/ -> 404 len=146 title=404 Not Found
+  /gzhd/ -> 404 len=146 title=404 Not Found
+  /wzsz/ -> 404 len=146 title=404 Not Found
+
+## 德阳 首页全部 href 唯一值
+   /
+   /appeal/list.jsp?model_id=1&tm_id=26
+   /appeal/list.jsp?model_id=18&tm_id=26
+   /appeal/list.jsp?model_id=18&tm_id=28
+   /enindex.htm
+   /gk/gsgg/bmgg/1971760.htm
+   /gk/gsgg/bmgg/1972328.htm
+   /gk/gsgg/bmgg/1972407.htm
+   /gk/gsgg/bmgg/1972762.htm
+   /gk/gsgg/bmgg/1972986.htm
+   /gk/gsgg/bmgg/1972989.htm
+   /gk/gsgg/bmgg/1973189.htm
+   /gk/zfxxgk/fdnr/sfxm/hzsysb/1803915.htm
+   /gk/zfxxgk/fdnr/sfxm/hzsysb/1803918.htm
+   /images/favicon.ico
+   /index.htm
+   /info/iList.jsp?&node_id=GKdyszf&cat_id=10037
+   /info/iList.jsp?&node_id=GKdyszf&cat_id=10044&tm_id=3
+   /info/iList.jsp?&node_id=GKdyszf&cat_id=10079&tm_id=3
+   /info/iList.jsp?&node_id=GKdyszf&cat_id=11612&tm_id=3
+   /info/iList.jsp?cat_id=10003
+   /info/iList.jsp?cat_id=10004
+   /info/iList.jsp?cat_id=10005
+   /info/iList.jsp?cat_id=10023
+   /info/iList.jsp?cat_id=10222
+   /info/iList.jsp?cat_id=26119
+   /info/iList.jsp?node_id=GKdyszf&cat_id=26369
+   /info/iList.jsp?tm_id=1333
+   /info/iList.jsp?tm_id=1820
+   /info/iList.jsp?tm_id=1839
+   /info/iList.jsp?tm_id=1895
+   /info/iList.jsp?tm_id=2020
+   /info/iList.jsp?tm_id=2021
+   /info/iList.jsp?tm_id=2022
+   /info/iList.jsp?tm_id=2023
+   /info/iList.jsp?tm_id=2024
+   /info/iList.jsp?tm_id=2025
+   /info/iList.jsp?tm_id=2026
+   /info/iList.jsp?tm_id=2027
+   /info/iList.jsp?tm_id=2028
+   /info/iList.jsp?tm_id=2062
+   /info/iList.jsp?tm_id=2071
+   /info/iList.jsp?tm_id=2074
+   /info/iList.jsp?tm_id=2077
+   /info/iList.jsp?tm_id=2079
+   /info/iList.jsp?tm_id=2081
+   /info/iList.jsp?tm_id=2083
+   /info/iList.jsp?tm_id=2085
+   /info/iList.jsp?tm_id=2091
+   /info/iList.jsp?tm_id=2100
+   /info/iList.jsp?tm_id=2102
+   /info/iList.jsp?tm_id=2104
+   /info/iList.jsp?tm_id=2106
+   /info/iList.jsp?tm_id=2118
+   /info/iList.jsp?tm_id=2120
+   /info/iList.jsp?tm_id=2122
+   /info/iList.jsp?tm_id=2124
+   /info/iList.jsp?tm_id=2126
+   /info/iList.jsp?tm_id=2165
+   /info/iList.jsp?tm_id=2196
+
+## 攀枝花 session 流
+  letterListJson(session) -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"'
+  getAllSubOrgan(session) -> 200 len=7214

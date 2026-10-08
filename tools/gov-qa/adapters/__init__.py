@@ -332,6 +332,8 @@ ADAPTERS: dict[str, str] = {
     #    证据 recon/city-sc-probe1~13.txt ——
     "sc-zigong": "adapters.sc_zigong",        # 自贡市·市长信箱·来信选登（数融 /api/mail，列表+详情，≈213）
     "sc-luzhou": "adapters.sc_luzhou",        # 泸州市·书记市长信箱·信件公开（LetterBox 服务端渲染 HTML，≈56）
+    "sc-deyang": "adapters.sc_deyang",        # 德阳市·书记/市长信箱（appeal 服务端渲染 HTML，cur_page 翻页，≈1050）
+    "sc-mianyang": "adapters.sc_mianyang",    # 绵阳市·书记市长信箱（my.gov.cn 通信平台 api-mailbox，AES 签名，≈5149）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
