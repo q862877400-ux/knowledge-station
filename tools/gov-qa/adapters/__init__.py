@@ -333,6 +333,7 @@ ADAPTERS: dict[str, str] = {
     "nat-nhsa": "adapters.nat_nhsa",        # 国家医疗保障局·交流公开（自研JSON，答复内联，37）
     "nat-forestry": "adapters.nat_forestry",  # 国家林业和草原局·互动留言（JEECMS /letter/page，答复内联，673）
     "nat-cma": "adapters.nat_cma",          # 中国气象局·回应关切（静态列表+明细，约30）
+    "nat-moa": "adapters.nat_moa",          # 农业农村部·留言回复（站内静态JSON，答复内联，824）
 }
 
 #: 用户要能直接 `from adapters import load`
