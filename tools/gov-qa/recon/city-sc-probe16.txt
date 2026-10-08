@@ -1,0 +1,42 @@
+## 成都 全头测试
+  https://www.chengdu.gov.cn/ -> 412 len=2392 setcookie='azSsQE5NvspcO=60ivMUl9xfajutti5hyhnvS2kqV30e84h9tFZVCc04rQSR7JjY3b.aAkrLKjSWzoSE'
+  https://www.chengdu.gov.cn/cdsrmzf/c105742/xxgk_list.shtml -> 412 len=2484 setcookie='azSsQE5NvspcO=60i2JQHQLu4PWuv3z3LEBjVNP9ZOI1HqHzFesOBZOUL6FMQPgkYt5ptUy_TvcP3Gtk'
+  https://www.chengdu.gov.cn/chengdu/hdjl/index.shtml -> 412 len=2427 setcookie='azSsQE5NvspcO=60ZGwL4r_WaWIXZ7euHIVq6YUJWqPhpzoQjcxkDjaXrPGui05hCngyDm6ZjnUnylRB'
+
+## 成都 备域/路径
+  https://www.chengdu.gov.cn/chengdu/hdjl/szxx/index.shtml -> 412 len=2492
+  https://www.chengdu.gov.cn/cdsrmzf/c105742/hdjl.shtml -> 412 len=2572
+  https://hd.chengdu.gov.cn/ -> 412 len=2367
+  http://hd.chengdu.gov.cn/ -> 412 len=2384
+  https://www.chengdu.gov.cn/cdsrmzf/c105742/list.shtml -> 412 len=2499
+
+## 攀枝花 页面 channelId 线索
+  [channelId] ...gHtml += '<div class="leader-item-ly"><a href="/hdcy/szxx/szxx/xjcx/index.shtml?channelId='+msgFirst.chanId+'&branchId='+msgFirst.branchId+'&lettercategoryName='+msgFirst.name+'&duties='+msgFirst.ext3
+  [channel] ...ic_zt/static_2020xxgk/css/mobile.css"> <link rel="stylesheet" href="/static/css/channelpage.css"> <link rel="stylesheet" href="/static/css/foot.css"> <link rel="stylesheet" href="/static_mailbox2023/c
+  [orgId] ...ttp://robot.jstide.com/chat/clientPop.html?key=5ad9fb605a298109f11ea8cd1095986f&orgId=faaa74e9dc2345069b29f28936eea1ba&way=1')" title="æºè½é®ç­"><img src="/static/images/wznwdnine.png"></a></li>--
+  [organId] ...gFirst.branchId+'&lettercategoryName='+msgFirst.name+'&duties='+msgFirst.ext3+'&organId='+msgFirst.id+'" class="leader-item-serch">ä¿¡ä»¶æ¥è¯¢</a>' const lettercategoryName1 = 'å¸é¿' + msgFirs
+
+## 攀枝花 letterListJson POST/GET 试
+  get {'channelId': 3, 'mailType': 1, 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  get {'channelId': 3, 'mailType': '', 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  get {'channelId': 4, 'mailType': 1, 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  get {'channelId': 0, 'mailType': 1, 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  post {'channelId': 3, 'mailType': 1, 'pageNum': 1, 'pageSize': 5, 'orderStr': 'replytime'} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  post {'channelId': 3, 'mailType': '', 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  post {'channelId': 4, 'mailType': 1, 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+  post {'channelId': 0, 'mailType': 1, 'pageNum': 1, 'pageSize': 5} -> 500 len=1422 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml'
+
+## 攀枝花 12345 页内接口
+  URL /webapp/member/logout
+  URL  + window.location.href, (resp) => {
+		resp = JSON.parse(resp);
+		wx.config({
+		  //debug: true, // å¼å¯è°è¯æ¨¡å¼,è°ç¨çææapiçè¿åå¼ä¼å¨å®¢æ·ç«¯alertåºæ¥ï¼è¥è¦æ¥çä¼ å¥çåæ°ï¼å¯ä»¥å¨pcç«¯æå¼ï¼åæ°ä¿¡æ¯ä¼éè¿logæåºï¼ä»å¨pcç«¯æ¶æä¼æå°ã
+		  appId: resp.msg.appId, // å¿å¡«ï¼å¬ä¼å·çå¯ä¸æ è¯
+		  timestamp: resp.msg.timestamp, // å¿å¡«ï¼çæç­¾åçæ¶é´æ³
+		  nonceStr: resp.msg.nonceStr, // å¿å¡«ï¼çæç­¾åçéæºä¸²
+		  signature: resp.msg.signature,// å¿å¡«ï¼ç­¾å
+		  jsApiList: [
+  URL /api-letter/search-letter
+  EP /webapp/member/logout
+  EP /webapp/wxshare/signature

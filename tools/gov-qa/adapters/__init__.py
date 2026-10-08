@@ -334,6 +334,7 @@ ADAPTERS: dict[str, str] = {
     "sc-luzhou": "adapters.sc_luzhou",        # 泸州市·书记市长信箱·信件公开（LetterBox 服务端渲染 HTML，≈56）
     "sc-deyang": "adapters.sc_deyang",        # 德阳市·书记/市长信箱（appeal 服务端渲染 HTML，cur_page 翻页，≈1050）
     "sc-mianyang": "adapters.sc_mianyang",    # 绵阳市·书记市长信箱（my.gov.cn 通信平台 api-mailbox，AES 签名，≈5149）
+    "sc-panzhihua": "adapters.sc_panzhihua",  # 攀枝花市·12345便民热线（webapp api-letter，列表自带答复，≈70）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
