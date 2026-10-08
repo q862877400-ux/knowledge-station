@@ -1,0 +1,88 @@
+江苏地市级「政民互动/12345/市长信箱」侦察 · 第一批 6 市 证据
+工具：worker-city    日期：2026-10-09
+原始证据：recon/city-js-hunt.txt（门户首页）、recon/city-js-probe2.txt（互动二级页指纹）、
+          recon/city-js-probe3.txt（互动列表页深挖）、recon/city-js-<abbr>-*.html
+探针：recon/city-js-hunt.py / city-js-probe2.py / city-js-probe3.py / city-js-jact-scan.py
+
+合规：请求间隔 ≥1.5s；未撞 403/412；未改 adapters/__init__.py 之外他人文件（本文件用安全姿势登记）。
+==============================================================================
+一、结论速览（逐市一行）
+==============================================================================
+城市   结论  中间件              实测条数/接口
+盐城   ✓可采  jact(万户)          22 个 sysid；sysid=1 市长信箱 totalRecord=1865，全量≈5654
+泰州   ✓可采  jpaas-jact          列表 find-mail-pub-list?platformUid=… count=3189
+扬州   ✓可采  jpaas-jact          列表 find-mail-pub-list?platformIid=… count=7837
+宿迁   ✓可采  自研 ajaxlist        POST /u/consult/ajaxlist  allRow=1373（列表自带答复）
+镇江   ✓可采  自研 wlwz            POST /u/wlwzZhenjiang/ajaxlistForWeb12345  总数=460
+徐州   ✓可采  EWB(Epoint)         POST getLetterInfoListXZ  RowCount=1430
+（其余 7 市：无锡/苏州/南通/连云港/南京/淮安/常州 侦察中，见第二批）
+
+==============================================================================
+二、逐站事实与接口
+==============================================================================
+■ 盐城 js-yancheng（jact）
+  · 门户首页外链 `jact/front/main.do?sysid=2` —— 但 sysid=2 是「依申请公开」，
+    dataproxy 返回 totalRecord=0（**只看首页链接会误判无问答**，硬约束 #3 实例）。
+  · 枚举 sysid=1..120 命中 22 个：1(1865) 8(26) 13(148) 14(78) 15(109) 19(108) 20(95)
+    21(82) 23(46) 25(10) 29(253) 31(26) 32(21) 37(1347) 38(661) 42(30) 54(584) 55(16)
+    56(34) 61(23) 65(77) 68(15)。sysid=1 为「市长信箱」。
+  · 列表 `GET {https}/jact/front/dataproxy_mailpublist.do?startrecord=&endrecord=&perpage=19
+    &groupSize=3&sysid=N`（https 可用）；明细 `mailpubdetail.do?transactId=&sysid=N`。
+  · 明细标签 标题/内容/办件编号/提交时间/处理状态/回复单位/回复日期/内容回复 —— 命中默认别名。
+  · 样例 LM20260972204「了解物业服务相关的法律法规」→ 市住建局答复。
+  · 复用基座 adapters/_sd_jact.py 的 harvest_jact_sd（GET）。
+
+■ 泰州 js-taizhou / 扬州 js-yangzhou（jpaas-jact 变体：列表 JSON + 明细 HTML）
+  · 泰州首页「留言选登」外链 `…/front/mail-pub-list.do?platformIid=YOSZfeTw2AKcbQaPTkHkJ`
+    （带 .do 是门户 HTML 页）。**真实数据接口**是去掉 .do 的 `front/find-mail-pub-list`。
+    ⚠ 泰州只认 **platformUid=**（platformIid 返回 `参数设置为空 count=0`）；
+      扬州 platformIid/platformUid 都认。
+  · 扬州「信件选登」页内嵌 `…/front/mail-search.do?platformIid=Thls5eZbG3vAwgjtKY52k`。
+  · 明细**不是** JSON 接口 `find-transact-detail`（返回「无权限」），而是**服务端渲染 HTML**
+    `front/mail-pub-detail?iid=<iid>`（模板见 `/jact_files/pagemodel/SZ/images/page.js`：
+    `_url + 'mail-pub-detail?iid=' + d.iid`）。
+  · 明细标签：泰州「标题/内容/办件分类/办件编号/提交时间/处理状态/答复内容/答复部门/答复日期」；
+    ★ 扬州带**全角冒号 + 字间空格**（「标 题：」「答复内容：」「来信日期：」）
+    ⇒ 解析必须**去空白 + 去尾部冒号**再查别名，否则整站收 0 条并空转分页（踩过）。
+  · 基座 adapters/_jpaas_jact_html_common.py（不动 _jpaas_jact_common / zj_mhww 等既有文件）。
+
+■ 宿迁 js-suqian（自研 ajaxlist，★ 列表自带答复）
+  · 门户「留言查询」`/cnsq/xinxiang/bmxxi_frame.shtml` 页 JS 调 `POST /u/consult/ajaxlist`。
+  · 返回 `data.list` = **数组的数组**，每项 10 字段：
+    [信箱名, id1, id2, 提交时间戳, 标题, 编号, 问题正文, 答复时间戳|None, 答复正文, 答复时间串]
+    ⇒ **列表即含问题+答复全文**，无需明细请求（采集极快）。
+  · ⚠ `pageSize` 被忽略（恒 10）；翻页参数名是 **currentPage**（页码，1 基）——
+    pageIndex/page/pageNo/pageNum/start 全部被忽略（恒返回第 1 页，实测）。
+
+■ 镇江 js-zhenjiang（自研 wlwz）
+  · 「12345 在线」`/zhenjiang/12345zx/xjgs_list.shtml`（xjgs=信件公示）。
+  · 列表 `POST /u/wlwzZhenjiang/ajaxlistForWeb12345`（form keywords/year/type/currentPage/number）
+    → `data.list[{id, queryNumber, theme, createDate, replyDate, wlwzLetterType.name}]`；总数=460。
+  · 明细 `POST /u/wlwzZhenjiang/show/<id>`
+    → `data.wlwzLetter{theme, content, queryNumber, createDateFormat, extend3Name(答复单位)}`
+      + `data.replyList[0]{content(答复), createTimeFormat}`。
+
+■ 徐州 js-xuzhou（EWB / Epoint Web Builder）
+  · 「来信选登」`/004/004005/selectList.html`；siteInfo（`/js/webBuilderCommon.js`）：
+    siteGuid=7eb5f7f1-9041-43ad-8e13-8fcb82ea831a，projectName=/EWB-FRONT。
+  · 列表 `POST /EWB-FRONT/rest/letterlistaction/getLetterInfoListXZ`
+    form `params=<JSON {siteGuid,searchTitle,pageIndex,pageSize}>`
+    → `{RowCount:1430, Table:[{ROWGUID,subject,mailtype,bm,consultflowsn,postdate,operatedate}]}`。
+  · 明细 `POST /EWB-FRONT/rest/frontAppNotNeedLoginAction/getLetterDetail`
+    form `params={siteGuid,infoGuid:<ROWGUID>}`
+    → `custom.data{subject,content(问题),replycontent(答复),postdate,operatedate}`。
+  · ⚠ EWB 两坑（与河北 heb_szj 同）：① 必须 POST + `params=JSON`（GET 405 / 平铺字段 400）；
+    ② ★ `pageIndex` 是**起始记录偏移量**（0,10,20…）不是页码，传页码每页只滑 1 条、漏 89%。
+
+==============================================================================
+三、第二批待做（侦察进行中）
+==============================================================================
+无锡：`/mailbox/me/search`、`/intertidwebapp/mailbox/MyLetterListNoJson` → 均 401「登录凭证过期」
+      （登录态接口）；需另找公开列表（互动页有「留言和提问」）。
+常州：`/gova/letter/ajax.php?action=list&page=N` 返回 HTML 表格；明细在**各局子域**
+      `https://<dept>.changzhou.gov.cn/index.php?m=letter&c=index&a=show&id=`（分布式）。
+苏州：书记/市长信箱 SPA `hd_xjly/xjly.shtml#/xjly/szmail`；公众监督 `hd_gzjd/gzjd.shtml`。
+南通：TrueCMS；`/truecms/letterController/xxList.do` 返回 404（参数待定）。
+连云港：TrueCMS（`12345.lyg.gov.cn`）；`toDeptletterList.do` 需查询码（待定）。
+南京：门户首页仅 618B SPA 壳（`www.nanjing.gov.cn`），需另找入口。
+淮安：门户首页无互动外链（26KB），需另找。

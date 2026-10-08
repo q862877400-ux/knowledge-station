@@ -1,0 +1,124 @@
+
+======================================================================
+## 南京 (www.nanjing.gov.cn)
+  https://www.nanjing.gov.cn/ → 200 (618 bytes) final=https://www.nanjing.gov.cn/
+  http://www.nanjing.gov.cn/ → 200 (618 bytes) final=http://www.nanjing.gov.cn/
+
+======================================================================
+## 无锡 (www.wuxi.gov.cn)
+  https://www.wuxi.gov.cn/ → 200 (130958 bytes) final=https://www.wuxi.gov.cn/
+      [我的12345信件] https://www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+      [互动交流] https://www.wuxi.gov.cn/hdjl/index.shtml
+  http://www.wuxi.gov.cn/ → 200 (130958 bytes) final=http://www.wuxi.gov.cn/
+
+======================================================================
+## 徐州 (www.xz.gov.cn)
+  https://www.xz.gov.cn/ → 200 (98354 bytes) final=https://www.xz.gov.cn/
+      [政民互动] https://www.xz.gov.cn/004/interactive.html
+      [领导信箱] https://www.xz.gov.cn/004/004014/consultlead.html
+      [关于公开征集《徐州市支持人工智能创新发展十项措施》意见建议的公告] https://www.xz.gov.cn/004/004007/20260915/d3a23a16-dfc4-4427-855a-28bfb5955db5.html
+  http://www.xz.gov.cn/ → 200 (358 bytes) final=http://www.xz.gov.cn/
+
+======================================================================
+## 常州 (www.changzhou.gov.cn)
+  https://www.changzhou.gov.cn/ → 200 (86380 bytes) final=https://www.changzhou.gov.cn/
+      [政民互动] https://www.changzhou.gov.cn/ns_class/myhd
+      [12345政务服务便民热线] http://12345.changzhou.gov.cn/
+      [市长信箱办理统计] https://www.changzhou.gov.cn/ns_class/myhd_01_02
+      [留言选登] https://www.changzhou.gov.cn/gova/letter
+      [民意调查] https://www.changzhou.gov.cn/ns_class/myhd_06
+      [热点回应] https://www.changzhou.gov.cn/ns_class/myhd_10
+      [关于提取住房公积金支付物业费政策的热点回应] https://www.changzhou.gov.cn/ns_news/260179064827290
+      [关于常州市低空飞行服务平台使用的热点回应] https://www.changzhou.gov.cn/ns_news/577178954461555
+      [关于签证代办服务问题的热点回应] https://www.changzhou.gov.cn/ns_news/450178876414070
+      [关于2026年住房公积金基数调整工作的热点回应] https://www.changzhou.gov.cn/ns_news/295178356439102
+  http://www.changzhou.gov.cn/ → 200 (86380 bytes) final=https://www.changzhou.gov.cn/
+
+======================================================================
+## 苏州 (www.suzhou.gov.cn)
+  https://www.suzhou.gov.cn/ → 200 (137148 bytes) final=https://www.suzhou.gov.cn/
+      [政民互动] https://www.suzhou.gov.cn/szsrmzf/zmhd/zmhd.shtml
+      [苏州市审计局公开征集2027年度审计项目建议调查问卷] http://www.suzhou.gov.cn/szwsdc/previewSurvey?sur_id=0eb2aa902c2341cbb8fa8c56295df54b
+      [市委书记信箱] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/sjmail
+      [市长信箱] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/szmail
+      [部门信箱] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/bmmail
+      [12345苏州阳光便民] http://www.12345.suzhou.com.cn/
+  http://www.suzhou.gov.cn/ → 200 (137148 bytes) final=http://www.suzhou.gov.cn/
+
+======================================================================
+## 南通 (www.nantong.gov.cn)
+  https://www.nantong.gov.cn/ → 200 (80162 bytes) final=https://www.nantong.gov.cn/
+      [通 问 
+           
+          
+            ] javascript:void(0)
+      [市长信箱] https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html
+      [部门信箱] https://www.nantong.gov.cn/ntsrmzf/bumxx/bumxx.html
+      [民意征集] https://www.nantong.gov.cn/ntsrmzf/myzj/myzj.html
+  http://www.nantong.gov.cn/ → 200 (80162 bytes) final=https://www.nantong.gov.cn/
+
+======================================================================
+## 连云港 (www.lyg.gov.cn)
+  https://www.lyg.gov.cn/ → 200 (81407 bytes) final=https://www.lyg.gov.cn/
+      [互动交流] https://www.lyg.gov.cn/zglygzfmhwz/gzcy/gzcy.html
+      [关于公开征集2027年度民生实事建议的通告] https://www.lyg.gov.cn/zglygzfmhwz/gsgg/content/b3f26cec-f6a7-4cb9-a6ea-1f409946a247.html
+      [2026年08月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/1b99cb82-98b0-4123-a20e-0ae8fa7316ff.html
+      [2026年07月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/5c850536-041d-42b6-bff7-7e7bf28c0d81.html
+      [2026年06月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/76416cff-2ace-426d-ae9b-41394d10c178.html
+      [2026年05月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/b6e64d05-2e12-4a71-94f9-db3344cb1406.html
+      [2026年04月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/e470aff0-2e10-4afd-be6c-5d8146ec538d.html
+      [2026年03月份市长信箱运行和反馈...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/a25d548e-0907-4c5f-b7f8-b249de6bf109.html
+      [连云港市交通运输局走进《政风热线》] http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=02663fbf-0478-445d-b5ca-39d84b377d0f
+      [连云港市交通运输局走进《政风热线》...] https://www.lyg.gov.cn/zglygzfmhwz/ftyg/content/91c9dbe1-54cc-40d3-b3c6-f84098821bd8.html
+      [连云港市民政局走进《政风热线》访谈...] https://www.lyg.gov.cn/zglygzfmhwz/ftyg/content/fbd35941-e1b2-4880-bbfa-0092aa7b47e7.html
+      [连云港市教育局走进《政风热线》访谈...] https://www.lyg.gov.cn/zglygzfmhwz/ftyg/content/facbc615-71d9-4a20-b1a3-1baf5fc6e53b.html
+      [连云港市城市管理局走进《政风热线》...] https://www.lyg.gov.cn/zglygzfmhwz/ftyg/content/aac36cfb-7488-4c7f-8fb4-f7b1eab947a1.html
+      [政风热线] https://www.lyg.gov.cn/zglygzfmhwz/zfxfrx/zfxfrx.html
+      [12345在线平台] http://12345.lyg.gov.cn/
+  http://www.lyg.gov.cn/ → 200 (81407 bytes) final=http://www.lyg.gov.cn/
+
+======================================================================
+## 淮安 (www.huaian.gov.cn)
+  https://www.huaian.gov.cn/ → 200 (26635 bytes) final=https://www.huaian.gov.cn/
+      [关于公开征集2027年度市政府规章立法项目建议的...] https://www.huaian.gov.cn/col/16653_544327/art/17855136/1786670249712HA56PYNY.html
+  http://www.huaian.gov.cn/ → 200 (26635 bytes) final=http://www.huaian.gov.cn/
+
+======================================================================
+## 盐城 (www.yancheng.gov.cn)
+  https://www.yancheng.gov.cn/ → 200 (48614 bytes) final=https://www.yancheng.gov.cn/
+  http://www.yancheng.gov.cn/ → 200 (48614 bytes) final=http://www.yancheng.gov.cn/
+
+======================================================================
+## 扬州 (www.yangzhou.gov.cn)
+  https://www.yangzhou.gov.cn/ → 200 (58187 bytes) final=https://www.yangzhou.gov.cn/
+      [互动交流] https://www.yangzhou.gov.cn/hdjl/index.html
+  http://www.yangzhou.gov.cn/ → 200 (58187 bytes) final=http://www.yangzhou.gov.cn/
+
+======================================================================
+## 镇江 (www.zhenjiang.gov.cn)
+  https://www.zhenjiang.gov.cn/ → 200 (109882 bytes) final=https://www.zhenjiang.gov.cn/
+      [张克参加省《政风热线·市长上线》并召开问题督办会 用心用情解决好群众“急难愁盼”] https://www.zhenjiang.gov.cn/zhenjiang/zwyw/202609/3bb01546c7cc4ea4a38fc1a91541887a.shtml
+      [力求把诉求办在群众开口前 镇江“未诉先办”绘就民生温暖底色] https://www.zhenjiang.gov.cn/zhenjiang/bmxx/202609/d7f11deb59334e859a368966222f93af.shtml
+      [政民互动] https://www.zhenjiang.gov.cn/zhenjiang/hdjl/zmhd.shtml
+      [书记信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=ssjxx
+      [市长信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=sszxx
+      [政风行风热线视频直播] https://www.zhenjiang.gov.cn/zhenjiang/zfhfrx1/zfhfrx.shtml
+      [12345在线] https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+      [企业诉求] https://www.zhenjiang.gov.cn/userCenter/index.shtml#demands_demands
+      [区县信箱] https://www.zhenjiang.gov.cn/zhenjiang/qxxx/zfxxs.shtml
+      [部门信箱] https://www.zhenjiang.gov.cn/zhenjiang/bmxx1/zfxxs.shtml
+  http://www.zhenjiang.gov.cn/ → 200 (109882 bytes) final=http://www.zhenjiang.gov.cn/
+
+======================================================================
+## 泰州 (www.taizhou.gov.cn)
+  https://www.taizhou.gov.cn/ → 200 (42443 bytes) final=https://www.taizhou.gov.cn/
+      [留言选登] https://www.taizhou.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=YOSZfeTw2AKcbQaPTkHkJ
+  http://www.taizhou.gov.cn/ → ReadTimeout: timed out
+
+======================================================================
+## 宿迁 (www.suqian.gov.cn)
+  https://www.suqian.gov.cn/ → 200 (162712 bytes) final=https://www.suqian.gov.cn/
+      [互动交流] https://www.suqian.gov.cn/cnsq/hdjl/hdjl.shtml
+      [我要留言] https://www.suqian.gov.cn/u/userCenter/index.html#mail_writemail
+      [留言查询] https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+  http://www.suqian.gov.cn/ → 200 (162712 bytes) final=http://www.suqian.gov.cn/

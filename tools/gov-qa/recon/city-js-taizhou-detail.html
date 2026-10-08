@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+
+<head lang="zh">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="0">
+    <title>办件公开详细页</title>
+</head>
+
+<body id="page_type" alt="综合页">
+    <script>
+        function downfile(name, path) {
+            location.href = './down-load?path=' + encodeURIComponent(path) + '&name=' + encodeURIComponent(name);
+        }
+    </script>
+<div id="barrierfree_container">
+    <div id="hanwebFontSize">
+            <script language="javascript" src="/jact_files/pagemodel/js/jquery.min.js"></script>
+            <link href="/jact_files/pagemodel/SZ/images/hanweb.css" type="text/css" rel="stylesheet">
+            <link href="/jact_files/pagemodel/SZ/images/jact_style.css" type="text/css" rel="stylesheet">
+            <link href="http://www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/66b0e9f5f46546a1b540eaa33f1efc3f/images/bootstrap.min.css" rel="stylesheet">
+            <link href="http://www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/66b0e9f5f46546a1b540eaa33f1efc3f/images/hanweb.min.css" rel="stylesheet">
+            <script>
+                $(function () {
+                    getRem();
+                    window.onresize = function () {
+                        getRem();
+                    };
+
+                })
+
+                function getRem() {
+                    var html = document.getElementsByTagName("html")[0];
+                    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+                    var fontSize = (oWidth / 750) * 16;
+                    if (fontSize > 16) {
+                        fontSize = 16;
+                    }
+                    html.style.fontSize = fontSize + "px";
+                }
+
+          
+            </script>
+            <!-- 头部开始 -->
+            <script src="/cms_files/filemanager/288403819/script/20233/74a3ef63822247969d36ec6c460429cb.js" type="text/javascript" charset="utf-8"></script>
+            <!-- 头部结束 -->
+            
+            <!-- pc端正常样式 -->
+            <style>
+                .main {
+                    padding: 0 !important;
+                }
+
+                .bt-place {
+                    line-height: 60px;
+                    margin-bottom: 0;
+                    background: none;
+                    font-family: "Microsoft YaHei";
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #999;
+                    opacity: 1;
+                }
+
+                .bt-breadcrumb {
+                    background: url(http://www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/c6eb27107f684e7c905d891728f541ea/images/bt-currentPosition.png) no-repeat center left;
+                    padding: 0 0 0 22px;
+                    margin-bottom: 0;
+                    border-radius: 0;
+                }
+
+                .bt-breadcrumb a {
+                    font-family: "Microsoft YaHei";
+                    font-size: 14px;
+                    color: #999;
+                    opacity: 1;
+                }
+
+                .bt-breadcrumb a:hover {
+                    color: #999;
+                }
+
+                .bt-breadcrumb a:last-child {
+                    color: #3a83e9;
+                }
+
+                .bt-breadcrumb a:last-child:hover {
+                    color: #3a83e9;
+                }
+
+                .xqxxtit {
+                    background: #3a83e9;
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 14px;
+                }
+
+                .xqtit {
+                    height: 100%;
+                    line-height: 50px;
+                    font-size: 18px;
+                }
+
+                .bdxq {
+                    margin-bottom: 0 !important;
+                }
+
+                .bdxq td a {
+                    float: none;
+                }
+
+                .bdxq td {
+                    border: 1px solid #e5e5e5;
+                }
+
+                .hbnr,
+                .ltnr,
+                .nr,
+                .rtnr {
+                    line-height: 30px;
+                    padding: 10px 30px;
+                    font-size: 16px;
+                }
+
+                .bdbg {
+                    line-height: 30px;
+                    padding: 10px 0;
+                    font-size: 16px;
+                }
+            </style>
+
+            <!-- pc端适老化样式 -->
+            <style>
+                .old_type .bt-place {
+                    line-height: 6rem;
+                    font-size: 1.75rem;
+                }
+
+                .old_type .bt-breadcrumb {
+                    background-size: auto 1.75rem;
+                    padding: 0 0 0 2rem;
+                }
+
+                .old_type .bt-breadcrumb a {
+                    font-size: 1.75rem;
+                }
+
+                .old_type .xqxxtit {
+                    background: #3a83e9;
+                    height: 96px;
+                    line-height: 96px;
+                    font-size: 14px;
+                }
+
+                .old_type .xqtit {
+                    height: 100%;
+                    line-height: 96px;
+                    font-size: 36px;
+                    background-size: auto 1.75rem;
+                }
+
+                .old_type .hbnr,
+                .old_type .ltnr,
+                .old_type .nr,
+                .old_type .rtnr {
+                    line-height: 60px;
+                    padding: 10px 30px;
+                    font-size: 32px;
+                }
+
+                .old_type .bdbg {
+                    line-height: 60px;
+                    padding: 10px 0;
+                    font-size: 32px;
+                }
+            </style>
+
+            <!-- 移动端正常样式 -->
+            <style>
+                @media (max-width: 768px) {
+                    body {
+                        background: #fff !important;
+                    }
+
+                    .con_box,
+                    .w1200 {
+                        width: 100%;
+                        padding: 0 1.5rem !important;
+                    }
+
+                    .xqtit {
+                        padding: 0px 10px 0px 32px;
+                        background-position: 14px center;
+                    }
+
+                    .xqxxtit span {
+                        padding-right: 14px;
+                    }
+
+                
+
+                    .bdbg {
+                        width: 28%;
+                        border-right: 0 !important;
+                        border-top: 0 !important;
+                    }
+
+                    .hbnr,
+                    .ltnr,
+                    .nr,
+                    .rtnr {
+                        width: 72%;
+                        padding: 10px 10px;
+                        border-top: 0 !important;
+                    }
+
+                }
+            </style>
+            <div class="conter">
+                <div class="bt-place w1200" ergodic="navigation" barrierfree_zone_dsc="导航区，当前访问位置">
+                    <div class="bt-breadcrumb">您当前的位置：
+                        <a href="http://www.taizhou.gov.cn">首页</a><span>&gt;</span>
+                        <a href="http://www.taizhou.gov.cn/zmhd/index.html">政民互动</a><span>&gt;</span>
+                        <a>详情信息</a>
+                    </div>
+                </div>
+                <div class="con_box clearfix">
+                    <div class="main"  ergodic="view" barrierfree_zone_dsc="视窗区，办件详情">
+                        <div class="xqxxtit clearfix">
+                            <div class="xqtit" readLabel="文本：详细信息">详细信息</div>
+                        </div>
+                        <div class="bdxq clearfix">
+
+                            <table cellpadding="0" cellspacing="0" width="100%" border="1px" bordercolor="#e5e5e5">
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：标题">标　　题</td>
+                                    <td class="hbnr" readLabel="文本：提取公积金">提取公积金</td>
+                                </tr>
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：内容">内　　容</td>
+                                    <td class="nr" readLabel="文本：是不是提取公积金的房产证的年限从20年变成8年了？">是不是提取公积金的房产证的年限从20年变成8年了？</td>
+                                </tr>
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：办件分类">办件分类</td>
+                                    <td class="hbnr" readLabel="文本：咨询">咨询</td>
+                                </tr>
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：办件编号">办件编号</td>
+                                    <td class="hbnr" id="num" readLabel="文本：SZ2026091800007">SZ2026091800007</td>
+                                </tr>
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：提交时间">提交时间</td>
+                                    <td class="hbnr" readLabel="文本：2026-09-18 14:43">2026-09-18 14:43</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="xqxxtit clearfix">
+                            <div class="xqtit" readLabel="文本：处理情况">处理情况</div>
+                        </div>
+                        <div class="bdxq clearfix">
+                            <table cellpadding="0" cellspacing="0" width="100%" border="1px" bordercolor="#e5e5e5">
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：处理状态">处理状态</td>
+                                    <td class="ltnr" readLabel="文本：处理完毕">处理完毕</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：答复内容">答复内容</td>
+                                    <td class="nr"  readLabel="文本：">泰州公积金中心答复：您好！是我市增加一项公积金提取惠民政策，并非将老旧房屋改造提取20年年限改为8年，自9月20日起是新增了装修自住住房提取业务，两项业务独立。1.新增装修自住住房提取（2026年9月20日起执行）：取得不动产权证（房屋所有权证）的提取人凭身份证、银行卡、发证时间在8年内的不动产权证（房屋所有权证）到就近的公积金中心服务网点办理，无需装修合同发票；不动产权证（房屋所有权证）发证时间超过8年的，提取人还需提供装修合同、装修公司装修资质证书（复印件）、增值税发票等。2. 原有老旧房屋改造提取政策不变，仍需不动产权证发证满20年。同一套住房既符合装修提取条件，又符合老旧房屋改造提取条件的，缴存人家庭只能选择其中一种情形办理提取，不可同时办理。谢谢！</td>
+                                </tr>
+                                <tr class="dfbmrq-box">
+                                    <td class="bdbg" readLabel="文本：答复部门">答复部门</td>
+                                    <td class="ltnr" readLabel="文本：市公积金中心">市公积金中心</td>
+                                </tr>
+                                   <tr>
+                                      <td class="bdbg" readLabel="文本：答复日期">答复日期</td>
+                                    <td class="rtnr" readLabel="文本：2026-09-21 16:17">2026-09-21 16:17</td>
+                                  </tr>
+                                <tr>
+                                    <td class="bdbg" readLabel="文本：答复附件">答复附件</td>
+                                    
+                                        <td class="hbnr"  readLabel="文本：无附件" >
+                                        无附件
+                                      </td>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 底部开始 -->
+        <script src="/cms_files/filemanager/288403819/script/20233/ea7cd56e6b874989ae6f299059b39531.js" type="text/javascript" charset="utf-8"></script>
+        <!-- 底部结束 -->
+    </div>
+</div>
+</body>
+
+</html>

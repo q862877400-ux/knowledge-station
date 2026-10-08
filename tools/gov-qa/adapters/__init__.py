@@ -314,6 +314,14 @@ ADAPTERS: dict[str, str] = {
     "zj-zhoushan": "adapters.zj_zhoushan",  # 舟山市（330900，≈1857）
     "zj-taizhou": "adapters.zj_taizhou",    # 台州市（331000，≈2737）
     "zj-lishui": "adapters.zj_lishui",      # 丽水市（331100，≈2938）
+    # —— 江苏地市级 第一批（2026-10-09 worker-city）：盐城/泰州/扬州/宿迁/镇江/徐州。
+    #    证据 recon/city-js-hunt.txt / city-js-probe2.txt / city-js-probe3.txt ——
+    "js-yancheng": "adapters.js_yancheng",    # 盐城市·市长信箱（jact https GET，22 sysid，sysid=1≈1865）
+    "js-taizhou": "adapters.js_taizhou",      # 泰州市·留言选登（jpaas-jact，列表 JSON+明细 HTML，count≈3189）
+    "js-yangzhou": "adapters.js_yangzhou",    # 扬州市·信件选登（jpaas-jact，count≈7837）
+    "js-suqian": "adapters.js_suqian",        # 宿迁市·留言查询（ajaxlist，列表自带答复，allRow≈1373）
+    "js-zhenjiang": "adapters.js_zhenjiang",  # 镇江市·12345 信件公示（ajaxlistForWeb12345 + show/<id>）
+    "js-xuzhou": "adapters.js_xuzhou",        # 徐州市·来信选登（EWB，RowCount≈1430）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）

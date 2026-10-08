@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <!-- 响应式设置 -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+
+    
+            <meta name="SiteName" content="徐州市人民政府">
+			<meta name="SiteDomain" content="www.xz.gov.cn">
+            <meta name="SiteIDCode" content="3203000002">
+            <meta name="ColumnName" content="来信选登">
+            <meta name="ColumnDescription" content="">
+            <meta name="ColumnKeywords" content="">
+            <meta name="ColumnType" content="来信选登"> 
+			<link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/js/libs/chosen/chosen.css">
+    <link rel="stylesheet" href="/js/libs/pagination/mricode.pagination.css">
+    <link rel="stylesheet" href="/css/common2.css">
+    <link rel="stylesheet" href="/interactive/css/selectList.css">
+    <script src="/js/libs/jquery.min.js"></script>
+    <title>徐州市人民政府</title>
+    <!--[if lt IE 9]>
+    <script src="js/libs/ie/respond.min.js"></script>
+    <![endif]-->
+
+
+   <link rel="stylesheet" href="/css/webBuilderCommonGray.css"></head>
+
+<body>
+ <div id="container">
+<!-- header -->
+<div id="header"></div>
+<div class="em-location">
+    <div class="container">
+        <span class="addresstx">当前位置：</span>
+        <a href="/">首页</a>&nbsp;>&nbsp;<a href="/004/interactive.html" >政民互动</a>&nbsp;>&nbsp;<a class="em-cur" id="viewGuid" value="cms_004005"  value1="004005" >来信选登</a></div>
+</div>
+<!-- 正文 -->
+<div class="container">
+    <div class="em-title">
+        <div class="em-search r">
+            <button class="em-btn r" id="search1"></button>
+            <div class="input-tips search-input" style="margin-left: 0px;">
+                <label class="input-placeholder" for="search">请输入信件编号或关键字</label>
+                <input class="input-box" type="text" id="search"/>
+            </div>
+        </div>
+		 
+                <span>来信选登</span>
+                </div>
+    <div class="em-list">
+
+        <table class="em-info-table">
+            <thead>
+            <tr>
+                <th>信件编号</th>
+                <th>主题</th>
+                <th>信件类别</th>
+                <th>办理单位</th>
+                <th>回复时间</th>
+            </tr>
+            </thead>
+            <tbody id="content">
+           
+            </tbody>
+        </table>
+    </div>
+    <div class="em-pager"></div>
+</div>
+<!-- footer -->
+<div id="footer"></div>
+</div>
+
+<script type="text/x-template" id="infolist" >
+	{{#items}}
+	 <tr>
+        <td>
+            <span>{{consultflowsn}}</span>
+        </td>
+        <td>
+            <a href="/viewDetails.html?rowguid={{ROWGUID}}&hf={{bm}}" target="_blank" title="{{subject}}">{{subject}}</a>
+        </td>
+        <td>
+            <span>{{mailtype}}</span>
+        </td>
+        <td>
+            <span>{{bm}}</span>
+        </td>
+        <td>
+            <span>{{operatedate}}</span>
+        </td>
+    </tr>
+	
+	{{/items}}
+</script>
+	
+	
+<!-- 工具js -->
+<script src="/js/webBuilderCommon.js"></script>
+<script src="/js/js.cookie.min.js"></script>
+<script src="/js/Common.min.js"></script>	
+<script src="/js/lib/mustache.js"></script>
+	
+<script src="/js/libs/placeholder.min.js"></script>
+<script src="/js/lib/layer/layer.js"></script>
+<script src="/js/libs/chosen/chosen.jquery.js"></script>
+<script src="/js/libs/pagination/mricode.pagination.js"></script>
+<script src="/js/libs/util.js"></script>
+<script src="/js/common.js"></script>
+<!-- 页面js -->
+<script src="/interactive/js/selectList.js"></script>
+<script src="/js/pageView2.js"></script>
+<script src="/js/ABT/ABTLoad.js" charset="utf-8"></script>
+</body>
+
+</html>

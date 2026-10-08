@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>留言选登</title>
+    <link rel="stylesheet" type="text/css" href="/images2024/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/images2024/css/style.css">
+    <script language="javascript" type="text/javascript" src="/images2012/jquery.min.js"></script>
+    <style type="text/css">
+        .letter_button {
+            border-radius: 5px;
+            font-size: 15px;
+            height: 30px;
+            line-height: 28px;
+            background-color: #60A4EA;
+            border: 0px;
+            color: #FFF;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .letter_but_sousuo {
+            height: 26px;
+            line-height: 22px;
+            font-size: 15px;
+            background-color: #60A4EA;
+            border: 0px;
+            color: #FFF;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .bianhao {
+            width: 100px;
+            height: 20px;
+            border: 1px solid #CCC;
+            padding-left: 5px;
+        }
+
+        .guanjianzi {
+            width: 200px;
+            height: 20px;
+            border: 1px solid #CCC;
+            padding-left: 5px;
+        }
+    </style>
+<!-- Author www.czfx.cn-->
+<style type="text/css">
+.yx_style_{display:block !important;overflow:hidden !important;width:0 !important;height:0 !important;}
+</style>
+<script language="javascript" src="/js/common.js"></script>
+</head>
+
+<body>
+<div class="nav_banner">
+    <div class="top_main">
+        <div class="top_main_l">
+            <ul>
+                <li id="app">
+                    <a href="/ns_class/MyChangZhou" target="_blank">我的常州&nbsp;&nbsp;</a>
+                    <div class="popover  bottom" id="app_popover" style="">
+                        <div class="arrow" style="left: 50%;"></div>
+                        <div class="popover-content"><img src="/images2024/images/right-nav-erweima-wdcz.jpg" style="width: 100px;height: 100px;"></div>
+                    </div>
+                </li>
+                <li>
+                    <a class="czheader-qita" style="background-position-x:0;" title="智能问答" href="/page_znwdpt" confirm="false" target="_blank">&nbsp;&nbsp;智能问答&nbsp;&nbsp;</a>
+                </li>
+                <li id="yd">
+                    <a href="/ns_class/wap" target="_blank">&nbsp;&nbsp;移动服务&nbsp;&nbsp;</a>
+                    <div class="popover  bottom" id="app_popover1" style="">
+                        <div class="arrow" style="left: 50%;"></div>
+                        <div class="popover-content"><img src="/images2024/images/right-nav-erweima-wap.jpg" style="width: 100px;height: 100px;"></div>
+                    </div>
+                </li>
+                <li>
+                    <a href="http://mail.changzhou.gov.cn/" target="_blank">&nbsp;&nbsp;政务邮箱&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                    <a href="https://ucenter.changzhou.gov.cn/people/login/index" target="_blank">&nbsp;&nbsp;个人中心</a>
+                </li>
+            </ul>
+        </div>
+        <div class="top_main_r">
+            <ul>
+                <li>
+                    <a name="StranLink" id="StranLink" style="cursor:point;font-size:15px;" href="javascript:StranBody()" title="點擊以繁體中文方式瀏覽">&nbsp;&nbsp;繁&nbsp;&nbsp;|</a>
+                </li>
+                <li>
+                    <span id="czheader-lan-sel"  style="float: right;font-size: 15px;color:#ffffff;">&nbsp;&nbsp;English&nbsp;&nbsp;|
+                        <div id="czheader-lan-list">
+                              <ul>
+                                <li><a href="/ns_class/english" target="_blank">English</a></li>
+                                <li><a href="/ns_class/jap" target="_blank">日本語</a></li>
+                                <li><a href="/ns_class/kor" target="_blank"><img src="/images2019/hanguoyu.png"></a></li>
+                              </ul>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <a title="无障碍浏览" href="/statics/wza/" target="_blank">&nbsp;&nbsp;无障碍浏览&nbsp;&nbsp;</a>
+                </li>
+                <li id="ucenter_span">
+                    <a href="https://ucenter.changzhou.gov.cn/people/login/index" target="_blank">登录</a>
+                </li>
+                <script language="JavaScript" src="/images2017/jfzh.js" type="text/javascript"></script>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="guohui_bg" style="">
+        <div class="guohui_left">
+            <img src="/images2024/images/logo.png">
+        </div>
+        <div class="guohui_right">
+            <div class="searchform">
+                <form name="searchform" id="searchform" method="get" target="_blank" action="/search/site.php">
+                    <div class="searchbox">
+                        <input name="keyword" type="text" id="keyword" class="czheader-select_input" placeholder="-请输入关键词-" value="" />
+                        <img src="/images2024/index/images/search1.png" />
+                        <input type="submit" name="button" id="button" value="" class="czheader-select_sousuo" style="cursor:pointer;">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div id="nav">
+    <ul>
+        <li><a href="/"  >首页</a></li>
+        <li class=""><a href="/ns_class/zjcz"  >走进常州</a></li>
+        <li><a href="/ns_class/xwzx" >新闻中心</a></li>
+        <li><a href="/ns_class/zfxxgk">政务公开</a></li>
+        <li><a href="/ns_class/fwdt" >办事服务</a></li>
+        <li><a href="/ns_class/myhd" >政民互动</a></li>
+        <li><a href="/ns_class/xwzx_07" >专题专栏</a></li>
+        <li style="border-right: 1px solid #ffffff;border-color:rgba(255, 255, 255, 0.2);"><a href="/ns_class/sjfb">数据发布</a></li>
+        <li style="display: none;"><a href="/ns_news/921173560566023" target="_blank"><img src="/images2024/index/images/shu.png" /> 党政信息</a></li>
+        <div class="clearfix"></div>
+    </ul>
+</div>
+<div style="display:none;"><a href="/tools/ns_class.php" rel="nofollow">领导活动</a></div>
+<script language="JavaScript" src="/images2017/ucenter.js" type="text/javascript"></script>
+<div class="container8">
+    <table width="1240" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="wzdh2019">
+                <div class="wzdh-head2019 text1">您当前的位置：</div>
+                <div class="wzdh-text2019 text1"><a href="/">首页</a> >> 留言选登</div>
+            </td>
+        </tr>
+    </table>
+    <table width="1240" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="20">&nbsp;</td>
+        </tr>
+    </table>
+    <table width="1240" border="0" align="center" cellpadding="0" cellspacing="0" class="border1">
+        <tr>
+            <td valign="top" bgcolor="#F8F8F8">
+                <table width="100" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                </table>
+                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="40" style="padding-left:15px;">
+                            <table border="0" cellpadding="2" cellspacing="0">
+                                <tr>
+                                    <td width="205">信件编号：
+                                        <input type="text" id="no" name="no" value=""
+                                               onchange="get_list(1, 'inputtime desc');" class="bianhao"/></td>
+                                    <td width="276">关键字：<input type="text" id="title" name="title" value=""
+                                                                  onchange="get_list(1, 'inputtime desc');"
+                                                                  class="guanjianzi"></td>
+                                    <td width="80"><input type="submit" value=" 搜 索 " class="letter_but_sousuo"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <select name="year" id="year" style="border:1px solid #DDD;"
+                                    onchange="get_list(1, 'inputtime desc');">
+                                <option value="0">选择年份</option>
+                                <option>2026</option><option>2025</option><option>2024</option>                            </select>
+                        </td>
+                        <td align="right" style="padding-right:10px;"><select name="site" id="site"
+                                                                              style="border:1px solid #DDD;"
+                                                                              onchange="get_list(1, 'inputtime desc');">
+                                <option value="0">受理单位</option>
+                                <option value='189'>市财政局</option><option value='249'>市人社局</option><option value='199'>市文化广电和旅游局</option><option value='215'>市住房和城乡建设局</option><option value='200'>市交通运输局</option><option value='166'>武进区人民政府</option><option value='211'>市科技局</option><option value='119'>市统计局</option><option value='62'>钟楼区人民政府</option><option value='53'>常州国家高新区管委会（新北区人民政府）</option><option value='59'>市外事办</option><option value='65'>天宁区人民政府</option><option value='167'>金坛区人民政府</option><option value='80'>市应急管理局</option><option value='188'>市生态环境局</option><option value='56'>市机关事务局</option><option value='76'>市水利局</option><option value='208'>市城管局</option><option value='79'>市总工会</option><option value='186'>市住房公积金管理中心</option><option value='253'>市公安局</option><option value='206'>市数据局</option><option value='55'>市审计局</option><option value='118'>市地震局</option><option value='175'>江苏常州经济开发区</option><option value='78'>市民族宗教事务局</option><option value='66'>市发改委</option><option value='52'>市科协</option><option value='123'>市工信局</option><option value='297'>市医保局</option><option value='39'>市卫生健康委员会</option><option value='264'>溧阳市人民政府</option><option value='192'>市体育局</option><option value='120'>市民政局</option><option value='185'>市商务局</option><option value='195'>市文联</option><option value='90'>市供销总社</option><option value='100'>市妇联</option><option value='164'>市教育局</option><option value='197'>市农业农村局</option><option value='207'>市社科联</option><option value='61'>市工商联</option><option value='223'>市信访局</option><option value='60'>市残联</option><option value='228'>市市场监督管理局</option><option value='225'>市司法局</option><option value='299'>市退役军人事务局</option><option value='58'>市红十字会</option><option value='221'>市侨联</option>                            </select>
+                            &nbsp;&nbsp;
+                            <select name="letter_type" id="letter_type" style="border:1px solid #DDD;"
+                                    onchange="get_list(1, 'inputtime desc');">
+                                <option value="">类别</option>
+                                <option value='留言'>留言</option><option value='咨询'>咨询</option><option value='投诉'>投诉</option><option value='举报'>举报</option><option value='建议'>建议</option><option value='表扬'>表扬</option><option value='批评'>批评</option>                            </select></td>
+                    </tr>
+                </table>
+                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="50" colspan="2">
+                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center"><input type="button" value=" 满意度 " class="letter_button"
+                                                              style="width:140px;" onclick="dept_tongji(1, this);"/>
+                                    </td>
+                                    <td align="center"><input type="button" value=" 回复率 " class="letter_button"
+                                                              style="width:140px;" onclick="dept_tongji(2, this);"/>
+                                    </td>
+                                    <td align="center"><input type="button" value="点击率" class="letter_button"
+                                                              style="width:140px;" onclick="order('hits desc', this);"/>
+                                    </td>
+                                    <td align="center"><input type="button" value="回复时间" class="letter_button"
+                                                              style="width:140px;"
+                                                              onclick="order('dealtime desc', this);"/></td>
+                                    <td align="center"><input type="button" value="热点回应" class="letter_button"
+                                                              style="width:140px;"
+                                                              onclick="window.open('/ns_class/myhd_10');"/></td>
+                                    <td align="center"><input type="button" value="政策问答库" class="letter_button"
+                                                              style="width:140px;"
+                                                              onclick="window.open('/page_zwzzk');"/>
+                                    </td>
+                                    <td align="center"><input type="button" value="留言互动公开信件统计"
+                                                              class="letter_button" style="width:200px;"
+                                                              onclick="window.open('/ns_class/9rax23lz');"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div style="height:20px;"></div>
+    <table width="1240" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="400" colspan="2" valign="top">
+                <div id="div_list" style="border: 1px solid #ddd;padding-bottom: 30px;"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="height:20px;"></div>
+<div class="footer">
+        <div class="footer_con m">
+            <p><a href="/ns_class/qt_11"  target="_blank">联系我们</a>　|　<a href="/ns_class/qt_12"  target="_blank">网站地图</a>　|　<a href="/stat/"  target="_blank">访问统计</a>　|　<a href="/gova/wzjc/"  target="_blank">网站纠错</a><br/>
+                主办：常州市人民政府办公室　承办：常州市大数据管理中心　版权所有：常州市人民政府　电子邮箱：czwgzx@changzhou.gov.cn<br/>
+                地址：常州市龙城大道1280号 (市行政中心)3号楼B座116室　技术支持电话：0519-85685023<br>
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32041102000483" target="_blank">苏公网安备32041102000483号</a>　网站标识码：3204000002　<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备05003616号</a>&nbsp;&nbsp;&nbsp;<span>网站支持IPV6</span>
+            </p>
+            <div class="wzbs">
+                <a href="http://bszs.conac.cn/sitename?method=show&amp;id=0808DD6127E40ADBE053012819AC9965" target="_blank"><img src="/images2024/index/images/bottom_dzjg.png" alt=""></a>
+                <a href='#' onclick='window.open("https://www.changzhou.gov.cn/api/jiucuo.php?site_code=3204000002&url="+window.location.href);return false;' target='_blank'><img src="/images2024/index/images/bottom_jiucuo.png" alt=""></a>
+                <!---<img class="slh" src="/images2024/index/images/footer_slh.png" aria-label="适老化无障碍">--->
+            </div>
+        </div>
+    </div>
+<link rel="stylesheet" type="text/css" href="/images2024/index/css/right_banner.css">
+<script type="text/javascript" src="/images2024/js/right_banner.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    var curr_order = 'inputtime desc';
+
+    function get_list(page, order) {
+        var url = "/gova/letter/ajax.php?action=list";
+        if (!order) {
+            order = curr_order;
+        }
+        url += "&page=" + page;
+        url += "&order=" + order;
+        var no = $("#no").val();
+        var title = $("#title").val();
+        var site = $("#site").val();
+        var letter_type = $("#letter_type").val();
+        var year = $("#year").val();
+        url += "&site=" + site;
+        url += "&letter_type=" + letter_type;
+        if (no !== '') {
+            url += "&no=" + no;
+        }
+        if (title !== '') {
+            url += "&title=" + title;
+        }
+        if (year > 0) {
+            url += "&year=" + year;
+        }
+        $.get(url, function (data) {
+            $("#div_list").html(data);
+            setTimeout(function () {
+                $(".letter_ids").each(function (index, obj) {
+                    var letterId = $(obj).attr('id');
+                    if (letterId > 0) {
+                        $.ajax({
+                            type: 'get',
+                            url: "/gova/letter/ajax.php?action=hits&id=" + letterId,
+                            async: true,
+                            success: function (res_data) {
+                                $(obj).html(res_data);
+                            }
+                        });
+                    }
+                    console.log(letterId);
+                });
+            }, 50);
+        });
+    }
+
+    function dept_tongji(type, obj) {
+        //$(".btn_order").css('background', 'url("images/sousuo_1.png")');
+        //$(obj).css('background', 'url("images/sousuo_3.png")');
+        var url = "/gova/letter/ajax.php?action=dept_tongji_" + type;
+        $.get(url, function (data) {
+            $("#div_list").html(data);
+        });
+    }
+
+    function order(order, obj) {
+        //$(".btn_order").css('background', 'url("images/sousuo_1.png")');
+        //$(obj).css('background', 'url("images/sousuo_3.png")');
+        curr_order = order;
+        get_list(1, order);
+    }
+
+    $(function () {
+        get_list(1, curr_order);
+    });
+</script>
+<script language="JavaScript" src="/plugin/FlowStat/stat.js"></script>

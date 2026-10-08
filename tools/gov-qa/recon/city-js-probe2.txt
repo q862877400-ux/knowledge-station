@@ -1,0 +1,200 @@
+
+======================================================================
+## 无锡  https://www.wuxi.gov.cn/hdjl/index.shtml
+  → 200 (55698 bytes)
+  指纹命中: ['siteId', 'zmhd', '12345']
+      [我的12345信件] https://www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+      [我的依申请公开] https://www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml?tab=ysqgk
+      [政务公开] https://www.wuxi.gov.cn/zfxxgk/index.shtml
+      [我要留言] https://www.wuxi.gov.cn/fzlm/hdjlgny/lxblgny/wyxx/index.shtml
+      [公安机关不予受理律师查询人口信息的情形包] https://www.wuxi.gov.cn/doc/2026/09/08/4828129.shtml
+      [律师如何申请办理人口信息查询？] https://www.wuxi.gov.cn/doc/2026/09/08/4828126.shtml
+      [留言和提问] https://www.wuxi.gov.cn/fzlm/hdjlgny/ftzb/ftzblmsy/index.shtml?subjectId=
+
+======================================================================
+## 徐州  https://www.xz.gov.cn/004/interactive.html
+  → 200 (22149 bytes)
+  指纹命中: ['siteId', '12345']
+      [领导信箱] https://www.xz.gov.cn/004/004014/consultlead.html
+      [12345热线] javascript:void(0);
+      [来信选登] https://www.xz.gov.cn/004/004005/selectList.html
+      [2026-09-30
+											
+					] https://www.xz.gov.cn/004/004007/20260930/dfa63544-6c90-4840-a530-7513b405b5d8.html
+      [2026-09-15
+											
+					] https://www.xz.gov.cn/004/004007/20260915/d3a23a16-dfc4-4427-855a-28bfb5955db5.html
+      [2026-09-11
+											
+					] https://www.xz.gov.cn/004/004007/20260911/7cf35631-dfb4-4342-80dc-b1550455567e.html
+      [2026-09-03
+											[已失效]
+] https://www.xz.gov.cn/004/004007/20260903/b032a6d6-df76-4037-b832-fc0637b69744.html
+      [2026-08-19
+											[已失效]
+] https://www.xz.gov.cn/004/004007/20260819/0d0d3f67-c943-4e7d-8cc5-9fd2752efdf6.html
+      [2026-06-01
+										
+						] https://www.xz.gov.cn/004/004009/20260601/2cdac541-fcd6-4e8e-ba3b-ecc92a8f470d.html
+
+======================================================================
+## 常州  https://www.changzhou.gov.cn/gova/letter
+  → 200 (18917 bytes)
+  指纹命中: []
+      [政务公开] http://www.changzhou.gov.cn/ns_class/zfxxgk
+
+======================================================================
+## 苏州  https://www.suzhou.gov.cn/szsrmzf/zmhd/zmhd.shtml
+  → 200 (68344 bytes)
+  指纹命中: ['siteId', 'zmhd', '12345']
+      [政务公开] https://www.suzhou.gov.cn/szsrmzf/szsxxgk/xxgk.shtml
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/zxft/list.shtml
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/ftzb/fzzb_list.shtml
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/zfxfspzb/zfxf.shtml
+      [重大决策预公开／政策文件意见征集] https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj.shtml
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj.shtml
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/wsdc/nav_wztt_dczj.shtml
+      [2026-09-30
+                  ] https://www.suzhou.gov.cn/szsrmzf/yjzj/202608/7e42e5da6c484ab185e17ecf8a93670a.shtml
+      [2026-10-16
+                  ] http://www.suzhou.gov.cn/szwsdc/previewSurvey?sur_id=0eb2aa902c2341cbb8fa8c56295df54b
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/jgfk/nav_list.shtml
+      [关于《苏州市养殖水域滩涂规划（2020-2030年）2025] https://www.suzhou.gov.cn/szsrmzf/jgfk/202609/225341d92c6f42fc8cab864fab933aca.shtml
+      [关于《苏州市“十五五”安全生产、应急管理和消防救援事业发展规] https://www.suzhou.gov.cn/szsrmzf/jgfk/202608/1394e9dc54844b29b64039057b727d7a.shtml
+      [市委书记信箱
+                      ] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/sjmail
+      [市长信箱
+                        ] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/szmail
+      [部门信箱
+                        ] https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml#/xjly/bmmail
+      [公众监督
+                        ] https://www.suzhou.gov.cn/szsrmzf/hd_gzjd/gzjd.shtml#/gzjd/letterlists
+      [更多+] https://www.suzhou.gov.cn/szsrmzf/hd_gzjd/gzjd.shtml#/gzjd/letterlists
+      [区长信箱来信选编] javascript:viod(0);
+      [部门信箱来信选编] javascript:viod(0);
+      [12345苏州阳光便民] http://www.12345.suzhou.com.cn/
+
+======================================================================
+## 南通  https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html
+  → 200 (55644 bytes)
+  指纹命中: ['siteId']
+
+======================================================================
+## 连云港  https://www.lyg.gov.cn/zglygzfmhwz/gzcy/gzcy.html
+  → 200 (54285 bytes)
+  指纹命中: ['siteId', '12345']
+      [2026年08月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/1b99cb82-98b0-4123-a20e-0ae8fa7316ff.html
+      [2026年07月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/5c850536-041d-42b6-bff7-7e7bf28c0d81.html
+      [2026年06月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/76416cff-2ace-426d-ae9b-41394d10c178.html
+      [2026年05月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/b6e64d05-2e12-4a71-94f9-db3344cb1406.html
+      [2026年04月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/e470aff0-2e10-4afd-be6c-5d8146ec538d.html
+      [2026年03月份市长信箱运行和反...] https://www.lyg.gov.cn/zglygzfmhwz/fktj/content/a25d548e-0907-4c5f-b7f8-b249de6bf109.html
+
+======================================================================
+## 扬州  https://www.yangzhou.gov.cn/hdjl/index.html
+  → 200 (41860 bytes)
+  指纹命中: ['hanweb', 'siteId', '12345']
+      [信件选登] https://www.yangzhou.gov.cn/jyszzxhf/index.html
+      [更多回复] https://www.yangzhou.gov.cn/jyszzxhf/index.html
+      [市委书记信箱] https://yzygxf.cn:20000/zhengfuxinxiang?orgid=32101&type=ssjxx
+      [【预告】《12345·政风行政热线———扬州市妇联》（公益行] https://www.yangzhou.gov.cn/hdjl/ftyg/art/2026/art_a6e58fe027624df19f5b5d56b895d6ea.html
+      [《12345·政风行政热线———扬州市妇联》（公益行动春蕾计] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_7a84d0922abe437b882c529e8e287188.html
+      [《12345·政风行政热线———扬州仲裁委》（仲裁优化法治营] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_27105dd8b1a244c6bc0e2224b05630f4.html
+      [《12345·政风行政热线———扬州市妇幼保健院》（生育友好] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_94d6c34ef9444cf792dc23f489ef83dc.html
+      [《12345·政风行政热线———扬州市工信局》（绿色节能专题] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_31d1e3e27281492a8b23078088ad7dde.html
+      [《12345·政风行政热线———扬州市教育局》（全市中小学招] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_d35eef7b52f04b9492e19e417863a5f1.html
+      [《12345·政风行风热线——扬州市城市管理局》（市容环境保] https://www.yangzhou.gov.cn/zxftCMS/art/2026/art_3143fc020ee7478abeca5aa6586a4c0b.html
+      [怎么查询身份证补办进度？] https://www.yangzhou.gov.cn/hdjl/zsk/hjgl/art/2026/art_3896552690a249cc8a9be40acc144ed0.html
+      [如何查询本人的人事档案在不在扬州？] https://www.yangzhou.gov.cn/hdjl/zsk/gysy/art/2026/art_52e8d74d27c544378be21437089cd47d.html
+
+======================================================================
+## 镇江  https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+  → 200 (60122 bytes)
+  指纹命中: ['siteId', 'xjgs', 'zmhd', '12345']
+      [力求把诉求办在群众开口前 镇江“未诉先办”绘就民生温暖底色] https://www.zhenjiang.gov.cn/zhenjiang/bmxx/202609/d7f11deb59334e859a368966222f93af.shtml
+      [政务公开] https://www.zhenjiang.gov.cn/zhenjiang/zwgk/zwgk.shtml
+      [政府信息公开指南] https://www.zhenjiang.gov.cn/zhenjiang/zfxxgkzn/xxgk_tt.shtml
+      [政府信息公开制度] https://www.zhenjiang.gov.cn/zhenjiang/zfxxgkzd/xxgk_gkzd_lists.shtml
+      [法定主动公开内容] https://www.zhenjiang.gov.cn/zhenjiang/fdzdgknr/jump_secondlm.shtml
+      [政府信息公开年报] https://www.zhenjiang.gov.cn/zhenjiang/zfxxgknb/xxgk_list.shtml
+      [依申请公开] https://www.zhenjiang.gov.cn/zhenjiang/ysqgk/ysqskindex.shtml
+      [更多] https://zj.jszwfw.gov.cn/jszwfw/bscx/itemlist/gr_index.do?webId=25&themid=allzt&deptid=
+      [更多] https://zj.jszwfw.gov.cn/jszwfw/bscx/itemlist/fr_index.do?webId=25&themid=allzt&deptid=
+      [办事进度查询] http://www.jszwfw.gov.cn/jszwfw/bjcx/bjcx.do
+      [查看更多] http://zj.jszwfw.gov.cn/
+      [书记信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=ssjxx
+      [市长信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=sszxx
+      [12345在线] https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+      [企业诉求] https://www.zhenjiang.gov.cn/userCenter/index.shtml#demands_demands
+      [个人诉求] https://www.zhenjiang.gov.cn/userCenter/index.shtml#demands_demands
+      [书记信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=ssjxx
+      [市长信箱] https://wsxf.xfj.zhenjiang.gov.cn:32767/zhengfuxinxiang?orgid=32111&type=sszxx
+      [区县信箱] https://www.zhenjiang.gov.cn/zhenjiang/qxxx/zfxxs.shtml
+      [部门信箱] https://www.zhenjiang.gov.cn/zhenjiang/bmxx1/zfxxs.shtml
+      [12345在线] https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+      [企业诉求] https://www.zhenjiang.gov.cn/u/ssoLogin/loginBtn?r_url=http%3A%2F%2Fwww.zhenjiang.gov.cn%2FuserCenter%2Findex.shtml%23demands_demands
+      [个人诉求] https://www.zhenjiang.gov.cn/u/ssoLogin/loginBtn?r_url=http%3A%2F%2Fwww.zhenjiang.gov.cn%2FuserCenter%2Findex.shtml%23demands_demands
+      [诉求查询] https://www.zhenjiang.gov.cn/u/ssoLogin/loginBtn?r_url=http%3A%2F%2Fwww.zhenjiang.gov.cn%2FuserCenter%2Findex.shtml%23demands_history
+
+======================================================================
+## 宿迁  https://www.suqian.gov.cn/cnsq/hdjl/hdjl.shtml
+  → 200 (40497 bytes)
+  指纹命中: ['siteId', 'xjgs']
+      [政府信息公开] https://www.suqian.gov.cn/cnsq/zwgk/zwgk.shtml
+      [政府信息公开] https://www.suqian.gov.cn/cnsq/zwgk/zwgk.shtml
+      [书记信箱] https://sqzhxf.suqian.gov.cn:8443/wsjfdt/#/sjxx
+      [市长信箱] https://sqzhxf.suqian.gov.cn:8443/wsjfdt/#/szxx
+      [我要留言] https://www.suqian.gov.cn/u/userCenter/index.html#mail_writemail
+      [留言查询] https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+      [更多>>] https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+      [查看更多] https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+      [留言统计] https://www.suqian.gov.cn/cnsq/zxts/messtj.shtml
+      [更多>>] https://www.suqian.gov.cn/cnsq/dczj/dczjlist.shtml
+      [更多>>] https://www.suqian.gov.cn/cnsq/wjdc/wjdc_list.shtml
+      [查看更多] https://www.suqian.gov.cn/cnsq/dczj/dczjlist.shtml
+      [查看更多] https://www.suqian.gov.cn/cnsq/wjdc/wjdc_list.shtml
+      [更多>>] https://www.suqian.gov.cn/cnsq/wszb/zxft_list.shtml
+
+======================================================================
+## 南京  https://www.nanjing.gov.cn/
+  → 200 (618 bytes)
+  指纹命中: []
+
+======================================================================
+## 淮安  https://www.huaian.gov.cn/
+  → 200 (26635 bytes)
+  指纹命中: ['siteId']
+      [更多...] https://www.huaian.gov.cn/col/16655_185673/index.html
+      [更多...] https://www.huaian.gov.cn/col/16653_544327/index.html
+      [关于公开征集2027年度市政府规章立法项目建议的...] https://www.huaian.gov.cn/col/16653_544327/art/17855136/1786670249712HA56PYNY.html
+      [更多...] https://www.huaian.gov.cn/col/16657_173466/index.html
+      [更多...] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=5285
+      [更多...] https://www.huaian.gov.cn/col/16782_865147/index.html
+      [更多...] http://ha.jszwfw.gov.cn/
+      [更多...] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=215&orgid=5e38cfb865c0ee530165c767110a15b9&type=1
+      [政府信息公开专栏] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=215&orgid=5e38cfb865c0ee530165c767110a15b9&type=1
+      [政府信息公开指南] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=215&orgid=5e38cfb865c0ee530165c767110a15b9&type=1
+      [依申请公开] https://ssl.huaian.gov.cn/cmsweb/zwgk/sj/ysqgk/dept.html
+      [政府信息公开制度] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=216&orgid=5e38cfb865c0ee530165c767110a15b9
+      [政府信息公开年报] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=217&orgid=5e38cfb865c0ee530165c767110a15b9
+      [政府信息公开目录] https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=5285
+      [部门信息公开] https://www.huaian.gov.cn/cmsweb/zwgk/sj/department.html
+      [区县信息公开] https://www.huaian.gov.cn/cmsweb/zwgk/sj/department_xq.html
+      [江苏省政府信息公开申请须知] http://www.js.gov.cn/col/col59348/index.html
+      [淮安市政府信息公开年报汇总] https://www.huaian.gov.cn/xxgk.html
+
+======================================================================
+## 盐城  https://www.yancheng.gov.cn/
+  → 200 (48614 bytes)
+  指纹命中: ['jact', 'hanweb', 'sysid', 'siteId']
+      [了解详情] https://www.yancheng.gov.cn/art/2026/10/5/art_49_4458693.html
+      [关于公开征求《盐城市征地涉及地上附着物和青苗等补偿标准（征求] https://www.yancheng.gov.cn/art/2026/7/17/art_50_4438933.html
+      [市政府信息公开指南] http://www.yancheng.gov.cn/col/col23742/index.html
+      [政府信息公开申请须知] http://www.js.gov.cn/col/col59348/index.html
+      [政府信息公开目录] https://www.yancheng.gov.cn/col/col23754/index.html
+      [政府信息公开制度] http://www.yancheng.gov.cn/col/col23743/index.html
+      [政府信息公开年度报告] https://www.yancheng.gov.cn/col/col55886/index.html
+      [政府信息依申请公开] https://www.yancheng.gov.cn/jact/front/main.do?sysid=2
+      [最新信息公开] javascript:void(0)
+      [关于公开征求《盐城市地名管理办法（修订草案征求意见稿）》意见] https://www.yancheng.gov.cn/dczj/dczj/idea/topic_21825.html
+      [关于公开征求《关于进一步规范盐城市区教练车教学训练线路的通告] https://www.yancheng.gov.cn/dczj/dczj/idea/topic_21813.html

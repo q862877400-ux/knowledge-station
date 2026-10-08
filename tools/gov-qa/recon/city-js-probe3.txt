@@ -1,0 +1,134 @@
+
+======================================================================
+## 徐州  https://www.xz.gov.cn/004/004005/selectList.html
+  → 200 (3870 bytes) final=https://www.xz.gov.cn/004/004005/selectList.html
+  URL /interactive/css/selectList.css
+  URL /js/libs/jquery.min.js
+  URL /js/libs/chosen/chosen.jquery.js
+  URL /interactive/js/selectList.js
+  URL /js/pageView2.js
+
+======================================================================
+## 常州  https://www.changzhou.gov.cn/gova/letter
+  → 200 (18917 bytes) final=http://www.changzhou.gov.cn/gova/letter/
+  URL /images2012/jquery.min.js
+  URL /page_znwdpt
+  URL /search/site.php
+  URL /images2024/index/images/search1.png
+  URL /gova/letter/ajax.php?action=list
+  URL /gova/letter/ajax.php?action=hits&id=
+  URL /gova/letter/ajax.php?action=dept_tongji_
+
+======================================================================
+## 镇江  https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+  → 200 (60122 bytes) final=https://www.zhenjiang.gov.cn/zhenjiang/12345zx/xjgs_list.shtml
+  URL /zhenjiang/xhtml/css/column_pages.css
+  URL /zhenjiang/xhtml/js/jquery.min.js
+  URL /zhenjiang/xhtml/js/xjgs_list.js
+  URL /default/xhtml/js/page_ajax.js
+  URL //www.zhenjiang.gov.cn/search4/s
+  URL /zhenjiang/zwyw/list.shtml
+  URL /zhenjiang/qxdt/list.shtml
+  URL /zhenjiang/bmxx/list.shtml
+  URL /zhenjiang/wjjd/xxgk_lists.shtml
+  URL /zhenjiang/zfxxgkzd/xxgk_gkzd_lists.shtml
+  URL /zhenjiang/zfxxgknb/xxgk_list.shtml
+  URL https://zjs.jszwfw.gov.cn:18080/epoint-web-zwdt/epointzwmhwz/pages/myspace/index
+  URL https://zj.jszwfw.gov.cn/jszwfw/bscx/itemlist/gr_index.do?webId=25&themid=allzt&deptid=
+  URL https://zjs.jszwfw.gov.cn:18080/epoint-web-zwdt/epointzwmhwz/pages/epspace/mycompany
+  URL https://zj.jszwfw.gov.cn/jszwfw/bscx/itemlist/fr_index.do?webId=25&themid=allzt&deptid=
+  URL https://zjs.jszwfw.gov.cn:18080/epoint-web-zwdt/zjzwdt/pages/auditbusiness/onething.html
+  URL http://58.217.53.110/epoint-web-zwdt/zjzwdt/321100/pages/smart_guide_video
+  URL http://58.217.53.110/epoint-web-zwdt/zjzwdt/321100/pages/gov_public
+  URL http://www.jszwfw.gov.cn/jszwfw/bjmqd/bjmlist.do?webId=25
+  URL http://www.jszwfw.gov.cn/jszwfw/bjcx/bjcx.do
+  URL /zhenjiang/hdjl/zmhd.shtml
+  URL /zhenjiang/xhtml/images/zmhd_icon_sjxx.png
+  URL /zhenjiang/xhtml/images/zmhd_icon_szxx.png
+  URL /zhenjiang/xhtml/images/nav_zmhd_qxxx.jpg
+  URL /zhenjiang/xhtml/images/nav_zmhd_bmxx.jpg
+  URL /zhenjiang/zxft/zxft_list.shtml
+
+======================================================================
+## 扬州  https://www.yangzhou.gov.cn/jyszzxhf/index.html
+  → 200 (17259 bytes) final=https://www.yangzhou.gov.cn/jyszzxhf/index.html
+  URL /cms_files/webyangzhoushirenminzhengfu/pubtplobject/defaultSet/sNACkHsNbL4tTvjUBDxX7/images/jquery-3.6.0.min.js
+  URL /cms_files/default/script/jslib/jquery.js
+  URL /cms_files/default/script/jslib/jquery.cookie.js
+  URL //www.yangzhou.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-search.do?platformIid=Thls5eZbG3vAwgjtKY52k
+  URL https://www.yangzhou.gov.cn/jpaas-jisextend-quicklogin-server/front/jszw/login?backUrl=https://www.yangzhou.gov.cn/yzUserCenterweb/&appMark=yzUserCent
+
+======================================================================
+## 无锡  https://www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+  → 200 (38162 bytes) final=https://www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+  URL /static_common/js/jquery.js
+  URL /static_2023/js/jquery.s2t.js
+  URL /static_2023/js/jquery.SuperSlide.2.1.3.source.js
+  URL /static_2023/js/jquery.cookie.js
+  URL /static_common/js/wzq_search_common.js
+  URL /mailbox/me/search
+  URL /intertidwebapp/mailbox/MyLetterListNoJson
+  URL https://jms.jszwfw.gov.cn/jpaas-juspace-web-jszwfw/front/home/index
+  URL https://www.jszwfw.gov.cn/jsjis/front/modify/permodify_show.do
+  URL https://wx.jszwfw.gov.cn/ipgs/ipgs/qjd/wuxi/gotoBsznGgfwtg.do?iddept_yw_inf=80b53fa4-92ac-487b-aaf3-a1450782fa19
+  URL /search_show/hotWord/listHotWordDO
+
+======================================================================
+## 宿迁  https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+  → 200 (36717 bytes) final=https://www.suqian.gov.cn/cnsq/xinxiang/bmxxi_frame.shtml
+  URL /cnsq/xhtml/js/jquery.min.js
+  URL /cnsq/xhtml/js/jquery.pagination.js
+  URL /search4/s
+  URL /cnsq/xhtml/static/2023/images/public/header_search_btn.png
+  URL /u/consult/ajaxlist
+  URL /cnsq/xhtml/js/jquery.cookie.js
+
+======================================================================
+## 苏州  https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml
+  → 200 (42655 bytes) final=https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml
+  URL /szsrmzf/xhtml/js/jquery.min.js?t=1766729064265
+  URL /szsrmzf/xhtml/js/jquery.cookie.js?t=1766729064265
+  URL /search/index.html
+  URL /szsrmzf/zmhd/zmhd.shtml
+
+======================================================================
+## 南通  https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html
+  → 200 (55644 bytes) final=https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html
+  URL /ntsrmzf/../truecms/js/pageJS/theme/jpage.css
+  URL /ntsrmzf/resource/theme/css/jquery.slideBox.css
+  URL /ntsrmzf/resource/theme/js/jquery-1.11.3.min.js
+  URL /ntsrmzf/resource/theme/js/jquery.slideBox.js
+  URL /ntsrmzf/../truecms/js/jquery.form.js
+  URL /ntsrmzf/../truecms/js/jquery-1.7.2.min.js
+  URL /ntsrmzf/../truecms/js/pageJS/jquery.jpage.js
+  URL /ntsrmzf/resource/theme/indexNewimg/icon-search.png
+  URL /ntsrmzf/resource/theme/img/search_ico.png
+  URL /truecms/captchaImageCreateController/captcha-image.do?t=1605228311677
+  URL /truecms/visitorController/saveLetter.do?optype=1
+  URL /truecms/attachmentController/visitorUploadAttr.do
+  URL /truecms/visitorController/changeContentType.do
+  URL /truecms/visitorController/checkLoginName.do?loginName=
+  URL /truecms/visitorController/register.do
+  URL /truecms/letterController/xxList.do?type=
+  URL /truecms/visitorController/toWriteLetter.do?type=1&distmailbox=
+  URL /truecms/letterController/toSeeLetterInfo.do?bh=
+  URL /truecms/captchaImageCreateController/getCode.do?code=
+  URL /truecms/letterController/checkCodes.do?bh=
+  URL /truecms/letterController/xxList.do?numPerPage=10&pageNum=
+  URL /truecms/messageController/getMessageByCondition.do
+
+======================================================================
+## 连云港  http://12345.lyg.gov.cn/
+  → 200 (51971 bytes) final=http://12345.lyg.gov.cn/
+  IFRAME http://12345.lyg.gov.cn/wz/jswebsite/pages/newdefault/case.html 
+  IFRAME http://12345.lyg.gov.cn/wz/jswebsite/pages/newdefault/chart.html
+  IFRAME http://12345.lyg.gov.cn/wz/dist/order/index
+  URL http://www.lyg.gov.cn/TrueCMS/searchController/getResult.do
+  URL http://12345.lyg.gov.cn/wz/jswebsite/pages/newdefault/case.html 
+  URL http://12345.lyg.gov.cn/wz/jswebsite/pages/newdefault/chart.html
+  URL http://12345.lyg.gov.cn/TrueCMS/visitorController/toDeptletterList.do?site=lygszcg&amp;mailBoxId=d45bcbba-2f9a-4202-a050-a44ba8b1a4ed
+  URL http://www.lyg.gov.cn/TrueCMS/visitorController/toDeptletterList.do?site=lygszcg&mailBoxId=d45bcbba-2f9a-4202-a050-a44ba8b1a4ed
+  URL /lygszcg/lygszcg/asstes/js/jquery.min.js
+  URL /lygszcg/lygszcg/asstes/js/jquery.tab.js
+  COUNT? '共和国成立77'
+  COUNT? '共和国成立77'

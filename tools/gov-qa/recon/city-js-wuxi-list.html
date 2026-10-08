@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无锡市人民政府·我的政民互动</title>
+
+<meta name="description" content="无锡门户网站,无锡政务，无锡政府网，无锡市人民政府，政府信息公开，政民互动，公众服务，魅力无锡 ，专题报道" />
+<meta name="keywords" content="无锡门户网站,无锡政务，无锡政府网，无锡市人民政府，政府信息公开，政民互动，公众服务，魅力无锡 ，专题报道" />
+
+<!--<link rel="icon" href="data:image/ico;base64,aWNv">-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit" />
+<meta name="SiteName" content="无锡市人民政府" /> 
+<meta name="SiteDomain" content="www.wuxi.gov.cn" />
+<meta name="SiteIDCode" content="3202000001" />
+<script type="text/javascript" src="/static2016/js/Traditionalconversion.js"></script>
+    <meta name="ColumnName" content="我的政民互动" />
+    <meta name="ColumnDescription" content="政府信息公开、工作动态、公告公示、政民互动、政务服务等" />
+    <meta name="ColumnKeywords" content="信息公开，政策法规，法规解读，公告公示，互动交流" />
+    <meta name="ColumnType" content="我的政民互动" />
+    <link rel="stylesheet" id="cssfile" href="/zt/static_yhkj/white/css/normal/home.css">
+<link rel="stylesheet" id="fontSizeFile" href="/zt/static_yhkj/white/css/normal/normalStyle.css">
+    <link rel="stylesheet" href="/zt/static_yhkj/white/css/normal/bootstrap.min.css">
+    <link rel="stylesheet" id="common" href="/zt/static_yhkj/white/css/normal/common.css">
+    <script src="/static_common/js/jquery.js"></script>
+    <script type="text/javascript" src="/static_2023/js/script.js"></script>
+    
+    <script type="text/javascript" src="/static2016/js/checkLogin_t.js"></script>
+    <script type="text/javascript" src="/static_2023/js/jquery.s2t.js"></script>
+    <script type="text/javascript" src="/static_2023/js/jquery.SuperSlide.2.1.3.source.js"></script>
+    <script src="/static_2023/js/jquery.cookie.js"></script>
+    <script src="/static_2023/js/older.js"></script>
+    <script type="text/javascript" src="/static_common/js/wzq_common.js?20241214"></script>
+    
+    <script>
+    var loginInfo = getAllLoginUser();
+    var isCheckLogin = false;
+    if(loginInfo.isLogin != null){
+        isCheckLogin = loginInfo.isLogin;
+    }
+    </script>
+
+    
+<script src="//wza.wuxi.gov.cn/wza/wza2.min.js?appid=lqL8XjJthA4ajiH"></script>
+<!-- 新检索JS -->
+<script src="/static_common/js/wzq_search_common.js"></script>
+<script>
+var safeurlsstr = "www.wuxi.gov.cn";
+var elsemsg = "\n 您将离开“无锡市人民政府”门户网站。您是否仍要继续？";
+</script>
+<script type="text/javascript" src="/static_common/js/js_outsite.js?v=202606151420"></script>
+
+    
+    <script type="text/javascript">
+    
+      var loginUsers = loginInfo;
+      $(function() {
+        $("#yhkj_wdzy").addClass("active");
+        if (isCheckLogin) {
+          var nowDay = new Date();
+          var hours = nowDay.getHours();
+          var nowStr = "";
+          if(hours >= 0 && hours < 6){
+            nowStr = "凌晨好";
+          }else if(hours >= 6 && hours < 11){
+            nowStr = "上午好";
+          }else if(hours >= 11 && hours < 13){
+            nowStr = "中午好";
+          }else if(hours >= 13 && hours < 18){
+            nowStr = "下午好";
+          }else{
+            nowStr = "晚上好";
+          }
+          $("#username_zy").html(loginUsers.name+"，"+nowStr);
+          getMyletterCount(loginUsers.name);
+          getMyYsqgkCount();
+          getMyInteractionCount(loginUsers.username);
+          wza2.settleElements();
+        }
+      });
+      
+      /*我的回信*/
+        function getMyletterCount(username) {
+            $.ajax({
+                type: "get",
+                url: "/mailbox/me/search",
+                data: {
+                  SentUserName:username,
+                  size:20,
+                  page:1
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $("#mailTotal").html(data.data.totalElements);
+                    $("#mailTotal_tit").attr('title','我的信件，共'+data.data.totalElements+'件');
+                    wza2.settleElements();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    var msg = XMLHttpRequest.responseText;
+                    //alert(msg);
+                }
+            });
+        }
+      
+      /*我的依申请公开*/
+        function getMyYsqgkCount() {
+            $.ajax({
+                type: "get",
+                url: "/intertidwebapp/mailbox/MyLetterListNoJson",
+                data: {
+                  mailType: 1,
+                  pageSize:20,
+                  pageNum:1
+                },
+                dataType: 'json',
+                success: function (data) {
+                    var map = data.list.topics;
+                    if (map != undefined && map.length > 0) {
+                      $("#yiTotal").html(data.list.totalCount);
+                      $("#yiTotal_tit").attr('title','我的依申请公开，共'+data.list.totalCount+'件');
+                    }else{
+                      $("#yiTotal").html("0");
+                      $("#yiTotal_tit").attr('title','我的依申请公开，共0件');
+                    }
+                    wza2.settleElements();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    var msg = XMLHttpRequest.responseText;
+                    //alert(msg);
+                }
+            });
+        }
+      
+      /*我的调查征集*/
+        function getMyInteractionCount(username) {
+            $.ajax({
+                url: "/intertidwebapp/survey/MyInteraction",
+                data: {
+                  name: username,
+                  siteId:168
+                },
+                dataType: "jsonp",
+                jsonp : "callback",
+                type: "post",
+                cache:false,
+                success: function (data) {
+                    data = data.replace(/<\/?.+?>/g,"");
+                    data = data.replace(/[\r\n]/g, "");
+                    //data = data.replace("null('", "");
+                    //data = data.replace("')", "");
+                    var map = jQuery.parseJSON(data);
+                   
+                    if (map.topics) {
+                        $("#investigateTotal").html(map.totalNum);
+                        $("#investigateTotal_tit").attr('title','我的调查征集，共'+map.totalNum+'件');
+                    }else{
+                        $("#investigateTotal").html("0");
+                        $("#investigateTotal_tit").attr('title','我的调查征集，共'+map.totalNum+'件');
+                    }
+                    wza2.settleElements();
+                    
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    var msg = XMLHttpRequest.responseText;
+                    //alert(msg);
+                }
+            });
+        }
+            
+    </script>
+
+
+</head>
+<body>
+<script>
+
+    var prePage = document.referrer;
+
+    String.prototype.Trim = function () {
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+    }
+
+    String.prototype.LTrim = function () {
+        return this.replace(/(^\s*)/g, "");
+    }
+
+    String.prototype.Rtrim = function () {
+        return this.replace(/(\s*$)/g, "");
+    }
+    
+    function isNull(str) {
+        if (str == "") {
+            return true;
+        }
+        var regu = "^[ ]+$";
+        var re = new RegExp(regu);
+        return re.test(str);
+    }
+
+    //处理头部的登录1
+    function dealHeaderHtml() {
+
+    }
+
+    function headInfoClick(tab){
+        if(tab == 1){
+          $("#tb_tck_p1").html("当前为灵锡APP扫码登录，网站不提供修改个人信息服务。");
+          $("#tb_tck_p2").html("");
+        }else if(tab == 2){
+          $("#tb_tck_p1").html("当前为灵锡APP扫码登录，网站不提供修改密码服务。");
+          $("#tb_tck_p2").html("");
+        }else{
+          $("#tb_tck_p1").html("");
+          $("#tb_tck_p2").html("");
+        }
+        
+        $('#tb_tck').show();
+    }
+    function _loadUserLoginInfo() {
+        var str = "";
+        var grzxstr = "";
+        //if (checkLogin()) {
+        if (isCheckLogin) {
+
+        } else {
+            window.location.href = gotoUrl_common;
+        }
+        $("#loginHead").empty();
+        $("#loginHead").append(str);
+        $("#grzx_a").attr("href",grzxstr);
+        convertZh(localStorage.getItem('isTrandition') === 'true');
+
+
+    }
+
+    $(document).ready(function () {
+        //dealHeaderHtml();
+        _loadUserLoginInfo();
+    });
+
+    //登录
+    //验证失败，直接返回
+    //退出登录
+
+
+    //验证码
+
+    function selectFrom(iFirstValue, iLastValue) {
+        var iChoces = Math.abs(iLastValue - iFirstValue) + 1;
+        return Math.floor(Math.random() * iChoces + iFirstValue);
+    }
+
+
+</script>
+<!-- 头部开始 -->
+    <div class="top-header">
+        <div class="header-top">
+          <div class="header-top-right fr">
+            <span><a href="javascript:loginOut();">退出</a></span>
+            <span id="wza2-enable" class="wza" style="cursor:pointer;" href="">无障碍</span>
+            <span id="btn-convert">繁体版</span>
+            <a href="http://en.wuxi.gov.cn/" target="_blank" title="English">English</a>
+          </div>
+        </div>
+        <div class="top-header-box clear">
+            <div class="top-header-left">
+                <a href=""><img src="/zt/static_yhkj/white/images/appdownload-logo.png" alt=""></a>
+                <span>用户空间</span>
+            </div>
+<!--
+            <div class="top-header-right">
+                <div class="top-btn-box">
+                    <span class="btn-wza">无障碍浏览</span>
+                    <span class="btn-zzms">长者模式</span>
+                </div>
+                <div class="user-info">
+                    <img src="static/images/personal-home/head_sculpture.png" class="uesr-pic">
+                    <span class="user-name">用户姓名</span>
+                    <div class="btn-exit">退出</div>
+                </div>
+
+            </div>
+-->     
+        </div>
+    </div>
+    <!-- 头部结束 -->
+    
+    <!--菜单开始-->
+    <div class="nav clear wza_ztzl_head_dh">
+        <ul>
+            <li class="active"><a href="/index.shtml" id="channel_001" class="selected">首页</a></li>
+            <li><a href="/zfxxgk/index.shtml" id="channel_0021688">政务公开</a></li>
+            <li><a href="/xwzx/index.shtml" id="channel_0063751">新闻中心</a></li>
+            <li><a href="/mlxc/index.shtml" id="channel_0021842">魅力锡城</a></li>
+            <li><a href="/hdjl/index.shtml" id="channel_0021850">互动交流</a></li>
+            <li><a href="/ggfw/index.shtml" id="channel_0021863">办事服务</a></li>
+            <li><a href="/ztzl/index.shtml" id="channel_0023440">专题专栏</a></li>
+            <li><a href="https://data.wuxi.gov.cn/" target="_blank">数据开放</a></li>
+        </ul>
+    </div>
+    <!--菜单结束-->
+
+    
+    
+    <!-- 移动端导航@media(550px)时使用此导航，隐藏pc端导航 -->
+    <div class="mobile-nav wza_ztzl_left_dh_mobile">
+        <div class="title-box">
+            <span class="mobile-nav-title">导航菜单</span>
+            <span class="btn-expand" onclick="getMoblieMenu();">展开</span>
+            <span class="btn-retract" onclick="loseMobileMenu();">收起</span>
+        </div>
+        <ul class="mobie-nav-list">
+            <li><a href="/fzlm/yhkj/zy/index.shtml" title="我的主页">我的主页</a></li>
+            <li><a href="/fzlm/yhkj/wdhd/index.shtml" title="我的信件">我的信件</a></li>
+            <li><a href="https://jms.jszwfw.gov.cn/jpaas-juspace-web-jszwfw/front/home/index" title="我的办件" target="_blank">我的办件</a></li>
+            <li><a href="/fzlm/yhkj/wdysqgk/index.shtml" title="我的依申请公开">我的依申请公开</a></li>
+            <li><a href="/fzlm/yhkj/wddczj/index.shtml" title="我的调查征集">我的调查征集</a></li>
+            <li><a href="/fzlm/yhkj/wztj/index.shtml" title="文章推荐">文章推荐</a></li>
+            <li><a href="/ggfw/bmcx/index.shtml" title="便民查询">便民查询</a></li>
+            <li><a href="/fzlm/yhkj/gdfw/index.shtml" title="更多服务">更多服务</a></li>
+        </ul>
+    </div>
+    <script>
+    function getMoblieMenu(){
+        $(".btn-expand").css("display","none");
+        $(".btn-retract").css("display","block");
+        $(".mobie-nav-list").css("display","block");
+    }
+    
+    function loseMobileMenu(){
+        $(".btn-expand").css("display","block");
+        $(".btn-retract").css("display","none");
+        $(".mobie-nav-list").css("display","none");
+    }
+    </script>
+    <!-- 移动端导航结束 -->
+
+
+    <!-- 内容区开始 -->
+    <div class="main clear">
+<!-- 左侧导航开始 -->
+        <div class="nav-left fl wza_ztzl_left_dh">
+            <ul>
+                <li id="yhkj_wdzy"><a href="/fzlm/yhkj/zy/index.shtml" title="我的主页">我的主页</a></li>
+                <li id="yhkj_wdxj"><a href="/fzlm/yhkj/wdhd/index.shtml" title="我的信件">我的信件</a></li>
+                <li><a href="https://jms.jszwfw.gov.cn/jpaas-juspace-web-jszwfw/front/home/index" title="我的办件" target="_blank">我的办件</a></li>
+                <li id="yhkj_wdysqgk"><a href="/fzlm/yhkj/wdysqgk/index.shtml" title="我的依申请公开">我的依申请公开</a></li>
+                <li id="yhkj_wddczj"><a href="/fzlm/yhkj/wddczj/index.shtml" title="我的调查征集">我的调查征集</a></li>
+                <li id="yhkj_wztj"><a href="/fzlm/yhkj/wztj/index.shtml" title="文章推荐">文章推荐</a></li>
+                <li><a href="/ggfw/bmcx/index.shtml" title="便民查询" target="_blank">便民查询</a></li>
+                <li id="yhkj_gdfw"><a href="/fzlm/yhkj/gdfw/index.shtml" title="更多服务">更多服务</a></li>
+            </ul>
+        </div>
+        <!-- 左侧导航结束 -->
+        <!-- 右侧内容区开始 -->
+        <div class="main-content fl">
+            <div class="home-model01 clear">
+                <div class="my-interaction-box fl">
+                    <div class="title01 wza_ztzl_tit01" tit="个人信息">
+                        <h2 id="username_zy"></h2>
+                        <a href="https://www.jszwfw.gov.cn/jsjis/front/modify/permodify_show.do" title="账户设置" target="_blank">账户设置</a>
+                    </div>
+                    <ul class="wza_ztzl_tit02" tit="我的信件、依申请公开、调查征集">
+                        <li>
+                            <a href="/fzlm/yhkj/wdhd/index.shtml" id="mailTotal_tit" title="我的信件">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_mail.png">
+                                <span>我的信件</span>
+                                <h1 id="mailTotal">0</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fzlm/yhkj/wdysqgk/index.shtml?tab=ysqgk" id="yiTotal_tit" title="我的依申请公开">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_yi.png">
+                                <span>依申请公开</span>
+                                <h1 id="yiTotal">0</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fzlm/yhkj/wddczj/index.shtml?tab=dczj" id="investigateTotal_tit" title="我的调查征集">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_investigate.png">
+                                <span>调查征集</span>
+                                <h1 id="investigateTotal">0</h1>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="my-push-box fl wza_ztzl_tit03" tit="文章推荐">
+                    <div class="title01">
+                        <h2>文章推荐</h2>
+                        <a href="/fzlm/yhkj/wztj/index.shtml" title="查看全部">查看全部<img src="/zt/static_yhkj/white/images/personal-home/arrow_right.png"></a>
+                    </div>
+                    <ul>
+                            <li><a href="/doc/2026/10/08/4838724.shtml" target="_blank" title="蒋锋调研重大项目建设情况并慰问假期坚守岗位的一线职工">蒋锋调研重大项目建设情况并慰问假期坚守岗位的一线职工</a><span>2026-10-08</span></li>
+                            <li><a href="/doc/2026/10/08/4838723.shtml" target="_blank" title="蔡剑峰专题调研太湖综合治理工作">蔡剑峰专题调研太湖综合治理工作</a><span>2026-10-08</span></li>
+                            <li><a href="/doc/2026/10/08/4838722.shtml" target="_blank" title="塑新兴优势，抢全球订单">塑新兴优势，抢全球订单</a><span>2026-10-08</span></li>
+                            <li><a href="/doc/2026/10/08/4838721.shtml" target="_blank" title="轨交“多线共建”刷新“进度条”">轨交“多线共建”刷新“进度条”</a><span>2026-10-08</span></li>
+                            <li><a href="/doc/2026/10/08/4838720.shtml" target="_blank" title="“无锡杯”三人篮球联赛落幕">“无锡杯”三人篮球联赛落幕</a><span>2026-10-08</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-model02 clear">
+                <div class="my-services fl wza_ztzl_tit04" tit="我的服务">
+                    <ul>
+                        <li>
+                            <a href="https://wx.jszwfw.gov.cn/ipgs/ipgs/qjd/wuxi/gotoBsznGgfwtg.do?iddept_yw_inf=80b53fa4-92ac-487b-aaf3-a1450782fa19" title="公积金查询" target="_blank">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_provident_fund.png" alt="公积金查询">
+                                <span>公积金查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://rs.jshrss.jiangsu.gov.cn/web/center/userinfo?t=1762329717250" title="社保查询" target="_blank">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_social_security.png" alt="社保查询">
+                                <span>社保查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ybj.jszwfw.gov.cn/hsa-local/web/hallPersonal/#/Home" title="医保查询" target="_blank">
+                                <img src="/zt/static_yhkj/white/images/personal-home/my_medical_insurance.png" alt="医保查询">
+                                <span>医保查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fzlm/yhkj/gdfw/index.shtml" title="更多服务">
+                                <img src="/zt/static_yhkj/white/images/personal-home/more_services.png" alt="">
+                                <span>更多服务</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div> 
+                <div class="my-footprint-box fr wza_ztzl_tit05" tit="热词搜索">
+                    <div class="title01">
+                        <h2>热词搜索</h2>
+                    </div>
+                    <div class="floating-area" id="floatingArea"></div>
+                    <script>
+                  
+        const textLibrary = []; 
+        
+        //站内提交方法
+        function search(textName) {
+            //必需，先将文本转换为utf-8
+            //document.charset = "utf-8";
+            var fixvalue = textName;
+            fixvalue = fixvalue.replace(/\~|\!|\*|\?|\^|\\|\(|\)|\[|\]|\+|\-|\:|\{|\}|\"/g, "");
+            var dst = "无锡市人民政府";
+            if (fixvalue.trim() == "" || fixvalue.trim() == "请输入查询关键字") {
+                
+                $("#tb_tck_p1").html("关键字不能为空");
+                $("#tb_tck_p2").html("请输入您要搜索的关键字");
+                $('#tb_tck').show();
+                //document.getElementById("query2").focus();
+                return false;
+            } else {
+                search_2024_site('',encodeURIComponent(fixvalue));
+            }
+            
+            return false;
+        }
+                    /*获取热词*/
+        function getHotWords() {
+            
+            $.ajax({
+                type: "get",
+                url: "/search_show/hotWord/listHotWordDO",
+                data: {
+                  
+                },
+                dataType: 'json',
+                success: function (data) {
+                    var map = data.data;
+                    for(var i = 0;i < map.length;i++){
+                      //let newItem = { text:""+map[i].word+"",url:"#"};
+                      //textLibrary = textLibrary.concat(newItem);
+                      //textLibrary.push({ text:""+map[i].word+"",url:"#"});
+                      
+                      addRandomText(map[i].word);
+                    }
+                    //console.log("555:"+textLibrary.length);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    var msg = XMLHttpRequest.responseText;
+                    //alert(msg);
+                }
+            });
+            
+            //return textLibrarys;
+        }
+        
+        getHotWords();
+        // 文字和链接库
+        /*const textLibrary = [
+            { text: "HTML教程", url: "#" },
+            { text: "CSS教程", url: "#" },
+            { text: "JavaScript", url: "#" },
+            { text: "前端开发", url: "#" },
+            { text: "动画效果", url: "#" },
+            { text: "网页设计", url: "#" },
+            { text: "编程艺术", url: "#" },
+            { text: "代码之美", url: "#" },
+            { text: "用户体验", url: "#" },
+            { text: "交互设计", url: "#" }
+        ];*/
+        
+        //console.log(textLibrary);
+        //console.log("3333:"+textLibrary.length);
+        
+        //console.log(randomItem);
+        // 颜色库
+        const colorLibrary = [
+            "#FF6B6B", "#2e5dbc", "#ff6000", "#9724a0", "#008aa0",
+            "#FF9F1C", "#2EC4B6", "#E71D36", "#662E9B", "#F9C80E",
+            "#00BBF9", "#FB5607", "#8338EC", "#3A86FF", "#FF006E"
+        ];
+        
+        // 字体库
+        const fontLibrary = [
+            "Arial, sans-serif",
+            "'Times New Roman', serif",
+            "'Courier New', monospace",
+            "Verdana, sans-serif",
+            "Georgia, serif",
+            "'Comic Sans MS', cursive"
+        ];
+        
+        // 获取DOM元素
+        const floatingArea = document.getElementById('floatingArea');
+        
+        // 动画速度 - 调慢速度
+        let animationSpeed = 1;
+        
+        // 添加随机文字
+        function addRandomText(textName) {
+            const textElement = document.createElement('a');
+            textElement.className = 'floating-text';
+            
+            // 随机选择文字和链接
+            
+            //const randomItem = textLibrary[Math.floor(Math.random() * textLibrary.length)];
+            
+            //textElement.textContent = randomItem.textName;
+            textElement.textContent = textName;
+            textElement.href = "javascript:void(0);";
+            //textElement.target = "_blank"; // 在新标签页打开
+            textElement.addEventListener("click",function(){search(textName);}); // 在新标签页打开
+            
+            // 随机位置（确保在容器内）
+            const maxWidth = floatingArea.offsetWidth - 100;
+            const maxHeight = floatingArea.offsetHeight - 40;
+            const x = Math.random() * maxWidth;
+            const y = Math.random() * maxHeight;
+            
+            textElement.style.left = x + 'px';
+            textElement.style.top = y + 'px';
+            
+            // 随机颜色
+            const randomColor = colorLibrary[Math.floor(Math.random() * colorLibrary.length)];
+            textElement.style.color = randomColor;
+            
+            // 随机字体大小
+            const fontSize = Math.floor(Math.random() * 16) + 16;
+            textElement.style.fontSize = fontSize + 'px';
+            
+            // 随机字体
+            const randomFont = fontLibrary[Math.floor(Math.random() * fontLibrary.length)];
+            textElement.style.fontFamily = randomFont;
+            
+            floatingArea.appendChild(textElement);
+            
+            // 开始漂浮动画
+            startFloatingAnimation(textElement);
+        }
+        
+        // 开始漂浮动画
+        function startFloatingAnimation(element) {
+            //console.log("444");
+            let x = parseFloat(element.style.left);
+            let y = parseFloat(element.style.top);
+            let xSpeed = (Math.random() - 0.5) * animationSpeed;
+            let ySpeed = (Math.random() - 0.5) * animationSpeed;
+            
+            
+            function animate() {
+            //console.log("555");
+                x += xSpeed;
+                y += ySpeed;
+                
+                // 边界检测（考虑元素宽度）
+                const elementWidth = element.offsetWidth;
+                const elementHeight = element.offsetHeight;
+                const areaWidth = floatingArea.offsetWidth;
+                const areaHeight = floatingArea.offsetHeight;
+                
+                
+                if (x <= 0 || x >= areaWidth - elementWidth) {
+                    xSpeed = -xSpeed;
+                    // 确保不会卡在边界
+                    x = x <= 0 ? 0 : areaWidth - elementWidth;
+                }
+                if (y <= 0 || y >= areaHeight - elementHeight) {
+                    ySpeed = -ySpeed;
+                    // 确保不会卡在边界
+                    y = y <= 0 ? 0 : areaHeight - elementHeight;
+                }
+                
+                element.style.left = x + 'px';
+                element.style.top = y + 'px';
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        // 初始添加一些文字
+        /*for (let i = 0; i < textLibrary.length; i++) {
+            addRandomText(i);
+        }*/
+    </script>
+                </div>
+                
+            </div>
+        </div>
+        <!-- 右侧内容区结束 -->
+    </div>
+    <!-- 内容区结束 -->
+
+<script type="text/javascript" src="/static2016/js/Traditionalconversion.js"></script>
+<!--底部开始-->
+<div class="footer">
+    <div class="footer-box">
+        <div class="links_tab clear">
+          <div class="link-tab-select"><div>市人大、市政协</div><div>市委部委办局</div><div>市法院、市检察院</div><div>市政府委办局</div><div>直属单位</div><div>市(县)、区政府</div><div>党群团体</div><div>友情链接</div></div>
+            <div class="link_info">
+                <ul class="clear d-n" style="display: none;">
+                                    <li><a href="http://rd.wuxi.gov.cn/" target="_blank" title="无锡市人大常委会">无锡市人大常委会</a></li>
+                    <li><a href="http://zx.wuxi.gov.cn/" target="_blank" title="政协无锡市委员会">政协无锡市委员会</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://wuxijw.wuxi.gov.cn" target="_blank" title="市纪律检查委员会、市监察委员会">市纪律检查委员会、市监察委员会</a></li>
+                    <li><a href="http://zzb.wuxi.gov.cn" target="_blank" title="市委组织部">市委组织部</a></li>
+                    <li><a href="http://xcb.wuxi.gov.cn" target="_blank" title="市委宣传部">市委宣传部</a></li>
+                    <li><a href="http://tzb.wuxi.gov.cn" target="_blank" title="市委统战部">市委统战部</a></li>
+                    <li><a href="http://zfw.wuxi.gov.cn" target="_blank" title="市委政法委">市委政法委</a></li>
+                    <li><a href="http://bzb.wuxi.gov.cn/" target="_blank" title="市委机构编制委员会办公室">市委机构编制委员会办公室</a></li>
+                    <li><a href="https://jrb.wuxi.gov.cn" target="_blank" title="市委金融委员会办公室">市委金融委员会办公室</a></li>
+                    <li><a href="http://jggw.wuxi.gov.cn/ " target="_blank" title="市委市级机关工作委员会">市委市级机关工作委员会</a></li>
+                    <li><a href="http://wxlgb.wuxi.gov.cn" target="_blank" title="市委老干部局">市委老干部局</a></li>
+                    <li><a href="http://dx.wuxi.gov.cn" target="_blank" title="市委党校">市委党校</a></li>
+                    <li><a href="http://daj.wuxi.gov.cn" target="_blank" title="市党史方志办公室">市党史方志办公室</a></li>
+                    <li><a href="http://ggw.wuxi.gov.cn" target="_blank" title="市关心下一代工作委员会">市关心下一代工作委员会</a></li>
+                    <li><a href="http://wmw.wuxi.gov.cn" target="_blank" title="无锡市文明办">无锡市文明办</a></li>
+                    <li><a href="http://jst.wuxi.gov.cn/" target="_blank" title="市委讲师团">市委讲师团</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://zy.wxfy.gov.cn/" target="_blank" title="市中级人民法院">市中级人民法院</a></li>
+                    <li><a href="http://wx.jsjc.gov.cn/" target="_blank" title="市人民检察院">市人民检察院</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://dpc.wuxi.gov.cn" target="_blank" title="市发展和改革委员会">市发展和改革委员会</a></li>
+                    <li><a href="http://jy.wuxi.gov.cn" target="_blank" title="市教育局">市教育局</a></li>
+                    <li><a href="http://wxkjj.wuxi.gov.cn/" target="_blank" title="市科学技术局">市科学技术局</a></li>
+                    <li><a href="http://gxj.wuxi.gov.cn" target="_blank" title="市工业和信息化局">市工业和信息化局</a></li>
+                    <li><a href="http://zjj.wuxi.gov.cn" target="_blank" title="市民族宗教事务局">市民族宗教事务局</a></li>
+                    <li><a href="http://ga.wuxi.gov.cn" target="_blank" title="市公安局">市公安局</a></li>
+                    <li><a href="http://mzj.wuxi.gov.cn" target="_blank" title="市民政局">市民政局</a></li>
+                    <li><a href="http://wxsfj.wuxi.gov.cn" target="_blank" title="市司法局">市司法局</a></li>
+                    <li><a href="http://cz.wuxi.gov.cn" target="_blank" title="市财政局">市财政局</a></li>
+                    <li><a href="http://hrss.wuxi.gov.cn" target="_blank" title="市人力资源和社会保障局">市人力资源和社会保障局</a></li>
+                    <li><a href="http://zrzy.wuxi.gov.cn" target="_blank" title="市自然资源和规划局">市自然资源和规划局</a></li>
+                    <li><a href="http://bee.wuxi.gov.cn" target="_blank" title="市生态环境局">市生态环境局</a></li>
+                    <li><a href="http://js.wuxi.gov.cn" target="_blank" title="市住房和城乡建设局">市住房和城乡建设局</a></li>
+                    <li><a href="http://gyj.wuxi.gov.cn" target="_blank" title="市市政和园林局">市市政和园林局</a></li>
+                    <li><a href="http://cg.wuxi.gov.cn" target="_blank" title="市城市管理局">市城市管理局</a></li>
+                    <li><a href="http://wxjtj.wuxi.gov.cn/" target="_blank" title="市交通运输局">市交通运输局</a></li>
+                    <li><a href="http://water.wuxi.gov.cn/" target="_blank" title="市水利局">市水利局</a></li>
+                    <li><a href="http://agri.wuxi.gov.cn/" target="_blank" title="市农业农村局">市农业农村局</a></li>
+                    <li><a href="http://mofcom.wuxi.gov.cn" target="_blank" title="市商务局">市商务局</a></li>
+                    <li><a href="http://crtt.wuxi.gov.cn" target="_blank" title="市文化广电和旅游局">市文化广电和旅游局</a></li>
+                    <li><a href="http://wjw.wuxi.gov.cn" target="_blank" title="市卫生健康委员会">市卫生健康委员会</a></li>
+                    <li><a href="http://tyjrswj.wuxi.gov.cn/" target="_blank" title="市退役军人事务局">市退役军人事务局</a></li>
+                    <li><a href="http://yjglj.wuxi.gov.cn" target="_blank" title="市应急管理局">市应急管理局</a></li>
+                    <li><a href="http://sjj.wuxi.gov.cn" target="_blank" title="市审计局">市审计局</a></li>
+                    <li><a href="http://fao.wuxi.gov.cn" target="_blank" title="市政府外事办公室">市政府外事办公室</a></li>
+                    <li><a href="http://gzw.wuxi.gov.cn" target="_blank" title="市政府国有资产监督管理委员会">市政府国有资产监督管理委员会</a></li>
+                    <li><a href="http://scjgj.wuxi.gov.cn" target="_blank" title="市市场监督管理局">市市场监督管理局</a></li>
+                    <li><a href="http://tyj.wuxi.gov.cn" target="_blank" title="市体育局">市体育局</a></li>
+                    <li><a href="http://bigdata.wuxi.gov.cn/" target="_blank" title="市数据局">市数据局</a></li>
+                    <li><a href="http://tj.wuxi.gov.cn/" target="_blank" title="市统计局">市统计局</a></li>
+                    <li><a href="http://ylbzj.wuxi.gov.cn" target="_blank" title="市医疗保障局">市医疗保障局</a></li>
+                    <li><a href="http://xfj.wuxi.gov.cn" target="_blank" title="市信访局">市信访局</a></li>
+                    <li><a href="http://lswz.wuxi.gov.cn" target="_blank" title="市粮食和物资储备局">市粮食和物资储备局</a></li>
+                    <li><a href="http://gdb.wuxi.gov.cn" target="_blank" title="市国防动员办公室">市国防动员办公室</a></li>
+                    <li><a href="http://jgglj.wuxi.gov.cn" target="_blank" title="市机关事务管理局">市机关事务管理局</a></li>
+                    <li><a href="http://dcd.wuxi.gov.cn/" target="_blank" title="国家统计局无锡调查队">国家统计局无锡调查队</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://coop.wuxi.gov.cn" target="_blank" title="市供销合作总社">市供销合作总社</a></li>
+                    <li><a href="http://www.wuxi.gov.cn/gjj/" target="_blank" title="市住房公积金管理中心">市住房公积金管理中心</a></li>
+                    <li><a href="http://gjzx.wuxi.gov.cn" target="_blank" title="市建管中心">市建管中心</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://www.jiangyin.gov.cn" target="_blank" title="江阴市人民政府">江阴市人民政府</a></li>
+                    <li><a href="http://www.yixing.gov.cn" target="_blank" title="宜兴市人民政府">宜兴市人民政府</a></li>
+                    <li><a href="http://www.wxlx.gov.cn" target="_blank" title="梁溪区人民政府">梁溪区人民政府</a></li>
+                    <li><a href="http://www.jsxishan.gov.cn/" target="_blank" title="锡山区人民政府">锡山区人民政府</a></li>
+                    <li><a href="http://www.huishan.gov.cn" target="_blank" title="惠山区人民政府">惠山区人民政府</a></li>
+                    <li><a href="http://www.wxbh.gov.cn/" target="_blank" title="滨湖区人民政府">滨湖区人民政府</a></li>
+                    <li><a href="http://www.wnd.gov.cn" target="_blank" title="新吴区人民政府">新吴区人民政府</a></li>
+                    <li><a href="http://wxjkq.wuxi.gov.cn/" target="_blank" title="江苏无锡经济开发区管理委员会">江苏无锡经济开发区管理委员会</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://mg.wuxi.gov.cn/" target="_blank" title="民革无锡市委">民革无锡市委</a></li>
+                    <li><a href="http://minjian.wuxi.gov.cn/" target="_blank" title="民建无锡市委">民建无锡市委</a></li>
+                    <li><a href="http://minjin.wuxi.gov.cn/" target="_blank" title="民进无锡市委">民进无锡市委</a></li>
+                    <li><a href="http://zgh.wuxi.gov.cn" target="_blank" title="市总工会">市总工会</a></li>
+                    <li><a href="http://thyouth.wuxi.gov.cn" target="_blank" title="团市委">团市委</a></li>
+                    <li><a href="http://women.wuxi.gov.cn" target="_blank" title="市妇联">市妇联</a></li>
+                    <li><a href="http://ccpit.wuxi.gov.cn" target="_blank" title="市贸促会">市贸促会</a></li>
+                    <li><a href="http://ql.wuxi.gov.cn" target="_blank" title="市侨联">市侨联</a></li>
+                    <li><a href="http://cl.wuxi.gov.cn" target="_blank" title="市残联">市残联</a></li>
+                    <li><a href="http://tlpsr.wuxi.gov.cn" target="_blank" title="市科协">市科协</a></li>
+                    <li><a href="http://wl.wuxi.gov.cn/" target="_blank" title="市文联">市文联</a></li>
+                    <li><a href="http://skl.wuxi.gov.cn/" target="_blank" title="市社科联">市社科联</a></li>
+                    <li><a href="http://redcross.wuxi.gov.cn/" target="_blank" title="市红十字会">市红十字会</a></li>
+                    <li><a href="http://cc.wuxi.gov.cn" target="_blank" title="市工商联">市工商联</a></li>
+                </ul>
+                <ul class="clear d-n" style="display: none;">
+                    <li><a href="http://www.jiangsu.gov.cn/" target="_blank" title="江苏">江苏</a></li>
+                    <li><a href="http://www.nanjing.gov.cn" target="_blank" title="南京 ">南京 </a></li>
+                    <li><a href="http://www.xz.gov.cn" target="_blank" title="徐州">徐州</a></li>
+                    <li><a href="http://www.changzhou.gov.cn" target="_blank" title="常州">常州</a></li>
+                    <li><a href="http://www.suzhou.gov.cn" target="_blank" title="苏州">苏州</a></li>
+                    <li><a href="http://www.nantong.gov.cn" target="_blank" title="南通">南通</a></li>
+                    <li><a href="http://www.lyg.gov.cn" target="_blank" title="连云港">连云港</a></li>
+                    <li><a href="http://www.huaian.gov.cn" target="_blank" title="淮安">淮安</a></li>
+                    <li><a href="http://www.yancheng.gov.cn" target="_blank" title="盐城">盐城</a></li>
+                    <li><a href="http://www.yangzhou.gov.cn" target="_blank" title="扬州">扬州</a></li>
+                    <li><a href="http://www.zhenjiang.gov.cn" target="_blank" title="镇江">镇江</a></li>
+                    <li><a href="http://www.taizhou.gov.cn" target="_blank" title="泰州">泰州</a></li>
+                    <li><a href="http://www.suqian.gov.cn" target="_blank" title="宿迁">宿迁</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-cont">
+    	<div class="footer-cont-left">
+        	<a href="https://bszs.conac.cn/sitename?method=show&id=36B948C71D6584D2E06310291AAC60A6" title="党政机关" target="_blank"><img src="/static_2023/images/dzjg_red_2025.png" alt="党政机关"></a>
+        </div>
+        <div class="footer-cont-middle">
+        <div class="footer-nav">
+        	<a href="/doc/2015/07/08/2563146.shtml">关于我们</a>   |   <a href="/doc/2015/07/08/2563147.shtml">网站声明</a>   |   <a href="/doc/2015/07/08/2563148.shtml"> 隐私安全</a>   |   <a href="/doc/2021/09/29/3440745.shtml">  联系我们</a>   |   <a href="/fzlm/wzsml/wzdt/index.shtml"> 网站地图</a>   |   <em> 网站访问量：</em><em id="clickCount_foot"></em>
+            <script language="javascript">
+        $.ajax({ 
+          type:"post",
+          url:"/intertidwebapp/counter/count", 
+          data:{
+            'contentID':88888888,
+            'siteName':'中国无锡政府门户网站',
+            'siteID':168
+          },
+          success:function(data){
+            $('#clickCount_foot').append(data);
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+          }
+        });
+      </script> 
+        </div>
+        <div class="footer-nr">
+        	<p><span>版权所有：无锡市人民政府  无锡市人民政府办公室主办</span><span class="ipv6">网站支持IPv6</span><br/><a href="https://beian.miit.gov.cn" target="_blank">苏ICP备09024546号</a>  <img src="/static_2023/images/ga.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32021102000707" target="_blank" aria-label="公安备案号：三二零二幺幺零二零零零七零七" title="公安备案号：32021102000707">公安备案号：32021102000707</a>  <span>网站标识码：3202000001</span></p> 
+        </div>
+        </div>
+        <div class="footer-cont-right">
+        	<a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3202000001&url=http%3A%2F%2Fwww.wuxi.gov.cn%2F" target="_blank" title="我为政府网站找错"><img src="/static_2023/images/zfzc.png" alt="我为政府网站找错" /></a>
+            <img src="/static_2023/images/wza.png" alt="适老化无障碍图标">
+        </div>
+    </div>
+    <div style="display:none;">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1502c72f84cb43c26ef7d14759c8e5eb' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+</div>
+<!--底部结束-->
+</body>
+</html>

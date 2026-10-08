@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache" content="no-cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>信件公开</title>
+</head>
+
+<body id="page_type" alt="综合页">
+  <div id="barrierfree_container">
+    <div id="hanwebFontSize">
+            <script type="text/javascript" src="/jact_files/pagemodel/js/jquery.min.js"></script>
+            <script type="text/javascript" src="/jact_files/pagemodel/js/layui/layui.js"></script>
+            <script type="text/javascript" src="/jact_files/pagemodel/SZ/images/page.js"></script>
+            <link rel="stylesheet" href="/jact_files/pagemodel/js/layui/css/layui.css">
+            <link rel="stylesheet" href="/jact_files/pagemodel/SZ/images/hanweb.css" />
+            <link rel="stylesheet" href="/jact_files/pagemodel/SZ/images/jact_bs.css" />
+            <link href="//www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/66b0e9f5f46546a1b540eaa33f1efc3f/images/bootstrap.min.css" rel="stylesheet">
+            <link href="//www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/66b0e9f5f46546a1b540eaa33f1efc3f/images/hanweb.min.css" rel="stylesheet">
+            
+            <!-- pc端正常样式 -->
+            <style>
+                option {
+                    width: 100%;
+                }
+
+                .layui-table-page select {
+                    line-height: 18px;
+                }
+           .main{
+               float:none;
+}
+
+                .center_1 {
+                    padding-bottom: 0 !important;
+                   overflow: visible!important;
+                }
+
+                .bt-place {
+                    position: relative;
+                    line-height: 60px;
+                    margin-bottom: 0;
+                    background: none;
+                    font-family: "Microsoft YaHei";
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #999;
+                    opacity: 1;
+                }
+
+                .bt-breadcrumb {
+                    background: url(//www.taizhou.gov.cn/cms_files/webtaizhoushizhengfu/pubtplobject/defaultSet/c6eb27107f684e7c905d891728f541ea/images/bt-currentPosition.png) no-repeat center left;
+                    padding: 0 0 0 22px;
+                    margin-bottom: 0;
+                    border-radius: 0;
+                }
+
+                .bt-breadcrumb a {
+                    font-family: "Microsoft YaHei";
+                    font-size: 14px;
+                    color: #999;
+                    opacity: 1;
+                }
+
+                .bt-breadcrumb a:hover {
+                    color: #999;
+                }
+
+                .bt-breadcrumb a:last-child {
+                    color: #3a83e9;
+                }
+
+                .bt-breadcrumb a:last-child:hover {
+                    color: #3a83e9;
+                }
+            .main{
+
+                       display: flex;
+            justify-content: space-between;
+            overflow: visible!important;
+               }
+    
+                .navigation {
+                    width: 280px;
+                    background: #f5f5f5;
+                }
+
+                .leftTitle {
+                    line-height: 50px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    background: #3a83e9;
+                    color: #fff;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+
+                .navigation ul {
+                    padding: 0 20px;
+                }
+
+                .navigation ul li {
+                    line-height: 50px;
+                    font-size: 16px;
+                    text-align: center;
+                    border-bottom: 1px solid #d2d2d2;
+                }
+
+                .xxHover a {
+                    color: #3a83e9;
+                }
+
+                .navigation ul li a:hover {
+                    color: #3a83e9;
+                }
+
+                .gklbCon {
+                    width: 880px !important;
+                }
+
+                .wtsd {
+                    display: none;
+                }
+
+                .cxlbtitle {
+                    height: 50px !important;
+                    line-height: 46px !important;
+                    border-bottom: 1px solid #d2d2d2;
+                    margin-bottom: 30px !important;
+                    border-left: 6px solid #3A83E9;
+                    font-size: 18px !important;
+                    font-weight: 700 !important;
+                    padding-left: 20px !important;
+                    float: none !important;
+                }
+
+                .cxlbtitle span {
+                    background: none !important;
+                    float: none;
+                    height: 40px !important;
+                    line-height: 40px !important;
+                    font-size: 18px !important;
+                    padding: 0 !important;
+                }
+
+                .layui-table,
+                .layui-table-view {
+                    margin: 0 !important;
+                }
+
+                .layui-table-header {
+                    border-bottom: 0 !important;
+                }
+
+                .layui-table tbody tr:hover,
+                .layui-table[lay-even] tr:nth-child(even) {
+                    background: none;
+                }
+
+                .laytable-cell-1-0-0 {
+                    width: 578px !important;
+                }
+ .layui-table-body tr td:nth-child(3) {
+        border-right: none;
+    }
+                .layui-table-grid-down,
+                .layui-layer-tips {
+                    display: none !important;
+                }
+
+                .laytable-cell-1-0-1 {
+                    width: 147px !important;
+                }
+
+                .layui-form {
+                    min-height: 567px;
+                }
+
+                .layui-table-view .layui-table td,
+                .layui-table-view .layui-table th {
+                    padding: 0;
+                }
+
+                .layui-table-cell {
+                    font-size: 16px;
+                    height: 45px;
+                    line-height: 45px;
+                }
+
+                .layui-laypage .layui-laypage-curr .layui-laypage-em {
+                    background-color: #3a83e9;
+                }
+
+                /* 分页样式 */
+                .layui-table-page {
+                    padding: 16px 8px 0;
+                    height: auto;
+                }
+
+                .layui-table-page>div {
+                    height: auto;
+                }
+
+                .layui-table-page .layui-laypage a,
+                .layui-table-page .layui-laypage span {
+                    margin-bottom: 18px;
+                }
+
+                .layui-table-page .layui-laypage button,
+                .layui-table-page .layui-laypage input {
+                    height: 26px;
+                    line-height: 24px;
+                }
+            </style>
+            
+            <!-- pc端适老化样式 -->
+            <style>
+         
+
+                .old_type .layui-form {
+                    min-height: 834px;
+                }
+
+                .old_type .bt-place {
+                    line-height: 6rem;
+                    font-size: 1.75rem;
+                }
+
+                .old_type .bt-breadcrumb {
+                    background-size: auto 1.75rem;
+                    padding: 0 0 0 2rem;
+                }
+
+                .old_type .bt-breadcrumb a {
+                    font-size: 1.75rem;
+                }
+
+                .old_type .leftTitle {
+                    line-height: 96px;
+                    font-size: 36px;
+                }
+
+                .old_type .navigation ul li {
+                    line-height: 80px;
+                    font-size: 32px;
+                }
+
+                .old_type .cxlbtitle {
+                    height: 96px !important;
+                    line-height: 94px !important;
+                    font-size: 36px !important;
+                }
+
+                .old_type .laytable-cell-1-0-0 {
+                    width: 440px !important;
+                }
+
+                .old_type .laytable-cell-1-0-1 {
+                    width: 220px !important;
+                }
+           .old_type  .laytable-cell-1-0-2{
+                   width:216px;
+              }
+                .old_type .layui-table-cell {
+                    font-size: 32px;
+                    height: auto;
+                    line-height: 68px;
+                }
+              .old_type .layui-table-cell, .old_type .layui-table-tool-panel li{
+                     white-space: normal;
+               }
+                .old_type .layui-icon {
+                    font-size: 32px;
+                }
+
+                .old_type .layui-laypage a,
+                .old_type .layui-laypage span {
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 24px;
+                }
+
+                .old_type .layui-table-page .layui-laypage button,
+                .old_type .layui-table-page .layui-laypage input {
+                    height: 40px;
+                    line-height: 38px;
+                }
+
+                .old_type .layui-table-page .layui-laypage input {
+                    width: 80px;
+                }
+
+                .old_type .layui-table-page select {
+                    height: 40px;
+                    line-height: 38px;
+                    padding: 0 8px;
+                }
+            </style>
+
+            <!-- 移动端正常样式 -->
+            <style>
+                @media (max-width: 768px) {
+                    body {
+                        background: #fff !important;
+                        min-width:100%;
+                    }
+                       .main{
+                         display:block;
+                 }
+                    .center_1,
+                    .w1200 {
+                        width: 100%;
+                        padding: 0 1.5rem !important;
+                    }
+
+                    .navigation {
+                        width: 100% !important;
+                        height: auto;
+                    }
+
+                    .layui-form {
+                        min-height: 300px;
+                    }
+
+                    .cxlbtitle {
+                        margin-top: 30px;
+                    }
+
+                    .gklbCon,
+                    .layui-table-view .layui-table,
+                    .laytable-cell-1-0-0,
+                    .laytable-cell-1-0-1 {
+                        width: 100% !important;
+                    }
+                   .layui-table-header{display:none;}
+                    .layui-table-view .layui-table td:nth-child(1),
+                    .layui-table-view .layui-table th:nth-child(1) {
+                        width: 100% !important;
+                       display:block;
+                       border-bottom:none;
+                    }
+
+                    .layui-table-view .layui-table td:nth-child(2),
+                    .layui-table-view .layui-table th:nth-child(2) {
+                        width: 100% !important;
+                        display:block;
+                          border-bottom:none;
+                    }
+
+                   .layui-table-body tr td:nth-child(3) {
+                          border-right: none;
+                         display: block;
+                        width: 100%;
+                   }
+                    .layui-table-page>div {
+                        text-align: center;
+                    }
+
+                    .layui-laypage-skip,
+                    .layui-laypage-count,
+                    .layui-laypage-limits {
+                        display: none !important;
+                    }
+                     .layui-table-cell{
+                              height: auto;
+                     }
+                    .layui-table-cell, .layui-table-tool-panel li{
+                                 white-space: normal;
+                    }
+                }
+            </style>
+            <script>
+                $(function () {
+                    getRem();
+                    window.onresize = function () {
+                        getRem();
+                    };
+                })
+
+                function getRem() {
+                    var html = document.getElementsByTagName("html")[0];
+                    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+                    var fontSize = (oWidth / 750) * 16;
+                    if (fontSize > 16) {
+                        fontSize = 16;
+                    }
+                    html.style.fontSize = fontSize + "px";
+                }
+            </script>
+            <!-- 头部开始 -->
+            <script src="/cms_files/filemanager/288403819/script/20233/74a3ef63822247969d36ec6c460429cb.js" type="text/javascript" charset="utf-8"></script>
+            <!-- 头部结束 -->
+            <div class="center_1">
+                <div class="bt-place w1200" ergodic="navigation" barrierfree_zone_dsc="导航区，当前访问位置" aria-region="true"
+                    aria-autolabel="true" aria-label="导航区">
+                    <div class="bt-breadcrumb">您当前的位置：
+                        <a href="http://www.taizhou.gov.cn">首页</a><span readexclude>&gt;</span>
+                        <a href="http://www.taizhou.gov.cn/zmhd/index.html">政民互动</a><span readexclude>&gt;</span>
+                        <a>信件公开</a>
+                    </div>
+                </div>
+                <div class="main clearfix">
+                    <div class="navigation" ergodic="navigation" barrierfree_zone_dsc="导航区，当前左侧导航区">
+                        <div class="leftTitle" readLabel="文本：市长信箱">市长信箱</div>
+                        <ul>
+                            <li>
+                                <a href="//www.taizhou.gov.cn/api-gateway/jpaas-jisextend-quicklogin-server/front/jszw/login?appMark=szxxnvvuh&backUrl=aHR0cDovLzIxOC45MC4yMjUuMTM2L2FwaS1nYXRld2F5L2pwYWFzLWppc2V4dGVuZC1xdWlja2xvZ2luLXNlcnZlci9mcm9udC9qc3p3L3Nzbw==">我要写信</a>
+                            </li>
+                            <li>
+                                <a href="//www.taizhou.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-search.do?platformIid=YOSZfeTw2AKcbQaPTkHkJ">我要查询</a>
+                            </li>
+                            <li class="xxHover">
+                                <a href="//www.taizhou.gov.cn/api-gateway/jpaas-jact-web-server/front/mail-pub-list.do?platformIid=YOSZfeTw2AKcbQaPTkHkJ">信件公开</a>
+                            </li>
+                            <li><a href="//www.taizhou.gov.cn/fzlm/szxxbltj/index.html">办理统计</a></li>
+                              <li><a href="//www.taizhou.gov.cn/jmopenpub/jmopen_files/webapp/html5/userCenter/index.html">我的信件</a></li>
+                        </ul>
+                    </div>
+                    <div class="gklbCon" ergodic="view" barrierfree_zone_dsc="视窗区，当前办件列表区">
+                        <div class="cxlbtitle" readLabel="文本：信件公开">信件公开</div>
+                        <div class="wtsd">
+                            <input type="hidden" id="platformUid" value="YOSZfeTw2AKcbQaPTkHkJ">
+                            <input type="text" class="searchone" placeholder="请输入标题/内容" style="width: 810px;" />
+                            <input type="text" class="layui-input" id="time" placeholder="请选择日期"
+                                style="float:left;margin-left:10px;margin-right: 15px;height: 40px;border-color:#d2d2d2;width: 250px;background:url(/jact_files/pagemodel/SZ/images/rili.png) no-repeat right center;"
+                                readonly>
+                            <input type="image" class="searchtwo" name="" value="" />
+                        </div>
+                        <table id="table" lay-filter="test" style="clear: both;"></table>
+                        <!-- <div id="page" style="text-align: right"></div> -->
+                    </div>
+                </div>
+            </div>
+        <!-- 底部开始 -->
+        <script src="/cms_files/filemanager/288403819/script/20233/ea7cd56e6b874989ae6f299059b39531.js" type="text/javascript" charset="utf-8"></script>
+        <!-- 底部结束 -->
+    </div>
+</div>
+</body>
+
+</html>

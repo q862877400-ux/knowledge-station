@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head> 
+  <!--  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --> 
+  <meta name="renderer" content="webkit"> 
+  <meta charset="utf-8"> 
+  <!-- 国际编码 --> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <!-- 最高版本ie渲染 --> 
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1"><!-- 网站适应各种浏览设备 --> 
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.3, maxmum-scale=1.0, minimum-scale=0.3"> 
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --> 
+  <meta name="SiteName" content="连云港市人民政府"> 
+  <meta name="SiteDomain" content="www.lyg.gov.cn"> 
+  <meta name="SiteIDCode" content="3207000001"> 
+  <meta name="ColumnName" content="政务"> 
+  <meta name="ColumnDescription" content="连云港市人民政府网站发布各类政务信息，如要闻动态，政府和政府办文件，政策解读等。"> 
+  <meta name="ColumnKeywords" content="连云港市人民政府，要闻动态，政务公开，办事服务，互动交流，数据开放，走进港城"> 
+  <meta name="ColumnType" content="首页"> 
+  <title>连云港市人民政府</title> 
+  <link rel="shortcut icon" href="/zglygzfmhwz/asstes/img/favicon.ico"> 
+  <script src="/zglygzfmhwz/lygmhwzsjbsy/js/jquery_1.12.4_jquery.min.js"></script> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/style1.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/index.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/header.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/index2.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/ui-dialog.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/dialog.css" rel="stylesheet"> 
+  <link href="/zglygzfmhwz/lygmhwzsjbsy/css/icon.css" rel="stylesheet"> 
+  <!--新修专题专栏图片切换----> 
+  <link rel="stylesheet" type="text/css" href="/zglygzfmhwz/lygmhwzsjbsy/css/idangerous.swiper.css"> 
+  <script src="/zglygzfmhwz/lygmhwzsjbsy/js/idangerous.swiper.min.js"></script> 
+  <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/toprq.js"></script> 
+  <style>
+          
+        
+
+          
+           .fouce a{
+	color: #4178be;
+}
+          
+          
+		.a:hover{
+		background-color:#E7EEF4;
+font-size:15px;
+		}
+		.li-list .list-a {
+    border: 1px solid #a7bfd6;
+    border-radius: 3px;
+    background: white;
+    padding: 7px 10px;
+    font-size: 15px;
+    color: #155c93;
+    text-decoration: none;
+    display: block;
+}
+.list-a:hover{
+		background-color:#E7EEF4;
+font-size:15px;
+margin-top:1px;
+		}
+		
+			/*新修专题专栏样式控制*/
+	    #zt{margin-top: 15px;}
+      #zt > .container{background: #fff;padding-bottom: 10px;padding-top: 10px;}
+      #zt .left{width: 100%;min-height: 1px;position: relative;padding-left: 10px;padding-top: 10px;}
+      #zt .left h3{border-left: 3px solid #4372b0;padding-left: 10px;margin-bottom: 10px;padding-top: 10px;}
+      #zt .right{width: 100%;min-height: 1px;position: relative;}
+      #zt .swiper-slide .zt_item{padding-left: 5px;padding-right: 5px;}
+      #zt .swiper-slide .thumbnail{margin-bottom: 0px;}
+      #zt_area{position: relative;}
+      #zt_area .arrow-left {
+        background: url(/zglygzfmhwz/lygmhwzsjbsy/img/arrows.png) no-repeat left top;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        margin-top: -15px;
+        width: 17px;
+        height: 30px;
+        z-index: 999;
+        display: none;
+      }
+      #zt_area .arrow-right {
+        background: url(/zglygzfmhwz/lygmhwzsjbsy/img/arrows.png) no-repeat left bottom;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -15px;
+        width: 17px;
+        height: 30px;
+        z-index: 999;
+        display: none;
+      }
+	
+
+/*slide图片*/
+
+.slideBox .prev,
+.slideBox .next {
+    width: 60px;
+    height: 60px;
+    margin: -60px 0 0;
+ 
+    background: url(/zglygzfmhwz/lygmhwzsjbsy/img/lyg_ad_ctr.png) no-repeat 0 -14px;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    cursor: pointer;
+    text-indent: -9999px;
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    border-radius: 100px;
+	display:none
+}
+
+.slideBox .prev {
+    left: 0;
+}
+
+.slideBox .next {
+    background-position: 0 -102px;
+    right: 0;
+}
+
+.slideBox .prev:hover,
+.slideBox .next:hover {
+    filter: alpha(opacity=50) !important;
+    opacity: 0.5 !important;
+}
+
+
+#tplb{width: 1200px;height: 100px;margin-bottom: 20px;position: relative;}
+		#tplb_con div{display: none;}
+		#tplb_con div.tplb_con_box{display: block;}
+		#a1{position: absolute;top: 50%;margin-top: -16px;width: 100%;}
+		#a1 div{display: none;}
+		#a1 .arrow{background: rgba(0,0,0,0.3);}
+		#a1 .arrow:hover{cursor: pointer;}
+		#a1 .arrow-left{float: left;}
+		#a1 .arrow-right{float: right;}
+
+		ol ,li{list-style: none;}
+		#cus{position: absolute;bottom: 10px;right: 1%;margin-left: -26px;width: 90px;
+			height: 15px;text-align: center;line-height: 15px;
+			border-radius: 15px;}
+		#cus li{float: left;width: 10px;height: 10px;border: 1px solid gray;border-radius: 50%;
+			margin-right: 6px;margin-top: 2px;}
+		#cus li:first-child{margin-left: 15px;}
+		#cus li:hover{cursor: pointer;}
+		#cus li.sel{background: orange;border-color: orange;}
+	
+		.wyw-news img{width:328px;height:186px;}
+		.wyw-news img{width:328px;height:186px;}
+		.zaj ul li {width: 328px;}
+		.con-tit ul li {cursor:pointer;}
+		.dec-tit ul li {cursor:pointer;}
+
+	
+	 /*顶部日期样式*/
+	.top1 {height: 48px; background: #f5f5f5;}
+	.grzx { width: 1140px; margin: 0 auto;line-height: 36px;}
+	.grzx-r { float: right;}
+	.grzx-r a {width: 92px;border-right: solid 1px #ccc;height: 16px;font-size: 14px;display: block;float: left;
+	text-align: center;margin-top: 10px;line-height: 16px;color: #015293;text-decoration: none;}
+	
+	/**友情链接样式*/
+	.yqljmain3{width: 100%;    padding: 30px 0; /*border-bottom: 1px solid #bfc1c3;*/ }	
+	.friend_link { background: #FFF;      width: 1200px;margin: 0px auto;}	
+	.wzdh {width: 1200px;border: 1px solid #e8e8e8;border-bottom: 0px;}	
+	.i_wzdh_con ul { float: left;}	
+	.yqlj {padding-left: 5px;width: 162px; padding-right: 5px;height: 45px;font-weight: normal; text-align: center;
+	cursor: pointer;color: #000; font-size: 14px;float: left;line-height: 45px;}	
+	.daohang_list {width: 1200px; font-weight: normal; color: #000;font-size: 14px;float: left;line-height: 34px; border-bottom: 1px solid #e8e8e8;padding: 5px 0px;}	
+	.jgliebiao { width: 1076px; margin: 0 auto;}
+	.jgliebiao li {line-height: 28px;color: #000; height: 28px;width: 230px;padding-left: 42px;float: left;white-space: nowrap;}
+	.jgliebiao li a {color: #000;}
+	.header{border-bottom: solid 3px #4178be;clear: both;}
+	.i_wzdh_con ul li img {
+	  margin-left:5px;
+	}
+
+	
+	/*头部政务要闻和视频新闻样式改变*/
+	 .xwzx .head{border-bottom: 1px solid #bbb4b4;padding-bottom: 15px;}
+	.xwzx .head h3{font-size: 18px;color: #d52625;text-align: center;}
+	.xwzx .head h3 a{text-decoration: none;font-size: 24px;font-weight: bold;color: #2871af;}
+	.xwzx .head p{    
+		color: #333;
+		font-size: 16px;
+		text-indent: 2em;
+		margin-top: 10px;
+		line-height: 30px;
+		}
+	.xw-con ul li{font-size: 18px;line-height: 40px;}
+	.xwzx .head p a{color:#d52625;}
+	
+	.fixed-right {
+		top: 215px;
+		right: 10px;    z-index: 999;
+		}
+		.fixed-left{ top: 215px;
+		left: 10px;position: fixed;width:120px;z-index:999;}
+	 
+	.cont-box {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    padding-bottom: 5px;
+    }
+	
+	.zf-list ul li {
+    border-bottom: 1px solid #f2f0f0;
+    border-left: 1px solid #f2f0f0;
+    height: 43px;
+    line-height: 45px;
+    padding: 0 15px;
+    font-size: 16px;
+    border-right: 1px solid #f2f0f0;
+}
+
+    .xwzx {
+		width:438px;
+		height:388px;
+		background:none;
+		padding:0;
+	   }
+	 .li-list{margin-left:0px;} 
+	 .fwzx{margin-left:17px;}
+	/**头部导航栏样式**/
+	 .menu ul li {
+		float: left;
+		line-height: 40px;
+		height: 40px;
+		width: 110px;
+		text-align: center;
+		font-size: 20px;
+		margin-left: 35px;
+	}
+	
+	.menu ul li a {
+	  text-decoration:none;
+	  color: #333;
+	}
+	/**/
+	.jszw{display: none; position: fixed;float: left;top: 455px;right: 80px;z-index: 999;}
+	
+	.beixuanzhong{
+	    color: #4178be;
+	}
+	</style> 
+  <!-- 背景变灰 
+  
+    
+   .top1{filter: grayscale(100%)}
+  .fr1{filter: grayscale(100%)} 
+  .fixed-right{filter: grayscale(100%)}
+  .main{filter: grayscale(100%)} 
+  #tplb{filter: grayscale(100%)}
+  .index-main{filter: grayscale(100%)}
+  .foot{filter: grayscale(100%)} 
+  .currentRegion2 {filter: grayscale(100%)}
+  .grzx {filter: grayscale(100%)}
+  --> 
+  <!--新增样式--> 
+  <style>
+   
+
+ 
+  
+      
+   .nav1 {
+        overflow: inherit;    
+    }   
+      
+   .nav1 ul {
+        background: url(/zglygzfmhwz/lygmhwzsjbsy/img/nav_bg.png) repeat-x;
+    }   
+   .con-b-dec {
+        background: #f7f7f7;
+    } 
+     
+   .cont-box {
+        background: #ffffff;
+    }  
+   .head111 {
+        background: #ffffff;
+    }
+    .copy-right {
+       	background: #DEE0E2;
+    } 
+    .grzx {
+        width: 1190px;
+        background: #f5f5f5;
+    }
+   </style> 
+  <script language="javascript">
+//判断电脑端或移动端，返回布尔值flag
+function browsercheck() {
+	var userAgentInfo=navigator.userAgent;
+	var Agents =new Array("Android","iPhone","SymbianOS","Windows Phone","iPad","iPod");
+	var flag=true;
+	for(var v=0;v<Agents.length;v++) {
+		if(userAgentInfo.indexOf(Agents[v])>0) {
+			flag=false;
+			break;
+		}
+	}
+	if(!flag){
+		 if(window.confirm('检测到您使用移动设备访问本站\n是否为您切换至移动端网页？')) 
+		{
+			 window.location.href="http://www.lyg.gov.cn/index.htm";
+		 }
+	}
+	//return flag;
+}
+browsercheck();
+		</script> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="pragma" content="no-cache"> 
+  <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"> 
+  <script id="common_js" type="text/javascript" src="/zglygzfmhwz/resource/js/common.js?siteURL=/zglygzfmhwz"></script> 
+  <meta name="keywords" content="连云港市人民政府">
+  <meta name="descriptions" content="连云港市人民政府">
+ </head> 
+ <body> 
+  <div class="wrap"> 
+   <!--  <div class="fixed-right">
+				<ul>
+					<li>
+						<a id="loginUrl" target="_blank" onclick="ssoLogin();">
+							<p class="login right-icon" style="background: url(/zglygzfmhwz/lygmhwzsjbsy/img/right-1.png) no-repeat;"></p>
+							<p id="loginName">注册登录</p>
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="https://www.lyg.gov.cn/zndw/">
+							<p class="question right-icon"></p>
+							<p>智能问答</p>
+						</a>
+					</li>
+					<li>
+						<a target="_blank" onclick='javascript:var flag =0;if(flag==0){window.location.href="http://www.lyg.gov.cn/accessible/";flag=1;}else{window.location.href="http://www.lyg.gov.cn";}'>
+							<p class="look right-icon"></p>
+							<p>无障碍浏览</p>
+						</a>
+					</li>
+					<li id="jszwfw">
+						<a target="_blank" href="http://lyg.jszwfw.gov.cn">
+							<p class="jiangsu right-icon"></p>
+							<p>江苏政务<br>服务网</p>
+						</a>
+					</li>
+					<div class="jszw">
+						<img src="/zglygzfmhwz/lygmhwzsjbsy/img/12345jszwfw.png" />
+					</div>
+					<li>
+						<a href="#">
+							<p class="top right-icon"></p>
+							<p>返回顶部</p>
+						</a>
+					</li>
+				</ul>
+
+			</div> --> 
+   <!--  环保督察
+			<div style="top:215px;left:10px;z-index:999;position:fixed;"> 
+    <a href="/zglygzfmhwz/zysthjbhdc/zysthjbhdc.html"><img src="http://www.lyg.gov.cn//picture/7fa6ced4-0f50-40a6-b9d7-3eab902ed9f9.png"></a>
+   </div> --> 
+   <!--顶部天气等引入---> 
+   <div class="header nav1 " style="border-bottom: solid 0px #fcf8e3;height: 158px;"> 
+    <div class="head111"> 
+     <div class="fl1" style="margin-bottom: -30px;margin-left: 30px;"> 
+      <!-- <img src="/zglygzfmhwz/lygmhwzsjbsy/img/lyg1-3.png" > --> 
+      <img src="http://www.lyg.gov.cn/zglygzfmhwz/lygmhwzsjbsy/img/lyg1-2.png" alt="图片"> 
+     </div> 
+     <div class="fr1 "> 
+      <div class="search1 currentRegion3 " aria-label="服务区,当前为网页顶部服务区，有用户登录微博，微信，app、搜索等服务内容." tabindex="0" style="width:545px"> 
+       <div class="fwrx1 fl1"> 
+        <a title="微博" href="http://www.lyg.gov.cn/zwwbwx/zwwbwx.html" target="_blank"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/wb_ico.png" alt="微博"></a> 
+        <a title="微信" href="http://www.lyg.gov.cn/zwwbwx/zwwbwx.html" target="_blank"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/wx_ico.png" alt="微信"></a> 
+        <a title="APP" href="http://www.lyg.gov.cn/zwwbwx/zwwbwx.html" target="_blank"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/phone_ico.png" alt="APP"></a> 
+        <a title="Email" href="http://mail.lyg.cn/" target="_blank"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/logo12.jpg" alt="Email"></a> 
+       </div> 
+       <div class="input1 fl1"> 
+        <form class="zw" name="searchForm" id="searchForm" method="get" target="_blank" action="/TrueCMS/searchController/getResult.do?"> 
+         <input type="hidden" name="flag" value="1"> 
+         <input type="hidden" name="siteId" id="siteId" value="147d8e37-a461-4dbc-863d-0fa52d92bb44"> 
+         <input type="hidden" name="siteName" id="siteName" value=""> 
+         <input type="hidden" name="excludeSites" id="site" value=""> 
+         <input type="hidden" name="siteCode" id="siteCode" value=""> 
+         <input type="hidden" name="canChooseSite" id="canChooseSite" value=""> 
+         <input type="hidden" name="sysId" id="sysId" value=""> 
+         <input type="hidden" name="sysName" id="sysName" value=""> 
+         <input type="hidden" name="pageSize" value="10"> 
+         <input type="hidden" name="timeScope" id="timeScope" value=""> 
+         <input type="hidden" id="order" name="order" value="desc_w"> 
+         <input type="hidden" id="obj" name="obj" value=""> 
+         <input type="hidden" id="fileType" name="fileType" value=""> 
+         <input type="hidden" id="columns" name="columns" value=""> 
+         <input type="text" name="query" placeholder="请输入关键词"> 
+         <button class="btn_search1" name="" type="button">搜 索</button> 
+        </form> 
+       </div> 
+       <a target="_blank" href="https://www.lyg.gov.cn/zndw/index.html?siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44"><button type="button" class="wd_btn1"></button></a> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="nav1 currentRegion2 " aria-label="导航区,当前为网页顶部主导航区域,有首页 要闻,互动等多个栏目." tabindex="0"> 
+     <ul> 
+      <li class="act ESDAssetsTextCon"><a href="http://www.lyg.gov.cn">首页</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/szf/szf.html" target="_blank">市政府</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/ywdt/ywdt.html" target="_blank">要闻动态</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/zfxxgk/zfxxgk.html" target="_blank">政府信息公开</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/bsfw/bsfw.html" target="_blank">办事服务</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/gzcy/gzcy.html" target="_blank">互动交流</a></li> 
+      <li class="ESDAssetsTextCon"><a href="http://data.lyg.gov.cn/" target="_blank">数据开放</a></li> 
+      <li class="ESDAssetsTextCon"><a href="/zglygzfmhwz/zjgc2024/zjgc2024.html" target="_blank">走进港城</a></li> 
+     </ul> 
+    </div> 
+    <script>     
+		   $(function () {
+		   		//改变头部标题定位颜色
+		   		$(".nav1 ul li").mouseover(function () {
+		            $(".nav1 .active2").removeClass("active2");
+		            $(this).addClass("active2");
+		        });
+				$(".btn_search1").click(function(){
+							$("#searchForm").submit();
+				});
+				
+		   	});
+                function saveVisitors() {
+                	//var userId = $('#userId').val();
+                	var userId=localStorage.getItem("userid");
+                	var date1 = +new Date();
+                	 var user=userId+","+date1;
+                	var base = new Base64();  
+                	var result = base.encode(user);
+                	console.log(user);
+                	//var rel="http://www.lyg.gov.cn/data?userId="+result;
+                   var rel="http://data.lyg.gov.cn/visitor/kfw.do?params="+result;
+                	console.log(rel);
+    				window.open(rel);
+                }
+         
+
+
+ function Base64() {  
+
+                    // private property  
+                    _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";  
+
+                    // public method for encoding  
+                    this.encode = function (input) {  
+                        var output = "";  
+                        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;  
+                        var i = 0;  
+                        input = _utf8_encode(input);  
+                        while (i < input.length) {  
+                            chr1 = input.charCodeAt(i++);  
+                            chr2 = input.charCodeAt(i++);  
+                            chr3 = input.charCodeAt(i++);  
+                            enc1 = chr1 >> 2;  
+                            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);  
+                            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);  
+                            enc4 = chr3 & 63;  
+                            if (isNaN(chr2)) {  
+                                enc3 = enc4 = 64;  
+                            } else if (isNaN(chr3)) {  
+                                enc4 = 64;  
+                            }  
+                            output = output +  
+                            _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +  
+                            _keyStr.charAt(enc3) + _keyStr.charAt(enc4);  
+                        }  
+                        return output;  
+                    }   
+                    // private method for UTF-8 encoding  
+                    _utf8_encode = function (string) {  
+                        string = string.replace(/\r\n/g,"\n");  
+                        var utftext = "";  
+                        for (var n = 0; n < string.length; n++) {  
+                            var c = string.charCodeAt(n);  
+                            if (c < 128) {  
+                                utftext += String.fromCharCode(c);  
+                            } else if((c > 127) && (c < 2048)) {  
+                                utftext += String.fromCharCode((c >> 6) | 192);  
+                                utftext += String.fromCharCode((c & 63) | 128);  
+                            } else {  
+                                utftext += String.fromCharCode((c >> 12) | 224);  
+                                utftext += String.fromCharCode(((c >> 6) & 63) | 128);  
+                                utftext += String.fromCharCode((c & 63) | 128);  
+                            }  
+
+                        }  
+                        return utftext;  
+                    }  
+                }
+       
+
+<!-- $(function () { -->
+    <!-- $(".nav1").html(content); -->
+<!-- }); -->
+
+    //头部搜索
+
+	</script> 
+   </div> 
+   <div class="main "> 
+    <div class="con1 clearfix"> 
+     <div id="slideBox" class="slideBox fl currentRegion1   " aria-label="视窗区,当前为网页头部图片视窗区,有图片新闻展示."> 
+      <div class="hd"> 
+       <ul> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+        <li></li> 
+       </ul> 
+      </div> 
+      <div class="bd"> 
+       <ul> 
+        <li> <a data-id="a6a645d7-edb2-4b05-90ae-931e9756e504" href="https://liuyan.www.gov.cn/2025wwzfgzbgtjy/bmdf.html?q=js" target="_blank"> <img src="/zglygzfmhwz/upload/9f1fd56f-3d13-4990-8a99-d101df41fb84.jpg" alt="图片"> </a> <p style="font-size:16px;">@国务院 我来说 </p> </li> 
+        <li> <a data-id="8b1369b6-8960-4d53-aafa-ba8066c01506" href="https://tousu.www.gov.cn/dc/2024yxyshjjs/index.htm" target="_blank"> <img src="/zglygzfmhwz/upload/a63ec948-4e8b-4925-b96d-744b4f1d588a.jpg" alt="图片"> </a> <p style="font-size:16px;">影响营商环境建设问题线索征集 </p> </li> 
+        <li> <a data-id="9217c577-0f70-4c42-bc8e-d07bbcc705a9" href="/zglygzfmhwz/tpxwa/content/9217c577-0f70-4c42-bc8e-d07bbcc705a9.html" target="_blank"> <img src="/zglygzfmhwz/upload/4787c426-6b73-4a72-a242-8d06c16e872a.jpg" alt="图片"> </a> <p style="font-size:16px;">城市美如画 </p> </li> 
+        <li> <a data-id="71f51b97-9b19-401b-b0dd-4a4cd3ef626c" href="/zglygzfmhwz/tpxwa/content/71f51b97-9b19-401b-b0dd-4a4cd3ef626c.html" target="_blank"> <img src="/zglygzfmhwz/upload/e9b08616-dab1-4c0e-8ce9-83f238252153.jpg" alt="图片"> </a> <p style="font-size:16px;">中秋非遗民俗体验 </p> </li> 
+        <li> <a data-id="d55cb102-9899-4705-811f-74fc490635ec" href="/zglygzfmhwz/tpxwa/content/d55cb102-9899-4705-811f-74fc490635ec.html" target="_blank"> <img src="/zglygzfmhwz/upload/64bb9a59-d074-41c9-83e6-11626daa7968.jpg" alt="图片"> </a> <p style="font-size:16px;">连云新城湿地 </p> </li> 
+        <li> <a data-id="a524bba9-0efd-447c-a0ed-cbbccfc2ab37" href="/zglygzfmhwz/tpxwa/content/a524bba9-0efd-447c-a0ed-cbbccfc2ab37.html" target="_blank"> <img src="/zglygzfmhwz/upload/596fd058-70b6-4003-8274-3d10c25dffc7.jpg" alt="图片"> </a> <p style="font-size:16px;">加速并网 </p> </li> 
+        <li> <a data-id="710151f4-4506-4c0b-b1b9-0577de102309" href="/zglygzfmhwz/tpxwa/content/710151f4-4506-4c0b-b1b9-0577de102309.html" target="_blank"> <img src="/zglygzfmhwz/upload/00e0cea7-3b8a-4db1-b48c-60e11d952891.jpg" alt="图片"> </a> <p style="font-size:16px;">切实解决中小企业面临的问题和困难 </p> </li> 
+        <li> <a data-id="db4cc6a5-330d-4080-bd08-7a2c7074f7ca" href="/zglygzfmhwz/tpxwa/content/db4cc6a5-330d-4080-bd08-7a2c7074f7ca.html" target="_blank"> <img src="/zglygzfmhwz/upload/dc028a1c-97ae-4139-9df1-3eed52bc0e0b.jpg" alt="图片"> </a> <p style="font-size:16px;">护航广大学生安心返校 </p> </li> 
+       </ul> 
+      </div> 
+      <a class="prev" href="javascript:void(0)"></a> 
+      <a class="next" href="javascript:void(0)"></a> 
+     </div> 
+     <div class="xwzx fr currentRegion5   " aria-label="列表区,当前为网页头部要闻列表展示."> 
+      <div class="xw-con jQtabcontent"> 
+       <div class="head"> 
+        <h3> <a target="_blank" href="/zglygzfmhwz/gcyw/content/7665e79a-ef5f-49da-af9e-50cc638b0af4.html" title="周进检查国庆假期安全生产工作"> 周进检查国庆假期安全生产工作 </a> </h3> 
+        <p> 10月1日，市长周进检查国庆假期安全生产工作，强调要深入贯彻落实习近平总书记关于安全生产的重要论述，始终坚持人民至上、生命至上，以“时时放心... <a target="_blank" href="/zglygzfmhwz/gcyw/content/7665e79a-ef5f-49da-af9e-50cc638b0af4.html">[查看详细]</a> </p> 
+       </div> 
+       <ul class="clearfix" style="margin-top: 15px;"> 
+        <!--政务要闻 开始 获取内容列表（单栏目）标签--> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/36f23dfc-fd52-4549-952c-7d2e25eba2b9.html" title="两封信件见证医疗援外“跨国温度”"> 两封信件见证医疗援外“跨国温度” </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/82cb9e0a-7cf3-4e89-adfd-eb5ce25382a9.html" title="连云区打出教育高质量发展“组合拳”"> 连云区打出教育高质量发展“组合拳” </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/7adba85e-1b71-4098-b4ca-d4b81ca79904.html" title="牢记嘱托 实干担当 坚决扛起新征程新的光荣使命"> 牢记嘱托 实干担当 坚决扛起新征程新... </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/378b6698-e88d-48cc-ac42-4c3d8fb0f1a6.html" title="省运会青少年部跆拳道比赛在连开赛"> 省运会青少年部跆拳道比赛在连开赛 </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/114945e1-1dd9-4ed4-abfb-30cbbd75db7f.html" title="港城国庆假期消费市场活力满满"> 港城国庆假期消费市场活力满满 </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <li> <a target="_blank" href="/zglygzfmhwz/gcyw/content/b55bd7c3-9287-4679-b516-812ae5cdd57f.html" title="“市长杯”青少年校园足球总决赛开赛"> “市长杯”青少年校园足球总决赛开赛 </a> <span style="float: right;color: #999999;font-size: 16px;">10-08</span> </li> 
+        <!--结束 获取内容列表（单栏目）标签--> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+    <!--	<div id="tplb" style="
+    width: 1200px;
+    margin:  auto;
+    /* background: #fff; */
+    padding: 0px;
+"> 
+  
+      <a target="_blank" href="/zglygzfmhwz/yqfk2020/yqfk2020.html"> 
+	  <img src="/zglygzfmhwz//lygmhwzsjbsy/img/yqfklygzxd.png" style="width:1200px;height:100px;margin-left:-20px;margin-top:20px" alt=""></a> 
+    
+   </div>   --> 
+    <div class="con2 clearfix mt20 currentRegion5   " aria-label="列表区,当前为网页公示公告，县区动态，部门信息，视频新闻列表展示." style="margin-top:45px"> 
+     <div class="con2-left fl"> 
+      <div class="con-tit"> 
+       <ul class="clearfix"> 
+        <li class="jQtabmenu fouce ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/gsgg/gsgg.html')">公示通告<span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/xqdt/xqdt.html')">县区动态<span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/bmdt/bmdt.html')">部门信息<span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/spxw/spxw.html')">视频新闻</li> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent"> 
+       <ul class="clearfix"> 
+        <li> <a data-id="b3f26cec-f6a7-4cb9-a6ea-1f409946a247" target="_blank" href="/zglygzfmhwz/gsgg/content/b3f26cec-f6a7-4cb9-a6ea-1f409946a247.html" title="关于公开征集2027年度民生实事建议的通告"> 关于公开征集2027年度民生实事建议的通告 </a> <span>09-18</span> </li> 
+        <li> <a data-id="c83f20c7-a861-4c9b-b149-ccab8e4e261d" target="_blank" href="/zglygzfmhwz/gsgg/content/c83f20c7-a861-4c9b-b149-ccab8e4e261d.html" title="中央生态环境保护督察整改公示"> 中央生态环境保护督察整改公示 </a> <span>09-15</span> </li> 
+        <li> <a data-id="24e16eba-306b-45a5-a640-aae7d5bd5c56" target="_blank" href="/zglygzfmhwz/gsgg/content/24e16eba-306b-45a5-a640-aae7d5bd5c56.html" title="市司法局关于《连云港市低附加值可回收物回收利用管理办法（草案）》（送审稿）公开征求意见的公告"> 市司法局关于《连云港市低附加值可回收物回收利用管理办法... </a> <span>08-17</span> </li> 
+        <li> <a data-id="cb485d9b-663d-4df2-8a95-6328d7d1d531" target="_blank" href="/zglygzfmhwz/gsgg/content/cb485d9b-663d-4df2-8a95-6328d7d1d531.html" title="关于《连云港市人民政府关于禁止燃放烟花爆竹的通告》（征求意见稿）征求意见公告"> 关于《连云港市人民政府关于禁止燃放烟花爆竹的通告》（征... </a> <span>08-07</span> </li> 
+        <li> <a data-id="6932af13-a3b6-4821-abed-af2174563c51" target="_blank" href="/zglygzfmhwz/gsgg/content/6932af13-a3b6-4821-abed-af2174563c51.html" title="市教育局关于公开征求《连云港市校外托管机构管理办法（征求意见稿）》意见的公告"> 市教育局关于公开征求《连云港市校外托管机构管理办法（征... </a> <span>07-07</span> </li> 
+        <!--公告公示end---> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--县区动态 开始 获取内容列表（单栏目）标签--> 
+        <li> <a data-id="94798c0b-1828-447b-8d35-fd4f7ae6b8cf" target="_blank" href="/zglygzfmhwz/xqdt/content/94798c0b-1828-447b-8d35-fd4f7ae6b8cf.html" title="海州：召开招商引资暨产业链发展推进会"> 海州：召开招商引资暨产业链发展推进会 </a> <span>10-08</span> </li> 
+        <li> <a data-id="87e45ca8-d755-4796-bcb2-f328d21c1261" target="_blank" href="/zglygzfmhwz/xqdt/content/87e45ca8-d755-4796-bcb2-f328d21c1261.html" title="赣榆：我区召开赣榆籍返乡人才座谈会"> 赣榆：我区召开赣榆籍返乡人才座谈会 </a> <span>10-08</span> </li> 
+        <li> <a data-id="bcbd2d9d-e768-470c-af74-20fd03c56692" target="_blank" href="/zglygzfmhwz/xqdt/content/bcbd2d9d-e768-470c-af74-20fd03c56692.html" title="灌南：我县召开灌南籍在外人士国庆座谈会"> 灌南：我县召开灌南籍在外人士国庆座谈会 </a> <span>10-08</span> </li> 
+        <li> <a data-id="02ae9515-a830-49ae-99ec-e811490f80f7" target="_blank" href="/zglygzfmhwz/xqdt/content/02ae9515-a830-49ae-99ec-e811490f80f7.html" title="赣榆：吴洋调研国庆假期文旅市场运行及促消费工作"> 赣榆：吴洋调研国庆假期文旅市场运行及促消费工作 </a> <span>10-08</span> </li> 
+        <li> <a data-id="46ff7c98-d6e5-43e6-8e80-568b2ab6787c" target="_blank" href="/zglygzfmhwz/xqdt/content/46ff7c98-d6e5-43e6-8e80-568b2ab6787c.html" title="开发区：我区召开招商引资项目过堂会"> 开发区：我区召开招商引资项目过堂会 </a> <span>10-08</span> </li> 
+        <!--结束 获取内容列表（单栏目）标签--> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--部门信息 开始 获取内容列表（单栏目）标签--> 
+        <li> <a data-id="a9af29d6-ea0d-488b-91e5-b471f98ce5c9" target="_blank" href="/zglygzfmhwz/bmdt/content/a9af29d6-ea0d-488b-91e5-b471f98ce5c9.html" title="市总工会：用心守护“三车”司机合法权益"> 市总工会：用心守护“三车”司机合法权益 </a> <span>09-30</span> </li> 
+        <li> <a data-id="d8f4d885-3faa-441f-aeaa-28536ac8a523" target="_blank" href="/zglygzfmhwz/bmdt/content/d8f4d885-3faa-441f-aeaa-28536ac8a523.html" title="市公安局：国庆假期公安交管八项举措便民出行"> 市公安局：国庆假期公安交管八项举措便民出行 </a> <span>09-30</span> </li> 
+        <li> <a data-id="f591aa58-5f39-45ba-b146-017fabc7d65b" target="_blank" href="/zglygzfmhwz/bmdt/content/f591aa58-5f39-45ba-b146-017fabc7d65b.html" title="市城管局：徐圩以“精管善治”穿起产城共兴“千条线” 破解各类城市管理问题1500余件，群众满意率超95%"> 市城管局：徐圩以“精管善治”穿起产城共兴“千条线” 破... </a> <span>09-30</span> </li> 
+        <li> <a data-id="f548f696-5163-4351-8cdf-e023a1d38808" target="_blank" href="/zglygzfmhwz/bmdt/content/f548f696-5163-4351-8cdf-e023a1d38808.html" title="市住建局：我市市政公用行业职工在全省技能竞赛中连获佳绩"> 市住建局：我市市政公用行业职工在全省技能竞赛中连获佳绩 </a> <span>09-30</span> </li> 
+        <li> <a data-id="3ca5d6d7-8a41-4e5b-92ee-a207e9d5f751" target="_blank" href="/zglygzfmhwz/bmdt/content/3ca5d6d7-8a41-4e5b-92ee-a207e9d5f751.html" title="市供销合作总社：传达学习中国共产党连云港市第十四次代表大会精神"> 市供销合作总社：传达学习中国共产党连云港市第十四次代表... </a> <span>09-25</span> </li> 
+        <!--结束 获取内容列表（单栏目）标签--> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--视频新闻 开始 获取内容列表（单栏目）标签--> 
+        <li> <a data-id="7eddc1fd-e8d2-4048-a90a-30edf6e3abb3" target="_blank" href="/zglygzfmhwz/spxw/content/7eddc1fd-e8d2-4048-a90a-30edf6e3abb3.html" title="连云港新闻10月07日"> 连云港新闻10月07日 </a> <span>10-08</span> </li> 
+        <li> <a data-id="1b0c0e8d-5d61-48cb-b5f3-1f34f9687f63" target="_blank" href="/zglygzfmhwz/spxw/content/1b0c0e8d-5d61-48cb-b5f3-1f34f9687f63.html" title="连云港新闻10月06日"> 连云港新闻10月06日 </a> <span>10-07</span> </li> 
+        <li> <a data-id="8cec3f8d-01a4-4dad-aa5e-15e0a930698d" target="_blank" href="/zglygzfmhwz/spxw/content/8cec3f8d-01a4-4dad-aa5e-15e0a930698d.html" title="连云港新闻10月05日"> 连云港新闻10月05日 </a> <span>10-06</span> </li> 
+        <li> <a data-id="34cf7b4e-56c6-4c5b-a06f-a64fab175c1d" target="_blank" href="/zglygzfmhwz/spxw/content/34cf7b4e-56c6-4c5b-a06f-a64fab175c1d.html" title="连云港新闻10月04日"> 连云港新闻10月04日 </a> <span>10-05</span> </li> 
+        <li> <a data-id="20f42104-088b-4ae4-8a30-ce71a8fdaac6" target="_blank" href="/zglygzfmhwz/spxw/content/20f42104-088b-4ae4-8a30-ce71a8fdaac6.html" title="连云港新闻10月03日"> 连云港新闻10月03日 </a> <span>10-04</span> </li> 
+        <!--结束 获取内容列表（单栏目）标签--> 
+       </ul> 
+      </div> 
+     </div> 
+     <div class="con2-right fr"> 
+      <div class="con-tit"> 
+       <ul class="clearfix"> 
+        <li class="jQtabmenu fouce ESDAssetsTextCon" style="cursor:pointer;"><a href="http://www.lyg.gov.cn/zglygzfmhwz/gwyxx/gwyxx.html" style="text-decoration: none;">政声传递</a><span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;"><a href="http://www.lyg.gov.cn/zglygzfmhwz/gjzxzc/gjzxzc.html" style="text-decoration: none;">国家最新政策</a><span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;"><a href="http://www.lyg.gov.cn/zglygzfmhwz/szfxx/szfxx.html" style="text-decoration: none;">省政府信息</a><span>|</span></li> 
+        <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;"><a href="http://www.lyg.gov.cn/zglygzfmhwz/szfjbgtwj/szfjbgtwj.html" style="text-decoration: none;">省政府文件</a></li> 
+       </ul> 
+       <!-- <div style="float:right;margin-top:-28px;margin-right: 2px;"> --> 
+       <!-- <a target="_blank" href="/zglygzfmhwz/wmjklshb/wmjklshb.html"><img --> 
+       <!-- src="http://www.lyg.gov.cn/picture/fcef5f67-a4ea-4f91-9a36-637621b717dd.png" /></a> --> 
+       <!-- </div> --> 
+      </div> 
+      <div class="con-dec jQtabcontent"> 
+       <ul class="clearfix"> 
+        <!--国务院信息 获取内容开始--> 
+        <li> <a data-id="3dab3263-9662-47f9-987a-bb9eb370af12" href="https://www.gov.cn/yaowen/liebiao/202609/content_7082504.htm" title="庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话" target="_blank"> 庆祝中华人民共和国成立77周年招待会在京举行 习近平发... </a> <span>10-01</span> </li> 
+        <li> <a data-id="cebcc95b-df99-444b-b2ec-64ece57e84ef" href="https://www.gov.cn/yaowen/liebiao/202609/content_7082265.htm" title="习近平就建设更高水平平安中国作出重要指示" target="_blank"> 习近平就建设更高水平平安中国作出重要指示 </a> <span>09-29</span> </li> 
+        <li> <a data-id="024c4858-5278-48fd-a80b-8872ed4911b7" href="https://www.gov.cn/yaowen/liebiao/202609/content_7081642.htm" title="中共中央政治局召开会议 讨论拟提请二十届五中全会审议的文件 中共中央总书记习近平主持会议" target="_blank"> 中共中央政治局召开会议 讨论拟提请二十届五中全会审议的... </a> <span>09-22</span> </li> 
+        <li> <a data-id="a960916e-b4f0-47d7-813f-926cceaca814" href="https://www.gov.cn/yaowen/liebiao/202608/content_7078989.htm" title="习近平作出重要指示强调 巩固拓展树立和践行正确政绩观学习教育成果 努力创造经得起实践人民历史检验的实绩" target="_blank"> 习近平作出重要指示强调 巩固拓展树立和践行正确政绩观学... </a> <span>08-25</span> </li> 
+        <li> <a data-id="a4173a99-9a2c-4217-aa4e-9c891316edba" href="https://www.gov.cn/yaowen/liebiao/202608/content_7078803.htm" title="李强主持召开国务院常务会议 听取新一代通信网建设情况汇报等" target="_blank"> 李强主持召开国务院常务会议 听取新一代通信网建设情况汇... </a> <span>08-23</span> </li> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--国家最新政策 获取内容start---> 
+        <li> <a data-id="c69f742b-3e70-4ba6-b7c6-b261099e6412" href="https://www.gov.cn/zhengce/content/202609/content_7081880.htm" title="国务院办公厅关于印发《“高效办成一件事”2026年度第二批重点事项清单》的通知" target="_blank"> 国务院办公厅关于印发《“高效办成一件事”2026年度第... </a> <span>09-29</span> </li> 
+        <li> <a data-id="c13aa735-1edb-4a92-b603-eb9e290b97df" href="https://www.gov.cn/yaowen/liebiao/202608/content_7079095.htm" title="中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》" target="_blank"> 中共中央办公厅 国务院办公厅印发《党政领导干部生态环境... </a> <span>08-31</span> </li> 
+        <li> <a data-id="8639c28f-03fa-4e67-b6b1-377e1b154c94" href="https://www.gov.cn/zhengce/content/202608/content_7078477.htm" title="国务院关于修改《住房公积金管理条例》的决定" target="_blank"> 国务院关于修改《住房公积金管理条例》的决定 </a> <span>08-19</span> </li> 
+        <li> <a data-id="304d61a4-6135-47b6-938c-15319843c76c" href="https://www.gov.cn/zhengce/content/202607/content_7074930.htm" title="国务院关于《中医药振兴发展“十五五”规划》的批复" target="_blank"> 国务院关于《中医药振兴发展“十五五”规划》的批复 </a> <span>07-13</span> </li> 
+        <li> <a data-id="9adf86c9-fbc6-45f3-8295-7a3d0b975b53" href="https://www.gov.cn/zhengce/content/202607/content_7074826.htm" title="国务院关于印发《“十五五”碳达峰行动方案》的通知" target="_blank"> 国务院关于印发《“十五五”碳达峰行动方案》的通知 </a> <span>07-13</span> </li> 
+        <!--end-----> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--省政府信息  内容start--> 
+        <li> <a data-id="c7cde693-1bff-46f6-b56e-f50967e72812" href="http://www.jiangsu.gov.cn/art/2026/10/8/art_60096_11838571.html" title="省政府召开国庆假期返程交通安全保畅调度会议 刘小涛主持并讲话" target="_blank"> 省政府召开国庆假期返程交通安全保畅调度会议 刘小涛主持... </a> <span>10-08</span> </li> 
+        <li> <a data-id="9559c457-c1d5-40e0-b530-7908056a1635" href="http://www.jiangsu.gov.cn/art/2026/10/4/art_60096_11838247.html" title="省人大常委会盯紧涉农“钱袋子”开展专题询问 “不会花钱”“花钱慢了”，都要当个问题办" target="_blank"> 省人大常委会盯紧涉农“钱袋子”开展专题询问 “不会花钱... </a> <span>10-04</span> </li> 
+        <li> <a data-id="73a07217-927c-427f-9e6b-98a3753f4115" href="http://www.jiangsu.gov.cn/art/2026/10/4/art_60096_11838246.html" title="我省11个部门联合发文引导建筑业助力建设“六张网”" target="_blank"> 我省11个部门联合发文引导建筑业助力建设“六张网” </a> <span>10-04</span> </li> 
+        <li> <a data-id="4c537c5c-310a-4003-82d0-ca3f90eec01a" href="http://www.jiangsu.gov.cn/art/2026/10/3/art_60096_11838182.html" title="江苏夜游产品全面开花" target="_blank"> 江苏夜游产品全面开花 </a> <span>10-03</span> </li> 
+        <li> <a data-id="62902481-021e-4f71-899a-5a29cc48cdd1" href="http://www.jiangsu.gov.cn/art/2026/10/3/art_60096_11838181.html" title="我省多地创新探索“交通+文化”融合路径" target="_blank"> 我省多地创新探索“交通+文化”融合路径 </a> <span>10-03</span> </li> 
+        <!--end--> 
+       </ul> 
+      </div> 
+      <div class="con-dec jQtabcontent" style="display: none;"> 
+       <ul class="clearfix"> 
+        <!--省政府文件  内容start--> 
+        <li> <a data-id="a0239145-0a5d-40f9-b5f4-ba536fb81c69" href="http://www.jiangsu.gov.cn/art/2026/9/20/art_46144_11832332.html" title="省政府办公厅关于印发江苏省  “十五五”农业农村现代化规划的通知" target="_blank"> 省政府办公厅关于印发江苏省 “十五五”农业农村现代化... </a> <span>09-21</span> </li> 
+        <li> <a data-id="380bd971-0a3e-48cb-8340-3025b0670b9a" href="http://www.jiangsu.gov.cn/art/2026/6/11/art_46143_11783953.html" title="省政府关于印发江苏省服务业扩能提质行动方案（2026－2030年）的通知" target="_blank"> 省政府关于印发江苏省服务业扩能提质行动方案（2026－... </a> <span>06-15</span> </li> 
+        <li> <a data-id="4be90a2f-c0e7-430a-b5dc-f477b0aa1c93" href="http://www.jiangsu.gov.cn/art/2026/5/21/art_46144_11774390.html" title="省政府办公厅印发关于进一步支持城市更新行动若干政策措施的通知" target="_blank"> 省政府办公厅印发关于进一步支持城市更新行动若干政策措施... </a> <span>05-25</span> </li> 
+        <li> <a data-id="6033a303-fe11-453d-83c2-25a4ace25eb4" href="http://www.jiangsu.gov.cn/art/2026/5/18/art_46144_11772724.html" title="省政府办公厅关于印发江苏省落实水资源刚性约束制度考核实施方案的通知	" target="_blank"> 省政府办公厅关于印发江苏省落实水资源刚性约束制度考核实... </a> <span>05-25</span> </li> 
+        <li> <a data-id="c99971f2-c79b-4c97-a189-e3276e5a1920" href="http://www.jiangsu.gov.cn/art/2026/4/15/art_46144_11757928.html" title="省政府办公厅关于印发江苏省治理交通拥堵专项行动方案的通知" target="_blank"> 省政府办公厅关于印发江苏省治理交通拥堵专项行动方案的通... </a> <span>04-15</span> </li> 
+        <!--end--> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="tplb" class="currentRegion1   " aria-label="视窗区,当前为网页中轮播图展示." style="    width: 1200px;    margin:  auto;    /* background: #fff; */    padding: 0px;"> 
+    <a target="_blank" href="/zglygzfmhwz/wmjklshb/wmjklshb.html"> <img src="/zglygzfmhwz/upload/shzyhxjzg.gif" style="width:1200px;height:100px" alt="图片"></a> 
+   </div> 
+   <div class="index-main"> 
+    <div class="cont-box"> 
+     <h1><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-title2.png" alt="图片"></h1> 
+     <div class="do-cont clearfix mt20"> 
+      <div class="fl zf-list currentRegion4   " aria-label="服务区,当前为网页信息公开相关服务."> 
+       <ul> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/zfxxgkzn/zfxxgkzn.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-1.png" alt="政府信息公开指南"></span> <span>政府信息公开指南</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="http://www.jiangsu.gov.cn/col/col59348/index.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-2.png" alt="江苏省政府信息公开申请须知"></span> <span>江苏省政府信息公开申请须知</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/zfwj1/zfwj1.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-3.png" alt="政府信息公开目录"></span> <span>政府信息公开目录</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/zfxxgknb1/zfxxgknb1.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-4.png" alt="政府信息公开年度报告"></span> <span>政府信息公开年度报告</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/gkzc/gkzc.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-5.png" alt="政府信息公开制度"></span> <span>政府信息公开制度</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/ysqgkjcy/ysqgkjcy.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-6.png" alt="政府信息依申请公开"></span> <span>政府信息依申请公开</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/sjkf/sjkf.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-7.png" alt="数据发布"></span> <span>数据发布</span> </a> </li> 
+        <li class="ESDAssetsTextCon"> <a target="_blank" href="http://www.lyg.gov.cn/zglygzfmhwz/zfgbxxzt/zfgbxxzt.html"> <span><img src="/zglygzfmhwz/lygmhwzsjbsy/img/look-icon-8.png" alt="政府公报"></span> <span>政府公报</span> </a> </li> 
+       </ul> 
+      </div> 
+      <div class="fl look-list"> 
+       <div class=" fl slideTxtBox"> 
+        <div class="dec-tit hd currentRegion5   " aria-label="列表区,当前为网页政策，及政府文件的列表展示."> 
+         <ul class="clearfix"> 
+          <li class="jQtabmenu fouce ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/zfwj1/zfwj1.html')">市政府及政府办文件<span>|</span></li> 
+          <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/zcjd1/zcjd1.html')">政策解读</li> 
+         </ul> 
+        </div> 
+        <div class="con-dec jQtabcontent  currentRegion5   " aria-label="列表区,当前为网页政策，及政府文件的列表展示."> 
+         <ul class="clearfix"> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfbgswj1/content/5ea1d6c2-2a8e-462e-bf96-223699931d32.html">市政府办公室关于印发连云港市农用地土壤污染分类管控...</a> <span>08-31</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfwj1/content/d02726a9-b0ae-48a7-b156-17304076a19f.html">市政府关于同意海州区部分道路命名的批复</a> <span>08-28</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfwj1/content/1601248f-6857-4671-b16b-c70e74841be4.html">市政府关于公布云台山景区部分市级行政权力事项赋权清...</a> <span>08-28</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfbgswj1/content/6fabf78f-19e3-4d54-9522-1f31ce66a3c3.html">市政府办公室关于印发连云港市青少年足球发展三年行动...</a> <span>07-28</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfwj1/content/fca17e60-cf69-49be-b9f3-708311832560.html">市政府关于同意作为2026全国登山挑战赛（连云港花...</a> <span>07-24</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfbgswj1/content/bf5dba54-dbc4-4069-8a8f-f267d520db28.html">市政府办公室关于印发连云港市促进宠物经济高质量发展...</a> <span>07-15</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/szfwj1/content/2aeab178-2bba-452d-ad40-3005418d48c3.html">市政府关于同意作为2026连云港·连岛半程马拉松主...</a> <span>07-10</span></li> 
+         </ul> 
+        </div> 
+        <div class="con-dec jQtabcontent currentRegion5   " aria-label="列表区,当前为网页政策，及政府文件的列表展示." style="display:none;"> 
+         <ul class="clearfix"> 
+          <li> <a target="_blank" href="/zglygzfmhwz/bm/content/7381c897-05fc-4e04-8f5c-9295aa483058.html">《连云港市工程建设领域农民工工资支付管理办法》政策...</a> <span>09-28</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/mt/content/a8e3a0ee-f3be-411d-b735-bd95ed832b04.html">视频解读《连云港市促进宠物经济高质量发展三年行动方...</a> <span>09-01</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/mt/content/6b3f51c6-a5c8-40d8-8b3b-df5e36ddbfbc.html">视频解读《连云港市强化返乡创业就业支持推动“归雁兴...</a> <span>08-15</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/bm/content/f45c4921-31b4-4205-8071-982e1b459280.html">《连云港市青少年足球发展三年行动计划（2026—2...</a> <span>07-28</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/bm/content/475c64bb-494c-4c9b-ad4b-df33842c0d1d.html">《连云港市强化返乡创业就业支持推动“归雁兴连”若干...</a> <span>07-23</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/bm/content/e411733d-582a-4e21-a01e-9c387314aab3.html">《连云港市促进宠物经济高质量发展三年行动方案（20...</a> <span>07-15</span></li> 
+          <li> <a target="_blank" href="/zglygzfmhwz/tj/content/a431c537-94b5-45e7-a7df-5c65165ce37d.html">一图读懂《连云港市促进宠物经济高质量发展三年行动方...</a> <span>07-15</span></li> 
+         </ul> 
+        </div> 
+        <div class="file-box clearfix mt20 currentRegion3 " aria-label="交互区,当前为网页政民互动区,有写信，信件反馈,调查,征集,直播,访谈等政民互动展示."> 
+         <a style="text-decoration:none;background: #91c6f5;" class="file-btn fl" target="_balnk" href="http://www.lyg.gov.cn/zglygzfmhwz/wjkx/wjkx.html"><img style="margin-right: 5px;" src="/zglygzfmhwz/lygmhwzsjbsy/img/files.png" alt="文件库">文件库</a> 
+         <div class="fl search-box clearfix ml10"> 
+          <form name="searchForm2" id="searchForm2" method="post" action="http://www.lyg.gov.cn/TrueCMS/searchController/toSearch/147d8e37-a461-4dbc-863d-0fa52d92bb44/xxgk.do"> 
+           <input type="hidden" name="customRule"> 
+           <input type="hidden" id="siteId" name="siteId" value="147d8e37-a461-4dbc-863d-0fa52d92bb44"> 
+           <input type="hidden" id="flag" name="flag" value="1"> 
+           <input type="hidden" id="searchIndexModel" name="searchIndexModel" value="xxgk"> 
+           <input type="hidden" id="query" name="query" value=""> 
+           <input type="hidden" id="pageSize" name="pageSize" value="10"> 
+           <input type="hidden" id="order" name="order" value="desc_w"> 
+           <span class="file-select fl" style="margin-top:14px"> 文件标题 </span> 
+           <input type="text" id="custom_search_title" class="file-text" placeholder="请输入要搜索的文件内容"> 
+           <a href="javascript:void(0)" id="btn_search" class="fr search-icon" style="text-decoration:none;"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/search-icon.png" alt="搜索"></a> 
+          </form> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="fr fbyg-list"> 
+       <div style="cursor:pointer;"> 
+        <a target="_balnk" href="/zglygzfmhwz/fbhyg/fbhyg.html"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/fbyg.png" alt="发布预告"></a> 
+        <a target="_balnk" href="/zglygzfmhwz/xwfbh/xwfbh.html"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/xwfbh.png" alt="新闻发布会"></a> 
+       </div> 
+       <div class="con-dec mt20 currentRegion5   " aria-label="列表区,当前为网页新闻发布的列表展示."> 
+        <ul> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/2262c895-063a-4de5-b057-4cc11edbb038.html">连云港市自然资源和规划局新闻发布会</a> <span>09-29</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/bbeef668-0fd2-4c07-b3df-c853626e7e90.html">江苏省第二十一届运动会开幕倒计时3...</a> <span>09-11</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/96fc6c47-5cf4-441b-aafa-ac557b012ecc.html">“30万吨级航道改扩建工程正式通航...</a> <span>09-04</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/b4fa107f-7739-4e56-8260-7aa837bdc517.html">“奋进‘十五五’ 实干开新局”系列...</a> <span>09-02</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/c35e1db0-0cc2-4d89-b887-6365f638cf31.html">2026年促进宠物经济高质量发展新...</a> <span>09-01</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/7550aa9c-1b7a-4744-ae83-bd226bea721b.html">连云港市机关事务管理局新闻发布会</a> <span>08-20</span></li> 
+         <li class="ESDAssetsTextCon"><a target="_blank" href="/zglygzfmhwz/xwfbh/content/3bc22138-2a39-4c66-af44-f404bc18e487.html">《连云港市强化返乡创业就业支持推动...</a> <span>08-14</span></li> 
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+     <h1 class="mt20"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-title2.png" alt="图片"></h1> 
+     <div class="clearfix mt20"> 
+      <div class="fl list-box"> 
+       <div class="clearfix"> 
+        <div class="fl"> 
+         <p><a target="_blank" href="http://lyg.jszwfw.gov.cn/"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/zwfw-tab.png" alt="江苏政务服务网"></a></p> 
+         <p class="mt10"><a target="_blank" href="http://ggzy.lyg.gov.cn/"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/ggzy-tab.png" alt="连云港市公共资源交易网"></a></p> 
+        </div> 
+        <div class="fr"> 
+         <a target="_blank" href="https://lygs.jszwfw.gov.cn/epoint-web-zwdt/epointzwdt_lyg/lygqjd/320700/onething.html"><img src="/zglygzfmhwz/lygelelxxgkgb/images/yjsycb.png" alt="办事服务"></a> 
+        </div> 
+       </div> 
+       <div class="mt10 currentRegion4 " aria-label="服务区,当前为网页办事服务区,有个人办事服务,法人办事，老年人服务，公共服务，苏企通等服务展示."> 
+        <ul class="ul-list"> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/bscx/itemlist/gr_index.do?webId=10&amp;themid=B102&amp;deptid=#fw_jump"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-1.png" alt="个人办事"> 个人办事 </a> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/bscx/itemlist/fr_index.do?webId=10&amp;themid=B201&amp;deptid="> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-2.png" alt="法人办事"> 法人办事 </a> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="https://lygs.jszwfw.gov.cn/epoint-web-zwdt/oldzq/pages/old_service/index.html"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-5.png" alt="老年人服务"> 老年人服务 </a> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/publicservice/itemlist/gg_index.do?webId=10"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-4.png" alt="公共服务"> 公共服务 </a> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="http://yqlb.shuju.lyg.gov.cn:9006/home"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-3.png" alt="企业服务"> 企业服务 </a> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="https://lygs.jszwfw.gov.cn/epoint-web-zwdt/epointzwdt_lyg/bjtj/index.html?areacode=320700"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/do-6.png" alt="办件统计"> 办件统计 </a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="fwzx fl currentRegion4 " aria-label="服务区,当前为网页办事服务区,有服务资讯展示."> 
+       <h1 style="color: #4178be;font-weight: bold;font-size: 19px"><a href="http://www.lyg.gov.cn/zglygzfmhwz/jywh/jywh.html" style="color:#4178be;text-decoration:none;"> 服务资讯</a></h1> 
+       <div class="con-dec mt20"> 
+        <ul> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_jtcx/content/b391c9d5-e113-43bb-982b-acf80e148419.html" target="_blank" title="2026年夏航季航班时刻表"> 2026年夏航季航班时刻表</a> <span>03-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_ggsy/content/2e2d16ae-f846-4ed7-9c95-01a2950560e8.html" target="_blank" title="10月8日天气预报"> 10月8日天气预报</a> <span>10-08</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_mzyf/content/45bcfee8-867b-4a49-8654-8aace1f0bd72.html" target="_blank" title="“微服务”赋能“大民生” 一站式守护全龄幸福"> “微服务”赋能“大民生” 一站式守...</a> <span>09-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_jtcx/content/f5e59870-4f7e-4cc5-94a8-8a467a3691ca.html" target="_blank" title="国庆假期公安交管八项举措便民出行"> 国庆假期公安交管八项举措便民出行</a> <span>09-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_cycx/content/bf926e6b-5e25-487f-acef-464da318e487.html" target="_blank" title="连云港高新区向高而攀、向新而行  推动科技创新与产业创新深度融合"> 连云港高新区向高而攀、向新而行 ...</a> <span>09-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_ylws/content/131f4f49-7fe0-4ba7-9909-e4eeb660c52b.html" target="_blank" title="国内首场县域级医院医疗智能体培训在东海县开课  县域医院也能“长”出自己的AI系统"> 国内首场县域级医院医疗智能体培训在...</a> <span>09-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_zffw/content/8d806789-0930-4be3-8619-b30d75c0b7f3.html" target="_blank" title="老旧电梯换新 居民上下楼“自由”"> 老旧电梯换新 居民上下楼“自由”</a> <span>09-30</span> </li> 
+         <li class="ESDAssetsTextCon" style="margin-left: 7px;"><a href="/zglygzfmhwz/fwzx_ggsy/content/757fbe8b-093e-435b-bca9-c58ae2d6a1d9.html" target="_blank" title="9月30日天气预报"> 9月30日天气预报</a> <span>09-30</span> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="fr li-list currentRegion4 " aria-label="服务区,当前为网页办事服务区,有政府各项事项清单."> 
+       <div class="top-li"> 
+        <div class="fl" style="width: 222px;"> 
+         <p><a class="list-a" target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/qlqd/list.do?webId=10&amp;deptid=">政府行政权力清单</a></p> 
+         <p class="mt10"><a class="list-a" target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/qlqd/shzblist.do?webId=10&amp;deptid=">审核转报事项清单</a></p> 
+        </div> 
+        <div class="fr"> 
+         <a class="list-a" target="_blank" href="http://lyg.jszwfw.gov.cn/jszwfw/qlqd/cglist.do?webId=10&amp;deptid=" style="width: 160px;height: 87px;">中央垂管部门<br>行政权力事项<br>清单</a> 
+        </div> 
+       </div> 
+       <div class="top-li mt10"> 
+        <div class="fl" style="width: 222px;"> 
+         <a class="list-a" target="_blank" href="http://www.jszwfw.gov.cn/jszwfw/bjmqd/bjmlist.do?webId=10">“不见面审批服务”事项清单</a> 
+        </div> 
+        <div class="fr"> 
+         <a class="list-a" target="_blank" href="http://www.lyg.gov.cn/zglygzfmhwz/ssjsgsxx/ssjsgsxx.html" style="width: 160px;">“双随机、一公开”</a> 
+        </div> 
+       </div> 
+       <div class="top-li mt10"> 
+        <div class="fl" style="width: 175px;"> 
+         <a class="list-a" target="_blank" href="https://yjsgk.jsczt.cn/#/overView2?classinfoid=10&amp;code=320700000&amp;year=2026&amp;parentid=373412">财政专项资金管理清单</a> 
+        </div> 
+        <div class="fr" style="width: 210px;"> 
+         <a class="list-a" target="_blank" href="http://www.lyg.gov.cn/zglygzfmhwz/sfxmml/content/ebbccee7-aa39-4cd1-b8e9-8d200714c574.html">市行政事业性收费项目目录</a> 
+        </div> 
+       </div> 
+       <div class="top-li mt10"> 
+        <div class="fl" style="width: 148px;"> 
+         <a class="list-a" target="_blank" href="https://www.lyg.gov.cn/zglygzfmhwz/upload/5241c119-7c3e-4768-8bad-1eaf1c0451ba.xlsx" style="height: 87px;">执行政府定价的价格和收费减免与优惠政策清单</a> 
+        </div> 
+        <div class="fr" style="width: 237px;"> 
+         <p><a class="list-a" target="_blank" href="http://www.lyg.gov.cn/zglygzfmhwz/sfxmml/content/cc768d52-7be7-49f8-bf4e-c400310d9fd6.html">政府定价的经营服务性收费清单</a></p> 
+         <p class="mt10"><a class="list-a" target="_blank" href="http://credit.lyg.gov.cn/creditsearch.publicity.dhtml">行政许可和行政处罚等信用信息</a></p> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <h1 class="mt20"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/ask-title2.png" alt="我要问"></h1> 
+     <div class="clearfix mt20"> 
+      <div class="fl  currentRegion3 " aria-label="交互区,当前为来信选登，反馈统计."> 
+       <div> 
+        <a target="_balnk" href="https://ygxf.xfj.lyg.gov.cn:20000/zhengfuxinxiang?orgid=32071&amp;type=ssjxx"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/sj-img2.png" alt="市长热线"></a> 
+        <a target="_balnk" href="https://ygxf.xfj.lyg.gov.cn:20000/zhengfuxinxiang?orgid=32071&amp;type=sszxx" class="ml20"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/sz-img2.png" alt="书记热线"></a> 
+       </div> 
+       <h1 class="beixuanzhong" target="_balnk" style="float: left;font-weight: bold;line-height: 50px;font-size: 19px;margin-top:1px;cursor:pointer;margin-right: 7px;" onclick="window.open('https://ygxf.xfj.lyg.gov.cn:20000/other/lxxdList?orgid=32071&amp;type=sszxx')" onmouseover="showMsg(this,'lxxd')">来信选登 |</h1> 
+       <h1 style="font-weight: bold;line-height: 50px;font-size: 19px;margin-top:1px;cursor:pointer;" onclick="window.open('/zglygzfmhwz/fktj/fktj.html')" onmouseover="showMsg(this,'fktj')">反馈统计</h1> 
+       <div id="lxxd" style="display: block;"> 
+        <iframe id="mainframe" width="375px" height="212px" frameborder="0" scrolling="no" src="https://ygxf.xfj.lyg.gov.cn:20000/other/lxxd?orgid=32071"></iframe> 
+       </div> 
+       <div class="con-dec jQtabcontent" id="fktj" style="display: none;"> 
+        <ul class="clearfix"> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/1b99cb82-98b0-4123-a20e-0ae8fa7316ff.html" title="2026年08月份市长信箱运行和反馈情况"> 2026年08月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">09-15</span> </li> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/5c850536-041d-42b6-bff7-7e7bf28c0d81.html" title="2026年07月份市长信箱运行和反馈情况"> 2026年07月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">08-19</span> </li> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/76416cff-2ace-426d-ae9b-41394d10c178.html" title="2026年06月份市长信箱运行和反馈情况"> 2026年06月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">07-16</span> </li> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/b6e64d05-2e12-4a71-94f9-db3344cb1406.html" title="2026年05月份市长信箱运行和反馈情况"> 2026年05月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">06-22</span> </li> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/e470aff0-2e10-4afd-be6c-5d8146ec538d.html" title="2026年04月份市长信箱运行和反馈情况"> 2026年04月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">05-22</span> </li> 
+         <li> <a target="_blank" href="/zglygzfmhwz/fktj/content/a25d548e-0907-4c5f-b7f8-b249de6bf109.html" title="2026年03月份市长信箱运行和反馈情况"> 2026年03月份市长信箱运行和反馈... </a> <span style="margin-right: 5px;">04-20</span> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="fl slideTxtBox ask-cont currentRegion3 " aria-label="交互区,当前为直播，访谈等互动区."> 
+       <div class="dec-tit hd" style="margin-top:-6px;"> 
+        <ul class="clearfix"> 
+         <li class="jQtabmenu fouce ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/zxft/zxftzb.html')">网上直播<span>|</span></li> 
+         <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/zbzt/zbzt.html')">政在访谈<span>|</span></li> 
+         <li class="jQtabmenu ESDAssetsTextCon" style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/ftyg/ftyg.html')">访谈预告</li> 
+        </ul> 
+       </div> 
+       <div class="bd mt10"> 
+        <div class="wszb-body" style="display: block;"> 
+         <div class="wszb-pic" id="zbtitle"> 
+          <a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=cb0260b7-5563-4f84-aa76-4d1739187a75"><img src="/zglygzfmhwz/upload/0468ceed-2863-49bb-a37b-1993731b7905.jpg" alt="2026连云港西游记文化旅游节开幕式" style=" height: 222px;width: 400px;"></a> 
+          <li style="border-bottom: solid 1px #a9a9a9;background: none !important;text-align: center;line-height: 35px;font-size: 16px;"><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=cb0260b7-5563-4f84-aa76-4d1739187a75"> 2026连云港西游记文化旅游节开幕式 </a><span style="display:none;">06-20</span></li> 
+         </div> 
+         <div class="con-dec jQtabcontent" style="display: block;"> 
+          <ul class="clearfix" id="zblist"> 
+           <li><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=7957bf94-d91e-4816-a686-a151d85d8dac"> 连云港AI电商发展大会暨第七届518... </a><span>05-18</span></li> 
+           <li><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=909c2dd0-e370-4e6e-ae50-f16f70ee9265"> 2026年“绿美江苏·生态旅游”系列... </a><span>04-28</span></li> 
+          </ul> 
+         </div> 
+        </div> 
+        <div class="wszb-body" style="display: none;"> 
+         <div class="wszb-pic" id="zbtitle1"> 
+          <a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=02663fbf-0478-445d-b5ca-39d84b377d0f"><img src="/zglygzfmhwz/upload/badb418b-b976-4de3-adcb-5985a73a9341.jpg" alt="连云港市交通运输局走进《政风热线》" style=" height: 222px;width: 400px;"></a> 
+          <li style="border-bottom: solid 1px #a9a9a9;background: none !important;text-align: center;line-height: 35px;font-size: 16px;"><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=02663fbf-0478-445d-b5ca-39d84b377d0f"> 连云港市交通运输局走进《政风热线》 </a><span style="display:none;">09-30</span></li> 
+         </div> 
+         <div class="con-dec jQtabcontent" style="display: none;"> 
+          <ul class="clearfix" id="zblist1"> 
+           <li><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=15a16488-5ac8-41a8-aac3-10b9e2fcafc5"> 连云港市工信局、连云港市商务局走进... </a><span>09-23</span></li> 
+           <li><a target="_blank" href="http://www.lyg.gov.cn/TrueCMS/visitorController/toInterviewLive.do?interviewId=07c86153-f8d6-4d32-8f46-bdb0597be0e6"> 连云港市邮政管理局、连云港市市场监... </a><span>08-12</span></li> 
+          </ul> 
+         </div> 
+        </div> 
+        <div class="con-dec jQtabcontent"> 
+         <div class="clearfix"> 
+          <ul> 
+           <!--访谈预告 start---> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/91c9dbe1-54cc-40d3-b3c6-f84098821bd8.html" title="连云港市交通运输局走进《政风热线》访谈预告"> 连云港市交通运输局走进《政风热线》... </a> <span>09-29</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/e841a138-813f-47c3-9bee-3337df3a8580.html" title="连云港市工业和信息化局、连云港市商务局走进《政风热线》访谈预告"> 连云港市工业和信息化局、连云港市商... </a> <span>09-22</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/a69f95c2-0386-4ec3-9098-098dca60b9a6.html" title="连云港市邮政管理局、连云港市市场监督管理局走进《政风热线》访谈预告"> 连云港市邮政管理局、连云港市市场监... </a> <span>08-11</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/fbd35941-e1b2-4880-bbfa-0092aa7b47e7.html" title="连云港市民政局走进《政风热线》访谈预告"> 连云港市民政局走进《政风热线》访谈... </a> <span>08-04</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/0fc24e46-3998-4c7a-b1cb-80ed3643fd01.html" title="连云港市卫生健康委员会走进《政风热线》访谈预告"> 连云港市卫生健康委员会走进《政风热... </a> <span>07-28</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/73364319-beee-46b0-9861-2a09b4977664.html" title="连云港市水利局和连云港市农业农村局走进《政风热线》访谈预告"> 连云港市水利局和连云港市农业农村局... </a> <span>07-21</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/facbc615-71d9-4a20-b1a3-1baf5fc6e53b.html" title="连云港市教育局走进《政风热线》访谈预告"> 连云港市教育局走进《政风热线》访谈... </a> <span>07-14</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/aac36cfb-7488-4c7f-8fb4-f7b1eab947a1.html" title="连云港市城市管理局走进《政风热线》访谈预告"> 连云港市城市管理局走进《政风热线》... </a> <span>07-07</span> </li> 
+           <li> <a target="_blank" href="/zglygzfmhwz/ftyg/content/c75edc87-9d6d-41a5-9150-399598d100df.html" title="连云港市生态环境局和连云港市应急管理局走进《政风热线》访谈预告"> 连云港市生态环境局和连云港市应急管... </a> <span>06-23</span> </li> 
+           <!--访谈预告  end---> 
+          </ul> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="fr ask-right"> 
+       <h1 style="color: #4178be;font-weight: bold;line-height: 50px;font-size: 19px;margin-top:-16px;cursor:pointer;" onclick="window.open('/zglygzfmhwz/rdhy/rdhy.html')">热点回应</h1> 
+       <div class="con-dec currentRegion5   " aria-label="列表区,当前为网页热点回应的列表展示." style="margin-top:-15px;"> 
+        <ul> 
+         <!--热点回应 start---> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="https://mp.weixin.qq.com/s/WWNAYTfMsF-epQpiBcVXYw" title="文广旅局：中秋国庆怎么玩？看这一篇就够了"> 文广旅局：中秋国庆怎么玩？看这一篇... </a> <span>09-22</span> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/rdhy/content/e286f0ec-ad43-4983-b898-6409f4752796.html" title="江苏交警：假期错峰出行通告"> 江苏交警：假期错峰出行通告 </a> <span>09-22</span> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/rdhy/content/df5be96a-b28c-487e-94a1-fbd2a23d2d1c.html" title="商务局：新一轮汽车购新补贴来了"> 商务局：新一轮汽车购新补贴来了 </a> <span>09-22</span> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/rdhy/content/df51742a-c23d-4873-b77a-84e366a382a2.html" title="铁路局：国庆假期火车票开售  连云港地区增开多趟列车保障假期出行"> 铁路局：国庆假期火车票开售 连云... </a> <span>09-20</span> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/rdhy/content/13009aa7-0dd1-4679-bd5b-bc34e65b9b91.html" title="交管部门：前方有校车停靠 需严格区分路况 规范避让"> 交管部门：前方有校车停靠 需严格区... </a> <span>09-18</span> </li> 
+         <li class="ESDAssetsTextCon"> <a target="_blank" href="/zglygzfmhwz/rdhy/content/66cea670-edbd-4cc8-97c1-039973ee16ca.html" title="人社局：参保人去世 遗属待遇这样领"> 人社局：参保人去世 遗属待遇这样领 </a> <span>09-14</span> </li> 
+         <!--热点回应  end---> 
+        </ul> 
+       </div> 
+       <ul class="ask-list clearfix currentRegion4   " aria-label="服务区,当前为网页答问知识库，意见，政风热线的服务." style="margin-top: 25px;"> 
+        <li class="ESDAssetsTextCon" style="background: white;border:solid 1px #a7bfd6; "> <a target="_blank" href="/zglygzfmhwz/zsk/zsk.html" class="a" style="color: #155c93 !important;"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/ask-1.png" alt="答问知识库"> 答问知识库 </a> </li> 
+        <li class="ESDAssetsTextCon" style="background: white;border:solid 1px #a7bfd6; "> <a target="_blank" href="/zglygzfmhwz/yjzj/yjzjall.html" class="a" style="color: #155c93 !important;"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/ask-2.png" alt="意见征集"> 意见征集 </a> </li> 
+        <li class="ESDAssetsTextCon" style="background: white;border:solid 1px #a7bfd6; "> <a target="_blank" href="/zglygzfmhwz/zfxfrx/zfxfrx.html" class="a" style="color: #155c93 !important;"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/ask-3.png" alt="政风热线"> 政风热线 </a> </li> 
+        <li class="ESDAssetsTextCon" style="background: white;border:solid 1px #a7bfd6; "> <a target="_blank" href="http://12345.lyg.gov.cn/" class="a" style="color: #155c93 !important;"> <img src="/zglygzfmhwz/lygmhwzsjbsy/img/ask-4.png" alt="12345在线平台"> 12345在线平台 </a> </li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="con-b clearfix" style="padding-bottom: 30px;height: auto;"> 
+     <div class="con-b-dec"> 
+      <span style="cursor:pointer;" onclick="window.open('/zglygzfmhwz/ztzl/ztzl.html')"><img src="/zglygzfmhwz/lygmhwzsjbsy/img/ztzl2.png" alt=""></span> 
+      <!--新增另一种方案---> 
+      <div id="zt"> 
+       <div class="container"> 
+        <div class="row"> 
+         <div class="right"> 
+          <div id="zt_area"> 
+           <a class="arrow-left" href="javascript:void(0)" style="display: none;"></a> 
+           <a class="arrow-right" href="javascript:void(0)" style="display: none;"></a> 
+           <div class="swiper-container currentRegion1   " aria-label="视窗区,当前为网页专题专栏的图片展示."> 
+            <div class="swiper-wrapper" style="width: 5760px; transform: translate3d(-1440px, 0px, 0px); transition-duration: 0s; height: 134px;"> 
+             <!--专题专栏--> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="http://www.lyg.gov.cn/zglygzfmhwz/msss2026/msss2026.html" target="_blank"> <img src="/zglygzfmhwz/upload/3bb12949-db0e-46ca-a298-a8b62172d3f5.jpg" alt="2026连云港民生实事" title="/zglygzfmhwz/upload/3bb12949-db0e-46ca-a298-a8b62172d3f5.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="https://www.lyg.gov.cn/zglygzfmhwz/cfsgcjy/cfsgcjy.html" target="_blank"> <img src="/zglygzfmhwz/upload/06716984-d3ce-4e16-8a63-7690e73983ec.jpg" alt="春风送岗促就业" title="/zglygzfmhwz/upload/06716984-d3ce-4e16-8a63-7690e73983ec.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="http://www.jssyh2026.cn/" target="_blank"> <img src="/zglygzfmhwz/upload/3cccf2c9-3dbb-4e5b-b525-3192e5e9a21c.jpg" alt="江苏省第二十一届运动会" title="/zglygzfmhwz/upload/3cccf2c9-3dbb-4e5b-b525-3192e5e9a21c.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="https://www.lyg.gov.cn/zglygzfmhwz/lh2026/lh2026.html" target="_blank"> <img src="/zglygzfmhwz/upload/7433f0fb-d9e6-464a-b051-70c46994e101.jpg" alt="2026连云港两会" title="/zglygzfmhwz/upload/7433f0fb-d9e6-464a-b051-70c46994e101.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="http://www.lyg.gov.cn/zglygzfmhwz/wznb2025/wznb2025.html" target="_blank"> <img src="/zglygzfmhwz/upload/285191cc-677c-471a-9f23-455dabaef30c.jpg" alt="政府网站年度工作报表" title="/zglygzfmhwz/upload/285191cc-677c-471a-9f23-455dabaef30c.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="http://www.lyg.gov.cn/zglygzfmhwz/zfxxgknb1/zfxxgknb1.html" target="_blank"> <img src="/zglygzfmhwz/upload/aee37592-9e32-4923-aa0f-df1ac46fba20.jpg" alt="连云港市政府信息公开工作年度报告专题" title="/zglygzfmhwz/upload/aee37592-9e32-4923-aa0f-df1ac46fba20.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="https://wjk.jsrd.gov.cn:8004/#/home" target="_blank"> <img src="/zglygzfmhwz/upload/b91cd024-4189-437d-80c2-d4170c694ee1.jpg" alt="江苏省法规规章规范性文件数据库" title="/zglygzfmhwz/upload/b91cd024-4189-437d-80c2-d4170c694ee1.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+             <div class="swiper-slide swiper-slide-duplicate" style="width: 240px; height: 134px;"> 
+              <div class="zt_item"> 
+               <a class="thumbnail" href="http://www.lyg.gov.cn/zglygzfmhwz/yshj/yshj.html" target="_blank"> <img src="/zglygzfmhwz/upload/29225235-d77f-4b10-82c9-7fcb5a3e6ff1.jpg" alt="连云港营商环境" title="/zglygzfmhwz/upload/29225235-d77f-4b10-82c9-7fcb5a3e6ff1.jpg" class="img-responsive" width="230px;" height="135px;" style="border:0;height:135px;"> </a> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+           <script type="text/javascript">
+												// 默认手机移动优先
+												var slidesPerView = 1;
+												var width;
+
+												function ztResize() {
+													width = $(window).width();
+
+													if (width >= 768 && width < 992) {
+														// ipad
+														slidesPerView = 4;
+													} else if (width >= 992 && width < 1200) {
+														// ipad pro
+														slidesPerView = 4;
+													} else if (width >= 1200) {
+														// pc
+														slidesPerView = 5;
+													} else {
+														slidesPerView = 1;
+													}
+													if (typeof(mySwiper2) != "undefined") {
+														mySwiper2.params.slidesPerView = slidesPerView;
+														mySwiper2.reInit();
+													}
+													//alert(mySwiper2.height)
+												}
+												$(window).resize(function() {
+													ztResize();
+												});
+												ztResize();
+												var mySwiper2 = new Swiper('#zt_area .swiper-container', {
+													loop: true,
+													slidesPerView: slidesPerView,
+													calculateHeight: true,
+													preventLinks: false,
+													preventClicks: false,
+													speed: 500,
+													autoplay: 5000,
+													autoplayDisableOnInteraction: false,
+													onInit: function(swiper) {
+													}
+												});
+												$('#zt_area .arrow-left').on('click', function(e) {
+													e.preventDefault();
+													mySwiper2.swipePrev();
+												})
+												$('#zt_area .arrow-right').on('click', function(e) {
+													e.preventDefault();
+													mySwiper2.swipeNext();
+												})
+
+												$("#zt_area").on('mouseenter', function() {
+													$('#zt_area .arrow-left,#zt_area .arrow-right').show();
+												}).on('mouseleave', function() {
+													$('#zt_area .arrow-left,#zt_area .arrow-right').hide();
+												})
+											</script> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!--  --> 
+   <div id="ad4" class="ad1" style="position:fixed!important;z-index:1000;bottom: 25px;left:10px;width:200px;height:222px"> 
+    <a href="javascript:void(0)" onclick="javascript:document.getElementById('ad4').style.display='none'">关闭</a> 
+    <a><img src="/zglygzfmhwz/img/hwpyc.jpg"></a> 
+   </div> 
+   <div class="foot currentRegion2 " aria-label="导航区,当前为网页底部主导航区域,有多个友情链接板块."> 
+    <!--引入友情链接---> 
+    <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/yqly.js"></script> 
+    <!--引入底部---> 
+    <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/copyright.js"></script> 
+   </div> 
+   <style type="text/css" id="ariatoolbarstylemouse">
+</style> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/jquery1.42.min.js"></script> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/jquery-1.8.2.min.js"></script> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/jquery.SuperSlide.2.1.1.js"></script> 
+   <script src="/zglygzfmhwz/lygmhwzsjbsy/js/jquery.tab.js" type="text/javascript"></script> 
+   <!--
+	<script type="text/javascript" src="http://www.lyg.gov.cn/TrueCMS/js/tip/index_artDialog.js"></script>
+	<script type="text/javascript" src="http://www.lyg.gov.cn/TrueCMS/js/tip/tipwindown/tip.js"></script>
+	<script type="text/javascript" src="http://www.lyg.gov.cn/TrueCMS/js/tip/iframeTools.js"></script> --> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/index_artDialog.js"></script> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/tip.js"></script> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/iframeTools.js"></script> 
+   <script type="text/javascript">
+		jQuery(".slideBox").slide({
+			mainCell: ".bd ul",
+			autoPlay: true,
+			interTime: 5000,
+		});
+		jQuery(".slideTxtBox").slide();
+		$('.xwzx').tabBuild({
+			currentClass: 'fouce'
+		});
+		$('.con2-left').tabBuild({
+			currentClass: 'fouce'
+		});
+		$('.con2-right').tabBuild({
+			currentClass: 'fouce'
+		});
+		$('.ask-cont').tabBuild({
+			currentClass: 'fouce'
+		});
+		$('.look-list').tabBuild({
+			currentClass: 'fouce'
+		});
+		$("#slideBox").mouseover(function() {
+			$(".prev").css('display', 'block');
+			$(".next").css('display', 'block');
+		});
+		$("#slideBox").mouseout(function() {
+			$(".prev").css('display', 'none');
+			$(".next").css('display', 'none');
+		});
+		$("#jszwfw").mouseover(function() {
+			$(".jszw").css('display', 'block');
+		});
+		$("#jszwfw").mouseout(function() {
+			$(".jszw").css('display', 'none');
+		});
+
+		<!---无障碍浏览控制--->
+		function accessible() {
+			var flag = 0;
+			if (flag == 0) {
+				window.location.href = "http://www.lyg.gov.cn/accessible/";
+				flag = 1;
+			} else {
+				alert(2);
+				window.location.href = "http://www.lyg.gov.cn";
+			}
+		};
+	</script> 
+   <script type="text/javascript">
+		<!--友情链接js-->
+		var menu = ['menu_1', 'menu_2', 'menu_3', 'menu_4', 'menu_5', 'menu_6', 'menu_7'];
+		var arra = ['div_1', 'div_2', 'div_3', 'div_4', 'div_5', 'div_6', 'div_7'];
+
+		function show_div(id) {
+			if (document.getElementById('div_' + id).style.display != 'none') {
+				document.getElementById('div_' + id).style.display = 'none';
+			} else {
+				var classname = document.getElementById('menu_' + id).className;
+				for (var i = 1; i < arra.length; i++) {
+					document.getElementById(arra[i]).style.display = 'none';
+				}
+				if (classname == "yqlj") {
+					document.getElementById('div_' + id).style.display = '';
+				}
+			}
+		}
+
+		<!---首页下方  我要纠错--->
+		$("#wyjc").bind("click", function(event) {
+			var url = window.location.href;
+
+			art.dialog.open('/TrueCMS/visitorController/toCorrectJsp.do?url=', {
+				id: 'collection',
+				title: '我要纠错',
+				width: 700,
+				height: 620
+			});
+			return false;
+		});
+	</script> 
+   <script type="text/javascript">
+		/**文件库查询**/
+
+		$('#btn_search').click(function() {
+			search();
+		});
+		window.search = function() {
+			function checkAndExecute(jQueryDom, callback) {
+				if (jQueryDom.val() !== '') {
+					callback(jQueryDom.val());
+				}
+			}
+
+			function mergeRule(rule) {
+				var id = rule.split(",")[0];
+				var oldRule = $('#searchForm2').find('input[name=customRule]').val().split('\t');
+				var newRule = '';
+				for (var i = 0; i < oldRule.length; i++) {
+					var tmpArr = oldRule[i].split(',');
+					if (tmpArr.length != 0 && tmpArr[0] !== id) {
+						newRule += oldRule[i] + '\t';
+					}
+				}
+				newRule += rule;
+				return newRule;
+			}
+			var rules = '';
+			// 高级搜索，则清空普通搜索字段并生成搜索规则
+			$('#searchForm2').find('input[name=query]').val('');
+			$('#searchForm2').find('input[name=searchScope]').val('');
+			// 生成规则
+			checkAndExecute($('#custom_search_title'), function(val) {
+				rules += 'custom_search_title,must,msg_title,match,' + $.trim(val) + '\t'
+			});
+
+			$('#searchForm2').find('input[name=customRule]').val(rules);
+			$('#searchForm2').submit();
+		}
+	</script> 
+   <script type="text/javascript">
+		$(function() {
+			$("#nowdate").css("margin-left", "0px");
+		})
+
+		var showMsg = function(me, type) {
+			$(me).parent().children().removeClass("beixuanzhong");
+			$(me).addClass("beixuanzhong");
+			if (type == 'lxxd') {
+				$("#lxxd").css("display", "block");
+				$("#fktj").css("display", "none");
+			}
+			if (type == 'fktj') {
+				$("#fktj").css("display", "block");
+				$("#lxxd").css("display", "none");
+			}
+		}
+	</script> 
+   <script type="text/javascript">
+//查找元素
+var ds=document.getElementById('tplb_con').getElementsByTagName('div');
+var o=document.getElementById('tplb');//轮播区
+var arrows=document.getElementsByClassName('arrow');
+var lis=document.getElementById('cus').getElementsByTagName('li');
+var index=0;//保存当前显示的索引；
+var len=ds.length//图片的个数
+//自动轮播
+var t=setInterval(move,4800);
+//鼠标经过事件
+o.onmouseover=function () {
+	clearInterval(t)//停止轮播
+    arrows[0].style.display='block';
+    arrows[1].style.display='block'
+}
+//鼠标离开事件;
+o.onmouseout=function () {
+	t=setInterval(move,4800);//启动定时器
+	arrows[0].style.display='none'
+	arrows[1].style.display='none'
+};
+
+//指示器点击事件;
+for(var i=0;i<lis.length;i++){
+	lis[i]._index=i;//遍历时为每个li新增属性index,并赋值
+    lis[i].onclick=function () {
+    lis[index].className='';//清除当前指示器的样式;
+    ds[index].className=''//当前显示的轮播图，不显示
+    this.className='sel';//修改被点击的指示器的样式;
+    ds[this._index].className='tplb_con_box'//指示器被选中时对应的轮播图显示；
+    index=this._index;//修改index
+  };
+}
+
+
+//图片切换下一张
+function move() {
+function move() {
+    //当前显示的轮播图，停止显示
+   ds[index].className='';
+   lis[index].className=''
+    index++;//索引递增
+
+   if (index==len) {
+   	index=0//图片最后一张时切换到第一张
+   }
+   ds[index].className='tplb_con_box';//显示的下一张	
+   lis[index].className='sel'//跟随显示的下一个指示器
+}
+//图片上一张；
+function movepre() {
+  ds[index].className='';
+  lis[index].className=''
+  index--;
+  if (index==-1) {
+  	index=len-1;//
+  	//图片第一张时切换为最后一张
+
+  }
+  ds[index].className='tplb_con_box'//显示上一张
+   lis[index].className='sel'//跟随显示的下一个指示器
+}
+
+</script> 
+   <script type="text/javascript" src="/zglygzfmhwz/lygmhwzsjbsy/js/layui.js"></script> 
+   <script type="text/javascript">
+ layui.use('layer', function(){
+  var layer = layui.layer;
+  $("body").on("click","a",function(){
+    
+    var thisa = $(this);
+    var url = thisa.attr('href'),
+        hasclk = thisa.attr('hasclk');
+	var messageId = thisa.attr('data-id')
+    if(typeof hasclk == 'undefined') {
+        thisa.attr('hasclk', '1');
+        if (url){
+            urltrim = $.trim(url).toLowerCase();
+            if((urltrim.indexOf("http://") == 0 || urltrim.indexOf("https://") == 0) && urltrim.indexOf('www.lyg.gov.cn') < 0) {
+                layer.confirm('您访问的链接即将离开“连云港市人民政府”门户网站是否继续？', {
+                    title: '',
+                    btn: ['继续访问','放弃'],
+                    btn1:function(){						
+                        thisa.removeAttr('hasclk');
+                        layer.closeAll();
+						var csmURL = 'https://www.lyg.gov.cn/cmstj'
+						$.ajax({
+							url: cmsURL + "/sysVisitorLogController/visit.do",  
+							dataType:'jsonp',
+							data:{
+								'visitorCountry' :'' ,
+								'visitorProvince' : '',
+								'visitorCity' : '',
+								'siteId' : '147d8e37-a461-4dbc-863d-0fa52d92bb44',
+								'messageId' : messageId
+								}, 
+							success:function(result) {  
+								if(result.success){
+									console.log('result:',result)
+								}
+							}, 
+							timeout:3000  
+						}); 
+						window.open(url, "_blank");
+                    },
+					btn2:function(){
+                        thisa.removeAttr('hasclk');
+                        layer.closeAll();                       
+                    }
+                });
+                thisa.removeAttr('hasclk');
+                return false;
+            }
+        }
+    }
+}); 
+	
+
+
+})
+  </script> 
+  </div> 
+  <script id="visits_js" type="text/javascript" src="/zglygzfmhwz/resource/js/visits.js?cmsURL=https://www.lyg.gov.cn/cmstj/&amp;siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44&amp;messageId="></script> 
+  <script type="text/javascript" src="/zglygzfmhwz/resource/js/ckplayer/ckplayer.js" charset="utf-8"></script> 
+  <script id="video_js" type="text/javascript" src="/zglygzfmhwz/resource/js/video.js?siteURL=/zglygzfmhwz"></script> 
+  <script id="plugin_js" type="text/javascript" src="/zglygzfmhwz/resource/js/plugin.js?siteURL=/zglygzfmhwz"></script>  
+ </body>
+</html>
