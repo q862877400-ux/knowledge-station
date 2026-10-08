@@ -1,0 +1,689 @@
+{
+ "frozen": "口径见 measure.py docstring（跑前写死）",
+ "corpus": {
+  "space": "clause_vec",
+  "rows": 663634
+ },
+ "gold": {
+  "headline_queries": 120,
+  "headline_gold_clauses": 64,
+  "all_gold_clauses": 79,
+  "gold_clauses_seen_in_corpus": 64
+ },
+ "random_baseline": {
+  "r95": 0.95,
+  "r99": 0.99,
+  "note": "随机扔 5% 的库，金标也活 95% ⇒ r95≈0.95 = 零信号"
+ },
+ "median_vector_rank_headline": 4322,
+ "columns": {
+  "knowledge_type": {
+   "n_values": 3,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "rule",
+     "corpus": 485428,
+     "gold": 55,
+     "share_corpus": 0.731469,
+     "share_gold": 0.859375,
+     "enrichment": 1.175
+    },
+    {
+     "value": "data",
+     "corpus": 121614,
+     "gold": 8,
+     "share_corpus": 0.183255,
+     "share_gold": 0.125,
+     "enrichment": 0.682
+    },
+    {
+     "value": "legal",
+     "corpus": 56592,
+     "gold": 1,
+     "share_corpus": 0.085276,
+     "share_gold": 0.015625,
+     "enrichment": 0.183
+    }
+   ],
+   "r95": 0.914724,
+   "speedup95": 1.093,
+   "r99": 1.0,
+   "speedup99": 1.0,
+   "r95_query_weighted": 0.914724,
+   "speedup95_query_weighted": 1.093
+  },
+  "type_confidence": {
+   "n_values": 6,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "0.5",
+     "corpus": 291905,
+     "gold": 38,
+     "share_corpus": 0.439858,
+     "share_gold": 0.59375,
+     "enrichment": 1.35
+    },
+    {
+     "value": "0.9",
+     "corpus": 193523,
+     "gold": 17,
+     "share_corpus": 0.291611,
+     "share_gold": 0.265625,
+     "enrichment": 0.911
+    },
+    {
+     "value": "0.85",
+     "corpus": 55080,
+     "gold": 4,
+     "share_corpus": 0.082998,
+     "share_gold": 0.0625,
+     "enrichment": 0.753
+    },
+    {
+     "value": "0.75",
+     "corpus": 66534,
+     "gold": 4,
+     "share_corpus": 0.100257,
+     "share_gold": 0.0625,
+     "enrichment": 0.623
+    },
+    {
+     "value": "0.8",
+     "corpus": 55014,
+     "gold": 1,
+     "share_corpus": 0.082898,
+     "share_gold": 0.015625,
+     "enrichment": 0.188
+    },
+    {
+     "value": "0.7",
+     "corpus": 1578,
+     "gold": 0,
+     "share_corpus": 0.002378,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.914724,
+   "speedup95": 1.093,
+   "r99": 0.997622,
+   "speedup99": 1.002,
+   "r95_query_weighted": 0.914724,
+   "speedup95_query_weighted": 1.093
+  },
+  "is_suspicious": {
+   "n_values": 2,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "1",
+     "corpus": 291905,
+     "gold": 38,
+     "share_corpus": 0.439858,
+     "share_gold": 0.59375,
+     "enrichment": 1.35
+    },
+    {
+     "value": "0",
+     "corpus": 371729,
+     "gold": 26,
+     "share_corpus": 0.560142,
+     "share_gold": 0.40625,
+     "enrichment": 0.725
+    }
+   ],
+   "r95": 1.0,
+   "speedup95": 1.0,
+   "r99": 1.0,
+   "speedup99": 1.0,
+   "r95_query_weighted": 1.0,
+   "speedup95_query_weighted": 1.0
+  },
+  "modality_strength": {
+   "n_values": 7,
+   "n_null_or_empty": 361817,
+   "top": [
+    {
+     "value": "4",
+     "corpus": 40728,
+     "gold": 6,
+     "share_corpus": 0.061371,
+     "share_gold": 0.09375,
+     "enrichment": 1.528
+    },
+    {
+     "value": "∅NULL",
+     "corpus": 361817,
+     "gold": 42,
+     "share_corpus": 0.545206,
+     "share_gold": 0.65625,
+     "enrichment": 1.204
+    },
+    {
+     "value": "1",
+     "corpus": 44795,
+     "gold": 4,
+     "share_corpus": 0.0675,
+     "share_gold": 0.0625,
+     "enrichment": 0.926
+    },
+    {
+     "value": "3",
+     "corpus": 197827,
+     "gold": 12,
+     "share_corpus": 0.298097,
+     "share_gold": 0.1875,
+     "enrichment": 0.629
+    },
+    {
+     "value": "2",
+     "corpus": 8732,
+     "gold": 0,
+     "share_corpus": 0.013158,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "5",
+     "corpus": 3562,
+     "gold": 0,
+     "share_corpus": 0.005367,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.972173,
+   "speedup95": 1.029,
+   "r99": 0.972173,
+   "speedup99": 1.029,
+   "r95_query_weighted": 0.972173,
+   "speedup95_query_weighted": 1.029
+  },
+  "content_type": {
+   "n_values": 3,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "normal",
+     "corpus": 646638,
+     "gold": 64,
+     "share_corpus": 0.974389,
+     "share_gold": 1.0,
+     "enrichment": 1.026
+    },
+    {
+     "value": "前置说明",
+     "corpus": 7170,
+     "gold": 0,
+     "share_corpus": 0.010804,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "附录",
+     "corpus": 9826,
+     "gold": 0,
+     "share_corpus": 0.014806,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.974389,
+   "speedup95": 1.026,
+   "r99": 0.974389,
+   "speedup99": 1.026,
+   "r95_query_weighted": 0.974389,
+   "speedup95_query_weighted": 1.026
+  },
+  "is_mandatory": {
+   "n_values": 2,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "0",
+     "corpus": 663504,
+     "gold": 64,
+     "share_corpus": 0.999804,
+     "share_gold": 1.0,
+     "enrichment": 1.0
+    },
+    {
+     "value": "1",
+     "corpus": 130,
+     "gold": 0,
+     "share_corpus": 0.000196,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.999804,
+   "speedup95": 1.0,
+   "r99": 0.999804,
+   "speedup99": 1.0,
+   "r95_query_weighted": 0.999804,
+   "speedup95_query_weighted": 1.0
+  },
+  "clause_number_shape": {
+   "n_values": 11,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "数字-2段",
+     "corpus": 171731,
+     "gold": 24,
+     "share_corpus": 0.258774,
+     "share_gold": 0.375,
+     "enrichment": 1.449
+    },
+    {
+     "value": "数字-5段",
+     "corpus": 15231,
+     "gold": 2,
+     "share_corpus": 0.022951,
+     "share_gold": 0.03125,
+     "enrichment": 1.362
+    },
+    {
+     "value": "数字-4段",
+     "corpus": 76338,
+     "gold": 10,
+     "share_corpus": 0.11503,
+     "share_gold": 0.15625,
+     "enrichment": 1.358
+    },
+    {
+     "value": "数字-3段",
+     "corpus": 205681,
+     "gold": 26,
+     "share_corpus": 0.309931,
+     "share_gold": 0.40625,
+     "enrichment": 1.311
+    },
+    {
+     "value": "其他",
+     "corpus": 132044,
+     "gold": 2,
+     "share_corpus": 0.198971,
+     "share_gold": 0.03125,
+     "enrichment": 0.157
+    },
+    {
+     "value": "图",
+     "corpus": 44,
+     "gold": 0,
+     "share_corpus": 6.6e-05,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.706686,
+   "speedup95": 1.415,
+   "r99": 0.905657,
+   "speedup99": 1.104,
+   "r95_query_weighted": 0.706686,
+   "speedup95_query_weighted": 1.415
+  },
+  "content_len_bucket": {
+   "n_values": 6,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "40-99",
+     "corpus": 242295,
+     "gold": 48,
+     "share_corpus": 0.365103,
+     "share_gold": 0.75,
+     "enrichment": 2.054
+    },
+    {
+     "value": "100-299",
+     "corpus": 161228,
+     "gold": 14,
+     "share_corpus": 0.242947,
+     "share_gold": 0.21875,
+     "enrichment": 0.9
+    },
+    {
+     "value": "<40",
+     "corpus": 223138,
+     "gold": 2,
+     "share_corpus": 0.336237,
+     "share_gold": 0.03125,
+     "enrichment": 0.093
+    },
+    {
+     "value": "0",
+     "corpus": 43,
+     "gold": 0,
+     "share_corpus": 6.5e-05,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "300-999",
+     "corpus": 33005,
+     "gold": 0,
+     "share_corpus": 0.049734,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": ">=1000",
+     "corpus": 3925,
+     "gold": 0,
+     "share_corpus": 0.005914,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.608051,
+   "speedup95": 1.645,
+   "r99": 0.944287,
+   "speedup99": 1.059,
+   "r95_query_weighted": 0.608051,
+   "speedup95_query_weighted": 1.645
+  },
+  "legal_status": {
+   "n_values": 3,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "effective",
+     "corpus": 663597,
+     "gold": 64,
+     "share_corpus": 0.999944,
+     "share_gold": 1.0,
+     "enrichment": 1.0
+    },
+    {
+     "value": "reference",
+     "corpus": 16,
+     "gold": 0,
+     "share_corpus": 2.4e-05,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "withdrawn",
+     "corpus": 21,
+     "gold": 0,
+     "share_corpus": 3.2e-05,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.999944,
+   "speedup95": 1.0,
+   "r99": 0.999944,
+   "speedup99": 1.0,
+   "r95_query_weighted": 0.999944,
+   "speedup95_query_weighted": 1.0
+  },
+  "legal_hierarchy": {
+   "n_values": 7,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "部门规章",
+     "corpus": 674,
+     "gold": 1,
+     "share_corpus": 0.001016,
+     "share_gold": 0.015625,
+     "enrichment": 15.385
+    },
+    {
+     "value": "GB/T",
+     "corpus": 486587,
+     "gold": 60,
+     "share_corpus": 0.733216,
+     "share_gold": 0.9375,
+     "enrichment": 1.279
+    },
+    {
+     "value": "GB",
+     "corpus": 116994,
+     "gold": 3,
+     "share_corpus": 0.176293,
+     "share_gold": 0.046875,
+     "enrichment": 0.266
+    },
+    {
+     "value": "规范性文件",
+     "corpus": 684,
+     "gold": 0,
+     "share_corpus": 0.001031,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "征求意见稿",
+     "corpus": 16,
+     "gold": 0,
+     "share_corpus": 2.4e-05,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    },
+    {
+     "value": "其他",
+     "corpus": 143,
+     "gold": 0,
+     "share_corpus": 0.000215,
+     "share_gold": 0.0,
+     "enrichment": 0.0
+    }
+   ],
+   "r95": 0.734232,
+   "speedup95": 1.362,
+   "r99": 0.910524,
+   "speedup99": 1.098,
+   "r95_query_weighted": 0.910524,
+   "speedup95_query_weighted": 1.098
+  },
+  "standard_type": {
+   "n_values": 2,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "recommended",
+     "corpus": 486587,
+     "gold": 60,
+     "share_corpus": 0.733216,
+     "share_gold": 0.9375,
+     "enrichment": 1.279
+    },
+    {
+     "value": "mandatory",
+     "corpus": 177047,
+     "gold": 4,
+     "share_corpus": 0.266784,
+     "share_gold": 0.0625,
+     "enrichment": 0.234
+    }
+   ],
+   "r95": 1.0,
+   "speedup95": 1.0,
+   "r99": 1.0,
+   "speedup99": 1.0,
+   "r95_query_weighted": 1.0,
+   "speedup95_query_weighted": 1.0
+  },
+  "doc_type": {
+   "n_values": 2,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "standard",
+     "corpus": 603581,
+     "gold": 63,
+     "share_corpus": 0.909509,
+     "share_gold": 0.984375,
+     "enrichment": 1.082
+    },
+    {
+     "value": "法律法规",
+     "corpus": 60053,
+     "gold": 1,
+     "share_corpus": 0.090491,
+     "share_gold": 0.015625,
+     "enrichment": 0.173
+    }
+   ],
+   "r95": 0.909509,
+   "speedup95": 1.099,
+   "r99": 1.0,
+   "speedup99": 1.0,
+   "r95_query_weighted": 0.909509,
+   "speedup95_query_weighted": 1.099
+  },
+  "quality_grade": {
+   "n_values": 1,
+   "n_null_or_empty": 0,
+   "top": [
+    {
+     "value": "A",
+     "corpus": 663634,
+     "gold": 64,
+     "share_corpus": 1.0,
+     "share_gold": 1.0,
+     "enrichment": 1.0
+    }
+   ],
+   "r95": 1.0,
+   "speedup95": 1.0,
+   "r99": 1.0,
+   "speedup99": 1.0,
+   "r95_query_weighted": 1.0,
+   "speedup95_query_weighted": 1.0
+  },
+  "effective_year": {
+   "n_values": 59,
+   "n_null_or_empty": 89082,
+   "top": [
+    {
+     "value": "2003",
+     "corpus": 3910,
+     "gold": 2,
+     "share_corpus": 0.005892,
+     "share_gold": 0.03125,
+     "enrichment": 5.304
+    },
+    {
+     "value": "2023",
+     "corpus": 18054,
+     "gold": 5,
+     "share_corpus": 0.027205,
+     "share_gold": 0.078125,
+     "enrichment": 2.872
+    },
+    {
+     "value": "2024",
+     "corpus": 37844,
+     "gold": 9,
+     "share_corpus": 0.057025,
+     "share_gold": 0.140625,
+     "enrichment": 2.466
+    },
+    {
+     "value": "2013",
+     "corpus": 20642,
+     "gold": 4,
+     "share_corpus": 0.031104,
+     "share_gold": 0.0625,
+     "enrichment": 2.009
+    },
+    {
+     "value": "2025",
+     "corpus": 27021,
+     "gold": 5,
+     "share_corpus": 0.040717,
+     "share_gold": 0.078125,
+     "enrichment": 1.919
+    },
+    {
+     "value": "2009",
+     "corpus": 37143,
+     "gold": 6,
+     "share_corpus": 0.055969,
+     "share_gold": 0.09375,
+     "enrichment": 1.675
+    }
+   ],
+   "r95": 0.706513,
+   "speedup95": 1.415,
+   "r99": 0.79285,
+   "speedup99": 1.261,
+   "r95_query_weighted": 0.706513,
+   "speedup95_query_weighted": 1.415
+  }
+ },
+ "pair_combinations": [
+  {
+   "pair": [
+    "content_len_bucket",
+    "effective_year"
+   ],
+   "n_values": 275,
+   "r95": 0.328512,
+   "speedup95": 3.044,
+   "r99": 0.374676,
+   "speedup99": 2.669
+  },
+  {
+   "pair": [
+    "effective_year",
+    "clause_number_shape"
+   ],
+   "n_values": 343,
+   "r95": 0.351249,
+   "speedup95": 2.847,
+   "r99": 0.409473,
+   "speedup99": 2.442
+  },
+  {
+   "pair": [
+    "content_len_bucket",
+    "clause_number_shape"
+   ],
+   "n_values": 46,
+   "r95": 0.423654,
+   "speedup95": 2.36,
+   "r99": 0.570242,
+   "speedup99": 1.754
+  },
+  {
+   "pair": [
+    "content_len_bucket",
+    "legal_hierarchy"
+   ],
+   "n_values": 32,
+   "r95": 0.487344,
+   "speedup95": 2.052,
+   "r99": 0.758178,
+   "speedup99": 1.319
+  },
+  {
+   "pair": [
+    "effective_year",
+    "legal_hierarchy"
+   ],
+   "n_values": 157,
+   "r95": 0.577357,
+   "speedup95": 1.732,
+   "r99": 0.682228,
+   "speedup99": 1.466
+  },
+  {
+   "pair": [
+    "clause_number_shape",
+    "legal_hierarchy"
+   ],
+   "n_values": 30,
+   "r95": 0.642945,
+   "speedup95": 1.555,
+   "r99": 0.723687,
+   "speedup99": 1.382
+  }
+ ]
+}
