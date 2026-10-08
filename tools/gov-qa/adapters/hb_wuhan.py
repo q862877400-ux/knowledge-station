@@ -14,7 +14,7 @@
 """
 from __future__ import annotations
 
-from adapters._igi_common import harvest_igi
+from adapters._igi_common import existing_ids, harvest_igi
 
 SITE = {
     "key": "hb-wuhan",
@@ -44,9 +44,15 @@ SITE_IDS = [
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
     """遍历武汉市门户 IGI 各 siteId，取已答复信件（含答复原文与三级归属）。
 
-    `limit` 为**总条数**上限（跨 site 累计）。
+    `limit` 为**本轮新增条数**上限（跨 site 累计）。
+
+    ★ 2026-10-09 修：原来不传 `skip_ids` ⇒ 无游标列表每轮从第 1 页重跑、
+    `limit` 被旧条目吃掉、恒 0 新增（同 `hb_hdjl`）。修法同 `sn_igi`/`xz_igi`。
     """
     out: list[dict] = []
+    seen = existing_ids(SITE["key"])
+    if seen:
+        print(f"    [{SITE['key']}] 已落盘 {len(seen)} 条，本轮跳过其明细")
     for sid in SITE_IDS:
         if limit and len(out) >= limit:
             break
@@ -54,6 +60,7 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
         sub_site["key"] = f"{SITE['key']}-{sid}"
         rows = harvest_igi(fetch, SITE=sub_site, base=BASE, site_id=sid, app_id=APP_ID,
                            group_id=GROUP_ID, referer=REFERER,
-                           limit=(limit - len(out)) if limit else None, max_pages=200)
+                           limit=(limit - len(out)) if limit else None, max_pages=200,
+                           skip_ids=seen)
         out.extend(rows)
     return out
