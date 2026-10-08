@@ -280,6 +280,15 @@
 > - **产物**：[E4 第二轮 README](eval/recall-funnel/exp-4b-embedding-round2/README.md)；
 >   详细记录 [开发史 §10.209](DEVELOPMENT-HISTORY.md)。
 > - ⚠ 属必验类别（结论由作者自己的检查得出 + 当天新写的判据），已冻结 tag 并派独立复核。
+> - ✅ **独立复核放行（无阻塞）**（2026-10-09，批次 `e4b-round2`，报告
+>   [`VERIFY-REPORT-e4b-round2`](verify-briefs/VERIFY-REPORT-e4b-round2.md)，冻结 tag
+>   `verify-freeze-e4b-round2` = `95cfcfb`，区间 2 提交、`src/`+`plugin/` 零改动）：
+>   A 臂逐格复现（warm 1.36/31.34 ms、显存 1149.5/1164.0 MiB **逐位一致**）、
+>   B 臂 +15.84pt **逐字节复现**（per-query sha `5bdc5c34…` 相同）、仪器对照成立、
+>   **判据有牙**（变异去前缀 ⇒ 塌 **0.00pt**；两臂互换 ⇒ **翻符号**）；真库 663,634 行、mtime 未变。
+>   ⚠ **5 条非阻塞发现已就地更正**（读数未动，提交 `63da757`）：阈值改从 `stop-loss.json` 抽（F1）、
+>   副本两读数分行列出处（F2）、归因文案改实测 812.3 ms（F3）、冷启动波动加注（F4）、
+>   主终点 Δ 两种写法加注口径（F5）。`stop-loss.json` sha `67aa10f2…` 未变。
 
 ---
 
