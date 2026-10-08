@@ -1,0 +1,101 @@
+================================================================================
+河北两条线 · 适配器落地与实测报告
+工具：general-purpose-1    日期：2026-10-08
+任务来源：team-lead 指派（heb-hi-hunt.txt【二、河北】C/D 两节，前一位同事未写出适配器）
+参考基线：recon/heb-hi-hunt.txt 二·C（heb-szj）/ 二·D（heb-czt）
+================================================================================
+纪律：请求间隔 ≥1.5s；无 403/412；未改 __init__.py / coverage-matrix.py / data/ / 任何 .md /
+      任何他人适配器。新增文件仅：
+        adapters/heb_szj.py        （key=heb-szj）
+        adapters/heb_czt.py        （key=heb-czt）
+        recon/heb-adapters-probe.py     实测探针（raw httpx）
+        recon/heb-adapters-selftest.py  适配器自测（走 harvest._Fetcher 协议）
+
+解释器：D:\AI\work space\zcode\.venv\Scripts\python.exe（managed python 缺 httpx，弃）
+自测方式：因 heb-szj / heb-czt 未登记 __init__.py，直接 `import adapters.heb_szj` 调 harvest()。
+
+--------------------------------------------------------------------------------
+一、heb-szj —— 河北省数据和政务服务局「留言公开」（EWB 平台 · 接口型）★可用
+--------------------------------------------------------------------------------
+入口  http://szj.hebei.gov.cn/hdjl/006002/006002004/messageList.html
+siteGuid = 645ad4ac-16b3-47d8-95bc-294a9052c6a2（/js/webBuilderCommon.js 的 siteInfo）
+工程名 /EWB-FRONT。
+
+【实测结果】（recon/heb-adapters-probe.py + heb-adapters-selftest.py）
+ ① token  POST /EWB-FRONT/rest/getOauthInfoAction/getNoUserAccessToken
+          form: params="{}"     → HTTP 200，custom.access_token=102b007163a0…（取到即用）
+ ② 列表  POST /EWB-FRONT/rest/frontAppNotNeedLoginAction/getLetterListByCondition
+          header: Authorization: Bearer <token>
+          form : params={"siteGuid","subject","postName","replyContent","content",
+                 "startTime","endTime","group","pageIndex"(0基),"pageSize"}
+          → HTTP 200，custom.total=**1043**，首页 10 条；
+            row 字段 = boxName / handleDate / infoGuid / postDate / sequence / status
+                       / subject / type
+ ③ 明细  POST .../getLetterDetail   params={siteGuid, infoGuid}
+          → HTTP 200，custom.data 字段 = content / fankui / isFankui / operatedate
+            / postdate / replycontent / rowguid / subject
+        · content       = 问题原文
+        · replycontent  = 答复原文（HTML，含 (直接回复): 前缀）
+        · postdate/operatedate = 提问/答复时间
+
+  样例（第一条，实测原文）：
+    问题：关于充电桩备案提交材料相关问题
+    答复：(直接回复): "您好！感谢您对我省新能源汽车充电桩报装"一件事"工作的关注…
+          根据河北省数据和政务服务局等五部门关于印发《河北省高效办成新能源汽车公共
+          充电桩报装"一件事"工作方案》的通知（冀数政〔2025〕37号）文件要求…"
+    提问 2026-08-17 17:45:09 / 答复 2026-08-20 10:49:27
+
+【与报告差异】基本一致，无实质差异；仅补充确认：
+  · 明细字段名报告写的是 replycontent/postdate/operatedate，实测**完全正确**；
+  · 列表 row 另有 boxName/type（=「我要留言」），已存入 extra.box_name / extra.msg_type。
+  · dept（答复单位）该平台**未提供**，适配器 dept=None（不强造）。
+【坑（照抄报告并二次验证）】
+  · 必须 POST：GET 同 URL 405（报告已记，本次未再触发但沿用 POST 实现）。
+  · 参数必须放 form 单字段 params=<JSON 串>；平铺/JSON body 均 400（沿用报告结论）。
+  · 列表接口必须带 Bearer token（token 来自 ①）。
+
+--------------------------------------------------------------------------------
+二、heb-czt —— 河北省财政厅「群众信箱」（静态型 · 小体量）★可用
+--------------------------------------------------------------------------------
+入口  http://czt.hebei.gov.cn/hdjl/qzxx/index.html
+列表  index.html / index_1.html / index_2.html / index_3.html（内联 JS countPage=4）
+
+【实测结果】
+  · 列表 HTTP 200，countPage=4；4 页条目数 = 8 + 8 + 8 + 2 = **26**（与报告一致）。
+  · 明细 HTTP 200：
+      <div class="c_title">…</div>        → 问题
+      <div class="c_subtitle">            → 留言时间：YYYY年MM月DD日 / 答复时间：YYYY-MM-DD
+                                            / 答复单位：河北省财政厅
+      .c_content 表内「答复结果:」后 <td>  → 答复原文（「信息内容:」=「内容已隐藏」不取）
+  · 明细真实样例：
+      「城市基础设施配套费问题」→ 引《河北省人民政府关于进一步调整和规范城市基础设施
+        配套费管理的实施意见》（冀政发〔2016〕51号附件3，冀政字〔2021〕74号修订）
+      「2024年中级成绩复核申请」→ 指路会计服务栏目成绩复核公告
+      「关于河北省预算管理一体化平台建设相关情况的咨询」→ 点名财政部工作要求。
+
+【与报告差异 / 新发现的坑（重要）】
+  · 列表页**上半部有「受理情况统计」块**，其条目同样是 `<li class="clearfix">` + 同样
+    `<a title=…><span class="dt">`。若全局正则抓 li，会把「群众留言情况受理统计表」这类
+    **非问答条目混进结果**（本次探针第一版就踩了：把统计表链接当成问答）。
+    ⇒ 适配器改为**只在「留言回复列表」标题后的第一个 `<ul>` 内取条目**，已修正并复测通过。
+  · 明细页末尾有 `isshow='no'` 时清空 body 的脚本（多为浏览器兼容），不影响服务端 HTML。
+【其它】dept 恒为「河北省财政厅」（本站为单厅站点）。
+
+--------------------------------------------------------------------------------
+三、待登记 key 清单（由 team-lead 统一登记 adapters/__init__.py，本次未改）
+--------------------------------------------------------------------------------
+  "heb-szj"  → adapters.heb_szj   （接口型，total=1043，明细含答复+政策文号依据）
+  "heb-czt"  → adapters.heb_czt   （静态型，26 条，明细含答复）
+
+登记后可用：
+  .venv\Scripts\python.exe tools\gov-qa\harvest.py --site heb-szj --limit 3
+  .venv\Scripts\python.exe tools\gov-qa\harvest.py --site heb-czt --limit 3
+（登记前用 recon/heb-adapters-selftest.py 自测，已通过。）
+
+--------------------------------------------------------------------------------
+四、结论
+--------------------------------------------------------------------------------
+heb-szj：**可用**，实测 token/列表/明细三级均 HTTP 200，total=1043，答复原文且引政策文号。
+heb-czt：**可用**，实测 4 页共 26 条，明细答复原文；已修正「受理统计」串入的坑。
+两条线均取到含答复的记录，answer 为答复原文（未清洗未摘要）。
+================================================================================
