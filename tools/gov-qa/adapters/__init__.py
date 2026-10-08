@@ -301,6 +301,19 @@ ADAPTERS: dict[str, str] = {
     "cq-igi": "adapters.cq_igi",           # 重庆市·政民互动（IGI，75 site / 约 3.26 万条）
     # —— 天津翻案（2026-10-08）：门户 IGI 判死（只有问题无答复），改走北方网 enorth 问政平台 ——
     "tj-enorth": "adapters.tj_enorth",     # 天津市·政民零距离（北方网 enorth，55 部门/区县 / 63 万条）
+    # —— 浙江地市级（2026-10-09 worker-city）：复用省平台 zj-mhww 的「民呼我为」接口，
+    #    code=地市行政区划码（精确匹配、各市互不重叠）。证据 recon/city-js-zj-zjmhww-probe.txt ——
+    "zj-hangzhou": "adapters.zj_hangzhou",  # 杭州市·民呼我为·办理公开（code=330100，≈61768）
+    "zj-ningbo": "adapters.zj_ningbo",      # 宁波市（330200，≈13284）
+    "zj-wenzhou": "adapters.zj_wenzhou",    # 温州市（330300，≈8721）
+    "zj-jiaxing": "adapters.zj_jiaxing",    # 嘉兴市（330400，≈5875）
+    "zj-huzhou": "adapters.zj_huzhou",      # 湖州市（330500，≈2135）
+    "zj-shaoxing": "adapters.zj_shaoxing",  # 绍兴市（330600，≈5843）
+    "zj-jinhua": "adapters.zj_jinhua",      # 金华市（330700，≈5962）
+    "zj-quzhou": "adapters.zj_quzhou",      # 衢州市（330800，≈3289）
+    "zj-zhoushan": "adapters.zj_zhoushan",  # 舟山市（330900，≈1857）
+    "zj-taizhou": "adapters.zj_taizhou",    # 台州市（331000，≈2737）
+    "zj-lishui": "adapters.zj_lishui",      # 丽水市（331100，≈2938）
 }
 
 #: 用户要能直接 `from adapters import load`
