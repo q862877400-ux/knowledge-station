@@ -1,0 +1,65 @@
+================================================================================
+天津 / 陕西 / 重庆 —— 「静态列表型」省份问答适配器 落地证据
+工具：general-purpose-2    日期：2026-10-08
+================================================================================
+来源线索：recon/province-platform-hunt.txt（general-purpose-6 的 24 省重探）
+本轮产物：
+  adapters/tj_hdjl.py   （key tj-hdjl） 天津市·政民互动·留言选登
+  adapters/sn_lyxd.py   （key sn-lyxd） 陕西省·我向省长说句话·留言选登
+  adapters/cq_hdjl.py   （key cq-hdjl） 重庆市·互动交流·留言选登
+原始 HTML 样本（本目录）：
+  tj-list.html / tj-list-1.html / tj-detail.html
+  sn-list.html / sn-list-1.html / sn-detail.html
+  cq-list.html / cq-list-1.html / cq-detail.html
+合规：请求间隔 1.5s；三省全程 200，未遇 403/412；未改 adapters/__init__.py、data/、*.md。
+
+--------------------------------------------------------------------------------
+逐省一行台账
+--------------------------------------------------------------------------------
+【天津】tj-hdjl
+  栏目 URL  https://www.tj.gov.cn/zmhd/wmfkxd/index.html（政民互动 → 留言选登）
+  分页规律  CMS 分页：`countPage: parseInt('25}'), PAGE_NAME:'index', PAGE_EXT:'html'`
+            ⇒ 25 页；第 1 页 index.html，第 N 页 index_{N-1}.html
+            （实测 index_1.html = 第 2 页，与第 1 页 0 交集）；20 条/页 ⇒ 约 500 条
+  明细 URL  形如 /zmhd/wmfkxd/YYYYMM/tYYYYMMDD_ID.html（静态）
+            ⚠ 列表里**没有 href**，明细 URL 在 `onclick="jumpToDetail('…')"` 里（照 href 写正则会 0 命中）
+  解析要点  明细正文 `<div class="trs_editor_view">` 内两个 `<p>`：
+            ① `…网民“X”留言：{问题}`  ② `{回复单位}回复：{答复}`；用「留言：」「回复：」切段
+  实测      抓通；跨页实测 22 条，问答齐全 22/22；样例：栖仙温泉公寓燃气改造 → 武清区政府答复
+  结论      **列表型可采（静态）**，站点 200，无 403
+
+【陕西】sn-lyxd
+  栏目 URL  https://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/（互动 → 我向省长说句话 → 留言选登）
+  分页规律  `createPage(29, 0, "index", "html")` ⇒ 29 页；第 1 页 index.html，第 N 页 index_{N-1}.html
+            （实测 index_1.html = 第 2 页）；10 条/页 ⇒ 约 290 条
+  明细 URL  形如 ./YYYYMM/tYYYYMMDD_ID.html（静态，相对列表目录）
+  解析要点  明细由两个 `<div class="question-box">` 组成：
+            ① `<span class="ask">提问</span>`（含 来信时间）→ quest-cont 为问题
+            ② `<span class="ask answer">回答</span>`（含 回复单位 / 回复时间）→ quest-cont 为答复
+            ⇒ 按 question-box 切块，带 `ask answer` 的即答复块
+  实测      抓通；跨页实测 12 条，问答齐全 12/12；样例：石棉瓦遗留问题 → 渭南市政府答复
+            （列表页已直接给出 回复单位/处理时间/状态，明细再取全量问答）
+  结论      **列表型可采（静态）**，站点 200，无 403
+
+【重庆】cq-hdjl
+  栏目 URL  https://www.cq.gov.cn/hdjl/cqhlwdc/lyxd1/（互动交流 → 留言选登）
+  分页规律  `createPage(28, 0, "index", "html")` ⇒ 28 页；第 1 页为该目录（服务端渲染），
+            第 N 页 index_{N-1}.html（实测 index_1.html = 第 2 页）；30 条/页 ⇒ 约 840 条
+  明细 URL  形如 ./YYYYMM/tYYYYMMDD_ID.html（静态）
+  解析要点  明细为 `class="orderDetail"` 键值表：留言标题 / 留言时间 / 留言摘要 / 答复日期 /
+            答复内容 / 答复单位 / 发布单位；**问题取「留言摘要」**（站上即该字段，标题另存 extra）
+  实测      抓通；跨页实测 32 条，问答齐全 32/32；样例：景区漫水步道被冲垮 → 秀山县膏田镇政府答复
+  结论      **列表型可采（静态）**，站点 200，无 403
+
+--------------------------------------------------------------------------------
+待登记 key 清单（请 team-lead 加进 adapters/__init__.py 的 ADAPTERS）
+--------------------------------------------------------------------------------
+  "tj-hdjl": "adapters.tj_hdjl"
+  "sn-lyxd": "adapters.sn_lyxd"
+  "cq-hdjl": "adapters.cq_hdjl"
+（三个适配器均实现统一记录格式；answer 为答复原文，未清洗未摘要）
+
+--------------------------------------------------------------------------------
+合计规模（按页数×每页条数估算）
+--------------------------------------------------------------------------------
+  天津 ~500 条 · 陕西 ~290 条 · 重庆 ~840 条  ⇒  约 1630 条
