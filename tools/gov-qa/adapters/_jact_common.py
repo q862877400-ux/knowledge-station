@@ -66,8 +66,25 @@ ROW_NUM_RE = re.compile(r"<td[^>]*\btitle='([^']+)'")
 ROW_DATE_RE = re.compile(r">\s*(\d{4}-\d{2}-\d{2}[ \d:]*?)\s*<")
 TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.S | re.I)
 
-#: 明细页里「标签 td → 值 td」的标签集
-LABELS = ("标题", "内容", "提交时间", "回复日期", "内容回复", "答复单位", "处理状态")
+#: 明细页里「标签 td → 值 td」的标签 → 规范键。
+#: ⚠ 同一套 jact 在不同厅局域名下的**用词不一样**（实测 credit.jiangsu.gov.cn
+#:   用「答复内容/答复机构/答复时间」，而多数厅用「内容回复/答复单位/回复日期」）
+#:   ⇒ 必须做别名归一，否则整站「收 0 条」（踩过：js-credit 46 条全丢）。
+LABEL_ALIASES = {
+    "标题": "标题",
+    "内容": "内容",
+    "提交时间": "提交时间",
+    "处理状态": "处理状态",
+    "内容回复": "内容回复",
+    "答复内容": "内容回复",
+    "回复日期": "回复日期",
+    "答复时间": "回复日期",
+    "答复单位": "答复单位",
+    "答复机构": "答复单位",
+}
+
+#: 「无答复」占位值（credit 站会先给一条「答复内容 = 无」，其后才是真答复）
+_NO_ANSWER = {"", "无", "无。", "暂无", "-", "（无）", "(无)"}
 
 
 def clean(html: str | None) -> str:
@@ -112,12 +129,23 @@ def parse_list(text: str) -> tuple[int, list[dict]]:
 
 
 def parse_detail(html: str) -> dict:
-    """解析明细页 HTML → {标签: 值}（label/value 是相邻两个 <td>）。"""
+    """解析明细页 HTML → {规范标签: 值}（label/value 是相邻两个 <td>）。
+
+    ⚠ 同一标签**可能重复出现**：实测 credit 站先输出「答复内容 = 无」，
+    再输出真实答复 ⇒ 「内容回复」取**最后一个非占位值**，其余标签取首次出现。
+    """
     cells = [clean(x) for x in TD_RE.findall(html or "")]
     out: dict[str, str] = {}
     for i, c in enumerate(cells):
-        if c in LABELS and i + 1 < len(cells):
-            out[c] = cells[i + 1]
+        key = LABEL_ALIASES.get(c)
+        if not key or i + 1 >= len(cells):
+            continue
+        val = cells[i + 1]
+        if key == "内容回复":
+            if val not in _NO_ANSWER:       # 只接受真实答复；后出现的真答复覆盖「无」
+                out[key] = val
+        else:
+            out.setdefault(key, val)
     return out
 
 
