@@ -17,7 +17,7 @@
 """
 from __future__ import annotations
 
-from adapters._igi_common import harvest_igi
+from adapters._igi_common import existing_ids, harvest_igi
 
 SITE = {
     "key": "gz-portal",
@@ -41,8 +41,21 @@ SITE_IDS = [
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """遍历贵州省门户 IGI 各 siteId，取已答复信件（含答复原文与三级归属）。"""
+    """遍历贵州省门户 IGI 各 siteId，取已答复信件（含答复原文与三级归属）。
+
+    `limit` 为**本轮新增条数**上限（跨 site 累计）。
+
+    ★ 2026-10-09 修（同 `xz_igi`/`hb_hdjl`）：原来不传 `skip_ids` ⇒ 无游标列表每轮从
+    第 1 页重跑，`limit` 被已落盘旧条目吃掉 ⇒ **永远卡在前几个 siteId**、恒 0 新增。
+    实测：`gz-portal --limit 500` → 收 500 条、**新增 0**，而枚举总量 2,597 条、
+    只落盘 571 条（缺口 ~2,000）。修后同命令取回真新增。
+    ⚠ 全部 siteId 共用**一个**产物文件（harvest.py 按顶层 SITE['key'] 命名）⇒
+    已有 id 必须取**顶层 key** 的集合，不能按 sub_site key 取（那样恒为空）。
+    """
     out: list[dict] = []
+    seen = existing_ids(SITE["key"])
+    if seen:
+        print(f"    [{SITE['key']}] 已落盘 {len(seen)} 条，本轮跳过其明细")
     for sid in SITE_IDS:
         if limit and len(out) >= limit:
             break
@@ -50,6 +63,7 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
         sub_site["key"] = f"{SITE['key']}-{sid}"
         rows = harvest_igi(fetch, SITE=sub_site, base=BASE, site_id=sid, app_id=APP_ID,
                            group_id=GROUP_ID, referer=REFERER,
-                           limit=(limit - len(out)) if limit else None, max_pages=200)
+                           limit=(limit - len(out)) if limit else None, max_pages=200,
+                           skip_ids=seen)
         out.extend(rows)
     return out
