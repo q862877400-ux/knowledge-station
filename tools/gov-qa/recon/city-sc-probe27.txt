@@ -1,0 +1,106 @@
+
+===== 宜宾-12345门户 http://12345.zwfwhfgjjfzj.yibin.gov.cn/WriteLetters/WriteLetter =====
+  -> 200 len=25618 ct=text/html; charset=utf-8 final=http://12345.zwfwhfgjjfzj.yibin.gov.cn/WriteLetters/WriteLetter
+     [api?] silder_list
+     [api?] silder_list
+     [api?] /DoExcerpts/List
+     [api?] /WriteLetters/i_GetVerCode/
+     [api?] /WriteLetters/i_CreateVCode/
+     [api?] /WriteLetters/i_SaveLetter
+     [api?] /ResultQuery/QueryList
+     [api?] letterTitle
+     [api?] letterUserName
+     [api?] letterUserSexNan
+     [api?] letterUserSexNv
+     [api?] letterUserMail
+     [api?] letterUserTel
+     [api?] letterAddress
+     [api?] letterSType
+     [api?] letterContent
+     [api?] list-con
+     [api?] /WriteLetters/WriteLetter
+     [h] /WriteLetters/WriteLetter
+     [h] https://bszs.conac.cn/sitename?method=show&id=53670D5B00BB6EF1E053012819ACD08C
+     [h] /Notice/Detail?NoticeType=uavW2rf%252BzvG6xQ%40%40
+     ... 共 3 条候选
+
+===== 宜宾-lxxd-detail http://www.yibin.gov.cn/hdjl/szywm/xjcx/detail_9008.html =====
+  -> 200 len=83214 ct=text/html final=http://www.yibin.gov.cn/hdjl/szywm/xjcx/detail_9008.html
+     [js] ../../../images/v2024-common.js
+     [js] ../../../images/v2024-interaction.js
+     [api?] cm-news-list
+     [api?] fixed-nav-list
+     [api?] fixed-float-list
+     [api?] letter-detail-index
+     [api?] emailTitle
+     [api?] emailStatus
+     [api?] emailContent
+
+===== 雅安-mail https://www.yaan.gov.cn/mail/index.html =====
+  -> 200 len=41309 ct=text/html;charset=UTF-8 final=https://www.yaan.gov.cn/mail/index.html
+     [js] /mail/v2/js/jquery.form.js
+     [js] /mail/layui/layui.js
+     [js] /mail/v2/js/mail.js
+     [js] https://api.yaan.gov.cn/Scripts/tongji.js?v=20201207
+     [js] https://api.yaan.gov.cn/js/wza.js?v=20201207
+     [js] https://api.yaan.gov.cn/Scripts/user.js?siteid=ce3fe0de-ba94-41cf-8d03-ee90f83fd771&v=20201207
+     [api?] id-ss-list
+     [api?] emailListHead
+     [api?] mail_bmxx
+     [api?] /mail/sendmsg
+     [api?] /mail/query
+     [h] /mail/layui/css/layui.css
+     [h] /mail/v2/css/email.css
+     [h] /leader/detail/b718c611df12b4fc8eb292a9ae13bd7a.html
+     [h] /leader/detail/156b508b-0967-4126-b4b6-c5de1d994217.html
+     [h] /leader/detail/305f4652187748f55f36e2421dab193b.html
+     [h] /leader/detail/d97ed3018035b2cca7f1736da27d9cfb.html
+     ... 共 65 条候选
+
+===== 雅安-12345 https://www.yaan.gov.cn/12345.html =====
+  -> 200 len=29633 ct=text/html;charset=UTF-8 final=https://www.yaan.gov.cn/12345.html
+     [js] https://api.yaan.gov.cn/Scripts/tongji.js?v=20201207
+     [js] https://api.yaan.gov.cn/js/wza.js?v=20201207
+     [js] https://api.yaan.gov.cn/Scripts/user.js?siteid=ce3fe0de-ba94-41cf-8d03-ee90f83fd771&v=20201207
+     [api?] id-ss-list
+     [api?] emailListHead
+     [h] /leader/detail/b718c611df12b4fc8eb292a9ae13bd7a.html
+     [h] /leader/detail/156b508b-0967-4126-b4b6-c5de1d994217.html
+     [h] /leader/detail/305f4652187748f55f36e2421dab193b.html
+     [h] /leader/detail/d97ed3018035b2cca7f1736da27d9cfb.html
+     [h] /leader/detail/13d4b88999616e7f0771ff9ae54125fe.html
+     [h] /leader/detail/170ff7be801e8491da02964ed6d3882e.html
+     ... 共 28 条候选
+
+===== 眉山-swmail https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999 =====
+  -> 200 len=14895 ct=text/html;charset=UTF-8 final=https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+     [api?] letter
+     [api?] leadermailsearch1246552a
+     [api?] FindButton
+     [h] swmail.vsb.css
+     [h] https://bszs.conac.cn/sitename?method=show&id=08207C38070344E6E053022819AC5C0C
+     ... 共 2 条候选
+
+===== 达州-hdjl https://www.dazhou.gov.cn/news-list-hdjl.html =====
+  -> 200 len=29643 ct=text/html final=https://www.dazhou.gov.cn/news-list-hdjl.html
+     [h] javascript:free_Web.Function.show.Start();
+     [h] http://www.dazhou.gov.cn/news-show-199910.html
+     [h] http://www.dazhou.gov.cn/xxgk-show-11.html
+     [h] http://www.dazhou.gov.cn/news-show-271156.html
+     [h] http://www.dazhou.gov.cn/news-show-270827.html
+     [h] http://www.dazhou.gov.cn/news-show-270825.html
+     ... 共 14 条候选
+
+===== 乐山-robot https://www.leshan.gov.cn/front/interaction/robot =====
+  -> 200 len=8286 ct=text/html;charset=UTF-8 final=https://www.leshan.gov.cn/front/interaction/robot
+     [api?] right_list
+     [api?] nofindReply
+     [h] http://bszs.conac.cn/sitename?method=show&id=06C8F607CFAC560DE053012819AC6C3E
+     ... 共 1 条候选
+
+===== 乐山-wdzsk https://www.leshan.gov.cn/front/wdzsk/index =====
+  -> 200 len=28618 ct=text/html;charset=UTF-8 final=https://www.leshan.gov.cn/front/wdzsk/index
+     [api?] qx_list
+     [api?] bm_list
+     [h] http://bszs.conac.cn/sitename?method=show&id=06C8F607CFAC560DE053012819AC6C3E
+     ... 共 1 条候选

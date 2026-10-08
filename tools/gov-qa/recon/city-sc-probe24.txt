@@ -1,0 +1,96 @@
+
+===== 南充 IGI siteId 枚举 1..30 =====
+
+===== 乐山-政民互动 https://www.leshan.gov.cn/lsswszf/zmhd/index.html =====
+  -> 200 len=33604 final=https://www.leshan.gov.cn/lsswszf/zmhd/index.html
+     /lsswszf/resource/css/hdjl.css
+     /lsswszf/zmhd/index.html
+     [js] /lsswszf/resource/js/hdjl.js
+
+===== 宜宾-hdjl https://www.yibin.gov.cn/hdjl/ =====
+  -> 200 len=126741 final=https://www.yibin.gov.cn/hdjl/
+     ./szywm/wyxx/
+     ./szywm/xjcx/
+     http://www.yibin.gov.cn/hdjl/szywm/zhcxm/
+     ./szywm/lxxd/
+     ./szywm/mydf/
+     http://12345.zwfwhfgjjfzj.yibin.gov.cn/WriteLetters/WriteLetter
+     http://www.yibin.gov.cn/hdjl/szywm/
+     [js] ../images/v2024-common.js
+     [js] ../images/v2024-interaction.js
+
+===== 广元-首页 https://www.gy.gov.cn/ =====
+  -> 200 len=155688 final=https://www.gy.gov.cn/
+     http://bz.ahzwfw.gov.cn/bog-bsdt/static/workProcess/components/servicesList.html?cityCode=341621000000&cityName=%25E6%25B6%25A1%25E9%2598%25B3%25E5%25
+     http://wsxf.ahxfj.gov.cn/pl-ws-web/index.do?code=3416210000001000000000
+     [js] /dist/js/common.js
+
+===== 凉山-zmhd http://www.lsz.gov.cn/hdjl/zmhd/ =====
+  -> 200 len=54835 final=http://www.lsz.gov.cn/hdjl/zmhd/
+     ./zskxs/hdx/
+     ./zjbm/hdgjj/
+     ./hdnew/
+     ./hdrd/
+     ./hdrd/202609/t20260920_3018463.html
+     ./hdrd/202609/t20260907_3014640.html
+     ./hdrd/202609/t20260901_3012952.html
+     ./hdrd/202608/t20260819_3009691.html
+     ./hdrd/202607/t20260721_3003159.html
+     ./hdrd/202604/t20260408_2964614.html
+     ./hdrd/202601/t20260109_2930277.html
+     ./hdrd/202512/t20251230_2924742.html
+     ./hdrd/202512/t20251230_2924740.html
+     http://12345.lsz.gov.cn/
+     https://www.lsz.gov.cn/hdjl/zjdc/yjzj/
+     http://www.schd.gov.cn
+
+===== 达州-hdjl https://www.dazhou.gov.cn/news-list-hdjl.html =====
+  -> 200 len=29643 final=https://www.dazhou.gov.cn/news-list-hdjl.html
+     /statics/www/css/hdjl.css
+     http://www.dazhou.gov.cn/news-list-dzxcj.html
+     http://www.dazhou.gov.cn/news-list-hdjl.html
+     http://zxbl.sczwfw.gov.cn/app/serviceYouHua/newMainDh?areaCode=511700000000
+     api-zxft-show-430.html
+     api-zxft-show-432.html
+
+===== 巴中-zmhd https://www.cnbz.gov.cn/zmhd/index.html =====
+  -> 200 len=47410 final=https://www.cnbz.gov.cn/zmhd/index.html
+     /_res/css/lm-zmhd.css
+     /zmhd/index.html
+     /zmhd/ldxx/sjxx/index.html
+     /zmhd/ldxx/szxx/index.html
+     /zmhd/zxft/index.html
+     /zmhd/zjdc/index.html
+     /zmhd/ytabl/index.html
+     https://www.cnbz.gov.cn/zmhd/ytabl/13452471.html
+     https://www.cnbz.gov.cn/zmhd/ytabl/13452474.html
+     https://www.cnbz.gov.cn/zmhd/ytabl/13452477.html
+     https://www.cnbz.gov.cn/zmhd/ytabl/13452129.html
+     https://www.cnbz.gov.cn/zmhd/ytabl/13452032.html
+     /zmhd/xwfbh/index.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13449884.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13444886.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13442066.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13440843.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13436910.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13436913.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13434967.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13434659.html
+     /zmhd/rdgz/index.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452439.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452438.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452389.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452392.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452394.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452380.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452310.html
+     [js] /assets/js/common.min.js?h5=true&jump=false&v=3
+
+===== 眉山-hdjl https://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010 =====
+  -> 200 len=43483 final=https://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     hdjl_index.vsb.css
+     hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=5999
+     ../hdjl/hdcjwtzsk.htm
+     ../hdjl/ftjh.htm
+     ../hdjl/wsdc.htm

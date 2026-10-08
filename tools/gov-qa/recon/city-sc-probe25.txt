@@ -1,0 +1,52 @@
+
+===== 南充 IGI siteId 枚举 1..40 =====
+  siteId=4 totalResults=2324
+
+===== 宜宾-来信选登 https://www.yibin.gov.cn/hdjl/szywm/lxxd/ =====
+  -> 200 len=82600 ct=text/html final=https://www.yibin.gov.cn/hdjl/szywm/lxxd/
+     [js] ../../../images/v2024-common.js
+     [ajax] rmUrl; } } } userlogin(); function userlogin(){ $.ajax({ type: "get", dataType: "json", url: "/fsp-yibin-v2024/fsp/login/getUserInfo?token=" + code, co
+     [url:] in(){ $.ajax({ type: "get", dataType: "json", url: "/fsp-yibin-v2024/fsp/login/getUserInfo?token=" + code, contentType:"application/json", // beforeSend: function (XMLHttp
+
+===== 巴中-市长信箱 https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html =====
+  -> 200 len=36318 ct=text/html final=https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html
+     [js] /assets/js/common.min.js?h5=true&jump=false&v=3
+     [h] /zmhd/index.html
+     [h] https://www.cnbz.gov.cn/zmhd/index.html
+     [h] /zmhd/ldxx/sjxx/index.html
+     [h] https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html
+     [h] https://www.cnbz.gov.cn/zmhd/ldxx/sjxx/index.html
+     [ajax] tion AddFavorite(sURL, sTitle) { Ls.log(sURL); Ls.log(sTitle); Ls.ajax({ url:'/member/saveMyCollection', data:{ siteId:'6787421', link:sURL, nam
+     [url:] RL, sTitle) { Ls.log(sURL); Ls.log(sTitle); Ls.ajax({ url:'/member/saveMyCollection', data:{ siteId:'6787421', link:sURL, name:sTitle, 
+
+===== 凉山-hdnew http://www.lsz.gov.cn/hdjl/zmhd/hdnew/ =====
+  -> 200 len=39906 ct=text/html final=http://www.lsz.gov.cn/hdjl/zmhd/hdnew/
+
+===== 凉山-12345通知 http://12345.lsz.gov.cn/notice/2026-09/03/article_2026090311030010183.html =====
+  -> 200 len=21894 ct=text/html; charset=utf-8 final=http://12345.lsz.gov.cn/notice/2026-09/03/article_2026090311030010183.html
+     [js] /uiFramework/commonResource/aisitetheme/js/notice-theme.js
+     [js] /uiFramework/commonResource/js/flexible.js
+     [h] /uiFramework/commonResource/aisitetheme/css/notice-theme.css
+     [h] /notice/template/notice.css?timestamp=1766570973875
+     [h] /notice/template/page/twoPage/skin.css?timestamp=1766570973875
+     [h] /notice/index/index.html
+     [h] /notice/12345jj/index.html
+     [h] /notice/glzxbf/index.html
+     [h] /notice/ggtz/index.html
+     [h] /notice/gzjb/index.html
+     [h] /notice/xjxd/index.html
+     [h] /notice/zsk/index.html
+     [h] /notice/template/detail/detail/cms.css?timestamp=1769126553218
+     [ajax] ("#eprotalCurrentPageId").val()+"&portal.url=/portlet/member-portlet!logout.portlet"; $.ajax( { type:"post", url:url, dataType:"text", timeout:15000, cache:true, success:function(msg){ msg=eval("("+msg+")")
+     [url:] "&portal.url=/portlet/member-portlet!logout.portlet"; $.ajax( { type:"post", url:url, dataType:"text", timeout:15000, cache:true, success:function(msg){ msg=eval("("+msg+")"); if(msg.success){showTipsD
+
+===== 广元-导航再扫 https://www.gy.gov.cn/ =====
+  -> 200 len=155688 ct=text/html final=https://www.gy.gov.cn/
+     [js] /dist/js/common.js
+     [h] https://www.bozhou.gov.cn/Jwmsxf/
+     [h] http://wsxf.ahxfj.gov.cn/pl-ws-web/index.do?code=3416210000001000000000
+     [h] http://www.huaibei.gov.cn/
+     [h] http://www.huainan.gov.cn/
+     [h] http://www.chuzhou.gov.cn/
+     [h] http://www.wuhu.gov.cn/
+     [h] http://www.huangshan.gov.cn/

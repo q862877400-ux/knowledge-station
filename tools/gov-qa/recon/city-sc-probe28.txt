@@ -1,0 +1,23 @@
+===== 宜宾 DoExcerpts/List =====
+  http://12345.zwfwhfgjjfzj.yibin.gov.cn/DoExcerpts/List -> 200 ct=text/html; charset=utf-8 len=20874
+     <!DOCTYPE html> <html> <head> <!--站点类--> <meta name="SiteName" content="宜宾市政务服务和非公经济发展局 "> <meta name="SiteDomain" content="zwfwhfgjjfzj.yibin.gov.cn"> <meta name="SiteIDCode" content="5115000026"> <!--栏目类--> <meta name="ColumnName" content="宜宾12345市民服务平台"> <meta name="ColumnDescription" content="宜宾12345市民服务平台,宜宾12345,丰窝12345,12345,市民服务热线,市民热线,市长热线,社保查询,公积金查询
+  http://12345.zwfwhfgjjfzj.yibin.gov.cn/ResultQuery/QueryList -> 500 ct=text/html; charset=utf-8 len=2879
+     <!DOCTYPE html> <html> <head> <title>运行时错误</title> <meta name="viewport" content="width=device-width" /> <style> body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px} b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px} 
+
+===== 雅安 mail 列表结构 =====
+  item ctx: ass="m li03"> <h3><a href="/leader.html">雅安领导</a><i></i></h3> <div class="sub"> <div class="id-sz"> <div class="id-sz-sz02"> <div class="id-sz-sz id-sz-sz04 dh-ld-sw"> <h1>市委领导</h1> <ul> <li><a target="_blank" href="/leader/detail/b718c611df12b4fc8eb292a9ae13bd7a.html" title="廖文彬">廖文彬</a></li> <li><a target="_blank" href="/leader/detail/156b508b-0967-4126-b4b6-c5de1d994217.html" title="黎明
+  detail links: 21
+     [pg] /xinwen/list/42ece1f8-a9e2-47fb-a278-edfbbed14b42.html
+     [pg] /gongkai/list/jichu/40014.html
+     [pg] /gongkai/list/kuozhan/10046.html
+     [pg] /yjzj/list.html
+     [pg] https://www.yaan.gov.cn/xinwen/list/5fd61db4-2db0-49f8-9691-c69dc7177f4e.html
+     [pg] https://www.yaan.gov.cn/xinwen/list/54effa9b-a006-4e59-8356-bd9ead060fa7.html
+     [pg] https://www.yaan.gov.cn/xinwen/list/7c9e7d1a-63ad-486c-b038-d31272340ba9.html
+     [pg] https://www.yaan.gov.cn/xinwen/list/0464d686-d96b-46e9-b85f-b359c9b7d87e.html
+     [pg] https://www.yaan.gov.cn/xinwen/list/099e1a22-a9bb-4371-85df-e7ab756b528a.html
+
+===== 雅安 leader/detail 详情结构 =====
+  [内容]  <div class="id-ss-box clear"> <input id="txtKeyword" type="text" class="text" data-type="" placeholder="请输入搜索内容" style="" autocomplete="off"> <input type="button" id="xxbtnSearch" value="内容搜索" class="btnSearch"> <input type="button" id="fwbtnSearch" value="服务搜索" class="btnSearch" style="margin-right: 2px;"> <script type="text/javascript"> $("#xxbtnSearch").click(function(){// id 为 btnSearch 的点击事件 if($("#txtKeyword").val()!=""){ //判断输入框是否为空 不为空才跳转 var q=$("#txtKeyword"
+
+===== 乐山 wdzsk 问答库 =====

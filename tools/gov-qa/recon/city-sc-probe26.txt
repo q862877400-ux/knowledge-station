@@ -1,0 +1,35 @@
+===== 广元真域名试探 =====
+  https://www.cngy.gov.cn/ -> 412 len=2051 final=https://www.cngy.gov.cn/ title=å è½½ä¸­
+  http://www.cngy.gov.cn/ -> 405 len=2051 final=http://www.cngy.gov.cn/ title=å è½½ä¸­
+  https://cngy.gov.cn/ -> ERR HTTPSConnectionPool(host='cngy.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  http://www.scgy.gov.cn/ -> 502 len=52 final=http://www.scgy.gov.cn/ title=
+  https://www.scgy.gov.cn/ -> ERR HTTPSConnectionPool(host='www.scgy.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  https://www.guangyuan.gov.cn/ -> ERR HTTPSConnectionPool(host='www.guangyuan.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+  http://www.guangyuan.gov.cn/ -> 502 len=52 final=http://www.guangyuan.gov.cn/ title=
+  https://www.gy.gov.cn/ -> 200 len=155688 final=https://www.gy.gov.cn/ title=æ¶¡é³å¿äººæ°æ¿åº
+  https://www.gyzf.gov.cn/ -> ERR HTTPSConnectionPool(host='www.gyzf.gov.cn', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 502 Bad Gateway')))
+
+===== 宜宾 lxxd 页 /fsp 接口 =====
+  [fsp] /fsp-yibin-v2024/fsp/login/getUserInfo
+  [fsp] /fsp-yibin-v2024/fsp/login/userInfo
+  [fsp] /fsp-yibin-v2024/fsp/login/loginOut
+
+===== 巴中 szxx 页列表接口 =====
+  [ajax] vorite(sURL, sTitle) { Ls.log(sURL); Ls.log(sTitle); Ls.ajax({ url:'/member/saveMyCollection', data:{ siteId:'6787421', link:sURL, 
+  [url] ) { Ls.log(sURL); Ls.log(sTitle); Ls.ajax({ url:'/member/saveMyCollection', data:{ siteId:'6787421', link:sURL, name:sTitle,
+
+===== 凉山 12345 通知子页 =====
+  /notice/xjxd/ -> 200 len=25654
+     [h] /uiFramework/commonResource/aisitetheme/css/notice-theme.css
+  /notice/12345jj/ -> 200 len=21418
+     [h] /uiFramework/commonResource/aisitetheme/css/notice-theme.css
+  /notice/ggtz/ -> 200 len=24788
+     [h] /uiFramework/commonResource/aisitetheme/css/notice-theme.css
+
+===== 乐山 全站找信箱 =====
+  /lsswszf/zmhd/ -> 200 len=33604
+  /lsswszf/zmhd/index.html -> 200 len=33604
+  /lsswszf/ -> 200 len=198525
+  /lsswszf/szxx/ -> 404 len=552
+  /lsswszf/zmhd/szxx/ -> 404 len=552
+  /lsswszf/zmhd/hdjl/ -> 404 len=552

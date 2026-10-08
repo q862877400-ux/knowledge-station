@@ -344,6 +344,8 @@ ADAPTERS: dict[str, str] = {
     "sc-nanchong": "adapters.sc_nanchong",    # 南充市·市长信箱（IGI siteId=4/appId=1，≈2324）
     "sc-suining": "adapters.sc_suining",      # 遂宁市·市长信箱·来信选登（服务端渲染 HTML /szxx.html?page=，≈90）
     "sc-aba": "adapters.sc_aba",              # 阿坝州·领导信箱（通信平台 api-mailbox，免签名，≈2719）
+    "sc-bazhong": "adapters.sc_bazhong",      # 巴中市·书记市长信箱（服务端渲染 HTML content/column?pageIndex=，双栏各≈20页）
+    "sc-yibin": "adapters.sc_yibin",          # 宜宾市·12345 市民服务平台·办件摘编（服务端渲染 HTML DoExcerpts，≈2330）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
