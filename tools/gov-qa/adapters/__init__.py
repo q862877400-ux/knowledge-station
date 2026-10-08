@@ -150,6 +150,7 @@ ADAPTERS: dict[str, str] = {
     "hb-wuhan": "adapters.hb_wuhan",           # 武汉市·市长信箱/12345（IGI，32 site / 6541 条）
     "hb-rst": "adapters.hb_rst",               # 湖北省人社厅·政务咨询留言（静态列，约 12 条）
     "xz-igi": "adapters.xz_igi",               # 西藏·政民互动 IGI（8 site / 355 条）★ 翻案来源
+    "sn-igi": "adapters.sn_igi",               # 陕西·我向省长说句话 IGI（siteId=15 / 4097 条）
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）

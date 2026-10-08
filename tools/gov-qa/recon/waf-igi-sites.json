@@ -1,0 +1,132 @@
+{
+  "xizang": {
+    "host": "www.xizang.gov.cn",
+    "referer": "http://www.xizang.gov.cn/zmhd/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {
+      "22": 1,
+      "24": 143,
+      "30": 19,
+      "32": 46,
+      "37": 74,
+      "39": 40,
+      "45": 10,
+      "56": 22
+    },
+    "total": 355
+  },
+  "shaanxi": {
+    "host": "www.shaanxi.gov.cn",
+    "referer": "http://www.shaanxi.gov.cn/hd/wxszsjh/lyxd/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {
+      "15": 4097
+    },
+    "total": 4097
+  },
+  "tianjin": {
+    "host": "www.tj.gov.cn",
+    "referer": "http://www.tj.gov.cn/zmhd/",
+    "scheme": "http",
+    "empty_site_status": 500,
+    "sites": {
+      "4": 1,
+      "42": 1
+    },
+    "total": 2
+  },
+  "chongqing": {
+    "host": "www.cq.gov.cn",
+    "referer": "http://www.cq.gov.cn/hdjl/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {},
+    "total": 0
+  },
+  "guizhou": {
+    "host": "www.guizhou.gov.cn",
+    "referer": "http://www.guizhou.gov.cn/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {
+      "30": 3,
+      "31": 4,
+      "35": 185,
+      "36": 31,
+      "48": 1254,
+      "49": 147,
+      "51": 463,
+      "53": 30,
+      "56": 77,
+      "58": 263,
+      "59": 140
+    },
+    "total": 2597
+  },
+  "sx-hd": {
+    "host": "rst.hubei.gov.cn",
+    "referer": "http://rst.hubei.gov.cn/hdjl/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {
+      "4": 3,
+      "10": 6,
+      "16": 122,
+      "19": 4,
+      "25": 289,
+      "26": 23,
+      "28": 1,
+      "48": 12,
+      "50": 3,
+      "57": 20,
+      "58": 4
+    },
+    "total": 487
+  },
+  "hb-wjw": {
+    "host": "wjw.hubei.gov.cn",
+    "referer": "http://wjw.hubei.gov.cn/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {
+      "4": 3,
+      "10": 6,
+      "16": 122,
+      "19": 4,
+      "25": 289,
+      "26": 23,
+      "28": 1,
+      "48": 12,
+      "50": 3,
+      "57": 20,
+      "58": 4
+    },
+    "total": 487
+  },
+  "hn-hd": {
+    "host": "www.hainan.gov.cn",
+    "referer": "http://www.hainan.gov.cn/hainan/zcwd/zcwd.shtml",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {},
+    "total": 0
+  },
+  "jx-hd": {
+    "host": "www.jiangxi.gov.cn",
+    "referer": "http://www.jiangxi.gov.cn/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {},
+    "total": 0
+  },
+  "hlj2": {
+    "host": "www.hlj.gov.cn",
+    "referer": "http://www.hlj.gov.cn/",
+    "scheme": "http",
+    "empty_site_status": 200,
+    "sites": {},
+    "total": 0
+  }
+}
