@@ -1,0 +1,24 @@
+sysid=1 totalRecord=0
+sysid=2 totalRecord=0
+sysid=3 
+sysid=4 
+sysid=5 
+sysid=6 totalRecord=137327.0
+sysid=7 totalRecord=0
+sysid=8 
+sysid=9 
+sysid=10 
+sysid=11 totalRecord=14369.0
+sysid=12 totalRecord=464.0
+sysid=13 totalRecord=76302.0
+sysid=14 totalRecord=16611.0
+sysid=15 
+sysid=16 totalRecord=5947.0
+sysid=17 
+sysid=18 
+sysid=19 
+sysid=20 
+sysid=21 
+sysid=22 
+sysid=23 
+sysid=24 

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>首页</title>
+	<link type="text/css" href="./template/14/images/jact_style.css" rel="stylesheet"/>
+	<link type="text/css" href="../resources/front/autocomplete/content/styles.css" rel="stylesheet"/>
+	<script type="text/ecmascript" src="./template/14/images/jquery.min.js"></script>
+	<script language=JavaScript src="./template/14/images/mailwrite.js"></script>
+	<script language=JavaScript src="./template/14/images/autocompletediy.js"></script>
+	<script language=JavaScript src="./template/14/images/popwin.js"></script>
+	<script language=JavaScript src="/jact/ui/widgets/hanweb/util/validate.js"></script>
+	<script type="text/javascript" src="/jact/ui/widgets/My97DatePicker/WdatePicker.js"></script>
+	<script language="JavaScript" src="/jact/front/js/frontValidate.js" type="text/javascript"></script>
+	<script language="JavaScript" src="/jact/front/js/phoenix/phoenix.js" type="text/javascript"></script>
+	<script language="JavaScript" src="/jact/front/js/jquery.wordlimitor.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/jact/ui/widgets/cookie/jquery.cookie.js"></script>
+	<!-- <script type="text/javascript" src="/jact/ui/lib/security/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="/jact/ui/lib/security/rsa_util.js"></script> -->
+	<script type="text/javascript" src="/jact/ui/lib/security/crypto-js.js"></script>
+	<script type="text/javascript" src="/jact/ui/lib/security/sm2.js"></script>
+	<script type="text/javascript" src="/jact/ui/lib/security/sm2_util.js"></script>
+	<script type="text/javascript" src="../resources/front/autocomplete/src/jquery.autocomplete.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	$(".show_01").click(function(){
+			$(this).toggleClass("show_01_active ")
+			$(".open_01").slideToggle()
+	});
+	
+	$(".show_02").click(function(){
+			$(this).toggleClass("show_02_active ")
+			$(".open_02").slideToggle()
+	});
+	// autoProject();
+	$(".abc tr:even").css("background-color","#f2f2f2");	
+
+});
+
+//办件查询	
+function frm_querysubmit(){
+	var form2 = document.getElementById("form2");
+	if(form2.mailnumber.value.length==0){
+		alert("办件编号不能为空");
+		document.form2.mailnumber.focus();
+		return ;	
+	}	
+	if(form2.querycode.value.length==0){
+		alert("查询码不能为空");
+		document.form2.querycode.focus();
+		return ;	
+	}		
+	var cxcode=document.getElementById("cxcode");
+	if(cxcode.value.length == 0){
+		alert("验证码不能为空");
+		document.form2.cxcode.focus();
+		return;
+	}
+	jQuery.ajax({
+		type:"POST",
+		url:"reg_checkregcode.do",
+		data:"registercode=" + encodeURI(document.getElementById("cxcode").value),
+		async: false,
+		success:function (msg) {
+			if(msg != 1){
+				alert( "验证码错误");
+				$("img[src*='verifyCode']").click();
+				return;
+			}else{
+				document.getElementById("querycode").value = RSAencode(form2.querycode.value);
+				form2.submit();
+			}
+		}
+	});	
+}
+
+function initMain(){
+	var result = document.getElementById("result").value;
+	if(result.length > 0){
+		document.getElementById("resultdisplay").style.display = 'block';
+		document.getElementById("logindisplay").style.display = 'none';
+	}
+}
+
+function relogin(){
+	document.getElementById("resultdisplay").style.display = 'none';
+	document.getElementById("logindisplay").style.display = 'block';
+}
+
+function frmsubmit(){
+	//取出用户密码并加密
+	var userLogin = document.getElementById("userLogin").value;
+	var userPasswd = document.getElementById("userPasswd").value;
+
+	if(userLogin.length==0){
+		alert("用户名不能为空");
+		return ;	
+	}
+	if(userPasswd.length==0){
+		alert("密码不能为空");
+		return ;	
+	}
+	document.getElementById("enc_name").value = RSAencode(userLogin);
+	document.getElementById("enc_password").value = RSAencode(userPasswd);
+	
+	frm.submit();
+}
+</script>
+</head>
+<body onload="initMain();" >
+	<input type="hidden" id="openmobile" value="0" />
+	<script language="JavaScript" src="/jact/front/js/mobile.js" type="text/javascript"></script>
+	<input type="hidden" name="sysids" id="sysids" value="1,2,6,7,11,12,13,16"/>
+	<input type="hidden" name="sysnames" id="sysnames" value="领导信箱,依申请公开,专利申请流程咨询,热点回应,网上信访,专利文献咨询,商标注册业务咨询,专利复审咨询"/>
+	<input type="hidden" name="result" id="result" value=""/>
+	<input type="hidden" name="sysname" id="sysname" value="商标评审业务咨询"/>
+	<input type="hidden" name="sysid" id="sysid" value="14"/>
+	
+	<!--head start-->
+	<script src="https://www.cnipa.gov.cn/script/0/2004271304219637.js"></script>
+	<script src="https://www.cnipa.gov.cn/script/0/2004271304216521.js"></script>
+	<div class="postion">
+		<table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="line-height:40px">当前位置：<a href="https://www.cnipa.gov.cn" class="bt_link">首页</a></td><td><table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tbody><tr>
+				<td>><a href="https://www.cnipa.gov.cn/col/col60/index.html" class="bt_link">互动</a></td><td>><a
+					href="/jact/front/mailwrite.do?sysid={tp_sysid}" class="bt_link">商标评审业务咨询</a></td>
+			</tr></tbody></table></td></tr></tbody></table>
+	</div>
+	<!--head over--><div class="jact_box_blue"><!--修改后缀red为blue-->
+		<div class="jact_left bt-left">
+			<div class="content-left">
+				<p class="tit"><img src="https://www.cnipa.gov.cn/picture/1/2004291011125961111.png" alt=""> 商标评审业务咨询</p>
+				<div class="jact_left_box_01">
+					<ul>
+						<li style="{col_tpl_main}" class="on">留言须知</li>
+						<li style="{col_mailpublist}">已答问题</li>
+						<li style="{col_comquestionlist}">咨询问题</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="jact_main bt-right">
+			<div class="jact_box">
+				<div class="biaoti">
+					<img src="https://www.cnipa.gov.cn/picture/1/2004291011126665022.png" alt="">
+					<span>留言须知</span>
+					<img src="https://www.cnipa.gov.cn/picture/1/2004291011127121178.png" alt="">
+				</div>
+				<div class="main-txt">
+					<p>欢迎进入商标评审业务咨询栏目。本栏目主要解答商标评审相关业务问题。如果您有信访问题，请进入网上信访留言；如果您需要电话咨询，请拨打国家知识产权局咨询电话：010-62356655或010-63218500。</p>
+					<p>一、公众留言时，须遵守国家相关法律法规，并承担一切因留言行为而直接或间接引起的法律责任；</p>
+					<p>二、不得发表造谣、诽谤他人的言论以及未经证实的消息；</p>
+					<p>三、您的留言可能通过预留的电话、邮箱等方式进行回复，请您务必留下真实有效的电话号码、邮箱等联系方式，以便我们与您联系并进行回复，若因您提供的联系方式虚假导致无法回复，将由您自行承担后果；</p>
+					<p>四、请您选择“是否愿意公开”留言，若您选择“愿意公开”，您的留言将可能在平台进行公开。</p>
+					<p>五、请勿发表任何形式的广告，企业推广产品或服务信息；</p>
+					<p>六、本咨询台拥有决定留言的回复方式以及发布、编辑、删除留言的权利，凡不符合本须知规定的留言将不予回复；</p>
+					<p>七、凡在本咨询台留言，即表明已阅读并接受了上述各项条款。</p>
+				</div>
+				<div class="tijiao">
+					<a href="/jact/front/mailwrite.do?sysid=14">以上告知我已阅读并理解</a>
+				</div>
+			</div>
+		</div>
+		<div class="bt-clear"><!--华丽的分割线--></div>
+	</div>
+
+	<style>
+
+		.jact_box_red, .jact_box_blue{ width:1200px; background:#FFF; padding:15px 30px; margin-bottom:20px; box-shadow: #e6e6e6 0px 0px 15px; -webkit-box-shadow: #e6e6e6 0px 0px 15px;}
+		.jact_left{ width:260px;}
+		.w1200{
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.content{
+			overflow: hidden;
+			padding: 20px 48px 29px 23px;
+			border:1px solid #fbfcfd;box-shadow: #e6e6e6 0px 0px 15px;-webkit-box-shadow:#e6e6e6 0px 0px 15px;
+			background:#fff;
+		}
+		.content-left{
+			width: 260px;
+			height: auto;
+			border: solid 1px #eeeeee;
+			float: left;
+		}
+		.tit{
+			height: 40px;
+			line-height: 40px;
+			font-size: 22px;
+			color: #265b97;
+			border-bottom: solid 1px #eeeeee;
+		}
+		.tit img{
+			margin-top: -3px;
+		}
+		.content-list{
+			padding: 20px;
+		}
+		.content-list li{
+			width: 220px;
+			height: 50px;
+			line-height: 50px;
+			font-size: 18px;
+			text-align: center;
+			background-color: #f7f7f7;
+		}
+		.content-right{
+			width: 823px;
+			float: right;
+		}
+		.biaoti{
+			text-align: center;
+		}
+		.biaoti span{
+			width: 140px;
+			text-align: center;
+			height: 20px;
+			color: #265b97;
+			display: inline-block;
+			margin-bottom: 30px;
+			font-size:20px;
+		}
+		.main-txt{
+			margin-bottom: 28px;
+		}
+
+		.content-left .content-list .active{
+			background: #0f4581;
+			color: #fff;
+		}
+		.hide{
+			display: none;
+		}
+		.postion {
+			width: 1200px;
+			height: 41px;
+			line-height: 41px;
+			font-size: 16px;
+			color: #666;
+			margin: 10px auto;
+			padding-left: 45px;
+			box-shadow: #e6e6e6 0px 0px 15px;
+			-webkit-box-shadow: #e6e6e6 0px 0px 15px;
+			border: #fbfcfd 1px solid;
+		}
+		.postion a{
+			font-size:16px
+		}
+		.must_table{
+			border:none
+		}
+		.must_table tr{
+			border:none;
+			margin-bottom: 30px;
+			line-height:36px;
+			display: block;
+			min-height: 68px;
+		}
+		.jact_text_04, .jact_text_05, .jact_text_06 {
+			background:none
+		}
+		.jact_text_05 {
+			width: 360px;
+			border: 1px solid #d7d7d7;
+			height: 36px;
+			border-radius: 6px;
+		}
+		.form_01b font {
+			margin-right: 10px;
+			font-size: 14px;
+			font-weight: 700;
+			vertical-align: middle;
+		}
+		.must_table .must-verifycode{ background:none;}
+		.form_01b{ text-align:right;}
+		.jact_box_blue .jact_bnt_05:hover{color:#333; background:#3e76cd; border:#3e76cd solid 1px; }
+		.top a:hover{ color:#fff;}
+		.jact_left_box_01 li {
+			width: 220px;
+			height: 50px;
+			line-height: 50px;
+			border: 1px solid #f0f0f0;
+			background: #f7f7f7;
+			text-align:center;
+		}
+		.jact_left_box_01 li.on{ background:url(https://www.cnipa.gov.cn/picture/1/2005121446082206840.jpg) repeat-y; color:#FFF;}
+		.jact_left_box_01 li a{ font-size:16px; color:#333; padding:0px;}
+		.jact_left_box_01 li.on a{ font-size:16px; color:#FFF;}
+		.zxts{ line-height:30px; padding:20px; font-size:14px;}
+		.zxts h3{ color:#4082bf; font-size:16px;}
+		.zxts_submit{ background:#f7f7f7; padding:10px; margin:10px 0;}
+		.jact_left_box_01{ margin-top: 15px;}
+
+		@media screen and (max-width: 768px){
+			.jact_box_red, .jact_box_blue , .jact_left , .content-left , .jact_main{ width:100%; }
+			.zxts{ display:none;}
+			.biaoti img{ display:none;}
+			textarea{ width:80% !important;}
+			.jact_left_box_01{ height:75px;}
+			.jact_left_box_01 li{ float:left; width:50%;}
+			.jact_text_05{ width:80%;}
+			.must_table tr{ display:inherit;}
+			.must_table td{ padding:10px 5px;}
+		}
+		.zxts p{font-size:13px;}
+
+		.main-txt{
+			margin-bottom: 28px;
+		}
+		.main-txt p{
+			font-size: 18px;
+			line-height: 36px;
+			text-indent: 2em;
+		}
+		.main-txt a{
+			color: #265b97;
+			font-size: 18px;
+		}
+		.tijiao{
+			margin: 0 auto;
+			width: 200px;
+			height: 37px;
+			line-height: 37px;
+			background-color: #bd5252;
+			border-radius: 6px;
+			text-align: center;
+		}
+		.tijiao a{
+			font-size: 14px;
+			color: #fff;
+			display: block;
+		}
+		.tijiao a:hover{color:#fff}
+	</style>
+	<!--main start-->
+
+	<!--main over-->
+	<!--footer start-->
+	<script type="text/javascript" src="https://www.cnipa.gov.cn/script/0/2004271304217710.js"></script>
+	<!--footer over-->
+</body>
+</html>

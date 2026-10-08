@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link type="text/css" href="./template/12/images/hanweb.css" rel="stylesheet"/>
+<link type="text/css" href="./template/12/images/jact_style.css" rel="stylesheet"/>
+<link type="text/css" href="../resources/front/autocomplete/content/styles.css" rel="stylesheet"/>
+<script language=JavaScript src="./template/12/images/popwin.js"></script>
+<script language=JavaScript src="./template/12/images/autocompletediy.js"></script>
+<script language="JavaScript" src="/jact/front/js/frontValidate.js" type="text/javascript"></script>
+<script type="text/javascript" src="/jact/ui/widgets/My97DatePicker/WdatePicker.js"></script>
+<script type="text/ecmascript" src="./template/12/images/jquery.min.js"></script>
+<script type="text/javascript" src="/jact/ui/widgets/cookie/jquery.cookie.js"></script>
+<!-- <script type="text/javascript" src="/jact/ui/lib/security/jsencrypt.min.js"></script>
+<script type="text/javascript" src="/jact/ui/lib/security/rsa_util.js"></script> -->
+<script type="text/javascript" src="/jact/ui/lib/security/crypto-js.js"></script>
+<script type="text/javascript" src="/jact/ui/lib/security/sm2.js"></script>
+<script type="text/javascript" src="/jact/ui/lib/security/sm2_util.js"></script>
+<script type="text/javascript" src="../resources/front/autocomplete/src/jquery.autocomplete.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	$(".show_01").click(function(){
+			$(this).toggleClass("show_01_active ")
+			$(".open_01").slideToggle()
+	});
+	
+	$(".show_02").click(function(){
+			$(this).toggleClass("show_02_active ")
+			$(".open_02").slideToggle()
+	});
+	autoProject();
+	$(".abc tr:even").css("background-color","#f2f2f2");	
+
+});
+
+//办件查询	
+function frm_querysubmit(){
+	var form2 = document.getElementById("form2");
+	if(form2.mailnumber.value.length==0){
+		alert("办件编号不能为空");
+		document.form2.mailnumber.focus();
+		return ;	
+	}	
+	if(form2.querycode.value.length==0){
+		alert("查询码不能为空");
+		document.form2.querycode.focus();
+		return ;	
+	}		
+	var cxcode=document.getElementById("cxcode");
+	if(cxcode.value.length == 0){
+		alert("验证码不能为空");
+		document.form2.cxcode.focus();
+		return;
+	}
+	jQuery.ajax({
+		type:"POST",
+		url:"reg_checkregcode.do",
+		data:"registercode=" + encodeURI(document.getElementById("cxcode").value),
+		async: false,
+		success:function (msg) {
+			if(msg != 1){
+				alert( "验证码错误");
+				$("img[src*='verifyCode']").click();
+				return;
+			}else{
+				document.getElementById("querycode").value = RSAencode(form2.querycode.value);
+				form2.submit();
+			}
+		}
+	});	
+}
+
+function initMain(){
+	var result = document.getElementById("result").value;
+	if(result.length > 0){
+		document.getElementById("resultdisplay").style.display = 'block';
+		document.getElementById("logindisplay").style.display = 'none';
+	}
+}
+
+function relogin(){
+	document.getElementById("resultdisplay").style.display = 'none';
+	document.getElementById("logindisplay").style.display = 'block';
+}
+
+function frmsubmit(){
+	//取出用户密码并加密
+	var userLogin = document.getElementById("userLogin").value;
+	var userPasswd = document.getElementById("userPasswd").value;
+
+	if(userLogin.length==0){
+		alert("用户名不能为空");
+		return ;	
+	}
+	if(userPasswd.length==0){
+		alert("密码不能为空");
+		return ;	
+	}
+	document.getElementById("enc_name").value = RSAencode(userLogin);
+	document.getElementById("enc_password").value = RSAencode(userPasswd);
+	
+	frm.submit();
+}
+</script>
+</head>
+<body onload="initMain();" >
+	<input type="hidden" id="openmobile" value="0" />
+	<script language="JavaScript" src="/jact/front/js/mobile.js" type="text/javascript"></script>
+	<input type="hidden" name="sysids" id="sysids" value="1,2,6,7,11,13,14,16"/>
+	<input type="hidden" name="sysnames" id="sysnames" value="领导信箱,依申请公开,专利申请流程咨询,热点回应,网上信访,商标注册业务咨询,商标评审业务咨询,专利复审咨询"/>
+	<input type="hidden" name="result" id="result" value=""/>
+	<input type="hidden" name="sysname" id="sysname" value="专利文献咨询"/>
+	<input type="hidden" name="sysid" id="sysid" value="12"/>
+	
+	<!--head start-->
+	<script type="text/javascript" src="./template/12/images/top.js"></script>
+	<!--head over-->
+	<!--main start-->
+<div class="jact_box_blue"><!--修改后缀red为blue-->
+	<div class="jact_left bt-left">
+    	<div class="jact_left_title jact_left_change"><span>专利文献咨询</span></div>
+    	<!--one start-->
+        <div class="jact_left_box_01">
+			<ul>    
+            	<li style="{col_main}" ><a href="main.do?sysid=12">收信单位</a></li>
+	                <li style="{col_mailpublist}"><a href="mailpublist.do?sysid=12">答复列表</a></li>
+	                <li style="{col_maillist}"><a href="maillist.do?sysid=12">我的办件</a></li>
+	                <li style="{col_mailhotlist}"><a href="mailhotlist.do?sysid=12">热点问题</a></li>
+	                <li style="{col_comquestionlist}"><a href="comquestionlist.do?sysid=12">常见问题</a></li>
+	                <li style="{col_mailstat}"><a href="mailstat.do?sysid=12">办理统计</a></li>
+            </ul>
+        </div>
+        <!--one over-->
+        <!--two start-->
+        <form id="form2" action="maildetail.do?sysid=12" name="form2"
+					method="post" target="_blank" >
+	        <div class="jact_left_box_02">
+				<div class="jact_base_title"><span>我的办件查询</span></div>
+	            <div class="jact_base_from">
+	            	<span class="name">办件编号</span>
+	                <span class="text">
+	                <label for="textfield"></label>
+	                <input class="jact_text_01" type="text" name="mailnumber" id="mailnumber" />
+	                </span>
+	                <span class="name bt-margin-top-10">查询码</span>
+	                <span class="text"><input class="jact_text_01" autocomplete="off" type="password" name="querycode" id="querycode" /></span>
+	                <span class="name bt-margin-top-10">验证码</span>
+	                <span class="text"><input  class="jact_text_01" style="width:80px;" 
+							 type="text" name="cxcode" value="" id="cxcode" />&nbsp;&nbsp;
+							 <img src="../verifyCode.do" 
+								onclick="this.src='../verifyCode.do?random=' + Math.random();"
+								title="如果看不清数字，请点图片刷新验证码" style="cursor: pointer" width="80"
+								height="30"/></span>
+	                <span class="bnt bt-margin-top-15"><input name="" type="button" class="jact_bnt_01" value="搜索" onclick="frm_querysubmit();"/></span>
+	            </div>
+	        </div>
+        </form>
+        <!--two over-->
+        <!--three start-->
+        <form id="form1" action="mailpublist.do?sysid=12" name="form1" method="post">
+	        <div class="jact_left_box_03">
+				<div class="jact_base_title">
+	            	<span class="bt-left">办件模糊查询</span>
+	                <div class="show_01">&nbsp;</div>
+	            </div>
+	            <div class="jact_base_from open_01">
+	            	<span class="name">办件编号</span>
+	                <span class="text">
+	                <label for="textfield"></label>
+	                <input class="jact_text_01" type="text" name="mailnumber"/>
+	                </span>
+	                <span class="name bt-margin-top-10">关键字</span>
+	                <span class="text"><input class="jact_text_01" id="keyword"   type="text" name="keyword" placeholder="请输入您的办件标题或者内容" /></span>
+	                <span class="name bt-margin-top-10">提交对象</span>
+	                <div class="selectStyle">
+	                <select name="groupid" class="selectele" style="color:#333;width:205px"><option value="">请选择</option></select>
+	                </div>
+	                <span class="name bt-margin-top-10">办件状态</span>
+	                <span class="text"><select name="mailstate" style="color:#333;width:205px"><option value="">请选择</option><option value="1" >等待受理</option><option value="2" >处理中</option><option value="3" >处理完毕</option><option value="4" >暂停中</option></select></span>
+	                <span class="name bt-margin-top-10">按时间</span>
+	                <span class="text"><input class="jact_text_01" type="text" name="starttime" id="starttime" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endtime\')}'});" /></span>
+	                 <span class="name bt-margin-top-10">至</span>
+	                <span class="text"><input class="jact_text_01" type="text" name="endtime" id="endtime" onclick="WdatePicker({minDate:'#F{$dp.$D(\'starttime\')}'});" /></span>
+	                <span class="bnt bt-margin-top-15">
+	                <input type="button" class="jact_bnt_01" value="搜索" onclick="form1.submit();"/></span>
+	            </div>
+	        </div>
+	    </form>
+        <!--three over-->
+        <!--four start-->
+        <div class="jact_left_box_04" id="leftframe">
+        	<script type="text/javascript" src="./template/12/images/system.js"></script>
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+				<tr>
+					<td>
+						<div style="border: 0px solid gray;height: 120px;;background-color: #f6f6f6;"align="center">
+							<div style="padding:15px 10px;float:left;text-align:center;width:90px;height:90px">
+								<img src="./template/12/images/qrcode.png" style="min-width:90px;height:90px"/>
+							</div> 
+							<div style="padding-right:10px;padding-top:38px;float:right;text-align:center">
+								<span style="font-size:13px;font-weight: bold;color:grey;">扫描二维码<br/>手机提交办件</span>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+        </div>
+        <!--four over-->
+    </div>
+    <!-- login start-->
+    <div class="jact_main bt-right bt-margin-bottom-15 shadow">
+    	<form id="frm" name="frm" method="post" action="login.do" namespace="/front">
+    	<input value="12" name="sysid" type="hidden" /> 
+    	<input value="main.do" name="currpage" type="hidden" />
+    	<table width="100%" style="margin:10px 0px;">
+        	<!-- logining -->
+        	<tr style="display:block;" id="logindisplay">
+                <td width="9%" align="right">用户名：</td>
+                <td width="10%" align="right"><input class="jact_text_02" style="width:85px;font-size:12px" type="text" id="userLogin" />
+                						   <input type="hidden" id="enc_name"  name="userLogin" /></td>
+                <td width="7%" align="right">密码：</td>
+                <td style="display:none">
+					<table>
+						<tr>
+							<td align="right">密码强度：&nbsp;&nbsp;</td>
+							<td align="left">
+								<table  title="字母加数字加符号就会强" border="0" id="pwdpower">
+                                		<tr style="background-color:#F1F1F1;" >
+                                			<td id="pweak" width="60px" align="center" style="">弱</td>
+                                			<td id="pmedium" width="60px" align="center" style="">中</td>
+                                			<td id="pstrong" width="60px" align="center" style="">强</td>
+                                		</tr>
+                                </table>
+							</td>														
+						</tr>
+					</table>
+				</td>
+                <td width="10%" align="left"><input class="jact_text_02" style="width:85px;font-size:12px" autocomplete="off" type="password" id="userPasswd" onkeyup="EvalPwd(this.value);" />
+                						   <input type="hidden" autocomplete="off" id="enc_password" name="userPasswd"/></td>
+                <td width="9%" align="center" style="display:'';" id="register_tr1">验证码：</td>
+                <td width="10%" align="left" style="display:'';"><input class="jact_text_03" type="text" name="registercode" id="registercode" style="font-size:12px"/></td>
+                <td width="12%" align="left" class="ie_7" style="display:'';"><img
+					src="../verifyCode.do?var=frontlogin"
+					onclick="this.src='../verifyCode.do?var=frontlogin&random=' + Math.random();"
+					title="如果看不清数字，请点图片刷新验证码" style="cursor: pointer" width="81px"
+					height="20" /></td> 
+                <td width="12%" align="right"><input type="button" align="right" class="jact_bnt_02" value="登 陆" onclick="frmsubmit();" style="cursor: pointer;"/>&nbsp;</td>
+                <td width="11%" align="right" ><input type="button"  class="jact_bnt_02" value="注 册" onclick="javascript:location='reg.do?sysid=12'" style="cursor: pointer;"/></td>
+                <td width="10%" align="center"><a href="frontFindpsw.do?sysid=12"
+								style="text-decoration: underline">找回密码</a></td>
+            </tr>
+            <!-- login successed -->
+            <tr style="display:none;">
+            	<td height="32" align="left"><img
+					src="./template/12/images/jact_index_03.jpg" width="4" height="48" /></td>
+				<td align="right" colspan="11" height="32" width="49%" style="display:'';;">
+      				<div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis; font-size: 14px; color: #525252; padding-right: 8px;">
+					您好！<a href="javascript:void(0);"> <font color="#2B6FD5"></font></a>
+					</div>
+				</td>
+				<td align="right" colspan="11" height="32" width="49%" style="display:none;;">
+      				<div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis; font-size: 14px; color: #525252; padding-right: 8px;">
+					您好！ <font color="#2B6FD5"></font>
+					</div>
+				</td>
+            	<td align="right" width="10"></td>
+            	<td align="left" width="49%"><a href="javascript:location.href = 'logout.do?sysid=12';">[退出]</a></td>
+            	<td align="right"><img src="./template/12/images/jact_index_07.jpg" width="4" height="48" /></td>
+            </tr>
+            <!-- jislogin start-->
+            <tr style="display:none;">
+                <td width="55%" align="right"><input type="button" align="right" class="jact_bnt_02" value="登 陆" onclick="javascript:location='';" style="cursor: pointer;"/>&nbsp;</td>
+                <td width="15%" align="left" ><input type="button"  class="jact_bnt_02" value="注 册" onclick="javascript:location=''" style="cursor: pointer;"/></td>
+            </tr>
+            <!-- login failed-->
+            <tr style="display: none;" id="resultdisplay">
+            	<td height="32" align="right"><img
+					src="./template/12/images/jact_index_03.jpg" width="4" height="48" /></td>
+				<td  colspan="10" height="32" align="right" width="49%">
+   					<font color="red" style="font-size: 14px; font-weight: bold;"></font>
+  				</td>
+  				<td align="right" width="10"></td>
+  				<td align="left" width="49%"><a onclick="relogin()" href="javascript:void(0);" style="color: #2B6FD5;">重新登录</a></td>
+  				<td align="right"><img src="./template/12/images/jact_index_07.jpg" width="4" height="48" /></td>
+            </tr>
+        </table>
+        </form>
+  </div>
+    <!-- main start-->
+    <div class="jact_main bt-right shadow">
+    	<div class="prefix"></div>
+        <div class="jact_box">
+        	<div class="jact_box_title"><span>受理须知</span></div>
+            <div class="jact_box_font">
+            	<p>（一）您在写信活动中应遵守宪法、法律、法规、规章以及社会公德和《领导信箱》栏目管理秩序，如实反映情况，不得捏造、歪曲事实，诽谤、诬告、陷害他人。</p>
+                <p>（二）本栏目受理处理工作不完全等同于信访工作，因此受理处理的程序和方式有所不同。</p>
+                <p>（三）写信时应说明请求、事实和理由，内容完整、表述清楚，就事论事、详略得当，要避免分成几封信进行表述以及语言过激、出言不逊，同时请不要用链接网页或下载其他媒体报道的形式代替写信。</p>
+                <p>（四）写信后请留下您的真实姓名、电话、地址、电子信箱等，有关方面在处理时可以更好地与您联系。</p>
+            </div>
+            <div class="jact_box_email_bnt"><input type="button" class="jact_bnt_03" onclick="location.href='mailwrite.do?sysid=12';" value="开始写信"/></div>
+        </div>
+        <div class="jact_box">
+        	<div class="jact_box_title"><span>提交部门</span></div>
+            <div class="jact_box_font" style=" padding:13px 0;">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="abc">
+                	
+                </table>
+            </div>
+        </div>
+  </div>
+	<div class="bt-clear"><!--华丽的分割线--></div>
+</div>
+<!--main over-->
+<!--footer start-->
+<script type="text/javascript" src="./template/12/images/jact_copyright.js"></script>
+<!--footer over-->
+</body>
+</html>
