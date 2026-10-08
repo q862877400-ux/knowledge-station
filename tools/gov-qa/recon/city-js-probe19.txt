@@ -1,0 +1,167 @@
+## 常州明细页 sgj.changzhou.gov.cn ...show&id=365
+  https://sgj.changzhou.gov.cn/index.php?m=letter&c=index&a=show&id=365
+    -> 403 len=2425
+    text=如果您是网站管理员 点击这里 查看详情 client: , server: c67fab6, time:
+  https://czj.changzhou.gov.cn/index.php?m=letter&c=index&a=show&id=84122
+    -> 403 len=2425
+    text=如果您是网站管理员 点击这里 查看详情 client: , server: 183c566, time:
+
+## 南通 页面内接口
+  https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html -> 200 len=57646
+     truecms/js/pageJS/theme/jpage.css
+     truecms/assets/css/style2.css
+     truecms/js/jquery.form.js
+     truecms/js/jquery
+     truecms/js/pageJS/jquery.jpage.js
+     truecms/assets/img/mail
+     truecms/assets/img/list_ico.png
+     truecms/assets/img/mail
+     truecms/assets/img/mail
+     truecms/captchaImageCreateController/captcha
+     truecms/assets/img/user_ico.png
+     truecms/assets/img/pwd_ico.png
+     truecms/assets/img/reg_ico.png
+     truecms/assets/img/close.png
+     truecms/assets/img/close.png
+     truecms/visitorController/saveLetter.do
+     truecms/attachmentController/visitorUploadAttr.do
+     truecms/visitorController/changeContentType.do
+     truecms/gatewayController/getMobileCode.do
+     truecms/visitorController/checkLoginName.do
+     truecms/visitorController/register.do
+     truecms/gatewayController/getMobileCodeForReg.do
+     truecms/gatewayController/getNewPassword.do
+     truecms/visitorController/login.do
+     truecms/letterController/xxList.do
+     truecms/visitorController/toWriteLetter.do
+     truecms/letterController/toSeeLetterInfo.do
+     truecms/captchaImageCreateController/getCode.do
+     truecms/letterController/checkCodes.do
+     truecms/letterController/toSeeLetterInfo.do
+     truecms/captchaImageCreateController/captcha
+     truecms/captchaImageCreateController/captcha
+     truecms/letterController/xxList.do
+     truecms/messageController/getMessageByCondition.do
+  https://www.nantong.gov.cn/ntsrmzf/bumxx/bumxx.html -> 200 len=56913
+     truecms/css/icon.css
+     truecms/js/true.validate.js
+     truecms/js/chinatoenglish.js
+     truecms/js/pageJS/theme/jpage.css
+     truecms/assets/css/style2.css
+     truecms/js/jquery.form.js
+     truecms/js/jquery
+     truecms/js/pageJS/jquery.jpage.js
+     truecms/assets/img/mail
+     truecms/assets/img/list_ico.png
+     truecms/assets/img/mail
+     truecms/assets/img/mail
+     truecms/captchaImageCreateController/captcha
+     truecms/assets/img/user_ico.png
+     truecms/assets/img/pwd_ico.png
+     truecms/assets/img/reg_ico.png
+     truecms/assets/img/close.png
+     truecms/assets/img/close.png
+     truecms/visitorController/saveLetter.do
+     truecms/attachmentController/visitorUploadAttr.do
+     truecms/visitorController/changeContentType.do
+     truecms/gatewayController/getMobileCode.do
+     truecms/visitorController/checkLoginName.do
+     truecms/visitorController/register.do
+     truecms/gatewayController/getMobileCodeForReg.do
+     truecms/gatewayController/getNewPassword.do
+     truecms/visitorController/login.do
+     truecms/letterController/xxList.do
+     truecms/visitorController/toWriteLetter.do
+     truecms/letterController/toSeeLetterInfo.do
+     truecms/captchaImageCreateController/getCode.do
+     truecms/letterController/checkCodes.do
+     truecms/letterController/toSeeLetterInfo.do
+     truecms/captchaImageCreateController/captcha
+     truecms/captchaImageCreateController/captcha
+     truecms/letterController/xxList.do
+     truecms/messageController/getMessageByCondition.do
+
+## 南京 SPA 接口定位
+  https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx -> 200 len=9708
+  js=['/static/js/chunk-005fede9.f88f7ca6.js', '/static/js/chunk-0952ae72.edbb174c.js', '/static/js/chunk-0e4e6aac.33106f40.js', '/static/js/chunk-14211e38.53f2c2dd.js', '/static/js/chunk-1a5f2e40.1146209b.js', '/static/js/chunk-1bf3664c.287b5155.js', '/static/js/chunk-1d903234.9ca37e85.js', '/static/js/chunk-23f0a0aa.0e80eec5.js', '/static/js/chunk-2bc9dcd2.38a3ffa5.js', '/static/js/chunk-2c0238d0.0d0a663b.js', '/static/js/chunk-2d229bb3.47d65831.js', '/static/js/chunk-2f83383a.1aef9502.js', '/static/js/chunk-3121bd24.ce263819.js', '/static/js/chunk-34c7cff4.028a7c48.js', '/static/js/chunk-36bad7d1.d950d955.js', '/static/js/chunk-383f6344.c0763393.js', '/static/js/chunk-396d0977.13426599.js', '/static/js/chunk-3c369b54.7bdf36e3.js', '/static/js/chunk-3d606ece.5ce6be99.js', '/static/js/chunk-3e60e29a.74d65a8c.js']
+     [chunk-005fede9.f88f7ca6.js] /24s/DF2MDAxxDAwMggyjgFoh8P4/A8MiCRaGMsa9F
+     [chunk-005fede9.f88f7ca6.js] /wsxf/subject/list
+     [chunk-005fede9.f88f7ca6.js] /wsxf/jdalnw/list
+     [chunk-005fede9.f88f7ca6.js] /wsxf/notice/list
+     [chunk-005fede9.f88f7ca6.js] /wsxf/subject/detail
+     [chunk-005fede9.f88f7ca6.js] /wsxf/jdalnw/detail
+     [chunk-005fede9.f88f7ca6.js] /wsxf/notice/detail
+     [chunk-005fede9.f88f7ca6.js] /wsxf/xfj/saveYwXfj
+     [chunk-005fede9.f88f7ca6.js] /79Xy/3u/e708w89TGlaJD2CZYhs
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/saveYwFc
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/fcfhgx
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/saveYwFh
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/listYwFc
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/haveListYwFc
+     [chunk-0952ae72.edbb174c.js] /xfjc/fcjg/fcjgList
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/wsfhList
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/haveListYwFh
+     [chunk-0952ae72.edbb174c.js] /wsxf/xfj/listZxqs
+     [chunk-0952ae72.edbb174c.js] /wsxf/zxqs/edit
+     [chunk-0952ae72.edbb174c.js] /xfjc/file/getTemplate
+     [chunk-0e4e6aac.33106f40.js] /24s/DF2MDAxxDAwMggyjgFoh8P4/A8MiCRaGMsa9F
+     [chunk-0e4e6aac.33106f40.js] /wsxf/subject/list
+     [chunk-0e4e6aac.33106f40.js] /wsxf/jdalnw/list
+     [chunk-0e4e6aac.33106f40.js] /wsxf/notice/list
+     [chunk-0e4e6aac.33106f40.js] /wsxf/subject/detail
+     [chunk-0e4e6aac.33106f40.js] /wsxf/jdalnw/detail
+     [chunk-0e4e6aac.33106f40.js] /wsxf/notice/detail
+     [chunk-0e4e6aac.33106f40.js] /wsxf/xfj/saveYwXfj
+     [chunk-0e4e6aac.33106f40.js] /79Xy/3u/e708w89TGlaJD2CZYhs
+     [chunk-14211e38.53f2c2dd.js] /24s/DF2MDAxxDAwMggyjgFoh8P4/A8MiCRaGMsa9F
+     [chunk-14211e38.53f2c2dd.js] /wsxf/subject/list
+     [chunk-14211e38.53f2c2dd.js] /wsxf/jdalnw/list
+     [chunk-14211e38.53f2c2dd.js] /wsxf/notice/list
+     [chunk-14211e38.53f2c2dd.js] /wsxf/subject/detail
+     [chunk-14211e38.53f2c2dd.js] /wsxf/jdalnw/detail
+     [chunk-14211e38.53f2c2dd.js] /wsxf/notice/detail
+     [chunk-14211e38.53f2c2dd.js] /wsxf/xfj/saveYwXfj
+     [chunk-14211e38.53f2c2dd.js] /79Xy/3u/e708w89TGlaJD2CZYhs
+     [chunk-1a5f2e40.1146209b.js] /mMgsnIOaV63cW74bht5KmFezkNPJHw40LnuvNFKS4vUPiiEq6nZJBdE7rlod3urNPrLsLpz5QCgNdqQ626IIUThFM
+     [chunk-1a5f2e40.1146209b.js] /wsxf/sms/querySmsList
+     [chunk-1bf3664c.287b5155.js] /24s/DF2MDAxxDAwMggyjgFoh8P4/A8MiCRaGMsa9F
+     [chunk-1bf3664c.287b5155.js] /wsxf/subject/list
+     [chunk-1bf3664c.287b5155.js] /wsxf/jdalnw/list
+     [chunk-1bf3664c.287b5155.js] /wsxf/notice/list
+     [chunk-1bf3664c.287b5155.js] /wsxf/subject/detail
+     [chunk-1bf3664c.287b5155.js] /wsxf/jdalnw/detail
+     [chunk-1bf3664c.287b5155.js] /wsxf/notice/detail
+     [chunk-1bf3664c.287b5155.js] /wsxf/xfj/saveYwXfj
+     [chunk-1bf3664c.287b5155.js] /79Xy/3u/e708w89TGlaJD2CZYhs
+     [chunk-1d903234.9ca37e85.js] /mMgsnIOaV63cW74bht5KmFezkNPJHw40LnuvNFKS4vUPiiEq6nZJBdE7rlod3urNPrLsLpz5QCgNdqQ626IIUThFM
+     [chunk-1d903234.9ca37e85.js] /system/yypz/getYypzLabel
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/listPage
+     [chunk-1d903234.9ca37e85.js] /xfjc/base/getXfxsList
+     [chunk-1d903234.9ca37e85.js] /wsxf/ly/add
+     [chunk-1d903234.9ca37e85.js] /wsxf/ly/addReback
+     [chunk-1d903234.9ca37e85.js] /wsxf/ly/list
+     [chunk-1d903234.9ca37e85.js] /wsxf/ly/getDeptList
+     [chunk-1d903234.9ca37e85.js] /wsxf/ly/remove
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/saveYwFc
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/fcfhgx
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/saveYwFh
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/listYwFc
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/haveListYwFc
+     [chunk-1d903234.9ca37e85.js] /xfjc/fcjg/fcjgList
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/wsfhList
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/haveListYwFh
+     [chunk-1d903234.9ca37e85.js] /wsxf/xfj/listZxqs
+     [chunk-1d903234.9ca37e85.js] /wsxf/zxqs/edit
+     [chunk-1d903234.9ca37e85.js] /xfjc/file/getTemplate
+     [chunk-23f0a0aa.0e80eec5.js] /wsxf/xfj/selectAllSjxx
+     [chunk-23f0a0aa.0e80eec5.js] /wsxf/xfj/selectSjxxInfo
+     [chunk-23f0a0aa.0e80eec5.js] /tjK/e5ZMD7ZNqdyRqzoIUg1ycA2REYEAgr5BSQrOcptfvyMYH7Cj/3zunen
+     [chunk-23f0a0aa.0e80eec5.js] /TaKLHxxUG0Z6jrCFrXRPVbXnlD5sboevUEiGeNzuy6UgUVgJDI2pD7J7vcKVAsKsFNcASII6Qz/byt5heWPga1e/J
+     [chunk-23f0a0aa.0e80eec5.js] /1QZKATkgPVaj91n90QHH/tufH/4
+     [chunk-23f0a0aa.0e80eec5.js] /LZn1Q0PH85/1l7k7mKd5sVPwri8zjs/wMjtTRq3r2fjY6EqVoqE11gU1HSOu43HJsSclU6giVabalTxUbpIgFFUQR
+     [chunk-23f0a0aa.0e80eec5.js] /oCZf1XX6H481fpNIkmhSLAXLekr/zdX93RIpZR3UAczowLwfkmcU/71
+     [chunk-23f0a0aa.0e80eec5.js] /VU6AAThThRiZpkgwgyC/W9cAq06/tfqd
+     [chunk-23f0a0aa.0e80eec5.js] /Mo4lixCjoGiRoYmIYj3NBQWIGkA0nBuE6vg644/vadxz32f01ReowhdY6qJnDh2kfd84Ed35o2ezXy9vA00KYOSFH
+     [chunk-23f0a0aa.0e80eec5.js] /oKpMwn1Np5HggHVAwZDNyKCM7ktn3/b9tH5mNqlhQMgO9vDgLKglBvntUXkubex7/eiGdPP
+     [chunk-23f0a0aa.0e80eec5.js] /Oq3/jqo/1fJi1p71QqCmMCEqi5JjrflyyAhArugdlTvVa4wbhweVajxDAB5p6xtyVSnBoZFcxrVZjO7jVMb6AkajP
+     [chunk-23f0a0aa.0e80eec5.js] /PGlxAgyOAHwYWYJJdsonE/qfPK5E/mLMaERAVeBBFVyAOgDywYZU

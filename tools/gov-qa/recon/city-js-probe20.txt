@@ -1,0 +1,253 @@
+## 南通 sgkxj.html 内 xxList/toSeeLetterInfo 上下文
+--[xxList.do]-- è½ä¸ºç©º');                 return;             }             $.post(                 '/truecms/visitorController/login.do',                 { 'username': username, 'password': password },                 function (result) {                     if (result.sussce) {                         window.location.href = "/truecms/letterController/xxList.do?type=";                     } else {                         alert(result.error);                     }                 }, "json"             );         }         function toWriteLetter(name) {             window.location.href = "/truecms/vi
+--[xxList.do]-- haImage').click(function () {//çæéªè¯ç                   alert(1);              $(this).hide().attr('src', '/truecms/captchaImageCreateController/captcha-image.do?t=' + Math.floor(Math.random()*100) ).fadeIn(); })               }); */        /* function changePage(nowPage) {             window.location.href = "/truecms/letterController/xxList.do?numPerPage=10&pageNum=" + nowPage;         }          function go() {             var nowPage = $('#pageNum').val();             var pageCount = 243;             var reg = /^[1-9]\d*$/;             if (!reg.test(nowPage) || nowPage > pageCoun
+--[toSeeLetterInfo.do]--        );         }         function toWriteLetter(name) {             window.location.href = "/truecms/visitorController/toWriteLetter.do?type=1&distmailbox=" + encodeURI(encodeURI(name)) + "&t=" + Math.random() * 1000;         }         function toSeeLetterInfo(bh, searchCode) {             window.location.href = "/truecms/letterController/toSeeLetterInfo.do?bh=" + encodeURI(encodeURI(bh)) + "&searchCode=" + searchCode + "&t=" + Math.random() * 1000;         }         function toSeeLetterInfo2() {             var actorId = document.getElementById("actorId").value;             var yzm = document.getE
+--[toSeeLetterInfo.do]--                              return;                                 } else if(data == "NOPERSON"){ 								    alert("ä½ å¥½ï¼è¯·åè¿è¡ç»å½åè¿è¡ä¿¡ä»¶æ¥è¯¢ï¼");                                     return;                                 } else {                                     window.location.href = "/truecms/letterController/toSeeLetterInfo.do?bh=" + encodeURI(encodeURI(bh)) + "&searchCode=" + encodeURI(encodeURI(searchCode))+ "&actorId=" + encodeURI(encodeURI(                                 actorId)) + "&isHere=GRZX&t=" + Math.random() * 1000;                                 }       
+--[getMessageByCondition.do]-- script>         var curPage = 1; //å½åé¡µç           var total, pageSize, totalPage; //æ»è®°å½æ°ï¼æ¯é¡µæ¾ç¤ºæ°ï¼æ»é¡µæ°          //è·åæ°æ®          function getData(page, bt) {        var searchScope = GetQueryValue('lx');             $.ajax({                 type: 'POST',                 url: "/truecms/messageController/getMessageByCondition.do",                 data: {                     'lmxx': 'sgkxj',                     'lmid': 'b88fd122-d5a3-406e-8388-80b4b55b196b',                     'isGetChild': '1',                     'pagenum': page,                     'pagesize': 13,
+AJAX ...ted').attr('sid');             //æäº¤æé®             $.ajax({                 url: '/truecms/visitorController/changeContentType.do',                 type: 'POST',                 cache: false,                 async: false,                 error: function () {                     alert('æç¤ºï¼é¾æ¥å¼å¸¸ï¼è¯·æ£æ¥ç½ç»');                 },                 data: {                     'level': level,                     'id': id                 },                 success: function (result) {                     var res = eval("(
+AJAX ...odeButton").css("background-color", "gray");              $.post(                 '/truecms/gatewayController/getMobileCode.do',                 { 'loginname': login_name, 'userphone': user_phone },                 function (result) {                     if (result.success) {                         codeMsg = result.code;                         alert("éªè¯ç å·²ç»åéå°æ¨çææºä¸ï¼è¯·æ³¨ææ¥æ¶ï¼");                     } else {                         alert(result.error);                     }                      $("#codeBut
+AJAX ...         //			return false;             //		}             $.ajax({                 url: '/truecms/visitorController/checkLoginName.do?loginName='                     + loginName,                 cache: false,                 async: false,                 success: function (data) {                     if (data == "ERROR") {                         alert("ç¨æ·åå·²è¢«æ³¨åï¼");                         return;                     }                     $('#complaint').form('submit', {                         url: "/truecms/visitorController
+AJAX ...odeButton").css("background-color", "gray");              $.post(                 '/truecms/gatewayController/getMobileCodeForReg.do',                 { 'loginname': login_name, 'userphone': user_phone },                 function (result) {                     if (result.success) {                         codeMsg = result.code;                         alert("éªè¯ç å·²ç»åéå°æ¨çææºä¸ï¼è¯·æ³¨ææ¥æ¶ï¼");                     } else {                         alert(result.error);                     }                      $("#c
+AJAX ...utton").css("background-color", "gray");                  $.post(                     '/truecms/gatewayController/getNewPassword.do',                     { 'loginname': login_name, 'userphone': user_phone },                     function (result) {                         if (result.success) {                             alert("æ°çå¯ç å·²ç»åéå°æ¨çææºä¸ï¼è¯·ä½¿ç¨æ°å¯ç ç»å½ï¼ç»å½ååæ¶ä¿®æ¹æ¨çå¯ç ï¼");                         } else {                             alert(result.error);                         } 
+AJAX ...ç©º');                 return;             }             $.post(                 '/truecms/visitorController/login.do',                 { 'username': username, 'password': password },                 function (result) {                     if (result.sussce) {                         window.location.href = "/truecms/letterController/xxList.do?type=";                     } else {                         alert(result.error);                     }                 }, "json"             );         }         function toWriteLetter(name) {      
+AJAX ...             }              //var flg=false;             $.ajax({                 url: '/truecms/captchaImageCreateController/getCode.do?code=' + $('#yzm').val(),                 cache: false,                 async: false,                 success: function (data) {                     if (data == "ERROR") {                         alert("éªè¯ç éè¯¯ï¼");                         return;                     } else {                         $.ajax({                             url: '/truecms/letterController/checkCodes.do?bh=' + encodeURI(
+AJAX ...urn;                     } else {                         $.ajax({                             url: '/truecms/letterController/checkCodes.do?bh=' + encodeURI(                                 encodeURI(bh)) + "&searchCode=" + encodeURI(encodeURI(                                 searchCode))+ "&actorId=" + encodeURI(encodeURI(                                 actorId))  + "&t=" + Math.random() * 1000,                             async: false,                             success: function (data) {                                 if (data == "ERROR")
+AJAX ...        var searchScope = GetQueryValue('lx');             $.ajax({                 type: 'POST',                 url: "/truecms/messageController/getMessageByCondition.do",                 data: {                     'lmxx': 'sgkxj',                     'lmid': 'b88fd122-d5a3-406e-8388-80b4b55b196b',                     'isGetChild': '1',                     'pagenum': page,                     'pagesize': 13,                     'name': bt,                     'type': searchScope,                  },                 dataType: 'json',    
+
+## 南通 xxList.do 试参
+  {} -> 404 len=1156 '<!DOCTYPE html>\r\n\r\n\r\n<!-- JSTL 标签 -->\r\n\r\n\r\n\r\n\r\n<!-- 简化书写 -->\r\n\r\n\r\n\r\n<!-- Ztreev3.5 -->\r\n<link href="/truecms/css/icon.cs'
+  {'pageNum': 1, 'pageSize': 10} -> 404 len=1156 '<!DOCTYPE html>\r\n\r\n\r\n<!-- JSTL 标签 -->\r\n\r\n\r\n\r\n\r\n<!-- 简化书写 -->\r\n\r\n\r\n\r\n<!-- Ztreev3.5 -->\r\n<link href="/truecms/css/icon.cs'
+  {'page': 1, 'rows': 10} -> 404 len=1156 '<!DOCTYPE html>\r\n\r\n\r\n<!-- JSTL 标签 -->\r\n\r\n\r\n\r\n\r\n<!-- 简化书写 -->\r\n\r\n\r\n\r\n<!-- Ztreev3.5 -->\r\n<link href="/truecms/css/icon.cs'
+  {'numPerPage': 10, 'pageNum': 1} -> 404 len=1156 '<!DOCTYPE html>\r\n\r\n\r\n<!-- JSTL 标签 -->\r\n\r\n\r\n\r\n\r\n<!-- 简化书写 -->\r\n\r\n\r\n\r\n<!-- Ztreev3.5 -->\r\n<link href="/truecms/css/icon.cs'
+  {'currentPage': 1, 'pageSize': 10} -> 404 len=1156 '<!DOCTYPE html>\r\n\r\n\r\n<!-- JSTL 标签 -->\r\n\r\n\r\n\r\n\r\n<!-- 简化书写 -->\r\n\r\n\r\n\r\n<!-- Ztreev3.5 -->\r\n<link href="/truecms/css/icon.cs'
+
+## 南京 SPA
+  https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx -> 200 len=9708
+  js=['/static/js/chunk-005fede9.f88f7ca6.js', '/static/js/chunk-0952ae72.edbb174c.js', '/static/js/chunk-0e4e6aac.33106f40.js', '/static/js/chunk-14211e38.53f2c2dd.js', '/static/js/chunk-1a5f2e40.1146209b.js', '/static/js/chunk-1bf3664c.287b5155.js', '/static/js/chunk-1d903234.9ca37e85.js', '/static/js/chunk-23f0a0aa.0e80eec5.js', '/static/js/chunk-2bc9dcd2.38a3ffa5.js', '/static/js/chunk-2c0238d0.0d0a663b.js', '/static/js/chunk-2d229bb3.47d65831.js', '/static/js/chunk-2f83383a.1aef9502.js', '/static/js/chunk-3121bd24.ce263819.js', '/static/js/chunk-34c7cff4.028a7c48.js', '/static/js/chunk-36bad7d1.d950d955.js', '/static/js/chunk-383f6344.c0763393.js', '/static/js/chunk-396d0977.13426599.js', '/static/js/chunk-3c369b54.7bdf36e3.js', '/static/js/chunk-3d606ece.5ce6be99.js', '/static/js/chunk-3e60e29a.74d65a8c.js', '/static/js/chunk-420b01e3.8703f3a5.js', '/static/js/chunk-49f41b2c.5580d805.js', '/static/js/chunk-4cc3c09c.8e4c61c3.js', '/static/js/chunk-4e714429.f371774f.js', '/static/js/chunk-4e9632ca.18807a39.js', '/static/js/chunk-518d768d.f0b04879.js', '/static/js/chunk-51ea274f.6fc572aa.js', '/static/js/chunk-6056c6da.8ae612ee.js', '/static/js/chunk-62448047.2fc1751f.js', '/static/js/chunk-654666d7.53561069.js', '/static/js/chunk-69aa2166.8e9db257.js', '/static/js/chunk-6c1a1984.03bb7820.js', '/static/js/chunk-6e038f3c.e49d25ac.js', '/static/js/chunk-70b5c5b4.9e3ed910.js', '/static/js/chunk-70c9d108.ace00e59.js', '/static/js/chunk-723a7902.4727db22.js', '/static/js/chunk-7371e4c6.dce128f9.js', '/static/js/chunk-7519d36c.2c21236a.js', '/static/js/chunk-770597d6.2f41d97d.js', '/static/js/chunk-788f0290.1a05ea0f.js', '/static/js/chunk-7a6c50bb.e9d205f9.js', '/static/js/chunk-9fb37a5c.5d938e27.js', '/static/js/chunk-a3588a38.eedaf932.js', '/static/js/chunk-a89bbbb0.cbb7b091.js', '/static/js/chunk-b6f0b606.2bcb2ff8.js', '/static/js/chunk-bd155caa.412e1e3d.js', '/static/js/chunk-cd30996c.f6c839bc.js', '/static/js/chunk-d3e311c0.8f81918b.js', '/static/js/chunk-d693bc5e.5a38761e.js', '/static/js/chunk-de58584a.42e064d6.js', '/static/js/chunk-e70cf99c.c0b6eea7.js', '/static/js/chunk-e75916e6.4a10ee80.js', '/static/js/chunk-ebd65f68.1bd5614d.js', '/static/js/app.0e399158.js', '/static/js/chunk-vendors.d75f0184.js', '/527/jquery.min.js', '/527/RTCPeer.js', '/static/js/chunk-vendors.d75f0184.js', '/static/js/app.0e399158.js']
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-005fede9.f88f7ca6.js len=3693
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-0952ae72.edbb174c.js len=4903
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-0e4e6aac.33106f40.js len=3939
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-14211e38.53f2c2dd.js len=5160
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-1a5f2e40.1146209b.js len=3052
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-1bf3664c.287b5155.js len=4382
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-1d903234.9ca37e85.js len=15785
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-23f0a0aa.0e80eec5.js len=12557
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-2bc9dcd2.38a3ffa5.js len=3963
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-2c0238d0.0d0a663b.js len=5479
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-2d229bb3.47d65831.js len=957
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-2f83383a.1aef9502.js len=17222
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-3121bd24.ce263819.js len=4440
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-34c7cff4.028a7c48.js len=4857
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-36bad7d1.d950d955.js len=7568
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-383f6344.c0763393.js len=43801
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-396d0977.13426599.js len=10526
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-3c369b54.7bdf36e3.js len=15946
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-3d606ece.5ce6be99.js len=7903
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-3e60e29a.74d65a8c.js len=161051
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-420b01e3.8703f3a5.js len=44196
+     URL https://ch241-8079.jschrj.com:4430/app
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-49f41b2c.5580d805.js len=6165
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-4cc3c09c.8e4c61c3.js len=4486
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-4e714429.f371774f.js len=4484
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-4e9632ca.18807a39.js len=14667
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-518d768d.f0b04879.js len=4555
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-51ea274f.6fc572aa.js len=4915
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-6056c6da.8ae612ee.js len=20091
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-62448047.2fc1751f.js len=8385
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-654666d7.53561069.js len=27409
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-69aa2166.8e9db257.js len=3304
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-6c1a1984.03bb7820.js len=19929
+     URL https://ssfw.njfy.gov.cn/#/index
+     URL https://app.jsjc.gov.cn/comment/?id=3
+     URL http://wsgaj.njga.gov.cn:8088/bms/wsgaj/sjindex?state=
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-6e038f3c.e49d25ac.js len=15573
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-70b5c5b4.9e3ed910.js len=7692
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-70c9d108.ace00e59.js len=5589
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-723a7902.4727db22.js len=7595
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-7371e4c6.dce128f9.js len=5301
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-7519d36c.2c21236a.js len=14050
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-770597d6.2f41d97d.js len=11237
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-788f0290.1a05ea0f.js len=8989
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-7a6c50bb.e9d205f9.js len=15459
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-9fb37a5c.5d938e27.js len=14437
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-a3588a38.eedaf932.js len=4630
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-a89bbbb0.cbb7b091.js len=21132
+     URL http://a
+     URL http://a/c%20d?a=1&c=3
+     URL https://a@b
+     URL http://тест
+     URL http://a#б
+     URL http://x
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-b6f0b606.2bcb2ff8.js len=12974
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-bd155caa.412e1e3d.js len=6834
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-cd30996c.f6c839bc.js len=38247
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-d3e311c0.8f81918b.js len=4921
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-d693bc5e.5a38761e.js len=14962
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-de58584a.42e064d6.js len=12274
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-e70cf99c.c0b6eea7.js len=10817
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-e75916e6.4a10ee80.js len=7595
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-ebd65f68.1bd5614d.js len=12163
+  --- https://szxx.nanjing.gov.cn:32767/static/js/app.0e399158.js len=290908
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://bszs.conac.cn/sitename?method=show&id=14204E7E77EF4D14E053022819AC75CC
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000082&url=https%3A%2F%2Fxfj.nanjing.go
+     URL https://www.jszwfw.gov.cn/jsjis/front/login.do?uuid=
+     URL https://www.jszwfw.gov.cn/jszwfw/member/otherLogin/logout.do?gotourl=
+     URL https://www.jszwfw.gov.cn/jsjis/front/register/perregister.do?uuid=
+     URL https://gftjis.jxzwfww.gov.cn/jisgft
+     URL https://www.jszwfw.gov.cn/jsjis/front/findpwd/step1.do
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://mail.nj.gov.cn/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     CFG ...ults.headers["Content-Type"]="application/json;charset=utf-8";var g=c.a.create({baseURL:"/prod-api/",timeout:1e7});g.interceptors.request.use((function(t){var e=!1===(t.headers||{}).isToken,n=(new Date).getT
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-vendors.d75f0184.js len=2807768
+     URL https://github.com/vueComponent/ant-design-vue/issues
+     URL https://www.antdv.com/
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     URL http://www.w3.org/1999/xlink
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/1998/Math/MathML
+     URL https://github.com/zloirock/core-js/blob/v3.33.2/LICENSE
+     URL https://github.com/zloirock/core-js
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/1999/xlink
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL https://kjur.github.io/jsrsasign/license/
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     CFG ....forEach((function(n){t.push.apply(t,e[n])})),t}"undefined"!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiang
+     CFG ....apply(t,e[n])})),t}"undefined"!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth
+     CFG ..."!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_UR
+     CFG ...{VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxf
+     CFG ..._APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_AP
+     CFG ...GISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:88
+     CFG ...sxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fil
+     CFG .../auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE
+     CFG ...NFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE_ENV:"production",BASE_URL:"/"});var b=function(e){function t(t,n){var i;return i=e.call(this,"Async V
+     CFG ...,a=n("8827"),o=n.n(a),s=n("57ba"),l=n.n(s),c=n("1d73");function u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiang
+     CFG ...7ba"),l=n.n(s),c=n("1d73");function u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth
+     CFG ...ction u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_UR
+     CFG ...{VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxf
+     CFG ..._APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_AP
+     https://szxx.nanjing.gov.cn:32767/static/js/chunk-vendors.d75f0184.js -> OSError
+  --- https://szxx.nanjing.gov.cn:32767/527/jquery.min.js len=88145
+  --- https://szxx.nanjing.gov.cn:32767/527/RTCPeer.js len=410607
+     CFG ...Room:!1,members:b.members||[],name:b.name||"即时会议",description:b.description||"",baseURL:c.getHost(),type:b.type||2};return d&&d.company?g.orgId=d.company.id:g.orgId=2,_.extend(b,g),e=c.assemble(e,b),a(e)},b.
+     CFG ...Room:!1,members:b.members||[],name:b.name||"即时会议",description:b.description||"",baseURL:c.getHost(),type:b.type||2,meetingId:b.meetingId}),e=c.assemble(e,b),a(e)},b.prototype.deleteAppointment=function(b){b=
+  --- https://szxx.nanjing.gov.cn:32767/static/js/chunk-vendors.d75f0184.js len=2807768
+     URL https://github.com/vueComponent/ant-design-vue/issues
+     URL https://www.antdv.com/
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     URL http://www.w3.org/1999/xlink
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/1998/Math/MathML
+     URL https://github.com/zloirock/core-js/blob/v3.33.2/LICENSE
+     URL https://github.com/zloirock/core-js
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/1999/xlink
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL https://kjur.github.io/jsrsasign/license/
+     URL http://www.w3.org/2000/svg
+     URL http://www.w3.org/2000/svg
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth
+     URL https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister
+     URL http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info
+     CFG ....forEach((function(n){t.push.apply(t,e[n])})),t}"undefined"!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiang
+     CFG ....apply(t,e[n])})),t}"undefined"!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth
+     CFG ..."!==typeof e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_UR
+     CFG ...{VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxf
+     CFG ..._APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_AP
+     CFG ...GISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:88
+     CFG ...sxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fil
+     CFG .../auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE
+     CFG ...NFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE_ENV:"production",BASE_URL:"/"});var b=function(e){function t(t,n){var i;return i=e.call(this,"Async V
+     CFG ...,a=n("8827"),o=n.n(a),s=n("57ba"),l=n.n(s),c=n("1d73");function u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiang
+     CFG ...7ba"),l=n.n(s),c=n("1d73");function u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth
+     CFG ...ction u(t){e&&Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_UR
+     CFG ...{VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxf
+     CFG ..._APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_AP
+     CFG ...GISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:88
+     CFG ...sxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fil
+     CFG .../auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE
+     CFG ...NFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:8899/wstsqts_hlw6/olduser/fill_info",VUE_APP_MD5SECRET:"",NODE_ENV:"production",BASE_URL:"/"})||console.error("[@ant-design/icons-vue]: "+t+".")}function d(e){retur
+     CFG ...n n in t?r(e[n],t[n]):n in e?r(void 0,e[n]):void 0}var c={url:o,method:o,data:o,baseURL:s,transformRequest:s,transformResponse:s,paramsSerializer:s,timeout:s,timeoutMessage:s,withCredentials:s,adapter:s,resp
+     CFG ...Component(e.auth.password)):"";m.Authorization="Basic "+btoa(b+":"+_)}var w=s(e.baseURL,e.url);function C(){if(y){var i="getAllResponseHeaders"in y?l(y.getAllResponseHeaders()):null,a=v&&"text"!==v&&"json"!=
+     CFG ...1===i?n.push(t):n[i]=t,this.onChange({file:t,fileList:n}),window.File&&!Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiang
+     CFG ...onChange({file:t,fileList:n}),window.File&&!Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth
+     CFG ...window.File&&!Object({VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_UR
+     CFG ...{VUE_APP_TITLE:"江苏省网上信访服务大厅",VUE_APP_BASE_API:"/prod-api/",VUE_APP_OPEN_SSO:"1",VUE_APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxf
+     CFG ..._APP_SSO_LOGIN_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/auth",VUE_APP_SSO_REGISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_AP
+     CFG ...GISTER_URL:"https://ygxf.jssxfj.jiangsu.gov.cn:4443/prod-api/auth/wsxfregister",VUE_APP_LOGIN_URL:"/login",VUE_APP_REGISTER_URL:"/register",VUE_APP_JIANGSU_FILL_INFO_URL:"http://ygxf.jssxfj.jiangsu.gov.cn:88
+     https://szxx.nanjing.gov.cn:32767/static/js/chunk-vendors.d75f0184.js -> OSError
+  --- https://szxx.nanjing.gov.cn:32767/static/js/app.0e399158.js len=290908
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://bszs.conac.cn/sitename?method=show&id=14204E7E77EF4D14E053022819AC75CC
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000082&url=https%3A%2F%2Fxfj.nanjing.go
+     URL https://www.jszwfw.gov.cn/jsjis/front/login.do?uuid=
+     URL https://www.jszwfw.gov.cn/jszwfw/member/otherLogin/logout.do?gotourl=
+     URL https://www.jszwfw.gov.cn/jsjis/front/register/perregister.do?uuid=
+     URL https://gftjis.jxzwfww.gov.cn/jisgft
+     URL https://www.jszwfw.gov.cn/jsjis/front/findpwd/step1.do
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://www.nanjing.gov.cn/lxwm/201812/t20181225_1348782.html
+     URL https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3201000001&url=http%3A%2F%2Fszxx.nanjing.go
+     URL https://bszs.conac.cn/sitename?method=show&id=16E384D7D6BF6A7EE053022819AC3966
+     URL https://www.nanjing.gov.cn/wzdt/
+     URL https://mail.nj.gov.cn/
+     URL https://www.nanjing.gov.cn/zqdh/
+     URL https://beian.miit.gov.cn/#/Integrated/index
+     URL https://beian.mps.gov.cn/#/query/webSearch?code=32010202010413
+     CFG ...ults.headers["Content-Type"]="application/json;charset=utf-8";var g=c.a.create({baseURL:"/prod-api/",timeout:1e7});g.interceptors.request.use((function(t){var e=!1===(t.headers||{}).isToken,n=(new Date).getT

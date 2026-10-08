@@ -1,0 +1,36 @@
+## 南通 getInteractiveJson
+  http siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44 status=200 n=5 contkeys=['list', 'count', 'pageNum', 'pageSize']
+  item keys=['beginTime', 'classifyType', 'columnId', 'columnName', 'deptName', 'endTime', 'hrefaddress', 'id', 'ip', 'ipEndLimmit', 'ipStartLimmit', 'isDisplay', 'isDisplayDesk', 'isLogin', 'polls', 'releaseType', 'siteId', 'siteName', 'state', 'subject', 'subjectImg', 'summary', 'survey', 'surveySummaryId', 'surveySummaryTitle', 'times', 'timesLimmit', 'type', 'updateTime', 'uplaodName', 'userId']
+  item0={"beginTime": "2010-09-07 17:03:51 ", "classifyType": "", "columnId": "", "columnName": "", "deptName": "47", "endTime": "2100-12-23 23:23:23 ", "hrefaddress": "", "id": "761", "ip": "", "ipEndLimmit": "", "ipStartLimmit": "", "isDisplay": "1", "isDisplayDesk": "1", "isLogin": "0", "polls": 0, "releaseType": 0, "siteId": "", "siteName": "南通市残疾人联合会", "state": "", "subject": "网上民调", "subjectImg": "", "summary": "", "survey": "0", "surveySummaryId": "", "surveySummaryTitle": "", "times": 0, "timesLimmit": "", "type": "", "updateTime": "2010-09-07 17:03:51 ", "uplaodName": "", "userId": ""}
+  https siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44 status=200 n=5 contkeys=['list', 'count', 'pageNum', 'pageSize']
+  item keys=['beginTime', 'classifyType', 'columnId', 'columnName', 'deptName', 'endTime', 'hrefaddress', 'id', 'ip', 'ipEndLimmit', 'ipStartLimmit', 'isDisplay', 'isDisplayDesk', 'isLogin', 'polls', 'releaseType', 'siteId', 'siteName', 'state', 'subject', 'subjectImg', 'summary', 'survey', 'surveySummaryId', 'surveySummaryTitle', 'times', 'timesLimmit', 'type', 'updateTime', 'uplaodName', 'userId']
+  item0={"beginTime": "2010-09-07 17:03:51 ", "classifyType": "", "columnId": "", "columnName": "", "deptName": "47", "endTime": "2100-12-23 23:23:23 ", "hrefaddress": "", "id": "761", "ip": "", "ipEndLimmit": "", "ipStartLimmit": "", "isDisplay": "1", "isDisplayDesk": "1", "isLogin": "0", "polls": 0, "releaseType": 0, "siteId": "", "siteName": "南通市残疾人联合会", "state": "", "subject": "网上民调", "subjectImg": "", "summary": "", "survey": "0", "surveySummaryId": "", "surveySummaryTitle": "", "times": 0, "timesLimmit": "", "type": "", "updateTime": "2010-09-07 17:03:51 ", "uplaodName": "", "userId": ""}
+  http siteId=1f9dcfb8-d52d-46e6-83e7-479a46f2f74b status=200 n=5 contkeys=['list', 'count', 'pageNum', 'pageSize']
+  item keys=['beginTime', 'classifyType', 'columnId', 'columnName', 'deptName', 'endTime', 'hrefaddress', 'id', 'ip', 'ipEndLimmit', 'ipStartLimmit', 'isDisplay', 'isDisplayDesk', 'isLogin', 'polls', 'releaseType', 'siteId', 'siteName', 'state', 'subject', 'subjectImg', 'summary', 'survey', 'surveySummaryId', 'surveySummaryTitle', 'times', 'timesLimmit', 'type', 'updateTime', 'uplaodName', 'userId']
+  item0={"beginTime": "2010-09-07 17:03:51 ", "classifyType": "", "columnId": "", "columnName": "", "deptName": "47", "endTime": "2100-12-23 23:23:23 ", "hrefaddress": "", "id": "761", "ip": "", "ipEndLimmit": "", "ipStartLimmit": "", "isDisplay": "1", "isDisplayDesk": "1", "isLogin": "0", "polls": 0, "releaseType": 0, "siteId": "", "siteName": "南通市残疾人联合会", "state": "", "subject": "网上民调", "subjectImg": "", "summary": "", "survey": "0", "surveySummaryId": "", "surveySummaryTitle": "", "times": 0, "timesLimmit": "", "type": "", "updateTime": "2010-09-07 17:03:51 ", "uplaodName": "", "userId": ""}
+  https siteId=1f9dcfb8-d52d-46e6-83e7-479a46f2f74b status=200 n=5 contkeys=['list', 'count', 'pageNum', 'pageSize']
+  item keys=['beginTime', 'classifyType', 'columnId', 'columnName', 'deptName', 'endTime', 'hrefaddress', 'id', 'ip', 'ipEndLimmit', 'ipStartLimmit', 'isDisplay', 'isDisplayDesk', 'isLogin', 'polls', 'releaseType', 'siteId', 'siteName', 'state', 'subject', 'subjectImg', 'summary', 'survey', 'surveySummaryId', 'surveySummaryTitle', 'times', 'timesLimmit', 'type', 'updateTime', 'uplaodName', 'userId']
+  item0={"beginTime": "2010-09-07 17:03:51 ", "classifyType": "", "columnId": "", "columnName": "", "deptName": "47", "endTime": "2100-12-23 23:23:23 ", "hrefaddress": "", "id": "761", "ip": "", "ipEndLimmit": "", "ipStartLimmit": "", "isDisplay": "1", "isDisplayDesk": "1", "isLogin": "0", "polls": 0, "releaseType": 0, "siteId": "", "siteName": "南通市残疾人联合会", "state": "", "subject": "网上民调", "subjectImg": "", "summary": "", "survey": "0", "surveySummaryId": "", "surveySummaryTitle": "", "times": 0, "timesLimmit": "", "type": "", "updateTime": "2010-09-07 17:03:51 ", "uplaodName": "", "userId": ""}
+
+## 常州 ajax.php（https）列表结构
+  page=1 status=200 len=6059
+  head=<table width='100%'><tr style='background: cornflowerblue;color: white;'><th width='120' style='height:42px;'>类别</th><th>主题</th><th width='120'>回复时间</th><th width='70'>点击数</th><th width='150'>受理单位</th></tr><tr style='background:aliceblue;height:40px;'><td align='center'>留言</td><td style='padding: 4px;'><a href='https://sgj.changzhou.gov.cn/index.php?m=letter&c=index&a=show&id=365' target='_blank'>2026年9月事管局领导信箱受理情况</a></td><td align='center'>2026-09-30</td><td align='center'><span class='letter_ids' id='76621'></span></td><td align='center'>市机关事务局</td></tr><tr style='background: #eee;height:40px;'><td align='center'>留言</td><td style='padding: 4px;'><a href='https://czj.changzhou.gov.cn/index
+  page=2 status=200 len=6217
+  head=<table width='100%'><tr style='background: cornflowerblue;color: white;'><th width='120' style='height:42px;'>类别</th><th>主题</th><th width='120'>回复时间</th><th width='70'>点击数</th><th width='150'>受理单位</th></tr><tr style='background:aliceblue;height:40px;'><td align='center'>留言</td><td style='padding: 4px;'><a href='https://czj.changzhou.gov.cn/index.php?m=letter&c=index&a=show&id=84122' target='_blank'>中级</a></td><td align='center'>2026-09-07</td><td align='center'><span class='letter_ids' id='76207'></span></td><td align='center'>市财政局</td></tr><tr style='background: #eee;height:40px;'><td align='center'>留言</td><td style='padding: 4px;'><a href='https://wglj.changzhou.gov.cn/index.php?m=letter&c
+
+## 常州 letter 页面 URL
+  https://www.changzhou.gov.cn/gova/letter/index.php -> 200 len=18917
+     show&amp;id=0808
+     ajax.php
+     ajax.php
+     ajax.php
+  https://www.changzhou.gov.cn/gova/letter/ -> 200 len=18917
+     show&amp;id=0808
+     ajax.php
+     ajax.php
+     ajax.php
+  https://www.changzhou.gov.cn/gova/ -> 403 len=162
+
+## 连云港 重试（http/https）
+  http -> 400 len=7764 '        <!DOCTYPE html> <html lang="zh"> <head> <meta charset="utf-8" />\n            <meta http-equi'
+  https -> 403 len=7207 '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="utf-8" />\n<style>\nbody{ background:#fff; font-family: m'

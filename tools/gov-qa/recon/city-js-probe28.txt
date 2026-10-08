@@ -1,0 +1,17 @@
+## 淮安门户互动入口
+  https://www.huaian.gov.cn/ -> 200 len=26635 url=https://www.huaian.gov.cn/
+     [关于公开征集2027年度市政府规章立法项目建议的...] /col/16653_544327/art/17855136/1786670249712HA56PYNY.html
+     [在线访谈] /col/17091_377347/index.html
+     [访谈计划] /col/17089_145514/index.html
+     [2026年在线访谈计划] /col/17089_145514/art/17722944/1772504963126R0UIbKap.html
+  http://www.huaian.gov.cn/ -> 200 len=26635 url=http://www.huaian.gov.cn/
+     [关于公开征集2027年度市政府规章立法项目建议的...] /col/16653_544327/art/17855136/1786670249712HA56PYNY.html
+     [在线访谈] /col/17091_377347/index.html
+     [访谈计划] /col/17089_145514/index.html
+     [2026年在线访谈计划] /col/17089_145514/art/17722944/1772504963126R0UIbKap.html
+
+## 连云港重试
+  http /TrueCMS/mailBoxLetterController/getLetterList.do -> 403 len=940
+  http /zglygzfmhwz/gzcy/gzcy.html -> 404 len=940
+  https /TrueCMS/mailBoxLetterController/getLetterList.do -> 403 len=7207
+  https /zglygzfmhwz/gzcy/gzcy.html -> 403 len=7207

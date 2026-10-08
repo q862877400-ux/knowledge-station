@@ -1,0 +1,65 @@
+## 含「回复选登」的 chunk
+  app.0e399158.js len=290908
+     /zhengfuxinxiang/huifuxuandeng
+     file-list
+     show-file-list
+     /file/list
+     JSWSXF-Token
+     /auth/wsxf/pcLogin
+     /auth/wsxf/pcSjLogin
+     /auth/wsxf/genCaptcha
+     /auth/wsxf/loginCaptcha
+     /wsxf/sms/login
+     /wsxf/sms/register
+     /wsxf/sms/logout
+     /wsxf/sms/updateMobile
+     /wsxf/user/detail
+     /wsxf/user/logout
+     /wsxf/base/getZjlxList
+     /auth/wsxf/register
+     /wsxf/user/logcancel
+     /wsxf/personal/updateMobile
+     /system/client/data/listByUse
+     SZFXX
+     zfxx
+     szfxx
+     xzfxx
+     qzfxx
+     zfxx-header
+     zfxx-middle
+     zfxx-footer
+     /zhengfuxinxiang/huifuxuandeng
+     ch-header-zfxx-top
+     ch-zfxx-top-left
+     /zhengfuxinxiang/huifuxuandeng
+     ch-header-zfxx-top
+     ch-zfxx-top-left
+     /zhengfuxinxiang/huifuxuandeng
+     zfxx-index
+     zfxx-login
+     /zhengfuxinxiang/huifuxuandeng
+     /zhengfuxinxiang/huifuxuandeng
+     ZhenguxinxiangHuifuxuandeng
+     list
+     RenMinJianYiZhengJiList
+     JinDianZiList
+     /wsxf/base/getWtsdByParentId
+     /wsxf/base/getShengList
+     /wsxf/base/getDzShengList
+     /wsxf/base/getWtsdByParentId
+     /wsxf/base/getDzWtsdByParentId
+     /wsxf/xfj/saveYwXfj
+     /system/show/list
+     /wsxf/xfj/selectWsxfPc
+     /wsxf/xfj/getJgInfo
+     /wsxf/xfj/getJgInfoByXzqh
+     /system/show/getDeptShowInfoList
+     icon-listpress
+     /wsxf/user/getDlNum
+  chunk-70c9d108.ace00e59.js len=5589
+     /wsxf/algk/listPage
+
+## algk/listPage 字段
+  top={'total': 91, 'rows': 'list', 'code': 200, 'msg': '查询成功'}
+  row keys=['searchValue', 'createBy', 'createTime', 'updateBy', 'updateTime', 'remark', 'id', 'bsr', 'bssj', 'jgid', 'lx', 'xfjbh', 'bz', 'zt', 'nrfldm', 'nrflmc', 'xjzt', 'gkbt', 'gkxfnr', 'gkdfnr', 'hfdw', 'xfrq', 'hfrq', 'xfxsdm', 'xfxs', 'hjff', 'hjjg', 'alqs', 'sfgksh', 'qxjgid', 'qxfwbs', 'year', 'bjsj']
+  row0={"searchValue": null, "createBy": null, "createTime": null, "updateBy": null, "updateTime": null, "remark": null, "id": 14822, "bsr": "wxkl", "bssj": "2026-09-30", "jgid": "320126", "lx": "1", "xfjbh": "SZ3201202608131745308", "bz": null, "zt": "1", "nrfldm": "260701", "nrflmc": "教育_其他_其他", "xjzt": null, "gkbt": "建议新区政府，为距离学校较远的初中代招学生增设校车，方便孩子上学！", "gkxfnr": "我们住中交锦方，因所辖学区南师附中初中部停建缓建，被安排去一中江北上学，但距离较远，每天送完小孩上学后，大人上班就会迟到，建议新区政府为代招初中学生设置校车，让孩子安全便利的上学.", "gkdfnr": "尊敬的市民：\n您好！首先非常感谢您对学校工作提出的宝贵建议。\n经学校与您联系沟通，您对此前提出增设代招区域校车的诉求表示理解，学生上学的问题已经解决。针对部分家长通勤距离较远、上下学出行不便的实际情况，学校将不断优化学生上下学出行条件，努力解决家长接送困难问题。\n再次感谢您的理解与支持！江北新区管理委员会教育局2026年9月22日", "hfdw": "江北新区教育局", "xfrq": "2026-08-13", "hfrq": "2026-09-22", "xfxsdm": null, "xfxs": "17", "hjff": null, "hjjg": null, "alqs": null, "sfgksh": null, "qxjgid": null, "qxfwbs": null, "year": null, "bjsj": "2026-09-22 11:21:49"}

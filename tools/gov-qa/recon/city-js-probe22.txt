@@ -1,0 +1,10 @@
+## chunks=57
+  [app.0e399158.js] /zhengfuxinxiang/huifuxuandeng | ZhenguxinxiangHuifuxuandeng | ch-header-zfxx-top | ch-zfxx-top-left | qzfxx | szfxx | xzfxx
+     baseURL app.0e399158.js -> /prod-api/
+
+## 试常见 API 前缀
+  /zfxx/letterList -> 200 ct=text/html; charset=utf-8 len=9708 '<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-'
+  /api/letter/list -> 200 ct=text/html; charset=utf-8 len=9708 '<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-'
+  /zfxx/api/letterList -> 200 ct=text/html; charset=utf-8 len=9708 '<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-'
+  /zhengfuxinxiang/letterList -> 200 ct=text/html; charset=utf-8 len=9708 '<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-'
+  /api/zfxx/letterList -> 200 ct=text/html; charset=utf-8 len=9708 '<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-'

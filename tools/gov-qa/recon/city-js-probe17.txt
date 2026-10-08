@@ -1,0 +1,15 @@
+## 连云港 gzcy.html 全部 TrueCMS url + letterView 上下文
+
+## 连云港 明细端点穷举
+  ERR JSONDecodeError Expecting value: line 1 column 1 (char 0)
+
+## 南通 getInteractiveJson
+  siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44 -> JSONDecodeError Expecting value: line 1 column 1 (char 0)
+  siteId=1f9dcfb8-d52d-46e6-83e7-479a46f2f74b -> JSONDecodeError Expecting value: line 1 column 1 (char 0)
+  siteId=1676b69c-9162-447f-a555-718bbe87cec4 -> JSONDecodeError Expecting value: line 1 column 1 (char 0)
+
+## 常州 gova/letter/ajax.php
+  {'action': 'list', 'page': 1} -> 403 len=2400 ctype=None
+  head=<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <style> body{ background:#eff1f0; font-family: microsoft yahei; color:#969696; font-size:12px;} .online-desc-con { text-align:center; } .r-tip01 { color: #969696; font-size: 16px; display: block; text-align: center; width: 600px; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; margin: 0 auto 15px; } .r-tip02 { color: #b1b0b0; font-
+  {'action': 'list', 'page': 2} -> 403 len=2400 ctype=None
+  head=<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <style> body{ background:#eff1f0; font-family: microsoft yahei; color:#969696; font-size:12px;} .online-desc-con { text-align:center; } .r-tip01 { color: #969696; font-size: 16px; display: block; text-align: center; width: 600px; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; margin: 0 auto 15px; } .r-tip02 { color: #b1b0b0; font-

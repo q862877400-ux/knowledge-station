@@ -1,0 +1,42 @@
+  GET /prod-api/wsxf/xfj/listPage ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/listPage -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/xfj/listPage ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/listPage -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/algk/listPage ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=6345 '{"total":91,"rows":[{"searchValue":null,"createBy":null,"createTime":null,"updateBy":null,"updateTime":null,"remark":null,"id":14822,"bsr":"wxkl","bss'
+     keys=['total', 'rows', 'code', 'msg']
+  POST /prod-api/wsxf/algk/listPage -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/algk/listPage ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=6345 '{"total":91,"rows":[{"searchValue":null,"createBy":null,"createTime":null,"updateBy":null,"updateTime":null,"remark":null,"id":14822,"bsr":"wxkl","bss'
+     keys=['total', 'rows', 'code', 'msg']
+  POST /prod-api/wsxf/algk/listPage -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/ly/list ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=25 '{"msg":"参数错误","code":500}'
+     keys=['msg', 'code']
+  POST /prod-api/wsxf/ly/list -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/ly/list ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=25 '{"msg":"参数错误","code":500}'
+     keys=['msg', 'code']
+  POST /prod-api/wsxf/ly/list -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/xfj/listZxqs ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/listZxqs -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/xfj/listZxqs ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/listZxqs -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/xfj/wsfhList ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/wsfhList -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/xfj/wsfhList ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/wsfhList -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/jdalnw/list ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=45 '{"total":0,"rows":[],"code":200,"msg":"查询成功"}'
+     keys=['total', 'rows', 'code', 'msg']
+  POST /prod-api/wsxf/jdalnw/list -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/jdalnw/list ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=45 '{"total":0,"rows":[],"code":200,"msg":"查询成功"}'
+     keys=['total', 'rows', 'code', 'msg']
+  POST /prod-api/wsxf/jdalnw/list -> 200 ct=application/json len=56 '{"msg":"Request method \'POST\' not supported","code":500}'
+  GET /prod-api/wsxf/xfj/getListBySjhXm ['orgid', 'type', 'pageNum', 'pageSize'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/getListBySjhXm -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+  GET /prod-api/wsxf/xfj/getListBySjhXm ['orgid', 'type', 'pageNum', 'pageSize', 'curPage'] -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'
+     keys=['code', 'msg']
+  POST /prod-api/wsxf/xfj/getListBySjhXm -> 200 ct=application/json len=27 '{"code":401,"msg":"令牌不能为空"}'

@@ -326,6 +326,8 @@ ADAPTERS: dict[str, str] = {
     #    证据 recon/city-js-probe9~16.txt ——
     "js-wuxi": "adapters.js_wuxi",            # 无锡市·市长信箱（mailbox letter/search，列表自带答复，≈8613）
     "js-suzhou": "adapters.js_suzhou",        # 苏州市·部门信箱（consultfront bmxxCommonlist，currpage 翻页，≈4153）
+    "js-nantong": "adapters.js_nantong",      # 南通市·市长信箱（truecms getMessageByCondition，列表自带答复，≈302）
+    "js-nanjing": "adapters.js_nanjing",      # 南京市·政府信箱·案例公开（szxx SPA prod-api/wsxf/algk，列表自带答复，≈91）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
