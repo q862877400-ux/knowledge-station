@@ -1,0 +1,1897 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-nynct",
+   "id": "32750",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32750",
+   "question": "本人为事业编制人员，2000年正式参加工作分配入职，1998年二轮土地承包期间取得本村土地承包经营权证，户籍当时在本村，与村集体形成稳定的权利义务关系，且以本村集体土地为基本生活保障。 依据《中华人民共和国农村集体经济组织法》第二章第十一条",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "31385",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31385",
+   "question": "根据相关法律法规，鹿茸、鹿鞭、鹿肉属于初级农产品吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "31101",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31101",
+   "question": "请问我省的土地延包政策是什么？延包以户为单位还是其他方式，户内成员如何认定？离婚后夫妻双方的延包权益（双方户口均在同发畜牧场），谢谢。",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "农村土地承包法",
+     "lib_no": "农村土地承包法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "民法典",
+    "中共中央、国务院关于进一步推进农垦改革发展的意见",
+    "民法典",
+    "民法典"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "30115",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30115",
+   "question": "本人1995年12月入伍，1998年12月退伍符合吉林省退役士兵政府安排工作政策。1999年8月经蛟河市原民政局退役军人安置办安置至市农业局。此后多年本人多次咨询上岗事宜，均被“回家等信”“暂无岗位”等理由推脱未获明确答复。 2026年1月",
+   "cited_hits": [
+    {
+     "name": "退役军人保障法",
+     "lib_no": "退役军人保障法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "26589",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26589",
+   "question": "目前，各村正在开展村集体经济组织成员认定工作，根据2025年5月1日实施的《中华人民共和国农村集体经济组织法》第十七条，第（四）款：已经成为公务员， 但是聘任制公务员除外；的丧失农村集体经济组织成员身份。请问是否存在“已经成为公务员、事业编",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农村集体经济组织法",
+     "lib_no": "农村集体经济组织法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见",
+    "吉林省农村集体经济组织条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "26522",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26522",
+   "question": "我司现在网上销售红参片，请问以初级农产品的形式销售合规吗？现有职业打假人和向相关部门发起投诉，请问有什么法规依据做为参考？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农产品质量安全法释义",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国农产品质量安全法",
+     "lib_no": "农产品质量安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国产品质量法",
+     "lib_no": "产品质量法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国电子商务法",
+     "lib_no": "电子商务法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "网络交易监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "24404",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24404",
+   "question": "尊敬的黄书记：您好 ！习近平总书记在我省考察强调，吉林要当好国家粮食安全“压舱石”。黄书记您说：“作为一名新吉林人，我一定与大家齐心协力、尽心竭力、感恩奋进，绝不辜负全省人民的期望。”从您质朴的言语中知道您和总书记都是务实、亲民、为民的好书",
+   "cited_hits": [
+    {
+     "name": "吉林省实施〈中华人民共和国农业技术推广法〉办法",
+     "lib_no": "农业技术推广法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "吉林省实施〈中华人民共和国农业技术推广法〉办法",
+     "lib_no": "农业技术推广法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "吉林省实施〈中华人民共和国农业技术推广法〉办法",
+     "lib_no": "农业技术推广法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "解旱涝、治盐碱——当好国家粮食安全“压舱石”",
+    "解旱涝、治盐碱——当好国家粮食安全“压舱石”",
+    "金铎果树营养套餐技术研发与应用"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22458",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22458",
+   "question": "您好，我媳妇是1985年出生于吉林省辽源市龙山区工农乡安国村古家沟屯。也是2001年上大学户口农转非迁出，毕业后已迁回吉林省辽源市龙山区工农乡安国村古家沟屯。在全国农村集体资产监督管理平台系统中，无法查询到我的成员信息。今天去户口所在村里办",
+   "cited_hits": [
+    {
+     "name": "信访工作条例",
+     "lib_no": "信访工作条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21735",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21735",
+   "question": "村党支部领办合作社的具体做法和监管机制",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国农民专业合作社法",
+     "lib_no": "农民专业合作社法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20625",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20625",
+   "question": "榆树大紫花豆角种子属于非主要农作物中的常规种子 1.其生产经营是不是可以不办理生产经营许可证 2.如果其生产经营必须要办理生产经营许可证，那么生产经营许可证的副证上没有榆树大紫花种子的名称商行却生产经营榆树大紫花豆角种子的行为是否合法。 3",
+   "cited_hits": [
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "农作物种子生产经营许可管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "18062",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18062",
+   "question": "领导您好：红嘴子村利用职权侵害第五村民小组林地林木事件，农业农村厅的回复收到了，首先土地管理法中明确规定村民小组的土地由村民小组经营、管理，村民委员会组织法第二十七条明确规定村民会议或者村民代表会议的决定不得与宪法、法律、法规和国家的政策相",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国宪法",
+     "lib_no": "宪法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "长春市南关区人民政府集体林权制度改革实施方案",
+    "红嘴子村集体林权制度改革村组实施方案"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "16366",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16366",
+   "question": "安图县富尔河水电公司(西江电站)，为了逃避村集体土地转商业建设用地应缴国家土地出让金、税金，以欺骗的方式非法占有安图县两江镇西江村杨春美在册菜地3000余平方米、含村农田道近6000平方米，并违法改变其用途私自建设大门、水泥路、石头墙等建筑",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "15041",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15041",
+   "question": "尊敬的工作人员您好，我是吉林农业大学一名在读博士，因撰写论文的需要，向您咨询吉林省2003-2023年农产品进出口有关数据：进出口总体规模、不同种类农产品数据、进出口国别数据、不同种类在各个国别的数据等农产品国际贸易的相关数据。请将数据发送",
+   "cited_hits": [
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11959",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11959",
+   "question": "国务院督查组、省委省政府督查室、农业农村厅： 我叫王玉仙，居住在吉林省公主岭市黑林子镇徐家村九组，身份证220381196702202225。手机号：18804312102 我实名举报吉林省公主岭市黑林子镇徐家村九组张连奎在没有任何审批手续",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管 理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11297",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11297",
+   "question": "1、请问“吉单259”玉米种子是否已经退出市场，是否有相关公告。 2、请问使用废弃的种子包装袋用于装其他种子而没有进行销售是否违法？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国种子法",
+     "lib_no": "种子法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6669",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6669",
+   "question": "请问个体工商户可以买卖销售鲜松茸和冻松茸吗？去市场监督管理局咨询不给增加销售松茸的经营范围",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生植物保护条例",
+     "lib_no": "野生植物保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-nynct",
+   "id": "34660",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34660",
+   "question": "是否能放宽对娱乐性垂钓的管控改为允许双钩 因路亚所用的假饵大多为双钩 假饵类型主要区别在于假饵在水中的泳姿 而规定在只允许一个钩尖 大部分假饵都会影响在水中的泳姿 那么将饵的范围基本局部在了亮片铅头钩飞蝇钩这三种 而大部分的假饵被禁止 对于",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农业农村厅关于明确路亚钓具等渔具性质的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "31511",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31511",
+   "question": "建议长春申办2031年之后任一届世界园艺博览会希望相关部门认真研究",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发申报世界园艺博览会暂行办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "31077",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31077",
+   "question": "中华人民共和国农业农村部令第三条规定下列农产品实施承诺达标合格证：蔬菜、水果、茶鲜叶、畜禽、禽蛋、养殖水产品、其他农产品。农业农村部给的模版是食用农产品。人参以及野山参是否此范围内，如在此范围，是写初级农产品还是食品。",
+   "cited_hits": [],
+   "cited_missing": [
+    "农产品质量安全承诺达标合格证管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "29089",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29089",
+   "question": "您好，想咨询一下贵部门，国家层面编制了《全国农产品成本收益资料汇编》，吉林省（我省）是否也编制了《吉林省农产品成本收益资料汇编》，应该向哪个部门申请使用，望给予回复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国农产品成本收益资料汇编2025"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "27922",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27922",
+   "question": "将农村原摊大饼似的建造的住房、仓房、厕所、加工房（磨坊等）……多种建筑集为一体建造有利于立体化利用空间，布局干净利索，节约土地、节约建造成本（少建基础、墙体、屋顶等）。 5.我国社会主义核心价值观包括“富强、民主、自由、平等”，一座宽大明亮",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农村房屋建设管理办法",
+    "吉林省农村房屋建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "27921",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27921",
+   "question": "尊敬的领导您好： 因目前我省无明文规定农房建筑面积相关事宜，所以针对此问题，我提下建议： 1.国家无法律明文规定农房有建筑面积的限制，也无农民人均居住及用房面积的限制，只是省土地管理条例有宅基地面积的规定，在不超过宅基地红线范围的情况下及一",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农村房屋建设管理办法",
+    "吉林省农村房屋建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "26262",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26262",
+   "question": "请问现在种地有补贴吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "政策明白本"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "25913",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25913",
+   "question": "请问新型农业经营主体和服务主体的概念，哪个部门可以界定企业或者合作社、家庭农场等属不属于新型农业经营主体和服务主体，有没有数据库可以比对",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部关于印发&lt;新型农业经营主体和服务主体高质量发展规划（2020—2022年）&gt;的通知",
+    "农业农村部农村合作经济指导司关于印发&lt;新型农业经营主体带动农户比例指标解释和测算方法（试行）&gt;的函",
+    "农业农村部办公厅关于印发农户和新型农业经营主体统计调查制度等12项统计调查制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "25523",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25523",
+   "question": "对于身份为农村户籍的公职人员的父母，在纳入监测户方面有什么具体的规定，希望能答疑解惑。",
+   "cited_hits": [],
+   "cited_missing": [
+    "健全防止返贫动态监测和帮扶机制工作指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "24374",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24374",
+   "question": "我本人既是相关工程项目的投标人，也是水利评标专家库的成员，经常会参与水利工程、高标农田等项目的评标。在制作投标技术文件及参评相关技术文件时发现了一个问题，不知从何时开始技术文件的不再以内容规范性、合理性以及施工方法的相关性、先进性为导向，而",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省高标准农田项目管理办法",
+    "吉林省高标准农田建设项目招标投标管理规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "24296",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24296",
+   "question": "五月一日起实施的《中华人民共和国农村集体经济组织法》第十七条第四项规定公务员丧失农村集体经济组织成员身份，没有明确事业单位工作人员（非参公）是否可以认定为农村集体经济组织成员身份，所在乡镇在本轮农村集体经济组织人员身份认定工作中，将村中具有",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "23826",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23826",
+   "question": "问题1：家庭农场申请要求 问题2：家庭农场申请流程 问题3：家庭农场补贴明细 问题4：关于大学生返乡创业创办家庭农场补助以及贷款补助",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施家庭农场培育计划的指导意见",
+    "农业农村部办公厅关于全面实行家庭农场“一码通”管理服务制度的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22590",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22590",
+   "question": "麻烦问一下，打算新站风力发电项目，可以占高标准农田吗？如果不可以，有解决的办法吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实加强高标准农田建设，提升国家粮食安全保障能力的意见",
+    "全国高标准农田建设规划（2021－2030年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22582",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22582",
+   "question": "领导您好；我是一名国营农场的一名农民，咨询您有关老退休工人退休了，儿女继续种为什么还需要缴纳承包费，家里新添人口（新生儿）为什么没有补助或者分得土地，这样合理合法吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步推进农垦改革发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21997",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21997",
+   "question": "我在2025年2月5日在吉林省农业农村厅留言，依据《农村集体经济组织法》第十八条 农村集体经济组织成员不因就学、服役、务工、经商、离婚、丧偶、服刑等原因而丧失农村集体经济组织成员身份。反应我因就学导致未被认定为农村集体经济组织成员的问题。回",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21767",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21767",
+   "question": "农民合众社一般人认为合作社嘛必须要规模大，要上百个社员，要种几百上千公顷地，要多多的机械设备，这样才叫合作社，才能申请到更多政策才能越干越大。那么近20年来的合作社发展来看事实上是这样吗，我要建议的是合作社不是凑人数，不是显风头更不应该骗国",
+   "cited_hits": [],
+   "cited_missing": [
+    "2024年中央农业经营主体能力提升资金（农民合作社）项目实施方案（指南）",
+    "2024年中央农业经营主体能力提升资金（农民合作社）项目实施方案（指南）",
+    "中共吉林省委办公厅 吉林省人民政府办公厅关于做好清理优化全省创建示范和评比表彰活动的通知",
+    "2024年中央农业经营主体能力提升资金（农民合作社）项目实施方案（指南）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21664",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21664",
+   "question": "您好，我是1983年出生于吉林省公主岭市双龙镇兴隆村4队。2002年上大学户口农转非迁出，毕业后跟随工作关系转走。在全国农村集体资产监督管理平台系统中，无法查询到我的成员信息。但是，按照已颁布的《农村集体经济组织法》第十八条，农村集体经济组",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21661",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21661",
+   "question": "您好，我是1980年出生于吉林省舒兰市平安镇福安村。2000年上大学户口农转非迁出，毕业后跟随工作关系转走。在全国农村集体资产监督管理平台系统中，无法查询到我的成员信息。但是，按照已颁布的《农村集体经济组织法》第十八条，农村集体经济组织成员",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21660",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21660",
+   "question": "您好，我1986年出生于吉林省蛟河市新站镇文化村，后因上大学户口迁出，大学毕业后户口迁回原址。在全国农村集体资产监督管理平台中，无法查询到我的成员信息。但是，根据已颁布的《农村集体经济组织法》第十八条，农村集体经济组织成员不因就学、服役、务",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于稳步推进农村集体产权制度改革的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20201",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20201",
+   "question": "您好，请问我单位想参加吉林省农业农村厅下发的《关于收集参与吉林省高标准农田建设项目有关单位信息》报送相关材料，现我公司应将材料报送至哪个邮箱？麻烦请将邮箱及联系方式告知。目前找不到相关邮箱，省内各地区在实施高标准农田项目时，需要投标申请人须",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下放吉林省高标准农田建设项目（含东北黑土地保护建设项目）招投标管理及初步设计审批权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "17041",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17041",
+   "question": "咨询《吉林省高标准农田建设项目竣工验收试行办法》（吉农建发〔2020〕9号）和《吉林省高标准农田建设项目竣工验收操作规程（试行）》（吉农建发〔2020〕10号）文件内容",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省高标准农田建设项目竣工验收试行办法",
+    "吉林省高标准农田建设项目竣工验收操作规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "16203",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16203",
+   "question": "尊敬的工作人员您好，我是中国农业大学经济管理学院的一名在读博士生，因创新课题研究的需要，向您咨询吉林省下辖各地市2012-2022年第一产业从业人员数量（万人）和2022年吉林省下辖各地市的化肥施用量（吨）数据。如若方便，请将数据发送至我的",
+   "cited_hits": [],
+   "cited_missing": [
+    "2023吉林统计年鉴"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14291",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14291",
+   "question": "咨询成立农业产业示范园的条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央国务院关于深入推进农业供给侧结构性改革加快培育农业农村发展新动能的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14263",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14263",
+   "question": "您好，我单位想参与报送吉林省农业农村厅下发的《关于收集参与吉林省高标准农田建设项目有关单位信息》相关材料，但是接收材料的邮箱已满，无法发送邮件，电话打不通，请问有新的邮箱接收材料吗？请帮我发一下新的邮箱号码及电话，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下放吉林省高标准农田建设项目（含东北黑土地保护建设项目）招投标管理及初步设计审批权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14225",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14225",
+   "question": "高标准农田施工企业备案的流程和手续原来信箱已满，新信箱是？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于下放吉林省高标准农田建设项目（含东北黑土地保护建设项目）招投标管理及初步设计审批权限的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13621",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13621",
+   "question": "想知道2024年主推技术的具体内容，每项技术是怎么操作的，这个文件里只发了标题。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农业农村厅关于发布2024年全省农业主导品种和主推技术的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "12961",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12961",
+   "question": "《吉林省农村土地承包权证经营权证试点管理办法（试行）》现在是否有效？是部门规章、还是规范性文件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农村土地承包权证经营权证试点管理办法（试行）",
+    "吉林省农村土地承包权证经营权证试点管理办法（试行）",
+    "中共吉林省委办公厅 吉林省人民政府办公厅关于印发〈吉林省农村土地承包经营权确权登记权证颁发指导意见〉的通知",
+    "吉林省农村土地承包权证经营权证试点管理办法（试行）",
+    "吉林省农村土地承包权证经营权证试点管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "10848",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10848",
+   "question": "我想搜农业农村厅通告【2023】1号，就是关于什么时间禁渔的，如：吉林省境内河流、湖泊、水库等（云峰水库、图们江干流及人工增殖渔业资源的湖泊、水库除外）水域禁渔时间为5月16日12时——7月31日12时。 （二）云峰水库禁渔时间为5月6日1",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省 2023年禁渔通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "9843",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9843",
+   "question": "针对畜禽养殖场建设粪污暂存设施，需要考虑当地农林作物生产用肥最大间隔期，现请明示吉林市地区（永吉县）最大间隔周期是多长时间。",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅、生态环境部办公厅关于促进畜禽粪污还田利用依法加强养殖污染治理的指导意见",
+    "农业农村部办公厅、生态环境部办公厅关于印发〈畜禽养殖场（户）粪污处理设施建设技术指南〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7909",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7909",
+   "question": "土地承包法第十二条第二款和第三款一件事情说了两级部门管理，不明白到底谁管？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农村土地承包合同管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7651",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7651",
+   "question": "想咨询一下吉林省是否有关于农机购置补贴的政策。 主要是关于（1.1.7微耕机）的补助政策。 吉林省是否有相关内容，相关内容的公告通知链接是什么，或者去政府的那个部门咨询办理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "农业农村部办公厅 财政部办公厅关于印发〈2021-2023年农机购置补贴实施指导意见〉的通知",
+    "吉林省2021-2023年农机购置补贴实施方案",
+    "吉林省2022年农机购置补贴机具补贴额一览表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4663",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4663",
+   "question": "农业农村部门是否可以委托第三方公司进行田间现场鉴定？第三方公司作出的田间现场鉴定意见是否有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "农作物种子质量纠纷田间现场鉴定办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3345",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3345",
+   "question": "尊敬的领导，我是一个种地的农民，2022年在吉农交易平台成功拍下了村政府的机动地，唯一不足的事情就是发包期限是一年一发包，我作为最底层的农民说一下我的一点建议，承包期限一年一发包的政策对承包者和土地都是一个资源浪费，第一点:承包者不能更好的",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省农村土地承包经营管理条例"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-nynct",
+   "id": "32576",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32576",
+   "question": "今年有关于农民的政策补贴吗,网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "32072",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32072",
+   "question": "尊敬的吉林省农业农村厅领导： 您好！我认真研读了贵厅发布的《关于 2026 年禁渔期的通告》，注意到通告第四条 “其他事项” 第（二）款，将路亚钓具与可视化钓鱼方式、夜间发光渔具一并排除在娱乐性垂钓之外，明确予以禁止。 对此规定，我存在几点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "30965",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30965",
+   "question": "村集体用“承包方消亡”——即口语中所说的“整户消亡”的理由主张收回农民的承包土地，并且每个地方认定“承包方消亡”没有统一的标准。请问“承包方消亡”具体的认定标准是什么？这个户是指第二轮土地承包合同（台账），还是农村土地承包经营权证，还是户口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "30951",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30951",
+   "question": "12415010004@fafu.edu.cn",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "30736",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30736",
+   "question": "2026年土地小部分调整涉及到应分未分人口，满足哪些条件属于应分未分人口？全省应分未分人口划定标准是否一致？各乡镇村屯是否按省统一政策执行？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "29763",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29763",
+   "question": "你好。因为贵厅官网的相关文件已找不到，可否将吉林省实施三大粮食作物完全成本保险的名单发与我邮箱，用于学术研究，谢谢！还望回复，非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "29096",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29096",
+   "question": "贵单位您好！我是吉林农业大学一名研究生，现今非常关注我省农村电商取得的显著成效。因科研需要收集我省2019年-2024年农村电商网络销售额、农产品网络零售额、农村电商企业数量、农村电商从业人数等相关数据。目前在官网仅查询到部分信息，但存在部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "28414",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28414",
+   "question": "贵单位您好！我是四川农业大学一名研究生，非常关注我省化肥减量增效取得的显著成效。因科研需要收集我省2015-2025逐年化肥减量增效示范县名单，包括新增县和续建县，目前在官网查询到部分名单，但存在部分数据缺失，故提交了申请。请求贵单位能否提",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "27983",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27983",
+   "question": "领导您好！我是一名高校的博士研究生，正在进行农业保险领域的研究。在贵省公开的政策文件中没有找到第二批（2019年）农业大灾保险试点县的名单，故留言询问，期望回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "27811",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27811",
+   "question": "尊敬的吉林省农业农村厅的领导，您好！ 我是西南财经大学的一名硕士研究生，非常关注贵省化肥减量增效取得的显著成效。 因科研需要收集从试点开始至今贵省（1）化肥减量增效示范县（2）果菜茶有机肥替代化肥试点县的数据。为得到完整、准确的信息，故写信",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "27624",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27624",
+   "question": "请问省农业农村厅的2024年政府网站工作年度报表在哪里看？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "26484",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26484",
+   "question": "户户通，不知道啥原因，没有给我家修建。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "25375",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25375",
+   "question": "在2017年吉林省全程机械化新型农业经营主体农机装备建设实施方案中，要求新型农业经营主体经营耕地方式包括代耕代种、联耕联种、土地托管和土地流转等，在申报表中要求填报经营面积和作业面积。请问，这是否说明在确认新型农业经营耕地面积时，应当包括除",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "25297",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25297",
+   "question": "新农乡新农村曹面铺屯7组,养殖户非法排放猪尿，影响居民正常生活，十分严重，村干部以及乡干部渎职，不作为，多次反应无果。老百姓有苦难言，此行为是否构成非法排放？根据国家相关规定要求，需求牲畜粪便等排泄物要求统一堆放，统一管理，养殖户此举是否构",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "24552",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24552",
+   "question": "本人家住长春市朝阳区永春镇平安村五组，从1997年二轮土地发包时开始，永春镇政府就没有公开为百姓审批过建房手续，不能满足村民申请宅基地建房的要求，对于朝阳区永春镇是否有乡村建设规划许可证，朝阳区规划和自然资源局的回复是请转长春市规划局。长春",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "24342",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24342",
+   "question": "贵单位您好，从统计年鉴中可知吉林省常用的氮肥是尿素，那么，我想咨询一下吉林省常用的磷肥、钾肥以及复合肥是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "23954",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23954",
+   "question": "我父亲是农村户口，想要申请宅基地，大安市政府只回应没有地，想咨询一下宅基地申请政策，是否政府以没有地为理由就可以不顾农民切身利益？没有地的情况下如何能得到宅基地？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-nynct",
+   "id": "23352",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23352",
+   "question": "你好，我想查询2023年吉林省各县区的耕地面积以及化肥使用量数据，仅用作论文研究，数据在《2024吉林统计年鉴》中并未发布。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "23190",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23190",
+   "question": "我农村户口 一直在外打工 现现农村没有住房 打算回农村居住 村里不给申请宅基地 想问一下为什么不给申请宅基地 又要如何解决我住房问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22203",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22203",
+   "question": "您好!我在贵省农业厅及政府官网，都未搜索到任何年度关于《吉林省农业农村厅办公室关于做好XX年度农作物秸秆综合利用工作的通知》。我认为辽宁省作为秸秆大省，是秸秆综合利用的重点省份，这些实施方案政策的缺失会产生各方面不便，不利于民众对政府政策的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22090",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22090",
+   "question": "2024年，我在中华联合财险投保了玉米完全成本保险，受灾之后，保险公司以非常低的价格理赔。之后，我找到保险公司进行理论，保险公司答应375元每亩价格进行赔付，但是一个月过去了，始终不给打钱，保险公司耍无赖不想给钱，之后多次联系保险公司，也没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22089",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22089",
+   "question": "2024年，我在中华联合财险投保了玉米完全成本保险，受灾之后，保险公司以非常低的价格理赔。之后，我找到保险公司进行理论，保险公司答应375元每亩价格进行赔付，但是一个月过去了，始终不给打钱，保险公司耍无赖不想给钱，之后多次联系保险公司，也没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "22060",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22060",
+   "question": "在2024年我在村委会的组织下投保了中华保险的玉米完全成本保险，受灾后保险公司以极低价格赔偿。我在25年1月份时将中华保险投诉到了省农业弄村厅，经过省厅领导与保险公司交涉后，保险公司答应赔偿我的受灾损失，我本以为可得到解决，结果等了一个月也",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21876",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21876",
+   "question": "您好我是一名普通的水稻种植户有幸了解到了家庭农场这个项目我想问一下作为一个农民如何运作这个家庭农场，要求都有哪些，政府方面有哪些补贴，我也想为乡村振兴做出贡献推动东北经济发展做一份力",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21391",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21391",
+   "question": "永丰村全体村民于二零二四年十二月二十三日去辉南县信访办递交所诉求材料，但至今无果，每次打电话咨询都是“我们上交材料，上递材料”一直没有回复！现将全部村民诉求上交至农业农村厅厅局长，希农业农村厅厅局长能给予督办这一群众群体事件！村民迫切期待解",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21321",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21321",
+   "question": "我在蛟河兴源农机买的大桥拖拉机 付款到兴源公司 给了我一丰硕公司发票 他们家不承认兴源卖车给我 这是补贴车辆 还可能涉嫌补贴违法 我话了43000买了宁迪奔野504 而我在国家补贴信息里发现这个牌子的704还没我购买的价格高 希望领导能发现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21282",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21282",
+   "question": "诉求内容 1:向阳村在2024年12月20日村民代表会通过了:册外地，小孩地，机动地的发包定价内容:一等地定价5100元，二等地定价4100元，….其他见附表。因为此次代表会涉及到了全体村民的经济利益，按照村民委员会组织法规定，会议决议涉及",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21281",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21281",
+   "question": "在2021年通榆县瞻榆镇向阳村两委以，三资清理为由对全村实际承包面积超出土地承包合同（土地承包经营权证书）记载面积多出的部分耕地进行乱收费（他们叫册外地），违背这次土地确权工作成果，这次土地确权目的是完善权属关系，地块坐落,边邻四至,实拉实",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21279",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21279",
+   "question": "1:向阳村在2024年12月20日村民代表会通过了:册外地，小孩地，机动地的发包定价内容:一等地定价5100元，二等地定价4100元，….其他见附表。因为此次代表会涉及到了全体村民的经济利益，按照村民委员会组织法规定，会议决议涉及到全体村民",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21161",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21161",
+   "question": "您好！《中华人民共和国农村集体经济组织法》将于2025年5月1日正式实施，在第二章第十七条规定公务员丧失农村集体经济组织成员身份，没有明确事业单位工作人员是否可以认定为农村集体经济组织成员身份，我本人户籍一直在农村，并有集体承包地，后因升学",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21145",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21145",
+   "question": "各位领导你们好！我是双辽市卧虎镇同乐村一个普通村民，我们2014年春天在太平洋保险公司承保的玉米农业保险，当时有成本险和收益险，我们保的是收益险，由于夏天时遭遇强降雨，使得部分地块受灾严重，达到了绝收的情况，这个保险公司也通过航拍等做了考证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21135",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21135",
+   "question": "本人系达家沟镇合义村11组村民，家中独生子女，父母享有独生子女待遇，在1997-1998年二轮土地承包之前，一直享有独生子女双份土地待遇，即额外增加一人份待遇，在1997-1998二次土地承包时，当时的政策是独生子女多半份土地，但当时合义村",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "21110",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21110",
+   "question": "2024年12月，在四平双辽市发生了一个关于玉米完全成本保险的问题。玉米完全成本保险是由村委会统一投保的一个政策性保险，旨在为农户提供保障，以应对自然灾害等风险。然而，在这次事件中，农户在受灾后并未得到应有的保障，因为他们在查勘定损的过程中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20914",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20914",
+   "question": "尊敬的各省市县相关部门负责人： 您好！ 我是吉林省永吉县渴望信息咨询有限公司法人崔太明，非常荣幸地给您写信。 我诚恳建议，由当地农业部门牵头，联合发改、住建、水利、环保、财政等部门，积极开展“城乡人粪尿资源化循环利用”政策落地的调研论证工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20791",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20791",
+   "question": "尊敬的领导： 新土地管理法后，现在征收土地时，各地基本都规定区片综合地价包括土地补偿费和安置补助费两项费用之和，不包括被征地农民社会保障费用、征收农用地涉及的地上附着物、青苗等补偿费用。征收土地时，土地补偿费按区片综合地价的20%计算，安置",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20789",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20789",
+   "question": "尊敬的领导您好： 村民在第二轮土地承包时，有村民只分得半分土地，现在集体土地遇到征收，村民会议开会只按照半分土地给村民分配征地不成。问题如下，请领导给与解答： 1、28号文件规定，对享有土地承包经营权但没有承包地人员分配资格的认定。这部分人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20719",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20719",
+   "question": "我们通过本网站只能看到企业名称，没有地址和电话，也没有汇总企业，实际操作就是通过关键字挨个点开公告，找到单位名去百度，看地址和联系电话，然后不匹配我的位置就要在重新挨个点开公告再来一边，这样很不方便，麻烦再公布这种企业的时候，直接注明企业地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20433",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20433",
+   "question": "尊敬的吉林省农业农村厅领导，您好！ 我司是“2025三亚俄罗斯生物科技成果展”的主办单位，此次活动由俄罗斯联邦农业部、俄罗斯质量体系支持，俄罗斯国立农业大学、远东国立农业大学组织承办。异彩纷呈的全俄生物科技成果将在2025年1月13-16日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20425",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20425",
+   "question": "您好，我想咨询一下，快递物流下乡到村委会，村委会上报给乡村振兴局的快递员每月发放工资吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20394",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20394",
+   "question": "详见附件！ 公民联名信致省长公开信举报农村饮用水污染问题，通化市辉南县金川镇永丰屯饮用水污染十年未解决，镇政府个别人员阻挠施工强迫当地居民长期饮用不合格水源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20128",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20128",
+   "question": "吉农建发[2020]9号、吉农建发[2020]10号文件没查到，请发到邮箱，谢谢了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20104",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20104",
+   "question": "首先，感谢吉林省农业农村厅厅长能够关注到松原市长岭县大兴镇2020年政府要求翻盖宅基地，已给国补但没有审批手续问题！ 其次，我再次在厅长信箱继续投诉长岭县政府对此事件的不作为情况：由于大兴镇政府已答复我，没有审批手续这个问题得等长岭县政府统",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20068",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20068",
+   "question": "您好我是黑龙江省社会科学院的在读研究生，想问一下吉林省对专业大户的认定标准，以及各种新型农业经营主体近五年的数量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20066",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20066",
+   "question": "2022年开始实现全省产粮大县全覆盖，请问2022年有哪些县实施了完全成本保险呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "20060",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20060",
+   "question": "你好，我是吉林省敦化市农民，我想咨询一下基本农田可以种植人参吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "19900",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19900",
+   "question": "尊敬的省农厅相关领导！ 您好！ 我是一名拥有着3年与产地政府在乡村振兴大框架下以产地供应链为核心共建农业全产业链项目经验的，新一代的下过乡的“知青”。 几年前从深圳跟着项目招商引资项目到了云南，后来又被以招才引智名义留在了云南，在主要农业国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "19889",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19889",
+   "question": "2020年大兴镇大兴村政府给我爸打电话，说:国家政策补贴让翻盖宅基地房屋，政府批复60平给补贴16500元，我爸拿着在外打工存下的6万块钱翻盖了宅基地房屋60平，大兴村政府也用我爸的身份信息办理了邮政储蓄卡，给了16500元补贴...202",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "19802",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19802",
+   "question": "您好，我想咨询吉林省农垦国有农场名单。一个月前，我留言过，收到的您的回信是集团名单，两者应该并不相同。还请您帮忙核实，统计年鉴显示，2022年吉林省农垦国有农场为88个。烦请你再确认一下这份农场名单，可以吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "19705",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19705",
+   "question": "关于吉林省农委的2009/28号文征地补偿款分配方案通知解读 一 如果（2019年2020年）经济集体组织成员花名册里有这个人名（本屯女方结婚户口没走生子女随女方户口了，占地能得到册外地款）花明册没有名的同样上述情况的怎么办（我们屯村民现在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "19672",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19672",
+   "question": "尊敬的领导：您好！我这浙江农林大学经管学院在读博士生，想咨询一下贵单位是否有2005-2023年间吉林省各县（市）高标准农田建设的面积以及建设标准的数据。若没有，烦请告知具体的获取渠道，期待您的回复！我的邮箱是pangjing342@163",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "18428",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18428",
+   "question": "您好，局长！我是吉林省白城市洮北区平台镇公益岗人员，从4月份到现在公益岗工资没有发放了，请问什么时候能给发放啊？家里孩子得的病比较特殊，感谢省里和市里还有镇政府对我们的照顾，给予我们这个公益性岗位工作。我们几个公益岗人员托村里懂电脑的人帮着",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "18310",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18310",
+   "question": "智慧育苗大棚建设方面有无相关政策，例如补贴、补助、奖励、资金等，或是相关规范。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "17081",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17081",
+   "question": "尊敬的领导： 您好，我是一位普通的农村年轻人，我收到了中国移动发来的关于咱们农业APP推广的信息，首先我想说的是，这个APP的推广确实有利于农村群众在农业技术上的增长，这个是一个好的事情，但是，据我观察，现在绝大部分务农的都是年龄比较大的人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "17019",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17019",
+   "question": "1、我省是否有官方的农产品溯源平台，如果有如何对接和申请溯源码，具体需要哪些手续？ 2、我省是否有对溯源码的政策管理要求，在哪能查到相关政策文件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "16283",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16283",
+   "question": "本人于2024年3月11日在长春市绿园区西安大路种子大厦二楼B16-17吉林省易家人种业有限公司（销售经理安丰美）,购买瑞普919 28代（5500粒/代）金玉81 2代(5500粒/代),并于2024年4月28日播种完成, 从南方周末5月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "15234",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15234",
+   "question": "您好，我是一名在读博士研究生，正开展化肥施用相关研究，需依托于政策信息的收集，请问是否可以提供 ①咱们吉林省2018-2021年果菜茶有机肥替代化肥试点县完整名单（每年新增县+续建县）？ ​② 咱们吉林省2016-2020年化肥减量增效试点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "15125",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15125",
+   "question": "您好，我是一名在读研究生，因论文的需要，向您咨询吉林省农业农村厅政府网站2020年和2019年的工作年度报表。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14671",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14671",
+   "question": "领导您好，我想问下，我父亲和我爷爷98年分地时村上两个台账，2018确权时在一个承包本上我爷爷去世了，村上说是全户消亡，让我父亲交钱，种我爷爷的地，要不就收回，合理么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14635",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14635",
+   "question": "领导好，我们的户口在一起，土地确权证是分开的到底是按户口算还是按确权证，按户口算那我们就是被骗了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14593",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14593",
+   "question": "请问《吉林省高标准农田建设项目竣工验收试行办法》（吉农建发〔2020〕9号）和《吉林省高标准农田建设项目竣工验收操作规程（试行）》（吉农建发〔2020〕10号）文件内容。313147617@qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14546",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14546",
+   "question": "您好，我是一名在读研究生，因撰写毕业论文的需要，向您咨询吉林省各地级市2010-2022年农业有关数据：各地级市耕地补贴总额、耕地受灾面积、区域储备粮 、 粮食总需求量 、区域粮食购进量 、外销量 。数据较多，多有麻烦，如您有以上全部或者部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14519",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14519",
+   "question": "关于种地水稻及大豆相关政策补助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "14256",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14256",
+   "question": "您好哪里可以查询到2024年长春地区蔬菜推荐品种呢或者2023年长春地区主要种植的蔬菜品种比如番茄中某个品种，黄瓜中某个品种，甜瓜中某个品种",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13917",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13917",
+   "question": "现在种地有补贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13862",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13862",
+   "question": "2023年种植的高油大豆黑龙江省有后续额外补贴，我想咨询以下咱们吉林省有这项高油大豆补贴政策吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13819",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13819",
+   "question": "现在吉林省都通过吉农交易这个平台进行拍卖，由于村民之间的恶性竞争，使得地价非常高，这就使得农民陷入了一个怪圈，不种吧，没有钱赚，种吧，地价太高，甚至有赔本的风险，而且，现在的玉米价格还一路走低。我想问问领导怎么解决这个问题？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13748",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13748",
+   "question": "《2015年中央1号文件》中指出“对土地等资源性资产，重点是抓紧抓实土地承包经营权确权登记颁证工作，扩大整省推进试点范围，总体上要确地到户，从严掌握确权确股不确地的范围。”。《2015年吉林省1号文件》中指出“推进农村土地确权。2017年，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13696",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13696",
+   "question": "求教智能大棚技术 我是洮南市洮府办事处增胜村村民赵春城。我村现有简易大棚30余个，想改建智能暖棚，求教技术，请给予指导，谢谢！ 求教人：洮南市洮府办事处增胜村村民：赵春城， 电话/微信13943450158，2024年1月22日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13579",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13579",
+   "question": "农村厕所革命负责人：您好！ 我是吉林省永吉县渴望信息咨询有限公司法人崔太明，很高兴给您写信。在7-8年的厕所革命，再加上2-3年的厕所整改工作中您们费劲了心水，但有的方面很不如意，特别是在污水处理方面很头疼。据了解南方推广普及农村水冲马桶后",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13560",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13560",
+   "question": "尊敬的领导您好！村上大队 要求独生子女每年交取独生子女土地承包费用，没有查询到相关文件政策，只是说收钱 也没有公章发票 也没明确这个钱收到哪里 这种收费有相关文件规定吗 望回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13524",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13524",
+   "question": "看过之前对初级农产品的定义释义，根据《中华人民共和国农产品质量安全法》第二条规定，“农产品是指来源于农业的初级产品，即在农业活动中获得的植物、动物、微生物及其产品”。按照全国人民代表大会常务委员会法制工作委员会编的《中华人民共和国农产品质量",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13151",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13151",
+   "question": "尊敬的厅长您好，我是中南林业科技大学的一名研究生，为与导师一起完成国社科基金项目，想向贵单位咨询2012-2022贵省的禽畜粪便综合利用率。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13133",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13133",
+   "question": "尊敬的领导您好，我是23届的研一学生，由于课题需要，想向您咨询吉林省中（长春市、吉林市、四平市、辽源市）东（通化市、白山市、延边州）西部（白城市、松原市）的土地租金",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "13129",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13129",
+   "question": "您好，我是23届研究生，课题需要整理2022年水稻市场价格数据，除长春市外还有，吉林市、四平市、辽源市、通化市、白山市、延边朝鲜族自治州、白城市和松原市。麻烦您了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11842",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11842",
+   "question": "村里要求秸秆必须在近期内离田，请问 各位领导为什么要强制村民秸秆限期离田呢？ 1. 秸秆现在离田农民烧柴做饭用的秸秆怎么解决？ 2.农民养的鸡鸭鹅牛羊 的饲料部分都是用秸秆加工成的怎么解决？ 3.散养的牛羊为了节约成本去地里放养地里没有秸秆",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11654",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11654",
+   "question": "1、请问吉林省内有哪些经你厅批准的可以合法屠宰猫狗的企业或个体经营者. 2、对吉林省内贩卖猫狗肉的餐饮企业或个体经营者是否做到猫狗肉制品溯源。 3、是否清楚市场流通中猫狗肉的来源在哪里？流通的猫狗肉是否符合动物防疫法及食品安全法的规定？ 4",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11642",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11642",
+   "question": "您好，我是四川农业大学农业管理专业的研究生，因研究需要吉林省农业产业化省重点龙头企业的名单，其中2012，2013和2016年度的认定名单以及监测结果名单在网上找不到，能否进行传递，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11346",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11346",
+   "question": "现在种地有补贴吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "11298",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11298",
+   "question": "您好！很抱歉打扰您！本人为延边大学农林经济管理专业大四在读本科生，由于毕业原因需要以一篇论文作为结业标准，因研究方向涉及到榆树市玉米产量及其相关影响因素，但却未能找到相关资料，所以留言请求指教，该通过哪种途径获得相关数据，期待您的回复~（诚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "10365",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10365",
+   "question": "2017年11月份卖给跃川水稻 一共拖欠了70700块钱水稻的费用 一直各种借口拖着不给 请有关部门帮帮忙",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "10038",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10038",
+   "question": "请问贵单位的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "9861",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9861",
+   "question": "您好！我是种植玉米的农民，保险了知道了玉米损失率2.5成起赔，也知最高赔偿每亩750元，但不知损失各成之间赔偿多少。不知农业厅可有玉米2.5成损失率对应成数赔偿明细表，求一份。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "9853",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9853",
+   "question": "由于研究的需要，想要咨询2018-2022年吉林省每年高标准农田建设的面积及投入的财政资金，相关统计年鉴只有到2017年的数据，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "9089",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9089",
+   "question": "您好，我想详细了解学习一下，我省2022年及今年绿色高质高效水稻、玉米、大豆的相关文件，及今年三新航化、重大病虫害治理相关文件，目前穷尽手段在网上没有公开文件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "8945",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8945",
+   "question": "我省是人参大省，人参也是我省的一个名片，我们还有人参小镇这样的种植销售人参的特色小镇。我在网上开了一家网店，销售咱们吉林当地的土特产，红参片我也是作为初级产品销售的，但是现在有很多职业打假人以红参片是中药饮片不属于初级农产品为由进行打假，政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "8692",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8692",
+   "question": "松原市渔政禁捕期禁止娱乐性垂钓！电鱼！下网挂鱼！网鱼的基本不管！就管钓鱼的！在引江水段有个渔船下了好几十那种绝户网！渔政看见了也不管！老百姓都知道这个人好使！渔政人员和他都是朋友！！再说了松原市能不顾农业农村部和吉林省渔业管理下发的文件除了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "8403",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8403",
+   "question": "请问:农村耕地每年都有几项补贴，到现在只知道有，地补，粮补，其他一无所知，还有就是2023年的，地补，粮补，实在几月份发放？现在网络传的沸沸扬扬，说是5.30日前发放到户，查了查吉林省农业农村部官网不知道自己看的对不对，说是5.26日前发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "8216",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8216",
+   "question": "农村册外地属于合法耕地吗？可不可以享受耕地地力保护补贴，一次性种植者补贴，轮作补贴，生产者补贴吗？可以享受政策性农业保险吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "8005",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8005",
+   "question": "你好，我是一名大四毕业生，现在写论文遇到了困难，想咨询贵省有近五年进口美国和巴西大豆的数据吗？我在统计年鉴没有找到，万分感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7834",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7834",
+   "question": "领导你好：我想咨询农村村民在宅基地上建住宅，现行政策：1、对所建住宅的层数有没有要求，2、对建筑占地面积有没有要求，3、对总建筑面积有没有要求，以上3点如果有要求是多少，依据是什么？盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7785",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7785",
+   "question": "我省规定了规模养殖场的标准，如生猪每年出栏300头以上，请问这里的300头，是指实际出栏量，还是指的出栏能力。就是说一个养殖场的硬件设施水平具备每年出栏300头生猪的养殖能力，但它实际只出栏200头，不打算继续出栏了，那它算不算规模化养殖场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7597",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7597",
+   "question": "尊敬的领导您好，因科研需要，特向贵单位申请2010-2022年吉林省各行政分区的农业产值，谢谢您",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7404",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7404",
+   "question": "《食用农产品市场销售质量安全监督管理办法》第三十三条规定： 销售获得无公害农产品、绿色食品、有机农产品等认证的食用农产品以及省级以上农业行政部门规定的其他需要包装销售的食用农产品应当包装，并标注相应标志和发证机构，鲜活畜、禽、水产品等除外。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7341",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7341",
+   "question": "1、咨询大棚建设补贴标准 2、大棚种植补贴标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7288",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7288",
+   "question": "因学术研究需要，想要咨询贵省产粮大县具体名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "7077",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7077",
+   "question": "为建设美好乡村，建设新时代新农村，请允许农民在宅基地周围有足够空间、有经济条件的情况下，根据自己实际需要建宽大明亮的平房以及二三层楼房，在批给的宅基地上自由建房，不再有建筑面积和层数限制，充分体现农村的村民生活的富裕。农房改革之前农村建房按",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6840",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6840",
+   "question": "请问贵单位的财政预决算信息在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6822",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6822",
+   "question": "2023年大豆玉米带状复合种植有特殊专项补贴吗？如果没有专项补贴那我要是在一片地上种4垄黄豆4垄玉米的话，生产者补贴怎么给补助，是按照实际种植多少大豆和实际种植多少玉米面积给补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6566",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6566",
+   "question": "想咨询贵单位可否提供与黑龙江省休闲农业相关的数据，该数据用于科研用途，数据包括2015年--2022年各年全省休闲农业经营主体数量、从业人数、接待游客数、营业收入、带动农户就业数。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6423",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6423",
+   "question": "您好！本人想要申请使用2005-2022年本省各地级市农业支持保护补贴（原“三项补贴”）、农机购置补贴、农业保险费补贴的数据。 用于本人硕士毕业论文以及小论文中，坚决不会通过非法途径传播。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6193",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6193",
+   "question": "等着公布种植者补贴公布好定下来种哪种作物，好准备化肥种子。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6085",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6085",
+   "question": "我想咨询一下2008――2017年关于吉林省关于农业的投入情况，具体有在农业生产的财政补贴资金，对农民的培育情况，以及对农业产业扶贫情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "6082",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6082",
+   "question": "您好，因课题研究需要，需要了解吉林省2018-2020年期间农业（玉米产业）发展状况，特申请2018-2020年贵州省农业（玉米产业）统计资料或2018-2019年的统计年鉴。如果方便，请发邮件至邮箱或提供下载的网址链接。非常感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "5986",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5986",
+   "question": "作业补贴者讨要保护性作业补贴款，镇赉县政府以咱们省部分资金没到位拒绝拨款",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "5807",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5807",
+   "question": "吉林省白城市洮南市合村并镇具体名单？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "5766",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5766",
+   "question": "我村六合甸全是盐碱地，我自己花三万多买地土，沙压碱三公顷，当时村上收费收到2028底，村上说你自己买地土甸的，那也得交钱，刚开始要七亩地钱，没过多久村上又来要钱，说折半交，必须在交十亩钱拿走了，据还原先剧就是在七字前边加个一。从2000开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "5611",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5611",
+   "question": "21年买的农机，22年申请的农机补贴，补贴款没有发，请问预计什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "5606",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5606",
+   "question": "尊敬的吉林省农业农村厅的领导，您好！ 之前的答复已收到，非常感谢贵厅耐心的回复。 我们已经按之前答复中的电话咨询省土肥站，后转到培肥改良科，但是均没有得到试点县名单，故再次写信求助贵厅能否协调办理。 据我们了解， 化肥减量增效示范县与果菜茶",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4949",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4949",
+   "question": "吉林省农业农村厅关于补贴咨询的电话，打了三个星期，每天都打，就是打不通，前一秒还在通话中，后一秒再打就是不接，这个对外公布的咨询的电话是做什么用的，就是让你们厅里内部用的吗？如果是这样，你们就不要公布对外咨询的电话，电话为：0431-880",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4727",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4727",
+   "question": "您好，我想咨询一下，非林蛙养殖户销售活体林蛙，除需要有营业执照以外，还需要办理哪些手续，如需办理的话去哪个部门办理？以前办理的林业部门的野生动物销售加工许可证都已经作废了，不能续办了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4245",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4245",
+   "question": "请问农村土地耕地力补贴是否按照确权面积发放，确权证已经在手，目前村里还是按照以前登记台账发放，是否可以要求按照新确权面积发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4208",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4208",
+   "question": "请问咱们省有没有关于一村一品的奖补资金，如果有应该怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4104",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4104",
+   "question": "人力资源社会保障部 农业农村部关于评选全国农业农村劳动模范和先进工作者参选工作咱们省什么时候能够开展？怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "4059",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4059",
+   "question": "提前关心种植者补贴多少钱主要是为了2023年我们农民看看种哪种作物更有账算，好提前买肥买籽，现在化肥价格低，如果2023年大豆补贴和2022年一样的话我就可以买大豆专用肥，要是补贴力度不大那我就买玉米肥了，希望领导给一个定心丸吃，这样我们农",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3887",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3887",
+   "question": "今年的粮食补助会有提高吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3608",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3608",
+   "question": "您好，我是东北师大的一名学生，我想咨询一下，吉林省农业供应链金融具体有哪些企业在实践呢，以及成果如何，是否可以作为示范推广到其他地区。支持农户信贷的银行主要有哪些呢，除了政策型银行以及商业银行外，还有那些贷款公司也参与其中呢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3571",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3571",
+   "question": "尊敬的领导，您好！我是华南农业大学经济管理学院的博士研究生，课题研究当中需要吉林省县（市区）一级的“中低产田改造“面积、“高标准农田示范工程”面积和“农业综合开发资金投入”的数据，时间跨度为2005-2020年，希望得到您的帮助。此致 敬礼",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3535",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3535",
+   "question": "各位领导，您好，我是吉林农业大学一名在读硕士研究生，因研究吉林省食用菌产业相关方面的内容，由于在网上未能查询到相关数据，又因论文研究需要，不得不用此指标，特此向贵省厅提交申请，希望贵省厅可以提供一下2011-2017年食用菌出口产量与出口产",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3503",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3503",
+   "question": "尊敬的吉林省农业农村厅相关人员您好：我是长春理工大学研究生，因毕业论文涉及吉林省农产品通过电商，直播平台等渠道的销售量，营业收入等。如果有相关数据，希望可以提供，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3489",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3489",
+   "question": "您好我是长春大学一名教师，因课题结项，需要1.吉林省耕地分布具体数据2.按地区秸秆产量近5年数据。望支持",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3360",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3360",
+   "question": "尊敬的吉林省农业农村局领导及相关工作人员，我是山东农业大学的一名本科生，因论文数据需要，现向贵局咨询吉林省各地市2000年-2022年苹果产量与苹果园面积数据及水果产量与年末实有果园面积数据，还烦请相关工作人员帮忙查询一下，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "3116",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3116",
+   "question": "你好，我是湖南一所高校的学生，现在毕业论文用到贵省的农业现代化政策，请问贵省农业现代化政策是什么时候开始实施的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "2934",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2934",
+   "question": "您好，我是浙江财经大学硕士研究生，毕业论文涉及2011年至2020年吉林省各个地级市的农林牧渔从业人数（可以是乡村人口统计口径，不包含城镇），不是城镇中的农林牧渔从业人数哈。以上在省统计年鉴上没能找到，如能提供，不甚感激！答辩日期将近，不管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "2712",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2712",
+   "question": "农业农村厅的工作人员们你们好，我是咱们吉林省的一名大学生，因为近期撰写毕业论文，需要一些休闲农业（16-20年的营业收入、客流量等）相关数据，无比感谢你们的帮助，麻烦你们救救孩子吧。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "2418",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2418",
+   "question": "您好！我是天津城建大学一名硕士研究生，因课题研究需要，想咨询近几年（2015-2021）吉林省休闲农业的相关数据，如经营主体的数量、从业人数、接待人次、营业收入情况等，望及时回复，万分感谢！ 附件为身份证明。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "2415",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2415",
+   "question": "2021年春保护性耕作补贴款为什么不给我们机手，还有2022年的我们连续两年给老百姓种地，直到现在我们农机手一分钱没得到，我们用柴油加雇人干活，两年了也投资好几万了，到现在一分钱也没给我们，请问什么时候给我们，我需要一个确定的时间，是给还是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "1794",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1794",
+   "question": "怎么能有效防治农作物重大病虫害",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "1459",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1459",
+   "question": "生晒参仅是把鲜人参清洗后烘干，没有改变其基本自然性状和化学性质。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "1170",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1170",
+   "question": "镇赉县2021年保护性耕作补贴还有一部分未发放，2022年保护性耕作补贴也为发放，想问一下什么时候能发放补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-nynct",
+   "id": "882",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=882",
+   "question": "您好，我是一名高校研究生，由于科研项目所需，向贵厅咨询是否有建设省级的一村一品、省级特色农产品优势区、省级现代农业产业园以及省级名特优新农产品，如果有希望能提供一份包括批次年份的名单，希望贵厅整理提供！万分感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

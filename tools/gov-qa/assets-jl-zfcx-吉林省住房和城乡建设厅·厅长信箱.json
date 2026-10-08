@@ -1,0 +1,628 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-zfcx",
+   "id": "31502",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31502",
+   "question": "关于加强全省房屋建筑和市政基础设施工程招标投标监管工作的若干意见 吉建规〔2025〕4号 这个文件中“下浮招标控制价1%以内或15%以外的投标报价不计入评标基准价计算”是必须执行吗？",
+   "cited_hits": [
+    {
+     "name": "招标投标法",
+     "lib_no": "招标投标法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "23060",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23060",
+   "question": "1.永吉县住宅专项维修资金补交续交的标准和流程。 2.永吉县住宅专项维修资金的查询制度，以及瀚轩雅苑小区住宅专项维修资金书面查询结果。 3.永吉县瀚轩雅苑小区住宅专项维修资金的审计报告。 4.永吉县瀚轩雅苑小区物业办公用房的准备位置和房产证",
+   "cited_hits": [
+    {
+     "name": "吉林省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "12319",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12319",
+   "question": "想咨询一下，空置房屋物业费是不是可以减半缴纳？是不是有条例可查",
+   "cited_hits": [
+    {
+     "name": "吉林省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "1246",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1246",
+   "question": "我是高层业主，前段时间，我家东西丢了，去报警，警察说要有监控，我们就去找物业了，物业说没有监控，我们也没有多说什么，要求物业把监控建立起来，保证业主人身财产安全，之前物业经理说会安装的，过了几周，我又去物业问情况，但没有人知道，202208",
+   "cited_hits": [
+    {
+     "name": "吉林省物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-zfcx",
+   "id": "34570",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34570",
+   "question": "尊敬的住建厅领导： 在执行《建设工程造价鉴定规范》（GB/T51262-2017）（简称“本规范”）开展工程造价鉴定业务过程中，遇到当事人一方仅提出申请主张，在双方合同无相关约定并且该当事人未提交证据的情况下，鉴定机构能否仅按其主张出具选择",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程造价鉴定规范",
+    "GB/T51262-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "32219",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32219",
+   "question": "见附件",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "31701",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31701",
+   "question": "本工程合同计价规则：工程量清单计价执行《建设工程工程量清单计价规范 GB50500-2013》、《吉林省市政工程计价定额》（JLJD-SZ-2014）及长春市发布的相关造价文件（调整按最新文件执行）；材料价格执行施工期间长春市定额站发布的价",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省市政工程计价定额",
+    "吉林省市政工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "29850",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29850",
+   "question": "在2025年印发的《吉林省建设工程项目招标投标活动技术导则》中，在附录F.0.1的2.2.4（3）投标报价评分标准（文件页码为88页）里，投标报价计算公式有两个扣分值B1和B2，文件中在对其解释的原文是“B1是投标报价每高于评标基准价一个百",
+   "cited_hits": [],
+   "cited_missing": [
+    "技术导则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "29465",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29465",
+   "question": "尊敬的吉林省住建厅负责领导： 我单位于2023年9月启动建设松原太平川国际粮贸内陆港铁路专用线新建工程建设，主要建设内容为新建两条铁路专用线总长度为2.1公里，配套集装箱装卸场地4.4万平方米及铁路道口值班室一处（面积：62平方米）。因该工",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设工程消防设计审查验收规定暂行规定",
+    "吉林省建设工程消防设计审查验收管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "28697",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28697",
+   "question": "《房地产经纪管理办法》第三十三条 违反本办法,有下列行为之一的,由县级以上地方人民政府建设(房地产)主管部门责令限期改正,记入信用档案;对房地产经纪人员处以1万元罚款;对房地产经纪机构处以1万元以上3万元以下罚款: (一)房地产经纪人员以个",
+   "cited_hits": [],
+   "cited_missing": [
+    "房地产经纪管理办法",
+    "住房租赁条例",
+    "住房租赁条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "24027",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24027",
+   "question": "被拆迁人：周红燕（身份证号：220323196406190035投诉事项：伊通满族自治县房屋征收补偿纠纷 投诉事由1. 责任主体擅自变更 原《房屋征收补偿协议书（产权调换）》与房屋征收中心签订，后因回迁房被开发商（吉林省万喜房地产开发有限公",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋征收补偿协议书（产权调换）",
+    "房屋征收补偿协议书（产权调换）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "24000",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24000",
+   "question": "请问营业执照地址发生变更后，资质证书多久要完成变更，超出时间申请变更是否无法变更？",
+   "cited_hits": [],
+   "cited_missing": [
+    "工程监理企业资质管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "22305",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22305",
+   "question": "你好，想问一下今年购房有补助吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于推动经济持续回升向好奋力夺取一季度“开门红”若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "21361",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21361",
+   "question": "长春市城市轨道交通7号线一期工程合同中工程量清单编制及计价办法约定，定额、取费标准采用《吉林省城市轨道交通工程计价定额》（JLJD-GD-2017）编制工程量清单。因2017吉林省轨道交通计价定额中无机械台班定额，编制工程量清单、涉及临时发",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市轨道交通工程计价定额",
+    "吉林省施工机械台班计价定额",
+    "吉林省城市轨道交通工程计价定额",
+    "吉林省施工机械台班计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "20863",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20863",
+   "question": "松辽水利水电开发有限责任公司违法转包，在亚行贷款黑龙江省煤炭资源枯竭型城市转型发展促进项且鹤岗项目河道治理工程包3:小鹤立河治理工程，项目整体违法转包给没有资质的公司，并拖欠农民工工资、项目材料款，700多万元的项目进度款留在自己公司账户想",
+   "cited_hits": [],
+   "cited_missing": [
+    "住房城乡建设领域违法违规行为举报管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "20765",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20765",
+   "question": "长春市城市轨道交通7号线一期工程合同中工程量清单编制及计价办法约定，定额、取费标准采用《吉林省城市轨道交通工程计价定额》（JLJD-GD-2017）编制工程量清单。因2017吉林省轨道交通计价定额中无机械台班定额，编制工程量清单、涉及临时发",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省施工机械台班计价定额",
+    "吉林省轨道交通工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "19919",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19919",
+   "question": "某工程施工承包合同约定:承包方式为建筑面积平方米单价包干，实际结算总价执行2009年《吉林省建筑工程计价定额》建筑面积计算规则。该多层建筑施工图屋面挑檐上返部分均为向内倾斜的造型檐，施工过程中我公司要求施工单位在造型檐下砌筑墙体进行封闭，并",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省建筑工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "19298",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19298",
+   "question": "请问现在购房有什么优惠政策么（农村户口）？网上回复即可。",
+   "cited_hits": [],
+   "cited_missing": [
+    "长春市购房补贴政策实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "18820",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18820",
+   "question": "1、《吉林省城市轨道交通工程计价定额》（JLJD-GD-2017）及《吉林省城市轨道交通工程计价定额》（JLJD-GD-2024）盾构掘进定额子目中均未见盾构刀具费用开项，请问盾构掘进定额是否包含盾构刀具费用？如不包括能否由发承包双方协商进",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市轨道交通工程计价定额",
+    "吉林省城市轨道交通工程计价定额",
+    "吉林省城市轨道交通工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "18171",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18171",
+   "question": "定额中材料含量过低，按照设计文件计算是否违反哪些相关规定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市轨道交通工程计价定额",
+    "城市轨道交通工程预算定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "17941",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17941",
+   "question": "请问如果毛坯房一直没有人住，大概有四年的时间，这种情况下物业费是一定要缴纳吗，或者有相关的政策说明可以按比例减免，麻烦解答一下，感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "民法典"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "17316",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17316",
+   "question": "1.住宅楼窗外设备平台，在外墙外侧、有底板有顶板(上一层的底板为下一层的顶板、有栏板、有室内通往设备平台门，是否计算建筑面积，如果计算如何计算？ 2.屋面层电梯机房、风机房，结构层高2.3米、3.45米，均超过2.2米，是否计算建筑面积，如",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑工程建筑面积计算规范",
+    "建筑工程建筑面积计算规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "15828",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15828",
+   "question": "2024年购房有补助吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于促进消费的若干措施"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "10895",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10895",
+   "question": "您好，请问，企业已退休的员工，是否还有取暖补贴，有没有政策或文件，应该在哪里查找。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省机关、企事业单位职工采暖费补贴发放方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "1658",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1658",
+   "question": "珲春市并不是每栋楼都安装了工程竣工永久性标识牌，违反《关于全省统一建筑工程竣工永久性标识牌的通知》（吉建质〔2011〕6号），此事已经多次向吉林省建设厅举报，但始终未处理，全省都有此类事件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "房屋建筑和市政基础设施工程质量监督管理规定"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-zfcx",
+   "id": "36509",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=36509",
+   "question": "您好！ 我单位是吉林省宇天建设集团有限公司，本次特地来信表扬吉林省住房和城乡建设厅行政审批办公室和安全生产监督管理处，并敬献锦旗，锦旗提词为:守正为企办实事，尽责高效助企兴。 感谢我司在办理安全生产许可证延期过程中，审批办、安全处对我们耐心",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "33158",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33158",
+   "question": "对建筑面积小于300平的餐饮店进行装修，装修总额不超30万，消防验收是否需要设计院出具的加盖公章的设计图",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "31022",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31022",
+   "question": "父母居住农村老家、房屋年久、漏雨恐有塌房风险、父母有一方是农村教师退休、这种能申请农村危房改造补贴么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "30449",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30449",
+   "question": "主送单位：中铁三局集团有限公司 事由：关于延边传染病医院建设（延边胸科医院）建设项目机械费调整的问题函 一、项目基本情况 1.本项目采用2019年版定额编制招标控制价。 2.按照2013年清单计价规范“材料价格的风险宜控制在5%以内，施工机",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "30341",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30341",
+   "question": "老旧小区电梯安装在“吉事办”上找不到申请窗口",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "28700",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28700",
+   "question": "尊敬的领导： 您好！ 咨询一个在公共资源招标项目的评标合规性问题。 该项目已履行“招标预公示”“招标公告”等法定程序并如期开标，表明其招标行为及招标文件本身合法有效。 本项目招标文件中明确载明了评标办法，但并未引入《吉建规〔2025〕4号》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "27473",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27473",
+   "question": "按照吉林省最新出台的评标专家及评标专家库管理暂行办法的要求，我以下下问题:。一是住建部门管理的房屋和市政基础设施评标专家库，建设工程消防技术专家库，目前来说，是否都按照新办法执行？二是暂行办法要求，入选评标专家库的条件是从事相关专业领域工作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "26936",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26936",
+   "question": "您好，请问施工企业有多个施工资质，其中1个施工资质由于人员不足，在省监管平台标注资质异常，其余资质属于正常状态，请问，正常状态的资质可以正常投标及承揽业务吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "26635",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26635",
+   "question": "在文件中 补贴范围2为自2024年4月22日起在吉林省行政区域内首次购买商品房，那本人名下的一套房本性质为：出让/动迁房的房产，是否属于商品房，对于回迁房是否可以划分到商品房中？如果回迁房算商品房，哪部法规文件可以证明，如果回迁房不算商品房",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "26363",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26363",
+   "question": "尊敬的厅长：您好！我怀着诚挚的心情给您留言，想向您反映延吉市房产局在解决群众难题时展现的高效作风与为民担当，并表达我由衷的感谢。我于 2025 年 8 月 4 日与延吉安房房地产中介有限公司的租房合同到期，8 月 3 日完成退房后，该公司的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "25686",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25686",
+   "question": "尊敬的吉林建设厅相关负责人 吉林省的地方图集去哪里下载，只公布图集名，让我们如何去下载或阅读，是不是应该有个专门的平台供我们去查找去下载啊，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "25134",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25134",
+   "question": "吉林省关于造价相关问题是否可以通过《吉林省建设工程造价业务交流平台》进行解读、解释。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "21990",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21990",
+   "question": "根据《关于加强建筑工程最高投标限价（招标控制价）管理工作的通知》（吉建造〔2019〕7号）规定国有资金投资的建筑工程招标的，必须设有最高投标限价（招标控制价），在开展建筑工程epc总承包的招标工作的前提是初步设计批复后，最高投标限价无法根据",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "21896",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21896",
+   "question": "尊敬的领导您好，经“长春发布”微信公众号于2025年01月23日发布的《长春轨道交通6号线03标段荣获省优质工程“长白山杯”奖》可知，2024年吉林省建设工程省优质工程“长白山杯”奖评选结果已出，但截止2025年2月12日，在吉林省住房和城",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "21093",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21093",
+   "question": "吉林省建筑市场监管公共平台系统经常出现问题，企业人员选择不上，系统后台技术解决不及时，非常影响业务办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "18780",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18780",
+   "question": "您好，我单位为省外施工企业，目前在长春市承接相关项目。想要咨询以下问题： 1.如何录入工程信息，目前我单位项目在吉林省建筑市场监管公共服务平台仅显示施工许可证信息，我们想完善招投标、施工图审查、合同等信息，该通过何种途径录入 2.因为目前该",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "14848",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14848",
+   "question": "2023年2月23日取得安全员证，编号：吉建安C3（2023）0000902，现单位在北京，公司要求将证书转至北京，咨询北京办理转入前需先在吉林省办理转出，请问如何办理转出",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "14183",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14183",
+   "question": "1、感谢住建厅安全处安许延续审核人的业务指导，企业受益！ 2、感谢省住建厅资质审批办马老师的业务指导和加班审核 3、感谢住建厅建管处王家欣老师假期期间加班审核业务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "11453",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11453",
+   "question": "去年交20%，今年全款，至今没接管，打了几次春城热力电话，有录音，找理由，相互推诿扯皮不作为，影响百姓生活，今晚供暖，还没接上，希望相关部门能处理好，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "10152",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10152",
+   "question": "吉林省住房和城乡建设厅8月16日关于印发《吉林省房屋建筑和市政基础设施工程评标专家管理办法》的通知。里边有相关报名的申请表格及附件，但是往哪申报，怎么上传没说明，说明里把相关文件上传到评标系统，这个系统根本找不到，如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "9563",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9563",
+   "question": "请问一级造价工程师初始注册名单公布后，怎么领取注册证书。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "9430",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9430",
+   "question": "现已具备入专家库条件，请问在哪申请入专家库？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "8841",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8841",
+   "question": "本人在施工一线从事施工技术管理工作26年，高级职称，曾参与建设吉林广电大厦，长春西站高铁站等项目，并担任长春西站高铁站总工程师，对施工安全，深基坑支护等有丰富的经验。想尽自己的一点微薄之力，为吉林省的建筑行业做一份贡献。请问如何申请住建厅专",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "8441",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8441",
+   "question": "5月25日，金地江山风华12栋东侧墙体保温板大面积脱落，20层至一层这部分保温板全部脱落，且外墙体的保温板无任何固定螺栓固定，请求住建局组织联合执法，对小区进行检查，给人民一个交代",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "8145",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8145",
+   "question": "施工现场专业人员考试过程中没有具体的学习方向，没有教材，挂课时视频挂完后无法再继续去观看，进而造成考试通过率极低，补考或者再次考试因不需再挂学时完全没有学习资料，考试通过几率很小，请相关领导完善考试资料，提供课件或考试题库。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "7558",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7558",
+   "question": "本人副高级工程师，建筑设计专业，想申请咱们建设厅下属的专家库，想麻烦问下，需要通过什么渠道申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "7116",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7116",
+   "question": "我想咨询注册监理工程师管理系统企业账号注册，到最后一步认证了，显示需要联系省级主管部门认证，请问是要怎么联系认证呢？系统上面没有给电话哎",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "6597",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6597",
+   "question": "有关部门： 您好！我是一名在校研究生，论文研究需要2013-2020年吉林省获得绿色建筑标识的建筑面积，若您部门有相关数据可发送至我的邮箱*********@163.com，若您部门无相关数据，请告知我去什么部门询问获取。万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "6152",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6152",
+   "question": "您好，我想咨询景观设计资质申请标准，具体的办法和需要的材料等",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "4787",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4787",
+   "question": "在办理资质审批中，窗口王磊不厌其烦耐心表述相关要求，多次与企业积极沟通，特此表示感谢，最近的咨询也完善的得以回复。感谢他的负责又积极的工作精神。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "3072",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3072",
+   "question": "贵厅于 2022-06-02 14:41:00在其网站发布的《关于进一步推动城镇棚户区改造工作的若干措施（征求意见稿）》中，关于“省委、省政府坚决贯彻落实党中央、国务院决策部署，坚持以人民为中心的发展思想，自2006年实施棚户区改造以来，已",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "2435",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2435",
+   "question": "本人已在吉林省钱顺建筑工程有限责任公司离职，现离职单位扣押二级建造师证书不予注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "2273",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2273",
+   "question": "能否让厅局领导联系一下 长春市公积金管理中心 做出证明 证明长春市的产权没有问题 以便我们进行商转公操作 现在我们广大业主唯独唯有产权证但是却已经在房管局合法备案，就证明次房产信息明确。由于现在征集意见稿9月中旬即将锁定并公布 请各位领导尽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "2069",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2069",
+   "question": "巡查领导您好：我们是通榆县的回迁楼回迁户，2016年与通榆县住房与城乡建设局房屋征收办公室签定合同，约定2018年末交房。但是开发商迟迟没有开工，为维护权益，我们这些回迁户于2020年6月至2021年7月先后多次到县房屋征收办公室，县住建局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zfcx",
+   "id": "1771",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1771",
+   "question": "尊敬的领导：感谢您在百忙之中阅读此信。我叫王雷，吉林省松原市乾安县人。我于2000年参军入伍，2018年退出现役。这里，我实名举报乾安县住建局滥用职权，非法强拆公民合法房屋。乾安县住建局在房屋土地征收中公然违反《中华人民共和国土地管理法》，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

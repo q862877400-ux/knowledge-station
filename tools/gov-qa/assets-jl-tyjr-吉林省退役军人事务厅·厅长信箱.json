@@ -1,0 +1,618 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-tyjr",
+   "id": "27611",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27611",
+   "question": "领导，你好！咨询您一下转业士官随配偶易地安置可以在配偶工作单位所在地安置吗？网上回复即可",
+   "cited_hits": [
+    {
+     "name": "退役军人安置条例",
+     "lib_no": "退役军人安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "24842",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24842",
+   "question": "自2024年10月新《军人抚恤优待条例》实施，原由吉林省长春市朝阳区政府优抚部门发放的二级伤残军人抚恤金停发。优抚部门工作人员通知以后由干休所发放，干休所称未接到任何通知。导致现在9个月未发放抚恤金！多次寻找两方工作人员都未给出解决办法！",
+   "cited_hits": [
+    {
+     "name": "军人抚恤优待条例",
+     "lib_no": "军人抚恤优待条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1200",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1200",
+   "question": "厅长您好，我是2004年12月在桦甸市应征入伍，2006年12月退出现役，当时响应国家号召按照自谋职业退役士兵要求办理相关手续，放弃了由所在政府安置工作。2007年就读于锦州市一所中专院校，2010年以毕业生身份入职于央企驻沈阳市三级公司，",
+   "cited_hits": [
+    {
+     "name": "退役士兵安置条例",
+     "lib_no": "退役士兵安置条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-tyjr",
+   "id": "30692",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30692",
+   "question": "您好，请问退役军人优待证有什么优待优惠，特别是在游游方面？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省全国退役军人文旅优待目录清单（第一批）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "20356",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20356",
+   "question": "吉林省1-4级伤残军人报销药费政策在哪可以查阅，提供链接和文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "残疾退役军人医疗保障办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "14451",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14451",
+   "question": "领导好：我是一名长春一汽员工王文阁，创作了12首军队歌曲，用我自己写的报幕词串接了一台军歌演唱会，音频挂在了【喜马拉雅】平台上。在该平台上输入“跟党强军兴中华组歌”就能找到。或点击以下网址链接即可： https://www.ximalaya",
+   "cited_hits": [],
+   "cited_missing": [
+    "跟党强军兴中华组歌"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "14375",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14375",
+   "question": "您好，我家孩子今年参加中考，学校发了关于中考的相关奖励政策（其中第4条是：平时荣获二等功、战时荣获三等功以上奖励的军人子女降低 10分录取。）这里的军人指的是现役军人吗？病退军人的子女可以享受这项奖励政策吗？望给与回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步推进高中阶段学校考试招生制度改革的实施意见",
+    "关于初中学生中考录取有关奖励政策的补充通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "7625",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7625",
+   "question": "您好，我想咨询我省一级至六级残疾军人的住院医疗费用报销规定的。想要一份政策文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人事务部等6部门关于印发&lt;残疾退役军人医疗保障办法&gt;的通知",
+    "残疾退役军人医疗保障办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "6091",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6091",
+   "question": "我的爱人军官，户籍松原，入伍地松原，驻地白城。16年结婚时，我的户口是九台市的（县级市，还未变成九台区），18年我的户口迁至长春市南关区，并长期居住，而且一直在长春工作，缴纳长春市的五险一金（至今累计满5年）。想咨询：如果爱人24年6月转业",
+   "cited_hits": [],
+   "cited_missing": [
+    "军队转业干部安置暂行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5483",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5483",
+   "question": "2021年白城市洮北区退伍，现在已经2023年1月16日了，大学生优待金和退伍地方创业金还没有发放，一问就是让等着，没有个准信，白城大市的别的地方都已经打完款了，请问谁能管管。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府关于进一步加强和改进征兵工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5472",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5472",
+   "question": "2019年入伍，2021.12退伍，2022年中旬左右在洮北区退役军人事务局由家人代办的退役军人一次性奖励金，2023年还没有打款，想咨询什么时候可以打款，洮北区座机打不通，欠费停机无法咨询",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府关于进一步加强和改进征兵工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5135",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5135",
+   "question": "本人从9月1号退伍至今1月了 身患克罗恩病 长期不能从事体力劳动 每个月药费2000多 我从部队回来之后没有任何医疗保障 检查费用也比较昂贵 本人无力承担 为什么到现在带病返乡工作还没有开始评定 每次打电话能通的情况下 就说厅里没通知 打厅",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省带病回乡退伍军人管理实施细则",
+    "带病回乡退伍军人带病情送检表",
+    "带病回乡退伍军人审批表",
+    "带病回乡退伍军人基本信息表",
+    "带病回乡退伍军人病情送检表",
+    "带病回乡退伍军人审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3104",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3104",
+   "question": "优待证已经发了，不知道咱们省和长春市都有什么优惠政策，比如：坐公交免费么？景区门票有优惠么？优惠政策清单是什么？盼复！",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省军人、军属、退役军人和其他优抚对象优待工作实施细则",
+    "吉林省军人、军属、退役军人和其他优抚对象基本优待目录清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "2689",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2689",
+   "question": "你好，领导，全国退役军人优待证已经陆续发放，各地也都开始出台政策，我想咨询一下吉林省退役军人优待证有什么政策？吉林省各市、州政策还有差别吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省军人、军属、退役军人和其他优抚对象优待工作实施细则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "2223",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2223",
+   "question": "本人于2019年9月由大学入伍，2021年9月退伍，在服役期间完成学业，安置地为我户口所在地，由于我是异地入伍，入伍地（江西省赣州市蓉江新区）和安置地（吉林省长岭县）的退役军人事务局，均不想向我发放一次性经济补助，本人多次询问两方互相推脱，",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府关于进一步加强和改进征兵工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1813",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1813",
+   "question": "怎么申领退役军人优待证",
+   "cited_hits": [],
+   "cited_missing": [
+    "退役军人、其他优抚对象优待证管理办法（试行）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-tyjr",
+   "id": "34837",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34837",
+   "question": "退役军人从哪里可以获取到政策待遇信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "34587",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34587",
+   "question": "您好，就业创业条例8月1号实施后，退役军人免费技能培训，是可以在居住地进行技能培训的吧？长春市应该联系什么部门？都需要准备什么证件、资料？期待回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "33347",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33347",
+   "question": "《吉林省退役士兵职业教育和技能培训实施办法》的通知 吉民发﹝2016﹞38号文件政策比较老了，并且“第三条 本办法适用于我省接收的自主就业退役士兵。自主就业退役士兵在退出现役1年内可以选择参加由政府提供的一次免费教育培训。确有特殊原因，当年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "32584",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32584",
+   "question": "退役军人免费技能培训有哪些项目、在哪里报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "32487",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32487",
+   "question": "吉林省对优待证有哪些相关政策，有没有比较详细的相关解读",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "30170",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30170",
+   "question": "请问退伍后去哪建档立卡",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "29052",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29052",
+   "question": "请问贵单位地址在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "27384",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27384",
+   "question": "请问吉林省有相关退役军人服务的app吗，如果有如何下载。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "26285",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26285",
+   "question": "请问怎么申领退役军人优待证，网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "24704",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24704",
+   "question": "您好，麻烦咨询一下咱们省的退役军人事务员培训问题，今年有相关培训计划么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "24008",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24008",
+   "question": "您好，退役军人求职，想了解一些专门的招聘信息 网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "22548",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22548",
+   "question": "吉林省有哪些可参观的烈士陵园？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "21345",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21345",
+   "question": "您好！我想问到现在还没补发？什么时候补发呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "20463",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20463",
+   "question": "关于再次提高2024年8月1日实施的退役军人和其他优抚对象等人员的优抚和生活补助标准，咨询过地市说是没有接到通知，那么我想咨询一下从8月1日至12月份中间的这部分生活补助会进行核算不发吗？几月份开始实施新条例？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "18244",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18244",
+   "question": "尹春根1946年7月参加人民解放军，在独立15师4团任书记，军证字第0015809号。（中国人民解放军第四野战军）1950年10月抗美援朝第一批入朝参战，牺牲在38线以南。毛泽东年代，当年就发了抗美援朝烈士证书。抗美援朝烈士遗爱已经回归10",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "17364",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17364",
+   "question": "尊敬的领导您好！ 我是2009年12月在吉林市船营区入伍，2011年12月退伍，中共党员，农村兵，退伍后档案在吉林市军供宾馆存放，现经查询档案在吉林市退役军人服务中心，我2022年报考成人函授大专，2024年7月毕业，毕业后学校把档案密封邮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "15815",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15815",
+   "question": "吉林省优抚医院医疗优待实施办法在哪可以查阅，提供链接即可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "13922",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13922",
+   "question": "想咨询一下退役军人优待证如何办理？需要准备什么材料。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "11760",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11760",
+   "question": "退役军人优待证申请需要递交什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "11330",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11330",
+   "question": "优待证办理条件具体的条件和规定网址麻烦提供下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "9789",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9789",
+   "question": "退役军人优待证不慎丢失！目前已经申请补办有近2个月了！能不能提供一下办事进度!比如多长时间内能办理完成！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "9319",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9319",
+   "question": "请问吉林省退役士兵高职教育有哪些学校，如何参加？我是2005年退伍，参军5年，士官，荣立过三等功，有工作。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "8105",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8105",
+   "question": "请问吉林省退役军人优待证什么时候开始办理，办理时需要准备什么材料吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "7328",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7328",
+   "question": "希望政府能出台关于学历提升方面的政策与对接学校。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "6206",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6206",
+   "question": "2022年5月份办理优待证，等了将近一年，于2023年2月16号去街道取优待证，被告知在2022年8月份县退役军人事务局审核未通过，当时为什么不告知，假如不去街道问，这个事将什么时候告知，在办理需要多久，到底是态度问题还是责任心不强，到底是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "6108",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6108",
+   "question": "您好，请问如何查阅贵单位哪位政府领导分管政务公开工作？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "6107",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6107",
+   "question": "您好，我想咨询一下退役的士兵在考大学方面有什么优待政策吗？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5832",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5832",
+   "question": "我是2011年入伍2013年退伍的自主择业，2020年通过高职扩招入学四平职业大学，学校入学时收我6700元学费。承诺退还至今未退。学校说我学费申请2020年2021年自主择业申请 通过，2022年变成非自主择业了系统申请不过。请相关领导帮",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5266",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5266",
+   "question": "查询本人退役军人优待证办理进度",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "5070",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5070",
+   "question": "9月1号退伍现在马上1月了，之前打电话说没通知，现在打电话基本没人接，我患有克罗恩病 现在回来几个月光自费买药已经花了将近8000 我现在从事不了体力劳动 想去医院检查现在没有任何医保 我没能力承担",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3962",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3962",
+   "question": "您好，我想咨询下，家属从外地随军随调到珲春市，待军士转业安置延吉市后，家属工作能否随军人一同安置到延吉市呢，请问有没有关于这方面的政策支持！谢谢了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3901",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3901",
+   "question": "家庭多人参过军，成家并分立户籍后能否单独申请光荣牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3830",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3830",
+   "question": "本人是吉林省松原市乾安县退役军人是第一批办理优待证人员，10月18日乾安县召开首批优待证发放工作，乾安县现在有很多退伍军人已经领到优待证，打电话问街道，社区，就说等通知，现在都11月份了。谢谢领导！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3817",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3817",
+   "question": "林宇辉简介： 林宇辉，男，1958年出生于山东省济南市，山东省公安厅物证鉴定中心视听室高级工程师，山东省公安厅首席模拟画像专家，山东省美协会员，孔子儒学艺术研究院常务院长， 国际刑事科学法庭画像专家，一级警督。 从警30余年通过画像技术破获",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3766",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3766",
+   "question": "领导您好，我是一名2022年底退役，23年安置工作的军转干部，想问一下23你年军转安置还有没有考试，什么时候可以知道考不考试？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3598",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3598",
+   "question": "厅长您好，我是一名1979年10月1日参加，2003年8月退役的转业干部，军龄是23.92年。同年国家计划安排国网白城供电公司工作，2021年退休。《军人保险法》是2012年7月1日开始实施的。我咨询的是，我23.92年的连续军龄是否可以核",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3476",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3476",
+   "question": "您好，我想咨询一下，驻地不在长春的双阳户籍的转业干部能安置长春市么？需要怎样的程序或者条件才行？能否提供相关政策？需要配偶长春市2年户籍么，买房落户可以么。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3186",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3186",
+   "question": "感谢领导，迅速解决了我的咨询问题，办事效率真快！！！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "3155",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3155",
+   "question": "领导好！！本人2月底第一批在铁西街道崇文社区办理的优待证，有朋友5月份甚至6，7月办的都下来了，都在一个社区办的。社区说都报上去了，北京办证，需要等，也不知道为什么，都是十月份了时间这么长为什么我的办不下来？差在哪儿了，谢谢领导！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "2245",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2245",
+   "question": "您好，我于2022年7月28日留言两次，请问如何查询具体办结情况？ 内容分别是《建议进一步扩大吉林省各级机关考试录用公务员中退役士兵定向职位招录的招考对象认定范围》和《关于进一步扩大吉林省各级机关考试录用公务员中“退役大学生士兵”招考对象认",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1663",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1663",
+   "question": "优待证外地能否线上申请 创业贷款扶持政策有吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1500",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1500",
+   "question": "本人2016年在延边大学入伍，2018年退伍，户籍不是延吉市，想咨询延吉市相关部门申领优待证是在延吉市还是在户籍地，由于我现在不在本省，所以只能电话咨询，但是无论延边州退役军人事务部还是延吉市、公园街道等退役军人事务部门的座机电话都是打通了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1422",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1422",
+   "question": "吉林退役军人事务厅： 您好！我名刘振兴，原是吉化转业老兵，1992年1月离休，我的退役军人基础电子档案信息表，在孙女帮助下由我女儿七月下旬上报贵局。由于我在填报此表时考虑到没有相关证明，于是未将我的左眼失明情况纳入伤残情况填入该表。近些時日",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "1048",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1048",
+   "question": "应届大学毕业生入伍，退伍后是否具有应届生身份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "988",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=988",
+   "question": "我不是农村户口，也没有工作。我这种情况办理优待证。需要自己去县里退役军人事务部复印入伍退伍通知书。别人都能统一复印。为什么我这种情况的就不能统一复印回来。我还要坐车跑去县里。复印完。我再坐车回镇上办理。关键我去能不能当天就提出档案复印？到那",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-tyjr",
+   "id": "942",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=942",
+   "question": "请问吉林省退役军人事务厅具体位置在哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

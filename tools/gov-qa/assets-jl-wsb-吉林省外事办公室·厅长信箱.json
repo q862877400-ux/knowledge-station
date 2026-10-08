@@ -1,0 +1,292 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "jl-wsb",
+   "id": "35056",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35056",
+   "question": "办理港澳通行证需要带哪些证件，网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "申请因公往来港澳特别行政区通行证及签注事项表",
+    "因公往来港澳事项登记卡"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "24700",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24700",
+   "question": "申办因公护照需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "因公出国护照签证事项表",
+    "办理护照申请卡"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-wsb",
+   "id": "32561",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32561",
+   "question": "第一办理护照，需要带什么东西",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "30696",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30696",
+   "question": "您好，咨询外国人申请长期居留签证怎么办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "30298",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30298",
+   "question": "请问领事认证办理电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "27648",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27648",
+   "question": "您好，请问已经办理完护照，还需要再办理签证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "27647",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27647",
+   "question": "您好，请问已经办理完护照，还需要在办理签证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "26273",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26273",
+   "question": "外国人来华签证办理，所需要的邀请函，邀请函是需要到哪个部门办理，请邮件回复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "24326",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24326",
+   "question": "请问省外办代办签证如何收费，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "22319",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22319",
+   "question": "办理护照需要准备带哪些资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "19288",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19288",
+   "question": "你好，85年出国的，现在是中国籍只有中国护照，可以申办身份证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "19249",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19249",
+   "question": "港澳通行证可以异地办理吗？就是不在户籍地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "18538",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18538",
+   "question": "请问0431-82768382是省外办的电话还是省侨办的电话？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "17965",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17965",
+   "question": "请问长春龙嘉国际机场目前开通了哪些国际直达航班？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "16811",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16811",
+   "question": "您好，请问邀请泰国朋友来华旅游。需要我个人出具外国人来华旅游邀请函吗？如果需要个人出具外国人来华邀请函，需要交给那个政府部门？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "15807",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15807",
+   "question": "是否可以办理签证，办理需要带什么相关证件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "15661",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15661",
+   "question": "请问因公出访时间和天数如何界定？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "14726",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14726",
+   "question": "涉外礼宾工作的原则是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "13911",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13911",
+   "question": "请问护照过期了，需要什么手续再办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "13412",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13412",
+   "question": "请问办理领事认证电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "12635",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12635",
+   "question": "领导您好，我公司申办的商务旅行卡从审核通过到现在，已经七个月了，还没有收到卡，是什么原因呢？吉林弘越食品有限公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "11780",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11780",
+   "question": "请问护照过期了，需要什么手续再办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "11332",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11332",
+   "question": "出国签证如何办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "10414",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10414",
+   "question": "您好，我是印度留学生，想办理印度双认证，需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "10034",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10034",
+   "question": "请问出国签证到哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "8074",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8074",
+   "question": "您好！我在国内需要带小孩出国，但是我另一半在国外。办理法国签证需要亲属公证书认证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "6110",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6110",
+   "question": "请问吉林省机关单位的名称、地址有无正式的英文翻译，在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "3880",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3880",
+   "question": "出国签证到哪里办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "1791",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1791",
+   "question": "去新加坡签证需要哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "996",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=996",
+   "question": "请问出国劳务签证怎么办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wsb",
+   "id": "630",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=630",
+   "question": "外事办的地址是什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

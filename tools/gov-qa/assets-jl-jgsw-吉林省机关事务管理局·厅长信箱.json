@@ -1,0 +1,236 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "jl-jgsw",
+   "id": "1811",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1811",
+   "question": "机关幼儿园报名条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "幼儿园工作规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "1034",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1034",
+   "question": "亲戚家孩子想去机关幼儿园，需要满足什么条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "幼儿园工作规程"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-jgsw",
+   "id": "35862",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35862",
+   "question": "问一下你单位地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "33804",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33804",
+   "question": "省管局信息公开年度报告在哪可以查到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "32280",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32280",
+   "question": "省管局联系电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "30737",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30737",
+   "question": "在哪里可以查到预决算信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "29128",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29128",
+   "question": "问一下省机关事务管理局地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "27635",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27635",
+   "question": "您好，我想了解一下本单位政策文件目录吗？主要是用于了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "26287",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26287",
+   "question": "2024年政府信息公开年报在哪里看？是否支持下载。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "24005",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24005",
+   "question": "您好想咨询一下政府公开年报在哪里看？是否可以提供下载 网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "23808",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23808",
+   "question": "省管局财政预决算信息在哪可以看到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "22308",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22308",
+   "question": "机关事务管理局主要是负责哪方面工作呀",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "21245",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21245",
+   "question": "你单位政府信息公开年度报告在哪可以看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "19359",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19359",
+   "question": "问一下机关事务管理局联系电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "17447",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17447",
+   "question": "你好，问一下省机关事务管理局地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "15842",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15842",
+   "question": "请问贵单位财政预算在哪里看？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "15537",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15537",
+   "question": "省管局政府信息公开工作年度报告在哪可以看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "13916",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13916",
+   "question": "请问贵单位财政预算在哪里看？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "11787",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11787",
+   "question": "机关事务局的主要机构职能是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "11364",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11364",
+   "question": "关于公积金提取需要哪几个条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "10028",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10028",
+   "question": "您好 请问贵单位的2022年政府信息公开年报在哪里查看或下载？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "8101",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8101",
+   "question": "您好，可以提供省机关事务局2022年度本单位政策文件目录吗？主要是用于学习，了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "6049",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6049",
+   "question": "省机关事务管理局联系电话是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "3906",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3906",
+   "question": "请问预决算在哪里看，有网址么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jgsw",
+   "id": "938",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=938",
+   "question": "您好，请问吉林省省直职工住房货币化补贴哪些人可以申请？参加工作后未享受过分房政策，也没享受任何福利房政策的人员可以申请么？如何申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

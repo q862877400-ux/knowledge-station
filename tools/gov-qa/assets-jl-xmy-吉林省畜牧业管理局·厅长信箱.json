@@ -1,0 +1,384 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-xmy",
+   "id": "33734",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33734",
+   "question": "前提是有牲畜交易市场营业执照，曾经营近20年，期间也办理了动物防疫合格证。之后停业了5年，动物防疫合格证丢失了。营业执照每年都年检了，目前想重新开业，以集散地的形式经营可否？必须得有动物防疫合格证吗？需要的话怎么办理？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国动物防疫法",
+     "lib_no": "动物防疫法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "动物防疫条件审查办法",
+    "动物防疫条件合格证",
+    "动物防疫条件审查办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-xmy",
+   "id": "31812",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31812",
+   "question": "按照《关于2024年度中央养殖环节集中 无害化处理和“先打后补”补助资金 支付情况的公示》《关于2025年养殖环节无害化处理和先打后补及强制扑杀补助资金支付情况的公示》，对于吉林省佳园再生科技有限公司获得的无害化处理资金是已什么为依据下发的",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好生猪规模化养殖场无害化处理补助相关工作的通知",
+    "关于调整生猪规模化养殖场（小区）无害化处理补助标准的通知",
+    "吉林省人民政府办公厅关于实施“秸秆变肉”暨千万头肉牛建设工程的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "27616",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27616",
+   "question": "请问现在农村农户养牛有补助吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府办公厅关于实施 “秸秆变肉”暨千万头肉牛建设工程的意见",
+    "吉林省人民政府办公厅关于印发吉林省做大做强肉牛产业十条政策措施的通知",
+    "吉林省畜牧业管理局吉林省财政厅关于印发 &lt;2025年优质肉牛冻精补贴项目实施方案&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "23683",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23683",
+   "question": "你好，我想在家乡这面投资建个肉牛养殖场，请问需要办理哪些手续？是否有相关扶持政策？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "土地规划许可证",
+    "农用地转用手续",
+    "营业执照",
+    "环境影响报告书",
+    "环境影响登记表",
+    "动物防疫条件合格证",
+    "种畜禽生产经营许可证",
+    "畜禽养殖代码",
+    "排污许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "22294",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22294",
+   "question": "开办养牛场需要哪些手续。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "土地规划许可证",
+    "农用地转用手续",
+    "营业执照",
+    "环境影响报告书",
+    "环境影响登记表",
+    "动物防疫条件合格证",
+    "种畜禽生产经营许可证",
+    "畜禽养殖代码",
+    "排污许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-xmy",
+   "id": "30697",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30697",
+   "question": "您好，请问农村畜牧也有什么补贴政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "28620",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28620",
+   "question": "诉求：希望吉林省畜牧业管理局，可以指导工作，用更科学、合理、民主的方式重新制定禁养犬名录。详情：白城市畜牧业管理局于2025年7月18日向社会公布了白城市城市建成区禁养犬种名录，其中包含了84个犬种，本人认为该禁养名录中的“阿拉斯加雪橇犬”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "26299",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26299",
+   "question": "你好，我想咨询一下关于农村养牛户新生的牛犊给补贴问题，我家是前郭县海勃日戈镇三义井村，听说7月到8月份新下的牛犊给补贴，请问给多少，听说别的屯子给一个牛犊1500,请问具体政策是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "26277",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26277",
+   "question": "兽医资格证考试的报名条件和报名时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "26145",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26145",
+   "question": "商家不仅卖病狗，还欺诈。 2025年7月3日，我于抖音平台购买了一只价值3500的柯基幼犬，直播间主播说还差一针疫苗，问我需不需要打齐了发货。我明确要求需要打齐了发，可客服欺骗我说已经打齐了，匆忙发货，生怕我返回退款。7月5日收到小狗，7月",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "23975",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23975",
+   "question": "请问农村现在开设养殖场是否有补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "23682",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23682",
+   "question": "你好，根据农业农村部办公厅关于推进无纸化出出具动物检疫证明工作的通知，现在动物A和动物B都已经无纸化出具检疫证明了，请问产品B和产品B啥时候能加快推进无纸化出具动物检疫证明？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "22823",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22823",
+   "question": "官网价格没有更新",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "20524",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20524",
+   "question": "大约什么时间能开展业务系统国产化替代",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "20434",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20434",
+   "question": "尊敬的吉林省畜牧业管理局领导，您好！ 我司是“2025三亚俄罗斯生物科技成果展”的主办单位，此次活动由俄罗斯联邦农业部、俄罗斯质量体系支持，俄罗斯国立农业大学、远东国立农业大学组织承办。异彩纷呈的全俄生物科技成果将在2025年1月13-16",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "19292",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19292",
+   "question": "咨询一下吉林省关于粪污处理企业2024年有没有相关的补贴政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "17971",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17971",
+   "question": "请问农村个体想要在自家院中小规模养殖鹌鹑需要什么条件和证件才能合法养殖",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "14461",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14461",
+   "question": "请问最近我省有什么养牛政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "14460",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14460",
+   "question": "你好 我想咨询下 现在养牛有什么利好政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "12314",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12314",
+   "question": "吉林省自然资源厅 吉林省农业农村厅 吉林省畜牧业管理局关于规范设施农业用地管理的通知 （二）附属设施用地。附属设施用地是指直接用于设施农业项目辅助生产的设施用地。包括：设施农业生产中必需配套的检验检疫、洗消转运、疫病防治、病虫害防控、畜禽粪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "11789",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11789",
+   "question": "社会人士如何考取兽医资格证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "11657",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11657",
+   "question": "1、请问吉林省内有哪些合法合规的猫狗肉屠宰企业或个体经营者！ 2、吉林省内贩卖猫狗肉的餐饮经营者是否进货渠道都能溯源。 3、贩卖未经检疫猫狗肉的行为是怎么处理的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "11594",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11594",
+   "question": "致吉林省畜牧厅厅长的第二封求助信 厅长你好！ 我是洮南市洮府乡玉米种植联合体，赵春城。今年我处玉米喜获大丰收。我们决定通过网络平台开展直销业务，向你求助，关于养殖场的联系信息请予提供，谢谢！ 这是我给厅长的第一封求助信，很快给我回复对于我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "11583",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11583",
+   "question": "致吉林省畜牧厅领导的求助信 厅长你好！ 我是洮南市洮府乡玉米种植联合体，赵春城。今年我处玉米喜获大丰收。我们决定通过网络平台开展直销业务，向你求助，关于养殖场的联系信息请予提供，谢谢！ 洮南市洮府乡玉米种植联合体，赵春城，电话/微信，139",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "11338",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11338",
+   "question": "现在养殖业有什么相关的政策补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "10965",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10965",
+   "question": "尊敬的领导:4您好! 我叫魏长天，男，系吉林省松原市乾安县余字乡润字村村民，是一名农村青年养殖创业者，为了响应国家人畜分离政策，在2021年搬离村子，花费所有积蓄和人力，成立了长天福养殖合作社。成立两年，在2023年7月29日，就经历了一场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "10964",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10964",
+   "question": "尊敬的吉林省畜牧业管理局领导： 我们营口瑞谷饲料厂是中日合资企业，成立于1993年。2003年开始引进日本技术、配方生产“和牛”矿物质舔砖并出口日本已21年了，2022年末开始在国内销售。 由于比较关注吉林省的信息，看到贵厅农牧部门为吉林省",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "10035",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10035",
+   "question": "现在养殖业有什么相关的政策补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "8075",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8075",
+   "question": "办理动物诊疗许可证有哪些条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "6034",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6034",
+   "question": "今年想建养猪场有什么要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "3882",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3882",
+   "question": "现在养殖业有什么相关的政策补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "2148",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2148",
+   "question": "想要咨询的问题有以下几点： 1：国家及吉林省关于肉牛养殖的金融方面政策，具体的贷款、保险等信息。 2：关于【西门塔尔】肉牛养殖技术的学习实践问题（是否有优质养殖场提供培训、实践） 3：关于牛种购买的问题（如何购买真正、优质、良种的西门塔尔牛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "1718",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1718",
+   "question": "今年养猪有什么补贴政策么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "998",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=998",
+   "question": "现在农村农户养牛有补助吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "870",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=870",
+   "question": "自省政府千万头牛政策下发以来，我省肉牛产业发展情况，想了解具体的产业链企业清单，一年以来肉牛产业发展规模壮大情况，政策的落地实施效果，以及目前我省对肉牛产业发展的关注点在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "811",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=811",
+   "question": "现在养牛有什么补助？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-xmy",
+   "id": "800",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=800",
+   "question": "你好：农户养多少繁殖母牛能得到国家的补助，都需要什么样的条件，关于补助得问题 感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

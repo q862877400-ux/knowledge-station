@@ -1,0 +1,557 @@
+{
+ "A_考卷": [],
+ "B_补料": [
+  {
+   "source": "jl-ybj",
+   "id": "32597",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32597",
+   "question": "我是长春市居民，去年没交医保，请问2026年的居民医保个人要交多少钱？是否需要补去年的，网上回就行",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省基本医疗保险参保缴费管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ybj",
+   "id": "26290",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26290",
+   "question": "请问什么条件下可以申请生育津贴？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育医疗保障有关政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "22608",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22608",
+   "question": "本人参保吉林省城乡居民医保，现申请长期异地居住备案（备案到长春市），梅河口市医保局以未到法定退休年龄，需要额外提交工作证明，因《吉医保规〔2023〕4号》第二章中无此项规定，产生分歧，无法达成一致意见，现向政府请求帮助，是按照文件执行还是按",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发吉林省医疗保险异地就医管理办法的通知",
+    "吉林省医疗保险异地就医经办规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "21289",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21289",
+   "question": "您好，想咨询下男职工生育补贴和陪产假工资是否可以兼得？公司为男职工缴纳医疗保险，员工休陪产假期间公司正常发放工资，公司收到医保局的生育补贴后，进行两者取高发放，如生育津贴高，公司进行补差，工资高，则不再重复发放，请问是否合理",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育医疗保障有关政策的通知",
+    "延边州人民政府办公室关于印发延边州职工生育保险实施办法的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20110",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20110",
+   "question": "生育时连续缴纳12个月才能领生育津贴么？今年3月份换工作保险断档1个月，12月预产期，单位让产后7个月以后提交材料，这样满足申领条件么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育医疗保险有关政策通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20061",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20061",
+   "question": "根据吉林省医疗服务项目目录，临床免疫检查项目编号250401031说明中，细胞芯片法是什么方法？我查阅临床诊疗规范和相关指南，并没有找到相关介绍，请给出细胞芯片法 的出处，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于制定和修订经颅多普勒超声动脉栓子监测等部分医疗服务项目价格的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "18356",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18356",
+   "question": "您好，最近在遵照省诊疗项目目录的过程中，出现了与卫农卫发〔2010〕80号文件相冲突的地方，而该文件第二条“加强医疗康复项目支付管理”条目中写明：“各省（区、市）可对医疗康复项目的限定支付范围进行适当调整。要制定相应的管理办法，做好医疗康复",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省基本医疗保险、工伤保险和生育保险医疗服务项目目录（2023年）",
+    "关于将部分医疗康复项目纳入基本医疗保障范围的通知（卫农卫发〔2010〕80号）",
+    "吉林省基本医疗保险、工伤保险和生育保险医疗服务项目目录（2023年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "17738",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17738",
+   "question": "治疗婴儿痉挛症的氨己烯酸口服溶液用散在吉林的医保报销比例以及报销政策是怎么样的",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家基本医疗保险、工伤保险和生育保险药品目录",
+    "药品目录",
+    "药品目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "17495",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17495",
+   "question": "请问所有门诊静脉输液患者是否都需要留观诊察（查），留观是否是在患者输液结束后在留观室内进行留观，留观时长是多久？患者在输液过程中医护人员提供的巡视、拔针、换药等服务是否应单独收费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省医疗服务价格项目目录（2024年版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "16758",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16758",
+   "question": "比如250403017 戊型肝炎抗体测定(Anti-HEV) 项目内涵写的是 包括IgG、IgM 计价单位是 项 这个得怎么理解？ 单做IgG收费一次，单做IgM 收费一次？ 还是两者一起做，只能收费一次 ？这个按“项”收费怎么理解？",
+   "cited_hits": [],
+   "cited_missing": [
+    "白山市公立医疗机构医疗服务项目价格目录（2024版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "15532",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15532",
+   "question": "经调阅吉林省医疗保障局官网，通化市一直延用2005年办法，宫外孕属于疾病，那如果是疾病应该走医保报销啊，但走的是生育保险，报销设置5000元上限，既然用了生育保险，为什么又不能休产假，也没有生育津贴？经查阅四平市是2022年修改的办法，宫外",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府关于调整我省城镇职工生育保险有关待遇的通知",
+    "关于印发通化市城镇职工生育保险市级统筹实施细则的通知",
+    "关于对优化生育医疗保障有关政策的通知（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ybj",
+   "id": "14928",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14928",
+   "question": "我这边情况大概给您复述一下吧，我在2024年3月18日生了宝宝，之前了解到我们当地有关于生育津贴的补助政策，喜出望外的派老公第一时间去申请，但是被拒，解释我没有交满12个月的医保。但是经我查询交款记录，我已经交满了12个月，其中有一个月是补",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城镇职工生育保险办法",
+    "吉林省生育保险和职工基本医疗保险合并实施意见",
+    "延边州职工生育保险实施办法",
+    "延边州职工生育保险实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ybj",
+   "id": "10533",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10533",
+   "question": "（1）梅河口市的新农合医保在梅河口市就医报销比例？ （2）是否可以在北京市就医？如果可以，报销比例多少？ （3）如果可以省外就医？是否需要在就医前办理相关手续？ （4）是否有关于梅河口市新农合医保相关规定解释文件可以供居民学习？如果有可以发",
+   "cited_hits": [],
+   "cited_missing": [
+    "梅河口市城乡居民基本医疗保险保障待遇统一实施方案（试行）",
+    "吉林省医疗保险异地就医经办规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "8104",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8104",
+   "question": "生育津贴报销是怀孕前缴满社保6个月还是生孩子之前缴满就行了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整城镇职工生育保险有关政策的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "7389",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7389",
+   "question": "您好，我看通知，我省骨科脊柱类耗材集采要在今年2.28日执行，想问一下什么时候能在医院里落地执行",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于延期执行国家组织骨科脊柱类带量采购吉林省中选结果的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "3652",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3652",
+   "question": "近期登录国家医保服务平台发现，在吉林市参保医疗的职工，在21年9月之前大病保险划入到单位缴费当中，21年10月起划入到个人缴费当中，请问这个有文件明确应由个人缴费么？因为一直都是单位在承担大病医疗缴费，也是近期才发现有这个变化的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步健全城镇医疗保险重特大疾病保障机制的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "1390",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1390",
+   "question": "吉林省大病医疗保险个人如何参保，是否有限制条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府办公室关于进一步完善城乡居民大病保险制度的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-ybj",
+   "id": "33355",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33355",
+   "question": "在辉南县参保（居民医保），想在磐石市门诊做胃肠息肉 ，还想住院做甲状腺手术，做以上两项治疗，在磐石就诊和在辉南同级别医院就诊，报销比例一样吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "30635",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30635",
+   "question": "请问最新《吉林省超声检查类医疗服务价格项目规范》的执行时间是什么时候？是否会在吉林省医保局官网发布此文件具体内容和执行时间等相关信息的公告？盼回复，谢谢！祝您工作顺利！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "29174",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29174",
+   "question": "您好： 我是2025年1月做的冠状动脉支架手术，已完成门诊特病认定：血管支架植入术后状态（M08403）。现在有两个问题要咨询： 一、降脂药和控制心率药是手术后的常用药，这两种药在不在特病门诊报销范围内。 二、我现在手术近一年，用药会有调整",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "27948",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27948",
+   "question": "通化市职工挤爆家庭共济为家人缴纳城乡居民医保费用如何操作？是否省内或室内开放了这项业务？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "27420",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27420",
+   "question": "产假工资和生育津贴可以同时领取么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "25194",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25194",
+   "question": "男职工放假期间已经发放工资，护理津贴还用发放给个人吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "24548",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24548",
+   "question": "你好，我刚入职一汽半年左右，去买药发现医保刷的不是长春的，请问怎么开通并使用我在单位缴纳的医保？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "24007",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24007",
+   "question": "您好，咨询一下异地医保就医报销比例是否一致",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "22113",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22113",
+   "question": "你好，家人现正常参保城乡居民医保，想转成灵活就业职工医保，需要怎么办理，转换期间3个月待遇等待期内，是否慢病特病住院待遇仍然正常按原待遇报销，转换完成生效后，门诊是否同样有1000元统筹报销？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20777",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20777",
+   "question": "一共三个问题： 1. 松原的农村低保户，在松原和长春的医院看了门诊，是否可以报销，如果可以，怎么报销。 2. 低保户的优惠政策都有什么？没有查到 3. 低保户在药店或者医院买药是否有优惠政策 麻烦帮忙解答，多谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20598",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20598",
+   "question": "2024年11月27日我母亲在长春市中医药大学附属医院（本部）就医购买了1400元的中草药，医院开具的发票中医保部分没有报销，全部是个人自费。我查询所购买药材是在医保目录的，医院也属于医保定点医院，我母亲本人有新农合。想了解下，新农合购买中",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20586",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20586",
+   "question": "局长您好：我在中央政府网站看到2024年8月发布的《关于健全基本医疗保险参保长效机制的指导意见》发布会速览,里面有\"职工医保个人账户可以用于本人近亲属缴纳居民医保参保费用\"的信息。我现在想利用个人账户款项为近亲属缴纳居民医保参保费用，可是没",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "20119",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20119",
+   "question": "局长您好，我是患有病毒性肝炎，刚办理了门诊特病，审核通过了，但是需要一直服用抗病毒药物，门诊特病只能去医院买药，不能去医保定点药店买药，非常不方便，我想问一下我能同时再办理医保慢病吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "19916",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19916",
+   "question": "氨已浠酸药品在吉林省哪个药店或者医院可以用医保，最好是长春或者吉林市的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "19566",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19566",
+   "question": "有关”关于优化生育医疗保障有关政策的通知“中政策的理解，请问省直医保女职工产前检查，门诊产前检查费用限额支付比例为100%，那产前检查所有累计可走生育险多少呢？有限额么？生育保险备案需要个人在个人网厅备案，还是在医院一次性备案？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "19409",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19409",
+   "question": "登录医保服务平台选择2025年城乡医保家挺共济代扣，无法选择已绑定的家挺成员。 即使用微信小程序也无法选择用家挺共济支付。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "19278",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19278",
+   "question": "您好，我父亲是去年在吉大一院肺癌住院，请问咱们吉林省肺癌患者有二次报销吗？有的话是在哪儿报销呢，都需要什么材料呢？我父亲是职工医保，在农安县。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "18492",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18492",
+   "question": "请问在医保目录中可以报销的补蛀牙可以直接到医保定点医院进行治疗吗，是否必须要经过校医院的转诊才能进行医保报销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "17987",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17987",
+   "question": "你好，请问在哪里可以查询到吉林省的医疗服务价格表呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "16572",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16572",
+   "question": "1. 松原市从企业退休的员工，在医保缴费年限足够的情况下，企业是应该为其办理“在职转退休”还是“减员”？企业可以自己选择怎么办理还是有强制规定？两种方式对退休员工医保待遇会不会有影响？是否有相关政策文件？ 2. 已经在企业办理“在职转退休”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "15813",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15813",
+   "question": "什么条件下可以申请生育津贴？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "14769",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14769",
+   "question": "新生儿早产在吉大二院住保温箱，新生儿医保报销比例是多少?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "14280",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14280",
+   "question": "医保跨省转移接续已办结后，原参保地的医保金额什么时候划入新医保账户",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "13931",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13931",
+   "question": "家里老人四平退休职工医保，现居住长春新区新星宇塞纳，脑出血术后不能自理，问一下现在咱们医保长期护理保险怎么申请。老人退休医保已经办理了省内异地。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "13921",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13921",
+   "question": "吉林省有产检补贴吗？如何办理。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "13612",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13612",
+   "question": "家里老人查出丙肝一直着急治疗，之前听市里说1000多就能治好丙肝，也发邮件给省里反映过农安需要这个丙肝好政策，后来接到电话一直说快了，从去年9月份开始反映，这都24年过去半年了，医院还是不能享受这个好政策，家里老人一直盼着，请问领导具体哪天",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "12600",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12600",
+   "question": "领导您好，我妻子目前待业在家，五险断交，我得五险近几年一直在缴，请问这种情况下我们生育子女，我的生育保险可以使用吗？医疗费用可以报销吗？比例是多少？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "12089",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12089",
+   "question": "您好，目前省外异地就医备案是只支持异地转诊、常驻异地工作人员、异地长期居住人员、异地安置退休人员四种吗？为什么别的省都支持其他临时跨省就医需求的，吉林不支持呢？另我如果没备案的话，去外省（比如天津）三甲医院看病，可以直接使用医保卡吗，还是需",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "11328",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11328",
+   "question": "请问吉林省有“围产补贴”、“产检补贴”、“生产补贴”么？怎么领取？男职工的陪产津贴可以和女职工的生育津贴同时报销么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "10055",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10055",
+   "question": "领导您好，由于工作需求，我想咨询一下吉林省的零售药店集采情况，如我省目前零售药店是否纳入集采，主要由哪些部门负责，具体工作流程有哪些，工作开展情况如何，有哪些相关政策法规等。望回复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "9295",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9295",
+   "question": "大概2022年7月末至8月初，骨创伤科钢板暂停使用几天，好像是因为耗材集采，当时应该有文件，想了解该文件信息。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "8579",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8579",
+   "question": "在延吉办理了城乡居民医保，现在长春就业办理职工医保，怎么办停居民医保",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "6791",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6791",
+   "question": "我在长春市公主岭市上班，医保归属地为长春公主岭，户口及居住地均在四平市，父母及刚出生的儿子户口也均为四平市，我的父母及儿子均为城镇居民医疗保险，通过家庭共济绑定家庭成员后，请问他们是否能通过家庭共济使用我的医保在四平进行购买药品等操作？我绑",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "6301",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6301",
+   "question": "您好，请问：职工医保普通门诊起付标准与门诊慢病起付标准合并计算，怎么理解？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "5044",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5044",
+   "question": "在医疗保障服务平台上申请了跨省医保转移业务，但是半个月了一直限制转出地未生成，请问是什么原因",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "3902",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3902",
+   "question": "个人怎么查询医保缴费记录及余额、使用明细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "2437",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2437",
+   "question": "请问吉林省种植牙集采什么时候开始？老百姓希望尽快实施。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "1043",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1043",
+   "question": "精神疾病类药品可以走医保卡嘛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ybj",
+   "id": "693",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=693",
+   "question": "省医保局领导您好：据多方媒体了解核实后，多省市已经把试管婴儿纳入医保。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

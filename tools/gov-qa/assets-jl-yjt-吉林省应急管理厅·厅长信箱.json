@@ -1,0 +1,465 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-yjt",
+   "id": "30672",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30672",
+   "question": "您好，想咨询一下危险化学品从业人员操作证怎么获取，在哪里参加",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "25410",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25410",
+   "question": "目前，省级开发区，没有行政区域，行政区域在街道和乡镇，那么按照法律法规、相关条例，是否有明确的职责划分。是由乡镇街道负责行政区域内安全生产管理，还是开发区对规划区域进行安全生产管理，开发区与乡镇街道在职责上不够明晰。目前现在都是乡镇街道行政",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "银川市安全生产行政责任规定",
+    "准格尔旗人民政府关于印发〈准格尔旗有关部门和单位安全生产工作职责分工〉的通知",
+    "镇江经济技术开发区管理委员会关于〈镇江新区各镇、街道、园区及有关部门和单位安全生产工作职责暂行规定〉的通知",
+    "中共中央办公厅 国务院办公厅关于进一步提升基层应急管理能力的意见"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "24393",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24393",
+   "question": "您好，经营民用小包装（10KG---25KG）的危险化学品是否需要办法危险化学品经营许可证？ 如：民用小包装（10KG---25KG）汽油、柴油、油漆、香蕉水等列入危险化学品目录内的。",
+   "cited_hits": [
+    {
+     "name": "危险化学品经营许可证管理办法",
+     "lib_no": "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "22705",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22705",
+   "question": "你好，本人技校毕业所学机电一体化专业，本人现在想从事电工工作，请问是否还要考取低压电工证，根据特种作业人员安全技术考核管理第九条已经取得职业高中、技工学校及中专以上学历的毕业生从事与其所学专业相应的特种作业，持学历证明经考核发证部门审核属实",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "19789",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19789",
+   "question": "您好，我想咨询一下，新入职的注册安全工程师需要做三级安全教育培训吗？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "生产经营单位安全培训规定",
+     "lib_no": "应急管理部关于公开征求《生产经营单位安全培训规定（征求意见稿）》意见的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "13595",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13595",
+   "question": "您好，关于“吉林省新兴产业安全生产轻微违法行为免罚清单”适用何种企业、单位？是否适用传统工贸行业？适用范围等？",
+   "cited_hits": [
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "安全生产法",
+     "lib_no": "安全生产法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省新兴产业安全生产轻微违法行为免罚清单（试行）",
+    "吉林省新兴产业安全生产轻微违法行为免罚清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "12630",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12630",
+   "question": "您好，我想了解一下吉林省是否完全按照《应急管理部办公厅关于印发安全生产和救灾领域基层政务公开标准目录指引的通知》（应急厅函【2019】390号）落实工作，其中《救灾领域基层政务公开标准目录》涉及的公开事项是否严格按照公开主体、公开方式和公开",
+   "cited_hits": [
+    {
+     "name": "应急管理部办公厅关于印发安全生产和救灾领域基层政务公开标准目录指引的通知",
+     "lib_no": "应急管理部办公厅关于印发安全生产和救灾领域基层政务公开标准目录指引的通知",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "1808",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1808",
+   "question": "烟花爆竹安全作业报考条件和时间",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    },
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "941",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=941",
+   "question": "长春市电工证在哪里报名",
+   "cited_hits": [
+    {
+     "name": "特种作业人员安全技术培训考核管理规定",
+     "lib_no": "中华人民共和国应急管理部令（第19号）特种作业人员安全技术培训考核管理规定",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-yjt",
+   "id": "32202",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32202",
+   "question": "吉林省应急管理厅： 尊敬的各位领导，我公司为吉林中瑞生物质能源有限公司（以下简称“我公司”）。近期我公司需要交通银行股份有限公司吉林省分行营业部提供融资贷款支持，在开展贷前尽职调查过程中，需对该项目的合规经营风险进行全面评估。现就生物天然气",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于燃气安全许可有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "29036",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29036",
+   "question": "领导您好，我想咨询一下CNG无储存危化品经营许可证办理的相关事宜。 1.吉林省白城市，在哪办理CNG无储存危化品经营许可证？ 2.都需要什么相关手续？ 3.我省对于无储存危化品经营许可证有没有相关指导性意见的文件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于燃气安全许可有关问题的复函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "27272",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27272",
+   "question": "尊敬的省厅领导，您好：我司（吉林中瑞生物质能源有限公司）以有机废弃物（畜禽粪污、农作物秸秆、城乡餐厨垃圾、污泥）等经过厌氧发酵产生沼气，沼气经提纯后生产生物天然气（沼气或甲烷），主要用作汽车燃料。此项目建设及生产是否需要办理危险化学品安全生",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家安全监管总局办公厅关于燃气安全许可有关问题的复函",
+    "国务院办公厅关于印发农业部主要职责内设机构和人员编制规定的通知",
+    "国务院安全生产委员会关于印发〈国务院安全生产委员会成员单位安全生产工作职责分工〉的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "26140",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26140",
+   "question": "您好，我想咨询一下，如何申请加入应急管理厅的安全专家的库，具体的要求还有操作步骤都是什么，我在网上查询说是协调处负责这个事情，想要一下协调处负责人的办公电话。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省应急管理厅专家管理办法（2024年修订）",
+    "吉林省应急管理厅专家申报表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "25169",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25169",
+   "question": "吉林省内，冶炼、有色专业注册安全工程师已注册并获得执业证，在冶炼、有色企业从事专职安全管理工作，是否还需要取得冶炼、有色专业安全管理人员资格证，以及日后的安全管理人员资格证是否需要复审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师分类管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "18613",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18613",
+   "question": "您好，关于安监总管三【2013】76号文的通知，“两重点一重大”中重点监管危险化学品（例液化石油气）是否有储存量要求，才为重点监管化学品，工程设计单位必须为化工石化等资质甲级。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险化学品生产企业安全生产许可证实施办法",
+    "国家安全监管总局 住房城乡建设部关于进一步加强危险化学品建设项目安全设计管理的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "17653",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17653",
+   "question": "申请进入应急厅专家库这其中的第三第四条 （三）专业技术职称证书和毕业证书复印件； （四）获奖证书、发表论文及专著等有关证明材料复印件。”专业技术职称证书根据以考代评的注册安全工程师属于中级职称无需重复评审，是不是意味着有中级注册安全工程师就",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省应急管理厅专家管理办法（修订）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "15024",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15024",
+   "question": "厅领导您好，请问如何申请吉林省应急厅专家入库事宜，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省应急管理厅专家管理办法（修订）",
+    "吉林省应急管理厅专家申报表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "8809",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8809",
+   "question": "本人在施工一线从事技术工作26年，高级职称，对于施工现场的安全管理和事故处理有着丰富的经验。想尽自己的微薄之力为施工现场的安全管理工作做点贡献。请问如何申请应急专家。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省应急管理厅专家管理办法（修订）",
+    "吉林省应急管理厅专家申报表"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "8091",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8091",
+   "question": "领导，我想咨询一下2022年中级注册安全工程师的电子证书和纸质证书发放时间，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 注册安全工程师管理规定 ",
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-yjt",
+   "id": "6875",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6875",
+   "question": "领导好，请问咱吉林省什么时候能开放初级安全工程师考试？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "6123",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6123",
+   "question": "吉林省初级注册安全工程师，请问如何注册？",
+   "cited_hits": [],
+   "cited_missing": [
+    "注册安全工程师职业资格制度规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "6122",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6122",
+   "question": "您好，我想问一下安全生产培训机构应具备哪些基本条件？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "安全培训机构基本条件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "3130",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3130",
+   "question": "什么时候开考初级安全工程师",
+   "cited_hits": [],
+   "cited_missing": [
+    " 注册安全工程师职业资格制度规定 "
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-yjt",
+   "id": "22272",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22272",
+   "question": "我想咨询一下，本科高校工科专业开设金工实习课程，涉及电焊操作。 授课教师有焊工证，学生没有焊工证。 这种情况下，是否违反2025年公告的《焊接动火作业禁令》？是否可以继续开设该课程？需要做哪些备案才能继续开设？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "21372",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21372",
+   "question": "吉林市公安局龙潭分局无故冻结本人银行账户。本人中国建设银行，帐号:6217003110008428687，资金被无故冻结。资讯龙潭分局那边电话:(0432)63099488，电话长期无人接听。刚收到的国家新能源汽车报废补贴2万元也被冻结了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "19303",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19303",
+   "question": "长春市电工证在哪里报名？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "17942",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17942",
+   "question": "想要考取叉车证请问在哪里报名或者是否能提供以下联系方式",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "15826",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15826",
+   "question": "请问预决算在哪里看，有网址么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "11788",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11788",
+   "question": "长春紧急避难所都有那些 网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "10862",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10862",
+   "question": "考取中级注册安全工程师，别的省都有，咱省补贴没有这个，考个营养师都有补贴，安全这么重视，转世能否列入，对安全管理有个促进作用，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "10021",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10021",
+   "question": "您好，请问贵单位的2022年政府信息公开年报在哪里查看或下载？网上回复即可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "3937",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3937",
+   "question": "请问预决算在哪里看，有网址么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "3135",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3135",
+   "question": "厅局相关同志，你好！ 我是吉林大学一名教师（非医学护理学专业），我想学习应急救援员相关技能知识、考取相关资质证书。 请问：是否有相关培训可以报名参加？如何获得信息？如何考取？ 感谢拨冗关注，祝好盼复。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "2824",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2824",
+   "question": "您好，我公司员工的高处作业证、低压电工证在河北取证，在吉林省四平市报名复审、换证，由于疫情，报名后一直未安排考试，目前证件已过有效期，请问此时证件是否仍然有效可以使用？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "2458",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2458",
+   "question": "您好，请问特种作业证高压电工复审证件，如果照片错了，怎么办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "1873",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1873",
+   "question": "尊敬的各位领导， &nbsp; &nbsp; &nbsp; &nbsp;只为一个观念，就是让人们正确认识对水的危害，更加了解真实落水溺水，就是最好的防溺水措施。夏季市安委办政府等机构常有防溺水短信提醒，希望能加入几句话能让人们更加注意水的危",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-yjt",
+   "id": "1023",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1023",
+   "question": "请问贵单位2021年财政预算在哪里查看？可提供下载网址吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

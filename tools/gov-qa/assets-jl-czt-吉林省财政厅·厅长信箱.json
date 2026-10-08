@@ -1,0 +1,756 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-czt",
+   "id": "35077",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35077",
+   "question": "请问，单位开具的发票是否属于会计凭证、原始凭证？请及时作出答复，非常感谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "会计基础工作规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-czt",
+   "id": "21157",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21157",
+   "question": "您好！请问会计从业资格证书可以更换成会计初级么？会计从业还有用么？谢谢。",
+   "cited_hits": [
+    {
+     "name": "会计法",
+     "lib_no": "会计法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-czt",
+   "id": "32934",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32934",
+   "question": "税务师继续教育是否可以抵免会计继续教育？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省会计专业技术人员继续教育实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "23247",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23247",
+   "question": "吉林大学教育基金会符合公益性捐赠税前扣除资格的时限",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于获得2022年度吉林省公益性社会组织捐赠税前扣除资格名单的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "22035",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22035",
+   "question": "请问什么时候可以领取中级证书？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2024年度全国会计专业技术中级资格考试合格证书发放的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "16162",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16162",
+   "question": "非全日制会计专硕，有会计专硕学位证，可以申请免试财务管理科目吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好会计专业学位与会计专业技术资格衔接有关工作的通知",
+    "财务管理"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "13780",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13780",
+   "question": "会计副高职称评审，对期刊的范围有要求么？龙源期刊是否可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省会计系列高级职称评审实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-czt",
+   "id": "10329",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10329",
+   "question": "我大学是在吉林工商学院读的，初级会计证书是在大学期间在长春市考下来的，但是现在我在河南周口项城市工作，而且我现在从事的工作也与会计无关，那我是否要参加继续教育，如果参加，是参加吉林省的还是河南省的",
+   "cited_hits": [],
+   "cited_missing": [
+    "会计专业技术人员继续教育规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "8874",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8874",
+   "question": "笔者是在校的大学生，不方便回原来的高中补办学历证明，离得太远了，几千公里。请问应该怎么解决？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2023年度全国会计专业技术初级资格考试成绩及相关工作的通知",
+    "高中毕业生登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "8667",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8667",
+   "question": "你好，请问高中毕业证不慎丢失，如何进行初级会计的考后资格审核。",
+   "cited_hits": [],
+   "cited_missing": [
+    "高中毕业生登记表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "7857",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7857",
+   "question": "2023年初级会计考试的报名信息表忘记打印了，会开通补打通道吗，会影响2023年的初会考试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2023年度全国会计专业技术 初级资格考试吉林省考区报名及考务日程等工作安排的通知",
+    "全国会计资格考试网上报名考生信息表",
+    "网上报名回执表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "7052",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7052",
+   "question": "2022级初级会计证已经发放了吗？没法放的放的话，那么发放时间大概是什么时候？如果已经发放完毕那么错过了领取时间怎么办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2022年度全国会计专业技术初级资格考试报名资格复核及合格证书发放的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2220",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2220",
+   "question": "什初级会计成绩合格什么时候才能领证",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2211",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2211",
+   "question": "请问吉林省初级会计考试是考后审核吗？可以在网上交材料审核吗？大约什么时候审核和拿证啊？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2152",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2152",
+   "question": "之前在初级会计报名时未打印考生信息表，当时咨询说未打印不影响初级考试，目前通过初级考试后审核是否需要考生信息表？何时开始补打？在哪里补打？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2123",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2123",
+   "question": "想问一下吉林省考后审核在什么时间，是去大学所在地的财政厅领取证书并当场审核吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2121",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2121",
+   "question": "你好因为是第一次考初会不知道有考后审核这个东西，看网上说报名的时候要打印报名考生信息表和回执表，我两个都没打印会影响拿证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2118",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2118",
+   "question": "2022年初级会计考试成绩合格后审核问题，我是在山东报名并且与审核完成，受疫情影响转到吉林省考试，还需要审核吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2116",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2116",
+   "question": "初级会计什么时候进行考后审核啊",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2099",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2099",
+   "question": "初级会计出成绩不是要“资格审核”吗，但是我考过了，我是专升本，所以那个报名表上学历是专科，专科没有学位证书，之后就只有学历编号，没有学位编号，但是我手误把学位编号也给写上了（本来不应该写，但是我把它和学历编号也成一样的了）想问一下能不能修改",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2098",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2098",
+   "question": "今年的初会考后审核还按照2021年的进行吗?他人代领的委托书有格式吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2093",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2093",
+   "question": "查询初级会计成绩通过后，多久到哪里可以领取证书，需要带什么证件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于查询2022年度全国会计专业技术初级资格考试成绩及相关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1911",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1911",
+   "question": "白城初级会计考试的考后审核是在领取证书时，同步进行报名条件审核？审核需要高中毕业证么",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2021年度全国会计专业技术初级资格考试报名资格复核及合格证书发放的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1786",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1786",
+   "question": "2022年初级会计考试什么时候下成绩和证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于调整2022年度全国会计专业技术初、高级资格考试吉林省考区考务日程安排及有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1467",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1467",
+   "question": "吉林省松原市扶余市城市公交2020年油补尚未发放，城市公交亏损是否有补助。油补什么时候发放？",
+   "cited_hits": [],
+   "cited_missing": [
+    "财政部 交通运输部关于调整农村客运、出租车油价补贴政策的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-czt",
+   "id": "32596",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32596",
+   "question": "初级会计证取得后，多久可以报考中级会计",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "30572",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30572",
+   "question": "本人于2025年通过会计中级职称考试2个科目，如何抵免2026年会计继续教育学分",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "29081",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29081",
+   "question": "在事业单位工作，对于报考高级会计师的“取得会计师职称后相关工作满5年”，是指取得证书满5年（2026年），还是指事业单位聘任满5年（2029年）？如果2026年可以报考，同年可以参评吗？感谢回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "28477",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28477",
+   "question": "1.我是今天从长春高校毕业的学生，去年考取了初级会计证，因是学生不需要继续教育，所以只是在全国会计管理平台注册了，当年没有申请继续教育学分，想问怎么补申请 2.证书归属地在长春怎么转回我现在的所在地山西 3.转回需要什么条件 4.网上搜到的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "27655",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27655",
+   "question": "想咨询下初级会计报考是否有年龄限制，多大年龄不可以报考",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "26842",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26842",
+   "question": "9.6考的中级会计，忘记是否电子签到，但是已经答题，交卷了，怎样确认是否签到了？如未电子签到，怎么办，怕影响成绩，着急望回复！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "25981",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25981",
+   "question": "其他平台的验证码都能收到，这个验证码试了两天将近10次，一次也收不到是怎么回事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "25980",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25980",
+   "question": "您好，今年的会计证书可以申请快递邮寄吗？通常是10月份吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "25135",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25135",
+   "question": "会计证上那里领取，需要带什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "24885",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24885",
+   "question": "您好 本人22年领取的证书 ，24年毕业 大学期间是否需要继续教育 学位证书可否申请学分抵扣 可抵扣几年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "23986",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23986",
+   "question": "会计初级考试是什么时候",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "22769",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22769",
+   "question": "2019年-2024年的继续教育都完成了，但是在全国会计人员统一服务管理平台里没有同步过来，请问需要自己手动上传材料添加还是等统一同步更新信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "22566",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22566",
+   "question": "24年取得初级证书，本年度继续教育是否需要教育？可不可以视同通过？怎样才能视同通过？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "22387",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22387",
+   "question": "请问25年初级会计忘记打印报名表，会影响考试吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "21778",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21778",
+   "question": "会计专业技术人员继续教育对于会计人员至关重要，如果不能按时完成，会影响会计人员的切实利益。但是在实际生活中，难免会有一些特殊情况导致会计人员当年未能按时完成学习任务，想亡羊补牢时，却没有机会。希望吉林省财政系统的改革能循序渐进，将人性化服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "20974",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20974",
+   "question": "本人实际从事会计工作时间为2013年，目前全国信息采集时只有2019年开始在现在单位的资料，工作经历只有2019年至现在的记录，会不会影响明年高级评审",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "20938",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20938",
+   "question": "中级会计职称下证后，还需要参加公司另外评审中级职称吗？中级会计师证书可以以考代评吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "20392",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20392",
+   "question": "在中华人民共和国财务部填写会计信息采集时需要上传《会计工作经历证明》与《从事会计工作时间证明》，请问二者是否有统一模板进行填写，并给予先关下载方法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "18297",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18297",
+   "question": "请问什么时候可以打印2024年会计中级考试准考证？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "18225",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18225",
+   "question": "去年10月开始做会计人员的相关工作，今年刚考过初级会计证，证件可以抵免今年继续教育吗，我应该怎么操作才可以，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "18032",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18032",
+   "question": "会计证书什么时间能取，发放。需要我们走什么流程，还是拿着身份证就能领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "17787",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17787",
+   "question": "领取初会证书时毕业证丢失可以用学信网照片吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "17582",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17582",
+   "question": "2024年初级会计证书能快一点发放么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "15386",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15386",
+   "question": "2024高级会计师准考证在哪个网站打印 哪天开始打印",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "14067",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14067",
+   "question": "初级会计报名信息表没保存打印，后续领证审核需要用，有什么补救的办法吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "14046",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14046",
+   "question": "报名信息表和回执单没有打印，可以补打吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "13893",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13893",
+   "question": "请问吉林省财政厅2021年政府信息公开工作年度报告在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "12633",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12633",
+   "question": "想了解一下全额拨款、差额拨款、自收自支事业单位财政如何保障依据文件，除了机构编制部门的编制本定性是什么类型事业单位外，财政保障这一部分有什么具体的规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "12169",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12169",
+   "question": "请问，高中学业考试未通过，但是是在校大学生，可以参加初级考试吗，可以的话需要准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "11148",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11148",
+   "question": "2023 年纸质版初级会计证书什么时候开始审核发放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "10416",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10416",
+   "question": "1995年开始工作，现在该公司已经不存在了，会计工作年限证明要怎么填写？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "8154",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8154",
+   "question": "您好我想请问一下考生信息表当时没有打印的，后面还可以补打印吗，因为当时并不知道需要这个表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "7967",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7967",
+   "question": "请问会计信息采集变更的审核大约几个工作日完成",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "7706",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7706",
+   "question": "2023会计继续教育什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "7545",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7545",
+   "question": "你好，请问在校大学生考取初级会计证书后，需要进行继续教育吗？（已经查阅《会计人员继续教育规定》，“国家机关、企业、事业单位以及社会团体等组织（以下称单位）具有会计专业技术资格的人员适用此规定”，请问在校大学生属于这类吗？）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "6915",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6915",
+   "question": "2022年继续教育没有完成，请问什么时候可以补学，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "6045",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6045",
+   "question": "您好，想问一下如何获取、验证财政电子票据?谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "5862",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5862",
+   "question": "取得2022年初级证书后怎么样进行信息采集",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "5429",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5429",
+   "question": "你好，我是长春市初级会计考生，我想咨询一下就是我选择邮寄证书，那么后期关于登记，复核的问题怎么办呀？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "3969",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3969",
+   "question": "2022年初级电子证书哪里领取",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "3938",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3938",
+   "question": "请问吉林省财政厅2021年政府信息公开工作年度报告在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "3320",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3320",
+   "question": "吉林省2022年高级会计师省线是多少？什么时候评审文件能下来？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2327",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2327",
+   "question": "该办公室工作人员（座机电话：88591809），他工作上极其认真负责、态度极其友好、切实耐心解答人民群众所急所难的问题，对此表示十分感谢，希望您日后的工作上顺顺利利，生活上顺心顺意，同时，我也将在日后的工作中以您为榜样，一路前行，为人民服务",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2184",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2184",
+   "question": "您好，我是长春市一名在校大学生，2022年在校时报名了初级会计资格考试，后由于疫情影响，经过全国调转，转到河北省进行考试，请问拿到证书后后续信息采集在河北还是在吉林呢？后续的继续教育应当如何进行呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2166",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2166",
+   "question": "我想问一下，我在长春市报的初级会计考试，但因为疫情原因转到了通化市考的试，这种情况应该去哪里领取证书呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "2165",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2165",
+   "question": "请问我原本初级会计考试报名是在长春市，因为疫情转区到了通化市考试，这种情况应该在哪个地区领取证书？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1849",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1849",
+   "question": "初级会计证补办需要什么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1686",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1686",
+   "question": "本人在河北省报名初会，因疫情转考在吉林省。之前报名已经通过河北的考前审核，请问后续还要参加转考地吉林省的考后审核吗？且目前只有河北省的考生报名信息表，没有吉林的，请问如何解决。影响后续取证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1636",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1636",
+   "question": "没有打印初级会计考生报名信息表怎么办？可不可以补打印？或者有没有其他解决办法。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1357",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1357",
+   "question": "您好，我一开始报考的是长春的初会考试，但由于疫情原因，转回来海南省三亚市。但三亚又因为疫情，取消了。然后三亚的负责人，让我们找原报名地退费。请问以什么方式退费，多长时间能解决。希望尽早解决谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-czt",
+   "id": "1042",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1042",
+   "question": "2022吉林省财政支收预算报告在哪里看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

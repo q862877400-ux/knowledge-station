@@ -1,0 +1,1254 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-ypj",
+   "id": "36155",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=36155",
+   "question": "本人于2025年9月2日向贵局提交投诉举报材料，反映吉林国药制药有限责任公司、吉林省康福药业有限公司、吉林特研药业有限公司、吉林京辉药业股份有限公司等四家药品生产企业，通过电话营销方式向老年消费者销售药品，涉嫌存在虚假宣传、违规直销等违法行",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "卫生部药品标准中药成方制剂",
+    "卫生部药品标准中药成方制剂",
+    "市场监督管理行政处罚程序规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "31826",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31826",
+   "question": "《国家药品监督管理局关于GB 9706.1-2020及配套并列标准、专用标准实施有关工作的通告》的规定，相关标准已于2023年5月1日起实施，但考虑到2020年以来新标准检验工作受疫情影响较大，对于产品为执行新标准而开展的变更注册的，给予了",
+   "cited_hits": [
+    {
+     "name": "标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 医疗器械监督管理条例 ",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 医疗器械监督管理条例 ",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "标准化法",
+     "lib_no": "标准化法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 医疗器械监督管理条例 ",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 医疗器械监督管理条例 ",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 关 于 GB 9706 .1-2020及配套并列标准、专用标准 实施 有关 工作的通 告 ",
+    " 关 于 GB 9706 .1-2020及配套并列标准、专用标准 实施 有关 工作的通 告 ",
+    "GB 9706.1-2020",
+    "GB 9706.1-2020"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30048",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30048",
+   "question": "中成药中含有麝香或者人工麝香，是否需要标注“运动员慎用”？",
+   "cited_hits": [
+    {
+     "name": "反兴奋剂条例",
+     "lib_no": "反兴奋剂条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "含兴奋剂药品名单"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "29639",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29639",
+   "question": "1熊胆粉是否是药品2特产店能否销售熊胆粉3销售熊胆粉需要办理什么证件",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26249",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26249",
+   "question": "请问医疗器械的使用期限等同于有效期吗？对于这个使用期限目前市场上有两种说法，一是认为自产品使用之日起算，另一种说法则是按照生产日期计算，过了使用期限了就不能正常使用。比如一个轮椅、或者助行器生产日期是2020年11有3日，使用期限是5年，正",
+   "cited_hits": [
+    {
+     "name": "医疗器械监督管理条例",
+     "lib_no": "医疗器械监督管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家药监局关于发布有源医疗器械使用期限注册技术审查指导原则的通告",
+    "医疗器械说明书和标签管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26212",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26212",
+   "question": "我于2025年8月2日购买吉林一正药业集团有限公司旗下生脉饮产品（国药准字号Z22022532，产品批号250453），产品包装正面显著标明“人参方”，而背面成分表及说明书中却不含人参。配料表为“红参、麦冬、五味子”。在《中华人民共和国药典",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "药品注册管理办法",
+    "药品说明书和标签管理规定",
+    "药品说明书和标签管理规定（局令第24号）",
+    "市场监督管理行政处罚程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23453",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23453",
+   "question": "药店以多种消毒批号的产品，自行配置一款“药品”宣称可以治疗鼻炎。配置也来的“药品”没有名称，用透明所料袋分承装。现要去药店进行政处罚，是应该适用《消毒管理条例》还是按照“非药品冒充药品”行政处罚？是应该由市场监督管理局还是卫生健康局进行行政",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23260",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23260",
+   "question": "配送企业给长春市中心医院配送临期药品，医院给患者使用快过期药品",
+   "cited_hits": [
+    {
+     "name": "药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23051",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23051",
+   "question": "尊敬的省药监局领导： 您的反馈信息我已收到，针对我反应这两家药企的实际情况我相信局领导也做了详细了解，办事的效率我们作为民众也感到非常欣慰，我也相信省局领导会秉公按章办事，对于背后隐晦的事务，或者涉及到的省药监部门的某些人我希望局领导不要忽",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉化堂药业有限公司",
+    "吉林省合生源中药材发展有限责任公司"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23042",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23042",
+   "question": "尊敬的药监局领导： 我作为旁观者，对《吉化堂药业有限公司》这家药企的实际情况是非常了解的，他们背后的人脉是涉及到咱们省药监局某些人的，我希望省局领导不要草草了事忽略此事，我作为一名百姓，相信政府能时刻按法律法规办理，我会时刻关注此事。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉化堂药业有限公司",
+    "吉林省合生源中药材发展有限责任公司"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-ypj",
+   "id": "35807",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35807",
+   "question": "《医疗器械经营质量管理规范现场检查指导原则》4.28项规定：（二）从事植入和介入类医疗器械采购或者销售的人员中应当至少有1人具有医学相关专业（包括基础医学、预防医学、临床医学、医学技术、口腔医学、中医学、护理学、药学等专业）大专及以上学历，",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械经营质量管理规范现场检查指导原则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "35151",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35151",
+   "question": "想在商业性质的2楼以上开办药品零售企业，当地市场监管部门以不方便购药为由不予审批；吉林省内开办药品零售企业经营地址是否可以开办在写字楼（如：各种商业性质非住宅楼）2楼以上？可以的依据是？不可以的理由是？",
+   "cited_hits": [],
+   "cited_missing": [
+    "进一步做好药品经营监督管理有关工作的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "34536",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34536",
+   "question": "吉林省医疗机构药房规范化建设标准指南（试行） 吉药监联发[2025]26号 ｜ 2025年04月25日发布 ｜ 2025年04月25日实施 第五十八条 医疗机构应当严格执行药品购进验收制度，购进药品应当逐批验收，并建立真实、完整的记录。验收",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营和使用质量监督管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "34272",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34272",
+   "question": "老师您好，雄蜂蛹中药材标准《DBY-22-JLYC-008-2018》是否为现行的中药材标准；该标准中有炮制品冷冻干燥粉的炮制工艺，中药饮片生产企业是否可以执行该标准生产中药饮片：雄蜂蛹（冷冻干燥粉），望文字答复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中药材标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "31851",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31851",
+   "question": "你好，我想咨询一下，我们是医药批发企业，购进一款OTC膏药，膏药的规格是1贴/袋*5袋/盒，供应商给的产品资料里只有盒子的备案，我们现在要购进，厂家最小单位要按《贴》给我开具，这样可以么？我们按盒建的基础信息，我们把基础信息也改成贴么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营质量管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "31849",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31849",
+   "question": "吉林省一生产企业生产的片剂，注册证上是12片*2板，但给我们的小包装资料上的是12片*1板（产品规格都是0.35克），未见到任何包装变更的信息，对方给的说明，说是微信小变更，不用包装备案在年底报告中体现就行，后来又说，只要批准文号不变和规格",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品上市后变更管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30310",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30310",
+   "question": "如腊肠果未收录入吉林省中药饮片炮制规范，请问可以按照青海藏药炮制规范，在吉林省的饮片厂进行生产吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品生产监督管理办法",
+    "中药生产监督管理专门规定的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30126",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30126",
+   "question": "如腊肠果未收录入吉林省中药饮片炮制规范，请问可以按照青海藏药炮制规范，在吉林省的饮片厂进行生产吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品生产监督管理办法",
+    "中药生产监督管理专门规定的公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "29949",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29949",
+   "question": "您好，本人目前没有任职单位，请问西药制药中级职称的继续教育该如何开展，需要通过哪个平台进行，盼复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年吉林省专业技术人员继续教育学习有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "29647",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29647",
+   "question": "2020版药典及2025版药典人参来源：本品为五加科植物人参Panax ginseng C.A.Mey.的干燥根和根茎。多于秋季采挖，洗净，晒干或烘干。栽培的俗称\"园参\"；播种在山林野生状态下自然生长的称\"林下山参\"，习称\"籽海\"。 《吉林",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中药饮片炮制规范",
+    "中药饮片标签管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "29302",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29302",
+   "question": "根据当前执业药师工作频繁变动的不稳定性，给省药品监督管理局执业药师注册经办机构、四平市政务服务中心及企业增加了很大的工作量，而且药品变更页上面信息量也很多。是否可实行以下方案： 连锁各分店的主要负责人可由具备执业药师资格且注册到总部的一人担",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营质量管理规范",
+    "GSP附录：药品零售连锁质量管理（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28713",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28713",
+   "question": "您好，请问《吉林省中药材标准》第一册中雄蜂蛹是否为现行标准？炮制后的品名是“雄蜂蛹”还是“雄蜂蛹冷冻干燥粉”？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中药材标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "27812",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27812",
+   "question": "《药品经营质量管理规范》第七十三条第二款，随货同行单（票）应当包含发货日期等内容，有的销售客户随货同行单没有此项目应该怎么处理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营质量管理规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25534",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25534",
+   "question": "老师您好，咨询您几个问题： 1.模拟灌装阳性对照培养时间是5天还是7天？ 2.模拟灌装阳性对照培养结束是否需要做菌种鉴定？ 3.枯草芽孢杆菌进厂前适用性检测为2个温度培养（20-25℃和30-35℃），模拟灌装阳性对照是否需要此两个温度培养",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典",
+    "药品生产质量管理规范",
+    "无菌工艺模拟试验指南"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24636",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24636",
+   "question": "我是巩义市为民药店经销有限公司恒星店，我店于2024年12月25日从药师帮平台上的吉林省俊安医药有限公司采购了6盒艾司奥美拉唑镁肠溶片（耐信），生产厂家阿斯利康制药有限公司，规格20mg*7片，国药准字号：H20046379，批号为：240",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品经营许可证",
+    "药品经营许可证",
+    "药品经营许可证",
+    "药品经营许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24062",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24062",
+   "question": "抗病毒胶囊（国药准字Z10920035）市场存在两个外包装和商品名情况（维康速克、汝立康），请问：1.同一文号药品，以两个商品名形式生产是否允许？2.两个商品名和外包装的药品是否存在变更关系？",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品说明书和标签管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23516",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23516",
+   "question": "本人于2025年4月4日在淘宝店铺（恒舒灵）购买的产品：抗鼻炎过敏凝胶（生产企业：吉林朗远医疗器械有限公司），包装盒中含有三种产品，分别是一瓶凝胶，一瓶软膏和一盒棉签，本人按照说明书使用后，出现流涕、喷嚏不止、鼻痛等症状，因此对产品真伪产生",
+   "cited_hits": [],
+   "cited_missing": [
+    "市场监督管理行政处罚程序规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23238",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23238",
+   "question": "领导您好，我们是一家外省中药饮片生产企业，想生产吉林省炮规的中药饮片，在网站上搜索发现吉林省中药饮片炮制规范有2020年版、2021年版、2022年版、2023年版、还有第一册；请问咱们最新版本的炮制规范的全名叫什么？是哪一年版？谢谢，盼回",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中药饮片炮制规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22777",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22777",
+   "question": "根据国内二类医疗器械注册人制度，注册人A委托受托生产企业B进行生产，在注册人A持证的产品包装盒上因位置等原因未体现“受托生产企业名称”这一项目，但是包装盒上有“其他内容详见说明书”字样，并且在产品说明书上有明确印刷“受托生产企业名称”这一项",
+   "cited_hits": [],
+   "cited_missing": [
+    "医疗器械说明书和标签管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21666",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21666",
+   "question": "请问中药饮片的效期是否有明确的规定?目前我公司的中药饮片供应商提供的随货同行单，有些标示了效期，有些不标示。一些供应商说中药饮片不用再管效期了，没有有效期。公司入库时不知道如何录入有效期。也在网上进行了查询，网上有种说法是中药饮片需要进行复",
+   "cited_hits": [],
+   "cited_missing": [
+    "中药饮片标签管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20349",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20349",
+   "question": "尊敬的领导您好，我是吉林省的一家经营药品的公司，关于药品批发企业销售药品提供的符合法规的电子公章企业首营是否跟纸质鲜章的具有同等法律效力呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家药监局关于进一步做好药品经营监督管理有关工作的公告"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20335",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20335",
+   "question": "尊敬的省药监局领导： 我想请省局领导多多关注（通化林荟康药业），这家公司2024年1月9日注册到现在，为了规避申请GMP药品质量认证时出现的各种漏洞，在省药监局稽查二科杜立峰和吴静还有其他省药监局人的指点下，先是注册的（通化蕴德堂药业有限公",
+   "cited_hits": [],
+   "cited_missing": [
+    "药品生产许可证",
+    "药品生产许可证",
+    "药品生产许可证",
+    "药品生产许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-ypj",
+   "id": "35854",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35854",
+   "question": "吉林省国大生物制药有限公司吉械注准20242140029号注册证，根据国家药监局查询结果显示，该注册证批准日期为2026年9月15日，且没有显示变更信息。但是国大公司主张批准日期为2024年4月29日。请问该注册证实际批准日期是哪天？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "35075",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35075",
+   "question": "什么是医疗器械？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "35018",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35018",
+   "question": "老师，您好。我是一家药品批发企业，收到一份熊胆粉的首营资料(批准文号:国药准字Z20000054)，剂型为:粉（药材），请问一下该剂型是属于中成药管理还是中药饮片管理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "34961",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34961",
+   "question": "请转交市场监管及药监局。太让我失望，每天吃不好睡不好坐卧难安，有时一夜也不能入睡，血压也高上来了，心脏也不好，这11898元是我找别人借的，对我而言是我日夜辛苦工作换来的，每一分都饱含着我的汗水!!我要投诉长春市二道区海福健大药房，地址：长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "33601",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33601",
+   "question": "2026年6月20日，本人女朋友在长岭县永久镇的康晟医药有限公司花费100多元购买了稳心颗粒和商家自制的膏药，称能治疗火疖子等病症，购买后发现该产品不像正规的，没有任何生产厂家等信息，也没有生产日期保质期 ，经查询，违反了《药品管理法》中的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "32593",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32593",
+   "question": "家用过期药品该如何合规处理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "32295",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32295",
+   "question": "2025年9月17日，吉林省鸿鑫生物有限公司以推销药品名义向我索要所谓的定金1800元，我怕上当受骗，只转了800元，等我向该公司要药品时，该公司找理由说是定金，不是货款，不发货也不退款，还要求再转账订货，这不是诈骗是什么？ 请领导严厉查处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "31923",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31923",
+   "question": "1. 本案关键核查人员李建党，于3月19日现场核验全部291件涉案证物后，随即长期休假离岗。 行政执法、涉案物品核查属于法定刚性工作，公职人员个人休假，绝对不能导致案件全盘停滞、核查工作全面停摆。 延边州市场监管部门无任何轮岗、交接、替补办",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "31164",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31164",
+   "question": "您好！2026年5月15日开始实施的《药品管理法实施条例》中第二十九条规定：中药饮片生产企业需建立追溯体系。这个追溯码有具体要求吗？（追溯码位数等）我省是否就追溯体系出台相关的规定吗？在官网上能查询到相关规定吗？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30946",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30946",
+   "question": "我在口腔诊所安装的爱尔创氧化锆烤瓷牙的定制加工厂为吉林省艺冠齿业有限公司，我在吉林省药品监督管理局官网的数据查询系统查询不到该企业的医疗器械注册证、医疗器械生产许可证、医疗器械经营许可证，所以我有此担心。麻烦省药品监督局审批办的老师帮助查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30920",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30920",
+   "question": "吉林云泽医药有限公司，在没有药监出具的召回药品通知，恶意给药品销售公司发召回函",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30919",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30919",
+   "question": "个人发现云泽医药有限公司，扰乱市场秩序。没有药监召回药品文件，虚构事实扰乱市场",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30666",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30666",
+   "question": "您好，请问职业药师报名条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30502",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30502",
+   "question": "按照2025年版一部药典项下陈皮，使用原料为广陈皮生产的中药饮片品名应该叫什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "30309",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30309",
+   "question": "由于关木通已从《中国药典》中移出，那么对于使用关木通的品种更换使用木通是否需要进行替代研究？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "29306",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29306",
+   "question": "您好，我们是重庆的一家医药批发公司，作为下游向吉林省的上游企业购进普通药品，我们是委托的三方仓库收货，已经出具了相关的收货情况说明，该说明为三方仓的统一模板，内容包含双方公章、收货人及身份证信息、收货地址、期限。吉林省是否有要求下游企业必须",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28732",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28732",
+   "question": "我于2025年9月26日从东丰县广生堂大药房购买了稳心颗粒，生产厂家山东步长制药股份有限公司，规格5g*18袋，国药准字号：Z10950026，批号为：2504057，生产日期：2025年4月15日，有效期：2026年9月。在今年国家医保局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28731",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28731",
+   "question": "本人于8月30日在家康大药房花费100元购买了三盒稳心颗粒，该药品保质期分别为2024年6月，2024年7月，2019年7月。均在出售时已过期，出售时商家只说批号不好，并没有告诉过期。商家在明知药品过期还出售本人，存在谋财害命，上述药品本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28730",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28730",
+   "question": "我于2025年9月9日从抚松县松江河镇祥和大药房购买了颈复康颗粒，生产厂家颈复康药业集团有限公司，规格5g*12袋，国药准字号：Z13022204，批号为：510886，生产日期：2025年5月17日，有效期：2028年5月16日。在今年国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28419",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28419",
+   "question": "具有什么质资的企业具备中药材产地加工（趁鲜切制）经营？需要备案或延伸检查吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "28013",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28013",
+   "question": "本人是“生物化学制药”高级工程师职称、制药企业从事生产工艺相关工作10年（目前在职）；妻子是“药物分析”高级工程师职称，制药企业从事药物分析方法开发相关工作9年（目前在职），想咨询确认下我们两人是否符合吉林省执业药师考试免考两科的政策要求？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "27644",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27644",
+   "question": "您好，咨询下个人想经营中药材需要准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "27353",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27353",
+   "question": "你好！我公司是药品批发企业，现收到一份熊胆粉的首营资质，批件为国药准字Z，剂型为粉(药材)，药品生产企业的生产许可证正本范围是中药饮片***，副本范围是中药饮片(熊胆粉)***，药品包装、标签、说明书均标注OTC甲类，想咨询这个品种的包装是",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26867",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26867",
+   "question": "依据进口药材质量标准、《中国药典》以及《进口药材管理办法》,通过进口药材通关进口的中药材“高丽红参”(6年根整盒，韩国产)，无《药品经营许可证》的商业主体是否可以批发和零售?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26619",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26619",
+   "question": "咨询下新开的零售药店主要负责人为执业中药师且为中药学学历，是为再需配备一名中药学学历相关人员",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26576",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26576",
+   "question": "老师您好，我是药品批发企业想经营中药材，目前除了营业执照需要有相应的经营范围，对库房、人员等还需要满足什么条件，如果在药品库里分出一个专区放中药材，这种可以吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26550",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26550",
+   "question": "2025年8月15日我在拼多多平台购买了一个名为感康布洛芬缓释胶囊的药品，收到货后我拆开发现药品内有头发，我找到商家，商家把责任推卸给厂家，拼多多官方和网购平台商家也说联系厂家进行解决，现未得到任何的解决方案。我的诉求是依法对我进行赔偿。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "26156",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26156",
+   "question": "向贵局咨询下，吉林省单体零售药店和连锁零售药店的质量负责人可否在其他企业兼职，贵局是否下发过相关规范性文件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25934",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25934",
+   "question": "领导您好！咨询下：二类医疗器械说明书，变更下使用方法、注意事项，使用方法和注意事项变更，不影响医疗器械的安全性和有效性，且不涉及注册证或技术要求变化。需要多少个工作日能办理好？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25771",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25771",
+   "question": "你好！咨询一下在颁布的《吉林省中药材标准》2019年版项下有【炮制】项，那中药饮片是否也可以执行此标准呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25515",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25515",
+   "question": "我们企业为药品批发企业，主要经营化学原料药，每次来货和发货的形式都是桶装，销售单位主要是药品生产企业，我想咨询一下药品赋码关于这方面的规定，像我们这种原料药也必须赋码吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25247",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25247",
+   "question": "尊敬的省局老师： 您们好！ 贵局发布了《吉林省中药饮片炮制规范》（2020年版）第一册，其中未收载中药饮片天麻，《中国药典》2020年版一部收载的天麻规格为薄片，因为客户有个子的用药需求，请问生产企业是否可以继续按照《吉林省中药饮片炮制规范",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "25016",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25016",
+   "question": "尊敬的省局老师： 您们好！ 贵局发布了关于颁布实施《吉林省中药饮片炮制规范》（2020年版）第一册的公告，请问未收载入《吉林省中药饮片炮制规范》（2020年版）的品种（如：天麻），是否可以继续按照《吉林省中药饮片炮制规范》（1986年版）进",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24426",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24426",
+   "question": "2025年5月30日药监局领导带队工作的非常认真，我向我们之前的鲁莽举报涉及的某位同志诚恳道歉，只是我们感觉或者说是怀疑益康参业在药监局某个部门应该是有靠山。如果我们的感觉错误请药监部门的领导海涵 益康参业转移到韩泰药业的那几个中药大概是燕",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24369",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24369",
+   "question": "尊敬的省局老师： 您们好！ 贵局发布了关于颁布实施《吉林省中药饮片炮制规范》（2020年版）第一册的公告，请问未收载入《吉林省中药饮片炮制规范》（2020年版）的品种（如：啤酒花），是否可以继续按照《吉林省中药饮片炮制规范》（1986年版）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24315",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24315",
+   "question": "通化益康药业有限公司GMP中药饮片生产，实验检验数据频繁篡改，而且实验室照片造假，关于生产的各项制度培训不完善。洁净级别不符合GMP卫生条件，洁净区人流和物流没有独立分开没有缓冲设施走向不合理，生产车间分区不明确，净制，洗润，蒸制，精选，切",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24245",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24245",
+   "question": "和龙市和延边州不给办理《医疗器械经营企业许可证》。回复依据是作费的法律、回涵是河北省的不具法律效力，现据民营经济促进法第77条明确规定包括个体工商户，破除壁磊。请求给办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24080",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24080",
+   "question": "根据《中华人民共和国行政许可法》及《吉林省人参产业条例》、市场监管总局关于进一步推进检验检测机构资质认定改革工作的意见》（国市监检测[2019]206号），对法律、法规未明确规定应当取得检验检测机构资质认定的，无需取得资质认定。 请问： 1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24076",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24076",
+   "question": "尊敬的吉林省药监局领导您好，我公司为二类医疗器械生产企业，为了更好的生产与规划，我公司现将检验室（无菌室、阳性间，微生物室）由原来的三楼搬至二楼，并对新的检验室进行确认，以及通过了吉林省器械所的环境检验并出具了环境检验合格报告，请问领导，对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24049",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24049",
+   "question": "我公司为药品经营企业（经营方式为批发），有自营仓库（面积为29304.88㎡），药品均为整件销售至医药公司。现有仓储设施设备齐全，可有效保证药品仓储管理的规范性与安全性，是否可以按照传统方式存储药品，不添加自动化分拣设备、现代化物流设施。请",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-ypj",
+   "id": "24013",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24013",
+   "question": "请问2024年政府信息公开工作年度报告在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23946",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23946",
+   "question": "该药厂的中药未到工厂进行任何加工包装，未执行全项检验就进行销售，篡改日期和生产记录后，药品未到药厂没有任何商标和标签就流入市场，该药厂的领导和通化药监部门专门针对GMP检查的工作人员有私交，请上级领导尽快派工作人员到通化益康参业有限公司详细",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23933",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23933",
+   "question": "通化益康参业有限公司生产的多种中药饮片，篡改生产日期、编造生产记录，更改生产批号，伪造各种记录，中药未进行真实检验，编造虚假检验数据，代签记录等，药品未到厂里生产检查化验就直接放行进入市场。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23807",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23807",
+   "question": "吉林省内中药饮片生产企业生产中药饮片是否可以使用外省地方标准",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23770",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23770",
+   "question": "老师你好！咨询一下关于《中国药典》2025年版中药饮片微生物限度检查法通则，是不分普饮和直接口服饮片都要做微生物限度检查吗？ 还有中药农残是强制要求做了吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23672",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23672",
+   "question": "生产企业生产的药品还有不带电子监管码的，这种情况允许么？生产企业可以赠货给批发企业么，如果可以价格可以写0么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23670",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23670",
+   "question": "本人在淘宝店铺名称：天幕医疗器械专营店，购买了三瓶由吉林省国大生物工程有限公司生产的产品，产品归属于：二类医疗器械，赠送的小样上生产日期标注不清或者是没有，严重违法了国家法律法规，《医疗器械监督管理条例》（国务院令第739号）第六十七条：医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23628",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23628",
+   "question": "你好！咨询一下《中国药典》2025年版今年10月1日开始实施，那么中药饮片标签上印刷的执行标准《中国药典》2020年版字样的，是否有过渡期？过渡期是多久呢？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23618",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23618",
+   "question": "你好！《中国药典》2025年版25年10月1日开始实施，执行标准是《中国药典》2020年版的标签是否有过渡期？过渡期是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23607",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23607",
+   "question": "老师好，医疗器械经营企业，现在经营器械三类针头，为节省成本，想要从产地直接发货给各商业公司，不知是否可行？如不可行，异地建仓库是否可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23506",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23506",
+   "question": "本人在长春市吉林大学第二人民医院亚泰院区的马路对面一个名为“显通大药房”的药店购买一些保胎药，一个为：维生素E软胶囊、售价为198元每盒、另一个为：乐孕宁颗粒、售价为128元每盒。这两盒药品在药店价钱并未见明显标注，想问一下，这个药为什么这",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23373",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23373",
+   "question": "您好，关于2025年职称评审中，由我局专业技术资格评审委员会评审的专业，现场资料审核的通知是在哪个网站中关注和查询？是在我局网站的通知栏里查询吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23345",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23345",
+   "question": "领导好，有关于医疗器械经营的问题吉事办未给予答复，重新留言，期盼得到答复，问题是：想要经营医疗器械三类针头，但存在一个问题，供应商（生产企业）与供货单位（实际结算单位）不一致，并且生产企业是结算单位的子公司，如后续想要合作，需要如何处理该问",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "23321",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23321",
+   "question": "尊敬的省药监局领导： 感谢您能在百忙之中关注我们，非常抱歉上次我那两位伙伴件留下的联系方式都是错误的，因为这件事大伙委托我全权反馈信息，希望领导理解。也请您在《吉林省吉化堂药业有限公司》这家药厂递交GMP认证申请时能够仔细审核，因为这家药厂",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22873",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22873",
+   "question": "尊敬的省药监局领导： 我举报《吉化堂药业有限公司》和《吉林省合生源中药材发展有限责任公司》，这两家药企在实际位置根本没有厂房，而且我怀疑他们是同一伙人注册了两家药厂。 尤其是现在的《吉化堂药业有限公司》，他是2024年1月注册的《蕴德堂药业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22860",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22860",
+   "question": "尊敬的省药监局领导： 我举报《吉化堂药业有限公司》和《吉林省合生源中药材发展有限责任公司》，这两家药企在实际位置根本没有厂房，而且我怀疑他们是同一伙人注册了两家药厂。 尤其是现在的《吉化堂药业有限公司》，他是2024年1月注册的《蕴德堂药业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22720",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22720",
+   "question": "生物制药企业，原液生产阶段，有中间产品，按照GMP第一百七十五条规定，批生产记录应当包括产品名称，请问老师：批生产记录的“产品名称”应当填写原液名称，还是根据中间产品的不同填写中间产品的名称?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22462",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22462",
+   "question": "老师您好：咨询一下，药典、吉林省中药材标准及吉林省中药炮制规范未收载品种，是否可以执行其他省份地方标准进行生产？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22328",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22328",
+   "question": "老师您好！我想咨询增加中药饮片后，都能经营哪些类别的饮片？精致口服饮片可以经营么？谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22300",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22300",
+   "question": "职业药师报名条件是什么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22269",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22269",
+   "question": "该药在一个叫明医有话说的栏目宣传可以治疗糖尿病，高血压，心脑血管疾病，风湿骨病等许多疾病涉嫌虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22268",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22268",
+   "question": "该药在一个叫明医有话说的栏目中宣传这个药能治疗糖尿病，三高，风湿骨病等许多疾病，涉嫌虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22237",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22237",
+   "question": "还有视频说这个药可以治疗很多疾病，就和治疗百病的神药差不多！需要有关部门核查这么宣传是否是虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22225",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22225",
+   "question": "该公司生产一个名叫龟芪参口服液的药，在一个叫明医有话栏目中请一个自称御医传人杜丁的人讲这个药的功效，说这个药可以治疗糖尿病，高血压，风湿骨病，脑中风，白内障，等以及许多慢性疾病，请问该药品是否存在虚假宣传问题，希望药监局核查，由于视频过大不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22215",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22215",
+   "question": "我经常在四平市鑫康大药房买药，还是会员，他们每次买药都有积分，去年我有一万积分药店告诉可以抵值现金，我有一万积分，可以抵值100现金买药，但是过完年以后，近期几天我用积分抵值买药，他们的承诺是政策已改变，积分不能抵值现金买药使用，我要投诉他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22199",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22199",
+   "question": "老师您好。《药品经营和使用质量监督管理办法》规定药品零售企业不得以买药品赠药品或者买商品赠药品等方式向公众赠送处方药、甲类非处方药。处方药不得开架销售。想咨询下药品批发企业销售药品给客户时可以赠送药品吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "22153",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22153",
+   "question": "《中国药典》（2022版）里对人参的炮制描述是“润透,切薄片,干燥,或用时粉碎、捣碎”，下面只写了“人参片”一种中药饮片。《吉林省中药饮片炮制规范》里面涉及人参的中药饮片只有“人参须”、“人参芦头”、“人参粉”。只有《吉林省中药炮制标准》（",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21874",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21874",
+   "question": "液体敷料，主要成分PCL+甘油+CMC+磷酸缓冲液，使用时，产品涂抹于创面表面，适用范围用于非慢性创面及周围皮肤的护理。 液体敷料，主要成分PLLA+CMC+海藻糖，使用时，产品涂抹于创面表面，适用范围用于非慢性创面及周围皮肤的护理。 这两",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21867",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21867",
+   "question": "老师，您好，我想咨询有没有虎眼万年青中药饮片的质量标准，如果有在哪里能找到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21777",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21777",
+   "question": "各位老师好，请问盐酸曲美他嗪属于含特殊药品的复方制剂吗？它的主要成分曲美他嗪是在兴奋剂目录立的品种，盐酸曲美他嗪是按照含特殊药品的复方制剂吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21335",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21335",
+   "question": "请问，药监局官网显示该文件失效，是该文件失效不执行了，还是仅文件过期，内容依旧有效呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21244",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21244",
+   "question": "我公司拟开展医用氧经营业务（批发），但目前不知道贵局关于医用氧经营的相关准入条件，能否告知一下相关准入条件以及相应的政策法规依据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "21006",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21006",
+   "question": "我是一名消费者，家里老人通过电话销售的形式购买了通化吉通药业有限公司生产的”如意回春胶囊“，经我在各大网上药店查询，发现网上药店的包装均与老人购买的该药品不同，故产生质疑，想联系生产厂家咨询，不管该药厂官网上的电话，还是说明书上的电话均无人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20987",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20987",
+   "question": "尊敬的药监局工作人员，我是深圳华生元厂家医药电商经理，吉林省恒鑫医药有限公司在美团所开店铺：煦康堂大药房旗舰店（快递发全国），本人通过购买溯源查证此商家所售卖的金因肽为非法渠道购买的药品，路径为：厂家-商业公司-吉林大学第一医院，还请药监局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20945",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20945",
+   "question": "本人在本年2024年12月22号，购买了三种药物，力补金秋，鹿鞭丸，楠无敌，三种药品，夸大宣传虚假宣传，严重诱导消费者，夸大药品功效，药品价格严重超出国家定价标准，严重违反零售价格标准范围，药房名字（长春市建宇大药房）情况属实，有聊天截图为",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20792",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20792",
+   "question": "尊敬的领导，我们公司有多个单体药店现在规模扩大，想合并成连锁药店，想咨询下应该具备什么条件，硬件和软件的标准是什么样的，申请的流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20515",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20515",
+   "question": "药品盒子有虫子 投诉工商局只是口头警告 不赔偿消费者 这不是卫生不合格吗 仅仅警告就可以了吗？？？ 卫生安全已经侵犯到药品了！！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20514",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20514",
+   "question": "购买药品盒子里有很多虫子 不赔偿 投诉315 只是口头警告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20422",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20422",
+   "question": "延边正道医药连锁有限公司盗用高艳宏信息注册公司负责人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20418",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20418",
+   "question": "延边正道医药连锁有限公司新药大药房九十四号分店盗用高艳宏执业药师证注册到该公司，高艳宏没有与该公司签订劳务合同，也没有领取该公司报酬，该公司必须注销高艳宏执业药师注册信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20326",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20326",
+   "question": "执行《吉林省中药饮片炮制规范》2020年版的人参粉中药饮片的标签能否打印为“人参粉（林下山参）”",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20259",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20259",
+   "question": "尊敬的办事通知你好，我公司现与一家吉林长春的药品生产企业合作，该药品生产企业业务涉及三方委托储运，特来咨询贵省关于药品生产企业三方委托储运企业相关政策，如何确定药品生产企业与三方委托储运企业开展的业务合法合规。 望回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "20207",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20207",
+   "question": "我在双辽市中医院开的处方中药，此次与以前开的药不一样。但是双辽市中医院药房部不予以作为。药品为乌梅20克僵蚕10克。老百姓束手无策。他们不给换药。之说让患者自己找地方检测。结果出来以后他们再和患者协商。患者的诉求就是把此次的药换成以前一样的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "19943",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19943",
+   "question": "尊敬的省药监局领导： 我再次举报（通化吉辉药业有限责任公司），这家公司从2024年1月9日注册到现在，为了规避申请GMP药品质量认证时出现的各种漏洞，在省药监局巡查科杜立峰和吴静的指点下，多次更换股东，多次更换法人，多次更改设备和其他。这里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "19852",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19852",
+   "question": "人参（个）原药材可以依据《中国药典》2020年版，净制后包装作为中药饮片吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "19669",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19669",
+   "question": "尊敬的药监领导，我公司在要药品追溯过程中，发现吉林省凝德医药有限公司在药师帮平台销售我司产品：三七脂肝丸，规格5g*9袋，生产产家：云南玉药生物制药有限公司；根据药品追溯码查询此商品为山西乐群医药有限公司销售到下游医院的产品，现出现在此公司",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "19666",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19666",
+   "question": "尊敬的药监局领导： 我公司有个品种委托省外企业进行生产，但在委托周期内，由于市场原因该品种未在受托企业进行生产。该品种药品注册证即将到期，申报再注册时是否可以继续保留受托生产企业的生产地址？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ypj",
+   "id": "19379",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19379",
+   "question": "尊敬的药监局领导： 我实名举报通化吉辉药业有限公司，利用吉林省食品药品监督管理局稽查二科科长杜利峰爱人的关系走后门开办中药饮片厂。 该厂的厂址厂房根本不符合开办药厂的基本条件。 所用设备都是私人加工作坊用的小型设备，从产量和质量上根本达不到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

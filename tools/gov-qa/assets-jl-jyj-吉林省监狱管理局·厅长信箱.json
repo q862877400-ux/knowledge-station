@@ -1,0 +1,274 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-jyj",
+   "id": "11076",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11076",
+   "question": "未领结婚证，已经订婚。可以探监吗，需要什么证明材料吗?",
+   "cited_hits": [
+    {
+     "name": " 监狱法 ",
+     "lib_no": "监狱法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [],
+ "C_无依据": [
+  {
+   "source": "jl-jyj",
+   "id": "32581",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32581",
+   "question": "请问省监狱管理局的地址在哪里？电话是多少？办公时间是几点？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "30681",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30681",
+   "question": "您好，想咨询一下服刑证明可以网上开具吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "30424",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30424",
+   "question": "您好请问长春市第二女子监狱探监预约电话，和探监需要什么资料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "30253",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30253",
+   "question": "想问未管所会见时间安排，请问咨询电话是多少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "27618",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27618",
+   "question": "请问，探监可以直接拿身份证就可以直接去吗，需要提前提交文件吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "26282",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26282",
+   "question": "请问探监需要提供什么证明文件吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "24001",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24001",
+   "question": "您好，想咨询一下服刑人员如何办理第三代社保卡，之前交过保费",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "23513",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23513",
+   "question": "咨询长春监狱一监区会见时间。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "22646",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22646",
+   "question": "您好，我想咨询一下吉林省长春监狱的详细地址。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "22302",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22302",
+   "question": "吉林省减刑假释公示查询入口在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "21728",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21728",
+   "question": "请问长春兴业监狱会见咨询电话是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "21180",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21180",
+   "question": "咨询一下铁北监狱的电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "19308",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19308",
+   "question": "请问探监需要提供什么证明文件吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "17979",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17979",
+   "question": "哪里可以找到吉林省减刑假释公示查询入口？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "16720",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16720",
+   "question": "你好我亲戚疫情时在兴业监狱四监区有个叫王红军的现在我找不到他在哪个监区了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "15822",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15822",
+   "question": "您好，探监手续都要准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "13908",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13908",
+   "question": "监狱管理局主要职责是什么？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "11772",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11772",
+   "question": "您好，探监需要什么证明文件吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "11634",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11634",
+   "question": "我已经53岁了，父亲73岁，准备去梅河口监狱看望亲弟弟，但已经几十年不在一个户口了，派出所也开不出直系亲属证明。我们得怎样去探监？没有证明",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "10026",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10026",
+   "question": "请问贵单位的财政预决算信息在哪里查看？可以提供下查看的网址吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "9069",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9069",
+   "question": "尊敬的领导：您好！我的家属在2023年3月22日已投放在吉林省吉林监狱服刑，至今已经3个月还未接到电话和允许会见的通知，按照司法规定服刑人员每月可以与家属通话及会见，我们远在江西赣州，咨询困难，也不知道在哪里咨询此问题？希望领导能够帮忙解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "7090",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7090",
+   "question": "尊敬的领导： 我的家属关押在吉林市看守所已经1年多，2022年8月31日二审判决已经生效，由于去年疫情种种原因未能移送监狱服刑，现在疫情已经过去，希望能尽快移送监狱服刑，给与家属探视的权力，家属1年多与羁押人员失去联系，我想这样对于服刑的改",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "6308",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6308",
+   "question": "本人于2023年2月16日反应英城监狱周伟豪违纪，及本人药品丢失。当时接线男干警认真解释，并帮忙联系。2月17人本人有来电。又认真不嫌麻烦，表示感谢认真负责的好警察真心感谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "6065",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6065",
+   "question": "请问如何获取贵单位的权利与责任相关信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "6063",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6063",
+   "question": "你好！之前在这里写了一封信，选择不公开，提交的时候忘记保存查询码了，现在不知道这封信的回复结果，有什么办法可以查询吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "3163",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3163",
+   "question": "尊敬的领导您好： 吉林省长春铁北监狱丁志国，身为国家单位公职人员，从事非工作性质活动。该同志严重违反了《中华人民共和国公务员法》，无视国家条例。2018年6月，丁志国向我司借钱搞副业（工程建筑包活），拿着单位相关材料担保向我处巴中门店借款：",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "3077",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3077",
+   "question": "尊敬的领导：您好！感谢您百忙之中查看我的咨询，我的亲人羁押在吉林市看守所已经快1年了，一审判决在去年的12月已下达，由于疫情的原因现在二审判决已经下达2个月了，我想申请会见或者远程视频会见，在全国很多监狱即使因为疫情的原因也已经实现了远程视",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jyj",
+   "id": "1810",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1810",
+   "question": "我省有警示教育基地进行参观么，需要什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

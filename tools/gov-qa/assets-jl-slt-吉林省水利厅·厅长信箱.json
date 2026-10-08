@@ -1,0 +1,474 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-slt",
+   "id": "27636",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27636",
+   "question": "您好，想了解下长春市绿园区水资源综合评价和地下水管控指标方案",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-slt",
+   "id": "18693",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18693",
+   "question": "您好，我是吉林大学的一名研究生，由于科研需要向您请求2014-2022年长春市地下水位月或五日数据，望批准，十分感谢。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水文条例",
+     "lib_no": "水文条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "水文专业有偿服务收费管理试行办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-slt",
+   "id": "4764",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4764",
+   "question": "需要长春市2025年、2030年和2035年用水总量控制指标分解报告，能发到我的邮箱吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "4754",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4754",
+   "question": "因为论文需要，想了解长春各个区县未来2025或者2030年用水总量控制指标，没有找到相关文件，能发到我的邮箱吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "4680",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4680",
+   "question": "您好，我想了解一下长春及长春周边城镇的地下水资源情况，想要一下农安县，宽城区，双阳区的水资源综合评价和地下水管控指标确定方案。麻烦您能发我邮箱里吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府信息公开条例",
+     "lib_no": "政府信息公开条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-slt",
+   "id": "35294",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35294",
+   "question": "吉林省水利监理资质备案网站进不去：http://sl.jlssljsxx.com:8003/jianli/reg8.asp，登录查询网站也进不去：http://sl.jlssljsxx.com:8003/jianli/admin_manag",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省水利建设信息管理平台"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "24006",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24006",
+   "question": "请问2024年年度公报在哪里看？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省水利厅2024年度政府网站工作年度报表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "5299",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5299",
+   "question": "您好，因生态文明规划要求，需要使用吉林省水土保持公报（2015—2021），望予答复，谢谢！网站上只搜索到了2018和2020年公报。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省水土保持公报"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-slt",
+   "id": "34840",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34840",
+   "question": "咨询一下，吉林省内哪里适合用路亚钓鱼，网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "33071",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33071",
+   "question": "尊敬的领导您好，我是长春师范大学的硕士研究生，因学术科研需要，急需2010-2024年吉林省各地级市农村自来水普及率数据，烦请领导给予便利，盼复为感！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "32563",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32563",
+   "question": "我平时喜欢钓鱼，想在伊通河边用一根手竿钓着玩，需不需要办钓鱼证？如果要办，到哪里去办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "31929",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31929",
+   "question": "尊敬的领导您好，我是西南财经大学的硕士研究生，因学术科研需要，急需2014-2022年吉林省各地级市用水量数据明细（生活、生态、工业、农业用水量及用水总量），经查阅，以上年份的水资源公报以上数据呈现形式为柱状图，没有具体数字，我需要具体数字",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "31539",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31539",
+   "question": "你好，我想咨询水利工程水文地质与工程地质专业职称申报，截止至2026.4.9尚未收到短信通知提交材料，想询问短信通知的具体时间及提交材料的时间，因得知其他专业已收到短信通知提交材料，怕错过自己专业提交材料的时间从而影响到个人的职称评审遂来询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "30974",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30974",
+   "question": "领导您好！我是河海大学的一名研究生，正在做水资源相关的研究，查询发现吉林省水资源公报并未公布各地级市的用水量数据。因此申请贵单位能否提供各地级市2000-2023年的工业用水量的详细数据。万分感谢！祝您万事顺意！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "30930",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30930",
+   "question": "尊敬的领导，您好！我是兰州大学的一名研究生，正在做水资源相关的项目，在吉林省水资源公报查询到的数据缺失较多，特向贵单位求助。期望贵单位能够提供2011-2023年吉林省各地级市的地表水供水量、地下水供水量、供水总量、农业用水量、工业用水量和",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "30885",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30885",
+   "question": "各位领导好！我是兰州大学的一名研究生，正在做水资源相关的项目，查询发现吉林省水资源公报并未公布各地级市的供用水量数据。因此申请贵单位能否提供2011-2023年各地级市的地表水供水量、地下水供水量、供水总量、农业用水量、工业用水量、生活用水",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "30136",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30136",
+   "question": "外省水利监理企业到吉林省开展业务，需要办理什么手续吗？吉林省水利建设信息平台用不了了吗？http://sl.jlssljsxx.com:8003/jianli/index.asp",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "26638",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26638",
+   "question": "1、软土地基换填是否计入土石方平衡？ 2、什么情况下水土保持方案需要到省厅级审批？ 3、在哪里看吉林省及各市区水土流失重点防治区划分成果？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "24891",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24891",
+   "question": "遵敬的吉林省水利厅资源处领导及工作人员 您好！ 在此前我收到了您辛苦整理的贵省13-23用水数据，数据当中有1、工业用水量2、生活用水量。由于论文研究需要，我有一些疑问和申请： 1.工业用水量，是否包含采矿业、 制造业、 电气及水供应业？ ",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "23366",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23366",
+   "question": "申请2013-2022年吉林省水资源公报中的各城市的用水量表",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "22484",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22484",
+   "question": "您好！我是吉林大学的一名学生，为了完成学术研究，需要长春市或吉林省1990年至2020年的年人均生活需水量、每万元 GDP 耗水量和年耕地平均灌溉用水量数据，以计算生态系统服务价值。如能得到您的帮助，我将感激不尽。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "21380",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21380",
+   "question": "一是入库时间随时都可以申请马？ 二是从事水利工程领域工作满八年并具有高级职称或同等专业水平（中级职称满5年），请问我有二级水利建造师，中级建筑工程职称算同等专业水平可以申请入库吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "19855",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19855",
+   "question": "您好！我是暨南大学的一名研究生，因课题研究需要，现需要贵省下辖8个地级市2011-2021的工业用水量数据，因在官网上的《水资源公报》中查不到具体的数值，特此申请，望将有关数据回复到我的邮箱上，十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "19254",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19254",
+   "question": "您好，我想问问长春今年水费具体价格是怎么算的，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "18008",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18008",
+   "question": "您好，我是一名在读研究生，因研究需要，向您请求2000-2021年吉林省行政分区（地级市）的供用水量数据，包括总供水量、总用水量、农业用水量、农村生活用水量、生态环境用水量、总耗水量、农业耗水量等，望批准！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "17296",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17296",
+   "question": "您好 我是一名黑龙江大学在读研究生，研究需要吉林省各市用水数据，农业用水量，工业用水量。十分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "15880",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15880",
+   "question": "您好，我是成都理工大学的研究生，因科研需要，向贵单位申请2000-2022年吉林省各行政区分工程实际供水量（蓄水、引水、提水工程、浅层水、深层水、污水处理回用）；各行政区地表水源供水量、地下水源供水量、其他水源；各行政区分部门用水量（农业灌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "15652",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15652",
+   "question": "您好，我是中科院的研究生，因科研需要，向贵单位申请2001-2020年吉林省各地级市的用水量数据，望批准，不胜感激",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "14745",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14745",
+   "question": "你好，我是一名研究生，因为论文研究需要2000-2020年 吉林省各行政区分工程实际供水量（蓄水、引水、提水工程、浅层水、深层水、污水处理回用）；各行政区地表水源供水量、地下水源供水量、其他水源；各行政区分部门用水量（农业灌溉、林牧渔副、工",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "13036",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13036",
+   "question": "您好！我是一名大学生，由于研究需要2010-2020年吉林省各行政区用水量数据，水资源公报中只有柱状图，未给出具体数值，如果方便的话，能否将各行政区的用水相关数据发送至我的邮箱中，万分感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "12829",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12829",
+   "question": "您好！我是一名学生，因写论文需要，可否提供2022-2019水资源公报中各地级市农业用水量具体数据。谢谢!",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "11223",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11223",
+   "question": "您好！ 我是一名河北师范大学的硕士研究生，因研究需要，请求获取2000-2020年水资源公报中的用水统计调查中各地市的农田灌溉用水量，贵单位目前发布的水资源公报仅包含柱状图，无法获取具体数据。请求将数据版的水资源公报共享一份，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "10474",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10474",
+   "question": "您好，我是东华理工大学的学生，上面的问题属地无法调整到学校归属地，还请见谅。由于科研需要，想查询贵省2000-2022年吉林省水资源公报的具体数据。比如吉林省各市的水资源总量、农业用水量/工业用水量/生态用水量/生活用水量/城乡综合污水排放",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "10380",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10380",
+   "question": "尊敬的领导，您好！ 我是吉林大学的一名研究生，目前依据课题要求，在进行吉林省水资源方面的研究工作，有一些具体数据希望贵单位能够提供。需要吉林省及省内各市2002-2022年农业用水量、工业用水量、生活用水量以及人工生态环境补水中地表水和地下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "10319",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10319",
+   "question": "您好，我是吉林农业大学研究生，因论文研究需要贵省2000-2021年的有关水资源数据，包括人均水资源量；具体用水量（工业/农业/生活/生态环境用水）;人均综合用水量；万元GDP用水量。在公报中没有具体数值，方便的话，麻烦将有关数据发送至我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "9998",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9998",
+   "question": "省级水利风景区名录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "9607",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9607",
+   "question": "你好，我是河北农业大学研究生，因科研需要贵省2011-2021年的有关水资源数据，包括人均水资源量；具体用水量（工业/农业/生活/生态环境用水）;人均综合用水量；万元GDP用水量。在公报中没有具体数值，方便的话，麻烦将有关数据发送至我的邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "9025",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9025",
+   "question": "长春市南关区信达东湾半岛二区北门前，东风桥下的水沟属于黑臭水体，一到夏天雨水淤积，臭不可闻，蚊虫成群，严重影响市民生活，请责成相关部门予以重视，切实解决这个多年悬而不决的问题，满足人民群众美好生活的需要。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "8529",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8529",
+   "question": "老师您好！我是东北师范大学地理科学学院的研究生。因科研课题需要，想获取松花江流域吉林省内：1.德惠、2.扶余、3.烟筒山、4.高丽城子、5.蛟河、6.五道沟共六个水文站点2000年-2022年的逐月径流量监测数据，此数据仅用于本人的毕业论文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "8251",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8251",
+   "question": "你好，我是辽宁师范大学研究生，因科研需要贵省2011-2020年的有关水资源数据，包括人均水资源量；具体用水量（工业/农业/生活/生态环境用水）;人均综合用水量；万元GDP用水量。在公报中没有具体数值，方便的话，麻烦将有关数据发送至我的邮箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "7596",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7596",
+   "question": "您好！由于论文需要，望贵单位提供2005-2021年水资源公报上吉林省各个行政分区耗水量的具体数值与农业产值",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "7527",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7527",
+   "question": "您好！目前发布的《吉林省水资源公报2021年》仅包含柱状图，没有具体的数值，因环评工作中需水资源现状调查，可否提供2021年白山市地表水资源量和地下水资源量具体数据，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "6874",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6874",
+   "question": "尊敬的领导，您好！ 我是延边大学一名研究生，因科研需要，需要贵省1992-2020年各行政区的用水数据（包括灌溉，工业，生活用水、林牧渔、生态环境用水等）。贵单位目前发布的水资源公报仅包含图，不包含数据。能否将数据版的水资源公报共享一份。不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "6224",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6224",
+   "question": "省级水利风景区名录",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "3549",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3549",
+   "question": "尊敬的领导，您好！ 我是一名学生，因研究需要，请求获取2002-2021年水资源公报中的《吉林省行政分区供用水量表》（包含各行政分区的地表水供水量、地下水供水量），贵单位目前发布的水资源公报仅包含图，不包含数据。请求将数据版的水资源公报共享",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "1983",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1983",
+   "question": "您好！ 我是一名研究人员，因研究需要，请求获取2010-2020年水资源公报中的《吉林省行政分区供用水量表》（包含各地市级行政分区的地表水供水量、地下水供水量、供水量合计、农业用水量、工业用水量、生活用水量、生态用水量、用水量合计等相关指标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-slt",
+   "id": "1021",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1021",
+   "question": "年度公报在哪里看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

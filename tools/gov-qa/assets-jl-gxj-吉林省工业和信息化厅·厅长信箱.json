@@ -1,0 +1,768 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-gxj",
+   "id": "6981",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6981",
+   "question": "吉林省四平市业余无线电操作证考试次数安排太少，几乎没有，爱好者只能去外地考试，几乎没有名额。一些城市只允许当地户籍居民报考，希望四平市尽快安排考试，促进当地业余无线电技术发展。",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国无线电管理条例 ",
+     "lib_no": "无线电管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-gxj",
+   "id": "6744",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6744",
+   "question": "吉林省是否根据2021年新国家医药储备管理办法修订本省的地方一级医药的储备管理办法？还是说我们现在依旧是沿用的2004年的管理办法？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国疫苗管理法",
+     "lib_no": "疫苗管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国突发事件应对法",
+     "lib_no": "应急管理部关于学习宣传贯彻新修订的《中华人民共和国突发事件应对法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家医药储备管理办法（2021年修订）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "6737",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6737",
+   "question": "国家医药储备地方一级医药储备，吉林省是否依旧使用2004年医药储备管理办法？是否根据2021年新规做出更新并公示？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国药品管理法",
+     "lib_no": "药品管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国疫苗管理法",
+     "lib_no": "疫苗管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国突发事件应对法",
+     "lib_no": "应急管理部关于学习宣传贯彻新修订的《中华人民共和国突发事件应对法》的通知",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家医药储备管理办法（2021年修订）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-gxj",
+   "id": "33045",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33045",
+   "question": "长春市只要发展颠覆性创新技术飞碟直升机航空航天产业就能走出困局，实现产业多元化，GDP领先全国！ 全球汽车产业已经不是高利润产业，这是因为汽车已经不是极高技术产品，很多国家都能生产，并且产量很高。因此，美国汽车城底特律破产衰败了，原汽车生产",
+   "cited_hits": [],
+   "cited_missing": [
+    "构建全省科技创新有组织聚力攻坚机制的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "20378",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20378",
+   "question": "我想了解一下工信部2024年发布的首台套产品推广目录中的一些产品，需要厂家信息，能不能请您给我一些资料，我对接一下，谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "首台（套）重大技术装备推广应用指导目录",
+    "吉林省高端装备供给清单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "14167",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14167",
+   "question": "徐州海伦哲专用车股份有限公司生产的XHZ5060JGKJ62型高空作业车，工信部机动车产品公告中显示其宽度为2000mm，徐州海伦哲专用车股份有限公司于2024年1月13日在工信部申请拓展其宽度参数为2060mm，需要经过工信部审批并发出正",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路机动车辆生产企业及产品准入管理办法"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-gxj",
+   "id": "34279",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34279",
+   "question": "我是6月29日申诉反馈，10086.以及10080集团总部，工作人员答应承诺受理期间，保证我正常工作出行不会给我私自停机断网，但是7月3日却给我强行停机断网，使我无法正常出门工作和申诉，必须缴纳后台产生的每月60元的高额费用才给开机，我与7",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "31788",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31788",
+   "question": "请问吉林省今年是否组织业余无线电操作能力相关的考试，以及考试大概时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "31565",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31565",
+   "question": "15834417457发送数十条威胁恐吓骚扰信息给我以及家人朋友同事领导，造成了我的巨大伤害，我十分痛恨难过。要求移动公司去自首，协同公安部门处理这样的人和机构，维护社会治安和人民安定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "30359",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30359",
+   "question": "请问，关于“2025 年认定吉林省创业孵化基地名单”公报中的各基地联系方式有哪些？入驻条件有哪些？我这边是延边地区的，正在筹备“中小企业AI技术应用”项目，希望能得到相关支持。请将各基地的入驻联系方式告知，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "30133",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30133",
+   "question": "省级绿色工厂的补贴大概什么时间发放呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "28853",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28853",
+   "question": "本人有个四平号码，不知道什么原因不让用了，打了10000号，本人表明现在没在属地回不去，客服说给反馈，之后又客服人员联系我，说大数据保护给封停了，问是什么大数据，也说不明白，后来打了10005号，客服说我的事情不在受理，本人一直在外地打工。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "28770",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28770",
+   "question": "尊敬的吉林省工信厅领导： 您好！ 冒昧致信，旨在汇报我司在视觉感知与人工智能领域的前沿技术成果，并探讨其为吉林省实体经济，特别是传统优势产业数字化转型赋能的可能。 我司浙江宇视科技，作为全球领先的公共安全和智能交通解决方案提供商，始终致力于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "28633",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28633",
+   "question": "吉林市昌邑区东厂宅小区64号楼7单元2楼西侧墙体损坏，主要是因为电信线路固定在居民楼墙上，但是常年无人进行维护，导致墙体不堪重负，出现开裂损坏，但是该线缆无法确定法是哪一家公司的设施。我是东厂宅小区64号楼居民，我也向当地街道社区及当地12",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "28225",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28225",
+   "question": "生物质电厂炉渣、炉灰的产生量与资源化利用需求同步增长，其资源化利用成为提升产业生态效益、构建废弃物循环利用体系的重要环节，目前，生物质电厂炉渣、炉灰已形成成熟的资源化利用路径，在多领域实现规模化应用。在建材生产领域，炉渣经破碎、筛分后，可用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "27478",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27478",
+   "question": "自从6月1日起，全国开始了大规模换证，有些省份已经来到了5,6批次换证，吉林省至今仍未开始，不知何时能换证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "26880",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26880",
+   "question": "尊敬的吉林省工信厅领导： 我谨以实名杜金成，联系电话：18548355160，向贵部门举报吉林迎新玻璃有限公司“一窑三线”光伏玻璃盖板、汽车玻璃、电子玻璃生产线项目实际拉引量与产能指标严重不符，具体情况如下： 迎新玻璃现在运行的一窑三线13",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "26259",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26259",
+   "question": "领导您好！想请问一下关于吉林省工业有什么最新政策吗？是否有相关政策的栏目可查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "25526",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25526",
+   "question": "您好： 本人供职于长春市一小微企业，我司自2024年初被公主岭市某事业单位拖欠货款近十五万元，给公司造成较大经营压力，公司员工薪酬亦被被拖欠，数个家庭的生活受到较大影响。近日采购人告知，省财政厅安排专项债解决政府拖欠中小企业款项问题，给予我",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "23992",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23992",
+   "question": "今年针对汽车工业单位有什么补助么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "23133",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23133",
+   "question": "通过前期在民政部门的咨询得知，拟成立“吉林省电线电缆行业协会”需要得到业务主管部门的批准。请问需要联系哪个部门、科室，并告知联系方式，盼复为谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "22031",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22031",
+   "question": "《国家无线电办公室关于150MHZ和400MHZ频段对讲机频率使用管理和设备技术要求有关事宜的通知》国无办2025 1号中提到的公用对讲机是否需要无线电操作证及电台执照？望早日答复为盼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "19909",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19909",
+   "question": "本人使用的18744143313中国移动电话号码于2016年4月开通了来电提醒业务，每个月扣费3元，至今扣款共312元，我在2024年11月发现移动公司扣款后并未提供来电提醒相关业务，事实清楚，该行为构成消费欺诈，根据消费者《中华人民共和国",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "19312",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19312",
+   "question": "电信公司在没有提示的情况私自将我的电信专线续费，半年后联系到我让我补缴，并且在半年后通知我的情况态度非常不好。望领导能够多多关注，更好规范电信工作制度。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "19014",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19014",
+   "question": "我妈的手机号13843727799，由于年龄大了，过户给我，15年前办的手机号没有合约和套餐，过到我名上就得加合约和58的套餐。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "18734",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18734",
+   "question": "1.本年7月底办理销户（18943710582，网购中国电信流量卡，归属地吉林延边），经过电信官方app操作五次未成功（四秒录像验证环节，含营业厅一次）、云南普洱思茅世纪广场电信营业厅线下办理不成功（当地等级最高营业厅，无异地销户服务）、吉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "18720",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18720",
+   "question": "我是在长白山松江河镇万达度假区上班的员工，我们的生活服务区6号楼没有移动手机信号，其他楼都有信号，我和同事给移动客服反馈，但是移动让我们花钱，说不花钱没办法，但是手机信号覆盖不是解决的民生问题吗，谁家自己花钱给自己家装覆盖手机信号的信号塔，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "17961",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17961",
+   "question": "2023年国家技术创新示范企业奖励政策名单",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "16931",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16931",
+   "question": "我是一个业余无线电爱好者，最近考取了业余无线电操作证，想申请设置业余无线电台，但是找不到哪里可以办理相关业务，我们当地的说没有设台权限和不给单独验机，需要等，想问一下我这种情况可不可以直接去上级单位办理验机和设台，如果可以具体去哪里办理？如",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "16075",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16075",
+   "question": "在网上搜索没有检索到任何有效信息，能告知一下吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "15816",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15816",
+   "question": "您好，我想问问电话费用，具体费用使用问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "15131",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15131",
+   "question": "积极响应吉林省发展和改革委员会关于印发吉林省2024年营商环境优化重点行动方案的通知，以及“发展改革，我知道”。长春市晨曦商务有限公司从2019年以来一直响应习近平总书记的各项活动，在企业公众号、朋友圈积极学习习近平总书记精神，发表积极文章",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "13901",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13901",
+   "question": "请问吉林省工信厅2021年政府信息公开工作年度报告在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "11425",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11425",
+   "question": "中国移动号码13943831659，在2023年10月份产生40元上网费用，但是本机未收到移动公司下发的使用数据流量的短信提醒，且数据流量非本人使用。曾向移动公司反映过此事，反映人要求退还10月份的上网流量费用，但是移动公司回复称计费无问题",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "11075",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11075",
+   "question": "我们小区现在交房已经4个月了，但是仍然办不了网。具体原因应该是工信部出台了新的政策 导致施工单位不能和网络公司分成，希望赶紧解决问题 上网可以说是生活基本设施 但是现在没有网 什么都干不了 请不要一拖再拖 老百姓买房不容易 希望早日结局",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "10912",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10912",
+   "question": "号卡（15643738300）办理激活及使用用期间，本人在没有进行任何不恰当的使用的情况下，被后台以“涉电信网络诈骗高风险手机卡”为由停机，并强制要求必须回吉林长春本地进行二次实名认证（开卡时没有要去到本地实名办理，二次实名却要求必须到本地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "10321",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10321",
+   "question": "2023年8月18日17点25分中国联通给我发了条短信，大概意思是说涉嫌冒用或诈骗对该手机号进行停机，当日我给联通10010沟通，19日、20日与10015沟通、21日、22日与12300沟通后一直没有合适的处理结果。现在联通公司一是在没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "10311",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10311",
+   "question": "2023年8月6了17日去营业厅办理电话卡过户，移动公司违反国家规定，私自给用户号码定义为吉祥号码，强制我每个月最低消费88元，时长20年，各种霸王条款，限制我不能对携号转网，要么是吉祥号码，要么是高额违约金，限制了我的自主选择权。咨询相关",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "9847",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9847",
+   "question": "大众理想城市22栋-29栋入住快一年了，什么网络都安装不了，打12345反映情况，回复让找省工信局，老百姓的问题什么时候能够得到解决？互联网时代没有网络对老百姓生活影响很大！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "9709",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9709",
+   "question": "《吉林省老龄工作委员会成员单位职责》中，省工业和信息化厅：参与研究制定有关老龄工作的规划、政策，协调推进老年用品产业发展；引导行业组织和生产企业开发生产适合老年人的食品、药品及医疗器械、健康管理产品、纺织服装服饰、日用生活器具和电子电器等。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "9132",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9132",
+   "question": "6月19日晚致电电信客服，咨询携号转网要取消哪些业务，次日上午接043185080690 电话对方称是电信客服。并告知如果携号转网需要支付违约金三万余元，机主询问是谁签署的协议何时签署的。被告知是机主本人签的说平台有电子存档。但机主本人没有",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "9126",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9126",
+   "question": "尊敬的吉林省工信厅领导好: 本人赵海艳身份证号22032219751118118X实名举 报四平联通公司在我毫不知情的情况下套路我违规签了一个长达20年的靓号协议，限制我工信部赋予客户携 号转网的权利。多次与其协调未果，联通公司的行为严 重",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "9061",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9061",
+   "question": "2023年4月11日，我接到中国联通联北北海路合作营业厅电话，告知我说我的宽带业务将于2023年5月31日到期，并加我微信像我推向宽带套餐业务，让我续交宽带，误导我以为我宽带已经到期，就办理了移动宽带业务，但在去注销联通宽带时确告诉我我的宽",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8757",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8757",
+   "question": "本人所驾驶车辆保险于6月底即将到期，最近频到接到太平洋保险公司电话要为本人办理业务。本人从未在太平洋保险公司办理过任何业务。太平洋保险公司不知从什么渠道获得本人车辆绑定号码，其行为严重影响本人正常生活。2023年6月3日接到0431-858",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8686",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8686",
+   "question": "尊敬局长你好，本人使用电信宽带10余年，宽带账户043110943684；由于2022年疫情原因，该宽带使用住房一直未居住，直至今年疫情解封后2023年5月居住发现家里电信宽带被拆机，经查询该宽带于2022年7月欠费后被拆机，电信公司在未告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8315",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8315",
+   "question": "吉林移动在本人不知情且没有身份证原件的情况下办理了三个手机号码并挂在本人身份证名下，在本人进行投诉后亦无法提供合理便捷的解绑方案。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8283",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8283",
+   "question": "中国电信与我约定的套餐业务已于2022年1月份到期，其未经我同意，擅自延长业务期限，严重损害我的合法权益！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8206",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8206",
+   "question": "本人号码16643902302通过营业厅办理0元49低消宽带，办理宽带时营业员告知我存费360元分月返还可以免安装费，并未告知我什么大礼包合约，后期通过设备强制给我加合约三年，我沟通多次说可以交付违约金取消合约，联通公司不予受理，本人办理的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "8070",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8070",
+   "question": "咨询2023年业余无线电考试时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "7916",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7916",
+   "question": "明明还有流量，但不知不觉被扣费，直到被发送短信才发现已被扣费，不是一次两次了，所以申请赔偿100元人民币。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "7908",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7908",
+   "question": "我是长春市红光自治小区居民。2023年4月16日接到长春有线电视公司工作人员的电话，通知我们小区有线电视光纤改造，但并未说明起止时间。经沟通后，我同意进行光纤改造，并约定上门改造时收费施工，且收到有线电视公司的登记手机短信，但一直收到施工人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "7891",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7891",
+   "question": "我于前几日办理了0元5G试用网络，今日26日用了2G左右，刚才发现无缘无故被扣费10元，可是剩余流量还有8G流量，既然是网络通畅，为什么流量又很正常，没有显示或是预告将要被扣费，为什么偷偷扣费？请求赔偿",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "7719",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7719",
+   "question": "您好！本人因研究需要，欲获取截止到2022年吉林省省级企业技术中心全部有效名单，浏览贵部门相关公示发现，《关于公布 2021 年度省级企业技术中心评价考核结果的通知》吉工信办联〔2021〕69 号此文件中所提到的”对 2020 年全省 46",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "6282",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6282",
+   "question": "2022年12月31日到2023年1月6号由于小孩玩手机产生了流量费用69元，打10086客服和10080后移动公司给我退费20元，投诉德惠市移动公司领导不作为问题投诉一个月一直不给解决问题，多次让客服给我打电话，投诉德惠市移动公司处理部门",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4944",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4944",
+   "question": "汪清移动在宣传免费安装宽带过程中，自2021年7月份开始在未给我安装电视盒子的情况下，每月扣费15元，今年12月12日我到移动大厅办理该宽带终止业务时，告知我还有一个电视盒子需要退还给大厅，但我当时由于是将该宽带安装在小卧室中（原来的光纤接",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4885",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4885",
+   "question": "016年本人名下15144308041号码因套餐话费问题向10086投诉过，将原有套餐变更最低价格套餐，套餐内容是：18元月租含100M流量，无其他。使用时间从2016年使用至2022年8月。吉林移动在2019年12月底上线新套餐，套餐内容",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4679",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4679",
+   "question": "2022.11.28上午10：22，我16604444888号码接043186551280来电（已录音），自称联通公司南湖大路附近营业厅，询问我宽带续费业务并能准确说出我家宽带到期时间、捆绑电话及位置信息，后期来电人员还对我进行辱骂。我向1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4459",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4459",
+   "question": "我移动套餐为89.6元/月，移动公司客服人员打电话告知我可以办理移动宽带，我将家庭地址告知以后移动公司客服人员答复我暂时不能安装。 移动公司每个月都会打几遍这个电话，让我安装宽带，我说同意安装他们又安装不上，我已多次告知移动客服人员给我做个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4427",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4427",
+   "question": "6月份起，私自添加流量包，内部投诉要求提供本人订阅证据或道歉，但态度傲慢，称大不了把这几个月的钱退给你，就让你免费体验下联通的服务。称不管投诉到哪里都是一样的结果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "4045",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4045",
+   "question": "我家电话使用的中国移动，我家是沿街商户，近四五年手机打电话通话时总是断断续续，要想打电话就得出门站在大街上。往10086人工服务台建议也不管用，给我们的生活带来很多不便，希望领导给解决此事，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "3506",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3506",
+   "question": "尊敬的工信局领导你好： 我个人是电信用户，因更换手机把原来使用的电话卡放入新手机中，致使电信公司将我手机号码停用，无法正常使用，给生活带来极大不变，与电信客服人员沟通，说是咱们工信部颁发的公告，而我其他同志在换卡后无此现象发生，个人认为是电",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "3482",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3482",
+   "question": "我有两部手机，再使用过程将电信卡换入另一手机内临时使用，当换回原手机使用时却将客户手机停用，与客服沟通无法解决，无法正常使用极大的影响了用户，特此向局长信箱投诉，请给予解决，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "3341",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3341",
+   "question": "背景：本人于2022年10月10日办理固定电话过户业务过程中被告知目前是联通办卡黑名单，与联通公司联系询问原因，回复是由于2022年9月本人办理中国联通主卡1张，副卡4张，累计办理数量达到5张，被列入黑名单并在本年度不能解除黑名单。 投诉事",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "3103",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3103",
+   "question": "9月29日10：28：48给用户开通啦4G上网功能，之前已在客服中心关闭了此功能，发现后与客服沟通解决，回复用户是你自己在手机上开通啦此功能，与他们无关，我现在对电信违规开通推卸责任及行为有所怀疑他们有欺诈话费嫌疑，根据是我只有500KM的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "3027",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3027",
+   "question": "本人于9月26日上午向贵局局长邮箱发送《关于恳请吉林省通讯管理局介入调查的申请》的信函（电信用户反映问题（编号：X〔2022〕891、918号）手机号码为13196287475，身份证号码为：220322196308090018）。 本人于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2969",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2969",
+   "question": "此事从8月10日第一次拨打10010，再至10015，再至给贵局局长邮箱写信诉求，贵局在《答复意见书》多次提到《中华人民共和国电信条例》，根据百度百科“《中华人民共和国电信条例》修订版公布日期：2016-02-06”，那么对吉林联通是否适用",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2968",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2968",
+   "question": "三、业务取消。《答复意见书》只字未提关于业务取消方面内容。还好发生的时间不较久，是在2022年8月14日的上午，用户明确表示不许取消，但却依然被吉林联通取消，10010的这段电话录音理应能提供出来吧？不会出现“无法提供相关音频材料”的情况吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2967",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2967",
+   "question": "电信用户反映问题（编号：X〔2022〕891、918号）。本人于9月22日和23日分别在两天的时间里向贵局局长邮箱提交了《关于恳请贵局复查的申请》以及《关于吉林联通10010电话中傲慢态度的投诉》。在9月24日10：59分，吉林联通1001",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2906",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2906",
+   "question": "电信用户反映问题（编号：X〔2022〕891、918号）。本人于9月22日向贵局局长邮箱提交《关于恳请贵局复查的申请》，9月23日（今日）上午的8：18分接到吉林联通10010的电话，通话时长9月15秒。从电话接通时起，对方始终处于高亢状态",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2875",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2875",
+   "question": "三、 《答复意见书》中提到，公司考虑用户满意度，可为用户申请话费800元（赠费方式），但用户不认可，要求公司按285元的5倍赔偿（合计1425元），公司无法满足用户的要求，话费暂未存入。请问，为什么联通不提我告知的二选一的诉求呢？二选一的诉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2874",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2874",
+   "question": "关于恳请贵局复查的申请 贵局于2022年9月13日（星期二）上午11 : 03通过jzxx@mailjlca.miit.gov.cn局长信箱向本人的240668688@qq.com邮箱发送标题为《关于电信用户反映问题（编号：X〔2022〕8",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "2543",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2543",
+   "question": "投诉举报中国电信吉林省分公司，因长春市疫情原因，家人承担相关疫情防控工作，负责人员流调、吉祥码黄码核查等工作，因工作时段多数处于非日常工作时间内，需通过个人手机再短时间内高频与陌生号码联系（号码是由区疫情防控指挥部门提供，要求2-4小时之内",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1907",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1907",
+   "question": "吉林联通号码13196287475，身份证号码：220322196308090018。在2017年12月01日在本人不知道情的情况下，被吉林联通恶意办理了一项增值业务，扣费长达57个月。在2022年08月份发现后，于8月10日第一次拨打10",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1475",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1475",
+   "question": "移动手机号13943012759无法关掉5G功能，2G无法上网，移动公司一直扣费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1444",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1444",
+   "question": "中国移动公主岭营光明路业厅违背国家规定，没经批准，私自增设地方规定。将国家规定18周岁即可办理电话卡规定改为20周岁以上才能办理。眼下正是高中毕业生入大学前办理电话卡的高峰，给这些不足20的学生办卡造成极大不便，给家长造成不必要麻烦。应该严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1445",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1445",
+   "question": "中国移动公主岭营光明路业厅违背国家规定，没经批准，私自增设地方规定。将国家规定18周岁即可办理电话卡规定改为20周岁以上才能办理。眼下正是高中毕业生入大学前办理电话卡的高峰，给这些不足20的学生办卡造成极大不便，给家长造成不必要麻烦。应该严",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1102",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1102",
+   "question": "我部是海通证券吉林营业部，现进行95553电话迁移业务，由长春营业部进行覆盖本市的95553电话服务，进行互联互通业务，我部向中国移动通信集团有限公司已根据通信管理局和移动公司要求上交相关材料，一段时间后移动公司表示其公司规定不可以进行互联",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "1047",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1047",
+   "question": "2021年年报在哪里看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-gxj",
+   "id": "814",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=814",
+   "question": "投诉中国移动松原分公司在扶余市春华路卫生局家属楼的位置2022年1月1号开始到现在通话质量非不好，总出现卡顿听不清等问题。多次拨打10086始终得不到解决。移动公司一直推诿说由于地税局等部门开会开启屏蔽器导致的信号不好无法维修解决。请政府相",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

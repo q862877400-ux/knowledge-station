@@ -1,0 +1,291 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-ggzy",
+   "id": "22306",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22306",
+   "question": "公司投标人有什么要求吗",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国政府采购法",
+     "lib_no": "政府采购法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-ggzy",
+   "id": "30353",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30353",
+   "question": "我们是四川巴中普瑞制药有限公司，在药品招采系统维护完企业信息后，“我的产品信息”下没有相关药品信息和增加按钮。“药品项目列表”的联审通办产品资质填报中，“增加”按钮是灰色的。我们需要挂网，请问怎么操作？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省挂网药品集中采购业务办事流程（3.0）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "29059",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29059",
+   "question": "老师您好！ 兹有我司产品加味逍遥颗粒(包装规格：2g*6袋，2g*8袋)在吉林省招标挂网时，我司按照该产品编码全国省级价格一览表中最低的价格申报，但贵中心平台并没有参照此价格，而是采集了浙江省加味逍遥颗粒（2g*12袋）的最小制剂单位价格，",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省挂网药品集中采购业务办事流程（2.0版）",
+    "吉林省挂网药品集中采购业务办事流程（2.0版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "28105",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28105",
+   "question": "老师您好，由于此次加味逍遥片（0.31g*24片）在贵中心申请挂网时，药品招标平台的招标流程存在严重的问题，在没有电话等方式通知企业和不经过企业同意的前提下，擅自更改了投标人的标的价格进行公示和挂网，违反了《中华人民共和国招标投标法》等相关",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省挂网药品集中采购业务办事流程（2.0版）",
+    "关于进一步完善药品挂网工作的通知",
+    "吉林省挂网药品集中采购业务办事流程（2.0版）",
+    "吉林省挂网药品集中采购业务办事流程（2.0版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "25551",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25551",
+   "question": "您好，请问如果工程建设项目采用电子招投标，那么该项目的招标控制价细项是否需要随招标清单同步挂网？还是只需要公布招标控制价总额就可以？",
+   "cited_hits": [],
+   "cited_missing": [
+    "政府采购需求管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "15948",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15948",
+   "question": "老师您好！1、我家在药品分类采购系统 注册的是国内配送企业，第一次使用不会操作，想问一下有没有最新的操作规程（网站下载的那个有点对不上。2、想问下老师咱们有没组建相关的企业群，想申请加入，方便和大家学习、谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省药品分类采购交易系统 ( 配送企业 ) 操作手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "11996",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11996",
+   "question": "1、其他外省都是每个月能新增，只有吉林这边不管是新增还是改资料都需要官方通知，这对我们外省企业真的很难，本来也是有业务的，这样来真的很难开展，恳请平台能像四川、甘肃这样，每月增补，信息随时能修改； 2、因我们新同事填报信息的失误，现在因为一",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省高值医用耗材、体外诊断试剂业务办理流程（试行）"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-ggzy",
+   "id": "34035",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34035",
+   "question": "老师，您好。请问怎么申请加入吉林省综合评标评审专家库；具体网站是什么？ 谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "33582",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33582",
+   "question": "我是一名医疗企业负责耗材挂网的人员，请问吉林招采子系统对于已经挂网的耗材是否会根据销售情况进行分区管理：比如有销售记录的进入活跃区，无销售记录的进入非活跃区。如果会进行分区管理，那么医院采购非活跃区耗材和采购活跃区有什么不同的吗，或者会有限",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "33061",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33061",
+   "question": "老师您好，我是长春迪瑞制药有限公司的，我们人员变更，导致邮箱变更，5.9日在招采子系统【我的企业信息】提交了变更申请，请问多久能审核更新，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "32587",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32587",
+   "question": "我是一家企业的负责人，想随时关注省里的政府采购信息。请问交易信息在哪里可以查到？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "30322",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30322",
+   "question": "您好~因吉林医保公共服务平台还没上线试剂系统，故我司已于2025年12月及2026年1月再吉林省体外诊断试剂基础数据库系统提交了两次生产企业公司名称及法人变更，虽均已审核通过但公司资质并未同步更新，还请您告知如何操作，达安基因（中山）有限公",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "27912",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27912",
+   "question": "我司为耗材生产企业，其中辅助生殖用培养皿部分单位为1个/包，部分为10个/包，当初是在吉林省医用耗材集中采购系统（老系统）申报挂网，单位为“个”（3元/个），同步到招采子系统也是“个”。但后面因为系统同步国家数据变更单位为“包”（3元/包，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "27779",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27779",
+   "question": "老师，你好。我是外省试剂的生产厂家，想要在贵单位的集中采购系统注册账号进行挂网。我这边在注册账号用的谷歌浏览器，在生成企业账号申请单的时候浏览器自动闪退了，导致我这边没法获取到企业账号申请单打印进行申请账号。现在也没法重新输入注册信息了，他",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "26286",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26286",
+   "question": "公共资源主要负责什么？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "25313",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25313",
+   "question": "九台区农业农村局高标准农田项目招标投标存在问题，领导干部不尽职尽责，没有做到公平公正公开招标，严重怀疑明招暗定，长春市国瑞工程管理有限公司，也是胡作非为，没有进到招标代理机构职能，打电话说不管，声称他们已经没有义务了，然后又给我回质疑告知了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "24060",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24060",
+   "question": "吉林省体外试剂交易系统进行配送关系设置在维护配送区域模块选择吉林市确认后，申请解除了，现在想再次维护配送区域吉林市一直显示申请解除无法重新勾选保存。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "21280",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21280",
+   "question": "您好，根据吉林省公共资源交易中心2025年1月3日发布的《公示须维护外省中标挂网价格的医用耗材产品明细》，我司在吉林省医用耗材基础数据库系统平台挂网的骨动力系统产品5个型号需要与3个外省平台挂网最低价格进行联动。 但根据通知里面的操作方式，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "19271",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19271",
+   "question": "现在投标人员需要考证么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "18704",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18704",
+   "question": "在吉林省投标办理CA认证，需要联系谁？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "17980",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17980",
+   "question": "招投标信息怎么查询不了一年以前的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "16197",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16197",
+   "question": "吉林省医疗保障局、吉林省公共资源交易中心：根据《国家基本医疗保险、工伤保险和生育保险药品目录（2023年）》，阿瑞匹坦注射液为新增纳入的协议期内的国家谈判药品。我公司南京恩泰医药科技有限公司持有的产品阿瑞匹坦注射液（18ml:130mg）于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "15754",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15754",
+   "question": "机构职能在哪里看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "15012",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15012",
+   "question": "点击生产企业注册的时候弹出注册开关已关闭以及请安装证书控件。请问怎么可以注册",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "14818",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14818",
+   "question": "药械经营企业医用耗材在2018年已领取网上阳光采购企业用户名与密码登录时已被禁用，怎样解禁",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "14604",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14604",
+   "question": "请问政府单位采购办公用品的计划和已采购的数量在什么平台可以查到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "13914",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13914",
+   "question": "公共资源主要负责什么？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "12514",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12514",
+   "question": "能否在公共资源交易网上增加一个国有房屋、场地进行公开招租的模块？省财政厅之前有过一个文件要求是：充分利用当地的公共资源交易网站进行公开招租。所以想咨询一下，咱们这个模块是不是统一开发？谢谢领导。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-ggzy",
+   "id": "11948",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11948",
+   "question": "主任你好，我想咨询下CA的详细办理流程，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

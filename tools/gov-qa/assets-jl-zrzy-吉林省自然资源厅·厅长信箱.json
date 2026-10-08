@@ -1,0 +1,822 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-zrzy",
+   "id": "31686",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31686",
+   "question": "房地产开发企业为促进楼盘出售，拟自费建一座跨河步行桥。市政府拟将河两侧桥墩用地划拨给该企业，企业同意建成之后步行桥和划拨的土地全部无偿交给市政府。请问市政府可以划拨给该企业不？如果不可以，可否按经营性基础设施用地将桥墩用地出让给企业，企业建",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "城市房地产管理法",
+     "lib_no": "城市房地产管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "划拨用地目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "27732",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27732",
+   "question": "土地招拍挂，卖地是一个错误的制度，租地制才是对的 请向领导或者上级反馈，看可不可以拿出一个县城或者城市做个试点：试点租地制，停止卖地，把城市土地都租出去。 土地出让制度包括城市规划做的最好的绝对是美国，美国用的其实是租地制 他们所有土地全民",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法实施条例",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "23216",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23216",
+   "question": "供电线路保护区办理永久使用林地手续后，是否需要办理建设用地手续，如果不需要办理建设用地手续，线路保护区应按照什么地类进行管理，是否可以种植农作物。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国电力设施保护条例",
+     "lib_no": "电力设施保护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省人民政府办公厅印发关于促进吉林省新能源产业加快发展的若干措施的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "22261",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22261",
+   "question": "尊敬的领导您好，因研究需要，特向您咨询我省林权地籍管理相关问题。 在家庭承包或自留山分配政策情况下，即所有权归村集体、使用权归个人： 1、在使用权与经营权分离的情况下，是否对经营权的出让、质押有限制？若有，请问具体会在哪些情况下加以限制？ ",
+   "cited_hits": [
+    {
+     "name": "不动产登记暂行条例",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "不动产登记规程",
+    "不动产登记资料查询暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "21209",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21209",
+   "question": "在国家层面和吉林省范围内，哪些法律法规明确规定了工业用地不能登记到自然人名下；在实务中如有工业用地不能登记到个人名下的共识，其法律依据和理由是什么？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国城镇国有土地使用权出让和转让暂行条例",
+     "lib_no": "城镇国有土地使用权出让和转让暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "招标拍卖挂牌出让国有建设用地使用权规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "15924",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15924",
+   "question": "我购买了同村，村民房屋过户工作人员说一户一宅无法过户，我和父亲在同一个户口本上父亲名下房， 我们这里还没有房屋确权，《 请 问 ？》这次重新确权房屋会确权给我吗？，还是原房主。",
+   "cited_hits": [
+    {
+     "name": "土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "不动产登记暂行条例实施细则",
+     "lib_no": "不动产登记暂行条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "自然资源部办公厅关于印发&lt;宅基地和集体建设用地使用权确权登记工作问答&gt;的函"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7832",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7832",
+   "question": "领导你好：我想咨询农村村民在宅基地上建住宅，现行政策：1、对所建住宅的层数有没有要求，2、对建筑占地面积有没有要求，3、对总建筑面积有没有要求，以上3点如果有要求是多少，依据是什么？盼回复，谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国土地管理法",
+     "lib_no": "土地管理法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7339",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7339",
+   "question": "梨树县小宽镇新风村与怀德县边界",
+   "cited_hits": [
+    {
+     "name": "行政区划管理条例",
+     "lib_no": "行政区划管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-zrzy",
+   "id": "26384",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26384",
+   "question": "不属于国家能源重点建设项目的电网建设输变电工程，其线路塔基占用永久基本农田，不符合《中华人民共和国土地管理法》第三十五条规定，是否可以依照《吉林省自然资源厅、吉林省发展和改革委员会关于简化用地管理加快电网建设的通知》（吉自然资发 〔2019",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人民政府办公厅印发关于促进吉林省新能源产业加快发展的若干措施的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "22901",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22901",
+   "question": "尊敬的领导，你好 ，我是吉林市土地评估机构，因业务需要涉及查询地价水平，但官网公布的数据截止到2023年就不再更新了，请问一下是停止更新了么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部办公厅关于调整完善城市地价动态监测工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "22354",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22354",
+   "question": "《习近平关于自然资源工作论述摘编》怎么购买？",
+   "cited_hits": [],
+   "cited_missing": [
+    "习近平关于自然资源工作论述摘编"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "19134",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19134",
+   "question": "您好，吉林省地价监测数据只公布到2023年第三季度，烦请提供吉林省2023年第四季度、以及2024年第一、第二、第三季度的地价动态监测数据，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部办公厅关于调整完善城市地价动态监测工作有关事项的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "16211",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16211",
+   "question": "该输水管线地下敷设，位于沥山公路东侧，不在沥山公路用地范围内。目前该管线申请规划路径调整并重新办理建设工程规划许可证。经核实该输水管线路径存在两个难点，一是局部在基本农田下敷设，二是局部超出四平市城镇开发边界。目前建设单位于2016年项目取",
+   "cited_hits": [],
+   "cited_missing": [
+    "自然资源部关于规范临时用地管理的通知",
+    "部办公厅关于加强临时用地监管有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "14855",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14855",
+   "question": "在不动产统一登记办理过程中，不动产登记机构和林草部门职责如何确定的，分别负责哪方面工作？其依据是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省自然资源厅吉林省林业和草原局关于加强林（草）权类不动产登记工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "11878",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11878",
+   "question": "尊敬的自然资源厅领导您好，请问一下《吉林省土地管理条例》第21条，如何耕地开垦费？收取标准是什么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省土地管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "11361",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11361",
+   "question": "您好，请问耕地指标交易价格（水田、旱田）",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省补充耕地指标省域内统筹调剂管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7268",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7268",
+   "question": "您好！我是吉林大学的一名博士生，因为想以白山市为案例区进行学术研究，因此我想向贵单位咨询一下白山市市辖区2000、2010、2020年城市用地空间数据（即城市用地空间分布图），具体指标如下：1.居住用地2.公共设施用地3.工业用地4.仓储用",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共中央国务院关于建立国土空间规划体系并监督实施的若干意见",
+    "白山市国土空间总体规划（2021-2035年）",
+    "白山市国土空间总体规划（2021-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7079",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7079",
+   "question": "为建设美好乡村，建设新时代新农村，请允许农民在宅基地周围有足够空间、有经济条件的情况下，根据自己实际需要建宽大明亮的平房以及二三层楼房，在批给的宅基地上自由建房，不再有建筑面积和层数限制，充分体现农村的村民生活的富裕。农房改革之前农村建房按",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省土地管理条例",
+    "农村住房建设技术政策（试行）",
+    "关于印发&lt;吉林省农村住房建设管理办法（试行）&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6781",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6781",
+   "question": "我是一名高中地理教师，需要吉林省主体功能区规图作为教学素材，在网上只搜索到模糊版，是否有高清图可以发我一份？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省主体功能区规划",
+    "中共中央国务院关于建立国土空间规划体系并监督实施的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6131",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6131",
+   "question": "请问已取得土地证的项目，多年后在土地使用期间需要扩建，需要重新办理用地规划可证吗，法律依据或政策文件是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省自然资源厅关于加强和规范规划许可工作的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "5278",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5278",
+   "question": "我们在处理闲置土地过程中，出现了法律适用问题的疑惑，恳请上级自然资源部门给予明确答复。 符合《闲置土地处置办法》第二条第二款的规定即“已动工开发但开发建设用地面积占应动工开发建设用地总面积不足1/3或者已投资额占总投资额不足25%，中止开发",
+   "cited_hits": [],
+   "cited_missing": [
+    "闲置土地处置办法",
+    "闲置土地处置办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "3454",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3454",
+   "question": "1、珲春市龙达金街D座，电梯高层，一二楼是门市，房产证标注商业；三楼以上是住宅，房产证标注：城镇住宅用地/住宅，请问省自然资源局，这种规划合法吗？ 2、一二楼是商业，产权40或50年，到期人家拆除，楼上也跟着拆？更何况商业和住宅各类标准不同",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市居住区规划设计标准",
+    "GB50180-2018"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "1753",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1753",
+   "question": "矿业权评估师报考条件和时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "2022年矿业权评估师职业资格考试通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-zrzy",
+   "id": "34950",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34950",
+   "question": "2026年土地管理方向职称继续教育，怎么学习？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "34033",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34033",
+   "question": "《吉林省历史遗留矿山生态修复项目管理办法》（吉自然资发[2025]3号）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "32130",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32130",
+   "question": "尊敬的陈厅长您好。 本人已取得城乡规划中级职称，依据自然资源部令第11号文件，城乡规划与国土空间规划同属一个体系，职称理应互认通用。 但目前省厅在办理规划资质审核期间，仅认可证书标注国土空间规划专业职称，不承认城乡规划职称。我公司前往省厅递",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "31499",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31499",
+   "question": "建议长春申办2031年之后任一届世界园艺博览会希望相关部门认真研究",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "30677",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30677",
+   "question": "您好，我想了解一下土地确权是怎么划分的？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "30214",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30214",
+   "question": "您好，我是一名研一的学生，最近开始撰写小论文，在收集吉林省县域的相关数据，现在需要各地级市市辖区的2014-2023年城镇建成区面积、城镇路网密度数据，给您造成的不便深感抱歉，如您方便麻烦您发到我的邮箱：19506560905@163.co",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "28351",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28351",
+   "question": "尊敬的吉林省自然资源厅厅长： 您好！现申请《关于明确巩固退耕还林还草成果有关问题处置意见的通知》（自然资发〔2023〕176号）文件的政务公开。 该文件明确了退耕还林还草成果巩固的分类处置要求，涉及符合国家允许退耕情形地块的监管、不符合情形",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "27654",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27654",
+   "question": "想问下，一般农用地是否可以建鱼塘，如果可以，需要办理哪些手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "27625",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27625",
+   "question": "查询相关资源分布图是哪个部门制作管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "26570",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26570",
+   "question": "想咨询一下《吉林省人民政府办公厅印发关于促进吉林省新能源产业加快发展的若干措施的通知》（吉政办发【2024】1号）第五条规定：“输配电线路塔杆基础可不实行土地征收，用地单位经与当地农村集体经济组织及村民协商达成协议后，给予一次性经济补偿，占",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "26255",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26255",
+   "question": "一般农用地或者一般耕地能否建设蔬菜大棚？需要办理哪些手续？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "25618",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25618",
+   "question": "因原住建系统相关指导文件《关于印发《吉林省房屋登记若干问题暂行法规定（一）》的通知》已废止，部分省市如浙江省玉环市、山东省淄博市、海南省等自然资源部门已出台相应的指导文件（附件为海南省出台文件），我省尚未发布相关文件，业务办理缺少必要的办理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "25377",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25377",
+   "question": "您好，本人在基层事业单位从事城乡规划工作近30年，因国家机构及职能调整，城乡规划与土地规划合并为国土空间规划，本人也随同原部门调整至自然资源部门工作。因历史原因，现单位未设置建筑工程大类岗位，因此部门调整后一直聘用为国土工程大类岗位。本人于",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "24307",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24307",
+   "question": "您好，这个文件马上到期了，后续会有新文件发布吗？此文件到期后新文件未发布期间设施农用地备案是否可以按此文件继续备案？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "24238",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24238",
+   "question": "被确定为历史名城保护范围的二类街巷和三类街巷的临街建筑在安装排烟管道、空调挂机、修改外立面、广告牌匾等方面是否有严格要求，施工前是都需要办理规划许可？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "23983",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23983",
+   "question": "怎么可以查询到吉林省某块土地的使用性质",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "23825",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23825",
+   "question": "吉林省地下水资源调查评价技术细则是指导吉林省地下水资源调查工作的重要文件，其中关于对“西流松花江”名称的称谓延用历史名称“第二松花江”的叫法不妥，此名称1988年就已经废止，名称由来网上也非常明确，虽然各种相关资料也有类似称呼，但作为省级文",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "23473",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23473",
+   "question": "设施农业用地上建设的鸡舍属于临时性建筑还是永久性建筑？其法律依据是什么？ 附：该问题已向吉林省农业农村厅、吉林省吉林省畜牧业管理局咨询，其建议我向贵单位咨询。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "23122",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23122",
+   "question": "局长信箱负责人您好： 我本人在县城所属的乡镇公路旁欲按国有工业用地出让办理一块工业建筑用地，因头一次办理对出让的土地价格中的含给占用村集体土地补偿部分不是很清楚，请相关业务负责同志帮解释一下我的疑问： 具我了解我现在想办理的出让工业地段土地",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "22290",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22290",
+   "question": "我公司新建电力线路塔基，依据吉林省人民政府办公室印发关于促进吉林省新能源产业加快发展若干措施的通知提出输配电塔基用地可不实行土地征收。咨询下：塔基建设用地是否属新增建设用地，盼回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "20970",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20970",
+   "question": "长春高新区土地资源管理部门在2004年-2010年期间征收万顺村土地时申请审批上报材料造假把万顺村菜田谎报为旱田（有证据）。没有依法按照《土地管理法》第四十七条规定履行，是不是构成违法批地，违法占地。根据《国务院关于深化改革严格土地管理的决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "20547",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20547",
+   "question": "临时用地土地复垦费是否可以实行银行保函形式担保？吉林省是否有相关的法律法规关于临时土地复垦费缴纳采用哪种形式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "20414",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20414",
+   "question": "您好，经与省政府留言咨询，那边回电话，本人想在大安市及松原市地区承包盐碱地，种植水稻，望求多份该地区盐碱地改良后种植水稻逐年测产报告数据。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "20303",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20303",
+   "question": "您好，我是建筑学本科生，在做课程设计时需要查找汽开区相关资料，发现在网络上只能找到一些图关于《长春国际汽车城规划（2020—2035年）》，想知道《长春国际汽车城规划（2020—2035年）》这个文件是否是公开的？有没有源文件？如果是的话可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "19744",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19744",
+   "question": "各位相关领导好，本人于2018年购置吉林市房屋一所，并缴纳契税开具了契税发票，现从北京提取公积金时受阻，原因为税发票没有房屋价值，无法核实房屋价值，北京住房公积金给出解决意见，需要联系房屋当地协助处理，需提供《税务局税收协控联管控税信息单》",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "17934",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17934",
+   "question": "在此网站或者是其它网站上是否可以查询到吉林省长春市双阳区农村某块土地的使用性质？如果能，如何操作？网上回复即可，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "16957",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16957",
+   "question": "您好！我是中国农业大学的研究生，现因学术需要，需要2022年吉林省所有市县的耕地面积数据。因并未在吉林省统计年鉴以及各县市统计年鉴等相关渠道查询到，了解到耕地面积数据属于贵局负责，还请贵局披露，仅作学术使用， 若能获取，万分感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "15806",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15806",
+   "question": "关于2024年第4批地质灾害防治单位资质申请审批情况的公告在哪查看，提供链接即可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "14870",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14870",
+   "question": "我是测绘专业毕业，一直也是从事也是测绘行业。现在已经中级工程师6年，在准备副高级工程师评定。我想咨询一下咱们自然资源的专家在哪个网站申请？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "13892",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13892",
+   "question": "您好，请问贵单位2020年政府信息公开年报哪里看，是否可以下载。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "12316",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12316",
+   "question": "《吉林省设施农业用地管理办法（征求意见稿）》该办法现在开始实施了吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "12128",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12128",
+   "question": "您好，请问2023年吉林省省直事业单位公开招聘5号公告，自然资源厅下属的事业单位拟聘用人员什么时候公示？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "11773",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11773",
+   "question": "您好，请问设施农用地审批都需要什么资料，设施农用地占用耕地的需要缴纳耕地占用税吗？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "11695",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11695",
+   "question": "在永久基本农田上不使用砖混结构，不破坏耕作层，可以建设水稻育秧大棚吗？具体手续有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "10006",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10006",
+   "question": "您好，我想问一下自然资源调查工作内容包括哪些方面？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "9229",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9229",
+   "question": "新修订的《吉林省土地管理条例》删减了有关耕地开垦费收取标准的规定，只说明耕地开垦费的缴纳标准由省人民政府组织发展和改革、财政、自然资源等有关部门制定，并根据经济社会发展情况适时调整。想咨询一下现行耕地开垦费的具体标准是多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "8866",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8866",
+   "question": "2022年评定的中级职称-工程测量专业，评委会是省自然资源厅职称评委会，目前在全国人力资源和社会保障服务平台（12333）不可查！什么时候能够查询到？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "8649",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8649",
+   "question": "1999年本人在长春市九台区曙光大街与九郊路交汇仲秋大厦购买一、二楼门市，在此期间开发商张仲秋仅缴纳一万元土地出让金，时至今日房屋使用年限已到，如办理过户更名房管部门要求缴纳土地出让金，但截至2023年6月本人不知具体缴纳金额是多少，也不知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "8115",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8115",
+   "question": "厅长您好，请问吉林省地理信息产品脱密业务处理的具体部门是哪个，具体的申请流程如何？本单位需要将涉密数据脱密后放在公共互联网中使用。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "8066",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8066",
+   "question": "您好，我想问一下自然资源调查工作内容包括哪些方面？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7609",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7609",
+   "question": "请问22年地理信息测绘工程的职称公示文件在哪个网站查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7171",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7171",
+   "question": "领导您好！前几天我咨询过吉林省通化市月牙湾名居房产证办理事宜。贵单位给与我的回复是 建议留言人与开发建设单位进一步沟通，敦保其尽快办理不动产首次登记，并配合小区居民办理个人产权登记。 随后我咨询了开发商，开发商几乎接近联系不上状态。在网上找",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "7041",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7041",
+   "question": "您好领导，想咨询下自然资源部两会政府工作报告告及部长通道采 访指明矿业改革及发展方向，矿业权出让收益征收方式调整，按年实际生产量收取价款，什么时间公布可以实施",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6957",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6957",
+   "question": "领导您好，我是吉林省通化市东昌区居民。我于2013购买月牙湾名居商品房，开发商于2013年给我们交付了房子。但是今年都2023年了，我们小区还是办理不了房产证。咨询当地市长热线，市长热线让我咨询不动产中心，不动产中心说他们只是办理房产证的，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6317",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6317",
+   "question": "地质勘查经营性质的事业单位，承包的地基与基础工程的项目，采取工程内部分包，项目经理承包责任制的模式（项目经理每年给单位只需缴纳管理费，之后自负盈亏），这种模式合法吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6132",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6132",
+   "question": "林权证被依法撤销，如何申请确权，申请确权后自然资源局多久能做出答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "6095",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6095",
+   "question": "1.咨询了解扶余市得胜镇獾洞村是否有合村并镇计划？ 2.咨询了解扶余市得胜镇獾洞村合村并镇预计时间？ 3.如果得胜镇暂不符合合村并居条件，了解合村并居相关硬性指标条件。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "5506",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5506",
+   "question": "在自己家耕地建养牛场需要办什么手续",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "5219",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5219",
+   "question": "您好：咨询合村并镇吉林省大安市安广镇的相关文件和信息，以及安广镇老旧破平房规改何时实施。安广镇六中西大墙客运站后，安广镇新火车站北桥东西平房道路狭窄，很多坍塌无法居住。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "4803",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4803",
+   "question": "您好，我想问一下合村并镇松原市的试点，以及相关文件去哪里查找",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "3936",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3936",
+   "question": "请问吉林省自然资源厅2021年政府信息公开工作年度报告在哪里查看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "1387",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1387",
+   "question": "您好，我想咨询下位于吉林省延边州汪清县南山街以南，大星路以西，大明路以南，老林业局楼的拆迁规划和时间，这9栋左右2-4层的火炕楼，大概建于7，80年代，年久失修，路面泥泞，老化严重，虽许多年前政府做过外墙保温，但是部分楼体结构已存在安全隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "1310",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1310",
+   "question": "领导同志您好，我想咨询一下咱们今年测绘地理信息系统职称申报现场材料审核什么时候开始（网上申报已按材料提交完毕），材料提交到哪里？一直没有收到相关通知，比较急别的专业已经在长春市人力资源网站上通知了，打电话说咱们专业不归他们管理，说省里直接管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "1039",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1039",
+   "question": "2022年财政预算在哪看？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zrzy",
+   "id": "809",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=809",
+   "question": "2021年职称什么时候能下来？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

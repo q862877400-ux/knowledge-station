@@ -1,0 +1,1603 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-zyy",
+   "id": "35747",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35747",
+   "question": "尊敬的领导您好！我是一名中西医结合助理医师，想问一下我这个中西医结合助理医师证可不可以注册到中医门诊部，请您给我回复一下。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "35405",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35405",
+   "question": "本人考取临床执业医师及中西医结合专业资格证，现已开西医内科诊所多年，中西结合专业一直不能注册，若想注册中西医结合执业证，就要先培训考试，合格后注册，再等满5年才能开中西医结合诊所。现在有西学中政策，我是否可以申请在执业证上加注中医，开西医内",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32682",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32682",
+   "question": "执业范围为中医专业的医生，可以在外科从事手术工作吗？对手术类型有没限制？ 执业范围为临床内科的医生，可以在彩超室从事彩超工作并出具检查报告吗？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "28762",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28762",
+   "question": "想咨询一下师承学历考取的中医医师，是否可以给患者开具西药处方药。上网查到中医是可以开西药处方的，但是广东省中医药管理局又说师承的中医不能开西药处方。想知道咱们吉林省是怎么规定的？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "27536",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27536",
+   "question": "我是一名中西医结合医师，在养老院（不是法人，也不是主要负责人）注册为中西医结合医师工作。前些日子申请多点执业到延吉市吉泰中医门诊，政务大厅卫健委窗口说需要吉泰门诊部要增加中西医结合科室，并需要有一位注册满5年的中西医结合医师才能注册并进行多",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法 ",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    " 吉林省关于进一步加强中西医结合工作的相关规定（试行） ",
+    "医师执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "27068",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27068",
+   "question": "你好，咨询一下，社会办医的医疗机构执业许可证中，诊疗科目为：中医科:内科专业，能否正常合法合规开展中医针灸。另外，三甲医院中的中医科（不是针灸推拿科）能否开展针灸项目，谢谢。",
+   "cited_hits": [
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "26278",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26278",
+   "question": "非医学专业的可以考医师证吗？网上回复即可",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师资格考试报名资格规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "24641",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24641",
+   "question": "各为领导你好，我想咨询一下我是一名中西医结合医生，在就业方面遇到一些困惑，很多医疗机构中医科不能注册，申请中医诊所也不可以，就执业范围来说属于中医类别，缩小执业范围了。我也咨询过国家中医药管理局答复是可以的，其他省份也可以。根据《中华人民共",
+   "cited_hits": [
+    {
+     "name": " 中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "医师 执业注册管理办法",
+    " 关于印发诊所备案管理暂行办法的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "24073",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24073",
+   "question": "1、中医执业资格是否可以在综合医院的临床科室，比如神经内科、儿科等执业；2、进行日常临床诊疗活动时，开具西药、检查时是否有特殊限制",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": " 中华人民共和国中医药法 ",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18978",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18978",
+   "question": "你好。西医执业医师可不可以在个体诊所里使用中药或者中医技术",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "16330",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16330",
+   "question": "你好！执业医师有长春中医药大学中医学大专学历，在门诊部（有中医门诊）诊疗可以开中药饮片么？本人是否需要向卫生局备案增加中医执业范围？在医院疗区给住院患者开中药饮片是否需要提前向卫生局备案或者增加中医执业范围？谢谢！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "16231",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16231",
+   "question": "您好。 本省在2021年颁布过《吉林省关于进一步加强中西医结合工作的相关规定(试行)》(征求意见稿)， 问： 1:不知意见稿是何意思？现在（2024年）政策是否已落地？ 2:若已落地，按照政策规定，对于符合第五条之规定的临床、口腔类别执业医",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "14289",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14289",
+   "question": "我是一名中医副主任医师，在中医院工作，我可以从事内镜工作吗？就是内镜科，给患者做胃、肠镜检查工作，谢谢领导。",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中医药法",
+     "lib_no": "中医药法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "国家卫生健康委办公厅关于印发内镜诊疗技术临床应用管理规定及呼吸内镜诊疗技术等13个内镜诊疗技术临床应用管理规范的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "12291",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12291",
+   "question": "尊敬的局领导：我是中西医结合执业医师，现在当地二级医院工作。执业范围为中西医结合，因需要到基层卫生所多点执业。但是卫生所诊疗项目只有中医。我在当地卫生局申请没有通过。理由是卫生所没有中西医结合诊疗项目。请问领导。我们中西医结合都是中医方向的",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10427",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10427",
+   "question": "老师您好： 我想咨询一下，在医师执业注册管理办法中第12条（四）中的内容，获得医师资格后二年内未注册者。。。还就当提交省级以上卫生行政部门指定的机构接受连续6个月以上的培训，并经考核合格的证明，我想问一下吉林省指定的机构都有哪些？我已获得中",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "9289",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9289",
+   "question": "你好，2021年吉林省中医药管理局曾发布《吉林省关于进一步加强中西医结合工作的相关规定》（试行）征求意见稿，请问该文件如今正式发布了吗？网上现在查不到这份正式的文件。其中第六条正式实施了吗（非中医类别执业医师在临床诊疗过程中需按照医师注册的",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "进一步加强中西医结合工作的相关规定（试行）（征求意见稿）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "9130",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9130",
+   "question": "您好！我是一名西医执业医师，今年取得了全日制中医大专学历。像我这种情况是否能开中药处方，如果可以的话，需要到哪里办理备案。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6603",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6603",
+   "question": "请问中西医结合专业执业医师可以在综合性医院的西医内科执业吗，是否可以去急诊科执业。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "医疗机构管理条例",
+     "lib_no": "医疗机构管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6315",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6315",
+   "question": "你好，我在网上查询到，咱们吉林，西医林场可以通过学习和培训，在执业范围中增加中医的执业范围，我想了解一下具体情况，如何操作。我有西医的临床执业医师证书，我想问问怎么操作西医可以增加中医的执业范围。",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "5454",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5454",
+   "question": "首先感谢医管局的领导对我们中医类别医师的帮助，我咨询的问题是2021年12月3日发布的关于对《吉林省关于进一步加强中西医结合工作的相关规定（试行）》（征求意见稿）公开征求意见的公告，现在开始实施了吗？如果没有的话，什么时间才会实施？",
+   "cited_hits": [
+    {
+     "name": "医师法",
+     "lib_no": "医师法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-zyy",
+   "id": "36057",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=36057",
+   "question": "您好，我是吉林省一家二级中医医院的工作人员。我院医疗机构执业许可证登记的诊疗科目中有一级科目“消化内科”，与资质齐全的第三方医学检验机构签署了合作协议，但院内未设置\"病理科\"。请问，患者在我院开展内镜检查中摘取息肉后，送于第三方检测病理（病",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步改革完善医疗机构、医师审批工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "36025",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=36025",
+   "question": "尊敬的中医药管理局领导您好: 本人咨询医考问题: 在外省凭《传统医学确有专长证书》在发证省考取中医助理医师后，注册3年，吉林注册2年，累计注册满5年，现执业地在吉林，能否在吉林报考340类医师？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学医术确有专长证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "35769",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35769",
+   "question": "‌基本执业要求‌：医师经注册后，可以在医疗卫生机构中按照注册的‌执业地点、执业类别、执业范围‌执业，从事相应的医疗卫生服务 。 ‌中医医师执业‌：中医、中西医结合医师可以在医疗机构中的中医科、中西医结合科或者其他临床科室按照注册的执业类别、",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "34928",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34928",
+   "question": "吉林省中医药管理局领导： 我院为长春市医疗机构，在临床康复诊疗工作中，按照国家中医药管理局《护理人员中医技术使用手册》开展蜡疗等中医技术，由执业医师开具医嘱，并在医生指导下实施操作。 在近期医保飞行检查过程中，出现政策适用争议：医保检查依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "护理人员中医技术使用手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "34714",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34714",
+   "question": "国卫办医函〔2019〕558 号（7 月 1 日发文）下发之后，2019 年 8 月 30 日，全国推进医疗机构合理用药管理工作电视电话会议中提出，基层医疗机构全科医生、乡村医生，可以开具常见病、多发病常用中成药处方，也可以延续中医医师开具",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于做好全省各级医疗机构重点监控合理用药管理工作的通知 ",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "34690",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34690",
+   "question": "吉林省中医药管理局领导： 我院为长春市医疗机构，在临床康复诊疗工作中，按照国家中医药管理局《护理人员中医技术使用手册》开展蜡疗等中医技术，由执业医师开具医嘱，并在医生指导下实施操作。 在近期医保飞行检查过程中，出现政策适用争议：医保检查依据",
+   "cited_hits": [],
+   "cited_missing": [
+    "护理人员中医技术使用手册"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "33858",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33858",
+   "question": "外科临床专业医生 想开中医项目 比如穴位贴敷 耳穴压豆等项目 请中医医生会诊后，外科医生能否以自己的名字在医嘱中开具中医项目 是否算超范围行医",
+   "cited_hits": [],
+   "cited_missing": [
+    "病历书写基本规范",
+    "医疗质量安全核心制度要点"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "33541",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33541",
+   "question": "您好，因为跟的老师多点执业，想请问中医师承教学地点是否可以有多个？如果可以，公证后需要增加的师承教学地点是否还需重新公证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好吉林省传统医学师承管理考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32763",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32763",
+   "question": "1996年的吉林省人民政府专业技术职务资格证书可以备案中医诊所吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医诊所基本标准",
+    "医师资格证书",
+    "中医(专长)医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32399",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32399",
+   "question": "吉林省中医药管理局同志：根据吉林省中医药发展条例第十五条 参加过中医药相关知识和技能培训的临床类别执业医师、全科医生、乡村医生，可以在临床工作中开展相应中医药服务，具体办法由省人民政府中医药主管部门制定。 ------请问参加过中医药相关知",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好全省各级医疗机构重点监控合理用药管理工作的通知",
+    " 关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32339",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32339",
+   "question": "根据吉林省中医药发展条例第十五条 参加过中医药相关知识和技能培训的临床类别执业医师、全科医生、乡村医生，可以在临床工作中开展相应中医药服务，具体办法由省人民政府中医药主管部门制定。 请问参加过中医药相关知识就可以开具中成药么，单位内部培训可",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好全省各级医疗机构重点监控合理用药管理工作的通知",
+    " 关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知 "
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32245",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32245",
+   "question": "尊敬的领导您好，我正在进行五年的中医师承，25年完成备案，想在学习三年后改换三年师承，走助理医师路线，可行吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好吉林省传统医学师承管理考核工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32152",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32152",
+   "question": "领导好，高中毕业证丢失无法找到，目前持有有网络教育的大专学历（学信网可查）想参加中医师承学习。 看过其他学员的留言，只有非统招的大专学历是不能报考的，网路教育大专也是符合法律法规要求吧， 依据1：一、《传统医学师承和确有专长人员医师资格考核",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "30675",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30675",
+   "question": "您好，想咨询一下2026年中医执业医师证考试时间，如何报名。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    " 2026年吉林省执业（助理）医师资格考试公告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "30545",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=30545",
+   "question": "您好，我想问一下，3年师承26年什么时候报名？截止日期是什么时候？具体3年笔记具体内容写什么和写多少篇？ 就需要一个医生对吗？ 没有技能的社会人，是不是只能3年师承这一条路呀！",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "29482",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29482",
+   "question": "尊敬的各位中医药管理局的领导:我想咨询一下吉林省中医医术确有专长什么时候开始报名，报名具体的时间，方式。是在网上报名，还是去当地的卫健委现场报名",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省2021年中医医术确有专长医师资格考核报名审核公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "28994",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28994",
+   "question": "本人有西医执业医师证同时还有经三年学习考取的吉林省中医药管理局颁发的中医师承出师证，可不可以注册到中医诊所？期待您的回答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师 执业注册管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "28760",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28760",
+   "question": "考取临床执业医师后进修拥有全日制中医学大专学历是否属于西学中？能否开具中药饮片？处方权范围及限制因素？以下文件是否有效？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "关于做好全省各级医疗机构重点监控合理用药管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "28759",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=28759",
+   "question": "考取临床执业医师后进修拥有全日制中医学大专学历是否属于西学中？能否开具中药饮片？有何限制条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "27620",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27620",
+   "question": "您好，我是非医学专业，要是在村医生带领下学习医学，可以考医师证吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书",
+    "传统医学医术确有专长证书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "27372",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=27372",
+   "question": "尊敬的领导：我是一名中医师承的学徒，于2023年，分别在长春市朝阳区卫生局和长春市卫生局将三年制师承合同备案。现在想问的是如果三年出师后是否可以再学二年参加省内考核，或者是现在把合同变更成五年制。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好吉林省传统医学师承管理考核工作的通知",
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "23649",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23649",
+   "question": "我是中医师承的学生，我是去年签署的中医师承合同，但是最近需要我提前全日制高中学历，我提供的是函授大专学历。学信网可查到的，我高中毕业证都丢失了，我无法提供高中学历证明，提供的大专学历毕业证不可以吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "23636",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23636",
+   "question": "最近医保局在查处违规开具医疗处方行为，我们基层卫生院注册的全科医生能不能给患者开中成药？开了中成药是否合规？很多基层卫生院是没有中医师的，如果不能开中成药基层医疗机构的药品数量要减少三分之一，也就谈不上给辖区居民提供有效的基本医疗服务",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于做好全省各级医疗机构重点监控合理用药管理工作的通知 ",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22851",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22851",
+   "question": "今年身边多位在中医师承备案时，市区均要求以高中毕业证或全日制中专毕业证报名的须另提供能证明其具有与高中同等学历的证明，但各级教育部门都明确拒绝开此类证明。在省教育厅网站的吉林省中职毕业证系统也只能查询到2006年之后毕业的，后咨询长春市教育",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22581",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22581",
+   "question": "师承五年出自国家卫健委15号令，明确说了师承五年可以参加中医医术确有专长考试，师承三年出自52号令，明确说了，师承满三年可以申请参加出师考试，之后以出师证书参加助理医师考试，15号令也有第三十八条说 本办法实施前已经按照《传统医学师承和确有",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "传统医学师承关系合同书"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22436",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22436",
+   "question": "领导好！ 根据《卫生部52号令》和《传统医学师承跟师管理办法（试行）》第七条对师承学员的要求是具有高中以上文化程度或具有同等学力，我想咨询领导通过成人高考学信网可查的函授大专不符合学历要求吗，不具备高中同等学力吗？如果不算会将很多热爱中医想",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "医师资格考试报名资格规定（2014版）",
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "21822",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21822",
+   "question": "今年是否计划开展中医专长考核活动",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中医医术确有专长人员医师资格考核注册管理实施细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "21269",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21269",
+   "question": "您好，我在网上看到国家中医药局综合司发布的文件关于深化中医馆建设，加强中医医生配备的通知 国中医药综医政发《2023》6号文，请问咱们省已经发布这个文件了吗？咱们不发文件也可以按照这个执行吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于深化中医馆建设 加强中医医师配备的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "21196",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21196",
+   "question": "尊敬的领导，我是一名乡村卫医生，在基层工作30余年。取得了西医中级职称。非常爱好中医针灸治疗，并在其领域有突破性进展。用针灸治愈多例格林巴利综合征、带状疱疹后遗症、三叉神经后遗症、颈腰椎管狭窄狭窄、顽固性头痛、颈源性心脏病等等疑难杂症。在4",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发第一批国家重点监控合理用药药品目录（化药及生物制品）的通知",
+    "传统医学师承和确有专长人员医师资格考核考试办法",
+    "传统医学师承出师证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "20879",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=20879",
+   "question": "根据美容服务管理办法第十一条和医师法第十四条 第十一条 负责实施医疗美容项目的主诊医师必须同时具备下列条件： （一）具有执业医师资格，经执业医师注册机关注册； （二）具有从事相关临床学科工作经历。其中，负责实施美容外科项目的应具有6年以上从",
+   "cited_hits": [],
+   "cited_missing": [
+    " 医疗美容服务管理办法 ",
+    "医疗美容服务管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19574",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19574",
+   "question": "在吉林省如何取得传统医学医术确有专长证书？请问2025年有考试计划吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省2021年中医医术确有专长医师资格考核报名审核公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19382",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19382",
+   "question": "1.诊所备案管理暂行办法：个人设置诊所的，须经注册后在医疗卫生机构中执业满五年或具有确有专长中医师证。《关于医师执业注册中执业范围的暂行规定》：医师注册后有下列情形之一的，可以向原注册主管部门申请变更执业范围：（一）取得注册执业范围以外、同",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19335",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19335",
+   "question": "你好！医师注册文件指出：医师多点执业或注册应按中医、中西医、西医临床、口腔等执业类别注册。确有专长医师和中西医共属于中医类别，按文件精神应该可以同时注册。延吉市政务大厅工作人员说：确有专长医师延吉只有我一个人，又考上了中西医结合医师，让我问",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19306",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19306",
+   "question": "请问中医师承考试报考条件有哪些？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "传统医学师承关系合同书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19227",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19227",
+   "question": "您好，我是学西医的，主治医师已经晋完。我很喜欢中医，今年考取中医助理医师证。请问一下西医可以增加中医注册范围吗，要是可以，怎样操作。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19169",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19169",
+   "question": "我是一名西医主任医师，对中医有偏爱。我22年考试取得确有中医专长证书，西学中后今年又取得了中西医结合医师证书。我想开自己中医确有专长或中西医结合诊所，当地卫生局说需要取得医师证后注册5年才可以。但我考确有专长医师的时候在省中医药管理局文件中",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格证书",
+    "中医（专长）医师资格证书",
+    "关于印发诊所备案管理暂行办法的通知",
+    "国家中医药管理局关于印发《中医诊所基本标准（2023版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18629",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18629",
+   "question": "请问领导，持有乡村执业医生证，在有医疗许可证的执业卫生所，能否开具中草药？是否需要相关证件，及培训考试",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省关于进一步深化改革促进乡村医疗卫生体系健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18623",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18623",
+   "question": "请问领导，持有乡村医生执业证书，在有医疗许可证的执业卫生所，可以开具中药给予患者治疗吗？无其他有效证件。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省关于进一步深化改革促进乡村医疗卫生体系健康发展的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18546",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18546",
+   "question": "领导好，想咨询一下，我是网络教育的大专学历，可以参加中医师承考试吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18162",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18162",
+   "question": "2024年吉林省中医师承公证和备案时间是什么时间？需要哪些材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "传统医学师承关系合同书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "17509",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17509",
+   "question": "孩子在辽源职业学校护理学院上学对中医针灸推拿耳穴有兴趣爱好想了解一下新确有的有关内容，我们不知道咨询哪里，想得到此平台的回复谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省2021年中医医术确有专长医师资格考核报名审核公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "16482",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=16482",
+   "question": "您好:我是一名西医主治医师目前是中医师承学员，近期区卫健委新发了关于师承人员学历要求高中及以上全日制学历通知，我是毕业于成教2003年吉林大学脱产专科，按卫生部规定我的毕业证可以参加执业医师考试的。想问问我只有这个学历，目前能否继续跟师学习",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "15820",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=15820",
+   "question": "您好，报考中医类别相应的执业医师资格有什么文件吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "14467",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14467",
+   "question": "我是辽源市中心医院一名医生，从事神经内科工作20年，想从事中医工作，一直观注西学中政策，想加入此项目培训，白山2023年获得项目试点，不知道辽源市什么时候开始能报名参加西学中项目，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "非中医类别医师学习中医培训实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "14288",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14288",
+   "question": "医师资格考试报名资格规定（2014版）第六条第（七）规定“传统医学师承和确有专长人员取得执业助理医师执业证书后，取得国务院教育行政部门认可的成人高等教育中医类医学专业专科以上学历，其执业时间和取得成人高等教育学历时间符合规定的，可以报考具有",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "13637",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13637",
+   "question": "我是外省的新确有专长证书，我想变更执业点到吉林省长春市工作我需要准备什么手续，重新考试的情况下，我需要准备什么材料",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中医医术确有专长人员医师资格考核注册管理实施细则（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "13367",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13367",
+   "question": "你好，想咨询两个问题： 问题1，传统医学师承和确有专长人员取得在2022年执业助理医师执业证书之后，于2023年获得中医类成人教育本科学历（在取得执业助理医师之前入学的），是否可以使用这个成人本科学历报考中医执业医师？ 问题2，卫生计生委 ",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11968",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11968",
+   "question": "尊敬的局领导：首先祝您身体健康，咨询一下2021年12月15日发布的《吉林省关于进一步加强中西医结合工作的相关规定（试行）》（征求意见稿）后期有没有正式文件。我是中医执业医师，毕业后一直在乡镇卫生院从事西医骨科工作（因当时乡镇医院严重缺人，",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省关于进一步加强中西医结合工作的相关规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11926",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11926",
+   "question": "我想问一下，咱们现在吉林省政策，是仅需要到卫生局备案就行，还是备案的同事需要公证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "传统医学师承关系合同书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11554",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11554",
+   "question": "本人是公职人员（非医学类单位），本科学历非医学专业。兴趣爱好使然，想学习中医，为了不非法行医，想考取中医执业医师。如果走师承，出师考试合格后，考中医执业助理医师，需要在省内医疗机构试用期满一年，这个试用期需要签合同还是提供其他证明材料吗，因",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承和确有专长人员医师资格考核考试办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11094",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11094",
+   "question": "中医师承出师需要哪些条件？报名地点，需要准备哪些材料？什么时间？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承关系合同书",
+    "传统医学师承关系合同书",
+    "传统医学出师考核和确有专长考核大纲（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11087",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11087",
+   "question": "中医师承的出师考试需要哪些材料，什么时候报名，什么时候考试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "传统医学师承关系合同书",
+    "传统医学师承关系合同书",
+    "传统医学出师考核和确有专长考核大纲（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10974",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10974",
+   "question": "确有专长中医师证能不能开办老年公寓卫生所？国家卫建委文件明确规定确有专长医师可以申请注册并办理诊所、或注册在医疗机构，在规定的执业范围内行医。但延吉市卫生局政务大厅办事员告知：养老院卫生所只能西医注册或办理。国家提倡养老院中医诊疗服务，难道",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "中医（专长）医师执业证书",
+    "养老机构医务室基本标准（试行）",
+    "养老机构护理站基本标准（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "9077",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=9077",
+   "question": "由于吉林省医疗机构中药配方颗粒阳光挂网采购工作还未开始，医疗机构是否可以从药品经营企业签署采购协议采购中药颗粒？",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于结束中药配方颗粒试点工作的公告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "7993",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7993",
+   "question": "2023年3月27日吉林省中医药管理局在网上公布了确有专长医师考试合格名单，公示期已过1个多月。今天延吉市卫生局医政科来电话问证书拿到了没有？请问证书什么时候发？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "吉林省中医医术确有专长人员医师资格考核注册管理实施细则（试行）",
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "7788",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7788",
+   "question": "领导好，我想咨询中医执业助理医师（师承或确有专长）考规定学历的中医执业医师相关条件。是否执业满5年，同时具备成人大专中医专业学历即可。大专学历取得时间是否有要求（是否要求大专毕业满两年）。 我在国家医学考试网上看到： 专长人员 1.传统医学",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定(2014版) "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "7787",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7787",
+   "question": "领导好，我想咨询中医执业助理医师（师承或确有专长）考规定学历的中医执业医师相关条件。是否执业满5年，同时具备成人大专中医专业学历即可。大专学历取得时间是否有要求（是否要求大专毕业满两年）。 我在国家医学考试网上看到： 专长人员 1.传统医学",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定(2014版) "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6520",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6520",
+   "question": "在吉林中医药管理局官网搜索中医专长医师报名的公告，连往年的公告都找不到",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省2021年中医医术确有专长医师资格考核报名审核公告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6395",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6395",
+   "question": "中医师承学生应该准备什么资料",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）",
+    "关于做好传统医学师承跟师管理工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6126",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6126",
+   "question": "你好领导！考得中医医术确有专长医师资格证后可以用之前的全日制大专中医类别专业毕业证来直接考中医执业医师资格证吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "5582",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5582",
+   "question": "本来师承中医已经考过执业助理医师资格证。询问以后考执业医的具体要求，",
+   "cited_hits": [],
+   "cited_missing": [
+    " 医师资格考试报名资格规定(2014版) "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "5218",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5218",
+   "question": "尊敬的局领导，您好，本人非常向往成为一名中医师，喜闻近年来有师承考取中医师执业的消息，但是苦于没有途径差查询到吉林省内有哪些中医师可以有带徒资格，请问在哪里能查询到这些信息，感谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省传统医学师承跟师管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "2993",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2993",
+   "question": "中西医结合诊所，中西医结合执业医师能否开展一类抗生素输注医疗活动",
+   "cited_hits": [],
+   "cited_missing": [
+    "抗菌药物临床应用管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "2157",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2157",
+   "question": "在山东省取得中医（专长）医师资格证书的，因子女工作地的原因，能申请在吉林省备案注册执业吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省中医医术确有专长人员医师资格考核注册管理实施细则（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-zyy",
+   "id": "1809",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1809",
+   "question": "中医师报考条件和时间",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "808",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=808",
+   "question": "咱们这通过什么方式招聘？",
+   "cited_hits": [],
+   "cited_missing": [
+    "中医医术确有专长人员医师资格考核注册管理暂行办法",
+    "吉林省中医医术确有专长人员医师资格考核注册管理实施细则（试行）",
+    "中医（专长）医师资格证书"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-zyy",
+   "id": "35045",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=35045",
+   "question": "咨询下一年度传统医学师承人员出师考核的具体时间，网上回复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "34968",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34968",
+   "question": "尊敬的吉林省中医药管理局科教处领导： 本人为已取得中医全科住院医师规范化培训合格证书的中医执业医师非定向生。现就住培地方政策差异，提出政策建议。 经查阅福建省卫健委公开文件：福建省政策明确，已取得全科专业住培合格证书的执业医师，在基层医疗卫",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "34793",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=34793",
+   "question": "主题：关于完善吉林省中医住培年限减免政策、明确已结业中医全科住培人员跨专业二次住培适用规则的建议 尊敬的吉林省中医药管理局、吉林省中医住培指导中心、省中医药管理局科教处： 本人持有中医全科住培合格证书、中医类别执业医师证，关注吉中医药发〔2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "33756",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33756",
+   "question": "根据国家规定，中医确有专长15号令每年都要举办，今年已经有多个省已经出了公告举行今年的专长考试。我省多年未动，今年还是迟迟不出公告，是否跟国家政策不符，对本省想要职业的人员不公平",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "33508",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33508",
+   "question": "尊敬的领导您好！本人汪杰，性别 女，身份证号：220122198406107520，执业类别：中医（中西医结合），执业范围：中西医结合专业，执业证书编号：142220000000255。自 2013年5月起至今一直在吉大一院生殖医院医学影像",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "33282",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=33282",
+   "question": "请问吉林省什么时候能开放中医医术确有专长认证的申报工作？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32977",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32977",
+   "question": "国家中医药管理局明确发过文件，中医专长考试，省级中医药管理部门必须每年至少一次考试。但是我们好多年来就实际上考过一批，已经严重跟中央政策脱轨。影响我省符合条件考生执业，举办考试是硬性要求，而非适时举办，请相关领导部门认真重视，不要置群众利益",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "32580",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=32580",
+   "question": "我身体有些慢性病，想找一位名中医看看，听说长春中医药大学医院有不少名中医。请问去哪里可以查到出诊信息怎么预约挂号",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "31215",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31215",
+   "question": "建议增加 中医医术确有专长人员医师资格考核 民间中医需要得到认可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "31214",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31214",
+   "question": "从22-23考过一次新专长以后，再没考过。请问什么时间开启新专长考试路径。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "31117",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=31117",
+   "question": "国家卫健委，国家中医药管理局发布的15号令第二十二条，写的非常清楚。省级中医管理部门应当定期考核，每年至少一次，并提前三个月公告。2024年国家中医药管理局191号文件再次重申，必须每年组织一次。我省至今组织全省范围内考试只有一次，严重违反",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "29767",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=29767",
+   "question": "咱们吉林省近几年中医确有专长每年都有考试吗，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "26967",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=26967",
+   "question": "中医康复技术职业资格证书的授权培训机构有那些？培训多久可以报名参加考试，怎么报名",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "25976",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25976",
+   "question": "请问2025年的确有中医专长医师资格的考核什么时候开始",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "25343",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=25343",
+   "question": "你给我回复问题参照依据《关于印发诊所备案管理暂行办法》，这个办法不适用中医备案诊所。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "24953",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=24953",
+   "question": "您好，请问2025年开没开展医师定期考核？我的中医助理执业证是22年11月注册在诊所的，正常25年应该参加医师定考，但是没有收到通知，网上查询也没有搜到通知文件。如果25年没有开展医师定考，下次定考是什么时间？对我有没有什么影响？需要在哪里",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "23991",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23991",
+   "question": "您好，想咨询一下今年中医执业医师证考试需要准备哪些材料 网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "23199",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=23199",
+   "question": "公司名：吉林省和润堂中医综合诊所有限公司 统一社会信用代码：91220100MAE3QLJN3G 法定代表人：李沅昊 预付款10万元，说包治疗好糖尿病足，并在2024年12月5日开始上门为我妈妈打针，打的什么我不知道，说是止疼的，导致我妈妈",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22885",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22885",
+   "question": "2025年3月10日到2025年3月17日到侯占旭中医诊所就诊，期间侯占旭医生强制患者服用其诊所自行熬制的封装汤药，限制我的选择权。并以处方保密，避免影响其收入为由，保留处方。其处方上字迹无法辨识，所配的多味中药只有数字没有剂量单位，经私下",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22797",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22797",
+   "question": "关于吉林省2024-2025年传统医学师承出师考核省级报名资格审核通过名单的公示。 通过了解，各省中医药管理局官网或卫健委官网，对于师承医师审核合格名单都在官网均有公开。吉林省中医药管理局官网只查到截止【关于2021年吉林省中医医术确有专长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22299",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22299",
+   "question": "非医学专业的可以考医师证吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "22267",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=22267",
+   "question": "该药品在一档叫明医有话说的栏目中宣传喝这个药可以治疗糖尿病，中风，风湿骨病，三高等许多疾病，涉嫌虚假宣传",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "21097",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=21097",
+   "question": "中医内科专业医师在临床诊疗过程中可以进行针灸、推拿操作嘛？ 算不算超范围执业？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19828",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19828",
+   "question": "事情经过：2024年11月8日，本人通过吉林市中医院微信公众号进行挂号，移动支付7元（该院挂号界面未告知网上挂号无法通过现场医保取号进行报销）。11月9日7时30分许，本人在该院新院区3号楼收费窗口进行医保取号时，工作人员告知网上挂号费无法",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "19357",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=19357",
+   "question": "执业医师注册文件明确指出：第七条 医师执业注册内容包括：执业地点、执业类别、执业范围。执业地点是指执业医师执业的医疗、预防、保健机构所在地的省级行政区划和执业助理医师执业的医疗、预防、保健机构所在地的县级行政区划。执业类别是指临床、中医（包",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18799",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18799",
+   "question": "老师您好,想咨询一下,我是公共卫生类别专业执业医师,是否具备报名西学中培训的资格,另外西学中培训的具体文件是哪个?这个培训是县级开展的吗?我是农安县的,只能等着参加本地的培训吗?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "18266",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=18266",
+   "question": "请问领导，今天有开展专长医师考核的工作计划吗？我想参加咱们省的专长医师考核，所以向您打听一下，希望领导能收到信息并回复，谢谢，祝您事业顺利，万事如意！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "17978",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17978",
+   "question": "您好请问吉林省是否有西学中培训班？报名有什么条件？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "17449",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=17449",
+   "question": "你好，我是北京大学公共卫生学院的一名学生，负责调研吉林省各市区中医药发展指数并做报告，请问能否提供一些各市区中医药评价指标体系及权重数据，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "14290",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14290",
+   "question": "您好！麻烦问下中医医术却有专长今年安排考试吗？大概在几月份考试？通知在哪里能找到？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "14146",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=14146",
+   "question": "本人于2023年5月30日就诊于长春中医药大学附属医院本部，挂号大夫为米佳。本人系距离300多公里外的临江市人，远赴长春看病，因对中医的信任，挂的是中医医生。开始就诊后，本人多次要求大夫先号脉，均遭受拒绝。被大夫开于采血等化验，化验归来本人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "13905",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=13905",
+   "question": "2024年上半年中医执业医师考试时间。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "12362",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=12362",
+   "question": "就是那个2023年吉卫联发〔2023〕14号文件，在网上怎么找也找不到，麻烦领导了，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11767",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11767",
+   "question": "您好，2024年中医确有专长医师考试人员，考试规定文件在网站什么位置能自行去看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "11353",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=11353",
+   "question": "关于人参价格是否有上调趋势",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10963",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10963",
+   "question": "请问国家中医药管理局6月30日下发中医药专业技术人员师承教育管理办法，省里面有没有相关配套政策出台，本人在政策出台前已经跟师一年，以前跟师的时间是否可以算在这个政策的跟师时间里面，盼回复，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10671",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10671",
+   "question": "中医师承的助理医师在考试通过后可以直接读专升本吗？因在2010年毕业中专院校，2012年6月非全日制中医大专毕业。是否可读专升本？对后续报考执业医师有无影响？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10341",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10341",
+   "question": "你好，请问一下今年咱们吉林省中医确有专长考试时间有消息吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "10024",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=10024",
+   "question": "您好 想咨询一下2023年中医执业医师证考试时间。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "8093",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=8093",
+   "question": "您好，可以提供省中医药局2022年度本单位政策文件目录吗？主要是用于学习，了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "7222",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=7222",
+   "question": "尊敬的省领导您好： 我是2019年由省中医药管理局举办的 “西学中”的一名执业西医师.取得结业证之后 于2021年考取了 中医（朝医）资格证书。现在面临注册问题，第一问 能在西医执业证书上加注中医朝医专业吗？什么时候可以加注？第二 能把西医",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6549",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6549",
+   "question": "您好： 参加我省2022年中医医术确有专长医师资格审核通过，但现场考核未通过人员，2023年继续报考时，在不改变原申报内容的前提下，是否也同黑龙江省一样，可履行简易程序报名。谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "6127",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=6127",
+   "question": "您好，可以提供省中医药局2022年度本单位政策文件目录吗？主要是用于学习，了解政府网站的文件发布情况，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "5676",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5676",
+   "question": "2022年中医确有专长医师考试人员，成绩啥时候公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "5668",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=5668",
+   "question": "中医爱好者",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "4956",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=4956",
+   "question": "我想问一下，现在国家出台了西医学中医的相关政策，学习后西医临床可以增加中医临床的执业范围，我想咨询一下，咱们吉林省如何办理这个事情？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "3912",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3912",
+   "question": "请问2023年执业医师考试的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "3046",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=3046",
+   "question": "请问一下，现在长春疫情防控还算稳定，九月初就开始咨询中医师承的相关办理但迟迟没有结果，今年的中医师承工作还能开展了吗？能的话什么时间可以斑呢？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "2677",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2677",
+   "question": "《授予医师资格申请表》遗失，应该去哪里补办，如不能补办，应该开具什么证明以替代？需要我准备哪些材料？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "2461",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=2461",
+   "question": "请问今年还会举办中医确有专长医师资格考试吗，如果有的话大概在几月份开始报名？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-zyy",
+   "id": "1029",
+   "url": "https://haiyun.jl.gov.cn/IGI?id=1029",
+   "question": "您好，请问今年执业医师考试的时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
