@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户留言 - 中国气象标准化网</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=7" /> 
+<meta http-equiv="keywords" content="用户留言"/>
+<meta http-equiv="description" content="用户留言"/>
+<link href="/r/cms/www/red/css/global.css" type="text/css" rel="stylesheet" />
+<link href="/r/cms/www/red/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/r/cms/www/red/css/layout.css" rel="stylesheet" type="text/css"/>
+<link href="/r/cms/www/red/css/layout-ext.css" rel="stylesheet" type="text/css"/>
+<link href="/r/cms/www/red/css/new/page.css" rel="stylesheet" type="text/css" />
+<link href="/r/cms/www/red/css/new/style.css" rel="stylesheet" type="text/css"/>
+<script src="/r/cms/jquery.js" type="text/javascript"></script>
+<script src="/r/cms/front.js" type="text/javascript"></script>
+<script src="/r/cms/www/red/js/common.js" type="text/javascript"></script>
+<style type="text/css">
+/*留言板页样式*/
+.relpy{margin-top:10px;color:#006600; width:555px; padding-right:10px;}
+form label.error{margin-left: 5px; color: Red;line-height:24px;}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="w980">
+	<div class="top_top">
+		<div class="logo png_bg"></div>
+		<div class="logo_right">
+			
+			<a href="http://www.cmastd.cn:9000/qxstd/sso/login?redirect_uri=http://www.cmastd.cn">登录</a><span>|</span>
+			<a href="/register.jspx">注册</a><span>|</span>
+			<a href="http://rays.cma.gov.cn" target="_blank">CMA邮箱</a>
+		</div>
+	</div>
+</div>
+	<div class="w980">
+         <div class="nav png_bg">
+         	<span class="s1"></span>
+            <span class="s2"></span>
+            <span class="s3"></span>
+           
+         	<ul>
+            	<li class="l1">
+                	<a href="/">首页</a>
+                </li>
+                <li class="l2">
+                	<div class="l nav_name_fix">组织<br />管理</div>
+                    <div class="l nav_name1">
+                    	<a href="/zcfg/index.jhtml">政策法规</a>
+                        <a href="/zzjg/index.jhtml">组织机构</a>
+                    </div>
+                </li>
+                <li class="l3">
+                	<div class="l nav_name_fix">新闻<br />动态</div>
+                    <div class="l nav_name2">
+                    	<a href="/zhxw.jhtml">综合新闻</a>
+                        <a href="/gzdtdf.jhtml">地方动态</a>
+                        <a href="/homenews.jhtml">国内资讯</a>
+                        <a href="/overseasnews.jhtml">国际视窗</a><br class="clear" />  
+                    </div>
+                    <div class="l nav_name"><a href="/gzdtbwh.jhtml" class="te l">标委会动态</a></div>
+                </li>
+                <li class="l4">
+                	<div class="l nav_name_fix">通知<br />公告</div>
+                    <div class="l nav_name2">
+                    	<a href="/bzggfbgg.jhtml">发布公告</a>
+                        <a href="/seekAdvicePage.jspx">征求意见</a>
+                        <!--  <a href="/bzggdbba.jhtml">地标备案</a> -->
+                        <a href="/gdgg/index.jhtml">即时公告</a>
+                        <a href="/bzggfsgg.jhtml">复审公告</a><br class="clear" />  
+                    </div>
+                    <div class="l nav_name"><a href="/bzgglxgg.jhtml" class="te l w30">立项公告</a></div>
+                </li>
+                <li class="l5">
+                	<div class="l nav_name_fix">宣贯<br />研究</div>
+                    <div class="l nav_name2 w272">
+                    	<a href="/guestbook.jspx">公众留言</a>
+                        <a href="/bzjd.jhtml">标准解读</a>
+                        <a href="/yyfk.jspx">应用反馈</a>
+                        <a href="/sfqjs.jhtml" class="w65">示范区建设</a>
+                        <a href="/xxyd.jhtml">在线学习</a>
+                        <a href="/qxbzhtx.jhtml">专业期刊</a>
+                        <a href="/bzzxfw.jhtml">咨询服务</a>
+                        <a href="/qxbzhyj.jhtml" class="w65">标准化研究</a>
+                        
+                    </div>
+                </li>
+            </ul>
+         </div>
+         
+    </div>  
+<script src="/r/cms/www/red/js/placeholder.js"></script>
+<script>
+	function startSearch(){
+		if($.trim($("#searchTxt").val())==""){
+			alert("请输入搜索关键字！");
+			return;
+		}
+		$("#search_form").submit();
+	}
+</script>
+<div class="w980">
+<div class="top_bottom">
+         	<div class="l notice png_bg">
+         		<marquee id="scrollarea" direction="left" scrolldelay="10" scrollamount="2" width="630" height="20" onmouseover="this.stop();" onmouseout="this.start();">
+						<a href="http://www.cmastd.cn:80/gdgg/4243.jhtml" title="QX/T 124-2025《大气成分观测资料分类与编码》等21项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 124-2025《大气成分观测资料分类与编码》等21项行业标准文本入库，欢迎到行业标准库查阅学习！</a>						<a href="http://www.cmastd.cn:80/gdgg/4238.jhtml" title="QX/T 782—2025《升放气球安全风险分级管控要求》等11项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 782—2025《升放气球安全风险分级管控要求》等11项行业标准文本入库，欢迎到行业标准库查阅学习！</a>						<a href="http://www.cmastd.cn:80/gdgg/4194.jhtml" title="QX/T 744—2024《预警信息发布综合人口覆盖率计算方法》等12项行业标准文本入库，欢迎到行业标准库" target="_blank">QX/T 744—2024《预警信息发布综合人口覆盖率计算方法》等12项行业标准文本入库，欢迎到行业标准库</a>						<a href="http://www.cmastd.cn:80/gdgg/4159.jhtml" title="QX/T 734—2024《关键农时气象服务通则》等5项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 734—2024《关键农时气象服务通则》等5项行业标准文本入库，欢迎到行业标准库查阅学习！</a>
+				</marquee>
+            </div>
+            <div class="r search">
+            	<form id="search_form" action="/search.jspx" target="_blank">
+            	<div id="labelDiv"></div>
+            	<input class="l" name="q" placeholder="请输入关键字" type="text" id="searchTxt" maxlength="30" autocomplete="off"/>
+                <a href="javascript:startSearch();">搜索</a>
+                </form>
+            </div>
+</div>
+</div>
+<script>
+funPlaceholder(document.getElementById("searchTxt"));
+</script></div>
+
+
+<div id="page"> 
+<div id="pgwrap">
+  <!--左侧-->
+  <div id="pageleftsidebar">
+  	<div class="pglefttit1"><a href="/zhxw.jhtml">综合新闻</a></div>
+    <div class="pglefttit1"><a href="/gzdtdf.jhtml">地方动态</a></div>
+    <div class="pglefttit1"><a href="/homenews.jhtml">国内资讯</a></div>
+    <div class="pglefttit1"><a href="/overseasnews.jhtml">国际视窗</a></div>
+    <div class="pglefttit1"><a href="/gzdtbwh.jhtml">标委会动态</a></div>
+    
+<h3>
+	点击排行
+</h3>
+<ul class="pgleftsum2">
+	 
+	<li><span class="sp1">1</span><a href="http://www.cmastd.cn:80/zhxw/1205.jhtml" title="2013年第一批12项气象行业标准发布">2013年第一批12项气象行业标准发布</a></li>
+	
+	<li><span class="sp1">2</span><a href="http://www.cmastd.cn:80/zhxw/677.jhtml" title="2012年11项气象国家标准发布（国家标准公告2011年第23号）">2012年11项气象国家标准发布（国家</a></li>
+	
+	<li><span class="sp1">3</span><a href="http://www.cmastd.cn:80/bzjd/1378.jhtml" title="人工影响天气作业术语">人工影响天气作业术语</a></li>
+	
+	<li><span class="sp1">4</span><a href="http://www.cmastd.cn:80/bzjd/1375.jhtml" title="爆炸和火灾危险环境雷电防护安全评价技术规范">爆炸和火灾危险环境雷电防护安全评</a></li>
+	
+	<li><span class="sp1">5</span><a href="http://www.cmastd.cn:80/bzjd/1376.jhtml" title="风廓线雷达站防雷技术规范">风廓线雷达站防雷技术规范</a></li>
+	
+	<li><span class="sp1">6</span><a href="http://www.cmastd.cn:80/bzjd/1380.jhtml" title="飞机气象观测数据归档格式">飞机气象观测数据归档格式</a></li>
+	
+	<li><span class="sp1">7</span><a href="http://www.cmastd.cn:80/bzjd/1373.jhtml" title="气象卫星数据分级">气象卫星数据分级</a></li>
+	
+	<li><span class="sp1">8</span><a href="http://www.cmastd.cn:80/gdgg/2983.jhtml" title="关于征集2019-2020年度气象标准项目及承担单位的通知">关于征集2019-2020年度气象标准项</a></li>
+	
+	<li><span class="sp1">9</span><a href="http://www.cmastd.cn:80/zhxw/1843.jhtml" title="中国气象局出台深化标准化工作改革实施意见，明确十项重点任务">中国气象局出台深化标准化工作改革</a></li>
+	
+	<li><span class="sp1">10</span><a href="http://www.cmastd.cn:80/bzjd/1379.jhtml" title="露天建筑施工现场不利气象条件与安全防范">露天建筑施工现场不利气象条件与安</a></li>
+	 
+</ul>
+
+
+
+    
+  </div>
+  <!--左侧 end--> 
+  <!--右侧-->
+  <div id="pagerightsidebar">
+    <div class="pgrighttit"><span class="span1">您现在正在浏览： <a href="/">首页</a> &raquo; <a href="/guestbook.jspx">公众留言</a> &raquo; 列表</span></div>
+    <div class="pgrighttit2">留言内容</div>
+    <div class="gblist-box">
+          	   <div class="w96">
+                    <dl class="gb-dl w96">
+                    	<dt class="fl"><span class="gray">[咨询]</span>请问如何查询气象标准？</dt>
+                        <dd class="gb-time fl">qxstd@gly 于2011-01-04 14:52:41 评论道：</dd>
+                        <dd class="gb-txt fl">请问如何查询气象标准？</dd>
+                        <dd class="relpy fl"><img src="/r/cms/www/red/img/guestbook/replay.gif" align="absmiddle"/> 管理员回复：请访问本网站标准库栏目。</dd>
+                        <div class="clear"></div>
+                    </dl>
+                    <dl class="gb-dl w96">
+                    	<dt class="fl"><span class="gray">[咨询]</span>请问目前我国标准是如何分类的？</dt>
+                        <dd class="gb-time fl">qxstd@gly 于2011-01-04 14:45:45 评论道：</dd>
+                        <dd class="gb-txt fl">请问目前我国标准是如何分类的？</dd>
+                        <dd class="relpy fl"><img src="/r/cms/www/red/img/guestbook/replay.gif" align="absmiddle"/> 管理员回复：</dd>
+                        <div class="clear"></div>
+                    </dl>
+                    <dl class="gb-dl w96">
+                    	<dt class="fl"><span class="gray">[咨询]</span>请问如何登录标准制修订系统？</dt>
+                        <dd class="gb-time fl">qxstd@gly 于2011-01-04 10:08:18 评论道：</dd>
+                        <dd class="gb-txt fl">请问如何登录标准制修订系统？</dd>
+                        <dd class="relpy fl"><img src="/r/cms/www/red/img/guestbook/replay.gif" align="absmiddle"/> 管理员回复：</dd>
+                        <div class="clear"></div>
+                    </dl>
+		          <div class="pagination"><div>
+共3条记录 1/1页
+&nbsp;<a disabled="disabled">首页</a> <a disabled="disabled">上一页</a>&nbsp;<a disabled="disabled">下一页</a> <a disabled="disabled">尾页</a>
+&nbsp;第<select onChange="if(this.value==1){location='guestbookList.jspx'}else{location='guestbookList_'+this.value+'.jspx'}this.disabled='disabled'">
+  <option value="1" selected="selected">1</option>
+</select>页
+</div></div>
+		       <div align="center">
+		         <a class="btn7" href="/writeguestbook.jspx" >我要留言</a>
+		       </div>	
+               </div>
+               <div style="padding-top:10px"></div>
+          </div>
+  </div>
+  <!--右侧 end-->
+  <div class="clear"></div>
+  </div>
+</div>
+       
+
+<div id="wrapper">
+<div class="link clearfix w980 pt30">
+	<a href="http://www.cma.gov.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l1.png" />
+	</a>
+	<a href="http://www.cmatc.cn/www/res/index/index.shtml" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l2.png" />
+	</a>
+	<a href="http://www.sac.gov.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l3.png" />
+	</a>
+	<a href="https://www.cnis.ac.cn/pcindex/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l4.png" />
+	</a>
+	<a href="http://www.china-cas.org/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l5.png" />
+	</a>
+	<a href="http://www.spc.net.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l6.png" />
+	</a>
+	<a href="http://www.iso.ch/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l8.png" />
+	</a>
+	<a href="http://www.iec.ch/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l7.png" width="55px"/>
+	</a>
+	<a href="https://www.itu.int/en/pages/default.aspx" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/itu.png" />
+	</a>
+	<a href="http://www.wmo.int/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l9.png" width="78px" height="42px"/>
+	</a>	
+</div>
+<div class="footer" style="height:104px">
+	<p class="w980" align="center">
+		主管单位：中国气象局政策法规司<br />版权所有：中国气象局气象干部培训学院&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://beian.miit.gov.cn/" style="color: #808080" target="_blank">京ICP备 15008089号-3</a>&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11019499363号<br />
+		网站维护：中国气象局气象干部培训学院气象标准化研究所、信息技术部&nbsp;&nbsp;&nbsp;&nbsp;地址：北京市海淀区中关村南大街46号&nbsp;&nbsp;&nbsp;&nbsp;邮编：100081<br />
+		技术支持：010-58993007, 010-68409227&nbsp;&nbsp;&nbsp;&nbsp;Email：cmastd@163.com<br />
+		<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256239877'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256239877%26online%3D2' type='text/javascript'%3E%3C/script%3E"));</script> -->
+</p>	
+</div></div>
+</body>
+</html>

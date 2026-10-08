@@ -1,0 +1,1485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title>中国气象标准化网</title>
+<meta http-equiv="keywords" content="中国气象标准化网" />
+<meta http-equiv="description" content="中国气象标准化网" />
+
+<link href="/r/cms/www/red/css/new/style.css" rel="stylesheet" type="text/css" />
+<script src="/r/cms/www/red/js/prototype.js" type="text/javascript"></script>
+<script src="/r/cms/www/red/js/fabtabulous.js" type="text/javascript"></script>
+<script src="/r/cms/www/red/js/common.js" type="text/javascript"></script>
+<script src="/r/cms/jquery.js" type="text/javascript"></script>
+<script src="/r/cms/front.js" type="text/javascript"></script>
+<style>
+/* 	 body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        } */
+        .tooltip-container {
+            position: fixed;
+            top: -242px; /* 初始位置在视口外 */
+            opacity: x;
+            width: 150px; /* 根据需要调整宽度 */
+            transition: top 5s, opacity 5s;
+            z-index: 99999;
+        }
+        .tooltip-container.visible {
+            top: 235px; /* 展开后的位置 */
+            opacity: 1;
+        }
+        .tooltip-container.hidden {
+            top: -100px; /* 收缩回去的位置，可以根据需要调整 */
+            opacity: 0;
+        }
+        .tooltip-image {
+            width: 100%;
+            height: auto;
+        }
+</style>
+<script type="text/javascript">
+	$(function() {
+		Cms.siteFlow("", location.href, document.referrer);
+		
+		var tooltipContainer = document.getElementById('tooltip-container');
+	       tooltipContainer.classList.add('visible');
+	       setTimeout(function() {
+	           tooltipContainer.classList.remove('visible');
+	           tooltipContainer.classList.add('hidden');
+	       }, 10000);
+		});
+</script>
+<script type="text/javascript">
+	function g(o) {
+		return document.getElementById(o);
+	}
+	function HoverLi(m, n, counter) {
+		for (var i = 1; i <= counter; i++) {
+			g('tb_' + m + i).className = 'normaltab';
+			g('tbc_' + m + i).className = 'undis';
+		}
+		g('tbc_' + m + n).className = 'dis';
+		g('tb_' + m + n).className = 'curr';
+	}
+	function typeQuery(type) {
+		$("#type").val(type);
+		$("#standardForm").submit();
+	}
+</script>
+</head>
+<body>
+     <div id="tooltip-container" class="tooltip-container">
+        <img src="images/baomi1.png" alt="提示图片" class="tooltip-image">
+    </div>
+	<!--------------------top---------------------------->
+	<div class="top"><div class="w980">
+	<div class="top_top">
+		<div class="logo png_bg"></div>
+		<div class="logo_right">
+			
+			<a href="http://www.cmastd.cn:9000/qxstd/sso/login?redirect_uri=http://www.cmastd.cn">登录</a><span>|</span>
+			<a href="/register.jspx">注册</a><span>|</span>
+			<a href="http://rays.cma.gov.cn" target="_blank">CMA邮箱</a>
+		</div>
+	</div>
+</div> 
+	<div class="w980">
+         <div class="nav png_bg">
+         	<span class="s1"></span>
+            <span class="s2"></span>
+            <span class="s3"></span>
+           
+         	<ul>
+            	<li class="l1">
+                	<a href="/">首页</a>
+                </li>
+                <li class="l2">
+                	<div class="l nav_name_fix">组织<br />管理</div>
+                    <div class="l nav_name1">
+                    	<a href="/zcfg/index.jhtml">政策法规</a>
+                        <a href="/zzjg/index.jhtml">组织机构</a>
+                    </div>
+                </li>
+                <li class="l3">
+                	<div class="l nav_name_fix">新闻<br />动态</div>
+                    <div class="l nav_name2">
+                    	<a href="/zhxw.jhtml">综合新闻</a>
+                        <a href="/gzdtdf.jhtml">地方动态</a>
+                        <a href="/homenews.jhtml">国内资讯</a>
+                        <a href="/overseasnews.jhtml">国际视窗</a><br class="clear" />  
+                    </div>
+                    <div class="l nav_name"><a href="/gzdtbwh.jhtml" class="te l">标委会动态</a></div>
+                </li>
+                <li class="l4">
+                	<div class="l nav_name_fix">通知<br />公告</div>
+                    <div class="l nav_name2">
+                    	<a href="/bzggfbgg.jhtml">发布公告</a>
+                        <a href="/seekAdvicePage.jspx">征求意见</a>
+                        <!--  <a href="/bzggdbba.jhtml">地标备案</a> -->
+                        <a href="/gdgg/index.jhtml">即时公告</a>
+                        <a href="/bzggfsgg.jhtml">复审公告</a><br class="clear" />  
+                    </div>
+                    <div class="l nav_name"><a href="/bzgglxgg.jhtml" class="te l w30">立项公告</a></div>
+                </li>
+                <li class="l5">
+                	<div class="l nav_name_fix">宣贯<br />研究</div>
+                    <div class="l nav_name2 w272">
+                    	<a href="/guestbook.jspx">公众留言</a>
+                        <a href="/bzjd.jhtml">标准解读</a>
+                        <a href="/yyfk.jspx">应用反馈</a>
+                        <a href="/sfqjs.jhtml" class="w65">示范区建设</a>
+                        <a href="/xxyd.jhtml">在线学习</a>
+                        <a href="/qxbzhtx.jhtml">专业期刊</a>
+                        <a href="/bzzxfw.jhtml">咨询服务</a>
+                        <a href="/qxbzhyj.jhtml" class="w65">标准化研究</a>
+                        
+                    </div>
+                </li>
+            </ul>
+         </div>
+         
+    </div>  
+ <script src="/r/cms/www/red/js/placeholder.js"></script>
+<script>
+	function startSearch(){
+		if($.trim($("#searchTxt").val())==""){
+			alert("请输入搜索关键字！");
+			return;
+		}
+		$("#search_form").submit();
+	}
+</script>
+<div class="w980">
+<div class="top_bottom">
+         	<div class="l notice png_bg">
+         		<marquee id="scrollarea" direction="left" scrolldelay="10" scrollamount="2" width="630" height="20" onmouseover="this.stop();" onmouseout="this.start();">
+						<a href="http://www.cmastd.cn:80/gdgg/4243.jhtml" title="QX/T 124-2025《大气成分观测资料分类与编码》等21项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 124-2025《大气成分观测资料分类与编码》等21项行业标准文本入库，欢迎到行业标准库查阅学习！</a>						<a href="http://www.cmastd.cn:80/gdgg/4238.jhtml" title="QX/T 782—2025《升放气球安全风险分级管控要求》等11项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 782—2025《升放气球安全风险分级管控要求》等11项行业标准文本入库，欢迎到行业标准库查阅学习！</a>						<a href="http://www.cmastd.cn:80/gdgg/4194.jhtml" title="QX/T 744—2024《预警信息发布综合人口覆盖率计算方法》等12项行业标准文本入库，欢迎到行业标准库" target="_blank">QX/T 744—2024《预警信息发布综合人口覆盖率计算方法》等12项行业标准文本入库，欢迎到行业标准库</a>						<a href="http://www.cmastd.cn:80/gdgg/4159.jhtml" title="QX/T 734—2024《关键农时气象服务通则》等5项行业标准文本入库，欢迎到行业标准库查阅学习！" target="_blank">QX/T 734—2024《关键农时气象服务通则》等5项行业标准文本入库，欢迎到行业标准库查阅学习！</a>
+				</marquee>
+            </div>
+            <div class="r search">
+            	<form id="search_form" action="/search.jspx" target="_blank">
+            	<div id="labelDiv"></div>
+            	<input class="l" name="q" placeholder="请输入关键字" type="text" id="searchTxt" maxlength="30" autocomplete="off"/>
+                <a href="javascript:startSearch();">搜索</a>
+                </form>
+            </div>
+</div>
+</div>
+<script>
+funPlaceholder(document.getElementById("searchTxt"));
+</script></div>
+	<!--------------------top end---------------------------->
+
+	<!--------------------main top------------------------->
+	<div class="w980 clearfix mb20">
+		<div class="l w666">
+
+<style>
+#banner {
+	position: relative;
+	width: 280px;
+	height: 180px;
+	/*border: 1px solid #666;*/
+	overflow: hidden;
+}
+
+#banner_list img {
+	border: 0px;
+}
+
+#banner_bg {
+	position: absolute;
+	bottom: 0;
+	/*background-color: #000;*/
+	height: 15px;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.4));
+	/*filter: Alpha(Opacity=30);
+				opacity: 0.1;*/
+	z-index: 1000;
+	cursor: pointer;
+	width: 280px;
+}
+
+#banner_info {
+	position: absolute;
+	bottom: 0;
+	left: 5px;
+	height: 20px;
+	color: #fff;
+	/*background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));*/
+	z-index: 1001;
+	cursor: pointer
+}
+
+#banner_text {
+	position: absolute;
+	width: 120px;
+	z-index: 1002;
+	right: 3px;
+	bottom: 3px;
+}
+
+#banner ul {
+	position: absolute;
+	list-style-type: none;
+	filter: Alpha(Opacity = 80);
+	opacity: 0.8;
+	z-index: 1002;
+	margin: 0;
+	padding: 0;
+	bottom: 0px;
+	right: 0px;
+}
+
+#banner ul li {
+	padding: 0px 8px;
+	float: left;
+	display: block;
+	color: #FFF;
+	font-size: 5px;
+	/*background: #6f4f67;*/
+	cursor: pointer;
+	border-left: 1px solid #FFF;
+}
+
+#banner ul li.on {
+	background-color: red;
+}
+
+#banner_list a {
+	position: absolute;
+}
+
+.carousel-height {
+	background: rgb(204, 204, 204);
+	line-height: 20px;
+	width: 280px;
+}
+
+.carousel-content {
+	width: 280px;
+	text-align: center;
+}
+
+.carousel-content a {
+	text-decoration: none;
+	font-size: 12px;
+	font-family: ΢���ź�;
+	font-weight: 600;
+	color: #000;
+	cursor: pointer;
+}
+
+.carousel-content a:hover {
+	color: red;
+}
+</style>
+<script type="text/javascript">
+	var t = n = 0,
+		count;
+	$(document).ready(function() {
+		count = $("#banner_list a").length;
+		$("#banner_list a:not(:first-child)").hide();
+		$("#banner li").click(function() {
+			var i = $(this).text() - 1;
+			setCarousel(i) 
+			n = i;
+			if (i >= count) return;
+			$("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);
+			$(this).toggleClass("on");
+			$(this).siblings().removeAttr("class");
+		});
+		t = setInterval("showCarousel()", 4000);
+		$("#banner").hover(function() {
+			clearInterval(t)
+		},
+			function() {
+				t = setInterval("showCarousel()", 4000);
+			});
+
+		$(".carousel-content a").each(function() {
+			var str = $(this).html();
+			var subStr = str.substring(0, 22);
+			var data = subStr + (str.length > 22 ? '' : '');
+			$(this).html(data);
+		});
+	})
+	function showCarousel() {
+		n = n >= (count - 1) ? 0 : ++n;
+		setCarousel(n)
+		$("#banner li").eq(n).trigger('click');
+	}
+	function setCarousel(n) {
+		if (n == 0) {
+			$("#carousel_1").show();
+			$("#carousel_2").hide();
+			$("#carousel_3").hide();
+			$("#carousel_4").hide();
+			$("#carousel_5").hide();
+		} else if (n == 1) {
+			$("#carousel_1").hide();
+			$("#carousel_2").show();
+			$("#carousel_3").hide();
+			$("#carousel_4").hide();
+			$("#carousel_5").hide();
+		} else if (n == 2) {
+			$("#carousel_1").hide();
+			$("#carousel_2").hide();
+			$("#carousel_3").show();
+			$("#carousel_4").hide();
+			$("#carousel_5").hide();
+		} else if (n == 3) {
+			$("#carousel_1").hide();
+			$("#carousel_2").hide();
+			$("#carousel_3").hide();
+			$("#carousel_4").show();
+			$("#carousel_5").hide();
+		} else if (n == 4) {
+			$("#carousel_1").hide();
+			$("#carousel_2").hide();
+			$("#carousel_3").hide();
+			$("#carousel_4").hide();
+			$("#carousel_5").show();
+		}
+	}
+</script>
+<div class="zhxw w666">
+	<div class="tit">
+		<a href="http://www.cmastd.cn:80/zhxw/index.jhtml">综合新闻</a>
+	</div>
+	<div class="tit_nr pt20">
+		<div class=" l pic">
+		
+			<div id="banner">
+				<div id="banner_bg"></div>
+				<div id="banner_info"></div>
+				<ul>
+					<li class="on">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+				<div id="banner_list">
+					  <a href="http://www.cmastd.cn:80/zhxw/4221.jhtml" ><img src="/u/cms/www/202511/07101221mkx0.png" width="280" height="180"/>/u/cms/www/202511/07101221mkx0.png</a> 
+					  <a href="http://www.cmastd.cn:80/zhxw/4214.jhtml" style="display: none;"><img src="/u/cms/www/202510/10113024jtwn.png" width="280" height="180"/>/u/cms/www/202510/10113024jtwn.png</a> 
+					  <a href="http://www.cmastd.cn:80/zhxw/4199.jhtml" style="display: none;"><img src="/u/cms/www/202507/081703045mtb.jpg" width="280" height="180"/>/u/cms/www/202507/081703045mtb.jpg</a> 
+					  <a href="http://www.cmastd.cn:80/zhxw/4189.jhtml" style="display: none;"><img src="/u/cms/www/202505/28092243ecbe.jpeg" width="280" height="180"/>/u/cms/www/202505/28092243ecbe.jpeg</a> 
+					  <a href="http://www.cmastd.cn:80/zhxw/4104.jhtml" style="display: none;"><img src="/u/cms/www/202411/08141633ree5.jpg" width="280" height="180"/>/u/cms/www/202411/08141633ree5.jpg</a> 
+				</div>
+			</div>
+			<div class="carousel-height">
+				<div class="carousel-content">
+					<a id="carousel_1" href="http://www.cmastd.cn:80/zhxw/4221.jhtml" title="2025年能源气象学术年会：中山论道，共推风能太阳能气候资源标准化进程" >2025年能源气象学术年会：中山论道，共推风</a>
+					<a id="carousel_2" href="http://www.cmastd.cn:80/zhxw/4214.jhtml" title="2025年世界标准日祝词及海报——美好世界的共同愿景：增强伙伴关系，共促可持续发展" style="display: none;">2025年世界标准日祝词及海报——美好世界的</a>
+					<a id="carousel_3" href="http://www.cmastd.cn:80/zhxw/4199.jhtml" title="气象部门围绕低空经济气象保障标准框架开展研讨" style="display: none;">气象部门围绕低空经济气象保障标准框架开展</a>
+					<a id="carousel_4" href="http://www.cmastd.cn:80/zhxw/4189.jhtml" title="第2期气象标准化管理研修班在河北开班" style="display: none;">第2期气象标准化管理研修班在河北开班</a>
+					<a id="carousel_5" href="http://www.cmastd.cn:80/zhxw/4104.jhtml" title="首期气象标准化管理研修班在河北举办" style="display: none;">首期气象标准化管理研修班在河北举办</a>
+				</div>
+			</div>
+		</div>
+		<div class="l txt w375">
+ 
+			<h3>
+				<a href="http://www.cmastd.cn:80/zhxw/3612.jhtml" title="气象标准化改革工作方案印发 构建推动气象高质量发展标准体系">气象标准化改革工作方案印发 构建推动气象高质</a>
+			</h3>
+			 
+			<ul class="list">
+				<li><a href="http://www.cmastd.cn:80/zhxw/4131.jhtml" title="《气象标准化发展报告（2024年）》发布">《气象标准化发展报告（2024年）》发 
+				</a><span>24-12-31</span></li> 				<li><a href="http://www.cmastd.cn:80/zhxw/4259.jhtml" title="气象部门1个项目列入国标委2026年第七批 推荐性国家标准计划">气象部门1个项目列入国标委2026年第 
+				</a><span>26-08-07</span></li> 				<li><a href="http://www.cmastd.cn:80/zhxw/4258.jhtml" title="2026年第四批5项气象领域国家标准发布">2026年第四批5项气象领域国家标准发布 
+				</a><span>26-08-07</span></li> 				<li><a href="http://www.cmastd.cn:80/zhxw/4257.jhtml" title="第3期气象标准化管理研修班开班">第3期气象标准化管理研修班开班 
+				</a><span>26-08-04</span></li> 				<li><a href="http://www.cmastd.cn:80/zhxw/4251.jhtml" title="培训通知 | 干部学院关于举办第20期全国气象标准化工作专题培训班的通知">培训通知 | 干部学院关于举办第20期 
+				</a><span>26-06-09</span></li> 				<li><a href="http://www.cmastd.cn:80/zhxw/4247.jhtml" title="气象部门5个项目列入国标委2026年第三批 推荐性国家标准计划">气象部门5个项目列入国标委2026年第 
+				</a><span>26-04-07</span></li> 
+			</ul>
+		</div>
+	</div>
+	<br class="clear" />
+</div>
+<script type="text/javascript">
+  //setCarousel(0);
+</script>			<!--------------------------main top left----------------------------------->
+<div class="pt30">
+        	<div class="l w325">
+            	<div class="tit"><a href="http://www.cmastd.cn:80/gzdtdf/index.jhtml">地方工作动态</a></div>
+                    <ul class="list as0">
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4269.jhtml" title="河南：积极推进中部六省气象领域标准一体化落地见效" target="_blank">河南：积极推进中部六省气象领域标准一...
+                        	<img src="/images/newico23.gif"/>
+                        </a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4265.jhtml" title="贵州：聚力标准化建设 赋能辣椒产业发展 —“贵州贵阳辣椒生产气象保障服务”国家标准化试点启动" target="_blank">贵州：聚力标准化建设 赋能辣椒产业发...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4263.jhtml" title="贵州：全国气象国家标准化试点工作研讨交流会在遵义召开" target="_blank">贵州：全国气象国家标准化试点工作研讨...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4262.jhtml" title="山西：山西省气象标准体系实施评估技术评审会顺利召开" target="_blank">山西：山西省气象标准体系实施评估技术...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4261.jhtml" title="山西：省市场局联合省气象局共同举办标准化公益大讲堂" target="_blank">山西：省市场局联合省气象局共同举办标...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtdf/4256.jhtml" title="重庆：发布碳源/汇核算标准 科技赋能“双碳”" target="_blank">重庆：发布碳源/汇核算标准 科技赋能“...
+</a></li>
+                    </ul>
+            </div>
+            
+            <div class="l w331 pl20">
+            	<div class="tit"><a href="http://www.cmastd.cn:80/gzdtbwh/index.jhtml">标委会工作动态</a></div>
+                    <ul class="list as1">
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4239.jhtml" title="新疆气象标准化技术委员会年会暨标准化工作咨询研讨会召开" target="_blank">新疆气象标准化技术委员会年会暨标准化...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4177.jhtml" title="农气标委会到浙江调研《农产品气候品质认证技术规范》等约束类标准实施应用" target="_blank">农气标委会到浙江调研《农产品气候品质...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4148.jhtml" title="应用服务分技术委员会：关于邀请参编中国交通运输协会团体标准的函" target="_blank">应用服务分技术委员会：关于邀请参编中...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4127.jhtml" title="吉林省气象标准化技术委员会换届大会暨第四届第一次全体委员大会顺利召开" target="_blank">吉林省气象标准化技术委员会换届大会暨...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4125.jhtml" title="山东省气象标委会换届大会暨第一次全体委员会议顺利召开" target="_blank">山东省气象标委会换届大会暨第一次全体...
+</a></li>
+                        <li><a href="http://www.cmastd.cn:80/gzdtbwh/4119.jhtml" title="海南省气象标准化技术委员会成立大会 暨第一次全体委员会议在海口召开" target="_blank">海南省气象标准化技术委员会成立大会 ...
+</a></li>
+                    </ul>
+            </div>
+        </div>		</div>
+
+		<!--------------------------main top _right----------------------------------->
+		<div class="r w300 clearfix">
+<script type="text/javascript"> 
+ function HoverLiBZGG(ele,num){
+	$("a[name=bzgg_link]").each(function(){
+		$(this).removeClass("on");
+	});
+	$(ele).addClass("on");
+	$("ul[name=bzgg_list]").each(function(){
+		$(this).css("display","none");
+	});
+	$("#bzgg_list"+num).css("display","");
+}
+$(function() {
+	Cms.direattach("","content_link");
+});
+</script>
+
+<div>
+  	<div class="tit2"><a href="http://www.cmastd.cn:80/bjzg/index.jhtml">标准公告</a> <a href="http://www.cmastd.cn:80/bjzg/index.jhtml" style="padding-left:185px;">更多</a></div>
+      <div class=" tit2_nr">
+      	<div class="tab1">
+          	<a href="http://www.cmastd.cn:80/bzggfbgg/index.jhtml" name="bzgg_link" class="on" onmouseover="HoverLiBZGG(this,1)">发布公告 </a>
+            <a href="http://www.cmastd.cn:80/bzggfsgg/index.jhtml" name="bzgg_link" onmouseover="HoverLiBZGG(this,2)">复审公告 </a>
+            <a href="http://www.cmastd.cn:80/bzgglxgg/index.jhtml" name="bzgg_link" onmouseover="HoverLiBZGG(this,3)">立项公告 </a>
+            <!--
+            <a href="http://www.cmastd.cn:80/bzggdbba/index.jhtml" name="bzgg_link" onmouseover="HoverLiBZGG(this,4)">地标备案 </a>
+             -->
+          </div>
+          	<ul class="list as ht174" name="bzgg_list" id="bzgg_list1">
+              <li><a id="4260" name="content_link" title="气发〔2026〕61号-中国气象局关于批准发布《人工智能气象预报模型预报性能检验评估》等13项气象行业标准的通告" target="_blank">气发〔2026〕61号-中国气象局关
+</a></li>              
+              <li><a id="4255" name="content_link" title="气发〔2026〕47号-中国气象局关于批准发布《气象观测装备处置技术要求》等 8 项气象行业标准的通告" target="_blank">气发〔2026〕47号-中国气象局关
+</a></li>              
+              <li><a id="4250" name="content_link" title="气发〔2026〕29号-中国气象局关于批准发布《卫星遥感监测技术 导则 火山爆发》等 25 项气象行业标准的通告" target="_blank">气发〔2026〕29号-中国气象局关
+</a></li>              
+              <li><a id="4249" name="content_link" title="气发〔2026〕26号-中国气象局关于批准发布《气象信息系统云化技术要求》等17项气象行业标准的通告" target="_blank">气发〔2026〕26号-中国气象局关
+</a></li>              
+		    </ul>
+		    
+		    <ul class="list as ht174" name="bzgg_list" id="bzgg_list2" style="display:none;">
+              <li><a id="4173" name="content_link" title="气发〔2025〕33号-中国气象局关于废止《气象数据服务接口规范》等14项气象行业标准的通告" target="_blank">气发〔2025〕33号-中国气象局关
+</a></li>                
+              <li><a id="3846" name="content_link" title="气发〔2023〕58号-中国气象局关于废止《Ⅱ型自动气象站》等30项气象行业标准的通告" target="_blank">气发〔2023〕58号-中国气象局关
+</a></li>                
+              <li><a id="3007" name="content_link" title="气发〔2019〕3号-中国气象局关于发布2018年度气象行业标准复审结论的通告" target="_blank">气发〔2019〕3号-中国气象局关于
+</a></li>                
+              <li><a id="2502" name="content_link" title="气发〔2017〕27号-中国气象局关于发布《Ⅱ型自动气象站》等推荐性气象行业标准集中复审结论的通告" target="_blank">气发〔2017〕27号-中国气象局关
+</a></li>                
+		     </ul>
+		    
+		    <ul class="list as ht174" id="bzgg_list3" name="bzgg_list" style="display:none;">
+              <li><a id="4227" name="content_link" title="气法函〔2025〕32号-中国气象局政策法规司关于下达2026年气象行业标准制修订及标准预研究项目计划的通知" target="_blank">气法函〔2025〕32号-中国气象局
+</a></li>                 
+              <li><a id="4146" name="content_link" title="气法函〔2025〕2号-中国气象局政策法规司关于下达2025年气象行业标准项目计划的通知" target="_blank">气法函〔2025〕2号-中国气象局政
+</a></li>                 
+              <li><a id="3945" name="content_link" title="气法函〔2023〕50号-中国气象局政策法规司关于下达2024年气象行业标准制修订及标准预研究项目计划的通知" target="_blank">气法函〔2023〕50号-中国气象局
+</a></li>                 
+              <li><a id="3821" name="content_link" title="气法函〔2023〕23号-中国气象局政策法规司关于下达2023年第二批气象行业标准制定计划的通知" target="_blank">气法函〔2023〕23号-中国气象局
+</a></li>                 
+		     </ul>
+		    <!-- �ر걸�� ����
+		    <ul class="list as ht174" id="bzgg_list4" name="bzgg_list" style="display:none;">
+              <li><a id="2669" name="content_link" title="2017年第3号（总第57号）气象地方标准备案公告" target="_blank">2017年第3号（总第57号）气象地
+</a></li>              
+              <li><a id="2630" name="content_link" title="2017年第2号（总第56号）气象地方标准备案公告" target="_blank">2017年第2号（总第56号）气象地
+</a></li>              
+              <li><a id="2482" name="content_link" title="2017年第1号（总第55号）气象地方标准备案公告" target="_blank">2017年第1号（总第55号）气象地
+</a></li>              
+		      </ul>
+		      -->
+      </div>
+</div>			<!------------------------------华丽分割线---------------------------------------->
+<div style="padding-top: 10px;">
+  <div class="tit2"><a href="/seekAdvicePage.jspx" target="_blank">征求意见</a><a href="/seekAdvicePage.jspx" style="padding-left:190px;">更多</a></div>
+    <div class=" tit2_nr">
+       <ul class="list as2 ht180">
+			  <li><a class="a1" href="/seekAdvice.jspx?id=5226" title="征求意见正在进行中" target="_blank"><font style="font-size: 14px;">沼泽湿地甲烷排放计算方法</font>
+			  </a>
+			  </li>
+			  <li><a class="a1" href="/seekAdvice.jspx?id=5193" title="征求意见正在进行中" target="_blank"><font style="font-size: 14px;">大气二氧化碳和甲烷浓度观测系统测</font>
+			  </a>
+			  </li>
+			  <li><a class="a1" href="/seekAdvice.jspx?id=5111" title="征求意见正在进行中" target="_blank"><font style="font-size: 14px;">气象工程概算编制规范</font>
+			  </a>
+			  </li>
+			  <li><a class="a1" href="/seekAdvice.jspx?id=5231" title="征求意见正在进行中" target="_blank"><font style="font-size: 14px;">电动汽车充电站雷电防护装置技术要</font>
+			  </a>
+			  </li>
+			  <li><a href="/seekAdvicePage.jspx" title="征求意见已结束" target="_blank"><font color="gray">人工影响天气飞机探测数据存储格式</font>
+			  </a>
+			  			  </li>
+			  <li><a href="/seekAdvicePage.jspx" title="征求意见已结束" target="_blank"><font color="gray">人工影响天气无人机通用技术要求</font>
+			  </a>
+			  			  </li>
+      </ul>
+   </div>
+</div>			<div class="links" style="padding-top: 10px;">
+				<ul>
+					<li class="l5"><a href="/yyfk.jspx"
+						style="padding-left:40px">气象标准应用反馈：<font size="2">010-68406301</font></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--------------------------main top _right end----------------------------------->
+	</div>
+	<!--------------------main top end------------------------->
+
+	<!--------------------标准库 ------------------------->
+	<div class="w980 clearfix">
+<script type="text/javascript"> 
+	function formSubmit(url){
+		var form = document.getElementById('specialSearch_form');
+		if($("input[name=qtype]:checked").val()=="1"){
+		  form.action = '/standardRecordSearch.jspx';
+		}else{
+		  form.action = '/standardProjectSearch.jspx';
+		}
+		form.submit();
+	}
+	
+	function inputKeyDown()
+	{
+		if (event.keyCode == 13)
+		{
+			formSubmit();
+		}
+	}
+</script>
+
+<div class="tit4">
+<form id="specialSearch_form" method="post">
+   	<b>标准库</b>
+       <div class="tit4_search">
+       	<input type="radio" class="l radio" checked="checked" name="qtype" value="1"/>
+           <span class="l">标准</span>
+           <input type="radio" class="l radio" name="qtype" value="2" style="margin-left:10px;"/>
+           <span class="l">标准项目</span>
+           <input type="text" class="l text" name="qtext" onkeydown="inputKeyDown()"/>
+           <a href="javascript:void(0)" onclick="formSubmit();return false;" class="l">搜索</a>
+       </div>
+</form>
+</div>		<div class="tit4_nr">
+			<form action="/standardRecordSearch.jspx" id="standardForm"
+				method="post">
+				<input type="hidden" name="type" id="type" />
+				<ul class="list2">
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('国标');return false;"><img
+								src="/r/cms/www/red/img/new/images/1.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('国标');return false;">气象国家标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('行标');return false;"><img
+								src="/r/cms/www/red/img/new/images/2.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('行标');return false;">气象行业标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('地标');return false;"><img
+								src="/r/cms/www/red/img/new/images/3.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('地标');return false;">气象地方标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('团标');return false;"><img
+								src="/r/cms/www/red/img/new/images/4.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('团标');return false;">气象团体标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('相关标准');return false;"><img
+								src="/r/cms/www/red/img/new/images/5.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('相关标准');return false;">气象相关标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('国外标准');return false;"><img
+								src="/r/cms/www/red/img/new/images/6.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('国外标准');return false;">国外相关标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('基础标准');return false;"><img
+								src="/r/cms/www/red/img/new/images/8.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="javascript:void(0)"
+								onclick="typeQuery('基础标准');return false;">基础标准</a>
+						</h3>
+					</li>
+					<li>
+						<div>
+							<a href="/standardProjectSearch.jspx"><img
+								src="/r/cms/www/red/img/new/images/7.png" class="png_bg classname" /></a>
+						</div>
+						<h3>
+							<a href="/standardProjectSearch.jspx">气象标准计划</a>
+						</h3>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<!--------------------标准库 end ------------------------->
+
+	<!--------------------main bottom------------------------->
+	<div class=" w980 pt30 clearfix">
+		<!--------------------main_bottom_left end----------------------------->
+		<div class="l w666">
+
+<div class="l w666 p">
+    <div class="tit"><a href="/standardReadingSearch.jspx">标准解读</a></div>
+    	<div class="bzjd_l" style="display:none;"><a href="#"></a></div>
+        <div class="bzjd_r" style="display:none;"><a href="#"></a></div>
+        <div id="scrollDiv" class="w666 list4" style="overflow: hidden;">  
+		<table border=0 align=center cellpadding=1 cellspacing=1 cellspace=0>  
+		<tr>  
+		<td id="scrollTd" valign="middle" bgcolor="ffffff">  
+			<!-- 特别注意，下面的图片总宽度必须大于上面定义的demo的宽度，如上面demo的宽度为500px,则下面图片总宽度必须大于500,否则会出现些问题！ -->  
+			<table border="0" cellspacing="0" cellpadding="0">  
+			<tr align="center">
+			<!-- 取前8条记录 -->
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1380.jhtml" title="飞机气象观测数据归档格式"> <img src="/u/cms/www/201308/27110232qchy.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1380.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 飞机气象观测数据归</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1379.jhtml" title="露天建筑施工现场不利气象条件与安全防范"> <img src="/u/cms/www/201308/27110030p5l3.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1379.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 露天建筑施工现场不</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1378.jhtml" title="人工影响天气作业术语"> <img src="/u/cms/www/201308/27105812kgr0.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1378.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 人工影响天气作业术</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1377.jhtml" title="气象领域高性能计算机系统测试与评估规范"> <img src="/u/cms/www/201308/27105525wt4o.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1377.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 气象领域高性能计算</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1376.jhtml" title="风廓线雷达站防雷技术规范"> <img src="/u/cms/www/201308/27105310ar3r.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1376.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 风廓线雷达站防雷技</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1375.jhtml" title="爆炸和火灾危险环境雷电防护安全评价技术规范"> <img src="/u/cms/www/201308/2710181692n2.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1375.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 爆炸和火灾危险环境</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1374.jhtml" title="地基傅立叶变换高光谱仪大气光谱观测规范"> <img src="/u/cms/www/201308/27101552ml5g.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1374.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 地基傅立叶变换高光</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+	<td>
+		<table>
+			<tr>
+				<td style="width: 10px"></td>
+				<td style="width: 100px;">
+					<a href="http://www.cmastd.cn:80/bzjd/1373.jhtml" title="气象卫星数据分级"> <img src="/u/cms/www/201308/27101153828n.jpg" width="104" height="126" style="display: block; padding: 3px; background: #e9e9e9; border: 1px solid #9999ff;" />
+					</a>
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+			<tr style="width:108px; height:20px;">
+				<td style="width: 10px"></td>
+				<td align="center">
+					<a href="http://www.cmastd.cn:80/bzjd/1373.jhtml" class="thumbs2"> <span style="line-height: 18px;"> 气象卫星数据分级</span>
+					</a>
+
+				</td>
+				<td style="width: 10px"></td>
+			</tr>
+		</table>
+	 </td>
+			</tr>  
+			</table>  
+		</td>  
+		<td id="scrollTd2" valign="top"></td>  
+		</tr>  
+		</table>  
+	</div>  
+</div>	
+
+<script type="text/javascript">
+	var speed=30;  
+	var scrollDiv = $("#scrollDiv");  
+	var scrollTd = $("#scrollTd");  
+	var scrollTd2 = $("#scrollTd2");  
+	scrollTd2.html(scrollTd.html());  
+	function Marquee(){   
+		if(scrollDiv.scrollLeft()>=scrollTd.width())  
+			scrollDiv.scrollLeft(0);   
+	else{  
+		scrollDiv.scrollLeft(scrollDiv.scrollLeft()+1);  
+	}  
+	}   
+	var MyMar=setInterval(Marquee,speed)   
+	scrollDiv.mouseover(function() {  
+	clearInterval(MyMar);  
+	} )  
+	scrollDiv.mouseout(function() {  
+	MyMar=setInterval(Marquee,speed);  
+	} )  
+</script>
+
+
+			<!------------------------------华丽分割线---------------------------------------->
+<script type="text/javascript">
+function HoverLiZCFG(ele,num){
+	$("a[name=zcfg_sub]").each(function(){
+		$(this).removeClass("on");
+	});
+	$(ele).addClass("on");
+	$("ul[name=zcfg_list]").each(function(){
+		$(this).css("display","none");
+	});
+	$("#zcfg_list"+num).css("display","");
+}
+function outLiZCFG(){
+   $(this).addClass("on");
+}	
+$(function() {
+	Cms.direattach("","zcfg_link");
+});
+</script>
+
+<div class="l w666 pt20 clearfix" style="_padding-top:30px;">
+    <div class="tit6">
+    	<span><a href="http://www.cmastd.cn:80/zcfg/index.jhtml">政策法规</a></span>
+        <ul class="r">
+        	<li><a name="zcfg_sub" class="on" href="http://www.cmastd.cn:80/zcfgqxhy/index.jhtml" onmouseover="HoverLiZCFG(this,1)">中国气象局</a></li>
+        	<li><a name="zcfg_sub" href="http://www.cmastd.cn:80/zcfggjcm/index.jhtml" onmouseover="HoverLiZCFG(this,2)">国家</a></li>
+        </ul>
+    </div>
+    <div class=" tit_nr">
+        <ul class="list" name="zcfg_list" id="zcfg_list1">
+				<li>
+					<a name="zcfg_link" id="3964" title="气发〔2024〕11号-中国气象局关于印发《支撑气象高质量发展标准体系建设指导意见》的通知" target="_blank">气发〔2024〕11号-中国气象局关于印发《支撑气象高质量发展标准体系建设指导意见》的</a><span>24-01-31</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="3955" title="气函〔2024〕9号-中国气象局关于公布约束类标准清单（2024版）的通知" target="_blank">气函〔2024〕9号-中国气象局关于公布约束类标准清单（2024版）的通知</a><span>24-01-30</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="3913" title="气办发〔2023〕51号-中国气象局办公室关于印发《气象标准制修订管理细则》的通知" target="_blank">气办发〔2023〕51号-中国气象局办公室关于印发《气象标准制修订管理细则》的通知</a><span>23-11-09</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="3793" title="气函〔2023〕51号-中国气象局关于国家级气象标准化主要工作职责分工的通知" target="_blank">气函〔2023〕51号-中国气象局关于国家级气象标准化主要工作职责分工的通知</a><span>23-03-24</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="3717" title="气发〔2022〕62号-中国气象局关于印发《气象标准化改革工作方案》的通知" target="_blank">气发〔2022〕62号-中国气象局关于印发《气象标准化改革工作方案》的通知</a><span>22-09-29</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="3204" title=" 气发〔2020〕23号-中国气象局 国家标准化管理委员会关于印发《气象标准化管理规定》的通知" target="_blank"> 气发〔2020〕23号-中国气象局 国家标准化管理委员会关于印发《气象标准化管理规定》</a><span>20-03-06</span>
+				</li>
+        </ul>
+        <ul class="list" name="zcfg_list" id="zcfg_list2" style="display:none">
+				<li>
+					<a name="zcfg_link" id="4186" title="国家标准化管理委员会关于国家标准起草中开展公平竞争审查的通知" target="_blank">国家标准化管理委员会关于国家标准起草中开展公平竞争审查的通知</a><span>25-05-08</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="4178" title="国家市场监督管理总局修订出台《采用国际标准管理办法》" target="_blank">国家市场监督管理总局修订出台《采用国际标准管理办法》</a><span>25-04-21</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="4176" title="国家标准化管理委员会关于公布《国家标准化指导性技术文件管理规定》的公告" target="_blank">国家标准化管理委员会关于公布《国家标准化指导性技术文件管理规定》的公告</a><span>25-04-15</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="4164" title="国家标准化管理委员会关于印发《标准数字化标准体系建设指南》的通知" target="_blank">国家标准化管理委员会关于印发《标准数字化标准体系建设指南》的通知</a><span>25-04-08</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="4163" title="市场监管总局标准技术司关于严格国家标准研制周期管理的通知" target="_blank">市场监管总局标准技术司关于严格国家标准研制周期管理的通知</a><span>25-04-08</span>
+				</li>
+				<li>
+					<a name="zcfg_link" id="4092" title="国家标准化管理委员会关于开展2024年推荐性国家标准复审工作的通知" target="_blank">国家标准化管理委员会关于开展2024年推荐性国家标准复审工作的通知</a><span>24-10-16</span>
+				</li>
+        </ul>
+    </div>
+</div>
+
+			<!------------------------------华丽分割线---------------------------------------->
+
+			<div class="l w666 pt20"><div class="l  w408 zxxx" id="zxxydiv" style="cursor: hand" onclick="window.location.href='/xxyd.jhtml'">
+	<h3 class="tit5">在线学习</h3>
+    <ul class="tit5_nr">
+    	<li><a href="/xxyd.jhtml">标准化知识问答</a></li>
+    	<li><a href="/xxyd.jhtml">标准化组织简介</a></li>
+    	<li><a href="/xxyd.jhtml">标准化专业期刊</a></li>
+        <li><a href="/xxyd.jhtml">标准化佳文推荐</a></li>
+        <li><a href="/xxyd.jhtml">标准化图书推荐</a></li>
+        <li><a href="/xxyd.jhtml">在线培训课件</a></li>
+    </ul>
+</div>
+				<div class="r w243 zxfw" style="cursor: hand" onclick="window.location.href='/bzzxfw.jhtml'">
+	<h3 class="tit5">咨询服务</h3>
+    <ul class="tit5_nr bz">
+        <li><a href="/bzzxfw.jhtml">项目查询服务 </a></li>
+        <li><a href="/bzzxfw.jhtml">资源共享服务  </a></li>
+        <li><a href="/bzzxfw.jhtml">委托检索服务  </a></li>
+        <li><a href="/bzzxfw.jhtml">专题咨询服务  </a></li>
+    </ul>
+</div></div>
+			<!------------------------------华丽分割线---------------------------------------->
+			<div class="l w666 pt30"><div class="l w325">
+     <div class="tit"><a href="http://www.cmastd.cn:80/qxbzhtx/index.jhtml">气象标准化</a></div>
+     <div class=" tit_nr pt20">
+         <div class="l pic2"><a href="http://www.cmastd.cn:80/qxbzhtx/index.jhtml"><img src="/r/cms/www/red/img/new/images/p5.png" /></a></div>
+         <div class="l pl10">
+             <h3 class="font14"><a href="http://www.cmastd.cn:80/qxbzhtx/4273.jhtml" title="《气象标准化》2026年第3期内容点读">《气象标准化》2026年第3</a></h3>
+			 <!--
+             <p class="pt10">
+				<span>1编辑部电话：</span>010-68409227<br />
+              	<span>邮箱：</span>cmastd@163.com  <br />
+                <span>NOTES：</span>气象标准化通讯编辑部/<br />标准化与科技评估室/干部学院<br />/CMA
+             </p>-->
+			 <p class="pt10">
+				<span>编辑部电话：</span>010-68406036<br />
+              	<span>邮箱：</span>qxbzh2007@163.com  <br />
+                <span>气政通：</span>气象标准化编辑部/<br />标准化与科技评估室/干部学院<br />/中国气象局
+             </p>
+         </div>
+     </div>
+ </div>
+
+
+				<div class="r  w331">
+	<div class="tit">
+				<a href="http://www.cmastd.cn:80/qxbzhyj/index.jhtml">气象标准化研究</a>
+	</div>
+	<div class=" tit_nr pt20">
+		<div class="tit_nr_top">
+			<!-- 显示头条的话使用 typeId='4' typeId='2'图文 -->
+			<div class="l">
+				<a href="http://www.cmastd.cn:80/qxbzhyj/853.jhtml" title="浅谈“自动气象站观测规范”的标准编制">
+				<img src="/u/cms/www/201303/14162400wmfa.png" width="120" height="90" alt="浅谈“自动气象站观测规范”的标准编制" />
+				</a>
+			</div>
+			<div class="l w187 pl10">
+				<h3>
+					<a href="http://www.cmastd.cn:80/qxbzhyj/853.jhtml" title="浅谈“自动气象站观测规范”的标准编制">浅谈“自动气象站观测规范</a>
+				</h3>
+				<p class="">
+				</p>				
+			</div>
+			 
+		</div>
+		<ul class="list">
+ 
+			<li>
+				<a href="http://www.cmastd.cn:80/qxbzhyj/3615.jhtml" title="全面开创计量科技创新战略发展新局面">全面开创计量科技创新战略发展新局面</a>
+			</li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/qxbzhyj/1893.jhtml" title="山东省淄博市防雷装置设计技术评价规范应用报告">山东省淄博市防雷装置设计技术评价规范应...</a>
+			</li>
+			 
+		</ul>
+	</div>
+</div>
+
+</div>
+			<!------------------------------华丽分割线---------------------------------------->
+
+			<div class="l w666 pt30 clearfix">
+				<div class="l w325">
+	<div class="tit">
+				<a href="http://www.cmastd.cn:80/homenews/index.jhtml">国内资讯</a>
+	</div>
+	<div class=" tit_nr pt20">
+		<div class="tit_nr_top">
+			<!-- 显示头条的话使用 typeId='4' typeId='2'图文 -->
+			<div class="l">
+				<a href="http://www.cmastd.cn:80/homenews/1888.jhtml" title="中国专家正式就任国际标准化组织船舶与海洋技术委员会（ISO/TC8）主席">
+				<img src="/u/cms/www/201512/07084417bff4.jpg" width="120" height="90" alt="中国专家正式就任国际标准化组织船舶与海洋技术委员会（ISO/TC8）主席" />
+				</a>
+			</div>
+			<div class="l w187 pl10">
+				<h3>
+					<a href="http://www.cmastd.cn:80/homenews/1888.jhtml" title="中国专家正式就任国际标准化组织船舶与海洋技术委员会（ISO/TC8）主席">中国专家正式就任国际标准</a>
+				</h3>
+				<p class="">
+&nbsp;&nbsp;&nbsp; 2015年11月29日，国家标准委在京举办国际标准化组织船舶与海洋技术委员会（ISO/TC8）主				</p>
+			</div>
+			 
+		</div>
+		<ul class="list">
+ 
+			<li>
+				<a href="http://www.cmastd.cn:80/homenews/4150.jhtml" title="市场监管总局等十七部门印发《关于加强 标准制定与实施监督工作的指导意见》">市场监管总局等十七部门印发《关于加...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/homenews/4139.jhtml" title="全国首次标准实施效果评估工作启动">全国首次标准实施效果评估工作启动
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/homenews/4138.jhtml" title="第六届中部六省标准化战略合作联盟会议 在湖北咸宁召开">第六届中部六省标准化战略合作联盟会...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/homenews/4137.jhtml" title="保护市场公平竞争，鼓励创新——《标准必要专利反垄断指引》发布">保护市场公平竞争，鼓励创新——《标准...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/homenews/4136.jhtml" title="全国标准化研究机构协作机制正式成立">全国标准化研究机构协作机制正式成立
+</a></li>
+			 
+		</ul>
+	</div>
+</div>
+ <div class="r  w331">
+	<div class="tit">
+				<a href="http://www.cmastd.cn:80/overseasnews/index.jhtml">国际视窗</a>
+	</div>
+	<div class=" tit_nr pt20">
+		<div class="tit_nr_top">
+			<!-- 显示头条的话使用 typeId='4' typeId='2'图文 -->
+			<div class="l">
+				<a href="http://www.cmastd.cn:80/overseasnews/1492.jhtml" title="“智慧城市国际标准化交流会”在桂林成功举办">
+				<img src="/u/cms/www/201402/26141029s511.jpg" width="120" height="90" alt="“智慧城市国际标准化交流会”在桂林成功举办" />
+				</a>
+			</div>
+			<div class="l w187 pl10">
+				<h3>
+					<a href="http://www.cmastd.cn:80/overseasnews/1492.jhtml" title="“智慧城市国际标准化交流会”在桂林成功举办">“智慧城市国际标准化交流</a>
+				</h3>
+				<p class="">
+&nbsp;&nbsp;&nbsp; 2014年2月24日，&ldquo;智慧城市国际标准化交流会&rdquo;在广西桂林举行。来自ISO、IEC				</p>
+			</div>
+			 
+		</div>
+		<ul class="list">
+ 
+			<li>
+				<a href="http://www.cmastd.cn:80/overseasnews/4024.jhtml" title="中法达成标准化合作协议">中法达成标准化合作协议
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/overseasnews/4009.jhtml" title="国际标准化组织新任主席赵成焕发表就职致辞">国际标准化组织新任主席赵成焕发表就职...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/overseasnews/3934.jhtml" title="国际标准化能力提升（高级）培训班顺利开班">国际标准化能力提升（高级）培训班顺利...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/overseasnews/3903.jhtml" title="首届“ISO国际标准化青年之星大赛”圆满落幕">首届“ISO国际标准化青年之星大赛”圆...
+</a></li>
+			
+			<li>
+				<a href="http://www.cmastd.cn:80/overseasnews/3887.jhtml" title="ISO颁发国际标准化青年专家奖培育下一代标准化人才">ISO颁发国际标准化青年专家奖培育下一...
+</a></li>
+			 
+		</ul>
+	</div>
+</div>
+
+ <br class="clear" />
+
+			</div>
+			<!------------------------------华丽分割线---------------------------------------->
+
+		</div>
+		<!--------------------main_bottom_left end----------------------------->
+
+		<!--------------------main_bottom_right end----------------------------->
+		<div class="r w300 ">
+			<div class="links">
+				<ul>
+					<li class="l1"><a href="/qxstd/main/index.do"
+						target="_blank">气象标准制修订管理系统</a></li>
+					<li class="l2"><a href="/member/talentRegister.jspx">气象标准化人才注册</a></li>
+					<!-- <li class="l3"><a href="/dblr.jspx">气象地方标准报告系统</a></li> 
+                <li class="l3"><a href="/dbbg_fb.jspx">气象地方标准报告系统</a></li>-->
+					<li class="l3"><a href="/qxdb/index.do" target="_blank">气象地方标准报告系统</a></li>
+					<li class="l4"><a href="/xmta.jspx">气象标准项目提案</a></li>
+					<li class="l6"><a target="_blank" href="/sfqjs.jhtml">气象标准化试点成果展示</a></li>
+				</ul>
+			</div>
+			<!------------------------------华丽分割线---------------------------------------->
+<div class="pt20" style="padding-top: 15px;">
+	<div class="tit2"><a href="#">标准化技术委员会</a></div>
+    <div class=" tit2_nr">
+        <dl>
+        	<dt class="d1"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E8%B1%A1%E9%98%B2%E7%81%BE%E5%87%8F%E7%81%BE%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国气象防灾减灾标委会</a> </dt>
+            	<dd><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E8%B1%A1%E9%98%B2%E7%81%BE%E5%87%8F%E7%81%BE%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E6%B0%94%E8%B1%A1%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">气象应用服务分委会</a></dd>
+            <dt class="d2"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E8%B1%A1%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国气象基本信息标委会 </a> </dt>
+            <dt class="d1"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E5%8D%AB%E6%98%9F%E6%B0%94%E8%B1%A1%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%A9%E6%B0%94%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国卫星气象与空间天气标委会</a> </dt>
+            	<dd class="gray"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E5%8D%AB%E6%98%9F%E6%B0%94%E8%B1%A1%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%A9%E6%B0%94%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E6%B0%94%E8%B1%A1%E5%8D%AB%E6%98%9F%E6%95%B0%E6%8D%AE%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">气象卫星数据分委会</a></dd>
+            	<dd class="gray"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E5%8D%AB%E6%98%9F%E6%B0%94%E8%B1%A1%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%A9%E6%B0%94%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E6%B0%94%E8%B1%A1%E9%81%A5%E6%84%9F%E5%BA%94%E7%94%A8%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">气象遥感分委会</a> </dd>
+           		<dd class="gray"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E5%8D%AB%E6%98%9F%E6%B0%94%E8%B1%A1%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%A9%E6%B0%94%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E6%B0%94%E8%B1%A1%E5%8D%AB%E6%98%9F%E6%95%B0%E6%8D%AE%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">空间天气监测预警分委会</a></dd>
+            <dt class="d2"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E8%B1%A1%E4%BB%AA%E5%99%A8%E4%B8%8E%E8%A7%82%E6%B5%8B%E6%96%B9%E6%B3%95%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国气象仪器与观测方法标委会</a> </dt>
+            <dt class="d2"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E4%BA%BA%E5%B7%A5%E5%BD%B1%E5%93%8D%E5%A4%A9%E6%B0%94%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国人工影响天气标委会</a> </dt>
+            <dt class="d2"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E5%86%9C%E4%B8%9A%E6%B0%94%E8%B1%A1%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国农业气象标委会</a> </dt>
+            <dt class="d1"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E5%80%99%E4%B8%8E%E6%B0%94%E5%80%99%E5%8F%98%E5%8C%96%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国气候与气候变化标委会</a> </dt>
+            <dd><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E5%80%99%E4%B8%8E%E6%B0%94%E5%80%99%E5%8F%98%E5%8C%96%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E5%A4%A7%E6%B0%94%E6%88%90%E5%88%86%E8%A7%82%E6%B5%8B%E9%A2%84%E6%8A%A5%E9%A2%84%E8%AD%A6%E6%9C%8D%E5%8A%A1%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">大气成分观测预报预警服务分委会</a></dd>
+            <dd><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E6%B0%94%E5%80%99%E4%B8%8E%E6%B0%94%E5%80%99%E5%8F%98%E5%8C%96%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A%E9%A3%8E%E8%83%BD%E5%A4%AA%E9%98%B3%E8%83%BD%E6%B0%94%E5%80%99%E8%B5%84%E6%BA%90%E5%88%86%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">风能太阳能气候资源分委会</a></dd>
+            <dt class="d2"><a href="/bwhjj.jhtml?author=%E5%85%A8%E5%9B%BD%E9%9B%B7%E7%94%B5%E7%81%BE%E5%AE%B3%E9%98%B2%E5%BE%A1%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%A7%94%E5%91%98%E4%BC%9A">全国雷电灾害防御行业标委会</a></dt>
+        </dl>
+    </div>
+</div>			<!------------------------------华丽分割线---------------------------------------->
+<script type="text/javascript">
+	$(function() {
+		Cms.direattach("", "attach");
+	});
+</script>
+<div class="pt20" style="padding-top: 15px;">
+	<div class="tit2">
+		<a href="http://www.cmastd.cn:80/download/index.jhtml">常用下载</a><a href="http://www.cmastd.cn:80/download/index.jhtml" style="padding-left:190px;">更多</a>
+	</div>
+	<div class=" tit2_nr">
+		<ul class="list as3">
+  
+			<li>
+				<a name="attach" id="4129" title="现行气象国家标准列表">现行气象国家标准列表</a>
+			</li>
+			 			<li>
+				<a name="attach" id="4080" title="现行气象行业标准列表">现行气象行业标准列表</a>
+			</li>
+			 
+			<li>
+				<a name="attach" id="3995" title="气象标准项目申请表（指导类标准项目适用）">气象标准项目申请表（指导类标准项目适用）</a>
+			</li>
+			 			<li>
+				<a name="attach" id="3994" title="气象标准预研究项目申请表">气象标准预研究项目申请表</a>
+			</li>
+			 
+			<li>
+				<a name="attach" id="3993" title="约束类标准项目申报有关表格">约束类标准项目申报有关表格</a>
+			</li>
+			 			<li>
+				<a name="attach" id="3992" title="约束类标准项目开题用模版">约束类标准项目开题用模版</a>
+			</li>
+			 
+		</ul>
+	</div>
+</div>
+
+			<!------------------------------华丽分割线---------------------------------------->
+			<div class="links" style="padding-top: 15px;">
+				<ul>
+					<li class="l5"
+						style="background: url(/r/cms/www/red/img/new/images/ch5-2.png) no-repeat left center;"><span
+						style="font-size: 18px; line-height: 38px;display: block; padding-left: 10px;">举报投诉电话：<font
+							size="2">010-68406301</font></span></li>
+				</ul>
+			</div>
+<div class="pt20" style="padding-top: 15px;">
+	<div class="tit2">
+		<a href="/guestbook.jspx">公众留言</a><a href="/guestbook.jspx" style="padding-left:190px;">更多</a>
+	</div>
+	<div class=" tit2_nr">
+		<ul class="list as4">
+			 			<li>
+				<a href="/guestbook.jspx">[咨询]请问如何查询气象标准？</a>
+			</li>
+						<li>
+				<a href="/guestbook.jspx">[咨询]请问目前我国标准是如何分类的？</a>
+			</li>
+						<li>
+				<a href="/guestbook.jspx">[咨询]请问如何登录标准制修订系统？</a>
+			</li>
+			 
+		</ul>
+	</div>
+</div>
+			<!------------------------------华丽分割线---------------------------------------->
+
+<div class="pt20 select" style="padding-top: 15px;">
+		<select name="friendlink_select1"
+		onchange="if(this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value,'_blank');}">
+		<option>
+			--- 气象相关网站 ---
+		</option>
+		<option value="http://www.cma.gov.cn">
+			中国气象局
+		</option>
+		<option value="http://www.wmo.int">
+			世界气象组织
+		</option>
+		<option value="http://www.nws.noaa.gov">
+			美国气象局
+		</option>
+	</select>
+	 
+	<select name="friendlink_select2"
+		onchange="if(this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value,'_blank');}">
+		<option>
+			--- 国内标准化相关网站 ---
+		</option>
+		<option value="http://www.chinagb.org">
+			ChinaGB国家标准频道
+		</option>
+		<option value="http://www.standardcn.com">
+			标准网（国家发改委产业协调司主管）
+		</option>
+		<option value="http://www.samr.gov.cn/">
+			国家市场监督管理总局
+		</option>
+		<option value="http://www.sac.gov.cn">
+			国家标准化管理委员会
+		</option>
+		<option value="http://www.cnca.gov.cn/">
+			国家认证认可监督管理委员会
+		</option>
+		<option value="https://www.cnis.ac.cn/pcindex/">
+			中国标准化研究院
+		</option>
+		<option value="http://www.china-cas.org">
+			中国标准化协会
+		</option>
+		<option value="http://www.spc.net.cn">
+			中国标准出版社
+		</option>
+		<option value="http://www.nim.ac.cn">
+			中国计量科学院
+		</option>
+	</select>
+	 
+	<select name="friendlink_select3" class="Sel"
+		onchange="if(this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value,'_blank');}">
+		<option>
+			--- 国外标准化相关网站 ---
+		</option>
+		<option value="http://www.iso.ch">
+			国际标准化组织(ISO)
+		</option>
+		<option value="http://www.iec.ch">
+			国际电工委员会(IEC)
+		</option>
+		<option value="http://www.nist.gov/index.html">
+			美国国家标准与技术研究院
+		</option>
+		<option value="http://www.bsi-global.com">
+			英国标准协会
+		</option>
+		<option value="http://www.bsi-global.com">
+			加拿大标准化学会
+		</option>
+		<option value="http://www.din.de">
+			德国标准化协会
+		</option>
+	</select>
+</div>
+
+
+		</div>
+		<!--------------------main_bottom_right end----------------------------->
+	</div>
+	<!--------------------main bottom end------------------------->
+
+
+
+	<!-------------------- footer------------------------->
+	<div class="link clearfix w980 pt30">
+	<a href="http://www.cma.gov.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l1.png" />
+	</a>
+	<a href="http://www.cmatc.cn/www/res/index/index.shtml" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l2.png" />
+	</a>
+	<a href="http://www.sac.gov.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l3.png" />
+	</a>
+	<a href="https://www.cnis.ac.cn/pcindex/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l4.png" />
+	</a>
+	<a href="http://www.china-cas.org/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l5.png" />
+	</a>
+	<a href="http://www.spc.net.cn/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l6.png" />
+	</a>
+	<a href="http://www.iso.ch/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l8.png" />
+	</a>
+	<a href="http://www.iec.ch/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l7.png" width="55px"/>
+	</a>
+	<a href="https://www.itu.int/en/pages/default.aspx" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/itu.png" />
+	</a>
+	<a href="http://www.wmo.int/" style="padding-right: 0px;"><img
+			src="/r/cms/www/red/img/new/images/l9.png" width="78px" height="42px"/>
+	</a>	
+</div>
+ <div class="footer" style="height:104px">
+	<p class="w980" align="center">
+		主管单位：中国气象局政策法规司<br />版权所有：中国气象局气象干部培训学院&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://beian.miit.gov.cn/" style="color: #808080" target="_blank">京ICP备 15008089号-3</a>&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11019499363号<br />
+		网站维护：中国气象局气象干部培训学院气象标准化研究所、信息技术部&nbsp;&nbsp;&nbsp;&nbsp;地址：北京市海淀区中关村南大街46号&nbsp;&nbsp;&nbsp;&nbsp;邮编：100081<br />
+		技术支持：010-58993007, 010-68409227&nbsp;&nbsp;&nbsp;&nbsp;Email：cmastd@163.com<br />
+		<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256239877'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256239877%26online%3D2' type='text/javascript'%3E%3C/script%3E"));</script> -->
+</p>	
+</div>	<!-- 右下角二维码-->
+	<!-- <div
+		style="position: fixed;right: 1%;bottom: 2.8%;z-index: 100;box-shadow: 0 0 8px #ccc;padding-top: 10px;">
+		<img src="/r/cms/www/red/img/weixin.png" />
+	</div> -->
+	<!--右下角二维码 end-->
+	<!-------------------- footer end------------------------->
+
+	<div>
+	<div style="text-align: center;padding-top:30px">当前在线[6]</div>
+		<p class="w980" align="center" style="">
+		
+			<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/33/000/0000/60406718/CA330000000604067180001.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</p>
+	</div>
+
+
+
+	<!-- 漂浮窗口
+	<div id="floatdivids" style="width: 200px;height: 200px;position: absolute;top: 0;left: 0;z-index: 1000;">
+			<div id="ClickRemoveFlo" style="width: 200px;text-align: right;cursor: pointer;position: absolute;">
+				<img src="/res/wsd/img/closead.jpg" />
+			</div>
+			<a href="/res/wsd/index.html"  target="_blank">
+				<img src="/res/wsd/img/drift.jpg" width="200" height="200" />
+			</a>
+		</div>
+
+		<script type="text/javascript">
+			var isinter;
+			var millisec = 25; //定时器间隔执行时间/毫秒
+			var xflo = 0; //漂浮层x坐标
+			var yflo = 0; //漂浮层y坐标
+			var yistop = false;
+			var xisleft = true;
+
+			function floatadfun() {
+				kwidth = $(window).width(); //可视区域宽度
+				kheight = $(window).height(); //可视区域高度
+
+				divwidth = $('#floatdivids').width(); //div漂浮层宽度
+				divheight = $('#floatdivids').height(); //div漂浮层高度
+
+				hstop = jQuery(window).scrollTop(); //滚动条距离顶部的高度
+				wsleft = jQuery(window).scrollLeft(); //滚动条距离最左边的距离
+
+				offwidth = (kwidth - divwidth); //div偏移的宽度
+				offheight = (kheight - divheight); //div偏移的高度
+
+				if(!yistop) {
+					yflo++;
+					if(yflo >= offheight) {
+						yistop = true;
+					}
+				} else {
+					yflo--;
+					if(yflo <= 0) {
+						yistop = false;
+					}
+				}
+
+				if(xisleft) {
+					xflo++;
+					if(xflo >= offwidth) {
+						xisleft = false;
+					}
+				} else {
+					xflo--;
+					if(xflo <= 0) {
+						xisleft = true;
+					}
+				}
+
+				$('#floatdivids').css({
+					'top': yflo + hstop,
+					'left': xflo + wsleft
+				}); /* 如果使用固定定位，请把加上滚动条的距离去掉即可 */
+			}
+
+			$(function() {
+				isinter = setInterval("floatadfun()", millisec);
+				$('#floatdivids').mouseover(function() {
+					clearInterval(isinter);
+				}).mouseout(function() {
+					isinter = setInterval("floatadfun()", millisec);
+				});
+				$('#ClickRemoveFlo').click(function() {
+					$(this).parents("#floatdivids").slideUp(0, function() {
+						clearInterval(isinter);
+						$(this).remove();
+					});
+				});
+			});
+		</script>
+ 漂浮窗口 end-->
+</body>
+</html>
