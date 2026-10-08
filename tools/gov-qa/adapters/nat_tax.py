@@ -20,8 +20,17 @@
 """
 from __future__ import annotations
 
+import os
 import re
 import time
+
+
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（用于把超长源分块采）。"""
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
 
 SITE = {
     "key": "nat-tax",
@@ -73,10 +82,19 @@ def _parse_detail(html: str) -> dict:
     }
 
 
-def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """翻页取列表，逐条取明细拿答复原文。`limit` 为总条数上限。"""
+def harvest(fetch, *, limit: int | None = None,
+            page_from: int | None = None) -> list[dict]:
+    """翻页取列表，逐条取明细拿答复原文。`limit` 为总条数上限。
+
+    `page_from` = 起始页号（默认读环境变量 `GOVQA_PAGE_FROM`，再默认 1）。
+    ⚠ 存在的意义：`harvest.py` **只在跑完时落盘**，而本源 maxCount≈38404、pageSize 被服务端
+    锁死为 8 ⇒ 全量约 16 小时，中断即零产出。分块跑法：
+        GOVQA_PAGE_FROM=1    ... --limit 2000
+        GOVQA_PAGE_FROM=251  ... --limit 2000     # 每页 8 条 ⇒ 2000 条 ≈ 250 页
+    每块跑完即落盘，重跑按 (source, id) 天然续采。
+    """
     out: list[dict] = []
-    page = 1
+    page = page_from if page_from is not None else _env_page_from()
     max_count = None
     while True:
         if limit and len(out) >= limit:

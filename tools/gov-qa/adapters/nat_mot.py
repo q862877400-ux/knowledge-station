@@ -23,8 +23,17 @@
 """
 from __future__ import annotations
 
+import os
 import re
 import time
+
+
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（用于把超长源分块采）。"""
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
 
 SITE = {
     "key": "nat-mot",
@@ -107,13 +116,19 @@ def _parse_detail(html: str) -> dict:
             "answered_at": answered_at, "dept": dept}
 
 
-def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE) -> list[dict]:
+def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
+            page_from: int | None = None) -> list[dict]:
     """翻页取列表，逐条取明细拿答复原文，返回统一记录。
 
     `fetch` 见 harvest.py 的 `_Fetcher`（可调用 = GET）。`limit` 为总条数上限。
+
+    `page_from` = 起始页号（默认读环境变量 `GOVQA_PAGE_FROM`，再默认 1）。
+    ⚠ 本源 **IP 级反爬很敏感**（约 30 个请求即 403）⇒ 分块要小：
+        GOVQA_PAGE_FROM=1  ... --limit 500    # 每页 20 条 ⇒ 500 条 = 25 页
+        GOVQA_PAGE_FROM=26 ... --limit 500    # 批间歇 ≥30 分钟
     """
     out: list[dict] = []
-    page = 1
+    page = page_from if page_from is not None else _env_page_from()
     total = None
     f403 = 0
     while True:

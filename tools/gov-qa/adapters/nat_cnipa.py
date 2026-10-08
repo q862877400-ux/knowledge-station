@@ -27,8 +27,26 @@
 """
 from __future__ import annotations
 
+import os
 import re
 import time
+
+
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（用于把超长源分块采）。"""
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
+
+
+def _env_sysids():
+    """只采指定 sysid：环境变量 `GOVQA_CNIPA_SYSIDS`（逗号分隔），空则返回 None（=全部）。"""
+    raw = (os.environ.get("GOVQA_CNIPA_SYSIDS") or "").strip()
+    if not raw:
+        return None
+    want = {x.strip() for x in raw.split(",") if x.strip()}
+    return [(sid, name) for sid, name in SYSIDS if str(sid) in want]
 
 SITE = {
     "key": "nat-cnipa",
@@ -115,13 +133,22 @@ def _list_page(fetch, sysid: str, page: int, per_page: int) -> tuple[list[tuple[
 
 
 def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
-            sysids=None) -> list[dict]:
-    """遍历各 sysid 的「已答问题」，逐条取明细拿答复原文。`limit` 为总条数上限。"""
+            sysids=None, page_from: int | None = None) -> list[dict]:
+    """遍历各 sysid 的「已答问题」，逐条取明细拿答复原文。`limit` 为总条数上限。
+
+    **分块采集用法**（本源 ≈251,020 条、全量约 100h，必须分块）：
+        GOVQA_CNIPA_SYSIDS=11 GOVQA_PAGE_FROM=1   ... --limit 5000
+        GOVQA_CNIPA_SYSIDS=11 GOVQA_PAGE_FROM=251 ... --limit 5000
+    ⚠ 多 sysid 时 `page_from` **只作用于第一个** sysid，其余从第 1 页起
+      ⇒ 分块请务必用 `GOVQA_CNIPA_SYSIDS` 指定**单个** sysid。
+    """
     out: list[dict] = []
-    for sid, name in (sysids or SYSIDS):
+    start_page = page_from if page_from is not None else _env_page_from()
+    use = sysids or _env_sysids() or SYSIDS
+    for i, (sid, name) in enumerate(use):
         if limit and len(out) >= limit:
             break
-        page = 1
+        page = start_page if i == 0 else 1
         total = None
         while True:
             if limit and len(out) >= limit:
