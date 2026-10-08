@@ -1,0 +1,528 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"/>
+    <meta http-equiv="Cache" content="no-cache"/>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>中华人民共和国民政部</title>
+	<link href="https://www.mca.gov.cn/template/68/3906.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="SiteName" content="中华人民共和国民政部门户网站">
+    <meta name="SiteDomain" content="www.mca.gov.cn">
+    <meta name="SiteIDcode" content="bm12000003">
+    <meta name="siteurl" content="https://www.mca.gov.cn">
+    <meta name="keywords" content="中华人民共和国民政部门户网站,民政部门户网站,民政部,交流互动、留言、咨询、举报、征求意见">
+    <meta name="description" content="提供留言、在线访谈、网上信访、举报、征求意见等平台畅通政民互动渠道，为了解民意吸取民智、为民解忧、接受人民监督">
+    <link rel="stylesheet" href="/consult/consultWeb/style/idangerous.swiper.css">
+    <link rel="stylesheet" href="/consult/consultWeb/style/style2.css">
+    <link rel="stylesheet" href="/consult/consultWeb/style/mobileStyle2.css">
+    
+
+
+
+
+  
+
+
+
+
+
+<script language="javascript" src="/consult/js/jquery-1.8.3.min.js" ></script>
+<script language="javascript" src="/consult/javascript/json2.js" ></script>
+<script language="javascript" src="/consult/javascript/jquery-ajax.js" ></script>
+<script language="javascript" src="/consult/javascript/jquery-form.js" ></script>
+
+  <script type="text/javascript" src="/consult/javascript/util.js?random=1791478280935" charset="UTF-8"></script> 
+
+<script language="javascript" src="/consult/javascript/PinyinUtil.js" ></script>
+
+  <script type="text/javascript" src="/consult/javascript/layerTool.js?random=1791478280935" charset="UTF-8"></script> 
+
+
+<script src="/consult/js/layer/layer.js" type="text/javascript"></script>
+<script language="javascript" src="/consult/javascript/pageInfo.js" ></script>
+<script language="javascript" src="/consult/javascript/asopDomain.js" ></script>
+<script language="javascript" src="/consult/javascript/ClickTool.js" ></script>
+<script language="javascript" src="/consult/javascript/DnUtil.js" ></script>
+<script>
+var appName="/consult";
+var dmtName="consultPage";
+
+var fatherPath="https://www.mca.gov.cn/consult/";
+var curi="/consult/";
+var oUp=fInitUp_O();
+
+function fGetUp_O(){
+	if(!oUp){
+
+		oUp=fInitUp_O();
+	}
+	return oUp;
+}
+
+function fInitUp_O(){
+	return JSON2.parse('null');
+}
+
+/**
+ * 当前用户是否为某一角色
+ */
+function fIsRole_B(roleName){
+	var roles=fGetUp_O().userInfo.role;
+	if(!roles){
+		return false;
+	}
+	
+	var len=roles.length;
+	for(var i=0;i<len;i++){
+		var role=roles[i];
+		if(role==roleName){
+			return true;
+		}
+	}
+	return false;
+}
+
+
+function Guid(options) {
+	  this.options = options || {};
+	  this.chars = this.options.chars || Guid.constants.alphanumerics;
+	  this.epoch = this.options.epoch || Guid.constants.epoch1970;
+	  this.counterSequenceLength = this.options.counterSequenceLength || 1;
+	  this.randomSequenceLength = this.options.randomSequenceLength || 2;
+	}
+
+	Guid.prototype.generate = function() {
+	  var now = (new Date()).getTime() - this.epoch;
+	  var guid = this.baseN(now);
+
+	  this.counterSeq = (now==this.lastTimestampUsed ? this.counterSeq+1 : 1);
+	  guid += this.counterSeq;
+
+	  for (var i=0; i<this.randomSequenceLength; i++) {
+	    guid += this.chars.charAt(Math.floor(Math.random() * this.chars.length));
+	  }
+
+	  this.lastTimestampUsed = now;
+
+	  return guid;
+	}
+
+	Guid.prototype.baseN = function(val) {
+	  if (val==0) return "";
+	  var rightMost = val % this.chars.length;
+	  var rightMostChar = this.chars.charAt(rightMost);
+	  var remaining = Math.floor(val / this.chars.length);
+	  return this.baseN(remaining) + rightMostChar;
+	}
+
+	Guid.constants = {};
+	Guid.constants.numbers = "0123456789";
+	Guid.constants.alphas = "abcdefghijklmnopqrstuvwxyz";
+	Guid.constants.lowerAlphanumerics = "0123456789abcdefghijklmnopqrstuvwxyz";
+	Guid.constants.alphanumerics = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	// http://tools.ietf.org/html/rfc1924
+	Guid.constants.base85 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	Guid.constants.epoch1970 = (new Date(0));
+	Guid.constants.epoch = function(year) { return (new Date("Jan 1 " + year)).getTime(); }
+
+
+
+
+
+
+</script>
+<style>
+.jobcn_loading {
+	width: 100%;
+	height:31px;
+	background: url( '/consult/images/loading_img.gif' );
+	background-repeat: no-repeat;
+	background-position: center center;
+	display:none;
+	position:absolute;
+	top:40%;
+	left:0px;
+}
+.jobcn_loading_mask{
+	height:100%;
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color: #fff;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+	display:none;
+}
+
+tr.moving {
+	background-color: #C8CFE9;
+	color: yellow;
+}
+</style>
+     <script type="text/javascript" src="/consult/index.js?random=1791478280935" charset="UTF-8"></script>
+    
+</head>
+
+<body>
+	<div class="wain">
+		
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1c418a89e048e642959d4eeffb71c6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<style>
+.nav ul li{text-align: center;}
+.searchbox_sc .sctxt{float:left;width:276px;height:44px;padding-left:12px;border:1px solid #e6e6e6; background:#ffffff;color:#333;}
+.searchbox_sc .scbtn{display:inline-block;width:60px;height:46px;text-align:center;color:#fff;background:#005495 ;cursor:pointer;}
+.searchbox_sc .scbtn img{width:26px;height:22px;margin-top:12px;}
+@media only screen and (max-width: 1024px){
+.searchbox{width:auto;}
+.searchbox_sc .sctxt{float:left;width:160px;height:34px;padding-left:12px;border:1px solid #e6e6e6; background:#ffffff;color:#333;}
+.searchbox_sc .scbtn{display:inline-block;width:44px;height:36px;text-align:center;color:#fff;background:#005495 ;cursor:pointer;}
+.searchbox_sc .scbtn img{width:20px;height:auto;margin-top:10px;}
+}
+</style>
+<div id="top">
+<div class="top1box">
+    <div class="top1box_c"> <span><script language="JavaScript"> 
+					<!--
+					  var newDate = new Date();
+					  var year = newDate.getFullYear();
+					  var month = newDate.getMonth()+1;
+					  var day = newDate.getDate();
+					  var date = newDate.getDay();
+					  var dd="";
+					if(date==0)
+						 dd ="星期日";
+					  else if(date==1)
+						  dd="星期一";
+					  else if(date==2)
+						  dd="星期二";
+					  else if(date==3)
+						  dd = "星期三";
+					  else if(date==4)
+						  dd ="星期四";
+					  else if(date==5)
+						  dd="星期五";
+					  else
+						  dd = "星期六"; 
+					 
+					  cudate = year+"年"+month+"月"+day+"日  "+dd+"  ";
+					   document.write(cudate);
+					//-->
+			    </script>   
+      </span>
+      <p class="toplink"> <a href="https://www.mca.gov.cn/n1115/" target="_blank" class="icon5"></a> </p>
+    </div>
+  </div>
+     <script>
+        window.onload=function()
+        {
+            var str = Math.round(Math.random()*10000); // 定义变量
+            var oText = document.getElementById('token');
+            //oText.value=str; // 给文本框赋值并显示
+        }
+    </script>
+  <div class="top2box">
+    <div class="top2box_c">
+      <p class="logo"><a href="https://www.mca.gov.cn/"><img src="https://www.mca.gov.cn/template/50/2564.png" /></a></p>
+      <p class="clear_phone"></p>
+      <div class="searchbox searchbox_sc">
+<!-- <form action="https://s.mca.gov.cn/so/s" method="get" name="form1" target="_blank" id="form1">
+    <input name="qt" type="text" id="qt" size="50"  class="txt1" />
+	<input type="submit" name="button" id="button" value=" " class="btn1" />
+	<input name="token" type="hidden" id="token"/>
+	<input name="siteCode" type="hidden" id="siteCode" value="bm12000003"/>
+</form> -->
+<form id="formSearch" name="form1" method="post" action="https://so.mca.gov.cn/searchweb/" target="_blank">
+<input type="text" name="fullText" class="sctxt">
+<span onclick="formSearch.submit();" class="scbtn"><img src="https://www.mca.gov.cn/template/26/1145.png" alt="提交" ></span>
+</form>
+      </div>
+      <div class="n_icon"></div>
+    </div>
+    <p class="clear"></p>
+  </div>
+<div class="nav">
+    <ul>
+      <li id="nav0" class="home"><a href="https://www.mca.gov.cn">首页</a></li>
+      <div class="nav_phone">
+        <li><a id="nav1" href="https://www.mca.gov.cn/n158/">组织机构</a>
+          <div class="submenu">
+            <p class="submenu_icon1">
+            <a class="marl95" href="https://www.mca.gov.cn/n158/n159/">部领导</a>
+            <a href="https://www.mca.gov.cn/n158/n160/index.html">主要职责</a>
+            <a href="https://www.mca.gov.cn/n158/n161/index.html">机构设置</a>
+            </p>
+          </div>
+        </li>
+        <li><a id="nav2" href="https://www.mca.gov.cn/n152/index.html">新闻中心</a>
+          <div class="submenu">
+            <p class="submenu_icon1 submenu_icon2">
+            <a href="https://www.mca.gov.cn/n152/n163/index.html" class="marl95">时政要闻</a>
+            <a href="https://www.mca.gov.cn/n152/n164/index.html">民政要闻</a>
+            <a href="https://www.mca.gov.cn/n152/n165/index.html">通知公告</a>
+            <a href="https://www.mca.gov.cn/n152/n167/index.html">业务动态</a>
+            <a href="https://www.mca.gov.cn/n152/n168/index.html">地方动态</a>
+            <a href="https://www.mca.gov.cn/n152/n166/index.html">媒体报道</a>
+            <a href="https://www.mca.gov.cn/n152/n169/n364/index.html">专题报道</a>
+            <a href="https://www.mca.gov.cn/n152/n170/index.html">新闻发布会</a>
+            </p>
+          </div>
+        </li>
+        <li><a id="nav3" href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=1" target="_blank">信息公开</a>
+          <div class="submenu">
+            <div class="submenu_icon1 submenu_icon3">
+              <a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=1" class="marl95" target="_blank">政策</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=2" target="_blank">政府信息公开指南</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=3" target="_blank">政府信息公开制度</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=4" target="_blank">法定主动公开内容</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=5" target="_blank">政府信息公开年报</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=6" target="_blank">民政部文告</a>
+<a href="https://www.mca.gov.cn/gdnps/pc/index.jsp?mtype=7" target="_blank">转隶部门相关文件</a>
+            </div>
+          </div>
+        </li>
+        <li><a id="nav4" href="https://www.mca.gov.cn/n154/index.html">交流互动</a>
+          <div class="submenu">
+            <p class="submenu_icon1 submenu_icon4">
+<a class="marl404" href="https://www.mca.gov.cn/n154/n1053/index.html" target="_blank">留言咨询</a>
+<a href="queryIndex.jsp" target="_blank">留言查询</a>
+<a href="https://www.mca.gov.cn/n154/n179/index.html" target="_blank">留言统计</a>
+<a href="https://www.mca.gov.cn/aofront/main.jsp" target="_blank">征求意见</a>
+<a href="https://zwfw.mca.gov.cn/letterVisits.html#/letterIndex" target="_blank">网上信访</a>
+<a href="https://tsjb.chinanpo.mca.gov.cn/chinanpo/" target="_blank">社会组织投诉举报</a>
+            </p>
+          </div>
+        </li>
+        <li><a id="nav5" href="https://www.mca.gov.cn/n155/index.html">政务服务</a>
+          <!-- <div class="submenu">
+            <p class="submenu_icon1 submenu_icon5">
+            <a style="margin-left:580px;padding-right:12px;background:url(consultWeb/images/img_new2.png) top right no-repeat;" href="https://zwfw.mca.gov.cn/" target="_blank">民政政务服务平台</a>
+            <a href="https://www.mca.gov.cn/n155/n181/n498/n503/n508/index.html">行政审批</a>
+            <a href="https://www.mca.gov.cn/n155/n182/n633/index.html">便民指南</a>
+            <a href="https://www.mca.gov.cn/n155/n183/n632/index.html">查询服务</a>
+            </p>
+          </div> -->
+        </li>
+        <li><a id="nav6" href="https://www.mca.gov.cn/n156/index.html">民政数据</a>
+          <div class="submenu">
+            <p class="submenu_icon1 submenu_icon6">
+            <a style="margin-left:800px;" href="https://www.mca.gov.cn/n156/n2679/index.html">统计数据</a>
+            <a href="https://www.mca.gov.cn/n156/n188/index.html">法规制度及统计标准</a>
+            </p>
+          </div>
+        </li>
+        <li><a id="nav7" href="https://www.mca.gov.cn/n157/index.html">民政文化</a>
+          <div class="submenu">
+            <p class="submenu_icon1 submenu_icon7">
+            <a class="marl604" style="margin-left:620px;" href="https://www.mca.gov.cn/n157/n191/index.html">走近民政部</a>
+            <a href="https://www.mca.gov.cn/zt/n231/index.html" target="_blank">最美基层民政人</a>
+            <a href="https://www.mca.gov.cn/n157/n192/index.html">业务与文化</a>
+            <a href="https://www.mca.gov.cn/n157/n193/index.html">视频专区</a>
+            </p>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <script>
+   var thislocation = window.location+"";
+
+   if(thislocation=="https://www.mca.gov.cn/")
+
+   {document.getElementById("nav0").className='current';}
+
+   else  if(thislocation.indexOf("/article/jg/") != -1)
+
+   {document.getElementById("nav1").className='current';}
+   
+   else  if(thislocation.indexOf("/article/xw/") != -1)
+
+   {document.getElementById("nav2").className='current';}
+   
+   else  if(thislocation.indexOf("/article/gk/") != -1)
+
+   {document.getElementById("nav3").className='current';}
+   
+   else  if(thislocation.indexOf("/article/hd/") != -1)
+
+   {document.getElementById("nav4").className='current';}
+   
+   else  if(thislocation.indexOf("/article/fw/") != -1)
+
+   {document.getElementById("nav5").className='current';}
+   
+   else  if(thislocation.indexOf("/article/sj/") != -1)
+
+   {document.getElementById("nav6").className='current';}
+   
+   else  if(thislocation.indexOf("/article/wh/") != -1)
+
+   {document.getElementById("nav7").className='current';}
+
+   
+</script>  
+</div>
+
+		<div class="list_content">
+	        <p class="loc">
+	            当前位置：<a href="/">首页</a><span>&gt;</span> <a
+	                href="https://www.mca.gov.cn/n154/index.html">交流互动</a><span>&gt;</span> <a
+	                href="https://www.mca.gov.cn/consult/">留言咨询</a>
+	        </p>
+	        <div class="list_left" style="height: 670px;">
+	            <p class="left_t">交流互动</p>
+	            <ul class="leftnav">
+	                <li><a id="leftnav1" href="https://www.mca.gov.cn/consult/" class="cur">留言咨询</a></li>
+	                <li><a id="leftnav6" href="/consult/queryIndex.jsp">留言查询</a></li>
+					<li><a id="leftnav7" href="https://www.mca.gov.cn/n154/n179/">留言统计</a></li>
+	                <li><a id="leftnav2" href="https://www.mca.gov.cn/aofront/main.jsp">征求意见</a></li>
+	                <li><a id="leftnav4" href="https://zwfw.mca.gov.cn/letterVisits.html#/letterIndex" target="_blank">网上信访</a></li>
+	                <li><a id="leftnav5" href="https://tsjb.chinanpo.mca.gov.cn/chinanpo/" target="_blank">社会组织投诉举报</a></li>
+	            </ul>
+	        </div>
+			
+        	<div class="list_right">
+        		  
+  
+            <div class="lmname">
+                	留言咨询
+                <div class="otherBtn">
+                    <a href="/consult/queryIndex.jsp">留言查询</a>
+                    <a href="https://www.mca.gov.cn/n154/n179/">留言统计</a>
+                </div>
+            </div>
+            <div class="lyzxFlow">
+                <div class="processContent">
+                    <p class="process"> <!-- https://www.mca.gov.cn/n154/n1053/index.html -->
+                        您好，欢迎您进行留言咨询，您提的问题本栏目可能已经答复，为节约您的宝贵时间，建议先在本栏目的“智能问答”或“关键词检索”中进行查询。如未找到满意回复，请点击“<a href="/consult/question.jsp" target="_blank" class="zxwyly">我要留言</a>”。本栏目仅对民政部<a href="https://www.mca.gov.cn/n158/n160/index.html" target="_blank" class="mcazzfw">职责范围</a>内的咨询事项进行答复和解释，
+                        <a href="https://zwfw.mca.gov.cn/letterVisits.html#/letterIndex" target="_blank" class="mcajb">网上信访</a>、<a href="https://tsjb.chinanpo.mca.gov.cn/chinanpo/" target="_blank" class="mcajb">社会组织投诉举报</a>等其他事项请通过网站相应栏目办理。
+                    </p>
+                </div>
+            </div>
+            <div class="lyzxSearch">
+	            <!-- <FORM id="searchForm" name="searchForm"> -->
+	            <input type="hidden" name="pageSize" value="14"/>
+				<input type="hidden" name="curPage" value="1" id="curPage"/>
+				<input type="hidden" name="gipskey" value="" id="gipskey"/>
+				<input type="hidden" name="infoid" value="" />
+                <div class="searchBox">
+                    <div class="sort">
+                        <select name="orderFiled" id="orderFiled">
+                            <option value="" selected>系统排序</option>
+                            <option value="time" >时间排序</option>
+                        </select>
+                    </div>
+                    <input type="text" name="searchText" id="searchText" class="searchText">
+                    <input type="button" class="searchBtn" value="搜索" onclick="goSearch()">
+                    <div class="mcaZnwd"><a href="http://mca.gov.cn.sobot.com/chat/pc/v2/index.html?sysnum=c83ea6ebef064304a2e8d986bc756d49" target="_blank"><img src="/consult/consultWeb/images/mcaznwd.jpg" alt=""></a></div>
+                </div>
+				  <div class="keywordBtn">
+                    <p class="zk">展开</p>
+                </div>
+                <!-- </FORM> -->
+                <div class="searchGjc">
+                    <ul>
+                        <li><a href="javascript:goSearch('1','社会组织服务')">社会组织服务</a></li>
+                        <li><a href="javascript:goSearch('2','社会救助')">社会救助</a></li>
+                        <li><a href="javascript:goSearch('5','区划地名')">区划地名</a></li>
+                        <li><a href="javascript:goSearch('6','婚姻登记')">婚姻登记</a></li>
+                        <li><a href="javascript:goSearch('7','殡葬管理')">殡葬管理</a></li>
+                        <li><a href="javascript:goSearch('8','残疾人福利')">残疾人福利</a></li>
+                        <li><a href="javascript:goSearch('9','养老服务')">养老服务</a></li>
+                        <li><a href="javascript:goSearch('10','儿童服务')">儿童服务</a></li>
+                        <li><a href="javascript:goSearch('11','福利彩票')">福利彩票</a></li>
+                        <li><a href="javascript:goSearch('12','慈善募捐')">慈善募捐</a></li>
+                        <li><a href="javascript:goSearch('13','其他')">其他</a></li>
+                    </ul>
+                </div>
+            </div>
+<script>
+    $('.zk').click(function() {
+
+
+        if($('.searchGjc').css('display') == 'block'){
+            $('.keywordBtn p').css("background","url(consultWeb/images/zk.png) 24px center no-repeat #efeff0");
+            $('.searchGjc').hide(500);
+            $('.keywordBtn p').text('展开')
+        }else{
+            $('.keywordBtn p').css("background","url(consultWeb/images/sq.png) 24px center no-repeat #efeff0");
+            $('.searchGjc').show(500);
+            $('.keywordBtn p').text('收起');
+        }
+    })
+</script>
+
+        		<div class="alist">
+	                <div class="cleaNome">
+	                    <span id="classifyName">已解决问题</span>
+	                    <div class="mobileZnwd"><a href="https://mca.gov.cn.sobot.com/chat/pc/v2/index.html?sysnum=c83ea6ebef064304a2e8d986bc756d49" target="_blank"><img src="/consult/consultWeb/images/mcaznwd.jpg" alt=""></a></div>
+	                </div>
+	                <ul id="qlist" class="alist_ul">
+	
+	            	</ul>
+	                <div id="turnPageDiv" class="turnPage">
+	
+	                </div>
+	             </div>
+        	</div>
+        </div>
+	
+	
+
+        <div class="mobBottm">版权所有：中华人民共和国民政部</div>
+        <div id="bottom">
+            <div class="bottom" style="text-align:center;">
+                <ul class="bottable">
+                    <li class="img_wzbs">
+                        <script type="text/javascript">
+                            document.write(unescape(
+                                "%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/60410035/CA330000000604100350001.js' type='text/javascript'%3E%3C/script%3E"
+                            ));
+                        </script>
+                        <!--span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=0627B8E6FCA778E5E053012819AC5523" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="images/red.png" data-bd-imgshare-binded="1"></a></span-->
+                    </li>
+                    <li class="bottom_nav1">
+                        <p><span>中文域名：民政部.政务</span>
+                            <a href="https://www.mca.gov.cn/article/lxwm/" class="botnava" target="_blank">联系我们</a>
+                            <a href="https://www.mca.gov.cn/n1119/index.html" class="botnava" target="_blank">网站地图</a>
+                        </p>
+                        <p>版权所有：中华人民共和国民政部 　<span>网站标识码：bm12000003</span></p>
+                        <p class="icpba"><a href="httpss://beian.miit.gov.cn/" target="_blank">ICP备案编号：京ICP备13012430号</a>
+                            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040102700079"
+                                target="_blank"><img src="consultWeb/images/iocn_gabg.png"
+                                    style="vertical-align:middle;" />京公网安备11040102700079号</a></p>
+                    </li>
+                    <li class="bottom_wxwb">
+                        <a href="https://www.mca.gov.cn/n1115/index.html" target="_blank">
+
+                        <img src="https://www.mca.gov.cn/template/50/2524.png">
+                            <p>民政系统<br />政务新媒体矩阵</p>
+                        </a>
+                    </li>
+                    <li class="bottom_wxwb" style="margin-top:10px;">
+                        <script id="_jiucuo_" sitecode='bm12000003' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script>
+                    </li>
+                </ul>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
