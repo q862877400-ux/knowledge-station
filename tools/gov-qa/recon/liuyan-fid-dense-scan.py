@@ -49,7 +49,13 @@ RETRY = 2
 
 
 def probe(c, fid: str) -> dict:
-    """探一个 fid；JSONDecodeError 重试 RETRY 次（实测偶发）。"""
+    """探一个 fid。
+
+    ⚠ **403 必须先于 JSON 解析判定**（2026-10-08 踩过）：被限流时服务端回的是
+    **HTML 错误页**，`r.json()` 抛 `JSONDecodeError` ⇒ 若把「解析失败」当偶发去重试，
+    就会**在已被限流的情况下继续猛刷**（实测三路并行把窗口打爆，连原本可用的 fid 都 403）。
+    ⇒ 这里**先看 status**：403 立刻返回、不重试（由调用方停）；只有 200 才解析 JSON。
+    """
     path = "/v1/threads/list/df"
     param = {"fid": fid, "showUnAnswer": 0, "lastItem": "",
              "position": 1, "rows": 2, "orderType": 2}
@@ -58,6 +64,10 @@ def probe(c, fid: str) -> dict:
         try:
             r = c.post(BASE + path, content=_envelope(path, param),
                        headers=_headers(f"{BASE}/threads/list?fid={fid}"))
+            if r.status_code != 200:
+                # 403/412 = 限流，**不重试**，交给调用方停
+                return {"fid": fid, "status": r.status_code,
+                        "error": "rate_limited_or_blocked"}
             d = (r.json().get("resultData") or {})
             data = d.get("data") or []
             rec = {"fid": fid, "status": r.status_code, "n": len(data)}
@@ -99,9 +109,9 @@ def main() -> int:
             rec = probe(c, fid)
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
             f.flush()
-            if rec.get("status") == 403:
-                print(f"⚠ 遇到 403（第 {i} 个），**立即停止** —— 留言板有窗口限流，"
-                      f"别硬刷；已扫的都在 {out.name} 里，稍后续跑即可。", flush=True)
+            if rec.get("status") not in (200, None):
+                print(f"⚠ 遇到 HTTP {rec['status']}（第 {i} 个），**立即停止** —— 留言板有窗口限流，"
+                      f"别硬刷；已扫的都在 {out.name} 里，**冷却后再续跑**即可。", flush=True)
                 break
             if rec.get("n"):
                 hits += 1
