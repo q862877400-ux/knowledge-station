@@ -1,0 +1,15 @@
+===== getInteractCaseInfoList（成都 510100000000，rqstType 10/15/20）=====
+  rqstType=10 -> 200 infoList=5 caseRecord={'jrcount': 3, 'count': 153623, 'jrreplycount': 2, 'replycount': 135518}
+     {"areaCode": "5101", "handleurl": "wantconsultdetail?cguid=9ba22b4e-b8c6-4d02-9a48-63535f080998&areaCode=510000000000", "webrqsttime": "2026-10-08", "rqsttitle": "如何验证中级职称的真假"}
+  rqstType=15 -> 200 infoList=5 caseRecord={'jrcount': 0, 'count': 6491, 'jrreplycount': 0, 'replycount': 6124}
+     {"areaCode": "5101", "handleurl": "wantproposaldetail?cguid=281dbee1-4b43-4513-86f6-7ea8cc18ab96&areaCode=510000000000", "webrqsttime": "2026-10-08", "rqsttitle": "请大邑县农业农村局等相关部门详细实质性分析回复"}
+  rqstType=20 -> 200 infoList=5 caseRecord={'jrcount': 2, 'count': 80695, 'jrreplycount': 0, 'replycount': 77707}
+     {"areaCode": "5101", "handleurl": "wantcomplaintdetail?cguid=f4f39f3a-720f-472a-9a54-340de00e70a7&areaCode=510000000000", "webrqsttime": "2026-10-08", "rqsttitle": "新都区富临锦悦府开发商（富临房地产）无视住建局的监督，敷衍拖延房屋质量问题整改"}
+
+===== getInteractCaseInfoListByCondition（分页全量）=====
+  {"rqstType": "10", "areaCode": "510100000000", "htmlSource": "zwfw", "pageNo": 1 -> 200 custom keys=[]
+     {}
+
+===== 详情页 wantconsultdetail?cguid=… =====
+  wantconsultdetail?cguid=9ba22b4e-b8c6-4d02-9a48-63535f080998&areaCode=510000000000 -> 200 len=130
+  body:  --> 
