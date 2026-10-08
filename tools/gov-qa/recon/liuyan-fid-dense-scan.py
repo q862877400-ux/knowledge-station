@@ -25,11 +25,18 @@
 用法：
   python recon/liuyan-fid-dense-scan.py                      # 默认 601..4100 → liuyan-fid-dense-scan.jsonl
   python recon/liuyan-fid-dense-scan.py 601 1000             # 指定区间
-  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl   # 指定输出（**多路并行时每路一个文件**）
-  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl 1.5   # 指定礼貌停顿秒数
+  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl   # 指定输出
+  python recon/liuyan-fid-dense-scan.py 601 1000 out.jsonl 2.5   # 指定礼貌停顿秒数
+  python recon/liuyan-fid-dense-scan.py 601 4200 out.jsonl 2.5 120  # ★ 长跑推荐：冷却 120s 自动续
 
-⚠ **多路并行**：不同路**必须写不同输出文件**（同一文件并发 append 会串行交错），
-跑完再合并。**同一条链路上别开太多路**（留言板有窗口限流，403 就停）。
+## ★★ 限流规律（2026-10-08 实测，**这条决定了怎么跑**）
+**每窗口约 15 次请求后必 403，窗口冷却约 2 分钟。**
+⇒ 一遇 403 就退出的话，一轮只能扫 15 个 fid；**长跑必须传第 5 个参数（冷却秒数）**，
+让脚本自己等窗口、重试同一个 fid（失败的那条**不落盘**，避免变成"假完成"的洞）。
+
+## ★★ 不要多路并行打同一个域名
+实测三路并行合计只有 **1.5 倍**收益（29 vs 19 fid/分钟），却把窗口打爆触发**全局 403**
+（连原本可用的 fid 都 403）。**并行要跨目标**（不同域名），不要压在同一条链路上。
 """
 from __future__ import annotations
 
@@ -46,6 +53,12 @@ from adapters._liuyan_common import BASE, _envelope, _headers  # noqa: E402
 
 PAUSE = 1.0
 RETRY = 2
+#: 0 = 遇限流立即停（旧行为）；>0 = 冷却这么多秒后**重试同一个 fid**。
+#: ★ 实测限流规律（2026-10-08）：**每窗口约 15 次请求后必 403，窗口冷却约 2 分钟**
+#:   ⇒ 长跑应传 `cooldown=120`，让它自己等窗口，而不是跑 15 个就退出。
+COOLDOWN = 0.0
+#: 连续冷却上限（超过即停，避免无限等）
+MAX_COOLDOWNS = 8
 
 
 def probe(c, fid: str) -> dict:
@@ -89,6 +102,7 @@ def main() -> int:
     hi = int(sys.argv[2]) if len(sys.argv) > 2 else 4100
     out = HERE / (sys.argv[3] if len(sys.argv) > 3 else "liuyan-fid-dense-scan.jsonl")
     pause = float(sys.argv[4]) if len(sys.argv) > 4 else PAUSE
+    cooldown = float(sys.argv[5]) if len(sys.argv) > 5 else COOLDOWN
 
     done: set[str] = set()
     if out.exists():
@@ -103,16 +117,30 @@ def main() -> int:
           f"停顿 {pause}s", flush=True)
 
     hits = 0
+    cooldowns = 0
     with httpx.Client(trust_env=False, timeout=20) as c, \
             out.open("a", encoding="utf-8") as f:
-        for i, fid in enumerate(todo, 1):
+        i = 0
+        idx = 0
+        while idx < len(todo):
+            fid = todo[idx]
+            i += 1
             rec = probe(c, fid)
+            if rec.get("status") not in (200, None):
+                # 限流：**这一条不落盘**（否则会变成"假完成"的洞，永远不会被重扫）
+                if cooldown > 0 and cooldowns < MAX_COOLDOWNS:
+                    cooldowns += 1
+                    print(f"⚠ HTTP {rec['status']}（第 {i} 个 fid={fid}）—— "
+                          f"冷却 {int(cooldown)}s 后重试（第 {cooldowns}/{MAX_COOLDOWNS} 次）",
+                          flush=True)
+                    time.sleep(cooldown)
+                    continue                       # 不推进 idx，重试同一个 fid
+                print(f"⚠ HTTP {rec['status']}，已冷却 {cooldowns} 次仍不通 ⇒ **停止**。"
+                      f"已扫的都在 {out.name} 里，稍后续跑即可（会自动跳过已完成的）。", flush=True)
+                break
+            cooldowns = 0                          # 成功即重置冷却计数
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
             f.flush()
-            if rec.get("status") not in (200, None):
-                print(f"⚠ 遇到 HTTP {rec['status']}（第 {i} 个），**立即停止** —— 留言板有窗口限流，"
-                      f"别硬刷；已扫的都在 {out.name} 里，**冷却后再续跑**即可。", flush=True)
-                break
             if rec.get("n"):
                 hits += 1
                 p = " / ".join(rec.get("p") or [])
@@ -120,8 +148,10 @@ def main() -> int:
                       f"{(rec.get('forum') or '')[:22]}", flush=True)
             if i % 100 == 0:
                 print(f"  ... {i}/{len(todo)}，命中 {hits}", flush=True)
+            idx += 1
             time.sleep(pause)
-    print(f"扫描结束：本次 {len(todo)} 个 fid，命中 {hits} 个版块 → {out.name}", flush=True)
+    print(f"扫描结束：本次处理 {i} 个 fid（成功落盘 {hits} 个命中），"
+          f"冷却 {cooldowns} 次 → {out.name}", flush=True)
     return 0
 
 
