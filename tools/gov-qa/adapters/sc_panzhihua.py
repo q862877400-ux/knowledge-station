@@ -5,8 +5,10 @@
    `12345政务服务便民热线 /hdcy/zwfwbmrx/index.shtml`。
  · ⚠ 该页「市长信箱」(`/hdcy/szxx/szxx/index.shtml`) 的 `mailbox/letterListJson` 恒返回
    `{"topics":[]}`（不公开信件）；**真正有数据的是 12345 便民热线页**用的接口。
- · ★ 列表接口（无需令牌）：`GET http://www.panzhihua.gov.cn/webapp/api-letter/search-letter`
-     params: `pageNum`（1 基）、`pageSize`
+   · ★ 列表接口（无需令牌）：`GET http://www.panzhihua.gov.cn/webapp/api-letter/search-letter`
+     params: `pageIndex`（1 基）、`pageSize`
+     ⚠ 分页参数名是 **`pageIndex`**，不是 `pageNum`（用 pageNum 时 `pageIndex` 恒回 1，
+       永远只拿第一页 ⇒ 曾只落 20/70 条）。2026-10-09 修。
    → JSON：`{"code":0,"totalCount":70,"pageCount":24,"pageIndex":1,"pageSize":3,
       "data":[{id, letterId, letterTitle, letterContent, letterCategory,
                letterReceivedTime, letterReplyTime, replyDepartment, processingResult}]}`
@@ -49,7 +51,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 100) -> list[di
         if limit and len(out) >= limit:
             break
         try:
-            r = fetch(LIST_URL, params={"pageNum": page, "pageSize": PAGE_SIZE},
+            r = fetch(LIST_URL, params={"pageIndex": page, "pageSize": PAGE_SIZE},
                       headers={"Referer": REFERER, "X-Requested-With": "XMLHttpRequest"})
         except Exception as e:                                              # noqa: BLE001
             print(f"    [{SITE['key']}] 列表第 {page} 页：{type(e).__name__} {e}（停）")
