@@ -19,6 +19,7 @@
 """
 from __future__ import annotations
 
+import html
 import json
 import re
 import time
@@ -30,7 +31,7 @@ SITE = {
     "level": "province",
     "entry": "https://www.jiangxi.gov.cn/jxsrmzf/hdjl/pc/list.html",
     "status": "ok",
-    "note": "数融站群：POST /queryList（channelCode+webSiteCode）；wxszj 259 + hygz 430",
+    "note": "数融站群：POST /queryList（channelCode+webSiteCode）；wxszj 259 + hygz 430（答复两种形态：问…答 与 答：切分）",
 }
 
 HOST = "https://www.jiangxi.gov.cn"
@@ -43,10 +44,20 @@ PAUSE = 1.5
 
 TAG_RE = re.compile(r"<[^>]+>")
 QA_SPLIT = re.compile(r"问\s*[：:]\s*(.*?)\s*答\s*[：:]\s*(.*)", re.S)
+#: hygz 的**第二种**形态（2026-10-09 实测，占被丢 301 条的绝大多数）：
+#: 正文**没有**「问：…答：…」配对，而是
+#:   ① 正文只有「答：…」，**问题在标题**（标题本身就是问句，如
+#:      「请问省级机关办公用房大中修项目如何申报？」）；
+#:   ② 正文是「来电人反映…（问题陈述）答：…」，问题在「答：」**之前**。
+#: 旧版只认 ① 的「问…答」配对 ⇒ 430 条只落 129 条。这里按**第一个**「答：」切分。
+#: ⚠ 用第一个而非最后一个：答复正文里常再次出现「答」字（如「答复」「解答」）。
+ANSWER_MARK = re.compile(r"答\s*[：:]")
 
 
 def _text(h: str | None) -> str:
-    return re.sub(r"\s+", " ", TAG_RE.sub(" ", h or "")).strip()
+    # ⚠ 顺序：**先去标签、再还原实体**。反过来的话，正文里字面写的
+    #   `&lt;就业补助资金管理办法&gt;` 会先变成真标签被删掉（2026-10-09 实测 115/410 条含实体）。
+    return re.sub(r"\s+", " ", html.unescape(TAG_RE.sub(" ", h or ""))).strip()
 
 
 def _one(source: dict, channel_label: str) -> dict | None:
@@ -66,12 +77,25 @@ def _one(source: dict, channel_label: str) -> dict | None:
     title = _text(source.get("title"))
     answer = _text(md.get("field_1596"))          # wxszj：答复在元数据
     question = content
-    # hygz：正文内联「问：…答：…」
+    split_kind = "元数据答复（wxszj）" if answer else ""
+    # hygz 形态一：正文内联「问：…答：…」
     m = QA_SPLIT.search(content)
     if m:
         question = m.group(1).strip() or title
         if not answer:
             answer = m.group(2).strip()
+            split_kind = "问答题对（问：…答：…）"
+    elif not answer:
+        # hygz 形态二：正文自带「答：」，问题在标题或「答：」之前
+        am = ANSWER_MARK.search(content)
+        if am:
+            before = content[:am.start()].strip()
+            after = content[am.end():].strip()
+            if len(after) >= 10:
+                answer = after
+                question = before if len(before) >= 4 else title
+                split_kind = ("正文切分（答：之前为问）" if len(before) >= 4
+                              else "标题为问+正文答复")
     if not answer:
         return None
     if not question:
@@ -93,12 +117,13 @@ def _one(source: dict, channel_label: str) -> dict | None:
         "answer": answer,
         "asked_at": md.get("field_1594") or source.get("pubDate"),
         "answered_at": md.get("field_1595"),
-        "dept": _text(md.get("field_1662")) or None,
+        "dept": _text(md.get("field_1662")) or _text(md.get("Source")) or None,
         "channel": channel_label,
         "extra": {
             "title": title,
             "channel_code": source.get("channelCode"),
             "website_code": source.get("websiteCode"),
+            "qa_split": split_kind,
             "answer_kind": "办理答复（建言/政策问答，常点名依据）",
         },
     }

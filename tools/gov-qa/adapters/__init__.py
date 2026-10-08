@@ -135,6 +135,7 @@ ADAPTERS: dict[str, str] = {
     "nmg-xinxiang": "adapters.nmg_xinxiang",   # 内蒙古自治区·政民互动·反馈回应（67 条）
     # —— 江西 / 云南（2026-10-08：江西挖到 SPA 里的真实接口；云南 WAS5 已弃用，改走信访站白名单）——
     "jx-zf": "adapters.jx_zf",                 # 江西省·queryList 接口（我向省长建言 259 + 政策问答库 430）
+    "jx-gzw-lyxd": "adapters.jx_gzw_lyxd",     # 江西省国资委·留言选登（35 个部门站里唯一真问答栏目）
     "yn-xf": "adapters.yn_xf",                 # 云南省·信访站案例选登（免鉴权白名单接口，66 条全量）
     # —— 上海 / 浙江（2026-10-08：门户互动页**外链**顺藤摸瓜；两省都带反爬，已破解）——
     "sh-12345": "adapters.sh_12345",           # 上海市·12345 诉求公开（AES-128-ECB 密文接口，7248 条）

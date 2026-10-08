@@ -1,0 +1,77 @@
+==============================================================================
+【1】hygz 原始条目结构（page=1, size=50）
+==============================================================================
+HTTP/err: {}  total=430
+本页 50 条
+----------------------------------------------------------------------
+id=1952906868065910784  channelCode=hygz websiteCode=jxsrmzf
+title=怎样申报无字号企业？
+metadata keys=[]
+content len=790  head='<p style="text-align: left; text-indent: 2em;" data-mce-style="text-align: left; text-indent: 2em;"><span style="color: rgb(56, 56, 56);" data-mce-sty'
+----------------------------------------------------------------------
+id=1952906952765685760  channelCode=hygz websiteCode=jxsrmzf
+title=全国工业生产许可证如何注销？需要提供那些资料？
+metadata keys=[]
+content len=1995  head='<div style="text-align: justify; color: rgb(0, 0, 0); text-indent: 2em;" data-mce-style="text-align: justify; color: #000000; text-indent: 2em;">问：您好！'
+----------------------------------------------------------------------
+id=1952907825193500672  channelCode=hygz websiteCode=jxsrmzf
+title=如何申请设立报废机动车回收拆解企业？
+metadata keys=[]
+content len=529  head='<p style="text-align: left; text-indent: 2em;" data-mce-style="text-align: left; text-indent: 2em;"><span style="color: rgb(0, 0, 0);" data-mce-style='
+----------------------------------------------------------------------
+id=1878319180119506944  channelCode=hygz websiteCode=jxsrmzf
+title=请问省级机关办公用房大中修项目如何申报？
+metadata keys=['Source', 'VcEditor']
+   md[Source] = 机关事务管理局
+   md[VcEditor] = 成亿平
+content len=714  head='<p style="text-align: left; text-indent: 2em;">答：省级机关办公用房因使用时间较长、设施设备老化、功能不全、存在安全隐患等原因需要大中修的，由使用单位向机关事务主管部门提出申请。</p><p style="text-align: left; text-i'
+----------------------------------------------------------------------
+id=1872142706240499712  channelCode=hygz websiteCode=jxsrmzf
+title=斑兰食品原料进行二次加工、经营流通、食用问题
+metadata keys=['Source', 'VcEditor']
+   md[Source] = 江西省市场监督管理局
+   md[VcEditor] = 康轶涵
+content len=517  head='<p style="text-align: left; text-indent: 2em;">问：您好。公司主要经营项目为斑兰粉、斑兰浆、斑兰汁等海南特色食品原料。海南省已于2022年将斑兰（香露兜叶）作为地方特色食品管理，海南省制定的《食品安全地方标准香露兜叶（粉）》（DB S46/004-202'
+----------------------------------------------------------------------
+id=1878320607659261952  channelCode=hygz websiteCode=jxsrmzf
+title=如何进行地磅强制性检测、检测进行是否收费
+metadata keys=['Source', 'VcEditor']
+   md[Source] = 江西省市场监督管理局
+   md[VcEditor] = 康轶涵
+content len=295  head='<p style="text-align: left; text-indent: 2em;">问：公司的地磅要做强制性检测，请问是由哪个部门负责检测？地磅检测收费吗（包含砝码运送和吊装费用）？收费是按照什么标准，这个标准的依据是什么？</p><p style="text-align: left; t'
+----------------------------------------------------------------------
+id=1872143722830737408  channelCode=hygz websiteCode=jxsrmzf
+title=被盗用本人身份信息注册公司
+metadata keys=['Source', 'VcEditor']
+   md[Source] = 江西省市场监督管理局
+   md[VcEditor] = 康轶涵
+content len=309  head='<p style="text-align: left; text-indent: 2em;">问：公司盗用我身份信息注册公司，本人不知情，请问怎么处理该公司盗用我身份信息的情况，并停止一切运营并注销。</p><p style="text-align: left; text-indent: 2em;"'
+----------------------------------------------------------------------
+id=1865196743995654144  channelCode=hygz websiteCode=jxsrmzf
+title=食品生产许可证
+metadata keys=['Source', 'VcEditor']
+   md[Source] = 江西省市场监督管理局
+   md[VcEditor] = 康轶涵
+content len=286  head='<p style="text-align: left; text-indent: 2em;">问：您好！我现在打算创业办茶饮连锁店，项目做的很不错，打算自己生产茶饮，需要办理食品生产许可证，但不知道办理流程，能否告知给我？ 谢谢！</p><p style="text-align: left; tex'
+----------------------------------------------------------------------
+本页统计：有答复 39 / 无答复 11（共 50）
+
+==============================================================================
+【2】jxsrmzf 候选 channelCode 探测（total>0 即有效栏目）
+==============================================================================
+ ★ channelCode=hygz     total=430
+ ★ channelCode=wxszj    total=259
+ ★ channelCode=zxft     total=102
+   channelCode=wszx     total=0
+   channelCode=zxxx     total=0
+ ★ channelCode=hdjl     total=1
+   channelCode=zjdc     total=0
+   channelCode=yjzj     total=0
+   channelCode=gzly     total=0
+   channelCode=lyxd     total=0
+   channelCode=zxly     total=0
+   channelCode=tsjb     total=0
+   channelCode=zmhd     total=0
+   channelCode=zjzj     total=0
+   channelCode=wtzx     total=0
+ ★ channelCode=zxzx     total=1

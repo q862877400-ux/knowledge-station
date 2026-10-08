@@ -1,0 +1,47 @@
+  hygz 第 1 页 50 条，累计 50
+  hygz 第 2 页 50 条，累计 100
+  hygz 第 3 页 50 条，累计 150
+  hygz 第 4 页 50 条，累计 200
+  hygz 第 5 页 50 条，累计 250
+  hygz 第 6 页 50 条，累计 300
+  hygz 第 7 页 50 条，累计 350
+  hygz 第 8 页 50 条，累计 400
+  hygz 第 9 页 30 条，累计 430
+
+==============================================================================
+【hygz 丢弃原因分布】共扫 430 条
+==============================================================================
+    301  无问无答（正文既无『问…答…』也无 field_1596）
+    129  OK
+
+--- 样本：无问无答（正文既无『问…答…』也无 field_1596） ---
+   {"title": "如何申请设立报废机动车回收拆解企业？", "clen": 201, "has_问": false, "has_答": true, "qa_match": false, "md_keys": []}
+   {"title": "请问省级机关办公用房大中修项目如何申报？", "clen": 363, "has_问": true, "has_答": true, "qa_match": false, "md_keys": ["Source", "VcEditor"]}
+   {"title": "请问《江西省生活垃圾管理条例》正式实施，在推进公共机构垃圾分类工作中，还存在哪些", "clen": 922, "has_问": true, "has_答": true, "qa_match": false, "md_keys": ["Source", "VcEditor"]}
+   {"title": "关于《江西省2024年加力支持大规模设备更新和消费品以旧换新实施方案》购车政策的", "clen": 193, "has_问": false, "has_答": true, "qa_match": false, "md_keys": ["Source", "VcEditor"]}
+
+==============================================================================
+【zxft（在线访谈）结构】total=102
+==============================================================================
+本页 50 条
+----------------------------------------------------------------------
+id=2084812019010445312 title=8月11日举办“推动公共机构全面绿色转型，助力打造国家生态文明建设高地”的在线访谈
+metadata keys=[]
+content len=2110
+   head='<p><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span'
+----------------------------------------------------------------------
+id=2060164274277707776 title=人人讲安全、个个会应急——排查整治风险隐患
+metadata keys=[]
+content len=1203
+   head='<p><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span'
+----------------------------------------------------------------------
+id=2054455528903458816 title=“严谨度量守初心、公平规制担使命,夯实社会信任发展基石”在线访谈
+metadata keys=[]
+content len=905
+   head='<p><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span><span id="_mce_caret" data-mce-bogus="1" data-mce-type="format-caret"><span style="font-size: 16px;" data-mce-style="font-size: 16px;"></span></span'
+----------------------------------------------------------------------
+id=1930164121759834112 title=认证认可检验检测：与供应链协同发展
+metadata keys=[]
+content len=598
+   head='<p style="text-align: justify; text-indent: 2em; line-height: 2;"><span style="font-family: \'Microsoft YaHei\'; font-size: 18px; color: #000000; line-height: 2;">各位网友：近年来，省市场监管局紧紧围绕质量强省战略要求，加快培育发展检验检测认证等生产性服务业，充分发挥检验检测认证保障民生和服务经济高质量发展的支撑作用，全省认证认可检验检测工作取得了显著成效。为方便社会公众更好地了解我省认证认可检验检测工作情况，6月6日下午15：00至16'
+本页含『问』31 条，含『答』2 条（共 50）

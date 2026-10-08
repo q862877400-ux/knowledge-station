@@ -1,0 +1,220 @@
+{
+ "jxsfzhggwyh": {
+  "name": "省发展改革委",
+  "domain": "http://drc.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxjyw": {
+  "name": "省教育厅",
+  "domain": "http://jyt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxskxjst": {
+  "name": "省科学技术厅",
+  "domain": "http://kjt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsgyhxxht": {
+  "name": "省工业和信息化厅",
+  "domain": "http://gxt.jiangxi.gov.cn",
+  "hits": {
+   "ldxx": 1,
+   "sjxx": 1
+  }
+ },
+ "jxsgat": {
+  "name": "省公安厅",
+  "domain": "http://gat.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 46,
+   "ldxx": 4
+  }
+ },
+ "jxsmzt": {
+  "name": "省民政厅",
+  "domain": "http://mzt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxssft": {
+  "name": "省司法厅",
+  "domain": "http://sf.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsczt": {
+  "name": "省财政厅",
+  "domain": "http://jxf.jiangxi.gov.cn",
+  "hits": {
+   "hdjl": 1
+  }
+ },
+ "jxsrlzyhshbzt": {
+  "name": "省人力资源和社会保障厅",
+  "domain": "http://rst.jiangxi.gov.cn",
+  "hits": {
+   "yjzj": 59
+  }
+ },
+ "jxszrzyt": {
+  "name": "省自然资源厅",
+  "domain": "http://bnr.jiangxi.gov.cn",
+  "hits": {
+   "zxzx": 1,
+   "hydt": 631
+  }
+ },
+ "jxssthjt": {
+  "name": "省生态环境厅",
+  "domain": "http://sthjt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxszfhcxjst": {
+  "name": "省住房城乡建设厅",
+  "domain": "http://zjt.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 44
+  }
+ },
+ "jxsjtyst": {
+  "name": "省交通运输厅",
+  "domain": "http://jt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsslt": {
+  "name": "省水利厅",
+  "domain": "http://slt.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 1,
+   "yjzj": 32
+  }
+ },
+ "jxsnynct": {
+  "name": "省农业农村厅",
+  "domain": "http://nync.jiangxi.gov.cn",
+  "hits": {
+   "hdjl": 1,
+   "yjzj": 106
+  }
+ },
+ "jxsswt": {
+  "name": "省商务厅",
+  "domain": "http://swt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxswhhlyt": {
+  "name": "省文化和旅游厅",
+  "domain": "http://dct.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxswsjkwyh": {
+  "name": "省卫生健康委员会",
+  "domain": "http://hc.jiangxi.gov.cn",
+  "hits": {
+   "hydt": 394
+  }
+ },
+ "jxstyjrswt": {
+  "name": "省退役军人事务厅",
+  "domain": "https://tyjrswt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsyjglt": {
+  "name": "省应急厅",
+  "domain": "http://yjglt.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxssjt": {
+  "name": "省审计厅",
+  "domain": "http://audit.jiangxi.gov.cn",
+  "hits": {
+   "sjxx": 20
+  }
+ },
+ "jxsrmzfwsbgs": {
+  "name": "省外办",
+  "domain": "http://jxwb.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsgzw": {
+  "name": "省国资委",
+  "domain": "http://gzw.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 20,
+   "yjzj": 24,
+   "lyxd": 15,
+   "tsjb": 1
+  }
+ },
+ "jxslyj": {
+  "name": "省林业局",
+  "domain": "http://ly.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "amr": {
+  "name": "省市场监督管理局",
+  "domain": "http://amr.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 43,
+   "zmhd": 8,
+   "ldxx": 7
+  }
+ },
+ "jxsgbdsj": {
+  "name": "省广播电视局",
+  "domain": "http://gdj.jiangxi.gov.cn",
+  "hits": {
+   "ldxx": 2
+  }
+ },
+ "jxsmzzjswj": {
+  "name": "省民宗局",
+  "domain": "http://mzj.jiangxi.gov.cn",
+  "hits": {
+   "sjxx": 1
+  }
+ },
+ "jxstyj": {
+  "name": "省体育局",
+  "domain": "http://tyj.jiangxi.gov.cn",
+  "hits": {
+   "yjzj": 14
+  }
+ },
+ "jxstjj": {
+  "name": "省统计局",
+  "domain": "http://tjj.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsgfdybgs": {
+  "name": "省国防动员办",
+  "domain": "http://rf.jiangxi.gov.cn",
+  "hits": {
+   "zxft": 28,
+   "ldxx": 1
+  }
+ },
+ "jxsylbzj": {
+  "name": "省医保局",
+  "domain": "http://ybj.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsjgswglj": {
+  "name": "省管局（机关事务管理局）",
+  "domain": "http://sgj.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxslshwzcbj": {
+  "name": "省粮食储备局",
+  "domain": "http://lswz.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxsypjdglj": {
+  "name": "省药监局",
+  "domain": "http://mpa.jiangxi.gov.cn",
+  "hits": {}
+ },
+ "jxszfbzhgjjglzx": {
+  "name": "江西省住房保障和公积金管理中心",
+  "domain": "http://www.jxzfgjj.cn",
+  "hits": {}
+ }
+}
