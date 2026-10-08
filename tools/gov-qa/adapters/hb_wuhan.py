@@ -18,7 +18,7 @@ from adapters._igi_common import harvest_igi
 
 SITE = {
     "key": "hb-wuhan",
-    "name": "武汉市人民政府·市长信箱/12345",
+    "name": "武汉市人民政府·市长信箱（12345）",
     "kind": "api",
     "level": "city",
     "entry": "https://www.wuhan.gov.cn/",
