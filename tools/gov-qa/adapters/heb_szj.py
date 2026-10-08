@@ -18,10 +18,15 @@
         postdate, operatedate, rowguid, isFankui, fankui}`
   siteGuid = `645ad4ac-16b3-47d8-95bc-294a9052c6a2`（取自 `/js/webBuilderCommon.js` 的 siteInfo）
 
-## ⚠ 三个坑（照着写，别踩）
+## ⚠ 四个坑（照着写，别踩）
  1. **必须 POST**：同 URL GET 返回 405。
  2. 参数放 **form 字段 `params=` 里塞 JSON 串**；把字段平铺、或改用 JSON body 都 400。
  3. 列表接口**必须带 Bearer token**（token 来自 ①）；缺 token 会被拒。
+ 4. ★★ **`pageIndex` 是「起始记录偏移量」，不是页码**（2026-10-08 实测纠正）：
+    `pageIndex=0` → 第 0-9 条；`pageIndex=1` → 第 1-10 条（与前页重叠 9 条）；
+    `pageIndex=10` → 从第 10 条起。⇒ **翻页必须传 `pageIndex = page * PAGE_SIZE`**。
+    踩过的后果：传页码（0,1,2…）时每页只滑 1 条，`total=1043` 却只收到 **114 条**（漏 89%），
+    且日志表现为「每页 10 条、新增 1 条」—— 看到这个现象就是本坑。
 
 ## EWB 可复用性
 EWB 是河北政务通用中间件；若在其它站点发现 `siteGuid`，换 siteGuid 即可复用本引擎。
@@ -92,7 +97,8 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[di
             time.sleep(PAUSE)
         payload = {"siteGuid": SITE_GUID, "subject": "", "postName": "",
                    "replyContent": "", "content": "", "startTime": "", "endTime": "",
-                   "group": "", "pageIndex": page, "pageSize": PAGE_SIZE}
+                   "group": "", "pageIndex": page * PAGE_SIZE,
+                   "pageSize": PAGE_SIZE}
         r = _post(fetch, LIST_URL, payload, token)
         if getattr(r, "status_code", 0) != 200:
             print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP "
