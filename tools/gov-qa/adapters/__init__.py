@@ -283,6 +283,11 @@ ADAPTERS: dict[str, str] = {
     "gd-mpa": "adapters.gd_mpa",  # 广东省药品监督管理局（年窗 32）
     "gd-czt": "adapters.gd_czt",  # 广东省财政厅（年窗 18）
     "gd-dva": "adapters.gd_dva",  # 广东省退役军人事务厅（年窗 14）
+    # —— 甘肃（2026-10-08「甘肃二次突围」：省门户整域被瑞数 WAF 拦 412，但 4 个市州门户可达）——
+    "gs-zhangye": "adapters.gs_zhangye",   # 张掖市·政民互动（IGI，8 site / ~7776 条）
+    "gs-baiyin": "adapters.gs_baiyin",     # 白银市·政民互动（jpaas-jact 变体，count=1889）
+    "gs-dingxi": "adapters.gs_dingxi",     # 定西市·政民互动（jact，http，2 sysid / 758 条）
+    "gs-longnan": "adapters.gs_longnan",   # 陇南市·市长信箱（龙讯 CMS label 8888，415 条）
 }
 
 #: 用户要能直接 `from adapters import load`

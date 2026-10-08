@@ -65,6 +65,9 @@ ROW_TITLE_RE = re.compile(
 ROW_NUM_RE = re.compile(r"<td[^>]*\btitle='([^']+)'")
 ROW_DATE_RE = re.compile(r">\s*(\d{4}-\d{2}-\d{2}[ \d:]*?)\s*<")
 TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.S | re.I)
+#: 单元格（含 `<th>`）——个别同构站点（甘肃定西）标签在 `<th>`、值在 `<td>`，
+#: 只取 `<td>` 会把标签丢掉 ⇒ 整站收 0 条。默认仍只取 `<td>`（见 parse_detail）。
+CELL_RE = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S | re.I)
 
 #: 明细页里「标签 td → 值 td」的标签 → 规范键。
 #: ⚠ 同一套 jact 在不同厅局域名下的**用词不一样**（实测 credit.jiangsu.gov.cn
@@ -128,16 +131,24 @@ def parse_list(text: str) -> tuple[int, list[dict]]:
     return total, rows
 
 
-def parse_detail(html: str) -> dict:
-    """解析明细页 HTML → {规范标签: 值}（label/value 是相邻两个 <td>）。
+def parse_detail(html: str, *, include_th: bool = False,
+                 aliases: dict | None = None) -> dict:
+    """解析明细页 HTML → {规范标签: 值}（label/value 是相邻两个单元格）。
+
+    · `include_th=True`：**把 `<th>` 也当单元格**。甘肃定西等站用
+      `<th>标签</th><td>值</td>`，只取 `<td>` 会丢标签 ⇒ 收 0 条；
+      默认 `False`（只取 `<td>`，江苏各站口径不变）。
+    · `aliases`：可覆盖/扩展标签别名（默认用模块级 `LABEL_ALIASES`）。
 
     ⚠ 同一标签**可能重复出现**：实测 credit 站先输出「答复内容 = 无」，
     再输出真实答复 ⇒ 「内容回复」取**最后一个非占位值**，其余标签取首次出现。
     """
-    cells = [clean(x) for x in TD_RE.findall(html or "")]
+    rx = CELL_RE if include_th else TD_RE
+    table = aliases or LABEL_ALIASES
+    cells = [clean(x) for x in rx.findall(html or "")]
     out: dict[str, str] = {}
     for i, c in enumerate(cells):
-        key = LABEL_ALIASES.get(c)
+        key = table.get(c)
         if not key or i + 1 >= len(cells):
             continue
         val = cells[i + 1]
@@ -170,12 +181,17 @@ def _post_list(fetch, *, base: str, sysid: str, start: int, end: int,
 
 def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
                  limit: int | None = None, pause: float = PAUSE,
-                 per_page: int = PAGE_SIZE) -> list[dict]:
+                 per_page: int = PAGE_SIZE, scheme: str = "https",
+                 include_th: bool = False, label_aliases: dict | None = None) -> list[dict]:
     """按统一记录格式返回某江苏厅局 jact 信箱的留言选登（问题+答复全文）。
 
     ⚠ `fetch` 是 harvest.py 注入的 `_Fetcher`（用 `.post` 发列表、可调用发明细）。
+    `scheme` 默认 `https`（江苏各站）；个别同构站点（如甘肃定西）只走 http，
+    传 `scheme="http"` 即可，**不影响既有调用方**。
+    `include_th` / `label_aliases` 同为**可选**扩展（默认与江苏口径完全一致），
+    供标签在 `<th>`、用词不同的同构站点复用同一引擎。
     """
-    base = f"https://{host}"
+    base = f"{scheme}://{host}"
     out: list[dict] = []
     total = None
     page = 1
@@ -209,7 +225,8 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
             if getattr(d, "status_code", 0) != 200:
                 time.sleep(pause)
                 continue
-            f = parse_detail(d.text or "")
+            f = parse_detail(d.text or "", include_th=include_th,
+                             aliases=label_aliases)
             answer = f.get("内容回复", "").strip()
             if not answer:
                 time.sleep(pause)
