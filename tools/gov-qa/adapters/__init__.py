@@ -314,6 +314,14 @@ ADAPTERS: dict[str, str] = {
     "zj-zhoushan": "adapters.zj_zhoushan",  # 舟山市（330900，≈1857）
     "zj-taizhou": "adapters.zj_taizhou",    # 台州市（331000，≈2737）
     "zj-lishui": "adapters.zj_lishui",      # 丽水市（331100，≈2938）
+    # —— 国家部委 / 中央级（2026-10-09 worker-national）：
+    #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
+    "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
+    "nat-mohurd": "adapters.nat_mohurd",    # 住房和城乡建设部·政务咨询（jpaas build/unit，672）
+    "nat-most": "adapters.nat_most",        # 科学技术部·公众问答（RuoYi 后台，8811）
+    "nat-tax": "adapters.nat_tax",          # 国家税务总局·12366 网上留言（38404）
+    "nat-cnipa": "adapters.nat_cnipa",      # 国家知识产权局·留言咨询（jact，6 sysid≈251020）
+    "nat-nea": "adapters.nat_nea",          # 国家能源局·留言选登（新华伪数据源，145）
 }
 
 #: 用户要能直接 `from adapters import load`
