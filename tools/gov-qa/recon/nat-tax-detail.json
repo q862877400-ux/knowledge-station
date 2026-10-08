@@ -1,0 +1,1420 @@
+
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="SiteName" content="国家税务总局">
+    <meta name="SiteDomain" content="https://12366.chinatax.gov.cn/">
+    <meta name="SiteIDCode" content="bm29000002">
+    <meta name="ColumnName" content="网上留言">
+    <meta name="ColumnDescription" content="采取留言板形式，实现用户非实时纳税咨询。">
+    <meta name="ColumnKeywords" content="网上留言">
+    <meta name="ColumnType" content="网上留言">
+    <meta name="ArticleTitle" content="契税问题">
+    <meta name="PubDate" content="Wed Oct 07 16:30:52 CST 2026">
+    <meta name="ContentSource" content="国家税务总局">
+    <meta name="Description" content="契税问题">
+
+    <title>网上留言</title>
+    <link type="image/x-icon" href="/favicon.ico" rel="bookmark"/>
+    <link type="image/x-icon" href="/favicon.ico" rel="icon"/>
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/>
+
+    <link href="/core-plugins/12366/css/style/style.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/reset.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/common.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/oldstyle.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/animation.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/dialog.css" rel="stylesheet" type="text/css">
+    <link href="/core-plugins/12366/css/style/form.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/core-plugins/12366/css/style/dialog.css" type="text/css">
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/core-plugins/12366/js/baseutil.js"></script>
+    <script type="text/javascript" src="/core-plugins/12366/js/alert.msg.js"></script>
+
+    <script type="text/javascript" src="https://12366.chinatax.gov.cn/znzx/js/arlog.js" data-module="wsly" data-tag="" data-id="9ece2b2640c5496cb30e9f4853ad1603"
+            data-title="" id="arlogAnchor"></script>
+
+</head>
+
+<body>
+<div class="s">
+    <!-- fixed -->
+    
+<script type="text/javascript" src="/core-plugins/ew/depend/cookie/jquery.cookie-min.js"></script>
+<!-- fixed -->
+<div class="fixed-window">
+    <div class="people-img"></div>
+    <div class="smart" onclick="openWinForZnzx()">智能咨询</div>
+    
+    <!-- APP已下架，屏蔽下载入口
+    <div class="code-btn box-shadow-wrap" onclick="openURL('/download/app/index')">
+        <div class="img-container">
+            <img src="/core-plugins/normal/images/down-code.png" style="height: 78px;width: 78px;">
+        </div>
+    </div>
+    -->
+    <div class="top-btn box-shadow-wrap" onclick="toTop()">
+    </div>
+</div>
+<script>
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 100) {
+            $('.fixed-window').css('height', '388px');
+            $('.fixed-window .top-btn').show();
+        } else {
+            $('.fixed-window').css('height', '332px');
+            $('.fixed-window .top-btn').hide();
+        }
+    });
+    //返回顶部
+    function toTop(){
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+
+    var intelligenturl = 'https://12366.chinatax.gov.cn/xiaohui',
+        guide = $.cookie("guide");
+    function openWinForZnzx(){
+        $.formPost(intelligenturl,{"guide":guide});
+    }
+
+    function openURL(url) {
+        window.open(url);
+    }
+</script>
+    <!-- 列表头部 -->
+    
+
+
+<script type="text/javascript">
+    window.path="";
+    window.ctx_="";
+</script>
+
+<script type="text/javascript" src="/core-plugins/12366/js/baseutil.js"></script>
+
+
+<script>
+    var province = {};
+    province['11000000'] = "北京市";
+    province['12000000'] = "天津市";
+    province['13000000'] = "河北省";
+    province['14000000'] = "山西省";
+    province['15000000'] = "内蒙古自治区";
+    province['21000000'] = "辽宁省";
+    province['22000000'] = "吉林省";
+    province['23000000'] = "黑龙江省";
+    province['31000000'] = "上海市";
+    province['32000000'] = "江苏省";
+    province['33000000'] = "浙江省";
+    province['34000000'] = "安徽省";
+    province['35000000'] = "福建省";
+    province['36000000'] = "江西省";
+    province['37000000'] = "山东省";
+    province['41000000'] = "河南省";
+    province['42000000'] = "湖北省";
+    province['43000000'] = "湖南省";
+    province['44000000'] = "广东省";
+    province['45000000'] = "广西壮族自治区";
+    province['46000000'] = "海南省";
+    province['50000000'] = "重庆市";
+    province['51000000'] = "四川省";
+    province['52000000'] = "贵州省";
+    province['53000000'] = "云南省";
+    province['54000000'] = "西藏自治区";
+    province['61000000'] = "陕西省";
+    province['62000000'] = "甘肃省";
+    province['63000000'] = "青海省";
+    province['64000000'] = "宁夏回族自治区";
+    province['65000000'] = "新疆维吾尔自治区";
+    province['21020000'] = "大连市";
+    province['33020000'] = "宁波市";
+    province['35020000'] = "厦门市";
+    province['37020000'] = "青岛市";
+    province['44030000'] = "深圳市";
+
+
+
+
+</script>
+
+
+
+<div id="div-login-container"></div>
+<div class="nav">
+    <div class="zero-inline">
+        <div class="mid-box clearfix">
+            <div class="fl">
+                <a class="back-index" href="/">
+                    <div class="splite-line"></div>
+                    <i></i>首页
+                </a>
+                <div class="location">
+                    <i class="i-local"></i>
+                    <span class="state" id="selected_city" code="">北京市</span>
+                    <span class="toggle">[切换]</span>
+                </div>
+                <div class="cities" id="index_cities">
+                </div>
+            </div>
+            <div class="fr">
+                <div class="sml-links">
+                    <div class="link">
+                        <a href="javascript:;" onclick="openpersonpage('collection')" id="collection" target="_self">我的收藏</a>
+                    </div>
+                    <div class="link">
+                        <a href="javascript:;;" onclick="openpersonpage('partnets')" id="partnets" target="_self">好友申请</a>
+                    </div>
+                    <div class="link">
+                        <a href="javascript:;" onclick="openpersonpage('message')" id="message" target="_self">我的消息</a>
+                        
+                    </div>
+
+                </div>
+                <div class="reg-login">
+                    <a href="/usercenter/register/main">注册</a>
+                    <a>登录</a>
+                </div>
+                <div class="info reg-user" style="display: none;">
+                    <div class="avator">
+                        <img src="/core-plugins/12366/css/qaimg/qa_user_tx.jpg" alt="">
+                    </div>
+                    <div class="name fn-text">用户名称</div>
+                    <i class="i-s-arrow"></i>
+                    <div class="pop-up">
+                        
+                        <div class="item"><a href="/usercenter/personal/main">个人中心</a></div>
+                        <div class="item"><a onclick="login_header.loginOut();" id="userLoginOut">退出</a></div>
+                        <!-- 下面这个隐藏form用于its登出，和下面的iframe一起使用，实现跨域登出 -->
+                        <form style="display:none" id="formItsLogout" action="http://116.62.19.87:10000/web/zh/oauth2/logout" method="get" target="itsLogoutIframe">
+                            <input id="btnSubmitItsLogout" type="submit" value="ITS登出">
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-box">
+        <div class="mid-box">
+            <div class="first-inline clearfix">
+                <a href="/" style="cursor:pointer">
+                    <img class="logo fl" src="/core-plugins/12366/css/images/logo_zj.png" alt="">
+                    <img class="logo fl" src="/core-plugins/12366/css/images/logo_pt.png" alt="" style="margin-top: 20px;margin-left: 20px;">
+                </a>
+                <div class="tit-txt fl" id="head-title"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/core-plugins/ew/depend/cookie/jquery.cookie-min.js"></script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=gfrTV3LASJ1hHtK4hF80r7SdSdfFGXVF&s=1" ></script>
+<script type="text/javascript">
+    var headerTargetAreaMap = {
+        "111000000": "北京市",
+        "112000000": "天津市",
+        "113000000": "河北省",
+        "114000000": "山西省",
+        "115000000": "内蒙古自治区",
+        "121000000": "辽宁省",
+        "122000000": "吉林省",
+        "123000000": "黑龙江省",
+        "131000000": "上海市",
+        "132000000": "江苏省",
+        "133000000": "浙江省",
+        "134000000": "安徽省",
+        "135000000": "福建省",
+        "136000000": "江西省",
+        "137000000": "山东省",
+        "141000000": "河南省",
+        "142000000": "湖北省",
+        "143000000": "湖南省",
+        "144000000": "广东省",
+        "145000000": "广西壮族自治区",
+        "146000000": "海南省",
+        "150000000": "重庆市",
+        "151000000": "四川省",
+        "152000000": "贵州省",
+        "153000000": "云南省",
+        "154000000": "西藏自治区",
+        "161000000": "陕西省",
+        "162000000": "甘肃省",
+        "163000000": "青海省",
+        "164000000": "宁夏回族自治区",
+        "165000000": "新疆维吾尔族自治区",
+        "121020000": "大连市",
+        "133020000": "宁波市",
+        "135020000": "厦门市",
+        "137020000": "青岛市",
+        "144030000": "深圳市"
+    }
+
+    // 重写indexOf方法
+    if (!Array.prototype.indexOf) {
+        Array.prototype.indexOf = function (elt) {
+            var len = this.length >>> 0;
+            var from = Number(arguments[1]) || 0;
+            from = (from < 0)
+                ? Math.ceil(from)
+                : Math.floor(from);
+            if (from < 0)
+                from += len;
+            for (; from < len; from++) {
+                if (from in this &&
+                    this[from] === elt)
+                    return from;
+            }
+            return -1;
+        }
+    }
+    if (!Array.prototype.lastIndexOf) {
+        Array.prototype.lastIndexOf = function(searchElement /*, fromIndex*/) {
+            if (this === void 0 || this === null) {
+                throw new TypeError();
+            }
+            var n, k,
+                t = Object(this),
+                len = t.length >>> 0;
+            if (len === 0) {
+                return -1;
+            }
+            n = len - 1;
+            if (arguments.length > 1) {
+                n = Number(arguments[1]);
+                if (n != n) {
+                    n = 0;
+                }
+                else if (n != 0 && n != (1 / 0) && n != -(1 / 0)) {
+                    n = (n > 0 || -1) * Math.floor(Math.abs(n));
+                }
+            }
+            for (k = n >= 0
+                ? Math.min(n, len - 1)
+                : len - Math.abs(n); k >= 0; k--) {
+                if (k in t && t[k] === searchElement) {
+                    return k;
+                }
+            }
+            return -1;
+        };
+    }
+
+    // 获取指定名称的cookie
+    function getCookie(name){
+        var strcookie = document.cookie;//获取cookie字符串
+        var arrcookie = strcookie.split("; ");//分割
+        //遍历匹配
+        for ( var i = 0; i < arrcookie.length; i++) {
+            var arr = arrcookie[i].split("=");
+            if (arr[0] == name){
+                return arr[1];
+            }
+        }
+        return "";
+    }
+
+    var login_header = {
+        /**
+         * 用户登录校验
+         *
+         * @param callback 回调函数
+         */
+        checkLogin: function (callback) {
+            $.ajax({
+                type: 'post',
+                url: '/usercenter/login/detail',
+                dataType: 'json',
+                success: function (res) {
+                    var isLogin = window.isLogin = (res.code === 1);
+
+                    // 未登录
+                    if (!isLogin) {
+                        var cookienfid = getCookie('cookienfid');
+                        if (cookienfid) {
+                            login_header.ssoLogin(cookienfid, callback);
+                        } else {
+                            callback && callback.apply(this, [isLogin]);
+                        }
+                        return;
+                    }
+                    // 已登录，显示当前登录人信息
+                    $('.nav .info .name').html(res.data.yhnc);
+                    if (res.data.imgsrc) {
+                        $('.nav .info .avator img').attr('src', '' + res.data.imgsrc);
+                    }
+
+                    $('.reg-login').hide();
+                    $('.nav .reg-user').show();
+
+                    getCount();
+                    callback && callback.apply(this, [isLogin]);
+                }
+            })
+        },
+
+        /**
+         * 用户注销登录
+         */
+        loginOut: function () {
+
+            // 获取用户信息，只有channel是5的用户才允许登出ITS
+            $.ajax({
+                type: 'get',
+                url: '/usercenter/login/detail',
+                dataType: 'json',
+                async: false,
+                success: function (res) {
+                    // console.debug(res);
+                    // console.debug(res.data.channel);
+                    if (res.data.channel === '5') {
+                        // console.debug('准备登出ITS');
+                        // 获取ITS登出的URL
+                        var itsLogoutUrl = '';
+                        $.ajax({
+                            type: 'get',
+                            url: '/usercenter/getItsLogoutUrl',
+                            dataType: 'json',
+                            async: false,
+                            success: function (res2) {
+                                // console.debug(res2);
+                                // console.debug(res2.json.itsLogoutUrl);
+                                itsLogoutUrl = res2.json.itsLogoutUrl;
+                            }
+                        });
+                        // console.debug("hidden form click " + itsLogoutUrl);
+                        $('#formItsLogout').attr('action', itsLogoutUrl);
+                        $('#btnSubmitItsLogout').click();
+                    }
+                }
+            });
+
+            $.ajax({
+                type: 'post',
+                url: '/usercenter/login/out',
+                dataType: 'json',
+                success: function (res) {
+                    if (res === 0) {
+                        return;
+                    }
+
+                    // 刷新当前页面
+                    //location.href = '/';
+                    location.reload();
+                }
+            })
+        },
+        //销户
+        account : function(){
+            window.open("/usercenter/portal/account/main");
+        },
+        // 单点登录
+        ssoLogin: function (cookienfid, callback) {
+            $.ajax({
+                type: 'post',
+                url: '/usercenter/sso/login/in',
+                dataType: 'json',
+                data: {'account': cookienfid},
+                success: function (res) {
+                    var isLogin = window.isLogin = (res.code === 1);
+
+                    // 未登录
+                    if (!isLogin) {
+                        callback && callback.apply(this, [isLogin]);
+                        return;
+                    }
+                    // 已登录，显示当前登录人信息
+                    $('.nav .info .name').html(res.data.yhnc);
+                    if (res.data.imgsrc) {
+                        $('.nav .info .avator img').attr('src', '' + res.data.imgsrc);
+                    }
+
+                    $('.reg-login').hide();
+                    $('.nav .reg-user').show();
+
+                    getCount();
+                    callback && callback.apply(this, [isLogin]);
+                }
+            })
+        }
+    };
+
+    $(function () {
+        // 登录校验
+        login_header.checkLogin();
+        getCities();
+        //获取收藏等条数
+        //getCount();
+        try{//具有收藏功能页检查是否收藏
+	        checkCollection();
+        }catch(e){}
+        // 首页点击登录按钮
+        $('.reg-login a').eq(1).on('click', function (item) {
+            $("#div-login-container").load("/usercenter/login/main?flag=l", function () {
+                $(this).data('callback', function (data) {
+                });
+            });
+        });
+
+        // 头像点击
+        $('.s .nav .reg-user').click(function () {
+            $(this).toggleClass('on');
+            $(this).find('.pop-up').toggle();
+        });
+
+        // 窗口关闭事件
+        $('#div-login-container').on('click', '.close-btn', function () {
+            $('#div-login-container').empty();
+        });
+
+        //ip定位
+        $('.s .nav .location').click(function () {
+            $(this).toggleClass('on');
+            $('.s .nav .cities').toggle();
+        });
+
+        $(document).click(function (e) {
+            e = e || window.e;
+            target('.s .nav .location', '.s .nav .cities', e);
+            target('.s .nav .info', '.s .nav .info .pop-up', e)
+        });
+
+        function target(obj1, obj2, e) {
+            var tar = $(obj1);
+            if (!tar.is(e.target) && tar.has(e.target).length === 0) {
+                $(obj2).hide();
+                tar.removeClass('on');
+            }
+        }
+        //获取title值
+        var title = document.getElementsByTagName("title")[0].text;
+        $("#head-title").text(title);
+    });
+    var regions;
+    function getCities() {
+        $.ajax({
+            type: 'post',
+            url: '/usercenter/region/getRegion',
+            async : false,
+            success: function (res) {
+                regions = $.json(res).json.region;
+                if (regions && regions.length > 0) {
+                    var css_ = '<div class="i-white-arrow"></div>';
+                    var panel = $("#index_cities").empty(),
+                        allregions = {};
+                    var phoneticInterval = "A-G,H-K,L-S,T-Z";
+                    var phoneticIntervals = phoneticInterval.split(",");
+                    for(var i=0;i<phoneticIntervals.length;i++){
+                        var _data = new Array();
+                        var phoneticInterval = phoneticIntervals[i];
+                        var start = phoneticInterval.substring(0,1),end = phoneticInterval.substring(2,3);
+                        start = start.charCodeAt(0),end = end.charCodeAt(0);
+                        for(var j=0;j<regions.length;j++){
+                            var address = regions[j];
+                            var name = address.xzqhmc;
+                            var bm = auxiliaryMethod.makePy(name,1)[0];
+                            bm = bm.substring(0,1).toLocaleUpperCase().charCodeAt(0);
+                            if(start<=bm&&bm<=end){
+                                _data.push(address);
+                            }
+                        }
+                        var div_ = '<div class="c-item">\n' +
+                            '                        <span>'+phoneticInterval+'</span>\n' +
+                            '                        <div class="c-data clearfix">';
+                        for(var j=0;j<_data.length;j++){
+                            div_ += '<a href="JavaScript:;;" code="'+_data[j].xzqhbm+'" province="'+_data[j].xzqhmc+'">'+_data[j].xzqhmc+'</a>';
+                        }
+                        div_ += '</div></div>';
+                        panel.append(div_);
+
+                        panel.find("a").unbind().bind("click",function () {
+                            var city = $(this).text();
+                            var code = $(this).attr("code");
+                            checkCity(code,city);
+                        });
+                    }
+                }
+                // var city = localStorage.getItem("city");
+
+                var city = $.cookie("city");
+                if ('') {
+                    var targetArea = '';
+                    var targetCity = headerTargetAreaMap[targetArea];
+
+                    if (!targetCity) {
+                        targetArea = targetArea.substr(0, 3) + '000000';
+                        targetCity = headerTargetAreaMap[targetArea];
+                    }
+
+                    targetArea = targetArea.substr(1, targetArea.length);
+                    city = targetArea + "," + targetCity;
+                }
+                if(city){
+                    var code = city.split(",")[0],
+                        province = city.split(",")[1];
+                    checkCity(code, province);
+                }else {
+                    //ip自动定位
+                    // var ip = returnCitySN.cip;
+                    // $.ajax({
+                    //     type: 'post',
+                    //     url: '//api.map.baidu.com/location/ip',
+                    //     data: {ak: 'RX0uWjvtpuVz5f0MeKNpLkNtIcTWnVB1', coor: 'bd09ll', ip: ip},
+                    //     dataType: 'jsonp',
+                    //     async: false,
+                    //     success: function (data) {
+                    //         var province = data.content.address_detail.province;
+                    //         var city_ = data.content.address_detail.city;
+                    //         if(city_=='宁波市'||city_=='青岛市'||city_=='深圳市'||city_=='厦门市'||city_=='大连市'){
+                    //             province = city_;
+                    //         }
+                    //         var lng = data.content.point.x,//经度
+                    //             lat = data.content.point.y;//纬度
+                    //         var code = $("#index_cities").find("a[province='" + province + "']").attr("code");
+                    //         checkCity(code, province);
+                    //     },
+                    //     error:function(){
+                    //         //异常则定位北京
+                    //         checkCity("11000000", "北京市");
+                    //     }
+                    // });
+                    if(window['BMap']){
+                        var code="11000000",province = "北京市";
+                        try {
+                            var geolocation = new BMap.Geolocation();
+                            geolocation.getCurrentPosition(function(r){
+                                if(this.getStatus() == BMAP_STATUS_SUCCESS){
+
+                                    var cityName = r.address.city,
+                                        city_ = cityName;
+                                    y = r.point.lat;
+                                    x = r.point.lng;
+                                    var myGeo=new BMap.Geocoder();
+                                    myGeo.getLocation(new BMap.Point(x,y),function(result) {
+                                        province = result.addressComponents.province;
+                                        if(city_=='宁波市'||city_=='青岛市'||city_=='深圳市'||city_=='厦门市'||city_=='大连市'){
+                                            province = city_;
+                                        }
+                                        code = $("#index_cities").find("a[province='" + province + "']").attr("code");
+                                        checkCity(code, province);
+                                    });
+                                }
+                                else {
+                                    checkCity(code, province);
+                                }
+                            },function(r){//超时失败则默认北京
+                                checkCity(code, province);
+                            });
+                            /*var myCity = new BMap.LocalCity();
+                            myCity.get(myFun);
+                            function myFun(result) {
+                                var cityName = result.name,
+                                    city_ = cityName;
+                                y = result.center.lat;
+                                x = result.center.lng;
+                                var myGeo=new BMap.Geocoder();
+                                myGeo.getLocation(new BMap.Point(x,y),function(result) {
+                                    province = result.addressComponents.province;
+                                    if(city_=='宁波市'||city_=='青岛市'||city_=='深圳市'||city_=='厦门市'||city_=='大连市'){
+                                        province = city_;
+                                    }
+                                    code = $("#index_cities").find("a[province='" + province + "']").attr("code");
+                                    checkCity(code, province);
+                                });
+                            }*/
+                        }catch (e){
+                            checkCity(code, province);
+                        }
+                    }else{
+                        //异常后定位到北京
+                        var code="11000000",province = "北京市";
+                        checkCity(code, province);
+                    }
+                }
+            }
+        });
+    }
+    //选择地点
+    function checkCity(code,city) {
+        //未注册用户需使用IP地址匹配归属地，注册用户需使用用户资料中的地域字段匹配归属地
+        $.ajax({
+            type: 'post',
+            url: '/usercenter/login/detail',
+            dataType: 'json',
+            async:false,
+            success: function (res) {
+                if('0' == res.code){
+                }else{
+                	if(res.data.yhdzsf){
+		                // if(localStorage.getItem('city')==null){
+		                if($.cookie('city')==null){
+	                        code = res.data.yhdzsf;
+	                        city = province[code];
+		                }
+                    }
+                }
+                $("#selected_city").text(city).data("code",code);
+                // localStorage.setItem("city",code+","+city);
+                $.cookie('city',code+","+city,{ path: '/'});
+                //选择省市后回调事件共各页面完善各自业务需求
+                var callback = $.evalFunction('checkCitycallback');
+                if (callback) {
+                    callback.call(this, code,city);
+                }
+            }
+        })
+
+    }
+
+    function getCount(){
+        $.ajax({
+            type:'post',
+            url:'/usercenter/index/getCount',
+            success:function(res){
+                var json = $.json(res).json;
+                if(json){
+                    var msg = $.json(json.personmsg);
+                    if(msg) {
+                        var collection = msg.collectioncount,
+                            partnets = msg.partnets,
+                            message = msg.totalMsg;
+                        if (collection != 0&&collection!=null) {
+                            if(collection>100){
+                                collection = '99+';
+                            }
+                            $("#collection").empty().append('我的收藏<span class="num-box">' + collection + '</span>');
+                        }
+                        if (partnets != 0&&partnets!=null) {
+                            if(partnets>100){
+                                partnets = '99+';
+                            }
+                            $("#partnets").empty().append('好友申请<span class="num-box">' + partnets + '</span>');
+                        }
+                        if (message != 0&&message!=null) {
+                            if(message>100){
+                                message = '99+';
+                            }
+                            $("#message").empty().append('我的消息<span class="num-box">' + message + '</span>');
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function openpersonpage(tabId){
+        var $form = $("<form action='/usercenter/personal/main' method='post' target='_blank'><input type='hidden' name='tabId' value='"+tabId+"'></form>");
+        $("body").append($form);
+        $form.submit();
+        $form.remove();
+    }
+
+</script>
+</div>
+
+<div class="container mainbox  detail s">
+    <div class="fn-width-long ui-bg-white fn-left ritem">
+        <!-- 位置 -->
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="contentbd">
+            <!-- 详情标题 -->
+            <div class="articletitle">
+                <div class="at-title">
+                    <h1 style="text-align:center; padding-right: unset;white-space:normal; word-break:break-all;">契税问题</h1>
+                    <div class="atitbar">
+                        <div class="info" style="text-align: center">
+                            
+                            <span>留言时间：<b id="cjsj">Wed Oct 07 16:30:52 CST 2026</b></span>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="gjsearch">
+
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabform">
+                        <tbody>
+                        <tr>
+                            <th width="130"><span class="fn-color-red"></span>纳税人所属地</th>
+                            <td><input type="text" class="input" style="width:380px;" id="nsrssd"
+                                       readonly="readonly">
+                        </tr>
+                        <tr>
+                            <th><span class="fn-color-red"></span>问题内容</th>
+                            <td><textarea cols="" rows="" class="textarea" style="width:374px; height:120px;"
+                                          readonly="readonly">我们买的房子是预售的，目前已经签订了购房合同，并且办理了网签备案，明年才能交房，契税什么时候交？</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>附件</th>
+                            <td>
+                                <div class="f-box">
+                                    <div class="f-bd" style="padding: 0px;">
+                                        <div class="f-item" style="padding: 0px;">
+                                            <div class="add-adjunct">
+                                                <ul class="adj-list" id="fj" style="padding: 0px;">
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <tr>
+                            <th>答复机构</th>
+                            <td><input type="text" class="input" style="width:380px;" value="江苏省税务局"
+                                       readonly="readonly">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>答复时间</th>
+                            
+                            <td><input type="text" class="input" style="width:380px;" value="Thu Oct 08 14:53:21 CST 2026"
+                                       readonly="readonly">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>答复内容</th>
+                            <td><textarea cols="" rows="" class="textarea" style="width:374px; height:120px;"
+                                          readonly="readonly">江苏省12366中心答复：
+尊敬的纳税人（扣缴义务人、缴费人）您好！您提交的网上留言咨询已收悉，现答复如下：根据《中华人民共和国契税法》(中华人民共和国主席令第五十二号)的规定：“第九条　契税的纳税义务发生时间，为纳税人签订土地、房屋权属转移合同的当日，或者纳税人取得其他具有土地、房屋权属转移合同性质凭证的当日。
+　　第十条　纳税人应当在依法办理土地、房屋权属登记手续前申报缴纳契税。
+　　……
+　　本法自2021年9月1日起施行。1997年7月7日国务院发布的《中华人民共和国契税暂行条例》同时废止。”
+感谢您的咨询！上述回复仅供参考，若您对此仍有疑问，请联系江苏税务12366或主管税务机关。
+</textarea>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 分享 -->
+            <div class="artical-status clearfix">
+                <div class="sharebox">
+                    <a class="sharetext">
+                        <dl class="changeshare">
+                            <dd class="sina" onclick="share('1')"></dd>
+                            <dd class="qzone" onclick="share('2')"></dd>
+                            <dd class="wechat" onclick="share('3')"></dd>
+                        </dl>
+                    </a>
+                </div>
+                <div class="zan_new" onclick="thumbsUp()" id="likeBtn">
+                    <i></i>
+                    <span id="likeNum"></span>
+                    <div class="upzan"><i></i>+1</div>
+                </div>
+                <div class="down-collect fr">
+                    <!-- 点击收藏按钮，在上面添加on -->
+                    <a class="opt-btn collect" id="collectionBtn" onclick="collect();">
+                        <i></i><span id="collectionWord">收藏</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    
+<div class="fn-width-sort fr">
+    
+        
+            
+                
+                
+            
+            
+                
+                
+            
+            
+                
+                
+            
+        
+    
+    <div class="ui-bg-white ritem">
+        <div class="titlehd"><h2>你可能关注的</h2>
+            <a href="javascript:nextPage()" class="more" target="_self">换一换</a>
+        </div>
+        <div class="bd" id="gznr">
+            <ul>
+                
+                
+                    
+                    
+                
+                
+                    
+                    
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/getdetailurl.js"></script>
+<script>
+    var pageCount = "";
+    var pageIndexs = 1;
+    $(function(){
+        //动态加载推荐的数据
+        getKngzList();
+    })
+    function nextPage(){
+        pageIndexs+=1;
+        if(pageIndexs>pageCount){
+            pageIndexs=1;
+        }
+        //pageIndexs = Math.floor(Math.random() * pageCount + 1);
+        getKngzList()
+    }
+    function getKngzList(){
+        $.ajax({
+            url : "/bsfw/follow/getFollow",
+            dataType : "json",
+            data : {
+                pageIndex:pageIndexs
+                //sfrd:sfrd
+            },
+            success:function(res){
+                 pageCount = res.json.pageCount;
+                var followLists = res.json.follow;
+                var str = "";
+                for(var i =0;i<followLists.length;i++){
+                    var url =  geturl('',followLists[i]).url;
+                    var sourcemc = geturl('',followLists[i]).sourcmc;
+                    var DJCS = followLists[i].DJCS==""?0:followLists[i].DJCS,
+                        fbsj = followLists[i].FBSJ||'';
+                    if(fbsj){
+                        fbsj = fbsj.substring(0,10);
+                    }
+                    str+='<li class="textp">' +
+                        '<h4><a href="'+url+'" target="_blank" style="word-wrap: break-word;">'+
+                        '<span style=" padding-right: 4px; color: #2da1f4;">'+sourcemc+'</span>'+followLists[i].TITLE+'</a></h4>' +
+                        // '<p class="text-ifno"><span class="browse"><i class="icon"></i>浏览<em>'+DJCS+'</em>次</span></p>' +
+                        '<p class="text-ifno"><span class="browse">发布时间：'+fbsj+'</span></p>' +
+                        '</li>'
+                }
+                $("#gznr").find("ul").html(str);
+
+            }
+        })
+    }
+    /*function geturl(module){
+        var url = '';
+        switch (module.SOURCE){
+            case "NSFW_NSRXT_ZXZB"://在线直播
+                if(module.TYPE=="1"||module.TYPE=="3"){
+                    var spdz=""
+                    var fmdz=""
+                    //var aa = getfmidOrvideoid(content,spdz,fmdz);
+                    url="/video/play?bh="+module.CODE;
+                }else{
+                    url=module.ABSTRACT;
+                }
+                content="【在线直播】"
+                break;
+            case "NSFW_NSRXT_SP"://视频点播
+                if(module.TYPE=="1"||module.TYPE=="3"){
+                    var spdz=""
+                    var fmdz = "";
+                    //var aa = getfmidOrvideoid(content,spdz,fmdz);
+                    url="/video/play?bh="+module.CODE;
+                }else{
+                    url=module.ABSTRACT;
+                }
+                content="【视频点播】"
+                break;
+            case "NSFW_NSRXT_PXB"://在线培训
+                url="/nsrxt/train/detail?id="+module.CODE
+                content="【在线培训】"
+                break;
+            case "NSFW_ZXFT"://视频访谈
+                if(module.TYPE=="1"||module.TYPE=="3"){
+                    var spdz=""
+                    var fmdz = "";
+                    //var aa = getfmidOrvideoid(content,spdz,fmdz);
+                    url="/video/play?bh="+module.CODE;
+                }else{
+                    url=module.ABSTRACT;
+                }
+                content="【视频访谈】"
+                break;
+            case "NSFW_FWTZ"://服务通知
+                url="/fwtz/detail?bh="+module.CODE;
+                content="【服务通知】"
+                break;
+            case "NSFW_ZBHZZX_QUESTION"://众包互助
+                url="/zbhz/toDetail?id="+module.CODE;
+                content="【众包互助】"
+                break;
+            case "NSFW_ZQ": //专区
+                url='/zqdetail/main?id='+module.CODE+'&mbfl='+module.TYPE;
+                content="【专区内容】"
+                break;
+            case "1"://法规
+                url='/sscx/detail?code='+module.CODE;
+                break;
+            case "2"://热点问题
+                if(module.UNITNAME=="1"){
+                    url='/sscx/rddetail?bh='+module.CODE;
+                }else{
+                    url='/sscx/detail?code='+module.CODE+'&tslx='+module.UNITNAME+'&flag=2'
+                }
+                break;
+            default:
+                    break
+
+        }
+        return url;
+    }*/
+</script>
+
+</div>
+
+<!-- 底部 -->
+<div class="s">
+    
+<div class="footer">
+    <div class="mid-box">
+        <div class="nothing"></div>
+        <a onclick="nfptJumpOutSidePage.showOutsideAlert('https://bszs.conac.cn/sitename?method=show&id=0895F7C120836C12E053012819AC7E96')">
+            <img src="/core-plugins/12366/css/images/foot-img-1.png">
+        </a>
+        <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=bm29000002&url=12366.chinatax.gov.cn" target="_blank"><img src="/core-plugins/12366/css/images/foot-img-2.png"></a>
+        <div class="txt">
+            <p style="color: #888888">版权所有：国家税务总局 网站标识码：bm29000002</p>
+            <p style="color: #888888">
+                <a  style="color: #888888" class="nohovercolor" target="_blank" href="https://beian.miit.gov.cn/">
+                    京ICP备13021685号-2
+                </a>
+                <a  style="color: #888888" class="nohovercolor" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040102700073">
+                    <img src="/core-plugins/12366/images/guohui.png" alt="" style="margin-top: -3px;margin: 0 0 2px 0;">京公网安备 11040102700073号
+                </a>
+            </p>
+            <p style="color: #888888">主办单位：国家税务总局 地址：北京市西城区枣林前街68号&nbsp&nbsp|&nbsp&nbsp<a href="http://www.chinatax.gov.cn/chinatax/c101263/c61304/content.html" style="color: #666;" target="_blank">联系我们</a></p>
+            <p style="color: #888888">建议您使用IE9及以上版本、Edge、Chrome、Firefox和360等主流浏览器浏览本网站</p>
+        </div>
+    </div>
+</div>
+
+<div id="outside" style="display: none;position: fixed;left: 50%;top: 50%;margin-left: -300px;margin-top: -160px;width: 600px;height: 270px;background: #fff;z-index: 10001;border: 2px solid;border-radius: 10px;">
+    <div style="width: 100%;height: 38px;position: relative;">
+        <span onclick="nfptJumpOutSidePage.cancelOutside()" style="position: absolute;top: 10px;right: 10px;width: 20px;height: 20px;line-height: 20px;color: #fff;text-align: center;background: #bebebe;cursor: pointer;">X</span>
+    </div>
+    <div style="width: 520px;height: 100px;margin: 15px auto 0;line-height: 35px;font-size: 1.5em;color: #000;text-align: center;padding-bottom: 15px;border-bottom: 1px solid #d4d4d4;">
+        <p>您即将离开12366纳税服务平台网站，<br>是否继续？</p></div>
+    <div style="width: 100%;padding: 25px 0;text-align: center;color: #000;">
+    <span onclick="nfptJumpOutSidePage.checkOutside()"  style="cursor: pointer;display: inline-block;margin: 0 12px;font-size: 1.25em;width: 124px;height: 42px;color: #ab0d07;border-radius: 3px;-webkit-border-radius: 3px;border: #e1e1e1 1px solid;text-align: center;line-height: 42px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+    -webikt-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;">继续访问</span>
+        <span onclick="nfptJumpOutSidePage.cancelOutside()" style="cursor: pointer;display: inline-block;margin: 0 12px;font-size: 1.25em;line-height: 42px;color: #ab0d07;">放弃</span>
+    </div>
+</div>
+<div id="outside-mask" style="display: none;position: fixed;top: 0px;left: 0px;z-index: 1000;background: rgba(0, 0, 0, 0.7);filter: alpha(opacity = 80) !important;width: 100%;height: 100%;"></div>
+
+<script type="text/javascript">
+    var nfptJumpOutSidePage = {
+        currentUrl: '',
+        acceptUrl: [],
+        showOutsideAlert: function (ourl) {
+            if (nfptJumpOutSidePage.acceptUrl.includes(ourl) || ourl.startsWith('https://12366.chinatax.gov.cn')) {
+                window.open(ourl)
+            } else {
+                nfptJumpOutSidePage.currentUrl = ourl
+                $('#outside').show()
+                $('#outside-mask').show()
+            }
+        },
+        checkOutside: function () {
+            $('#outside').hide()
+            $('#outside-mask').hide()
+            nfptJumpOutSidePage.acceptUrl.push(nfptJumpOutSidePage.currentUrl)
+            window.open(nfptJumpOutSidePage.currentUrl)
+        },
+        cancelOutside: function () {
+            $('#outside').hide()
+            $('#outside-mask').hide()
+        }
+    }
+</script>
+
+</div>
+
+<div id="wx-share"
+     style="display: none; left: 50%; top: 50%; margin-left: -110px; margin-top: -122.5px; position: fixed; height: 245px; width: 220px;z-index: 100000001; font-size: 12px; padding: 6px !important; border-radius: 5px;background: url(/core-plugins/12366/css/images/background-opaque-dark.gif) !important;">
+    <div onclick="shareComponents.colseWxShare()"
+         style="top: 8px; right: 20px;cursor: pointer; position: absolute; z-index: 10000000; color: #666; font-weight: bold; font-family: Helvetica,Arial; font-size: 14px; line-height: 20px;">
+        X
+    </div>
+    <div class="bsTop"
+         style="width: 220px; color: #666; background: #f2f2f2; height: 24px; line-height: 24px; border-bottom: 1px solid #e8e8e8;">
+        <span style="margin-left:15px;">分享到</span>
+        <span class="bsPlatName">&nbsp;-&nbsp;微信</span>
+    </div>
+    <div style="border: none; background: #fff;">
+        <div style="height: 220px; width: 220px; display: block;">
+            <div id="wx-share-code" style="width:178px;height:178px;margin:21px;display:inline-block;"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var shareComponents = {
+        share2Channel: function (type, title, url, toShare) {
+            if (!toShare) {
+                toShare = document.location.href;
+            }
+
+            switch (type) {
+                case '1':
+                    shareComponents.share2Wb(title, url, toShare);
+                    break;
+                case '2':
+                    shareComponents.share2QZone(title, url, toShare);
+                    break;
+                case '3':
+                    shareComponents.share2Wx(title, url, toShare);
+                    break;
+            }
+        },
+
+        share2Wb: function (title, localUrl, toShare) {
+            var page_name = '国家税务总局12366纳税服务平台';
+            var pic = localUrl + "/core-plugins/12366/css/images/logo-sml.png";
+
+            var shareUrl = "http://service.weibo.com/share/share.php?";
+
+            shareUrl = shareUrl + "url=" + encodeURIComponent(toShare);
+            shareUrl = shareUrl + "&title=" + encodeURIComponent(page_name + "  " + title);
+            shareUrl = shareUrl + "&pic=" + encodeURIComponent(pic);
+            shareUrl = shareUrl + "&ralateUid=5120551209";
+            shareUrl = shareUrl + "&language=zh_cn";
+            window.open(shareUrl, "分享到微博", "height=600,width=900,location=yes,menubar=1");
+        },
+
+        share2QZone: function (title, localUrl, toShare) {
+            var page_name = '国家税务总局12366纳税服务平台';
+            var pic = localUrl + "/core-plugins/12366/css/images/logo-sml.png";
+
+            var shareUrl = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            shareUrl = shareUrl + "url=" + encodeURIComponent(toShare);
+            shareUrl = shareUrl + "&title=" + encodeURIComponent(title);
+            shareUrl = shareUrl + "&pics=" + encodeURIComponent(pic);
+            shareUrl = shareUrl + "&site=" + encodeURIComponent(page_name);
+            shareUrl = shareUrl + "&summary=" + encodeURIComponent(page_name + "  " + title);
+            window.open(shareUrl, "分享到QQ空间", "height=600,width=900,location=yes,menubar=1");
+        },
+
+        share2Wx: function (title, localUrl, toShare) {
+            if (!$('#wx-share-code').qrcode) {
+                shareComponents.loadScript('/core-plugins/12366/js/jquery.qrcode.min.js', shareComponents.wxCallbackFunction, toShare);
+            } else {
+                shareComponents.wxCallbackFunction(toShare)
+            }
+
+            $("#wx-share").show();
+        },
+
+        wxCallbackFunction: function (toShare) {
+            $('#wx-share-code').empty();
+            $('#wx-share-code').qrcode({
+                text: toShare,//二维码链接地址
+                height: 178,
+                width: 178,
+            })
+        },
+
+        loadScript: function (src, callback, toShare) {
+            var script = document.createElement('script'),
+                head = document.getElementsByTagName('head')[0];
+            script.type = 'text/javascript';
+            script.charset = 'UTF-8';
+            script.src = src;
+            if (script.addEventListener) {
+                script.addEventListener('load', function () {
+                    callback(toShare);
+                }, false);
+            } else if (script.attachEvent) {
+                script.attachEvent('onreadystatechange', function () {
+                    var target = window.event.srcElement;
+                    if (target.readyState == 'loaded') {
+                        callback(toShare);
+                    }
+                });
+            }
+            head.appendChild(script);
+        },
+
+        colseWxShare: function () {
+            $("#wx-share").hide();
+        }
+    }
+</script>
+<script>
+    var bh = '9ece2b2640c5496cb30e9f4853ad1603';
+    //当前url地址
+    var url = window.location.href;
+    var ctx = '';
+    var link = url.substring(url.indexOf(ctx) + ctx.length, url.length);
+
+    //自动填充留言信息
+    $(function () {
+        countThumbsUp();
+        checkThumbsUp();
+        checkCollection();
+
+        var fj = [];
+
+        if (fj.length == 0 || fj[0].id == 'null') {
+            $("#fj").html('无附件');
+        } else {
+            for (var i = 0; i < fj.length; i++) {
+                var fjmc = fj[i].wjmc;
+                var fjdz = fj[i].id;
+                var _html = $('<li><a href="/filecenter/fileupload/download?fileId=' + fjdz + '&type=1" title="' + fjmc + '"><i></i>' + fjmc + '</a></li>');
+
+                $("#fj").append(_html);
+            }
+        }
+
+        var jgmc = "江苏";
+        if (jgmc.indexOf('黑龙江') >= 0 || jgmc.indexOf('内蒙古') >= 0) {
+            jgmc = jgmc.substr(0, 3);
+        } else {
+            jgmc = jgmc.substr(0, 2);
+        }
+        $('#nsrssd').val(jgmc);
+    });
+
+    //分享
+    function share(type) {
+        var url = document.location.href;
+        url = url.substr(0, url.lastIndexOf('/'));
+        url = url.substr(0, url.lastIndexOf('/'));
+        url = url.substr(0, url.lastIndexOf('/'));
+        var bt = $('h1').text();
+        shareComponents.share2Channel(type, bt, url);
+
+        //延时3秒
+        setTimeout(function () {
+            $.ajax({
+                url: "/zbhz/data/share/bonus",
+                data: {
+                    ywbh: bh
+                },
+                dataType: 'json',
+                success: function (jr) {
+                    if (jr.code = "1") {
+                        //添加积分成功
+                        //无需提示
+                    }
+                }
+            })
+        }, 3000);
+
+        try {
+            // 添加网上留言分享日志埋点
+            $.loadLogScript("https://12366.chinatax.gov.cn/znzx/js/arlog.js?time=" + new Date().getTime(), "arlogAnchor", {
+                "data-module": "wsly_fx",
+                "data-id": "9ece2b2640c5496cb30e9f4853ad1603",
+                "data-tag": "",
+                "data-title": ""
+            });
+        } catch (e) {
+        }
+    }
+
+    //点赞
+    function thumbsUp() {
+        $.ajaxPost({
+            type: 'post',
+            url: '/nsrxt/thumbsup/click',
+            data: {ywid: bh},
+            dataType: 'json',
+            callback: function (res) {
+                if (res.code === 0) {
+                    $.info(res.msg);
+                } else {
+                    $.correct("点赞成功");
+                    countThumbsUp();
+                    $('#likeBtn').addClass("on");
+                    $('#likeBtn').removeAttr("onclick");
+                    setTimeout(function () {
+                        $('.upzan').fadeOut();
+                    }, 500);
+
+                    try {
+                        // 添加网上留言点赞日志埋点
+                        $.loadLogScript("https://12366.chinatax.gov.cn/znzx/js/arlog.js?time=" + new Date().getTime(), "arlogAnchor", {
+                            "data-module": "wsly_dz",
+                            "data-id": "9ece2b2640c5496cb30e9f4853ad1603",
+                            "data-tag": "",
+                            "data-title": ""
+                        });
+                    } catch (e) {
+                    }
+                }
+            }
+        })
+    }
+
+    //获取点赞数量
+    function countThumbsUp() {
+        $.ajax({
+            type: 'post',
+            url: '/nsrxt/thumbsup/getCount',
+            data: {ywid: bh},
+            dataType: 'json',
+            success: function (res) {
+                if (res.code === 0) {
+                    return;
+                }
+
+                var _html = res.data;
+                $('#likeNum').empty().append(_html);
+
+            }
+        })
+    }
+
+    //检查点赞状态
+    function checkThumbsUp() {
+        $.ajax({
+            type: 'post',
+            url: '/nsrxt/thumbsup/check',
+            data: {ywid: bh},
+            dataType: 'json',
+            success: function (result) {
+                if (result.code === 1) {
+                    $('#likeBtn').addClass("on");
+                    $('#likeBtn').removeAttr("onclick");
+                    $('.upzan').hide();
+                } else {
+                    $('#likeBtn').removeClass("on");
+                }
+            }
+        })
+    }
+
+    //检查收藏状态
+    function checkCollection() {
+        $.ajax({
+            type: 'post',
+            url: '/usercenter/userCollection/check',
+            data: {ywid: bh},
+            dataType: 'json',
+            success: function (result) {
+                if (result.code === 1) {
+                    $('#collectionBtn').addClass('on');
+                    $('#collectionBtn').removeAttr("onclick");
+                    $('#collectionWord').html('已收藏');
+                } else {
+                    $('#collectionBtn').removeClass('on');
+                    $('#collectionWord').html('收藏');
+                }
+            }
+        })
+    }
+
+    //收藏留言详情
+    function collect() {
+        var bt = $('h1').text();
+
+        var url = document.location.href;
+        var ctx = '';
+        var link = url.substring(url.indexOf(ctx) + ctx.length, url.length);
+
+        $.ajaxPost({
+            type: 'post',
+            url: '/usercenter/userCollection/save',
+            data: {lmbh: 'wsly', lmmc: '网上留言', scbt: bt, sclink: link, ywid: bh},
+            dataType: 'json',
+            callback: function (res) {
+                if (res.code === 1) {
+                    $('#collectionBtn').addClass('on');
+                    $('#collectionWord').html('已收藏');
+                    $('#collectionBtn').removeAttr("onclick");
+                    $.correct("收藏成功");
+
+                    try {
+                        // 添加网上留言收藏日志埋点
+                        $.loadLogScript("https://12366.chinatax.gov.cn/znzx/js/arlog.js?time=" + new Date().getTime(), "arlogAnchor", {
+                            "data-module": "wsly_sc",
+                            "data-id": "9ece2b2640c5496cb30e9f4853ad1603",
+                            "data-tag": "",
+                            "data-title": ""
+                        });
+                    } catch (e) {
+                    }
+                } else if (res.msg === 'collected') {
+                    $('#collectionBtn').removeAttr("onclick");
+                    $.info("您已收藏该信息，无法重复收藏");
+                } else if (res.msg === 'excess') {
+                    $.info("收藏数量过多，请删除收藏后重试");
+                } else {
+                    $.error("收藏失败，请稍后再试");
+                }
+            }
+        })
+    }
+
+</script>
+</body>
+</html>
+
+<script type="text/javascript">
+<!--
+	(function(data) {
+		if (!window['Zepto'] && window['$']) {
+			// jQuery for brower
+			$(document).data('ew-ui-zrardata', data);
+		} else {
+			// Zepto for mobile
+			window['euidata'] = data;
+		}
+	})( {"zrarData":{"select":{},"form":{},"grid":{},"tree":{},"checkbox":{},"asyncTree":{},"radio":{}},"warn":"","json":{},"message":"","statusCode":"200"});
+//-->
+</script>

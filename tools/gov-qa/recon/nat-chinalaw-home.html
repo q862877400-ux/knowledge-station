@@ -1,0 +1,2287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>中华人民共和国司法部</title>
+<link rel="shortcut icon" href="./images/sfbgw_favicon.ico"> 
+<link type="text/css" rel="stylesheet" href="./images/reset.css">
+<link type="text/css" rel="stylesheet" href="./images/jquery.mCustomScrollbar.css" />
+<link type="text/css" rel="stylesheet" href="./images/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="./images/masterQ.css" />
+<link type="text/css" rel="stylesheet" href="./images/debug.css" />
+<style>
+.box{
+    width:383px;
+    height: 36px;
+    position:relative;
+    overflow: hidden;
+}
+.box ul{
+ position: absolute;
+ width: 100%;
+            top: 0;
+            left: 0;}
+.box ul li{
+ line-height: 36px;
+            list-style: none;
+         
+            box-sizing: border-box;
+font-size:16px;
+    color:#454343;
+    padding:0 10px;
+    cursor: pointer;
+}
+.box ul li a{
+ overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*20221201页面置灰*/
+/*.top_oper,.skyMain,.bottom-copyright,.rightBar,.wza{
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+_filter:none;
+filter:gray!important;
+ -ms-filter: grayscale(100%)!important;
+ filter: grayscale(100%);
+}
+.indexNew .top_bg {
+background: url(/pub/sfbgw/images/index_top_bg_new2_gray.png) no-repeat center;
+background-size: 100% 100%;
+}
+.toutiao_bg{
+color: rgb(47,47,47);
+}
+.toutiao_bg h2 a:hover{
+color: #404040;
+}
+.navBg {
+color: rgb(47,47,47);
+background-color: rgb(47,47,47);
+}
+.nav .sub a:hover{
+background-color: gray;
+}*/
+.leftListMain ul li{
+    margin-bottom:unset;
+    font-size:16px;
+    color:#454343;
+    background:url(/pub/sfbgw/images/point.png) no-repeat left center;
+    padding:0 10px;
+    line-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@media screen and (max-width: 400px) {
+    .skyMain {
+        width: 1270px;
+    }
+}
+
+.toutiao_bg .moreNew {
+    right: -35px;
+}
+.toutiao_bg h1 a {
+    line-height: 40px;
+}
+.yfzgwz{
+    font-size: 16px;
+}
+.yfzgMain ul li{
+    font-size: 16px;
+}
+.showTxt{
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.showTxt a{
+    color: #ffffff;
+    font-size:18px;
+    font-family:"微软雅黑","宋体"
+}
+.picShow .swiper-pagination-bullet{
+/*background:#a9a49e;*/
+    background:#959595;
+}
+.picShow .swiper-pagination-bullet-active{
+background:#ffffff;
+}
+.zhpfCon .list2 li:first-child {
+    margin-top: 4px;
+}
+.sky_title_3 ul{
+    display: flex;
+    box-sizing: border-box;
+}
+.sky_title_3 ul li {
+    font-size: 20px;
+    color: #2e2f31;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 49px;
+    width: 90px;
+}
+.sky_title_3 ul li.active {
+    color: #a72213;
+    font-weight: bold;
+    border-bottom: 2px solid;
+}
+.sky_title_4 ul{
+    display: flex;
+    box-sizing: border-box;
+}
+.sky_title_4 ul li {
+    font-size: 20px;
+    color: #2e2f31;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 49px;
+    width: 90px;
+}
+.sky_title_4 ul li.active {
+    color: #a72213;
+    font-weight: bold;
+    border-bottom: 2px solid;
+}
+.sky_title_5 ul {
+    border-top: 1px solid #dcdddf;
+    border-bottom: 1px solid #93969a;
+    box-sizing: border-box;
+}
+.sky_title_6 ul {
+    display: flex;
+    border-top: 1px solid #dcdddf;
+    border-bottom: 1px solid #93969a;
+    box-sizing: border-box;
+}
+.sky_title_6 ul li {
+    font-size: 20px;
+    color: #2e2f31;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 46px;
+    width: 90px;
+}
+.sky_title_6 ul li.active {
+    color: #a72213;
+    font-weight: bold;
+    border-bottom: 2px solid;
+}
+
+
+
+.zhpf_topNew {
+	background: url(images/sfbgw_bg_titNa_new.png) no-repeat;
+	width: 373px;
+	height: 49px;
+}
+.topTxt {
+	color: #a72213;
+	font-size: 30px;
+	font-weight: bold;
+}
+.topTxt span {
+	font-size: 20px;
+}
+.fwdt_topA {
+	background: url(images/sfbgw_bg_titNb_new.png) no-repeat;
+	width: 788px;
+	height: 49px;
+	margin-bottom: 12px;
+}
+.noticeWp .sky_title_2 ul li {
+	width: auto;
+	margin-right: 10px;
+	cursor: pointer;
+	display: flex;
+}
+.noticeWp .leftListMain ul li {
+	display: flex;
+}
+.noticeWp .leftListMain ul li a {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.leftListMain .tf {
+	color: #404040;
+}
+.leftListMain .infoTxt {
+	width: 80%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.noticeWp .sky_title_2 {
+	position: relative;
+        font-weight: bold;
+}
+.sky_title_2 ul{
+border-bottom: 1px solid #dcdddf;
+}
+.noticeWp .add {
+	background: url(images/sfbgw_icon_add.png) no-repeat;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top: 23px;
+	right: 10px;
+	cursor: pointer;
+}
+.lfyjA {
+	margin-top: 57px;
+}
+.hdjlA {
+	margin-top: 36px;
+}
+.xwyw_tp a img {
+    vertical-align: middle;
+    max-width: 120px;
+    max-height: 30px;
+}
+
+
+/*专题专栏轮播*/
+.pic-list-show{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top:6px;
+}
+.picGroup{
+  margin-top: 20px;
+}
+.picGroup .bd ul li{
+  width: 178px;
+  height: 99px;
+  position: relative;
+}
+.picGroup .bd ul li a{
+  display:block;
+  width: 100%;
+  height: 100%;
+}
+.picGroup .bd ul li a img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.picGroup .bd{
+  overflow:hidden;
+}
+
+/*互动交流*/
+.hdjlCon .list li:nth-child(1){
+    background:url(images/sfbgwwls20250311h.jpg);
+    /*background:url(images/sfbgwwls20241220h.png);
+    background:url(images/sfbgwwls20230410h.png);*/
+    /*background:url(images/sfbgwtjy20231214.png)*/
+}
+.hdjlCon .list li:nth-child(1):hover{
+    background:url(images/sfbgwwls20250311.jpg);
+    /*background:url(images/sfbgwwls20241220.png);
+    background:url(images/sfbgwwls20230410.png);*/
+    /*background:url(images/sfbgwtjy20231214h.png)*/
+}
+.hdjlCon .list li:nth-child(2){
+    background:url(images/sfbgwwmly20230410.png);
+}
+.hdjlCon .list li:nth-child(2):hover{
+    background:url(images/sfbgwwmly20230411h_.png);
+}
+.hdjlCon .list li:nth-child(3){
+    background:url(images/list4_icon_2.png);
+}
+.hdjlCon .list li:nth-child(3):hover{
+    background:url(images/list4_icon_2h.png);
+}
+.hdjlCon .list li:nth-child(4){
+    background:url(images/list4_icon_4.png);
+}
+.hdjlCon .list li:nth-child(4):hover{
+    background:url(images/list4_icon_4h.png);
+}
+</style>
+<script type="text/javascript">
+function changeTab(name,curnum,totalnum){
+	for(var i = 0; i < totalnum; i++){
+		//隐藏tab并删除active样式
+		document.getElementById("doc"+name+i).style.display = "none";
+	}
+//显示tab及增加active样式
+if(name=="3_"){
+document.getElementById("doc"+name+curnum).style.display = "block";
+}else{
+document.getElementById("doc"+name+curnum).style.display = "block";
+}
+
+                if(name=="5_" && curnum == 1){
+                     getBmgzList(1);//部门规章
+                 }
+                if(name=="5_" && curnum == 2){
+                     getGfxwjList(1);//规范性文件
+                 }
+	
+}
+</script>
+</head>
+<body style="min-width:1270px;">
+
+
+
+
+<div class="container indexNew">
+
+  
+ <!--首页头春节飘红-->
+
+ <!--<div style="display:none; line-height: 0px; min-width:1200px;">
+  <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qglh0206/" target="_blank"><img src="./images/2026sfqglh0303155701.png" width="100%" height="200" border="0" /></a>-->
+  </div>
+  
+   <!--首页头春节飘红end-->
+
+
+
+  <!--头部-->
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>中华人民共和国司法部</title>
+<style>
+.nav .sub a{
+height:30px;
+}
+</style>
+</head>
+<body>
+<div class="container indexNew close_top">
+  <!--头部开始-->
+  <div class="top_bg" style="height: 168px;">
+    <div class="logo" style="padding-top: 36px;">
+      <img src="./images/topLogo_new_3.png" alt="" />
+    </div>
+    <div class="top_oper" style="top: 12px;">
+      <a href="javascript:;" style="color: white;padding: 6px;display : none;" id="username"></a>
+      <a href="/sfbconsult/index.html#/admin/personalCenter" style="color: white;padding: 6px;display : none;" target="_blank" id="usercenter">个人中心</a>
+      <a href="javascript:loginout();" style="color: white;padding: 6px;display : none;" id="zx">退出登录</a>
+ 
+      <a href="http://en.moj.gov.cn/" class="lang-en" target="_blank">English</a>
+      <a href="javascript:aria.start();" class="wza">无障碍浏览</a>
+      <a href="javascript:aria.oldFixedStart();" style="cursor: pointer;margin-left: 15px;color: white;">适老关怀版</a>
+    </div>
+  </div>
+  <!--头部结束-->
+  <!--导航开始-->
+  <div class="navBg">
+    <ul class="nav" style="width:1050px;">
+      <li class="mainlevel" id="mainlevel_01"><a href="/pub/sfbgw/index.html"> <span class="icon iconA"></span> 首页</a> </li>
+      <li class="mainlevel" id="mainlevel_02"><a href="/pub/sfbgw/jgsz/"> <span class="icon iconB"></span> 机构设置</a>
+        <ul id="sub_02" class="sub">
+	    
+		<li><a href="./jgsz/jgszjgzn/" target="_blank">
+		机构职能
+		</a></li>
+	    
+		<li><a href="./jgsz/jgszbldjs/" target="_blank">
+		部领导介绍
+		</a></li>
+	    
+		<li><a href="./jgsz/gjjwzsfbjjz/" target="_blank">
+		驻司法部纪检监察组
+		</a></li>
+	    
+		<li><a href="./jgsz/jgszjgtj/" target="_blank">
+		机关厅局
+		</a></li>
+	    
+		<li><a href="./jgsz/jgszzsdw/" target="_blank">
+		直属单位
+		</a></li>
+	    
+        </ul>
+      </li>
+      <li class="mainlevel" id="mainlevel_03"><a href="/pub/sfbgw/qmyfzg/"> <span class="icon iconC"></span>全面依法治国</a>
+        <ul id="sub_03" class="sub">
+	    
+		<li><a href="./qmyfzg/qmyfzgjgjj/" target="_blank">
+		机构简介
+		</a></li>
+	    
+		<li><a href="./qmyfzg/qmyfzgjcbs/" target="_blank">
+		决策部署
+		</a></li>
+	    
+		<li><a href="./qmyfzg/fzgzzffz/" target="_blank">
+		法治政府建设
+		</a></li>
+	    
+		<li><a href="./qmyfzg/fzgzfzdy/" target="_blank">
+		法治调研
+		</a></li>
+	    
+		<li><a href="./qmyfzg/fzgzfzdc/" target="_blank">
+		法治督察
+		</a></li>
+	    
+        </ul>
+      </li>
+      <!--<li class="mainlevel" id="mainlevel_04"><a href="#"> <span class="icon iconC"></span>法律法规规章</a>
+        <ul id="sub_03" class="sub">
+	    
+		<li><a href="./flfggz/flfggzflk/" target="_blank">
+		法律
+		</a></li>
+	    
+		<li><a href="./flfggz/flfggzflty/" target="_blank">
+		法律条约
+		</a></li>
+	    
+		<li><a href="./flfggz/flfggzxzfg/" target="_blank">
+		行政法规
+		</a></li>
+	    
+		<li><a href="./flfggz/flfggzfgjd/" target="_blank">
+		法规解读
+		</a></li>
+	    
+		<li><a href="./flfggz/flfggzbmgz/" target="_blank">
+		部门规章
+		</a></li>
+	    
+		<li><a href="./flfggz/flfggzdfzwgz/" target="_blank">
+		地方政府规章
+		</a></li>
+	    
+        </ul>
+      </li>-->
+      <!--<li class="mainlevel" id="mainlevel_04"><a href="http://xzfg.moj.gov.cn/search2.html" target="_blank"> <span class="icon iconD"></span>国家行政法规库</a></li>-->
+      <li class="mainlevel" id="mainlevel_05"><a href="/pub/sfbgw/zwxxgk/zfxxgkzc/index.html" target="_blank"> <span class="icon iconE"></span> 政府信息公开</a>
+        <!--<ul id="sub_05" class="sub">
+	    
+          
+        </ul>-->
+      </li>
+      <li class="mainlevel" id="mainlevel_06"><a href="/pub/sfbgw/zwfw/"> <span class="icon iconF"></span> 政务服务</a>
+        <ul id="sub_06" class="sub">
+	    
+		<li><a href="./zwfw/zwfwbszn/" target="_blank">
+		办事指南
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwbgxz/" target="_blank">
+		表格下载
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwlscz/" target="_blank">
+		律师查找
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwgzbl/" target="_blank">
+		公证办理
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwfkfw/" target="_blank">
+		法考服务
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwflyz/" target="_blank">
+		法律援助
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwrmtj/" target="_blank">
+		人民调解
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwsfjd/" target="_blank">
+		司法鉴定
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwzcfw/" target="_blank">
+		仲裁服务
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwsfxzalk/" target="_blank">
+		司法行政案例库
+		</a></li>
+	    
+		<li><a href="./zwfw/zwfwsfbzwfwpt/" target="_blank">
+		司法部政务服务平台
+		</a></li>
+	    
+        </ul>
+      </li>
+	  <li class="mainlevel" id="mainlevel_07"><a href="/pub/sfbgw/lfyjzj/"> <span class="icon iconD"></span>立法意见征集</a>
+        <ul id="sub_04" class="sub">
+	    
+		<li><a href="./lfyjzj/lflfyjzj/" target="_blank">
+		立法意见征集
+		</a></li>
+	    
+		<li><a href="./lfyjzj/lfjrzjxt/" target="_blank">
+		进入征集系统
+		</a></li>
+	    
+        </ul>
+      </li>
+      <li class="mainlevel" id="mainlevel_08"><a href="/pub/sfbgw/hdjl/"> <span class="icon iconG"></span> 互动交流</a>
+        <ul id="sub_07" class="sub">
+	    
+		<li><a href="./hdjl/hdjlwmly/" target="_blank">
+		网民留言
+		</a></li>
+	    
+		<li><a href="./hdjl/hdjltsjb/" target="_blank">
+		投诉举报
+		</a></li>
+	    
+		<li><a href="./hdjl/hdjlwsxf/" target="_blank">
+		网上信访
+		</a></li>
+	    
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--导航结束-->
+
+</div>
+<script defer async type="text/javascript" src="//gov.govwza.cn/dist/aria.js?appid=0bd388c500185c7ee5b25e4d59760464" charset="utf-8"></script>
+<div style="display:none"> <a href="/btatw23_atbp/bt"></a> </div></body>
+<script type="text/javascript" src="./images/jquery-1.12.4.min.js"></script>
+<script src="./images/aes.js"></script>
+<script src="./images/mode-ecb-min.js"></script>
+<script type="text/javascript" src="./images/encodeBase64.js"></script>
+<script type="text/javascript">
+$(function (){
+getUserInfo();
+})
+
+
+function openwza() {
+    var url=window.location.href;
+       window.location.href = '/sfbsso/wza/index.html?url='+ascEncrypt(url);
+    var assistant =new Assistant(url);
+}
+
+function getUserInfo() {
+   $.ajax({
+      url:'/sfbconsult/user/getLoginUser',
+      type:'GET',
+      dataType:'json',
+      contentType:'application/json',
+      success:function(res){
+         if(res.success){
+          $("#username").css("display", "inline-block");  
+          $("#zx").css("display", "inline-block");  
+          $("#usercenter").css("display", "inline-block");  
+          if(res.data.real_name){
+               $('#username').text(res.data.real_name); 
+          }else{
+               $('#username').text('匿名用户'); 
+          }
+
+         }
+      }
+   })
+}
+
+function loginout() {
+   $.ajax({
+      url:'/sfbconsult/user/logout',
+      type:'GET',
+      dataType:'json',
+      contentType:'application/json',
+      success:function(res){
+         if(res.success){
+          $("#username").css("display", "none");  
+          $("#zx").css("display", "none");  
+          $("#usercenter").css("display", "none");  
+          $('#username').text('');
+         }
+      }
+   })
+}
+
+</script>
+
+</html>
+  
+  <!--banner开始-->
+  <div class="toutiao_bg" style="height: auto;padding-bottom: 10px;min-width: 1270px;">
+    <div class="w1200">
+        <h1 style="padding: 10px 0px;">
+		
+		 
+
+<!-- <a style="height: 80px;align-items: center;display: flex;justify-content: center;" href='./gwxw/ttxw/202610/t20261008_540410.html' target="_blank">习近平文化思想引领文化强国建设迈出坚实步伐</a>-->
+<!-- 首页大标题字数过多时保持一行显示 -->
+<a style="height: 80px;align-items: center;display: flex;justify-content: center;white-space: nowrap;font-size: 30px;flex-shrink: 0;" href='./gwxw/ttxw/202610/t20261008_540410.html' target="_blank">习近平文化思想引领文化强国建设迈出坚实步伐</a>
+		
+	  </h1>
+        <!--  <h1 style="padding: 5px 0px;">
+		
+		 <a style="height: 50px;align-items: center;display: flex;justify-content: center;" href='http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202610/t20261008_540410.html' target="_blank" Title="“十五五”开局之年，我们以文化滋养精神家园，">“十五五”开局之年，我们以文化滋养精神家园 ,</a>
+		
+	  </h1>-->
+
+ <!--  临时隐藏 头条相关-->
+ <!--  调整官网头条数 -->
+      <h2 style="width: 100%;width: 1250px;line-height: 26px;">
+		
+		 <a href='http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202610/t20261008_540410.html' target="_blank" Title="“十五五”开局之年，我们以文化滋养精神家园，">“十五五”开局之年，我们以文化滋养精神家园 ,</a>
+		
+		 <a href='http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202610/t20261008_540410.html' target="_blank" Title="神州大地文化创造生机勃勃，社会主义文化强国建设迈出坚实步伐">神州大地文化创造生机勃勃，社会主义文化强国建设迈出坚实步伐</a>
+		
+		 <a href='https://www.news.cn/politics/leaders/20261006/e6533a9fa06b451f895e82693960821f/c.html' target="_blank" Title="学习原声丨以文化滋养精神家园">学习原声丨以文化滋养精神家园</a>
+		
+      </h2>
+
+      <!--20221130置灰删除-->
+       <span class="moreNew" style="right: -80px;"><a href="./gwxw/ttxw/" target="_blank">...更多</a></span>
+    </div>
+  </div>
+  <!--banner结束-->
+  <!--main开始-->
+  <div class="skyMain" style="flex-direction: column;">
+    <div class="flexB">
+      <div class="mainLeft">
+        <div class="picShow">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202609/t20260930_540366.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260930776572489358.jpg" alt="官网滚图.jpg" width="788" height="478"/></a>-->
+                                            <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202609/t20260930_540366.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260930776572489358.jpg" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="习近平等党和国家领导人出席庆祝中华人民共和国成立77周年招待会"><a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/ttxw/202609/t20260930_540366.html" target="_blank">习近平等党和国家领导人出席庆祝中华人民共和国成立77周年招待会</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxxcgcdd2sj4zqhjs/" target="_blank"><img src="./gwxw/tpxw/202510/W020251024502343089726.png" alt="788478.png" width="788" height="478"/></a>-->
+                                            <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxxcgcdd2sj4zqhjs/" target="_blank"><img src="./gwxw/tpxw/202510/W020251024502343089726.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="学习贯彻党的二十届四中全会精神"><a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxxcgcdd2sj4zqhjs/" target="_blank">学习贯彻党的二十届四中全会精神</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/xxxcgcxjpfzsx/" target="_blank"><img src="./gwxw/tpxw/202012/W020210910780079956325.png" alt="滚图 习思想.png" width="788" height="478"/></a>-->
+                                            <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/xxxcgcxjpfzsx/" target="_blank"><img src="./gwxw/tpxw/202012/W020210910780079956325.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="学习宣传贯彻习近平法治思想"><a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/xxxcgcxjpfzsx/" target="_blank">学习宣传贯彻习近平法治思想</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="./gwxw/tpxw/202609/t20260915_539704.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260915729025992472.png" alt="未命名.png" width="788" height="478"/></a>-->
+                                            <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/tpxw/202609/t20260915_539704.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260915729025992472.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="司法部部长贺荣会见香港国际仲裁中心<br>联合主席杜淦堃"><a href="./gwxw/tpxw/202609/t20260915_539704.html" target="_blank">司法部部长贺荣会见香港国际仲裁中心联合主席杜淦堃</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="./gwxw/tpxw/202607/t20260730_538061.html" target="_blank"><img src="./gwxw/tpxw/202607/W020260730832803755139.png" alt="111.png" width="788" height="478"/></a>-->
+                                            <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/tpxw/202607/t20260730_538061.html" target="_blank"><img src="./gwxw/tpxw/202607/W020260730832803755139.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="司法部部长贺荣会见土耳其<br>宪法法院院长厄兹卡亚"><a href="./gwxw/tpxw/202607/t20260730_538061.html" target="_blank">司法部部长贺荣会见土耳其宪法法院院长厄兹卡亚</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="./gwxw/tpxw/202607/t20260710_537350.html" target="_blank"><img src="./gwxw/tpxw/202607/W020260710736945144517_788.jpg" alt="微信图片_20260710195848_88_417.jpg" width="788" height="478"/></a>-->
+                                            <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/tpxw/202607/t20260710_537350.html" target="_blank"><img src="./gwxw/tpxw/202607/W020260710736945144517.jpg" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="司法部举行直属机关“两优一先”表彰大会<br>暨学习教育专题党课"><a href="./gwxw/tpxw/202607/t20260710_537350.html" target="_blank">司法部举行直属机关“两优一先”表彰大会暨学习教育专题党课</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="./gwxw/tpxw/202609/t20260924_540137.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260924741718784157.png" alt="未命名.png" width="788" height="478"/></a>-->
+                                            <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/tpxw/202609/t20260924_540137.html" target="_blank"><img src="./gwxw/tpxw/202609/W020260924741718784157.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="“一带一路”共建国家法律专业人员研修班<br>在北京举办"><a href="./gwxw/tpxw/202609/t20260924_540137.html" target="_blank">“一带一路”共建国家法律专业人员研修班在北京举办</a></div>
+            </div>
+          </div>
+        
+          <div class="swiper-slide">
+            <div class="showMain">
+            <div class="showImg">
+              <!--<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qgtysfky0611/" target="_blank"><img src="./gwxw/tpxw/202609/W020260922515493857968.png" alt="首页滚图3.png" width="788" height="478"/></a>-->
+                                            <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qgtysfky0611/" target="_blank"><img src="./gwxw/tpxw/202609/W020260922515493857968.png" width="788" height="478" /></a>
+            </div>
+            <div class="showTxt ellipsis" Title="2026年国家统一法律职业资格主观题考试模拟答题系统"><a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qgtysfky0611/" target="_blank">2026年国家统一法律职业资格主观题考试模拟答题系统</a></div>
+            </div>
+          </div>
+        
+            </div>
+          </div>
+          <!-- Add Arrows -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="mainRight">
+        <div class="yfzg" style="height: 478px;">
+          <div class="sky_title"><a href="./qmyfzg/" target="_blank" style="color:#a72213;">全面依法治国</a></div>
+          <div class="yfzgcon">
+            <ul>
+        
+          <li class="yfzgpic">
+                                      <!--<a href="./qmyfzg/202103/t20210331_349128.html" target="_blank"><img src="./qmyfzg/202103/W020231103599897577348_214.jpg" alt="全面依法治国首页.jpg" width="214" height="147"/></a>-->
+                                      <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202103/t20210331_349128.html" target="_blank"><img src="./qmyfzg/202103/W020231103599897577348.jpg" width="214" height="147" /></a>
+                                  </li>
+          <li class="yfzgwz"> <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202103/t20210331_349128.html" target="_blank" Title="习近平：坚定不移走中国特色社会主义法治道路<br>为全面建设社会主义现代化国家提供有力法治保障">习近平：坚定不移走中国特色社会主义法治道路……</a> </li>
+        
+            </ul>
+          </div>
+          <div class="yfzgMain">
+            <ul>
+              
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202511/t20251121_528388.html" target="_blank" Title="习近平对全面依法治国工作作出重要指示">
+              习近平对全面依法治国工作作出重要指示
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202609/t20260928_540226.html" target="_blank" Title="习近平总书记重要论述指引平安中国建设砥砺前行">
+              习近平总书记重要论述指引平安中国建设砥砺前行
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202606/t20260601_535818.html" target="_blank" Title="《习近平法治文选》第一卷英文版出版发行">
+              《习近平法治文选》第一卷英文版出版发行
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/qmyfzg/202603/t20260311_532591.html" target="_blank" Title="从全国两会看法治中国建设重大成就与崭新实践">
+              从全国两会看法治中国建设重大成就与崭新实践
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://mp.weixin.qq.com/s/tN0CQm1Zvz5X3fPM71JOPw" target="_blank" Title="《习近平法治思想系列讲读》 第二集 建设更高水平的法治中国">
+              《习近平法治思想系列讲读》 第二集 建设更高水平的法治中国
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://mp.weixin.qq.com/s/tbOuS0Hcwrq7xwYBX2RvTA" target="_blank" Title="《习近平法治思想系列讲读》 第八集 建设德才兼备的高素质法治工作队伍">
+              《习近平法治思想系列讲读》 第八集 建设德才兼备的高素质法治工作队伍
+            </a>
+          </li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flexB">
+      <div class="mainLeft">
+        <div class="leftInfo_part2">
+          <div class="leftList">
+            <div class="sky_title_6">
+              <ul>
+          <a href="./gwxw/xwyw/" target="_blank"><li class="active">要闻</li></a>
+          <!--<a href="./gwxw/xwyw/szywbnyw/" target="_blank"><li style="margin-left: 10px;" onmouseover="changeTab('1_',1,2)" >部内要闻</li></a>-->
+              </ul>
+            </div>
+            <div class="leftListMain">
+              <ul >
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260930_540337.html" target="_blank" Title="司法部：深入学习贯彻习近平总书记重要指示精神<br>为建设更高水平平安中国贡献力量">
+                司法部：深入学习贯彻习近平总书记重要指示精神 为建设更高水平平安中国贡献力量
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260929_540306.html" target="_blank" Title="“2026年青年普法志愿者法治文化基层行”活动现场推进会<br>在黑龙江哈尔滨召开">
+                “2026年青年普法志愿者法治文化基层行”活动现场推进会在黑龙江哈尔滨召开
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://mp.weixin.qq.com/s/wqexrTbcbtT8YykZJtOczA" target="_blank" Title="国务院：审议通过《事业单位登记管理条例（草案）》">
+                国务院：审议通过《事业单位登记管理条例（草案）》
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260927_540199.html" target="_blank" Title="司法部长贺荣出席第15届联合国<br>预防犯罪和刑事司法大会并发言">
+                司法部长贺荣出席第15届联合国预防犯罪和刑事司法大会并发言
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260924_540112.html" target="_blank" Title="“一带一路”共建国家法律专业人员研修班<br>在北京举办">
+                “一带一路”共建国家法律专业人员研修班在北京举办
+              </a>
+            </li>
+          
+<!--防止box获取样式报错，恢复飘窗时注释该盒子代码-->
+<div class="box" style="display"><ul><li></li></ul></div>
+
+       <!--<div class="box" id="ywswipper">
+         <ul>
+          
+
+             <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260924_540112.html" target="_blank">
+                “一带一路”共建国家法律专业人员研修班在北京举办
+              </a>
+            </li>
+
+          
+
+             <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260924_540113.html" target="_blank">
+                李强签署国务院令 公布修订后的《中华人民共和国审计法实施条例》
+              </a>
+            </li>
+
+          
+
+             <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260922_540034.html" target="_blank">
+                中国监狱工作协会第六次代表大会在京召开 选举产生新一届领导班子
+              </a>
+            </li>
+
+          
+        </ul>
+      </div>-->
+      
+<script>
+var length =3;
+var settings = {
+  speeds: 12, //滚动的速度,单位ms
+  isPause: true, //滚动后每个消息是否需要暂停，true和false,
+  isHover:true, //鼠标悬停是否需要暂停
+};
+//声明timeout，用于后面清楚timeout事件
+var timeout = null;
+var ul = document.querySelector(".box>ul");
+ //获取当前滚动的高度，支持ie请自行使用currentStyle
+//var currentTop = parseInt(window.getComputedStyle(ul).top);
+var currentTop =36;
+//添加一个计数器，判断当前鼠标是否移入
+var isMove = 0;
+var firstlicontent =  $(".box>ul>li:first").text();
+
+//滚动函数
+function run() {
+  currentTop--;
+  ul.style.top = currentTop + "px";
+ //当页面滚动最后一个时，把第一个复制push到尾部
+  if (currentTop == (length- 1) * -36) {
+   let li = document.createElement("li");
+    
+   //li.innerHTML = arr[0];
+    li.innerHTML = firstlicontent;
+   ul.appendChild(li);
+  }
+
+  //无缝替换
+  if (currentTop == length * -36) {
+    currentTop = 0;
+    ul.style.top = currentTop + "px";
+    //var li = document.querySelectorAll("li");
+    var li = ul.getElementsByTagName("li");
+    ul.removeChild(li[li.length - 1]);
+  }
+
+     
+  //滚动后每个消息是否需要暂停
+  if (settings.isPause ) {
+    if (currentTop % 36 == 0) {
+      clearInterval(timer);
+      timeout = setTimeout(function () {
+        timer = setInterval(run, settings.speeds);
+      }, 3000);
+    }
+  }
+}
+var timer = setInterval(run, settings.speeds);
+
+
+//鼠标悬停是否需要暂停
+ul.onmouseover = function () {
+    if(settings.isHover){
+        clearInterval(timer);
+        clearTimeout(timeout);
+    }
+};
+ul.onmouseout = function () {
+  isMove=0;
+    if(settings.isHover){
+      clearTimeout(timeout);
+        timer = setInterval(run, settings.speeds);
+    }
+};
+</script>
+
+         <!--<li class="xwyw_tp">
+          
+
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/202609/t20260924_540113.html" target="_blank">
+                李强签署国务院令 公布修订后的《中华人民共和国审计法实施条例》
+              </a>
+
+          
+        </li>-->
+<!--<li class="" style="line-height: 0px;">          
+	<a href="http://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2022zt/shwyxfgs20221201/index.html" target="_blank">
+		<img src="./images/wyxfdgs_red.jpg" />
+   </a>
+</li>-->
+<!--<li class="" style="line-height: 0px;">          
+	<a href="http://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2022zt/sdbershida20221013/index.html" target="_blank">
+		<img src="./images/xxgcesdjs.jpg" />
+   </a>
+</li>-->
+              </ul>
+        <!--<ul id="doc1_1" style="display:none;">
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/szywbnyw/202609/t20260930_540338.html" target="_blank">
+                司法部：深入学习贯彻习近平总书记重要指示精神 为建设更高水平平安中国贡献力量
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/szywbnyw/202609/t20260929_540307.html" target="_blank">
+                “2026年青年普法志愿者法治文化基层行”活动现场推进会在黑龙江哈尔滨召开
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://mp.weixin.qq.com/s/wqexrTbcbtT8YykZJtOczA" target="_blank">
+                国务院：审议通过《事业单位登记管理条例（草案）》
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/szywbnyw/202609/t20260928_540259.html" target="_blank">
+                《民族团结进步促进法学习读本》出版发行
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/gwxw/xwyw/szywbnyw/202609/t20260928_540200.html" target="_blank">
+                司法部长贺荣出席第15届联合国预防犯罪和刑事司法大会并发言
+              </a>
+            </li>
+          
+              </ul>-->
+            </div>
+          </div>
+          <div class="rightList">
+  <div class="sky_title_5">
+    <ul style="height: 50px;">
+      <a href="./fzgz/" target="_blank"><li class=""  style="
+      height: 49px;
+      background: no-repeat;
+      color: #a72213;
+      font-weight: bold;
+      border-bottom: 2px solid;
+      border-radius: initial;
+      font-size: 20px;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 46px;
+      width: 90px;
+    ">法治工作</li></a>
+      
+    </ul>
+  </div>
+            <ul style="margin-top: 20px;">
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzxzlf/fzgzlfgz/')"><img src="./images/list1_icon_1.png" alt="" />行政立法</li>
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzxzzf/fzgzfygz/')"><img src="./images/list1_icon_3.png" alt="" />行政执法</li>
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzxszx/fzgzjygl/')"><img src="./images/list1_icon_2.png" alt="" />刑事执行</li>
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzggflfwx/fzgzpfyyfzl/')"><img src="./images/list1_icon_4.png" alt="" />公共法律服务</li>
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/swfz/swfzgjcf/')"><img src="./images/list1_icon_6.png" />涉外法治</li>
+              <li style="border-radius: 5px;height: 55px;" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzqt/fzgzdjgz/')"><img src="./images/list1_icon_5.png" alt="" />综合保障</li>
+              <!--<li style="border-radius: 5px;margin-bottom: 5px;" class="else" onclick="openOutPage('/pub/sfbgw/fzgz/fzgzqt/fzgzdjgz/')"><img src="./images/list1_icon_5.png" alt="" />综合保障</li>-->
+            </ul>
+          </div>
+        </div>
+        <div class="fwdt">
+  
+      <div class="fwdt_top fwdt_topA">
+        <a href="http://12348.moj.gov.cn/" target="_blank" style="cursor:pointer;">
+            <div class="topTxt">中国法律服务网<span class="sT">（服务大厅）</span></div>
+        </a>
+          </div>
+          <div class="fwdtCon">
+            <ul>
+              <li onclick="openOutPage('http://12348.moj.gov.cn/#/homepage/lawservice')"><img src="./images/list3_icon_7.png" alt="" /><span>法律服务</span></li>
+             <li onclick="openOutPage('https://lawreg.examos.cn/plawreg/indexOauth.jsp')"><img src="./images/list3_icon_3.png" alt="" /><span>法律职业资格认定</span></li>
+              <li onclick="openOutPage('http://gjzwfw.www.gov.cn/fwmh/item/item_11100000000013151X1000112005000.do')"><img src="./images/list3_icon_1.png" alt="" /><span>外国律师事务所驻华代表机构设立、变更、注销许可</span></li>
+              <li class="borderR" onclick="openOutPage('http://gjzwfw.www.gov.cn/fwmh/item/item_11100000000013151X1000112006000.do')"><img src="./images/list3_icon_2.png" alt="" /><span>外国律师事务所驻华代表机构派驻代表执业、变更许可</span></li>
+              <li class="borderB" onclick="openOutPage('http://gjzwfw.www.gov.cn/fwmh/item/item_11100000000013151X1000112016000.do')"><img src="./images/list3_icon_4.png" alt="" /><span>中国委托公证人资格（香港）审批</span></li>
+              <li class="borderB" onclick="openOutPage('http://gjzwfw.www.gov.cn/fwmh/item/item_11100000000013151X1000112017000.do')"><img src="./images/list3_icon_5.png" alt="" /><span>中国委托公证人资格（澳门）审批</span></li>
+              <li class="borderB" onclick="openOutPage('http://gjzwfw.www.gov.cn/fwmh/item/item_11100000000013151X1000712001000.do')"><img src="./images/list3_icon_6.png" alt="" /><span>法律援助律师、公职律师、公司律师工作证颁发</span></li>
+              <li class="borderB borderR" onclick="openOutPage('/pub/sfbgw/flfggz/')"><img src="./images/list3_icon_8.png" alt="" /><span>法律法规规章</span></li>
+  
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mainRight">
+        <div class="zhpf" style="height: 600px;">
+          <div class="zhpf_top zhpf_topNew" style="cursor:pointer;" onclick="openOutPage('http://legalinfo.moj.gov.cn/pub/sfbzhfx/index.html','_blank')">
+            <div class="topTxt">中国普法网<span class="sT">（智慧普法平台）</span></div>
+          </div>
+          <div class="zhpfCon">
+            <ul class="list">
+              <li onclick="openOutPage('http://legalinfo.moj.gov.cn/pub/sfbzhfx/zhfxpfxx/pfxxzthd/','_blank')"><img src="./images/list2_icon_1.png" alt="" />普法动态</li>
+              <li onclick="openOutPage('http://legalinfo.moj.gov.cn/pub/sfbzhfx/zhfxfzwh/fzwhmrmy/','_blank')"><img src="./images/list2_icon_2.png" alt="" />法治文化</li>
+              <li onclick="openOutPage('http://legalinfo.moj.gov.cn/pub/sfbzhfx/zhfxyfzl/yfzldfyfzl/','_blank')"><img src="./images/list2_icon_3.png" alt="" />依法治理</li>
+              <li onclick="openOutPage('http://legalinfo.moj.gov.cn/pub/sfbzhfx/zhfxfzzx/fzzxzttj/','_blank')"><img src="./images/list2_icon_4.png" alt="" />普法专题</li>
+            </ul>
+            <ul class="list2">
+              
+          <li>
+            <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2026zt0106/xxxcsthjfd20260817/" target="_blank">
+              <!--<img src="./zhpfptztizl/202608/W020260820542499719705.jpg" alt="官网.jpg" width="298" height="82"/>-->
+                                                  <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2026zt0106/xxxcsthjfd20260817/" target="_blank"><img src="./zhpfptztizl/202608/W020260820542499719705.jpg" width="298" height="82" /></a>
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2025nzt0120/xxcjmyjjf20250904/" target="_blank">
+              <!--<img src="./zhpfptztizl/202505/W020250506384616368284_298.jpg" alt="299  官网.jpg" width="298" height="82"/>-->
+                                                  <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2025nzt0120/xxcjmyjjf20250904/" target="_blank"><img src="./zhpfptztizl/202505/W020250506384616368284.jpg" width="298" height="82" /></a>
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2025nzt0120/xxxcfzjyf20250912/" target="_blank">
+              <!--<img src="./zhpfptztizl/202509/W020250916537719315667_298.png" alt="微信图片_20250916145513_122_27.png" width="298" height="82"/>-->
+                                                  <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2025nzt0120/xxxcfzjyf20250912/" target="_blank"><img src="./zhpfptztizl/202509/W020250916537719315667.png" width="298" height="82" /></a>
+            </a>
+          </li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flexB">
+      <div class="mainLeft">
+        <div class="noticeWp" style="margin-top: 48px;">
+          <div class="sky_title_2">
+            <ul style="border-top: 2px solid #a72213;">
+        <a href="./zwxxgk/fdzdgknr/fdzdgknrtzwj/" target="_blank"><li class="active" onmouseover="changeTab('5_',0,6)" style="height: auto;margin-right: 15px;">通知公告</li></a>
+        <a href="/pub/sfbgw/zwxxgk/zfxxgkzc/index.html" target="_blank"><li onmouseover="changeTab('5_',1,6)" style="height: auto;margin-right: 15px;">司法部规章</li></a>
+        <a href="/pub/sfbgw/zwxxgk/zfxxgkzc/index.html?type=2" target="_blank"><li onmouseover="changeTab('5_',2,6)" style="height: auto;margin-right: 15px;">司法部行政规范性文件</li></a>
+        <a href="/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/index.html" target="_blank"><li onmouseover="changeTab('5_',5,6)" style="height: auto;margin-right: 15px;">司法行业标准</li></a>
+        <a href="./zwxxgk/fdzdgknr/fdzdgknrzkly/" target="_blank"><li onmouseover="changeTab('5_',3,6)" style="height: auto;margin-right: 15px;">招考录用</li></a>
+        <a href="./zwxxgk/fdzdgknr/fdzdgknrjdhy/" target="_blank"><li onmouseover="changeTab('5_',4,6)" style="height: auto;">解读回应</li></a>
+            </ul>
+            <a href="/pub/sfbgw/zwxxgk/zfxxgkzc/index.html" target="_blank"><span class="add"></span></a> </div>
+          <div class="leftListMain" id="doc5_0" style="height:196px;">
+            <ul>
+        
+          <li>
+          <a href="https://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/202609/t20260930_540374.html" target="_blank" Title="司法部关于任命范岐等117人为公证员的决定">
+          <div class="infoTxt">司法部关于任命范岐等117人为公证员的决定</div>
+          <span class="tf">2026-09-30</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="https://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/202609/t20260930_540373.html" target="_blank" Title="司法部关于免去张鑫等45人公证员职务的决定">
+          <div class="infoTxt">司法部关于免去张鑫等45人公证员职务的决定</div>
+          <span class="tf">2026-09-30</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/202609/t20260918_539902.html" target="_blank" Title="司法部关于2026年国家统一法律职业资格客观题考试成绩、合格分数线公布和主观题考试报名、交费等事项的公告">
+          <div class="infoTxt">司法部关于2026年国家统一法律职业资格客观题考试成绩、合格分数线公布和主观题考试报名、交费等事项的公告</div>
+          <span class="tf">2026-09-18</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/202609/t20260908_539394.html" target="_blank" Title="司法部关于《粤港澳大湾区律师执业考试和执业活动管理办法（征求意见稿）》公开征求意见的通知">
+          <div class="infoTxt">司法部关于《粤港澳大湾区律师执业考试和执业活动管理办法（征求意见稿）》公开征求意见的通知</div>
+          <span class="tf">2026-09-08</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/202608/t20260821_538768.html" target="_blank" Title="国家金融监督管理总局办公厅 民政部办公厅 司法部办公厅关于推广浙江省、青岛市已故人士金融账户查询服务试点经验的通知">
+          <div class="infoTxt">国家金融监督管理总局办公厅 民政部办公厅 司法部办公厅关于推广浙江省、青岛市已故人士金融账户查询服务试点经验的通知</div>
+          <span class="tf">2026-08-21</span></a></li>
+          </a>
+          </li>
+        
+            </ul>
+          </div>
+      
+      <div class="leftListMain" id="doc5_1" style="display:none;height:196px;">
+            <ul id="bmgz_news_list">
+      
+            </ul>
+          </div>
+      
+      <div class="leftListMain" id="doc5_2" style="display:none;height:196px;">
+            <ul id="gfxwj_news_list">
+        
+            </ul>
+          </div>
+      
+      <div class="leftListMain" id="doc5_3" style="display:none;height:196px;">
+            <ul>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrzkly/202609/t20260923_540068.html" target="_blank" Title="司法部机关服务中心面向社会公开招聘工作人员的公告">
+          <div class="infoTxt">司法部机关服务中心面向社会公开招聘工作人员的公告</div>
+          <span class="tf">2026-09-23</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrzkly/202609/t20260908_539413.html" target="_blank" Title="中央司法警官学院2026年公开招聘<br>第三批拟聘用人员公示">
+          <div class="infoTxt">中央司法警官学院2026年公开招聘第三批拟聘用人员公示</div>
+          <span class="tf">2026-09-08</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrzkly/202608/t20260826_538895.html" target="_blank" Title="司法鉴定科学研究院2026年度事业编制工作人员<br>公开招聘拟聘用人员公示">
+          <div class="infoTxt">司法鉴定科学研究院2026年度事业编制工作人员公开招聘拟聘用人员公示</div>
+          <span class="tf">2026-08-26</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrzkly/202608/t20260814_538517.html" target="_blank" Title="中央司法警官学院2026年公开招聘<br>第二批拟聘用人员公示">
+          <div class="infoTxt">中央司法警官学院2026年公开招聘第二批拟聘用人员公示</div>
+          <span class="tf">2026-08-14</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrzkly/202607/t20260722_537730.html" target="_blank" Title="中央司法警官学院2026年公开招聘<br>第一批拟聘用人员公示">
+          <div class="infoTxt">中央司法警官学院2026年公开招聘第一批拟聘用人员公示</div>
+          <span class="tf">2026-07-22</span></a></li>
+          </a>
+          </li>
+        
+            </ul>
+          </div>
+      
+      <div class="leftListMain" id="doc5_4" style="display:none;height:196px;">
+            <ul>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrjdhy/202609/t20260924_540128.html" target="_blank" Title="司法部 审计署负责人就《中华人民共和国审计法实施条例》修订<br>答记者问">
+          <div class="infoTxt">司法部 审计署负责人就《中华人民共和国审计法实施条例》修订答记者问</div>
+          <span class="tf">2026-09-24</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrjdhy/202609/t20260924_540126.html" target="_blank" Title="更好保障新时代审计工作在法治轨道上高质量发展">
+          <div class="infoTxt">专家解读 | 汪德华：更好保障新时代审计工作在法治轨道上高质量发展</div>
+          <span class="tf">2026-09-24</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrjdhy/202609/t20260924_540124.html" target="_blank" Title="坚持和加强党对审计工作的领导">
+          <div class="infoTxt">专家解读 | 栗峥：坚持和加强党对审计工作的领导</div>
+          <span class="tf">2026-09-24</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrjdhy/202609/t20260924_540122.html" target="_blank" Title="进一步压实审计整改责任">
+          <div class="infoTxt">专家解读 | 刘力云：进一步压实审计整改责任</div>
+          <span class="tf">2026-09-24</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrjdhy/202609/t20260924_540120.html" target="_blank" Title="李强签署国务院令 公布修订后的《中华人民共和国审计法实施<br>条例》">
+          <div class="infoTxt">李强签署国务院令 公布修订后的《中华人民共和国审计法实施条例》</div>
+          <span class="tf">2026-09-24</span></a></li>
+          </a>
+          </li>
+        
+            </ul>
+          </div>
+
+      <div class="leftListMain" id="doc5_5" style="display:none;height:196px;">
+            <ul>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/lzyjsfhybzj/202503/t20250331_516736.html" target="_blank" Title="司法部关于发布实施《全国行政执法监督信息系统建设规范》<br/>行业标准的公告">
+          <div class="infoTxt">司法部关于发布实施《全国行政执法监督信息系统建设规范》行业标准的公告</div>
+          <span class="tf">2025-03-31</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/lzyjsfhybzj/202501/t20250106_512461.html" target="_blank" Title="司法部关于发布实施《毛发中安非拉酮等<br/>7种减肥药的液相色谱-质谱检验方法》等<br/>19项行业标准的公告">
+          <div class="infoTxt">司法部关于发布实施《毛发中安非拉酮等7种减肥药的液相色谱-质谱检验方法》等19项行业标准的公告</div>
+          <span class="tf">2025-01-06</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/lzyjsfhybzj/202311/t20231120_489967.html" target="_blank" Title="司法部关于发布实施<br>《行政执法综合管理监督信息系统数据元和代码集》等<br>5项行业标准的公告">
+          <div class="infoTxt">司法部关于发布实施《行政执法综合管理监督信息系统数据元和代码集》等5项行业标准的公告</div>
+          <span class="tf">2023-11-20</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/lzyjsfhybzj/202311/t20231102_488782.html" target="_blank" Title="司法部关于发布实施<br>《监狱远程视频会见帮教平台技术规范》行业标准的公告">
+          <div class="infoTxt">司法部关于发布实施《监狱远程视频会见帮教平台技术规范》行业标准的公告</div>
+          <span class="tf">2023-11-03</span></a></li>
+          </a>
+          </li>
+        
+          <li>
+          <a href="http://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrlzyj/lzyjsfhybzj/202310/t20231020_488148.html" target="_blank" Title="司法部关于发布实施<br>《法医物证实验室污染防控技术规范》等34项行业标准的公告">
+          <div class="infoTxt">司法部关于发布实施《法医物证实验室污染防控技术规范》等34项行业标准的公告</div>
+          <span class="tf">2023-10-20</span></a></li>
+          </a>
+          </li>
+        
+            </ul>
+          </div>
+      
+        </div>
+      </div>
+      <div class="mainRight">
+           <div>
+              <ul style="width: 376px;height: 50px;margin-top: 25px;display:flex;flex-wrap: wrap;justify-content: space-between;">
+                
+                  <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                     <a href="http://xzfg.moj.gov.cn/search2.html" target="_blank"><img src="./syztw/202309/W020230926587473236614.jpg" style="width:178px;" /></a>
+                  </li>
+                
+                  <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                     <a href="https://www.moj.gov.cn/pub/sfbgw/gwygzk/index.html" target="_blank"><img src="./syztw/202309/W020230926588552922270.jpg" style="width:178px;" /></a>
+                  </li>
+                
+              </ul>
+            </div>
+        <div class="lfyj" style="min-height: 188px;margin-top: 22px;">
+          <div class="sky_title" style="height: 48px;"><a href="./lfyjzj/lflfyjzj/" target="_blank" style="color:#a72213;">立法意见征集</a></div>
+          <div class="lfyjMain" style="margin-top: 5px;">
+            <ul>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/lfyjzj/lflfyjzj/202603/t20260320_532981.html" target="_blank" Title="司法部、中国人民银行、金融监管总局、中国证监会、国家外汇局关于《中华人民共和国金融法（草案）》公开征求意见的通知">
+              司法部、中国人民银行、金融监管总局、中国证监会、国家外汇局关于《中华人民共和国金融法（草案）》公开征求意见的通知
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/lfyjzj/lflfyjzj/202508/t20250804_523412.html" target="_blank" Title="司法部关于《中华人民共和国行政复议法实施条例（修订征求意见稿）》公开征求意见的通知">
+              司法部关于《中华人民共和国行政复议法实施条例（修订征求意见稿）》公开征求意见的通知
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/lfyjzj/lflfyjzj/202506/t20250605_520514.html" target="_blank" Title="司法部关于《行政法规制定程序条例（修订征求意见稿）》公开<br>征求意见的通知">
+              司法部关于《行政法规制定程序条例（修订征求意见稿）》公开征求意见的通知
+            </a>
+          </li>
+        
+          <li>
+            <a href="http://www.moj.gov.cn/pub/sfbgw/lfyjzj/lflfyjzj/202505/t20250527_520154.html" target="_blank" Title="司法部关于《中华人民共和国商事调解条例（公开征求意见稿）》公开征求意见的通知">
+              司法部关于《中华人民共和国商事调解条例（公开征求意见稿）》公开征求意见的通知
+            </a>
+          </li>
+        
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flexB">
+      <div class="mainLeft">
+        <div class="leftInfo_part5">
+          <div class="xwfb">
+            <div class="sky_title">
+                <div class="sky_title_3">
+                    <ul style="border-bottom: none;border-top: none;">
+          <a href="./zwgkxwfbh/" target="_blank"><li class="active" onmouseover="changeTab('2_',0,2)" style="line-height: 49px;">新闻发布</li></a>
+          <a href="./zcjd/" target="_blank"><li style="margin-left: 10px;line-height: 49px;" onmouseover="changeTab('2_',1,2)" class="" >政策解读</li></a>
+                    </ul>
+                </div>
+  <!--<a href="./zwgkxwfbh/" target="_blank" style="color:#a72213;">新闻发布</a>-->
+  </div>
+  <div id="doc2_0">
+            <div class="xwfbTop">
+              <div class="img">
+          
+            <!--<a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2026nsfbfbh/kjswwsfls20260914/" target="_blank"><img src="./zwgkxwfbh/202609/W020260916380461499292_166.png" alt="未命名.png" width="166" height="101"/></a>-->
+                                          <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2026nsfbfbh/kjswwsfls20260914/" target="_blank"><img src="./zwgkxwfbh/202609/W020260916380461499292.png" width="166" height="101" /></a>
+          
+              </div>
+              <div class="list">
+                <ul>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2026nsfbfbh/kjswwsfls20260914/" target="_blank" Title="国新办举行“开局起步‘十五五’”系列主题新闻发布会 介绍“十五五”时期推进全面依法治国任务落实和司法行政工作，服务保障经济社会高质量发展情况">
+                直播实录 | 国新办举行“开局起步‘十五五’”系列主题新闻发布会 介绍“十五五”时期推进全面依法治国任务落实和司法行政工作，服务保障经济社会高质量发展情况
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2026nsfbfbh/xjssxcjy95ghqk20260825/" target="_blank" Title="国新办举行新闻发布会 介绍贯彻实施法治宣传教育“九五”规划有关情况">
+                直播实录 | 国新办举行新闻发布会 介绍贯彻实施法治宣传教育“九五”规划有关情况
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2026nsfbfbh/gxbjxxwfbhjsgfqsqxzzfzxxdygqk/" target="_blank" Title="国新办举行新闻发布会 介绍规范涉企行政执法专项行动有关情况">
+                直播实录 | 国新办举行新闻发布会 介绍规范涉企行政执法专项行动有关情况
+              </a>
+            </li>
+          
+                </ul>
+              </div>
+            </div>
+            <div class="xwfbMain">
+              <ul>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2025nsfbfbh/gxbjsfzxcjyqmpjgz20251028/" target="_blank" Title="国新办举行新闻发布会 介绍法治宣传教育法及全民普法工作有关情况">
+                直播实录 | 国新办举行新闻发布会 介绍法治宣传教育法及全民普法工作有关情况
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2025nsfbfbh/acf20250925/" target="_blank" Title="司法部举行新闻发布会 介绍新修订的仲裁法有关情况">
+                直播实录 | 司法部举行新闻发布会 介绍新修订的仲裁法有关情况
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.moj.gov.cn/pub/sfbgw/sfbxwfbhzb/2025nsfbfbh/202509gzlwcsswgh/" target="_blank" Title="直播实录 | 国新办就介绍“十四五”时期推进社会主义法治建设和司法行政工作，服务经济社会高质量发展有关情况举行新闻发布会">
+                直播实录 | 国新办就介绍“十四五”时期推进社会主义法治建设和司法行政工作，服务经济社会高质量发展有关情况举行新闻发布会
+              </a>
+            </li>
+          
+              </ul>
+            </div>
+  </div>
+  <div id="doc2_1" style="display:none;">
+  
+            <div class="xwfbTop">
+              <div class="img">
+          
+            <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260924_540117.html" target="_blank" Title="司法部 审计署负责人就《中华人民共和国审计法实施条例》修订<br>答记者问"><img src="./images/W020210104525039035981_166.jpg" alt="" width="166" height="101" /></a>
+          
+              </div>
+              <div class="list">
+                <ul>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260924_540117.html" target="_blank" Title="司法部 审计署负责人就《中华人民共和国审计法实施条例》修订<br>答记者问">
+                司法部 审计署负责人就《中华人民共和国审计法实施条例》修订答记者问
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260924_540116.html" target="_blank" Title="更好保障新时代审计工作在法治轨道上高质量发展">
+                专家解读 | 汪德华：更好保障新时代审计工作在法治轨道上高质量发展
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260924_540115.html" target="_blank" Title="坚持和加强党对审计工作的领导">
+                专家解读 | 栗峥：坚持和加强党对审计工作的领导
+              </a>
+            </li>
+          
+                </ul>
+              </div>
+            </div>
+            <div class="xwfbMain">
+              <ul>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260924_540114.html" target="_blank" Title="进一步压实审计整改责任">
+                专家解读 | 刘力云：进一步压实审计整改责任
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260911_539539.html" target="_blank" Title="司法部、市场监管总局负责人就《市场监督管理所条例》答记者问">
+                司法部、市场监管总局负责人就《市场监督管理所条例》答记者问
+              </a>
+            </li>
+          
+            <li>
+              <a href="http://www.moj.gov.cn/pub/sfbgw/zcjd/202609/t20260911_539538.html" target="_blank" Title="完善基层组织架构 提升市场监管效能">
+                专家解读 | 赵鹏：完善基层组织架构 提升市场监管效能
+              </a>
+            </li>
+          
+              </ul>
+            </div>
+  </div>
+          </div>
+          <div class="rightPart">
+  
+            <div class="ztzl_new">
+              <div class="sky_title">
+                  <!--<a href="./zwgkztzl/" target="_blank" style="color:#a72213;">专题专栏</a>-->
+                  <div class="sky_title_4">
+                <ul style="margin-top: 0;justify-content: flex-start;">
+              <a href="./zwgkztzl/" target="_blank"><li class="active" onmouseover="changeTab('3_',0,2)" style="height: auto;">专题专栏</li></a>
+              <a href="./zwgkspjx/" target="_blank"><li style="margin-left: 10px;height: auto;" onmouseover="changeTab('3_',1,2)" class="">视频精选</li></a>
+                </ul>
+                  </div>
+  
+             </div>
+			<div id="doc3_0">
+              <ul style="width: 376px;height: 119px;margin-top: 0;display:flex;flex-wrap: wrap;justify-content: space-between;">
+				  
+					<li class="yfzgpic" style="margin-top: 20px;">
+													 <!--<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxxcgcdd2sj4zqhjs/" target="_blank"><img src="./zwgkztzl/202510/W020251024526754622318_178.png" alt="180100.png" width="178" height="99"/></a>-->
+													 <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxxcgcdd2sj4zqhjs/" target="_blank"><img src="./zwgkztzl/202510/W020251024526754622318.png" width="178" height="99" /></a>
+												  </li>
+				  
+					<li class="yfzgpic" style="margin-top: 20px;">
+													 <!--<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxyfzg20251118/" target="_blank"><img src="./zwgkztzl/202511/W020251126361126822157.jpg" alt="178 拷贝.jpg" width="178" height="99"/></a>-->
+													 <a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2025nianzhuanti/xxyfzg20251118/" target="_blank"><img src="./zwgkztzl/202511/W020251126361126822157.jpg" width="178" height="99" /></a>
+												  </li>
+				  
+              </ul>
+			  <div class="pic-list-show">
+				<div class="picGroup picGroup1">
+					<div class="hd">
+					  <ul>
+						<li></li>
+						<li></li>
+					  </ul>
+					</div>
+					<div class="bd">
+					  <ul>
+					    
+							<li>
+							<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qglh0206/" target="_blank"><img src="./zwgkztzl/202604/W020260405327742299854.png" width="178" height="99" /></a>
+							</li>
+					    
+					  </ul>
+					</div>
+				</div>
+				<div class="picGroup picGroup2">
+					<div class="hd">
+					  <ul>
+						<li></li>
+						<li></li>
+					  </ul>
+					</div>
+					<div class="bd">
+					  <ul>
+					    
+							<li>
+							<a href="https://www.moj.gov.cn/pub/sfbgw/zwgkztzl/2026nianzhuanti/2026qgtysfky0611/" target="_blank"><img src="./zwgkztzl/202609/W020260917357549474461.png" width="178" height="99" /></a>
+							</li>
+					    
+					  </ul>
+					</div>
+				</div>
+			  </div>
+			</div>
+              <div class="ztzl" id="doc3_1" style="display:none">
+              <ul style="width: 376px;height: 250px;margin-top: 0;flex-wrap: wrap;">
+          
+            <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                                              <!--<a href="https://mp.weixin.qq.com/s/R8eDe65iBGwZ9I7NyCabwA" target="_blank"><img src="./zwgkspjx/202609/W020260930520330948028_178.png" alt="QQ20260930-142704.png" width="178" height="99"/></a>-->
+                                              <a href="https://mp.weixin.qq.com/s/R8eDe65iBGwZ9I7NyCabwA" target="_blank"><img src="./zwgkspjx/202609/W020260930520330948028.png" width="178" height="99" /></a>
+                                          </li>
+          
+            <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                                              <!--<a href="https://mp.weixin.qq.com/s/C3sy_g0T5TekMGNsAqjirQ" target="_blank"><img src="./zwgkspjx/202609/W020260930519775925266_178.png" alt="QQ20260930-142604.png" width="178" height="99"/></a>-->
+                                              <a href="https://mp.weixin.qq.com/s/C3sy_g0T5TekMGNsAqjirQ" target="_blank"><img src="./zwgkspjx/202609/W020260930519775925266.png" width="178" height="99" /></a>
+                                          </li>
+          
+            <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                                              <!--<a href="https://mp.weixin.qq.com/s/t0OKIOSW0l_EHNM9Wi6zkA" target="_blank"><img src="./zwgkspjx/202609/W020260917727337493821_178.jpg" alt="QQ20260917-201003.jpg" width="178" height="99"/></a>-->
+                                              <a href="https://mp.weixin.qq.com/s/t0OKIOSW0l_EHNM9Wi6zkA" target="_blank"><img src="./zwgkspjx/202609/W020260917727337493821.jpg" width="178" height="99" /></a>
+                                          </li>
+          
+            <li class="yfzgpic" style="display: flex;margin-top: 20px;">
+                                              <!--<a href="https://mp.weixin.qq.com/s/JbWC3PZdjHj0Nr0nQKSMpQ" target="_blank"><img src="./zwgkspjx/202609/W020260917393873233090_178.jpg" alt="QQ20260917-105558.jpg" width="178" height="99"/></a>-->
+                                              <a href="https://mp.weixin.qq.com/s/JbWC3PZdjHj0Nr0nQKSMpQ" target="_blank"><img src="./zwgkspjx/202609/W020260917393873233090.jpg" width="178" height="99" /></a>
+                                          </li>
+          
+              </ul>
+            </div>
+            </div>
+            <!--<div class="spjx">
+              <div class="sky_title"><a href="./zwgkspjx/" target="_blank" style="color:#a72213;">视频精选</a></div>
+              <ul>
+          
+            <li class="yfzgpic">
+                                           <a href="https://mp.weixin.qq.com/s/R8eDe65iBGwZ9I7NyCabwA" target="_blank"><img src="./zwgkspjx/202609/W020260930520330948028_178.png" alt="QQ20260930-142704.png" width="178" height="99"/></a>
+                                          </li>
+          
+            <li class="yfzgpic">
+                                           <a href="https://mp.weixin.qq.com/s/C3sy_g0T5TekMGNsAqjirQ" target="_blank"><img src="./zwgkspjx/202609/W020260930519775925266_178.png" alt="QQ20260930-142604.png" width="178" height="99"/></a>
+                                          </li>
+          
+              </ul>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="mainRight">
+        <div class="hdjl" style="margin-top: 48px;">
+          <div class="sky_title"><a href="./hdjl/" target="_blank" style="color:#a72213;">互动交流</a></div>
+          <div class="hdjlCon">
+            <ul class="list" style="height: 250px;width: 301px;margin: 0 auto;">
+               <!--<li style="margin-bottom: 0px;width:300px;" onclick="openOutPage('/pub/sfbgw/hdjl/hdjlwmly/','_self')"></li>-->
+              <!--<li style="margin-bottom: 0px;" onclick="openOutPage('http://www.gov.cn/hudong/index.htm','_self')"></li>-->
+              <!--<li style="margin-bottom: 0px;" onclick="openOutPage('https://liuyan.www.gov.cn/2024wwzfgzbgtjy/bmdf.html?q=sfb','_self')"></li>-->
+
+              <li style="margin-bottom: 0px;" onclick="openOutPage('https://liuyan.www.gov.cn/2025wwzfgzbgtjy/bmdf.html?q=sfb','_blank')"></li>
+
+
+              <li style="margin-bottom: 0px;" onclick="openOutPage('http://www.moj.gov.cn/sfbconsult/index.html#/consult/consultRemind','_self')"></li>
+              <li style="margin-bottom: 0px;" onclick="openOutPage('/pub/sfbgw/hdjl/hdjltsjb/','_self')"></li>
+              <!--<li style="margin-bottom: 0px;" onclick="openOutPage('/pub/sfbgw/hdjl/hdjlzjdc/','_self')"></li>-->
+              <li style="margin-bottom: 0px;" onclick="openOutPage('/pub/sfbgw/hdjl/hdjlwsxf/','_self')"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--main结束-->
+  
+  <!-- 底部版权 -->
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>中华人民共和国司法部</title>
+<style>
+.rightBar{
+    position:fixed;
+    width:80px;
+    height:100%;
+    right:0;
+    top:0;
+    bottom:0;
+    cursor:pointer
+}
+.sLinkItem {
+    width: 203px;
+}
+.link > li {
+    width: 187px;
+}
+.sLinkItem:hover .sLinkItem_first {
+    color: #9c130a;
+}
+.sLinkItem:hover .sLinkItem_second {
+    display: block;
+}
+.footer{
+    width: 1270px;
+}
+.footer_c .text{
+    margin-left:45px;
+}
+.sLinkItem_second{
+    max-height: 148px;
+}
+.nWebLink{
+    width:1270px;
+}
+</style>
+</head>
+<body>
+<div class="container indexNew close_bottom_copyright">
+  <!-- 底部版权开始 -->
+  <div class="bottom-copyright">
+    <div class="nWebLink">
+      <div class="footer_mainer" >
+        <div class="webLinkRight">
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" onclick="openOutPage('http://www.gov.cn/')">中国政府网<span></span></div>
+          </div>
+          <!--<div class="sLinkItem">
+            <div class="sLinkItem_first" onclick="openOutPage('http://www.court.gov.cn/')">最高人民法院<span></span></div>
+          </div>
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" onclick="openOutPage('https://www.spp.gov.cn/')">最高人民检察院<span></span></div>
+          </div>-->
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" >中央政法部门<span></span></div>
+              <div class="sLinkItem_second">
+              <div class="sLinkItem_table">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                     <td> <a target="_blank" href="http://www.chinapeace.gov.cn/">中央政法委</a></td> 
+					 <td> <a target="_blank" href="http://www.court.gov.cn/">最高人民法院</a></td> 
+					 <td> <a target="_blank" href="https://www.spp.gov.cn/">最高人民检察院</a></td> 
+					 <td> <a target="_blank" href="https://www.mps.gov.cn/">公安部</a></td> 
+					 <td> 国家安全部</td> 
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" >国务院各部门<span></span></div>
+            <div class="sLinkItem_second">
+              <div class="sLinkItem_table">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                     <td> <a target="_blank" href="http://www.fmprc.gov.cn/web/">外交部</a></td> 
+					 <td> <a target="_blank" href="http://www.mod.gov.cn/">国防部</a></td> 
+					 <td> <a target="_blank" href="http://www.ndrc.gov.cn/">国家发展和改革委员会</a></td> 
+					 <td> <a target="_blank" href="http://www.moe.gov.cn/">教育部</a></td> 
+					 <td> <a target="_blank" href="http://www.most.gov.cn/">科学技术部</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                     <td> <a target="_blank" href="http://www.miit.gov.cn/">工业和信息化部</a></td> 
+				    <!-- <td> <a target="_blank" href="http://www.seac.gov.cn/">国家民族事务委员会</a></td> -->
+                                         <td> <a target="_blank" href="https://www.neac.gov.cn/">国家民族事务委员会</a></td>
+					 <td> <a target="_blank" href="http://www.mps.gov.cn/">公安部</a></td> 
+					 <td> <a>国家安全部</a></td> 
+					 <td> <a target="_blank" href="http://www.mca.gov.cn/">民政部</a></td> 
+                  </tr>
+				  <tr>
+                    <td> <a target="_blank" href="http://www.moj.gov.cn/">司法部</a></td> 
+					 <td> <a target="_blank" href="http://www.mof.gov.cn/index.htm">财政部</a></td> 
+					 <td> <a target="_blank" href="http://www.mohrss.gov.cn/">人力资源和社会保障部</a></td> 
+					 <td> <a target="_blank" href="http://www.mnr.gov.cn/">自然资源部</a></td> 
+					 <td> <a target="_blank" href="http://www.mee.gov.cn/">生态环境部</a></td>
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://www.mohurd.gov.cn/">住房和城乡建设部</a></td> 
+					 <td> <a target="_blank" href="http://www.mot.gov.cn/">交通运输部</a></td> 
+					 <td> <a target="_blank" href="http://www.mwr.gov.cn/">水利部</a></td> 
+					 <td> <a target="_blank" href="http://www.moa.gov.cn/">农业农村部</a></td> 
+					 <td> <a target="_blank" href="http://www.mofcom.gov.cn/">商务部</a></td> 
+                  </tr>
+				   <tr>
+                    <td> <a target="_blank" href="http://www.mct.gov.cn/">文化和旅游部</a></td> 
+					 <td> <a target="_blank" href="http://www.nhc.gov.cn/">国家卫生健康委员会</a></td> 
+					 <td> <a target="_blank" href="http://www.mva.gov.cn/">退役军人事务部</a></td> 
+					 <td> <a target="_blank" href="https://www.mem.gov.cn/">应急管理部</a></td> 
+					 <td> <a target="_blank" href="http://www.pbc.gov.cn/">中国人民银行</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://www.audit.gov.cn/">审计署</a></td> 
+					 <td> <a target="_blank" href="http://www.moe.gov.cn/jyb_sy/China_Language/">国家语言文字工作委员会</a></td>  
+					 <td> <a target="_blank" href="http://www.cnsa.gov.cn/">国家航天局</a></td> 
+					 <td> <a target="_blank" href="http://www.caea.gov.cn/">国家原子能机构</a></td>
+					 <td> <a>国家外国专家局</a></td>
+                  </tr> 
+				  <tr>
+                    <td> <a>国家海洋局</a></td> 
+					 <td> <a target="_blank" href="http://nnsa.mee.gov.cn/">国家核安全局</a></td> 
+					 <!-- <td> <a target="_blank" href="https://www.nrra.gov.cn/">国家乡村振兴局</a></td>  -->
+					 <td> <a target="_blank" href="http://www.sasac.gov.cn/">国务院国有资产监督管理委员会</a></td> 
+					 <td> <a target="_blank" href="http://www.customs.gov.cn/">海关总署</a></td> 
+                                         <td> <a target="_blank" href="http://www.chinatax.gov.cn/">国家税务总局</a></td>
+                  </tr>
+                  <tr class="addBg">
+                                         <td> <a target="_blank" href="http://www.samr.gov.cn/">国家市场监督管理总局</a></td> 
+				    <!-- <td> <a target="_blank" href="http://www.cbirc.gov.cn/cn/view/pages/index/index.html">国家金融监督管理总局</a></td> -->
+                                         <td> <a target="_blank" href="https://www.nfra.gov.cn/cn/view/pages/index/index.html">国家金融监督管理总局</a></td>
+					 <td> <a target="_blank" href="http://www.csrc.gov.cn/">中国证券监督管理委员会</a></td> 
+					 <td> <a target="_blank" href="http://www.nrta.gov.cn/">国家广播电视总局</a></td> 
+                                         <td> <a target="_blank" href="http://www.sport.gov.cn/">国家体育总局</a></td> 
+                  </tr> 
+				  <tr>
+					 <td> <a target="_blank" href="https://www.gjxfj.gov.cn/gjxfj/index.htm">国家信访局</a></td> 
+					 <td> <a target="_blank" href="http://www.stats.gov.cn/">国家统计局</a></td> 
+					 <td> <a target="_blank" href="http://www.cnipa.gov.cn/">国家知识产权局</a></td>  
+					 <td> <a target="_blank" href="http://www.cidca.gov.cn/">国家国际发展合作署</a></td>
+                                         <td> <a target="_blank" href="http://www.nhsa.gov.cn/">国家医疗保障局</a></td> 
+                  </tr>
+                  <tr class="addBg">
+					 <td> <a target="_blank" href="http://www.counsellor.gov.cn/">国务院参事室</a></td> 
+					 <td> <a target="_blank" href="http://www.ggj.gov.cn/">国家机关事务管理局</a></td> 
+					 <td> <a>国家反垄断局</a></td> 
+					 <td> <a target="_blank" href="http://www.cnca.gov.cn/">国家认证认可监督管理委员会</a></td> 
+                                         <td> <a target="_blank" href="http://www.sac.gov.cn/">国家标准化管理委员会</a></td> 
+                  </tr> 
+				  <tr>
+                                         <td> <a target="_blank" href="http://www.ncac.gov.cn/">国家新闻出版署（国家版权局）</a></td> 
+					 <td> <a target="_blank" href="http://www.sara.gov.cn/">国家宗教事务局</a></td> 
+					 <td> <a target="_blank" href="http://www.gov.cn/guoqing/2018-06/22/content_5300522.htm">国务院研究室</a></td> 
+					 <td> <a target="_blank" href="http://www.gqb.gov.cn/">国务院侨务办公室</a></td> 
+                                         <td> <a target="_blank" href="http://www.hmo.gov.cn/">国务院港澳事务办公室</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                                         <td> <a target="_blank" href="http://www.gwytb.gov.cn/">国务院台湾事务办公室</a></td> 
+					 <td> <a target="_blank" href="http://www.cac.gov.cn/">国家互联网信息办公室</a></td> 
+					 <td> <a target="_blank" href="http://www.scio.gov.cn/">国务院新闻办公室</a></td> 
+					 <td> <a target="_blank" href="http://203.192.6.89/xhs/">新华通讯社</a></td> 
+                                         <td> <a target="_blank" href="http://www.cas.cn/">中国科学院</a></td> 
+                  </tr> 
+				  <tr>
+                                         <td> <a target="_blank" href="http://www.cass.cn/">中国社会科学院</a></td> 
+					 <td> <a target="_blank" href="http://www.cae.cn/">中国工程院</a></td> 
+					 <td> <a target="_blank" href="https://www.drc.gov.cn/">国务院发展研究中心</a></td> 
+					 <td> <a>中央广播电视总台</a></td> 
+                                         <td> <a target="_blank" href="http://www.cma.gov.cn/">中国气象局</a></td> 
+                  </tr>
+                  <tr class="addBg">
+					 <td> <a target="_blank" href="http://www.ccps.gov.cn/">国家行政学院</a></td> 
+					 <td> <a target="_blank" href="http://www.lswz.gov.cn/">国家粮食和物资储备局</a></td>
+                                         <td> <a target="_blank" href="http://www.nea.gov.cn/">国家能源局</a></td> 
+					 <td> <a target="_blank" href="https://www.nda.gov.cn/sjj/index_pc.html">国家数据局</a></td> 
+                                         <td> <a target="_blank" href="http://www.sastind.gov.cn/">国家国防科技工业局</a></td> 
+                  </tr> 
+				  <tr>
+					 <td> <a target="_blank" href="http://www.tobacco.gov.cn/html/">国家烟草专卖局</a></td> 
+					 <td> <a target="_blank" href="https://www.nia.gov.cn/">国家移民管理局</a></td> 
+					 <td> <a target="_blank" href="http://www.forestry.gov.cn/">国家林业和草原局</a></td> 
+                                         <td> <a target="_blank" href="http://www.nra.gov.cn/">国家铁路局</a></td> 
+                                         <td> <a target="_blank" href="http://www.caac.gov.cn/index.html">中国民用航空局</a></td>
+                  </tr>
+                  <tr class="addBg">
+					 <td> <a target="_blank" href="http://www.spb.gov.cn/">国家邮政局</a></td> 
+					 <td> <a target="_blank" href="http://www.ncha.gov.cn/">国家文物局</a></td> 
+					 <td> <a target="_blank" href="http://www.natcm.gov.cn/">国家中医药管理局</a></td> 
+					 <td> <a target="_blank" href="https://www.ndcpa.gov.cn/">国家疾病预防控制局</a></td> 
+                                         <td> <a target="_blank" href="https://www.chinamine-safety.gov.cn/">国家矿山安全监察局</a></td> 
+                  </tr>
+                  <tr>
+                                         <td> <a target="_blank" href="https://www.119.gov.cn/">国家消防救援局</a></td> 
+					 <td> <a target="_blank" href="http://www.safe.gov.cn/">国家外汇管理局</a></td> 
+					 <td> <a target="_blank" href="https://www.nmpa.gov.cn/">国家药品监督管理局</a></td>
+                  </tr> 
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" >司法部专业子网站<span></span></div>
+            <div class="sLinkItem_second">
+              <div class="sLinkItem_table">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td> <a target="_blank" href="http://www.acla.org.cn/home/toPage">中国律师网</a></td> 
+					<td> <a target="_blank" href="http://www.chinanotary.org.cn/">中国公证网</a></td> 
+					<td></td>
+					<td></td>
+					<td></td> 
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" >地方司法厅局<span></span></div>
+            <div class="sLinkItem_second">
+              <div class="sLinkItem_table">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td> <a target="_blank" href="http://sfj.beijing.gov.cn/">北京</a></td> 
+					 <td> <a target="_blank" href="http://sf.tj.gov.cn/">天津</a></td> 
+					 <td> <a target="_blank" href="http://sft.hebei.gov.cn/">河北</a></td> 
+					 <td> <a target="_blank" href="http://sft.shanxi.gov.cn/">山西</a></td> 
+					 <td> <a target="_blank" href="http://sft.nmg.gov.cn/">内蒙古</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://sft.ln.gov.cn/">辽宁</a></td> 
+					 <td> <a target="_blank" href="http://sft.jl.gov.cn/">吉林</a></td> 
+					 <td> <a target="_blank" href="http://sft.hlj.gov.cn/">黑龙江</a></td> 
+					 <td> <a target="_blank" href="http://sfj.sh.gov.cn/">上海</a></td> 
+					 <td> <a target="_blank" href="http://sft.jiangsu.gov.cn/">江苏</a></td> 
+                  </tr>
+				  <tr>
+                    <td> <a target="_blank" href="http://sft.zj.gov.cn/">浙江</a></td> 
+					 <td> <a target="_blank" href="http://sft.ah.gov.cn/">安徽</a></td> 
+					 <td> <a target="_blank" href="http://sft.fujian.gov.cn/">福建</a></td> 
+					 <td> <a target="_blank" href="http://sf.jiangxi.gov.cn/">江西</a></td> 
+					 <td> <a target="_blank" href="http://sft.shandong.gov.cn/">山东</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://sft.henan.gov.cn/">河南</a></td> 
+					 <td> <a target="_blank" href="http://sft.hubei.gov.cn/">湖北</a></td> 
+					 <td> <a target="_blank" href="http://sft.hunan.gov.cn/">湖南</a></td> 
+					 <td> <a target="_blank" href="http://sft.gd.gov.cn/">广东</a></td> 
+					 <td> <a target="_blank" href="http://sft.gxzf.gov.cn/">广西</a></td> 
+                  </tr>
+				  <tr>
+                    <td> <a target="_blank" href="http://justice.hainan.gov.cn/">海南</a></td> 
+					 <td> <a target="_blank" href="http://sfj.cq.gov.cn/">重庆</a></td> 
+					 <td> <a target="_blank" href="http://sft.sc.gov.cn/">四川</a></td> 
+					 <td> <a target="_blank" href="http://sft.guizhou.gov.cn/">贵州</a></td> 
+					 <td> <a target="_blank" href="http://sft.yn.gov.cn/">云南</a></td> 
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://sft.xizang.gov.cn/">西藏</a></td> 
+					 <td> <a target="_blank" href="http://sft.shaanxi.gov.cn/">陕西</a></td> 
+					 <td> <a target="_blank" href="http://sft.gansu.gov.cn/">甘肃</a></td> 
+					 <td> <a target="_blank" href="http://sft.qinghai.gov.cn/">青海</a></td> 
+					 <td> <a target="_blank" href="http://sft.nx.gov.cn/">宁夏</a></td> 
+                  </tr>
+				  <tr>
+                    <td> <a target="_blank" href="http://sft.xinjiang.gov.cn/">新疆</a></td> 
+					<td> <a target="_blank" href="http://sfj.xjbt.gov.cn/">新疆兵团</a></td>  
+					 <td></td> 
+					 <td></td> 
+					 <td></td> 
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sLinkItem">
+            <div class="sLinkItem_first" >中央重点新闻网站<span></span></div>
+            <div class="sLinkItem_second" >
+              <div class="sLinkItem_table">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td> <a target="_blank" href="http://www.people.com.cn/">人民网</a></td> 
+					 <td> <a target="_blank" href="http://www.xinhuanet.com/">新华网</a></td> 
+					 <td> <a target="_blank" href="http://www.china.com.cn/">中国网</a></td> 
+					 <td> <a target="_blank" href="http://www.cri.cn/index.html">国际在线</a></td> 
+					 <td> <a target="_blank" href="http://www.chinadaily.com.cn/">中国日报网</a></td>
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://www.cctv.com/">中国网络电视台</a></td> 
+					 <td> <a target="_blank" href="http://www.youth.cn/">中国青年网</a></td> 
+					 <td> <a target="_blank" href="http://www.ce.cn/">中国经济网</a></td> 
+					 <td> <a target="_blank" href="http://www.taiwan.cn/">中国台湾网</a></td> 
+					 <td> <a target="_blank" href="http://www.tibet.cn/">中国西藏网</a></td> 
+                  </tr>
+				  <tr>
+                     <td> <a target="_blank" href="http://www.cnr.cn/">央广网</a></td> 
+					 <td> <a target="_blank" href="http://www.gmw.cn/">光明网</a></td> 
+					 <td> <a target="_blank" href="http://www.81.cn/">中国军网</a></td> 
+					 <td><a target="_blank" href="http://www.chinanews.com/">中国新闻网</a></td> 
+					 <td><a target="_blank" href="http://www.rmzxb.com.cn/index.shtml">人民政协网</a></td>
+                  </tr>
+                  <tr class="addBg">
+                    <td> <a target="_blank" href="http://www.legaldaily.com.cn/">法治网</a></td> 
+					 <td> </td> 
+					 <td> </td> 
+					 <td> </td> 
+					 <td> </td> 
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bg">
+      <div class="footer">
+        <div class="footer_l floatL overflowH" style="width: 300px;">
+          <div class="img floatL">
+<a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895F1C8AE872F1BE053022819AC4DA4" target="_blank" rel="noopener noreferrer"><img src="./images/bottom_1.png" /></a></div>
+          <div class="text floatL" style="line-height: 25px;margin-top: 5px;text-align: center;">
+            中华人民共和国司法部 版权所有 
+            <br>
+            <a id="moj_gov_cn" href="https://beian.miit.gov.cn/" target="_blank">京ICP备13016994号-2</a><a id="chinalaw_gov_cn" style="display:none;" href="https://beian.miit.gov.cn/" target="_blank">备案号 京ICP备13016994号-8</a>
+          </div>
+        </div>
+        <div class="footer_c1 floatL" style="width: 200px;">
+          <div class="img" style="cursor:pointer;" onclick="openOutPage('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502035627')">
+            <img src="./images/bottom_2.png" />
+          </div>
+          <div class="text">
+            <p>京公网安备</p>
+            <p>11010502035627号</p>
+          </div>
+        </div>
+        <div class="footer_c floatL" style="width: 335px;margin-left: 65px;margin-top: 10px;">
+          <ul>
+            <li><a href="/pub/sfbgw/gwwzdt/index.html" target="_blank">网站地图</a></li>
+            <li><a href="/pub/sfbgw/lxfs/201810/t20181018_164582.html" target="_blank">联系我们</a></li>
+            <li><a href="/pub/sfbgw/flsm/201812/t20181231_164581.html" target="_blank">法律声明</a></li>
+          </ul>
+          <div class="text">网站标识码bm13000002</div>
+        </div>
+        <div class="footer_r floatL overflowH">
+          <div class="img floatL" style="cursor:pointer;"  onclick="openJiuCuo()">
+            <img src="./images/jiucuo.png" />
+          </div>
+          <div class="img floatL">
+            <img src="./images/bottom_4.jpg" width="70" height="70" />
+          </div>
+          <div class="text floatL">
+            <p>司法部</p>
+            <p>移动端</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 底部版权结束-->
+</div>
+<!--悬浮-->
+<div class="rightBar close_suspend">
+<div class="suspend" style="top: 250px;margin-right: 0px;">
+  <ul class="suspendLis">
+    <li onclick="openOutPage('/sfbsearch/index.html#/search/completeSearch')">
+      <div class="suspendIcon icon1"></div>
+      <a href="javascript:void(0)" class="suspendTxt">搜索</a>
+    </li>
+    <a href="javascript:gotoLogin();">
+    <li>
+      <div class="suspendIcon icon2"></div>
+      <a href="javascript:gotoLogin();" class="suspendTxt">登录</a>
+    </li>
+    </a>
+    <li class="codeli" onclick="openOutPage('/pub/sfbgw/lwyd/index.html')">
+      <div class="suspendIcon icon3"></div>
+      <a href="javascript:void(0)" class="suspendTxt">微信</a>
+      <div class="codePic"> <img src="" alt="" /> </div>
+    </li>
+    <li onclick="openOutPage('/pub/sfbgw/lwyd/index.html')">
+      <div class="suspendIcon icon4"></div>
+      <a href="javascript:void(0)" class="suspendTxt">微博</a>
+    </li>
+    <li onclick="openOutPage('/pub/sfbgw/lwyd/index.html')">
+      <div class="suspendIcon icon5"></div>
+      <a href="javascript:void(0)" class="suspendTxt">客户端</a>
+    </li>
+    
+    <li onclick="openOutPage('https://mail.moj.gov.cn/')"><!--<li onclick="openOutPage('/pub/sfbgw/gwyx/index.html')">-->
+      <div class="suspendIcon icon6"></div>
+      <a href="javascript:void(0)" class="suspendTxt">公务邮箱</a> </li>
+    <li class="last clickToTop">
+      <div class="suspendIcon  icon7"></div>
+      <a href="javascript:;" class="suspendTxt">返回顶部</a> </li>
+  </ul>
+</div>
+</div>
+<div style="display:none"> <a href="/btatw23_atbp/bt"></a> </div></body>
+<script type="text/javascript" src="./images/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="./images/encodeBase64.js"></script>
+<script>
+  $(function() {
+    //bottomTab();
+    var cururl = window.location.href;
+    if(cururl == 'http://www.moj.gov.cn/' || cururl == 'https://www.moj.gov.cn/' || cururl == 'http://www.moj.gov.cn/pub/sfbgw/index.html' || cururl == 'https://www.moj.gov.cn/pub/sfbgw/index.html'
+    || cururl ==  'http://www.chinalaw.gov.cn/' || cururl == 'https://www.chinalaw.gov.cn/' || cururl == 'http://www.chinalaw.gov.cn/pub/sfbgw/index.html' || cururl == 'https://www.chinalaw.gov.cn/pub/sfbgw/index.html'
+    || cururl == 'https://new.moj.gov.cn/' || cururl == 'https://new.chinalaw.gov.cn/' ){
+        $(".suspend").show();
+    }else{
+        suspendShow();
+    }
+           if(cururl.indexOf('chinalaw.gov.cn') > -1){
+			$("#moj_gov_cn").hide();
+			$("#chinalaw_gov_cn").show();
+		}else{
+			$("#moj_gov_cn").show();
+			$("#chinalaw_gov_cn").hide();
+		}
+
+  })
+
+//侧栏悬浮显示隐藏
+function suspendShow(){
+    var timeout=setTimeout(function () {
+      $(".suspend").hide(500);
+     }, 3000);
+    $(".rightBar").hover(function(){
+        $(".suspend").animate({right:"0"});
+        $(".suspend").show();
+       },function(){
+        $(".suspend").animate({right:"-80px"});
+        $(".suspend").hide();
+      });
+}
+
+function gotoLogin(){
+
+    var redirectUrl = encode64(encodeURIComponent('https://'+window.location.host+'/sfbconsult/api/login/loginBack'));
+    var backUrl = encode64(encodeURIComponent('https://'+window.location.host+'/pub/sfbgw/index.html'));
+    var url = '/sfbsso/login.html?register_source=lyzxgz&redirect_url=' + redirectUrl + '&back_url=' + backUrl;
+    window.location.href = url;
+}
+
+
+  /**
+ * 跳转外部链接
+ * @param url
+ */
+function openOutPage(url,type) {
+    var type_default = "_blank";
+    if(type){
+        type_default = type;
+    }
+    if(url){
+        window.open(url, type_default);
+    }
+}
+
+function openJiuCuo(){
+	var url = "";
+	if (parent !== window) {
+		try {
+			url = window.top.location.href;
+		} catch (e) {
+			url = window.top.document.referrer;
+		}
+	}
+	if (url.length == 0){
+		url = document.location.href;
+	}
+	window.open("https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=bm13000002" + "&url=" + encodeURIComponent(url),"_blank");
+};
+</script>
+</html>
+</div>
+<script defer async type="text/javascript" src="//gov.govwza.cn/dist/aria.js?appid=0bd388c500185c7ee5b25e4d59760464" charset="utf-8"></script>
+</body>
+<script type="text/javascript" src="./images/jquery-1.12.4.min.js"></script>
+<script src="./images/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./images/placeholder.js" type="text/javascript" charset="utf-8"></script>
+<script src="./images/swiper.min.js"></script>
+<script src="./images/jquery.SuperSlide.2.1.1.js"></script>
+<script src="./images/layout.js"></script>
+<script src="./images/master.js"></script>
+
+
+<script>
+  $(function() {
+      jQuery(".swiper3").slide({
+		mainCell:"ul",
+		autoPage:true,
+		effect:"topLoop",
+		autoPlay:true,
+		vis:1	// 显示的条数
+	});
+ //全国哀悼日页面置灰
+        /*var nowdate = new Date();
+        var startTime = new Date('2022/11/30 01:00:00');
+        var endTime = new Date('2022/12/31 23:59:59');
+        if(nowdate >= startTime && nowdate <= endTime){
+			var navStr = navigator.userAgent.toLowerCase();
+			if(navStr.indexOf("msie 10.0")!==-1||navStr.indexOf("rv:11.0")!==-1){ // 判断是IE10或者IE11
+				setTimeout(function(){ 
+				  grayscale(document.body); 
+			   }, 100);
+			}else{
+				includeLinkStyle("/pub/sfbgw/images/debug_gray.css");
+			} 
+        }*/
+
+
+    $(".sky_title_3 ul li").hover(function(){
+        $(".sky_title_3 ul li").removeClass("active");
+        $(this).addClass("active");
+    })
+    $(".sky_title_4 ul li").hover(function(){
+        $(".sky_title_4 ul li").removeClass("active");
+        $(this).addClass("active");
+    })
+
+    placeHolder();
+    //20221130置灰停用
+
+    var swiper = new Swiper('.picShow .swiper-container', {
+      pagination: '.picShow .swiper-pagination',
+      slidesPerView: 1,
+      paginationClickable: true,
+      spaceBetween: 10,
+      loop: true,
+      autoplayDisableOnInteraction: false,
+      autoplay:2500
+    });
+
+  //专题专栏上写切换
+  /*$(".picGroup1").slide({// li为基本单位
+    mainCell: ".bd ul",// li容器
+    titCell: ".page ul",// 分页容器
+    autoPage: true,// 自动分页
+    autoPlay: true,// 自动动画
+    vis: 1,//可见数量
+    effect: "topLoop",//动画效果
+    scroll: 1,//滚动数量
+    trigger:"click",
+    interTime: 4000,//间隔时间
+     mouseOverStop:false
+  })
+  $(".picGroup2").slide({// li为基本单位
+    mainCell: ".bd ul",// li容器
+    titCell: ".page ul",// 分页容器
+    autoPage: true,// 自动分页
+    autoPlay: true,// 自动动画
+    vis: 1,//可见数量
+    effect: "topLoop",//动画效果
+    scroll: 1,//滚动数量
+    trigger:"click",
+    interTime: 4000,//间隔时间
+    mouseOverStop:false
+  })*/
+	
+   //部门规章
+  //getBmgzList(1);
+  //规范性文件
+  //getGfxwjList(1);
+  })
+  /**
+ * 跳转外部链接
+ * @param url
+ */
+function openOutPage(url,type) {
+    var type_default = "_blank";
+    if(type){
+        type_default = type;
+    }
+    if(url){
+        window.open(url, type_default);
+    }
+}
+
+
+ //初始化分页数据
+var initBmgzPageDatas = {
+    "pageSize":5,
+    "pageNum":1
+};
+//部门规章
+function getBmgzList(pagenum) {
+
+    var params = {};
+    //分页控制
+    if(pagenum==null||pagenum==undefined){
+        params.pageNum=1;
+    }else{
+        params.pageNum=pagenum;
+    }
+	params.file_type='1';
+	params.validity='1';
+	params.file_status='1';
+    params.pageSize=initBmgzPageDatas.pageSize;
+    //获取列表新闻
+    $.ajax({
+        url:'/policyManager/policy/getPolicyDocList',
+        data:JSON.stringify(params),
+        type:'POST',
+        dataType:'json',
+        contentType:'application/json',
+        success:function (res) {
+            if(res.success && res.list){
+                $("#bmgz_news_list").empty();
+                var yfzsList = res.list;
+                var html = "";
+				for(var i=0;i<yfzsList.length;i++){
+					if(yfzsList[i].document_title.length>30){
+						yfzsList[i].title = yfzsList[i].document_title.substring(0,30)+"...";
+					}else{
+                                            yfzsList[i].title = yfzsList[i].document_title;
+                                        }
+					yfzsList[i].date = yfzsList[i].release_date;
+					html += "<li>"+
+						"<a href='/policyManager/regulationDetail.html?showMenu=false&showFileType=1&pkid="+yfzsList[i].aritcleid+"'' target='_blank'>" +
+						"<div class=\"infoTxt\">"+yfzsList[i].title+"</div>" + 
+						"<span class=\"tf\">"+yfzsList[i].date+"</span>" + "</a>"+
+						"</li>";
+				}
+                
+                $("#bmgz_news_list").append(html);
+
+              
+            }
+        }
+    });
+}
+
+
+//规范性文件列表
+function getGfxwjList(pagenum) {
+
+    var params = {};
+    //分页控制
+    if(pagenum==null||pagenum==undefined){
+        params.pageNum=1;
+    }else{
+        params.pageNum=pagenum;
+    }
+	params.file_type='2';
+	params.validity='1';
+	params.file_status='1';
+    params.pageSize=initBmgzPageDatas.pageSize;
+    //获取列表新闻
+    $.ajax({
+        url:'/policyManager/policy/getPolicyDocList',
+        data:JSON.stringify(params),
+        type:'POST',
+        dataType:'json',
+        contentType:'application/json',
+        success:function (res) {
+            if(res.success && res.list){
+                $("#gfxwj_news_list").empty();
+                var yfzsList = res.list;
+                var html = "";
+				for(var i=0;i<yfzsList.length;i++){
+					if(yfzsList[i].document_title.length>30){
+						yfzsList[i].title = yfzsList[i].document_title.substring(0,30)+"...";
+					}else{
+                                            yfzsList[i].title = yfzsList[i].document_title;
+                                        }
+					yfzsList[i].date = yfzsList[i].release_date;
+					html += "<li>"+
+						"<a href='/policyManager/policy_index.html?showMenu=false&showFileType=2&pkid="+yfzsList[i].aritcleid+"'' target='_blank'>" +
+						"<div class=\"infoTxt\">"+yfzsList[i].title+"</div>" + 
+						"<span class=\"tf\">"+yfzsList[i].date+"</span>" + "</a>"+
+						"</li>";
+				}
+                
+                $("#gfxwj_news_list").append(html);
+            }
+        }
+    });
+}
+//动态引入css
+    function includeLinkStyle(url){
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = url;
+        document.getElementsByTagName("head")[0].appendChild(link);
+    }
+</script>
+</html>

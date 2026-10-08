@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="image/x-icon" href="/favicon.ico" rel="bookmark" />
+<link type="image/x-icon" href="/favicon.ico" rel="icon" />
+<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<title>400</title>
+    <style>
+    *{ margin: 0; padding: 0; text-decoration: none;}
+    .errorBox{ margin:100px auto; text-align: center;}
+    .error{ padding-left: 380px; position: relative; display: inline-block;}
+    .error .pic-error{ display: inline-block; width: 328px; height: 328px; position: absolute; top: 0; left: 0; background: url(/core-plugins/12366/images/pic-error.png) no-repeat;}
+    .errorBox .btn-box{ padding-top:45px; font-family: "微软雅黑"; text-align: left;}
+    .errorBox .btn-box h1{color: #86bfff; font-size: 120px;}
+    .errorBox .btn-box p{ color: #ddd; font-size: 22px; margin-bottom:20px;}
+    .errorBox .btn-box .btn{display: inline-block; border-radius: 5px; font-size: 22px; cursor: pointer; width: 210px; height: 52px; text-align: center; line-height: 52px; color: #86bfff; border: 1px solid #86bfff;}
+    .errorBox .btn-box .btn:hover{ background: #86BFFF; color: #fff;}
+    .error404 .pic-error{ background-position: 0 0;}
+    .error403 .pic-error{ background-position: 0 -328px;}
+    .error500 .pic-error{ background-position: 0 -656px;}
+</style>
+</head>
+<body>
+
+
+
+<div class="errorBox">
+    <div class="error error500">
+        <em class="pic-error"></em>
+        <div class="btn-box">
+            <h1>400</h1>
+            <p>错误请求，请检查参数</p>
+            <a class="btn"  href="/">返回首页</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

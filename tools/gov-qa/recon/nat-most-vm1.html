@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公众问答</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>公众问答</title>
+	<meta name="SiteName" content="中华人民共和国科学技术部">
+	<meta name="SiteDomain" content="www.most.gov.cn/">
+	<meta name="SiteIDCode" content="bm06000001">
+    <link href="/ac_gzcy_app/favicon.ico" rel="shortcut icon"/>
+	<link href="/ac_gzcy_app/css/bootstrap.min.css?v=3.3.7" rel="stylesheet"/>
+	<link href="/ac_gzcy_app/css/font-awesome.min.css?v=4.7.0" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/ac_gzcy_app/ajax/libs/bootstrap-table/bootstrap-table.min.css?v=1.18.3" rel="stylesheet"/>
+	<link href="/ac_gzcy_app/css/animate.min.css?v=20210831" rel="stylesheet"/>
+	<link href="/ac_gzcy_app/ict/css/ict-ui.css?v=4.7.7" rel="stylesheet"/>
+	<link href="/ac_gzcy_app/app/css/mystyle.css" rel="stylesheet" />
+	<link href="/ac_gzcy_app/app/assets/font/stylesheet.css" rel="stylesheet">
+	<link href="/ac_gzcy_app/app/css/menu.css" rel="stylesheet" >
+	<link href="/ac_gzcy_app/css/layui.css" rel="stylesheet"/>
+	
+	 <!-- 图标字库 -->
+	  <link href="/ac_gzcy_app/app/assets/iconfont/iconfont.css" rel="stylesheet"/>
+	  <link href="/ac_gzcy_app/app/assets/mobile_iconfont/iconfont.css" rel="stylesheet"/>
+	
+	  <!-- 通用样式 -->
+	  <link href="/ac_gzcy_app/app/assets/css/style.css" rel="stylesheet"/>
+	  <link href="/ac_gzcy_app/app/assets/css/mobile_style.css" rel="stylesheet" media="screen and (max-width:767px) and (orientation:portrait)" />
+	
+	  <!-- 顶部导航样式 -->
+	  <link href="/ac_gzcy_app/app/assets/css/topline_menu.css" rel="stylesheet"/>
+	  <link href="/ac_gzcy_app/app/assets/css/mobile_topline_menu.css" rel="stylesheet" media="screen and (max-width:767px) and (orientation:portrait)" />
+	
+	  <!-- 搜索模块样式 -->
+	  <link href="/ac_gzcy_app/app/assets/css/search_top.css" rel="stylesheet"/>
+	  <!-- 主导航菜单样式支持样式 -->
+	  <link href="/ac_gzcy_app/app/assets/css/dropdown.css" rel="stylesheet"/>
+	
+	  <!-- 主导航菜单样式 -->
+	  <link href="/ac_gzcy_app/app/assets/css/menu.css" rel="stylesheet"/>
+	  <link href="/ac_gzcy_app/app/assets/css/mobile_menu.css" rel="stylesheet" media="screen and (max-width:767px) and (orientation:portrait)" />
+	
+	  <!-- 处理样式冲突 -->
+	  <link href="/ac_gzcy_app/app/assets/css/gzcyxt.css" rel="stylesheet"/>
+	  <!-- 适配移动端 -->
+	  <link href="/ac_gzcy_app/app/assets/css/mobile_gzcyxt.css" rel="stylesheet" media="screen and (max-width:767px) and (orientation:portrait)" />
+	
+	  <script src="/ac_gzcy_app/app/assets/js/jquery-3.0.0.min.js"></script>
+	  <script src="/ac_gzcy_app/app/assets/js/jquery-migrate.min.js"></script>
+	
+	  <!-- 图标字库js -->
+	  <script src="/ac_gzcy_app/app/assets/iconfont/iconfont.js"></script>
+	  <!-- 搜索模块js -->
+	  <script src="/ac_gzcy_app/app/assets/js/index_search_top.js"></script>
+	
+	  <!-- if lt IE 9 -->
+	  <script src="/ac_gzcy_app/app/assets/js/trs_respond.min.js"></script>
+	  <!-- ![endif] -->
+	  <script src="/ac_gzcy_app/app/assets/js/trs_h5.js"></script>
+	  <script src="/ac_gzcy_app/app/assets/js/trs_resize.js"></script>
+	 
+
+
+</head>
+<body>
+	<script src="/ac_gzcy_app/app/assets/js/page_topline.js"></script>
+	<script src="/ac_gzcy_app/app/assets/js/page_logo.js"></script>
+	<script src="/ac_gzcy_app/app/assets/js/page_nav.js"></script>
+	<div class="banner">
+		<img src="/ac_gzcy_app/app/images/banner3.jpg" width="1280" height="110" alt="" class="mhide" />
+		<img src="/ac_gzcy_app/app/assets/images/mobile_banner_gzwd.png" width="750" height="110" alt="" class="pchide" />
+	</div>
+	<div class="home_div">
+		<div class="left">
+			<div class="lmemu_title">公众问答</div>
+			<div class="lmemu">
+				<a href="/ac_gzcy_app/gzwd">留言<span class="iconfont icon-arrow_right"></span></a> 
+				<a href="/ac_gzcy_app/gzwd/commonQuestion">常见问题解答<span class="iconfont icon-arrow_right"></span></a>
+				<a href="/ac_gzcy_app/gzwd/viewMessage?tid=0">查看留言<span class="iconfont icon-arrow_right"></span></a> 
+				<a href="/ac_gzcy_app/gzwd/viewMessage?tid=1" class="cur pl36">业务咨询<span class="iconfont icon-dot"></span></a> 
+				<a href="/ac_gzcy_app/gzwd/viewMessage?tid=2" class="pl36">政策咨询<span class="iconfont icon-dot"></span></a> 
+				<a href="/ac_gzcy_app/gzwd/viewMessage?tid=3" class="pl36">提出建议<span class="iconfont icon-dot"></span></a> 
+				<a href="/ac_gzcy_app/gzwd/viewMessage?tid=4" class="pl36">反馈问题<span class="iconfont icon-dot"></span></a>
+				<a href="/ac_gzcy_app/gzwd/selectMessageList">留言查询<span class="iconfont icon-arrow_right"></span></a>
+				<a href="/ac_gzcy_app/gzwd/selectMessage">历史留言查询<span class="iconfont icon-arrow_right"></span></a>
+			</div>
+		</div>
+		<div class="right">
+			<!-- all -->
+			<div class="guide-menu pchide">当前位置：公众参与 / 公众问答 / 查看留言</div>
+			<div class="menu-item pchide m-lmenu" id="mt-leftnav-menu-ID" style="display: ">
+			  <div class="downmenu">
+			    <a href="/ac_gzcy_app/gzwd">
+			      <span class="iconfont icon-dot"></span>
+			      留言
+			    </a>
+			    <a href="/ac_gzcy_app/gzwd/commonQuestion">
+			      <span class="iconfont icon-dot"></span>
+			      常见问题解答
+			    </a>
+			    <a href="/ac_gzcy_app/gzwd/viewMessage?tid=0">
+			      <span class="iconfont icon-dot"></span>
+			      查看留言
+			    </a>
+			    <a href="/ac_gzcy_app/gzwd/viewMessage?tid=1" class="cur pl62"> · 业务咨询</a>
+			    <a href="/ac_gzcy_app/gzwd/viewMessage?tid=2" class="pl62"> · 政策咨询</a>
+			    <a href="/ac_gzcy_app/gzwd/viewMessage?tid=3" class="pl62"> · 提出建议</a>
+			    <a href="/ac_gzcy_app/gzwd/viewMessage?tid=4" class="pl62"> · 反馈问题</a>
+			    <a href="/ac_gzcy_app/gzwd/selectMessageList">
+			    <span class="iconfont icon-dot"></span>
+			    留言查询
+			    </a>
+			    <a href="/ac_gzcy_app/gzwd/selectMessage">
+			      <span class="iconfont icon-dot"></span>
+			      历史留言查询
+			    </a>
+			  </div>
+			</div>
+			<!-- end of menu-item -->
+			<script>
+			  ~(function () {
+			    var curChannelId = $('body').attr('data-curchannelid')
+			    $('[data-channelid-forleftmenu=' + curChannelId + ']').addClass('cur')
+			  })()
+			</script>
+			<a href="javascript:void(0);" class="mobile_menu_btn pchide" id="mt-leftnav-btn-ID"
+			  ><span class="iconfont icon-menu"></span
+			></a>
+			<div class="crumbs">科技部门户 &gt; 公众参与 &gt; 公众问答 &gt; 查看留言</div>
+			<div class="lm_title">
+				<span class="icon"><img src="/ac_gzcy_app/app/images/icon_qa.png" width="48"
+					height="48" alt="" /></span><span class="name">查看留言</span>
+				<div class="t_menu">
+					<a href="/ac_gzcy_app/gzwd/viewMessage?tid=1" class="cur">业务咨询</a>
+					<a href="/ac_gzcy_app/gzwd/viewMessage?tid=2">政策咨询</a>
+					<a href="/ac_gzcy_app/gzwd/viewMessage?tid=3">提出建议</a>
+					<a href="/ac_gzcy_app/gzwd/viewMessage?tid=4">反馈问题</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="col-sm-8 search-collapse" style="margin: inherit;width: 95%;display: block;float: left;">
+			<form id="config-form">
+					<div class="select-list">
+						<ul>
+							<li>
+								标题：<input type="text" name="title" style="width: 280px;"/>
+							</li>
+							<li>
+								内容：<input type="text" name="content" style="width: 280px;"/>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+				</div>
+			<table id="bootstrap-table" data-page-size="10"
+				data-show-custom-view="true" data-custom-view="customViewFormatter">
+			</table>
+			<template id="profileTemplate">
+				<div class="floor">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="tab_qa">
+						<tbody>
+							<tr>
+								<td width="20%"><span class="qa_name">提问人：</span><span
+									class="qa_txt">%name%</span></td>
+								<td width="23%"><span class="qa_name">提问类型：</span><span
+									class="qa_txt">%tid%</span></td>
+								<td><span class="qa_name">提问时间：</span><span class="qa_time">%createTime%</span></td>
+								<td><span class="qa_name">答复时间：</span><span class="qa_time">%bjTime%</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="qa_q">
+						<div class="list">
+							<span class="name">提问标题：</span><span class="text bold">%title%</span>
+							<div style="clear: both;"></div>
+						</div>
+						<div class="list">
+							<span class="name">提问内容：</span><span class="text">%content%</span>
+							<div style="clear: both;"></div>
+						</div>
+						<div class="line_top"></div>
+						<div class="list">
+							<span class="name">答复内容：</span><span class="text">%answerinfoTotal%</span>
+							<div style="clear: both;"></div>
+						</div>
+					</div>
+				</div>
+			
+		</template>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<script src="/ac_gzcy_app/app/assets/js/page_footer.js"></script>
+	<script src="/ac_gzcy_app/app/assets/js/nestedOperationsFlagFun.js"></script>
+	<div>
+    <script> var ctx = "\/ac_gzcy_app\/"; var lockscreen = null; if(lockscreen){window.top.location=ctx+"lockscreen";} </script>
+    <a id="scroll-up" href="#" class="btn btn-sm display"><i class="fa fa-angle-double-up"></i></a>
+	<script src="/ac_gzcy_app/js/jquery.min.js?v=3.6.3"></script>
+	<script src="/ac_gzcy_app/js/bootstrap.min.js?v=3.3.7"></script>
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/ac_gzcy_app/ajax/libs/bootstrap-table/bootstrap-table.min.js?v=1.18.3"></script>
+	<script src="/ac_gzcy_app/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js?v=1.18.3"></script>
+	<script src="/ac_gzcy_app/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js?v=1.18.3"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/ac_gzcy_app/ajax/libs/validate/jquery.validate.min.js?v=1.19.3"></script>
+	<script src="/ac_gzcy_app/ajax/libs/validate/jquery.validate.extend.js?v=1.19.3"></script>
+	<script src="/ac_gzcy_app/ajax/libs/validate/messages_zh.js?v=1.19.3"></script>
+	<!-- bootstrap-table 表格树插件 -->
+	<script src="/ac_gzcy_app/ajax/libs/bootstrap-table/extensions/tree/bootstrap-table-tree.min.js?v=1.18.3"></script>
+	<!-- 遮罩层 -->
+	<script src="/ac_gzcy_app/ajax/libs/blockUI/jquery.blockUI.js?v=2.70.0"></script>
+    <script src="/ac_gzcy_app/ajax/libs/iCheck/icheck.min.js?v=1.0.3"></script>
+	<script src="/ac_gzcy_app/ajax/libs/layer/layer.min.js?v=3.5.1"></script>
+	<script src="/ac_gzcy_app/ajax/libs/layui/layui.min.js?v=2.7.5"></script>
+	<script src="/ac_gzcy_app/ict/js/common.js?v=4.7.7"></script>
+	<script src="/ac_gzcy_app/ict/js/ict.js?v=4.7.7"></script>
+	
+
+</div>
+    
+	<script src="/ac_gzcy_app/ajax/libs/bootstrap-table/extensions/custom-view/bootstrap-table-custom-view.js?v=1.18.3"></script>
+
+    <script>
+	    var prefix = ctx + "gzwd";
+        var tidDatas = [{"createBy":"admin","createTime":"2021-08-04 03:23:03","updateBy":null,"updateTime":null,"remark":null,"dictCode":100,"dictSort":1,"dictLabel":"\u4E1A\u52A1\u54A8\u8BE2","dictValue":"1","dictType":"gzcy_gzwd_tid","cssClass":null,"listClass":"default","isDefault":"Y","status":"0","default":true},{"createBy":"admin","createTime":"2021-08-04 03:23:30","updateBy":null,"updateTime":null,"remark":null,"dictCode":101,"dictSort":2,"dictLabel":"\u653F\u7B56\u54A8\u8BE2","dictValue":"2","dictType":"gzcy_gzwd_tid","cssClass":null,"listClass":"default","isDefault":"N","status":"0","default":false},{"createBy":"admin","createTime":"2021-08-04 03:23:47","updateBy":null,"updateTime":null,"remark":null,"dictCode":102,"dictSort":3,"dictLabel":"\u63D0\u51FA\u5EFA\u8BAE","dictValue":"3","dictType":"gzcy_gzwd_tid","cssClass":null,"listClass":"default","isDefault":"N","status":"0","default":false},{"createBy":"admin","createTime":"2021-08-04 03:24:22","updateBy":null,"updateTime":null,"remark":null,"dictCode":103,"dictSort":4,"dictLabel":"\u53CD\u9988\u95EE\u9898","dictValue":"4","dictType":"gzcy_gzwd_tid","cssClass":null,"listClass":"default","isDefault":"N","status":"0","default":false}];
+	    var tid = "1";
+	    $(function() {
+	        var options = {
+	            url: prefix + "/viewMessagelist?tid="+tid,
+		        showSearch: false,
+		        showRefresh: false,
+		        showToggle: false,
+		        showColumns: false,
+		        showExport: true,
+	            columns: [
+				{
+					field : 'startName', 
+					title : '姓名'
+				},
+				{
+					field : 'tid', 
+					title : '提问类型'
+				},
+				{
+					field : 'createTime', 
+					title : '提问时间'
+				},
+				{
+					field : 'bjTime', 
+					title : '答复时间'
+				},
+				{
+					field : 'title', 
+					title : '主题'
+				},
+				{
+					field : 'content', 
+					title : '内容'
+				},
+				{
+					field : 'answerinfoTotal', 
+					title : '答复内容'
+				}]
+	        };
+	        $.table.init(options);
+	    });
+        
+        function customViewFormatter (data) {
+            var template = $('#profileTemplate').html()
+            var view = ''
+            $.each(data, function (i, row) {
+              view += template.replace('%name%', row.startName)
+              .replace('%tid%', $.table.selectDictLabel(tidDatas, row.tid))
+              .replace('%createTime%', row.createTime)
+              .replace('%bjTime%', row.bjTime)
+              .replace('%title%', row.title)
+              .replace('%content%', row.content)
+              .replace('%answerinfoTotal%', row.answerinfoTotal);
+            })
+            return `${view}`
+          }
+    </script>
+</body>
+</html>

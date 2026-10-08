@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="SiteName" content="交通运输部政府网站">
+    <meta name="ColumnName" content="留言咨询系统">
+    <meta name="SiteDomain" content="qa.mot.gov.cn">
+    <meta name="SiteIDCode" content="BM19000004">
+    <meta name="ColumnDescription" content="中华人民共和国交通运输部（简称：交通运输部，Ministry of Transport of the People's Republic of China），是国务院重要组成部门。负责推进综合交通运输体系建设，统筹规划铁路、公路、水路、民航以及邮政行业发展，建立与综合交通运输体系相适应的制度体制机制，优化交通运输主要通道和重要枢纽节点布局，促进各种交通运输方式融合。">
+    <meta name="ColumnKeywords" content="互动交流，留言咨询，政务服务,交通运输部,交通部,中华人民共和国交通运输部,中国交通部,交通运输部网站,交通部网站,交通政府,交通,Ministry of Transport of the People's Republic of China">
+    <meta name="ColumnTyep" content="留言咨询">
+    <meta name="robots" content="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言咨询-中华人民共和国交通运输部 - Ministry of Transport of the People's Republic of China</title>
+	<link href="/mapplys/pages/question/images/bootstrap.css" rel="stylesheet">
+		<link href="/mapplys/pages/question/images/font-awesome.min.css" rel="stylesheet" ignoreapd="1">
+		
+		<link href="/mapplys/pages/question/images/common_wd.css?v=1" rel="stylesheet">  
+		<link href="/mapplys/pages/question/images/index_wd.css" rel="stylesheet"> 
+		<link href="/mapplys/pages/question/images/wd20201211style.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="/mapplys/pages/question/alertimages/lib/sweet-alert.css">
+		
+		<script src="/mapplys/pages/question/alertimages/lib/sweet-alert.js"></script>
+
+		<!-- 系统自定义根路径 -->
+		<script src="/mapplys/pages/apply_files/rootPath.js"></script>
+		<!-- 系统自定义根路径 -->
+		<!--[if (gte IE 6)&(lte IE 8)]>
+		<script src="http://api.cas.cn/lib/selectivizr/1.0.2/js/selectivizr.js" /></script>
+		<noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+		<![endif]--> 
+		<!--[if lt IE 9]>
+		<script src="http://api.cas.cn/lib/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="http://api.cas.cn/lib/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="/mapplys/pages/question/images/jquery.js"></script>
+		<script src="/mapplys/rsm-files/date/rsm-date.js"></script>
+        <script src="/mapplys/pages/question/images/bootstrap.js"></script> 
+        <script src="/mapplys/pages/question/images/common_wd.js"></script> 
+        
+        <script src="/mapplys/pages/console/images/Highcharts/code/highcharts.js"></script>
+		<script src="/mapplys/pages/console/images/Highcharts/code/highcharts-3d.js"></script>
+		<script src="/mapplys/pages/console/images/Highcharts/code/modules/exporting.js"></script>
+		<script src="/mapplys/pages/console/images/Highcharts/code/modules/export-data.js"></script>
+		<script src="/mapplys/pages/question/files/indexPages.js?v=1.6"></script> 
+        <script>
+        	var CATEGORYID = "";
+        	var pageSize = 6;
+        	var pageNo = 1;
+        	function getCategoryByParentId(parentid){
+					$.ajax({
+				        type: "post",
+				        url: contentp_path+"/pub/visitor/userIndex/getJsonStrForQues",
+				        data:{parentId:parentid},
+				        dataType:'json',
+				        success: function (result) {
+				        	 	var html_zt = "<a href=\"javascript:void(0);return false;\" class=\"fl w100 hov\" id=\"allCategorya\" name=\"categoryas\" onclick=\"refreshDatas();\">主题分类</a>";
+								for(var i=0;i<result.length;i++){
+									html_zt += "<a href=\"javascript:void(0);return false;\" class=\"fl w100\" onclick=\"selectCategoryDatas('"+result[i].cATEGORYID+"',12,1);\" id='"+result[i].cATEGORYID+"_a' name=\"categoryas\">"+result[i].cNAME+"</a>";
+								}
+								$("#categorydiv").html(html_zt);
+				        },
+				         error : function() {
+				        	 console.info("获取分类数据失败,请联系管理员");
+				         }
+				    });
+			}
+			
+			function refreshDatas(){
+				$("#yjjques").text('已解决问题');
+				$("[name='categoryas']").each(function(){  
+					var this_id = $(this).attr('id');
+					$(this).removeClass('hov');
+				});
+				$("#allCategorya").addClass('hov');
+				CATEGORYID = "";
+        		pageSize = 12;
+        		pageNo = 1;
+        		getDatas();
+			}
+			
+			function searchIndex(){
+				pageSize = 12; 
+				pageNo = 1 ;   
+				getDatas();
+			}
+			
+			function showAllByPage(pageNothis){
+				pageNo = pageNothis;
+				getDatas();
+			}
+			
+			function selectCategoryDatas(categoryId,pageSizethis,pageNothis){
+				CATEGORYID = categoryId;
+				pageNo=pageNothis;
+				pageSize = pageSizethis;
+				getDatas();
+				$("[name='categoryas']").each(function(){
+					var this_id = $(this).attr('id');
+					if(this_id == categoryId+'_a'){
+						$(this).addClass('hov');
+						if(isPc)$("#yjjques").html('已解决问题<font color="red">（'+ $(this).text()+'）</font>');
+					}else{
+						$(this).removeClass('hov');
+					}
+				});
+			}
+			
+			function getDatas(){
+					var KEYWORDS = $("#KEYWORDS").val();
+					if(KEYWORDS.length == 15){
+						info(KEYWORDS);
+					}else{
+						$.ajax({
+					        type: "post",
+					        url: contentp_path+"/pub/visitor/userIndex/getUserByLeavingMessage",
+					        data: {pageNo:pageNo,pageSize:pageSize,ZTTYPE:CATEGORYID,TITLE:KEYWORDS,RANDOMSTR:KEYWORDS,MOBILE:KEYWORDS,orderByFiled:'CRTIME'},
+					        dataType: "json",
+					        success: function (result) {
+					            var pages = result.pages;
+					            var pageNo = result.pageNo;
+					            page_curr = pageNo;
+					            if(pageSize == 6){
+					            	 var tr = "";
+						            for (i = 0; i <  result.datas.length; i++) {
+						                var date_curr = new Date();  
+						                date_curr.setTime(result.datas[i].CRTIME);
+						                var crtimes = date_curr.format('yyyy.MM.dd');
+						                tr += "<li class=\"fl w100\"><a href=\"javascript:void(0);return false;\" onclick=\"info('"+result.datas[i].QUESTIONID+"');\" class=\"fl\" title=\""+delHtmlTag(result.datas[i].TITLE)+"\">"+result.datas[i].TITLE+"</a><span class=\"fr\">"+crtimes+"</span></li>";
+						            }
+						            $("#datas").html(tr);
+					            }else{
+					            	 var tr = "";
+						            for (i = 0; i <  result.datas.length; i++) {
+						                var date_curr = new Date();  
+						                date_curr.setTime(result.datas[i].CRTIME);
+						                var crtimes = date_curr.format('yyyy.MM.dd');
+						                tr += "<li class=\"fl w100\"><a href=\"javascript:void(0);return false;\" onclick=\"info('"+result.datas[i].QUESTIONID+"');\" class=\"fl\" title=\""+delHtmlTag(result.datas[i].TITLE)+"\">"+result.datas[i].TITLE+"</a><span class=\"fr\">"+crtimes+"</span></li>";
+						            }
+						            if(result.datas.length < pageSize){
+						            	for (i = result.datas.length; i <  pageSize; i++) {
+							                tr += "<li class=\"fl w100\"><a href=\"javascript:void(0);return false;\"  class=\"fl\">&nbsp;</a><span class=\"fr\">&nbsp;</span></li>";
+						            	}
+						            }
+						            if(result.datas.length <=0){
+						            	tr='<div style="height: 244px;line-height: 20rem; font-size: 3.24rem; font-weight: 1000;text-align: center; ">暂无数据</div>';
+						            	$("#datas").html(tr);
+						            	$("#pages").html('');
+						            }else{
+						            	$("#datas").html(tr);
+										frontGeneratorPage(pageNo,pages,'pages');
+						            	$("#commonDivs").css({"display":"none"});
+						            }
+					            }
+					        }
+					    });
+					}
+					
+			}
+			
+			
+			function getCountDatas(){
+					$.ajax({
+				        type: "get",
+				        url: contentp_path+"/pub/visitor/userIndex/getCountDatas",
+				        dataType: "html",
+				        success: function (result) {
+				            $(result).appendTo("#datasHtml");
+				        }
+				    });
+			}
+			
+			
+			$(document).ready(function(){
+				getCategoryByParentId('3');
+				getDatas();
+				getCommonDatas();
+				initZtDatas();  
+				initXzDatas();
+				getCountDatas();
+				reWriteCss();
+			});
+			
+			function reWriteCss(){
+				if(!isPc){
+				}
+			}
+			
+			function delHtmlTag(str){
+				return str.toString().replace(/<[^>]+>/g,"");  //正则去掉所有的html标记
+			}
+						
+			
+			function getCommonDatas(){
+					tr1 = '';
+					tr2 = '';
+					$.ajax({
+				        type: "post",
+				        url: contentp_path+"/pub/visitor/userIndex/getUserByLeavingMessage",
+				        data: {pageNo:1,pageSize:12,ISCOMMON:1,orderByFiled:'PUBTIME'},
+				        dataType: "json",
+				        success: function (result) {
+				            var pages = result.pages;
+				            var pageNo = result.pageNo;
+				            page_curr = pageNo;
+				            var tr1 = "";
+				            var tr2 = "";
+				            for (i = 0; i <  result.datas.length; i++) {
+				                if(i<6)
+					                tr1 += "<li class=\"fl w100\"><a href=\"javascript:void(0);return false;\" onclick=\"info('"+result.datas[i].QUESTIONID+"');\" class=\"fl\">"+subStringIndex(delHtmlTag(result.datas[i].TITLE),40,true)+"</a></li>";
+					            else
+					                tr2 +=  "<li class=\"fl w100\"><a href=\"javascript:void(0);return false;\" onclick=\"info('"+result.datas[i].QUESTIONID+"');\" class=\"fl\">"+subStringIndex(delHtmlTag(result.datas[i].TITLE),40,true)+"</a></li>";
+				            }
+				            $("#commondatas1").html(tr1);
+				            $("#commondatas2").html(tr2);
+				        }
+				    });
+			}
+			
+			function info(questionId){
+			    var url_open = contentp_path+"/pub/visitor/userIndex/questionDetail?id="+questionId; 
+				window.open(url_open);
+			}
+			
+			function subStringIndex(str, len, hasDot) {
+				if(str=='' || !str) return '';
+				str = str.toString();
+			    var newLength = 0;
+			    var newStr = "";
+			    var chineseRegex = /[^\x00-\xff]/g;
+			    var singleChar = "";
+			    var strLength = str.replace(chineseRegex, "**").length;
+			    for (var i = 0; i < strLength; i++) {
+			        singleChar = str.charAt(i).toString();
+			        if (singleChar.match(chineseRegex) != null) {
+			            newLength += 2;
+			        }
+			        else {
+			            newLength++;
+			        }
+			        if (newLength > len) {
+			            break;
+			        }
+			        newStr += singleChar;
+			    }
+			    if (hasDot && strLength > len) {
+			        newStr += "...";
+			    }
+			    return newStr;
+			}
+			
+        </script>
+</head>
+ <body class="body_paddt">
+		
+
+
+
+		<div class="navbar-fixed-top">
+			<!--<div class="app_overflow_seach_wd bgfff" id="toper_1">
+				<div class="container">
+					<ul class="nav navbar-nav top_nav_wd" style="float:right;">
+						<li>
+							<div class="time">
+								<script language='JavaScript' type="text/javascript">
+									var tmpDate=new Date();
+									date = tmpDate.getDate();
+									month = tmpDate.getMonth() + 1 ;
+									year = tmpDate.getYear();
+									hh = tmpDate.getHours();
+									mi = tmpDate.getMinutes();
+									ss = tmpDate.getSeconds();
+									year = year>1900 ? year : year+1900;
+									if (hh<10){hh = '0' + hh;}
+									if (mi<10){mi = '0' + mi;}
+									if (ss<10){ss = '0' + ss;}
+									document.write(year + "年" + month + "月" + date + "日&nbsp;&nbsp;&nbsp;");
+									var myArray = new Array(6);
+									myArray[0] = "星期日"
+									myArray[1] = "星期一"
+									myArray[2] = "星期二"
+									myArray[3] = "星期三"
+									myArray[4] = "星期四"
+									myArray[5] = "星期五"
+									myArray[6] = "星期六"
+									weekday = tmpDate.getDay();
+									document.write(myArray[weekday]);
+								</script>
+							</div>
+						</li>
+						<li><a href="http://big5.mot.gov.cn:82/gate/big5/www.mot.gov.cn/">繁体版</a></li>
+						<li><a href="http://wza.mot.gov.cn/web/?sid=15676">无障碍平台</a></li>
+						<li><a href="https://mail.mot.gov.cn/">工作邮箱</a></li>
+						<li><a href="http://www.mot.gov.cn/wangzhanguanli/index_5247.html">网站地图</a></li>
+						
+										<li style="display:none;"><a href="http://qa.mot.gov.cn:80/mapplys/pub/visitor/userIndex/toUserLogin">登陆</a></li> 
+									
+									
+					</ul>
+				</div>
+			</div>-->
+
+
+
+ <!-- app_overflow_seach_wd end  -->
+			
+			<div class="navbar navbar-default header_wd" role="navigation" id="toper_2">
+				<div class="container header_top_wd">
+					<div class="navbar-header fl w100" >
+						<a href="/mapplys/" class="navbar-brand"><img src="/mapplys/pages/question/images/h_logo_wd.png"></a> 
+						<form class="navbar-form fr app_overflow_seach_wd"  action="https://zs.mot.gov.cn/mot/s" onsubmit="return checkUtl();" method="post" id="form" name="form" target="_blank">
+							<div class="form-group " style="float:left;">
+								<input type="text" class="form-control " placeholder="欢迎使用交通智搜..." id="qt" name="qt">
+								 <input name="token" type="hidden" id="token">
+                                                                <input name="siteCode" type="hidden" id="siteCode" value="bm19000004">
+							</div>
+							<button type="submit" class="btn btn-default search_top_wd" ><img src="/mapplys/pages/question/images/search_wd.jpg"></button>
+						</form><!-- app_overflow_seach_wd end -->
+						
+						<div class="web_overflow_seach_wd">
+							<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+							<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+								<span class="sr-only">Toggle Navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+							<div class="collapse navbar-collapse navbar-responsive-collapse web_overflow_seach_wd_a w100">
+								<form class="navbar-form w100 fl"  action="https://zs.mot.gov.cn/mot/s" method="post" id="form_mobile" name="form_mobile" target="_blank" onsubmit="return checkUtl_form_mibile();">
+									<div class="form-group " style="float:left;">
+										<input type="text" class="form-control " placeholder="欢迎使用交通智搜..."  id="qt_phone" name="qt">
+								 <input name="token" type="hidden" id="token_phone">
+                                                                <input name="siteCode" type="hidden" id="siteCode_phone" value="bm19000004">
+									</div>
+									<button type="submit" style="float:left;" class="btn btn-default search_top_wd"><img src="/mapplys/pages/question/images/search_wd.jpg"></button>
+								</form>
+								<ul class="nav navbar-nav w100 fl">
+									<li><a href="http://www.mot.gov.cn/wangzhanguanli/index_5245.html">移动客户端</a></li>
+						<li><a href="http://big5.mot.gov.cn:82/gate/big5/www.mot.gov.cn/">繁体版</a></li>
+						<li><a href="http://wza.mot.gov.cn/web/?sid=15676">无障碍平台</a></li>
+						<li><a href="https://mail.mot.gov.cn/">工作邮箱</a></li>
+						<li><a href="http://www.mot.gov.cn/wangzhanguanli/index_5247.html">网站地图</a></li>
+									
+										<li style="display:none;"><a href="http://qa.mot.gov.cn:80/mapplys/pub/visitor/userIndex/toUserLogin">登陆</a></li> 
+									
+									
+								</ul>
+							</div>
+						</div><!-- web_overflow_seach_wd end -->
+					</div>
+				</div>
+			</div><!-- header_wd end -->
+			<div class="navbar navbar-default">
+				<div class="container">
+					<ul class="nav navbar-nav w100 nav_wd">
+						<li><a href="https://www.mot.gov.cn/jigou/" class="nav_jg" target="_blank">机构</a></li>
+						<li><a href="https://xxgk.mot.gov.cn" class="nav_zc" target="_blank">公开</a></li>
+						<li><a href="https://www.mot.gov.cn/xinwen" class="nav_xw" target="_blank">新闻</a></li>
+						<li><a href="https://zwfwx.mot.gov.cn:6002" class="nav_fw" target="_blank">服务</a></li>
+						<li><a href="https://www.mot.gov.cn/shuju/" class="nav_sj" target="_blank">数据</a></li>
+						<li><a href="https://www.mot.gov.cn/hudong/" class="nav_hd" target="_blank">互动</a></li>
+						<li><a href="https://www.mot.gov.cn/zhuanti/" class="nav_zt" target="_blank">专题</a></li>
+					</ul>
+				</div>
+			</div> <!-- navbar end -->
+		</div>
+		
+		<script>
+				var isPc = true;
+				function IsPC() {
+					  var userAgentInfo = navigator.userAgent;
+					  var Agents = ["Android", "iPhone",
+							"SymbianOS", "Windows Phone",
+							"iPad", "iPod"];
+					  var flag = true;
+					  for (var v = 0; v < Agents.length; v++) {
+						if (userAgentInfo.indexOf(Agents[v]) > 0) {
+						  flag = false;
+						  break;
+						}
+					  }
+					  isPc  = flag;
+				}
+				$(document).ready(function(){
+					IsPC();
+					$(window).scroll(function(event){
+						var winPos = $(window).scrollTop();
+						//console.log(winPos);
+						if(winPos > 160 ){
+							$("#toper_1").hide();
+							$("#toper_2").hide();
+						}else{
+							if(isPc)$("#toper_1").show();
+							$("#toper_2").show();
+						}
+					});
+				});
+				
+				function checkUtl(){
+						var search_value = document.getElementById("qt").value;
+						
+						if (search_value.replace(/(^s*)|(s*$)/g, "").length ==0){ 
+							// alert('检索词为空...');
+							form.action="https://zs.mot.gov.cn/mot/s";			
+						}else{
+							form.action="https://zs.mot.gov.cn/mot/s";			 
+						}
+						
+						return true;
+					
+					}
+					
+					function checkUtl_form_mibile(){
+											var search_value = document.getElementById("qt_phone").value;
+											
+											if (search_value.replace(/(^s*)|(s*$)/g, "").length ==0){ 
+												// alert('检索词为空...');
+												form_mobile.action="https://zs.mot.gov.cn/mot/s";			
+											}else{
+												form_mobile.action="https://zs.mot.gov.cn/mot/s";			 
+											}											
+											return true;
+										
+										}
+					function toSubmitInfo(){
+						window.location.href= contentp_path+"/pub/visitor/userIndex/toSubmitInfo";
+					}
+					function toMy(){
+							
+										window.location.href = "http://qa.mot.gov.cn:80/mapplys/pub/visitor/userIndex/toUserLogin";
+							
+							
+					}
+				
+		</script>
+		
+
+		<!-- navbar-fixed-top end -->   
+		<div class="fl w100 main_wd">
+			<div class="container">
+				<div class="fl w100 main_lmsm_wd ty_wd">
+					<h1 class="fl w100 text-center">栏目说明</h1>
+					<div class="fl w100">
+						<p>本栏目仅用于交通运输部和公众之间的交流，向公众提供交通运输部职责范围内的政策、法规、政务信息的查询指引服务。</p>
+         				<p>本栏目所提供的答复内容仅作为公众了解交通发展，解决实际问题的指导性意见或建议，不具有法定效力，具体业务办理以相关的法律法规为准。涉及经济合同、经济财产权益纠纷、有关民事纠纷、行政申诉、控告和请求等事项，请依照相应法律、法规通过诉讼、仲裁、行政复议等法定途径解决。</p>
+         				<p>您提的问题本栏目可能已经解答过，为节约您的宝贵时间，建议先进行检索。如果未找到您需要的内容，可继续提交您的留言。<a href="javascript:toSubmitInfo();">更多》</a></p> 
+					</div>
+				</div>
+				<!-- lan mu shuo ming end -->
+				<div class="fl w100 main_search_wd mart15">
+					<form class="form-inline">
+						<div class="form-group col-sm-10 col-xs-8  paddnone paddright10 search_wd_form">
+							<input type="text" class="form-control ty_wd" id="KEYWORDS" placeholder="请输入关键字" onkeydown="if(event.keyCode==13){event.keyCode=0;event.returnValue=false;}">
+							<ul class="search_xl">
+							</ul>
+						</div>
+						<div class="col-sm-1 col-xs-2 paddnone paddright5">
+							<button type="button" class="btn btn-default w100" onclick="searchIndex();" >搜索</button>
+						</div>
+						<div class="col-sm-1 col-xs-2 paddnone paddleft5">
+							<button type="button" class="btn btn-default w100" onclick="toSubmitInfo();">提问</button>
+						</div>
+						<div class="col-sm-1 col-xs-3 paddnone paddleft5">
+							<button type="button" class="btn btn-default w100" style="background: darkcyan;display:none;" onclick="toMy();">我的留言</button> 
+						</div>
+					</form>
+				</div>
+				<!-- search end -->
+				<div class="fl w100 main_mod_wd mart15">
+					<div class="col-sm-3 col-xs-4 paddnone paddright15 mod1_wd">
+						<div class="fl w100 ty_wd mod1_list" id="categorydiv">
+						<a href="javascript:void(0);return false;" class="fl w100"
+							onclick="getDatas(6,'-1');">主题分类</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('6');">工程建设</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('7');">运输管理</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('8');">规费稽征</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('9');">法规标准</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('10');">行政执法</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('11');">企业资质</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('12');">人事劳动</a><a
+							href="javascript:void(0);return false;" class="fl w100"
+							onclick="selectCategoryDatas('13');">其 他</a>
+					</div>
+					</div>
+					<!-- mod1 end -->
+					<div class="col-sm-9 col-xs-8 paddnone mod2_wd">
+						<div class="fl w100 mod2_list_wd ty_wd">
+							<h1 class="fl w100 h1_wd"><span class="fl" id="yjjques">已解决问题</span><a class="fr" href="/mapplys/pub/visitor/userIndex/toAllList" target="_blank">+</a></h1>
+							<ul class="fl w100 list_wd" id="datas">
+								<img alt="正在加载中..." src="/mapplys/pubfile/images/loading.gif">&nbsp;&nbsp;&nbsp;数据正在加载中...
+							</ul>
+							<div id="pages" class="fl w100" style="text-align: center;">
+							</div>
+						</div>
+						<div class="fl w100 mod2_list_wd ty_wd mart15" id="commonDivs">
+							<h1 class="fl w100 h1_wd"><span class="fl">常见问题</span><a class="fr" href="/mapplys/pub/visitor/userIndex/toCommonList" target="_blank">+</a></h1>
+							<ul class="fl w50 list_wd mod2_list1_wd" id="commondatas1">
+								<img alt="正在加载中..." src="/mapplys/pubfile/images/loading.gif">&nbsp;&nbsp;&nbsp;数据正在加载中...
+							</ul>
+							<hr class="hr_wd" style="height:210px;" ></hr>
+							<ul class="fl w50 list_wd mod2_list2_wd" id="commondatas2">
+								<img alt="正在加载中..." src="/mapplys/pubfile/images/loading.gif">&nbsp;&nbsp;&nbsp;数据正在加载中...
+							</ul>
+						</div>
+					</div>
+					<!-- mod2 end -->
+				</div>
+				<!-- mod end -->
+				<div class="fl w100 main_lysjtj_wd mart15" >
+					<div class="col-md-4 col-sm-4 col-xs-12 paddnone paddright15 lysjtj_mod1">
+						<div class="col-sm-12 col-xs-6 paddnone ty_wd lysjtj_mod1_a">
+							<div class="fl w100 lysjtj_mod1_a_bg text-center"><img src="/mapplys/pages/question/images/tw_wd.jpg"></div>
+							<a href="http://robot.mot.gov.cn/" class="fr" target="_blank">点击进入</a>
+						</div> 
+						<div class="col-sm-12 col-xs-6 paddnone  lysjtj_mod1_b text-center mart15"> 
+							<a href="javascript:;" class="fl w100 ty_wd" style="cursor: auto;"><img src="/mapplys/pages/question/images/tw1_wd.jpg" height="108px"></a>
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-12 paddnone lysjtj_mod2 ty_wd" id="datasHtml">
+						<h1 class="fl w100 h1_wd"><span class="fl">留言数据统计</span><a class="fr" style="display:none;">+</a></h1>
+						<div class="fl w100 lysjtj_mod2_sjt">
+							<div class="col-sm-6 lysjtj_mod2_sjt1 paddnone" >
+								<div class="fl w100 text-center" id="container1" style="height:240px;margin-top: 23px;"><img src="/mapplys/pages/question/images/tw2_wd.jpg"></div>
+							</div>
+							<div class="col-sm-6 lysjtj_mod2_sjt2 paddnone" >
+								<div class="fl w100 text-center" id="container2" style="height:240px;margin-top: 23px;"><img src="/mapplys/pages/question/images/tw3_wd.jpg"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- liu yan shu ju tong ji end -->
+			</div>
+		</div>
+		<!-- main_wd end -->
+		
+
+		<div class="fl w100 home_footer_wd ">
+			<div class="container">
+				<div class="col-sm-1 w650_1_wd fl"><script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/60414472/CA330000000604144720002.js' type='text/javascript'%3E%3C/script%3E"));</script></div>
+				<div class="col-sm-2 w650_2_wd fr hidden-md hidden-lg" id="phoneError"><script id="_jiucuo_" sitecode='bm19000004' src='https://pucha.kaipuyun.cn/exposure/jiucuo.js' ignoreapd="1"></script></div>
+				<div class="fl col-sm-9 w650_3_wd">
+					<!--<a href="http://www.mot.gov.cn/wangzhanguanli/index_5247.html" target="_blank">网站地图</a> | 
+					<a href="http://www.mot.gov.cn/wangzhanjianshe/" target="_blank">网站建设</a> |--> 
+					<a href="https://www.mot.gov.cn/wangzhangongneng/202512/t20251216_4181727.html" target="_blank">免责声明</a> | 
+					<a href="https://www.mot.gov.cn/wangzhangongneng/202512/t20251216_4181728.html" target="_blank">联系我们</a> <!--| 
+					<a href="http://www.mot.gov.cn/wangzhanguanli/201511/t20151126_1938922.html" target="_blank">相关链接</a> -->
+					<span>开发单位:交通运输部科学研究院</span><br/>
+					<span><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备05046837号</a></span> 
+					<span><a href="#"><img src="/mapplys/pages/question/images/mot2016_beiantb_wd.png">京公网安备</a></span>
+					<span>11040102700014号</span>
+					<span>政府网站标识码：BM19000004</span>
+				</div> 
+				<div class="col-sm-2 hidden-xs hidden-sm" id="pcerror"><script id="_jiucuo_" sitecode='bm19000004' src='https://pucha.kaipuyun.cn/exposure/jiucuo.js' ignoreapd="1"></script></div>
+				<script>
+					$("#pcerror").html($("#phoneError").html());
+				</script>
+			</div>
+		</div>
+
+		<script>
+			function IsPC() {
+					  var userAgentInfo = navigator.userAgent;
+					  var Agents = ["Android", "iPhone",
+							"SymbianOS", "Windows Phone",
+							"iPad", "iPod"];
+					  var flag = true;
+					  for (var v = 0; v < Agents.length; v++) {
+						if (userAgentInfo.indexOf(Agents[v]) > 0) {
+						  flag = false;
+						  break;
+						}
+					  }
+					  return flag;
+				}
+			
+				//当输入框输入值 时 值发生改变时也会触发该事件
+				$(document).on("input","#KEYWORDS",function(){
+					var value=$(this).val();
+					value=$.trim(value)//空格验证
+					if(value){//当输入框有值时 ，获取数据出现提示框
+						$.ajax({
+					        type: "post",
+					        url: contentp_path+"/pub/front/search/data",
+					        data: {SEARCHWORDS:value},
+					        dataType: "json",
+					        success: function (result) {
+					            var pages = result.pages;
+					            var pageNo = result.pageNo;
+					            page_curr = pageNo;
+					            var tbody = "";
+					            var z = 1;
+					            if(result.datas.length > 0){
+					            	var isPCD = IsPC();
+					            	for (i = 0; i <  result.datas.length; i++) {
+						                var date_curr = new Date();  
+						                date_curr.setTime(result.datas[i].cRTIME);
+						                var crtimes = date_curr.format('yyyy-MM-dd HH:mm:ss');
+						                var tr = "<li>" + subStringIndex(result.datas[i].sEARCHWORDS,35,true) ;//+ "</li>";
+						                //if(isPCD)tr+="<span style='float:right;'>"+result.datas[i].sEARCHTIMES+"（次）</span>";
+						                tr += "</tr>";
+						                tbody += tr;
+						            }
+						            $(".search_xl").html(tbody);
+									$(".search_wd_form ul").slideDown();
+					            }
+					            
+					        }
+					    });
+					}else{
+						$(".search_wd_form ul").fadeOut(80);
+					}
+				});
+				
+				//点击提示框的值 把值直接赋到输入框
+				$(document).on("click",".search_wd_form ul li",function(){
+					$("#KEYWORDS").val($(this).text());
+					$(".search_wd_form ul").fadeOut(80);
+					searchIndex();
+				});
+				
+				//输入框失去焦点时 隐藏提示框
+				$(document).on("blur","#KEYWORDS",function(){
+					$(".search_wd_form ul").fadeOut(200);
+				});
+				
+				//输入框得到焦点时 //如果已经有值 直接显示数据
+				$(document).on("focus","#KEYWORDS",function(){
+					var value=$(this).val();
+					value=$.trim(value)//空格验证
+					if(value){////当输入框有值时 ，获取数据出现提示框
+						$(".search_wd_form ul").slideDown();
+					}else{
+						$(".search_wd_form ul").fadeOut(80);
+					}
+				});
+			
+			function initZtDatas(){
+					Highcharts.chart('container1', {
+					    chart: {
+					        type: 'pie',
+					        options3d: {
+					            enabled: true,
+					            alpha: 45
+					        }
+					    },
+					    title: {
+					        text: '主题分类情况'
+					    },
+					    subtitle: {
+					        text: ' '
+					    },
+					    plotOptions: {
+					        pie: {
+					            innerSize: 100,
+					            depth: 45
+					        }
+					    },
+					    series: [{name: '截止2026年10月留言主题分类数量分布情况',data: [['行政执法',4092],['企业资质',1202],['人事劳动',3691],['其　　他',25457],['工程建设',2060],['运输管理',38541],['规费稽征',172],['法规标准',7421]]}]
+					});
+			}
+			
+			function initXzDatas(){
+					Highcharts.chart('container2', {
+				    chart: {
+				        type: 'column'
+				    },
+				    title: {
+				        text: '性质分类情况'
+				    },
+				    subtitle: {
+				        text: ''//'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+				    },
+				    xAxis: {
+				        type: 'category',
+				        labels: {
+				            rotation: -45,
+				            style: {
+				                fontSize: '13px',
+				                fontFamily: 'Verdana, sans-serif'
+				            }
+				        }
+				    },
+				    yAxis: {
+				        min: 0,
+				        title: {
+				            text: '数量（单位：条）'
+				        }
+				    },
+				    legend: {
+				        enabled: false
+				    },
+				    tooltip: {
+				        pointFormat: '数量: <b>{point.y:.1f} 条</b>'
+				    },
+				    series: [{name: '数量（条）：',data: [['建议类留言',1549],['投诉类留言',2126],['重复',2216],['咨询类留言',64978],['批评',12],['表扬',3],['其他',2241]], dataLabels: {enabled: true,rotation: -90,color: '#FFFFFF',align: 'right', format: '{point.y:.1f}', y: 10, style: {fontSize: '13px',fontFamily: 'Verdana, sans-serif'}}}]
+				});
+			}
+			
+			function delHtmlTag(str){
+				return str.toString().replace(/<[^>]+>/g,"");  //正则去掉所有的html标记
+			}
+			
+		</script>
+    <div style="display:none"> <a href="/btatw23_atbp/bt"></a> </div></body>
+    <style>
+    	.highcharts-credits{display:none;}
+    	.highcharts-button-symbol{display:none;};
+    </style>
+</html>

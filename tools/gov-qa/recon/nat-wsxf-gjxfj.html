@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>国家信访局国家投诉受理办公室 - 问题发生地选择</title>
+		<script type="text/javascript" src="../js/common/deviceRedirect.js"></script>
+		<script type="text/javascript" src="../js/common/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/common/common.js"></script>
+		<script type="text/javascript" src="../js/common/jquery.nicescroll.min.js"></script>
+		<link rel="stylesheet" href="../css/common/common.css" type="text/css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body,
+			html {
+				font-family: Arial, sans-serif;
+				height: 100vh;
+				background-color: #f5f5f5;
+				overflow: auto;
+			}
+
+			.container,
+			.reaction {
+				width: 80%;
+				min-width: 1615px;
+				margin: 20px auto 0;
+				padding: 0 20px;
+				height: calc(100vh - 210px);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 25px;
+				padding-bottom: 0;
+				background-color: #fff;
+			}
+
+			.content,
+			.reaction .content {
+				text-align: center;
+				background: white;
+				border-radius: 8px;
+				/* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				/* justify-content: center; */
+				position: relative;
+				overflow: hidden;
+				padding-top: 6%;
+			}
+
+			.container .content {
+				background: url(../images/sxfsdbg.png) no-repeat center center transparent;
+				background-size: 100% 100%;
+			}
+
+			.message {
+				font-size: 30px;
+				line-height: 1.7;
+				color: #333;
+				margin-bottom: 60px;
+				padding: 30px;
+				background: #f8f0f0;
+				border-radius: 8px;
+				border: 1px solid #f0e0e0;
+				width: 60%;
+				text-align: left;
+				text-indent: 2em;
+				font-weight: bold;
+				letter-spacing: 4px;
+			}
+
+			.location-question {
+				font-size: 22px;
+				color: #333;
+				margin-bottom: 30px;
+				width: 60%;
+				position: relative;
+				display: flex;
+				justify-content: center;
+			}
+
+			.location-question p {
+				position: relative;
+				width: fit-content;
+			}
+
+			.location-question p::before {
+				content: "";
+				position: absolute;
+				top: 15%;
+				left: -20px;
+				width: 3px;
+				height: 80%;
+				background: rgb(4, 160, 233);
+				z-index: 11;
+			}
+
+			.location-select {
+				width: 60%;
+				max-width: 400px;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 16px;
+				cursor: pointer;
+			}
+
+			.popup {
+				display: none;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 70%;
+				max-width: 800px;
+				background: white;
+				border: 1px solid #ddd;
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				z-index: 1000;
+				padding: 30px;
+			}
+
+			.popup-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 25px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #eee;
+			}
+
+			.popup-title {
+				font-size: 24px;
+				font-weight: bold;
+				color: #333;
+				display: flex;
+				align-items: center;
+			}
+
+			/* .popup-title::before {
+				content: "📍";
+				margin-right: 15px;
+				font-size: 24px;
+			} */
+
+			.close-btn {
+				background: none;
+				border: none;
+				font-size: 24px;
+				cursor: pointer;
+				color: #999;
+			}
+
+			.location-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 15px;
+			}
+
+			.location-item {
+				padding: 15px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				text-align: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-size: 22px;
+			}
+
+			.location-item:hover {
+				background: #f5f5f5;
+				border-color: #0066cc;
+			}
+
+			.overlay {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+				z-index: 999;
+			}
+
+			.wave-bg {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 150px;
+				background: linear-gradient(135deg, rgba(224, 247, 250, 0.5), rgba(186, 230, 253, 0.5));
+				border-radius: 0 0 8px 8px;
+				z-index: 0;
+			}
+
+			.reaction-message {
+				font-size: 24px;
+				font-weight: bold;
+				color: #333;
+				margin-bottom: 50px;
+				line-height: 1.5;
+			}
+
+			.action-buttons {
+				display: flex;
+				justify-content: center;
+				gap: 30px;
+			}
+
+			.btn {
+				padding: 15px 40px;
+				border: none;
+				border-radius: 4px;
+				font-size: 18px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.btn-primary {
+				background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background: linear-gradient(135deg, #0052a3 0%, #0080e6 100%);
+			}
+
+			.btn-secondary {
+				background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+				color: #333;
+			}
+
+			.btn-secondary:hover {
+				background: linear-gradient(135deg, #d0d0d0 0%, #e0e0e0 100%);
+			}
+
+			.sfdLogo {
+				width: 232px;
+				height: 156px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top">
+			<div class="bg-panel">
+				<div class="top-panel">
+					<div class="top-content">
+						<a href="javascript" id="StranLink" style="text-decoration: none;" class="font-panel">切换简体中文浏览</a>
+						<span id="nowTime" class="time-panel">
+							<span id="date"></span>&nbsp;
+							<span id="time"></span>&nbsp;
+							<span id="week"></span>
+						</span>
+					</div>
+				</div>
+				<a href="index.html" style="text-decoration: none; color: inherit;">
+					<div class="logo-panel">
+						<img src="../images/ngh.png" class="logo-png" />
+						国家信访局国家投诉受理办公室
+					</div>
+				</a>
+			</div>
+			<script type="text/javascript" src="../js/common/language.js"></script>
+			<script type="text/javascript" src="../js/common/clock.js"></script>
+		</div>
+		<div class="container">
+			<div class="content">
+				<div class="message">
+					您好！根据《信访工作条例》"属地管理、分级负责，谁主管、谁负责"原则,为便于您的诉求得到更加及时、高效、就地解决，请您优先向问题发生地或有权处理的机关、单位反映。
+				</div>
+				<div class="location-question">
+					<p>您反映的问题发生地是哪里</p>
+				</div>
+				<div class="location-select" onclick="showPopup()">
+					请选择
+				</div>
+				<div class="overlay" onclick="hidePopup()"></div>
+				<div class="popup" id="locationPopup">
+					<div class="popup-header">
+						<div class="popup-title">问题发生地</div>
+						<button class="close-btn" onclick="hidePopup()">&times;</button>
+					</div>
+					<div class="location-grid">
+						<div class="location-item" onclick="selectLocation('北京')">北京</div>
+						<div class="location-item" onclick="selectLocation('天津')">天津</div>
+						<div class="location-item" onclick="selectLocation('河北')">河北</div>
+						<div class="location-item" onclick="selectLocation('山西')">山西</div>
+						<div class="location-item" onclick="selectLocation('内蒙古')">内蒙古</div>
+						<div class="location-item" onclick="selectLocation('辽宁')">辽宁</div>
+						<div class="location-item" onclick="selectLocation('吉林')">吉林</div>
+						<div class="location-item" onclick="selectLocation('黑龙江')">黑龙江</div>
+						<div class="location-item" onclick="selectLocation('上海')">上海</div>
+						<div class="location-item" onclick="selectLocation('江苏')">江苏</div>
+						<div class="location-item" onclick="selectLocation('浙江')">浙江</div>
+						<div class="location-item" onclick="selectLocation('安徽')">安徽</div>
+						<div class="location-item" onclick="selectLocation('福建')">福建</div>
+						<div class="location-item" onclick="selectLocation('江西')">江西</div>
+						<div class="location-item" onclick="selectLocation('山东')">山东</div>
+						<div class="location-item" onclick="selectLocation('河南')">河南</div>
+						<div class="location-item" onclick="selectLocation('湖北')">湖北</div>
+						<div class="location-item" onclick="selectLocation('湖南')">湖南</div>
+						<div class="location-item" onclick="selectLocation('广东')">广东</div>
+						<div class="location-item" onclick="selectLocation('广西')">广西</div>
+						<div class="location-item" onclick="selectLocation('海南')">海南</div>
+						<div class="location-item" onclick="selectLocation('重庆')">重庆</div>
+						<div class="location-item" onclick="selectLocation('四川')">四川</div>
+						<div class="location-item" onclick="selectLocation('贵州')">贵州</div>
+						<div class="location-item" onclick="selectLocation('云南')">云南</div>
+						<div class="location-item" onclick="selectLocation('西藏')">西藏</div>
+						<div class="location-item" onclick="selectLocation('陕西')">陕西</div>
+						<div class="location-item" onclick="selectLocation('甘肃')">甘肃</div>
+						<div class="location-item" onclick="selectLocation('青海')">青海</div>
+						<div class="location-item" onclick="selectLocation('宁夏')">宁夏</div>
+						<div class="location-item" onclick="selectLocation('新疆')">新疆</div>
+						<div class="location-item" onclick="selectLocation('兵团')">兵团</div>
+						<!-- <div class="location-item" onclick="selectLocation('香港特别行政区')">香港</div>
+						<div class="location-item" onclick="selectLocation('澳门特别行政区')">澳门</div>
+						<div class="location-item" onclick="selectLocation('台湾')">台湾</div>
+						<div class="location-item" onclick="selectLocation('外国')">国外</div> -->
+					</div>
+				</div>
+				<!-- <div class="wave-bg"></div> -->
+				<script>
+					function showPopup() {
+						document.querySelector('.overlay').style.display = 'block';
+						document.getElementById('locationPopup').style.display = 'block';
+					}
+
+					function hidePopup() {
+						document.querySelector('.overlay').style.display = 'none';
+						document.getElementById('locationPopup').style.display = 'none';
+					}
+
+					// 省市官方信访网站链接
+					const officialWebsites = {
+						'北京': 'https://wsxf.xfb.beijing.gov.cn/',
+						'天津': 'https://wsts.xf.tj.gov.cn/#/Index',
+						'河北': 'https://wsxf.hebxfj.gov.cn/',
+						'山西': 'https://xfj.shanxi.gov.cn/shengxinfang/#/',
+						'内蒙古': 'https://xfj.nmg.gov.cn/wsxf/',
+						'辽宁': 'https://wt.lnxf.gov.cn/web/index/',
+						'吉林': 'https://jlsxfj.jl.gov.cn/wsxf/login',
+						'黑龙江': 'https://xfj.hlj.gov.cn/hljxfj/c116767/xf_zj.shtml',
+						'上海': 'https://xfb.sh.gov.cn/',
+						'江苏': 'https://ygxf.jssxfj.jiangsu.gov.cn:4443/',
+						'浙江': 'https://zxts.zjzwfw.gov.cn/zwmhww/#/home/index?areacode=330000&lybj=pc_cgm_GO_7720552b74e64af7bbdf1f97d5b4fba8_661544_06',
+						'安徽': 'http://wsxf.ahxfj.gov.cn/pl-ws-web/onlineComplaint/wantComplaint.do?navIndex=3-1',
+						'福建': 'https://wsxf.fj.gov.cn/~fj/index.do',
+						'江西': 'https://wsxf.jx-xinfang.gov.cn/',
+						'山东': 'http://wsxf.xfj.shandong.gov.cn/',
+						'河南': 'http://wsxfdt.xfj.henan.gov.cn/',
+						'湖北': 'https://www.xinfang.gov.cn/',
+						'湖南': 'https://wsxf.hunan.gov.cn/',
+						'广东': 'https://ts.gdwsxf.gd.gov.cn/web/index',
+						'广西': 'https://www.gxxf.gov.cn/p1/wsts.shtml',
+						'海南': 'https://xf.hainan.gov.cn/wsxf/web/index',
+						'重庆': 'https://xfb.cq.gov.cn/',
+						'四川': 'http://scts.scwsxf.cn:7003/scweb/web/dsdh',
+						'贵州': 'https://wsxfpt.gzsxfj.gov.cn/',
+						'云南': 'https://xfservice.yn.gov.cn/wsxf/index',
+						'西藏': 'https://xzxf.xizang.gov.cn/ocp/wyts.html',
+						'陕西': 'https://wsxf.shaanxi.gov.cn/',
+						'甘肃': 'https://www.gsxfj.gov.cn:8088/wsxf-online/#/index',
+						'青海': 'https://xfj.qinghai.gov.cn:1443/',
+						'宁夏': 'https://wsts.xf.nx.gov.cn/ocp/wyts.html',
+						'新疆': 'https://wsxf.xjxfj.gov.cn/html/petitionOnline/shallWrite.jsp?regionCode=650000000000',
+						'兵团': 'http://wsxf.xjbt.gov.cn/'
+					};
+
+					let selectedLocation = '';
+
+					function selectLocation(location) {
+						selectedLocation = location;
+						document.querySelector('.location-select').textContent = location;
+						hidePopup();
+
+						// 检查是否为特殊地区
+						const specialLocations = ['外国', '香港特别行政区', '澳门特别行政区', '台湾'];
+						if (specialLocations.includes(location)) {
+							// 跳转到index.html
+							window.location.href = 'page/index.html';
+						} else {
+							// 隐藏container，显示reaction
+							document.querySelector('.container').style.display = 'none';
+							document.querySelector('.reaction').style.display = 'flex';
+							// 更新message内容
+							const municipalities = ['北京', '天津', '上海', '重庆'];
+							let fullLocation;
+							if (municipalities.includes(location)) {
+								fullLocation = location + '市';
+							} else if (location === '内蒙古') {
+								fullLocation = location + '自治区';
+							} else if (location === '新疆') {
+								fullLocation = location + '维吾尔自治区';
+							} else if (location === '宁夏') {
+								fullLocation = location + '回族自治区';
+							} else if (location === '广西' || location === '西藏') {
+								fullLocation = location + '自治区';
+							} else if (location === '兵团') {
+								fullLocation = '新疆生产建设' + location;
+							} else {
+								fullLocation = location + '省';
+							}
+							document.querySelector('.reaction .reaction-message').textContent = `请您优先向${fullLocation}有关部门反映问题`;
+						}
+					}
+
+					/**
+					 * 确认跳转：先上报点击计数（type=0），再跳转至对应省份信访网站
+					 */
+					function confirmSelection() {
+						var redirectUrl = 'page/index.html';
+						var wsxfly = '';
+						if (selectedLocation && officialWebsites[selectedLocation]) {
+							redirectUrl = officialWebsites[selectedLocation];
+							wsxfly = officialWebsites[selectedLocation];
+						}
+						reportClickHitsNew({
+							wsxfly: wsxfly,
+							type: '0',
+							redirectUrl: redirectUrl
+						});
+					}
+
+					function cancelSelection() {
+						window.location.href = 'page/index.html';
+					}
+				</script>
+			</div>
+		</div>
+		<div class="reaction" style="display: none;">
+			<div class="content">
+				<img src="../images/sfdLogo.png" alt="sfdLogo" class="sfdLogo">
+				<div class="reaction-message">请您优先向北京市有关部门反映问题</div>
+				<div class="action-buttons">
+					<button class="btn btn-primary" onclick="confirmSelection()">确定</button>
+					<button class="btn btn-secondary" onclick="cancelSelection()">取消</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
