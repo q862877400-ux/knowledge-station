@@ -92,6 +92,7 @@ ADAPTERS: dict[str, str] = {
     # —— 新增省份：IGI 同族（2026-10-08 由「24 省系统性重探」发现，见 recon/province-platform-hunt.txt）——
     "nx-zxxx": "adapters.nx_zxxx",             # 宁夏回族自治区·主席信箱（IGI siteId=115/appId=4，带三级归属）
     "sx-szxx": "adapters.sx_szxx",             # 山西省·省长信箱（IGI siteId=110/appId=1742326）
+    "ah-kb": "adapters.ah_kb",                 # 安徽省直部门·共享问答知识库（全省站群 label 8888，跨厅局聚合 2282 条）
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
