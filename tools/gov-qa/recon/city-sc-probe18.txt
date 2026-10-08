@@ -1,0 +1,121 @@
+
+===== 广安 =====
+  https://www.guang-an.gov.cn/gasrmzfw/hdjl/pc/list.html -> 200 len=140420 ct=text/html; charset=utf-8 final=https://www.guang-an.gov.cn/gasrmzfw/hdjl/pc/list.html
+     [js] /default/libs/commonApi.js
+     [js] /gasrmzfw/pc2023/js/common.js
+     [js] /gasrmzfw/pc2023/js/basehd/config.js
+     [js] /gasrmzfw/pc2023/js/hdjl2024.js
+     [js] /gasrmzfw/pc2023/js/hdjleacharts.js
+     [config.js] ...ript type="text/javascript" src="/gasrmzfw/pc2023/js/basehd/config.js"></script> <script src="/gasrmzfw/pc2023/js/hdjl2024.js"></script> <!-...
+     [jsp-mail] ...\"pc\":\"/gasrmzfw/ldxx/pc/list.html\",\"form\":\"/gasrmzfw/mail/form.html\",\"detail\":\"/gasrmzfw/mail/detail.html\"}","crumbs":[{"urls":{"pc":"/gas...
+     [zmhd] .../hdzsk/pc/list.html"><img src="/gasrmzfw/pc2023/images/hdjl/zmhd_zsk.jpg" alt=""></a></div> </div> </div> <!--在线访谈--> ...
+
+===== 资阳 =====
+  https://www.ziyang.gov.cn/zysrmzf/hdjl/pc/list.html -> 200 len=146160 ct=text/html; charset=utf-8 final=https://www.ziyang.gov.cn/zysrmzf/hdjl/pc/list.html
+     [js] /default/libs/config.js
+     [js] /zysrmzf/pc2024/js/commonApi.js
+     [js] /zysrmzf/pc2024/js/common.js
+     [js] /zysrmzf/pc2024/js/zmhd.js
+     [config.js] ...cript> <script type="text/javascript" src="/default/libs/config.js"></script> <script type="text/javascript" src="/zysrmzf/pc2024/js/commonApi.j...
+     [9050szweb] ... <a target="_blank" href="http://zymail.ziyang.gov.cn:9050/szweb/index" class="box hvr-icon-grow"> <i class="icon hvr-icon"><img ...
+     [szweb] ... <a target="_blank" href="http://zymail.ziyang.gov.cn:9050/szweb/index" class="box hvr-icon-grow"> <i class="icon hvr-icon"><img src="...
+     [jsp-mail] ...tns transition"> <a target="_blank" href="/zysrmzf/mail/notice.html?sourceId=7" class="com-btn wyxx"> <i class="icon"><img src="/z...
+     [zmhd] ... rel="stylesheet" type="text/css" href="/zysrmzf/pc2024/css/zmhd.css"> <script type="text/javascript" src="/default/libs/jquery.min.js"></script> ...
+  https://www.ziyang.gov.cn/zysrmzf/mail/notice.html?sourceId=7 -> 200 len=13506 ct=text/html; charset=utf-8 final=https://www.ziyang.gov.cn/zysrmzf/mail/notice.html?sourceId=7
+     [js] /default/libs/config.js
+     [js] /zysrmzf/pc2024/js/commonApi.js
+     [js] /zysrmzf/pc2024/js/common.js
+     [js] /zysrmzf/pc2024/js/mail_notice.js
+     [config.js] ...cript> <script type="text/javascript" src="/default/libs/config.js"></script> <script type="text/javascript" src="/zysrmzf/pc2024/js/commonApi.j...
+     [jsp-mail] ...nd --> <div class="container pt20"> <div class="mail-notice"> <div class="mail-notice-tit">写信须知</div> <div class="mail-notic...
+  http://zymail.ziyang.gov.cn:9050/szweb/index -> 200 len=21245 ct=text/html;charset=UTF-8 final=http://zymail.ziyang.gov.cn:9050/szweb/index
+     [js] /szweb/static/js/common.js?v=20251130
+     [szweb] ...ice-width, initial-scale=1"> <link rel="stylesheet" href="/szweb/static/vendor/bootstrap/bootstrap.min.css"> <link rel="stylesheet" href="/szweb/sta...
+     [jsp-mail] ...posure/jiucuo.html?site_code=5120000033&url=http:%3A%2F%2Fzymail.ziyang.gov.cn:9050%2Fszweb%2Findex" target="_blank"><img class="fo...
+
+===== 内江 =====
+  https://www.neijiang.gov.cn/njs/mail/mail_list.shtml -> 200 len=29060 ct=text/html; charset=utf-8 final=https://www.neijiang.gov.cn/njs/mail/mail_list.shtml
+     [js] /njs/xhtml/js/commonFn.js
+     [js] /njs/xhtml/js/common.js
+     [js] /njs/xhtml/mail/js/zw_mailbox.js
+     [jsp-mail] ...rel="stylesheet" type="text/css"> <link href="/njs/xhtml/mail/css/hd_common.css" rel="stylesheet" type="text/css"> <link href="/njs/xhtml/mail/c...
+     [zmhd] ...">政务服务</a></li> <li><a href="/njs/hdjl/zmhd.shtml">政民互动</a></li> <li><a href="/njs/zjnj/zjnj.shtml">走进内江</a>...
+  https://www.neijiang.gov.cn/njs/hdjl/zmhd.shtml -> 200 len=99746 ct=text/html; charset=utf-8 final=https://www.neijiang.gov.cn/njs/hdjl/zmhd.shtml
+     [js] /njs/xhtml/js/commonFn.js
+     [js] /njs/xhtml/js/zmhd.js
+     [js] /njs/xhtml/js/zmhd_12345.js
+     [szweb] ...">我要投诉举报</p> <a href="https://www.njsxf.cn/szweb/index" target="_blank">内江市网上投诉受理及人民建议征集平台</a> <!-- <a href="http://...
+     [jsp-mail] ... <li> <a href="/njs/mail/mail_list.shtml">市长信箱</a> <a href="/njs/myzj/hd_yjzj.shtml">...
+     [zmhd] ...></script> <link rel="stylesheet" href="/njs/xhtml/css/zmhd.css"> </head> <body> <!--公共页眉start--> <div class="header"> <div cl...
+
+===== 雅安 =====
+  https://www.yaan.gov.cn/mail/index.html -> 200 len=41309 ct=text/html;charset=UTF-8 final=https://www.yaan.gov.cn/mail/index.html
+     [js] /mail/v2/js/jquery.form.js
+     [js] /mail/layui/layui.js
+     [js] /mail/v2/js/mail.js
+     [js] https://api.yaan.gov.cn/Scripts/tongji.js?v=20201207
+     [js] https://api.yaan.gov.cn/js/wza.js?v=20201207
+     [js] https://api.yaan.gov.cn/Scripts/user.js?siteid=ce3fe0de-ba94-41cf-8d03-ee90f83fd771&v=20201207
+     [9050szweb] ... <a target="_blank" href="http://yamail.yaan.gov.cn:9050/szweb/index">网上信访</a> </li> ...
+     [szweb] ... <a target="_blank" href="http://yamail.yaan.gov.cn:9050/szweb/index">网上信访</a> </li> <li>...
+     [jsp-mail] ... } </style> <link rel="stylesheet" href="/mail/layui/css/layui.css" /> <link rel="stylesheet" href="/mail/v2/css/email.css" /> ...
+     [zmhd] ...class="sub"> <div class="id-xxgk id-dh-zmhd" style="width: 902px;"> <ul> <l...
+  https://www.yaan.gov.cn/12345.html -> 200 len=29633 ct=text/html;charset=UTF-8 final=https://www.yaan.gov.cn/12345.html
+     [js] https://api.yaan.gov.cn/Scripts/tongji.js?v=20201207
+     [js] https://api.yaan.gov.cn/js/wza.js?v=20201207
+     [js] https://api.yaan.gov.cn/Scripts/user.js?siteid=ce3fe0de-ba94-41cf-8d03-ee90f83fd771&v=20201207
+     [9050szweb] ... <a target="_blank" href="http://yamail.yaan.gov.cn:9050/szweb/index">网上信访</a> </li> ...
+     [szweb] ... <a target="_blank" href="http://yamail.yaan.gov.cn:9050/szweb/index">网上信访</a> </li> <li>...
+     [jsp-mail] ...div class="navBar"> <div class="nav clearfix" id="emailListHead"> <div class="m li02"> <h3><a href="/">网站首页</a>...
+     [zmhd] ...class="sub"> <div class="id-xxgk id-dh-zmhd" style="width: 902px;"> <ul> <l...
+  http://yamail.yaan.gov.cn:9050/szweb/index -> 200 len=20213 ct=text/html;charset=UTF-8 final=http://yamail.yaan.gov.cn:9050/szweb/index
+     [js] /szweb/static/js/common.js?v=20251130
+     [szweb] ...ice-width, initial-scale=1"> <link rel="stylesheet" href="/szweb/static/vendor/bootstrap/bootstrap.min.css"> <link rel="stylesheet" href="/szweb/sta...
+
+===== 乐山 =====
+  https://www.leshan.gov.cn/lsswszf/zmhd/index.html -> 200 len=33604 ct=text/html final=https://www.leshan.gov.cn/lsswszf/zmhd/index.html
+     [js] /lsswszf/resource/js/hdjl.js
+     [jsp-mail] ... <p class="mail_text"> <a href="/lsswszf/xlxx...
+     [lsswszf] ...±ä¹å±±å¸å§ä¹å±±å¸äººæ°æ¿åº</title> <link href="/lsswszf/resource/css/all.css" type="text/css" rel="stylesheet" /> <link href="/lsswszf...
+     [zmhd] ...s="nav-item"> <a href="/lsswszf/zmhd/index.html">æ¿æ°äºå¨</a> </li> <li class="nav-ite...
+
+===== 南充 =====
+  https://www.nanchong.gov.cn/hdjl/szxx/ -> 200 len=382 ct=text/html final=https://www.nanchong.gov.cn/hdjl/szxx/
+
+===== 眉山 =====
+  https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999 -> 200 len=14895 ct=text/html;charset=UTF-8 final=https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+     [jsp-mail] ...3080002 --> <link rel="stylesheet" type="text/css" href="swmail.vsb.css" /> <script type="text/javascript" src="/system/resource/js/vsbscreen.min.js...
+  https://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010 -> 200 len=43483 ct=text/html;charset=UTF-8 final=https://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     [jsp-mail] ...<span class="hd-icon1"></span><a href="http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=5999" target=_blank title="" on...
+
+===== 宜宾 =====
+  https://www.yibin.gov.cn/hdjl/szywm/wyxx/ -> 200 len=76024 ct=text/html final=https://www.yibin.gov.cn/hdjl/szywm/wyxx/
+     [js] ../../../images/v2024-common.js
+
+===== 达州 =====
+  https://www.dazhou.gov.cn/news-list-hdjl.html -> 200 len=29643 ct=text/html final=https://www.dazhou.gov.cn/news-list-hdjl.html
+
+===== 巴中 =====
+  https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html -> 200 len=36318 ct=text/html final=https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html
+     [js] /assets/js/common.min.js?h5=true&jump=false&v=3
+     [zmhd] ...ent="2026-09-24 14:27:04"> <meta name="ColumnPath" content="zmhd/ldxx/szxx"> <meta name="TplId" content="6780061"> <link rel="shortcut icon" type="/_r...
+
+===== 阿坝州 =====
+  https://www.abazhou.gov.cn/abazhou/c101014/hd_mailbox.shtml -> 200 len=23311 ct=text/html; charset=utf-8 final=https://www.abazhou.gov.cn/abazhou/c101014/hd_mailbox.shtml
+     [js] /abazhou/xhtml/./abzrmzf/pc2025/js/common.js
+  https://www.abazhou.gov.cn/abazhou/rexian/12345rx.shtml -> 200 len=24540 ct=text/html; charset=utf-8 final=https://www.abazhou.gov.cn/abazhou/rexian/12345rx.shtml
+     [js] /abazhou/xhtml/./abzrmzf/pc2025/js/common.js
+
+===== 甘孜州 =====
+  https://www.gzz.gov.cn/hdjl -> 200 len=107847 ct=text/html;charset=utf-8 final=https://www.gzz.gov.cn/hdjl
+
+===== 凉山州 =====
+  https://www.lsz.gov.cn/hdjl/ -> ERR HTTPSConnectionPool(host='www.lsz.gov.cn', port=443): Max retries exceeded with url: /hdjl/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))
+
+===== 广元 =====
+  http://www.guangyuan.gov.cn/ -> 502 len=52 ct=text/plain; charset=utf-8 final=http://www.guangyuan.gov.cn/
+  http://www.gy.gov.cn/ -> 200 len=155688 ct=text/html final=https://www.gy.gov.cn/
+     [js] /dist/js/common.js
+  https://www.gy.gov.cn/ -> 200 len=155688 ct=text/html final=https://www.gy.gov.cn/
+     [js] /dist/js/common.js
+  http://guangyuan.gov.cn/ -> 502 len=52 ct=text/plain; charset=utf-8 final=http://guangyuan.gov.cn/

@@ -1,0 +1,416 @@
+
+===== 广安-config =====
+  https://www.guang-an.gov.cn/gasrmzfw/pc2023/js/basehd/config.js -> 200 len=4205
+     /icsMail
+      /* 网站id */
+}
+
+/* 信件来源 */
+window._mailSourceObj = [
+  { id: 1, name: 
+      }
+]
+/* 证件类型 */
+window._mailIdTypeObj = [
+  { id: 1, name: 
+      }
+]
+
+window._mailUploadObj = {
+  fileNumber: 5 /* 上传个数 */,
+  imgExt: 
+     
+}
+
+// window.hdUrl = 
+     ;
+window.hdUrl = 
+     )
+  var r = window.location.search.substr(1).match(reg)
+  if (r != null) return decodeURI(r[2])
+  return null
+}
+
+var ajaxUrl = { //接口路径
+  base: 
+     ,
+  sr: { //数融接口
+    webSearch: {
+      queryList: 
+     , //通过栏目id或稿件正文或稿件标题查询当前栏目下的稿件或当前栏目及子集
+    },
+    hd: { //数融互动接口
+      mail: { //信箱
+        list: 
+     , // 获取信件列表
+        detail: 
+     , //添加信件
+        queryMailStatistics: 
+     , //获取信件统计接口
+        wmzxlist: 
+      //网民中心list
+      },
+      question: { //调查
+        list: 
+     , // 获取问卷列表 
+        detail: 
+     , //通过站点id或者部门id获取征集调查数据
+      },
+      collect: { //征集
+        list: 
+     , // 获取列表
+        detail: 
+     , //添加征集留言
+      },
+      interview: { //访谈
+        list: 
+     , //获取访谈列表
+        detail: 
+     , // 获取详情
+        transcriptList: 
+     , //获取访谈实录列表
+        messageList: 
+     , //获取访谈留言列表 
+        messageListHighlight: 
+     , //添加访谈留言
+      },
+      ysqgk: {
+        list: 
+      //验证码
+    }
+  },
+  custom: { //定制开发接口
+    searchList: 
+     [ajaxUrl] ajaxUrl = { //接口路径 base: '', sr: { //数融接口 webSearch: { queryList: "/queryList", //分页查询 getManuscriptById: "/getManuscriptById", //通过id查询稿件 searchManuscript: "/searchManuscript", //通过栏目id或稿件正文或稿件标题查询当前栏目下的稿件或当前栏目及子集 }
+     [tenantId] = 1714599166008037376
+     [siteId] = 1716750630131666944
+     [tenantId] = 1676766850592583680
+     [tenantId] = 1676766850592583680
+  https://www.guang-an.gov.cn/default/libs/commonApi.js -> 200 len=60606
+     ,
+    ajaxUrl: 
+     , //无图替换图片
+    xxgkUrl: 
+     , //信息公开接口
+    searchUrl: 
+     , //搜索列表
+    wcSearchUrl: 
+     .articleList
+     ;
+            $(listDom).html(
+     #pagelistType
+     tagslist
+      + itemObj._url + 
+     
+                        } else if (listType == 
+     piclist
+     ztzllist
+     cardlist
+     yctxpiclist
+     xmlinfolist
+     ;
+                                
+                        }else if(listType == 
+     + zcdxUrl +
+     ;
+                                
+                        } else if(listType == 
+     xxgkinfolist
+            
+                        }else if(listType == 
+     zcwjlist
+     )
+            })
+        }
+        $.ajax({
+            url: this.baseUrl + this.ajaxUrl,
+            type: 
+     
+                        }else if(listType == 
+     ], config));
+
+        $.ajax({
+            url: this.ajaxUrl,
+            type: 
+      + urls + 
+      + websiteData.watermarkUrl + 
+     .article-appendix .infolist
+      + _url + 
+      + url + 
+      + commonApi.editData.getUrl(prev) + 
+      + commonApi.editData.getUrl(next) + 
+     );
+        if(urlparts.length >= 2) {
+            //参数名前缀
+            var prefix = encodeURIComponent(parameter) + 
+     +watermarkUrl+
+     [siteId] = siteId
+     [siteId] = siteId
+     [siteId] = param
+  https://www.guang-an.gov.cn/gasrmzfw/pc2023/js/hdjl2024.js -> 200 len=11831
+      + itemObj._url + 
+     
+	});
+	//回应关切
+	commonApi.addInfoList(hdjlData.articleList.hygq, 
+     
+	});
+	//访谈计划
+	commonApi.addInfoList(hdjlData.articleList.ftjh, 
+     
+	});
+/*
+	//12345在线咨询
+	commonApi.addInfoList(hdjlData.articleList.zxzx12345, 
+     
+	});
+	//视频访谈
+	commonApi.addInfoList(hdjlData.articleList.zxft, 
+     
+	});
+	//来电简析
+	commonApi.addInfoList(hdjlData.articleList.xwgzdt, 
+     
+	});
+	*/
+	//新媒体矩阵
+	//微博
+	commonApi.mergeArtList(
+     ;
+	})
+	
+
+	//在线访谈列表
+	getzxftlist();
+	//问卷调查列表
+	getdcList();
+	getyjzjList();
+
+})
+$(
+     ).slideUp();
+})
+
+//在线访谈列表
+
+var hdUrl = 
+     ;
+function getzxftlist() {
+	$.get(
+		hdUrl + 
+     
+		}
+	).done(
+		function(res) {
+			var htmlfttop = 
+     /api/interview/detail
+     ).html(itemObj.introductionContentUrl).text();
+	var imgsrc = 
+     + url +
+     ,url)
+	var jiabin = isShowGuest ? 
+     +url+
+      + url + 
+     #wjdclist
+     /api/question/list
+      + id;
+	var linkUrljxz = 
+      + id;
+	var linkUrlyjs = 
+      + linkUrlyjs + 
+      + linkUrl + 
+     
+	return str
+}
+
+function getyjzjList() {
+	var target = $(
+     )
+	$.get(hdUrl + 
+     
+	}).done(function(res) {
+		renderyjzj(res.data, target)
+	})
+}
+
+function renderyjzj(dataList, target) {
+	var html = 
+      + id
+	var linkUrlfk = 
+      + id;
+	var url = statusText === 
+      + linkUrlfk + 
+     [tenantId] = useObj
+     [siteId] = useObj
+     [tenantId] = useObj
+     [siteId] = useObj
+     [tenantId] = useObj
+     [siteId] = useObj
+
+===== 资阳-config =====
+  https://www.ziyang.gov.cn/default/libs/config.js -> 200 len=3752
+     /icsMail
+     , //大搜索的IP地址，信息公开-搜索跳转到大搜索，上线后设置为空
+}
+
+var ajaxUrl = { //接口路径
+  base: 
+     ,
+  sr: { //数融接口
+    webSearch: {
+      queryList: 
+     , //通过栏目id或稿件正文或稿件标题查询当前栏目下的稿件或当前栏目及子集
+    },
+    hd: { //数融互动接口
+      mail: { //信箱
+        list: 
+     , // 获取信件列表
+        detail: 
+     , //添加信件
+        queryMailStatistics: 
+     , //获取信件统计接口
+        wmzxlist: 
+      //网民中心list
+      },
+      question: { //调查
+        list: 
+     , // 获取问卷列表 
+        detail: 
+     , //通过站点id或者部门id获取征集调查数据
+      },
+      collect: { //征集
+        list: 
+     , // 获取列表
+        detail: 
+     , //添加征集留言
+      },
+      interview: { //访谈
+        list: 
+     , //获取访谈列表
+        detail: 
+     , // 获取详情
+        transcriptList: 
+     , //获取访谈实录列表
+        messageList: 
+     , //获取访谈留言列表 
+        messageListHighlight: 
+     , //添加访谈留言
+      },
+      ysqgk: {
+        list: 
+      //验证码
+    }
+  },
+  custom: { //定制开发接口
+    searchList: 
+     [ajaxUrl] ajaxUrl = { //接口路径 base: '', sr: { //数融接口 webSearch: { queryList: "/queryList", //分页查询 getManuscriptById: "/getManuscriptById", //通过id查询稿件 searchManuscript: "/searchManuscript", //通过栏目id或稿件正文或稿件标题查询当前栏目下的稿件或当前栏目及子集 }
+     [tenantId] = 1817756538756743168
+     [qdId] = 1823176537716752384
+     [siteId] = 1817804744568594432
+     [qdId] = 1826100478630617088
+     [siteId] = 1818928168627421184
+     [qdId] = 1825411278054809600
+     [siteId] = 1818928642185314304
+     [qdId] = 1826100685690822656
+     [siteId] = 1818928481275035648
+     [qdId] = 1826100618095419392
+     [siteId] = 1818928340388364288
+     [qdId] = 1826100764296273920
+     [siteId] = 1818928814944501760
+     [qdId] = 1828975197763592192
+     [siteId] = 1818929317732499456
+     [qdId] = 1838878425166831616
+     [siteId] = 1818929317732499456
+  https://www.ziyang.gov.cn/zysrmzf/pc2024/js/commonApi.js -> 200 len=25158
+     ;
+            var startIndex = config.startIndex || 0;
+            $(fn.listDom).html(
+      + item._urls + 
+      + websiteData.watermarkUrl + 
+     .article-appendix .infolist
+     ;
+                    var _url = crumbItem.redirectUrl || crumbItem.redirectLink || (crumbItem.urls && crumbItem.urls.pc) || 
+      + _url + 
+      + commonApi.editData.getUrl(prev) + 
+      + commonApi.editData.getUrl(next) + 
+      + commonApi.editData.getUrl(elem) + 
+     ;
+        }
+    },
+};
+
+var createHtmlFn = {
+    //通用列表
+    infolist: function (item) {
+        return 
+      + item._url + 
+     ;
+    },
+    //通用列表 MMdd
+    infolistMd: function (item) {
+        return 
+     ;
+    },
+    //通用列表yyyyMMdd
+    infolistYmd: function (item) {
+        return 
+  https://www.ziyang.gov.cn/zysrmzf/pc2024/js/zmhd.js -> 200 len=6434
+      + item._url + 
+     ;
+  var feedbackFlag = item.feedbackFlag /* 征集是否反馈 0：未反馈，1：已反馈 */
+  var jgfkUrl = (feedbackFlag == 1) ? (linkUrl + 
+     ) : linkUrl
+  if(statusText == 
+      + linkUrl + 
+      + jgfkUrl + 
+     ;
+  return _li;
+}
+
+function mailGetList(current, pageSize) {
+  var sourceId = 7;
+  $.ajax({
+    url: ajaxUrl.sr.hd.mail.list,
+    type: 
+     [tenantId] = defaultConfig
+     [siteId] = defaultConfig
+     [tenantId] = defaultConfig
+     [siteId] = defaultConfig
+
+===== 内江-mail =====
+  https://www.neijiang.gov.cn/njs/xhtml/mail/js/zw_mailbox.js -> 200 len=11982
+     , //ip地址
+        strUrl1 = 
+     , //详情页   上传到CMS时把html改成shtml
+        strUrl2 = 
+     /communication/api-mailbox/frontMail/receptionMailProcessStatistics
+     /communication/api-mailbox/frontMail/mailsByPhoneAndIdCard?phone=
+     /communication/api-mailbox/frontMail/mailList
+     [siteId] = a2d1ee6703c7405cadaa15488b9bf5ac
+     [siteId] = id
+  https://www.neijiang.gov.cn/njs/xhtml/js/zmhd_12345.js -> ERR HTTPSConnectionPool(host='www.neijiang.gov.cn', port=443): Max retries exceeded with url: /njs/xhtml/js/zmhd_12345.js (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))
+
+===== 雅安-mail =====
+  https://www.yaan.gov.cn/mail/v2/js/mail.js -> 200 len=980
+
+===== 乐山-hdjl =====
+  https://www.leshan.gov.cn/lsswszf/resource/js/hdjl.js -> 200 len=3184
+     )}`;
+    $.ajax({
+      url: 
+
+===== 阿坝-common =====
+  https://www.abazhou.gov.cn/abazhou/xhtml/abzrmzf/pc2025/js/common.js -> 200 len=4110
+
+===== 广元-common =====
+  https://www.gy.gov.cn/dist/js/common.js -> 200 len=5845
+     data-url
+     ;
+    } else {
+        actionUrl = actionUrl + 
+      + queryStr;
+    }
+    if (params) {
+        actionUrl = actionUrl + $.param(params);
+    }
+    if (windowWidth === undefined || windowWidth === 

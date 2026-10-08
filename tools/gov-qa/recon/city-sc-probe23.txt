@@ -1,0 +1,39 @@
+
+===== 乐山-hdjl.js https://www.leshan.gov.cn/lsswszf/resource/js/hdjl.js =====
+  -> 200 len=3184
+     [ajax] `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`; $.ajax({ url: "/front/mail/box/totalStatistics", type: "get", data: { dateStart: "2018-04-02", dateEnd, }, success: function (result, s
+     [url:] llYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`; $.ajax({ url: "/front/mail/box/totalStatistics", type: "get", data: { dateStart: "2018-04-02", dateEnd, }, success: function (result, status, xhr) {
+     [/front/] ()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`; $.ajax({ url: "/front/mail/box/totalStatistics", type: "get", data: { dateStart: "2018-04-02", dateEnd, }, success: function (result, status, xhr) { 
+     [box] getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`; $.ajax({ url: "/front/mail/box/totalStatistics", type: "get", data: { dateStart: "2018-04-02", dateEnd, }, success: function (result, status, xhr) { if (resul
+
+===== 宜宾-interaction.js https://www.yibin.gov.cn/images/v2024-interaction.js =====
+  -> 200 len=7031
+     [letter]  .item-list').hide(); $('.last-container .left-tab-box .item-list').eq(index).show(); }) // 评价打星 // $('.letter-detail-index .part.evaluate .star').click(function() { // var index = $(this).index(); // $('.letter-detail-index .part.evaluate .star').removeClass('activ
+     [list]  var width = document.documentElement.getBoundingClientRect().width; // tab切换 if (width > 768) { $('.drawers-list .item .left').click(function() { $('.drawers-list .item').removeClass('active'); $(this).parent().addClass('active'); }) } var ini
+
+===== 阿坝-abzlxxd.js https://www.abazhou.gov.cn/abazhou/xhtml/abzrmzf/pc2025/js/abzlxxd.js =====
+  -> 200 len=5399
+     [ajax]  // 办理统计 var xjtjData = { deptId: "2d7b74f66a0c4d50b6305c4e02c29510", //信访局 } $.ajax({ url: ipUrl + "/communication/api-mailbox/frontMail/selectMYDStatistic", type: "get", data: xjtjData, success: function (data) { 
+     [url]  //ip地址 folder = "/abazhou/c101015/", //文件夹名称 strUrl = "/hd/hd_xjxq?site=abazhou&url=" + folder + "ab_hd_xjxq.shtml&id=", departmentId = "2d7b74f66a0c4d50b6305c4e02c29510"; //传的ID /大数据中心 // 办理统计 var xjtjData = { deptId:
+     [mail]  deptId: "2d7b74f66a0c4d50b6305c4e02c29510", //信访局 } $.ajax({ url: ipUrl + "/communication/api-mailbox/frontMail/selectMYDStatistic", type: "get", data: xjtjData, success: function (data) { console.log(data); $("#lxzs").ht
+     [list]  html = '', length = rows.length; //清除 $(".hd_list_detail").empty(); // 生成 if (length > 0) { html += '<li>' html += '<span>信件标题</spa
+     [page] ar url = ipUrl + "/communication/api-mailbox/frontMail/mailList"; var href = strUrl; var data = { "pageNum": index, "pageSize": size, "sortMap": { "createTime": "desc" }, "params": { "phone": "
+
+===== 凉山-notice.js http://12345.lsz.gov.cn/notice/template/notice.js =====
+  -> 200 len=1172
+     [ajax] =5&pageId=" + $("#eprotalCurrentPageId").val() + "&portal.url=/portlet/memberLogin!getLoginMemberInfo.portlet&loginType=2"; $.ajax({ type: "post", url: b, async: false, dataType: "json", success: function (c) { a = c; } }); return a; }
+     [url] on getSSOLoginInfo() { var a = ""; var b = "/eportal/ui?moduleId=5&pageId=" + $("#eprotalCurrentPageId").val() + "&portal.url=/portlet/memberLogin!getLoginMemberInfo.portlet&loginType=2"; $.ajax({ type: "post", url: b, async: false, dataType: "json", success
+     [page]  $(".footlinkC ul").removeClass("on") }) }) function getSSOLoginInfo() { var a = ""; var b = "/eportal/ui?moduleId=5&pageId=" + $("#eprotalCurrentPageId").val() + "&portal.url=/portlet/memberLogin!getLoginMemberInfo.portlet&loginType=2"; $.ajax({ type: "post", url: b, 
+
+===== 广元-首页 https://www.gy.gov.cn/ =====
+  -> 200 len=155688
+     http://bz.ahzwfw.gov.cn/bog-bsdt/static/workProcess/components/servicesList.html?cityCode=341621000000&cityName=%25E6%25B6%25A1%25E9%2598%25B3%25E5%25
+     http://wsxf.ahxfj.gov.cn/pl-ws-web/index.do?code=3416210000001000000000
+
+===== 乐山-zmhd https://www.leshan.gov.cn/lsswszf/zmhd/index.html =====
+  -> 200 len=33604
+     /lsswszf/resource/css/hdjl.css
+     /front/interaction/robot
+     https://www.leshan.gov.cn/auth/c/login.shtml?platform=zwfw&redirect_uri=https://www.leshan.gov.cn/front/account/home
+     /lsswszf/zmhd/index.html
+     /front/wdzsk/index

@@ -1,0 +1,149 @@
+
+===== 遂宁 https://www.suining.gov.cn/szxx.html =====
+  -> 200 len=29163 final=https://www.suining.gov.cn/szxx.html
+     [js] /baseapi/script/tongji.js
+     [api?] /mail/query
+     [api?] /baseapi/statistics/totalCount
+     [item] https://open.sczwfw.gov.cn/open-platform-oauth/oauth/authorize?client_id=0003&scope=user_info&code=1&response_type=code&redirect_uri=https:/
+     [item] /mail/write.html?bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=f9ac11afb8d9ae6f6dc76a7a77c9b7f8&bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=c4b60884e43d7fcc0cf024827692f787&bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=0be33b587f8e28110efc74349f2ebef4&bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=471476431b88d5f02ddc88a5d8145940&bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=df703e7c5fee9b79d83bd54f44dde4ec&bid=418f7008f46ee87c5218cc123eb9bf1a
+     [item] /mail/view.html?id=b1fafe302c7d89b44391105d941ff525&bid=418f7008f46ee87c5218cc123eb9bf1a
+     ... 共 14 条候选条目链接
+
+===== 乐山 https://www.leshan.gov.cn/lsswszf/zmhd/index.html =====
+  -> 200 len=33604 final=https://www.leshan.gov.cn/lsswszf/zmhd/index.html
+     [js] /lsswszf/resource/js/hdjl.js
+     [api?] /front/interaction/robot
+     [api?] /front/wdzsk/index
+     [item] /lsswszf/yqhy/814862027190341.html
+     [item] http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51110202000199å·
+     [item] http://bszs.conac.cn/sitename?method=show&id=06C8F607CFAC560DE053012819AC6C3E
+     ... 共 3 条候选条目链接
+
+===== 南充 https://www.nanchong.gov.cn/hdjl/ =====
+  -> 200 len=109802 final=https://www.nanchong.gov.cn/hdjl/
+     [js] ../images/common.js
+     [js] ../images/zmhd.js
+     [api?] /IGI/open/survey/list
+     [api?] /IGI/opinion/web/list
+     [api?] /IGI/open/openInterview/list
+     [api?] /IGI/open/openInterview/list
+     [item] ./hygq/202609/t20260930_2363534.html
+     [item] ./hygq/202609/t20260930_2363525.html
+     [item] ./hygq/202609/t20260923_2361839.html
+     [item] ./hygq/202609/t20260923_2361837.html
+     [item] ./hygq/202609/t20260923_2361831.html
+     [item] ./hygq/202609/t20260916_2360178.html
+     [item] ./hygq/202609/t20260909_2358861.html
+     [item] ./hygq/202609/t20260909_2358860.html
+     ... 共 25 条候选条目链接
+
+===== 南充-szxx https://www.nanchong.gov.cn/hdjl/szxx/ =====
+  -> 200 len=382 final=https://www.nanchong.gov.cn/hdjl/szxx/
+
+===== 眉山-swmail https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999 =====
+  -> 200 len=14895 final=https://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+     [item] https://open.sczwfw.gov.cn/open-platform-exchange/exchange/getResource?resourceCode=ZYZC2019112500000197&applyCode=YYSQ2021040700001723&sysC
+     [item] ../17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     [item] https://open.sczwfw.gov.cn/open-platform-oauth/oauth/authorize?client_id=0003&scope=user_info&code=1&response_type=code&redirect_uri=https:/
+     [item] https://bszs.conac.cn/sitename?method=show&id=08207C38070344E6E053022819AC5C0C
+     ... 共 4 条候选条目链接
+
+===== 宜宾 https://www.yibin.gov.cn/hdjl/szywm/wyxx/ =====
+  -> 200 len=76024 final=https://www.yibin.gov.cn/hdjl/szywm/wyxx/
+     [js] ../../../images/v2024-common.js
+     [item] http://www.yibin.gov.cn/xxgk/jryb/tpbdn/202610/t20261008_2274512.html
+     [item] http://www.yibin.gov.cn/xxgk/jryb/tpbd/202610/t20261008_2274495.html
+     [item] http://www.yibin.gov.cn/xxgk/jryb/tpbd/202610/t20261006_2274441.html
+     [item] http://www.yibin.gov.cn/xxgk/jryb/tpbd/202610/t20261004_2274434.html
+     [item] http://www.yibin.gov.cn/xxgk/rdgz/202610/t20261008_2274522.html
+     [item] http://www.yibin.gov.cn/xxgk/rdgz/202610/t20261008_2274520.html
+     [item] http://www.yibin.gov.cn/xxgk/rdgz/202610/t20261008_2274510.html
+     [item] http://www.yibin.gov.cn/xxgk/rdgz/202609/t20260930_2273745.html
+     ... 共 12 条候选条目链接
+
+===== 达州 https://www.dazhou.gov.cn/news-list-hdjl.html =====
+  -> 200 len=29643 final=https://www.dazhou.gov.cn/news-list-hdjl.html
+     [item] javascript:free_Web.Function.show.Start();
+     [item] http://www.dazhou.gov.cn/news-show-199910.html
+     [item] http://www.dazhou.gov.cn/xxgk-show-11.html
+     [item] http://www.dazhou.gov.cn/news-show-271156.html
+     [item] http://www.dazhou.gov.cn/news-show-270827.html
+     [item] http://www.dazhou.gov.cn/news-show-270825.html
+     [item] http://www.dazhou.gov.cn/news-show-270669.html
+     [item] http://www.dazhou.gov.cn/news-show-270588.html
+     ... 共 14 条候选条目链接
+
+===== 巴中-szxx https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html =====
+  -> 200 len=36318 final=https://www.cnbz.gov.cn/zmhd/ldxx/szxx/index.html
+     [js] /assets/js/common.min.js?h5=true&jump=false&v=3
+     [item] http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51190202000107
+     ... 共 1 条候选条目链接
+
+===== 阿坝-hdmailbox https://www.abazhou.gov.cn/abazhou/c101014/hd_mailbox.shtml =====
+  -> 200 len=23311 final=https://www.abazhou.gov.cn/abazhou/c101014/hd_mailbox.shtml
+     [js] /abazhou/xhtml/./abzrmzf/pc2025/js/common.js
+     [item] https://bszs.conac.cn/sitename?method=show&id=0719DC505129698BE053022819AC9C26
+     ... 共 1 条候选条目链接
+
+===== 阿坝-12345 https://www.abazhou.gov.cn/abazhou/rexian/12345rx.shtml =====
+  -> 200 len=24540 final=https://www.abazhou.gov.cn/abazhou/rexian/12345rx.shtml
+     [js] /abazhou/xhtml/./abzrmzf/pc2025/js/common.js
+     [item] https://bszs.conac.cn/sitename?method=show&id=0719DC505129698BE053022819AC9C26
+     ... 共 1 条候选条目链接
+
+===== 甘孜 https://www.gzz.gov.cn/hdjl =====
+  -> 200 len=107847 final=https://www.gzz.gov.cn/hdjl
+     [api?] /interact-service/c/is12345LetterOpen/findAppealClassify
+     [api?] /interact-service/c/is12345LetterOpen/findAppealHandle
+     [api?] /interact-service/c/is12345LetterOpen/findList
+     [api?] /interact-service/c/isCollect/findListPage
+     [api?] /interact-service/c/isInterview/findListPage
+     [api?] /interact-service/c/is12345LetterOpen/selectOne
+     [item] http://bszs.conac.cn/sitename?method=show&id=0B50F9AD34271382E053012819AC82F0
+     ... 共 1 条候选条目链接
+
+===== 凉山-zmhd http://www.lsz.gov.cn/hdjl/zmhd/ =====
+  -> 200 len=54835 final=http://www.lsz.gov.cn/hdjl/zmhd/
+     [item] ./202609/t20260924_3021579.html
+     [item] ./202609/t20260924_3021577.html
+     [item] ./202609/t20260924_3021539.html
+     [item] ./202609/t20260920_3018643.html
+     [item] ./202609/t20260920_3018635.html
+     [item] ./202609/t20260920_3018629.html
+     [item] ./hdrd/202609/t20260920_3018463.html
+     [item] ./hdrd/202609/t20260907_3014640.html
+     ... 共 16 条候选条目链接
+
+===== 凉山-12345 http://12345.lsz.gov.cn/ =====
+  -> 200 len=60759 final=http://12345.lsz.gov.cn/
+     [js] /uiFramework/commonResource/aisitetheme/js/notice-theme.js
+     [js] /uiFramework/commonResource/js/swiper.min.js
+     [js] /uiFramework/commonResource/js/jquery.SuperSlide.2.1.1.js
+     [js] /uiFramework/commonResource/js/flexible.js
+     [item] /notice/2026-09/03/article_2026090311030010183.html
+     [item] /notice/2026-09/03/article_2026090311004720040.html
+     [item] /notice/2026-09/03/article_2026090310575342888.html
+     [item] /notice/2026-09/03/article_2026090310463229817.html
+     [item] /notice/2026-09/02/article_2026090211400021562.html
+     [item] /notice/2026-04/30/article_2026043015090453066.html
+     [item] /notice/2025-12/20/article_2025122002321431833.html
+     [item] /notice/2025-12/20/article_2025122002314224720.html
+     ... 共 18 条候选条目链接
+
+===== 广元-首页再扫 https://www.gy.gov.cn/ =====
+  -> 200 len=155688 final=https://www.gy.gov.cn/
+     [js] /dist/js/common.js
+     [item] /About/showList/1260/page_1.html
+     [item] /About/showList/1264/page_1.html
+     [item] /XxgkContent/showList/772/38650/page_1.html
+     [item] /About/showList/1263/page_1.html
+     [item] /About/showList/1324/page_1.html
+     [item] /News/showList/1253/page_1.html
+     [item] /News/showList/1254/page_1.html
+     [item] /News/showList/1255/page_1.html
+     ... 共 173 条候选条目链接

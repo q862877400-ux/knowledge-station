@@ -1,0 +1,250 @@
+
+===== 遂宁 https://www.suining.gov.cn/ =====
+  -> 200 len=70334 final=https://www.suining.gov.cn/
+     /szxx.html
+
+===== 乐山 https://www.leshan.gov.cn/ =====
+  -> 200 len=198525 final=https://www.leshan.gov.cn/
+     /lsswszf/zmhd/index.html
+     /front/interaction/robot
+
+===== 南充 https://www.nanchong.gov.cn/ =====
+  -> 200 len=181653 final=https://www.nanchong.gov.cn/
+     http://www.nanchong.gov.cn/hdjl/
+     http://www.nanchong.gov.cn/xfj/index.html
+     http://www.nanchong.gov.cn/hdjl/zxjy/wyxx/
+     ./hdjl/bmrl/
+     ./hdjl/taya_3577/
+     ./hdjl/dczj/
+     ./hdjl/zxft/
+     ./hdjl/hygq/
+     ./hdjl/zmhdcjwtzsk/
+     /hdjl/szxx/
+     /hdjl/zxjy/wyxx/
+
+===== 眉山 https://www.ms.gov.cn/ =====
+  -> 200 len=110288 final=https://www.ms.gov.cn/
+     17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     http://www.ms.gov.cn/mail12345/swmail.jsp?urltype=tree.TreeTempUrl&wbtreeid=5999
+     http://www.ms.gov.cn/17_hudong/hdjl_index.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010
+     http://www.ms.gov.cn/xxgkpt/xxgk-list-bm.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=5674&amp;pubid=1649&amp;wbdeptcode=sxfj
+     mail12345/wwqzbssxjtj.jsp?urltype=tree.TreeTempUrl&wbtreeid=6033
+
+===== 宜宾 https://www.yibin.gov.cn/ =====
+  -> 200 len=456937 final=https://www.yibin.gov.cn/
+     https://www.yibin.gov.cn/hdjl/
+     /hdjl/
+     /hdjl/zczxfw/
+     http://www.yibin.gov.cn/hdjl/
+     http://www.yibin.gov.cn/hdjl/szywm/wyxx/
+     http://www.yibin.gov.cn/hdjl/dczj/
+     ./hdjl/
+     http://www.yibin.gov.cn/hdjl/zxft/
+     ./hdjl/szywm/
+     http://www.yibin.gov.cn/hdjl/rdwd/index.html
+     http://xfj.yibin.gov.cn/
+     http://www.yibin.gov.cn/hdjl/szywm/
+     http://www.yibin.gov.cn/hdjl/zczxfw/
+
+===== 广安 https://www.guang-an.gov.cn/ =====
+  -> 200 len=503190 final=https://www.guang-an.gov.cn/
+     /gasrmzfw/c105097/pc/list.html
+     /gasrmzfw/szf/pc/list.html
+     /gasrmzfw/c113313/pc/list.html
+     /gasrmzfw/hdjl/pc/list.html
+     /gasrmzfw/zjga/pc/list.html
+     /gasrmzfw/wsxf/pc/list.html
+     /gasrmzfw/gngwyxx/pc/list.html
+     /gasrmzfw/gayw/pc/list.html
+     /gasrmzfw/zfrsrm/pc/list.html
+     /gasrmzfw/tzgg/pc/list.html
+     /gasrmzfw/rdgz/pc/list.html
+     /gasrmzfw/c00709/pc/list.html
+     /gasrmzfw/c114171/pc/list.html
+     /gasrmzfw/c01452/pc/list.html
+     /gasrmzfw/c00831/pc/list.html
+     /gasrmzfw/zwdt/pc/list.html
+     /gasrmzfw/c104242/pc/list.html
+     /gasrmzfw/c02514/pc/list.html
+     /zfxxgk/zxfb/pc/list.html?gkfwjg=广安市生态环境局&cid=1717165451460145152&status=nrlist
+     /zfxxgk/zdmsxx/pc/list.html?gkfwjg=广安市生态环境局&cid=1717165367884443648&status=nrlist
+     /gasrmzfw/c104233/pc/list.html
+     /gasrmzfw/c104238/pc/list.html
+     /gasrmzfw/c104247/pc/list.html
+     /gasrmzfw/c111673/pc/list.html
+     /gasrmzfw/zfxxysq/pc/list.html
+     /gasrmzfw/c103453/pc/list.html
+     /gasrmzfw/c00180/pc/list.html
+     /gasrmzfw/zcjd/pc/list.html
+     /gasrmzfw/c00252/pc/list.html
+     /gasrmzfw/2020zdlyxxgk/pc/list.html
+     /gasrmzfw/c104288/pc/list.html
+     /gasrmzfw/c104256/pc/list.html
+     /gasrmzfw/c104259/pc/list.html
+     /gasrmzfw/szfysm/pc/list.html
+     /gasrmzfw/rsjzk/pc/list.html
+     /gasrmzfw/zfgzbg/pc/list.html
+     /gasrmzfw/c104275/pc/list.html
+     /gasrmzfw/c00145/pc/list.html
+     /gasrmzfw/zccydqzt/pc/list.html
+     /gasrmzfw/c00733/pc/list.html
+     /gasrmzfw/2019zdlyczxxd/pc/list.html
+     /gasrmzfw/2019zdlyzdjsxms/pc/list.html
+     /gasrmzfw/xczx/pc/list.html
+     /gasrmzfw/2019zdlyzmsxqdb/pc/list.html
+     /gasrmzfw/c104267/pc/list.html
+     /gasrmzfw/c104268/pc/list.html
+     /gasrmzfw/c104270/pc/list.html
+     /gasrmzfw/msga/pc/list.html
+     /gasrmzfw/c116724/pc/list.html
+     /gasrmzfw/hdzxft/pc/list.html
+     /gasrmzfw/hdyjzj/pc/list.html
+     /gasrmzfw/hdwsdc/pc/list.html
+     /gasrmzfw/hygq/pc/list.html
+     /gasrmzfw/zfwj/pc/list.html
+     /gasrmzfw/zhhy/pc/list.html
+     /gasrmzfw/c104252/pc/list.html
+     /gasrmzfw/c105678/pc/list.html
+     /gasrmzfw/c104286/pc/list.html
+     /gasrmzfw/c104261/pc/list.html
+     /gasrmzfw/c112067/pc/list.html
+     /gasrmzfw/ggsjkfpt/pc/list.html
+     /gasrmzfw/c104295/pc/list.html
+     /gasrmzfw/gwgl/pc/list.html
+     /gasrmzfw/hygl/pc/list.html
+     /gasrmzfw/gzt/pc/list.html
+     /gasrmzfw/ztzl/pc/list.html
+     /gasrmzfw/wzdt/pc/list.html
+     [数融模板] gasrmzfw/hdjl/pc/list.html
+     [数融模板] gasrmzfw/hdjl/pc/list.html
+     [cfg] /gasrmzfw/pc2023/js/basehd/config.js
+
+===== 达州 https://www.dazhou.gov.cn/ =====
+  -> 200 len=88661 final=https://www.dazhou.gov.cn/
+     http://www.dazhou.gov.cn/news-list-hdjl.html
+     https://www.dazhou.gov.cn/news-list-hdjl.html
+
+===== 雅安 https://www.yaan.gov.cn/ =====
+  -> 200 len=75758 final=https://www.yaan.gov.cn/
+     /mail/index.html
+     /12345.html
+     http://yamail.yaan.gov.cn:9050/szweb/index
+     https://www.yaan.gov.cn/mail/index.html
+
+===== 巴中 https://www.cnbz.gov.cn/ =====
+  -> 200 len=203501 final=https://www.cnbz.gov.cn/
+     /zmhd/index.html
+     /zmhd/rdgz/index.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452439.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452438.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452389.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452392.html
+     https://www.cnbz.gov.cn/zmhd/rdgz/13452394.html
+     /zmhd/ldxx/sjxx/index.html
+     /zmhd/ldxx/szxx/index.html
+     /zmhd/zxft/index.html
+     /zmhd/xwfbh/index.html
+     /zmhd/zjdc/index.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13449884.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13444886.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13442066.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13440843.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13436910.html
+     https://www.cnbz.gov.cn/zmhd/xwfbh/13436913.html
+
+===== 资阳 https://www.ziyang.gov.cn/ =====
+  -> 200 len=238395 final=https://www.ziyang.gov.cn/
+     /zysrmzf/wsyyc/pc/list.html
+     /zysrmzf/zfld/pc/list.html
+     /zysrmzf/zfjg/pc/list.html
+     /zysrmzf/ywdt/pc/list.html
+     /zysrmzf/zwgk/pc/list.html
+     /zysrmzf/hdjl/pc/list.html
+     /zysrmzf/zjzy/pc/list.html
+     /zysrmzf/dzygw/pc/list.html
+     /zysrmzf/zyyw/pc/list.html
+     /zysrmzf/bmdt/pc/list.html
+     /zysrmzf/xqdt/pc/list.html
+     /zysrmzf/gsgg/pc/list.html
+     /zysrmzf/yq/pc/list.html
+     /zysrmzf/ldxx/pc/list.html?sourceId=4
+     /zysrmzf/yl/pc/list.html
+     /zysrmzf/ldxx/pc/list.html?sourceId=7
+     /zysrmzf/jgjj/pc/list.html
+     /zysrmzf/c00006/pc/list.html
+     /zysrmzf/c00001/pc/list.html
+     /zysrmzf/jgzn/pc/list.html
+     /zysrmzf/zfcwhy/pc/list.html
+     /zysrmzf/szfqt/pc/list.html
+     /zysrmzf/c00005/pc/list.html
+     /zysrmzf/c00002/pc/list.html
+     /zysrmzf/rddbjy/pc/list.html
+     /zysrmzf/zxft/pc/list.html
+     /zysrmzf/zxwyta/pc/list.html
+     /zysrmzf/hygq/pc/list.html
+     /zysrmzf/zfxxgk/pc/list.html
+     /zysrmzf/gkzn/pc/list.html
+     /zysrmzf/xxgknb/pc/list.html
+     /zysrmzf/gkzd/pc/list.html
+     /zysrmzf/szfgb/pc/list.html
+     /zysrmzf/fdzdgknr/pc/list.html
+     /zysrmzf/ysqgkzn/pc/list.html
+     /zysrmzf/zfgzbg/pc/list.html
+     /zysrmzf/ysjs/pc/list.html
+     /zysrmzf/zdmsxx/pc/list.html
+     /zysrmzf/wzndb/pc/list.html
+     /zysrmzf/tjgb/pc/list.html
+     /zysrmzf/tjnj/pc/list.html
+     /zysrmzf/zyssjfb/pc/list.html
+     /zysrmzf/mail/notice.html?sourceId=7
+     http://zymail.ziyang.gov.cn:9050/szweb/index
+     /zysrmzf/xmtjz/pc/list.html
+     /zysrmzf/bmfwpt/pc/list.html
+     [数融模板] zysrmzf/hdjl/pc/list.html
+     [数融模板] zysrmzf/hdjl/pc/list.html
+     [cfg] /default/libs/config.js
+
+===== 阿坝州 https://www.abazhou.gov.cn/ =====
+  -> 200 len=158356 final=https://www.abazhou.gov.cn/
+     /abazhou/c102008/hdjl.shtml
+     /abazhou/rexian/12345rx.shtml
+     /abazhou/c101014/hd_mailbox.shtml
+
+===== 甘孜州 https://www.gzz.gov.cn/ =====
+  -> 200 len=189890 final=https://www.gzz.gov.cn/
+     http://www.gzz.gov.cn/hdjl
+     https://www.gjxfj.gov.cn/
+     http://xfj.sc.gov.cn/
+
+===== 凉山州 http://www.lsz.gov.cn/ =====
+  -> 200 len=89062 final=http://www.lsz.gov.cn/
+     //www.lsz.gov.cn/hdjl/
+     https://www.lsz.gov.cn/hdjl/zjdc/yjzj/
+     ./hdjl/zjdc/yjzj/202608/t20260827_3011845.html
+     ./hdjl/zjdc/yjzj/202608/t20260821_3010459.html
+     ./hdjl/zjdc/yjzj/202608/t20260820_3010091.html
+     ./hdjl/zjdc/yjzj/202608/t20260820_3010087.html
+     ./hdjl/zjdc/yjzj/202607/t20260722_3003509.html
+     ./hdjl/zjdc/yjzj/202607/t20260720_3002782.html
+     ./hdjl/zjdc/yjzj/
+     ./hdjl/zwft/
+     ./hdjl/shrd/
+     https://www.lsz.gov.cn/hdjl/
+     http://12345.lsz.gov.cn/
+     https://www.lsz.gov.cn/hdjl/zjdc/yjzj/index.html
+     https://www.lsz.gov.cn/hdjl/zwft/index.html
+     https://www.lsz.gov.cn/hdjl/shrd/
+     ./hdjl/zmhd/
+     http://xfj.sc.gov.cn
+
+===== 广元 https://www.gy.gov.cn/ =====
+  -> 200 len=155688 final=https://www.gy.gov.cn/
+     http://wsxf.ahxfj.gov.cn/pl-ws-web/index.do?code=3416210000001000000000
+
+===== 内江 https://www.neijiang.gov.cn/ =====
+  -> 200 len=180725 final=https://www.neijiang.gov.cn/
+     /njs/hdjl/zmhd.shtml
+     /njs/mail/mail_list.shtml
+     http://www.nj12345.org.cn/website/pages/home/index
+     /xfj/xxgk/gkzn/zfxxgk_xxgkzn.shtml
+     https://www.neijiang.gov.cn/xfj/xxgk/gkzn/zfxxgk_xxgkzn.shtml

@@ -335,6 +335,15 @@ ADAPTERS: dict[str, str] = {
     "sc-deyang": "adapters.sc_deyang",        # 德阳市·书记/市长信箱（appeal 服务端渲染 HTML，cur_page 翻页，≈1050）
     "sc-mianyang": "adapters.sc_mianyang",    # 绵阳市·书记市长信箱（my.gov.cn 通信平台 api-mailbox，AES 签名，≈5149）
     "sc-panzhihua": "adapters.sc_panzhihua",  # 攀枝花市·12345便民热线（webapp api-letter，列表自带答复，≈70）
+    # —— 四川地市级 第二批（2026-10-09 worker-city）：内江/资阳/广安/甘孜/南充/遂宁/阿坝。
+    #    证据 recon/city-sc-probe18~23.txt ——
+    "sc-neijiang": "adapters.sc_neijiang",    # 内江市·书记市长网上政务信箱（通信平台 api-mailbox，AES 签名，≈11010）
+    "sc-ziyang": "adapters.sc_ziyang",        # 资阳市·书记市长信箱（数融 /api/mail，列表自带答复+详情问题正文，≈87）
+    "sc-guangan": "adapters.sc_guangan",      # 广安市·书记市长信箱（数融 /api/mail，列表+详情，≈16）
+    "sc-ganzi": "adapters.sc_ganzi",          # 甘孜州·12345 信件公开（interact-service findList/selectOne，≈14）
+    "sc-nanchong": "adapters.sc_nanchong",    # 南充市·市长信箱（IGI siteId=4/appId=1，≈2324）
+    "sc-suining": "adapters.sc_suining",      # 遂宁市·市长信箱·来信选登（服务端渲染 HTML /szxx.html?page=，≈90）
+    "sc-aba": "adapters.sc_aba",              # 阿坝州·领导信箱（通信平台 api-mailbox，免签名，≈2719）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）
