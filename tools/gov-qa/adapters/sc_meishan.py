@@ -17,6 +17,9 @@
      · 答复 = 「**办理结果**」表格行内 `<span>…</span>`
    ★ 页面声明 UTF-8 但响应头无 charset，requests 会误判 ISO-8859-1 ⇒ 强制 `r.content.decode("utf-8")`。
  · 样例：guid `c592f5c1-…`「关于群众反映医护人员的表扬」→ 东坡区热线/东坡区卫生健康局答复。
+ · ★ **IP 频率反爬**：访问过快会被打回「用户验证」验证码页（约 120 条后触发）：
+     「我们发现您所在的IP地址…访问本站过于频繁，请您输入验证码后继续访问！」
+   适配器识别到即停；靠 `(source,id)` 去重可冷却后反复跑累积。
 """
 from __future__ import annotations
 
@@ -31,7 +34,7 @@ SITE = {
     "level": "city",
     "entry": "http://www.ms.gov.cn/old13/list_ldxx.jsp?urltype=tree.TreeTempUrl&wbtreeid=5761",
     "status": "ok",
-    "note": "服务端渲染 HTML（WCM 站群）：列表 /old13/list_ldxx.jsp?wbtreeid=5761&pageNumber245916=N（共5658条/566页）；详情 /old13/list_content_ldxxnew.jsp?wbtreeid=7433&guid=<guid>",
+    "note": "服务端渲染 HTML（WCM 站群）：列表 /old13/list_ldxx.jsp?wbtreeid=5761&pageNumber245916=N（共5658条/566页）；详情 /old13/list_content_ldxxnew.jsp?wbtreeid=7433&guid=<guid>。★ 有 IP 频率反爬（约120条后打回『用户验证』验证码），去重可反复跑累积",
 }
 
 BASE = "http://www.ms.gov.cn"
@@ -45,6 +48,10 @@ _TOTAL_RE = re.compile(r"共\s*(\d+)\s*条")
 _PAGES_RE = re.compile(r"(\d+)\s*页\s*/\s*(\d+)\s*页")
 _Q_RE = re.compile(r"<strong>反映诉求</strong></TD>\s*</TR>\s*<TR>\s*<TD[^>]*>(.*?)</TD>", re.S)
 _A_RE = re.compile(r"<strong>办理结果</strong></TD>\s*</TR>\s*<TR>\s*<TD[^>]*>(.*?)</TD>", re.S)
+#: ★ 该站有 IP 频率反爬：访问过快会被打回「用户验证」验证码页
+#:   「我们发现您所在的IP地址…访问本站过于频繁，请您输入验证码后继续访问！」
+#:   实测约 120 条后触发；去重可反复跑，冷却后再采即可累积。
+_CAPTCHA_RE = re.compile(r"访问过于频繁|请输入验证码|用户验证|createvisitcode")
 
 
 def _field(t: str, label: str) -> str:
@@ -75,6 +82,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
     out: list[dict] = []
     seen: set[str] = set()
     total_pages = None
+    blocked = False
     for page in range(1, max_pages + 1):
         if limit and len(out) >= limit:
             return out
@@ -89,6 +97,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
             print(f"    [{SITE['key']}] 第 {page} 页 HTTP {getattr(r, 'status_code', '?')}（停）")
             break
         t = _decode(r)
+        if _CAPTCHA_RE.search(t):               # 触发频率验证码，立刻停
+            print(f"    [{SITE['key']}] ⚠ 触发 IP 频率验证码（第 {page} 页），本轮停止（已采 {len(out)} 条）")
+            blocked = True
+            break
         if total_pages is None:
             mp = _PAGES_RE.search(t)
             if mp:
@@ -112,6 +124,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
             try:
                 vr = fetch(VIEW_TPL.format(g=g), headers={"Referer": LIST_TPL.format(p=page)})
                 vh = _decode(vr)
+                if _CAPTCHA_RE.search(vh):      # 详情页也被打回验证码
+                    print(f"    [{SITE['key']}] ⚠ 触发 IP 频率验证码（详情），本轮停止（已采 {len(out)} 条）")
+                    blocked = True
+                    break
             except Exception as e:                                          # noqa: BLE001
                 print(f"    [{SITE['key']}] 详情 {g[:8]}：{type(e).__name__}（跳过）")
                 continue
@@ -144,6 +160,8 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
                 },
             })
             time.sleep(PAUSE)
+        if blocked:
+            break
         if new == 0:
             break
         time.sleep(PAUSE)
