@@ -35,20 +35,24 @@ SITE = {
     "level": "city",
     "entry": "https://www.yaan.gov.cn/mail/index.html",
     "status": "ok",
-    "note": "服务端渲染 HTML：/mail/index.html 给 34 个部门 uuid；列表 /mail/mailbox.html?id=<uuid>&page=N（共50页/15条）；详情 /mail/view.html?id=<uuid>&mailid=<md5>",
+    "note": "服务端渲染 HTML：/mail/index.html 给 34 个部门 uuid；列表 /mail/mailbox.html?id=<uuid>(第1页)/&page=N（共50页/15条）；详情 /mail/view.html?id=<uuid>&mailid=<md5>。★ 该站有 IP 级反爬，快抓会返回『你的请求被拦截』空页 ⇒ 慢速 + 拦截即停",
 }
 
 BASE = "https://www.yaan.gov.cn"
 INDEX_URL = BASE + "/mail/index.html"
+# ★ 第 1 页用**无 page 参数**的 URL（站内「首页」就是这么链的；显式 page=1 会返回空/拦截页）。
 LIST_TPL = BASE + "/mail/mailbox.html?id={uid}&page={p}"
+LIST_P1_TPL = BASE + "/mail/mailbox.html?id={uid}"
 VIEW_TPL = BASE + "/mail/view.html?id={uid}&mailid={mid}"
-PAUSE = 1.0
+PAUSE = 2.5                       # ★ 该站有 **IP 级反爬**，节奏必须放慢
 
 _TAG = re.compile(r"<[^>]+>")
 _UUID_RE = re.compile(r"mailbox\.html\?id=([0-9a-fA-F\-]{36})")
 _DETAIL_RE = re.compile(
     r"view\.html\?id=([0-9a-fA-F\-]{36})&(?:amp;)?mailid=([0-9a-fA-F]{16,64})")
 _PAGECOUNT_RE = re.compile(r"共\s*(\d+)\s*页")
+#: 反爬拦截页：「系统检测到您的ip存在恶意请求，已对您的ip进行拦截，请稍后再试。」
+_BLOCK_RE = re.compile(r"被拦截|恶意请求")
 _TITLE_RE = re.compile(r'<div class="h1">(.*?)</div>', re.S)
 _Q_RE = re.compile(
     r'信件内容</td>\s*<td class="td02">\s*<div class="text">(.*?)</div>', re.S)
@@ -108,14 +112,16 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
         if limit and len(out) >= limit:
             break
         total_pages = None
+        blocked = False
         for page in range(1, max_pages + 1):
             if limit and len(out) >= limit:
                 return out
             if total_pages is not None and page > total_pages:
                 break
+            list_url = (LIST_P1_TPL.format(uid=uid) if page == 1
+                        else LIST_TPL.format(uid=uid, p=page))
             try:
-                r = fetch(LIST_TPL.format(uid=uid, p=page),
-                          headers={"Referer": INDEX_URL})
+                r = fetch(list_url, headers={"Referer": INDEX_URL})
             except Exception as e:                                          # noqa: BLE001
                 print(f"    [{SITE['key']}] {uid[:8]} 第 {page} 页：{type(e).__name__}（停）")
                 break
@@ -124,6 +130,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
                       f"{getattr(r, 'status_code', '?')}（停）")
                 break
             t = _decode(r)
+            if _BLOCK_RE.search(t):                 # 反爬拦截，立刻停（别再加剧）
+                print(f"    [{SITE['key']}] ⚠ 触发 IP 反爬拦截（第 {page} 页），本轮停止")
+                blocked = True
+                break
             if total_pages is None:
                 mp = _PAGECOUNT_RE.search(t)
                 if mp:
@@ -145,8 +155,12 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
                 new += 1
                 try:
                     vr = fetch(VIEW_TPL.format(uid=duid, mid=mid),
-                               headers={"Referer": LIST_TPL.format(uid=uid, p=page)})
+                               headers={"Referer": list_url})
                     vh = _decode(vr)
+                    if _BLOCK_RE.search(vh):        # 详情页也被拦，停
+                        print(f"    [{SITE['key']}] ⚠ 触发 IP 反爬拦截（详情），本轮停止")
+                        blocked = True
+                        break
                 except Exception as e:                                      # noqa: BLE001
                     print(f"    [{SITE['key']}] 详情 {mid[:10]}：{type(e).__name__}（跳过）")
                     continue
@@ -194,8 +208,12 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
                     },
                 })
                 time.sleep(PAUSE)
+            if blocked:
+                break
             if new == 0:
                 break
             time.sleep(PAUSE)
+        if blocked:
+            break
     print(f"    [{SITE['key']}] 收 {len(out)} 条")
     return out
