@@ -293,6 +293,8 @@ ADAPTERS: dict[str, str] = {
     "gs-baiyin": "adapters.gs_baiyin",     # 白银市·政民互动（jpaas-jact 变体，count=1889）
     "gs-dingxi": "adapters.gs_dingxi",     # 定西市·政民互动（jact，http，2 sysid / 758 条）
     "gs-longnan": "adapters.gs_longnan",   # 陇南市·市长信箱（龙讯 CMS label 8888，415 条）
+    # —— 重庆翻案（2026-10-08）：siteId 在 150~300+ 区间，1..60 为空 ⇒ 曾误判「无问答」——
+    "cq-igi": "adapters.cq_igi",           # 重庆市·政民互动（IGI，75 site / 约 3.26 万条）
 }
 
 #: 用户要能直接 `from adapters import load`
