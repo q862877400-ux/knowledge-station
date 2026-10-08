@@ -1,0 +1,100 @@
+================================================================================
+上海 / 浙江 问答平台侦察  证据文件
+工具：general-purpose-1    日期：2026-10-08
+================================================================================
+背景：24 省重探把上海、浙江归入「门户可达但问答不在门户 / 未定位」。
+本次从门户互动页的**外链**顺藤摸瓜，两省均**拿下**：
+  · 上海 → 12345 网上受理平台「诉求公开」（AES 密文接口）        实测 7248 条
+  · 浙江 → 民呼我为统一平台「办理公开」（woff 字体反爬，已破解）  实测 49218 条
+
+合规：请求间隔 ≥1.5s；未遇 403/412；未改 adapters/__init__.py、data/、assets-*、*.md。
+产物：adapters/sh_12345.py（key=sh-12345）、adapters/zj_mhww.py（key=zj-mhww）
+      原始样本：recon/sh-zmhd.html、sh12345-root.html、sh12345-index.js、
+                sh12345-pubinfo.js、sh12345-demands.js、
+                zj-gov.html、zj-sthjt.html、zj-zxts-root.html、zj-zxts-index.js、
+                zj-zxts-open4947.js、zj-zxts-jsonfont.js、zj-font*.woff
+      探针：recon/sh-zj-probe.py（可达性）、recon/sh-zj-verify.py（适配器实测）
+
+================================================================================
+一、上海  ★拿下
+================================================================================
+试过的入口（recon/sh-zj-probe-sh1.txt / -sh2.txt）：
+  · http://wsxf.sh.gov.cn/xf_swldxx/   → **RemoteProtocolError**（明文被断）
+  · https://wsxf.sh.gov.cn/            → **ConnectError**（目标积极拒绝，443 不通）
+    ⇒ 门户「政民互动」页里的来信选登明细（feedback_show.aspx?letterId=…）与
+      人民建议征集（xf_rmyjzj/index1.aspx）都在 wsxf 域，本机**确实不可达**，放弃。
+  · https://www.sh.gov.cn/zmhd/  [200, 33KB, title=政民互动]  ← 关键页
+  · https://www.sh.gov.cn/nw2/nw2314/…（门户旧子页）→ 全 404（门户已改版）
+  · https://xfb.sh.gov.cn/xfb/xfdt/index.html → 404（域名在、路径失效）
+  · https://12345.sh.gov.cn/   → DNS 解析失败
+  · https://zwdt.sh.gov.cn/    → 200 但仅 76B（跳转桩）
+
+形态判断：门户「政民互动」/zmhd/ 里挂的外链指向 **www.sh12345.gov.cn**（12345 网上受理平台）。
+该站是 **Vue SPA**（根页 1756B，主包 /static/js/index-DHsWktAU.js，路由 /demands =「诉求公开」）。
+
+挖到的接口（实测 200）：
+  · 列表  POST https://www.sh12345.gov.cn/appealPublicService/allAppealPublic?startPage=<n>
+      - ⚠ 必须打 https：http 会 302 → https，跟随重定向会把 POST 变 GET 报 500。
+      - 固定每页 15 条；响应 count=**7248**；startPage=1/2/3/100 逐页验证连续。
+  · 明细  GET  .../appealPublicService/appealDetail/<rpid>（列表已带全文，未用到）
+  · ★ 响应 data 是 **AES-128-ECB(hex)** 密文，密钥在前端 JS 里：
+      Ir=["S5","UC","Gm","IF","ER","Xx","4t","rq"]
+      key = Ir[4]+Ir[1]+Ir[6]+Ir[2]+Ir[7]+Ir[5]+Ir[0]+Ir[3] = "ERUC4tGmrqXxS5IF"（16B），ECB/PKCS7。
+      解密后：{startPage,count,list:[{relTitle,content(问题),reply(答复),struName(答复单位),
+                startTime(提问),createTime(办结),rpid}]}
+
+实测条数：count=7248（适配器 limit=3 试跑通过）。
+答复样例：问「家里突然断电…」→ 电力热线答复（含《配网故障抢修管理规定》）；
+          问「特种设备安全管理证到期，需要复证，请问在哪里报名」→ 市市场监管局答复。
+
+结论：**接口型可用**（省门户级 12345 办结诉求公示，问题+答复全文，答复常点名依据/单位）。
+      适配器 adapters/sh_12345.py，key=**sh-12345**。
+
+================================================================================
+二、浙江  ★拿下
+================================================================================
+试过的入口（recon/sh-zj-probe-zj1.txt）：
+  · https://www.zj.gov.cn/  [200, 143KB] —— 门户**自身无互动栏目**，但导航外链指向统一平台
+  · https://www.zjzwfw.gov.cn/  [200, 3.7KB]（政务服务网 SPA 壳）
+  · https://www.zj12345.gov.cn/  → DNS 解析失败
+  · https://www.zj.gov.cn/col/col1229019488/  → 404（旧栏目号失效）
+  · https://sthjt.zj.gov.cn/  [200, 56KB] —— 省生态环境厅站，互动链接全部外链到
+      https://zxts.zjzwfw.gov.cn/zwmhww/#/…（我要咨询/领导信箱/**办理公开**/查询评价）
+
+形态判断：浙江互动统一收敛到 **浙江省民呼我为统一平台**（zxts.zjzwfw.gov.cn/zwmhww/，
+  SiteName=「浙江省民呼我为统一平台」）。Vue SPA，接口在打包 JS（index.94082815.js + 分块）。
+
+挖到的接口（实测 200）：
+  · 列表（来件选登）POST https://zxts.zjzwfw.gov.cn/zlh/zsapi/xfpt/OTMelbwjyz/OTMjkerj
+      body(JSON) {"code":"330000","bt":"","bldw":"","pageNum":<n>,"pageSize":<m>}（pageSize 实测可到 100）
+      → data:{currentPage,pageSize,totalItem=**49218**,list:[{bt(标题),djsj(登记),bldw(答复单位),
+        blsj(答复时间),storeid,xfmd(诉求目的),xfjclzt(办理状态),…}]}
+  · 明细 GET https://zxts.zjzwfw.gov.cn/zlh/zsapi/xfpt/OTMelbwjyz/OTMrwgaxid?storeId=<storeid>
+      ⚠ 参数名是 **storeId**（驼峰）；写成 id/storeid 会报「信件详情id不能为空」。
+      → data:{bt(标题),nr(问题正文),dfyj(答复意见=答复),dfdw(答复单位),fysj(反映时间),
+        dfsj(答复时间),sjly(来源),storeid}
+
+  · ★ 字体反爬（关键）：所有文字字段被包成 `#<fontId>otltag<混淆串>#FontTag`，
+      前端加载 /zlh/zsapi/ttf/<fontId>.woff 自定义字体把混淆字渲染回真字。
+      **破解**：该 woff 的 **glyph 名即真字 Unicode**（uni6C42→「求」、uni6E29→「温」；
+      数字用 zero/one/…/nine，括号 bracketleft/right）⇒ cmap[混淆码位]→glyph名→真字，
+      **无需 OCR**。每响应一个 fontId（不同响应映射两两 0 重叠）⇒ 按 fontId 下字体、缓存、逐字段解码。
+      解码实测：`茙菞茥菜荆茛莵菛莛莈莙菙莇菋莂莐药莯？` → `温医附一院强制检测登革热并自费合理吗？`
+      偶有响应直接返回明文（无 otltag），解码函数原样放行。
+
+实测条数：totalItem=**49218**（适配器 limit=3 试跑通过，日期字段亦已解码）。
+答复样例：问「强制检测登革热却让患者自费合理吗？」→ 温医一院答复；
+          问「强烈反对在小区旁建加油站」→ 杭州市钱塘区河庄街道答复。
+
+结论：**接口型可用**（省统一平台，量极大 4.9 万；每条 = 1 次明细 + 1 次字体下载，全量代价大，
+      适配器默认 max_records=500 兜底，需要更多用 --limit 显式给）。
+      适配器 adapters/zj_mhww.py，key=**zj-mhww**。
+
+================================================================================
+三、待登记 key 清单（交 team-lead 写 __init__.py）
+================================================================================
+  "sh-12345" → "adapters.sh_12345"    上海市·12345热线诉求公开（api, province）
+  "zj-mhww"  → "adapters.zj_mhww"     浙江省·民呼我为统一平台·办理公开（api, province）
+
+依赖提示：sh_12345 用 `cryptography` 做 AES 解密、zj_mhww 用 `fontTools` 解析 woff
+（两者本仓 venv 已随 pdfminer.six / matplotlib 装入；均为惰性 import，缺失会给出明确报错）。

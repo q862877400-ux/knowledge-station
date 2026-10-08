@@ -1,0 +1,11 @@
+=== sh-zj-probe stage=zj1 ===
+[zjzwfw] https://www.zjzwfw.gov.cn/
+    status=200 len=3720 ct=text/html title='浙江政务服务网' kw=[]
+[zj-gov] https://www.zj.gov.cn/
+    status=200 len=143098 ct=text/html; charset=utf-8 title='浙江省人民政府' kw=['信访', '信箱', '咨询']
+[zj12345] https://www.zj12345.gov.cn/
+    EXC ConnectError: [Errno 11001] getaddrinfo failed
+[zj-sthjt] https://sthjt.zj.gov.cn/
+    status=200 len=55961 ct=text/html; charset=utf-8 title='浙江省生态环境厅' kw=['互动', '留言', '信访', '信箱', '咨询']
+[zj-hdjl] https://www.zj.gov.cn/col/col1229019488/
+    status=404 len=552 ct=text/html; charset=utf-8 title='404 Not Found' kw=[]

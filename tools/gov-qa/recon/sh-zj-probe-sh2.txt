@@ -1,0 +1,17 @@
+=== sh-zj-probe stage=sh2 ===
+[sh12345-http] http://www.sh12345.gov.cn/
+    status=200 len=1756 ct=text/html title='12345热线' kw=['12345']
+[sh12345-https] https://www.sh12345.gov.cn/
+    status=200 len=1756 ct=text/html title='12345热线' kw=['12345']
+[xfb-xfdt-http] http://xfb.sh.gov.cn/xfb/xfdt/index.html
+    status=404 len=548 ct=text/html; charset=utf-8 title='404 Not Found' kw=[]
+[xfb-xfdt-https] https://xfb.sh.gov.cn/xfb/xfdt/index.html
+    status=404 len=548 ct=text/html; charset=utf-8 title='404 Not Found' kw=[]
+[sh-dept-lyb] https://www.sh.gov.cn/nw2/nw2314/nw38605/nw38651/index.html
+    status=404 len=1035 ct=text/html; charset=utf-8 title='您访问的页面不存在' kw=[]
+[sh-dist-lyb] https://www.sh.gov.cn/nw2/nw2314/nw38605/nw40906/index.html
+    status=404 len=1035 ct=text/html; charset=utf-8 title='您访问的页面不存在' kw=[]
+[sh-zmhd-sub] https://www.sh.gov.cn/nw2/nw2314/nw38605/index.html
+    status=404 len=1035 ct=text/html; charset=utf-8 title='您访问的页面不存在' kw=[]
+[wsxf-rmyjzj] http://wsxf.sh.gov.cn/xf_rmyjzj/index1.aspx
+    EXC RemoteProtocolError: Server disconnected without sending a response.

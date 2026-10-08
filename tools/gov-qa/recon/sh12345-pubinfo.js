@@ -1,0 +1,1 @@
+import{G as e,H as l,I as t}from"./index-DHsWktAU.js";function r(a){return e.request({method:"POST",url:`/appealPublicService/allAppealPublic?startPage=${a}`,requestDataCallback:t,responseDataCallback:l})}function s(a){return e.request({url:`/appealPublicService/appealDetail/${a}`,method:"get",responseDataCallback:l})}export{r as a,s as b};

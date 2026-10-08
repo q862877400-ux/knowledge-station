@@ -1,0 +1,15 @@
+=== sh-zj-probe stage=sh1 ===
+[wsxf-list-https] https://wsxf.sh.gov.cn/xf_swldxx/
+    EXC ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[wsxf-list-http] http://wsxf.sh.gov.cn/xf_swldxx/
+    EXC RemoteProtocolError: Server disconnected without sending a response.
+[wsxf-root-https] https://wsxf.sh.gov.cn/
+    EXC ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+[sh-zmhd] https://www.sh.gov.cn/zmhd/
+    status=200 len=33733 ct=text/html; charset=utf-8 title='政民互动' kw=['互动', '信访', '信箱', '12345']
+[sh-12345] https://12345.sh.gov.cn/
+    EXC ConnectError: [Errno 11001] getaddrinfo failed
+[sh-zwdt] https://zwdt.sh.gov.cn/
+    status=200 len=76 ct=text/html;charset=UTF-8 title='' kw=[]
+[sh-gov-root] https://www.sh.gov.cn/
+    status=200 len=117395 ct=text/html; charset=utf-8 title='上海市人民政府' kw=['互动', '信访', '12345']
