@@ -6,8 +6,9 @@
 
 同时报两个数，把差异归因说清：
  · 真库 vs 副本 → **行数不同**（真库 663,634 / 副本 521,978）⇒ 可解释；
- · 副本 815 ms vs `NEXT-DEV-PLAN §四第1条` 记的 **606.0 ms（52 万行）** → **同一行数、不同耗时**，
+ · 副本 812.3 ms vs `NEXT-DEV-PLAN §四第1条` 记的 **606.0 ms（52 万行）** → **同一行数、不同耗时**，
    ⚠ **本脚本归因不了**（当时的量测口径/工具未记录）⇒ 如实并列，**不猜**。
+   （同批 `10-latency.py` 另量得副本中位 819.7 ms —— 与 812.3 同量级，见 README §二。）
 
 只读；不写任何向量、不碰真库。
 用法： .venv\\Scripts\\python.exe eval\\recall-funnel\\exp-4b-embedding-round2\\14-real-db-scan.py
@@ -63,14 +64,17 @@ def main() -> int:
         print(f"[e4b] {name}: {out[name]['file_MB']} MB / {n} 行 / 中位 "
               f"{out[name]['median_ms']} ms（首跑 {out[name]['first_ms']} ms）", flush=True)
 
+    copy_ms = out["round1_copy"]["median_ms"]
     out["recorded_reference"] = {
         "ms": 606.0, "rows": 521978,
         "source": "docs/NEXT-DEV-PLAN-2026-09-28.md §四第 1 条（『本轮静机复测 606.0 ms（52 万行）』）",
-        "attribution": "⚠ **归因不了**：副本同是 521,978 行却量到 815.1 ms，"
-                       "差 35%。当时的量测口径/工具没有记录 ⇒ 两个数并列，**不猜**。",
+        "attribution": f"⚠ **归因不了**：副本同是 521,978 行却量到 {copy_ms} ms（本脚本同批实测；"
+                       f"`10-latency.py` 同批另量得 819.7 ms），比计划记的 606.0 ms 高约 "
+                       f"{round((copy_ms / 606.0 - 1) * 100)}%。当时的量测口径/工具没有记录 ⇒ "
+                       f"两个数并列，**不猜**。",
     }
-    out["why_two_numbers"] = ("真库 663,634 行 / 副本 521,978 行 ⇒ **行数不同**（库长大了 141,656 条），"
-                              "这是可解释的差；606 vs 815 那一段不可解释。")
+    out["why_two_numbers"] = (f"真库 663,634 行 / 副本 521,978 行 ⇒ **行数不同**（库长大了 141,656 条），"
+                              f"这是可解释的差；606 vs {copy_ms} 那一段不可解释。")
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(out, ensure_ascii=False, indent=1))
     print(f"\n已写 {OUT}")
