@@ -47,7 +47,7 @@ Set-Location 'D:\AI\work space\zcode'
 # ③ 验证某个站（不写盘，只看取到的前 3 条）
 .venv\Scripts\python.exe tools\gov-qa\harvest.py --site gz-jyt --limit 5 --dry-run
 
-# ④ 刷新两份验收产物
+# ④ 刷新三份验收产物
 .venv\Scripts\python.exe tools\gov-qa\recon\coverage-matrix.py     # 省级 × 来源 矩阵
 .venv\Scripts\python.exe tools\gov-qa\recon\coverage-by-level.py   # 省/市/县 三级统计
 .venv\Scripts\python.exe tools\gov-qa\measure-locate-rate.py       # 可考卷/补料/无依据
