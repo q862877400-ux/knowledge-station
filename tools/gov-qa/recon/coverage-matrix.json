@@ -50,15 +50,19 @@
    "people-liuyan-df": 172,
    "people-liuyan-prov": 22
   },
+  "贵州省": {
+   "gz-st": 120,
+   "gz-wjw": 40,
+   "gz-jyt": 30,
+   "gz-nynct": 30,
+   "gz-rst": 30,
+   "gz-zfcx": 30,
+   "people-liuyan-prov": 15
+  },
   "国家级（部委）": {
    "mee": 145,
    "mem": 60,
    "people-liuyan": 37
-  },
-  "贵州省": {
-   "gz-st": 120,
-   "gz-wjw": 40,
-   "people-liuyan-prov": 15
   },
   "安徽省": {
    "ah-st": 145,
@@ -151,8 +155,8 @@
   "广东省": 31112,
   "湖南省": 4379,
   "北京市": 439,
+  "贵州省": 295,
   "国家级（部委）": 242,
-  "贵州省": 175,
   "安徽省": 173,
   "吉林省": 168,
   "辽宁省": 60,
@@ -232,9 +236,13 @@
   "people-liuyan": 37,
   "gd-gdaudit": 36,
   "gd-jgsw": 34,
+  "gz-jyt": 30,
+  "gz-nynct": 30,
+  "gz-rst": 30,
+  "gz-zfcx": 30,
   "ln-st": 24,
   "sc-st": 15
  },
- "grand_total": 37337,
+ "grand_total": 37457,
  "n_provinces_covered": 31
 }

@@ -1,0 +1,341 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-zfcx",
+   "id": "27775125",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27775125",
+   "question": "关于贵州省2016定额人工费单价远低于实际人工费，定额中一类综合用工单价为80元/工日、二类综合用工单价为120元/工日、三类综合用工单价为135元/工日，实际施工的最低人工费远高于定额一类用工80元/工日，并且贵州省的最低工资标准也高于定",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动法",
+     "lib_no": "劳动法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27768667",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27768667",
+   "question": "尊敬的领导：《建筑工程施工质量验收统一标准》（GB50300-2013）第3.0.6条规定，工程质量验收均应在施工单位自检合格的基础上进行。针对“施工单位自检”，有如下疑问： 1、施工单位自检是否可理解为：针对进场建筑材料、建筑构配件、商品",
+   "cited_hits": [
+    {
+     "name": "建筑工程施工质量验收统一标准",
+     "lib_no": "GB 50300-2013",
+     "weak": false
+    },
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "房屋建筑和市政基础设施工程竣工验收规定",
+    "建设工程质量检测管理办法",
+    "关于进一步加强房屋建筑和市政基础设施工程基桩检测的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-zfcx",
+   "id": "27776766",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27776766",
+   "question": "执行定额A5-258“现浇混凝土模板 柱支撑 高度超过3.6m每超过1m”的工程量，是按整根柱高度的工程量还是按超过3.6m部分的工程量。若：柱高度是4.6m，那执行超过1m单价的工程量是4.6m（整根柱）还是1m（超过部分）的工程量.",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建筑与装饰工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27776433",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27776433",
+   "question": "GZ01-31-2016 第二十章施工排水降水，条文说明 “泵类机械抽水为地下水”，请问：基坑、桩孔涌出地下水的水泵抽排台班，是否不属于安全文明施工费（环境保护费、临时设施费）包干内容，应按第二十章单独计取台班？环境保护费 “场地排水排污措",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27776266",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27776266",
+   "question": "贵州04定额中金属结构工程章节说明：“金属构件运输定额适用于由构件堆放地或构件加工厂至施工现场的运输”，请问关于金属构件运输定额的套用有没有运距的要求？1km运距和100km运距都可以套用金属构件运输定额吗？有没有运距的上限？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27776211",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27776211",
+   "question": "尊敬的领导！某市政工程合同约定采用贵州省2004计价定额，挖一般土石方清单工程量为1000m³，特征描述为“土石方开挖、余土外运等施工内容”，招标图纸及勘察报告显示：挖一般土石方开挖方式采用机械打眼爆破、松石：次坚石为20：80。投标清单综",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27775801",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27775801",
+   "question": "综合单价合同，A14-225 中已包含满刮腻子二遍，结算审核时可以审减吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27775654",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27775654",
+   "question": "房建项目，采用24清单，贵州省建筑与装饰工程计价定额（2016）。套用旋挖钻机钻桩孔A3-20定额，定额说明信息中的工作内容：护筒埋设及拆除,钻机就位,钻孔、提钻、出渣、渣土清理堆放,造浆、压浆、清孔等。其中护筒埋设及拆除，是否针对于整根桩",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建筑与装饰工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27774722",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27774722",
+   "question": "咨询问题：《贵州省市政工程计价定额》（2016版）中C3-2-44PVC泄水孔制作、安装中包含了打眼钻孔，请问定额中包含的钻孔土质情况是如何考虑的？若泄水孔钻孔部位全为混凝土挡土墙，是否可以套用C3-2-38岩层 钻孔子目，扣除灌浆材料及人",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27774673",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27774673",
+   "question": "综合单价合同,《贵州省建筑与装饰工程计价定额》(2016版)中,抹灰面油漆清单项中包含了A14‑225,A14‑281子目,A14‑225已包含满刮腻子两遍工作内容，结算审核时，是否可以以存在重复计价为由审减A14‑281单价。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27774514",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27774514",
+   "question": "对工程咨询专业的高级工程师业绩有疑问：因为一直从事的是施工单位的投标工作，请问招投标管理中的主要完成人里面的项目负责人和认定方式中项目合同中制定的项目负责人如何理解，是不是就是所谓的项目经理。但是项目经理从事的是工程管理的相关工作，业绩也是",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省工程系列建筑类专业技术职务任职资格申报评审条件（试行）",
+    "贵州省工程系列建筑专业高级职称评审专业分类表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27774233",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27774233",
+   "question": "项目背景：仅屋面改造，拆除全部屋面构造层至结构板，重新施工整套屋面构造；执行贵州省 2016 版建筑与装饰计价定额，清单执行GB50500‑2024《建设工程工程量清单计价标准》。 贵州 2016 定额的综合脚手架、建筑物垂直运输均是面向完",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建筑与装饰工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27773808",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27773808",
+   "question": "可承包范围是否无合同金额的限制，只要满足“可承担下列建筑工程的施工(1)高度100米以下的工业、民用建筑工程(2)高度120米以下的构筑物工程(3)建筑面积4万平方米以下的单体工业、民用建筑工程(4)单跨跨度39米以下的建筑工程。”如果有限",
+   "cited_hits": [],
+   "cited_missing": [
+    "建筑业企业资质标准",
+    "关于简化建筑业企业资质标准部分指标的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27773561",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27773561",
+   "question": "贵州2016安装工程计价定额中第十册第八章燃气器具及其他说明第十一、户内家用可燃气体检测报警器与电磁阀成套安装的，执行第五章管道附件中螺纹电磁阀项目，人工乘以系数1.3。螺纹电磁阀项目中主材只有螺纹电磁阀门，没有可燃气体检测报警器，是否需要",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27768691",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27768691",
+   "question": "贵州16定额，市政工程，毛石回填套什么定额，套回填土方按照定额换算，没有毛石主材价格，怎么办，如果补充主材，主材含量怎么定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27767902",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27767902",
+   "question": "贵州省建筑与装饰工程计价定额（2016版）辅助材料、周转材料（包括水、电及定额已经有基价的辅助及周转等材料）套用定额时是否需要调整定额单价",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建筑与装饰工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27767295",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27767295",
+   "question": "A14-242内墙涂料两遍，说明信息“刷涂料两遍”，108内墙涂料含量38.11kg；A14-225内墙乳胶漆两遍，说明信息“刷底漆一遍、乳胶漆两遍”，乳胶漆及清漆含量合计39.43kg与内墙涂料含量相近，是否说明内墙涂料两遍也是按一底两面",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27753082",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27753082",
+   "question": "目前公布的信息价材料运距没有单独编制说明，查询价格运距争议很大，能不能直接像沿海城市一样直接注明运距，超过运距的部分就能直接有效的立刻解决。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程造价信息"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27751566",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27751566",
+   "question": "老师，你好。 现向你咨询贵州省建筑定额第四册电气设备安装工程（2016版）适用范围，我司组织实施的安置房、学校、市政道路、公园等公益性项目，项目涉及的10KV电力工程（主要指从供电局指定搭火点至项目配电房），编制预算时是否可以套用贵州省通用",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省通用安装工程计价定额"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27750852",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27750852",
+   "question": "1、贵州能源水城2×66万千瓦燃煤发电项目生产服务设施工程，因场地为新近高回填区，在桩基成孔时采用埋设钢护筒，埋设深度为4.5～38.5m不等，故采600型履带式液压振动锤（打拔桩机）施工。能拔出的按周转护筒计，不能拔出的按一次摊销计。因贵",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27750693",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27750693",
+   "question": "关于《贵州省 2004 年市政工程计价定额》上册附录 1 中临时道路计价口径 依据《贵州省 2004 年市政工程计价定额》上册附录 1 规定：②临时道路接至已通车的汽车公路最短距离不超过 50m 者，列入临时设施费包干范围； 现向贵站咨询以",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省建设工程计价定额解释、工程造价咨询管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27746887",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27746887",
+   "question": "贵州省住房和城乡建设厅网站里的建造师报名网页无法进去，已经三天了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展贵州省2026年度二级建造师考试报名等相关工作的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-zfcx",
+   "id": "27773837",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27773837",
+   "question": "领导你好，根据贵厅2026 年 6 月 1 日发布的“关于在《贵州省房屋建筑和市政工程标准施工电子招标格预审文件和招标文件》（2023 版）中增加暗标评审技术标格式及相关内容的通知”暗标评审要求第4条 版面要求：除图表外统一采用 A4 纸张",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27773437",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27773437",
+   "question": "当前我国地质灾害浅表监测体系完善，但岩质脆性垮塌存在显著技术盲区：岩体失稳均始于深部应力转移，灾前地表无开裂、无位移迹象，传统 GPS、光纤监测及人工巡查难以实现早期预警。结合多起典型灾害复盘：梅大高速塌方隐患段，若布设少量深部监测锚索，可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27772295",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27772295",
+   "question": "尊敬的省住房和城乡建设厅工作人员，您好！我是一名在读研究生，由于最近在做一项关于我省历史文化名城名镇名村街区的相关实践调研活动，经全网公开资料查阅后，无法获取我省历史文化名城名镇名村街区的具体名录和具体级别，烦请贵厅提供一份名单和发送至我的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27769030",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27769030",
+   "question": "以考代评2025年才开始在人事人才系统报考，现在审核意见叫提供2020-2023年考核证明材料是否合理。按照2026年报考通知，并未要求提供事业单位空岗情况，且这是职业资格考试，与单位空岗有什么关系？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27768519",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27768519",
+   "question": "本人住建领域事业编，从事建筑行业专业技术岗，但是非理工专业，能否报考建筑类以考代评？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27752753",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27752753",
+   "question": "贵州铧曜磊建设工程有限公司不给注销",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27751085",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27751085",
+   "question": "2026年5月6日，本人将持有的一级建造师注册至中磊设计有限公司，约定注册成功后，依法与该企业办理入职手续，企业为本人办理社保，并正常至该企业上班，但2026年5月22日证书注册成功后，无法联系该企业负责人，并且企业不配合进行证书注销，请求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-zfcx",
+   "id": "27747212",
+   "url": "https://zfcxjst.guizhou.gov.cn/?id=27747212",
+   "question": "我去年参加了二建考试，今年查不到我的考试信息",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-nynct",
+   "id": "27579785",
+   "url": "https://nynct.guizhou.gov.cn/?id=27579785",
+   "question": "咨询：1、市场上销售的钓鱼添加剂（将添加剂与鱼饵混合后更容易能钓上鱼）是否归农业农村部门管理。2、生产该钓鱼添加剂是否需要办理许可证。3、生产钓鱼添加剂是否有执行标准。谢谢。",
+   "cited_hits": [
+    {
+     "name": "饲料和饲料添加剂管理条例",
+     "lib_no": "饲料和饲料添加剂管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "饲料和饲料添加剂管理条例",
+     "lib_no": "饲料和饲料添加剂管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27538285",
+   "url": "https://nynct.guizhou.gov.cn/?id=27538285",
+   "question": "你好，想询问一下个人想要饲养黄缘闭壳龟当作宠物龟，除了要找正规的厂家购买，还需不需要在林业局办理什么手续，或者商家需要给我开具什么样的证明才算合法呢？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国野生动物保护法",
+     "lib_no": "野生动物保护法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中华人民共和国水生野生动物利用特许办法",
+    "水生野生动物人工繁育许可证",
+    "人工繁育证",
+    "水生野生动物经营利用许可证",
+    "经营利用证",
+    "中华人民共和国水生野生动物利用特许办法",
+    "人工繁育证",
+    "经营利用证",
+    "人工繁育证",
+    "经营利用证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-nynct",
+   "id": "27744126",
+   "url": "https://nynct.guizhou.gov.cn/?id=27744126",
+   "question": "您好！我是南京农业大学经济管理学院农业经济管理专业本研贯通的学生，导师为仇童伟老师。现因学位论文研究气候变化对粮食作物物候期的影响，冒昧致信求助。 研究需要贵地区2000-2025年逐年的以下作物平均收获时间（大致月份区间即可）： ①早稻；",
+   "cited_hits": [],
+   "cited_missing": [
+    "厅长信箱写信需知",
+    "依申请公开说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27686449",
+   "url": "https://nynct.guizhou.gov.cn/?id=27686449",
+   "question": "根据省人民政府关于印发《贵州省农村村民住宅建设管理办法(试行)》的通知(黔府发〔2021〕7号)第五条 一款之规定，农业农村部门负责农村宅基地改革和管理有关工作，建立宅基地管理信息化平台，健全宅基地管理体系，规范开展宅基地监管。为能精准的理",
+   "cited_hits": [],
+   "cited_missing": [
+    "我省农村村民住宅建设中 “ 户 ” 的认定标准",
+    "贵州省农村村民住宅建设管理办法 ( 试行 ) ",
+    "省人民政府关于印发贵州省农村村民住宅建设管理办法（试行）的通知",
+    "省农业农村厅 省自然资源厅 省公安厅关于规范农村村民住宅建设审批有关工作的通知",
+    "管理办法",
+    "管理办法",
+    "管理办法",
+    "贵州省农村村民住宅建设管理办法 ( 试行 ) ",
+    "贵州省农村村民住宅建设管理办法 ( 试行 ) ",
+    "省人民政府关于印发贵州省农村村民住宅建设管理办法 ( 试行 ) 的通知",
+    "省农业农村厅 省自然资源厅 省公安厅关于规范农村村民住宅建设审批有关工作的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27659609",
+   "url": "https://nynct.guizhou.gov.cn/?id=27659609",
+   "question": "尊敬的领导，您好！我是西北农林科技大学的一名在读博士生，因博士期间科研数据所需，需要近40年贵州省各个县级市区苹果的种植面积、产量以及物候期（开花期、果实膨大期、成熟期）的记录。我的研究方向是中国苹果产量的模拟研究，希望得到您数据上的支持。",
+   "cited_hits": [],
+   "cited_missing": [
+    "厅长信箱写信需知",
+    "依申请公开说明"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27635238",
+   "url": "https://nynct.guizhou.gov.cn/?id=27635238",
+   "question": "农村宅基地申请条件中的“原有宅基地面积尚未达到限额标准的百分之70，新建、改建、扩建需增加宅基地面积的”专业解释，能否举个例子详细说明一下。",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省土地管理条例",
+    "贵州省农村村民住宅建设管理办法（试行）",
+    "贵州省农村村民住宅建设管理办法（试行）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27607657",
+   "url": "https://nynct.guizhou.gov.cn/?id=27607657",
+   "question": "请问餐馆能否去养殖场购买鳄鱼来做成菜品售卖，是否需要获得行政许可，在养殖场购买时，需要出让方提交哪些资料。",
+   "cited_hits": [],
+   "cited_missing": [
+    "水生野生动物经营利用证",
+    "水生野生动物人工繁育许可证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27592805",
+   "url": "https://nynct.guizhou.gov.cn/?id=27592805",
+   "question": "1.请问现贵州省内个人购买植保无人机是否有政策补贴？2.如有补贴个人申请政策补贴需要那些条件？到哪申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "2021-2023年贵州省农机购置与应用补贴一览表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27577729",
+   "url": "https://nynct.guizhou.gov.cn/?id=27577729",
+   "question": "请问家庭农场申报条件，申报流程，申报方式，申报地点是些什么，有没有家庭农场申报指南，为什么在官网都查不到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省农业农村厅办公室关于印发〈贵州省家庭农场名录管理暂行办法〉的通知",
+    "家庭农场信息填报汇总表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27539463",
+   "url": "https://nynct.guizhou.gov.cn/?id=27539463",
+   "question": "个人养3只黄缘龟做宠物，不出售不繁殖，不作其他用，单纯的自己养。也需要办理“国家保护水生野生动物人工繁育许可证”么？ 还是只需要引种证明即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "水生野生动物人工繁育许可证"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-nynct",
+   "id": "27632910",
+   "url": "https://nynct.guizhou.gov.cn/?id=27632910",
+   "question": "尊敬的省厅领导： 本人咨询2024-2026 农机购置与应用补贴额二批一览表什么时候公示，二批一览表是否包含机具大类： 饲料（草）收获加工运输设备 中机具小类：饲料（草）收获机械 饲料混合机、铡草机、清贮切碎机 类别。 这些都是针对养殖行业",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27601129",
+   "url": "https://nynct.guizhou.gov.cn/?id=27601129",
+   "question": "领导： 你们好，我计划在我老家今年种植约5亩小麦，如果今年试种成功了，我计划约起我们村里愿意的群众参与一起明年大面积种植小麦，但是我遇到两个问题，请您帮我一下，妥否！ 关于小麦种子采购：一是本地采购，我们这里有一个乡镇种植有，经过我咨询，现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27561571",
+   "url": "https://nynct.guizhou.gov.cn/?id=27561571",
+   "question": "您好，咨询一下贵州省金沙县农村老人宅基地的确权事宜，因诸多原因影响，咨询一下女性老年人农村宅基地确权事宜，女老人户口是贵州省金沙县新化乡双井村二组，农村户口，在农村有一处宅基地，因原配偶去世，另择新配偶领取结婚证后，在金沙县鼓场街道太极社区",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27503947",
+   "url": "https://nynct.guizhou.gov.cn/?id=27503947",
+   "question": "您好，我是一名在校研究生，现因论文数据需要，希望贵单位能够提供2005-2021年各地级市耕地面积和乡村产业从业人员数的相关数据，我的邮箱是360467264@qq.com",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27495676",
+   "url": "https://nynct.guizhou.gov.cn/?id=27495676",
+   "question": "贵州省农业农村厅的前称是叫贵州省农业厅吗，若是，是什么时候改的名称。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27490219",
+   "url": "https://nynct.guizhou.gov.cn/?id=27490219",
+   "question": "领导您好： 我们在金沙县后山镇关于茶叶加工厂土地备案问题上遇到困难，急需解决。 我公司在金沙县后山镇流转土地千余亩，但受到疫情影响资金受限以及土地政策影响，没有种植茶园，而是直接选择收购当地原生的野茶和古树茶以及当地政府让老百姓种植的茶青作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27448579",
+   "url": "https://nynct.guizhou.gov.cn/?id=27448579",
+   "question": "农机机具 检定证书到期，新的证书已到。请问领导需要怎么样快速的通过审核，并在补贴系统中更新正常报补产品。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27421562",
+   "url": "https://nynct.guizhou.gov.cn/?id=27421562",
+   "question": "你好，我是一名在校研究生，想了解贵州省食用菌目前的农药使用种类以及情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27419602",
+   "url": "https://nynct.guizhou.gov.cn/?id=27419602",
+   "question": "孩子2021年在校通过了兽医资格证的考试，今年大专已毕业，毕业证学信网可以查到。请问什么时候可以领到兽医资格证。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27417734",
+   "url": "https://nynct.guizhou.gov.cn/?id=27417734",
+   "question": "你好，我是经营农药的，5年要换一次农药经营许可证，我明年要换证了，听说还需要2年的农药电子台账，这是真的吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27417343",
+   "url": "https://nynct.guizhou.gov.cn/?id=27417343",
+   "question": "你好，我是一名在校研究生，对于我省的食用菌发展状况十分感兴趣，目前针对该产业正在进行相关研究，但缺乏一定相关数据，特此来信咨询，所需主要数据为近十年贵州省食用菌种植规模数据以及近十年贵州省食用菌出口量，希望能够尽快得到您的回复，感谢您的帮助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27413850",
+   "url": "https://nynct.guizhou.gov.cn/?id=27413850",
+   "question": "您好，想问一下本单位领导的工作职责在哪可以看到？方便的话提供一下网址，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27415977",
+   "url": "https://nynct.guizhou.gov.cn/?id=27415977",
+   "question": "领导，您好！关于高标准农田建设，我是贵州省鳌盛农业科技发展有限公司的工作人员，我们公司在建设养牛场的过程中有一块荒地大概600亩左右，现在要将这块地进行平整，使之能够进行机械化作业。我想咨询一下，我们平整土地这一块能申报这个补助吗？如果可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27411660",
+   "url": "https://nynct.guizhou.gov.cn/?id=27411660",
+   "question": "省市级百强企业特色农产品及企业联系方式咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27411657",
+   "url": "https://nynct.guizhou.gov.cn/?id=27411657",
+   "question": "省市级百强企业特色农产品及企业联系方式咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27402529",
+   "url": "https://nynct.guizhou.gov.cn/?id=27402529",
+   "question": "禁捕一年以来，由于没有对假饵进行管控，衍生了一批路亚大军驱车每日对周围几百里水域进行狂扫，并以100多一斤鳜鱼的价格谙供给餐饮店（两人一天最少10斤，以赚钱为目的垂钓），造成河内的资源比禁捕前还少，同时在水下产生很多塑料垃圾和金属鱼钩垃圾。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27402404",
+   "url": "https://nynct.guizhou.gov.cn/?id=27402404",
+   "question": "在花溪公园游玩时发现花溪公园出现了较多的红色福寿螺卵，尤其是花溪公园南湖游船处，我认为对环境及卫生造成了较大的危险，因此求助",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27396509",
+   "url": "https://nynct.guizhou.gov.cn/?id=27396509",
+   "question": "您好，请问如何查阅哪位部门领导分管政务公开工作的信息？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27395807",
+   "url": "https://nynct.guizhou.gov.cn/?id=27395807",
+   "question": "您好，我是一名高校研究生，由于科研项目所需，向贵厅咨询贵州省是否有建设省级的一村一品、省级特色农产品优势区、省级现代农业产业园以及省级名特优新农产品，如果有希望能提供一份名单，万分感激！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-nynct",
+   "id": "27394591",
+   "url": "https://nynct.guizhou.gov.cn/?id=27394591",
+   "question": "尊敬的领导：您好！深夜来信，多有叨扰，敬请谅解！ 我是一名大学本科毕业生，读书期间，我就怀揣着学成回报社会，报效祖国，投身到祖国几层建设当中。毕业以后我如愿来到脱贫攻坚战场中，在脱贫攻坚中报效国家。如今已成功脱贫，开启乡村振兴模式，国家为更",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
