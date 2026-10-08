@@ -1,0 +1,92 @@
+===== 乐山 zmhd 页 全部链接 + 板块文字 =====
+  H /lsswszf/resource/css/all.css
+  H /lsswszf/resource/css/main.css
+  H /lsswszf/resource/css/hdjl.css
+  H /lsswszf/resource/css/systemTheme.css
+  H /front/interaction/robot
+  H https://www.leshan.gov.cn/auth/c/login.shtml?platform=zwfw&redirect_uri=https://www.leshan.gov.cn/front/account/home
+  H /lsswszf/zzzq/index.html
+  H javascript:void(0);
+  H javascript:void(0)
+  H /lsswszf/
+  H /lsswszf/
+  H /lsswszf/dwgk/index.html
+  H /lsswszf/zwgk/90053490/index.html
+  H http://lss.sczwfw.gov.cn/?areaCode=511100000000
+  H /lsswszf/zmhd/index.html
+  H /lsswszf/zjls/index.html
+  H /lsswszf/zxft/index.html
+  H /lsswszf/zxft/851951163912261.html
+  H /lsswszf/zxft/842818395779141.html
+  H /lsswszf/zxft/831407691812933.html
+  H /lsswszf/zxft/821619563634757.html
+  H /lsswszf/zxft/809191242801221.html
+  H /lsswszf/zxft/796792992444485.html
+  H /lsswszf/xlxxx/index.html
+  H /lsswszf/xlxxx/index.html
+  H /lsswszf/xlxxx/index.html
+  H /lsswszf/xlxxx/854517350903898.html
+  H /lsswszf/xlxxx/857274770001989.html
+  H /lsswszf/xlxxx/857260024668229.html
+  H /lsswszf/xlxxx/854517350903896.html
+  H /lsswszf/xlxxx/854502606540872.html
+  H /front/wdzsk/index
+  H /lsswszf/wsdc/index.html
+  H /lsswszf/myzj/index.html
+  H /lsswszf/wsdc/836462383435845.html
+  H /lsswszf/wsdc/829628996812869.html
+  H /lsswszf/wsdc/812327670800453.html
+  H /lsswszf/wsdc/760332261474373.html
+  H /lsswszf/wsdc/760330923622469.html
+  H /lsswszf/myzj/852051315224645.html
+  H /lsswszf/myzj/848831895760965.html
+  H /lsswszf/myzj/847716848824389.html
+  H /lsswszf/myzj/847074180358213.html
+  H /lsswszf/myzj/854545087377477.html
+  H /lsswszf/yqhy/index.html
+  H /lsswszf/yqhy/851235070902341.html
+  H /lsswszf/yqhy/844619377119301.html
+  H /lsswszf/yqhy/837073358573637.html
+  H /lsswszf/yqhy/831516691705925.html
+  H /lsswszf/yqhy/814862027190341.html
+  H /lsswszf/wzdt/index.html
+  H /lsswszf/ystk/681350511714373.html
+  H /lsswszf/wzsm/681350620463173.html
+  H /lsswszf/lxwm/681350709817413.html
+  H https://beian.miit.gov.cn
+  H http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51110202000199å·
+  H http://bszs.conac.cn/sitename?method=show&id=06C8F607CFAC560DE053012819AC6C3E
+  H javascript:void(0);
+  H https://zfwzzc.www.gov.cn/check_web/errorInfo/jcInfo/af5c2205-7c5f-4e75-847c-ec16e334273e-660571562
+  H https://12371.people.com.cn/
+  H /lsswszf/xmtjz/index.html
+  TEXT:  æ¿æ°äºå¨ - ä¸­å ±ä¹å±±å¸å§ä¹å±±å¸äººæ°æ¿åº ç½ç«æ¯æIPv6 æºè½é®ç­ | ä¸ªäººä¸­å¿ | æºä¹å±± | é¿è ä¸åº | éèç | æ éç¢ | ç¹ --> ç½ç«é¦é¡µ å å¡å ¬å¼ æ¿å¡å ¬å¼ æ¿å¡æå¡ æ¿æ°äºå¨ èµ°è¿ä¹å±± æ°æ®å¼æ¾ å¨çº¿è®¿è° æ´å¤ ç½ç»éä¸­å¯¹è¯ï¼æ¬¢äº«âåèâ ä¹å±±ç æ¸¸æå è®¿è°æ¶é´ï¼ 2026-09-23 è®¿è°åå®¾ï¼ æ¨ç¥-å¸åå¡å±å¸åºè¿è¡ä¸æ¶è´¹ä¿è¿ç§ç§é¿ãé«ä¸½æ¢ -å¸ææ èååå±ä¿è¿ä¸­å¿å·¥ä½äººåãå äºç´-å¸ä¸­åºæåæ æ¸¸å®£ä¼ æ¨å¹¿ä¸­å¿å¯ä¸»ä»» è®¿è°èæ¯ï¼ ææ æ¢æ¯æ¿æ´»åå¸æ¶è´¹ãæ
+
+===== 乐山 候选信箱页 =====
+  /lsswszf/zmhd/szxx/index.html -> 404 text/html len=552
+  /lsswszf/zmhd/xjcx/index.html -> 404 text/html len=552
+  /lsswszf/zmhd/hdjl/index.html -> 404 text/html len=552
+  /lsswszf/zmhd/hdjl.shtml -> 404 text/html len=552
+  /front/mail/box/list -> 200 application/json len=38
+  /front/mail/box/pageList -> 200 application/json len=38
+  /front/mail/box/page/list -> 200 application/json len=38
+  /front/mail/box/index -> 200 application/json len=38
+  /front/mail/box/findPage -> 200 application/json len=38
+  /front/mail/box/queryPage -> 200 application/json len=38
+
+===== 凉山 zmhd 页 文字/链接 =====
+  TEXT:  å¸¸è§é®é¢ç¥è¯åº nzhdtop æ ç´¢ æå°åºæ¥è¯¢ è¥¿æå¸ | ä¼çå¸ | å¾·æå¿ | ä¼ä¸å¿ | å®åå¿ | æ®æ ¼å¿ | å¸æå¿ | æ­è§å¿ | éé³å¿ | é·æ³¢å¿ | ç¾å§å¿ | çæ´å¿ | è¶è¥¿å¿ | åå¾·å¿ | åå®å¿ | çæºå¿ | æ¨éå¿ | æé¨é¨æ¥è¯¢ å·æ¬çº§ | å·åå±æ¹é©å§ | å·ç»æµåä¿¡æ¯åå± | å·æè²ä½è²å± | å·ç§æå± | å·å ¬å®å± | å·æ°æ¿å± | å·å¸æ³å± | å·è´¢æ¿å± | å·äººåèµæºç¤¾ä¼ä¿éå± | å·èªç¶èµæºå± | å·çæç¯å¢
+
+===== 凉山 12345 首页文字 =====
+  TEXT:  首页 中国政府网 四川省人民政府网 凉山州人民政府门户网 登录 退出 开启无障碍 热搜词： 营商环境 公积金 居住证 户口 创业补助 首页 12345简介 管理办法 通告通知 工作简报 信件选登 知识库 您好，暂时还没有数据... 重要公告 动漫解读：凉山州12345政务服务便民热线运行管理办法 2026-09-03 音频解读：凉山州12345政务服务便民热线运行管理办法 2026-09-03 图解：凉山州12345政务服务便民热线运行管理办法 2026-09-03 《凉山州人民政府办公室关于印发凉山州12345政务服务便民热线运行管理办法的通知》的政策解读 2026-09-03 凉山州人民政府办公室关于印发《凉山州12345政务服务便民热线运行管理办法》的通知 2026-09-02 关于线路割接期间12345热线线上功能访问受限的通告 2026-04-30 来电来信查询 信件编号 查询密码 验证码 登录 --> 受理统计 * 总共接件 * 已办结 0% * 正在办理 0% * 今日接件 * 今日办结 知识库 出生一件事申请流程（群众版） 新生儿出生一件事申请及办理操作流程 残疾人服
+
+===== 雅安 mail.js =====
+  layui.use(['jquery','layer', 'form','element','carousel','laydate'], function() { var $ = layui.$ , layer = layui.layer , form = layui.form , laydate = layui.laydate , element = layui.element , carousel = layui.carousel ; //按日期搜索 laydate.render({ elem: '#search-date', theme:'#275296', range: '到', done: function (value, date, endDate) { var sdate = date.year + "-" + (date.month >=10 ? date.month : "0" + date.month) + "-" + (date.date >=10 ? date.date : "0" + date.date); var edate = endDate.year +
+
+===== 达州 12345 平台 =====
+  http://zxbl.sczwfw.gov.cn/app/serviceYouHua/newMainDh?areaCode=511700000000 -> 200 len=30546
+      统一身份认证网关系统 &times; 注册协议 【审慎阅读】 您在申请注册流程中点击同意前，应当认真阅读以下协议。 请您务必审慎阅读、充分理解协议中相关条款内容，其中包括： 1、 与您约定免除或限制责任的条款； 2、 与您约定法律适用和管辖的条款； 3、 其他以粗体下划线标识的重要条款。 如您对协议有任何疑问，可向平台客服咨询。 【特别提示】 当您按照注册页面提示填写信息、阅读并同意协议且完成全部注册程序后，即表示您已充分阅读、理解并接受协议的全部内容。如您因平台服务与平台发生争议的，适用《用
+  https://www.dazhou.gov.cn/ -> 200 len=88661
+      è¾¾å·å¸äººæ°æ¿åº å ³é­ --> ä¸­å¤®äººæ°æ¿åºç½&nbsp;&nbsp; | &nbsp;&nbsp; åå·çæ¿åºç½ ç®&nbsp; | &nbsp; ç¹&nbsp; | &nbsp; æ éç¢æµè§&nbsp; | &nbsp; &nbsp; | &nbsp; æ§ç&nbsp; | &nbsp; ç½ç«æ¯æIPv6 æç´¢ é¦é¡µ èµ°è¿è¾¾å
+  https://www.dazhou.gov.cn/news-list-dzxcj.html -> 200 len=23445
+      è¾¾å·å¸äººæ°æ¿åº_è¾¾å·æ°æå°± ä¸­å¤®äººæ°æ¿åºç½&nbsp;&nbsp; | &nbsp;&nbsp; åå·çæ¿åºç½ ç®&nbsp; | &nbsp; ç¹&nbsp; | &nbsp; æ éç¢æµè§&nbsp; | &nbsp; &nbsp; | &nbsp; ç»ä¸ç¨æ·ç»å½&nbsp; | &nbsp; --> ç½ç«æ¯æIPv6 å ³
