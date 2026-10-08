@@ -105,7 +105,7 @@
 | 中国政府网 | 我向总理说句话 | `liuyan.www.gov.cn/2025wwzfgzbgtjy/` | ❌ 纯表单（需登录） | `bmdf.html?q=zjb` 200：表单页「请登录后留言」，无公开问答列表 |
 | 国务院 | 互联网+督查（全国版） | `tousu.www.gov.cn/dc/index.htm` | ❌ 仅新闻，无公开问答列表 | `dc/index.htm` 200：`督查回声/曝光台` 锚点**已被注释掉**（`<!-- … -->`）；`gov.cn/hudong/ducha/` 只有大督查新闻稿（李克强主持国常会等），无「问题+官方答复」列表 |
 | 国家信访局 | 网上信访 | `wsxf.gjxfj.gov.cn` | ❌ 纯表单 | 200：仅「问题发生地选择」引导，无公开答复文本 |
-| 政务服务 | 投诉与建议 | `tousu.www.gov.cn/zwfw/index.htm` | ⬜ 未核（疑纯表单） | 与督查同域 |
+| 政务服务 | 投诉与建议 | `tousu.www.gov.cn/zwfw/index.htm` | ❌ 纯表单 | `zwfw/index.htm` 200（5424B）仅《留言须知》+「我已阅读并接受」，无公开问答列表 |
 | 中央纪委国家监委 | 举报网站 | `www.12388.gov.cn` | ❌ 举报通道（无答复文本） | 200（3.3KB 入口页），属举报通道，不符合判据① |
 | 人民网 | 领导留言板 | `liuyan.people.com.cn` | ✅ 已另有适配器 | 见 `adapters/people_liuyan*.py`（部委版块已跑通） |
 
