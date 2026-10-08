@@ -1,2 +1,8 @@
 === 宁夏/山西 采集 18:53:36 ===
 ### nx-zxxx
+[harvest] 全部完成，新增合计 597 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### sx-szxx
+[harvest] 全部完成，新增合计 400 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+=== 完成 19:25:06 ===

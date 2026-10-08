@@ -1,2 +1,8 @@
 === 天津/陕西/重庆 采集 19:01:44 ===
 ### tj-hdjl
+[harvest] 全部完成，新增合计 497 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### sn-lyxd
+[harvest] 全部完成，新增合计 184 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+### cq-hdjl

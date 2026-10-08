@@ -92,7 +92,7 @@
   ⚠ 空 siteId 且空 regions 时报 {"statusCode":301,"message":"siteId与regions不能同时为空"}
     ⇒ 与 `_igi_common.py` 完全同构，参数名 siteId/pageIndex/pageSize 一致，appId 可留空。
   ⚠ 湖北/武汉 IGI **不需要 Referer**（实测无 Referer 也 200）——与宁夏/山西不同。
-  枚举 siteId=1..120 命中 15 个 site（详见 recon/gs-hb-igi-sites.txt）：
+  枚举 siteId=1..160 命中 15 个 site（详见 recon/gs-hb-igi-sites.txt）：
       siteId  条数   部门
        4        3   拓思达
       10        6   造价站
@@ -121,7 +121,7 @@
 ★★★【命中：武汉市门户 IGI 中间件】（同为 IGI，另一实例，量更大）
   https://www.wuhan.gov.cn/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=<N>
     -> 200，同一 JSON 契约。
-  枚举 siteId=1..120 命中 32 个 site（节选，详见 recon/gs-hb-igi-sites.txt）：
+  枚举 siteId=1..160 命中 32 个 site（节选，详见 recon/gs-hb-igi-sites.txt）：
       siteId  条数   部门
        6        8   武汉市发展和改革委员会
        7       29   武汉市教育局
@@ -204,3 +204,28 @@
 · 新增 adapters/hb_hdjl.py（湖北门户 IGI 多 site）、adapters/hb_wuhan.py（武汉门户
   IGI 多 site）、adapters/hb_rst.py（湖北省人社厅静态列）。
 · 甘肃未落适配器（无可用源）。
+
+--------------------------------------------------------------------------------
+五、适配器实测（2026-10-08，bounded limit=12，三个全通过）
+--------------------------------------------------------------------------------
+  hb_hdjl  rows=12  answers>=20字=12  23s
+  hb_rst   rows=12  answers>=20字=12  21s
+  hb_wuhan rows=12  answers>=20字=12  22s
+  样例（各取一对）：
+   · hb_hdjl（造价站）
+     问：财税【2016】36号文规定疏浚工程增值税6%……是否调整？
+     答：您好！具体税率仍以财税部门公布的文件为主。
+   · hb_rst（湖北省人社厅）
+     问：陈某咨询建筑行业劳务用工人员能否参加工伤保险的问题
+     答：根据国家政策法规规定，建筑施工企业相对固定的职工，应按用人单位参加工伤保险；……
+        可按《工伤保险条例》有关规定享受工伤保险待遇。
+   · hb_wuhan（武汉市发改委）
+     问：武汉市政府是否有充电桩运营补贴……
+     答：尊敬的叶先生：您好！您咨询的新能源汽车充电桩运营补贴的问题，现将办理情况回复如下：……
+  全量规模（枚举当日 totalResults）：
+   hb_hdjl  11 site（已剔测试实例）/ 约 3500 条
+   hb_wuhan 31 site（已剔测试实例）/ 约 6500 条
+   hb_rst   约 80 条
+  ⚠ 全量跑因每条明细 sleep 1.2~1.5s，hb_hdjl/hb_wuhan 需数十分钟量级；本次只做
+    limit 抽验，未做全量落盘（避免长时间占用）。
+
