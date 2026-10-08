@@ -1,0 +1,9 @@
+== 贵州市场监管局 https://amr.guizhou.gov.cn
+   组合 首页 {'siteId': '41', 'appId': '88'} → {'base': 'https://amr.guizhou.gov.cn/IGI', 'n': 0, 'ok': True, 'sample': None, 'chain': None}
+== 贵州自然资源厅 https://zrzy.guizhou.gov.cn
+   组合 首页 {'siteId': '502056'} 参数不足，跳过
+== 吉林人社 https://hrss.jl.gov.cn
+   组合 首页 {'appId': '575', 'siteId': '117', 'groupId': '170'} → {'base': 'https://haiyun.jl.gov.cn/IGI', 'n': 0, 'ok': True, 'sample': None, 'chain': None}
+   组合 https://hrss.jl.gov.cn/hdjl/zxzx/zxzx1_28604/ {'appId': '575'} 参数不足，跳过
+== 吉林交通运输 https://jtyst.jl.gov.cn
+   组合 首页 {'appId': '575', 'siteId': '117', 'groupId': '159'} → {'base': 'https://haiyun.jl.gov.cn/IGI', 'n': 0, 'ok': True, 'sample': None, 'chain': None}

@@ -143,13 +143,45 @@
 
 > **更正（2026-10-07，第 34/35 轮）**：上面这条**只对留言板成立**。同一天发现并跑通了
 > **IGI 平台**（厂商通用留言信箱接口），它直接给 **省/市/区三级归属**：
-> · 吉林 `https://haiyun.jl.gov.cn/IGI`（siteId=117, appId=96, groupId=172）
-> · 贵州 `https://sthj.guizhou.gov.cn/IGI`（siteId=501471, appId=590）
 > 接口：`method=listGovmsgboxs`（列表）+ `method=viewGovmsgbox&metadataId=`（明细），
 > **必须带 Referer**（否则 403）。公共基座 `adapters/_igi_common.py`。
-> ⇒ 三级覆盖统计已从 **0 → 140 条**（吉林 60 + 贵州 80），覆盖 **39 个区县 / 59 个省市县组合**。
 > 已扫天津/上海/北京/浙江/福建/宁夏/云南/陕西 8 省，**未发现同款指纹**
 > （证据 `recon/igi-spread-scan.txt`）⇒ 该平台暂确认为吉林、贵州两省在用。
+
+#### IGI 家族现状（2026-10-08 实测：**12 站 / 1,343 条**）
+
+**两省的参数规律完全不同**：
+
+| 省 | host 形态 | 参数规律 |
+|---|---|---|
+| **贵州** | **各厅局独立 host**（`<厅局>.guizhou.gov.cn/IGI`）| `siteId` **不连续**（69 / 500663 / 501471 / 501486 / 502053 / 502056 / 502566 / 502590），只能挨个抓信箱页 |
+| **吉林** | **共享 `haiyun.jl.gov.cn/IGI`** | `(siteId=117, appId=96)` **固定**，**只有 `groupId` 变**（159 / 170 / 172 / 178）⇒ 扩厅局 = 找新 groupId |
+
+| key | 省 | 厅局 | base host | siteId | appId | groupId | 条数 |
+|---|---|---|---|---|---|---|---|
+| `gz-zrzy` | 贵州 | 自然资源 | zrzy.guizhou.gov.cn | 502056 | 797 | — | 598 |
+| `gz-st` | 贵州 | 生态环境 | sthj.guizhou.gov.cn | 501471 | 590 | — | 120 |
+| `gz-swt` | 贵州 | 商务 | swt.guizhou.gov.cn | 502590 | 1247 | — | 107 |
+| `gz-wjw` | 贵州 | 卫健 | wjw.guizhou.gov.cn | 500663 | 321 | — | 40 |
+| `gz-jyt` | 贵州 | 教育 | jyt.guizhou.gov.cn | 501486 | 571 | — | 30 |
+| `gz-rst` | 贵州 | 人社 | rst.guizhou.gov.cn | 502566 | 1233 | — | 30 |
+| `gz-zfcx` | 贵州 | 住建 | zfcxjst.guizhou.gov.cn | 69 | 50 | — | 30 |
+| `gz-nynct` | 贵州 | 农业农村 | nynct.guizhou.gov.cn | 502053 | 731 | — | 30 |
+| `jl-hrss` | 吉林 | 人社 | haiyun.jl.gov.cn | 117 | 96 | 170 | 153 |
+| `jl-st` | 吉林 | 生态环境 | haiyun.jl.gov.cn | 117 | 96 | 172 | 94 |
+| `jl-jt` | 吉林 | 交通 | haiyun.jl.gov.cn | 117 | 96 | 159 | 71 |
+| `jl-wjw` | 吉林 | 卫健 | haiyun.jl.gov.cn | 117 | 96 | 178 | 40 |
+
+⚠ **参数陷阱（本轮实测，别再踩）**：
+1. 首页的 `siteId`/`appId` 常是**登录 iframe 的 key**（吉林首页那个 `575` 就是），**不是**信箱参数
+   —— 抠到就**立刻验证**；`n=0` 说明参数不对，**不是站空**。
+2. 吉林人社的 `groupId` 一直是对的（170）；**真正的拦路虎是缺 `Referer`**，加上就通
+   （交接文档原记「groupId 不对」是误判，已更正）。
+3. 旧信**没有地域字段**：`gz-zrzy` 598 条里 524 条（2020 年前后）`province/city/area` 全空
+   ⇒ 归省只能靠 `coverage-matrix.py` 的 `PROVINCE_PREFIX`，**新落 IGI 适配器必须同步加表**，
+   否则那批掉进「未归属」（2026-10-08 漏了 524 条，已补）。
+
+⇒ 三级覆盖：**807 条 / 118 个省市县组合**（`recon/coverage-by-level.md`）。
 
 > **质量复核（2026-10-07，`recon/audit-prov-fid.py`）**：对新增两通道（分省 677 条 +
 > 定向 227 条）逐条查「空答复 / 答复==问题 / 答复<10字 / 答复像问题」——

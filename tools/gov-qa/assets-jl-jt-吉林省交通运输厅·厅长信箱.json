@@ -1,0 +1,719 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-jt",
+   "id": "7718",
+   "url": "https://jtyst.jl.gov.cn/?id=7718",
+   "question": "县级以上人民政府交通运输主管部门下属公益一类事业单位执法机构（交通运输局综合行政执法大队）经《中华人民共和国道路运输条例》修改后，失去授权执法的主体资格，现实际情况大多数为县级以上人民政府交通运输主管部门与下属公益一类事业单位执法机构（交通",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国道路运输条例(2022修订)",
+     "lib_no": "道路运输条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "中共中央办公厅、国务院办公厅印发&lt;关于深化交通运输综合行政执法改革的指导意见&gt;的通知"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-jt",
+   "id": "35083",
+   "url": "https://jtyst.jl.gov.cn/?id=35083",
+   "question": "运输鲜奶的6轴罐车在吉林省内走高速绿色通道出口收费站验货时必须拍摄测量整车的宽度和高度吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "超限运输车辆行驶公路管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "32077",
+   "url": "https://jtyst.jl.gov.cn/?id=32077",
+   "question": "关于JT/T 1571-2025危险货物道路运输企业专用停车场技术要求，我想咨询一下根据文件要求通信电缆不宜有在危货停车场内有穿越等情况，但是企业现实应场地确实原理没有合适位置了，是否可以继续使用原场地。",
+   "cited_hits": [],
+   "cited_missing": [
+    "危险货物道路运输企业专用停车场技术要求"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "29838",
+   "url": "https://jtyst.jl.gov.cn/?id=29838",
+   "question": "明年长春将举办2027第33届世界大学生冬季运动会希望吉林省交通运输厅对长春市和全省各地制定打击非法出租车和网约车方案 联合公安部门坚决打击非法出租车和网约车违法行为 督促出租车和网约车司机提高服务意识",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于深化改革推进出租汽车行业健康发展的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "26284",
+   "url": "https://jtyst.jl.gov.cn/?id=26284",
+   "question": "个体出租车需要办理手续吗？到哪里办理。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市公共客运管理条例",
+    "吉林省城市公共客运管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "25898",
+   "url": "https://jtyst.jl.gov.cn/?id=25898",
+   "question": "我有一个大件车运输车辆，运完货物，空车想通行高速的时候，有的收费站让上，有的收费站不让上，不让上的收费站说交通部回复外扩尺寸自身超过重量或尺寸，从安全角度考虑他就不让上，但是我看咱们交通厅这里之前有咨询过类似的问题，但是说的的不是很全面，我",
+   "cited_hits": [],
+   "cited_missing": [
+    "超限运输车辆行驶公路管理规定",
+    "超限运输车辆行驶公路管理规定",
+    "交通运输部办公厅关于贯彻实施＜超限运输车辆行驶公路管理规定＞的通知"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "24481",
+   "url": "https://jtyst.jl.gov.cn/?id=24481",
+   "question": "你好，咨询一下大件运输车辆空车要驶入高速公路时是否需要办理超限证？",
+   "cited_hits": [],
+   "cited_missing": [
+    "超限车辆行驶公路管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "22547",
+   "url": "https://jtyst.jl.gov.cn/?id=22547",
+   "question": "监理工程师（交通运输工程）职业资格考试报名有什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "监理工程师职业资格考试"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "19270",
+   "url": "https://jtyst.jl.gov.cn/?id=19270",
+   "question": "网约车运营证去哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于深化改革推进出租汽车行业健康发展的指导意见",
+    "网络预约出租汽车经营服务管理暂行办法",
+    "网络预约出租汽车经营服务管理实施细则",
+    "网络预约出租汽车运输证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "15753",
+   "url": "https://jtyst.jl.gov.cn/?id=15753",
+   "question": "监理工程师（交通运输工程）职业资格考试报名有什么条件？",
+   "cited_hits": [],
+   "cited_missing": [
+    "监理工程师职业资格制度规定",
+    "监理工程师职业资格考试实施办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "15684",
+   "url": "https://jtyst.jl.gov.cn/?id=15684",
+   "question": "梅河口籍车辆，持梅河口旅行社旅游合同，包车牌梅河口--沈阳市（途径辉南县）。但在实际运行中，车辆自梅河口空驶至辉南县，在辉南县装载本运次全部旅客（以辉南县为实际起点），此行为是否属于沿途招揽招揽旅客或线路两端均不在车籍所在地？请给予答复为盼",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14983",
+   "url": "https://jtyst.jl.gov.cn/?id=14983",
+   "question": "建议全省网约车由全省各地交通部门统一管理加强指导工作同时成立吉林省网约车和出租车大数据监督执法指挥中心和办公室各地交通部门同时成立地方网约车出租车大数据监督执法指挥中心和办公室 全省交通部门统一抽查不合格司机依法调查处理吊销网约车证 希望相",
+   "cited_hits": [],
+   "cited_missing": [
+    "国务院办公厅关于深化改革推进出租汽车行业健康发展的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14059",
+   "url": "https://jtyst.jl.gov.cn/?id=14059",
+   "question": "如若在客运包车中、 车籍所在地为梅河口市、 包车牌标明起迄点为梅河口市-沈阳市、 途径辉南县 （途径地辉南县属通化市辖区） 。但在实际经营中、 营运车辆从梅河口市空车出发、 在辉南县装载旅客、 运输至沈阳市后、 再从沈阳市将旅客运回至辉南县",
+   "cited_hits": [],
+   "cited_missing": [
+    "道路旅客运输及客运站管理规定"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "13910",
+   "url": "https://jtyst.jl.gov.cn/?id=13910",
+   "question": "个体出租车需要办理手续吗？到哪里办理。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市公共客运管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "13159",
+   "url": "https://jtyst.jl.gov.cn/?id=13159",
+   "question": "您好领导.我想咨询下公主岭市出租车营运手续过户.以前让过户更名！现在不给过户.不知道咨询那个部门.麻烦您告诉下什么时候能给更名过户",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市公共客运管理条例",
+    "国务院办公厅关于深化改革推进出租汽车行业健康发展的指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "12535",
+   "url": "https://jtyst.jl.gov.cn/?id=12535",
+   "question": "京哈高速由长春去往哈尔滨方向，到陶赖昭松花江特大桥时会分流，左边2车道一般走小车，右边2车道一般走大车。我开的小车最近这几年经常从左侧小车道通过，发现桥面越来越向左侧（面向哈尔滨方向）倾斜，并且相比于对面去往长春方向的桥面已经下降得越来越多",
+   "cited_hits": [],
+   "cited_missing": [
+    "公路桥涵养护规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "11777",
+   "url": "https://jtyst.jl.gov.cn/?id=11777",
+   "question": "您好，考网约车驾驶员资格有什么文件规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格管理规定",
+    "巡游出租汽车驾驶员证",
+    "网络预约出租汽车驾驶员证",
+    "巡游出租汽车驾驶员证",
+    "网络预约出租汽车驾驶员证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "11649",
+   "url": "https://jtyst.jl.gov.cn/?id=11649",
+   "question": "在乡村没有网约车存在土壤的情况下，考取出租汽车驾驶员从业资格证，能进行实质出租车行为吗？如接打电话接送客人。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市公共客运管理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "6819",
+   "url": "https://jtyst.jl.gov.cn/?id=6819",
+   "question": "《巡游出租汽车经营服务管理规定》第四十条县级以上地方人民政府出租汽车行政主管部门应当加强对巡游出租汽车经营行为的监督检查，会同有关部门纠正、制止非法从事巡游出租汽车经营及其他违法行为，维护出租汽车市场秩序。 《吉林省城市公共客运管理条例》第",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省城市公共客运管理条例",
+    "吉林省城市公共客运管理条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "6068",
+   "url": "https://jtyst.jl.gov.cn/?id=6068",
+   "question": "吉林省现行的非新能源城市公交车补贴包括哪些及其补贴标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省“十四五”时期农村客运补贴资金、城市发展奖励资金管理办法",
+    "吉林省“十四五”时期农村客运补贴资金、城市发展奖励资金管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "6067",
+   "url": "https://jtyst.jl.gov.cn/?id=6067",
+   "question": "尊敬的领导，交通运输企业的安全生产标准化等级证书已到期，想咨询下目前主管部门对交通运输企业安全生产标准化评审的具体要求以及交通运输企业安全生产标准化什么时候恢复评审？",
+   "cited_hits": [],
+   "cited_missing": [
+    "交通运输企业安全生产标准化建设评价管理办法",
+    "交通运输部关于加强交通运输安全生产标准化建设的指导意见",
+    "指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "3907",
+   "url": "https://jtyst.jl.gov.cn/?id=3907",
+   "question": "长春绕城高速点对点免费通行范围",
+   "cited_hits": [],
+   "cited_missing": [
+    "超限运输车辆通行证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "3578",
+   "url": "https://jtyst.jl.gov.cn/?id=3578",
+   "question": "领导您好！长春南新高速口开通后，原点对点免费政策被取消了，对我这样经常通过南口通勤的人员来说便利性大大降低，同时也增加了早晚高峰期间南三环、南四环的通行压力，这也是交通资源的重大浪费，建议恢复长春高速南口的点对点免费政策，感谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于新建抚长高速公路出入口不享有免费通行政策的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "1286",
+   "url": "https://jtyst.jl.gov.cn/?id=1286",
+   "question": "出租车下来了一直没有考期，想问问出租车从业资格证什么时候考，没有从业资格证可以拉亲人回家吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "出租汽车驾驶员从业资格管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-jt",
+   "id": "1093",
+   "url": "https://jtyst.jl.gov.cn/?id=1093",
+   "question": "想咨询一下吉林省交通运输综合执法局产假多少天？还在执行158天还是180天了",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于优化生育政策促进人口长期均衡发展实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-jt",
+   "id": "34715",
+   "url": "https://jtyst.jl.gov.cn/?id=34715",
+   "question": "请问在网上继续教育（职称），在评审时候认可么?网址是https://jxjy.jlgobon.com/#/web-index （高邦继续教育培训网） 是否可以认定为有效的职称继续教育，可以在职称申报时候使用。谢谢！ 关于这个问题我也咨询过吉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "32564",
+   "url": "https://jtyst.jl.gov.cn/?id=32564",
+   "question": "本年度（2026年）除了节假日有高速免费通行政策外，其他时间是否有相关免费通行政策？类似于广西自治州周末部分路段免费之类的政策？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "30682",
+   "url": "https://jtyst.jl.gov.cn/?id=30682",
+   "question": "您好，想了解一下对于特定运输业务，相关的政策法规有哪些更新和变化？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "28696",
+   "url": "https://jtyst.jl.gov.cn/?id=28696",
+   "question": "你好，我想问一下电动三轮车是否属于机动车吗，需要挂牌和考取驾驶证吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "27363",
+   "url": "https://jtyst.jl.gov.cn/?id=27363",
+   "question": "建议建设白山直达长春高铁希望相关部门认真研究采纳",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "26485",
+   "url": "https://jtyst.jl.gov.cn/?id=26485",
+   "question": "麻烦领导，咨询一下，今年在省交通厅评的职称，什么时候可以网上查询。谢谢领导。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "25643",
+   "url": "https://jtyst.jl.gov.cn/?id=25643",
+   "question": "您好，吉林省内机动车维修企业的备案信息在哪里查询？？网址？？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "25164",
+   "url": "https://jtyst.jl.gov.cn/?id=25164",
+   "question": "请问延长高速，桦甸服务区跟呼兰服务区什么时候可以建设完成充电桩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "24002",
+   "url": "https://jtyst.jl.gov.cn/?id=24002",
+   "question": "您好，想咨询一下高速路免费车辆的最新规定是什么 网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "22979",
+   "url": "https://jtyst.jl.gov.cn/?id=22979",
+   "question": "公路水运施工企业安全 B 证考试，多选题少选给一部分分数吗？还是少选和错选一样都没有分数？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "21740",
+   "url": "https://jtyst.jl.gov.cn/?id=21740",
+   "question": "尊敬的吉林省交通运输厅： 您好！我是东北电力大学艺术学院广播电视编导专业的大四学生郭佳琪，正在进行毕业设计拍摄吉林西站。为更全面展现其历史背景，希望采访吉林铁路博物馆馆长。在此，我恳请贵厅能够协助我联系吉林铁路博物馆的馆长，并询问其是否愿意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "21591",
+   "url": "https://jtyst.jl.gov.cn/?id=21591",
+   "question": "洮突路突泉大通乡申家村新立屯东侧申家村村标路口没有明显路口标识，往往错过，特别是晚上很多时候在长安路口下，很多时候直接开到了新立屯。经常走的人也容易错过，在临近位置就开始找路口，晚上的时候特别危险。建议在此处设立明显的具有夜间发光功能的村标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "21382",
+   "url": "https://jtyst.jl.gov.cn/?id=21382",
+   "question": "请问我省交通领域评标专家库有相关文件，能否发给我一份",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "19989",
+   "url": "https://jtyst.jl.gov.cn/?id=19989",
+   "question": "你好，请问长春市半小时环线公路什么时候开始建设？什么时候结束？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "19636",
+   "url": "https://jtyst.jl.gov.cn/?id=19636",
+   "question": "咨询下， 辉南街从与南湖大路交汇到与抚松路交汇的单行路段，原来道路的两侧，路面上有划线的标准停车位，但现在整体柏油马路重新铺设后，路面上无任何标线，1、请问这段路是如何规划的？ 2、具体什么时间会重新划线？ 3、在未重新划线之前，路面上还能",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "18880",
+   "url": "https://jtyst.jl.gov.cn/?id=18880",
+   "question": "长春到烟筒山段高速什么时间能通车，是十一先通双阳到烟筒山段吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "18869",
+   "url": "https://jtyst.jl.gov.cn/?id=18869",
+   "question": "10月1日之前会通车吗？网传9月28日通车，不知道是否属实。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "18535",
+   "url": "https://jtyst.jl.gov.cn/?id=18535",
+   "question": "期盼长太高速通车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "18214",
+   "url": "https://jtyst.jl.gov.cn/?id=18214",
+   "question": "您好，想咨询一下招标代理机构如何在吉林省交通厅备案，都所需带什么材料，或者咨询哪个部门，联系电话多少？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "17946",
+   "url": "https://jtyst.jl.gov.cn/?id=17946",
+   "question": "电动三轮车是否属于机动车，是否需要考取驾驶证，是否需要挂牌",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "17896",
+   "url": "https://jtyst.jl.gov.cn/?id=17896",
+   "question": "长太高速什么时候开4月份就公布完成98%到八月份还没通车也不发公告",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "17830",
+   "url": "https://jtyst.jl.gov.cn/?id=17830",
+   "question": "目前五色广场仅设置了江南方向公交站点，缺失江北方向站点，导致欧亚、润阳、恒大、中信、滨江、新宇、紫金湾等等多个附近小区居民出行江北绕大弯、兜大圈！坐公交出行的百姓无不怨声载道！建设五色广场（江北方向）公交站是附近百姓的一致心声，是一项百姓看",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "16930",
+   "url": "https://jtyst.jl.gov.cn/?id=16930",
+   "question": "请问在省交通厅评审通过的中级职称在哪里可以查询？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "16693",
+   "url": "https://jtyst.jl.gov.cn/?id=16693",
+   "question": "吉林省交通厅项目评标专家在哪里申请？需要准备什么资料？有哪个部门负责，联系方式？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "16138",
+   "url": "https://jtyst.jl.gov.cn/?id=16138",
+   "question": "请问长春至太平川高速什么时候通车",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "15329",
+   "url": "https://jtyst.jl.gov.cn/?id=15329",
+   "question": "吉林省驾考整顿已经结束，什么时候驾照D可以考科目二三？我就等着考完试拿到驾照出门打工，有具体时间么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14919",
+   "url": "https://jtyst.jl.gov.cn/?id=14919",
+   "question": "因工作调动，需要把交安B证由吉林转注到上海，想咨询一下具体办理流程，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14609",
+   "url": "https://jtyst.jl.gov.cn/?id=14609",
+   "question": "春天来了，小黄车啥时候投放，就是那种扫码的自行车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14231",
+   "url": "https://jtyst.jl.gov.cn/?id=14231",
+   "question": "尊敬的领导您好： 我是一个从北湖-净月的上班族，由于东部快速路每天早高峰拥堵，我很想走高速，虽然绕城高速费用减半，但是每天走高速依然感觉小贵，因为单程就要多跑12公里。 据我了解陕西省西安市有类似的政策，希望咱们吉林省也能出台绕城高速包年政",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14157",
+   "url": "https://jtyst.jl.gov.cn/?id=14157",
+   "question": "之前，长双线被称为S105，现更改为S102，但有部分支路通往S102处，路口的道路指示牌还标记S105字样。例如：大岭镇（长深高速公路收费站通往S102路口处）道路指示牌还是这样。希望S102沿线道路指示牌都更正一下。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "14087",
+   "url": "https://jtyst.jl.gov.cn/?id=14087",
+   "question": "您好，我是一名学生因撰写论文需要，想求2005年-2020年吉林省各县市公路里程数据，辛苦了，十分感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "13110",
+   "url": "https://jtyst.jl.gov.cn/?id=13110",
+   "question": "长太高速和长春都市圈环线高速公路西环线什么时候开通",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "12825",
+   "url": "https://jtyst.jl.gov.cn/?id=12825",
+   "question": "电子拍照汽车不让行人，驾驶员不服判罚。按照央视宣传视频解释，行人在道路中央驻足等待，未进入斑马线，不应判罚，且还有电瓶车横穿马路阻挡驾驶员视线。在12123APP上附议，只给一次机会，不给说明直接驳回，驾驶员不接受，要求撤销判罚，并给出合理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "12588",
+   "url": "https://jtyst.jl.gov.cn/?id=12588",
+   "question": "长太高速什么时候通车？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "12444",
+   "url": "https://jtyst.jl.gov.cn/?id=12444",
+   "question": "您好！我家是九台区龙嘉街道挖铜沟村人，直线距离九台市区仅8公里，但由于饮马河阻碍，需要绕道28公里才能到达九台。建议长春至榆树高速的饮马河大桥，增加人行道和非机动车道，方便河两岸群众的交往交流，可以极大促进家乡的经济发展，更好的发挥这条高速",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "10441",
+   "url": "https://jtyst.jl.gov.cn/?id=10441",
+   "question": "老师好，请问经营性高速公路特许经营权（收费权）质押向银行申请贷款时，是否要在交通主管部门办理质押登记？如是，请问在哪一级交通主管部门办理？如否，请问要到哪里办理质押登记？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "10027",
+   "url": "https://jtyst.jl.gov.cn/?id=10027",
+   "question": "您好 请问贵单位的2022年政府信息公开年报在哪里查看或下载？网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "9457",
+   "url": "https://jtyst.jl.gov.cn/?id=9457",
+   "question": "您好，请问哪里可以查询到贵单位的财政预决算？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "8100",
+   "url": "https://jtyst.jl.gov.cn/?id=8100",
+   "question": "网约车驾驶员资格考试怎么报名，有什么条件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "5816",
+   "url": "https://jtyst.jl.gov.cn/?id=5816",
+   "question": "您好，请问贵单位的2022年政府信息公开年报在哪里查？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "3318",
+   "url": "https://jtyst.jl.gov.cn/?id=3318",
+   "question": "你好，我想咨询一下“交通部发布外购工程材料价格信息”中的价格是出厂价格，还是项目到场价格？对于材料运杂费计算是否可以在信息价格除税价基础上计算材料运杂费。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "2261",
+   "url": "https://jtyst.jl.gov.cn/?id=2261",
+   "question": "合法吗？会被扣车吗，如果扣车找谁呢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "1749",
+   "url": "https://jtyst.jl.gov.cn/?id=1749",
+   "question": "网约车司机考证的条件和地址",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "1015",
+   "url": "https://jtyst.jl.gov.cn/?id=1015",
+   "question": "首次更换驾驶证是几年，实习期算在内吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "899",
+   "url": "https://jtyst.jl.gov.cn/?id=899",
+   "question": "请问京哈高速公路长春至四平段由哪个单位收费、哪个单位管理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-jt",
+   "id": "805",
+   "url": "https://jtyst.jl.gov.cn/?id=805",
+   "question": "咱们这通过什么方式招聘？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

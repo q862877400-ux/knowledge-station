@@ -23,6 +23,8 @@ TARGETS = [
      "https://zfcxjst.guizhou.gov.cn/", "IGI 省级统一部署（同上）"),
     ("gz-nynct", "贵州省农业农村厅·厅长信箱", "https://nynct.guizhou.gov.cn", "502053", "731", None,
      "https://nynct.guizhou.gov.cn/", "IGI 省级统一部署（同上）"),
+    ("gz-swt", "贵州省商务厅·厅长信箱", "https://swt.guizhou.gov.cn", "502590", "1247", None,
+     "https://swt.guizhou.gov.cn/hdjl/", "IGI 省级统一部署（2026-10-08 自动搜寻验证，igi-hunt-2.txt）"),
 ]
 
 TEMPLATE = '''"""适配器：**{name}**——IGI 平台（贵州省级统一部署的一个厅局）。

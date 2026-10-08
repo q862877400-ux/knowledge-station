@@ -1,0 +1,40 @@
+★ 贵州市场监管局 指纹页 https://amr.guizhou.gov.cn/ 参数 {'siteId': '41', 'appId': '88'}
+     验证：{"base": "https://amr.guizhou.gov.cn/IGI", "n": 0, "ok": true, "sample": null, "chain": null}
+  贵州交通运输厅 无 IGI 指纹
+★ 贵州教育厅 指纹页 https://jyt.guizhou.gov.cn/ 参数 {'siteId': '501486', 'appId': '571'}
+     验证：{"base": "https://jyt.guizhou.gov.cn/IGI", "n": 2, "ok": true, "sample": "补办25年教龄荣誉证书", "chain": ["贵州省", "安顺市", "镇宁自治县"]}
+★ 贵州人力资源社会保障厅 指纹页 https://rst.guizhou.gov.cn/ 参数 {'siteId': '502566', 'appId': '1233'}
+     验证：{"base": "https://rst.guizhou.gov.cn/IGI", "n": 2, "ok": true, "sample": "毕业生一次性求职补贴", "chain": ["贵州省", "贵阳市", "花溪区"]}
+★ 贵州自然资源厅 指纹页 https://zrzy.guizhou.gov.cn/ 参数 {'siteId': '502056'}
+     参数不足，跳过验证
+★ 贵州住房城乡建设厅 指纹页 https://zfcxjst.guizhou.gov.cn/ 参数 {'siteId': '69', 'appId': '50'}
+     验证：{"base": "https://zfcxjst.guizhou.gov.cn/IGI", "n": 2, "ok": true, "sample": "2016板定额柱模板超过3.6m的计算", "chain": ["贵州省", "贵阳市", "云岩区"]}
+★ 贵州农业农村厅 指纹页 https://nynct.guizhou.gov.cn/ 参数 {'siteId': '502053', 'appId': '731'}
+     验证：{"base": "https://nynct.guizhou.gov.cn/IGI", "n": 2, "ok": true, "sample": "关于恳请提供2000—2025年主要粮食作物收获期数据的函", "chain": ["贵州省", "贵阳市", "云岩区"]}
+  吉林交通运输厅 https://jt.jl.gov.cn/ → ConnectError
+  吉林交通运输厅 无 IGI 指纹
+  吉林教育厅 无 IGI 指纹
+★ 吉林人力资源和社会保障厅 指纹页 https://hrss.jl.gov.cn/ 参数 {'appId': '575', 'siteId': '117', 'groupId': '170'}
+     验证：{"ok": false}
+  吉林自然资源厅 无 IGI 指纹
+  吉林农业农村厅 https://nynct.jl.gov.cn/ → ConnectError
+  吉林农业农村厅 无 IGI 指纹
+  贵州水利厅 https://sl.guizhou.gov.cn/ → ConnectError
+  贵州水利厅 无 IGI 指纹
+  贵州工业和信息化厅 https://gxj.guizhou.gov.cn/ → ConnectError
+  贵州工业和信息化厅 无 IGI 指纹
+  贵州文化和旅游厅 https://wlt.guizhou.gov.cn/ → ConnectError
+  贵州文化和旅游厅 无 IGI 指纹
+★ 贵州商务厅 指纹页 https://swt.guizhou.gov.cn/hdjl/ 参数 {'siteId': '502590', 'appId': '1247'}
+     验证：{"base": "https://swt.guizhou.gov.cn/IGI", "n": 2, "ok": true, "sample": "酒博会相关事项咨询", "chain": ["贵州省", "贵阳市", "云岩区"]}
+  吉林发展和改革委员会 https://fgw.jl.gov.cn/ → ConnectError
+  吉林发展和改革委员会 无 IGI 指纹
+  吉林工业和信息化厅 https://jlgxj.jl.gov.cn/ → ConnectError
+  吉林工业和信息化厅 无 IGI 指纹
+  吉林文化和旅游厅 https://wlt.jl.gov.cn/ → ConnectError
+  吉林文化和旅游厅 无 IGI 指纹
+  吉林商务厅 无 IGI 指纹
+  吉林水利厅 https://sl.jl.gov.cn/ → ConnectError
+  吉林水利厅 无 IGI 指纹
+★ 吉林交通运输厅(jtyst) 指纹页 https://jtyst.jl.gov.cn/ 参数 {'appId': '575', 'siteId': '117', 'groupId': '159'}
+     验证：{"base": "https://haiyun.jl.gov.cn/IGI", "n": 0, "ok": true, "sample": null, "chain": null}

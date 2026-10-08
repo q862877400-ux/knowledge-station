@@ -1,16 +1,16 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **37457** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **38596** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
 | 广东省 | 31112 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
 | 湖南省 | 4379 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 28 |
-| 北京市 | 439 | people-liuyan-fid 245、people-liuyan-df 172、people-liuyan-prov 22 |
-| 贵州省 | 295 | gz-st 120、gz-wjw 40、gz-jyt 30、gz-nynct 30、gz-rst 30、gz-zfcx 30 …共 7 个来源 |
+| 贵州省 | 1000 | gz-zrzy 598、gz-st 120、gz-swt 107、gz-wjw 40、gz-jyt 30、gz-nynct 30 …共 9 个来源 |
+| 北京市 | 649 | people-liuyan-df 382、people-liuyan-fid 245、people-liuyan-prov 22 |
+| 吉林省 | 392 | jl-hrss 153、jl-st 94、jl-jt 71、jl-wjw 40、people-liuyan-prov 34 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
 | 安徽省 | 173 | ah-st 145、people-liuyan-prov 28 |
-| 吉林省 | 168 | jl-st 94、jl-wjw 40、people-liuyan-prov 34 |
 | 辽宁省 | 60 | people-liuyan-prov 36、ln-st 24 |
 | 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
 | 山西省 | 36 | people-liuyan-prov 36 |
@@ -51,12 +51,14 @@
 | gd-smzt | 976 |
 | gd-ws | 909 |
 | people-liuyan-prov | 757 |
+| gz-zrzy | 598 |
 | hunan-yj | 538 |
 | gd-jy | 513 |
 | gd-gdii | 486 |
 | gd-czt | 462 |
 | gd-mpa | 437 |
 | gd-tyj | 398 |
+| people-liuyan-df | 382 |
 | gd-jt | 381 |
 | gd-dva | 346 |
 | gd-szyyj | 334 |
@@ -70,17 +72,19 @@
 | gd-yj | 179 |
 | gd-zfcxjst | 177 |
 | gd-hsa | 173 |
-| people-liuyan-df | 172 |
 | gd-dara | 155 |
+| jl-hrss | 153 |
 | ah-st | 145 |
 | mee | 145 |
 | gd-coop | 133 |
 | gz-st | 120 |
+| gz-swt | 107 |
 | gd-gdjyj | 98 |
 | jl-st | 94 |
 | gd-dfz | 78 |
 | gd-gdwsxf | 78 |
 | gd-gdstc | 74 |
+| jl-jt | 71 |
 | gd-gdgrain | 70 |
 | gd-gzw | 68 |
 | mem | 60 |

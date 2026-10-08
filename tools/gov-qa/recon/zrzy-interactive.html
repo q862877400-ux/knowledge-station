@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+<meta name="SiteName" content="贵州省自然资源厅" />
+<meta name="SiteDomain" content="https://zrzy.guizhou.gov.cn" />
+<meta name="SiteIDCode" content="5200000041" />
+<meta name="ColumnName" content="公众参与" />
+<meta name="ColumnType" content="公众参与" />
+<meta name="ColumnKeywords" content="公众参与" />
+<meta name="ColumnDescription" content="公众参与" />
+    <title>
+        贵州省自然资源厅-
+        公众参与
+    </title>
+    <link rel="stylesheet" href="/material/common/css/public.css">
+    <link rel="stylesheet" href="/material/common/css/canvi.css">
+    <link rel="stylesheet" href="/material/common/css/swiper.min.css">
+    <link rel="stylesheet" href="/material/common/css/gzcy.css">
+    <script type="text/javascript" src="/material/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/material/common/js/echarts.js"></script>
+    <script type="text/javascript" src="/material/common/js/highcharts.js"></script>
+
+</head>
+
+
+<body>
+    <div class="js-canvi-content canvi-content body_bg">
+        <!--header-->
+        <style>
+        .swiperBg-pagin .swiper-pagination-bullet{
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+        }
+#time{
+font-size: 14px;
+    font-weight: 400;
+    color: #176DC3;
+}
+    </style>
+<div class="swiperBg_box">
+        <div class="swiper-container swiper-bg">
+            <div class="swiper-wrapper">
+              <!-- <div class="swiper-slide">
+                    <img src="/material/common/images/body_bg.png" alt="" />
+                </div> -->  
+                <div class="swiper-slide">
+                    <img src="/material/common/images/body_bg1.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="/material/common/images/body_bg7.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+<header id="header" class="header-wrap">
+        <!--swiper背景分页器 后期需删除-->
+        <div class="swiper-pagination swiperBg-pagin"></div>
+        <!--swiper背景分页器 后期需删除 end-->
+    <div class="header-layout">
+        <!--header-link-->
+        <div class="header-link">
+            <ul class="left-link">
+                <li><a href="http://www.mnr.gov.cn/" target="_blank">自然资源部</a></li>
+                <li><a href="http://www.guizhou.gov.cn/" target="_blank">贵州省人民政府</a></li>
+               <li> <span id="time"></span></li>
+            </ul>
+            <a href="https://smrz.zwfw.guizhou.gov.cn/sso/login?utype=0&redirect=istrue&client_id=MBFSQUBNF&goto=http%3A//www.guizhou.gov.cn/personalhomepage/" target="_blank" class="perCenter">
+                <i class="iconfont icon-denglu"></i>
+                <span>个人中心</span>
+            </a>
+        </div>
+        <div class="headerSpecial">
+            <!--logo-news-->
+            <a href="/" class="logo-news">
+                <img src="https://zrzy.guizhou.gov.cn/material/common/images/logo-news.png" alt="" />
+            </a>
+            <!--search-box-->
+            <div class="search-box">
+                <select class="search-set" id="siteId">
+                    <option value="1" selected="selected">搜本站</option>
+                    <option value="2">搜全省</option>
+               </select>
+                <input type="text" id="keyword" onkeydown="entersearch1()" value="请输入你要搜索的内容" onblur="if(this.value==''){this.value='请输入你要搜索的内容';}" onfocus="if(this.value=='请输入你要搜索的内容')this.value='';" v-model="keyWord" @keypress="search($event)" / class="search-ipt" />
+                <button class="search-btn" onclick="searchval1()" @click="search()" type="submit">
+                   <i class="iconfont icon-sousuo"></i>
+                   搜索
+               </button>
+            </div>
+            <script>
+                //回车键响应方法
+                function entersearch1() {
+                    var event = window.event || arguments.callee.caller.arguments[0];
+                    if (event.keyCode == 13) {
+                        var str = document.getElementById("keyword").value;
+                        checks1(str); //搜索框点击提交的方法
+                    }
+                }
+                //检索跳转
+                function searchval1() {
+                    var str = document.getElementById("keyword").value;
+                    checks1(str);
+                };
+
+                function checks1(t) {
+                    t = t.replace(/(^\s+)|(\s+$)/g, "");
+                    if (t == "" || t == "请输入你要搜索的内容") {
+                     
+                        alert('请输入有效内容');
+                        return false;
+                    }
+                    szMsg = "[#_%&'/",";:=!^]";
+                    alertStr = "";
+                    for (i = 1; i < szMsg.length + 1; i++) {
+                        if (t.indexOf(szMsg.substring(i - 1, i)) > -1) {
+                            alertStr = "请勿包含非法字符如[#_%&'/",
+                                ";:=!^]";
+                            layer.msg(alertStr);
+                            //alert(alertStr);
+                            // break;
+                            return false;
+                        }
+                    }
+                    var key = document.getElementById("keyword").value;
+                    //location.href='/search.html?searchWord=' + encodeURI(key)+'&dataTypeId='+$("#dataTypeId").val();
+                    if ($("#siteId").val() == "1") {
+                        window.location.href = "/so/search.shtml?tenantId=168&tenantIds=&configTenantId=&dataTypeId=310&searchWord=" + key;
+                    } else {
+                        window.location.href = "/so/search.shtml?tenantId=&tenantIds=&configTenantId=168&dataTypeId=310&searchWord=" + key;
+                    }
+                    return true;
+                }
+            </script>
+    <script>
+                $(function() {
+
+    var myDate = new Date;
+    var year = myDate.getFullYear(); //获取当前年
+    var mon = myDate.getMonth() + 1; //获取当前月
+    var date = myDate.getDate(); //获取当前日
+    var h = myDate.getHours();//获取当前小时数(0-23)
+    var m = myDate.getMinutes();//获取当前分钟数(0-59)
+    var s = myDate.getSeconds();//获取当前秒
+    var week = myDate.getDay();
+    var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    console.log(year, mon, date, weeks[week])
+    
+    $("#time").html(year + "年" + mon + "月" + date + "日" +  weeks[week]);
+})
+            </script>
+        </div>
+    </div>
+</header>
+<!--header end-->
+<!--nav-->
+<div class="nav-box">
+    <!--nav-->
+    <nav id="nav" class="nav-wrap specialNav">
+        <ul class="nav-list">
+            <li class="active"><a href="/">首页</a></li>
+            <li><a href="https://zrzy.guizhou.gov.cn/wzgb/xwzx/">新闻中心</a></li>
+            <li><a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/">政务公开</a></li>
+            <li><a href="https://zrzy.guizhou.gov.cn/wzgb/gzcy/">公众参与</a></li>
+            <li><a href="https://zrzy.guizhou.gov.cn/wzgb/bsfw/">办事服务</a></li>
+            <li><a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zdlyxxgk/dlxxgl/">测绘地理信息</a></li>
+        </ul>
+        <div class="nav-btn xs-show js-canvi-open-button--right btn">
+            <i class="iconfont icon-navicon"></i>导航
+        </div>
+    </nav>
+    <!--nav end-->
+</div>
+   <script type="text/javascript">
+      var idSearch =window.location.pathname;
+      var xwzxlj = idSearch.includes('xwzx');
+      var zwgklj = idSearch.includes('zwgk');
+       var djgzlj = idSearch.includes('gzcy');
+      var bsfwlj = idSearch.includes('bsfw');
+      var zrzysj = idSearch.includes('zrzysj');
+      var dlxxgl= idSearch.includes('dlxxgl');
+   
+   if(idSearch == '/'){
+      $(".nav-list li:nth(0)").addClass('active').siblings().removeClass('active')
+	 } else if(xwzxlj){
+		$(".nav-list li:nth(1)").addClass('active').siblings().removeClass('active')
+	 }else if(dlxxgl){
+		$(".nav-list li:nth(6)").addClass('active').siblings().removeClass('active')
+	 }else if(zwgklj){
+		$(".nav-list li:nth(2)").addClass('active').siblings().removeClass('active')
+	 } else if(djgzlj){
+		$(".nav-list li:nth(3)").addClass('active').siblings().removeClass('active')
+	 } else if(bsfwlj){
+		$(".nav-list li:nth(4)").addClass('active').siblings().removeClass('active')
+	 } else if(zrzysj ){
+		$(".nav-list li:nth(5)").addClass('active').siblings().removeClass('active')
+	 } 
+    </script>
+
+
+<!--nav end-->
+        <!--main-->
+        <main id="main" class="main-wrap">
+            <div class="main-container online-consultation">
+                <div class="online-left">
+                    <div class="online-tit">
+                        <a href="./zxzx/xjlb/">
+                            <img src="/material/common/images/zxzx-img.png" alt="" /> 在线咨询
+                        </a>                        
+                        <ul class="online-tabs">
+                            <li class="active"><a href="./zxzx/wyxx/">我要写信</a></li>
+                            <li><a href="./zxzx/xjcx/">信件查询</a></li>
+                            <li><a href="./zxzx/xxxz/">写信须知</a></li>
+                        </ul>
+                        <a href="./wsxf/">
+                            <img src="/material/common/images/wsxf-img.png" alt="" /> 网上信访
+                        </a>
+                    </div>
+                    <div class="online-cont active">
+                        <table>
+
+                            <thead>
+                                <tr cellspacing="0" cellpadding="0">
+                                    <th class="th-tit">信件标题</th>
+                                    <th class="th-other th-time">来信时间</th>
+                                    <th class="th-other">办理状态</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ny-lxdxlist">
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--border: 1px solid darkblue  用于占位，可删除-->
+                <div class="online-right" style="border: 1px solid darkblue;overflow: hidden;">
+                    <div id="xjtj" style="height: 200px;">
+
+                    </div>
+                    <div id="xjzl" style="height: 200px;">
+                        <!-- <div id="showLoadding" class="showLoadding">数据加载中.....</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="main-layout">
+                <div class="main-container online-interview">
+                    <div class="list-tit">
+                        <ul class="list-tabs">
+                            <li class="active"><a href="./zxft/">在线访谈</a></li>
+                        </ul>
+                    </div>
+                    <div class="interview-layout">
+                        <div class="interview-left">
+                             <img src="" alt="" /><!--./images/zxft-img.png-->
+                        </div>
+                        <div class="interview-right">
+                            <h1 class="brief-title"></h1>
+                            <span class="abstract"></span>
+                            <!--<p>访谈时间： <span class="brief-time"></span></p>
+                            <p>访谈嘉宾： <span class="brief-guest"></span></p>-->
+                            <button class="brief-lj"></button>
+                        </div>
+                    </div>
+                    <!--往期回顾-->
+                    <div class="list-tit wqhg-tit">
+                        <ul class="list-tabs">
+                            <li class="active"><a href="./zxft/">往期回顾</a></li>
+                        </ul>
+                        <a href="./zxft/" class="more">更多+</a>
+                    </div>
+                    <ul class="review-list" id="wqhg">
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="main-container solicitation">
+                <div class="itation-left">
+                    <div class="list-tit itation-tit">
+                        <ul class="list-tabs itation-tabs">
+                            <li class="active"><a href="./yjzj/">意见征集</a></li>
+                            <li class=""><a href="./wsdc/">网上调查</a></li>
+                            <li class=""><a href="./hygq/">回应关切</a></li>
+                        </ul>
+                        <a href="./yjzj/" class="more">更多+</a>
+                        <a href="./wsdc/" class="">更多+</a>
+                        <a href="./hygq/" class="">更多+</a>
+                    </div>
+                    <div class="inves-box">
+                        <ul class="inves-list active" id="myzj">
+
+
+
+
+                        </ul>
+                        <ul class="inves-list" id="gzcyzxdc">
+
+
+                        </ul>
+                        <ul class="inves-list">
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199276.html" title="村（居）委会需建设党群服务中心、健身活动广场、生态停车场、小游园等公共设施，应如何办理用地手续？">
+                                        <p>
+                                            村（居）委会需建设党群服务中心、健身活动广场、生态停车场、小游园等公共设施，应如何办理用地手续？
+                                        </p>
+                                        <span>2026-09-28</span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199281.html" title="在乡村振兴工作中，村里、农业经营主体建设农村公益设施、乡村产业等项目，镇、村同意就可以开工了吗？">
+                                        <p>
+                                            在乡村振兴工作中，村里、农业经营主体建设农村公益设施、乡村产业等项目，镇、村同意就可以开工了吗？
+                                        </p>
+                                        <span>2026-09-14</span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199280.html" title="农村产业项目在用地方面有什么要求？">
+                                        <p>
+                                            农村产业项目在用地方面有什么要求？
+                                        </p>
+                                        <span>2026-08-31</span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199279.html" title="乡村振兴项目用地如何办理用地手续？">
+                                        <p>
+                                            乡村振兴项目用地如何办理用地手续？
+                                        </p>
+                                        <span>2026-08-17</span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199288.html" title="临时用地可以占用耕地吗？">
+                                        <p>
+                                            临时用地可以占用耕地吗？
+                                        </p>
+                                        <span>2026-08-03</span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="./hygq/202605/t20260521_90199278.html" title="哪些项目适用乡村振兴用地政策？">
+                                        <p>
+                                            哪些项目适用乡村振兴用地政策？
+                                        </p>
+                                        <span>2026-07-20</span>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="itation-right">
+                    <!--常见问题知识库-->
+                    <div class="know-base">
+                        <a href="./cjwtzsk/">常见问题知识库</a>
+                        <i class="iconfont icon-jinrujiantou"></i>
+                    </div>
+                    <!--政务-->
+                    <div class="affairs-box">
+                        <a href="https://weibo.com/u/3572852194/" target="_blank">
+                            <div><img src="/material/common/images/weibo.png" alt="" /></div>
+                            <span>政务微博</span>
+                        </a>
+                        <a href="JavaScript:;">
+                            <div><img src="/material/common/images/wechart.png" alt="" /></div>
+                            <span>政务微信</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--main end-->
+        <!--友情链接-->
+        <div id="friendlink" class="friendlink-wrap">
+            <div class="friendlink-layout">
+                <ul class="friendlink-list">
+                    <span>友情链接：</span>
+                    <li>
+                        <a href="https://www.gov.cn/">中国政府网<i class="iconfont icon-jiantou"></i></a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:;">政府网站<i class="iconfont icon-jiantou"></i></a>
+                        <ul class="subfrielink-list">
+                            
+                                <li>
+                                    <a href="http://www.guizhou.gov.cn">
+                                        贵州省人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.guiyang.gov.cn/">
+                                        贵阳市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.zunyi.gov.cn/">
+                                        遵义市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.gzlps.gov.cn/">
+                                        六盘水市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.anshun.gov.cn/">
+                                        安顺市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.bijie.gov.cn/">
+                                        毕节市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.trs.gov.cn/">
+                                        铜仁市人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.qdn.gov.cn/">
+                                        黔东南苗族侗族自治州人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.qiannan.gov.cn/">
+                                        黔南州人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.qxn.gov.cn/">
+                                        黔西南州人民政府
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.gaxq.gov.cn/">
+                                        贵安新区
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="JavaScript:;">全国自然资源系统<i class="iconfont icon-jiantou"></i></a>
+                        <ul class="subfrielink-list">
+                            
+                                <li>
+                                    <a href="http://www.mnr.gov.cn/">
+                                        自然资源部
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://ghzyj.sh.gov.cn">
+                                        上海市规划和自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://ghzrzyj.cq.gov.cn">
+                                        重庆市规划和自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzy.hebei.gov.cn/">
+                                        河北省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://dnr.henan.gov.cn/">
+                                        河南省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.ah.gov.cn/">
+                                        安徽省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.shaanxi.gov.cn/">
+                                        陕西省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://dnr.yn.gov.cn/">
+                                        云南省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzy.jiangsu.gov.cn/">
+                                        江苏省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.hubei.gov.cn/">
+                                        湖北省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.zj.gov.cn/">
+                                        浙江省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://dnr.sc.gov.cn">
+                                        四川省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://dnr.shandong.gov.cn/">
+                                        山东省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.hunan.gov.cn">
+                                        湖南省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://nr.gd.gov.cn/">
+                                        广东省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://dnr.gxzf.gov.cn/">
+                                        广西壮族自治区自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.fujian.gov.cn/">
+                                        福建省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzy.nmg.gov.cn/">
+                                        内蒙古自治区自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://bnr.jiangxi.gov.cn/">
+                                        江西省自然资源厅
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyt.nx.gov.cn/">
+                                        宁夏回族自治区自然资源厅
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="JavaScript:;">下属事业单位<i class="iconfont icon-jiantou"></i></a>
+                        <ul class="subfrielink-list">
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394428.html">
+                                        贵州省自然资源厅机关服务中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394419.html">
+                                        贵州省自然资源厅会计结算中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394418.html">
+                                        贵州省自然资源厅电子政务中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394415.html">
+                                        贵州省土地矿产资源储备局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394427.html">
+                                        贵州省国土资源勘测规划研究院
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394417.html">
+                                        贵州省自然资源技术信息中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394429.html">
+                                        贵州省土地开发整治中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394426.html">
+                                        贵州省不动产登记中心
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394416.html">
+                                        贵州省第一测绘院（贵州省北斗导航位置服务中心）
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394425.html">
+                                        贵州省第二测绘院
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394422.html">
+                                        贵州省第三测绘院（贵州省国土资源遥感监测中心）
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394420.html">
+                                        贵州省测绘资料档案馆（省地理信息中心、省自然资源卫星应用中心）
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394424.html">
+                                        贵州省地质博物馆
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394421.html">
+                                        贵州省测绘产品质量监督检验站
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/kgxx/zsjg/202201/t20220124_72394430.html">
+                                        贵州省油气勘查开发工程研究院
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="JavaScript:;">
+                        省内自然资源网站
+                        <i class="iconfont icon-jiantou"></i>
+                    </a>
+                        <ul class="subfrielink-list">
+                            
+                                <li>
+                                    <a href="http://zyghj.guiyang.gov.cn/">
+                                        贵阳市自然资源和规划局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyj.zunyi.gov.cn/">
+                                        遵义市自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyj.gzlps.gov.cn/">
+                                        六盘水市自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.bijie.gov.cn/bm/bjszrzyhghj/index.shtml">
+                                        毕节市自然资源和规划局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzyj.anshun.gov.cn/">
+                                        安顺市自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzy.trs.gov.cn/">
+                                        铜仁市自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://www.qxn.gov.cn/zwgk/zfjg/zzrzyj_5135135/bmxxgkml_5135138/">
+                                        黔西南州自然资源局
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://zrzy.qdn.gov.cn/">
+                                        黔东南自然资源局
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--友情链接 end-->
+        <!--footer-->
+        <style>
+        .footer-layout{
+            height: auto;
+            padding: 10px 0;
+            flex-direction: column;
+        }
+        .footer-right{
+            margin-top: 20px;
+        }
+        .company-layout{
+            text-align: center;
+        }
+        .copyright{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+<!--固定栏目-->
+        <div class="Fixed-Column">
+            <a href="JavaScript:;" class="weChart">
+                <i class="iconfont icon-weixin"></i>
+                <div class="">
+                    <img src="https://zrzy.guizhou.gov.cn/material/common/images/wechart.png" alt="" />
+                </div>
+            </a>
+            <a href="https://weibo.com/u/3572852194" target="_blank" class="weiBo">
+                <i class="iconfont icon-weibo"></i>
+            </a>
+            <a href="JavaScript:;" class="returnTop anchor" navTo="header">
+                <i class="iconfont icon-fanhuidingbu"></i>
+            </a>
+        </div>
+        <!--固定栏目 end-->
+<footer id="footer" class="footer-wrap">
+    <div class="footer-layout">
+        <div class="footer-left" style="display: flex;
+    flex-direction: column;
+    align-items: center;">
+            <ul class="footer-link">
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/wzbz/" ignoreapd="1">网站帮助</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/wzdt/" ignoreapd="1">网站地图</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/gywm/" ignoreapd="1">关于我们</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/lxwm/" ignoreapd="1">联系方式</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/wzsm/" ignoreapd="1">网站声明</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/fzlm/yssm/" ignoreapd="1">隐私声明</a></li>
+                <li><a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/zfxxgk/fdzdgknr/qtfdxx/wzgznb/" ignoreapd="1">网站年报</a></li>
+            </ul>
+            <div class="copyright">
+                <span>主办：贵州省自然资源厅</span>
+                <span>网站由贵州省自然资源技术信息中心负责维护与管理</span>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                  黔ICP备19000647号
+                </a>
+&nbsp; &nbsp; 
+                <span>政府网站标识码：5200000041</span>
+                 
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52010302001615" class="record" target="_blank">
+                    <img src="https://zrzy.guizhou.gov.cn/material/common/images/ga.png" alt="" /> 贵公网安备 52010302001615
+                </a>
+            </div>
+            <div class="keep-inform" style="display:none;">
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                  黔ICP备19000647号
+                </a>
+                <span>政府网站标识码：5200000041</span>
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52010302001615" class="record" target="_blank">
+                    <img src="https://zrzy.guizhou.gov.cn/material/common/images/ga.png" alt="" /> 贵公网安备 52010302001615
+                </a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <a href="http://bszs.conac.cn/sitename?method=show&id=043FC55A2DD54B98E053012819ACED1E" target="_blank">
+                <img src="https://zrzy.guizhou.gov.cn/material/common/images/dzjg.png" alt="" />
+            </a>
+            <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=5200000041&url=http%3A%2F%2Fzrzy.guizhou.gov.cn%2Findex.html" target="_blank">
+                <img src="https://zrzy.guizhou.gov.cn/material/common/images/wzzc.png" alt="" />
+            </a>
+        </div>
+    </div>
+    <div class="company-address">
+        <div class="company-layout" >
+            <span>贵州省自然资源厅对外业务咨询服务电话：0851-86987085</span> &nbsp;
+            <span>地址：贵阳市中华北路242号省政府5号楼</span>&nbsp;
+            <!--<span>技术支持：<a href="https://www.zzdsj.com.cn/" style="color:#fff;">智政科技</a></span>-->
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+$('.anchor').click(function () {
+    var navto = $(this).attr('navto');
+    if (navto != "#") {
+        $('html,body').animate({
+            'scroll-top': 0
+        }, 500);
+    }
+});
+
+$(function(){
+//外链跳转提示
+	for (var i = 0; i < document.links.length; i++) {
+		var url = document.links[i].href.toLowerCase();
+		if (url.indexOf("http://localhost") == -1 && url.indexOf("http://zrzy.guizhou.gov.cn/wzgb/index.html") == -1&& url.indexOf("zrzy.guizhou.gov.cn") == -1 && url.indexOf("javascript:") == -1 && url != "#" && !document.links[i].onclick) {
+			document.links[i].onclick = function () {
+				return confirm("您访问的链接即将离开“贵州省自然资源厅，是否继续？");
+			};
+		}
+	}
+});
+</script>
+<script id="_trs_ta_js" src="//ta.trs.cn/c/js/ta.js?mpid=3588" async="async" defer="defer"></script>
+<!--获取登录用户信息和用户足迹-->
+<script src="/material/common/js/sm2.js"></script>
+<script>
+        var useName;
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+            else return null;
+        }
+        function setCookie(objName, objValue) {
+            var str = objName + "=" + escape(objValue);
+            str += "; path=/;";
+            document.cookie = str;
+        }
+        var $href = window.location.href.replace(/\&/g,"?");
+        var SSOSign,isLogin=false;
+        var SSOKye = $.grep(document.location.href.split('?'), function( a ) {
+            return a!='undefined'&&a.indexOf("=") == -1;
+        });
+        if(SSOKye[1]&&SSOKye[1]!=''){
+            setCookie('SSOSign', SSOKye[1]);
+        }
+        SSOSign = getCookie('SSOSign');
+        var ta_user = getCookie('_trs_user');
+
+        function httpRequest(method, url, params, callback) {
+            $.ajax({
+                type: method,
+                url: url,
+                data: params || {},
+                dataType: "json",
+                traditional: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                headers: {'SSOSign': SSOSign},
+                success: function (data) {
+                    if (data.code === '200') {
+                        callback(data);
+                    } else {
+                    }
+                },
+                error: function (err) {
+                    console.info(err);
+                    if (err.responseJSON) {
+                        console.info(err.responseJSON.message);
+                    } else {
+                        //alert('请求错误');
+                    }
+                }
+            });
+        }
+        var userInfo = false;
+        httpRequest('get','/fsp-web/fsp/login/getUserSecret.do?',{SSOSign:SSOSign},function(data){
+            if(SSOSign!="undefined") {
+                userInfo = data.datas;
+            secretKey=data.summary_info.secretKey 
+            keys=getKey(secretKey)   
+            data=sm2.doDecrypt(userInfo,keys) 
+            //  将获解密后用户信息进行填充
+            userInfo = JSON.parse(data);
+                useName = userInfo.LOGIN_NAME;
+                if(ta_user==""||ta_user==null||ta_user=="undefined"){
+                    setTaCookie(useName);
+                } //如果cookie没有该值，则设置该属性
+            $('.perCenter').attr('href','//www.guizhou.gov.cn/personalhomepage/#/homePageGR');
+            $('.perCenter').attr('target',"_blank");
+            $('.perCenter span').html('欢迎&nbsp;' + userInfo.USER_NAME);
+            $('.perCenter').removeAttr('onclick');
+            }
+        })
+        if(SSOSign =="undefined"|| SSOSign == null){
+            setTaCookie("");
+        }
+        function setTaCookie(objValue) {
+            var str = "_trs_user" + "=" + encodeURIComponent(objValue);
+            str += "; path=/;";
+            document.cookie = str;
+        }
+// 获取解密私钥
+    function getKey(key){
+        var result = ""
+        $.ajax({
+            type: "POST",
+            url: "/fsp-web/fsp/login/getSecretKey",
+            headers: {'SSOSign': SSOSign},
+            //dataType: "json",
+            async: false,
+            traditional: true,
+            xhrFields: {
+                withCredentials: true
+            },
+            data:{
+                'SSOSign':SSOSign,
+                'secretKey':key
+            },
+            success: function (m) {
+                m=JSON.parse(m)
+                result = m.datas.secretvalue
+            },
+            error: function (e){
+                console(e)
+            }
+        })
+        return result
+}
+    function zwfwLogin() {
+        SSOSign = getCookie('SSOSign');
+        if (SSOSign == "" || SSOSign == null || SSOSign == "undefined"||!SSOSign.isUserLogin) {
+            window.location.href="//smrz.zwfw.guizhou.gov.cn/sso/login?utype=0&redirect=istrue&client_id=MBFSQUBNF&goto=" +$href;
+        }
+    }
+</script>
+</footer>
+        <!--footer end-->
+    </div>
+    <!-- 移动端导航 -->
+    <div class="column js-canvi-navbar--right canvi-navbar">
+    <span class="nav-close" onclick="canvi.close()">
+            <i class="iconfont icon-guanbi"></i>
+        </span>
+    <ul class="wap-nav-ul">
+        <li class="subnav-item"><a href="http://zrzy.guizhou.gov.cn/">首页</a></li>
+        <li class="subnav-item"><a href="https://zrzy.guizhou.gov.cn/wzgb/xwzx/">新闻中心</a></li>
+        <li class="subnav-item"><a href="https://zrzy.guizhou.gov.cn/wzgb/zwgk/">政务公开</a></li>
+        <li class="subnav-item"><a href="https://zrzy.guizhou.gov.cn/wzgb/bsfw/">办事服务</a></li>
+        <li class="subnav-item"><a href="">测绘地理信息</a></li>
+    </ul>
+</div>
+    <!-- 移动端导航 end -->
+    <script type="text/javascript" src="/material/common/js/canvi.js"></script>
+    <script type="text/javascript" src="/material/common/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/material/common/js/public.js"></script>
+    <script>
+        tabs1($(".online-tabs li"), $(".online-cont"), "active");
+        tabs1($(".itation-tabs li"), $(".itation-tit > a"), "more");
+        tabs1($(".itation-tabs li"), $(".inves-list"), "active");
+    </script>
+
+    <script type="text/javascript">
+        function GetStatus(status) {
+            if (status == "4") {
+                status = "待办理";
+            } else if (status == "5") {
+                status = "待审核";
+            } else if (status == "7") {
+                status = "已办结";
+            } else {
+                status = "办理中";
+            }
+            return status;
+        }
+
+        function times(date) {
+            var date = new Date(date); //如果date为10位不需要乘1000
+            var Y = date.getFullYear() + '年';
+            var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+            var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+            var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+            var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+            var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+            return M + "-" + D;
+        }
+
+        function getMyDate(timestamp) {
+            var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            D = getzf(date.getDate()) + ' ';
+            h = getzf(date.getHours()) + ':';
+            m = getzf(date.getMinutes()) + ':';
+            s = getzf(date.getSeconds());
+            return Y + M + D;
+        }
+
+        function getzf(num) {
+            if (parseInt(num) < 10) {
+                num = '0' + num;
+            }
+            return num;
+        }
+
+
+        //信箱
+        $.ajax({
+            url: '/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs',
+            data: {
+                siteId: 502056,
+                pageIndex: 1,
+                pageSize: 6,
+                appId: 797,
+                orderby: 'submitTime_desc',
+                contentReturn: 0
+            },
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+
+                var docListxx = data.datas;
+                console.log(docListxx);
+                var _html = "";
+                $.each(docListxx.data, function(i, v) {
+                    var title = v.TITLE;
+                    if (title.length > 32) {
+                        title = title.substring(0, 32) + "...";
+                    }
+
+                    _html += '<tr><td class="letter-tit"><a href="' + v.PUBLISHURL + '" target="_blank" title="' + v.TITLE + '">' + title + '</a></td><td class="letter-other th-time"><span>' + getMyDate(parseInt(v.REPLYTIME)) + '</span></td><td class="letter-other"><button class="blz-btn">' + GetStatus(v.STATUS) + '</button></td>'
+
+                })
+                $("#ny-lxdxlist").html(_html);
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        var siteId = "502056";
+        Date.prototype.Format = function(fmt) { //author: meizz   
+            var o = {
+                "M+": this.getMonth() + 1, //月份   
+                "d+": this.getDate(), //日   
+                "H+": this.getHours(), //小时   
+                "m+": this.getMinutes(), //分   
+                "s+": this.getSeconds(), //秒   
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度   
+                "S": this.getMilliseconds() //毫秒   
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) :
+                    (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+
+        function getMonthFirstLastDay(year, month) {
+            var firstDay = new Date(year, month - 1, 1); //这个月的第一天
+            var currentMonth = firstDay.getMonth(); //取得月份数
+            var lastDay = new Date(firstDay.getFullYear(), currentMonth + 1, 0); //是0而不是-1
+            firstDay = firstDay.Format("yyyy-MM-dd HH:mm:ss"); //格式化
+            lastDay = lastDay.Format("yyyy-MM-dd") + " 23:59:59"; //格式化
+            return [firstDay, lastDay];
+        }
+        //取月份
+        var obj3 = ["累计已受理", "累计已办理", "办理中"];
+        $(function() {
+            getTotal(797);
+            getTotal1(797);
+
+            function getTotal(appId, obj) {
+                $.ajax({
+                    url: '/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs',
+                    data: {
+                        siteId: siteId,
+                        appId: 797,
+                        //beginTime:new Date().Format("yyyy")+'-01-01 00:00:00',
+                        //endTime:new Date().Format("yyyy-MM-dd HH:mm:ss")
+                    },
+                    async: true,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        var obj4 = new Array();
+                        //累计已受理
+                        obj4.push({
+                            'y': data.datas.totalCount,
+                            'color': '#39d8b2'
+                        });
+                        //累计已办理
+                        obj4.push({
+                            'y': data.datas.finishCount,
+                            'color': '#7db119'
+                        });
+                        //办理中
+                        obj4.push({
+                            'y': data.datas.totalCount - data.datas.finishCount,
+                            'color': '#28f1ef'
+                        });
+                        var chart = Highcharts.chart('xjtj', {
+                            legend: {
+                                enabled: false
+                            },
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: "开通以来总览",
+                                style: {
+                                    "color": "#333333",
+                                    "fontSize": "16px"
+                                },
+                                margin: 10
+                            },
+                            subtitle: {
+                                text: ''
+                            },
+                            xAxis: {
+                                categories: obj3,
+                                crosshair: true
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            credits: {
+                                text: '',
+                                href: 'http://zrzy.guizhou.gov.cn/'
+                            },
+                            tooltip: {
+                                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                pointFormat: '<tr>' +
+                                    '<td style="padding:0"><b>{point.y}件</b></td></tr>',
+                                footerFormat: '</table>',
+                                shared: true,
+                                useHTML: true
+                            },
+                            plotOptions: {
+                                column: {
+                                    borderWidth: 0
+                                }
+                            },
+                            series: [{
+                                name: '信件统计',
+                                data: obj4
+                            }]
+                        });
+                        //折线图示例"满意","一般","不满意"                    
+                    }
+                })
+            }
+
+            function getTotal1(appId) {
+                $.ajax({
+                    url: '/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs',
+                    data: {
+                        siteId: siteId,
+                        appId: 797,
+                        //beginTime:new Date().Format("yyyy")+'-01-01 00:00:00',
+                        //endTime:new Date().Format("yyyy-MM-dd HH:mm:ss")
+                    },
+                    async: true,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        var obj4 = new Array();
+                        //累计已受理
+                        obj4.push({
+                            'y': data.datas.totalCount,
+                            'color': '#39d8b2'
+                        });
+                        //累计已办理
+                        obj4.push({
+                            'y': data.datas.finishCount,
+                            'color': '#7db119'
+                        });
+                        //办理中
+                        obj4.push({
+                            'y': data.datas.totalCount - data.datas.finishCount,
+                            'color': '#28f1ef'
+                        });
+                        var chart = Highcharts.chart('xjtj1', {
+                            legend: {
+                                enabled: false
+                            },
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: "开通以来总览",
+                                style: {
+                                    "color": "#333333",
+                                    "fontSize": "16px"
+                                },
+                                margin: 10
+                            },
+                            subtitle: {
+                                text: ''
+                            },
+                            xAxis: {
+                                categories: obj3,
+                                crosshair: true
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            credits: {
+                                text: '',
+                                href: 'http://zrzy.guizhou.gov.cn/'
+                            },
+                            tooltip: {
+                                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                pointFormat: '<tr>' +
+                                    '<td style="padding:0"><b>{point.y}件</b></td></tr>',
+                                footerFormat: '</table>',
+                                shared: true,
+                                useHTML: true
+                            },
+                            plotOptions: {
+                                column: {
+                                    borderWidth: 0
+                                }
+                            },
+                            series: [{
+                                name: '信件统计',
+                                data: obj4
+                            }]
+                        });
+                        //折线图示例"满意","一般","不满意"                    
+                    }
+                })
+            }
+
+        })
+
+        var chart;
+        var chart1;
+        $(function() {
+            //取月份
+            var obj1 = new Array();
+            //取受理总量
+            var obj2 = new Array();
+            //取办理总量
+            var obj3 = new Array();
+            var year = new Date().getFullYear();
+            var Month = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+            //for(var i=0; i<=new Date().getMonth(); i++){}
+            var i = 0;
+            var j = 0;
+            //取月份
+            var obj11 = new Array();
+            //取受理总量
+            var obj21 = new Array();
+            //取办理总量
+            var obj31 = new Array();
+
+            SetDates(797);
+            SetDates1(797);
+
+            function SetDates(appId) {
+                obj1.push(Month[i]);
+                theTimes = getMonthFirstLastDay(year, i + 1)
+                $.ajax({ //取月份和受理总量
+                    url: '/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs',
+                    data: {
+                        siteId: siteId,
+                        appId: 797,
+                        beginTime: theTimes[0],
+                        endTime: theTimes[1]
+                    },
+                    async: true,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        obj2.push({
+                            'y': data.datas.totalCount,
+                            'color': '#7db119'
+                        });
+                        obj3.push({
+                            'y': data.datas.finishCount,
+                            'color': '#39d8b2'
+                        });
+                        i += 1;
+                        if (i <= new Date().getMonth()) { //循环月份
+                            SetDates(797);
+                        } else {
+                            var chart = Highcharts.chart('xjzl', {
+                                loading: {
+                                    hideDuration: 1000,
+                                    showDuration: 1000
+                                },
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    //text: json[0].dqyear+"年总览",
+                                    text: new Date().getFullYear() + "年总览",
+                                    style: {
+                                        "color": "#333333",
+                                        "fontSize": "16px"
+                                    }
+                                },
+                                subtitle: {
+                                    text: ''
+                                },
+                                xAxis: {
+                                    categories: obj1,
+                                    crosshair: true
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: ''
+                                    }
+                                },
+                                credits: {
+                                    text: '',
+                                    href: 'http://zrzy.guizhou.gov.cn/'
+                                },
+                                tooltip: {
+                                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                        '<td style="padding:0"><b>{point.y}件</b></td></tr>',
+                                    footerFormat: '</table>',
+                                    shared: true,
+                                    useHTML: true
+                                },
+                                plotOptions: {
+                                    column: {
+                                        borderWidth: 0
+                                    }
+                                },
+                                series: [{
+                                    name: '已受理',
+                                    color: '#7db119',
+                                    data: obj2,
+                                    itemStyle: { //上方显示数值
+                                        normal: {
+                                            label: {
+                                                show: true, //开启显示
+                                                position: 'top', //在上方显示
+                                                textStyle: { //数值样式
+                                                    color: 'black',
+                                                    fontSize: 16
+                                                }
+                                            }
+                                        }
+                                    }
+                                }, {
+                                    name: '已办理',
+                                    color: '#39d8b2',
+                                    data: obj3
+                                }]
+                            });
+                            //折线图示例
+                        }
+                    }
+                })
+            }
+
+
+            function SetDates1(appId) {
+                obj11.push(Month[j]);
+                theTimes = getMonthFirstLastDay(year, j + 1)
+                $.ajax({ //取月份和受理总量
+                    url: '/IGI/nbhd/openGovmsgbox.do?method=countGovmsgboxs',
+                    data: {
+                        siteId: siteId,
+                        appId: 797,
+                        beginTime: theTimes[0],
+                        endTime: theTimes[1]
+                    },
+                    async: true,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        obj21.push({
+                            'y': data.datas.totalCount,
+                            'color': '#7db119'
+                        });
+                        obj31.push({
+                            'y': data.datas.finishCount,
+                            'color': '#39d8b2'
+                        });
+                        j += 1;
+                        if (j <= new Date().getMonth()) { //循环月份
+                            SetDates1(797);
+                        } else {
+                            var chart = Highcharts.chart('xjzl1', {
+                                loading: {
+                                    hideDuration: 1000,
+                                    showDuration: 1000
+                                },
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    //text: json[0].dqyear+"年总览",
+                                    text: new Date().getFullYear() + "年总览",
+                                    style: {
+                                        "color": "#333333",
+                                        "fontSize": "16px"
+                                    }
+                                },
+                                subtitle: {
+                                    text: ''
+                                },
+                                xAxis: {
+                                    categories: obj11,
+                                    crosshair: true
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: ''
+                                    }
+                                },
+                                credits: {
+                                    text: '',
+                                    href: 'http://zrzy.guizhou.gov.cn/'
+                                },
+                                tooltip: {
+                                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                        '<td style="padding:0"><b>{point.y}件</b></td></tr>',
+                                    footerFormat: '</table>',
+                                    shared: true,
+                                    useHTML: true
+                                },
+                                plotOptions: {
+                                    column: {
+                                        borderWidth: 0
+                                    }
+                                },
+                                series: [{
+                                    name: '已受理',
+                                    color: '#7db119',
+                                    data: obj21,
+                                    itemStyle: { //上方显示数值
+                                        normal: {
+                                            label: {
+                                                show: true, //开启显示
+                                                position: 'top', //在上方显示
+                                                textStyle: { //数值样式
+                                                    color: 'black',
+                                                    fontSize: 16
+                                                }
+                                            }
+                                        }
+                                    }
+                                }, {
+                                    name: '已办理',
+                                    color: '#39d8b2',
+                                    data: obj31
+                                }]
+                            });
+                            //折线图示例
+                        }
+                    }
+                })
+            }
+
+
+        })
+
+
+        //公众参与   
+        $.ajax({
+            url: '/IGI/open/openInterview/list',
+            data: {
+                siteId: 502056,
+                pageIndex: 1,
+                pageSize: 1,
+                type: -1
+            },
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                var docList = data.datas;
+                var _htmlds = "";
+                console.log(docList);
+
+                if (docList.data) {
+                    var title = docList.data[0].title;
+                    if (title.length > 28) {
+                        title = title.substring(0, 28) + "...";
+                    }
+                    var comment = docList.data[0].comment;
+                    var publishUrl = docList.data[0].publishUrl;
+                    comment = comment.replace(/<[^>]+>/g, "").replace(/&nbsp;/ig, "");
+                    comment = comment.substring(0, 300) + "..."; //截取200个字符
+                    if (docList.data[0].startTime == null) {
+                        $(".brief-time").text(getMyDate(parseInt(docList.data[0].endTime)))
+                    } else {
+                        $(".brief-time").text(getMyDate(parseInt(docList.data[0].startTime)))
+                    }
+                    if (docList.data[0].attachList.length > 0) {
+                        $(".interview-left").html('<img src="' + docList.data[0].attachList[0].filePath + '" />');
+                    }
+                    $(".brief-title").html('<a href="' + docList.data[0].publishUrl + '">' + title + '</a>');
+                    $(".brief-guest").text("嘉宾：" + docList.data[0].guests)
+                    $(".abstract").html(docList.data[0].comment);
+                    $(".brief-lj").html('<a href="' + docList.data[0].publishUrl + '">查看更多</a>')
+
+                }
+
+
+
+            }
+        })
+
+        //往期回顾
+        $.ajax({
+            url: '/IGI/open/openInterview/list',
+            data: {
+                siteId: 502056,
+                pageIndex: 1,
+                pageSize: 4,
+                type: -1
+            },
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                var docLists = data.datas;
+                console.log(docLists);
+                var _htmlwqhg = "";
+                $.each(docLists.data, function(i, v) {
+                    _htmlwqhg += '<li>';
+                    _htmlwqhg += '<a href="' + v.publishUrl + '">';
+                    _htmlwqhg += '<p>' + v.title + '</p>';
+                    _htmlwqhg += '<span>' + getMyDate(parseInt(v.startTime)) + '</span>';
+                    _htmlwqhg += '</a>';
+                    _htmlwqhg += '</li>';
+                })
+                $("#wqhg").html(_htmlwqhg);
+            }
+        })
+
+
+
+
+
+
+        //民意征集
+        $.ajax({
+            url: '/IGI/opinion/web/list',
+            data: {
+                siteId: 502056,
+                pageIndex: 1,
+                pageSize: 6,
+                orderby: "endTime_desc"
+            },
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                var docListzj = data.datas;
+                var _htmlzj = "";
+                var nowtime = getMyDate(parseInt(Date.now()));
+                var qsrc = "/sc_n_detail_yyzj.html?id=";
+                $.each(docListzj.data, function(i, v) {
+                    var title = v.theme;
+                    var etime = v.endTime != null ? getMyDate(parseInt(v.endTime)) : "";
+                    var stime = v.beginTime != null ? getMyDate(parseInt(v.beginTime)) : "";
+                    if (title.length > 32) {
+                        title = title.substring(0, 32) + "...";
+                    }
+                    if (v.endTime == null || v.endTime == "null") {
+                        if (v.exLink != null && v.exLink != "null") {
+                            _htmlzj += '<li>';
+                            _htmlzj += '<a href="' + v.exLink + '" target="_blank">';
+                            _htmlzj += '<p>' + title + '</p>';
+                            _htmlzj += '<span>截止时间：' + etime + '</span>';
+                            _htmlzj += '<button class="haveHand">征集中</button>';
+                            _htmlzj += '</a>';
+                            _htmlzj += '</li>';
+                        } else {
+                            _htmlzj += '<li>';
+                            _htmlzj += '<a href="' + v.publishUrl + '" target="_blank">';
+                            _htmlzj += '<p>' + title + '</p>';
+                            _htmlzj += '<span>截止时间：' + etime + '</span>';
+                            _htmlzj += '<button class="haveHand">征集中</button>';
+                            _htmlzj += '</a>';
+                            _htmlzj += '</li>';
+                        }
+                    } else {
+                        if (v.exLink != null && v.exLink != "null") {
+                            if (nowtime < etime) {
+                                _htmlzj += '<li>';
+                                _htmlzj += '<a href="' + v.exLink + '" target="_blank">';
+                                _htmlzj += '<p>' + title + '</p>';
+                                _htmlzj += '<span>截止时间：' + etime + '</span>';
+                                _htmlzj += '<button class="haveHand">征集中</button>';
+                                _htmlzj += '</a>';
+                                _htmlzj += '</li>';
+                            } else {
+                                _htmlzj += '<li>';
+                                _htmlzj += '<a href="' + v.exLink + '" target="_blank">';
+                                _htmlzj += '<p>' + title + '</p>';
+                                _htmlzj += '<span>截止时间：' + etime + '</span>';
+                                _htmlzj += '<button class="">已结束</button>';
+                                _htmlzj += '</a>';
+                                _htmlzj += '</li>';
+                            }
+                        } else {
+                            if (nowtime <= etime) {
+                                _htmlzj += '<li>';
+                                _htmlzj += '<a href="' + v.publishUrl + '" target="_blank">';
+                                _htmlzj += '<p>' + title + '</p>';
+                                _htmlzj += '<span>截止时间：' + etime + '</span>';
+                                _htmlzj += '<button class="haveHand">征集中</button>';
+                                _htmlzj += '</a>';
+                                _htmlzj += '</li>';
+                            } else {
+                                _htmlzj += '<li>';
+                                _htmlzj += '<a href="' + v.publishUrl + '" target="_blank">';
+                                _htmlzj += '<p>' + title + '</p>';
+                                _htmlzj += '<span>截止时间：' + etime + '</span>';
+                                _htmlzj += '<button class="">已结束</button>';
+                                _htmlzj += '</a>';
+                                _htmlzj += '</li>';
+                            }
+                        }
+                    }
+
+                })
+                $("#myzj").html(_htmlzj);
+            }
+        });
+
+        //网上调查
+        $.ajax({
+            url: '/IGI/open/survey/list',
+            data: {
+                siteId: 502056,
+                pageIndex: 1,
+                pageSize: 6,
+                orderBy: "startTime_desc"
+            },
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                var docListdc = data.datas;
+                var _htmldc = "";
+                var nowtime = getMyDate(parseInt(Date.now()));
+                var qsrc = "/detail_wsdc.html?id="; //问卷调查详情页
+                var resuleUrl = "/result_wsdc.html?id="; //问卷调查结束页
+                $.each(docListdc.data, function(i, v) {
+                    var etime = v.endTime != null ? getMyDate(parseInt(v.endTime)) : "";
+                    var stime = v.startTime != null ? getMyDate(parseInt(v.startTime)) : "";
+                    var title = v.title;
+                    if (title.length > 32) {
+                        title = title.substring(0, 32) + "...";
+                    }
+                    if (v.endTime == null || v.endTime == "null") {
+                        if (v.exLink != null && v.exLink != "null") {
+                            _htmldc += '<li>';
+                            _htmldc += '<a href="' + v.publishUrl + '" target="_blank">';
+                            _htmldc += '<p>' + title + '</p>';
+                            _htmldc += '<span>截止时间：' + etime + '</span>';
+                            _htmldc += '<button class="haveHand">调查中</button>';
+                            _htmldc += '</a>';
+                            _htmldc += '</li>';
+                        } else {
+                            _htmldc += '<li>';
+                            _htmldc += '<a href="' + v.publishUrl + '" target="_blank">';
+                            _htmldc += '<p>' + title + '</p>';
+                            _htmldc += '<span>截止时间：' + etime + '</span>';
+                            _htmldc += '<button class="haveHand">调查中</button>';
+                            _htmldc += '</a>';
+                            _htmldc += '</li>';
+                        }
+                    } else {
+                        if (v.exLink != null && v.exLink != "null") {
+                            if (nowtime < etime) {
+                                _htmldc += '<li>';
+                                _htmldc += '<a href="' + v.exLink + '" target="_blank">';
+                                _htmldc += '<p>' + title + '</p>';
+                                _htmldc += '<span>截止时间：' + etime + '</span>';
+                                _htmldc += '<button class="haveHand">调查中</button>';
+                                _htmldc += '</a>';
+                                _htmldc += '</li>';
+                            } else {
+                                _htmldc += '<li>';
+                                _htmldc += '<a href="' + v.exLink + '" target="_blank">';
+                                _htmldc += '<p>' + title + '</p>';
+                                _htmldc += '<span>截止时间：' + etime + '</span>';
+                                _htmldc += '<button class="">已结束</button>';
+                                _htmldc += '</a>';
+                                _htmldc += '</li>';
+                            }
+                        } else {
+                            if (nowtime <= etime) {
+                                _htmldc += '<li>';
+                                _htmldc += '<a href="' + v.publishUrl + '" target="_blank">';
+                                _htmldc += '<p>' + title + '</p>';
+                                _htmldc += '<span>截止时间：' + etime + '</span>';
+                                _htmldc += '<button class="haveHand">调查中</button>';
+                                _htmldc += '</a>';
+                                _htmldc += '</li>';
+                            } else {
+                                _htmldc += '<li>';
+                                _htmldc += '<a href="' + v.publishUrl + '" target="_blank">';
+                                _htmldc += '<p>' + title + '</p>';
+                                _htmldc += '<span>截止时间：' + etime + '</span>';
+                                _htmldc += '<button class="">已结束</button>';
+                                _htmldc += '</a>';
+                                _htmldc += '</li>';
+                            }
+                        }
+                    }
+                })
+                $("#gzcyzxdc").html(_htmldc);
+            }
+        })
+    </script>
+</body>
+
+</html>

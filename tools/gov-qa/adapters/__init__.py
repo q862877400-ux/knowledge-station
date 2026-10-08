@@ -68,6 +68,10 @@ ADAPTERS: dict[str, str] = {
     "gz-rst": "adapters.gz_rst",         # 贵州省人社厅（IGI，生成器产出）
     "gz-zfcx": "adapters.gz_zfcx",       # 贵州省住建厅（IGI，生成器产出）
     "gz-nynct": "adapters.gz_nynct",     # 贵州省农业农村厅（IGI，生成器产出）
+    "gz-swt": "adapters.gz_swt",         # 贵州省商务厅（IGI，生成器产出）
+    "gz-zrzy": "adapters.gz_zrzy",       # 贵州省自然资源厅（IGI，生成器产出）
+    "jl-hrss": "adapters.jl_hrss",       # 吉林省人社厅（海云平台，appId=96+groupId=170）
+    "jl-jt": "adapters.jl_jt",           # 吉林省交通运输厅（海云平台，appId=96+groupId=159）
     "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）

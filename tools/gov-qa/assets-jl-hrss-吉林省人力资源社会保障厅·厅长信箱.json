@@ -1,0 +1,1571 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-hrss",
+   "id": "36591",
+   "url": "https://hrss.jl.gov.cn/?id=36591",
+   "question": "合同期大于1年、不满3年的人员试用期不应超过多长时间？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国劳动合同法",
+     "lib_no": "劳动合同法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9657",
+   "url": "https://hrss.jl.gov.cn/?id=9657",
+   "question": "请问《劳动法》第四十五条规定劳动者联系工作一年以上的，享受带薪年休假。本条中“连续工作一年以上”如何界定呢？ 目前针对此条例我查询后产生以下四种观点： 一是需要在本单位联系工作一年以上； 二是曾经连续工作满一年以上过入职新公司后立即可以享受",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "关于《企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "6678",
+   "url": "https://hrss.jl.gov.cn/?id=6678",
+   "question": "在医院上班，产后女职工涉及到哺乳不能上夜班的问题。请问哺乳假是6个月嘛？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3473",
+   "url": "https://hrss.jl.gov.cn/?id=3473",
+   "question": "《职工带薪年休假条例》和《企业职工带薪年休假实施办法》里所说的“职工”是只指狭义上的企业里的职工，还是指广义上的所有的公务员，事业单位人员，企业人员等有工作的公民？",
+   "cited_hits": [
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "企业职工带薪年休假实施办法",
+     "lib_no": "企业职工带薪年休假实施办法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "职工带薪年休假条例",
+     "lib_no": "职工带薪年休假条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "机关事业单位工作人员带薪年休假实施办法"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-hrss",
+   "id": "33955",
+   "url": "https://hrss.jl.gov.cn/?id=33955",
+   "question": "想问一下在哪里下载职称评定得流程、资料及相关所需表格，找不到",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2026年吉林省职称评审信息化申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "32137",
+   "url": "https://hrss.jl.gov.cn/?id=32137",
+   "question": "吉林省专业技术人员继续教育公共服务平台无法进入，网站显示无法进入",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2026年吉林省专业技术人员继续教育学习有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "30254",
+   "url": "https://hrss.jl.gov.cn/?id=30254",
+   "question": "25年获得国家西药职业药师资格证书，已经下证，能否申请职业技能补贴。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "28580",
+   "url": "https://hrss.jl.gov.cn/?id=28580",
+   "question": "想咨询一下，吉林省是否有防暑降温费（列支福利费）的发放标准和相关文件，请发送，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布全省高温和低温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "27699",
+   "url": "https://hrss.jl.gov.cn/?id=27699",
+   "question": "现在报考药师证得具备什么条件？工作年限是获得毕业文凭（非全日制）后开始算还是参加药品销售工作后开始算？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2025年度执业药师职业资格考试考务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "27637",
+   "url": "https://hrss.jl.gov.cn/?id=27637",
+   "question": "想问下有初级会计证书可以申请什么补贴",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "24650",
+   "url": "https://hrss.jl.gov.cn/?id=24650",
+   "question": "2025年5月末职称评审通过，请问几月份可以网查并下载电子证书",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2025年吉林省职称评审信息化申报工作的通知",
+    "吉林省专业技术职务任职资格证书"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "23204",
+   "url": "https://hrss.jl.gov.cn/?id=23204",
+   "question": "请问考取房地产估价师职业资格证，可以申报中级职称么，还是相当于中级职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省部分专业技术类职业资格与职称对应目录",
+    "关于印发《吉林省部分专业技术类职业资格和职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "22713",
+   "url": "https://hrss.jl.gov.cn/?id=22713",
+   "question": "我于2021年1月1日被授予环境工程的中级职称，请问正常情况下哪年可以申报高级职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省环境工程专业技术人员职称评审实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "22182",
+   "url": "https://hrss.jl.gov.cn/?id=22182",
+   "question": "吉林省有初级会计证书补贴吗？如果有的话，申请要求是什么？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "20503",
+   "url": "https://hrss.jl.gov.cn/?id=20503",
+   "question": "2024年事业单位技术岗位中级职称评定的条件是什么，2025年什么时候开始评审",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2024年吉林省职称评审信息化申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "20435",
+   "url": "https://hrss.jl.gov.cn/?id=20435",
+   "question": "您好，请问长春市社保现行最低缴费基数及缴费比例分别是多少？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布 2023年度社会保险全口径平均工资及缴费基数上下限标准的通知",
+    "关于统一规范企业职工基本养老保险政策的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "18071",
+   "url": "https://hrss.jl.gov.cn/?id=18071",
+   "question": "关于《吉林省高校毕业生就业创业一次性购房补贴实施细则（暂行）》文件中，申报单位为“公共就业服务机构”，请问此部门具体名称是什么？以长春市为例的话。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于《吉林省高校毕业生就业生活补贴实施细则（暂行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "17143",
+   "url": "https://hrss.jl.gov.cn/?id=17143",
+   "question": "你好，我是2023年考试取得的一级注册消防工程师证书，请问咱吉林省能申领补贴吗？或者有其他的什么福利政策吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "17125",
+   "url": "https://hrss.jl.gov.cn/?id=17125",
+   "question": "你好，请问如果入职时间在2022年上半年，但是人才评定是在2023年按照《人才政策（3.0版）》标准认定的首次来吉工作人员，安家补贴是按2.0标准执行还是按3.0标准执行呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展引进人才安家补贴申领发放的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "15570",
+   "url": "https://hrss.jl.gov.cn/?id=15570",
+   "question": "老师，您好。想咨询考取了注册会计师证书，这个证书算不算职称？算什么等级职称？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省部分专业技术类职业资格和职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "15436",
+   "url": "https://hrss.jl.gov.cn/?id=15436",
+   "question": "吉林省中级会计职称或者注册会计师可以申请职业技能补贴吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "13656",
+   "url": "https://hrss.jl.gov.cn/?id=13656",
+   "question": "想申报机械类中级职称，找不到评价标准文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省机械、轻工、纺织工程专业技术人员职称评审实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "13132",
+   "url": "https://hrss.jl.gov.cn/?id=13132",
+   "question": "您好： 我2023年获得的专业技术职称证书（中级职称），现在可以在吉林智慧人社网下载到电子版，请问有纸质的证书吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省专业技术资格评审表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "12737",
+   "url": "https://hrss.jl.gov.cn/?id=12737",
+   "question": "请问明年评中级职称，今年需要继续教育学习吗？需要年底完成课时学习吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省人社厅关于开展专业技术人员继续教育学习有关工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "12461",
+   "url": "https://hrss.jl.gov.cn/?id=12461",
+   "question": "您好，想要一份吉林省防暑降温费发放标准文件，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布全省高温和低温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "11320",
+   "url": "https://hrss.jl.gov.cn/?id=11320",
+   "question": "您好，人才分类评定常态化后，10月份的人才分类定级评定申报网上什么时候开通？谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于申报高层次人才分类定级2023年10月份批次评定的温馨提示"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "11091",
+   "url": "https://hrss.jl.gov.cn/?id=11091",
+   "question": "您好，请问下一次人才分类定级评定申报是什么时候？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展吉林省高层次人才分类评定常态化申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10850",
+   "url": "https://hrss.jl.gov.cn/?id=10850",
+   "question": "取得会计中级资格证书有职业技能补贴么？有的话在哪申请 怎么申请？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10833",
+   "url": "https://hrss.jl.gov.cn/?id=10833",
+   "question": "尊敬的领导您好，我今年44周岁，全日制专科，成人本科都是会计专业，现已评聘高级会计师，想咨询下我是否符合吉林生活上人才分类定级评定标准，符合哪类人才标准？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展吉林省高层次人才分类评定申报工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9728",
+   "url": "https://hrss.jl.gov.cn/?id=9728",
+   "question": "我想咨询一下中级职称的申报年限问题，我是2018年大专毕业，2024年可以进行中级职称申报嘛？有相关的规定链接嘛？麻烦了",
+   "cited_hits": [],
+   "cited_missing": [
+    "转发人社部深化职称制度改革系列文件"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9658",
+   "url": "https://hrss.jl.gov.cn/?id=9658",
+   "question": "请问吉林省工伤保险待遇计发基数所用的职工平均工资是哪项数据",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一规范工伤保险政策体系的意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9433",
+   "url": "https://hrss.jl.gov.cn/?id=9433",
+   "question": "本人通过银行业专业人员中级职业资格考试，取得银行业专业人员职业资格（中级）证书，根据《人力资源社会保障部关于深化经济专业人员职称制度改革的指导意见》（人社部发〔2019〕53号）“专业技术人员取得....银行业等领域相关职业资格，可对应经济",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知",
+    "吉林省部分专业技术类职业资格与职称对应目录",
+    "关于印发《吉林省部分专业技术类职业资格和职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9151",
+   "url": "https://hrss.jl.gov.cn/?id=9151",
+   "question": "吉林省执行的高温补贴标准，是按哪个文件执行的。可否告知文件号",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布全省高温和低温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9145",
+   "url": "https://hrss.jl.gov.cn/?id=9145",
+   "question": "我2002年通过全国执业药师资格考试，取得执业药师（西药）资格证书，一直未注册，现在准备注册工作，但找不到执业药师资格证书了，不知如何补办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "资格考试报名表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7514",
+   "url": "https://hrss.jl.gov.cn/?id=7514",
+   "question": "请问可以领取补贴的证书都包含哪些？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7082",
+   "url": "https://hrss.jl.gov.cn/?id=7082",
+   "question": "需要缴纳失业保险12个月还是36个月",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于失业保险支持参保职工提升职业技能有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "6858",
+   "url": "https://hrss.jl.gov.cn/?id=6858",
+   "question": "领导您好，关于研究生毕业之后依托企业申请职称，是直接可以申请中级工程师的，现在用人单位的人力需要看到有相关文件可以支撑这个情况，还请领导给予说明",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于进一步做好吉林省民营企业职称评审工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "6655",
+   "url": "https://hrss.jl.gov.cn/?id=6655",
+   "question": "你好，请问我已通过计算机软考的中级系统集成项目管理工程师考试，并已取得证书，是否还需要参加今年的职称评定工作、报名现场答辩。此证书是否可视为已取得相关中级职称？ 感谢回答！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知",
+    "吉林省部分专业技术类职业资格与职称对应目录",
+    "关于印发&lt;吉林省部分专业技术类职业资格和职称对应目录&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "5630",
+   "url": "https://hrss.jl.gov.cn/?id=5630",
+   "question": "我想咨询一下，我是事业单位工作人员，初级职称是计算机应用技术（助理工程师）,从事旅游管理与服务相关工作。现在想报考中级经济师（旅游经济），请问如果通过中级经济师考试，取得相关资格，能正常评中级职称吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知",
+    "吉林省部分专业技术类职业资格与职称对应目录",
+    "关于印发《吉林省部分专业技术类职业资格和职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "5181",
+   "url": "https://hrss.jl.gov.cn/?id=5181",
+   "question": "您好！今年参加长春市抗疫的医生，能否提前一年报考卫生专业技术(中级)资格考试？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2023年度卫生专业技术资格考试考务工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "5174",
+   "url": "https://hrss.jl.gov.cn/?id=5174",
+   "question": "初级工程师申报流程，和抄作说明",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展吉林省专业技术人员初级职称认定工作有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "4007",
+   "url": "https://hrss.jl.gov.cn/?id=4007",
+   "question": "你好，咨询吉林省技能提升补贴申领范围及申请的具体条件，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于失业保险支持参保职工提升职业技能有关问题的通知",
+    "阶段性社会保险助企纾困政策实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3984",
+   "url": "https://hrss.jl.gov.cn/?id=3984",
+   "question": "建筑工程高级职称破格申报条件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省建筑工程专业技术人员职称评审实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3748",
+   "url": "https://hrss.jl.gov.cn/?id=3748",
+   "question": "今年考中级经济师，请问在吉林省能不能领到津贴？证书是在《中国人事考试网》报考的。国家人力资源和社会保障部颁发的。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3742",
+   "url": "https://hrss.jl.gov.cn/?id=3742",
+   "question": "吉林省二建分数线什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布2022年度二级建造师考试成绩及合格标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3389",
+   "url": "https://hrss.jl.gov.cn/?id=3389",
+   "question": "2022年取得本科学历，具备工程师职称已经满5年。是否可以2023年申请高级职称（电子电气工程专业技术）",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省电子电气工程专业技术人员职称评审实施办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2631",
+   "url": "https://hrss.jl.gov.cn/?id=2631",
+   "question": "通过统一考试取得全国房地产经纪人职业资格证书属于什么中级专业技术职称吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发《吉林省部分专业技术类职业资格和职称对应目录"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2244",
+   "url": "https://hrss.jl.gov.cn/?id=2244",
+   "question": "初级会计技能补贴如何申领，我需要网址和申领流程，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2243",
+   "url": "https://hrss.jl.gov.cn/?id=2243",
+   "question": "领导您好，根据吉林省出台的人才政策18条，省拔尖创新人才三层次属于哪类人才？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "中共吉林省委吉林省人民政府关于激发人才活力支持人才创新创业的若干意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2085",
+   "url": "https://hrss.jl.gov.cn/?id=2085",
+   "question": "本人于2021年通过法律职业资格考试，于2022年6月取得法律职业资格证书。目前以上班5年，想咨询一下，通过法律职业资格考试之后，能否取得专业补贴资金",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1971",
+   "url": "https://hrss.jl.gov.cn/?id=1971",
+   "question": "2022年度职称评定电子工程系列副高级工程师，论文方面的发表详细要求。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1930",
+   "url": "https://hrss.jl.gov.cn/?id=1930",
+   "question": "大学生职称评定 大学毕业后所从事的职业是大学所学专业，毕业已五年，工作地点在北京，户口在公主岭市。由于毕业生所在单位是私企，无权管理人事档案，档案依然存放在长春公主岭市人才交流中心。五年间职称一次也没评定过，工作单位答复说没有权利评定，人才",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展2022年度吉林省职称评审信息化申报工作的通知",
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1779",
+   "url": "https://hrss.jl.gov.cn/?id=1779",
+   "question": "由于疫情原因，监理工程师考试暂停。现在2022年度考试计划当中排在监理工程师之后的考试都已经安排补考了，想咨询一下监理工程师啥时候安排补考？如果不补考是否会安排统一退费？",
+   "cited_hits": [],
+   "cited_missing": [
+    "【重要通告】关于2022年上半年受疫情影响的职业资格考试后续工作安排的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1697",
+   "url": "https://hrss.jl.gov.cn/?id=1697",
+   "question": "我想咨询一下人才评定E+后的安家费如何申请，是自动走程序吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于激发人才活力支持人才创新创业的若干政策措施（2.0版）",
+    "关于激发人才活力支持人才创新创业的若干政策措施（2.0版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1648",
+   "url": "https://hrss.jl.gov.cn/?id=1648",
+   "question": "请问教师资格证目前还有补贴吗，有的话办理条件是什么，补贴多少。谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1614",
+   "url": "https://hrss.jl.gov.cn/?id=1614",
+   "question": "2022年吉林省基层卫生系列高级职称评审标准是什么？怎么报名？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于做好2022年全省专业技术人员职称制度改革、职称评聘工作等有关事宜的通知",
+    "吉林省基层卫生系列职称评审细则（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1559",
+   "url": "https://hrss.jl.gov.cn/?id=1559",
+   "question": "关于吉林省户外工作人员高温低寒补贴发放标准文件",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于发布全省高温和低温津贴标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1296",
+   "url": "https://hrss.jl.gov.cn/?id=1296",
+   "question": "2022年初级职称怎么申请？在哪申请？需要什么材料？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展吉林省专业技术人员初级职称认定工作有关事宜的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1114",
+   "url": "https://hrss.jl.gov.cn/?id=1114",
+   "question": "2021年评的中级电气工程师，今年7月份下证，有职称补助吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1108",
+   "url": "https://hrss.jl.gov.cn/?id=1108",
+   "question": "初级会计怎么申请补贴（技能提升补贴）在长春社保小程序上不能申请 需要什么材料 怎么申请",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于实施失业保险支持技能提升“展翅行动”的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "865",
+   "url": "https://hrss.jl.gov.cn/?id=865",
+   "question": "您好，我想咨询一下，在工伤赔偿中，涉及统筹地区上年度平均工资的概念时，这个平均工资是指的发布的什么工资？是指的统计局发布的“城镇非私营单位就业人员年平均工资”吗？另外，吉林省是按照市级统筹还是按照升级统筹？比如在长春市发生的工伤，相关的工伤",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于统一规范工伤保险政策体系的意见",
+    "关于公布2020年全省全口径城镇单位就业人员平均工资等有关问题的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "838",
+   "url": "https://hrss.jl.gov.cn/?id=838",
+   "question": "您好： 请问下半年对：监理工程师职业资格考试，会进行补考吗？还是视疫情情况而定？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于2022年上半年受疫情影响的职业资格考试后续工作安排的通告"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "668",
+   "url": "https://hrss.jl.gov.cn/?id=668",
+   "question": "您好，请问2021年长春市职工平均工资是多少呢？需要这个数字计算经济补偿金，因为工资应该已经超过上年度平均工资三倍了，谢谢，期待您的回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于公布2019年省全口径城镇单位就业人员平均工资及部分地区过渡实施标准的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "525",
+   "url": "https://hrss.jl.gov.cn/?id=525",
+   "question": "事业单位评定初级兽医师需要什么条件，执业兽医师证有帮助吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发吉林省农业技术人员职称评审实施办法的通知",
+    "关于印发吉林省部分专业技术类职业资格和职称对应目录的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-hrss",
+   "id": "21422",
+   "url": "https://hrss.jl.gov.cn/?id=21422",
+   "question": "在22年1月份取得国家三级演员，在这之前是自由职业者，没有被任何单位受聘过。在22年8月通过考试进入了教育系统，想知道这是职称申报，是否可以报同级改职，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "17875",
+   "url": "https://hrss.jl.gov.cn/?id=17875",
+   "question": "2024年吉林省二建考试成绩什么时候公布",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "17116",
+   "url": "https://hrss.jl.gov.cn/?id=17116",
+   "question": "请问2023年吉林省非私营单位社平工资数额今年还公布吗，什么时间公布！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "14226",
+   "url": "https://hrss.jl.gov.cn/?id=14226",
+   "question": "2014年由吉林省专业技术资格核准颁发的系统集成工程师职称证书无法在全国人力资源和社会保障政务服务平台查询到。请问是否信息未录网，如果能够解决，全部处理流程大概多长时间？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "14129",
+   "url": "https://hrss.jl.gov.cn/?id=14129",
+   "question": "请问保育员证书如何报考，省人社厅公布的授权的培训机构都有哪些",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "13239",
+   "url": "https://hrss.jl.gov.cn/?id=13239",
+   "question": "吉林省各系列职称评价基本标准条件（见省人社厅官网），这个在哪找啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10894",
+   "url": "https://hrss.jl.gov.cn/?id=10894",
+   "question": "2023年环境工程类高级职称信息什么时候能够查询到，是不是现在没有纸板证书了，电子版证书到哪里查，何时能查到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10409",
+   "url": "https://hrss.jl.gov.cn/?id=10409",
+   "question": "领取证书补贴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10405",
+   "url": "https://hrss.jl.gov.cn/?id=10405",
+   "question": "中级职称证原件丢失了，可以补办吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "10208",
+   "url": "https://hrss.jl.gov.cn/?id=10208",
+   "question": "补办需要什么材料，补办的流程是什么？谢谢，有职称证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9559",
+   "url": "https://hrss.jl.gov.cn/?id=9559",
+   "question": "我公司想申办民办职业培训学校，请问归贵厅哪个部门负责？具体咨询电话及联系人？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9310",
+   "url": "https://hrss.jl.gov.cn/?id=9310",
+   "question": "省厅颁发的高级专业技术职称证书丢书，补发需要的材料都有哪些能否留下联系电话咨询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9294",
+   "url": "https://hrss.jl.gov.cn/?id=9294",
+   "question": "您好，我是外地户籍，现于长春工作，单位正常缴纳社保。之前我在河南郑州读书时，学校曾给办过一张带有河南省人社厅和中国银行字样及本人照片的实体社保卡，但从未使用过。目前，我的电子社保卡显示参保地为河南郑州，且不可修改。请问这种情况，我需要办理吉",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "9186",
+   "url": "https://hrss.jl.gov.cn/?id=9186",
+   "question": "你好，想问一下吉林省副高职称申报条件及政策文件",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8683",
+   "url": "https://hrss.jl.gov.cn/?id=8683",
+   "question": "您好，我想咨询全日制硕士研究生，事业单位转正定级可以定非领导职务八级管理么，还是必须定九级管理岗，请问相关内容规定出自哪份文件，从哪里查阅，感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8603",
+   "url": "https://hrss.jl.gov.cn/?id=8603",
+   "question": "你好，老师。我是长春市直事业单位专业技术人员。2017年下证的中级职称证书（馆员），单位已经在2019年聘用。现在证书原件丢失，是否可以补办？补办流程是什么？到哪里申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8562",
+   "url": "https://hrss.jl.gov.cn/?id=8562",
+   "question": "2021、2022吉林省相继出台了各系列的职称评审办法，但由人社厅评委会组织的《管理工程》专业，在人社厅网站无法找到对应的评审办法，过往年度的《管理工程》专业评审办法也无法查到，能否将《管理工程》现行的评审办法提供给我一份，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8333",
+   "url": "https://hrss.jl.gov.cn/?id=8333",
+   "question": "老师好，我咨询我的正高级电气自动化专业目前显示是可以缴费，是原件审核完毕了还是现在不需要审核。我现在缴费可以吗。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8316",
+   "url": "https://hrss.jl.gov.cn/?id=8316",
+   "question": "我母亲是2023年1月去世，是辽源市企业退休人员，想咨询下今年丧葬费与抚恤金的标准。期待回答",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "8305",
+   "url": "https://hrss.jl.gov.cn/?id=8305",
+   "question": "毕业生档案转回生源地，档案转寄单位名称，单位地址，接收部门，联系电话",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7822",
+   "url": "https://hrss.jl.gov.cn/?id=7822",
+   "question": "您好，本人有多本执业资格证书，每年都参与持有资格证书行业的继续教育培训，满足90学时，且有继续教育学习培训证书，这种情况下还需要到人社厅的平台再学习90学时吗？如果不用，该怎么对接，如果还需要学，是不是两者相冲突，重复学习。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7762",
+   "url": "https://hrss.jl.gov.cn/?id=7762",
+   "question": "请问2023年延边州有事业单位招聘吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7658",
+   "url": "https://hrss.jl.gov.cn/?id=7658",
+   "question": "吉林省事业单位农艺师专技岗12级如何晋级11级和参评中级职称需要什么条件？请邮件回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7554",
+   "url": "https://hrss.jl.gov.cn/?id=7554",
+   "question": "我想查一下现在档案在什么地方",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "7167",
+   "url": "https://hrss.jl.gov.cn/?id=7167",
+   "question": "我是前一天在人力资源和社会保障厅网站上关于社会保障卡的问题留了言，第二天一早上就接到客服电话，关于我的问题客服很耐心的讲解并告诉我解决方法。在此非常非常感谢吉林省人力资源和社会保障厅网站和客服姐姐，使的我的问题能够被看见被解决，非常感谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "5753",
+   "url": "https://hrss.jl.gov.cn/?id=5753",
+   "question": "您好 22年职称证书什么时候可以领取 在什么网站办理？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3726",
+   "url": "https://hrss.jl.gov.cn/?id=3726",
+   "question": "2022年6月参加的高级经济师考试，考试通过了，2022年还会有经济系列副高级经济师的评审吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3581",
+   "url": "https://hrss.jl.gov.cn/?id=3581",
+   "question": "您好，我想咨询下吉林省副高副高级工程师评审具体要求，对业绩、论文、软著、专利都有啥要求，请您解答，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3491",
+   "url": "https://hrss.jl.gov.cn/?id=3491",
+   "question": "您好！我想咨询下今年应届毕业生在吉林就业创业的优惠政策，尤其是今年新出的优惠政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "3466",
+   "url": "https://hrss.jl.gov.cn/?id=3466",
+   "question": "老师，今年高级职称证书不发放纸质版了，电子版在哪里可以查询到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2673",
+   "url": "https://hrss.jl.gov.cn/?id=2673",
+   "question": "您好，因课题研究需要，向贵单位申请通化市七普中城乡常住人口的数量和城镇化率，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2593",
+   "url": "https://hrss.jl.gov.cn/?id=2593",
+   "question": "吉林省2020年、2021年两个年度的在岗职工平均工资（社平工资）",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2568",
+   "url": "https://hrss.jl.gov.cn/?id=2568",
+   "question": "档案在吉林市人才，请协助查询档案编号，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2507",
+   "url": "https://hrss.jl.gov.cn/?id=2507",
+   "question": "毕业多年 ，现因为报考高校涉及调档案的问题 但本人报到证丢失 ，调档案是否需要补办报到证？如何补办？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2432",
+   "url": "https://hrss.jl.gov.cn/?id=2432",
+   "question": "户籍在吉林省磐石市，2020年毕业后一直没有签单位，请问人事档案存放在那个单位啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2297",
+   "url": "https://hrss.jl.gov.cn/?id=2297",
+   "question": "看到文件规定今年职称证电子化，问专业技术资格评审表也实行电子化吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2283",
+   "url": "https://hrss.jl.gov.cn/?id=2283",
+   "question": "基层连续工作满30聘高级职称不受单位职数限制的政策从什时候开始的。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2237",
+   "url": "https://hrss.jl.gov.cn/?id=2237",
+   "question": "尊敬的领导 您好 &nbsp; &nbsp;我是22年应届毕业生，现在身份是2022年第二学士学位新生，本科后教育。大学已经毕业（第二学士学位为两年），请问第二学位在读第一年能够以应届生参加国考、省考以及选调生考试嘛。 &nbsp;谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2209",
+   "url": "https://hrss.jl.gov.cn/?id=2209",
+   "question": "职业技能提升考试哪里报名(保育师、健康管理师等)",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2183",
+   "url": "https://hrss.jl.gov.cn/?id=2183",
+   "question": "关于印发《关于完善全省事业单位工作人员岗位聘用工作的意见》的通知(吉人社联字〔2014〕39号) 这份文件无法打开，希望抓紧更新方便查询。http://hrss.jl.gov.cn/gg/index_48.htm",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "2010",
+   "url": "https://hrss.jl.gov.cn/?id=2010",
+   "question": "2021年10月份考试通过了执业药师，请问咱们省的津贴补贴怎么领取？烦请告知，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1920",
+   "url": "https://hrss.jl.gov.cn/?id=1920",
+   "question": "本人是2022年外省毕业应届生，户籍在吉林省长春市，请问在长春市就业可以申请哪些补贴，申请渠道和流程",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1889",
+   "url": "https://hrss.jl.gov.cn/?id=1889",
+   "question": "干部编制怎么变成工人了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1885",
+   "url": "https://hrss.jl.gov.cn/?id=1885",
+   "question": "我刚刚拿到我的中级证书，不知道是不是可以查询，授予时间是2021年1月，有查询的网址么？谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1879",
+   "url": "https://hrss.jl.gov.cn/?id=1879",
+   "question": "本人大学毕业后考取了外省公务员，参加工作已满五年，父母均为吉林省户籍，生活在吉林省内，作为独生子女，时刻牵挂家中父母，近期了解部分省市出台了相关的公务员返乡人才引进相关政策，吉林省是否有相关政策规定。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1831",
+   "url": "https://hrss.jl.gov.cn/?id=1831",
+   "question": "进入事业单位后，补缴的企业社保是否算工龄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1800",
+   "url": "https://hrss.jl.gov.cn/?id=1800",
+   "question": "吉林省二级建造师成绩什么时候能发表？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1754",
+   "url": "https://hrss.jl.gov.cn/?id=1754",
+   "question": "吉林省公主岭市 岭东工业集中区 吉林远成汽车悬架汽车弹簧有限公司拖欠三个月工资，社保至2020至今社保一直没有缴纳，多次沟通无果。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1738",
+   "url": "https://hrss.jl.gov.cn/?id=1738",
+   "question": "你好，我是一名基层卫生院的正式职工，在2006年取得了执业药师资格证，无不良记录及违法记录，现在需要在基层卫生院聘任为主管药师岗位，我个人提供执业药师资格证后是不是就可以在县卫建系统认定为主管药师？还需要提供其他什么证书吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1713",
+   "url": "https://hrss.jl.gov.cn/?id=1713",
+   "question": "吉林省二级建造师什么时候出成绩",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1635",
+   "url": "https://hrss.jl.gov.cn/?id=1635",
+   "question": "四年工龄，八月四号离职，当月社保是单位缴纳吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1606",
+   "url": "https://hrss.jl.gov.cn/?id=1606",
+   "question": "长春市社保视同缴费年限按哪一年算",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1535",
+   "url": "https://hrss.jl.gov.cn/?id=1535",
+   "question": "您好，我是今年毕业并在长春入职的研究生，想问一下这边可以享受到哪些人才政策",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1533",
+   "url": "https://hrss.jl.gov.cn/?id=1533",
+   "question": "吉林市2022年事业单位2号公告，密码登录不进去，重置密码后说发邮箱，但始终没有收到新密码，打电话始终没有人接，怎么办，非常着急，还有两天就考试了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1489",
+   "url": "https://hrss.jl.gov.cn/?id=1489",
+   "question": "原单位医保还欠了一个月，社保迟迟不给我办理减员，使我在新公司没法增员，已经沟通无果，电话也不接了。现在就想自己办理减员，怎么能办理。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1474",
+   "url": "https://hrss.jl.gov.cn/?id=1474",
+   "question": "您好，我参评的2021年职称在“全国人力资源和社会保障政务服务平台”上的在线服务-人才人事-全国职称评审信息查询 里面查不到，证书是7月初下来的，请问什么时间可以再网上能查询到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1465",
+   "url": "https://hrss.jl.gov.cn/?id=1465",
+   "question": "你好，我想请问一下我的档案报到证的地址错了，去哪里修改呢？需要本人亲自去吗？改的话需要准备哪些材料啊？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1439",
+   "url": "https://hrss.jl.gov.cn/?id=1439",
+   "question": "您好！我想咨询下高校应届毕业生在吉林就业创业优惠政策，尤其是今年的优惠政策，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1419",
+   "url": "https://hrss.jl.gov.cn/?id=1419",
+   "question": "职业技能评价考评员如何考取，需要什么报名条件，在哪里可以查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1413",
+   "url": "https://hrss.jl.gov.cn/?id=1413",
+   "question": "您好，我想了解海归硕士目前在长春市所能享受的人才引进政策和补贴及相关信息。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1392",
+   "url": "https://hrss.jl.gov.cn/?id=1392",
+   "question": "档案邮寄到人才交流中心之后需不需要拿着报到证去人才交流中心去报到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1338",
+   "url": "https://hrss.jl.gov.cn/?id=1338",
+   "question": "因时间久远 ，忘记个人档案放在那里了 请问如何查找个人档案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1313",
+   "url": "https://hrss.jl.gov.cn/?id=1313",
+   "question": "老师您好，我在省外人力资源社会保障局评审通过核发的中级职称证书，在吉林省内可以通用或认可吗？能否用省外的中级职称证书作为依据去评审吉林省的高级职称？另外是否可以换成本省同级的职称证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1312",
+   "url": "https://hrss.jl.gov.cn/?id=1312",
+   "question": "您好，我参评的2021年高级职称在“全国人力资源和社会保障政务服务平台”上的在线服务-人才人事-全国职称评审信息查询 里面查不到，证书是7月初下来的，是还没有上传么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1290",
+   "url": "https://hrss.jl.gov.cn/?id=1290",
+   "question": "通过一级建造师申请同级改职的机电工程职称，原一级建造师证书需要上交么？ 相关部门会把一建给作废么？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1267",
+   "url": "https://hrss.jl.gov.cn/?id=1267",
+   "question": "2021年公示职称自主评审“专精特新”中小企业名单文件公告在哪里？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1222",
+   "url": "https://hrss.jl.gov.cn/?id=1222",
+   "question": "档案已经由长春市人才服务中心接收并存档，原报到证地址也是长春市人才服务中心，报到完成后与国有企业签订三方协议，企业要求报到证改派到企业，该去哪里办理相关手续，需要什么材料",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1198",
+   "url": "https://hrss.jl.gov.cn/?id=1198",
+   "question": "请问，满足申领条件的2022年刚毕业的毕业生是否还可以申领高校毕业生就业创业补贴？是否可以网上自助办理？网上办理的流程有哪些？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1185",
+   "url": "https://hrss.jl.gov.cn/?id=1185",
+   "question": "2021年评上副主任医师，请问发证机关是哪？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "1024",
+   "url": "https://hrss.jl.gov.cn/?id=1024",
+   "question": "吉林省2022年二级建造师成绩何时公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "968",
+   "url": "https://hrss.jl.gov.cn/?id=968",
+   "question": "工作一年的事业单位工作人员，现是专业技术12级助理工程师，想要了解晋级档案管理中级职称馆员需要的所有材料、证书及相关手续，是否还需要考助理馆员资格，望尽快回复为盼。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "945",
+   "url": "https://hrss.jl.gov.cn/?id=945",
+   "question": "2021年。在长春的医学职称考试证书如何发放？何时发放？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "910",
+   "url": "https://hrss.jl.gov.cn/?id=910",
+   "question": "2021年职称什么时候能网络查询，比如吉林智慧人社网上办事大厅，或者全国人社政务服务平台，有预期时间么",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "868",
+   "url": "https://hrss.jl.gov.cn/?id=868",
+   "question": "您好，我是一名在读硕士研究生，因课题需要吉林省各地级市2010-2020常住人口城镇化率，请问您可以发到我的邮箱吗，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "834",
+   "url": "https://hrss.jl.gov.cn/?id=834",
+   "question": "吉林市公务员是否需要个人缴纳社会基本养老保险费？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "832",
+   "url": "https://hrss.jl.gov.cn/?id=832",
+   "question": "6.4血清免疫学检查6.4.1梅毒螺旋体血凝试验（ TPHA ）系用梅毒螺旋体提取物致敏的红细胞微量血凝析技术检测抗梅毒螺旋体 IgG 抗体。该试验的敏感性和特异性均可达99%。该试验在滴度较低（1:20）时容易受血清中存在的嗜异性抗体的干",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "831",
+   "url": "https://hrss.jl.gov.cn/?id=831",
+   "question": "吉林省2022年二级建造师成绩何时公布？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "790",
+   "url": "https://hrss.jl.gov.cn/?id=790",
+   "question": "请问什么时候发放2021年度职称证书？上次查询到回复是6月底完成，今天7月22日，还没收到发放通知",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "721",
+   "url": "https://hrss.jl.gov.cn/?id=721",
+   "question": "你好，请问县级事业单位什么时候能发绩效奖金和车补？是否将事业绩效和车补问题 提上研究议程？基层事业编管理岗待遇亟待提高，收入连社会平均水平都达不到，只够勉强糊口 难以养家，希望领导予以重视。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "708",
+   "url": "https://hrss.jl.gov.cn/?id=708",
+   "question": "请问2022年安家费发放时间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "690",
+   "url": "https://hrss.jl.gov.cn/?id=690",
+   "question": "我2011-2015年在吉林市东北电力大学就读期间，学校代为办理了吉林市社会保障卡，毕业后先后在河南和上海工作，现需注销吉林市社保卡，是否可以异地办理，如何办理？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "664",
+   "url": "https://hrss.jl.gov.cn/?id=664",
+   "question": "长春市女职工生产已超过7个月了，孩子现在已经超过3周岁了，但是当时没有申领生育津贴，还可以补领吗？如果可以的话补领手续流程是什么？期间没有换过单位，也没有断交过保险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "663",
+   "url": "https://hrss.jl.gov.cn/?id=663",
+   "question": "你好，我想咨询下具体吉林省/长春市人才引进政策。谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "624",
+   "url": "https://hrss.jl.gov.cn/?id=624",
+   "question": "教龄满30年评定副高级职称，对学历要求是什么，中专学历是否可以？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "564",
+   "url": "https://hrss.jl.gov.cn/?id=564",
+   "question": "2021年职称什么时候能在全国职称评审信息平台查询",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "563",
+   "url": "https://hrss.jl.gov.cn/?id=563",
+   "question": "本人是大学毕业生，学校发了一张报到证显示我的档案邮寄到了伊通满族自治县人力资源和社会保障局，请问我应该如何处理这张报到证，是否需要拿着报到证到该处报道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "562",
+   "url": "https://hrss.jl.gov.cn/?id=562",
+   "question": "领导您好：我于2021年12月在辽宁省沈阳市东北大学博士后出站，随后通过人才引进渠道进入吉林大学教师岗位，目前技术职务为副高级。现在户口在沈阳，有意向迁入长春，并在长春购买自住房。想咨询一下几个问题：1.落户长春，长春市有何人才引进政策；2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "512",
+   "url": "https://hrss.jl.gov.cn/?id=512",
+   "question": "2014年农艺师公示结果在哪里能查到",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-hrss",
+   "id": "507",
+   "url": "https://hrss.jl.gov.cn/?id=507",
+   "question": "您好，我是2022届吉林大学硕士应届毕业生，我与2017-2018年在长春短暂工作过，后全日制读研。现毕业后是否符合人才补贴和住房保障政策？各部门解答不一，关于去年下发的文件上所提到的首次就业是如定义的？是不是有个时间限制在什么时间之后首次",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

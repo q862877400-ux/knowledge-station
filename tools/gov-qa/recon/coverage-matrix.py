@@ -3,7 +3,11 @@
 归属判定（从强到弱）：
   1. `extra.pForumNames[0]`（留言板地方流自带省→市→县链）；
   2. `extra.fid_label` / `dept` 里的省市名（留言板定向版块）；
-  3. 来源前缀：`gd-*` → 广东省；`hunan-*` → 湖南省；
+  3. 来源前缀：`gd-*` → 广东省；`hunan-*` → 湖南省；`gz-*` → 贵州省；`jl-*` → 吉林省……
+     ⚠ 这一层**必须有**：IGI 站的**旧信**（如 gz-zrzy 的 2020 年那批）上游
+     `extra.province/city/area` 全是空串，拿不到第 1/2 层的链，只能靠来源前缀归省。
+     表里同时放「精确来源」与「省级简称族」两级 —— 新增同省适配器时族级已兜住，
+     不必再改这张表（2026-10-08 就是漏改这张表，让 gz-zrzy 524 条掉进「未归属」）。
   4. 国家级来源（`mee`/`mem`/`people-liuyan`）→ 「国家级（部委）」。
 产出：`recon/coverage-matrix.json`（机器可读）+ `recon/coverage-matrix.md`（人看）。
 """
@@ -16,7 +20,15 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 DATA = HERE.parent / "data"
 
-PROVINCE_PREFIX = {"gd-": "广东省", "hunan-": "湖南省", "sc-st": "四川省", "ah-st": "安徽省", "ln-st": "辽宁省", "jl-st": "吉林省", "gz-st": "贵州省", "gz-wjw": "贵州省", "gz-jyt": "贵州省", "gz-rst": "贵州省", "gz-zfcx": "贵州省", "gz-nynct": "贵州省", "jl-wjw": "吉林省"}
+PROVINCE_PREFIX = {
+    # —— 精确到来源（优先匹配）——
+    "sc-st": "四川省", "ah-st": "安徽省", "ln-st": "辽宁省",
+    "gz-st": "贵州省", "gz-wjw": "贵州省", "gz-jyt": "贵州省", "gz-rst": "贵州省",
+    "gz-zfcx": "贵州省", "gz-nynct": "贵州省", "gz-swt": "贵州省", "gz-zrzy": "贵州省",
+    "jl-st": "吉林省", "jl-wjw": "吉林省", "jl-hrss": "吉林省", "jl-jt": "吉林省",
+    # —— 省级简称族（兜底；新增同省适配器时不必再改本表）——
+    "gd-": "广东省", "hunan-": "湖南省", "gz-": "贵州省", "jl-": "吉林省",
+}
 NATIONAL = {"mee", "mem", "people-liuyan"}
 
 #: 什么才算省级名（部委流的 pForumNames 装的是部委名，别混进来）
