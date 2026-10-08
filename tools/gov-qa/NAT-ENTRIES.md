@@ -18,6 +18,7 @@
 | 国家林业和草原局·互动留言 | ✅ 可用 | JEECMS 站内接口 | **673** | `nat_forestry` |
 | 国家医疗保障局·交流公开 | ✅ 可用 | 自研 JSON（cap:7913） | **37** | `nat_nhsa` |
 | 中国气象局·回应关切 | ✅ 可用 | 静态列表+明细 | **≈30** | `nat_cma` |
+| 农业农村部·留言回复 | ✅ 可用 | 站内静态 JSON | **824** | `nat_moa` |
 | 自然资源部·建议留言 | ❌ 纯表单/个人查询 | — | 0 | — |
 | 司法部·网民留言 | 🔴 登录墙 | SPA `/sfbconsult/` | 0 | — |
 | 市场监管总局·公众留言 | ❌ 登录墙+聊天机器人 | — | 0 | — |
@@ -33,7 +34,7 @@
 | 国务院「互联网+督查」全国版 | ❌ 仅新闻，无公开问答列表 | — | 0 | — |
 | 中央纪委国家监委举报网站 | ❌ 举报通道（无答复文本） | — | 0 | — |
 
-> **9 个可用源**合计约 **30.8 万条**（其中知识产权局占 25 万）。翻案：林草局/医保局/气象局由 🟡→✅；国务院督查全国版由 🟡→❌。
+> **10 个可用源**合计约 **30.9 万条**（其中知识产权局占 25 万）。翻案：林草局/医保局/气象局/农业农村部由 🟡→✅；国务院督查全国版由 🟡→❌。
 
 ## 二、逐条核验（部委 | 栏目 | 入口 | 结论 | 条数 | 证据）
 
@@ -54,7 +55,7 @@
 | 财政部 | 咨询留言 | `mof.gov.cn` → 交流互动 | ⬜ 未核 | ? | — |
 | 人力资源社会保障部 | 部长信箱 | `mohrss.gov.cn` → 互动 | ⬜ 未核 | ? | — |
 | 水利部 | 部长信箱 | `mwr.gov.cn` → 互动 | ⬜ 未核 | ? | — |
-| 农业农村部 | 部长信箱/网上信访 | `moa.gov.cn/wsxfbzxx/…` | ⬜ 未核 | ? | — |
+| 农业农村部 | 留言回复 | `moa.gov.cn/hd/` → 网民互动 | ✅ 可用（翻案） | **824** | 站内静态 JSON `GET /bzxxlyhf/xfwy/jsonFiles/reply.json` 200 → `[{strMinisterCode,strLetter(问题),strContent(答复HTML),strHandleOrgName,dtHandleStr}]`；**答复内联**，点名《农村综合统计调查制度》（`recon/nat-probe-moa-reply.json`）。⚠ 同域「留言选登」`publish.json` **只有问题无答复**（90 条），不合格 |
 | 商务部 | 部长信箱 | `mofcom.gov.cn` → 互动 | ⬜ 未核 | ? | — |
 | 文化和旅游部 | 部长信箱 | `mct.gov.cn` → 互动 | ⬜ 未核 | ? | — |
 | 国家卫生健康委 | 政策咨询平台 | `nhc.gov.cn/hdjl/denglu.html` | 🔴 疑登录墙（清单已知） | 0 | URL 含 "denglu" |
@@ -120,6 +121,7 @@
 | `nat-nhsa` | `adapters/nat_nhsa.py` | ✅ 已抽验 | --limit 3 通过（答复内联） |
 | `nat-forestry` | `adapters/nat_forestry.py` | ✅ 已抽验 | --limit 3 通过（答复内联） |
 | `nat-cma` | `adapters/nat_cma.py` | ✅ 已抽验 | --limit 3 通过（静态列表+明细） |
+| `nat-moa` | `adapters/nat_moa.py` | ✅ 已抽验 | --limit 3 通过（答复内联） |
 
 ## 四、给接手的人 · 复用要点
 
@@ -132,3 +134,4 @@
 7. **「交流公开」类栏目常藏在 iframe 里**（国家医保局）：门户栏目页只有 `<iframe src="https://cap.<host>:<port>/exchangeOpen.html">`；真正接口在 iframe 的 `assets/api/api.js`（`var production=…`）。**遇到 iframe 先取它的 HTML 再顺 `api.js`**。
 8. **自研 JSON 接口要带 `Referer`/`Origin`**（国家医保局）：`openInfoList` 不带 Referer 直接 500，带上 200。政务自研接口（尤其带 `code:20000` 风格的）常见此坑。
 9. **静态列表翻页规律**（中国气象局）：页尾 `createPageHTML(N, 0, "index", "html")` ⇒ 共 N 页，第 1 页是目录 `index.html`，第 k(k≥2) 页是 `index_{k-1}.html`。**TRS/大汉 CMS 通用**。
+10. **「站内静态 JSON」是最省事的形态**（农业农村部）：列表页内联 JS 里写死 `../jsonFiles/<x>.json`，直接 GET 即得全量（`reply.json` 824 条，问题+答复内联）。**遇到 `$.getJSON('../jsonFiles/…')` 直接抓那个 JSON**，别去解析 DOM。⚠ 同域可能并列多个 JSON（`publish.json`=只问题 / `reply.json`=问题+答复），**要挑有答复字段的那个**。
