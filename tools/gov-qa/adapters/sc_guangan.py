@@ -56,8 +56,9 @@ def _clean(s) -> str:
 
 
 def _dept(meta) -> str | None:
+    # ⚠ 数融 metadataList 的字段名是「**回复**单位」（不是「答复单位」）。兼容两种。2026-10-09 修。
     for m in (meta or []):
-        if isinstance(m, dict) and m.get("name") == "答复单位":
+        if isinstance(m, dict) and "单位" in (m.get("name") or ""):
             v = (m.get("metadataValue") or "").strip()
             if v:
                 return v

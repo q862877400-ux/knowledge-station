@@ -42,7 +42,10 @@ COLUMNS = [("6788131", "市长信箱"), ("6788121", "书记信箱")]
 _TAG = re.compile(r"<[^>]+>")
 _ID_RE = re.compile(r"messageBoardlink\(\s*['\"]https://www\.cnbz\.gov\.cn/content/article/(\d+)['\"]")
 _Q_RE = re.compile(r'内容：\s*</th>\s*<td[^>]*class="nrtxt"[^>]*>(.*?)</td>', re.S)
-_A_RE = re.compile(r'<div class="dfyj">(.*?)</div>', re.S)
+# ⚠ 答复正文内含**嵌套 <div>**（`<div class="dfyj"><p>答复意见：</p>…<big>…</big><div>…</div>…</div>`），
+#   用 `(.*?)</div>` 会在第一个内层 `</div>` 处截断（实测 35% 的答复只剩「尊敬的网友：您好！」）。
+#   改为匹配到单元格结束 `</td>`（答复正文里不含 </td>）。2026-10-09 修。
+_A_RE = re.compile(r'<div class="dfyj">(.*?)</td>', re.S)
 _DEPT_RE = re.compile(r"答复单位：\s*([^\s<&]+)")
 _TIME_RE = re.compile(r"答复时间：\s*([0-9\-: ]+)")
 
