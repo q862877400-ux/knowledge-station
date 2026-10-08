@@ -1,0 +1,170 @@
+================================================================================
+新疆 / 西藏 / 山东 / 广西 / 青海  五省 问答平台 重探  证据文件
+工具：general-purpose-4    日期：2026-10-08
+================================================================================
+背景：province-platform-hunt.txt（2026-10-08）给这五省的结论是——
+  · 新疆：门户可达，问答在信访域名 wsxf.xjxfj.gov.cn（未采）
+  · 西藏：门户可达，留言选登 xzxf.xizang.gov.cn/ocp/wsxx.html（未采）
+  · 山东 / 广西 / 青海：门户 **ConnectError / ConnectTimeout**（判「本机不可达」）
+本次任务：逐一确认/拿下，或如实判死。
+
+合规：请求间隔 ≥1.5s；403/412 立即停；不可达域名最多 2 scheme + 2 候选域名。
+      未改 adapters/__init__.py、data/、assets-*、*.md、别人的 adapters/*.py。
+      本文件之外的新增产物（均属本任务命名空间）：
+        adapters/xj_dchs.py  adapters/gx_mailbox.py  adapters/sd_12345.py  adapters/qh_wsxf.py
+        recon/xj-xz-sd-gx-qh-probe.py / -fetch.py / -dig.py / -js.py / -test{,2,3}.py
+        recon/xj-xz-sd-gx-qh-adapt-test.py（+ .log）
+        recon/{sd,gx,qh}-home.html  recon/sd-col94092.html  recon/sd-col100084.html
+        recon/sd-ListDxal.html  recon/sd-listworkloadzsk.html  recon/sd-sd_hd.js
+        recon/sd-art-detail.html  recon/gx-hdjl.html  recon/gx-mailbox.html
+        recon/gx-guizaiwen.html  recon/gx-api_mailbox.js
+        recon/qh-zmhd.html  recon/qh-wsxf.html  recon/qh-bmwd.html
+        recon/qh-wsxf-detail.html  recon/qh-bmwd-detail.html  recon/qh-count.js
+        recon/xj-wsxf-queryIndex.html  recon/xj-onlineILsit.html  recon/xj-main-index.html
+        recon/xj-queryLetter.js  recon/xj-index.js  recon/xj-hlwdc.html
+        recon/xj-dchs-list.html  recon/xj-dchs-detail.html
+        recon/xz-wsxx.html  recon/xz-zmhd.html
+
+--------------------------------------------------------------------------------
+一、总览（五省结论）
+--------------------------------------------------------------------------------
+✅ 拿下（4 省）：
+  · 广西 —— **IGI 平台**（零改造复用 _igi_common.py；带省/市/区三级归属）
+  · 山东 —— 12345 热线「典型留言」ashx JSON 接口
+  · 青海 —— 门户「互动交流·群众诉求回应」静态问答库
+  · 新疆 —— 门户「互联网+督查·督查回声」静态问答库
+        （⚠ 信访域名 wsxf.xjxfj.gov.cn 那条线**未通**，公开问答列表需登录/查询码；
+          改从门户督查回声拿下）
+❌ 未通（1 省）：
+  · 西藏 —— 门户「留言选登」按钮指向的 xzxf.xizang.gov.cn/ocp/wsxx.html **已改版为登录门户**
+            （301 到 /ocp/index.html），全站功能（我要投诉/建议/查询评价）均需自治区统一身份认证登录。
+
+★★ 最重要的一条：**「鲁/桂/青 本机不可达」是假象 —— 三省 http 明文全部 200 可达**，
+   ConnectError/Timeout 全是 **https** 失败（山东 SSL 握手失败、广西证书主机名不匹配、青海 https 超时）。
+   教训：旧结论只试了 https。**遇到 ConnectError 必须补试 http。**
+
+--------------------------------------------------------------------------------
+二、逐省台账
+--------------------------------------------------------------------------------
+
+【新疆】结论：**拿下**（走门户「互联网+督查·督查回声」，非信访线）
+  门户 www.xinjiang.gov.cn [https 200]；政民互动 /xinjiang/zmhd/hd.shtml 把问答指向信访域名。
+  ── 信访线（**未通**，如实记录）──
+    · https://wsxf.xjxfj.gov.cn/html/onlineInquiry/queryIndex.jsp?regionCode=650000000000
+      → HTTP 200 / 7544B，**是查询表单**（要「信访人姓名 + 查询码 + 验证码」，验证码 /servlet/VerifyCodeServlet）。
+    · /html/onlineInquiry/onlineILsit.jsp（我的投诉，queryLetter.js）：
+      POST /letter/pre-accept-letter-info!getLetterList.action → **空**
+      `[{"letterList":[],"pageSize":7,"currentPage":1,"allRow":0,"totalPage":0}]`
+      （因 `/user/network-user-info!checkLogon.action` → `{logonFlag:'false'}`，**未登录**）。
+    · /letter/pre-accept-letter-info!letterFeedbackList.action → 9722B，只有「来信反馈」通知
+      （网名+日期+regionName，**无问答正文**）。
+    ⇒ 信访公开问答**需登录**，不可采。
+  ── 门户公开问答（**拿下**）──
+    · 入口：自治区「互联网+督查」平台 https://www.xinjiang.gov.cn/xinjiang/hlwdc/hlwdc.shtml
+      的「督查回声」栏目 → 列表 `/xinjiang/dchs/common_list.shtml`。
+    · 分页：`createPageHTML('page-div',23, 1,'common_list','shtml',227)` ⇒ **23 页 / 227 条**；
+      页 1 = `common_list.shtml`，页 N（N≥2）= `common_list_{N}.shtml`
+      （⚠ 实测 `common_list_1.shtml` = **404**，页 2 从 `_2` 起；别用 `_1`）。
+    · 明细 `/xinjiang/dchs/YYYYMM/<32位hex>.shtml`：
+      标题 = meta `ArticleTitle`（「群众反映…问题{单位}…{办理结果}」）；
+      正文 = `<div id="NewsContent">…</div>`（无嵌套 div）；日期 `p.yyyy`+`p.mmdd`+`p.hhmm`；
+      来源 `p.source`（多为「自治区人民政府督查室」）。
+    · 实测：列表 200（10 条/页 ×23 页）；明细 200 且含「群众反映…收到留言后督促…核查办理」。
+      样例：群众反映酒店占用公共停车泊位 → 伊犁州政府依法限期整改。
+    · 适配器 `adapters/xj_dchs.py`（key **xj-dchs**）。
+
+【西藏】结论：**未通**（门户留言选登已改版为登录门户）
+  门户 www.xizang.gov.cn [http 200]；/zmhd/ 里「留言选登」按钮 href =
+  `http://xzxf.xizang.gov.cn/ocp/wsxx.html`。
+  · 实测 http://xzxf.xizang.gov.cn/ocp/wsxx.html → HTTP 200 但 **301/跳转到 /ocp/index.html**
+    （final=/ocp/index.html，20961B）——该页是「西藏信访网上投诉平台（藏易访）」门户，**不是留言列表**；
+    页面只有 信访指南 / 我要投诉 / 我要建议 / 查询评价 四个入口，且提示
+    「已与自治区统一身份认证系统对接，请在统一身份认证系统认证后登录」。
+  · 替代路径 `/ocp/wypj.html`（查询评价）、`/ocp/wyjy.html`（我要建议）均 200 但同为登录表单。
+  · 门户 /zmhd/ 其余栏目为 意见征集（yjzj）/ 回应关切（hygq）/ 政务访谈，**无公开问答列表**。
+  ⇒ 公开问答列表**需登录**，不可采。适配器：无。
+
+【山东】结论：**拿下**（12345 热线「典型留言」JSON 接口）
+  ★ 旧结论「ConnectError」= **https** 失败：`https://www.shandong.gov.cn` →
+    `ConnectError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE]`（0.13s）；
+    **http://www.shandong.gov.cn → HTTP 200 / 66507B**（0.08s）。
+  门户政民互动 `/col/col94092/index.html` [200]；省长信箱 / 12345 / 反馈回应 / 意见征集。
+  试过并**放弃**的线：
+    · 「反馈回应」`/col/col100084/index.html`：首页 46 条问答（hanweb CMS），明细
+      `art_100084_*.html` 含「答复内容」；但翻页 `dataproxy.jsp` 有 **CSRF 防护**
+      （带 cookie 仍返回空：`totalRecord=0;totalPage=0;dataStore = ['csrf']`），
+      且 `index_1.html` 静态分页 **404** ⇒ 只能取首页 46 条。
+    · 省长信箱 `api-gateway/.../mailbox/szxxInit`：需登录，未采。
+  ── 采用的线：12345 热线「典型留言」──
+    · 列表 POST `http://www.shandong.gov.cn/12345/szfwz/CommonHandler.ashx`
+      body `{opreate:'szf_wz_base_list', page:N, limit:20}`
+      → JSON `{code:200, count:"71", data:[{id,title,content,sendtime,status,ReplayUnit}]}`
+    · 明细 POST 同一 ashx body `{opreate:'szf_wz_base_info', id:<id>}`
+      → JSON `{success:true, data:{title,content(问题描述),sendtime,dfzt(答复状态),
+        lxr,handledate(答复时间),handledepartment(办理单位),handleresult(答复内容),slsj}}`
+    · 实测：列表 200，`count=71`；明细 200 且含答复（样例：咨询二级造价师证书领取 → 省住建厅答复）。
+    · 适配器 `adapters/sd_12345.py`（key **sd-12345**）。
+
+【广西】结论：**拿下**（IGI 平台，零改造复用 _igi_common.py）
+  ★ 旧结论「ConnectError」= **https** 失败：`https://www.gxzf.gov.cn` →
+    `ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] Hostname mismatch`；
+    **http://www.gxzf.gov.cn → HTTP 200 / 178918B**（1.54s）。
+  门户政民互动 `http://www.gxzf.gov.cn/hdjl/` [200]；留言选登 `/hdjl/mailbox/index.shtml`。
+  留言列表由 `/jsq/2023gxzf/api_mailbox.js` 的 `getMailboxList(3, 133, ...)` 拉取：
+    · 列表 GET `http://www.gxzf.gov.cn/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs
+      &order=1&siteId=3&appId=133&pageSize=20&pageIndex=N`
+      （**须带 Referer: http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml**）
+      → JSON `datas.data[]`，`datas.pageInfo.totalResults=**138**`（totalPages=7）。
+    · 明细 GET `.../openGovmsgbox.do?method=viewGovmsgbox&siteId=3&metadataId=<id>`
+      → `datas.REPLYS[].REPLYHTMLCONTENT` = 官方答复。
+    · ★ 列表带 **PROVINCE/CITY/AREA 三级归属**（如「广西壮族自治区 / 南宁市 / 西乡塘区」）
+      ⇒ 与宁夏同为本模块**仅有的两条能扩「县」的通道**。
+    · 实测：列表 200（138 条）；明细 200（REPLYS=1，答复 563B）。样例：
+      洋浦星小区外五里亭西一巷车辆乱停 → 南宁市公安局交通管理支队答复。
+    · 适配器 `adapters/gx_mailbox.py`（key **gx-mailbox**）。
+    ⚠ 待办：新落 IGI 适配器须同步 `recon/coverage-matrix.py` 的 `PROVINCE_PREFIX`（加 `gx-`）
+      —— 但本任务硬约束**不改** coverage-matrix.py，故仅在此登记，留给后续。
+
+【青海】结论：**拿下**（门户「互动交流·群众诉求回应」静态问答库）
+  ★ 旧结论「ConnectTimeout」= **https** 失败：`https://www.qinghai.gov.cn` →
+    `ConnectTimeout: timed out`（40s）；**http://www.qinghai.gov.cn → HTTP 200 / 131827B**（0.20s）。
+    （另 http://zwfw.qinghai.gov.cn 200；https://12345.qinghai.gov.cn 亦超时。）
+  门户「互动交流」`/zmhd/index.html` [200]；含 群众诉求回应 `/zmhd/wsxf/`、便民问答 `/msfw/bmwd/`。
+  CMS = **enorth webpublisher**，翻页走**静态分页文件**：
+    · 第 1 页 `/zmhd/wsxf/index.html`；
+    · 第 N 页（N≥2）`/zmhd/system/count/0005002/000000000000/000/000/
+      c0005002000000000000_{28-N:09d}.shtml`
+      （站内 `count_page_list_*.js` 自报 `maxpage=26` ⇒ **共 27 页**；
+      实测 `_000000026.shtml` = 第 2 页，与首页无交集）。
+    · 列表条目在**左栏** `class="l lPanel"` … `class="l rPanel"` 之间（右栏是便民通告/民生保障等
+      非问答；⚠ 容器 class 是 `l lPanel` **不是** `lPanel`，写错会静默回退整页）；
+      条目形如 `<p class="item"><span class="gray">[2026/09/09]&nbsp;</span><a href="…" title="问题标题">…</a></p>`。
+    · 明细正文：`<h1 class="blue tc">问题标题</h1>`（问题）+
+      `<div class="abstract tc"> 来源：… 发布时间：YYYY-MM-DD HH:MM …</div>`（答复单位+时间）+
+      `<div class="details_content">…答复正文…</div>`（答复，常点名公告/文件号）。
+    · 实测：列表 200（19 条/页）；明细 200。样例：
+      如何申请离境退税「即买即退」商店 → 答复引《国家税务总局公告 2025 年第 9 号》；
+      哪些人能申请技能提升补贴 → 省人社厅答复。
+    · 适配器 `adapters/qh_wsxf.py`（key **qh-wsxf**）。
+    ⚠ 该栏混有少量民生新闻（来源=西海都市报等，非严格 Q&A）；答复正文一律按原文保留，未清洗。
+
+--------------------------------------------------------------------------------
+三、与旧负面结论的差异（复核要点）
+--------------------------------------------------------------------------------
+1. 「山东/广西/青海 本机不可达」**不成立**：三省 **http 明文全部 200**；
+   https 分别因 SSL 握手失败 / 证书主机名不匹配 / 超时。→ **判不可达前必须补试 http。**
+2. 「新疆问答只在信访域名」**不完整**：信访线确实需登录/查询码（未通），
+   但**门户「互联网+督查·督查回声」是公开问答库**（227 条）⇒ 新疆可采。
+3. 「西藏留言选登可采」**已过期**：wsxx.html 已改版为登录门户，全站需统一身份认证 ⇒ 未通。
+4. 广西 = IGI 平台（与宁夏/山西/贵州/吉林同族），且**带三级归属**（县级覆盖第二条通道）。
+
+--------------------------------------------------------------------------------
+四、待登记 key 清单（供 team-lead 落 __init__.py，本任务不改）
+--------------------------------------------------------------------------------
+  · xj-dchs     → adapters.xj_dchs      新疆·互联网+督查·督查回声
+  · gx-mailbox  → adapters.gx_mailbox   广西·自治区人民政府信箱（IGI，带三级归属）
+  · sd-12345    → adapters.sd_12345     山东·12345热线·典型留言
+  · qh-wsxf     → adapters.qh_wsxf      青海·互动交流·群众诉求回应
+  （西藏：无适配器——未通）
+  另：coverage-matrix.py 的 PROVINCE_PREFIX 建议补 `gx-`（广西 IGI 三级归属）。
+================================================================================

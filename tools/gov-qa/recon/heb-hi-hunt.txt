@@ -1,0 +1,131 @@
+================================================================================
+河北 + 海南 问答平台侦察证据
+工具：general-purpose-3    日期：2026-10-08
+任务来源：team-lead 指派（province-platform-hunt.txt【河北】【海南】两节为起点）
+================================================================================
+纪律：请求间隔 ≥1.5s；403/412 立即停该线；域名连不上如实记录。
+产物（本文件之外，均在 recon/ 下）：
+  heb-hi-probe.py       阶段一 门户可达性 + 互动栏目发现
+  hi-probe2.py          海南 阶段二 政策问答/回应关切/知识库栏目探测
+  hi-probe3.py          海南 阶段三 实测 /u/search/ajaxlist
+  hi-probe4.py          海南 阶段四 抓明细页
+  heb-probe2.py         河北 阶段二 信访 + 12345 SPA
+  heb-probe3.py         河北 阶段三 抓 JS 挖接口
+  heb-probe4/5/6.py     河北 阶段四~六 省直部门 / 市级门户扫描
+原始样本：heb-home.html / heb-hdjl-col.html / heb-wsxf*.html|js / heb-12345-index.js
+          heb-szj-*.html|js / heb-czt-*.html / hi-*.html / hi-ajaxlist-test.json 等
+未改 adapters/__init__.py / data/ / assets-* / *.md；未 git add。
+
+================================================================================
+一、海南 —— ★接口型拿下（政策问答，2243 条）
+================================================================================
+门户 www.hainan.gov.cn [200]。互动栏目 /hainan/hdjl/hd.shtml → 子栏目：
+  业务知识库 /hainan/ywzsk/list3.shtml（静态，84 页，但内容是**新闻稿**非问答，弃）
+  政策问答   /hainan/zcwd/zcwd.shtml   ★真问答
+  回应关切   /hainan/hygq/list3.shtml（静态文章）
+  网上信访   xf.hainan.gov.cn/wsxf（另域名）；海南12345 12345.hainan.gov.cn（另域名）
+  在线访谈 /hainan/newzxft/、征集调查 /hainan/zjdc/
+
+★ 政策问答 = **接口型**（形态：Hanweb/万户 站群 + 前端 ajaxlist）
+  栏目页内联 JS 抠出：
+    POST https://www.hainan.gov.cn/u/search/ajaxlist?channel_id=41996292c8494145865bc7aafe48a9b1
+         form: searchWord=""  curPage=<0 基页码>  PageSize=<每页>
+         必须带 Referer: https://www.hainan.gov.cn/hainan/zcwd/zcwd.shtml
+    → JSON {page:{allRow:2243, totalPage:150, currentPage, pageSize,
+                  list:[{title, url, memo, published_time, ccode, wcode,
+                         channel_id, website_id, channel_name, website_name}]}}
+  明细：静态页 https://www.hainan.gov.cn<hainan/url>（例 /hainan/c100551/202610/xxx.shtml）
+    正文为自定义标签：<UCAPTITLE>问题</UCAPTITLE> / <UCAPCONTENT>答复</UCAPCONTENT>
+    meta 辅助：ArticleTitle=问题、PubDate=发布日、ColumnName=**答复部门**、Description=memo(截断)
+  ⚠ memo 是**截断**的答复摘要（只前 ~100 字）⇒ 必须抓明细页取答复全文。
+实测（2026-10-08）：
+  列表 HTTP 200，allRow=**2243**、totalPage=150、首屏 15 条；
+  明细 HTTP 200，UCAPCONTENT 含答复全文且**点名依据**：
+    · 申请设置互联网医院需要提交哪些核心材料? → 卫健委答复（引《互联网医院基本标准(试行)》）
+    · 什么是预防接种异常反应? → 卫健委答复
+    · 严重精神障碍发病报告是什么? → 引《精神卫生法》第二十四条、《严重精神障碍发病报告管理办法(试行)》
+  部门维度：门户按 c1005xx 分厅局（省卫健委 c100551、人社 c100597、市监 c100566…共 30 个厅局）
+结论：**接口型可用**。适配器 adapters/hi_zcwd.py（key=hi-zcwd）。channel_id 为该栏目的固定
+      「政策问答」频道；换 channel_id 可扩其它问答频道（本次仅验政策问答）。
+
+================================================================================
+二、河北 —— 门户级问答被门禁，改从「省直部门公开留言」拿下（★接口型 + 静态型）
+================================================================================
+门户 www.hebei.gov.cn [200]。互动交流栏目 /columns/da32bd93-.../index.html（57KB）实为
+  **链接导航页**：意见征集、在线访谈、省长信箱（我要写信/来信查询）、市长信箱、省直部门/市级门户链接表。
+  ⇒ 门户本身**没有服务端渲染的问答列表**。
+
+A. 省长信箱 → 信访系统 wsxf.hebxfj.gov.cn [200]
+   来信查询 https://wsxf.hebxfj.gov.cn/mail/views/wyxx.html?id=71（标题「投诉请求」）
+   抓 wyxx.js：接口 /web/complaintapi/getLdxx、saveLdxx、getTsjyxx、getMydpj、userapi/*。
+   页面为**写信表单**；查询须「查询码」，非公开列表 ⇒ **弃**。
+
+B. 河北12345 SPA hb12345.szj.hebei.gov.cn/ticket/zwpage/ [200]
+   抓 Vite 入口 assets/index-DvGATIgw.js（1.17MB）：
+     axios baseURL="./api"（= /ticket/zwpage/api），withCredentials；
+     接口 /12345_inter/proProcess/queryEndInfo、/12345_inter/smallProgram/myOrderListPage、
+          /12345/inter/handlerProcess/channelAddOrder、/proCityPicker/queryByParentId/
+     页面文本全为「我的诉求/工单详情/回复结果/我要诉求」⇒ **诉求提交+个人查询**门户。
+   实测：POST .../api/12345_inter/proProcess/queryEndInfo → 200 但
+        {"resultCode":1004,"resultMsg":"无该接口权限"}（同 myOrderListPage）⇒ **需登录鉴权，弃**。
+
+C. ★ 河北省数据和政务服务局 szj.hebei.gov.cn —— 「留言公开」= **接口型**（EWB 平台）
+   入口 http://szj.hebei.gov.cn/hdjl/006002/006002004/messageList.html
+   页面加载 /js/messageList.js + /js/webBuilderCommon.js + /OAuth/js/OAuth.js；
+   webBuilderCommon.js 内 siteInfo =
+     {"siteGuid":"645ad4ac-16b3-47d8-95bc-294a9052c6a2","projectName":"/EWB-FRONT",
+      "vname":"/hbmhwz","webVersion":"5.0"}
+   接口（EWB = 河北政务 webBuilder，frontAppNotNeedLoginAction 即免登录）：
+     ① 取匿名 token（POST，form: params="{}"）：
+        /EWB-FRONT/rest/getOauthInfoAction/getNoUserAccessToken
+        → custom.access_token / refresh_token
+     ② 列表（POST，**header Authorization: Bearer <token>**，
+        form 单字段 params=<JSON 串>）：
+        /EWB-FRONT/rest/frontAppNotNeedLoginAction/getLetterListByCondition
+        params = {siteGuid, subject, postName, replyContent, content,
+                  startTime, endTime, group, pageIndex(0 基), pageSize}
+        → custom.total=**1043**，custom.data[]={sequence, infoGuid, subject,
+          postDate, handleDate, boxName, type, status}
+     ③ 明细（同上 POST 方式）：.../getLetterDetail  params={siteGuid, infoGuid}
+        → custom.data={subject, content(**问题**), replycontent(**答复 HTML**),
+          postdate, operatedate, rowguid, isFankui, fankui}
+   ⚠ 关键坑：该接口 **必须 POST**（GET 返回 405）；且参数要放在 **form 字段 params=JSON串**
+     （直接 form 平铺 / JSON body 均 400）。
+实测：token 200；列表 200/total=1043（pageIndex=0/1/100 均 10 条、内容不同，翻页有效）；
+     明细 200，答复全文且**点名依据**。样例：
+     「关于充电桩备案提交材料相关问题」→ 引《河北省高效办成新能源汽车公共充电桩报装
+      "一件事"工作方案》（冀数政〔2025〕37号）答复。
+结论：**接口型可用**。适配器 adapters/heb_szj.py（key=heb-szj）。
+      ⚠ EWB 为可复用中间件：若在其它河北站点发现 `siteGuid`，换 siteGuid 即可复用同引擎。
+
+D. 河北省财政厅 czt.hebei.gov.cn —— 「群众信箱」= **静态型**（小体量）
+   互动交流 http://czt.hebei.gov.cn/hdjl/ → 群众信箱 /hdjl/qzxx/（受理统计 /qzxxtj/ 非问答）
+   列表：/hdjl/qzxx/index.html、index_1.html … index_3.html（内联 JS countPage=4）；
+     条目 <li class="clearfix"><span class="t ..."><a href="./YYYYMM/tYYYYMMDD_ID.html"
+     title="问题">…</a></span><span class="dt">日期</span></li>
+   明细：<div class="c_title">问题</div>；.c_subtitle=留言时间/答复时间/答复单位；
+     .c_content 表内「答复结果:」= **答复**（「信息内容:」多为「内容已隐藏」）
+实测：4 页共 **26** 条（8+8+8+2）；明细 200 且含答复。样例：
+     「咨询"一卡通"含义」→ 惠民惠农财政补贴"一卡通"发放解释（点名政策口径）；
+     「关于河北省预算管理一体化平台建设相关情况的咨询」→ 答复点名财政部工作要求。
+结论：**静态型可用（体量小 26 条）**。适配器 adapters/heb_czt.py（key=heb-czt）。
+
+E. 已排除/未通：
+   · 沧州市互动平台（www.cangzhou.gov.cn + 各局 subzmhd.shtml，Vue+hudong.js）：
+     子页 rs.cangzhou.gov.cn/…/subzmhd.shtml 自报「近两个月未收到任何留言」⇒ **空置，弃**。
+   · 省市场监管局 scjg.hebei.gov.cn「在线留言/我要留言 /node/993」：表单页，无公开列表 ⇒ 弃。
+   · 省卫健委 wsjkw.hebei.gov.cn/hdjl → /yjzj/index.jhtml 仅意见征集 ⇒ 弃。
+   · 其它 16 个省直部门 /hdjl/qzxx/ 路径全 404 ⇒ 群众信箱仅财政厅独有。
+   · 省门户、jyt/gat/sft/scjg 首页均无 EWB（EWB 仅出现在 szj 的留言公开页）⇒ 未发现第二个 siteGuid。
+
+================================================================================
+三、结论与待登记
+================================================================================
+· 海南：政策问答 **接口型可用**（hi-zcwd，列表 2243，明细含答复+依据）
+· 河北：省数政局留言公开 **接口型可用**（heb-szj，EWB 平台，1043，明细含答复+依据）
+        省财政厅群众信箱 **静态型可用**（heb-czt，26）
+        门户/12345/信访均登录或查询码门禁，非公开
+待登记 key（由 team-lead 统一登记 __init__.py）：
+  "hi-zcwd"  → adapters.hi_zcwd
+  "heb-szj"  → adapters.heb_szj
+  "heb-czt"  → adapters.heb_czt

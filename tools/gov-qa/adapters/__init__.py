@@ -139,6 +139,11 @@ ADAPTERS: dict[str, str] = {
     # —— 上海 / 浙江（2026-10-08：门户互动页**外链**顺藤摸瓜；两省都带反爬，已破解）——
     "sh-12345": "adapters.sh_12345",           # 上海市·12345 诉求公开（AES-128-ECB 密文接口，7248 条）
     "zj-mhww": "adapters.zj_mhww",             # 浙江省·民呼我为统一平台·办理公开（woff 字体反爬，49218 条）
+    "xj-dchs": "adapters.xj_dchs",             # 新疆·互联网+督查·督查回声（静态 227 条）
+    "gx-mailbox": "adapters.gx_mailbox",       # 广西·自治区人民政府信箱（IGI，138 条；带省/市/区三级归属）
+    "sd-12345": "adapters.sd_12345",           # 山东·12345热线·典型留言（ashx JSON，71 条）
+    "qh-wsxf": "adapters.qh_wsxf",             # 青海·互动交流·群众诉求回应（静态 27 页）
+    "hi-zcwd": "adapters.hi_zcwd",             # 海南·政策问答（Hanweb ajaxlist，2243 条）
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
