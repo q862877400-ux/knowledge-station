@@ -57,6 +57,38 @@ from typing import Callable
 ADAPTERS: dict[str, str] = {
     "hunan-st": "adapters.hunan_sthjt",   # 湖南省生态环境厅（统一互动平台，已跑通）
     "hunan-yj": "adapters.hunan_yjt",     # 湖南省应急管理厅（同一平台，已跑通）
+    # —— 湖南统一互动平台扩厅局（2026-10-08）：2 → 32 家。deptId 取自各厅
+    #    `/<前缀>/xhtml/js/hdjl_index.js`（少数内联在互动页 HTML）。证据 recon/hunan-dept-hunt.txt ——
+    "hunan-fgw": "adapters.hunan_fgw",         # 湖南省发展和改革委员会
+    "hunan-jyt": "adapters.hunan_jyt",         # 湖南省教育厅
+    "hunan-kjt": "adapters.hunan_kjt",         # 湖南省科学技术厅
+    "hunan-gxt": "adapters.hunan_gxt",         # 湖南省工业和信息化厅
+    "hunan-mzw": "adapters.hunan_mzw",         # 湖南省民族宗教事务委员会
+    "hunan-gat": "adapters.hunan_gat",         # 湖南省公安厅
+    "hunan-mzt": "adapters.hunan_mzt",         # 湖南省民政厅
+    "hunan-sft": "adapters.hunan_sft",         # 湖南省司法厅
+    "hunan-czt": "adapters.hunan_czt",         # 湖南省财政厅
+    "hunan-rst": "adapters.hunan_rst",         # 湖南省人力资源和社会保障厅
+    "hunan-zrzyt": "adapters.hunan_zrzyt",     # 湖南省自然资源厅
+    "hunan-zjt": "adapters.hunan_zjt",         # 湖南省住房和城乡建设厅
+    "hunan-jtt": "adapters.hunan_jtt",         # 湖南省交通运输厅
+    "hunan-slt": "adapters.hunan_slt",         # 湖南省水利厅
+    "hunan-agri": "adapters.hunan_agri",       # 湖南省农业农村厅
+    "hunan-swt": "adapters.hunan_swt",         # 湖南省商务厅
+    "hunan-whhlyt": "adapters.hunan_whhlyt",   # 湖南省文化和旅游厅
+    "hunan-wjw": "adapters.hunan_wjw",         # 湖南省卫生健康委员会
+    "hunan-tyjrswt": "adapters.hunan_tyjrswt",  # 湖南省退役军人事务厅
+    "hunan-sjt": "adapters.hunan_sjt",         # 湖南省审计厅
+    "hunan-lyj": "adapters.hunan_lyj",         # 湖南省林业局
+    "hunan-amr": "adapters.hunan_amr",         # 湖南省市场监督管理局
+    "hunan-tyj": "adapters.hunan_tyj",         # 湖南省体育局
+    "hunan-tjj": "adapters.hunan_tjj",         # 湖南省统计局
+    "hunan-ybj": "adapters.hunan_ybj",         # 湖南省医疗保障局
+    "hunan-mpa": "adapters.hunan_mpa",         # 湖南省药品监督管理局
+    "hunan-lshwzcbj": "adapters.hunan_lshwzcbj",  # 湖南省粮食和物资储备局
+    "hunan-jgswj": "adapters.hunan_jgswj",     # 湖南省机关事务管理局
+    "hunan-xfj": "adapters.hunan_xfj",         # 湖南省信访局
+    "hunan-gzw": "adapters.hunan_gzw",         # 湖南省国资委
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）

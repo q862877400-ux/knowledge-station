@@ -1,0 +1,68 @@
+# 湖南全省统一互动平台 · 厅局 deptId 侦察台账
+# 时间：2026-10-08（实测，非估算）
+# 侦察人：general-purpose-5（父代理指派）
+#
+# ── 平台入口与 deptId 取法 ───────────────────────────────────────────────
+# 接口（与 hunan-st / hunan-yj 同一平台）：
+#   GET https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie
+#       ?data={"pageNum":1,"pageSize":M,"sortMap":{"createTime":"desc"},
+#              "params":{"deptId":"<32位hex>","phone":"","searchCode":"",
+#                        "status":"","siteNo":"","siteUrl":""}}
+#   → {"status":"success","data":{"total":N,"pageTotal":…,"rows":[…]}}
+# deptId 取法：进各厅局官网「互动交流」栏目页，其加载的
+#   `/<站前缀>/xhtml/js/hdjl_index.js`（少数站把 deptId 内联在互动页 HTML）里
+#   有 `var deptId = "<32位hex>"`。抠出后**立刻调接口**，data.total>0 才算通。
+#
+# ── 格式：厅局名 | 栏目页 URL | deptId | 验证n(total) | 结论 ─────────────
+#
+# 【通】30 家（deptId 互不重复，接口返回的 deptName 与厅局名逐一对上）
+湖南省发展和改革委员会 | https://fgw.hunan.gov.cn/fgw/hdjl_70930/newhdjl_index.html | 33112d55d0754cf99822f3a549f495fe | 688 | 通
+湖南省教育厅 | https://jyt.hunan.gov.cn/jyt/sjyt/hdjl/index.html | bcfc26b5b7764a9e86fe47f425bdbb6d | 187 | 通
+湖南省科学技术厅 | https://kjt.hunan.gov.cn/kjt/hdjl/index.html | ab0866f7eede4043a4c073025e8ec7db | 129 | 通
+湖南省工业和信息化厅 | https://gxt.hunan.gov.cn/gxt/hdjl_71064/index.html | 6eabfe6ffdd34748947fe01db9836a62 | 773 | 通
+湖南省民族宗教事务委员会 | https://mzw.hunan.gov.cn/mzw/hdjl_71312/index.html | 78dad6ba8d9e4fd587c9ce3f639d7008 | 197 | 通
+湖南省公安厅 | https://gat.hunan.gov.cn/ | 0b560b592c68489c98481813f9ea779d | 5721 | 通（deptId 取自 /gat/xhtml/js/hdjl_index.js；首页未暴露互动页链接，entry 暂用站点根）
+湖南省民政厅 | https://mzt.hunan.gov.cn/mzt/hdjl/index.html | a1f0bc3bb8444a5789b2282fa719956b | 121 | 通
+湖南省司法厅 | https://sft.hunan.gov.cn/sft/hdjl_71110/index.html | bbed3e959f0d437393c702eb31abb396 | 712 | 通
+湖南省财政厅 | https://czt.hunan.gov.cn/czt/hdjl/index.html | 3552f373242b436caaecced54e80b53a | 307 | 通
+湖南省人力资源和社会保障厅 | https://rst.hunan.gov.cn/rst/hdjl/index.html | 49b2d6a6278a4da78e15057126f507a5 | 9231 | 通
+湖南省自然资源厅 | https://zrzyt.hunan.gov.cn/zrzyt/hdjl/index.html | f5c9f8b3d40045488d1d95fe2b0c246c | 1753 | 通
+湖南省住房和城乡建设厅 | https://zjt.hunan.gov.cn/zjt/hdjl/ | abe6b0b756094458b5d89efe7e2fdb6f | 1101 | 通
+湖南省交通运输厅 | https://jtt.hunan.gov.cn/jtt/hdjl/zxft/zxft_1/index.html | f850d2ed4760439c95f545bc4fdd2690 | 5991 | 通（域名 jtt 通；jtyst 域名 ConnectError）
+湖南省水利厅 | https://slt.hunan.gov.cn/slt/hdjl/index.html | b0b755d51d664693a6b331288b788d47 | 387 | 通
+湖南省农业农村厅 | https://agri.hunan.gov.cn/agri/hdjl/index.html | 1fd8e425bd184ebd9420300054368dd0 | 1618 | 通（域名 agri 通；nynct/nyct/nync 均 ConnectError）
+湖南省商务厅 | https://swt.hunan.gov.cn/swt/hnswt/hdjl/cs_hdjl_index.html | 0a48c555df1e49bf899b809274c00f0d | 1430 | 通
+湖南省文化和旅游厅 | https://whhlyt.hunan.gov.cn/whhlyt/hdjl/index.html | 4584f87ba0564414b45fe2c32835f68a | 1189 | 通
+湖南省卫生健康委员会 | https://wjw.hunan.gov.cn/wjw/hdjl/index.html | b9cf0c9e8d9f4a959a4a048a5286fee1 | 100 | 通
+湖南省退役军人事务厅 | https://tyjrswt.hunan.gov.cn/tyjrswt/c100277/hdjl_index.html | c183f761ad6347f78b064b95d7443221 | 94 | 通（deptId 内联在互动页 HTML；/tyjrswt/xhtml/js/hdjl_index.js 是 404 页）
+湖南省审计厅 | https://sjt.hunan.gov.cn/sjt/hdjl_71259/index.html | d571404e25884fb0a22a6ce75e9bb061 | 23 | 通
+湖南省林业局 | https://lyj.hunan.gov.cn/lyj/hdjl_71198/index.html | 32646cf0a85a4bf59b9d6ec69594c791 | 533 | 通
+湖南省市场监督管理局 | https://hd.hunan.gov.cn/hdpt/xhtml/amr_hdjl.html?depId=638b30d762ca41ff9106a2b6d7ef4bc4 | 638b30d762ca41ff9106a2b6d7ef4bc4 | 817 | 通（首页内嵌平台页 amr_hdjl.html）
+湖南省体育局 | https://tyj.hunan.gov.cn/tyj/hdjl/index.html | 378de0d3b68c406d815a97d70b219ffa | 246 | 通
+湖南省统计局 | https://tjj.hunan.gov.cn/hntj/hdjl/index.html | b3bdb9c32c1b4e979c8625c1fea4ae78 | 6841 | 通（deptId 内联在互动页 HTML；/tjj/xhtml/js/hdjl_index.js 不存在）
+湖南省医疗保障局 | https://ybj.hunan.gov.cn/ | 5eeeef3692da47c7a05bcc0b62e7b438 | 188 | 通（deptId 取自 /ybj/xhtml/js/hdjl_index.js；首页未暴露互动页链接）
+湖南省药品监督管理局 | https://mpa.hunan.gov.cn/mpa/hdjl/index.html | ae0dec86aa26402ca8d6a747722c88da | 83 | 通
+湖南省粮食和物资储备局 | https://lshwzcbj.hunan.gov.cn/lshwzcbj/hdjl/index.html | a196114c958944c583e45dcec06ebccf | 36 | 通
+湖南省机关事务管理局 | https://jgswj.hunan.gov.cn/jgswj/hdjl/index.html | dff6356e81f6438a942e13fc7facd1a4 | 47 | 通
+湖南省信访局 | https://xfj.hunan.gov.cn/hnxfj/c101039/hdjl_index.html | 9404b4039de6414897d166a1b075cad4 | 1178 | 通（deptId 内联在互动页 HTML）
+湖南省人民政府国有资产监督管理委员会 | https://gzw.hunan.gov.cn/gzw/hdjl_71602/index.html | 979714dacbbd49e58044806598e32dcc | 19 | 通
+#
+# 【未通】（如实记录，不猜 deptId）
+湖南省人民防空办公室 | https://rfb.hunan.gov.cn/ | - | 0 | 未通：首页无 hdjl 线索（互动页路径未暴露）
+湖南省广播电视局 | https://gdj.hunan.gov.cn/ | - | 0 | 未通：ConnectTimeout（域名本机不可达）
+湖南省监狱管理局 | https://jyglj.hunan.gov.cn/ , https://jyj.hunan.gov.cn/ | - | 0 | 未通：ConnectTimeout/ConnectError
+湖南省中医药管理局 | https://zyyglj.hunan.gov.cn/ , https://zyy.hunan.gov.cn/ | - | 0 | 未通：ConnectError（疑无独立站，挂省卫健委）
+湖南省乡村振兴局 | https://xczxj.hunan.gov.cn/ , https://fpkfj.hunan.gov.cn/ , https://xczx.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省地方金融管理局 | https://jrj.hunan.gov.cn/ , https://dfjrjdglj.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省国防动员办公室 | https://gfdyb.hunan.gov.cn/ , https://gfdy.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省戒毒管理局 | https://jdglj.hunan.gov.cn/ , https://jdj.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省供销合作总社 | https://gxs.hunan.gov.cn/ , https://gxhz.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省气象局 | https://qxj.hunan.gov.cn/ | - | 0 | 未通：ConnectError（气象局中央垂管，未接省级平台）
+湖南省地质院 | https://dzy.hunan.gov.cn/ | - | 0 | 未通：ConnectError
+湖南省政务和大数据中心 | https://zwfw.hunan.gov.cn/ , https://zwfwhdsjzx.hunan.gov.cn/ | - | 0 | 未通：HTTP 504 / ConnectError
+#
+# ── 取法小结（一句话）────────────────────────────────────────────────
+# deptId 就藏在各厅局官网「互动交流」页加载的 `hdjl_index.js`（或该页 HTML 本身）
+# 里的 `var deptId = "<32位hex>"`；把 32 位 hex 塞进 mailList2ie 的 params.deptId，
+# total>0 即通。绝大多数厅局域名形如 `<缩写>.hunan.gov.cn`、JS 在
+# `/<缩写>/xhtml/js/hdjl_index.js`（缩写≠域名时需先抓首页找真实路径）。
