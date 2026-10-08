@@ -30,7 +30,7 @@ import glob
 import json
 import os
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent          # tools/gov-qa/recon
@@ -93,17 +93,114 @@ def show_fields() -> int:
     return 0
 
 
+def show_answers() -> int:
+    """答复长度分布 —— 用来发现「答复被截断」这类静默缺陷。
+
+    动机：四川巴中的答复正文含**嵌套 `<div>`**，非贪婪正则 `(.*?)</div>` 停在第一个内层标签
+    ⇒ 548 条里 192 条答复只剩「尊敬的网友：您好！」（13 字）。**条数正常、字段非空，
+    光看条数或字段覆盖率都发现不了。** 但**答复长度分布**一眼可见。
+
+    ⚠ 判据：如果某来源出现大量 <30 字的答复，基本就是截断或占位符。
+    """
+    import statistics
+    per_src: dict[str, list[int]] = defaultdict(list)
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.strip() or not line.lstrip().startswith("{"):
+                    continue
+                try:
+                    r = json.loads(line)
+                except Exception:                                   # noqa: BLE001
+                    continue
+                a = (r.get("answer") or "").strip()
+                if a:
+                    per_src[str(r.get("source") or "?")].append(len(a))
+
+    tot = sum(len(v) for v in per_src.values())
+    all_len = [n for v in per_src.values() for n in v]
+    if not tot:
+        print("无数据")
+        return 0
+    all_len.sort()
+
+    def pct(xs, q):
+        return xs[min(len(xs) - 1, int(len(xs) * q))]
+
+    print(f"总记录 {tot:,}    答复长度：min={all_len[0]} "
+          f"p10={pct(all_len, .1)} 中位={pct(all_len, .5)} p90={pct(all_len, .9)} max={all_len[-1]}")
+    short_all = sum(1 for n in all_len if n < 30)
+    print(f"⚠ 答复 <30 字的记录：{short_all:,}（{short_all / tot * 100:.2f}%）\n")
+
+    rows = []
+    for s, xs in per_src.items():
+        xs_sorted = sorted(xs)
+        short = sum(1 for n in xs if n < 30)
+        rows.append((s, len(xs), short, short / len(xs), pct(xs_sorted, .5)))
+    rows.sort(key=lambda r: -r[3])
+    print("=== 按来源：短答复占比（只列占比 >5% 的）===")
+    for s, n, short, ratio, med in rows:
+        if ratio > 0.05:
+            print(f"  {s:26s} 共 {n:6,d}  |  短(<30字) {short:5,d} ({ratio * 100:5.1f}%)  |  中位长度 {med}")
+    if not [r for r in rows if r[3] > 0.05]:
+        print("  （无）")
+
+    # ★ 锋利的截断判据：**短答复是不是同来源里某条长答复的「前缀」**。
+    #   巴中那 192 条截断后全是「尊敬的网友：您好！」—— 它正是同来源其它长答复的开头部分。
+    #   而「感谢您对市长信箱工作的关注！」这类**固定套话**不是任何长答复的前缀 ⇒ 不会误报。
+    print("\n=== ⚠ 疑似截断（短答复是同来源长答复的「前缀」）===")
+    flagged = 0
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        by_src: dict[str, list[str]] = defaultdict(list)
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.strip() or not line.lstrip().startswith("{"):
+                    continue
+                try:
+                    r = json.loads(line)
+                except Exception:                                   # noqa: BLE001
+                    continue
+                a = (r.get("answer") or "").strip()
+                if a:
+                    by_src[str(r.get("source") or "?")].append(a)
+        for s, ans in by_src.items():
+            shorts = [a for a in ans if 0 < len(a) < 60]
+            if len(shorts) < 5:
+                continue
+            longs = [a for a in ans if len(a) >= 80]
+            if not longs:
+                continue
+            # 该来源里出现 ≥5 次的短答复，且是某条长答复的前缀
+            hit = Counter()
+            for t, n in Counter(shorts).items():
+                if n < 5:
+                    continue
+                if any(lo.startswith(t) for lo in longs):
+                    hit[t] = n
+            if hit:
+                flagged += 1
+                t, n = hit.most_common(1)[0]
+                print(f"  {s:26s} 「{t[:34]}」× {n}  ← 是长答复的前缀，疑似截断")
+    if not flagged:
+        print("  （无 —— 干净）")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="数据落盘核查")
     ap.add_argument("--empty", action="store_true", help="只看零数据的适配器")
     ap.add_argument("--thin", type=int, default=0, help="只看条数 < N 的适配器")
     ap.add_argument("--fields", action="store_true",
                     help="输出各字段非空率（发现「整列全空」的静默缺陷）")
+    ap.add_argument("--answers", action="store_true",
+                    help="输出答复长度分布（发现「答复被截断」的静默缺陷）")
     ap.add_argument("--key", default="", help="只看某前缀的 key")
     args = ap.parse_args()
 
     if args.fields:
         return show_fields()
+    if args.answers:
+        return show_answers()
 
 
     os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::1")
