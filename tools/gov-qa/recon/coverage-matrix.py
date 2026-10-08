@@ -28,6 +28,7 @@ PROVINCE_PREFIX = {
     "jl-st": "吉林省", "jl-wjw": "吉林省", "jl-hrss": "吉林省", "jl-jt": "吉林省",
     # —— 省级简称族（兜底；新增同省适配器时不必再改本表）——
     "gd-": "广东省", "hunan-": "湖南省", "gz-": "贵州省", "jl-": "吉林省",
+    "nx-": "宁夏回族自治区", "sx-": "山西省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 
