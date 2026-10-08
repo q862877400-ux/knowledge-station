@@ -1,5 +1,17 @@
 """适配器：**湖北省人力资源和社会保障厅·互动交流（IGI 平台，多 site）**。
 
+## ⚠⚠ 2026-10-08 21:40 实测结论：本适配器与 hb-hdjl **同后端，数据重复**
+
+`rst.hubei.gov.cn/IGI` 与 `www.hubei.gov.cn/IGI`（即 `hb-hdjl`）返回**同一份数据**：
+- 本适配器抽验 20 条，其中 **19 条 id 已存在于 `hb-hdjl`**；
+- 唯一「独有」的 id `8383` 只是因为 hb-hdjl 当时仅采了 150 条（被 limit 截断），
+  全量采完后必然包含。
+- 厅站新增的 siteId `4 / 28 / 50` 只各返回 1-3 条，是**厂商测试实例**（标题为
+  「1」「2」「6666」之类），非真实业务数据。
+
+⇒ **默认不要采集本适配器**（会产出重复条目、污染语料、虚增覆盖数）。
+   仅当确认后端已分离时才启用。**湖北省的问答以 `hb-hdjl` 为准。**
+
 ## 站点事实（2026-10-08 实测，证据 recon/waf-igi-sites.json 【sx-hd】）
  · 厅站 `rst.hubei.gov.cn` 的互动交流留言由 **IGI 平台**驱动，与
    `adapters/_igi_common.py` 同构（参数 siteId/order/appId/pageIndex/pageSize 一致）。
@@ -25,9 +37,9 @@ SITE = {
     "kind": "api",
     "level": "province",
     "entry": "http://rst.hubei.gov.cn/hdjl/",
-    "status": "ok",
-    "note": "IGI 平台（rst.hubei.gov.cn/IGI），多 siteId；须带 Referer；"
-            "带省/市/区三级归属；BASE 用 http（https 部分时段 ConnectError）",
+    "status": "dup",
+    "note": "⚠ 与 hb-hdjl 同后端（www.hubei.gov.cn/IGI），数据重复，默认不采；"
+            "湖北省问答以 hb-hdjl 为准",
 }
 
 BASE = "http://rst.hubei.gov.cn/IGI"
