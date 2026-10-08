@@ -1,0 +1,10 @@
+CTX ...consultfront/consult/bmxxaddMess",OB="/consultfront/common/getBmxxNewStatistical",RB="/consultfront/common/bmxxCommonlist",IB="/consultfront/common/getbmxxhfl",TB="/consultfront/common/getBmxxDetail",MB=`/consultfront/ssoLogin/loginBtn/?r_url=${encodeURIComponent(window.location.href)}`,Zh="/consultfront/vercode/getVerif
+CTX ...addMess",OB="/consultfront/common/getBmxxNewStatistical",RB="/consultfront/common/bmxxCommonlist",IB="/consultfront/common/getbmxxhfl",TB="/consultfront/common/getBmxxDetail",MB=`/consultfront/ssoLogin/loginBtn/?r_url=${encodeURIComponent(window.location.href)}`,Zh="/consultfront/vercode/getVerifyCode";var ec={},PB={get exports(){r
+CTX ..."","justify-between":"",mt4:"","md:gap0":"",gap4:""},Ib={__name:"xjly-content",setup(e){const t=Oa();let n=P({});const o=Is().query.id;return o||t.push("/"),Ms(TB,{id:o}).then(s=>{s.data.retCode==="0"?(n.value=s.data.detail,hn(n.value.consult_title+" - 部门邮箱")):Xa.alert("编号错误","温馨提示",{confirmButtonText:"返回",type:"warning"
+
+## gid=30494270FA3696D3
+GET {'gid': '30494270FA3696D3'} -> 200 {"exception":"信件编号不能为空","retCode":"5005"}
+GET {'id': '30494270FA3696D3'} -> 200 {"exception":"接口成功访问","detail":{"revertstatus":"0","old_jysz_lx":2,"cmsdepartment":{"isjysz":"1","name":"苏州市水务局","creator_id":"9999999999999999","dept_id":"1ea9029772004141afa3f4d9ac8c0481","isqt":"1","code_name":"11320500014150085X","status":"0"},"consult_revert_date":1791423121000,"recordcounts":0
+GET {'GID': '30494270FA3696D3'} -> 200 {"exception":"信件编号不能为空","retCode":"5005"}
+GET {'gid': '30494270FA3696D3', 'check': 'do'} -> 200 {"exception":"信件编号不能为空","retCode":"5005"}
+POST {'gid': '30494270FA3696D3'} -> 200 {"exception":"信件编号不能为空","retCode":"5005"}

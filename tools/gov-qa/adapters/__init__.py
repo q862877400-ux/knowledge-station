@@ -322,6 +322,10 @@ ADAPTERS: dict[str, str] = {
     "js-suqian": "adapters.js_suqian",        # 宿迁市·留言查询（ajaxlist，列表自带答复，allRow≈1373）
     "js-zhenjiang": "adapters.js_zhenjiang",  # 镇江市·12345 信件公示（ajaxlistForWeb12345 + show/<id>）
     "js-xuzhou": "adapters.js_xuzhou",        # 徐州市·来信选登（EWB，RowCount≈1430）
+    # —— 江苏地市级 第二批（2026-10-09 worker-city）：无锡/苏州。
+    #    证据 recon/city-js-probe9~16.txt ——
+    "js-wuxi": "adapters.js_wuxi",            # 无锡市·市长信箱（mailbox letter/search，列表自带答复，≈8613）
+    "js-suzhou": "adapters.js_suzhou",        # 苏州市·部门信箱（consultfront bmxxCommonlist，currpage 翻页，≈4153）
     # —— 国家部委 / 中央级（2026-10-09 worker-national）：
     #    台账 tools/gov-qa/NAT-ENTRIES.md，证据 recon/nat-* ——
     "nat-mot": "adapters.nat_mot",          # 交通运输部·留言咨询（自研JSON+HTML，7808；⚠IP级反爬，内置403熔断）

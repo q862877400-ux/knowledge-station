@@ -1,0 +1,65 @@
+## 苏州 bmxxCommonlist 答复字段
+  title=2003-2024年苏州市水资源公报
+  revert_content(len=47)=您好：2003-2024年苏州市水资源公报已发您邮箱，请查收。苏州市水务局2026年10月8日
+  title=道路维修 安全隐患
+  revert_content(len=96)=您反映的问题不属于我局受理范围，根据《信访工作条例》“属地管理、分级负责，谁主管、谁负责”的信访工作原则，请向工业园区综合行政执法局或工业园区管委会反映，我局工作人员已与您电话联系并沟通说明。
+  title=咨询化工企业项目环评审批中蒸汽冷凝水的排水要求
+  revert_content(len=42)=您好！我局工作人员已电话和您联系并对您的问题予以答复，如有疑问您可以再次和我局联系。
+  title=咨询化工企业项目环评审批中蒸汽冷凝水的排水要求
+  revert_content(len=42)=您好！我局工作人员已电话和您联系并对您的问题予以答复，如有疑问您可以再次和我局联系。
+  title=2026年卫生资格考试
+  revert_content(len=65)=尊敬的来信人，您好！您的来信已收悉。张家港卫健委相关工作人员已与您电话沟通，并解答您的相关疑问。感谢您对卫生健康工作的信任与支持！
+  title=文化诗歌
+  revert_content(len=53)=游客您好！感谢您对苏州园林的喜爱，您可关注苏州园林官微，不定期会有征文、摄影作品征集活动，届时欢迎您投稿！
+  title=开展领导干部自然资源资产离任审计实际执行审计的年份
+  revert_content(len=58)=您好，经查询审计档案，我局自2016年起至今每年都有实施领导干部自然资源资产离任审计。感谢您对苏州审计的关心和支持！
+  title=水资源公报申请
+  revert_content(len=55)=您好，2015年-2024年共10年的苏州市水资源公报已发您邮箱，请注意查收。苏州市水务局2026年9月23日
+  title=年假规定
+  revert_content(len=259)=您好！您的来信已收悉，现回复如下：享受年休假要求职工连续工作满12个月以上，该连续是劳动关系不间断。您2月从A公司离职，3-4月领取失业金，5月入职B公司，需连续工作满12个月方可享有年休假。您7年多的累计工龄，可以用于核算今后年休假的具体天数。我局工作人员已通过电话将相关规定向您告知，您表示知晓。特此回复，感谢您对我们工作的关心和支持！                             苏州市姑苏区人力资源和社会保障局                                  2026年9月30日
+  title=独生子女补贴
+  revert_content(len=67)=尊敬的来信人，您好！您的来信已收悉。高新区社会事业局相关工作人员已与您电话沟通，并解答您的相关疑问。感谢您对卫生健康工作的信任与支持！
+
+## 无锡 list_page.js
+
+## 无锡 hdjl/index.shtml 内联 ajax
+  url:"/mailbox/letter/search"
+  url:"/mailbox/letter/search"
+  url:"/intertidwebapp/interView/-1/newestSubjectDetailJson"
+  url:"/intertidwebapp/interView/subjectListJson"
+  url:"/intertidwebapp/survey/getTopicList"
+  url:"/intertidwebapp/counter/count"
+
+## 连云港 gzcy.html 内联 ajax
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/js/tip/index_artDialog.js
+  TrueCMS/js/tip/tipwindown/tip.js
+  TrueCMS/js/tip/iframeTools.js
+  TrueCMS/visitorController/toCorrectJsp.do
+  url=', {
+            id: '
+  url: "/TrueCMS/visitorController/getInteractiveJson.do?numPerPage=11&siteId=147d8e37-a461-4dbc-863d-0fa52d92bb44"
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  TrueCMS/visitorController/getOutInteractiveInfo.do
+  url: "/TrueCMS/visitorController/getPetitionListByType.do?numPerPage=9&isfk=0&type=003&siteId=147d8e37-a461-4dbc-863d-0f
+  TrueCMS/visitorController/toViewTheme.do
+  TrueCMS/visitorController/toViewTheme.do
+  TrueCMS/visitorController/toViewTheme.do
+  TrueCMS/visitorController/toViewTheme.do
+  TrueCMS/visitorController/toViewTheme.do
+  TrueCMS/visitorController/toViewTheme.do
+  url: "/TrueCMS/mailBoxLetterController/getLetterList.do?pageNum=1&numPerPage=4"
+  TrueCMS/visitorController/letterView.do
+  --- around getLetterList ---
+  style.display = 'none'; } if (classname == "yqlj") { document.getElementById('div_' + id).style.display = ''; } } } </script> <script type="text/javascript"> $(function() { $("#nowdate").css("margin-left", "0px"); $.ajax({ type: "get", url: "/TrueCMS/mailBoxLetterController/getLetterList.do?pageNum=1&numPerPage=4", dataType: "json", success: function(data) { var state = data.success; if (state) { var list = data.content.list; var strHtml = ""; strHtml += '<tr style="background-color:#F1F1F2; color:#7DA3D1; font-weight:bold;height: 35px;">'; strHtml += '<td style="width: 20%;color:#277eef;font-size: 16px;">来信时间</td>'; 
+
+## 连云港 letterView 试参
+  item={"mailboxname": "民政局在线交流", "submittime": "2026-10-08 14:12:35", "lrmailbox": "fc5fe078-4d2e-43c9-8904-1096ddedbbeb", "mailbox": "fc5fe078-4d2e-43c9-8904-1096ddedbbeb", "replytime": "2026-10-08 19:25:11", "letternumber": "XJ20261000026", "replydepart": "0010", "subject": "今年已完成多少家机构的设施焕新", "replydepartname": "市民政局", "id": "01e2f651-a3b0-4138-97cd-e43c8d1f126c", "status": "已办结"}
+  /TrueCMS/visitorController/letterView.do lrmailbox=fc5fe078-4d2e-43c9-8904-1096ddedbbeb -> 200 28102B
+  /TrueCMS/visitorController/letterView.do letternumber=XJ20261000026 -> 200 28102B
+  /TrueCMS/visitorController/letterView.do mailbox=fc5fe078-4d2e-43c9-8904-1096ddedbbeb -> 200 28102B

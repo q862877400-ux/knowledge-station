@@ -1,0 +1,370 @@
+
+======================================================================
+## 苏州 xjly SPA 资源
+  https://www.suzhou.gov.cn/szsrmzf/xhtml/hd/assets/main.js → 200 (824738)
+    URL /consultfront/common/getGzjdDeptlist
+    URL /consultfront/common/gzjdCommonlist
+    URL /consultfront/common/getBmxxDeptlist
+    URL /consultfront/consult/szxxaddMess
+    URL /consultfront/common/bmxxCommonlist
+    URL http://www.taicang.gov.cn/taicang/zmhd/zmhd.shtml
+    URL https://www.zjg.gov.cn/zjg/mail/letter_submit.shtml?boxGuid=2&type=11
+    URL /xjly/sjmail
+    URL /xjly/szmail
+    URL /xjly/bmmail
+    URL /xjly/bmmail/lyxd
+    URL /xjly/bmmail/hfl
+    URL /xjly/bmmail/
+    URL /xjly/bmmail/write
+    URL /gzjd/hfllist
+    URL /gzjd/mydlist
+    URL /xjly_content
+    URL /xjly
+    URL /szsrmzf/xhtml/hd/
+    URL /gzjd/letterlists
+    URL /xjly/
+  https://www.suzhou.gov.cn/szsrmzf/hd_gzjd/gzjd.shtml → 200 (35307)
+    URL //www.suzhou.gov.cn/szsrmzf/xhtml/static/2025/css/base.css?t=1766729064261
+    URL //www.suzhou.gov.cn/szsrmzf/xhtml/static/2025/css/common.css?t=1766729064261?v=1
+    URL /szsrmzf/xhtml/js/jquery.min.js?t=1766729064261
+    URL /szsrmzf/xhtml/js/jquery.cookie.js?t=1766729064261
+    URL /szsrmzf/xhtml/static/2025/js/older.js?t=1766729064261
+    URL /szsrmzf/xhtml/hd/assets/gzjd.js?t=1766729064261
+    URL /szsrmzf/xhtml/hd/assets/main.js?t=1766729064261
+    URL /szsrmzf/xhtml/hd/assets/main.css?t=1766729064261
+    URL /szsrmzf/xhtml/static/2025/css/header.css?v=2025051502
+    URL http://webmail.smart.suzhou.gov.cn
+    URL /szsrmzf/xhtml/static/2025/images/public/logo.png?v=1
+    URL /szsrmzf/index.shtml
+    URL /szsrmzf/szgl/szgl.shtml
+    URL /szsrmzf/xwzx/xwzx.shtml
+    URL /szsrmzf/szsxxgk/xxgk.shtml
+    URL /szsrmzf/zwfw/bsfw.shtml
+    URL /szsrmzf/zmhd/zmhd.shtml
+    URL /szsrmzf/xhtml/static/2025/js/header.js?v=0206111
+    URL /szsrmzf/xhtml/static/2025/css/footer.css?v=2
+    URL /szsrmzf/wzdt/map.shtml
+    URL /szsrmzf/lxwm/wztt.shtml
+    URL /szsrmzf/xhtml/static/2025/js/footer.js?v=3
+    URL /szsrmzf/xhtml/hd/assets/unsupportTip.js?t=17667290642622
+    URL /szsrmzf/xhtml/hd/assets/polyfills-legacy.js?t=1766729064261
+    URL /szsrmzf/xhtml/hd/assets/gzjd-legacy.js?t=1766729064261
+    JS jquery.min.js?t=1766729064261 (92629B)
+    JS jquery.cookie.js?t=17667290642 (3121B)
+    JS older.js?t=1766729064261 (6871B)
+      -> /szsrmzf/xhtml/
+      -> /szsrmzf/older/index_older.shtml
+      -> /szsrmzf/index.shtml
+      -> /szsrmzf/szgl/szgl2022.shtml
+      -> /szsrmzf/szgl/szgl2022_older.shtml
+      -> /szsrmzf/xwzx/xwzx.shtml
+      -> /szsrmzf/xwzx/xwzx_older.shtml
+      -> /szsrmzf/szsxxgk/xxgk.shtml
+      -> /szsrmzf/szsxxgk/xxgk_older.shtml
+      -> /szsrmzf/zwfw/bsfw.shtml
+      -> /szsrmzf/zwfw/bsfw_older.shtml
+      -> /szsrmzf/zmhd/zmhd.shtml
+      -> /szsrmzf/zmhd/zmhd_older.shtml
+    JS gzjd.js?t=1766729064261 (113B)
+    JS transform.js (6212B)
+    JS header.js?v=0206111 (2872B)
+      -> /szsrmzf/xhtml/static/2025/images/public/header_icon_login.png
+  https://www.suzhou.gov.cn/szsrmzf/hd_xjly/xjly.shtml → 200 (42655)
+    URL //www.suzhou.gov.cn/szsrmzf/xhtml/static/2025/css/base.css?t=1766729064265
+    URL //www.suzhou.gov.cn/szsrmzf/xhtml/static/2025/css/common.css?t=1766729064265?v=1
+    URL /szsrmzf/xhtml/js/jquery.min.js?t=1766729064265
+    URL /szsrmzf/xhtml/js/jquery.cookie.js?t=1766729064265
+    URL /szsrmzf/xhtml/static/2025/js/older.js?t=1766729064265
+    URL /szsrmzf/xhtml/hd/assets/xjly.js?t=1766729064265
+    URL /szsrmzf/xhtml/hd/assets/main.js?t=17667290642651
+    URL /szsrmzf/xhtml/hd/assets/main.css?t=1766729064265
+    URL /szsrmzf/xhtml/static/2025/css/header.css?v=2025051502
+    URL http://webmail.smart.suzhou.gov.cn
+    URL /szsrmzf/xhtml/static/2025/images/public/logo.png?v=1
+    URL /szsrmzf/index.shtml
+    URL /szsrmzf/szgl/szgl.shtml
+    URL /szsrmzf/xwzx/xwzx.shtml
+    URL /szsrmzf/szsxxgk/xxgk.shtml
+    URL /szsrmzf/zwfw/bsfw.shtml
+    URL /szsrmzf/zmhd/zmhd.shtml
+    URL /szsrmzf/xhtml/static/2025/js/header.js?v=0206111
+    URL /szsrmzf/xhtml/static/2025/css/footer.css?v=2
+    URL /szsrmzf/wzdt/map.shtml
+    URL /szsrmzf/lxwm/wztt.shtml
+    URL /szsrmzf/xhtml/static/2025/js/footer.js?v=3
+    URL /szsrmzf/xhtml/hd/assets/unsupportTip.js?t=1766729064265
+    URL /szsrmzf/xhtml/hd/assets/polyfills-legacy.js?t=1766729064265
+    URL /szsrmzf/xhtml/hd/assets/xjly-legacy.js?t=1766729064265
+    JS jquery.min.js?t=1766729064265 (92629B)
+    JS jquery.cookie.js?t=17667290642 (3121B)
+    JS older.js?t=1766729064265 (6871B)
+      -> /szsrmzf/xhtml/
+      -> /szsrmzf/older/index_older.shtml
+      -> /szsrmzf/index.shtml
+      -> /szsrmzf/szgl/szgl2022.shtml
+      -> /szsrmzf/szgl/szgl2022_older.shtml
+      -> /szsrmzf/xwzx/xwzx.shtml
+      -> /szsrmzf/xwzx/xwzx_older.shtml
+      -> /szsrmzf/szsxxgk/xxgk.shtml
+      -> /szsrmzf/szsxxgk/xxgk_older.shtml
+      -> /szsrmzf/zwfw/bsfw.shtml
+      -> /szsrmzf/zwfw/bsfw_older.shtml
+      -> /szsrmzf/zmhd/zmhd.shtml
+      -> /szsrmzf/zmhd/zmhd_older.shtml
+    JS xjly.js?t=1766729064265 (113B)
+    JS transform.js (6212B)
+    JS header.js?v=0206111 (2872B)
+      -> /szsrmzf/xhtml/static/2025/images/public/header_icon_login.png
+
+======================================================================
+## 无锡 互动/信箱
+  https://www.wuxi.gov.cn/fzlm/hdjlgny/lxblgny/wyxx/index.shtml → 200 (56156)
+    URL /static_common/js/jquery.js
+    URL /static_2023/js/jquery.touchSwipe.min.js
+    URL /static_2023/js/jquery.SuperSlide.2.1.3.source.js
+    URL /static_2023/js/jquery.s2t.js
+    URL /static_2023/js/list_page.js
+    URL https://www.wuxi.gov.cn/static2016/js/FileAPI/dist/FileAPI.min.js
+    URL /mailbox/type/list
+    URL /mailbox/department/list
+    URL /mailbox/letter?code=
+    URL /intertidwebapp/LeadingMail/getUserPhone
+    URL /mailbox/attachment/upload
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml?tab=ysqgk
+    URL //www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL /mailbox/process/count
+    URL http://weibo.com/u/2696049583?topnav=1&wvr=6&topsug=1
+    JS Traditionalconversion.js (7579B)
+    JS jquery.js (93591B)
+    JS checkLogin_t.js (5542B)
+    JS bootstrap.min.js (39562B)
+    JS jquery.touchSwipe.min.js (20383B)
+    JS jquery.SuperSlide.2.1.3.source (27827B)
+  https://www.wuxi.gov.cn/fzlm/hdjlgny/ftzb/ftzblmsy/index.shtml → 200 (56414)
+    URL /static_common/js/jquery.js
+    URL /static_2023/js/jquery.touchSwipe.min.js
+    URL /static_2023/js/jquery.SuperSlide.2.1.3.source.js
+    URL /static_2023/js/jquery.s2t.js
+    URL /static_2023/js/list_page.js
+    URL /intertidwebapp/interView/subjectListJson
+    URL /intertidwebapp/interView/textRecordListJson
+    URL /intertidwebapp/interView/replyQuestionListJson
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml?tab=ysqgk
+    URL //www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL http://weibo.com/u/2696049583?topnav=1&wvr=6&topsug=1
+    JS Traditionalconversion.js (7579B)
+    JS jquery.js (93591B)
+    JS checkLogin_t.js (5542B)
+    JS bootstrap.min.js (39562B)
+    JS jquery.touchSwipe.min.js (20383B)
+    JS jquery.SuperSlide.2.1.3.source (27827B)
+  https://www.wuxi.gov.cn/hdjl/index.shtml → 200 (55698)
+    URL /static_common/js/jquery.js
+    URL /static_2023/js/jquery.touchSwipe.min.js
+    URL /static_2023/js/jquery.SuperSlide.2.1.3.source.js
+    URL /static_2023/js/jquery.s2t.js
+    URL /static_2023/js/list_page.js
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL /fzlm/hdjlgny/hygl/wdzmhd/index.shtml?tab=ysqgk
+    URL //www.wuxi.gov.cn/fzlm/hdjlgny/hygl/wdzmhd/index.shtml
+    URL /mailbox/letter/search
+    URL http://weibo.com/u/2696049583?topnav=1&wvr=6&topsug=1
+    URL /intertidwebapp/interView/subjectListJson
+    URL /intertidwebapp/survey/getTopicList
+    JS Traditionalconversion.js (7579B)
+    JS jquery.js (93591B)
+    JS checkLogin_t.js (5542B)
+    JS bootstrap.min.js (39562B)
+    JS jquery.touchSwipe.min.js (20383B)
+    JS jquery.SuperSlide.2.1.3.source (27827B)
+
+======================================================================
+## 南通 市长信箱页
+  https://www.nantong.gov.cn/ntsrmzf/sgkxj/sgkxj.html → 200 (55644)
+    URL /ntsrmzf/resource/theme/js/jquery-1.11.3.min.js
+    URL /ntsrmzf/resource/theme/js/jquery.slideBox.js
+    URL /ntsrmzf/resource/theme/js/header.js
+    URL /ntsrmzf/resource/theme/js/area.js
+    URL /ntsrmzf/resource/theme/js/contentType.js
+    URL /ntsrmzf/../truecms/js/jquery.form.js
+    URL /ntsrmzf/../truecms/js/jquery-1.7.2.min.js
+    URL /ntsrmzf/../truecms/js/pageJS/jquery.jpage.js
+    URL /ntsrmzf/resource/js/common.js?siteURL=/ntsrmzf
+    URL http://www.nantong.gov.cn/ntsrmzf/xxgk/xxgk.html
+    URL /ntsrmzf/index.html
+    URL /ntsrmzf/wz/wz.html
+    URL http://www.nantong.gov.cn/ntsrmzf/xxydtj/xxydtj.html
+    URL /ntsrmzf/sgkxj/sgkxj.html?lx=
+    URL https://www.nantong.gov.cn/ntsrmzf/scxx/content/1676b69c-9162-447f-a555-718bbe87cec4.html
+    URL /ntsrmzf/ydyyh/ydyyh.html
+    URL /truecms/visitorController/saveLetter.do?optype=1
+    URL /truecms/letterController/xxList.do?type=
+    URL /truecms/visitorController/toWriteLetter.do?type=1&distmailbox=
+    URL /truecms/letterController/toSeeLetterInfo.do?bh=
+    URL /truecms/letterController/checkCodes.do?bh=
+    URL /truecms/letterController/xxList.do?numPerPage=10&pageNum=
+    URL /ntsrmzf/resource/js/ckplayer/ckplayer.js
+    URL /ntsrmzf/resource/js/video.js?siteURL=/ntsrmzf
+    URL /ntsrmzf/resource/js/plugin.js?siteURL=/ntsrmzf
+    JS jquery-1.11.3.min.js (95957B)
+    JS jquery.slideBox.js (6050B)
+    JS header.js (60326B)
+      -> /ntsrmzf/resource/theme/js/lang.js\
+      -> /ntsrmzf/resource/theme
+      -> http://mail.nantong.gov.cn/
+      -> /ntsrmzf/xsy11/assets/images/header-icon1.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon2.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon3.png
+      -> https://www.nantong.gov.cn/ntsrmzf/xtznwd/index.html?jqrId=35eba609-383a-4c23-8b8-1765249991390
+      -> /ntsrmzf/xsy11/assets/images/header-icon4.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon5.png
+      -> /ntsrmzf/resource/theme/img/1545357607607.jpg
+      -> /ntsrmzf/resource/theme/img/weixin.png
+      -> /ntsrmzf/xsy11/assets/images/search-icon.png\
+      -> /ntsrmzf/slh/accessible2/index.html?url=
+    JS area.js (34939B)
+    JS contentType.js (251B)
+    JS jquery.form.js (4480B)
+  https://www.nantong.gov.cn/ntsrmzf/bumxx/bumxx.html → 200 (54935)
+    URL /ntsrmzf/../truecms/js/true.validate.js
+    URL /ntsrmzf/../truecms/js/chinatoenglish.js
+    URL /ntsrmzf/resource/theme/js/jquery-1.11.3.min.js
+    URL /ntsrmzf/resource/theme/js/jquery.slideBox.js
+    URL /ntsrmzf/resource/theme/js/header.js
+    URL /ntsrmzf/resource/theme/js/area.js
+    URL /ntsrmzf/resource/theme/js/contentType.js
+    URL /ntsrmzf/../truecms/js/jquery.form.js
+    URL /ntsrmzf/../truecms/js/jquery-1.7.2.min.js
+    URL /ntsrmzf/../truecms/js/pageJS/jquery.jpage.js
+    URL /ntsrmzf/resource/js/common.js?siteURL=/ntsrmzf
+    URL http://www.nantong.gov.cn/ntsrmzf/xxgk/xxgk.html
+    URL /ntsrmzf/index.html
+    URL /ntsrmzf/wz/wz.html
+    URL http://www.nantong.gov.cn/ntsrmzf/xxydtj/xxydtj.html
+    URL http://www.nantong.gov.cn/ntsrmzf/bumxx/bumxx.html?title=
+    URL /ntsrmzf/bmxxydy/content/775a3310-6a97-4436-9e2b-a71c753f7539.html
+    URL /truecms/visitorController/saveLetter.do?optype=1
+    URL /truecms/letterController/xxList.do?type=
+    URL /truecms/visitorController/toWriteLetter.do?type=1&distmailbox=
+    URL /truecms/letterController/toSeeLetterInfo.do?bh=
+    URL /truecms/letterController/checkCodes.do?bh=
+    URL /truecms/letterController/xxList.do?numPerPage=10&pageNum=
+    URL /ntsrmzf/resource/js/ckplayer/ckplayer.js
+    URL /ntsrmzf/resource/js/video.js?siteURL=/ntsrmzf
+    URL /ntsrmzf/resource/js/plugin.js?siteURL=/ntsrmzf
+    JS true.validate.js (4343B)
+    JS chinatoenglish.js (47103B)
+    JS jquery-1.11.3.min.js (95957B)
+    JS jquery.slideBox.js (6050B)
+    JS header.js (60326B)
+      -> /ntsrmzf/resource/theme/js/lang.js\
+      -> /ntsrmzf/resource/theme
+      -> http://mail.nantong.gov.cn/
+      -> /ntsrmzf/xsy11/assets/images/header-icon1.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon2.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon3.png
+      -> https://www.nantong.gov.cn/ntsrmzf/xtznwd/index.html?jqrId=35eba609-383a-4c23-8b8-1765249991390
+      -> /ntsrmzf/xsy11/assets/images/header-icon4.png
+      -> /ntsrmzf/xsy11/assets/images/header-icon5.png
+      -> /ntsrmzf/resource/theme/img/1545357607607.jpg
+      -> /ntsrmzf/resource/theme/img/weixin.png
+      -> /ntsrmzf/xsy11/assets/images/search-icon.png\
+      -> /ntsrmzf/slh/accessible2/index.html?url=
+    JS area.js (34939B)
+
+======================================================================
+## 连云港 TrueCMS
+  https://www.lyg.gov.cn/zglygzfmhwz/gzcy/gzcy.html → 200 (54285)
+    URL /zglygzfmhwz/lygmhwzsjbsy/js/jquery1.42.min.js
+    URL /zglygzfmhwz/lygmhwzsjbsy/js/jquery.SuperSlide.2.1.1.js
+    URL /zglygzfmhwz/lygmhwzsjbsy/js/jquery.tab.js
+    URL https://ygxf.xfj.lyg.gov.cn:20000/other/lxxdList?orgid=32071&amp;type=sszxx
+    URL /TrueCMS/mailBoxLetterController/getLetterList.do?pageNum=1&numPerPage=4
+    URL http://www.lyg.gov.cn/TrueCMS/visitorController/letterView.do?id=
+    JS jquery1.42.min.js (72326B)
+    JS jquery.SuperSlide.2.1.1.js (11240B)
+    JS jquery.tab.js (7310B)
+    JS newheader.js (8703B)
+      -> http://mail.lyg.cn/
+    JS zglygzfmhwz (718B)
+      -> /resource/js/jquery-1.9.1.min.js\
+    JS toprq.js (40772B)
+      -> http://58.221.238.175:8888/ntsrmzf/index.html
+  http://12345.lyg.gov.cn/ → 200 (51971)
+    URL http://www.lyg.gov.cn/TrueCMS/visitorController/toDeptletterList.do?site=lygszcg&mailBoxId=d45bcbba-2f9a-4202-a050-a44ba8b1a4ed
+    URL /lygszcg/lygszcg/asstes/js/jquery.min.js
+    URL /lygszcg/lygszcg/asstes/js/jquery.tab.js
+    JS toprq.js (5881B)
+    JS tlogin.js (36343B)
+      -> http://58.221.238.175:8888/ntsrmzf/index.html
+    JS lygszcg (718B)
+      -> /resource/js/jquery-1.9.1.min.js\
+    JS header.js (884B)
+    JS jquery.min.js (93585B)
+    JS MSClass.js (16180B)
+
+======================================================================
+## 南京 门户
+  https://www.nanjing.gov.cn/ → 200 (618)
+  http://www.nanjing.gov.cn/ → 200 (618)
+  https://www.nanjing.gov.cn/hdjl/ → 200 (32407)
+    URL /szfmaterial/JS/jquery.min.js
+    URL https://szxx.nanjing.gov.cn:32767/sjxx/sjxxForm?orgid=320113&type=ssjxx
+    URL https://szxx.nanjing.gov.cn:32767/szxx/szxxIndex?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/banliqingkuang?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/dafulvtongji?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx
+    URL /images/jquery_trs_web_bindKey13.js
+    URL https://www.nanjing.gov.cn/images/jquery_trs_web_OutSiteLink.js
+    URL /szfmaterial/JS/jquery_trs_web.js
+    URL /szfmaterial/JS/jquery.cxslide.min.js
+    JS iconfont241218.js (23746B)
+    JS jquery.min.js (87533B)
+    JS jquery.min.js (87533B)
+    JS Std_StranJF.js (6005B)
+    JS jquery.min.js (87533B)
+    JS jquery_trs_web_bindKey13.js (421B)
+  http://www.nanjing.gov.cn/hdjl/ → 200 (32407)
+    URL /szfmaterial/JS/jquery.min.js
+    URL https://szxx.nanjing.gov.cn:32767/sjxx/sjxxForm?orgid=320113&type=ssjxx
+    URL https://szxx.nanjing.gov.cn:32767/szxx/szxxIndex?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/banliqingkuang?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/dafulvtongji?orgid=320113&type=sszxx
+    URL https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx
+    URL /images/jquery_trs_web_bindKey13.js
+    URL https://www.nanjing.gov.cn/images/jquery_trs_web_OutSiteLink.js
+    URL /szfmaterial/JS/jquery_trs_web.js
+    URL /szfmaterial/JS/jquery.cxslide.min.js
+    JS iconfont241218.js (23746B)
+    JS jquery.min.js (87533B)
+    JS jquery.min.js (87533B)
+    JS Std_StranJF.js (6005B)
+    JS jquery.min.js (87533B)
+    JS jquery_trs_web_bindKey13.js (421B)
+
+======================================================================
+## 淮安 门户
+  https://www.huaian.gov.cn/ → 200 (26635)
+    URL /js/jquery-1.10.2.min.js
+    URL /js/jquery.min.tpxw.js
+    URL /js/jquery.yx_rotaion.js
+    URL /js/jquery.yx_rotaion_m.js
+    URL /js/jquery.xdomainrequest.min.js
+    URL /articleCommonController/lists.do
+    JS CmsTools.js (1123B)
+    JS Lunbo.js (9724B)
+    JS jquery-1.10.2.min.js (89476B)
+    JS myfocus-2.0.4.full.js (20677B)
+    JS right2.js (5213B)
+    JS topm2.js (11979B)
+  https://www.huaian.gov.cn/col/16655_185673/index.html → 200 (5727)
+    URL /js/jquery.js
+    JS CmsTools.js (1123B)
+    JS header.js (0B)
+    JS nav.js (231B)
+    JS footer.js (3757B)
+      -> https://www.huaian.gov.cn/js/jquery.min.tpxw.js\
+      -> https://www.huaian.gov.cn/js/jquery.yx_rotaion_m.js\
+    JS jquery.js (108253B)

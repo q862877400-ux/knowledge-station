@@ -1,0 +1,31 @@
+## 苏州 /consultfront
+  gzjdCommonlist get -> 200 [application/json;charset=utf-8] {"exception":"参数格式错误","retCode":"5004"}
+  gzjdCommonlist post -> 200 [application/json;charset=utf-8] {"exception":"参数格式错误","retCode":"5004"}
+  bmxxCommonlist get -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","totalcount":"4153","infolist":[{"gid":"30494270FA3696D3","consult_revert_date":"2026-10-08 09:32:01.0","completetitle":"2003-2024年苏州市水资源公报","consult_title":"2003-2024年苏州市水资源公报","name":"苏州市水务局","consult_agree":"未评价","consult_revert_conten
+  bmxxCommonlist post -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","totalcount":"4153","infolist":[{"gid":"30494270FA3696D3","consult_revert_date":"2026-10-08 09:32:01.0","completetitle":"2003-2024年苏州市水资源公报","consult_title":"2003-2024年苏州市水资源公报","name":"苏州市水务局","consult_agree":"未评价","consult_revert_conten
+  getGzjdDeptlist get -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","deptlist":[{"isjysz":"1","name":"张家港市人民政府","creator_id":"9999999999999999","dept_id":"baecd5a2c619480397c6ec7cad4fd1f0","isqt":"1","code_name":"014180233","status":"0"},{"isjysz":"1","name":"常熟市人民政府","creator_id":"9999999999999999","dept
+  getGzjdDeptlist post -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","deptlist":[{"isjysz":"1","name":"张家港市人民政府","creator_id":"9999999999999999","dept_id":"baecd5a2c619480397c6ec7cad4fd1f0","isqt":"1","code_name":"014180233","status":"0"},{"isjysz":"1","name":"常熟市人民政府","creator_id":"9999999999999999","dept
+  getBmxxDeptlist get -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","deptlist":[{"isjysz":"1","name":"苏州市邮政管理局","creator_id":"9999999999999999","dept_id":"009e7cee08844ac8985cd437b86028b0","isqt":"1","code_name":"syzglj641","status":"0"},{"isjysz":"1","name":"苏州市司法局","creator_id":"9999999999999999","dept_
+  getBmxxDeptlist post -> 200 [application/json;charset=utf-8] {"exception":"接口成功访问","deptlist":[{"isjysz":"1","name":"苏州市邮政管理局","creator_id":"9999999999999999","dept_id":"009e7cee08844ac8985cd437b86028b0","isqt":"1","code_name":"syzglj641","status":"0"},{"isjysz":"1","name":"苏州市司法局","creator_id":"9999999999999999","dept_
+
+## 无锡 /mailbox
+  search get -> 200 [application/json] {"status":0,"errMsg":"","data":{"totalElements":8613,"totalPages":862,"page":1,"size":10,"first":true,"last":false,"data":[{"answerID":"7593c2ca-e608-4a16-9aa2-581bf495f576","doProjectID":"bfffa273-086a-47cb-a7a8-7ae8140550db","mainType":1,"typeID":"1","typeID
+  search post -> 200 [application/json] {"status":0,"errMsg":"","data":{"totalElements":8613,"totalPages":862,"page":1,"size":10,"first":true,"last":false,"data":[{"answerID":"7593c2ca-e608-4a16-9aa2-581bf495f576","doProjectID":"bfffa273-086a-47cb-a7a8-7ae8140550db","mainType":1,"typeID":"1","typeID
+  list get -> 200 [application/json] {"status":0,"errMsg":"","data":[{"typeId":"1","typeName":"咨询"},{"typeId":"2","typeName":"求助"},{"typeId":"3","typeName":"建议"},{"typeId":"4","typeName":"投诉"},{"typeId":"5","typeName":"举报"},{"typeId":"6","typeName":"表扬"},{"typeId":"7","typeName":"其他"}]}
+  list post -> 200 [application/json] {"status":9999,"errMsg":"未知异常!","data":null}
+  list get -> 200 [application/json] {"status":0,"errMsg":"","data":[{"id":"89","depId":"WX0080","depName":"江阴市"},{"id":"90","depId":"WX0081","depName":"宜兴市"},{"id":"91","depId":"WX0082","depName":"锡山区"},{"id":"92","depId":"WX0083","depName":"惠山区"},{"id":"93","depId":"WX0084","depName":"滨湖区"},{"i
+  list post -> 200 [application/json] {"status":9999,"errMsg":"未知异常!","data":null}
+  count get -> 200 [application/json] {"status":400,"errMsg":"请求的数据格式不符!","data":null}
+  count post -> 200 [application/json] {"status":9999,"errMsg":"未知异常!","data":null}
+
+## 连云港 TrueCMS
+  getLetterList -> 200 [text/html;charset=utf-8] {"success":"true","content":{"list":[{"mailboxname":"民政局在线交流","submittime":"2026-10-08 14:12:35","lrmailbox":"fc5fe078-4d2e-43c9-8904-1096ddedbbeb","mailbox":"fc5fe078-4d2e-43c9-8904-1096ddedbbeb","replytime":"2026-10-08 19:25:11","letternumber":"XJ20261000026
+
+## 南通 TrueCMS
+  numPerPage=10&pageNum=1 -> 404 [text/html;charset=UTF-8] <!DOCTYPE html>   <!-- JSTL 标签 -->     <!-- 简化书写 -->    <!-- Ztreev3.5 --> <link href="/truecms/css/icon.css" rel="stylesheet" del="single" type="text/css" media="screen"/> <script src="/truecms/js/true.validate.js" del="single" type="text/javasc
+  numPerPage=10&pageNum=1&type= -> 404 [text/html;charset=UTF-8] <!DOCTYPE html>   <!-- JSTL 标签 -->     <!-- 简化书写 -->    <!-- Ztreev3.5 --> <link href="/truecms/css/icon.css" rel="stylesheet" del="single" type="text/css" media="screen"/> <script src="/truecms/js/true.validate.js" del="single" type="text/javasc
+
+## 南京 /hdjl + 外链信箱
+  https://www.nanjing.gov.cn/hdjl/ -> 200 [text/html] <!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <meta http-equiv="X-UA-Compatible" content="ie=edge">     <meta name="SiteName" content="中共南京市委 南京市人民政府">     <met
+  https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang/huifuxuand -> 200 [text/html; charset=utf-8] <!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>数字阳光信访“一网通”服务平台</title><link href="/sta
+  https://szxx.nanjing.gov.cn:32767/zhengfuxinxiang?orgid=3201 -> 200 [text/html; charset=utf-8] <!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>数字阳光信访“一网通”服务平台</title><link href="/sta

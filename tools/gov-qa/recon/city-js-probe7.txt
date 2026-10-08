@@ -1,0 +1,81 @@
+## 苏州 完整项（看是否自带答复）
+{
+ "gid": "30494270FA3696D3",
+ "consult_revert_date": "2026-10-08 09:32:01.0",
+ "completetitle": "2003-2024年苏州市水资源公报",
+ "consult_title": "2003-2024年苏州市水资源公报",
+ "name": "苏州市水务局",
+ "consult_agree": "未评价",
+ "consult_revert_content": "您好：2003-2024年苏州市水资源公报已发您邮箱，请查收。苏州市水务局2026年10月8日",
+ "consult_state": "已回复",
+ "consult_type": "咨询",
+ "consult_hit": "0",
+ "consult_date": "2026-10-05"
+}
+
+## 无锡：从 JS 找 detail/answer 接口
+  无锡 item full keys=['answerID', 'doProjectID', 'mainType', 'typeID', 'typeIDName', 'title', 'content', 'openState', 'preAnswerID', 'listTypeID', 'listTypeIDName', 'depName', 'depID', 'doState', 'isSentUser', 'sentUserIP', 'beginTime', 'endTime', 'doUserName', 'doUserDisplayName', 'doUserIp', 'resultAnswer', 'familiar', 'doOpenState', 'appraise', 'readCount', 'sentMailBack', 'searchID', 'processTraces', 'processType', 'msg_Status', 'phone_Status', 'userPhone', 'applicant_Sex', 'applicant_Age', 'case_Goal', 'certificate_Type', 'certificate_Type_Code', 'case_Address', 'event_Date', 'wxfSentUserName', 'attachments', 'replyAttachmentMaps', 'hasAttachment']
+  answerID=7593c2ca-e608-4a16-9aa2-581bf495f576
+
+## 连云港：从 JS 找 detail 接口
+  try getLetterDetail id -> 404 <!DOCTYPE html>
+
+
+<!-- JSTL 标签 -->
+
+
+
+
+
+
+<!-- 简化书写 -->
+
+
+
+<!-- Ztr
+  try getLetterDetail letterId -> 404 <!DOCTYPE html>
+
+
+<!-- JSTL 标签 -->
+
+
+
+
+
+
+<!-- 简化书写 -->
+
+
+
+<!-- Ztr
+  try getLetterDetail lrmailbox -> 404 <!DOCTYPE html>
+
+
+<!-- JSTL 标签 -->
+
+
+
+
+
+
+<!-- 简化书写 -->
+
+
+
+<!-- Ztr
+  try getLetterDetail letternumber -> 404 <!DOCTYPE html>
+
+
+<!-- JSTL 标签 -->
+
+
+
+
+
+
+<!-- 简化书写 -->
+
+
+
+<!-- Ztr
+  ERR [Errno 22] Invalid argument

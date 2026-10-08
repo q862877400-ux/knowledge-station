@@ -1,0 +1,31 @@
+## 苏州 bmxxCommonlist 分页参数名
+  pageNum=2 -> n=10 first=2003-2024年苏州市水资源公报
+  page=2 -> n=10 first=2003-2024年苏州市水资源公报
+  currentPage=2 -> n=10 first=2003-2024年苏州市水资源公报
+  pageNo=2 -> n=10 first=2003-2024年苏州市水资源公报
+  pageIndex=2 -> n=10 first=2003-2024年苏州市水资源公报
+  start=2 -> n=10 first=2003-2024年苏州市水资源公报
+  offset=2 -> n=10 first=2003-2024年苏州市水资源公报
+
+## 无锡 letter/search 分页参数名
+  pageNum=2 -> n=10 first=找一份跆拳道教练的工作
+  page=2 -> n=10 first=无锡基准地价修正体系
+  currentPage=2 -> n=10 first=找一份跆拳道教练的工作
+  pageNo=2 -> n=10 first=找一份跆拳道教练的工作
+  pageIndex=2 -> n=10 first=找一份跆拳道教练的工作
+  start=2 -> n=10 first=找一份跆拳道教练的工作
+  无锡 item 全字段={"answerID": "7593c2ca-e608-4a16-9aa2-581bf495f576", "doProjectID": "bfffa273-086a-47cb-a7a8-7ae8140550db", "mainType": 1, "typeID": "1", "typeIDName": "咨询", "title": "找一份跆拳道教练的工作", "content": "由于前洲华韵艺术跆拳道刘山教练有一系列违法行为，（引诱他人嫖娼，拍摄视频以此为要挟的手段。两次问我要不要找女人。李建飞教练曾对我说他有把柄在刘山教练手里。可以证实。又扣留学生黑带向家长索取财物。）我只想做一个堂堂正正的中国人，想当教练要么听他的要么给他把柄，二者无一可，被辞退。之后去功夫之星三日被辞退。去新武会一周被辞退。（他们直接应该都有联系。）回玉祁。去昊龙体育，被通知来面试，后被其老板告知说，不用。去伍玖跆拳道，和馆长张奔商量。自己可以招到学生，即能解决家长的问题，又能解决自己的就业，道馆也能增加学员和教练。馆长表示认同。后又被其大哥告知说，不招。形单影只，无计可施，特向政府求助！", "openState": 0, "preAnswerID": "", "listTypeID": "18", "listTypeIDName": "", "depName": "惠山区", "depID": "WX0083", "doState": 2, "isSentUser": false, "sentUserIP": "", "beginTime": "2026-09-25", "endTime": "2026-09-30", "doUserName": "WX0083", "doUserDisplayName": "惠山区", "doUserIp": "WX0083", "resultAnswer": "惠山区前洲街道回复：惠山区前洲街道教育文体站回复：您好，前洲文体站于2026-9-29 9:01收悉您反映的问题，现答复如下：\n1、处理时间：2026年9月29日；\n2、处理过程和结果：经了解，该反应的问题属于敲诈勒索等违法行为，建议诉求人带好相关证据前往前洲派出所进行举报。\n3、联系诉求人情况：已于2026年9月29日，文体部门使用手机号189*****318与市民联系，市民表示认可；如还有疑问，欢迎再次致电12345。", "familiar": 1, "doOpenState": 0, "appraise": 3, "readCount": 294, "sentMailBack": 1, "searchID": "WX2026092500059", "processTraces": "", "processType": -1, "msg_Status": 0, "phone_Status": 0, "userPhone": "", "applicant_Sex": "", "applicant_Age": "", "case_Goal": "", "certificate_Type": "身份证", "certificate_Type_Code": "", "case_Address": "", "event_Date": "", "wxfSentUserName": "", "attachments": null, "replyAttachmentMaps": null, "hasAttachment": true}
+
+## 南通 siteId
+  siteId=1f9dcfb8-d52d-46e6-83e7-479a46f2f74b
+  UUID 1676b69c-9162-447f-a555-718bbe87cec4
+  UUID b88fd122-d5a3-406e-8388-80b4b55b196b
+  UUID 1f9dcfb8-d52d-46e6-83e7-479a46f2f74b
+  getInteractiveJson siteId=1676b69c-9162-447f-a555-718bbe87cec4 -> 200 {"success":"true","content":{"list":[{"beginTime":"2010-09-07 17:03:51 ","classifyType":"","columnId":"","columnName":"","deptName":"47","endTime":"2100-12-23 23:23:23 ","hrefaddress":"","id":"761","i
+  getInteractiveJson siteId=b88fd122-d5a3-406e-8388-80b4b55b196b -> 200 {"success":"true","content":{"list":[{"beginTime":"2010-09-07 17:03:51 ","classifyType":"","columnId":"","columnName":"","deptName":"47","endTime":"2100-12-23 23:23:23 ","hrefaddress":"","id":"761","i
+  getInteractiveJson siteId=1f9dcfb8-d52d-46e6-83e7-479a46f2f74b -> 200 {"success":"true","content":{"list":[{"beginTime":"2010-09-07 17:03:51 ","classifyType":"","columnId":"","columnName":"","deptName":"47","endTime":"2100-12-23 23:23:23 ","hrefaddress":"","id":"761","i
+
+## 南京 szxx huifuxuandeng
+  ing.gov.cn:32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx -> 200 <!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=dev
+  :32767/zhengfuxinxiang/huifuxuandeng?orgid=320113&type=sszxx&pageNum=1 -> 200 <!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=dev
+  ps://szxx.nanjing.gov.cn:32767/zfxx/letterList?orgid=320113&type=sszxx -> 200 <!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=dev

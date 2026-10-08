@@ -1,0 +1,13 @@
+GET {'currpage': 1, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=2003-2024年苏州市水资源公报
+GET {'currpage': 2, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=占道经营，环境污染，影响交通
+GET {'currpage': 3, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=关于拆迁购房契税退税无法办理，恳请协调处理的求助
+GET {'currpage': 2, 'check': 'do', 'pagesize': 20, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=20 first=关于拆迁购房契税退税无法办理，恳请协调处理的求助
+POST {'currpage': 1, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=2003-2024年苏州市水资源公报
+POST {'currpage': 2, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=占道经营，环境污染，影响交通
+POST {'currpage': 3, 'check': 'do', 'pagesize': 10, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=10 first=关于拆迁购房契税退税无法办理，恳请协调处理的求助
+POST {'currpage': 2, 'check': 'do', 'pagesize': 20, 'deptcode': '', 'keywords': ''} -> status=200 totalcount=4153 n=20 first=关于拆迁购房契税退税无法办理，恳请协调处理的求助
+
+## item keys=['gid', 'consult_revert_date', 'completetitle', 'consult_title', 'name', 'consult_agree', 'consult_revert_content', 'consult_state', 'consult_type', 'consult_hit', 'consult_date']
+## item={"gid": "30494270FA3696D3", "consult_revert_date": "2026-10-08 09:32:01.0", "completetitle": "2003-2024年苏州市水资源公报", "consult_title": "2003-2024年苏州市水资源公报", "name": "苏州市水务局", "consult_agree": "未评价", "consult_revert_content": "您好：2003-2024年苏州市水资源公报已发您邮箱，请查收。苏州市水务局2026年10月8日", "consult_state": "已回复", "consult_type": "咨询", "consult_hit": "0", "consult_date": "2026-10-05"}
+
+## top keys=['exception', 'totalcount', 'infolist', 'retCode']

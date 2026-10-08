@@ -1,0 +1,126 @@
+## 苏州 main.js bmxxCommonlist 上下文
+  ...tfront/consult/gzjdaddMess",EB="/consultfront/common/getBmxxDeptlist",xB="/consultfront/consult/sjxxaddMess",kB="/consultfront/consult/szxxaddMess",$B="/consultfront/consult/bmxxaddMess",OB="/consultfront/common/getBmxxNewStatistical",RB="/consultfront/common/bmxxCommonlist",IB="/consultfront/common/getbmxxhfl",TB="/consultfront/common/getBmxxDetail",MB=`/consultfront/ssoLogin/loginBtn/?r_url=${encodeURIComponent(window.location.href)}`,Zh="/consultfront/vercode/getVerifyCode";var ec={},PB={get exports(){return ec}
+  ----
+
+## 无锡 item 完整（page=1）
+  keys=['totalElements', 'totalPages', 'page', 'size', 'first', 'last', 'data']
+  item keys=['answerID', 'doProjectID', 'mainType', 'typeID', 'typeIDName', 'title', 'content', 'openState', 'preAnswerID', 'listTypeID', 'listTypeIDName', 'depName', 'depID', 'doState', 'isSentUser', 'sentUserIP', 'beginTime', 'endTime', 'doUserName', 'doUserDisplayName', 'doUserIp', 'resultAnswer', 'familiar', 'doOpenState', 'appraise', 'readCount', 'sentMailBack', 'searchID', 'processTraces', 'processType', 'msg_Status', 'phone_Status', 'userPhone', 'applicant_Sex', 'applicant_Age', 'case_Goal', 'certificate_Type', 'certificate_Type_Code', 'case_Address', 'event_Date', 'wxfSentUserName', 'attachments', 'replyAttachmentMaps', 'hasAttachment']
+  item={"answerID": "7593c2ca-e608-4a16-9aa2-581bf495f576", "doProjectID": "bfffa273-086a-47cb-a7a8-7ae8140550db", "mainType": 1, "typeID": "1", "typeIDName": "咨询", "title": "找一份跆拳道教练的工作", "content": "由于前洲华韵艺术跆拳道刘山教练有一系列违法行为，（引诱他人嫖娼，拍摄视频以此为要挟的手段。两次问我要不要找女人。李建飞教练曾对我说他有把柄在刘山教练手里。可以证实。又扣留学生黑带向家长索取财物。）我只想做一个堂堂正正的中国人，想当教练要么听他的要么给他把柄，二者无一可，被辞退。之后去功夫之星三日被辞退。去新武会一周被辞退。（他们直接应该都有联系。）回玉祁。去昊龙体育，被通知来面试，后被其老板告知说，不用。去伍玖跆拳道，和馆长张奔商量。自己可以招到学生，即能解决家长的问题，又能解决自己的就业，道馆也能增加学员和教练。馆长表示认同。后又被其大哥告知说，不招。形单影只，无计可施，特向政府求助！", "openState": 0, "preAnswerID": "", "listTypeID": "18", "listTypeIDName": "", "depName": "惠山区", "depID": "WX0083", "doState": 2, "isSentUser": false, "sentUserIP": "", "beginTime": "2026-09-25", "endTime": "2026-09-30", "doUserName": "WX0083", "doUserDisplayName": "惠山区", "doUserIp": "WX0083", "resultAnswer": "惠山区前洲街道回复：惠山区前洲街道教育文体站回复：您好，前洲文体站于2026-9-29 9:01收悉您反映的问题，现答复如下：\n1、处理时间：2026年9月29日；\n2、处理过程和结果：经了解，该反应的问题属于敲诈勒索等违法行为，建议诉求人带好相关证据前往前洲派出所进行举报。\n3、联系诉求人情况：已于2026年9月29日，文体部门使用手机号189*****318与市民联系，市民表示认可；如还有疑问，欢迎再次致电12345。", "familiar": 1, "doOpenState": 0, "appraise": 3, "readCount": 294, "sentMailBack": 1, "searchID": "WX2026092500059", "processTraces": "", "processType": -1, "msg_Status": 0, "phone_Status": 0, "userPhone": "", "applicant_Sex": "", "applicant_Age": "", "case_Goal": "", "certificate_Type": "身份证", "certificate_Type_Code": "", "case_Address": "", "event_Date": "", "wxfSentUserName": "", "attachments": null, "replyAttachmentMaps": null, "hasAttachment": true}
+
+## 南京 szxx SPA 资源
+  len=9708
+  RES /static/css/chunk-005fede9.7503eb50.css
+  RES /static/css/chunk-0952ae72.3fb5920b.css
+  RES /static/css/chunk-0e4e6aac.28261e84.css
+  RES /static/css/chunk-14211e38.45c64e2e.css
+  RES /static/css/chunk-1a5f2e40.5a2e4c6d.css
+  RES /static/css/chunk-1bf3664c.461ddc47.css
+  RES /static/css/chunk-1d903234.ddf6c63f.css
+  RES /static/css/chunk-23f0a0aa.916687ac.css
+  RES /static/css/chunk-2bc9dcd2.88e8424f.css
+  RES /static/css/chunk-2c0238d0.4e9c7d96.css
+  RES /static/css/chunk-2f83383a.8ac0888e.css
+  RES /static/css/chunk-3121bd24.ab74ab03.css
+  RES /static/css/chunk-34c7cff4.4afa0608.css
+  RES /static/css/chunk-36bad7d1.58151d64.css
+  RES /static/css/chunk-383f6344.c3e88c9c.css
+  RES /static/css/chunk-396d0977.a88e0333.css
+  RES /static/css/chunk-3c369b54.6114e67a.css
+  RES /static/css/chunk-3d606ece.84a7e322.css
+  RES /static/css/chunk-3e60e29a.337cc246.css
+  RES /static/css/chunk-420b01e3.eb465c06.css
+  RES /static/css/chunk-49f41b2c.cb074402.css
+  RES /static/css/chunk-4cc3c09c.4abe1a90.css
+  RES /static/css/chunk-4e714429.9d964de6.css
+  RES /static/css/chunk-4e9632ca.8b3796f2.css
+  RES /static/css/chunk-518d768d.bbd34af9.css
+  RES /static/css/chunk-51ea274f.dd2d0b3f.css
+  RES /static/css/chunk-6056c6da.adf10863.css
+  RES /static/css/chunk-62448047.f9975cae.css
+  RES /static/css/chunk-654666d7.8dbe027a.css
+  RES /static/css/chunk-69aa2166.4ab009cb.css
+  RES /static/css/chunk-6c1a1984.0402b3c0.css
+  RES /static/css/chunk-6e038f3c.3062b6f5.css
+  RES /static/css/chunk-70b5c5b4.e1db292b.css
+  RES /static/css/chunk-70c9d108.17701ddc.css
+  RES /static/css/chunk-723a7902.256b6d5c.css
+  RES /static/css/chunk-7371e4c6.ed2bb668.css
+  RES /static/css/chunk-7519d36c.93ccf6ed.css
+  RES /static/css/chunk-770597d6.2ba9b7e7.css
+  RES /static/css/chunk-788f0290.835eca00.css
+  RES /static/css/chunk-7a6c50bb.7ff99e36.css
+  RES /static/css/chunk-9fb37a5c.1df530e5.css
+  RES /static/css/chunk-a3588a38.13269099.css
+  RES /static/css/chunk-b6f0b606.00ab6969.css
+  RES /static/css/chunk-bd155caa.7e416e13.css
+  RES /static/css/chunk-cd30996c.c068d1ac.css
+  RES /static/css/chunk-d3e311c0.e8d80a12.css
+  RES /static/css/chunk-d693bc5e.ec6b2141.css
+  RES /static/css/chunk-de58584a.2ae6591a.css
+  RES /static/css/chunk-e70cf99c.a87a9872.css
+  RES /static/css/chunk-e75916e6.70fef9cd.css
+  RES /static/css/chunk-ebd65f68.305b420c.css
+  RES /static/js/chunk-005fede9.f88f7ca6.js
+  RES /static/js/chunk-0952ae72.edbb174c.js
+  RES /static/js/chunk-0e4e6aac.33106f40.js
+  RES /static/js/chunk-14211e38.53f2c2dd.js
+  RES /static/js/chunk-1a5f2e40.1146209b.js
+  RES /static/js/chunk-1bf3664c.287b5155.js
+  RES /static/js/chunk-1d903234.9ca37e85.js
+  RES /static/js/chunk-23f0a0aa.0e80eec5.js
+  RES /static/js/chunk-2bc9dcd2.38a3ffa5.js
+  RES /static/js/chunk-2c0238d0.0d0a663b.js
+  RES /static/js/chunk-2d229bb3.47d65831.js
+  RES /static/js/chunk-2f83383a.1aef9502.js
+  RES /static/js/chunk-3121bd24.ce263819.js
+  RES /static/js/chunk-34c7cff4.028a7c48.js
+  RES /static/js/chunk-36bad7d1.d950d955.js
+  RES /static/js/chunk-383f6344.c0763393.js
+  RES /static/js/chunk-396d0977.13426599.js
+  RES /static/js/chunk-3c369b54.7bdf36e3.js
+  RES /static/js/chunk-3d606ece.5ce6be99.js
+  RES /static/js/chunk-3e60e29a.74d65a8c.js
+  RES /static/js/chunk-420b01e3.8703f3a5.js
+  RES /static/js/chunk-49f41b2c.5580d805.js
+  RES /static/js/chunk-4cc3c09c.8e4c61c3.js
+  RES /static/js/chunk-4e714429.f371774f.js
+  RES /static/js/chunk-4e9632ca.18807a39.js
+  RES /static/js/chunk-518d768d.f0b04879.js
+  RES /static/js/chunk-51ea274f.6fc572aa.js
+  RES /static/js/chunk-6056c6da.8ae612ee.js
+  RES /static/js/chunk-62448047.2fc1751f.js
+  RES /static/js/chunk-654666d7.53561069.js
+  RES /static/js/chunk-69aa2166.8e9db257.js
+  RES /static/js/chunk-6c1a1984.03bb7820.js
+  RES /static/js/chunk-6e038f3c.e49d25ac.js
+  RES /static/js/chunk-70b5c5b4.9e3ed910.js
+  RES /static/js/chunk-70c9d108.ace00e59.js
+  RES /static/js/chunk-723a7902.4727db22.js
+  RES /static/js/chunk-7371e4c6.dce128f9.js
+  RES /static/js/chunk-7519d36c.2c21236a.js
+  RES /static/js/chunk-770597d6.2f41d97d.js
+  RES /static/js/chunk-788f0290.1a05ea0f.js
+  RES /static/js/chunk-7a6c50bb.e9d205f9.js
+  RES /static/js/chunk-9fb37a5c.5d938e27.js
+  RES /static/js/chunk-a3588a38.eedaf932.js
+  RES /static/js/chunk-a89bbbb0.cbb7b091.js
+  RES /static/js/chunk-b6f0b606.2bcb2ff8.js
+  RES /static/js/chunk-bd155caa.412e1e3d.js
+  RES /static/js/chunk-cd30996c.f6c839bc.js
+  RES /static/js/chunk-d3e311c0.8f81918b.js
+  RES /static/js/chunk-d693bc5e.5a38761e.js
+  RES /static/js/chunk-de58584a.42e064d6.js
+  RES /static/js/chunk-e70cf99c.c0b6eea7.js
+  RES /static/js/chunk-e75916e6.4a10ee80.js
+  RES /static/js/chunk-ebd65f68.1bd5614d.js
+  RES /static/css/app.4c7cb5d9.css
+  RES /static/css/chunk-vendors.a548531e.css
+  RES /static/js/app.0e399158.js
+  RES /static/js/chunk-vendors.d75f0184.js
+  RES /static/css/chunk-vendors.a548531e.css
+  RES /static/css/app.4c7cb5d9.css
+  RES /527/jquery.min.js
+  RES /527/RTCPeer.js
+  RES /static/js/chunk-vendors.d75f0184.js
+  RES /static/js/app.0e399158.js
+  RES ./static/404-logo.png
