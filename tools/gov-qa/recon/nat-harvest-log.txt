@@ -1,0 +1,56 @@
+########## nat-nea 00:37:27 ##########
+
+[nat-nea] 国家能源局·留言选登 → nat-nea-国家能源局·留言选登.jsonl（已有 0 条）
+    [nat-nea] 数据源 145 条
+    [nat-nea] w.nea.gov.cn/2024-01/12/c_1310760013.htm 未取到答复正文（跳过）
+    [nat-nea] 收 144 条
+    取到 144 条，其中**新增 144 条**（用时 193s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-nea-国家能源局·留言选登.jsonl
+
+[harvest] 全部完成，新增合计 144 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## nat-mohurd 00:40:44 ##########
+
+[nat-mohurd] 住房和城乡建设部·政务咨询 → nat-mohurd-住房和城乡建设部·政务咨询.jsonl（已有 0 条）
+    [nat-mohurd] count=672
+    [nat-mohurd] 第 1 页：解析 20 条
+    [nat-mohurd] 第 2 页：解析 20 条
+    [nat-mohurd] 第 3 页：解析 20 条
+    [nat-mohurd] 第 4 页：解析 20 条
+    [nat-mohurd] 第 5 页：解析 20 条
+    [nat-mohurd] 第 6 页：解析 20 条
+    [nat-mohurd] 第 7 页：解析 20 条
+    [nat-mohurd] 第 8 页：解析 20 条
+    [nat-mohurd] 第 9 页：解析 20 条
+    [nat-mohurd] 第 10 页：解析 20 条
+    [nat-mohurd] 第 11 页：解析 20 条
+    [nat-mohurd] 第 12 页：解析 20 条
+    [nat-mohurd] 第 13 页：解析 20 条
+    [nat-mohurd] 第 14 页：解析 20 条
+    [nat-mohurd] 第 15 页：解析 20 条
+    [nat-mohurd] 第 16 页：解析 20 条
+    [nat-mohurd] 第 17 页：解析 20 条
+    [nat-mohurd] 第 18 页：解析 20 条
+    [nat-mohurd] 第 19 页：解析 20 条
+    [nat-mohurd] 第 20 页：解析 20 条
+    [nat-mohurd] 第 21 页：解析 20 条
+    [nat-mohurd] 第 22 页：解析 20 条
+    [nat-mohurd] 第 23 页：解析 20 条
+    [nat-mohurd] 第 24 页：解析 20 条
+    [nat-mohurd] 第 25 页：解析 19 条
+    [nat-mohurd] 第 26 页：解析 20 条
+    [nat-mohurd] 第 27 页：解析 20 条
+    [nat-mohurd] 第 28 页：解析 20 条
+    [nat-mohurd] 第 29 页：解析 20 条
+    [nat-mohurd] 第 30 页：解析 20 条
+    [nat-mohurd] 第 31 页：解析 20 条
+    [nat-mohurd] 第 32 页：解析 20 条
+    [nat-mohurd] 第 33 页：解析 20 条
+    [nat-mohurd] 第 34 页：解析 12 条
+    [nat-mohurd] 收 671 条
+    取到 671 条，其中**新增 671 条**（用时 59s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-mohurd-住房和城乡建设部·政务咨询.jsonl
+
+[harvest] 全部完成，新增合计 671 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## nat-most 00:41:45 ##########

@@ -1,0 +1,15 @@
+########## nat-most 00:53:25 ##########
+
+[nat-most] 科学技术部·公众问答 → nat-most-科学技术部·公众问答.jsonl（已有 0 条）
+    [nat-most] 业务咨询（tid=1）total=4797
+    [nat-most] 政策咨询（tid=2）total=2065
+    [nat-most] 提出建议（tid=3）total=582
+    [nat-most] 反馈问题（tid=4）total=1367
+    [nat-most] 常见问题解答 total=15
+    [nat-most] 收 8045 条
+    取到 8045 条，其中**新增 8045 条**（用时 288s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-most-科学技术部·公众问答.jsonl
+
+[harvest] 全部完成，新增合计 8045 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## DONE 00:58:17 ##########
