@@ -1,0 +1,31 @@
+########## nat-nhsa 00:41:46 ##########
+
+[nat-nhsa] 国家医疗保障局·交流公开 → nat-nhsa-国家医疗保障局·交流公开.jsonl（已有 0 条）
+    [nat-nhsa] totalRows=37 totalPage=3
+    [nat-nhsa] 收 37 条
+    取到 37 条，其中**新增 37 条**（用时 4s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-nhsa-国家医疗保障局·交流公开.jsonl
+
+[harvest] 全部完成，新增合计 37 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## nat-forestry 00:41:53 ##########
+
+[nat-forestry] 国家林业和草原局·互动留言 → nat-forestry-国家林业和草原局·互动留言.jsonl（已有 0 条）
+    [nat-forestry] totalElements=673 totalPages=34
+    [nat-forestry] 收 671 条
+    取到 671 条，其中**新增 671 条**（用时 60s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-forestry-国家林业和草原局·互动留言.jsonl
+
+[harvest] 全部完成，新增合计 671 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## nat-cma 00:42:56 ##########
+
+[nat-cma] 中国气象局·回应关切 → nat-cma-中国气象局·回应关切.jsonl（已有 0 条）
+    [nat-cma] 列表 30 条
+    [nat-cma] 收 30 条
+    取到 30 条，其中**新增 30 条**（用时 41s）
+    已追加到 D:\AI\work space\zcode\tools\gov-qa\data\nat-cma-中国气象局·回应关切.jsonl
+
+[harvest] 全部完成，新增合计 30 条。
+[harvest] 下一步：跑 `measure-locate-rate.py` 看这些条目能不能当考卷。
+########## DONE 00:43:41 ##########

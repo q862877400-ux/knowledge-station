@@ -1,0 +1,748 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+<link href="/style/sh/report/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/style/sh/report/css/style.css" rel="stylesheet" type="text/css">
+<link href="/style/sh/report/css/popup.css" rel="stylesheet" type="text/css">
+<!--表单验证样式表-->
+<link href="/js/sh/web/report/formValidator/style/validator.css" rel="stylesheet" type="text/css" />
+<script type="application/javascript" src="/js/sh/web/report/jquery-3.5.0.min.js?version=20250712"></script>
+<script type="application/javascript" src="/js/sh/web/report/jquery.form.js?version=20250712"></script>
+<script type="application/javascript" src="/js/sh/web/report/bootstrap.js?version=20250712"></script>
+<script type="application/javascript" src="/js/sh/web/report/laydate/laydate.js?version=20250712"></script>
+<script type="application/javascript" src="/js/sh/web/report/base64.js?version=20250712"></script>
+<script type="application/javascript" src="/js/sh/web/report/fp.min.js?version=20250712"></script>
+
+<!--表单验证必须库-->
+<script src="/js/sh/web/report/formValidator/formValidator-4.0.1.js?version=20250712"
+        type="text/javascript" charset="UTF-8"></script>
+<script src="/js/sh/web/report/formValidator/formValidatorRegex.js?version=20250712"
+        type="text/javascript" charset="UTF-8"></script>
+
+<script type="text/javascript" src="/js/sh/web/report/cssForAlert.js?version=20250712"></script>
+<script type="text/javascript" src="/js/sh/web/report/ajaxfileupload.js?version=20250712"></script>
+<script type="text/javascript" src="/js/sh/web/report/jquery.blockUI.min.js?version=20250712" ></script>
+<script type="text/javascript" src="/js/sh/web/report/common.js?a="+Math.random()></script>
+
+<style>
+    .warning_txt span{
+        color: black;
+    }
+    .warning_txt a{
+        color: #0000FF;
+    }
+    .modal-body span{
+        color: red;
+        font-size: 18px;
+    }
+    .modal-body a{
+        color: #0000FF;
+        font-size: 18px;
+    }
+
+    .btn{
+        display: inline-block !important;
+    }
+    .modal-footer {
+        text-align: center !important;
+    }
+</style>
+<script type="application/javascript">
+	var rootPath = '';
+    //提示改变计时
+    var tipsChange = 0;
+    //提示标志
+    var tipsFlag = 0;
+    //默认提示
+    var defaultHtml = '<em class="warning_icon"></em>' +
+        '<span>本网站建议使用chrome浏览器进行查看，</span>' +
+        '<a href="http://www.google.cn/chrome/" target="_blank" style="color: blue">点击下载>></a>' +
+        '<em class="delete_icon" onclick="removeWarningDiv()"></em>';
+    //eleClass 元素eleClass,down 倒计时时间
+
+    function changeTips(eleClass, down) {
+        ++tipsChange;
+        if(tipsChange == down) {
+            if(tipsFlag==0){
+                $(".warning_txt").html(defaultHtml);
+                tipsFlag=1;
+            }else if(tipsFlag==1) {
+                $(".warning_txt").html(defaultHtml);
+                tipsFlag=0;
+            }
+            tipsChange = 0;
+            changeTips(eleClass, down);
+        } else {
+            window.setTimeout(function(){ changeTips(eleClass, down); }, 1000);
+        }
+    }
+    //删除告警标语
+    function removeWarningDiv() {
+        $(".warning_txt").remove();
+    }
+
+    //身份证验证
+    function isNothingOrIDcard(str){
+        var test = isCardIDWithAgeForReg(str)
+        if(str==""){
+            return true;
+        }else if(isCardIDWithAgeForReg(str)!="正确"){
+            return "请正确的证件号码";
+        }
+        return true;
+    }
+    //为空或者不是数字
+    function isNothingOrNotANumber(str){
+        if(str==""){
+            return true;
+        }else if(!isChinese(str)){
+            return "请输入中文";
+        }
+        return true;
+    }
+    //是否是中文
+    function isChinese(str){
+        if(/^[\u3220-\uFA29]+$/.test(str)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    // 生成浏览器指纹
+    async function getFingerprint() {
+        // 初始化
+        const fpPromise = FingerprintJS.load();
+        const fp = await fpPromise;
+
+        // 获取结果
+        const result = await fp.get();
+
+        // 返回唯一标识
+        return result.visitorId; // 示例: "a9c59a0333db7d47"
+    }
+    async function recordBehave(others) {
+        getFingerprint().then(fingerprint => {
+            console.log("浏览器指纹:", fingerprint);
+            console.log('navigator-info:',navigator.platform + '-' + navigator.userAgent);
+
+            var baseParams = {
+                loginName: '',
+                userId: '',
+                referrerUrl: '',
+                navigatorInfo: navigator.platform + '-' + navigator.userAgent,
+                browserId: fingerprint,
+                webUrl: window.location.href,
+                action: '访问页面',
+                httpMethod: 'GET',
+                status: 'SUCCESS'
+            }
+
+            // 合并对象：others 的优先级高于 baseParams
+            const behaveParams = {
+                ...baseParams,  // 基础参数
+                ...others       // 覆盖基础参数
+            };
+
+            console.log('behaveParams :',behaveParams);
+
+            $.ajax({
+                url : "/recordBehave.action",// 目标地址
+                data : behaveParams, // 保存参数
+                type : "POST", // 用POST方式传输
+                //async:false,
+                dataType : "json", // 数据格式:text
+                withCredentials: true,
+                success : function(data) {
+                    console.log("浏览器指纹:", fingerprint);
+                }
+            });
+
+        });
+    }
+
+
+    function toHome(param) {
+        if (typeof (param) != 'undefined' && '' != param) {
+            // IP 限制 , 不在工作时间范围内
+            sessionStorage.setItem("param",param)
+        }
+        window.location = "/app/nt/index.jsp";
+    }
+
+
+    // 用户查询
+    function user2Search() {
+    	var loginUser = '';
+		if(''==loginUser){
+			window.location = "/sh.csrc.webreport!reportQuery.sh";
+		}else{
+			window.location = "/sh.csrc.webreport!reportQuery.sh";
+		}
+    }
+
+    // 密码查询
+    function passwd2Search() {
+        window.location = "/sh.csrc.webreport!passwdSearch.sh";
+    }
+
+
+
+    // 投诉建议查询
+    function adviceSearch() {
+        window.location = "/sh.inb.publicmessage!messageList.sh";
+    }
+
+
+    function IsLogin() {
+        $.ajax({
+            url : "/checkLogin.action",// 目标地址
+            data : "login", // 目标参数
+            type : "POST", // 用POST方式传输
+            async:false,
+            dataType : "json", // 数据格式:text
+            success : function(data) {
+                //console.log(data);
+                if (data&&data == "NO") {
+                	var loginUser = '';
+					var loginName = '';
+					if(''==loginUser){
+						$('#login').show();
+	                    $('#loginout').hide();
+	                    $("#reportManager").hide();
+	                    $("#interfaceMonitor").hide();
+					}else{
+						 $('#login').show();
+		                 $('#login').html('<a style="color: white; text-decoration:none;"> | 当前用户：'+loginName+'');
+		                 $('#loginout').show();
+		                 $("#reportManager").hide();
+		                 $("#interfaceMonitor").hide();
+					}
+                }else if (data&&data =="YES"){
+                    $('#login').show();
+                    $('#login').html('<a  style="color: white;text-decoration:none;"> | 当前用户：管理员');
+                    $('#loginout').show();
+                    //$('#reportRegister').html('<a href="/UserAction_login.action">举报登记</a>')
+                    $('#reportRegister').attr("href","/UserAction_login.action");
+                    // $('#homepage').hide();
+                    // $('#question').hide();
+					$("#reportManager").show();
+					$("#interfaceMonitor").show();
+                } else {
+                    $('#login').show();
+                    $('#login').html('<a style="color: white; text-decoration:none;"> | 当前用户：'+data+'');
+                    $('#loginout').show();
+                    $("#reportManager").hide();
+                    $("#interfaceMonitor").hide();
+                }
+            }
+        });
+
+    }
+
+    function Time() {
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        $("#onlineSearchModal").modal("show");
+    }
+
+    $(function () {
+        //IsLogin();
+        //changeTips("",10);
+
+        // 清明节颜色设置
+        // changeColor();
+
+        // 使用示例
+        recordBehave();
+    });
+    function changeColor() {
+        // 系统首页等页签背景
+        $("#homeNav").css("background"," #737373")
+    }
+
+</script>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/HFcommon.css" rel="stylesheet" />
+		<link href="/css/font-icon.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<div class="width1200">
+				<ul class="line">
+					<li>
+						<a href="http://www.csrc.gov.cn/"><img src="/app/nt/images/logo.png"></a>
+					</li>
+					<li>
+						<p class="slogan"></p>
+					</li>
+				</ul>
+			</div>
+		</header>
+	</body>
+</html>
+
+
+<div class="modal fade" id="onlineSearchModal" tabindex="-1" role="dialog" aria-labelledby="onlineSearchModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" >
+
+        <div class="popup" style="height: 200px">
+                    <button class="close"  data-dismiss="modal" aria-hidden="true"><img src="/style/sh/report/images/icon-close.svg" width="100%"></button>
+                    <h1 class="title" style="">结果查询</h1>
+                <div class="content jgcxCon" >
+                    <ul class="jgcxUl">
+                        <li>举报密码查询:信件等其他方式实名举报的请输入发送至您手机的查询码进行查询</li>
+                        <li><button onclick="passwd2Search()" >密码查询</button></li>
+                    </ul>
+                    <hr>
+                    <div class="sm">如您是原“<b>证券期货违法线索网络举报系统</b>”的用户，需查询历史举报状态信息，<a href="http://neris.csrc.gov.cn/jubaozhongxin/thirdEdition/home.jsp">请点此查询 ></a></div>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 时间验证模态框（Modal） -->
+<div class="modal fade" id="workHoursModal" tabindex="-1" role="dialog" aria-labelledby="workHoursModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="workHoursModalLabel">重要提示</h4>
+            </div>
+            <div class="modal-body">
+                系统正在维护中，请于工作日8：30--17：00进行举报。<br/>
+            </div>
+            <div class="modal-footer">
+                <input  style="margin-left: 80%" type="button" class="btn btn-primary" data-dismiss="modal"
+                        value="确定"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ipRetModal" tabindex="-1" role="dialog" aria-labelledby="ipRetModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button style="margin-top: -10px" type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        onclick="javascript:timedCount('next', countDown, '下一页', false);">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="ipRetModalLabel">重要提示</h4>
+            </div>
+            <div class="modal-body">
+                您的操作过于频繁, 请稍后再试。<br/>
+            </div>
+            <div class="modal-footer">
+                <input  style="margin-left: 80%" type="button" class="btn btn-primary" data-dismiss="modal"
+                        value="确定"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ipRetTodayModal" tabindex="-1" role="dialog" aria-labelledby="ipRetTodayModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button style="margin-top: -10px" type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        onclick="javascript:timedCount('next', countDown, '下一页', false);">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="ipRetTodayModalLabel">重要提示</h4>
+            </div>
+            <div class="modal-body">
+                您本日操作过于频繁, 本日不可在进行操作, 请在下个工作日再试!<br/>
+            </div>
+            <div class="modal-footer">
+                <input  style="margin-left: 80%" type="button" class="btn btn-primary" data-dismiss="modal"
+                        value="确定"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="notInWorkTime1Modal" tabindex="-1" role="dialog" aria-labelledby="notInWorkTime1ModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button style="margin-top: -10px" type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        onclick="javascript:toHomeAndtimedCount();">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="notInWorkTime1ModalLabel">重要提示</h4>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                系统正在维护中，请于工作日8：30--17：00进行举报。<br/>
+            </div>
+            <div class="modal-footer">
+                <input  style="margin-left: 80%" type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="javascript:toHomeAndtimedCount();" value="确定"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="/app/nt/css/index.css" rel="stylesheet" />
+		<script type="text/javascript">
+            $(function () {
+                $("#locationStr").html("12386服务平台入口");
+                $("#first-btn").html("");
+                $("#locArrow").html("");
+
+                //$("#systemUpdateModal").modal("show");
+            });
+
+            function closeModal(type, url){
+                $("#systemUpdateModal").modal("hide");
+            }
+
+			function clickTo(type, url){
+				$.ajax({
+		            url: "sessionStype.action?type="+type,
+		            type: "POST",
+		            async:false,
+		            dataType: "text",
+		            success: function (data) {
+		                data = JSON.parse(data);
+						if(data.result == 'notLogin'){
+							window.location.href = '/app/nt/login.jsp';
+							return;
+						}
+						if(data.loginName&&data.loginName == 'c71c4fdabfbdaa1ca9e8b5cdc33380b0ee29b9519d9493cc9be09d764ee30820'){
+							window.location.href = '/sh.csrc.webreport!beReported.sh';
+							return;
+						}
+						window.location.href = url;
+		            }
+		        });
+			}
+
+            function getUserLoginCountAndCompliantCount() {
+                // 登录次数以及举报次数
+                $.ajax({
+                    type: "POST", // 用POST方式传输
+                    dataType: "json", // 数据格式:JSON
+                    url: "/sh.inb.publicmessage!getUserLoginCountAndReportCount.sh", // 目标地址
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    },
+                    success: function (data) {
+                        if(data.result == 'notLogin'){
+                            window.location.href = '/app/nt/login.jsp';
+                            return;
+                        }
+                        if(data.result == 'success'){
+                            var loginCountString = "这是您第 " + data.logincount + " 次访问本网站。"
+                            var caseCountString = "您本周已在本网站提交 " + data.casecount + " 次投诉。"
+                            if ("3" == data.casecount) {
+                               $("#fail_tips").html("您好，" + loginCountString + caseCountString + "本周您在本网站的投诉次数已达到上限.");
+                               $("#failModal").modal("show");
+                            } else {
+                                var timeTomday = data.timeTomday;
+                                var tomdaymsg = "本日在本网站已提交 " + timeTomday + " 次投诉";
+                                var oneTimesToday = "";
+                                if (timeTomday >= 1) {
+                                   oneTimesToday = ", 您在本网站的当天投诉次数已达到上限。"
+                                   $("#fail_tips").html("您好，" + loginCountString + caseCountString + tomdaymsg + oneTimesToday);
+                                   $("#failModal").modal("show");
+                                } else {
+                                    $("#noOneTimesCom_tips").html("您好，" + loginCountString + caseCountString + tomdaymsg + oneTimesToday);
+                                    $("#noOneTimesComModal").modal("show");
+                                    //clickTo('R','/app/nt/home.jsp');
+                                }
+                            }
+                        }else{
+                            alert(data.msgStr);
+                        }
+                    }
+                });
+            }
+
+            function getUserLoginCountAndReportCount() {
+
+                
+                // 登录次数以及举报次数
+                $.ajax({
+                    type: "POST", // 用POST方式传输
+                    dataType: "json", // 数据格式:JSON
+                    url: "/sh.csrc.webreport!getUserLoginCountAndReportCount.sh", // 目标地址
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    },
+                    success: function (data) {
+                        if(data.result == 'notLogin'){
+                            window.location.href = '/app/nt/login.jsp';
+                            return;
+						}
+						if(data.result == 'success'){
+							var loginCountString = "这是您第 " + data.logincount + " 次访问本网站。"
+							var caseCountString = "您本周已在本网站提交 " + data.casecount + " 次举报。"
+							if ("3" == data.casecount) {
+								$("#fail_tips").html("您好，" + loginCountString + caseCountString + "本周您在本网站的举报次数已达到上限.");
+								$("#failModal").modal("show");
+							} else {
+								var timeTomday = data.timeTomday;
+								var tomdaymsg = "本日在本网站已提交 " + timeTomday + " 次举报";
+								var oneTimesToday = "";
+								if (timeTomday >= 1) {
+									oneTimesToday = ", 您在本网站的当天举报次数已达到上限。"
+									$("#fail_tips").html("您好，" + loginCountString + caseCountString + tomdaymsg + oneTimesToday);
+									$("#failModal").modal("show");
+								} else {
+									$("#noOneTimes_tips").html("您好，" + loginCountString + caseCountString + tomdaymsg + oneTimesToday);
+									$("#noOneTimesModal").modal("show");
+									//clickTo('R','/app/nt/home.jsp');
+								}
+							}
+                        }else{
+                            alert(data.msgStr);
+						}
+                    }
+                });
+            }
+
+
+			
+		</script>
+		
+	</head>
+	<body>
+		
+
+<div class="location">
+    当前位置：<a href="/app/nt/index.jsp" id="first-btn">首页</a> <span id="locArrow" > > </span> <span id="locationStr">工作台</span>
+        <span class="report-nav">
+            &nbsp;&nbsp;<a style="cursor:pointer;"  onclick="Time()">查询结果</a>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a href="/app/nt/questions.jsp">常见技术问题</a>
+        </span>
+        <div class="dropdown" style="float:right" >
+            &nbsp;&nbsp;<a style="cursor:pointer;" data-toggle="dropdown" class="dropdown-toggle" id = "setting"></a>&nbsp;&nbsp;
+            <div class="dropdown-menu" aria-labelledby="setting">
+                <li role="presentation" >
+                    <a class="dropdown-item" href="/sh.csrc.platform!toChangePassword.sh">设置密码</a>
+                </li>
+                <li role="presentation" >
+                    <a class="dropdown-item" href="/loginOut.action">退出</a>
+                </li>
+            </div>
+        </div>
+        &nbsp;&nbsp;<a style="float:right;text-decoration:none;"  href="/app/nt/login.jsp"">请登录</a>
+</div>
+
+
+		<div class="width1200">
+			<div class="navBox">
+				<ul>
+					<li class="left">
+						<img src="/app/nt/images/logo.svg" class="logo">
+						<p cl ass="js">中国证监会设立12386服务平台，接收投资者诉求，根据投资者选择的诉求类别进行处理，为投资者提供服务。</p>
+					</li>
+					<li class="right">
+						<a href="#" onclick="getUserLoginCountAndCompliantCount()" >
+							<ul>
+								<li class="title"><img src="/app/nt/images/icon-wyts.svg">我要投诉<img
+										src="/app/nt/images/icon-arrowRight.svg"></li>
+								<li class="introduction">反映在购买证券基金期货产品或接受相关服务时，与证券期货市场经营主体及其从业人员发生民事纠纷。</li>
+							</ul>
+						</a>
+						<a href="#" onclick="getUserLoginCountAndReportCount()" >
+							<ul>
+								<li class="title"><img src="/app/nt/images/icon-wyjb.svg">我要举报<img
+										src="/app/nt/images/icon-arrowRight.svg"></li>
+								<li class="introduction">举报涉嫌证券期货违法、违规行为，请求证券期货监督管理机构予以查处。</li>
+							</ul>
+						</a>
+						<a href="#" onclick="clickTo('Q','/app/nt/adviceNotice.jsp')">
+							<ul>
+								<li class="title"><img src="/app/nt/images/icon-wyzx.svg">我要咨询<img
+										src="/app/nt/images/icon-arrowRight.svg"></li>
+								<li class="introduction">对证券期货相关业务和制度提出咨询。</li>
+							</ul>
+						</a>
+						<a href="#" onclick="clickTo('S','/app/nt/suggestNotice.jsp')">
+							<ul>
+								<li class="title"><img src="/app/nt/images/icon-wyjy.svg">我要建议<img
+										src="/app/nt/images/icon-arrowRight.svg"></li>
+								<li class="introduction">对证券期货市场监管政策或者工作提出意见建议。</li>
+							</ul>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="whiteBox textBox">
+				<h1>平台须知</h1>
+				<p>欢迎您进入中国证监会12386服务平台，您可根据自身诉求类别，通过相应栏目提交诉求。</p>
+				<p>本平台接收四类诉求事项：</p>
+				<p>1. 投诉事项，即投资者反映在购买证券基金期货产品或接受相关服务时，与证券期货市场经营主体及其从业人员发生民事纠纷的；</p>
+				<p>2. 举报事项，即任何单位和个人举报涉嫌证券期货违法、违规行为，请求证券期货监督管理机构予以查处的；</p>
+				<p>3. 咨询事项，即投资者对证券期货相关业务和制度提出咨询的；</p>
+				<p>4. 意见建议事项，即投资者对证券期货市场监管政策或者工作提出意见建议的。</p>
+				<p>如您进行信访，申请信息公开、行政复议等，应当按照法律、行政法规或中国证监会相关规定另行提出。本平台内诉求如有此类内容，将作为无效诉求处理，请您认真核对诉求内容。</p>
+				<p>&nbsp; </p>
+				<p>为更好地为您提供服务，请您知晓以下信息：</p>
+				<p>1. 12386服务平台作为投资者诉求的接收平台和分转平台，依据投资者选择的诉求类别进行处理。</p>
+				<p>2. 投资者应当如实表达诉求，对诉求内容的真实性负责。</p>
+				<p>3. 投资者应当尊重工作人员，维护工作秩序,配合诉求处理工作,客观评价诉求处理情况。</p>
+				<p>4. 投资者可以通过12386服务平台查询诉求处理信息。</p>
+				<p>5. 12386服务平台对于投资者提供的姓名、身份证件信息、电话及其他可以识别投资者身份的信息，除依法依规使用外，均予严格保密。</p>
+			</div>
+		</div>
+		
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="/app/nt/css/HFcommon.css" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- 底部 -->
+		<footer>
+			<div class="width1200">
+				<ul class="line">
+					<li>
+						<p>主办单位：中国证券监督管理委员会<span style="margin-left: 24px;">版权所有：中国证券监督管理委员会</span></p>
+						<p>网站识别码：bm56000001
+							<a href="https://beian.miit.gov.cn/" target="_blank" style="margin-left: 24px;">京ICP备
+								05035542号</a>
+							<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040102700080"
+								target="_blank" style="margin-left: 24px;"><img src="/app/nt/images/footer_tu.png">京公网安备
+								11040102700080号</a>
+						</p>
+						<p>热线：12386</p>
+					</li>
+					<li>
+						<a href="http://www.csrc.gov.cn/csrc/c100025/c1003151/content.shtml">联系我们</a>
+						<span style="margin:0 8px;">|</span>
+						<a href="http://www.csrc.gov.cn/csrc/c100227/c1362477/content.shtml">法律声明</a>
+						<span style="margin:0 8px;">|</span>
+						<a href="https://bszs.conac.cn/sitename?method=show&id=07D000F9927315F5E053022819ACAB12"
+							target="_blank"><img src="/app/nt/images/logo_sydw.png"></a>
+						<a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=bm56000001&url=http%3A%2F%2Fwww.csrc.gov.cn%2F"
+							target="_blank"><img src="/app/nt/images/jiucuo.png"></a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+		<!--end 底部 -->
+	</body>
+</html>
+
+	</body>
+
+	<!-- 举报次数提醒模态框（Modal） -->
+	<div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalLabel"
+		 aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="failModalLabel">重要提示</h4>
+				</div>
+				<div id="fail_tips" class="modal-body">
+				</div>
+				<div class="modal-footer" >
+					<input type="button" class="btn btn-primary" data-dismiss="modal" value="确定"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="noOneTimesModal" tabindex="-1" role="dialog" aria-labelledby="noOneTimesModalLabel"
+		 aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="noOneTimesModalLabel">重要提示</h4>
+				</div>
+				<div id="noOneTimes_tips" class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-primary" onclick="clickTo('R','/app/nt/home.jsp')" data-dismiss="modal" value="确定"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="noOneTimesComModal" tabindex="-1" role="dialog" aria-labelledby="noOneTimesComModalLabel"
+		 aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="noOneTimesComModalLabel">重要提示</h4>
+				</div>
+				<div id="noOneTimesCom_tips" class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-primary" onclick="clickTo('C','/app/nt/complainTips.jsp')" data-dismiss="modal" value="确定"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="systemUpdateModal" tabindex="-1" role="dialog" aria-labelledby="systemUpdateModalLabel"
+		 aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="systemUpdateModalLabel">重要提示</h4>
+				</div>
+				<div id="systemUpdate_tips" class="modal-body">
+					为进一步提升12386服务平台服务质效，我们拟于2024年1月27日对12386服务平台进行升级优化。受此影响，平台预计于2024年1月26日22点至24点期间将无法进行注册、登录、提交诉求等操作，给您带来的不便敬请谅解！
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>
