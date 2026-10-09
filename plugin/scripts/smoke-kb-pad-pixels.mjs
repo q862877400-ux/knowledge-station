@@ -159,7 +159,18 @@ for (const c of MATRIX) {
        （`TypeError: Cannot read properties of undefined (reading 'length')`，栈顶本文件 :109），
        "❌ …判红"那段**永远打不出来**。缺浏览器=红这条**代价**是对的，但它的诊断路径坏在崩上。
        ⇒ 现在：字段补全 + 表格打印用 `?? '-'` 兜底 + 缺浏览器单独归一条失败行（见下面 `noBrowser`）。 */
-    const stderrTail = (r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
+    /* ⚠⚠ **2026-10-10 修（治"看不出来"）**：原来只留 stderr 的**最后 3 行** ⇒
+       真实失败是"子进程崩了"，而 3 行尾部只剩一个截断的栈（实测只看到 `}` / `/` / `Node.js v22.22.2`），
+       **根本没法诊断**。现在：① 留**全部** stderr（截断到 4000 字防刷屏）；
+       ② 带上 `signal` / `stdout` 长度 / `error`（超时被杀时 `status=null` 而 `signal` 有值 —— 这是关键区分）。 */
+    const stderrFull = (r.stderr ?? '').slice(0, 4000)
+    const stderrTail = stderrFull.split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
+    console.error(`\n── [诊断] ${label} 拿不到 JSON ──`)
+    console.error(`   status=${String(r.status)} signal=${String(r.signal)} error=${String(r.error ?? '(无)')}`
+      + ` stdoutLen=${(r.stdout ?? '').length} stderrLen=${(r.stderr ?? '').length}`)
+    console.error('   ── stderr 全文 ──')
+    console.error(stderrFull.split('\n').map((l) => `   | ${l}`).join('\n'))
+    console.error('   ── stderr 完 ──\n')
     const noBrowser = /找不到无头浏览器|no such file|--browser|\$KS_BROWSER/i.test(`${r.stderr ?? ''}${r.stdout ?? ''}`)
     rows.push({
       label, note: c.note, exit: r.status, checked: false, width: c.width, theme, page: c.page,
