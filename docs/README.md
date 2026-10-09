@@ -35,6 +35,8 @@
 | `docs/wiki/` | **接手文档**：项目现状 `architecture.md` + 每套组件的职责/接口/依赖/非目标 | ✅ |
 | `docs/archive/` | **历史**：旧计划 / 过期基线 / 调研过程 / 已完成复核。索引见它自己的 README | ✅ |
 | **`docs/ENCYCLOPEDIA.md`** | **技术百科全书**（架构 / 数据契约 / 检索 / 入库 / 坑全集 / 红线宪法）——**接手先读这一份** | ✅ |
+| **`docs/HANDOVER-2026-10-09.md`** | **最新交接文档**——接手主体项目先读这一份（项目是什么 / 现在在哪 / 下一步 / 禁碰边界 / 自动链说明） | ✅ |
+| `docs/HANDOVER-2026-10-06.md` | 上一份交接（召回诊断线，**已收口**；其未完成项已落进 `specs/002-recall-funnel/tasks.md`） | ✅ |
 | `docs/INTRODUCTION.md` | 产品介绍（是什么 / 为什么可信 / 能力清单） | ✅ |
 | `docs/VISION-TREE.md` | 功能愿景（客户视角：每条能力标注「今天点得到吗」） | ✅ |
 | `docs/DEVELOPMENT-HISTORY.md` | 开发简史（§一~§九 叙事 + 203 轮索引；逐轮明细已入 `archive/history/`） | ✅ |
