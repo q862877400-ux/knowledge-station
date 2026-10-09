@@ -83,3 +83,9 @@ stdscan/
 
 # var/ 的说明文档要跟仓库走（其余 var/* 仍忽略）
 !var/README.md
+
+# agent 的目标/交接状态（本机）—— 与 .dsh/ 同类，不随仓库走
+/output/
+
+# 项目级 agent 配置（Stop hook 等）
+/.codebuddy/
