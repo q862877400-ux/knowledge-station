@@ -31,9 +31,11 @@ def harvest(fetch, *, limit=None):
 """
 from __future__ import annotations
 
+import json
 import re
 import time
 from datetime import datetime
+from pathlib import Path
 from urllib.parse import unquote
 
 PAGE_PATH = "/hdjlpt/published?via=pc"
@@ -43,9 +45,30 @@ MAX_YEARS_BACK = 12
 PAUSE = 1.5
 
 TAG_RE = re.compile(r"<[^>]+>")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 #: 统一字段之外的原始键进 extra
 EXTRA_KEYS = ("handle_code", "nickname", "site_id")
+
+
+def existing_ids(site_key: str) -> set:
+    """读 `data/<site_key>-*.jsonl` 已有 id（供增量续采，与 `_igi_common.existing_ids` 同义）。
+
+    ⚠ 为什么需要它：hdjlpt 的 `pubList` **只按 `offset` 翻页**、没有「从某条之后」的游标。
+    若每轮都从头翻，`limit` 会把**已落盘的条数**算进去 ⇒
+    「跑一次拿 6,000，再跑 `--limit 15000` 只多拿 9,000」—— 前 6,000 条白翻一遍。
+    """
+    ids: set = set()
+    try:
+        for p in DATA_DIR.glob(f"{site_key}-*.jsonl"):
+            for line in p.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    mid = str(json.loads(line).get("id") or "").strip()
+                    if mid:
+                        ids.add(mid)
+    except Exception:                                                       # noqa: BLE001
+        pass
+    return ids
 
 
 def _text(html: str) -> str:
@@ -89,11 +112,29 @@ def _xsrf_token(r0) -> str | None:
 
 
 def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
-               pause: float = PAUSE, per_page: int = 20) -> list[dict]:
+               pause: float = PAUSE, per_page: int = 20,
+               skip_ids: set | None = None) -> list[dict]:
     """按统一记录格式返回某广东厅局 hdjlpt 的留言选登（问题+答复全文）。
 
     ⚠ `fetch` 是 harvest.py 注入的 `_Fetcher`（用 `.post`）。
+
+    ## ★ `skip_ids`（2026-10-10 第 7 轮新增）—— 修 O(n²) 的增量续采
+
+    **问题**：本引擎原先**没有** `skip_ids`（`_igi_common.harvest_igi` 一直有）。
+    列表接口按时间倒序、**没有「从某条之后」的游标** ⇒ 每次重跑都从头翻，
+    `limit` 也把**已落盘的条数**算进去。实测深圳：`--limit 6000` 拿到 6,000 条，
+    再跑 `--limit 15000` 只会多拿 9,000 条新的，**前面 6,000 条白翻 12 分钟**。
+
+    **修法**：`skip_ids=None` 时自动取 `existing_ids(SITE['key'])`；
+    命中已落盘的条目**直接跳过、且不计入 `limit`** ⇒ `limit` 语义变为
+    「本轮**新增**条数」，可反复跑逐轮推进。
+    要显式关掉（例如想重刷已落盘条目的内容）传 `skip_ids=set()`。
+
+    ⚠ **不做「整窗已知就提前收工」** —— 那会漏掉「上轮只采到 limit、更老的窗口还没翻」的源。
+    宁可多翻几页，也不要静默少采。
     """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     # ① CSRF 握手
     r0 = fetch(BASE + PAGE_PATH)
     if getattr(r0, "status_code", 0) != 200:
@@ -105,6 +146,7 @@ def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
         return []
 
     out: list[dict] = []
+    skipped = 0
     now = int(time.time())
     time_to = now
     for _year in range(MAX_YEARS_BACK):
@@ -130,6 +172,10 @@ def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
             if not items:
                 break
             for it in items:
+                mid = str(it.get("id") or it.get("handle_code") or "")
+                if mid and mid in skip_ids:
+                    skipped += 1                    # 已落盘 ⇒ 不计入 limit
+                    continue
                 reply = _text(it.get("reply") or "")
                 if not reply:
                     continue
@@ -137,7 +183,7 @@ def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
                 body = _text(it.get("content") or "")
                 out.append({
                     "source": SITE["key"],
-                    "id": str(it.get("id") or it.get("handle_code") or ""),
+                    "id": mid,
                     "url": it.get("pub_url"),
                     "question": title if not body else f"{title}\n{body}",
                     "answer": reply,
@@ -148,7 +194,11 @@ def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
                     "extra": {k: it.get(k) for k in EXTRA_KEYS
                               if it.get(k) is not None},
                 })
+                if mid:
+                    skip_ids.add(mid)               # ★ 运行中也要并回去，防同窗重复
                 if limit and len(out) >= limit:
+                    print(f"    [{SITE['key']}] 达 limit={limit}"
+                          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
                     return out
             offset += per_page
             if offset >= (window_total or 0):
@@ -158,4 +208,6 @@ def harvest_gd(fetch, *, SITE: dict, BASE: str, limit: int | None = None,
         if window_total == 0:
             break                       # 扫到空窗 = 历史尽头
         time_to = time_from
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out
