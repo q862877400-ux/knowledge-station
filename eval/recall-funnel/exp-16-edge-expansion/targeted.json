@@ -1,0 +1,38 @@
+[
+  {
+    "case": "中华人民共和国民法典 第三百三十八条",
+    "query": "承包地被征收了，土地承包经营权人能拿到什么补偿？",
+    "src_in_top20": true,
+    "n_targets": 1,
+    "n_added": 2,
+    "target_in_base": 0,
+    "target_present_final": 1
+  },
+  {
+    "case": "中华人民共和国民法典 第四百六十六条",
+    "query": "合同条款有争议的时候，按什么规则确定它的意思？",
+    "src_in_top20": true,
+    "n_targets": 1,
+    "n_added": 0,
+    "target_in_base": 1,
+    "target_present_final": 1
+  },
+  {
+    "case": "中华人民共和国民法典 第四百一十一条",
+    "query": "企业用生产设备抵押，抵押财产什么时候算确定？",
+    "src_in_top20": true,
+    "n_targets": 1,
+    "n_added": 2,
+    "target_in_base": 1,
+    "target_present_final": 1
+  },
+  {
+    "case": "商品农药验收规则 3.3",
+    "query": "收货单位按什么规定验收进货的农药产品？",
+    "src_in_top20": true,
+    "n_targets": 1,
+    "n_added": 3,
+    "target_in_base": 0,
+    "target_present_final": 1
+  }
+]
