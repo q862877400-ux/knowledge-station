@@ -88,6 +88,12 @@ SITES: dict[str, dict] = {
         "list_urls": ["https://www.tjrd.gov.cn/lfjj/lfgs_2/index.shtml"],
         "level": "province",
     },
+    "rd-npc": {
+        "name": "全国人大·法律草案征求意见",
+        "entry": "http://www.npc.gov.cn/npc/c30834/list.shtml",
+        "list_urls": ["http://www.npc.gov.cn/npc/c30834/list.shtml"],
+        "level": "national",
+    },
 }
 
 SITE = SITES["rd-hn"]          # harvest.py 读这个；各 rd-* 模块覆盖它
