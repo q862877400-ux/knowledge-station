@@ -175,6 +175,12 @@
 2. **推翻我此前的"补 peerDependencies"建议**：那条基于 alpha.1 的 Desktop note，alpha.2 已把该校验移除。
    ⇒ 要不要补 peer，改为**按 pnpm/Node 常规解析的工程判断**，而**不再引用 DSH 规定**。
    （我们 `plugin/package.json` 现在没补，**不改就是对的**。）
+   > **⚠ 2026-10-09 就地更正（第 17 轮）**：上面这句**两个地方都不对** ——
+   > ① 我们**早就补了** peer（`@deepseek-ai/cordis` / `dsh-tools` / `dsh-llm` /
+   > `dsh-client-ui-sidebar-right` 四条）；② 而且 DSH 侧**确实会查**（`app-boot` 的
+   > `evaluatePluginCompatibility()`，只查 `@deepseek-ai/dsh*` 那几条）。
+   > 升级到 `0.2.0-rc.2` 后我们那三条**过期区间直接把安装拒掉了** ⇒ 已就地放宽，见 **§K**。
+   > 正确说法：**要不要声明随工程判断，但"声明了就必须跟 runtime 对齐"**。
 
 ---
 
@@ -278,3 +284,39 @@ guide: [{ id: 'new', order: 30, icon: IconGlobeOutline14, ... }]
 - **接受公网与 loopback 的 HTTP(S)**，**拒本地文件**（把本地文件让给 Document Preview）；
 - 自带应用内 iframe 历史。
   ⇒ 我们**不需要**自己做网页预览；**PDF/条款级证据导航才是我们的差异点**。
+
+---
+
+## K.（2026-10-09 第 17 轮）DSH 检出已升到 **0.2.0-rc.2** ⇒ 我们的 peer 区间**过期了**，已就地放宽
+
+**一手证据**：`dsh plugin --profile <tmp> add <repo>/plugin` 在升级后的检出上被**拒装**：
+
+```
+dsh: installation rejected: Plugin ks-dsh-plugin@0.0.1 is incompatible with dsh 0.2.0-rc.2:
+     peerDependencies {"@deepseek-ai/dsh-tools":"^0.1.2-rc.1","@deepseek-ai/dsh-llm":"^0.1.2-rc.1",…}
+```
+
+**判据代码**（一手读宿主源码，不是猜）：`packages/boot/app-boot/src/plugin-compatibility.ts`
+的 `evaluatePluginCompatibility()` —— 它**只**看名字等于 `@deepseek-ai/dsh` 或以
+`@deepseek-ai/dsh-` 开头的 peer，逐个跑
+`semver.satisfies(runtimeVersion, range, { includePrerelease: true })`；
+`runtimeVersion` = **app-boot 包自己的 version**（本检出 = `0.2.0-rc.2`）。
+⇒ `@deepseek-ai/cordis` **不在检查范围内**（名字不以 `@deepseek-ai/dsh` 开头）。
+⚠ 它另认 `workspace:^` / `workspace:~` / `workspace:*` 三种写法（等价于"跟当前 runtime 走"），
+但我们是**仓外**插件、不走 pnpm workspace ⇒ **不用**这个写法。
+
+**实测的各包版本**（检出内）：`@deepseek-ai/dsh-tools` / `dsh-llm` /
+`dsh-client-ui-sidebar-right` / `dsh-client-ui-primitives` **全是 `0.2.0-rc.2`**，
+`@deepseek-ai/cordis` = `4.0.4`。
+
+**改法**：`plugin/package.json` 的三个 `@deepseek-ai/dsh-*` peer 从
+`^0.1.2-rc.1` / `^0.1.6-alpha.1` 改成 **`>=0.1.2-rc.1 <0.3.0`**
+（既覆盖老 runtime，也覆盖当前 0.2.0-rc.x；`cordis` 那条**没动**）。
+
+**为什么这是"改对"而不是"绕过"**：放宽区间后重跑 `plugin/scripts/e2e-install-compose.mjs`
+（真宿主 + 临时 profile）⇒ **PASS (14/14)**：装上了、`--dump-config` 里出现
+`# == ks-dsh-plugin` 段头与 `- id: ks-engine`、**6 个工具全在 offer 给模型的清单里（6/6）**、
+`ks_ping` 的 tool result **真的绑在假引擎上**（`engine.port` 相符、`reused=true`）。
+⇒ **兼容性是被真机跑出来的，不是声明的**。
+⚠ 本条同时**修正 §I 第 2 条**的措辞：那里说"我们 `plugin/package.json` 现在没补（peer），不改就是对的"
+—— 实际是**已经补了**、而且**补的是过期区间**；正确说法是"**要不要声明随工程判断，但声明了就必须跟 runtime 对齐**"。

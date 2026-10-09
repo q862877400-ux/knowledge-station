@@ -6,7 +6,7 @@
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
-    "tests.test_reranker::test_rerank_real_model_reorders",
+    "tests.test_reranker::test_reranker_real_model_reorders",
     "tests.test_retrieval::test_vec_channel",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
@@ -15,7 +15,7 @@
   "untracked_excluded": 5,
   "skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
-    "tests.test_reranker::test_rerank_real_model_reorders",
+    "tests.test_reranker::test_reranker_real_model_reorders",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ]
 }

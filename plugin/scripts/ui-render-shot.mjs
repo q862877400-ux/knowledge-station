@@ -2393,7 +2393,8 @@ const runBrowser = (args) => spawnSync(browser, [
   '--disable-extensions', '--virtual-time-budget=4000',
   `--user-data-dir=${join(work, 'profile')}`,
   ...args,
-], { encoding: 'utf8', timeout: 120_000 })
+  // ⚠ `stdio[0]='ignore'`：本机 spawnSync 用 pipe 做 stdin 会恒 EBUSY（见 smoke-all.mjs 头注）。
+], { encoding: 'utf8', timeout: 120_000, stdio: ['ignore', 'pipe', 'pipe'] })
 
 const probe = runBrowser(['--dump-dom', '--window-size=800,600', fileUrl])
 const hMatch = /<title>h=(\d+)\|m=/.exec(probe.stdout ?? '')
@@ -4124,4 +4125,32 @@ if (listCapSkipReason !== null) {
     + '控件压在文字上（绝对定位也算）与被 overflow 裁到行外，同样是这条要抓的回归。')
   process.exit(1)
 }
+
+/* ═══════════════════ 显式退出（2026-10-09 第 17 轮，自动续接链）—— 别删 ═══════════════════
+ *
+ * **现象**：`--interact kb-filemenu` / `kb-dirmenu`（两个「行尾 ⋮ 菜单」场景）跑完**全部**自检、
+ *   stdout 的 JSON 也已打印，**进程却不退出**。CPU 恒为 0（**不是死循环**）。
+ * **实测判据**：`process._getActiveHandles() === []`，`process._getActiveRequests() === [FSReqCallback]`
+ *   ⇒ 挂在一个**永不完成的文件系统请求**上（究竟是哪一次 fs 调用、为什么卡住，**未查明，已登记**；
+ *   同一次跑里 `kb-level` / `kb-inbox` 两个场景**正常退出** ⇒ 与「开菜单」这个交互相关）。
+ * **后果（实测）**：调用方 `spawnSync(..., { timeout: 240_000 })` 只能干等到超时
+ *   ⇒ `smoke-kb-pad-pixels` 卡在同一格 3 分钟以上，冒烟链被拖死（`-Full` 因此跑不完）。
+ * **处置**：本脚本是**一次性 CLI** —— 产物已落盘、JSON 已打印、自检已判完 ⇒ 明确退出是**正确语义**。
+ *   ⚠ **必须等两个流 flush 完再退**：stdout 是管道时写入是异步的，直接 `process.exit()` 会把
+ *   ~300 KB 的 JSON **截断**（调用方要 `JSON.parse` 它）。故用 write 回调；另设 3 s 兜底，
+ *   万一回调也不来（同一个 fs 病灶）也不至于再挂死。
+ * ⚠ **这不是把断言放松**：本文件里所有 `process.exit(1)` 的失败路径一个字没动，这一段只在**走到文件末尾**
+ *   （即"没判失败"）时才执行。
+ */
+if (process.env.KS_RENDER_DEBUG === '1') {
+  const hs = process._getActiveHandles ? process._getActiveHandles() : []
+  const rq = process._getActiveRequests ? process._getActiveRequests() : []
+  console.error('· [debug] activeHandles = ' + hs.map((h) => h?.constructor?.name ?? typeof h).join(','))
+  console.error('· [debug] activeRequests = ' + rq.map((h) => h?.constructor?.name ?? typeof h).join(','))
+}
+const _hardExit = setTimeout(() => { process.exit(0) }, 3000)
+let _pendingFlush = 2
+const _bye = () => { if (--_pendingFlush === 0) { clearTimeout(_hardExit); process.exit(0) } }
+process.stdout.write('', _bye)
+process.stderr.write('', _bye)
 

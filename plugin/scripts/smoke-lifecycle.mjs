@@ -644,7 +644,10 @@ const fakeRes = () => {
       last: null, stale_run: false, auto_ingest: auto,
     }, null, 2), 'utf8')
     const r = spawnSync(process.execPath, ['--input-type=module', '-e', childCode],
-      { env: { ...process.env }, encoding: 'utf8' })
+      // ⚠ `stdio[0]` 必须显式给 `'ignore'`：本机 `spawnSync` 只要 **stdin 是 pipe**（默认）就
+      //   恒返回 `EBUSY`（子进程根本没起来、stdout 为空）⇒ D5/D6 会双双 `calls=-1`。
+      //   环境实测与判据见 `plugin/scripts/smoke-all.mjs` 头注「EBUSY」那条。
+      { env: { ...process.env }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
     const m = /INGEST_CALLS=(\d+)/.exec(r.stdout ?? '')
     return { n: m ? Number(m[1]) : -1, err: (r.stderr ?? '').slice(-300) }
   }

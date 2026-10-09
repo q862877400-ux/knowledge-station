@@ -595,7 +595,18 @@ async function withStateLock(fn) {
       handle = await open(lock, 'wx')
       break
     } catch (error) {
-      if (error?.code !== 'EEXIST') throw error
+      /* ⚠⚠ 2026-10-09（第 17 轮）就地更正：原来这里只认 `EEXIST`，**其余一律抛出**。
+       *   实测反例（`smoke-chatmode` 的「two concurrent writers」那条，在机器有负载时复现）：
+       *     `EPERM: operation not permitted, open '…ks-chatmode.json.lock'`
+       *   ⇒ 直接抛出 ⇒ 那一次写入**整批丢掉**（durable 23/24）。根因：Windows 上
+       *   `open(..., 'wx')` 撞到一个**正处在 "delete pending" 的锁文件**（另一个写者刚
+       *   `unlink` 它、句柄还没关净）时，CreateFile 返回的是 **ERROR_ACCESS_DENIED ⇒ EPERM**，
+       *   不是 `EEXIST`。`EACCES`/`EBUSY` 同理（共享冲突）。
+       *   ⇒ 这几种**都属"锁被别人短暂占着"**，按可重试处理；循环顶部仍查 deadline
+       *     （超时抛 `state_lock_timeout`，由调用方如实报 `persisted:false`）⇒ **不会热循环**。
+       *   ⚠ 只放宽"可重试的判定"，**没有**动抢陈旧锁的原子性（下面那段 `rename` 一个字没改）。 */
+      const code = error?.code
+      if (code !== 'EEXIST' && code !== 'EPERM' && code !== 'EACCES' && code !== 'EBUSY') throw error
       // 陈旧锁（持有者崩了 / mtime 在未来）→ **原子**抢过来：rename 只有一个赢家
       try {
         const st = await stat(lock)

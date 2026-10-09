@@ -20,6 +20,27 @@
  *
  * ⚠ 名单顺序有含义：**最快能发现破坏的排前面**（类型/契约类在前，渲染类在后）。
  *   加新冒烟请加在这个数组里，别再往 package.json 里拼 `&&`。
+ *
+ * ## ⚠⚠ 本机环境事实：`spawnSync` 的 **stdin 不能是 pipe**（2026-10-09 第 17 轮实测）
+ *
+ * **现象**：`spawnSync(exe, args, { encoding: 'utf8' })`（= 默认 `stdio: 'pipe'`）在本机
+ *   **恒返回 `{ status: null, error: { code: 'EBUSY' } }`** —— 子进程根本没起来、stdout 为空。
+ *   实测：连跑 20 次 **20/20 EBUSY**；`execSync` / `execFileSync` 同样 EBUSY；
+ *   **换成 async `spawn` 正常**；node **22.22.2 与 26.7.0 都一样**；沙箱内外都一样。
+ *
+ * **规避（已逐个落到调用点）**：把 `stdio` 显式写成 **`['ignore', 'pipe', 'pipe']`**
+ *   （只让 **stdin** 不是 pipe；stdout/stderr 仍是 pipe，照旧能抓输出）⇒ 实测 5/5 正常。
+ *   ⚠ **`stdin: 'ignore'` 这个简写【不管用】**（实测仍 EBUSY），必须写整个 `stdio` 数组。
+ *
+ * **为什么这些子进程可以不要 stdin**：本链里被 spawn 的都是"跑完就退出"的脚本/浏览器，
+ *   没有一条读标准输入 ⇒ 这是**语义等价**的改动，**不是把断言放松**（断言一个字没动）。
+ *
+ * **受影响并已改的调用点**：`smoke-lifecycle.mjs`（D5/D6 子进程）、`smoke-build-purity.mjs`、
+ *   `smoke-kb-cols.mjs`、`smoke-kb-pad-pixels.mjs`、`ui-badge-pixels.mjs`、`ui-render-shot.mjs`
+ *   （`runBrowser`）。**本文件下面那个 `spawnSync` 不用改**：它给的是 `stdio: 'inherit'`。
+ *
+ * ⚠ **这是环境缺陷、不是本仓回归**：上一轮（16:58–17:20）同一棵树跑冒烟时这几套还能过，
+ *   19:05 再跑就 100% EBUSY ⇒ 机器状态在这两小时里变了。改法是**让脚本对两种环境都能跑**。
  */
 
 import { spawnSync } from 'node:child_process'

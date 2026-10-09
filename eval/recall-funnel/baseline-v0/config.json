@@ -1,0 +1,50 @@
+{
+  "captured_at": "2026-10-06T18:16:16+08:00",
+  "captured_at_source": "git tag step-241-recall-funnel-phase0-r2 的提交时间（= 产生这份基线的快照）",
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "embedding_dim": 512,
+  "has_lexical_channel": true,
+  "vector_index": "sqlite-vec v0.1.9 · vec0 虚拟表 · 暴力精确扫描（无 ANN）",
+  "channels": {
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "E": true,
+    "F": true
+  },
+  "top_k": 1000,
+  "rerank": {
+    "enabled": false,
+    "model": "BAAI/bge-reranker-base"
+  },
+  "machine": {
+    "cpu": "i7-14700KF",
+    "cores": 20,
+    "ram_gb": 63.8,
+    "gpu": "RTX 4080 SUPER"
+  },
+  "corpus_size": 522021,
+  "code_revision": {
+    "head": "67d04a88ab6a3c62d727d59d8e7128fa661353e3",
+    "tag": "step-241-recall-funnel-phase0-r2",
+    "dirty": false
+  },
+  "_sources": {
+    "embedding_model": "config-inventory.md §一（`embedder.py` 的 `_get_model`）",
+    "embedding_dim": "config-inventory.md §一（`EMBEDDING_DIM = 512`；库表 `embedding FLOAT[512]`）",
+    "has_lexical_channel": "config-inventory.md §二（`clause_fts` FTS5）",
+    "vector_index": "config-inventory.md §一",
+    "channels": "config-inventory.md §四（六条通道在代码里都注册着）",
+    "top_k": "config-inventory.md §四末注（本报告记的融合名次一律 rerank=False / top_k=1000）",
+    "rerank": "config-inventory.md §三（`RERANK_MODEL = BAAI/bge-reranker-base`；文件头注释写 v2-m3，以常量为准；生产 ks_answer 不传 rerank ⇒ 关）",
+    "machine": "config-inventory.md §六",
+    "corpus_size": "config-inventory.md §六（`clause_revision` 522,021）"
+  },
+  "_notes": {
+    "top_k": "契约示例写 5 是泛例。本基线实测口径 = rerank=False + top_k=1000（ks_answer 那条路）。生产 `api/server.py` 是 top_k=3 + rerank 开 ⇒ 换调用点结论会不同（REPORT.md §八 第 5 条）。",
+    "channels": "六个键全 true = 代码里六条通道都注册着。⚠ 但实测**只有 B/C 恒常工作**：A 触发 0/171、D 8/171、E/F 恒 0（config-inventory.md §四）。",
+    "rerank.model": "契约示例写 `BAAI/bge-reranker-v2-m3`，**与代码不符**；照代码常量 `bge-reranker-base` 记（该不一致已登记）。",
+    "corpus_size": "这是**基线当时**的规模。真库会继续长（2026-10-09 已到 663,634）⇒ 引用前先复核。"
+  }
+}

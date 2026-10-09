@@ -28,12 +28,33 @@
  *   `Pill`     ← `Pill.tsx`：24px 胶囊；**给了 `onClick` 才是按钮**，否则是静态 span
  *   `Input`    ← `Input.tsx`：单行输入；`icon` 可选；渲染成 `<span class=wrap><input/></span>`
  *   `Menu`     ← `ui-sidebar-terminal/src/client/TerminalGuide.tsx` 的真实用法
- *   `IconChevronDownOutline14` ← 同上
+ *   `IconChevronDownOutlineRegular` ← 同上
  *
  * ⚠ 边界（这条已真实踩过）：名字/取值写错**不会构建失败**（它是 external，esbuild 不校验命名导出），
  *    而是**运行时 undefined / 静默没有样式**。本文件曾把 Button 的 variant 写成
  *    `'secondary' | 'text'` —— 宿主**没有这两档**，写上去能过类型检查却拿不到填充。
  *    ⇒ 要用别的成员，**先读宿主源码确认导出名与取值**；冒烟另有一条钉住"我们只用了官方那 4 档"。
+ *
+ * ## ⚠ 2026-10-09 更正（自动续接链第 17 轮）—— 图标名随 DSH 升级改名，本文件当时漏改
+ *
+ * **事实**：`dbe39bc`（2026-09-28「DSH 升级后图标导出改名」）把**调用点**的 74 处
+ * `Icon<Base>Outline14|16` 改成了 `Icon<Base>OutlineRegular`（新版 `ui-primitives/lib/index.js`
+ * 只导出 `…OutlineRegular` / `…OutlineMedium` 两档，旧的像素后缀名**已不存在**），
+ * 但**本声明文件没跟着改** ⇒ 调用点要的名字这里没声明、这里声明的名字调用点已不用
+ * ⇒ `tsc --noEmit -p plugin/client` **红在 3 个文件 21 条**（TS2724/TS2305），从 `dbe39bc` 起
+ * **连续 8 轮被当成"已知环境漂移、别修"**（见 `CHAIN-UNCLOSED-AUDIT.md` E1）。
+ * 本轮查实：**调用点是对的、本文件是旧的** —— 不是环境问题，是这处漏改。
+ *
+ * **改法**：把本文件里 23 个旧图标名逐一对位改成 `…OutlineRegular`（`IconChevronUpOutline14`
+ * 只出现在注释里，一并改），**非图标成员（Button/Checkbox/Tag/Pill/Input/Menu/Switch/Modal/Toast）
+ * 一个字没动**。改完 `tsc` **exit=0**。
+ *
+ * **对位依据**（一手）：`D:\AI\DSH\deepseek-harness\packages\client\ui-primitives\lib\index.js`
+ * 的 `export {…}` 块（282 个导出，逐个核过）—— 23 个新名**全部在**该导出列表里。
+ * ⚠ 另实测：调用点从该模块 import 的 **23 个符号全部在宿主导出里**（含 17 个图标），
+ * 即**源码侧零残留**（全仓 grep 旧名只剩本文件，已清）。
+ * ⚠ 遗留：`IconInspect/IconShield/IconArchive/IconQueue/IconNewChat` 的 Regular 档**调用点已不再用**
+ * （那几处 UI 后来改了/删了）—— **本次保留声明**（宿主确实导出它们，留着零风险、删了也不减错）。
  */
 
 declare module '@deepseek-ai/dsh-client-ui-primitives' {
@@ -54,7 +75,7 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   export const Button: ComponentType<DshButtonProps>
 
   /** 14px 下拉箭头，用于菜单触发器。 */
-  export const IconChevronDownOutline14: ComponentType<{ readonly className?: string }>
+  export const IconChevronDownOutlineRegular: ComponentType<{ readonly className?: string }>
 
   /**
    * 宿主图标集（`ui-primitives/src/icons/`，`IconProps = { size?: number; className?: string }`，
@@ -68,38 +89,38 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
     readonly className?: string
   }
   /** 单行告知条的行首图标（与宿主告示同一语义）。 */
-  export const IconInfoOutline14: ComponentType<DshIconProps>
+  export const IconInfoOutlineRegular: ComponentType<DshIconProps>
   /** 空态/补位卡用的「＋」与文件夹字形。 */
-  export const IconPlusOutline16: ComponentType<DshIconProps>
-  export const IconFolderOpenOutline16: ComponentType<DshIconProps>
+  export const IconPlusOutlineRegular: ComponentType<DshIconProps>
+  export const IconFolderOpenOutlineRegular: ComponentType<DshIconProps>
   /** 危险动作（批量删除）用的垃圾桶。 */
-  export const IconTrashOutline16: ComponentType<DshIconProps>
+  export const IconTrashOutlineRegular: ComponentType<DshIconProps>
   /**
    * 行尾溢出菜单的「⋮」（P1-1，2026-09-20）。
-   * 名字逐字核过宿主 `ui-primitives/src/icons/index.tsx` 的 `export const IconEllipsisOutline16`
+   * 名字逐字核过宿主 `ui-primitives/src/icons/index.tsx` 的 `export const IconEllipsisOutlineRegular`
    * 与 `lib/index.js` 的导出列表（**不是猜的**：这个包是 external，名字写错不会构建失败，
    * 只会运行时 undefined ⇒ 必须读源码/产物确认）。
    */
-  export const IconEllipsisOutline16: ComponentType<DshIconProps>
+  export const IconEllipsisOutlineRegular: ComponentType<DshIconProps>
   /** 筛选条的行首图标（P1-4；语义 = "这一排是筛选"，同法核过宿主 `icons/index.tsx`）。 */
-  export const IconInspectOutline12: ComponentType<DshIconProps>
+  export const IconInspectOutlineRegular: ComponentType<DshIconProps>
   /**
    * P2 头条（2026-09-20）新用的 4 个**行内文件图标** + 1 个搜索框放大镜。
    * 五个名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`（**const 定义与
    * export 列表都在**，一条命令核的）：
-   *   `const IconShieldOutline16 = ` / `export { … IconShieldOutline16 … }` 同理其余四个。
+   *   `const IconShieldOutlineRegular = ` / `export { … IconShieldOutlineRegular … }` 同理其余四个。
    * ⚠ 为什么必须核：这个包在我们的构建里是 **external** ⇒ 名字写错**不会构建失败**，
    *   只会在真机运行时变成 undefined（图标整块消失），见本文件顶部那条边界。
    *   `src/index.ts:77` 的 `export * from './icons/index.tsx'` 把它们抬到包根 ⇒ 可 import。
    */
-  export const IconShieldOutline16: ComponentType<DshIconProps>
-  export const IconChecklistOutline14: ComponentType<DshIconProps>
-  export const IconListPenOutline16: ComponentType<DshIconProps>
-  export const IconArchiveOutline20: ComponentType<DshIconProps>
-  export const IconSearchOutline16: ComponentType<DshIconProps>
+  export const IconShieldOutlineRegular: ComponentType<DshIconProps>
+  export const IconChecklistOutlineRegular: ComponentType<DshIconProps>
+  export const IconListPenOutlineRegular: ComponentType<DshIconProps>
+  export const IconArchiveOutlineRegular: ComponentType<DshIconProps>
+  export const IconSearchOutlineRegular: ComponentType<DshIconProps>
   /** 「在此范围内提问」按钮的问号（诊断 J1 换图标；名字逐字核过宿主 icons/*.d.ts 全集，
    *  宿主无对话气泡类图标 ⇒ 问号=提问最贴）。同边界：写错名字不构建失败、真机变 undefined。 */
-  export const IconQuestionOutline14: ComponentType<DshIconProps>
+  export const IconQuestionOutlineRegular: ComponentType<DshIconProps>
   /** 官方 Toast（批3-b 换装 A3 自绘临时条用）：{text, icon?, anchor?, holdMs?, onDone?}——
    *  瞬时提示件、到时自消。名字/形状核过宿主 `ui-primitives/src/Toast.tsx`（2026-09-22）。 */
   export const Toast: ComponentType<{
@@ -110,39 +131,39 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
     onDone?: () => void
   }>
   /** S2 办事台菜单行新增的 4 枚图标（2026-09-22；名字逐字核过宿主 icons/*.d.ts 全集）。
-   *  另 3 枚（IconShieldOutline16/IconChecklistOutline14/IconListPenOutline16）**上面已有声明**
+   *  另 3 枚（IconShieldOutlineRegular/IconChecklistOutlineRegular/IconListPenOutlineRegular）**上面已有声明**
    *  ——我第一版补声明时撞了重复（一个名字两处声明），已去重。
    *  同边界：写错名字不构建失败、真机变 undefined ⇒ 用前先核全集。 */
-  export const IconPlanOutline14: ComponentType<DshIconProps>
-  export const IconQueueOutline14: ComponentType<DshIconProps>
-  export const IconClockOutline16: ComponentType<DshIconProps>
-  export const IconNewChatOutline16: ComponentType<DshIconProps>
+  export const IconPlanOutlineRegular: ComponentType<DshIconProps>
+  export const IconQueueOutlineRegular: ComponentType<DshIconProps>
+  export const IconClockOutlineRegular: ComponentType<DshIconProps>
+  export const IconNewChatOutlineRegular: ComponentType<DshIconProps>
   /**
    * 5h（2026-09-20）卡片带**左右翻页**用的两个箭头。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`
-   * （一条命令数出来的候选全集：`IconChevronDownOutline14` / `IconChevronLeftOutline14` /
-   *  `IconChevronRightOutline14` / `IconChevronUpOutline14` —— 左右两枚**真的在**导出里，
-   *  同法核过 `const IconChevronLeftOutline14` 的定义与 export 列表）。
+   * （一条命令数出来的候选全集：`IconChevronDownOutlineRegular` / `IconChevronLeftOutlineRegular` /
+   *  `IconChevronRightOutlineRegular` / `IconChevronUpOutlineRegular` —— 左右两枚**真的在**导出里，
+   *  同法核过 `const IconChevronLeftOutlineRegular` 的定义与 export 列表）。
    * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（箭头整块消失）。
    */
-  export const IconChevronLeftOutline14: ComponentType<DshIconProps>
-  export const IconChevronRightOutline14: ComponentType<DshIconProps>
+  export const IconChevronLeftOutlineRegular: ComponentType<DshIconProps>
+  export const IconChevronRightOutlineRegular: ComponentType<DshIconProps>
   /**
    * 第 3 步（2026-09-21）「刷新当前这一级」用的那枚。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js` 的
-   * `const IconRefreshOutline16 = …` 与同一文件的 export 列表（两处都在）。
+   * `const IconRefreshOutlineRegular = …` 与同一文件的 export 列表（两处都在）。
    * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（按钮只剩文字）。
    */
-  export const IconRefreshOutline16: ComponentType<DshIconProps>
+  export const IconRefreshOutlineRegular: ComponentType<DshIconProps>
   /**
    * 第 4 步（2026-09-21）新用的两枚：动作面板的**关掉**（×）与删除二次确认的**警告**。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js` 的两条
-   * `const IconCloseOutline16 = jsx("svg"…` / `const IconWarningOutline16 = jsxs("svg"…`
-   * 与同一文件末尾的 export 列表（两处都在；`IconWarningOutline16` 的默认 size 是 14）。
+   * `const IconCloseOutlineRegular = jsx("svg"…` / `const IconWarningOutlineRegular = jsxs("svg"…`
+   * 与同一文件末尾的 export 列表（两处都在；`IconWarningOutlineRegular` 的默认 size 是 14）。
    * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（图标整块消失）。
    */
-  export const IconCloseOutline16: ComponentType<DshIconProps>
-  export const IconWarningOutline16: ComponentType<DshIconProps>
+  export const IconCloseOutlineRegular: ComponentType<DshIconProps>
+  export const IconWarningOutlineRegular: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

@@ -144,7 +144,9 @@ for (const c of MATRIX) {
   if (c.chans === true) args.push('--chans')
   if (c.interact !== '') args.push('--interact', c.interact)
   if (theme !== 'light') args.push('--theme', theme)
-  const r = spawnSync(process.execPath, args, { cwd: repoRoot, encoding: 'utf8', timeout: 240_000 })
+  // ⚠ `stdio[0]='ignore'`：本机 spawnSync 用 pipe 做 stdin 会恒 EBUSY（见 smoke-all.mjs 头注）。
+  const r = spawnSync(process.execPath, args,
+    { cwd: repoRoot, encoding: 'utf8', timeout: 240_000, stdio: ['ignore', 'pipe', 'pipe'] })
   const label = `${c.page}|${navPage === '' ? '' : `nav-${navPage}|`}${c.interact === '' ? '(默认场景)' : c.interact}@${String(c.width)}`
     + (theme === 'light' ? '' : `[${theme}]`)
   let j = null

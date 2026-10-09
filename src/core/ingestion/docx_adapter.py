@@ -25,6 +25,16 @@ def word_com_available() -> bool:
 def docx_to_pdf_via_com(docx_path: Path, out_pdf: Path) -> bool:
     """COM 转 PDF（Word FileFormat=17 / WPS 兼容探测）。失败返回 False 走降级。"""
     import os
+    # ⚠⚠ 2026-10-09（第 17 轮）：**先查输入文件在不在**，不在就直接返回 —— 不许去起 COM。
+    #   实测代价：本机 Word/WPS 的 COM 服务器不可用时，`win32com.client.Dispatch('Word.Application')`
+    #   抛的是 **Windows 致命异常 0x800706BA（RPC_E_SERVER_UNAVAILABLE）**；那是 **SEH 级**异常，
+    #   **Python 的 try/except 抓不住** ⇒ 整个进程当场死、连 pytest 的汇总行都打不出来。
+    #   `tests/test_law_source.py::test_convert_probe_never_raises` 传的正是一个**不存在的路径**
+    #   （`nope.docx`）⇒ 全量 pytest 跑到 ~69% 直接崩 ⇒ **门禁棘轮判"没跑出 passed 数字"**、
+    #   `-Full` 连续多轮跑不完（本轮才查到真因）。
+    #   语义上也对：没有输入文件就没有可转的东西，没必要去碰 COM。
+    if not Path(docx_path).exists():
+        return False
     if not word_com_available():
         return False
     try:

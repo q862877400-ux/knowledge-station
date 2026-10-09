@@ -1,0 +1,58 @@
+{
+  "n_items": 40,
+  "reviewer": {
+    "kind": "AI",
+    "is_human": false,
+    "model": "deepseek-v4.1-flash",
+    "note": "由本仓自动续接链的 AI 代理逐条判定（业主 2026-10-07 裁定的「外部高级 AI 复核」）；**不是人工**，不满足 contracts/benchmark.schema.md 的 confirmed_by=人。",
+    "reviewed_at": "2026-10-09"
+  },
+  "fact": {
+    "counts": {
+      "对": 36,
+      "多个都对": 4
+    },
+    "leak_counts": {
+      "无": 38,
+      "有": 2
+    },
+    "not_correct_ids": [],
+    "ambiguous_ids": [
+      "s3",
+      "s24",
+      "s32",
+      "s35"
+    ],
+    "unclear_ids": [],
+    "leaked_ids": [
+      "s18",
+      "s19"
+    ],
+    "note": "「多个都对」= 该题 gold 不唯一（库里另有同样贴切的条款）；判定只采信条文本身，机械提示仅作线索。"
+  },
+  "lang": {
+    "naturalness_counts": {
+      "像真人": 39,
+      "像机器": 1
+    },
+    "anchor_counts": {
+      "有": 40
+    },
+    "forced_counts": {
+      "否": 37,
+      "是": 3
+    },
+    "machine_like_ids": [
+      "s27"
+    ],
+    "forced_ids": [
+      "s5",
+      "s13",
+      "s27"
+    ],
+    "no_anchor_ids": [],
+    "note": "语言半只看问法（不给条文），判的是「像不像真外行说的话」，不是「像不像抄条文」。"
+  },
+  "does_it_satisfy_FR004": false,
+  "satisfies_FR004_reason": "不满足。FR-004 / SC-003 与 contracts/benchmark.schema.md 要求每条的答案经**人工确认**；本次是 AI 判定（业主 2026-10-07 裁定的规格例外），confirmed_by 仍是空。⇒ 引用 REPORT.md 的百分比时必须继续带「基准未经人工确认」这条限制。"
+}

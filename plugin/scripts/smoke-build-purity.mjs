@@ -339,7 +339,9 @@ for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deeps
   //   `/D:/...%20...`（带前导斜杠 + URL 编码的空格）⇒ spawnSync 直接 ENOENT（exit=null）。
   const pluginRoot = fileURLToPath(new URL('..', import.meta.url))
   const r = spawnSync(process.execPath, [join(pluginRoot, 'scripts', 'build-client.mjs')],
-    { cwd: pluginRoot, env: { ...process.env, KS_CLIENT_OUT: outFile }, encoding: 'utf8' })
+    // ⚠ `stdio[0]='ignore'`：本机 spawnSync 用 pipe 做 stdin 会恒 EBUSY（见 smoke-all.mjs 头注）。
+    { cwd: pluginRoot, env: { ...process.env, KS_CLIENT_OUT: outFile }, encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'] })
   if (r.status !== 0) {
     check('现构建成功（产物级佐证的先决条件）', false, `exit=${r.status} ${(r.stderr || '').slice(0, 120)}`)
   } else {

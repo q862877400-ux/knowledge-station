@@ -81,7 +81,8 @@ for (const width of widths) {
   //     ⇒ **没有对象**不算失败（那一半的取证场景是 `--interact kb-level`，归
   //     `smoke-kb-pad-pixels.mjs` 的矩阵；它有一条覆盖面判据要求"至少一跑真的判过行高"）。 */
   const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--interact', 'kb-files', '--out', outPng], {
-    cwd: repoRoot, encoding: 'utf8', timeout: 180_000,
+    // ⚠ `stdio[0]='ignore'`：本机 spawnSync 用 pipe 做 stdin 会恒 EBUSY（见 smoke-all.mjs 头注）。
+    cwd: repoRoot, encoding: 'utf8', timeout: 180_000, stdio: ['ignore', 'pipe', 'pipe'],
   })
   let payload = null
   try { payload = JSON.parse(r.stdout) } catch { payload = null }

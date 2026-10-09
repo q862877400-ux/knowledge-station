@@ -161,7 +161,8 @@ for (const theme of themes) {
   //   ⇒ 不先下钻就没有 `.ks-status`，本脚本会走"#status 里没有徽章条目"的失败分支
   //   （那是对的：没量到 ≠ 通过）。断言与阈值一个字没改，只是多一步导航。
   const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--theme', theme, '--interact', 'kb-files', '--out', outPng], {
-    cwd: repoRoot, encoding: 'utf8', timeout: 180_000,
+    // ⚠ `stdio[0]='ignore'`：本机 spawnSync 用 pipe 做 stdin 会恒 EBUSY（见 smoke-all.mjs 头注）。
+    cwd: repoRoot, encoding: 'utf8', timeout: 180_000, stdio: ['ignore', 'pipe', 'pipe'],
   })
   if (r.status !== 0) {
     console.error(`❌ ui-render-shot 失败（theme=${theme}，exit=${r.status}）—— 缺件/截图失败/列对齐自检红都走这里：`)
