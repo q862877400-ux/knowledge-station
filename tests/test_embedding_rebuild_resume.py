@@ -26,6 +26,16 @@
 8. **★ 换表不需要改 schema**：影子表与生产 `clause_vec` 同为 `FLOAT[512]`（E4 第三轮已量出
    升到 1024 维只有 +1.67pt ⇒ 保持 512）。判据 `test_shadow_dim_matches_production_schema`
    —— 它同时钉住 `schema.sql` 里的 `FLOAT[512]`：**生产若升维，这条会红**（那是好事）。
+9. **★ `limit < 非空总数` + 续跑**（**2026-10-09 独立复核点出的盲区，M4**）：取数少减一个 `done`
+   （`LIMIT target` 而非 `LIMIT max(0, target-done)`）时，**一次跑完完全正常**，只有"没跑满就中断再续跑"
+   才暴露（会**多取 `done` 行** ⇒ 超出 target）。判据
+   `test_resume_with_limit_below_total_writes_exactly_target`。
+10. **★ 真嵌入口径只有静态锚点兜着**（**同轮复核点出的盲区，M7**）：本文件不加载模型 ⇒
+    池化 `[:, -1]` / 截断 `[:, :out_dim]` / `F.normalize` 在 pytest 里**没有运行期判据**
+    （运行期的活由 `verify-resume.py` T4 干）。判据 `test_real_embedder_source_keeps_e4_pooling_and_truncation`。
+11. **★ `--stop-after-batches` 边界**（**同轮复核点出的盲区，M3**）：它是测试钩子，错了会让所有
+    "跑几批就停"的仪器**悄悄多跑一批**而没有别的判据会红。判据
+    `test_stop_after_batches_boundary_is_inclusive`。
 
 ⚠ 本文件**不加载真模型、不碰真库**（源库用 `tmp_path` 里现造的小库）⇒ 跑得动、也不受
 `conftest.py` 那两个 autouse fixture 影响。
@@ -187,6 +197,37 @@ def test_resume_is_row_identical_to_one_shot(tmp_path):
     assert r["rows_written"] == 45 - len(partial), "续跑重算了已完成的条 ⇒ 游标（last_rowid）读错了"
 
 
+def test_resume_with_limit_below_total_writes_exactly_target(tmp_path):
+    """★ **`limit < 非空总数` + 续跑**时必须只补缺口（`LIMIT max(0, target - done)`）。
+
+    为什么必须单独钉住：取数写成 `LIMIT target`（少减一个 `done`）时，**一次跑完的路径完全正常**，
+    只有"**没跑满 target 就中断、再续跑**"才暴露 —— 续跑会**多取 `done` 行** ⇒ 影子表**超出 target**。
+    这是"只有续跑才踩到"的缺陷，`test_resume_is_row_identical_to_one_shot`（`limit=None` ⇒
+    `target == 非空总数`）**结构上看不见它**（那种情形下 `target - done` 与 `target` 都取不满）。
+    """
+    src = tmp_path / "src.db"
+    _make_source(src, 50)                      # 非空正文 45 条
+    out = tmp_path / "o.db"
+    LIMIT = 30
+
+    # 先跑到中途停下（干净退出，checkpoint 已提交）
+    RS.run(src, out, limit=LIMIT, batch=4, commit_every=2, stop_after_batches=2, embedder=_fake(RS))
+    partial = _rows(out)
+    assert 0 < len(partial) < LIMIT, "中断后应当只落了一部分（否则这项没验到东西）"
+
+    # 同 limit 续跑
+    r = RS.run(src, out, limit=LIMIT, batch=4, commit_every=2, embedder=_fake(RS))
+    got = _rows(out)
+
+    assert len(got) == LIMIT, f"影子表 {len(got)} 行 ≠ 目标 {LIMIT} ⇒ 续跑多取了已完成的行（LIMIT 没减 done）"
+    assert r["shadow_rows"] == LIMIT
+    # 逐行口径：必须恰好是**按 rowid 序的前 LIMIT 条非空**
+    expected = [f"clrev_test_{i:04d}" for i in range(50) if i % 11 != 0][:LIMIT]
+    assert set(got) == set(expected), "续跑取的不是同一个前缀集合 ⇒ 取样游标（rowid 序）被破坏"
+    # 只补缺口
+    assert r["rows_written"] == LIMIT - len(partial)
+
+
 def _open(db: Path):
     """打开影子库（**必须加载 vec0 扩展**，否则连 `COUNT(*)` 都报 `no such module`）。"""
     from src.core.storage.sqlite_db import load_vec_extension
@@ -222,6 +263,20 @@ def test_rerun_is_idempotent(tmp_path):
     assert before == after
 
 
+def test_stop_after_batches_boundary_is_inclusive(tmp_path):
+    """`--stop-after-batches N` 必须**恰好跑 N 批**（边界是 `>=`，不是 `>`）。
+
+    `stop_after_batches` 是**测试钩子**（不进生产），但它错了会让所有"跑几批就停"的仪器**悄悄多跑一批**
+    ⇒ 读数（批数 / 落盘行数）与预期差一批，而**没有任何别的判据会红**。所以单独钉住。
+    """
+    src = tmp_path / "src.db"
+    _make_source(src, 50)
+    out = tmp_path / "o.db"
+    r = RS.run(src, out, batch=4, commit_every=1, stop_after_batches=2, embedder=_fake(RS))
+    assert r["batches"] == 2, f"stop_after_batches=2 实际跑了 {r['batches']} 批 ⇒ 边界写成 `>` 了"
+    assert len(_rows(out)) == 8, "2 批 × batch 4 = 8 行"
+
+
 def test_ckpt_records_all_guard_keys(tmp_path):
     src = tmp_path / "src.db"
     _make_source(src, 12)
@@ -245,6 +300,39 @@ def test_instruct_prefix_is_the_official_string():
     assert RS.INSTRUCT_PREFIX.count("\n") == 1
     assert not any("\u4e00" <= ch <= "\u9fff" for ch in RS.INSTRUCT_PREFIX), \
         "前缀里出现中文 ⇒ 像是被换成了自造前缀"
+
+
+def test_real_embedder_source_keeps_e4_pooling_and_truncation():
+    """**静态锚点**：真嵌入函数必须仍是 E4 的口径 —— EOS 池化 + MRL 截断 + 重新 L2 归一化。
+
+    为什么只能静态测：本文件**刻意不加载真模型**（跑得动、不受 `conftest.py` 两个 autouse fixture 影响），
+    所以池化/截断/归一化这几处**在 pytest 里没有任何运行期判据**。把 `[:, -1]` 改成 `[:, 0]`
+    （取首 token）在**行数、维度、KNN 上全都正常**，只有跟 E4 冻结向量逐字节比才看得见 ——
+    那是 `verify-resume.py` 的 T4 干的活，不是本文件的。⇒ 这里钉住**源码锚点**，让"改错口径"当场红。
+
+    ⚠ 生产/实验若要**有意**改这几处，改这条测试是**必须动作**（不许让它静默变绿）。
+
+    ⚠⚠ **锚点必须避开函数自己的 docstring**（2026-10-09 变异自验踩到）：第一版锚点是
+    `"last_hidden_state[:, -1]"`，而 `real_embedder_factory` 的 docstring 里**也**写着
+    "取 `last_hidden_state[:, -1]`" ⇒ 把**代码**改成 `[:, 0]` 后锚点**仍然命中 docstring** ⇒
+    判据**没牙**（变异实测 1 passed）。⇒ 改成**完整代码表达式**（docstring 里不会逐字出现）。
+    """
+    src = SCRIPT.read_text(encoding="utf-8")
+    start = src.index("def real_embedder_factory(")
+    end = src.index("def fake_embedder_factory(")
+    body = src[start:end]
+    for anchor, why in (
+        ("Fn.normalize(out.last_hidden_state[:, -1][:, :out_dim], p=2, dim=1)",
+         "整条嵌入算式：EOS 池化 `[:, -1]` + MRL 截断 `[:, :out_dim]` + 重新 L2 归一化；"
+         "改成 `[:, 0]` = 取首 token，口径就变了（行数/维度/KNN 全看不出来）"),
+        ('AutoTokenizer.from_pretrained(model_id, padding_side="left")',
+         "左填充（与 E4 一致；右填充会改变 EOS 位置的含义）"),
+        ("enc = tok(texts, padding=True, truncation=True, max_length=512,",
+         "截断长度 512（与生产 `content_text[:512]` 同口径）"),
+        ('AutoModel.from_pretrained(model_id, dtype=torch.float16)',
+         "fp16（与 E4 一致；换 dtype 会让逐字节比对整体失效）"),
+    ):
+        assert anchor in body, f"真嵌入口径锚点丢了：`{anchor}`（{why}）"
 
 
 def test_shadow_dim_matches_production_schema():

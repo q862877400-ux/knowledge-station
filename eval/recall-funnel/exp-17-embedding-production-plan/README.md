@@ -29,6 +29,9 @@ E4 那条**唯一已量出大收益**的方向（换 `Qwen/Qwen3-Embedding-0.6B`
 | 7 | `src/core/api/server.py:2501` | 统计计数 | 只影响"向量条数"这个诊断读数 |
 | 8 | `scripts/probe-recall-latency.py:55/67/76` | 探针表名 | 只影响探针 |
 | 9 | `tests/test_storage.py:51` / `test_doc_batch_delete.py:52,115` / `test_kb_scope_retrieval.py:293-315` / `test_pipeline.py:392` | 直接 INSERT/DELETE/COUNT `clause_vec` 的用例 | 不跟 ⇒ 新表**没被测到**，看着全绿 |
+| 10 | `src/core/retrieval/term_bridge.py:160` | `embedder.embed_query(query)` 加官方指令前缀 | **2026-10-09 复核补登**：这是 `embed_query` 的**第三处**调用点（术语桥查询侧）。⚠ 它**当前不在生产检索路径上**（只有 `scripts/measure-term-bridge.py` 调 `bridge_search`）⇒ 漏加**暂不构成实害**；但术语桥一旦接入生产，漏加会**静默**让该路走无前缀口径 |
+| 11 | `scripts/verify-dup-vectors.py` / `scripts/verify-dup-safety.py` | 读 `clause_vec` 做重复向量诊断 | **2026-10-09 复核补登**：只读诊断脚本。方案 A 保留旧表 ⇒ 不失效；若将来**只**保留新表，这两个脚本要跟着改 |
+| 12 | `tests/test_contract.py:68` / `tests/test_doc_batch_delete.py:107` | 表名**存在性**检查（冻结表名集合 / 表名元组） | **2026-10-09 复核补登**：不是 INSERT/DELETE/COUNT。方案 A 保留旧表 ⇒ 仍通过；**只**保留新表时会红 |
 
 ### ★ 一个**很容易踩**的坑（本方案最重要的发现）
 
@@ -39,10 +42,17 @@ E4 那条**唯一已量出大收益**的方向（换 `Qwen/Qwen3-Embedding-0.6B`
 emb = embedder.embed_query(f"{title or ''}\n{content_text[:512]}")   # ← 这是【条文侧】文本！
 ```
 
-也就是说 **`embed_query` 被两处调用**：查询侧（`hybrid_engine.py:310`）和**条文侧**（`clause_repo.py:426`）。
+也就是说 **`embed_query` 在生产代码里被【三处】调用**：查询侧（`hybrid_engine.py:310`）、
+**条文侧**（`clause_repo.py:426`）、以及**术语桥的查询侧**（`term_bridge.py:160`，`TermIndex.select`）。
 把前缀加在 `embed_query` 内部 ⇒ **补丁重算会把查询指令前缀加到条文向量上**，
 于是"被改过的条款"和"没改过的条款"用了**两套文本口径** —— 行数、维度、KNN 全正常，
 **没有任何读数能看出来**。⇒ 前缀必须做在**调用点**（或给 `embed_query` 加显式参数，默认不加）。
+
+> ⚠ **2026-10-09 复核就地更正（留痕）**：本文件原先写的是"被**两处**调用"（只列 `hybrid_engine.py:310` /
+> `clause_repo.py:426`）。独立复核实测**第三处** = `src/core/retrieval/term_bridge.py:160`（已 grep 复核确认）。
+> **结论不变**（前缀不能加进 `embed_query` 内部）—— 反而更强：漏加前缀的调用点从 1 个变 2 个。
+> 该处**当前不在生产检索路径上**（只有 `scripts/measure-term-bridge.py` 调 `bridge_search`），
+> 故**暂不构成实害**；但若将来术语桥接入生产，按原方案会**静默漏加前缀** ⇒ 已补进 §一 触点表。
 
 ---
 
@@ -96,6 +106,9 @@ emb = embedder.embed_query(f"{title or ''}\n{content_text[:512]}")   # ← 这�
   ⇒ 强杀只会整批回滚，游标不会超前后错位。
 - **口径守卫**（`model_id` / `out_dim` / `text_formula_sha` / `limit`）：任一不一致**当场报错**。
 - **文本公式**：`f"{title or ''}\n{content_text[:512]}"`（与 `clause_repo` 两处逐字一致）。
+  ⚠ 重建版的 `display_text` 多写了一层 `(body or '')`，而生产是裸 `content_text[:512]`
+  ⇒ **在取数已过滤 `trim(coalesce(content_text,''))<>''` 的域内两者逐字等价**
+  （生产遇 `content_text=None` 会抛、重建不会；取数保证这个域里没有 `None`）。**2026-10-09 复核补注**。
 - **取数过滤**：`WHERE trim(coalesce(content_text,'')) <> '' ORDER BY rowid`（与 E4 同口径）。
 - **向量存储格式**：实测 sqlite-vec 把 `json.dumps(list)` 与 `array('f').tobytes()`
   **存成完全相同的 2048 字节 float32**（逐字节相等，`var/tmp/exp-17/probe.py`）
@@ -110,6 +123,11 @@ emb = embedder.embed_query(f"{title or ''}\n{content_text[:512]}")   # ← 这�
 | T3 | 幂等（对已完成的库原样重跑） | `rows_written = 0`，全表哈希不变 | ✅ |
 | T4 | **真模型口径 vs E4 冻结向量** | 复刻 E4 分批（每批 16）⇒ **64/64 逐字节相同**（`cos_min = 1.0`、`maxdiff = 0`） | ✅ |
 | T5 | 真库一行没动 | mtime / size / `clause_vec` 663,634 / `clause_revision` 663,634 **前后全同** | ✅ |
+
+**⚠ 复跑鲁棒性（2026-10-09 复核补注）**：`verify-resume.py` **不是"一次必过"** —— 复核**第一次**跑时
+在 T2 续跑处抛过一次 `sqlite3.OperationalError: disk I/O error`（发生在 `_source_counts` 只读打开真库时），
+**原样重跑即通过**。属真库（活库、WAL）被只读打开时的**瞬时争用**，不是脚本逻辑缺陷；
+但复跑/复核要**预留一次重试**。
 
 **T4 的副读数（★ 一条要记住的坑）**：把同一批 64 条**一次**喂进去（换一种分批）⇒
 只有 **16/64** 逐字节相同，`maxdiff = 8.4e-4`、`cos_min = 0.999995`。
