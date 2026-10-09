@@ -98,6 +98,8 @@ ADAPTERS: dict[str, str] = {
     "gz-igi": "adapters.gz_igi",               # 贵州·门户政民互动（IGI 全量 33 站/3 万条，剔除 gz-portal 已占的 11 站；2026-10-09 新增）
     "nanning-igi": "adapters.nanning_igi",     # 南宁市·政民互动信箱（IGI siteId=8/1.9 万条；城市门户普查新发现；带真实市/区县归属；2026-10-09 新增）
     "baotou-igi": "adapters.baotou_igi",       # 包头市·政民互动信箱（IGI 42 站/7,243 条；城市门户普查新发现；地域为默认值已剥离；2026-10-09 新增）
+    "shenyang-igi": "adapters.shenyang_igi",   # 沈阳市·政民互动信箱（IGI 53 站/1.74 万条；辽宁首条 IGI 线；地域为默认值已剥离；2026-10-09 第 8 轮新增）
+    "nanjing-igi": "adapters.nanjing_igi",     # 南京市·政民互动信箱（IGI 63 站/4,065 条；江苏首条 IGI 线；地域为空/默认值已剥离；2026-10-09 第 8 轮新增）
     "ah-kb": "adapters.ah_kb",                 # 安徽省直部门·共享问答知识库（全省站群 label 8888，跨厅局聚合 2282 条）
     # —— 「静态列表型」省份（2026-10-08：无统一接口平台，静态列表 + 明细页，同安徽旧模式）——
     "tj-hdjl": "adapters.tj_hdjl",             # 天津市·政民互动·留言选登（~500 条）
