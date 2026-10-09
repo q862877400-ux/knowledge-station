@@ -50,6 +50,7 @@ PROVINCE_PREFIX = {
     #   （包头/沈阳/南京的地域已被 `postprocess` 剥离 ⇒ 会**整批**掉「未归属」）。
     "baotou-": "内蒙古自治区", "shenyang-": "辽宁省",
     "nanning-": "广西壮族自治区", "nanjing-": "江苏省",
+    "xining-": "青海省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 #: 国家级来源的**前缀**（nat-* 是后加的国家部委适配器，早期只登记了 mee/mem/people-liuyan 三个全集名）

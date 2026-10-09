@@ -100,6 +100,7 @@ ADAPTERS: dict[str, str] = {
     "baotou-igi": "adapters.baotou_igi",       # 包头市·政民互动信箱（IGI 42 站/7,243 条；城市门户普查新发现；地域为默认值已剥离；2026-10-09 新增）
     "shenyang-igi": "adapters.shenyang_igi",   # 沈阳市·政民互动信箱（IGI 53 站/1.74 万条；辽宁首条 IGI 线；地域为默认值已剥离；2026-10-09 第 8 轮新增）
     "nanjing-igi": "adapters.nanjing_igi",     # 南京市·政民互动信箱（IGI 63 站/4,065 条；江苏首条 IGI 线；地域为空/默认值已剥离；2026-10-09 第 8 轮新增）
+    "xining-igi": "adapters.xining_igi",       # 西宁市·政民互动信箱（IGI 2 站/5,826 条；青海此前仅 353 条 ⇒ ≈16 倍；带真实区县归属；2026-10-09 第 8 轮新增）
     "ah-kb": "adapters.ah_kb",                 # 安徽省直部门·共享问答知识库（全省站群 label 8888，跨厅局聚合 2282 条）
     # —— 「静态列表型」省份（2026-10-08：无统一接口平台，静态列表 + 明细页，同安徽旧模式）——
     "tj-hdjl": "adapters.tj_hdjl",             # 天津市·政民互动·留言选登（~500 条）
