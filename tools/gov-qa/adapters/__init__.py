@@ -16,6 +16,9 @@ SITE = {
     "entry": "https://www.mee.gov.cn/hdjl/",
     "status": "ok",                  # ok | blocked | todo | chat_only
     "note": "WAS5 检索中间件；列表由内联 JS 调 /was5/web/search",
+    "rd-sd": "adapters.rd_sd",         # 山东省人大·法规草案征求意见
+    "rd-js": "adapters.rd_js",         # 江苏省人大·法规草案征求意见（分页 index_N.shtml）
+    "rd-gd": "adapters.rd_gd",         # 广东省人大·法规草案征求意见（分页 index_N.html）
 }
 
 def harvest(fetch, *, limit=None) -> list[dict]:
@@ -101,6 +104,8 @@ ADAPTERS: dict[str, str] = {
     "shenyang-igi": "adapters.shenyang_igi",   # 沈阳市·政民互动信箱（IGI 53 站/1.74 万条；辽宁首条 IGI 线；地域为默认值已剥离；2026-10-09 第 8 轮新增）
     "nanjing-igi": "adapters.nanjing_igi",     # 南京市·政民互动信箱（IGI 63 站/4,065 条；江苏首条 IGI 线；地域为空/默认值已剥离；2026-10-09 第 8 轮新增）
     "xining-igi": "adapters.xining_igi",       # 西宁市·政民互动信箱（IGI 2 站/5,826 条；青海此前仅 353 条 ⇒ ≈16 倍；带真实区县归属；2026-10-09 第 8 轮新增）
+    "zhangye-igi": "adapters.zhangye_igi",     # 张掖市·政民互动信箱（IGI 8 站/7,777 条枚举；**甘肃首条 IGI 线**，该省省门户整域 412；带真实省/市/区县三级；2026-10-09 第 10 轮新增）
+    "jiujiang-igi": "adapters.jiujiang_igi",   # 九江市·政民互动信箱（IGI 1 站/1,509 条枚举；**江西首条 IGI 线**，该省此前仅 461 条；带真实省/市/区县三级；2026-10-09 第 10 轮新增）
     "shannan-igi": "adapters.shannan_igi",     # 山南市·政民互动信箱（IGI 7 站/191 条枚举；**西藏第二条 IGI 线**，与 xz-igi id 重叠 0/20；带真实省/市/区县三级；2026-10-09 第 11 轮新增）
     "danzhou-igi": "adapters.danzhou_igi",     # 儋州市·政民互动信箱（IGI 20 站/27,694 条枚举；**海南首条 IGI 线**；地域为门户默认值已剥离；2026-10-09 第 11 轮新增）
     "chifeng-igi": "adapters.chifeng_igi",     # 赤峰市·政民互动信箱（IGI 53 站/11,485 条枚举；与 nmg-igi 不同部署：44 个 siteId 独有 / 记录 id 重叠 0/20；2026-10-09 第 11 轮新增）
@@ -411,6 +416,14 @@ ADAPTERS: dict[str, str] = {
     "nat-forestry": "adapters.nat_forestry",  # 国家林业和草原局·互动留言（JEECMS /letter/page，答复内联，673）
     "nat-cma": "adapters.nat_cma",          # 中国气象局·回应关切（静态列表+明细，约30）
     "nat-moa": "adapters.nat_moa",          # 农业农村部·留言回复（站内静态JSON，答复内联，824）
+    # —— 人大系统（2026-10-10，M4）：法规草案征求意见。
+    #    ⚠ 体裁是「草案全文 + 征求意见公告」，**不是问答** ⇒
+    #      记录带 extra.content_kind="立法征求意见" 以与问答语料区分。
+    #    基座 adapters/rd_common.py（正则配置驱动，新增省份只需加一条配置）。
+    "rd-hn": "adapters.rd_hn",         # 河南省人大·法规草案征求意见（列表+详情，正文为草案全文）
+    "rd-sd": "adapters.rd_sd",         # 山东省人大·法规草案征求意见
+    "rd-js": "adapters.rd_js",         # 江苏省人大·法规草案征求意见（分页 index_N.shtml）
+    "rd-gd": "adapters.rd_gd",         # 广东省人大·法规草案征求意见（分页 index_N.html）
 }
 
 #: 用户要能直接 `from adapters import load`
