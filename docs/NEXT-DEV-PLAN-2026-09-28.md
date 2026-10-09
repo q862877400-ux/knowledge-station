@@ -292,6 +292,13 @@
 > - **产物**：[E4c README](eval/recall-funnel/exp-4c-embedding-1024/README.md)；详细记录
 >   [开发史 §10.210](DEVELOPMENT-HISTORY.md)。
 > - ⚠ 属必验类别（结论由作者自己的检查得出 + 当天新写的判据），已冻结 tag 并派独立复核。
+> - ✅ **独立复核放行（PASS）**（2026-10-09，批次 `e4c-1024`，报告
+>   [`VERIFY-REPORT-e4c-1024`](verify-briefs/VERIFY-REPORT-e4c-1024.md)，冻结 tag
+>   `verify-freeze-e4c-1024` = `4b9e3e5`）：`22` 两次逐字节相同且与冻结版 IDENTICAL、`23` 与冻结版 IDENTICAL、
+>   判据有牙（三变异打到另三档）、仪器对照独立复现、真库未触碰、改动面仅 `eval/`+`docs/`。
+>   ⚠ 4 条非阻塞发现：F1（`23` 读聚合 delta 不重算）**已补自洽硬校验**；F2 冻结哈希对 EOL 敏感
+>   （LF vs CRLF）登记为通用坑；F3 `NOT EXISTS` 在 vec0 上极慢、登记；F4 真库"未动"证据强度、登记。
+>   ⇒ **主结论"放弃升维"在只读独立复算下成立。**
 > - **产物**：[E4 第二轮 README](eval/recall-funnel/exp-4b-embedding-round2/README.md)；
 >   详细记录 [开发史 §10.209](DEVELOPMENT-HISTORY.md)。
 > - ⚠ 属必验类别（结论由作者自己的检查得出 + 当天新写的判据），已冻结 tag 并派独立复核。

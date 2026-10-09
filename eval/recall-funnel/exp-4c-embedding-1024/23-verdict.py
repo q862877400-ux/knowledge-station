@@ -49,6 +49,16 @@ def main() -> int:
     a = ab["summary"]["all_171"]
     delta_head = h["delta_pp"]["rank@1000"]
     delta_all = a["delta_pp"]["rank@1000"]
+    # ── 自洽校验（独立复核 F1 补）：delta 必须与两臂原始读数一致 ──
+    # 背景：本脚本分档读的是**聚合读数** `delta_pp`，不是从两臂原始 `d512/d1024` 重算。
+    # ⇒ 若结果 JSON 内部"臂读数 ↔ delta_pp"不自洽，分档会静默按错的 delta 走。
+    # 这里把它变成**会抛错**的硬校验（口径：pp = (d1024 − d512) × 100，容差 0.02pp 容四舍五入）。
+    for _name, _blk in (("headline_120", h), ("all_171", a)):
+        _recomp = round((_blk["d1024"]["rank@1000"] - _blk["d512"]["rank@1000"]) * 100, 2)
+        if abs(_recomp - _blk["delta_pp"]["rank@1000"]) > 0.02:
+            raise SystemExit(
+                f"[23-verdict] 结果文件内部不自洽：{_name} 的两臂读数重算 delta={_recomp}pt，"
+                f"但 delta_pp 记的是 {_blk['delta_pp']['rank@1000']}pt ⇒ 拒绝出判定")
     ci_head = ci["headline_120"]
     ci_lo = ci_head["ci95_pp"][0]
 
