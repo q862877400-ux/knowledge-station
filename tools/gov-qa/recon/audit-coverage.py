@@ -186,6 +186,45 @@ def show_answers() -> int:
     return 0
 
 
+def show_dups() -> int:
+    """重复 id 检测 —— 用来发现「并发写导致重复落盘」。
+
+    动机：`harvest.py` 的去重是**开跑时一次性读文件**建 `done` 集合，
+    之后只按该快照过滤。**两路进程并发采同一个站**时，双方读到同一初始状态
+    ⇒ 各写一份、文件里出现重复 id。
+    （2026-10-09 实测：浙江金华被两路并发写 ⇒ 6350 行 / 只有 3351 唯一 id，重复 2,999 条。）
+
+    ⚠ 规则：**同一个站（同 source）只能有一路在采。**
+    """
+    rows = []
+    for p in sorted(glob.glob(str(ROOT / "data" / "*.jsonl"))):
+        per_src: dict[str, Counter] = defaultdict(Counter)
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.strip() or not line.lstrip().startswith("{"):
+                    continue
+                try:
+                    r = json.loads(line)
+                except Exception:                                   # noqa: BLE001
+                    continue
+                per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
+        for s, c in per_src.items():
+            total = sum(c.values())
+            uniq = len(c)
+            if total != uniq:
+                rows.append((s, total, uniq, total - uniq, os.path.basename(p)))
+    if not rows:
+        print("重复 id 检测：**全部干净** ✓")
+        return 0
+    rows.sort(key=lambda r: -r[3])
+    print(f"⚠ 发现 {len(rows)} 个来源存在重复 id：\n")
+    print(f"  {'source':26s} {'总行数':>9s} {'唯一':>9s} {'重复':>8s}  文件")
+    for s, total, uniq, dup, fn in rows:
+        print(f"  {s:26s} {total:9,d} {uniq:9,d} {dup:8,d}  {fn[:40]}")
+    print(f"\n  重复合计 {sum(r[3] for r in rows):,} 行")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="数据落盘核查")
     ap.add_argument("--empty", action="store_true", help="只看零数据的适配器")
@@ -194,6 +233,8 @@ def main() -> int:
                     help="输出各字段非空率（发现「整列全空」的静默缺陷）")
     ap.add_argument("--answers", action="store_true",
                     help="输出答复长度分布（发现「答复被截断」的静默缺陷）")
+    ap.add_argument("--dups", action="store_true",
+                    help="检测重复 id（发现「并发写导致重复落盘」）")
     ap.add_argument("--key", default="", help="只看某前缀的 key")
     args = ap.parse_args()
 
@@ -201,6 +242,8 @@ def main() -> int:
         return show_fields()
     if args.answers:
         return show_answers()
+    if args.dups:
+        return show_dups()
 
 
     os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::1")
