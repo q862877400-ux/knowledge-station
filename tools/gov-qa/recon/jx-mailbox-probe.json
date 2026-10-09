@@ -1,0 +1,151 @@
+{
+ "forms": {
+  "jxsrmzf": {
+   "url": "https://www.jiangxi.gov.cn/jxsrmzf/mail/form.html",
+   "status": 200,
+   "len": 52647,
+   "scripts": [
+    "/default/common/libs/jquery.min.js",
+    "/jxsrmzf/pc2024/js/config.js",
+    "/jxsrmzf/pc2024/js/commonApi.js",
+    "/default/common/libs/jquery.SuperSlide.js",
+    "/default/common/libs/layui/layui.js",
+    "/default/common/libs/transform.js",
+    "/jxsrmzf/pc2024/js/login.js",
+    "/jxsrmzf/pc2024/js/header.js",
+    "/UserCenter/js/usercenter.js",
+    "//gov.govwza.cn/dist/aria.js?appid=d3a6f863c4fd0eef432903fb8e75ab7d",
+    "https://res2.wx.qq.com/open/js/jweixin-1.6.0.js",
+    "/jxsrmzf/pc2024/js/jiucuo.js",
+    "/jxsrmzf/pc2024/js/footer.js",
+    "/jxsrmzf/pc2024/js/common.js",
+    "/jxsrmzf/pc2024/js/mail.js"
+   ],
+   "inline_uid": [],
+   "head": "<!doctype html>\r\n<html>\r\n\r\n<head>\n  <base href=\"/jxsrmzf/\" /> \n  <meta name=\"SiteName\" content=\"江西省人民政府\" /> \n  <meta name=\"SiteDomain\" content=\"http://www.jiangxi.gov.cn\" /> \n  <meta name=\"SiteIDCode\" content=\"3600000012\" /> \n  <meta name=\"ColumnName\" content=\"我要写信\" /> \n  <meta name=\"ColumnDescription\" content=\"在线咨询\" /> \n  <meta name=\"ColumnKeywords\" content=\"在线咨询\" /> \n  <meta name=\"ColumnType\" content=\"咨询投诉\" /> \n  <meta name=\"HtmlGenerateTime\" content=\"2025-03-15 13:54:12\" /> \r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n  <meta name=\"viewport\" "
+  },
+  "jxsfzhggwyh": {
+   "url": "https://www.jiangxi.gov.cn/jxsfzhggwyh/mail/form.html",
+   "status": 200,
+   "len": 44304,
+   "scripts": [
+    "/default/common/libs/jquery.min.js",
+    "/jxsrmzf/pc2024/js/config.js",
+    "/jxsrmzf/pc2024/js/commonApi.js",
+    "/default/common/libs/transform.js",
+    "/jxsrmzf/pc2024/js/login.js",
+    "/jxsrmzf/pc2024/js/header.js",
+    "/UserCenter/js/usercenter.js",
+    "//gov.govwza.cn/dist/aria.js?appid=d3a6f863c4fd0eef432903fb8e75ab7d",
+    "https://res2.wx.qq.com/open/js/jweixin-1.6.0.js",
+    "/jxsrmzf/pc2024/js/jiucuo.js",
+    "/jxsrmzf/pc2024/js/footer.js",
+    "/jxsrmzf/pc2024/js/common.js"
+   ],
+   "inline_uid": [],
+   "head": "<!doctype html>\r\n<html>\r\n\r\n<head>\n  <base href=\"/jxsrmzf/\" /> \n  <meta name=\"SiteName\" content=\"江西省人民政府\" /> \n  <meta name=\"SiteDomain\" content=\"http://www.jiangxi.gov.cn\" /> \n  <meta name=\"SiteIDCode\" content=\"3600000012\" /> \n  <meta name=\"HtmlGenerateTime\" content=\"2025-03-15 11:44:42\" /> \r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">\r\n  <title>404 - 江西省人民政府</title>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/jxsrmzf/pc2024/css/base.c"
+  },
+  "jxjyw": {
+   "url": "https://www.jiangxi.gov.cn/jxjyw/mail/form.html",
+   "status": 200,
+   "len": 44304,
+   "scripts": [
+    "/default/common/libs/jquery.min.js",
+    "/jxsrmzf/pc2024/js/config.js",
+    "/jxsrmzf/pc2024/js/commonApi.js",
+    "/default/common/libs/transform.js",
+    "/jxsrmzf/pc2024/js/login.js",
+    "/jxsrmzf/pc2024/js/header.js",
+    "/UserCenter/js/usercenter.js",
+    "//gov.govwza.cn/dist/aria.js?appid=d3a6f863c4fd0eef432903fb8e75ab7d",
+    "https://res2.wx.qq.com/open/js/jweixin-1.6.0.js",
+    "/jxsrmzf/pc2024/js/jiucuo.js",
+    "/jxsrmzf/pc2024/js/footer.js",
+    "/jxsrmzf/pc2024/js/common.js"
+   ],
+   "inline_uid": [],
+   "head": "<!doctype html>\r\n<html>\r\n\r\n<head>\n  <base href=\"/jxsrmzf/\" /> \n  <meta name=\"SiteName\" content=\"江西省人民政府\" /> \n  <meta name=\"SiteDomain\" content=\"http://www.jiangxi.gov.cn\" /> \n  <meta name=\"SiteIDCode\" content=\"3600000012\" /> \n  <meta name=\"HtmlGenerateTime\" content=\"2025-03-15 11:44:42\" /> \r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">\r\n  <title>404 - 江西省人民政府</title>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/jxsrmzf/pc2024/css/base.c"
+  },
+  "jxskxjst": {
+   "url": "https://www.jiangxi.gov.cn/jxskxjst/mail/form.html",
+   "status": 200,
+   "len": 44304,
+   "scripts": [
+    "/default/common/libs/jquery.min.js",
+    "/jxsrmzf/pc2024/js/config.js",
+    "/jxsrmzf/pc2024/js/commonApi.js",
+    "/default/common/libs/transform.js",
+    "/jxsrmzf/pc2024/js/login.js",
+    "/jxsrmzf/pc2024/js/header.js",
+    "/UserCenter/js/usercenter.js",
+    "//gov.govwza.cn/dist/aria.js?appid=d3a6f863c4fd0eef432903fb8e75ab7d",
+    "https://res2.wx.qq.com/open/js/jweixin-1.6.0.js",
+    "/jxsrmzf/pc2024/js/jiucuo.js",
+    "/jxsrmzf/pc2024/js/footer.js",
+    "/jxsrmzf/pc2024/js/common.js"
+   ],
+   "inline_uid": [],
+   "head": "<!doctype html>\r\n<html>\r\n\r\n<head>\n  <base href=\"/jxsrmzf/\" /> \n  <meta name=\"SiteName\" content=\"江西省人民政府\" /> \n  <meta name=\"SiteDomain\" content=\"http://www.jiangxi.gov.cn\" /> \n  <meta name=\"SiteIDCode\" content=\"3600000012\" /> \n  <meta name=\"HtmlGenerateTime\" content=\"2025-03-15 11:44:42\" /> \r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">\r\n  <title>404 - 江西省人民政府</title>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/jxsrmzf/pc2024/css/base.c"
+  },
+  "jxsgyhxxht": {
+   "url": "https://www.jiangxi.gov.cn/jxsgyhxxht/mail/form.html",
+   "status": 200,
+   "len": 44304,
+   "scripts": [
+    "/default/common/libs/jquery.min.js",
+    "/jxsrmzf/pc2024/js/config.js",
+    "/jxsrmzf/pc2024/js/commonApi.js",
+    "/default/common/libs/transform.js",
+    "/jxsrmzf/pc2024/js/login.js",
+    "/jxsrmzf/pc2024/js/header.js",
+    "/UserCenter/js/usercenter.js",
+    "//gov.govwza.cn/dist/aria.js?appid=d3a6f863c4fd0eef432903fb8e75ab7d",
+    "https://res2.wx.qq.com/open/js/jweixin-1.6.0.js",
+    "/jxsrmzf/pc2024/js/jiucuo.js",
+    "/jxsrmzf/pc2024/js/footer.js",
+    "/jxsrmzf/pc2024/js/common.js"
+   ],
+   "inline_uid": [],
+   "head": "<!doctype html>\r\n<html>\r\n\r\n<head>\n  <base href=\"/jxsrmzf/\" /> \n  <meta name=\"SiteName\" content=\"江西省人民政府\" /> \n  <meta name=\"SiteDomain\" content=\"http://www.jiangxi.gov.cn\" /> \n  <meta name=\"SiteIDCode\" content=\"3600000012\" /> \n  <meta name=\"HtmlGenerateTime\" content=\"2025-03-15 11:44:42\" /> \r\n  <meta charset=\"UTF-8\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">\r\n  <title>404 - 江西省人民政府</title>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/jxsrmzf/pc2024/css/base.c"
+  }
+ },
+ "prov_list": [
+  {
+   "variant": {
+    "pageNo": 1,
+    "pageSize": 10
+   },
+   "status": 404,
+   "body": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>"
+  },
+  {
+   "variant": {
+    "current": 1,
+    "size": 10
+   },
+   "status": 404,
+   "body": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>"
+  },
+  {
+   "variant": {
+    "pageNum": 1,
+    "pageSize": 10
+   },
+   "status": 404,
+   "body": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>"
+  },
+  {
+   "variant": {
+    "pageIndex": 1,
+    "rows": 10
+   },
+   "status": 404,
+   "body": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>"
+  },
+  {
+   "variant": {},
+   "status": 404,
+   "body": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>页面未找到</title></head><body><h1>页面未找到</h1></body></html>"
+  }
+ ]
+}

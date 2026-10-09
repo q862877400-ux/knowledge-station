@@ -26,6 +26,8 @@ from __future__ import annotations
 import json
 import time
 
+from adapters._igi_common import existing_ids
+
 SITE = {
     "key": "sh-12345",
     "name": "上海市·12345热线诉求公开",
@@ -72,10 +74,22 @@ def _page(fetch, page: int) -> dict:
     return data if isinstance(data, dict) else {}
 
 
-def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[dict]:
-    """按 startPage 翻页取「诉求公开」（列表已带问题+答复全文，无需再抓明细）。"""
+def harvest(fetch, *, limit: int | None = None, max_pages: int = 600,
+            skip_ids: set[str] | None = None) -> list[dict]:
+    """按 startPage 翻页取「诉求公开」（列表已带问题+答复全文，无需再抓明细）。
+
+    ★ 2026-10-09 补 `skip_ids`（**修「第二轮恒 0 新增」**）：
+      本适配器原先**每轮都从第 1 页重跑**，而 `harvest.py` 按 id 去重 ⇒
+      上游 `count=7248` 却永远停在首批 600 条（实测存量就是 600，即被 limit 截断）。
+      现在开跑先读已落盘 id：命中则**不计入 `limit`**（列表页请求省不掉，
+      因为全文就在列表里）⇒ `limit` 语义变为「本轮新增条数」。
+      要重刷已落盘条目传 `skip_ids=set()`。
+    """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     seen: set[str] = set()
+    skipped = 0
     total = None
     for page in range(1, max_pages + 1):
         if limit and len(out) >= limit:
@@ -99,6 +113,9 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
             if not rpid or rpid in seen:
                 continue
             seen.add(rpid)
+            if rpid in skip_ids:
+                skipped += 1                    # 已落盘 ⇒ 不计入本轮 limit
+                continue
             content = (it.get("content") or "").strip()
             answer = (it.get("reply") or "").strip()
             if len(answer) < 10:
@@ -125,5 +142,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
         if total and page * PAGE_SIZE >= int(total):
             break
         time.sleep(PAUSE)
-    print(f"    [{SITE['key']}] 收 {len(out)} 条")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out

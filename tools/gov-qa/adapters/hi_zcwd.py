@@ -21,6 +21,8 @@ from __future__ import annotations
 import re
 import time
 
+from adapters._igi_common import existing_ids
+
 SITE = {
     "key": "hi-zcwd",
     "name": "海南省人民政府·政策问答",
@@ -71,10 +73,22 @@ def _parse_detail(html: str, item: dict) -> dict | None:
     }
 
 
-def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[dict]:
-    """按 curPage 翻页取政策问答列表，再逐条抓明细（按 URL 去重）。"""
+def harvest(fetch, *, limit: int | None = None, max_pages: int = 200,
+            skip_ids: set[str] | None = None) -> list[dict]:
+    """按 curPage 翻页取政策问答列表，再逐条抓明细（按 URL 去重）。
+
+    ★ 2026-10-09 补 `skip_ids`（**修「第二轮恒 0 新增」**）：
+      本适配器原先**每轮都从第 0 页重跑**，而 `harvest.py` 按 id 去重 ⇒
+      上游 `allRow=2243` 却永远停在首批 200 条（实测存量就是 200）。
+      现在开跑先读已落盘 id：命中则**不请求明细**、**不计入 `limit`**
+      ⇒ `limit` 语义变为「本轮新增条数」，反复跑即可逐轮推进。
+      要显式关掉（重刷已落盘条目）传 `skip_ids=set()`。
+    """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     seen: set[str] = set()
+    skipped = 0
     total_pages = None
     for page in range(max_pages):
         if limit and len(out) >= limit:
@@ -112,6 +126,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[di
             if url in seen:
                 continue
             seen.add(url)
+            uid = url.rsplit("/", 1)[-1].replace(".shtml", "")
+            if uid in skip_ids:
+                skipped += 1                    # 已落盘 ⇒ 省掉一次明细请求
+                continue
             time.sleep(PAUSE)
             d = fetch(url)
             if getattr(d, "status_code", 0) != 200:
@@ -119,7 +137,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[di
             rec = _parse_detail(d.text or "", it)
             if not rec:
                 continue
-            uid = url.rsplit("/", 1)[-1].replace(".shtml", "")
             out.append({
                 "source": SITE["key"],
                 "id": uid,
@@ -141,5 +158,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[di
         if total_pages and page + 1 >= total_pages:
             break
         time.sleep(PAUSE)
-    print(f"    [{SITE['key']}] 收 {len(out)} 条")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out

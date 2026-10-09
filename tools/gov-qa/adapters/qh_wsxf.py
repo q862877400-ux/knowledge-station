@@ -25,6 +25,8 @@ import re
 import time
 from urllib.parse import urljoin
 
+from adapters._igi_common import existing_ids
+
 SITE = {
     "key": "qh-wsxf",
     "name": "青海省·互动交流·群众诉求回应",
@@ -89,10 +91,21 @@ def _parse_detail(html: str) -> dict | None:
     }
 
 
-def harvest(fetch, *, limit: int | None = None, max_pages: int = 30) -> list[dict]:
-    """翻完全部静态分页，逐条取明细（按明细 URL 去重）。"""
+def harvest(fetch, *, limit: int | None = None, max_pages: int = 30,
+            skip_ids: set[str] | None = None) -> list[dict]:
+    """翻完全部静态分页，逐条取明细（按明细 URL 去重）。
+
+    ★ 2026-10-09 补 `skip_ids`（**修「第二轮恒 0 新增」**）：
+      本适配器原先**每轮都从第 1 页重跑**，而 `harvest.py` 按 id 去重 ⇒
+      上游 27 页却永远停在首批 200 条（实测存量就是 200，且复跑新增 0）。
+      现在开跑先读已落盘 id：命中则**不请求明细**、**不计入 `limit`**
+      ⇒ `limit` 语义变为「本轮新增条数」。要重刷已落盘条目传 `skip_ids=set()`。
+    """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     seen: set[str] = set()
+    skipped = 0
     for n in range(1, max_pages + 1):
         if limit and len(out) >= limit:
             break
@@ -127,6 +140,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 30) -> list[dic
             if limit and len(out) >= limit:
                 return out[:limit]
             seen.add(durl)
+            uid = durl.rsplit("/", 1)[-1].replace(".shtml", "")
+            if uid in skip_ids:
+                skipped += 1                    # 已落盘 ⇒ 省掉一次明细请求
+                continue
             time.sleep(PAUSE)
             d = fetch(durl)
             if getattr(d, "status_code", 0) != 200:
@@ -134,7 +151,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 30) -> list[dic
             rec = _parse_detail(d.text or "")
             if not rec:
                 continue
-            uid = durl.rsplit("/", 1)[-1].replace(".shtml", "")
             out.append({
                 "source": SITE["key"],
                 "id": uid,
@@ -148,5 +164,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 30) -> list[dic
                 "extra": {"title": rec["question"] or title, "page": n,
                           "answer_kind": "办理答复（群众诉求回应，常点名公告/文件号）"},
             })
-    print(f"    [{SITE['key']}] 收 {len(out)} 条")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out

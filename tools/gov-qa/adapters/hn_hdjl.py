@@ -23,6 +23,8 @@ from __future__ import annotations
 import re
 import time
 
+from adapters._igi_common import existing_ids
+
 SITE = {
     "key": "hn-hdjl",
     "name": "河南省人民政府·互动交流（网上咨询）",
@@ -71,10 +73,22 @@ def _parse_detail(html: str) -> dict | None:
             "answered_at": _cell(html, "回复日期")}
 
 
-def harvest(fetch, *, limit: int | None = None, max_pages: int = 40) -> list[dict]:
-    """逐页取列表（首页静态地址，其余 index_{n}.html），再逐条取明细（按明细 url 去重）。"""
+def harvest(fetch, *, limit: int | None = None, max_pages: int = 40,
+            skip_ids: set[str] | None = None) -> list[dict]:
+    """逐页取列表（首页静态地址，其余 index_{n}.html），再逐条取明细（按明细 url 去重）。
+
+    ★ 2026-10-09 补 `skip_ids`（**修「第二轮恒 0 新增」**）：
+      本适配器原先**每轮都从第 1 页重跑**，而 `harvest.py` 按 id 去重 ⇒
+      上游 27 页却永远停在前 ~21 页（实测存量 500；复跑 limit=400 得「新增 0」，
+      因为 `limit` 被前 17 页的旧记录吃满、根本走不到 22 页以后）。
+      现在开跑先读已落盘 id：命中则**不请求明细**、**不计入 `limit`**
+      ⇒ `limit` 语义变为「本轮新增条数」。要重刷已落盘条目传 `skip_ids=set()`。
+    """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     seen: set[str] = set()
+    skipped = 0
     for n in range(1, max_pages + 1):
         if limit and len(out) >= limit:
             break
@@ -94,6 +108,10 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 40) -> list[dic
             if limit and len(out) >= limit:
                 return out[:limit]
             seen.add(durl)
+            uid = durl.rsplit("/", 1)[-1].replace(".html", "")
+            if uid in skip_ids:
+                skipped += 1                    # 已落盘 ⇒ 省掉一次明细请求
+                continue
             time.sleep(PAUSE)
             d = fetch(durl)
             if getattr(d, "status_code", 0) != 200:
@@ -105,7 +123,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 40) -> list[dic
                 print(f"    [{SITE['key']}] 解析失败 {durl[-16:]} {type(e).__name__}")
             if not rec:
                 continue
-            uid = durl.rsplit("/", 1)[-1].replace(".html", "")
             out.append({
                 "source": SITE["key"],
                 "id": uid,
@@ -121,5 +138,6 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 40) -> list[dic
                           "answer_kind": "厅局办理答复（常点名依据）"},
             })
         time.sleep(PAUSE)
-    print(f"    [{SITE['key']}] 收 {len(out)} 条（按明细 url 去重）")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条（按明细 url 去重）"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out
