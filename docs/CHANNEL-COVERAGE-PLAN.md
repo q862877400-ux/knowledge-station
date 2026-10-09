@@ -2761,3 +2761,21 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
   本轮**零网络**、真库只读（`mode=ro`，跑前跑后 mtime 未变），渠道台账状态与 R18 时一致。
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+
+---
+
+### R20（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> 本轮 = 自动续接链**第 16 轮**。
+
+- 本轮做的是 **「换模型 + 指令前缀」接生产的【方案 + 可续跑重建脚本】**（`eval/recall-funnel/exp-17-embedding-production-plan/`）：
+  影子表 `clause_vec_qwen`（与生产 `clause_vec` **同形** `FLOAT[512]`）+ 只读真库的**可续跑重建**脚本
+  （`rowid` 游标 + 库内 checkpoint 同事务提交 + 口径守卫），**`src/` / `plugin/` 零改动、真库一行没动**。
+- **★ 与渠道线有关的一条**：影子表将来若接进生产，需要**同步改 4 处写入/删除点**
+  （`clause_repo.py:332` 入库 / `:428` 补丁重算 / `:367` 删除、`doc_delete.py:79` 删除）
+  —— 漏任一处都会让**新入库或改过的条款在新表里没有向量**，表现为"刚入库的资料搜不到"**且不报错**。
+  本台账**只登记这条依赖**，渠道组件本身**一个字节未动**。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`，跑前跑后 mtime 未变）。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。

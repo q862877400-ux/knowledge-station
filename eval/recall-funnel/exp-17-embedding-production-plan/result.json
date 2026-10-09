@@ -1,0 +1,82 @@
+{
+  "started_at": "2026-10-09T17:04:28",
+  "source_db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+  "source_before": {
+    "mtime": 1791534656.5820563,
+    "size": 3105525760,
+    "clause_vec": 663634,
+    "clause_revision": 663634
+  },
+  "text_formula_sha": "354924dd6f4fd3bbc481b12b8912250e16f0806cfe0a451350d530a619b95249",
+  "out_dim": 512,
+  "table": "clause_vec_qwen",
+  "T1_resume_equals_oneshot": {
+    "one_shot_rows": 300,
+    "resumed_rows": 300,
+    "partial_after_stop": 80,
+    "resume_wrote": 220,
+    "n_diff": 0,
+    "diff_sample": [],
+    "identical": true,
+    "one_shot_digest": "d1c1c06b33478c84b7fae1663ad8272e9d72e02feb8675906edc25158f4586ba",
+    "resumed_digest": "d1c1c06b33478c84b7fae1663ad8272e9d72e02feb8675906edc25158f4586ba"
+  },
+  "T2_real_kill_then_resume": {
+    "killed_at": 2080,
+    "one_shot_rows": 20000,
+    "resumed_rows": 20000,
+    "resume_wrote": 17920,
+    "n_diff": 0,
+    "diff_sample": [],
+    "identical": true
+  },
+  "T3_idempotent_rerun": {
+    "rows_written_on_rerun": 0,
+    "rows_before": 300,
+    "rows_after": 300,
+    "digest_before": "d1c1c06b33478c84b7fae1663ad8272e9d72e02feb8675906edc25158f4586ba",
+    "digest_after": "d1c1c06b33478c84b7fae1663ad8272e9d72e02feb8675906edc25158f4586ba",
+    "idempotent": true
+  },
+  "T4_real_model_bytes_vs_e4": {
+    "available": true,
+    "n": 64,
+    "A_batch_matched_identical": 64,
+    "A_all_identical": true,
+    "A_cos_min": 1.0,
+    "A_maxdiff": 0.0,
+    "A_embed_s": 0.62,
+    "B_single_batch_identical": 16,
+    "B_cos_min": 0.9999949366,
+    "B_maxdiff": 0.0008392333984375,
+    "B_embed_s": 0.68,
+    "dims": [
+      512
+    ],
+    "l2_norm_min": 0.999659,
+    "l2_norm_max": 1.000411,
+    "l2_normalized": true,
+    "note": "A 是口径判据；B 的差异是 fp16 批不变性（cuBLAS kernel 选择），不是口径错误"
+  },
+  "source_after": {
+    "mtime": 1791534656.5820563,
+    "size": 3105525760,
+    "clause_vec": 663634,
+    "clause_revision": 663634
+  },
+  "T5_source_untouched": {
+    "mtime_same": true,
+    "size_same": true,
+    "clause_vec_same": true,
+    "clause_revision_same": true
+  },
+  "finished_at": "2026-10-09T17:05:09",
+  "verdict": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5": true
+  },
+  "all_pass": true
+}
