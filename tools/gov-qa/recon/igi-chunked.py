@@ -69,7 +69,7 @@ def main() -> int:
 
     mod = __import__(f"adapters.{args.module}", fromlist=["SITE"])
     SITE = mod.SITE
-    strip = getattr(mod, "strip_portal_geo", None)
+    strip = getattr(mod, "postprocess", None) or getattr(mod, "strip_portal_geo", None)
 
     if args.only:
         site_ids = [s.strip() for s in args.only.split(",") if s.strip()]

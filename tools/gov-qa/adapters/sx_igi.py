@@ -21,6 +21,8 @@ siteId=110 已由 `sx-szxx` 落了 400 条（source=`sx-szxx`）。若这里再�
 """
 from __future__ import annotations
 
+import re
+
 from adapters._igi_common import existing_ids, harvest_igi
 
 SITE = {
@@ -93,10 +95,19 @@ SITE_IDS = [
 #: 上游给的门户默认地域（对全部记录恒定，非逐信地域）⇒ 一律剔除。
 _PORTAL_DEFAULT = ("山西省", "太原市", "小店区")
 
+#: 占位记录：个别 siteId 用「X月没有政务建议咨询类信息」当答复（question == answer）。
+#: 实测 sx-igi-28（省国资委）18 条**全部**是这种，**不是真问答** ⇒ 落盘只会虚增语料。
+_PLACEHOLDER_RE = re.compile(r"没有.{0,12}信息|暂无|无相关")
 
-def strip_portal_geo(rows: list[dict]) -> list[dict]:
-    """剔除门户默认地域，避免污染省/市/县三级归属统计。"""
+
+def postprocess(rows: list[dict]) -> list[dict]:
+    """① 丢弃「答复==问题」的占位记录；② 剔除门户默认地域（避免污染三级归属统计）。"""
+    out: list[dict] = []
     for r in rows:
+        q = (r.get("question") or "").strip()
+        a = (r.get("answer") or "").strip()
+        if a and a == q and _PLACEHOLDER_RE.search(a):
+            continue                                     # 占位记录，不是真问答
         e = r.get("extra") or {}
         if (e.get("province"), e.get("city"), e.get("area")) == _PORTAL_DEFAULT:
             e["province"] = e["city"] = e["area"] = None
@@ -104,7 +115,8 @@ def strip_portal_geo(rows: list[dict]) -> list[dict]:
             e.pop("pForumNames", None)
             e["geo_note"] = "上游地域字段为门户默认值，已剥离"
         r["extra"] = e
-    return rows
+        out.append(r)
+    return out
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
