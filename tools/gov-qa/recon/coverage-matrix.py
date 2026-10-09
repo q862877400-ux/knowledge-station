@@ -44,6 +44,8 @@ PROVINCE_PREFIX = {
     "gs-": "甘肃省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
+#: 国家级来源的**前缀**（nat-* 是后加的国家部委适配器，早期只登记了 mee/mem/people-liuyan 三个全集名）
+NATIONAL_PREFIX = ("nat-", "people-liuyan")
 
 #: 什么才算省级名（部委流的 pForumNames 装的是部委名，别混进来）
 PROV_SUFFIX = ("省", "自治区", "特别行政区")
@@ -67,6 +69,8 @@ def province_of(rec: dict) -> str:
     if _is_province(label[:3]) if len(label) >= 3 else False:
         return label[:3]
     src = str(rec.get("source") or "")
+    if src.startswith(NATIONAL_PREFIX):
+        return "国家级（部委）"
     for pre, prov in PROVINCE_PREFIX.items():
         if src.startswith(pre):
             return prov
