@@ -1,0 +1,40 @@
+{
+  "probed_at": "2026-10-09T11:40:44",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "checks": [
+    {
+      "status": 451,
+      "body": "{\"title\":\"Typesafe is not available in your region.\",\"status\":451}",
+      "check": "direct_get"
+    },
+    {
+      "status": 451,
+      "body": "{\"title\":\"Typesafe is not available in your region.\",\"status\":451}",
+      "check": "via_env_proxy_get"
+    },
+    {
+      "status": 200,
+      "check": "control_example_com"
+    },
+    {
+      "ok": false,
+      "error": "JevUnavailable: jev HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}",
+      "check": "jev_client_system_one"
+    },
+    {
+      "enabled": true,
+      "has_key": true,
+      "check": "guard_config"
+    },
+    {
+      "text": "让程序自动点已阅读并同意",
+      "result": null,
+      "check": "guard_judge"
+    },
+    {
+      "text": "帮我写个 python 快排",
+      "result": null,
+      "check": "guard_judge"
+    }
+  ]
+}
