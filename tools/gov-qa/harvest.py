@@ -51,10 +51,22 @@ def _load_done(path: Path) -> set[tuple[str, str]]:
     if not path.exists():
         return set()
     done = set()
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if line.strip():
+    # ⚠ 2026-10-09（自动化对话）：**必须用 split("\n")，绝不能用 str.splitlines()**。
+    #   splitlines() 把 U+2028 / U+2029 / U+0085（还有 \x0b \x0c \x1c-\x1e）也当换行，
+    #   而 json.dumps(ensure_ascii=False) **不转义** U+2028/U+2029/U+0085
+    #   ⇒ 答复正文里只要出现 **1 个**这种字符，该站 jsonl 就被**永久读崩**：
+    #     此后每次跑都在这里抛 JSONDecodeError、rc=1，**一条新数据都进不来**
+    #     （实测已坏 6 个文件：hi-zcwd + 浙江民呼我为系 5 个
+    #       zj-hangzhou(8个)/zj-huzhou/zj-lishui/zj-mhww(9个)/zj-ningbo）。
+    #   另：顺手跳过解析不了的行 —— 坏行不该让整站停摆（原来一行坏就整站红）。
+    for line in path.read_text(encoding="utf-8").split("\n"):
+        if not line.strip():
+            continue
+        try:
             r = json.loads(line)
-            done.add((r.get("source", ""), str(r.get("id", ""))))
+        except Exception:                                                   # noqa: BLE001
+            continue
+        done.add((r.get("source", ""), str(r.get("id", ""))))
     return done
 
 
