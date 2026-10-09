@@ -21,6 +21,12 @@
    `embedder.embed_query` + `hybrid_engine._fts_query` 两个**调用点**做改写 ——
    这三处任一被改名/移除，尺子会**静默**退化成"用真库默认连接 + 完全不改写"。
    判据见 `test_production_hook_points_still_exist`。
+8. **上报的副终点也必须"有牙"** —— 主终点 `fused@20` 有判据，但**被写进归属文档的副终点**
+   （`by_subset_top20` 的**分组与阈值**、`fused_hit_n` 的**计数口径**、`pool_median` 的**中位定义**）
+   原先没有判据：改错会**静默改变上报读数**而无人察觉。判据见
+   `test_by_subset_top20_partitions_by_label_and_is_inclusive` /
+   `test_fused_hit_n_counts_non_none_ranks` / `test_pool_median_definition_is_pinned`。
+   （★ 第 13 轮复核 **P2-1** 打回后补。）
 
 ⚠ 本文件**不测** `_run()`（要真库 + 10 分钟 KNN），只测判据所依赖的**纯函数**与**静态锚点**。
 """
@@ -157,6 +163,48 @@ def test_missing_cell_raises_instead_of_silently_filling():
     except KeyError:
         return
     raise AssertionError("缺格时必须 KeyError")
+
+
+# ── 判据 8：上报的副终点必须有牙（第 13 轮复核 P2-1 后补）──────────────────────
+
+def test_by_subset_top20_partitions_by_label_and_is_inclusive():
+    """★ 副终点 `by_subset_top20` 必须**按 subset label 分组**、且组内阈值同样闭区间（`r<=20`）。"""
+    items = _mk_items(3)
+    items[0]["v2"]["subset"] = {"label": "A"}
+    items[1]["v2"]["subset"] = {"label": "A"}
+    items[2]["v2"]["subset"] = {"label": "B"}
+    ranks = {a: [None, None, None] for a in RULER.ARMS}
+    ranks["A0_raw"] = [20, 21, 20]          # A：20 算 / 21 不算 ⇒ 1/2；B：1/1
+    agg, _ = RULER.aggregate_runs(items, {i: f"d{i}" for i in range(3)},
+                                  _mk_runs(items, ranks), E13)
+    bs = agg["arms"]["A0_raw"]["by_subset_top20"]
+    assert set(bs) == {"A", "B"}, "必须按 label 分组"
+    assert (bs["A"]["n"], bs["A"]["hit"]) == (2, 50.0), "组内阈值必须闭区间（20 算命中）"
+    assert (bs["B"]["n"], bs["B"]["hit"]) == (1, 100.0)
+
+
+def test_fused_hit_n_counts_non_none_ranks():
+    """★ 副终点 `fused_hit_n`（池内召回条数）必须数"名次非 None"，且与 `@20` 口径可分。"""
+    items = _mk_items(3)
+    ranks = {a: [None, None, None] for a in RULER.ARMS}
+    ranks["A0_raw"] = [5, None, 50]         # 2 条被召回（1 条 @20 内、1 条 @20 外）
+    agg, _ = RULER.aggregate_runs(items, {i: f"d{i}" for i in range(3)},
+                                  _mk_runs(items, ranks), E13)
+    a = agg["arms"]["A0_raw"]
+    assert a["fused_hit_n"] == 2, "hit_n 必须数非 None 的名次（不是 @20 命中数）"
+    assert a["fused_top20"] == round(100 * 1 / 3, 2), "hit_n 与 @20 必须能区分开"
+
+
+def test_pool_median_definition_is_pinned():
+    """★ 上报的 `pool_median` 定义（偶数条取**上中位** `sorted[n//2]`）必须钉住 ——
+    换定义会**静默改**"池中位 40"这条被写进归属文档的读数。"""
+    items = _mk_items(4)
+    ranks = {a: [1, 1, 1, 1] for a in RULER.ARMS}
+    runs = _mk_runs(items, ranks)
+    for n, it in enumerate(items):                     # 排序后 [10,20,30,1000] ⇒ 上中位 index 2 = 30（≠ 下中位 20）
+        runs[(it["i"], "A0_raw")]["fused_n"] = [10, 20, 30, 1000][n]
+    agg, _ = RULER.aggregate_runs(items, {i: f"d{i}" for i in range(4)}, runs, E13)
+    assert agg["arms"]["A0_raw"]["pool_median"] == 30, "pool_median 必须取 sorted[n//2]（上中位）"
 
 
 # ── 判据 7：静态契约锚 ───────────────────────────────────────────────────────

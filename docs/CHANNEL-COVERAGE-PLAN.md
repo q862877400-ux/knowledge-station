@@ -2702,9 +2702,12 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
   接进**完整六路融合**，量**用户实际看到的 `fused@20`**（`NEXT-DEV-PLAN §三序 4`）。
   **结论：三条都不改**（BGE 官方指令前缀 +0.84pt 落"观察"档；**自造领域前缀 −3.33pt**、
   **语料内 PRF −0.83pt** 均落"放弃"档 —— 与 `exp-13` 同向且更彻底）。
-  **顺带量到一条与"通道"直接相关的结构事实**：**生产融合池中位只有 40 条**
+  **顺带量到一条与"通道"直接相关的结构事实**：**生产融合池通常 ≈ 40 条**
   （向量 `k=20` + FTS `LIMIT 20` + 精确/模态；`fused@1000` == `fused@100`）
-  ⇒ **用户永远看不到第 41 条以后**，`exp-8` 的"候选深度 +21.7pt"**在当前生产限量下到不了用户面前**。
+  ⇒ `exp-8` 的"候选深度 +21.7pt"**在当前生产限量下基本到不了用户面前**。
+  ★ **第 13 轮复核 P1 更正（错话 + 更正，留痕）**：本节原写"**用户永远看不到第 41 条以后**"，
+  是**超出证据的全称断言** —— 本批数据即反例：**5/120 题因触发模态通道池达 1000**
+  （全批池 = min 32 / p50 40 / max 1000）⇒ 已降级为"**115/120 题池 ≈ 40**"。
   ⚠ 这条**不是**渠道覆盖问题（它讲的是"一条查询的候选池有多大"，台账记的是"哪些来源/渠道被采到"）。
 - **六通道枚举 `SEARCH_CHANNELS` 一字未动**；通道 A/B/C/D/E/F 的触发条件、**权重**、**RRF 常数**、
   SSE 顺序**全未触碰**；索引（`clause_fts` / `clause_vec`）**一个字没动**（本轮是**纯查询侧**改写，
@@ -2713,6 +2716,10 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
   [总纲 P2 段「第 3 刀」](RETRIEVAL-LONG-RANGE-PLAN.md)、
   [`eval/recall-funnel/exp-14-fused-rewrite/README.md`](eval/recall-funnel/exp-14-fused-rewrite/README.md)。
   本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **★ 复核放行（第 13 轮）**：该批独立复核 = **PASS（无 P0）**。**1 条 P1 已更正留痕**：上面那条结构事实
+  原写"**用户永远看不到第 41 条以后**"是**超出证据的全称断言**（本批 **5/120 题**触发模态通道 ⇒ 池达 1000）
+  ⇒ 已降级为"**115/120 题池 ≈ 40**"。**渠道线仍零改动**（复核确认 `src`/`plugin` 零改动）。
+  报告 = [VERIFY-REPORT-exp14-fused-rewrite](verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md)。
 - **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
   `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
   本轮**零网络**（只探过 Jev/HF 可达性，未下载）、真库只读（`mode=ro`），渠道台账状态与 R17 时一致。
