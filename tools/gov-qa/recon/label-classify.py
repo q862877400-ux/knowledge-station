@@ -110,6 +110,17 @@ def doc_text(rec: dict) -> str:
     return (rec.get("question") or "").replace("\n", " ").strip()[:2000]
 
 
+def _jieba_cut(s: str):
+    """jieba 分词（**必须是模块级函数**）。
+
+    ⚠ 不能写成 `build_model` 里的嵌套函数/闭包 —— 那样 `TfidfVectorizer` 里的
+    `tokenizer` 就无法 pickle，模型缓存会以 `PicklingError` 失败，
+    导致每次补标签都重训 155 秒（2026-10-10 实测踩到）。
+    """
+    import jieba
+    return [w for w in jieba.cut(s) if len(w.strip()) > 1]
+
+
 def build_model(use_word: bool = True):
     """返回 (vectorizer, clf, X_texts, y) —— 用全部已标注数据训练。
 
@@ -134,14 +145,10 @@ def build_model(use_word: bool = True):
     char_vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4), min_df=3,
                                max_features=300_000, sublinear_tf=True)
     if use_word:
-        import jieba
         import logging
+        import jieba
         jieba.setLogLevel(logging.WARNING)
-
-        def _cut(s: str):
-            return [w for w in jieba.cut(s) if len(w.strip()) > 1]
-
-        word_vec = TfidfVectorizer(analyzer="word", tokenizer=_cut, preprocessor=None,
+        word_vec = TfidfVectorizer(analyzer="word", tokenizer=_jieba_cut, preprocessor=None,
                                    token_pattern=None, ngram_range=(1, 2), min_df=3,
                                    max_features=200_000, sublinear_tf=True)
         vec = FeatureUnion([("char", char_vec), ("word", word_vec)])
@@ -186,14 +193,45 @@ def do_validate(verbose: bool) -> int:
     return 0
 
 
-def do_apply(dry_run: bool, force: bool = False) -> int:
-    import numpy as np
+MODEL_CACHE = HERE / ".label-model.joblib"
+
+
+def load_or_train(force: bool = False):
+    """返回已拟合的 pipeline。**优先读磁盘缓存** —— 训练 SVM 要 2.5 分钟，
+    而采集是持续的、需要反复补标签；每次都重训会把 Stop hook 的 300s 预算打满
+    ⇒ 脚本被杀 ⇒ 闸门假红（2026-10-10 实测踩到）。
+
+    缓存失效条件：标注样本数变化超过 1% 或 --force。
+    """
+    import joblib
     from sklearn.pipeline import make_pipeline
 
     vec, clf, texts, labels = build_model()
+    if not force and MODEL_CACHE.exists():
+        try:
+            blob = joblib.load(MODEL_CACHE)
+            if abs(blob.get("n", 0) - len(texts)) <= max(50, len(texts) // 100):
+                print(f"复用缓存模型（训练样本 {blob['n']:,}，当前 {len(texts):,}）")
+                return blob["pipe"], texts, labels
+        except Exception as e:                                          # noqa: BLE001
+            print(f"（缓存读取失败，重训：{type(e).__name__}）")
+
+    print(f"训练模型（样本 {len(texts):,}）…")
     pipe = make_pipeline(vec, clf)
     pipe.fit(texts, labels)
-    print(f"模型已用 {len(texts):,} 条标注样本训练")
+    try:
+        joblib.dump({"pipe": pipe, "n": len(texts)}, MODEL_CACHE)
+        print(f"模型已缓存到 {MODEL_CACHE.name}")
+    except Exception as e:                                              # noqa: BLE001
+        print(f"（缓存写入失败，忽略：{type(e).__name__}）")
+    return pipe, texts, labels
+
+
+def do_apply(dry_run: bool, force: bool = False) -> int:
+    import glob as _glob
+
+    pipe, texts, labels = load_or_train(force)
+    print(f"模型就绪（训练样本 {len(texts):,}）")
 
     changed = 0
     skipped = 0
