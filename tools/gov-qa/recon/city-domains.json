@@ -1,0 +1,1066 @@
+{
+ "七台河市": {
+  "host": "qth",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.qth.gov.cn/",
+  "via": "initials"
+ },
+ "三亚市": {
+  "host": "sanya",
+  "province": "海南省",
+  "status": 200,
+  "url": "https://www.sanya.gov.cn/",
+  "via": "pinyin"
+ },
+ "三明市": {
+  "host": "sanming",
+  "province": "福建省",
+  "status": 200,
+  "url": "http://www.sanming.gov.cn/",
+  "via": "pinyin"
+ },
+ "三沙市": {
+  "host": "sansha",
+  "province": "海南省",
+  "status": 200,
+  "url": "https://www.sansha.gov.cn/",
+  "via": "pinyin"
+ },
+ "三门峡市": {
+  "host": "smx",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.smx.gov.cn/",
+  "via": "initials"
+ },
+ "东莞市": {
+  "host": "dongguan",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.dongguan.gov.cn/",
+  "via": "pinyin"
+ },
+ "中山市": {
+  "host": "zs",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.zs.gov.cn/",
+  "via": "initials"
+ },
+ "临沧市": {
+  "host": "lc",
+  "province": "云南省",
+  "status": 200,
+  "url": "http://www.lc.gov.cn/",
+  "via": "initials"
+ },
+ "丽江市": {
+  "host": "lijiang",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.lijiang.gov.cn/",
+  "via": "pinyin"
+ },
+ "乌兰察布市": {
+  "host": "wulanchabu",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.wulanchabu.gov.cn/",
+  "via": "pinyin"
+ },
+ "乌海市": {
+  "host": "wuhai",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "http://www.wuhai.gov.cn/",
+  "via": "pinyin"
+ },
+ "乌鲁木齐市": {
+  "host": "wlmq",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.wlmq.gov.cn/",
+  "via": "initials"
+ },
+ "云浮市": {
+  "host": "yunfu",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.yunfu.gov.cn/",
+  "via": "pinyin"
+ },
+ "亳州市": {
+  "host": "bozhou",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.bozhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "伊春市": {
+  "host": "yichun",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.yichun.gov.cn/",
+  "via": "pinyin"
+ },
+ "伊犁哈萨克自治州": {
+  "host": "yl",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.yl.gov.cn/",
+  "via": "initials"
+ },
+ "佛山市": {
+  "host": "foshan",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.foshan.gov.cn/",
+  "via": "pinyin"
+ },
+ "佳木斯市": {
+  "host": "jms",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.jms.gov.cn/",
+  "via": "initials"
+ },
+ "保定市": {
+  "host": "baoding",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.baoding.gov.cn/",
+  "via": "pinyin"
+ },
+ "保山市": {
+  "host": "baoshan",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.baoshan.gov.cn/",
+  "via": "pinyin"
+ },
+ "信阳市": {
+  "host": "xinyang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.xinyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "儋州市": {
+  "host": "danzhou",
+  "province": "海南省",
+  "status": 200,
+  "url": "https://www.danzhou.gov.cn/danzhou/index.html",
+  "via": "pinyin"
+ },
+ "克拉玛依市": {
+  "host": "klmy",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.klmy.gov.cn/",
+  "via": "initials"
+ },
+ "六安市": {
+  "host": "luan",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.luan.gov.cn/",
+  "via": "pinyin"
+ },
+ "兴安盟": {
+  "host": "xingan",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.xingan.gov.cn/",
+  "via": "pinyin"
+ },
+ "南平市": {
+  "host": "np",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.np.gov.cn/cms/html/npszf/index.html",
+  "via": "initials"
+ },
+ "南昌市": {
+  "host": "nc",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.nc.gov.cn/",
+  "via": "initials"
+ },
+ "南阳市": {
+  "host": "nanyang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.nanyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "厦门市": {
+  "host": "xm",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.xm.gov.cn/",
+  "via": "initials"
+ },
+ "双鸭山市": {
+  "host": "shuangyashan",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "http://www.shuangyashan.gov.cn/",
+  "via": "pinyin"
+ },
+ "吉安市": {
+  "host": "jian",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.jian.gov.cn/",
+  "via": "pinyin"
+ },
+ "吐鲁番市": {
+  "host": "tlf",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.tlf.gov.cn/",
+  "via": "initials"
+ },
+ "周口市": {
+  "host": "zhoukou",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.zhoukou.gov.cn/page_pc/index.html",
+  "via": "pinyin"
+ },
+ "呼伦贝尔市": {
+  "host": "hlbe",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.hlbe.gov.cn/",
+  "via": "initials"
+ },
+ "咸阳市": {
+  "host": "xianyang",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.xianyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "哈密市": {
+  "host": "hami",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.hami.gov.cn/",
+  "via": "pinyin"
+ },
+ "唐山市": {
+  "host": "ts",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.ts.gov.cn/",
+  "via": "initials"
+ },
+ "商丘市": {
+  "host": "shangqiu",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.shangqiu.gov.cn/",
+  "via": "pinyin"
+ },
+ "商洛市": {
+  "host": "shangluo",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.shangluo.gov.cn/",
+  "via": "pinyin"
+ },
+ "喀什地区": {
+  "host": "kashi",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.kashi.gov.cn/",
+  "via": "pinyin"
+ },
+ "嘉峪关市": {
+  "host": "jyg",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.jyg.gov.cn/",
+  "via": "initials"
+ },
+ "大兴安岭地区": {
+  "host": "dxal",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.dxal.gov.cn/",
+  "via": "initials"
+ },
+ "大庆市": {
+  "host": "daqing",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.daqing.gov.cn/",
+  "via": "pinyin"
+ },
+ "宁德市": {
+  "host": "ningde",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.ningde.gov.cn/",
+  "via": "pinyin"
+ },
+ "安庆市": {
+  "host": "anqing",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.anqing.gov.cn/",
+  "via": "pinyin"
+ },
+ "安康市": {
+  "host": "ankang",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.ankang.gov.cn/",
+  "via": "pinyin"
+ },
+ "安阳市": {
+  "host": "anyang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.anyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "定西市": {
+  "host": "dingxi",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.dingxi.gov.cn/",
+  "via": "pinyin"
+ },
+ "宜春市": {
+  "host": "yichun",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.yichun.gov.cn/",
+  "via": "pinyin"
+ },
+ "宝鸡市": {
+  "host": "baoji",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.baoji.gov.cn/",
+  "via": "pinyin"
+ },
+ "宣城市": {
+  "host": "xuancheng",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.xuancheng.gov.cn/",
+  "via": "pinyin"
+ },
+ "宿州市": {
+  "host": "suzhou",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.suzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "岳阳市": {
+  "host": "yueyang",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.yueyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "常州市": {
+  "host": "changzhou",
+  "province": "江苏省",
+  "status": 200,
+  "url": "https://www.changzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "常德市": {
+  "host": "changde",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.changde.gov.cn/",
+  "via": "pinyin"
+ },
+ "平凉市": {
+  "host": "pingliang",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.pingliang.gov.cn/",
+  "via": "pinyin"
+ },
+ "平顶山市": {
+  "host": "pds",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.pds.gov.cn/",
+  "via": "initials"
+ },
+ "广州市": {
+  "host": "guangzhou",
+  "province": "广东省",
+  "status": 200,
+  "url": "http://www.guangzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "庆阳市": {
+  "host": "qy",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.qy.gov.cn/",
+  "via": "initials"
+ },
+ "廊坊市": {
+  "host": "lf",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.lf.gov.cn/",
+  "via": "initials"
+ },
+ "延安市": {
+  "host": "yanan",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.yanan.gov.cn/",
+  "via": "pinyin"
+ },
+ "开封市": {
+  "host": "kaifeng",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.kaifeng.gov.cn/",
+  "via": "pinyin"
+ },
+ "张家口市": {
+  "host": "zjk",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.zjk.gov.cn/",
+  "via": "initials"
+ },
+ "张家界市": {
+  "host": "zjj",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.zjj.gov.cn/",
+  "via": "initials"
+ },
+ "怀化市": {
+  "host": "huaihua",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.huaihua.gov.cn/",
+  "via": "pinyin"
+ },
+ "惠州市": {
+  "host": "huizhou",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.huizhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "承德市": {
+  "host": "chengde",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.chengde.gov.cn/",
+  "via": "pinyin"
+ },
+ "揭阳市": {
+  "host": "jieyang",
+  "province": "广东省",
+  "status": 200,
+  "url": "http://www.jieyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "新乡市": {
+  "host": "xinxiang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.xinxiang.gov.cn/",
+  "via": "pinyin"
+ },
+ "新余市": {
+  "host": "xinyu",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.xinyu.gov.cn/",
+  "via": "pinyin"
+ },
+ "昆明市": {
+  "host": "km",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.km.gov.cn/",
+  "via": "initials"
+ },
+ "昭通市": {
+  "host": "zt",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.zt.gov.cn/",
+  "via": "initials"
+ },
+ "景德镇市": {
+  "host": "jdz",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.jdz.gov.cn/",
+  "via": "initials"
+ },
+ "曲靖市": {
+  "host": "qj",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.qj.gov.cn/",
+  "via": "initials"
+ },
+ "株洲市": {
+  "host": "zhuzhou",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.zhuzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "梅州市": {
+  "host": "mz",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.mz.gov.cn/",
+  "via": "initials"
+ },
+ "榆林市": {
+  "host": "yulin",
+  "province": "陕西省",
+  "status": 200,
+  "url": "http://www.yulin.gov.cn/",
+  "via": "pinyin"
+ },
+ "武威市": {
+  "host": "ww",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.ww.gov.cn/",
+  "via": "initials"
+ },
+ "永州市": {
+  "host": "yz",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.yz.gov.cn/",
+  "via": "initials"
+ },
+ "汉中市": {
+  "host": "hanzhong",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.hanzhong.gov.cn/",
+  "via": "pinyin"
+ },
+ "汕头市": {
+  "host": "shantou",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.shantou.gov.cn/",
+  "via": "pinyin"
+ },
+ "汕尾市": {
+  "host": "shanwei",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.shanwei.gov.cn/",
+  "via": "pinyin"
+ },
+ "江门市": {
+  "host": "jiangmen",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.jiangmen.gov.cn/",
+  "via": "pinyin"
+ },
+ "池州市": {
+  "host": "chizhou",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.chizhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "沧州市": {
+  "host": "cangzhou",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.cangzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "河源市": {
+  "host": "heyuan",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.heyuan.gov.cn/",
+  "via": "pinyin"
+ },
+ "泉州市": {
+  "host": "quanzhou",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.quanzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "泰安市": {
+  "host": "taian",
+  "province": "山东省",
+  "status": 200,
+  "url": "https://www.taian.gov.cn/",
+  "via": "pinyin"
+ },
+ "洛阳市": {
+  "host": "ly",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.ly.gov.cn/",
+  "via": "initials"
+ },
+ "济源市": {
+  "host": "jiyuan",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.jiyuan.gov.cn/",
+  "via": "pinyin"
+ },
+ "海东市": {
+  "host": "haidong",
+  "province": "青海省",
+  "status": 200,
+  "url": "https://www.haidong.gov.cn/",
+  "via": "pinyin"
+ },
+ "海口市": {
+  "host": "haikou",
+  "province": "海南省",
+  "status": 200,
+  "url": "https://www.haikou.gov.cn/",
+  "via": "pinyin"
+ },
+ "淮北市": {
+  "host": "huaibei",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.huaibei.gov.cn/",
+  "via": "pinyin"
+ },
+ "淮南市": {
+  "host": "huainan",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.huainan.gov.cn/",
+  "via": "pinyin"
+ },
+ "淮安市": {
+  "host": "huaian",
+  "province": "江苏省",
+  "status": 200,
+  "url": "https://www.huaian.gov.cn/",
+  "via": "pinyin"
+ },
+ "深圳市": {
+  "host": "shenzhen",
+  "province": "广东省",
+  "status": 200,
+  "url": "http://www.shenzhen.gov.cn/",
+  "via": "pinyin"
+ },
+ "清远市": {
+  "host": "qingyuan",
+  "province": "广东省",
+  "status": 200,
+  "url": "http://www.qingyuan.gov.cn/",
+  "via": "pinyin"
+ },
+ "渭南市": {
+  "host": "weinan",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.weinan.gov.cn/",
+  "via": "pinyin"
+ },
+ "湘潭市": {
+  "host": "xiangtan",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.xiangtan.gov.cn/",
+  "via": "pinyin"
+ },
+ "湛江市": {
+  "host": "zhanjiang",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.zhanjiang.gov.cn/",
+  "via": "pinyin"
+ },
+ "滁州市": {
+  "host": "chuzhou",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.chuzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "漯河市": {
+  "host": "tahe",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.tahe.gov.cn/",
+  "via": "pinyin"
+ },
+ "漳州市": {
+  "host": "zhangzhou",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.zhangzhou.gov.cn/cms/html/zzsrmzf/index.html",
+  "via": "pinyin"
+ },
+ "潍坊市": {
+  "host": "weifang",
+  "province": "山东省",
+  "status": 200,
+  "url": "https://www.weifang.gov.cn/",
+  "via": "pinyin"
+ },
+ "潮州市": {
+  "host": "chaozhou",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.chaozhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "濮阳市": {
+  "host": "puyang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.puyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "焦作市": {
+  "host": "jiaozuo",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.jiaozuo.gov.cn/",
+  "via": "pinyin"
+ },
+ "牡丹江市": {
+  "host": "mdj",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.mdj.gov.cn/",
+  "via": "initials"
+ },
+ "玉溪市": {
+  "host": "yuxi",
+  "province": "云南省",
+  "status": 200,
+  "url": "https://www.yuxi.gov.cn/",
+  "via": "pinyin"
+ },
+ "珠海市": {
+  "host": "zhuhai",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.zhuhai.gov.cn/",
+  "via": "pinyin"
+ },
+ "益阳市": {
+  "host": "yiyang",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.yiyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "石家庄市": {
+  "host": "sjz",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.sjz.gov.cn/",
+  "via": "initials"
+ },
+ "秦皇岛市": {
+  "host": "qinhuangdao",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.qinhuangdao.gov.cn/",
+  "via": "pinyin"
+ },
+ "绥化市": {
+  "host": "suihua",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.suihua.gov.cn/",
+  "via": "pinyin"
+ },
+ "肇庆市": {
+  "host": "zhaoqing",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.zhaoqing.gov.cn/",
+  "via": "pinyin"
+ },
+ "芜湖市": {
+  "host": "wuhu",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.wuhu.gov.cn/",
+  "via": "pinyin"
+ },
+ "茂名市": {
+  "host": "maoming",
+  "province": "广东省",
+  "status": 200,
+  "url": "http://www.maoming.gov.cn/",
+  "via": "pinyin"
+ },
+ "莆田市": {
+  "host": "putian",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.putian.gov.cn/",
+  "via": "pinyin"
+ },
+ "萍乡市": {
+  "host": "pingxiang",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.pingxiang.gov.cn/",
+  "via": "pinyin"
+ },
+ "蚌埠市": {
+  "host": "bengbu",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.bengbu.gov.cn/",
+  "via": "pinyin"
+ },
+ "衡阳市": {
+  "host": "hy",
+  "province": "湖南省",
+  "status": 200,
+  "url": "http://www.hy.gov.cn/",
+  "via": "initials"
+ },
+ "襄阳市": {
+  "host": "xy",
+  "province": "湖北省",
+  "status": 200,
+  "url": "http://www.xy.gov.cn/",
+  "via": "initials"
+ },
+ "许昌市": {
+  "host": "xuchang",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.xuchang.gov.cn/",
+  "via": "pinyin"
+ },
+ "赣州市": {
+  "host": "ganzhou",
+  "province": "江西省",
+  "status": 200,
+  "url": "https://www.ganzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "赤峰市": {
+  "host": "chifeng",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.chifeng.gov.cn/",
+  "via": "pinyin"
+ },
+ "连云港市": {
+  "host": "lyg",
+  "province": "江苏省",
+  "status": 200,
+  "url": "https://www.lyg.gov.cn/",
+  "via": "initials"
+ },
+ "邢台市": {
+  "host": "xingtai",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.xingtai.gov.cn/",
+  "via": "pinyin"
+ },
+ "邯郸市": {
+  "host": "hd",
+  "province": "河北省",
+  "status": 200,
+  "url": "https://www.hd.gov.cn/",
+  "via": "initials"
+ },
+ "邵阳市": {
+  "host": "shaoyang",
+  "province": "湖南省",
+  "status": 200,
+  "url": "https://www.shaoyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "郑州市": {
+  "host": "zhengzhou",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.zhengzhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "鄂州市": {
+  "host": "ezhou",
+  "province": "湖北省",
+  "status": 200,
+  "url": "https://www.ezhou.gov.cn/",
+  "via": "pinyin"
+ },
+ "酒泉市": {
+  "host": "jiuquan",
+  "province": "甘肃省",
+  "status": 200,
+  "url": "https://www.jiuquan.gov.cn/",
+  "via": "pinyin"
+ },
+ "铜川市": {
+  "host": "tongchuan",
+  "province": "陕西省",
+  "status": 200,
+  "url": "https://www.tongchuan.gov.cn/",
+  "via": "pinyin"
+ },
+ "铜陵市": {
+  "host": "tl",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.tl.gov.cn/",
+  "via": "initials"
+ },
+ "锡林郭勒盟": {
+  "host": "xlgl",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.xlgl.gov.cn/",
+  "via": "initials"
+ },
+ "长沙市": {
+  "host": "changsha",
+  "province": "湖南省",
+  "status": 200,
+  "url": "http://www.changsha.gov.cn/",
+  "via": "pinyin"
+ },
+ "阜阳市": {
+  "host": "fuyang",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.fuyang.gov.cn/",
+  "via": "pinyin"
+ },
+ "阳江市": {
+  "host": "yangjiang",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.yangjiang.gov.cn/",
+  "via": "pinyin"
+ },
+ "阿克苏地区": {
+  "host": "aks",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.aks.gov.cn/",
+  "via": "initials"
+ },
+ "阿勒泰地区": {
+  "host": "alt",
+  "province": "新疆维吾尔自治区",
+  "status": 200,
+  "url": "https://www.alt.gov.cn/",
+  "via": "initials"
+ },
+ "阿拉善盟": {
+  "host": "als",
+  "province": "内蒙古自治区",
+  "status": 200,
+  "url": "https://www.als.gov.cn/",
+  "via": "initials"
+ },
+ "阿里地区": {
+  "host": "al",
+  "province": "西藏自治区",
+  "status": 200,
+  "url": "https://www.al.gov.cn/",
+  "via": "initials"
+ },
+ "青岛市": {
+  "host": "qingdao",
+  "province": "山东省",
+  "status": 200,
+  "url": "http://www.qingdao.gov.cn/",
+  "via": "pinyin"
+ },
+ "韶关市": {
+  "host": "sg",
+  "province": "广东省",
+  "status": 200,
+  "url": "https://www.sg.gov.cn/",
+  "via": "initials"
+ },
+ "马鞍山市": {
+  "host": "mas",
+  "province": "安徽省",
+  "status": 200,
+  "url": "https://www.mas.gov.cn/",
+  "via": "initials"
+ },
+ "驻马店市": {
+  "host": "zhumadian",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.zhumadian.gov.cn/",
+  "via": "pinyin"
+ },
+ "鸡西市": {
+  "host": "jixi",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.jixi.gov.cn/",
+  "via": "pinyin"
+ },
+ "鹤壁市": {
+  "host": "hebi",
+  "province": "河南省",
+  "status": 200,
+  "url": "https://www.hebi.gov.cn/",
+  "via": "pinyin"
+ },
+ "鹤岗市": {
+  "host": "hegang",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.hegang.gov.cn/",
+  "via": "pinyin"
+ },
+ "鹰潭市": {
+  "host": "yingtan",
+  "province": "江西省",
+  "status": 200,
+  "url": "http://www.yingtan.gov.cn/",
+  "via": "pinyin"
+ },
+ "黑河市": {
+  "host": "heihe",
+  "province": "黑龙江省",
+  "status": 200,
+  "url": "https://www.heihe.gov.cn/",
+  "via": "pinyin"
+ },
+ "龙岩市": {
+  "host": "longyan",
+  "province": "福建省",
+  "status": 200,
+  "url": "https://www.longyan.gov.cn/",
+  "via": "pinyin"
+ }
+}
