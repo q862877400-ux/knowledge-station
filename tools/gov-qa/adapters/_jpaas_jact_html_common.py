@@ -92,14 +92,33 @@ def parse_detail_html(html: str) -> dict:
     return out
 
 
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（用于把超长源分块采）。"""
+    import os
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
+
+
 def harvest_jpaas_html(fetch, *, SITE: dict, base: str, platform_key: str,
                        platform_value: str, referer: str,
                        page_size: int = PAGE_SIZE, limit: int | None = None,
-                       pause: float = PAUSE, max_pages: int = 400) -> list[dict]:
-    """翻页取某 jpaas-jact 栏目的已答复留言（问题 + 答复原文，明细为 HTML）。"""
+                       pause: float = PAUSE, max_pages: int = 400,
+                       page_from: int | None = None) -> list[dict]:
+    """翻页取某 jpaas-jact 栏目的已答复留言（问题 + 答复原文，明细为 HTML）。
+
+    `page_from` = 起始页号（默认读环境变量 `GOVQA_PAGE_FROM`，再默认 1）。
+    ⚠ 存在的意义：`harvest.py` **只在跑完时落盘**，而本源逐条抓明细（单条 2-3s），
+    总量上千条的栏目跑不完就被 timeout 杀掉 ⇒ **零产出**
+    （2026-10-09 实测：扬州 7,837 条跑 6h40m 被 timeout 杀掉，白跑）。
+    分块跑法：
+        GOVQA_PAGE_FROM=1   ... --limit 2000
+        GOVQA_PAGE_FROM=101 ... --limit 2000     # pageSize=20 ⇒ 2000 条 = 100 页
+    """
     out: list[dict] = []
     total = None
-    page = 1
+    page = page_from if page_from is not None else _env_page_from()
     while page <= max_pages:
         if limit and len(out) >= limit:
             break

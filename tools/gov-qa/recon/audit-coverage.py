@@ -225,6 +225,56 @@ def show_dups() -> int:
     return 0
 
 
+def show_targets() -> int:
+    """对比「枚举/接口自报总量」vs「实际落盘量」—— 发现「采了但远未达目标」。
+
+    动机：2026-10-09 实测山西/广西 IGI **正常结束**（日志写「完成」），
+    但只采了 1,283 / 1,731 条，而枚举潜力是 84,381 / 34,938（不到 2%）。
+    **`--empty` 查不出这种问题**（它不是零数据），也没有任何告警。
+    ⇒ 必须把「潜力」显式登记下来做对比（`recon/targets.json`）。
+    """
+    tp = HERE / "targets.json"
+    if not tp.exists():
+        print(f"缺少 {tp}（登记各源的自报总量）")
+        return 1
+    targets = (json.loads(tp.read_text(encoding="utf-8")) or {}).get("targets") or {}
+
+    # 现算各 key 的实际落盘量
+    actual: dict[str, int] = defaultdict(int)
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        base = os.path.basename(p)
+        n = count_lines(p)
+        for k in targets:
+            if base.startswith(f"{k}-"):
+                actual[k] += n
+                break
+
+    rows = []
+    for k, meta in targets.items():
+        t = int(meta.get("total") or 0)
+        cap = int(meta.get("cap") or 0)
+        goal = min(t, cap) if cap else t        # 有效目标 = min(自报总量, 我方上限)
+        a = actual.get(k, 0)
+        rows.append((k, t, cap, goal, a, a / goal if goal else 0, meta.get("note", "")))
+    rows.sort(key=lambda r: r[5])
+
+    print(f"{'source':16s} {'自报总量':>10s} {'上限':>8s} {'有效目标':>10s} "
+          f"{'已落盘':>9s} {'完成度':>7s}")
+    warn = 0
+    for k, t, cap, goal, a, ratio, note in rows:
+        flag = ""
+        if ratio < 0.5 and goal >= 1000:
+            flag = "  ⚠ 远未达目标"
+            warn += 1
+        cap_s = f"{cap:,}" if cap else "-"
+        print(f"{k:16s} {t:10,d} {cap_s:>8s} {goal:10,d} {a:9,d} {ratio * 100:6.1f}%{flag}")
+        if flag:
+            print(f"{'':16s} {'':10s} {'':8s} {'':10s} {'':9s}         {note}")
+    print(f"\n⚠ 完成度 <50%（且有效目标 ≥1000 条）的源：{warn} 个")
+    print("（cap = 我方主动设定的上限：单源 2 万、每市 3000/8000）")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="数据落盘核查")
     ap.add_argument("--empty", action="store_true", help="只看零数据的适配器")
@@ -235,6 +285,8 @@ def main() -> int:
                     help="输出答复长度分布（发现「答复被截断」的静默缺陷）")
     ap.add_argument("--dups", action="store_true",
                     help="检测重复 id（发现「并发写导致重复落盘」）")
+    ap.add_argument("--targets", action="store_true",
+                    help="对比「自报总量 vs 实际落盘」（发现「采了但远未达目标」）")
     ap.add_argument("--key", default="", help="只看某前缀的 key")
     args = ap.parse_args()
 
@@ -244,6 +296,8 @@ def main() -> int:
         return show_answers()
     if args.dups:
         return show_dups()
+    if args.targets:
+        return show_targets()
 
 
     os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::1")
@@ -251,16 +305,33 @@ def main() -> int:
 
     # 预先扫一遍 data/ 的条数（按文件名前缀聚合）
     counts: dict[str, int] = defaultdict(int)
-    files: dict[str, list[str]] = defaultdict(list)
+    all_files: list[str] = []
     for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
         base = os.path.basename(p)
-        n = count_lines(p)
-        # 文件名形如 `<key>-<中文名>.jsonl`；取「第一个 '-' 之前」太粗（key 里也有 '-'）
-        # ⇒ 用「最长前缀匹配」在下面按已登记 key 归类
-        files[""].append(base)
-        counts[base] = n
+        counts[base] = count_lines(p)
+        all_files.append(base)
 
-    keys = sorted(k for k in adapters.ADAPTERS if k.startswith(args.key) if True)
+    keys = sorted(k for k in adapters.ADAPTERS if k.startswith(args.key))
+
+    # ⚠ 每个文件只能归属**最长匹配**的那个 key，否则会重复计数：
+    #   若同时登记了 `gx-igi` 和 `gx-igi-293`，文件 `gx-igi-293-….jsonl` 会同时匹配两个前缀，
+    #   按「逐 key 累加」的写法会被算两次 ⇒ 总量虚高（2026-10-09 实测虚高约 8,800 条）。
+    key_prefixes = []
+    for k in keys:
+        try:
+            key_prefixes.append((f"{adapters.load(k).SITE['key']}-", k))
+        except Exception:                                               # noqa: BLE001
+            key_prefixes.append((f"{k}-", k))
+    # 长前缀优先
+    key_prefixes.sort(key=lambda x: -len(x[0]))
+
+    owned: dict[str, str] = {}          # 文件名 -> 归属 key
+    for base in all_files:
+        for pre, k in key_prefixes:
+            if base.startswith(pre):
+                owned[base] = k
+                break
+
     rows = []
     for k in keys:
         mod = adapters.load(k)
@@ -268,8 +339,8 @@ def main() -> int:
         prefix = f"{site['key']}-"
         total = 0
         nf = 0
-        for base in files[""]:
-            if base.startswith(prefix):
+        for base in all_files:
+            if owned.get(base) == k and base.startswith(prefix):
                 total += counts[base]
                 nf += 1
         rows.append((k, site.get("name", ""), site.get("level", ""), total, nf))

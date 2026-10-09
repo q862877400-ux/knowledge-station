@@ -47,17 +47,35 @@ def _detail(fetch, base: str, referer: str, iid: str) -> dict:
     return out
 
 
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（把超长源分块采）。"""
+    import os
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
+
+
 def harvest_jact_gateway(fetch, *, SITE: dict, base: str, platform_uid: str,
                          submit_target_ids: str = "", gov_open: str = "",
                          page_size: int = 19, referer: str | None = None,
                          limit: int | None = None, pause: float = 1.5,
-                         max_pages: int = 400) -> list[dict]:
-    """采某市 jpaas-jact 网关信箱（问题 + 答复全文）。"""
+                         max_pages: int = 400,
+                         page_from: int | None = None) -> list[dict]:
+    """采某市 jpaas-jact 网关信箱（问题 + 答复全文）。
+
+    `page_from` = 起始页号（默认读环境变量 `GOVQA_PAGE_FROM`，再默认 1）。
+    ⚠ 存在的意义：`harvest.py` **只在跑完时落盘**，烟台 10 万条跑不完就被 timeout 杀掉 ⇒ **零产出**。
+    分块跑法（pageSize=19 ⇒ 2000 条 ≈ 106 页）：
+        GOVQA_PAGE_FROM=1   ... --limit 2000
+        GOVQA_PAGE_FROM=107 ... --limit 2000
+    """
     out: list[dict] = []
     seen: set[str] = set()
     ref = referer or SITE.get("entry", base)
     total = None
-    for page in range(1, max_pages + 1):
+    start = page_from if page_from is not None else _env_page_from()
+    for page in range(start, start + max_pages):
         if limit and len(out) >= limit:
             break
         url = (f"{base}/find-mail-pub-list?pageNum={page}&pageSize={page_size}"

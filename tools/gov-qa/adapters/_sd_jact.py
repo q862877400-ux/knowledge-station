@@ -27,14 +27,28 @@ from adapters._jact_common import (DETAIL_PATH, GROUP_SIZE, LIST_PATH, PAUSE,
                                    parse_detail, parse_list)
 
 
+def _env_page_from() -> int:
+    """起始页号：环境变量 `GOVQA_PAGE_FROM`（把超长源分块采）。"""
+    import os
+    try:
+        return max(1, int(os.environ.get("GOVQA_PAGE_FROM", "1")))
+    except ValueError:
+        return 1
+
+
 def harvest_jact_sd(fetch, *, SITE: dict, base: str, sysid: str,
                     list_method: str = "POST", per_page: int = 19,
-                    limit: int | None = None, pause: float = PAUSE) -> list[dict]:
-    """采山东某市 jact 信箱（问题 + 答复全文）。`list_method` ∈ {POST, GET}。"""
+                    limit: int | None = None, pause: float = PAUSE,
+                    page_from: int | None = None) -> list[dict]:
+    """采山东某市 jact 信箱（问题 + 答复全文）。`list_method` ∈ {POST, GET}。
+
+    `page_from` = 起始页号（默认读环境变量 `GOVQA_PAGE_FROM`，再默认 1）。
+    ⚠ `harvest.py` 只在跑完时落盘 ⇒ 大源必须分块，否则 timeout 一到就是零产出。
+    """
     out: list[dict] = []
     ref = f"{base}/jact/front/mailpublist.do?sysid={sysid}"
     total = None
-    page = 1
+    page = page_from if page_from is not None else _env_page_from()
     while True:
         if limit and len(out) >= limit:
             break
