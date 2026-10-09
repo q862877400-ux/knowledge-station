@@ -1,0 +1,55 @@
+{
+ "experiment": "exp-15：深读候选的「池深 × 融合方式」二维对照 —— 深读候选到底能不能进前 20",
+ "registered_before_run": true,
+ "registered_at": "2026-10-09T16:21:36+0800",
+ "registered_at_note": "用 shell `date` 取实钟（第 14 轮复核 P2-2 教训：不许手填回忆值）。本文件一旦落盘，跑后逐字节不改。",
+ "why": [
+  "exp-6（P2 实验#1）只放大每路取数上限（20→100）：fused@20 只有 +1.67pt，被判放弃。",
+  "exp-7（融合算子）只在【生产上限 20】下改融合公式：+0.83pt，p=1.0，判放弃。",
+  "两者的【交互】——『池子放大』×『融合方式跟着改』——从来没量过。",
+  "exp-8 说深读候选的空间大（到 Top1000 有 +21.7pt），exp-6 说单纯放大到不了用户眼前。",
+  "⇒ 本批就是去量中间那一格：把每路取数放大之后，换一种融合方式，深读候选能不能被捞进前 20。"
+ ],
+ "primary_endpoint": "fused@20（headline 120 条口径 —— 与 exp-6 / exp-7 / exp-8 同一把尺子）",
+ "secondary_endpoints": [
+  "fused@100",
+  "fused_median_rank（只在已召回的条目里取中位）",
+  "pool_size_median（每臂融合候选池大小的中位数）",
+  "oracle_pool_hit@d（gold 落在『每路前 d 条的并集』里的比例 —— 这是【上界】，不是一个能实现的系统）"
+ ],
+ "thresholds": {
+  "advance_ge_pt": 6.0,
+  "observe_ge_pt": 2.0,
+  "abandon_lt_pt": 2.0,
+  "note": "沿用 exp-6 的 STOP-LOSS-提高取数上限.md 口径（推广 ≥ +6pt / 观察 +2~6pt / 放弃 < +2pt），不另立一套。"
+ },
+ "comparison_rule": "一律与【同期重跑的 A0_prod】比，**不与历史 8.33% 比** —— 真库会长，历史 fused 名次不可复现（第 13/14 轮实测）。",
+ "instrument_control": "A0_prod 的前 20 名必须与生产 `search_with_details(top_k=20, rerank=False, channels=[exact,fts,vec,modality], boost_bookmarks=False)` 逐条一致 **120/120**；对不上 ⇒ 整批作废，先查口径（exp-7 就是靠这一关抓住过『用错池口径』）。",
+ "frozen_inventory": {
+  "库": "生产库只读 mode=ro（%APPDATA%\\KnowledgeStation\\database\\knowledge.db）；跑前跑后各记一次 mtime，不一致即报错退出",
+  "考卷": "headline 120（bucket==keep 且 flags 不含 gold_multi_def / gold_dup_text）",
+  "活路": "exact / fts / vec / modality 四路（另两路在生产问答路径传空过滤 ⇒ 不触发）",
+  "通道权重": "hybrid_engine.CHANNEL_WEIGHTS 逐字不动（exact 2.0 / fts 1.0 / vec 1.0 / modality 0.8）",
+  "时效过滤": "与生产一致（排除 superseded / withdrawn，legal_status 取自 doc_meta）",
+  "收藏加分": "boost_bookmarks=False",
+  "rerank": "False（生产问答路径默认；重排不是本批的变量）",
+  "查询串": "一字不改（查询改写是 exp-13 / exp-14 的变量，不许混进来）",
+  "嵌入模型": "生产现役 bge-small-zh-v1.5（不换模型 —— 换模型是 E4 的变量）"
+ },
+ "arms": {
+  "A0_prod": "对照：每路 fts 20 / vec 20（exact/modality 全量）+ 加权 RRF（k=60）= 生产现状",
+  "P100_rrf60": "池深 100（fts/vec 各取 100）+ 加权 RRF（k=60）= 只放大池子（≈ exp-6 处理臂）",
+  "P1000_rrf60": "池深 1000 + 加权 RRF（k=60）",
+  "P1000_rrf200": "池深 1000 + 加权 RRF（k=200）—— 衰减变平",
+  "P1000_rrf1000": "池深 1000 + 加权 RRF（k=1000）—— 衰减进一步变平",
+  "P1000_rrm60": "池深 1000 + RRM（max w/(k+r+1)，k=60）= 只取最强的那一路名次，不被另一路稀释",
+  "P1000_doc3": "池深 1000，但每路按『每篇文档最多 3 条』去重后再取 20 —— 治『同文档挤占候选池』（exp-1 实测最近邻同篇率 43.0%→85.9%）"
+ },
+ "what_this_does_not_answer": [
+  "不换嵌入模型（那是 E4 的变量）；不加查询指令前缀（那是 exp-4b / exp-13 的变量）",
+  "不测重排器（重排是 exp-11 的变量，且 exp-11 已量出收益上限很小）",
+  "考卷仍是【未人工确认】的 gold（T015 未做）⇒ 读数不是『系统的召回率』",
+  "oracle_pool_hit 是上界，不是一个能实现的系统 —— 不许读成『只要放到 d 就能拿到那个数』",
+  "不接生产：本批是离线对照，改任何生产行为都不在本批范围内"
+ ]
+}

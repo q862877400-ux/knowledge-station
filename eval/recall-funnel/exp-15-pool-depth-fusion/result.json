@@ -1,0 +1,210 @@
+{
+ "note": "exp-15 池深 × 融合方式二维对照；口径见 run.py docstring 与 stop-loss.json",
+ "agg": {
+  "n": 120,
+  "arms": {
+   "A0_prod": {
+    "fused_top20": 8.33,
+    "fused_top100": 8.33,
+    "fused_top1000": 8.33,
+    "fused_median_rank": 3,
+    "fused_hit_n": 10,
+    "pool_median": 40,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 14.29
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    }
+   },
+   "P100_rrf60": {
+    "fused_top20": 10.0,
+    "fused_top100": 10.0,
+    "fused_top1000": 10.0,
+    "fused_median_rank": 7,
+    "fused_hit_n": 12,
+    "pool_median": 197,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 20.0
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 1.67,
+     "flip_in": 2,
+     "flip_out": 0,
+     "mcnemar_p": 0.5
+    }
+   },
+   "P1000_rrf60": {
+    "fused_top20": 10.0,
+    "fused_top100": 10.0,
+    "fused_top1000": 10.0,
+    "fused_median_rank": 5,
+    "fused_hit_n": 12,
+    "pool_median": 1930,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 20.0
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 1.67,
+     "flip_in": 3,
+     "flip_out": 1,
+     "mcnemar_p": 0.625
+    }
+   },
+   "P1000_rrf200": {
+    "fused_top20": 8.33,
+    "fused_top100": 8.33,
+    "fused_top1000": 8.33,
+    "fused_median_rank": 6,
+    "fused_hit_n": 10,
+    "pool_median": 1930,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 1.2
+     },
+     "普通": {
+      "n": 35,
+      "hit": 22.86
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 0.0,
+     "flip_in": 5,
+     "flip_out": 5,
+     "mcnemar_p": 1.0
+    }
+   },
+   "P1000_rrf1000": {
+    "fused_top20": 6.67,
+    "fused_top100": 6.67,
+    "fused_top1000": 6.67,
+    "fused_median_rank": 4,
+    "fused_hit_n": 8,
+    "pool_median": 1930,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 0.0
+     },
+     "普通": {
+      "n": 35,
+      "hit": 20.0
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": -1.66,
+     "flip_in": 5,
+     "flip_out": 7,
+     "mcnemar_p": 0.7744
+    }
+   },
+   "P1000_rrm60": {
+    "fused_top20": 8.33,
+    "fused_top100": 8.33,
+    "fused_top1000": 8.33,
+    "fused_median_rank": 5,
+    "fused_hit_n": 10,
+    "pool_median": 1930,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 14.29
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 0.0,
+     "flip_in": 0,
+     "flip_out": 0,
+     "mcnemar_p": 1.0
+    }
+   },
+   "P1000_doc3": {
+    "fused_top20": 8.33,
+    "fused_top100": 8.33,
+    "fused_top1000": 8.33,
+    "fused_median_rank": 5,
+    "fused_hit_n": 10,
+    "pool_median": 40,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 14.29
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 0.0,
+     "flip_in": 0,
+     "flip_out": 0,
+     "mcnemar_p": 1.0
+    }
+   }
+  },
+  "oracle": {
+   "@20": 12.5,
+   "@100": 21.67,
+   "@1000": 35.0
+  },
+  "oracle_note": "oracle = gold 落在『exact ∪ modality ∪ fts[:d] ∪ vec[:d]』里的比例；**上界，不是可实现系统**",
+  "instrument_check": {
+   "source": "生产 search_with_details(top_k=20, rerank=False, channels=四路, boost_bookmarks=False)",
+   "compared": 120,
+   "identical_count": 120,
+   "note": "A0_prod 前 20 名必须 120/120 逐条一致；对不上整批作废"
+  }
+ }
+}
