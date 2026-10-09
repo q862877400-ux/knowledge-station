@@ -87,11 +87,15 @@ def _items(html: str, base: str) -> list[tuple[str, str]]:
         title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", raw)).strip()
         if len(title) < 6 or not any(k in title for k in ITEM_KW):
             continue
-        # ★ 必须含《》—— 人大法规条目的标题一律形如
-        #   「关于《XX条例（草案）》公开征求意见的公告」；
-        #   而列表页里的**栏目名**（「法规草案审议」「法规草案征求意见」）不含《》，
-        #   不过滤会把栏目导航当成条目（2026-10-10 实测踩到）。
-        if "《" not in title:
+        # ★ 标题过滤：要「法规条目」，不要「栏目导航」。
+        #   栏目名（「法规草案审议」「法规草案征求意见」）不长这样，必须滤掉。
+        #   但**各省命名不统一**：
+        #     · 湖南/山东：`关于《XX条例（草案）》公开征求意见的公告`（带《》）
+        #     · **江苏**：`江苏省城市更新条例（草案）`（不带《》，用「（草案）」后缀）
+        #   ⇒ 旧规则 `if "《" not in title: continue` 把江苏的条目**全滤掉了**（实测 0 条）。
+        #   改成：带《》 **或** （含法规名词 + 含「草案」）。
+        _DOC_KW = ("条例", "办法", "规定", "决定", "细则", "规则", "章程")
+        if "《" not in title and not (any(k in title for k in _DOC_KW) and "草案" in title):
             continue
         if href.startswith("javascript:"):
             continue
