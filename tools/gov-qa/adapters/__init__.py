@@ -328,6 +328,7 @@ ADAPTERS: dict[str, str] = {
     "gd-maoming": "adapters.gd_maoming",  # 茂名市·政民互动（hdjlpt，年窗 68）
     "gd-jieyang": "adapters.gd_jieyang",  # 揭阳市·政民互动（hdjlpt，年窗 53）
     "gd-jiangmen": "adapters.gd_jiangmen",  # 江门市·网民留言及答复（静态 post 列表）
+    "gd-huizhou": "adapters.gd_huizhou",  # 惠州市·民意直通车（hzhmsb.cn，县区+局长信箱 2.4 万条）
     "gd-chaozhou": "adapters.gd_chaozhou",  # 潮州市·政民互动（hdjlpt，年窗 46）
     "gd-zhanjiang": "adapters.gd_zhanjiang",  # 湛江市·政民互动（hdjlpt，年窗 45）
     "gd-yangjiang": "adapters.gd_yangjiang",  # 阳江市·政民互动（hdjlpt，年窗 35）
