@@ -46,7 +46,11 @@
 | 被丢掉的 token（全文 − head+title）中位 / 最大 | **181** / 3,488 |
 | 被丢掉的 token **总量**（4,000 条） | 1,511,342 |
 
-**⇒ 关键更正（总纲只写了一道截断，实际有两道）**：把"被丢的 token"拆成两段（总量可相加）：
+**⇒ 关键更正（总纲只写了一道截断，实际有两道）**：把"被丢的 token"拆成两段：
+
+> ⚠ **前提**（独立复核 P2-2）：只有 `head ≤ 模型窗口` 时 `gain + residual` 才**恰好等于**总丢量。
+> 本批 4,000 条里有 **2 条** head 自己就超窗口 ⇒ 两段和 **1,511,344** 比总丢量 **1,511,342** 多 **2** token。
+> 对百分比无影响（21.2% / 78.8% 不变）。
 
 | 段 | 量 | 占比 | 修法 |
 |---|---|---|---|
@@ -110,6 +114,11 @@
 
 ⇒ 模型截断点在 **512 token ≈ 700–760 字**处；**代码的 512 字上限比它更早**（约 318–411 token）。
 
+> **尺子**：`cos-verify.py` → `cos-verify.json`（**2026-10-09 独立复核 P1 补** —— 这一组读数原先只在本文里、
+> 没有可跑的脚本，冻结产物不足以自证；复核者自己写脚本复现后，脚本已进仓）。
+> 复跑：`HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/Scripts/python.exe eval/recall-funnel/exp-12-long-clause-tail/cos-verify.py`
+> 它同时把模型自带的 `tokenizer_config.json` 的 `model_max_length` 读出来落盘（本机 = **512**）。
+
 ---
 
 ## 三、判决（自己拍板，理由留痕 —— 业主授权"自己拍板并写明理由"）
@@ -122,6 +131,8 @@
    预注册止损线流程）。要能量它，得先有"长条款金标"的考卷 —— 那属 **P1 第四刀（重建评测集）**，**要业主点头**。
 2. **修法不是"去掉 `[:512]`"**：那只挽回 **21.2%**；真要修得**切子块 / 多向量**，
    动 **schema + 重建 663,634 条索引**（必验类别，代价 ≈ 46 分钟嵌入（照 E4c 实测 189 条/s）+ 存储翻倍）。
+   ⚠ **澄清（独立复核 P2-4）**：删掉 `[:512]` **确实不动 schema**，但**仍要重建全部向量**（送进嵌入的文本变了），
+   而且只挽回 21.2%（剩下 78.8% 是模型窗口挡的）⇒ 它**不是**一条"便宜可顺手做"的路，也**不是**修法。
 3. **尾巴已经被另一条路覆盖**：`clause_fts` 索引**全文**，探针实测 FTS 在尾巴上 **75% 命中**（不比 head 差）
    ⇒ 这个缺陷**只影响向量那一路**，不影响"按字找"。
 4. **向量路在问答里的边际价值本身已被量出很小**：`NEXT-DEV-PLAN §四第 1 条`（关掉向量问答指标不动、省 0.6 s）、
@@ -154,16 +165,52 @@
 ## 五、复跑
 
 ```bash
-# 尺子（只读真库；连跑两次剔除 generated_at 后逐字节相同）
+# 尺子（只读真库）
 .venv/Scripts/python.exe eval/recall-funnel/exp-12-long-clause-tail/measure.py
-# 探针（需加载 CPU 嵌入模型；零网络：HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1）
+# 余弦复验（需加载 CPU 嵌入模型；零网络：HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1）
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/Scripts/python.exe \
+    eval/recall-funnel/exp-12-long-clause-tail/cos-verify.py
+# 探针（同上，需加载模型）
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/Scripts/python.exe \
     eval/recall-funnel/exp-12-long-clause-tail/probe-tail-blindspot.py
 # 判据单测
 .venv/Scripts/python.exe -m pytest tests/test_long_clause_tail_ruler.py -q
 ```
 
-**判据自验**（三处变异，均在主仓就地改后按 SHA256 还原，`var/tmp/round10-bak/`）：
+**判据自验**（**四处**变异，均在主仓就地改后按 SHA256 还原，`var/tmp/round10-bak/`）：
 ① `HEAD_CHARS 512→256` ⇒ 2 failed（切分 + 契约锚）；② `tail_only` 不扣 title ⇒ 1 failed；
-③ `gain` 去掉 `max(0,…)` ⇒ 1 failed。**还原后 `measure.py` sha256 = `ce508e20…`（前后一致）**；
-`result.json` 连跑两次剔除 `generated_at` 后**逐字节相同**（sha256 `6da94964…`）。
+③ `gain` 去掉 `max(0,…)` ⇒ 1 failed；④ **`MODEL_WINDOW 512→256` ⇒ 2 failed**
+（**第 4 处是独立复核 P2-1 补的** —— 它原先**5 passed 未红**，本轮已补判据）。
+原样件 = **7 passed**。**还原后 `measure.py` sha256 = `ce508e20…`（前后一致）**。
+
+**可复跑**：`result.json` 连跑两次、**剔除 `generated_at` 后逐字段相同**。
+⚠ **正确的方法与哈希（独立复核 P2-3 更正）**：读 JSON → `pop('generated_at')` →
+`json.dumps(ensure_ascii=False, sort_keys=True)` → 对 utf-8 取 sha256 = **`03d0a12e…`**（两次一致）。
+⚠ 本文初版写的 `6da94964…` 是**磁盘上那个文件的哈希**（**含** `generated_at`）—— 那是另一回事、
+**不是**可复跑的判据；已改。
+
+---
+
+## 六、独立复核与处置（2026-10-09）
+
+**报告**：`docs/verify-briefs/VERIFY-REPORT-p010-long-tail.md`（**字节级搬运**，sha256 `f51d4826…`、18,771 B，
+两边一致）。**对象** = 冻结 tag `verify-freeze-p010-long-tail` → `98aeb52`，窗口 **1 提交**；
+提取树 `D:/AI/verify-trees/p010`（首尾 HEAD 均 `98aeb52`、`git status` 首尾干净）。
+
+**总判定 = PASS（无 P0）**。7 组关键读数**逐位复现**（规模 / 两道截断 / token 拆账 / 尾巴独有词 /
+影响面 / 余弦 / 探针）；`result.json` 剔 `generated_at` 后**逐字段 == 作者版**、
+`probe-tail-blindspot.json` **逐字节 == 作者版**；判据自验三条**逐条吻合**（2 / 1 / 1 failed），
+还原后 blob sha256 `ce508e20…`（= 作者记录）。
+
+| 级别 | 问题 | 处置 |
+|---|---|---|
+| **P1** | **余弦"机制复验"组没有脚本落盘** —— 本批属"必验类别"的首要理由正是"结论由作者自己的检查得出"，而余弦组是唯一没落尺子的一组 ⇒ 冻结产物**不足以自证**（复核者自写脚本独立复现，读数成立） | ✅ **已补** `cos-verify.py` + `cos-verify.json`（本轮） |
+| P2-1 | `MODEL_WINDOW = 512` **无判据钉住**（复核自加第 4 处变异 `512→256` ⇒ 5 passed **未红**）⇒ 第二道截断点被误改会**静默漂移 78.8% 读数** | ✅ **已补 2 条测试**（常量钉住 + 本机 `tokenizer_config.json` 契约锚，无模型时 skip） |
+| P2-2 | `gain+residual` = 1,511,344 vs 总丢量 1,511,342 **差 2**（那 2 条 head>window）⇒ "总量可相加"缺前提 | ✅ **已就地加前提**（对百分比无影响） |
+| P2-3 | 本文记的 `result.json` 哈希 `6da94964…` **按常法复现不出** | ✅ **已更正**为正确方法 + `03d0a12e…`（见 §五） |
+| P2-4 | 判决理由②把"删一行"与"改 schema"绑一起，易误读 | ✅ **已就地澄清**（删 `[:512]` 不动 schema、但仍需重建向量且只挽回 21.2%） |
+
+**复核如实登记的未验**：`run-gates.ps1` / `npm run smoke`（任务书禁跑）、`tools/gov-qa/**`（不碰）、
+总纲旧读数 `10,892`（旧库快照不在，不可回溯）、理由②的"46 分钟 / 189 条/s"与理由④的"省 0.6 s"（引用值未复跑）、
+v1 探针逐行明细（v1 脚本未落盘，只核了聚合一致）。
+**复核核查点 C 的结论**：**没有漏掉的更便宜修法** —— "只删 `[:512]`"作者已实测 21.2% 并基于价值否掉，理由正确。

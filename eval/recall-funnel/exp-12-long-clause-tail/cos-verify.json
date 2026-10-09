@@ -1,0 +1,80 @@
+{
+  "db_path": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+  "tokenizer_model_max_length": 512,
+  "sample_n": 5,
+  "rows": [
+    {
+      "crid": "clrev_01M2FY0KT1JEH0BQ5J747MAAQK",
+      "len": 1390,
+      "cos_full_head512": 0.981307,
+      "cos_full_first800": 1.0,
+      "cos_full_tail": 0.903611
+    },
+    {
+      "crid": "clrev_01M2FY1KBB2A229TZGD3Q53MHP",
+      "len": 1305,
+      "cos_full_head512": 0.987182,
+      "cos_full_first800": 1.0,
+      "cos_full_tail": 0.857212
+    },
+    {
+      "crid": "clrev_01M2FY3F576GE77E8ABTS38FP4",
+      "len": 1278,
+      "cos_full_head512": 0.964885,
+      "cos_full_first800": 1.0,
+      "cos_full_tail": 0.857036
+    },
+    {
+      "crid": "clrev_01M2FY3RXX8398ZBMSVKWJMTZA",
+      "len": 1384,
+      "cos_full_head512": 0.998908,
+      "cos_full_first800": 1.0,
+      "cos_full_tail": 0.894533
+    },
+    {
+      "crid": "clrev_01M2FY3XKZPGHPA8N33R4VCANX",
+      "len": 1257,
+      "cos_full_head512": 0.98092,
+      "cos_full_first800": 1.0,
+      "cos_full_tail": 0.858921
+    }
+  ],
+  "ladder_clause_len": 1390,
+  "ladder": [
+    {
+      "chars": 512,
+      "tokens": 318,
+      "cos_full_prefix": 0.981307
+    },
+    {
+      "chars": 600,
+      "tokens": 402,
+      "cos_full_prefix": 0.988023
+    },
+    {
+      "chars": 640,
+      "tokens": 441,
+      "cos_full_prefix": 0.989248
+    },
+    {
+      "chars": 660,
+      "tokens": 460,
+      "cos_full_prefix": 0.993692
+    },
+    {
+      "chars": 700,
+      "tokens": 492,
+      "cos_full_prefix": 0.998003
+    },
+    {
+      "chars": 760,
+      "tokens": 550,
+      "cos_full_prefix": 1.0
+    },
+    {
+      "chars": 800,
+      "tokens": 588,
+      "cos_full_prefix": 1.0
+    }
+  ]
+}

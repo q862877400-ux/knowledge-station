@@ -390,9 +390,17 @@
 > - **⇒ 对 §三序 5（P1 第四刀：重建评测集）的新要求**：要能量这个缺陷，新考卷得**补一类"长条款 gold"题**
 >   （本批 0 条）—— 这条**需业主点头**，与 §7.2② 的"新语料"是同一件事。
 > - **产物**：[exp-12 README](eval/recall-funnel/exp-12-long-clause-tail/README.md) + `measure.py` +
->   `probe-tail-blindspot.py` + `tests/test_long_clause_tail_ruler.py`（5 条）；
+>   `probe-tail-blindspot.py` + `tests/test_long_clause_tail_ruler.py`（**7 条** —— 初版 5 条，
+>   复核 P2-1 后补 2 条钉住模型窗口）；
 >   详细记录 [开发史 §10.217](DEVELOPMENT-HISTORY.md)。
 > - ⚠ **属必验类别**（作者当天新写的判据），已冻结 tag 并派独立复核。
+> - ✅ **独立复核 = PASS（无 P0）**（第 11 轮同轮内收回，报告
+>   [`VERIFY-REPORT-p010-long-tail`](verify-briefs/VERIFY-REPORT-p010-long-tail.md)，**字节级搬运** sha256 `f51d4826…`；
+>   冻结 tag `verify-freeze-p010-long-tail` → `98aeb52`，窗口 1 提交）：**7 组关键读数逐位复现**、
+>   `result.json` 剔 `generated_at` 后逐字段 == 作者版、`probe-tail-blindspot.json` 逐字节 == 作者版；
+>   **核查点 C 结论：没有漏掉的更便宜修法**。⚠ **1 P1 + 4 P2 已逐条处置**（详见 [开发史 §10.218](DEVELOPMENT-HISTORY.md)）：
+>   **P1** 余弦组无脚本落盘 ⇒ ✅ 已补 `cos-verify.py`；**P2-1** `MODEL_WINDOW` 无判据 ⇒ ✅ 已补 2 条测试
+>   （补后同一变异 5 passed→**2 failed**）；P2-2/3/4 均为 README 措辞与哈希方法 ⇒ ✅ 已就地更正。
 
 ---
 

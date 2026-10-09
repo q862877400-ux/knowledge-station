@@ -89,3 +89,37 @@ def test_token_drop_partition_never_negative():
     """边界：head 自己就超窗口（实测 2/4000）⇒ gain 不能为负。"""
     g, r = RULER.token_drop_partition(900, 600, 512)
     assert g == 0 and r == 388
+
+
+def test_model_window_is_pinned_to_512():
+    """★ 第二道截断点（**模型窗口**）必须被钉住 —— 独立复核 P2-1 实测：
+
+    复核者自加第 4 处变异 `MODEL_WINDOW 512 → 256` ⇒ **5 passed（未红）** ——
+    契约锚只锚了 `HEAD_CHARS`（第一道），第二道没人守 ⇒ 误改会**静默漂移 78.8% 那条读数**。
+    512 来自模型自带 `tokenizer_config.json` 的 `model_max_length`（本机快照实测）。
+    """
+    assert RULER.MODEL_WINDOW == 512
+    import inspect
+    default = inspect.signature(RULER.token_drop_partition).parameters["window"].default
+    assert default == RULER.MODEL_WINDOW, "token_drop_partition 的默认窗口必须跟 MODEL_WINDOW 一致"
+
+
+def test_model_window_matches_local_tokenizer_config():
+    """契约锚：本机若有 bge-small-zh 的 `tokenizer_config.json`，其 `model_max_length` 必须 == MODEL_WINDOW。
+
+    本机没有该模型快照时 **skip**（不是失败）—— 这是"有证据才断言"的写法，不拿环境缺失当通过。
+    """
+    import glob
+    import json
+    import os
+    import pytest
+
+    pattern = os.path.expandvars(
+        r"%APPDATA%\KnowledgeStation\models\models--Qdrant--bge-small-zh-v1.5"
+        r"\snapshots\*\tokenizer_config.json")
+    files = glob.glob(pattern)
+    if not files:
+        pytest.skip("本机没有该模型快照 ⇒ 跳过（不是通过）")
+    with open(files[0], encoding="utf-8") as f:
+        cfg = json.load(f)
+    assert cfg.get("model_max_length") == RULER.MODEL_WINDOW
