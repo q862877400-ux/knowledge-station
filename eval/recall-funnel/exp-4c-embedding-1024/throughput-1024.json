@@ -1,0 +1,37 @@
+{
+ "model": "Qwen/Qwen3-Embedding-0.6B",
+ "out_dim": 1024,
+ "n_sample": 512,
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+ "dtype": "float16",
+ "batches": {
+  "16": {
+   "batch": 16,
+   "elapsed_s": 2.614,
+   "texts_per_s": 195.9,
+   "est_full_min_521978": 44.4
+  },
+  "32": {
+   "batch": 32,
+   "elapsed_s": 3.777,
+   "texts_per_s": 135.6,
+   "est_full_min_521978": 64.2
+  },
+  "64": {
+   "batch": 64,
+   "elapsed_s": 5.138,
+   "texts_per_s": 99.6,
+   "est_full_min_521978": 87.3
+  }
+ },
+ "best": {
+  "batch": 16,
+  "elapsed_s": 2.614,
+  "texts_per_s": 195.9,
+  "est_full_min_521978": 44.4
+ },
+ "peak_mem_mib": {
+  "allocated": 4712.1,
+  "reserved": 7546.0
+ }
+}

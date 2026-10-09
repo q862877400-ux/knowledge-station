@@ -1,0 +1,100 @@
+{
+ "experiment": "E4c：Qwen3-Embedding-0.6B 升维（512 → 1024 维，同模型、无前缀）",
+ "stop_loss_sha256_note": "阈值取自 stop-loss.json（跑前落盘，哈希见 stop-loss-freeze.txt）",
+ "thresholds_parsed_from_stop_loss": {
+  "abandon_lt_pp": 4.0,
+  "gray_pp": [
+   4.0,
+   8.0
+  ],
+  "advance_ge_pp": 8.0
+ },
+ "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+ "result": {
+  "headline120_d512": 0.6833,
+  "headline120_d1024": 0.7,
+  "headline120_delta_pp": 1.67,
+  "all171_d512": 0.6667,
+  "all171_d1024": 0.6667,
+  "all171_delta_pp": 0.0,
+  "flip_headline": {
+   "in": 8,
+   "out": 6
+  },
+  "flip_all": {
+   "in": 9,
+   "out": 9
+  },
+  "cluster_ci_headline": {
+   "n": 120,
+   "n_clusters": 64,
+   "delta_pp": 1.67,
+   "ci95_pp": [
+    -5.08,
+    8.55
+   ],
+   "p_two_sided": 0.7284,
+   "flip_in": 8,
+   "flip_out": 6
+  },
+  "cluster_ci_all": {
+   "n": 171,
+   "n_clusters": 79,
+   "delta_pp": 0.0,
+   "ci95_pp": [
+    -5.59,
+    5.56
+   ],
+   "p_two_sided": 1.0,
+   "flip_in": 9,
+   "flip_out": 9
+  },
+  "secondary_deltas_headline_pp": {
+   "rank@20": -0.84,
+   "rank@100": -0.83,
+   "rank@1000": 1.67,
+   "union_same@20": -0.83,
+   "union_same@100": -0.84,
+   "union_same@1000": 1.66,
+   "union_prod": -1.66
+  }
+ },
+ "cost": {
+  "knn_scan_ms_d512_p50": 787.2,
+  "knn_scan_ms_d1024_p50": 1296.4,
+  "ratio_d1024_over_d512": 1.647,
+  "corpus_rows": 521978,
+  "meaning": "同一 521,978 行语料 KNN @1000 实测延迟 ⇒ 升维的代价（向量体积 ×2）"
+ },
+ "decision": "放弃升维（低于半条分辨率线）",
+ "threshold_rule": {
+  "放弃升维": {
+   "net_gain_pp": "< 4",
+   "meaning": "低于半条分辨率线 ⇒ 升维拿不到可分辨收益，不值得 2× 向量体积与扫描时间"
+  },
+  "灰区（记录，不推进）": {
+   "net_gain_pp": "4 ~ 8",
+   "meaning": "有正向迹象但低于本仓实测显著性阈值（8.18pt，主结果 120 条口径）⇒ 单次跑分不出来"
+  },
+  "升维有可分辨收益": {
+   "net_gain_pp": ">= 8 且簇级 95% CI 下界 > 0",
+   "meaning": "达到分辨率线且区间不含 0 ⇒ 值得进生产评估（仍须另量成本与法规副作用）"
+  }
+ },
+ "instrument_controls": {
+  "round1_selfcheck_mismatch_items": 0,
+  "fts_mismatch_items": 0,
+  "vec_set_bidirectional_except": {
+   "only_512": 0,
+   "only_1024": 0
+  },
+  "passed": true,
+  "meaning": "任一非 0 ⇒ 先查仪器；**不许**把读数读成『升维有效/无效』"
+ },
+ "what_this_does_not_answer": [
+  "未换模型（BGE-M3 未做）",
+  "未加查询指令前缀（那是 exp-4b 的变量；本轮两臂都不加）",
+  "语料冻结在 exp-4 副本的 521,978 条（不是真库当前 663,634 条）",
+  "未在法规语料上量副作用；未接生产链"
+ ]
+}

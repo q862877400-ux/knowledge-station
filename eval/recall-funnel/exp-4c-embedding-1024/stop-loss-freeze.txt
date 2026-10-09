@@ -1,0 +1,1 @@
+2e4139b7a002e7e404cde71b6714081d4f5df9d8c7adce14bbe5c13d54b45b15 *stop-loss.json

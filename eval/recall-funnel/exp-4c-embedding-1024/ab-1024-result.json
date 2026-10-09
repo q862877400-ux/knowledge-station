@@ -1,0 +1,113 @@
+{
+ "experiment": "E4c：Qwen3-Embedding-0.6B 升维（512 → 1024 维，同模型、无前缀）",
+ "single_variable": "输出维度（512 截断+重归一化 vs 原生 1024）；条文文本与模型一字不动",
+ "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+ "summary": {
+  "all_171": {
+   "n": 171,
+   "n_clusters": 79,
+   "d512": {
+    "rank@20": 0.2105,
+    "rank@100": 0.345,
+    "rank@1000": 0.6667,
+    "union_same@20": 0.2222,
+    "union_same@100": 0.3743,
+    "union_same@1000": 0.6784,
+    "union_prod": 0.2281,
+    "fts@1000": 0.1345
+   },
+   "d1024": {
+    "rank@20": 0.2047,
+    "rank@100": 0.3392,
+    "rank@1000": 0.6667,
+    "union_same@20": 0.2164,
+    "union_same@100": 0.3684,
+    "union_same@1000": 0.6784,
+    "union_prod": 0.2164,
+    "fts@1000": 0.1345
+   },
+   "delta_pp": {
+    "rank@20": -0.58,
+    "rank@100": -0.58,
+    "rank@1000": 0.0,
+    "union_same@20": -0.58,
+    "union_same@100": -0.59,
+    "union_same@1000": 0.0,
+    "union_prod": -1.17,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 9,
+    "out": 9
+   }
+  },
+  "headline_120": {
+   "n": 120,
+   "n_clusters": 64,
+   "d512": {
+    "rank@20": 0.2417,
+    "rank@100": 0.3583,
+    "rank@1000": 0.6833,
+    "union_same@20": 0.25,
+    "union_same@100": 0.3917,
+    "union_same@1000": 0.6917,
+    "union_prod": 0.2583,
+    "fts@1000": 0.1417
+   },
+   "d1024": {
+    "rank@20": 0.2333,
+    "rank@100": 0.35,
+    "rank@1000": 0.7,
+    "union_same@20": 0.2417,
+    "union_same@100": 0.3833,
+    "union_same@1000": 0.7083,
+    "union_prod": 0.2417,
+    "fts@1000": 0.1417
+   },
+   "delta_pp": {
+    "rank@20": -0.84,
+    "rank@100": -0.83,
+    "rank@1000": 1.67,
+    "union_same@20": -0.83,
+    "union_same@100": -0.84,
+    "union_same@1000": 1.66,
+    "union_prod": -1.66,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 8,
+    "out": 6
+   }
+  }
+ },
+ "instrument_control": {
+  "round1_selfcheck_mismatch_items": 0,
+  "round1_selfcheck_mismatch_i": [],
+  "meaning_1": "d512 臂必须逐条复现 E4 第一轮 ctx 臂的 rank@1000；非 0 ⇒ 先查仪器，**不许**把它读成『升维有效/无效』",
+  "fts_mismatch_items": 0,
+  "meaning_2": "FTS 两臂必须完全相同（升维不进 FTS）；非 0 ⇒ 泄漏了",
+  "vec_set_bidirectional_except": {
+   "only_512": 0,
+   "only_1024": 0
+  }
+ },
+ "cost_knn_scan_ms": {
+  "d512": {
+   "p50": 787.2,
+   "p90": 820.2,
+   "mean": 815.6
+  },
+  "d1024": {
+   "p50": 1296.4,
+   "p90": 1348.5,
+   "mean": 1325.8
+  },
+  "corpus_rows": 521978,
+  "meaning": "同一 521,978 行语料上 KNN @1000 的实测延迟 ⇒ 升维的代价侧读数"
+ },
+ "baseline_selfcheck": {
+  "round1_ctx_headline_vec@1000": 0.6833,
+  "round1_ctx_all_vec@1000": 0.6667
+ },
+ "elapsed_s": 676.4
+}
