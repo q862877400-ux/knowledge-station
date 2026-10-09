@@ -186,7 +186,7 @@ def do_validate(verbose: bool) -> int:
     return 0
 
 
-def do_apply(dry_run: bool, min_conf: float = 0.0) -> int:
+def do_apply(dry_run: bool, force: bool = False) -> int:
     import numpy as np
     from sklearn.pipeline import make_pipeline
 
@@ -217,6 +217,13 @@ def do_apply(dry_run: bool, min_conf: float = 0.0) -> int:
                 if not isinstance(ex, dict):
                     ex = {}
                     r["extra"] = ex
+                # ★ 增量：已经有 msg_type_norm 的直接跳过，**不跑模型预测**。
+                #   采集在持续产生新数据 ⇒ 标签要反复重跑；不这样优化的话每次都要
+                #   对全库 35 万条重新预测（2-3 分钟），而实际新增可能只有几百条。
+                if ex.get("msg_type_norm") and not force:
+                    skipped += 1
+                    lines_out.append(line)
+                    continue
                 norm = normalize_label(raw_label(r))
                 src = "source_label"
                 if not norm:
@@ -225,10 +232,6 @@ def do_apply(dry_run: bool, min_conf: float = 0.0) -> int:
                         norm, src = "其他", "too_short"
                     else:
                         norm, src = str(pipe.predict([t])[0]), "model"
-                if ex.get("msg_type_norm") == norm and ex.get("msg_type_source") == src:
-                    skipped += 1
-                    lines_out.append(line)
-                    continue
                 ex["msg_type_norm"] = norm
                 ex["msg_type_source"] = src
                 changed += 1
@@ -256,12 +259,14 @@ def main() -> int:
     ap.add_argument("--verbose", action="store_true", help="附分类报告 + 判别词")
     ap.add_argument("--apply", action="store_true", help="写入 msg_type_norm")
     ap.add_argument("--dry-run", action="store_true", help="配合 --apply：只统计不改文件")
+    ap.add_argument("--force", action="store_true",
+                    help="配合 --apply：重算**全部**记录（默认只补未标注的，增量很快）")
     args = ap.parse_args()
 
     if args.validate:
         return do_validate(args.verbose)
     if args.apply:
-        return do_apply(args.dry_run)
+        return do_apply(args.dry_run, args.force)
     print(__doc__)
     return 0
 
