@@ -88,7 +88,8 @@
   的正则：**同步新 DDL 形状**，但**意图不变**（断言维度 == 512）
 - [x] T018 [P] 改 `eval/recall-funnel/exp-17-embedding-production-plan/rebuild-shadow.py`：
   影子表 DDL 加 `doc_id TEXT` 并回填（保持"与生产同形"）
-- [ ] T019 跑 `pwsh -File scripts/run-gates.ps1 -Quick`（**不新增本项引入的红**）
+- [x] T019 跑 `pwsh -File scripts/run-gates.ps1 -Quick`（**不新增本项引入的红**）
+  ⇒ **5/5 · exit=0**（`tsc` / `mypy` / `verify:commands 22/22` / `pssa-guard` / `smoke 42/42 套全过`，11m07s）
 - [ ] T020 写归属层：`docs/DEVELOPMENT-HISTORY.md` + `AUTO-CHAIN-HANDOFF.md`
 - [ ] T021 **派独立复核**（本项属**必验类别**：改 schema + 动生产数据）
 
