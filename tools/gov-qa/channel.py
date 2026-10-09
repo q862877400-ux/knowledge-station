@@ -106,35 +106,79 @@ def infer_region(site: dict) -> tuple[str, str]:
     """从 SITE 解析 (level, region)（T011）。
 
     返回 `(level, region)`，`level` ∈ `national` / `province` / `city` / `other`。
+
+    ⚠ **实测踩坑**：第一版只在名字里含**省名**时才返回 region。
+    但市级通道的名字是「宝鸡市·政民互动信箱（IGI）」——**不含省名** ⇒ region 为空
+    ⇒ 95 个市级通道只识别出 2 个市。
+    ⇒ 修：**市级直接从名字开头提取「XX市」**，不依赖省名。
     """
     name = str(site.get("name") or "")
     level = str(site.get("level") or "")
 
-    # 显式 level 优先
-    if level in ("national", "province", "city"):
-        return level, _region_from_name(name, level)
+    # 显式 level 优先 —— 但 region 仍要从名字里提
+    if level == "city":
+        return "city", _city_from_name(name)
+    if level == "national":
+        return "national", ""
+    if level == "province":
+        return "province", _province_from_name(name)
 
-    # 按名称推断
+    # 没有显式 level ⇒ 按名称推断
     if any(m in name for m in NATIONAL_MARK) and not any(p in name for p in PROVINCES):
         return "national", ""
+    # 先看有没有「XX市」开头的（市级）
+    city = _city_from_name(name)
+    if city and not any(f"{p}省" in name for p in PROVINCES):
+        return "city", city
     for p in PROVINCES:
         if p in name:
-            # 「XX省」「XX市」都在名字里 ⇒ 看是否有「省」字样判定是省级还是市级
-            if f"{p}省" in name or f"{p}市" in name and p in ("北京", "天津", "上海", "重庆"):
-                return "province", f"{p}省" if f"{p}省" in name else f"{p}市"
-            return "province", f"{p}省"
+            return "province", _province_from_name(name)
     return "other", ""
 
 
-def _region_from_name(name: str, level: str) -> str:
+def _city_from_name(name: str) -> str:
+    """从名字开头提取市名（如「宝鸡市·政民互动」→「宝鸡市」）。
+
+    ⚠ 要排除省级行政区名里的「市」：北京/天津/上海/重庆 是**省级**，不是地级。
+    """
+    m = re.match(r"^([\u4e00-\u9fa5]{2,6}?市)", name)
+    if not m:
+        # 名字里不是以市开头，试着找任意位置的「XX市」
+        m = re.search(r"([\u4e00-\u9fa5]{2,4}市)", name)
+    if not m:
+        return ""
+    city = m.group(1)
+    # 直辖市归省级，不算地级
+    if city in ("北京市", "天津市", "上海市", "重庆市"):
+        return ""
+    return city
+
+
+def _province_from_name(name: str) -> str:
+    """从名字里提取省级行政区名。"""
     for p in PROVINCES:
         if p in name:
-            if level == "city":
-                # 取「XX市」形式的市名
-                m = re.search(rf"({p}[\u4e00-\u9fa5]{{0,4}}市)", name)
-                return m.group(1) if m else f"{p}省"
-            return f"{p}省" if p not in ("北京", "天津", "上海", "重庆") else f"{p}市"
+            if p in ("北京", "天津", "上海", "重庆"):
+                return f"{p}市"
+            if f"{p}省" in name:
+                return f"{p}省"
+            if f"{p}自治区" in name:
+                return f"{p}自治区"
+            if f"{p}壮族自治区" in name:
+                return f"{p}壮族自治区"
+            if f"{p}回族自治区" in name:
+                return f"{p}回族自治区"
+            if f"{p}维吾尔自治区" in name:
+                return f"{p}维吾尔自治区"
+            return f"{p}省"
     return ""
+
+
+def _region_from_name(name: str, level: str) -> str:
+    """（保留给旧调用方）按 level 提取地区名。"""
+    if level == "city":
+        return _city_from_name(name)
+    return _province_from_name(name)
 
 
 # ---------------------------------------------------------------- 通道清单
