@@ -45,8 +45,14 @@ PAUSE = 1.5
 TAG_RE = re.compile(r"<[^>]+>")
 SCRIPT_RE = re.compile(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", re.S | re.I)
 ITEM_SPLIT = re.compile(r'<div[^>]*class="[^"]*questionList-item[^"]*"[^>]*>', re.I)
-#: 提问正文：question-title 之后的第一个 <p>（内部还套一层 <p style=…>）
+#: 提问正文（**新条目结构**）：question-title 之后的第一个 <p>（内部还套一层 <p style=…>）
 Q_RE = re.compile(r'class="[^"]*question-title[^"]*"[^>]*>.*?</p>\s*<p>\s*<p[^>]*>(.*?)</p>', re.S | re.I)
+#: 提问正文（**老条目结构，兜底**）：question-title 之后**直接**就是 <p>TEXT</p>，没有嵌套。
+#: ⚠ 2026-10-10 实测发现：本站 HTML 结构**按页不同** ——
+#:   page 1~10 用嵌套结构（Q_RE 命中 100%），
+#:   **page 31+ 用扁平结构**（Q_RE 全部失败）⇒ 230 条记录的 question 为空。
+#:   必须两条正则都试，否则老条目的问题正文会静默丢失。
+Q_RE_FLAT = re.compile(r'class="[^"]*question-title[^"]*"[^>]*>.*?</p>\s*<p[^>]*>(.*?)</p>', re.S | re.I)
 #: 提问日期：question-info 里第一个 info-date（非 answer-date）
 ASK_RE = re.compile(r'class="[^"]*info-date[^"]*"[^>]*>\s*([\d\-./年月日]+)\s*</span>', re.I)
 #: 答复日期
@@ -75,6 +81,11 @@ def _parse_items(html: str, page: int) -> list[dict]:
     for idx, seg in enumerate(parts):
         mq = Q_RE.search(seg)
         question = _text(mq.group(1)) if mq else ""
+        if not question:
+            # 兜底：老条目的扁平结构（见 Q_RE_FLAT 的说明）
+            mq2 = Q_RE_FLAT.search(seg)
+            if mq2:
+                question = _text(mq2.group(1))
         # 答复：answer-box 段里取除「回复：」外的 <p>
         ma = ANS_RE.search(seg)
         answer = ""
