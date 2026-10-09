@@ -278,9 +278,23 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     for m in models:
         for ref in m.cross_refs:
             raw_edges.append(("reference_relation", m.clause_number, ref))
-    edges = [(t, number_to_id[m.clause_number], number_to_id[ref])
+    # ⚠ **2026-10-09 修（真缺陷；影响面 1,430 份 `lawrefbook://` 文档）**：
+    # 这里原本写的是 `number_to_id[m.clause_number]` —— 而 `m` 是**上一个 for 循环结束后
+    # 残留的变量**（Python 的 for 不产生新作用域，循环跑完 `m` 停在 `models` 的**最后一个模型**）。
+    # 后果**两个方向都错**：① 每条边的 source 都被解析成「**最后一条条款**」的 id ⇒ 最后一条
+    # 凭空多出整份文档的引用边；② 其余条款的引用边**从来没进图**（丢边）。
+    # 实测（真库只读）：出度最高的那条 =《民事诉讼法解释(OCR采集)》**第五百五十二条**
+    # （正文 106 字、自身 `cross_refs` 为 `[]`）却挂 **204 条出边**，**恰好等于该文档全部
+    # cross_refs 条目数**、去重后目标数（106）也逐项相等；全库 **845 条**条款呈同一形状，
+    # **99.9% 是各文档的最后一条**、**99.6% 属于 `lawrefbook://` 文档**。
+    # 修法：改用推导变量 **`src`**（即 `for t, src, ref in raw_edges` 里的那一个）。
+    # ⚠ 同时补上**自环过滤**（`number_to_id[src] != number_to_id[ref]`）：`pipeline.py` 的
+    # `resolve_edges` 一直有这道闸，这里漏了 ⇒ 两条入库路径行为不一致。实测（只读重算全库）：
+    # 不去自环会多出 **179 条** `src == dst` 的边（条款提到自己条号），对检索/多跳**无意义**。
+    edges = [(t, number_to_id[src], number_to_id[ref])
              for t, src, ref in raw_edges
-             if src in number_to_id and ref in number_to_id]
+             if src in number_to_id and ref in number_to_id
+             and number_to_id[src] != number_to_id[ref]]
 
     doc_row: dict = {
         "doc_id": doc_id, "standard_no": standard_no, "standard_name": standard_name,
