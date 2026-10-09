@@ -32,6 +32,11 @@ PAUSE = 1.5
 #: 列表页里「是征求意见条目」的标题特征
 ITEM_KW = ("草案", "征求", "条例", "办法", "规定", "决定")
 
+#: 正文里属于**页面导航壳**的行特征（实测湖南人大正文混入了这些）
+NAV_MARK = ("当前位置", "无障碍", "简繁体", "网站地图", "主办单位", "版权所有",
+            "ICP备", "公安备", "技术支持", "浏览次数", "打印本页", "关闭窗口",
+            "扫一扫", "分享到", "上一篇", "下一篇", "返回顶部")
+
 SITES: dict[str, dict] = {
     "rd-hn": {
         "name": "河南省人大·法规草案征求意见",
@@ -82,6 +87,12 @@ def _items(html: str, base: str) -> list[tuple[str, str]]:
         title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", raw)).strip()
         if len(title) < 6 or not any(k in title for k in ITEM_KW):
             continue
+        # ★ 必须含《》—— 人大法规条目的标题一律形如
+        #   「关于《XX条例（草案）》公开征求意见的公告」；
+        #   而列表页里的**栏目名**（「法规草案审议」「法规草案征求意见」）不含《》，
+        #   不过滤会把栏目导航当成条目（2026-10-10 实测踩到）。
+        if "《" not in title:
+            continue
         if href.startswith("javascript:"):
             continue
         out.append((title, urljoin(base, href)))
@@ -122,7 +133,23 @@ def harvest_rd(fetch, *, site_key: str, limit: int | None = None,
             if getattr(d, "status_code", 0) != 200:
                 continue
             body = _plain(d.text or "")
-            paras = [p.strip() for p in body.split("\n") if len(p.strip()) >= 20]
+            # ★ 滤掉页面导航壳：含 NAV_MARK 的段落整段丢弃；
+            #   再丢掉「短且含站点名」的段落（面包屑、栏目名）。
+            paras = []
+            for p in body.split("\n"):
+                p = p.strip()
+                if len(p) < 20:
+                    continue
+                if any(k in p for k in NAV_MARK):
+                    continue
+                if len(p) < 60 and ("人大网" in p or "人大" == p[:2]):
+                    continue
+                paras.append(p)
+            if not paras:
+                continue
+            # ★ 去掉网页 <title> 的尾巴：形如「…公告_法规草案征求意见_湖南人大网」
+            paras = [re.sub(r"_[^_]{0,20}人大网\s*$", "", p).strip() for p in paras]
+            paras = [p for p in paras if len(p) >= 20]
             if not paras:
                 continue
             content = "\n".join(paras)
