@@ -19,6 +19,10 @@ SITE = {
     "rd-sd": "adapters.rd_sd",         # 山东省人大·法规草案征求意见
     "rd-js": "adapters.rd_js",         # 江苏省人大·法规草案征求意见（分页 index_N.shtml）
     "rd-gd": "adapters.rd_gd",         # 广东省人大·法规草案征求意见（分页 index_N.html）
+    "rd-hb": "adapters.rd_hb",         # 河北省人大·法规草案征求意见（第3轮扩面）
+    "rd-ln": "adapters.rd_ln",         # 辽宁省人大·法规草案征求意见（第3轮扩面）
+    "rd-jl": "adapters.rd_jl",         # 吉林省人大·法规草案意见征集（第3轮扩面）
+    "rd-tj": "adapters.rd_tj",         # 天津市人大·立法公开（第3轮扩面）
 }
 
 def harvest(fetch, *, limit=None) -> list[dict]:
@@ -424,6 +428,10 @@ ADAPTERS: dict[str, str] = {
     "rd-sd": "adapters.rd_sd",         # 山东省人大·法规草案征求意见
     "rd-js": "adapters.rd_js",         # 江苏省人大·法规草案征求意见（分页 index_N.shtml）
     "rd-gd": "adapters.rd_gd",         # 广东省人大·法规草案征求意见（分页 index_N.html）
+    "rd-hb": "adapters.rd_hb",         # 河北省人大·法规草案征求意见（第3轮扩面）
+    "rd-ln": "adapters.rd_ln",         # 辽宁省人大·法规草案征求意见（第3轮扩面）
+    "rd-jl": "adapters.rd_jl",         # 吉林省人大·法规草案意见征集（第3轮扩面）
+    "rd-tj": "adapters.rd_tj",         # 天津市人大·立法公开（第3轮扩面）
 }
 
 #: 用户要能直接 `from adapters import load`

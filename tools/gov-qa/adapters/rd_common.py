@@ -62,6 +62,32 @@ SITES: dict[str, dict] = {
         "list_urls": ["https://www.gdpc.gov.cn/gdrdw/zyfb/fgyjzj/index.html"],
         "level": "province",
     },
+    # ---- 2026-10-10 第 3 轮扩面：探 27 个省级人大，挑出有「法规草案征求意见」栏目的 ----
+    "rd-hb": {
+        "name": "河北省人大·法规草案征求意见",
+        "entry": "https://www.hbrd.gov.cn/lfgz/fgcazqyj/index.shtml",
+        "list_urls": ["https://www.hbrd.gov.cn/lfgz/fgcazqyj/index.shtml"],
+        "level": "province",
+    },
+    "rd-ln": {
+        "name": "辽宁省人大·法规草案征求意见",
+        # ⚠ 必须用 **http** —— 同路径 https 返回 404（实测：http 134721B / https 404）
+        "entry": "http://www.lnrd.gov.cn/lnrd/gzcy/fgzqyj/index.shtml",
+        "list_urls": ["http://www.lnrd.gov.cn/lnrd/gzcy/fgzqyj/index.shtml"],
+        "level": "province",
+    },
+    "rd-jl": {
+        "name": "吉林省人大·法规草案意见征集",
+        "entry": "https://www.jlrd.gov.cn/gzjl/fgcayjzj/",
+        "list_urls": ["https://www.jlrd.gov.cn/gzjl/fgcayjzj/"],
+        "level": "province",
+    },
+    "rd-tj": {
+        "name": "天津市人大·立法公开",
+        "entry": "https://www.tjrd.gov.cn/lfjj/lfgs_2/index.shtml",
+        "list_urls": ["https://www.tjrd.gov.cn/lfjj/lfgs_2/index.shtml"],
+        "level": "province",
+    },
 }
 
 SITE = SITES["rd-hn"]          # harvest.py 读这个；各 rd-* 模块覆盖它
