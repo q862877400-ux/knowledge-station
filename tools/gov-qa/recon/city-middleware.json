@@ -1,0 +1,1322 @@
+{
+ "七台河市": {
+  "base": "https://www.qth.gov.cn/",
+  "hd": "https://www.qth.gov.cn/qth/c100411/hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "三亚市": {
+  "base": "https://www.sanya.gov.cn/",
+  "hd": "https://www.sanya.gov.cn/sanyasite/hudong/hd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "海南省",
+  "status": 200
+ },
+ "三明市": {
+  "base": "http://www.sanming.gov.cn/",
+  "hd": "http://www.sanming.gov.cn/zcjd/",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "三沙市": {
+  "base": "https://www.sansha.gov.cn/",
+  "hd": "https://www.sansha.gov.cn/sansha/hdjl/nlist1.shtml?ddtab=true",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "海南省",
+  "status": 200
+ },
+ "三门峡市": {
+  "base": "https://www.smx.gov.cn/",
+  "hd": "https://www.smx.gov.cn/pageView/hdjl.html?rlmid=4105&lmid=4105",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "东莞市": {
+  "base": "https://www.dongguan.gov.cn/",
+  "hd": "https://www.dongguan.gov.cn/?type=3",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "中山市": {
+  "base": "https://www.zs.gov.cn/",
+  "hd": "http://www.zs.gov.cn/zmhd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "临沧市": {
+  "base": "http://www.lc.gov.cn/",
+  "hd": "http://www.lc.gov.cn/zmhd/",
+  "middleware": [
+   "IGI",
+   "WAS5"
+  ],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "丽江市": {
+  "base": "https://www.lijiang.gov.cn/",
+  "hd": "https://www.lijiang.gov.cn/ljsrmzf/c101842/hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "乌兰察布市": {
+  "base": "https://www.wulanchabu.gov.cn/",
+  "hd": "http://wlcb12345.org.cn/cns-bmfw-wsbsdt/website/pages/portal_second/portal_home",
+  "middleware": [],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "乌海市": {
+  "base": "http://www.wuhai.gov.cn/",
+  "hd": "http://www.wuhai.gov.cn/wuhai/jlhd/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "乌鲁木齐市": {
+  "base": "https://www.wlmq.gov.cn/",
+  "hd": "https://www.wlmq.gov.cn/wlmqs/c119498/hd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "云浮市": {
+  "base": "https://www.yunfu.gov.cn/",
+  "hd": "https://www.yunfu.gov.cn/hdjl/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "亳州市": {
+  "base": "https://www.bozhou.gov.cn/",
+  "hd": "https://www.bozhou.gov.cn/Interact/",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "伊春市": {
+  "base": "https://www.yichun.gov.cn/",
+  "hd": "https://www.yichun.gov.cn/ycsrmzf/hdjl/pc/list.html",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "伊犁哈萨克自治州": {
+  "base": "https://www.yl.gov.cn/",
+  "hd": "https://www.yl.gov.cn/zmhd/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "佛山市": {
+  "base": "https://www.foshan.gov.cn/",
+  "hd": "http://www.foshan.gov.cn/hdjlpt/zixun",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "佳木斯市": {
+  "base": "https://www.jms.gov.cn/",
+  "hd": "https://www.jms.gov.cn/jms/c100194/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "保定市": {
+  "base": "https://www.baoding.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "保山市": {
+  "base": "https://www.baoshan.gov.cn/",
+  "hd": "https://www.baoshan.gov.cn/xin2022/hdjl.jsp?urltype=tree.TreeTempUrl&wbtreeid=1010",
+  "middleware": [
+   "WAS5"
+  ],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "信阳市": {
+  "base": "https://www.xinyang.gov.cn/",
+  "hd": "https://login.hnzwfw.gov.cn/tacs-uc/login/index?refer=na&backUrl=http://was.hnzwfw.gov.cn/evaluation-web/userAuthent/getUserAuthent.do?flag=4",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "儋州市": {
+  "base": "https://www.danzhou.gov.cn/danzhou/index.html",
+  "hd": "https://www.danzhou.gov.cn/danzhou/gzcy/",
+  "middleware": [],
+  "note": "",
+  "province": "海南省",
+  "status": 200
+ },
+ "克拉玛依市": {
+  "base": "https://www.klmy.gov.cn/",
+  "hd": "https://www.klmy.gov.cn/klmys/hdjl/zmhd.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "六安市": {
+  "base": "https://www.luan.gov.cn/",
+  "hd": "https://www.luan.gov.cn/xxgk/zcjd/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "兴安盟": {
+  "base": "https://www.xingan.gov.cn/",
+  "hd": "http://www.xingan.gov.cn/news-list-gongzhonghudong.html",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "南平市": {
+  "base": "https://www.np.gov.cn/cms/html/npszf/index.html",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "南昌市": {
+  "base": "https://www.nc.gov.cn/",
+  "hd": "https://www.nc.gov.cn/ncszf/hdjln/2021_hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "南阳市": {
+  "base": "https://www.nanyang.gov.cn/",
+  "hd": "https://www.nanyang.gov.cn/wzhy",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "厦门市": {
+  "base": "https://www.xm.gov.cn/",
+  "hd": "http://wsxf.fj.gov.cn/~xmszxx/index.do",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "双鸭山市": {
+  "base": "http://www.shuangyashan.gov.cn/",
+  "hd": "http://www.shuangyashan.gov.cn/sys/a0c428a272614089a0ace281133d6da1/hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "吉安市": {
+  "base": "https://www.jian.gov.cn/",
+  "hd": "https://www.jian.gov.cn/news-list-hudong.html",
+  "middleware": [
+   "jact"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "江西省",
+  "status": 200
+ },
+ "吐鲁番市": {
+  "base": "https://www.tlf.gov.cn/",
+  "hd": "https://www.tlf.gov.cn/tlfs/c106214/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "周口市": {
+  "base": "https://www.zhoukou.gov.cn/page_pc/index.html",
+  "hd": "https://www.zhoukou.gov.cn/sitesources/zksrmzf/page_pc/zmhd/",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "呼伦贝尔市": {
+  "base": "https://www.hlbe.gov.cn/",
+  "hd": "https://www.hlbe.gov.cn/Interact/",
+  "middleware": [],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "咸阳市": {
+  "base": "https://www.xianyang.gov.cn/",
+  "hd": "https://www.xianyang.gov.cn/zmhd/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "哈密市": {
+  "base": "https://www.hami.gov.cn/",
+  "hd": "https://www.hami.gov.cn/hami/c120127/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "唐山市": {
+  "base": "https://www.ts.gov.cn/",
+  "hd": "https://www.ts.gov.cn/col/col1229660220/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "商丘市": {
+  "base": "https://www.shangqiu.gov.cn/",
+  "hd": "https://www.shangqiu.gov.cn/zwgk/fdzdgknr/jytabl47szfbgs",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "商洛市": {
+  "base": "https://www.shangluo.gov.cn/",
+  "hd": "https://www.shangluo.gov.cn/zwhd.jsp?urltype=tree.TreeTempUrl&wbtreeid=1005",
+  "middleware": [
+   "WAS5"
+  ],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "喀什地区": {
+  "base": "https://www.kashi.gov.cn/",
+  "hd": "https://www.kashi.gov.cn/ksdqxzgs/c106683/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "嘉峪关市": {
+  "base": "https://www.jyg.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "大兴安岭地区": {
+  "base": "https://www.dxal.gov.cn/",
+  "hd": "https://www.dxal.gov.cn/dxal/c100210/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "大庆市": {
+  "base": "https://www.daqing.gov.cn/",
+  "hd": "https://www.daqing.gov.cn/daqing/c100559/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "宁德市": {
+  "base": "https://www.ningde.gov.cn/",
+  "hd": "http://wsxf.fj.gov.cn/~ndszxx/index.do",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "安庆市": {
+  "base": "https://www.anqing.gov.cn/",
+  "hd": "https://www.anqing.gov.cn/zmhd/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "安康市": {
+  "base": "https://www.ankang.gov.cn/",
+  "hd": "https://www.ankang.gov.cn/Node-2578.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "安阳市": {
+  "base": "https://www.anyang.gov.cn/",
+  "hd": "https://www.anyang.gov.cn/zmhd/",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "定西市": {
+  "base": "https://www.dingxi.gov.cn/",
+  "hd": "https://www.dingxi.gov.cn/col/col11/index.html",
+  "middleware": [
+   "jact"
+  ],
+  "note": "",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "宜春市": {
+  "base": "https://www.yichun.gov.cn/",
+  "hd": "https://www.yichun.gov.cn/ycsrmzf/hdjl/pc/list.html",
+  "middleware": [],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "宝鸡市": {
+  "base": "https://www.baoji.gov.cn/",
+  "hd": "https://www.baoji.gov.cn/col39/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "宣城市": {
+  "base": "https://www.xuancheng.gov.cn/",
+  "hd": "https://www.xuancheng.gov.cn/Response/",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "宿州市": {
+  "base": "https://www.suzhou.gov.cn/",
+  "hd": "https://www.suzhou.gov.cn/szsrmzf/zmhd/zmhd.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "安徽省",
+  "status": 200
+ },
+ "岳阳市": {
+  "base": "https://www.yueyang.gov.cn/",
+  "hd": "http://www.yueyang.gov.cn/hdjl/21871/default.htm",
+  "middleware": [
+   "湖南统一平台"
+  ],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "常州市": {
+  "base": "https://www.changzhou.gov.cn/",
+  "hd": "https://www.changzhou.gov.cn/ns_class/myhd",
+  "middleware": [],
+  "note": "",
+  "province": "江苏省",
+  "status": 200
+ },
+ "常德市": {
+  "base": "https://www.changde.gov.cn/",
+  "hd": "https://www.changde.gov.cn/zmhd",
+  "middleware": [
+   "龙讯",
+   "湖南统一平台",
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "平凉市": {
+  "base": "https://www.pingliang.gov.cn/",
+  "hd": "https://www.pingliang.gov.cn/fzlm/ZXLY/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "平顶山市": {
+  "base": "https://www.pds.gov.cn/",
+  "hd": "https://www.pds.gov.cn/channels/1022.html",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "广州市": {
+  "base": "http://www.guangzhou.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "庆阳市": {
+  "base": "https://www.qy.gov.cn/",
+  "hd": "https://www.qy.gov.cn/qy/tyhd/tyhd_index.shtml",
+  "middleware": [
+   "湖南统一平台"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "廊坊市": {
+  "base": "https://www.lf.gov.cn/",
+  "hd": "https://www.lf.gov.cn/Category_4/Index.aspx",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "延安市": {
+  "base": "https://www.yanan.gov.cn/",
+  "hd": "https://www.yanan.gov.cn/hd/",
+  "middleware": [],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "开封市": {
+  "base": "https://www.kaifeng.gov.cn/",
+  "hd": "https://www.kaifeng.gov.cn/kfsrmzfwz/hdjl/pc/list.html",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "张家口市": {
+  "base": "https://www.zjk.gov.cn/",
+  "hd": "https://www.zjk.gov.cn/channel/64/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "张家界市": {
+  "base": "https://www.zjj.gov.cn/",
+  "hd": "http://www.zjj.gov.cn/c22/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "怀化市": {
+  "base": "https://www.huaihua.gov.cn/",
+  "hd": "https://www.huaihua.gov.cn/huaihua/c100348/hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "惠州市": {
+  "base": "https://www.huizhou.gov.cn/",
+  "hd": "http://www.huizhou.gov.cn/zmhd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "承德市": {
+  "base": "https://www.chengde.gov.cn/",
+  "hd": "https://www.chengde.gov.cn/col/col356/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "揭阳市": {
+  "base": "http://www.jieyang.gov.cn/",
+  "hd": "http://www.jieyang.gov.cn/hdjl/index.html",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "新乡市": {
+  "base": "https://www.xinxiang.gov.cn/",
+  "hd": "https://www.xinxiang.gov.cn/hdjl/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "新余市": {
+  "base": "https://www.xinyu.gov.cn/",
+  "hd": "https://www.xinyu.gov.cn/xinyu/zmhd/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "昆明市": {
+  "base": "https://www.km.gov.cn/",
+  "hd": "https://www.km.gov.cn/hdjl/",
+  "middleware": [],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "昭通市": {
+  "base": "https://www.zt.gov.cn/",
+  "hd": "https://www.zt.gov.cn/lanmu/zmhd/250.html",
+  "middleware": [],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "景德镇市": {
+  "base": "https://www.jdz.gov.cn/",
+  "hd": "https://www.jdz.gov.cn/zmhd/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "曲靖市": {
+  "base": "https://www.qj.gov.cn/",
+  "hd": "https://www.qj.gov.cn/qj12345/",
+  "middleware": [],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "株洲市": {
+  "base": "https://www.zhuzhou.gov.cn/",
+  "hd": "http://www.zhuzhou.gov.cn/c15167/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "梅州市": {
+  "base": "https://www.mz.gov.cn/",
+  "hd": "https://www.mz.gov.cn/zhengminhudong.htm",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "榆林市": {
+  "base": "http://www.yulin.gov.cn/",
+  "hd": "http://www.yulin.gov.cn/dhjl/",
+  "middleware": [],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "武威市": {
+  "base": "https://www.ww.gov.cn/",
+  "hd": "https://www.ww.gov.cn/hdjl/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "永州市": {
+  "base": "https://www.yz.gov.cn/",
+  "hd": "https://www.yz.gov.cn/yangzhong/hdjl/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "汉中市": {
+  "base": "https://www.hanzhong.gov.cn/",
+  "hd": "https://www.hanzhong.gov.cn/hzszf/hdjl/hdjl.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "陕西省",
+  "status": 200
+ },
+ "汕头市": {
+  "base": "https://www.shantou.gov.cn/",
+  "hd": "https://www.shantou.gov.cn/cnst/?s=2",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "汕尾市": {
+  "base": "https://www.shanwei.gov.cn/",
+  "hd": "https://www.shanwei.gov.cn/shanwei/zmhd/",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "江门市": {
+  "base": "https://www.jiangmen.gov.cn/",
+  "hd": "http://www.jiangmen.gov.cn/gzhd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "池州市": {
+  "base": "https://www.chizhou.gov.cn/",
+  "hd": "https://www.chizhou.gov.cn/Interact/",
+  "middleware": [],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "沧州市": {
+  "base": "https://www.cangzhou.gov.cn/",
+  "hd": "https://www.cangzhou.gov.cn/cangzhou/c100035/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "河源市": {
+  "base": "https://www.heyuan.gov.cn/",
+  "hd": "http://www.heyuan.gov.cn/zmhd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "泉州市": {
+  "base": "https://www.quanzhou.gov.cn/",
+  "hd": "https://www.quanzhou.gov.cn/zfb/jdhy/",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "泰安市": {
+  "base": "https://www.taian.gov.cn/",
+  "hd": "https://12345.taian.cn/website_web/",
+  "middleware": [],
+  "note": "",
+  "province": "山东省",
+  "status": 200
+ },
+ "洛阳市": {
+  "base": "https://www.ly.gov.cn/",
+  "hd": "https://www.ly.gov.cn/zmhd/",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "济源市": {
+  "base": "https://www.jiyuan.gov.cn/",
+  "hd": "http://www.jiyuan.gov.cn/hdjl/",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "海东市": {
+  "base": "https://www.haidong.gov.cn/",
+  "hd": "https://www.haidong.gov.cn/html/383/List.html",
+  "middleware": [],
+  "note": "",
+  "province": "青海省",
+  "status": 200
+ },
+ "海口市": {
+  "base": "https://www.haikou.gov.cn/",
+  "hd": "https://www.haikou.gov.cn/xxgk/szfbjxxgk/zflfzxzjk/",
+  "middleware": [],
+  "note": "",
+  "province": "海南省",
+  "status": 200
+ },
+ "淮北市": {
+  "base": "https://www.huaibei.gov.cn/",
+  "hd": "https://www.huaibei.gov.cn/hdjl/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "淮南市": {
+  "base": "https://www.huainan.gov.cn/",
+  "hd": "https://www.huainan.gov.cn/zmhd/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "淮安市": {
+  "base": "https://www.huaian.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "江苏省",
+  "status": 200
+ },
+ "深圳市": {
+  "base": "http://www.shenzhen.gov.cn/",
+  "hd": "http://www.sz.gov.cn/hdjlpt/selectoffice?type=zixun",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "清远市": {
+  "base": "http://www.qingyuan.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "渭南市": {
+  "base": "https://www.weinan.gov.cn/",
+  "hd": "https://www.weinan.gov.cn/jdhy/",
+  "middleware": [],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "湘潭市": {
+  "base": "https://www.xiangtan.gov.cn/",
+  "hd": "",
+  "middleware": [
+   "湖南统一平台"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "湖南省",
+  "status": 200
+ },
+ "湛江市": {
+  "base": "https://www.zhanjiang.gov.cn/",
+  "hd": "https://www.zhanjiang.gov.cn/hdjlpt#/",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "滁州市": {
+  "base": "https://www.chuzhou.gov.cn/",
+  "hd": "https://www.chuzhou.gov.cn/zmhd/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "漯河市": {
+  "base": "https://www.tahe.gov.cn/",
+  "hd": "https://www.tahe.gov.cn/th/list.chtml?p=1&id=vQzmui",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "河南省",
+  "status": 200
+ },
+ "漳州市": {
+  "base": "https://www.zhangzhou.gov.cn/cms/html/zzsrmzf/index.html",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "潍坊市": {
+  "base": "https://www.weifang.gov.cn/",
+  "hd": "javascript:void(0);",
+  "middleware": [],
+  "note": "",
+  "province": "山东省",
+  "status": 200
+ },
+ "潮州市": {
+  "base": "https://www.chaozhou.gov.cn/",
+  "hd": "https://www.chaozhou.gov.cn/hdjlpt",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "濮阳市": {
+  "base": "https://www.puyang.gov.cn/",
+  "hd": "https://www.puyang.gov.cn/hdq/index.thtml",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "焦作市": {
+  "base": "https://www.jiaozuo.gov.cn/",
+  "hd": "https://www.jiaozuo.gov.cn/zmhd/",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "牡丹江市": {
+  "base": "https://www.mdj.gov.cn/",
+  "hd": "https://www.mdj.gov.cn/mdjsrmzf/c100116/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "玉溪市": {
+  "base": "https://www.yuxi.gov.cn/",
+  "hd": "https://www.yuxi.gov.cn/yxgovfront/search.jspx?_s_=1&q=%E7%99%BE%E5%A7%93%E4%BF%A1%E7%AE%B1&dir=desc&rangeBy=title&orderBy=time",
+  "middleware": [],
+  "note": "",
+  "province": "云南省",
+  "status": 200
+ },
+ "珠海市": {
+  "base": "https://www.zhuhai.gov.cn/",
+  "hd": "https://www.zhuhai.gov.cn/hd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "益阳市": {
+  "base": "https://www.yiyang.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "石家庄市": {
+  "base": "https://www.sjz.gov.cn/",
+  "hd": "https://www.sjz.gov.cn/columns/4de786ee-7a5a-468b-b5c5-86d900c3ca04/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "秦皇岛市": {
+  "base": "https://www.qinhuangdao.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "绥化市": {
+  "base": "https://www.suihua.gov.cn/",
+  "hd": "https://www.suihua.gov.cn/sh/hdjl/hdjl.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "肇庆市": {
+  "base": "https://www.zhaoqing.gov.cn/",
+  "hd": "https://www.zhaoqing.gov.cn/hdjlpt",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "芜湖市": {
+  "base": "https://www.wuhu.gov.cn/",
+  "hd": "https://www.wuhu.gov.cn/zmhd/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "茂名市": {
+  "base": "http://www.maoming.gov.cn/",
+  "hd": "http://www.maoming.gov.cn/hdjlpt",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "",
+  "province": "广东省",
+  "status": 200
+ },
+ "莆田市": {
+  "base": "https://www.putian.gov.cn/",
+  "hd": "https://www.putian.gov.cn/jdhy/",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ },
+ "萍乡市": {
+  "base": "https://www.pingxiang.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "蚌埠市": {
+  "base": "https://www.bengbu.gov.cn/",
+  "hd": "https://www.bengbu.gov.cn/hdjl/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "衡阳市": {
+  "base": "http://www.hy.gov.cn/",
+  "hd": "http://www.hy.gov.cn/zmhd/",
+  "middleware": [
+   "WAS5",
+   "IGI"
+  ],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "襄阳市": {
+  "base": "http://www.xy.gov.cn/",
+  "hd": "http://www.xy.gov.cn/004/interactive.html",
+  "middleware": [],
+  "note": "",
+  "province": "湖北省",
+  "status": 200
+ },
+ "许昌市": {
+  "base": "https://www.xuchang.gov.cn/",
+  "hd": "https://www.xuchang.gov.cn/hdjl/interacting.html",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "河南省",
+  "status": 200
+ },
+ "赣州市": {
+  "base": "https://www.ganzhou.gov.cn/",
+  "hd": "https://www.ganzhou.gov.cn/gzszf/c100179/gzzmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "江西省",
+  "status": 200
+ },
+ "赤峰市": {
+  "base": "https://www.chifeng.gov.cn/",
+  "hd": "https://www.chifeng.gov.cn/zmhd_01/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "连云港市": {
+  "base": "https://www.lyg.gov.cn/",
+  "hd": "https://www.lyg.gov.cn/zglygzfmhwz/gzcy/gzcy.html",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "江苏省",
+  "status": 200
+ },
+ "邢台市": {
+  "base": "https://www.xingtai.gov.cn/",
+  "hd": "https://www.xingtai.gov.cn/hdjl/",
+  "middleware": [
+   "WAS5"
+  ],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "邯郸市": {
+  "base": "https://www.hd.gov.cn/",
+  "hd": "https://www.hd.gov.cn/zmhd/",
+  "middleware": [
+   "jact"
+  ],
+  "note": "",
+  "province": "河北省",
+  "status": 200
+ },
+ "邵阳市": {
+  "base": "https://www.shaoyang.gov.cn/",
+  "hd": "https://www.shaoyang.gov.cn/shaoyang/zmhd/tyhd_index.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "湖南省",
+  "status": 200
+ },
+ "郑州市": {
+  "base": "https://www.zhengzhou.gov.cn/",
+  "hd": "https://www.zhengzhou.gov.cn/ia/index.jhtml",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "鄂州市": {
+  "base": "https://www.ezhou.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "湖北省",
+  "status": 200
+ },
+ "酒泉市": {
+  "base": "https://www.jiuquan.gov.cn/",
+  "hd": "https://www.jiuquan.gov.cn/jiuquan/c100223/zmhd.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "甘肃省",
+  "status": 200
+ },
+ "铜川市": {
+  "base": "https://www.tongchuan.gov.cn/",
+  "hd": "https://www.tongchuan.gov.cn/resources/site/1/html/hd/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "陕西省",
+  "status": 200
+ },
+ "铜陵市": {
+  "base": "https://www.tl.gov.cn/",
+  "hd": "https://www.tl.gov.cn/tlsrmzf/hdjl/pc/list.html",
+  "middleware": [],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "锡林郭勒盟": {
+  "base": "https://www.xlgl.gov.cn/",
+  "hd": "https://www.xlgl.gov.cn/xlgl/hd/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "长沙市": {
+  "base": "http://www.changsha.gov.cn/",
+  "hd": "http://www.changsha.gov.cn/jdhy/",
+  "middleware": [],
+  "note": "",
+  "province": "湖南省",
+  "status": 200
+ },
+ "阜阳市": {
+  "base": "https://www.fuyang.gov.cn/",
+  "hd": "https://www.fuyang.gov.cn/col/col1229051948/index.html",
+  "middleware": [],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "阳江市": {
+  "base": "https://www.yangjiang.gov.cn/",
+  "hd": "https://www.yangjiang.gov.cn/yj/hdjl/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "阿克苏地区": {
+  "base": "https://www.aks.gov.cn/",
+  "hd": "https://www.aks.gov.cn/zmhd/zyxx/ldxx/index.html",
+  "middleware": [],
+  "note": "ReadTimeout",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "阿勒泰地区": {
+  "base": "https://www.alt.gov.cn/",
+  "hd": "https://www.alt.gov.cn/zmhd/govInteraction.html",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "新疆维吾尔自治区",
+  "status": 200
+ },
+ "阿拉善盟": {
+  "base": "https://www.als.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "内蒙古自治区",
+  "status": 200
+ },
+ "阿里地区": {
+  "base": "https://www.al.gov.cn/",
+  "hd": "https://www.al.gov.cn/interaction.jsp?urltype=tree.TreeTempUrl&wbtreeid=1014",
+  "middleware": [
+   "WAS5"
+  ],
+  "note": "",
+  "province": "西藏自治区",
+  "status": 200
+ },
+ "青岛市": {
+  "base": "http://www.qingdao.gov.cn/",
+  "hd": "http://www.qingdao.gov.cn/zmhd/",
+  "middleware": [],
+  "note": "",
+  "province": "山东省",
+  "status": 200
+ },
+ "韶关市": {
+  "base": "https://www.sg.gov.cn/",
+  "hd": "https://www.sg.gov.cn/hd/index.html",
+  "middleware": [
+   "广东hdjlpt"
+  ],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "广东省",
+  "status": 200
+ },
+ "马鞍山市": {
+  "base": "https://www.mas.gov.cn/",
+  "hd": "https://www.mas.gov.cn/hdjl/index.html",
+  "middleware": [
+   "龙讯"
+  ],
+  "note": "",
+  "province": "安徽省",
+  "status": 200
+ },
+ "驻马店市": {
+  "base": "https://www.zhumadian.gov.cn/",
+  "hd": "https://www.zhumadian.gov.cn/zmhd/",
+  "middleware": [
+   "IGI"
+  ],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "鸡西市": {
+  "base": "https://www.jixi.gov.cn/",
+  "hd": "https://www.jixi.gov.cn/jixi/c100040/hdjl.shtml",
+  "middleware": [],
+  "note": "",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "鹤壁市": {
+  "base": "https://www.hebi.gov.cn/",
+  "hd": "",
+  "middleware": [],
+  "note": "",
+  "province": "河南省",
+  "status": 200
+ },
+ "鹤岗市": {
+  "base": "https://www.hegang.gov.cn/",
+  "hd": "https://www.hegang.gov.cn/hegang/zmhd/index_zmhd.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "鹰潭市": {
+  "base": "http://www.yingtan.gov.cn/",
+  "hd": "",
+  "middleware": [
+   "jact"
+  ],
+  "note": "UnicodeEncodeError",
+  "province": "江西省",
+  "status": 200
+ },
+ "黑河市": {
+  "base": "https://www.heihe.gov.cn/",
+  "hd": "https://www.heihe.gov.cn/hhs/c100804/zmhd.shtml",
+  "middleware": [],
+  "note": "HTTP 403（疑似 WAF）",
+  "province": "黑龙江省",
+  "status": 200
+ },
+ "龙岩市": {
+  "base": "https://www.longyan.gov.cn/",
+  "hd": "https://www.longyan.gov.cn/gk/flgk/jd/",
+  "middleware": [],
+  "note": "",
+  "province": "福建省",
+  "status": 200
+ }
+}

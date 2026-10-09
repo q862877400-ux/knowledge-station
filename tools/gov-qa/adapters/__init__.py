@@ -322,6 +322,16 @@ ADAPTERS: dict[str, str] = {
     "gd-mpa": "adapters.gd_mpa",  # 广东省药品监督管理局（年窗 32）
     "gd-czt": "adapters.gd_czt",  # 广东省财政厅（年窗 18）
     "gd-dva": "adapters.gd_dva",  # 广东省退役军人事务厅（年窗 14）
+    # —— 广东地级市 hdjlpt（2026-10-10 第 7 轮）：市级**各自部署**同款平台，
+    #    18 个市带指纹、**实测只有 8 个能出数据**（recon/probe-gd-city-hdjlpt.py）——
+    "gd-shenzhen": "adapters.gd_shenzhen",  # 深圳市·政民互动（hdjlpt，年窗 5493）
+    "gd-maoming": "adapters.gd_maoming",  # 茂名市·政民互动（hdjlpt，年窗 68）
+    "gd-chaozhou": "adapters.gd_chaozhou",  # 潮州市·政民互动（hdjlpt，年窗 46）
+    "gd-zhanjiang": "adapters.gd_zhanjiang",  # 湛江市·政民互动（hdjlpt，年窗 45）
+    "gd-yangjiang": "adapters.gd_yangjiang",  # 阳江市·政民互动（hdjlpt，年窗 35）
+    "gd-shanwei": "adapters.gd_shanwei",  # 汕尾市·政民互动（hdjlpt，年窗 27）
+    "gd-zhaoqing": "adapters.gd_zhaoqing",  # 肇庆市·政民互动（hdjlpt，年窗 17）
+    "gd-yunfu": "adapters.gd_yunfu",  # 云浮市·政民互动（hdjlpt，年窗 16）
     # —— 甘肃（2026-10-08「甘肃二次突围」：省门户整域被瑞数 WAF 拦 412，但 4 个市州门户可达）——
     "gs-zhangye": "adapters.gs_zhangye",   # 张掖市·政民互动（IGI，8 site / ~7776 条）
     "gs-baiyin": "adapters.gs_baiyin",     # 白银市·政民互动（jpaas-jact 变体，count=1889）
