@@ -133,6 +133,12 @@
       另钉"喂空表必须零命中"）。**端到端复验**：副本里把一条 query 换成含 `GB 50016-2014` ⇒
       `has_standard_no=has_standard_no_verified=True`、**不再崩**；**重跑三步链条五个产物与修复前逐字段一致**
       ⇒ 冻结读数未变。详见 `eval/recall-funnel/README.md §5.5`。
+      ✅ **第 2 批独立复核（验"修复本身有没有牙"）= PASS（无阻塞，2026-10-09 第 10 轮收）**：
+      报告 `docs/verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md`（冻结 tag `verify-freeze-t016-t017-p1fix`
+      → `3138898`）。它独立复现了：修复前那份 `build-v2.py` 用同一输入 **`exit=1, NameError: name 'doc_stds'`**、
+      修复后 **`exit=0`**；4 组变异（注释/改名/正则改坏/喂空表）**全部当场失败**；
+      `git diff --name-only 52a2bc9 3138898` **不含任何 `.jsonl`/`.json`**；5 个产物逐字段 0 差异；
+      4 个冻结哈希全对。⚠ 2 条非阻塞 P2（冻结窗口夹带 gov-qa 提交 `9bca65d`；§10.212 一格内"既断言又更正"读起来别扭）已登记。
 - [x] **T017 [US1] 已完成（2026-10-09，自动续接链第 9 轮）** —— `answer_out_of_corpus` 字段（FR-006）。
       原样是一句 `assert gold is not None` ⇒ 那会把"换考卷"变成**不可能**（库外题会让构建器当场崩）。
       已改成记布尔字段 `v2.answer_out_of_corpus`，`summarize.py` **在所有表之前**按它排除

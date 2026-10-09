@@ -121,7 +121,7 @@
 
 冻结 tag `verify-freeze-e9-col-prior` = `db5c074`（`rev-list --count db5c074^..<tag>` = **1**），
 提取树 `D:/AI/verify-trees/e9`（HEAD 首尾 `db5c074` 一致、`git status --short` 首尾干净）。
-报告 [VERIFY-REPORT-e9-col-prior](../verify-briefs/VERIFY-REPORT-e9-col-prior.md)（⚠ 该文件是**按复核者消息转录**，
+报告 [VERIFY-REPORT-e9-col-prior](../../../docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md)（⚠ 该文件是**按复核者消息转录**，
 不是字节级搬运 —— 复核者未落盘，详见该文件抬头）。
 
 **总判：通过（无阻塞）。** 复核独立重算的三项读数**逐位一致**

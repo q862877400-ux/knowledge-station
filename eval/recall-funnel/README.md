@@ -231,3 +231,36 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 `clean-v3/tier-stats.json` / `benchmark-v2-stats.json` / `funnel-summary.json` 全部 `IDENTICAL`）
 ⇒ **冻结读数一个都没变**，变的只是"这条判据现在真的能跑"。
 
+### 5.6 第 9 轮【第 2 批】独立复核：P1 修复批 = **PASS（无阻塞）**（2026-10-09）
+
+复核对象 = 冻结 tag `verify-freeze-t016-t017-p1fix` → `3138898`。
+报告 = [VERIFY-REPORT-t016-t017-p1fix](verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md)
+（**字节级搬运**，sha256 `b6f87878ca51f648128cb1ee1ca0f25a4d7ccf7866666d4a3cc522678d9f8748`、14,359 B，
+**未触碰**第 1 批那份 `VERIFY-REPORT-t016-t017-subsets.md`）。
+
+| 验的项 | 读数 |
+|---|---|
+| **P1-1 真的修好** | 副本里把一条 query 换成含 `GB 50016-2014`：修复前 `build-v2.py` 同输入 **`exit=1, NameError: name 'doc_stds' is not defined`（line 170）**；修复后 **`exit=0` 且 `has_standard_no_verified=True`**。再把一条 `gold_std` 换成库里没有的 ⇒ **`has_standard_no=True` 但 `verified=False`** |
+| **自检有牙** | 4 组变异（注释掉 `doc_stds` 行 / 改名 / `_STD_IN_QUERY_RE` 改成永不匹配 / 喂空表）**全部当场大声失败** |
+| **产物真的没变** | `git diff --name-only 52a2bc9 3138898` **不含任何 `.jsonl`/`.json`**；副本重跑三步链条与第 1 批冻结产物 **5 个逐字段 0 差异** |
+| **措辞无残留** | README §五/§5.5、tasks.md T016/T017、开发史 §10.212/§10.213 都查过 |
+| **冻结哈希** | 4 个全对（`git show <tag>:<path> \| sha256sum`）：`build-v2.py 15e42e5a…` / `README.md 9c8422e6…` / `tasks.md 89357b6f…` / `DEVELOPMENT-HISTORY.md fbdbd7e9…` |
+
+⚠ **复核登记的 2 条 P2（非阻塞，登记不修）**：
+① **冻结窗口 `52a2bc9..3138898` 夹着一个无关的 gov-qa 提交 `9bca65d`** —— 别的自动化每 3 小时往 master 提交，
+快照标签打在当时 HEAD 上所致；**派复核时要在任务书里说明窗口可能夹带无关提交**。
+② 开发史 §10.212 有**一格内"既断言又更正"**读起来别扭（留痕纪律的副作用），**可接受、已登记**。
+⚠ 第 1 批 ④.2 那条"孤立 stats 异常（`counts.answer_out_of_corpus=1` 而 jsonl=0）"：复核**复现了机制**
+（部分还原导致 jsonl/stats 不同步）但**那一具体个案无法证实** ⇒ 登记。
+
+### 5.7 相邻实验：`exp-11-rerank-fix`（总纲 P0·0.7，2026-10-09 第 10 轮）
+
+**不是本考卷线的一部分**，但它**用的就是本目录这份 171 条考卷**（`benchmark-v2.jsonl`）与 `summarize.py` 的
+主结果 120 口径 ⇒ 在此**登记一个指针**，口径/读数/判决全在
+[`exp-11-rerank-fix/README.md`](exp-11-rerank-fix/README.md)。
+
+一句话结论：修好了 `reranker.rerank` 的返回形状缺陷（修前 **rerank 阶段恒空转**，`n_reordered=0`；
+修后 `120/120`），但**主终点（主结果 120·top-8）只 +2 条 / +1.67pt、McNemar p=0.5** ⇒
+落**「观察」档、不接生产**（两处调用点已显式 pin `rerank=False`，与修前逐位等价）。
+⇒ **本目录的 `funnel-summary.json` / `funnel-per-query.jsonl` 一个字节都没动**（那次实验只读真库、不改考卷）。
+

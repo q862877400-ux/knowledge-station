@@ -332,6 +332,35 @@
 > - ⚠ **属必验类别**（作者当天新写的判据），已冻结 tag 并派独立复核。
 > - ⚠ **改动面已逐字段核对**（这两个文件是 `exp-3/3b/4/4b/4c` 的冻结输入）：只新增 `v2.subset` /
 >   `v2.answer_out_of_corpus` 两个键 + 2 条 `same_def_docs` 活计数（库长大）；`v3` 层与 `tier-stats.json` 零变化。
+> - ✅ **独立复核【第 1 批】= 有条件放行（1 条 P1）**：`build-v2.py` 的 `doc_stds` 未定义 ⇒ **本轮内已修 + 加回归自检**；
+>   修复后重跑三步链条**五个产物逐字段 0 差异**。详见 [开发史 §10.213](DEVELOPMENT-HISTORY.md)。
+> - ✅ **独立复核【第 2 批】（验"修复本身有没有牙"）= PASS（无阻塞）**（2026-10-09 第 10 轮收，报告
+>   [`VERIFY-REPORT-t016-t017-p1fix`](verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md)，冻结 tag
+>   `verify-freeze-t016-t017-p1fix` → `3138898`）：P1-1 真的修好（修前同输入 `NameError` / 修后 `exit=0`）、
+>   自检 4 组变异全部当场失败、产物 0 差异、4 个冻结哈希全对。⚠ 2 条非阻塞 P2 已登记
+>   （冻结窗口夹带 gov-qa 提交 `9bca65d`；§10.212 一格内"既断言又更正"读起来别扭）。
+
+> **🆕 2026-10-09（自动续接链第 10 轮）修总纲 P0·0.7 —— `rerank` 返回形状缺陷；顺带实测"重排到底有没有收益"**
+> - **做的是 `docs/RETRIEVAL-LONG-RANGE-PLAN.md` P0·0.7**（开工先读 `CHAIN-UNCLOSED-AUDIT.md`，
+>   它点名 3 条"已登记但链自己的 memory 里 grep 不到"的缺陷，0.7 是其一）。
+> - **实况比登记写的严重**：登记说"只返回分数、不返回顺序"，**实测是"生产里 rerank 恒不生效"** ——
+>   `rerank()` 返回**已降序**的列表，而唯一调用方按下标取分 ⇒ `sorted(...)` 退化成**恒等置换**
+>   （探针 `var/tmp/probe-rerank-order.py`：输出顺序 == 输入顺序）；且 `debug["rerank_score"]` **把分数贴错条款**。
+> - **★ 对 §三序 4（P2）直接有用的一条**：**修好之后重排到底值不值得接生产 —— 答案是不值得（本轮量了）**。
+>   预注册判据 `exp-11-rerank-fix/stop-loss.json`（跑前落盘）；**仪器对照** A 臂修复前后 **0/171 不一致**；
+>   **修复前** B 臂 == A 臂 **171/171、`n_reordered=0`**（空转实锤）；**修复后** `n_reordered=120/120`。
+>   **主终点（主结果 120·top-8）7 → 9（+2 条 / +1.67pt）、翻进 2 / 翻出 0、McNemar p=0.5** ⇒
+>   落**「观察」档、不满足「可接生产」**（要 `Δ≥+5 且 p<0.05`）；代价 **1.10 s/问**。
+>   ⇒ **判决：缺陷必修（修前这一层是死的），但重排【不接生产】**（两处调用点显式 pin `rerank=False`，与修前逐位等价）。
+>   ⇒ **对 P2 的意义**：**"重排器"这条改进路线的收益上限（本机、本考卷、未微调模型）已被量出 = 很小**，
+>   P2 想拿收益**得走别的杠杆**（候选深度 / 查询改写，见 `exp-8` 的 +21.7pt 到 Top1000）。
+> - **⚠ 连带发现（D2，本批未修）**：`hybrid_engine._protect_exception_clauses`（例外条款保护）**在真实调用形态下恒不生效**
+>   （传入的 `kept` 长度已等于 `top_k` ⇒ append 的例外条款被 `return kept[:top_k]` 原样切掉）。
+>   **它是"接重排进生产"的前置条件** —— 一旦开重排，例外条款会被挤掉。
+> - **产物**：`src/core/retrieval/reranker.py` + `hybrid_engine.py` + `server.py` / `local_vision.py` +
+>   `tests/test_reranker.py` + `eval/recall-funnel/exp-11-rerank-fix/`；
+>   详细记录 = [开发史 §10.214](DEVELOPMENT-HISTORY.md) / [总纲 P0·0.7-修](RETRIEVAL-LONG-RANGE-PLAN.md)。
+> - ⚠ **属必验类别**（改已上线路径的契约 + 改判据），已冻结 tag 并派独立复核。
 
 ---
 
