@@ -434,6 +434,9 @@ ADAPTERS: dict[str, str] = {
     "rd-jl": "adapters.rd_jl",         # 吉林省人大·法规草案意见征集（第3轮扩面）
     "rd-tj": "adapters.rd_tj",         # 天津市人大·立法公开（第3轮扩面）
     "rd-npc": "adapters.rd_npc",       # 全国人大·法律草案征求意见（第4轮扩面）
+    # —— 西藏（2026-10-10，补 none 单元）：省级信访需登录已判死，
+    #    但**拉萨市**这个接口是公开的 ⇒ 省级不行 ≠ 地市级也不行。
+    "xz-lasa": "adapters.xz_lasa",     # 拉萨市·来信选登（POST api-mailbox/frontMail/mailList，公开列表含 objectiveType 类型标签）
 }
 
 #: 用户要能直接 `from adapters import load`
