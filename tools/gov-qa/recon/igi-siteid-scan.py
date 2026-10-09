@@ -46,6 +46,15 @@ TARGETS = {
     # ★ 2026-10-09 新增：门户横向普查（recon/igi-portal-sweep.py）命中，siteId=1 无记录但端点真实
     "neimenggu": ("https://www.nmg.gov.cn",   "https://www.nmg.gov.cn/zmhd/",             1, 300),
     "tianjin":  ("https://www.tj.gov.cn",     "https://www.tj.gov.cn/",                   1, 300),
+    # ★ 2026-10-09 新增：**城市**门户普查（igi-portal-sweep.py city）命中 8 个
+    "baotou":   ("https://www.baotou.gov.cn",   "https://www.baotou.gov.cn/",             1, 300),
+    "shenyang": ("https://www.shenyang.gov.cn", "https://www.shenyang.gov.cn/",           1, 300),
+    "nanjing":  ("https://www.nanjing.gov.cn",  "https://www.nanjing.gov.cn/",            1, 300),
+    "nanning":  ("https://www.nanning.gov.cn",  "https://www.nanning.gov.cn/",            1, 300),
+    "haikou":   ("https://www.haikou.gov.cn",   "https://www.haikou.gov.cn/",             1, 300),
+    "guiyang":  ("https://www.guiyang.gov.cn",  "https://www.guiyang.gov.cn/",            1, 300),
+    "xining":   ("https://www.xining.gov.cn",   "https://www.xining.gov.cn/",             1, 300),
+    "yinchuan": ("https://www.yinchuan.gov.cn", "https://www.yinchuan.gov.cn/",           1, 300),
 }
 
 

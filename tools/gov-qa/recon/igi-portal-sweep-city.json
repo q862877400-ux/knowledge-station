@@ -1,0 +1,240 @@
+{
+  "shijiazhuang": {
+    "base": "https://www.sjz.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "taiyuan": {
+    "base": "https://www.taiyuan.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "huhhot": {
+    "base": "https://www.huhhot.gov.cn",
+    "verdict": "NO",
+    "http": 422,
+    "total": null,
+    "note": "HTTP 422"
+  },
+  "baotou": {
+    "base": "https://www.baotou.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "shenyang": {
+    "base": "https://www.shenyang.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "dalian": {
+    "base": "https://www.dl.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "changchun": {
+    "base": "https://www.changchun.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)"
+  },
+  "harbin": {
+    "base": "https://www.harbin.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "nanjing": {
+    "base": "https://www.nanjing.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "hangzhou": {
+    "base": "https://www.hangzhou.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "ningbo": {
+    "base": "https://www.ningbo.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "hefei": {
+    "base": "https://www.hefei.gov.cn",
+    "verdict": "NO",
+    "http": 521,
+    "total": null,
+    "note": "HTTP 521"
+  },
+  "fuzhou": {
+    "base": "https://www.fuzhou.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ReadTimeout: The read operation timed out"
+  },
+  "xiamen": {
+    "base": "https://www.xm.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "nanchang": {
+    "base": "https://www.nc.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "jinan": {
+    "base": "https://www.jinan.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "qingdao": {
+    "base": "https://www.qingdao.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)"
+  },
+  "zhengzhou": {
+    "base": "https://www.zhengzhou.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "changsha": {
+    "base": "https://www.changsha.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)"
+  },
+  "guangzhou": {
+    "base": "https://www.gz.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "shenzhen": {
+    "base": "https://www.sz.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectError: [SSL: BAD_ECPOINT] bad ecpoint (_ssl.c:1010)"
+  },
+  "nanning": {
+    "base": "https://www.nanning.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "haikou": {
+    "base": "https://www.haikou.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "chengdu": {
+    "base": "https://www.chengdu.gov.cn",
+    "verdict": "BLOCK",
+    "http": 412,
+    "total": null,
+    "note": "反爬拦截，需换 Referer/UA 复测"
+  },
+  "guiyang": {
+    "base": "https://www.guiyang.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "kunming": {
+    "base": "https://www.km.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "lasa": {
+    "base": "https://www.lasa.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "xian": {
+    "base": "https://www.xa.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "lanzhou": {
+    "base": "https://www.lanzhou.gov.cn",
+    "verdict": "BLOCK",
+    "http": 412,
+    "total": null,
+    "note": "反爬拦截，需换 Referer/UA 复测"
+  },
+  "xining": {
+    "base": "https://www.xining.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "yinchuan": {
+    "base": "https://www.yinchuan.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "urumqi": {
+    "base": "https://www.urumqi.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。"
+  },
+  "suzhou": {
+    "base": "https://www.suzhou.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "wuxi": {
+    "base": "https://www.wuxi.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  }
+}
