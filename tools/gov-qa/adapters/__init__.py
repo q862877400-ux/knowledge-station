@@ -437,6 +437,9 @@ ADAPTERS: dict[str, str] = {
     # —— 西藏（2026-10-10，补 none 单元）：省级信访需登录已判死，
     #    但**拉萨市**这个接口是公开的 ⇒ 省级不行 ≠ 地市级也不行。
     "xz-lasa": "adapters.xz_lasa",     # 拉萨市·来信选登（POST api-mailbox/frontMail/mailList，公开列表含 objectiveType 类型标签）
+    # —— 甘肃补源（2026-10-10）：省级被 WAF 拦（412），但地市级可用。
+    "gs-tianshui": "adapters.gs_tianshui", # 天水市·政民互动（万户 leadermail，4 栏聚合列表 ≈2444 条）
+    "gs-linxia": "adapters.gs_linxia",   # 临夏州·政民互动
 }
 
 #: 用户要能直接 `from adapters import load`
