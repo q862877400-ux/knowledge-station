@@ -23,8 +23,19 @@
 9. **静态契约锚**：本尺子的 `A0_prod` 复刻的是生产那两处硬编码上限
    （`ORDER BY rank LIMIT 20` 与 `AND k = 20`）—— 生产改了上限而这里没跟，仪器对照会红
    （那是**好事**），但更糟的是有人把上限改成读配置后**静默**漂移 ⇒ 钉住它们。
-   另外 `exp7.fuse` / `exp7.order` 与臂名 `"A"` / `"Dp"` 也必须仍在。
-   判据见 `test_production_caps_and_exp7_reuse_points_still_exist`。
+   另外 `exp7.fuse` / `exp7.order` 与臂名 `"A"` / `"Dp"` 也必须仍在；
+   台账必须分别存 `rank20`/`rank100`/`rank1000`（**第 15 轮复核 P1-1** 的根因）。
+   判据见 `test_production_caps_and_exp7_reuse_points_still_exist` / `test_ledger_stores_three_depths_separately`。
+10. **★ 三个阈值不许退化成同一个**（**第 15 轮复核 P1-1**）：初版只存「top-20 名单里的名次」
+   ⇒ `@100`/`@1000` **恒等于 `@20`**，而 `stop-loss.json` 明列 `fused@100` 为副终点 ⇒ **读数不真**。
+   判据见 `test_top100_and_top1000_are_not_copies_of_top20`。
+11. **★ 旧台账兼容 + 「没测的不许报 0%」**（P1-1 的修法）：本轮台账是**旧形状**
+   （只有 `rank` 与 `hit@100`）⇒ `arm_rank()` 必须能读；`@1000` 无字段 ⇒ 必须上报 `null`。
+   **不许**把没测的深度算成 `0.0%`（那是把"不知道"说成"零"）。
+   判据见 `test_arm_rank_reads_both_ledger_shapes` / `test_legacy_ledger_reports_only_measured_depths`。
+12. **★ `fused_hit_n` / `fused_median_rank` 定义在 @20 上**（与冻结版逐位一致）——
+   修 P1-1 时**曾误把它们改到 `rank1000`**，那是**静默换定义**（A0_prod 会从 `10 / 3` 变成别的数）。
+   判据见 `test_fused_hit_n_and_median_are_defined_on_top20`。
 
 ⚠ 本文件**不测** `_run()`（要真库 + 5 分钟 KNN），只测判据所依赖的**纯函数**与**静态锚点**。
 """
@@ -139,15 +150,24 @@ def _mk_items(n: int) -> list[dict]:
 def _mk_runs(items: list[dict], ranks: dict[str, list[int | None]],
              pools: dict[str, list[int]] | None = None,
              oracle: dict[str, bool] | None = None,
-             identical: bool = True) -> dict:
+             identical: bool = True,
+             ranks1000: dict[str, list[int | None]] | None = None) -> dict:
+    """`ranks` = **rank20**（top-20 名单里的名次）；`ranks1000` 缺省时**与 rank20 相同**
+    （只有"要区分 @20 与 @100/@1000"的用例才需要单独给）。
+
+    ⚠ 三个深度必须分开存（第 15 轮复核 **P1-1**：初版只有一个 `rank`，导致 @100/@1000 是 @20 的复制）。
+    """
+    r1000 = ranks1000 or ranks
     out = {}
     for n, it in enumerate(items):
         arms = {}
         for arm in RULER.ARMS:
+            r20 = ranks[arm][n]
+            r1k = r1000[arm][n]
+            # rank100 在测试里按"与 rank1000 同档、但不小于 rank20"取：只要能区分三个阈值即可
+            r100 = r20 if r20 is not None else (r1k if (r1k is not None and r1k <= 100) else None)
             arms[arm] = {"pool": (pools or {}).get(arm, [40] * len(items))[n],
-                         "rank": ranks[arm][n],
-                         "hit@100": ranks[arm][n] is not None and ranks[arm][n] <= 100,
-                         "ch_n": {}}
+                         "rank20": r20, "rank100": r100, "rank1000": r1k, "ch_n": {}}
         out[it["i"]] = {
             "i": it["i"], "query": it["query"], "gold_cr_id": it["v2"]["gold_cr_id"],
             "modality_filter": None,
@@ -162,6 +182,23 @@ def _mk_runs(items: list[dict], ranks: dict[str, list[int | None]],
 
 def _ranks(items: list[dict], fill: int | None = None) -> dict[str, list[int | None]]:
     return {a: [fill] * len(items) for a in RULER.ARMS}
+
+
+def _mk_legacy_runs(items: list[dict], ranks20: dict[str, list], hits100: dict[str, list]) -> dict:
+    """造**旧形状**台账（第 15 轮初版）：`arms[臂]` 只有 `rank` + `hit@100`，**没有** `rank100/rank1000`。"""
+    out = {}
+    for n, it in enumerate(items):
+        arms = {a: {"pool": 40, "rank": ranks20[a][n], "hit@100": hits100[a][n], "ch_n": {}}
+                for a in RULER.ARMS}
+        out[it["i"]] = {
+            "i": it["i"], "query": it["query"], "gold_cr_id": it["v2"]["gold_cr_id"],
+            "modality_filter": None,
+            "deep_n": {"fts": 1000, "vec": 1000},
+            "gold_rank_in_deep": {"fts": None, "vec": None},
+            "oracle": {f"@{d}": False for d in RULER.ORACLE_DEPTHS},
+            "arms": arms, "check_identical": True,
+        }
+    return out
 
 
 def test_hit_rate_is_inclusive_at_boundary():
@@ -225,15 +262,69 @@ def test_pool_median_definition_is_pinned():
     assert agg["arms"]["A0_prod"]["pool_median"] == 30, "必须是 sorted[n//2]"
 
 
-def test_fused_hit_n_counts_non_none_ranks():
-    """★ `fused_hit_n` 数"名次非 None"，与 `@20` 口径可分。"""
+def test_fused_hit_n_and_median_are_defined_on_top20():
+    """★ `fused_hit_n` / `fused_median_rank` **定义在 @20 上**（与冻结版逐位一致）。
+
+    第 15 轮修 P1-1 时曾把这两个改到 `rank1000` 上 ⇒ **静默换定义**
+    （A0_prod 会从 `fused_hit_n=10 / median=3` 变成别的数）。这条判据钉住它：
+    `rank1000` 口径更宽，若定义漂到 @1000 上，这两个读数会变大。
+    """
     items = _mk_items(3)
     ranks = _ranks(items)
-    ranks["A0_prod"] = [5, None, 50]
-    agg, _ = RULER.aggregate_runs(items, _mk_runs(items, ranks), E7)
+    ranks["A0_prod"] = [5, None, None]        # @20 只命中 1 条
+    r1000 = _ranks(items)
+    r1000["A0_prod"] = [5, 500, None]         # 池内召回 2 条（若按 @1000 定义就会数成 2）
+    agg, _ = RULER.aggregate_runs(items, _mk_runs(items, ranks, ranks1000=r1000), E7)
     a = agg["arms"]["A0_prod"]
-    assert a["fused_hit_n"] == 2
+    assert a["fused_hit_n"] == 1, "hit_n 必须数 **@20 命中数**，不是池内召回数"
+    assert a["fused_median_rank"] == 5, "median 也必须取 @20 命中条"
     assert a["fused_top20"] == round(100 * 1 / 3, 2)
+
+
+def test_arm_rank_reads_both_ledger_shapes():
+    """★ `arm_rank()` 必须同时吃**新台账**（`rank20/100/1000`）与**旧台账**（`rank` + `hit@100`）。"""
+    new = {"rank20": 3, "rank100": 30, "rank1000": 300}
+    assert (RULER.arm_rank(new, 20), RULER.arm_rank(new, 100), RULER.arm_rank(new, 1000)) == (3, 30, 300)
+    old_hit = {"rank": 7, "hit@100": True}
+    assert RULER.arm_rank(old_hit, 20) == 7, "旧台账 @20 读 rank"
+    assert RULER.arm_rank(old_hit, 100) == 1, "旧台账 @100 只能还原「命中」（用 1 占位）"
+    assert RULER.arm_rank(old_hit, 1000) is None, "旧台账没有 @1000 字段"
+    old_miss = {"rank": None, "hit@100": False}
+    assert RULER.arm_rank(old_miss, 20) is None and RULER.arm_rank(old_miss, 100) is None
+
+
+def test_top100_and_top1000_are_not_copies_of_top20():
+    """★ **第 15 轮复核 P1-1 的回归判据**：`@100`/`@1000` 必须用**对应深度的名次**算。
+
+    初版三个阈值都套在「top-20 名单里的名次」上 ⇒ `rank ∈ {1..20, None}` ⇒
+    `@100` 与 `@1000` **恒等于 `@20`**，而 `stop-loss.json` 明列 `fused@100` 为副终点 ⇒ **读数不真**。
+    """
+    items = _mk_items(3)
+    ranks = _ranks(items)
+    ranks["A0_prod"] = [None, None, None]          # 一条都不在 top-20
+    r1000 = _ranks(items)
+    r1000["A0_prod"] = [50, 900, None]             # 一条在 @100 内、一条只在 @1000 内、一条没召回
+    agg, _ = RULER.aggregate_runs(items, _mk_runs(items, ranks, ranks1000=r1000), E7)
+    a = agg["arms"]["A0_prod"]
+    assert a["fused_top20"] == 0.0, "@20 必须还是 0（三条都不在前 20）"
+    assert a["fused_top100"] == round(100 * 1 / 3, 2), "@100 不许等于 @20"
+    assert a["fused_top1000"] == round(100 * 2 / 3, 2), "@1000 不许等于 @20/@100"
+
+
+def test_legacy_ledger_reports_only_measured_depths():
+    """★ **第 15 轮复核 P1-1 的修法判据**：旧台账（只有 `rank` + `hit@100`）下，
+    `@100` 必须从 `hit@100` **还原**，`@1000` 必须上报 **`null`**（**不许报 0%**）。"""
+    items = _mk_items(4)
+    r20 = _ranks(items)
+    r20["A0_prod"] = [None, None, None, None]
+    h100 = _ranks(items, fill=False)
+    h100["A0_prod"] = [True, False, True, False]
+    agg, _ = RULER.aggregate_runs(items, _mk_legacy_runs(items, r20, h100), E7)
+    a = agg["arms"]["A0_prod"]
+    assert agg["ledger_depths"] == [20, 100], "旧台账没有 @1000 字段 ⇒ 只能上报 @20/@100"
+    assert a["fused_top20"] == 0.0
+    assert a["fused_top100"] == 50.0, "@100 必须从 hit@100 还原（不是 @20 的复制）"
+    assert a["fused_top1000"] is None, "没测的深度必须 null —— 不许把「不知道」说成「零」"
 
 
 def test_by_subset_top20_partitions_by_label():
@@ -262,6 +353,18 @@ def test_production_caps_and_exp7_reuse_points_still_exist():
     assert "def fuse(" in e7 and "def order(" in e7, "exp-15 复用 exp-7 的 fuse/order，改名会让尺子断"
     assert '"A0_prod":       {"depth": 20,   "fusion": "A",  "k": 60}' in SCRIPT.read_text(encoding="utf-8"), \
         "A0_prod 必须仍是 depth=20 / 融合 A / k=60（生产现状）"
+
+
+def test_ledger_stores_three_depths_separately():
+    """★ 台账必须**分别存** `rank20`/`rank100`/`rank1000`（第 15 轮复核 P1-1 的根因锚点）。
+
+    只存一个 `rank` ⇒ 三个阈值共用同一个名次 ⇒ `@100/@1000` 静默退化成 `@20` 的复制。
+    """
+    src = SCRIPT.read_text(encoding="utf-8")
+    for key in ('"rank20"', '"rank100"', '"rank1000"'):
+        assert key in src, f"台账缺 {key} ⇒ 阈值会退化成同一个名次的复制"
+    assert "arm_r20" in src and "arm_r100" in src and "arm_r1000" in src, \
+        "聚合必须按三个深度分开取数"
 
 
 def test_stop_loss_preregistered_contract():

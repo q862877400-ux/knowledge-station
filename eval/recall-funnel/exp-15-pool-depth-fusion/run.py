@@ -33,6 +33,16 @@ channels=[exact,fts,vec,modality], boost_bookmarks=False)` **逐条一致 120/12
 单次向量 KNN（k=1000，暴力扫真库 66 万行）约 1 s ⇒ 120 条约 3~5 分钟。
 逐条 **append + fsync** 落 `runs.jsonl`（单位 = 一条提问，一条记录含全部臂）；被杀后重跑自动跳过。
 
+## ★ 台账字段（第 15 轮复核 P1-1 的根因，别再改回去）
+`arms[臂]` 必须**分别**存三个深度的名次：`rank20` / `rank100` / `rank1000` ——
+每个都是在**对应深度的名单**里取 `rank_of(gold, …)`。
+初版只存了一个 `rank`（= top-20 名单里的名次）⇒ 三个阈值共用同一个名次
+⇒ `@100`/`@1000` **恒等于** `@20`，而 `stop-loss.json` 明列 `fused@100` 为副终点 ⇒ **读数不真**。
+
+`aggregate_runs()` 通过 `arm_rank()` **兼容旧台账**：旧台账另有一个 `hit@100` 布尔字段
+（只能还原 @100 的**命中率**、还原不出名次），且**没有** @1000 字段
+⇒ 本轮不上报 `fused_top1000`（置 `null`），由 `ledger_depths()` 判定。
+
 ## 只读保证
 真库 `file:...?mode=ro`；不写库、不改任何源文件；脚本首尾各记一次库 mtime，不一致即报错退出。
 
@@ -154,13 +164,58 @@ def _median_rank(ranks: list[int | None]) -> int | None:
     return vals[len(vals) // 2] if vals else None
 
 
+def arm_rank(arm_rec: dict, depth: int) -> int | None:
+    """★ 纯函数：该臂在 `depth` 深度上的 gold 名次（`None` = 未命中 / 该深度无数据）。
+
+    台账有两种形状：
+      * **新**（本文件当前写法）：`rank20` / `rank100` / `rank1000`；
+      * **旧**（第 15 轮初版 —— 复核 **P1-1** 打回的那版）：只有
+        `rank`（top-20 名单里的名次）与 `hit@100`（布尔：是否进了前 100）。
+    ⇒ 旧台账：@20 读 `rank`；@100 只能还原「命中与否」（用 `1` 占位，**还原不出名次**，
+      但 `_hit_rate(…, 100)` 只用到"是否 ≤100"这一点，所以够用）；@1000 无字段 ⇒ `None`。
+    """
+    key = f"rank{depth}"
+    if key in arm_rec:
+        return arm_rec[key]
+    if depth == 20 and "rank" in arm_rec:
+        return arm_rec["rank"]
+    if depth == 100 and "hit@100" in arm_rec:
+        return 1 if arm_rec["hit@100"] else None
+    return None
+
+
+def ledger_depths(runs_by_key: dict[int, dict]) -> list[int]:
+    """★ 纯函数：台账里**真的存了**哪些深度 —— 决定哪些阈值可以上报（别把没测的当 0%）。"""
+    have: set[int] = set()
+    for r in runs_by_key.values():
+        for a in ARMS:
+            rec = r["arms"][a]
+            if "rank20" in rec or "rank" in rec:
+                have.add(20)
+            if "rank100" in rec or "hit@100" in rec:
+                have.add(100)
+            if "rank1000" in rec:
+                have.add(1000)
+    return sorted(have)
+
+
 def aggregate_runs(items: list[dict], runs_by_key: dict[int, dict], exp7) -> tuple[dict, list[dict]]:
     """★ 纯函数（单测直接喂合成台账）：从逐条台账算聚合。
 
     `runs_by_key[i]` = 该条记录（含 `arms` / `oracle`）。缺条即 `KeyError`
     （**不静默补 0** —— 缺条会让 @20 的分母错）。
+
+    ⚠ **每个阈值的名次必须来自对应深度的名单**（第 15 轮复核 **P1-1** 打回）：
+    初版把三个阈值都套在「top-20 名单里的名次」上 ⇒ `@100/@1000` 恒等于 `@20`、读数不真。
+    取数统一走 `arm_rank()`（兼容新/旧两种台账形状）。
+
+    ⚠ `fused_hit_n` / `fused_median_rank` **定义在 @20 上**（与冻结版逐位一致）：
+    前者 = @20 命中条数、后者 = @20 命中条的名次中位。**别改成 rank1000** —— 那是静默换定义。
     """
-    arm_ranks: dict[str, list[int | None]] = {a: [] for a in ARMS}
+    depths = ledger_depths(runs_by_key)
+    arm_r20: dict[str, list[int | None]] = {a: [] for a in ARMS}
+    arm_r100: dict[str, list[int | None]] = {a: [] for a in ARMS}
+    arm_r1000: dict[str, list[int | None]] = {a: [] for a in ARMS}
     arm_pools: dict[str, list[int]] = {a: [] for a in ARMS}
     oracle_hit: dict[str, list[bool]] = {f"@{d}": [] for d in ORACLE_DEPTHS}
     per_query: list[dict] = []
@@ -172,7 +227,9 @@ def aggregate_runs(items: list[dict], runs_by_key: dict[int, dict], exp7) -> tup
                "deep_n": r["deep_n"], "gold_rank_in_deep": r["gold_rank_in_deep"],
                "oracle": r["oracle"], "arms": r["arms"], "check_identical": r["check_identical"]}
         for a in ARMS:
-            arm_ranks[a].append(r["arms"][a]["rank"])
+            arm_r20[a].append(arm_rank(r["arms"][a], 20))
+            arm_r100[a].append(arm_rank(r["arms"][a], 100))
+            arm_r1000[a].append(arm_rank(r["arms"][a], 1000))
             arm_pools[a].append(r["arms"][a]["pool"])
         for d in ORACLE_DEPTHS:
             oracle_hit[f"@{d}"].append(bool(r["oracle"][f"@{d}"]))
@@ -191,6 +248,9 @@ def aggregate_runs(items: list[dict], runs_by_key: dict[int, dict], exp7) -> tup
     agg: dict = {
         "n": len(items),
         "arms": {},
+        "ledger_depths": depths,
+        "depth_note": "台账里真的存了名次的深度；没存的一律上报 null（**不许把没测的当 0%**）。"
+                      "本轮台账（初版）只存了 @20 名次与 @100 布尔命中 ⇒ @1000 未测。",
         "oracle": {f"@{d}": round(sum(1 for x in oracle_hit[f"@{d}"] if x) / len(items) * 100, 2)
                    for d in ORACLE_DEPTHS},
         "oracle_note": "oracle = gold 落在『exact ∪ modality ∪ fts[:d] ∪ vec[:d]』里的比例；**上界，不是可实现系统**",
@@ -202,16 +262,20 @@ def aggregate_runs(items: list[dict], runs_by_key: dict[int, dict], exp7) -> tup
         },
     }
     for a in ARMS:
-        r = arm_ranks[a]
-        pools = arm_pools[a]
-        rec = {f"fused_top{t}": _hit_rate(r, t) for t in (20, 100, 1000)}
-        rec["fused_median_rank"] = _median_rank(r)
-        rec["fused_hit_n"] = sum(1 for x in r if x is not None)
-        rec["pool_median"] = sorted(pools)[len(pools) // 2]
-        rec["by_subset_top20"] = by_subset(r, 20)
+        rec = {
+            "fused_top20": _hit_rate(arm_r20[a], 20),
+            # ⚠ 第 15 轮复核 P1-1：@100 必须用**前 100 名单**里的名次算，不许套 top-20 名次
+            "fused_top100": _hit_rate(arm_r100[a], 100) if 100 in depths else None,
+            "fused_top1000": _hit_rate(arm_r1000[a], 1000) if 1000 in depths else None,
+            # ↓ 这两个**定义在 @20 上**（与冻结版逐位一致）：别改成 rank1000（那是静默换定义）
+            "fused_hit_n": sum(1 for x in arm_r20[a] if x is not None),
+            "fused_median_rank": _median_rank(arm_r20[a]),
+            "pool_median": sorted(arm_pools[a])[len(arm_pools[a]) // 2],
+            "by_subset_top20": by_subset(arm_r20[a], 20),
+        }
         if a != "A0_prod":
-            base_hit = [x is not None and x <= 20 for x in arm_ranks["A0_prod"]]
-            arm_hit = [x is not None and x <= 20 for x in r]
+            base_hit = [x is not None and x <= 20 for x in arm_r20["A0_prod"]]
+            arm_hit = [x is not None and x <= 20 for x in arm_r20[a]]
             b = sum(1 for x, y in zip(base_hit, arm_hit) if (not x) and y)
             c = sum(1 for x, y in zip(base_hit, arm_hit) if x and (not y))
             rec["vs_A0_top20"] = {
@@ -297,12 +361,14 @@ def _run(args) -> int:
                 rk = build_rankings(deep, a, doc_of)
                 exp7.K = spec["k"]
                 sc = exp7.fuse(rk, spec["fusion"])
-                lst20 = exp7.order(sc, status, 20)
-                lst100 = exp7.order(sc, status, 100)
+                # ⚠ **必须分别取三个深度的名次**（第 15 轮复核 **P1-1** 打回）：
+                #   初版只存了「top-20 名单里的名次」⇒ `rank ∈ {1..20, None}` ⇒
+                #   `_hit_rate(rank, 100)` 与 `(rank, 1000)` 都恒等于 `@20`，**@100/@1000 是 @20 的复制**。
                 rec["arms"][a] = {
                     "pool": len(sc),
-                    "rank": exp7.rank_of(gold, lst20),
-                    "hit@100": bool(exp7.rank_of(gold, lst100) and exp7.rank_of(gold, lst100) <= 100),
+                    "rank20": exp7.rank_of(gold, exp7.order(sc, status, 20)),
+                    "rank100": exp7.rank_of(gold, exp7.order(sc, status, 100)),
+                    "rank1000": exp7.rank_of(gold, exp7.order(sc, status, 1000)),
                     "ch_n": {c: len(rk[c]) for c in LIVE},
                 }
             # ★ 仪器对照：A0_prod 前 20 必须与生产逐条一致
@@ -346,6 +412,7 @@ def _aggregate(items: list[dict], exp7) -> int:
 
     ic = agg["instrument_check"]
     print("\n[exp-15] ==== 结果（headline 120，fused = 融合后名次）====")
+    print(f"  台账里存了名次的深度 = {agg['ledger_depths']}（没存的上报「未测」，不报 0%）")
     for a in ARMS:
         r = agg["arms"][a]
         extra = ""
@@ -353,8 +420,10 @@ def _aggregate(items: list[dict], exp7) -> int:
             v = r["vs_A0_top20"]
             extra = (f"  Δ@20={v['delta_pt']:+.2f}pt 进{v['flip_in']}/出{v['flip_out']}"
                      f" p={v['mcnemar_p']}")
-        print(f"  {a:15s} @20={r['fused_top20']:5.2f}%  @100={r['fused_top100']:5.2f}%  "
-              f"中位={r['fused_median_rank']}  池中位={r['pool_median']}{extra}")
+        t100 = " 未测" if r["fused_top100"] is None else f"{r['fused_top100']:5.2f}%"
+        t1000 = " 未测" if r["fused_top1000"] is None else f"{r['fused_top1000']:5.2f}%"
+        print(f"  {a:15s} @20={r['fused_top20']:5.2f}%  @100={t100}  @1000={t1000}  "
+              f"池中位={r['pool_median']}  @20命中数={r['fused_hit_n']}{extra}")
     print(f"  oracle 上界（非可实现）：" +
           "  ".join(f"@{d}={agg['oracle'][f'@{d}']:.2f}%" for d in ORACLE_DEPTHS))
     print(f"  仪器对照：A0_prod 与生产逐条一致 {ic['identical_count']}/{ic['compared']}")

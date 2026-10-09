@@ -673,7 +673,13 @@ i=113 29,170 → **37,911**、i=87 6,759 → 8,092、i=133 1,143 → **1,907**�
 | `P1000_doc3` | 1000 → 每篇最多 3 条取 20 | 加权 RRF k=60 | 40 | 8.33% | +0.00pt | **0/0** | 1.0 |
 
 **判决（按预注册阈值机械算）**：**整格都不动** —— 最好两格 **+1.67pt < 观察线 +2pt**；
-变平衰减（`k`=200/1000）**反而 0 / −1.66pt**；RRM 与文档去重**与生产逐条完全相同**。
+变平衰减（`k`=200/1000）**反而 0 / −1.66pt**；RRM 与文档去重**与生产命中状态（`@20`）逐条相同**。
+> ★ **第 15 轮复核 P1-2 更正（原话保留）**：原文写「与生产**逐条完全相同**」—— **超出证据**。
+> 证据只有「翻进 0 / 翻出 0」= **命中状态**逐条相同；复核实算 top-20 **名单**：RRM 臂抽样 14 条里
+> **5 条不同**（i=84 连 gold 名次都 1→7）、文档去重臂 **7 条不同**。
+> ★ **第 15 轮复核 P1-1 更正**：本批 `@100` 初版是 `@20` 的复制（聚合漏用台账里的 `hit@100`）
+> ⇒ 真值 **11.67 / 14.17 / 15.00 / 15.83 / 13.33 / 12.50 / 10.00%**（已修；`@20` 与判决逐位未变）；
+> `@1000` 初版台账**没存**该深度 ⇒ **本轮不上报**。
 
 **★ 本批真正的收获是一条结构读数（第 3 刀那条的续篇）**：
 
@@ -704,9 +710,10 @@ i=113 29,170 → **37,911**、i=87 6,759 → 8,092、i=133 1,143 → **1,907**�
 
 **产物**：[exp-15 README](eval/recall-funnel/exp-15-pool-depth-fusion/README.md) + `stop-loss.json` + `run.py`
 + `probe-knn-cost.py`/`knn-cost.json` + `runs.jsonl` + `result.json` + `per-query.jsonl`
-+ `tests/test_pool_depth_ruler.py`（**17 条，12 处变异全被抓**）。
-详细记录 [开发史 §10.223](DEVELOPMENT-HISTORY.md)。⚠ 属**必验类别**，已冻结 tag 并派独立复核。
-报告 = [VERIFY-REPORT-exp14-fused-rewrite](verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md)。
++ `tests/test_pool_depth_ruler.py`（**21 条，17 处变异全被抓**）。
+详细记录 [开发史 §10.224](DEVELOPMENT-HISTORY.md)。⚠ 属**必验类别**，已冻结 tag 并派独立复核。
+复核报告 = [VERIFY-REPORT-exp15-pool-depth-fusion](verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md)
+（**PASS，无 P0**；2 条 P1 + 1 条 P2 已逐条处置）。
 
 ---
 

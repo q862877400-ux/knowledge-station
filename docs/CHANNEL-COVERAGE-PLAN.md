@@ -2736,6 +2736,12 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
   RRM / 文档去重），终点 `fused@20`（headline 120）。
   **结论：整格都不动** —— 最好两格只有 **+1.67pt（p=0.5 / 0.625）**，低于预注册观察线 +2pt；
   其余五格 ≤ 0（`k=1000` 时 **−1.66pt**）。
+  **RRM 与"按文档去重"两臂与生产命中状态（`@20`）逐条相同**（翻进 0 / 翻出 0）。
+  ⚠ **第 15 轮复核 P1-2 更正（原话保留）**：原写「与生产**逐条完全相同**」**超出证据** ——
+  0 进 0 出只证**命中状态**相同；复核实算 top-20 **名单**：RRM 臂抽样 14 条里 **5 条不同**、
+  文档去重臂 **7 条不同**。⚠ **复核 P1-1 更正**：本批 `@100` 初版是 `@20` 的复制
+  ⇒ 真值 **11.67 / 14.17 / 15.00 / 15.83 / 13.33 / 12.50 / 10.00%**（已修，`@20` 与判决逐位未变）；
+  `@1000` 本轮**未测**（台账没存该深度）。
 - **顺带量到一条与"通道"直接相关的结构事实（第 13 轮那条的续篇）**：
   **池子里有 gold 的比例能从 12.50%（池中位 40）拉到 35.00%（池中位 1,930），
   但前 20 只从 8.33% 到 10.00%** ⇒ **卡住用户的不是"池子太小"，是"排不到前面"**。
@@ -2745,9 +2751,10 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **六通道枚举 `SEARCH_CHANNELS` 一字未动**；通道 A/B/C/D/E/F 的触发条件、**权重**、
   **RRF 常数**、SSE 顺序**全未触碰**；索引（`clause_fts` / `clause_vec`）**一个字没动**；
   本轮是**离线对照**（只在实验脚本里参数化取数与融合公式，**生产代码零改动**，`src`/`plugin` 零改动）。
-  详细记录在它自己的归属层 —— [开发史 §10.223](DEVELOPMENT-HISTORY.md)、
+  详细记录在它自己的归属层 —— [开发史 §10.224](DEVELOPMENT-HISTORY.md)、
   [总纲 P2 段「第 4 刀」](RETRIEVAL-LONG-RANGE-PLAN.md)、
-  [`eval/recall-funnel/exp-15-pool-depth-fusion/README.md`](../eval/recall-funnel/exp-15-pool-depth-fusion/README.md)。
+  [`eval/recall-funnel/exp-15-pool-depth-fusion/README.md`](../eval/recall-funnel/exp-15-pool-depth-fusion/README.md)
+  （复核报告 = [VERIFY-REPORT-exp15-pool-depth-fusion](verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md)，**PASS，无 P0**）。
   本文不抄正文（宪法原则 IV：一个事实一个归属层）。
 - **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
   `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
