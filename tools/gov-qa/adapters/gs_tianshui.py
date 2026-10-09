@@ -84,8 +84,47 @@ def parse_detail(html: str) -> dict[str, str]:
     return out
 
 
-def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """遍历聚合列表 PAGENUM，逐条取详情，返回已答复留言（问题 + 答复全文）。"""
+def existing_ids(site_key: str) -> set:
+    """读 `data/<site_key>-*.jsonl` 已有 id（供增量续采，避免重取明细）。"""
+    import glob
+    import json
+    import os
+    ids: set = set()
+    data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+    try:
+        for p in glob.glob(os.path.join(data_dir, f"{site_key}-*.jsonl")):
+            with open(p, encoding="utf-8", errors="replace") as fh:
+                for line in fh:
+                    if line.strip():
+                        try:
+                            mid = str(json.loads(line).get("id") or "").strip()
+                        except Exception:                                   # noqa: BLE001
+                            continue
+                        if mid:
+                            ids.add(mid)
+    except Exception:                                                       # noqa: BLE001
+        pass
+    return ids
+
+
+def harvest(fetch, *, limit: int | None = None,
+            skip_ids: set | None = None) -> list[dict]:
+    """遍历聚合列表 PAGENUM，逐条取详情，返回已答复留言（问题 + 答复全文）。
+
+    ★ 2026-10-10 第 7 轮两处改动：
+
+    1. **加 `skip_ids`**（`None` 时自动取已落盘 id）：命中则**连明细都不取**，
+       且不计入 `limit` ⇒ 可反复跑逐轮推进。
+    2. **给「第 3 步逐条取明细」加进度日志**。原来的日志只有第 2 步（扫列表），
+       而**最慢的是第 3 步**（每条一次详情请求 + `PAUSE`）⇒
+       跑起来会出现「列表日志停在某一页、之后长时间没有任何输出」的假象。
+       **我为此误判了两次**（先判「站点侧节流」，其实是静默阶段）。
+       ⇒ 现在每 50 条打一行，一眼能看出是「慢」还是「死」。
+    """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
+    if skip_ids:
+        print(f"    [{SITE['key']}] 已落盘 {len(skip_ids)} 条，命中则跳过明细")
     referer = BASE
     # 1) 先取第 1 页，拿最大 totalpage（4 栏中最大者）
     first = fetch(LIST_TPL.format(tp=1, p=1, col=COLUMN), headers={"Referer": referer})
@@ -109,10 +148,13 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
           f"（totalpage 回显 {sorted(set(tps))}）→ 遍历 1..{maxpage}")
 
     # 2) 收集全部 leadermailid（去重，保持出现顺序）
+    #    ⚠ 有了 `skip_ids` 之后，判「够不够」要看**未见过的**条数，
+    #      不能看 `len(ids)`（后者含已落盘的）。
     ids: list[str] = []
     seen: set[str] = set()
+    unseen = 0
     for p in range(1, maxpage + 1):
-        if limit and len(ids) >= limit * 3:     # 列表远快于详情，留足余量即可
+        if limit and unseen >= limit * 3:       # 列表远快于详情，留足余量即可
             break
         if p == 1:
             text = first.text or ""
@@ -121,7 +163,7 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
                       headers={"Referer": referer})
             if getattr(r, "status_code", 0) != 200:
                 print(f"    [{SITE['key']}] 列表第 {p} 页 HTTP "
-                      f"{getattr(r, 'status_code', '?')}（停）")
+                      f"{getattr(r, 'status_code', '?')}（停）", flush=True)
                 break
             text = r.text or ""
         new = 0
@@ -130,13 +172,21 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
                 seen.add(mid)
                 ids.append(mid)
                 new += 1
-        print(f"    [{SITE['key']}] 列表第 {p}/{maxpage} 页：新增 {new} 条（累计 {len(ids)}）")
+                if mid not in skip_ids:
+                    unseen += 1
+        print(f"    [{SITE['key']}] 列表第 {p}/{maxpage} 页：新增 {new} 条"
+              f"（累计 {len(ids)}，其中未见 {unseen}）", flush=True)
         time.sleep(PAUSE)
 
-    # 3) 逐条取详情
+    # 3) 逐条取详情（★ 这是最慢的一步：每条一次请求 + PAUSE ⇒ 必须有进度日志）
     out: list[dict] = []
-    for mid in ids:
+    skipped = 0
+    todo = [m for m in ids if m not in skip_ids]
+    print(f"    [{SITE['key']}] 待取明细 {len(todo)} 条"
+          f"（总候选 {len(ids)}，跳过已落盘 {len(ids) - len(todo)}）", flush=True)
+    for i, mid in enumerate(todo, 1):
         if limit and len(out) >= limit:
+            print(f"    [{SITE['key']}] 达 limit={limit}（明细已取 {i - 1} 条）", flush=True)
             break
         try:
             d = fetch(DETAIL_TPL.format(col=COLUMN, mid=mid), headers={"Referer": referer})
@@ -152,6 +202,7 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
         if len(answer) < 10:                # 未答复/办理中，跳过
             time.sleep(PAUSE)
             continue
+        skip_ids.add(mid)
         title = f.get("标题", "")
         body = f.get("信件内容", "")
         out.append({
@@ -170,6 +221,9 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
                 "platform": "wanhu-leadermail",
             },
         })
+        if i % 50 == 0:
+            print(f"    [{SITE['key']}] 明细进度 {i}/{len(todo)}，已收 {len(out)} 条", flush=True)
         time.sleep(PAUSE)
-    print(f"    [{SITE['key']}] 收 {len(out)} 条")
+    print(f"    [{SITE['key']}] 收 {len(out)} 条"
+          + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
     return out
