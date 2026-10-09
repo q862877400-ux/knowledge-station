@@ -192,12 +192,15 @@ def perform_hybrid_search(
              真正"先 KNN 再筛"的是**单字面量/等值**（`clause_revision_id = ?`）。
         ⇒ 结论不变（**只许用子查询形式**），但别再照"先 KNN 再筛"推理容量。
 
-      ⚠⚠ **2026-10-09 就地更正（spec 003，第 17 轮实测）—— 上面那段对向量通道【作废】。**
-        它说"`clause_revision_id IN (子查询)` 是带约束的 KNN"—— **只在子查询恰好返回 1 个 id 时成立**；
-        **≥2 个 id 恒返回 `[]`**。真实目录通常几十上百条 ⇒ 向量通道**假报"范围内没有"**。
+      ⚠⚠ **2026-10-09 就地更正（spec 003）—— 上面那段对向量通道【作废】，下面这句也已更正过一次。**
+        **初版更正（作废）**：曾写"`IN (子查询)` 只在**子查询恰好返回 1 个 id** 时成立、**≥2 个 id 恒返回 `[]`**"
+        —— 那是**错的**（依据的探针喂的是文档 id 不是条款 id）。
+        **真正的失效条件**（判决性实验 `specs/003-vec-scope-pushdown/probes/probe-mechanism.py`，
+        且经独立复核用更细的档位确认）：**范围子查询返回的 id 里，只要有一个在向量表里【没有对应行】，
+        整体就返回 `[]`**（返回的 id 全都有向量 ⇒ 正常；少一条 ⇒ 空）。
+        **与 id 个数无关、与表大小无关**（近邻 25 → 100,000 条行为一样）。
         根因：`clause_revision_id` 是 vec0 的 **TEXT PRIMARY KEY**，sqlite-vec **不把它用于 KNN 前置过滤**。
-        ⇒ 修法（已实测）：给 `clause_vec` 加**元数据列** `doc_id`，改用 `_scope_vec()`。
-        证据：`specs/003-vec-scope-pushdown/probes/probe-vec-scope-fix.py`（Q1 复现 / Q2a 修好）。
+        ⇒ 修法（已实测 + 已迁移）：给 `clause_vec` 加**元数据列** `doc_id`，改用 `_scope_vec()`。
     """
     conn = _conn()
     if channels is None:

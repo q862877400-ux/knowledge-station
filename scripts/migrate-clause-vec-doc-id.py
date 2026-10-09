@@ -40,12 +40,27 @@ INSERT INTO clause_vec(clause_revision_id, embedding)
 `Could not create '_info' shadow table: table "clause_vec_info" already exists`。
 ⇒ **必须走"普通表中转 → DROP 虚表 → 重建 → 回灌"**（`DROP` 会连影子表一起清掉）。
 
-## 自检（任一不过 ⇒ 整体回滚、脚本非零退出）
+## 自检（**分两段**，别把两段混成一句"整体回滚"）
+
+**事务内**（任一不过 ⇒ **整体回滚**、脚本非零退出）：
 
 1. 行数：迁移前后相同；
-2. **向量逐字节相同**（全表比对，不是抽样）；
-3. `doc_id` 与 `clause_revision` **全表一致**（`clause_vec.doc_id == clause_revision.doc_id`）；
-4. 迁移后**形状正确**（`doc_id` 是普通列、`embedding` 仍 512 维）。
+2. `doc_id` 与 `clause_revision` **全表一致**；
+3. 迁移后**形状正确**（`doc_id` 是普通列、`embedding` 仍 512 维）。
+
+**事务后**（**已完成 COMMIT** ⇒ 不过**不会**自动回滚，脚本报错并打印回滚命令）：
+
+4. **向量逐字节相同**（全表比对，不是抽样）。
+
+⚠ 为什么第 4 条放事务外：它是 66 万行的全表比对（实测 **97 s**），放事务里会让写锁多持 ~1.5 分钟。
+**代价是它不过时不自动回滚** ⇒ 所以脚本**必须**把回滚命令打印出来（它确实打了）。
+
+## 孤儿向量（2026-10-09 独立复核 P2-①）
+
+若 `clause_vec` 里存在**在 `clause_revision` 找不到对应行**的向量，本脚本会在**事务内失败并整体回滚**
+—— 新表的 `doc_id` 来自 `LEFT JOIN`，那种行会拿到 NULL，而 **`vec0` 的 TEXT 列拒 NULL**
+（复核实测）⇒ 报错、**不会留下半成品**，但**也不会自己跳过**。
+`--dry-run` 会先报孤儿数；**实测真库 = 0** ⇒ 不影响本次迁移。
 """
 from __future__ import annotations
 

@@ -446,8 +446,9 @@ def test_clause_vec_doc_id_metadata_column(db):
 
     为什么必须是"元数据列"而不是随便一列：`sqlite-vec 0.1.9` 只把**元数据列**用于
     KNN 前置过滤；`clause_revision_id` 是 `TEXT PRIMARY KEY`，在它上面做
-    `IN (子查询)` **不下推**（≥2 个 id 恒返回 `[]`）—— 那正是本项要修的缺陷。
-    见 `specs/003-vec-scope-pushdown/research.md` R2。
+    `IN (子查询)` **不下推** —— **只要范围子查询返回的 id 里有一个在向量表里没有对应行，
+    整体就返回 `[]`**（与 id 个数、表大小都无关）—— 那正是本项要修的缺陷。
+    见 `specs/003-vec-scope-pushdown/research.md` R1-更正（**含初版那句"≥2 个 id"的作废留痕**）。
 
     ⚠ 断言 `pk == 0` 是**要害**：`doc_id` 一旦变成主键列，下推就没了。
     ⚠ `PRAGMA table_info` 对 vec0 表**不报声明类型**（type 是空串）⇒ 形状只能靠 DDL 文本断言。
@@ -476,3 +477,48 @@ def test_clause_repo_writes_doc_id_into_clause_vec():
     n = src.count("INSERT OR REPLACE INTO clause_vec (clause_revision_id, doc_id, embedding)")
     assert n == 2, (f"clause_repo 里写 clause_vec 的 INSERT 应**恰好 2 处**都带 doc_id，"
                     f"实际 {n} 处（spec 003 · FR-009）")
+
+
+def test_clause_repo_write_path_sets_doc_id(db, monkeypatch):
+    """spec 003 · FR-009 / SC-005（**端到端**）：真经写侧跑一条 ⇒ `clause_vec.doc_id` 必须对。
+
+    为什么还要这一条（上面那条是**静态**锚点）：静态锚点只证明"INSERT 语句里写了 `doc_id`"，
+    **不证明**"真跑起来那个值是对的" —— 列名写对但**取错字段**、或 `vec_batch` 的 `zip` **错位**，
+    静态锚点都看不见。而漏/错 `doc_id` 的症状是**静默的**：那条条款只会在
+    「按目录范围提问」里消失，**没有任何读数能发现**。
+
+    ⚠ 本用例**自己收尾**（`db` 是会话级夹具，留下的行会污染同会话的其它用例）。
+    """
+    from src.core.domain.models import ClauseRevisionModel
+    from src.core.retrieval import embedder as emb
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import load_vec_extension
+    load_vec_extension(db)
+    clause_repo.insert_document(db, dict(
+        doc_id="ct_doc_w", standard_no="GB 99001-2026", standard_name="写侧契约",
+        short_code="GB99001", current_revision_id="r_w",
+        domain_tags=["t"], file_path="w.pdf", file_hash="h_w"))
+    monkeypatch.setattr(emb, "is_available", lambda: True)
+    monkeypatch.setattr(emb, "embed_batch", lambda texts: [[0.01] * 512 for _ in texts])
+    try:
+        clause_repo.insert_clauses_in_txn(db, [ClauseRevisionModel(
+            clause_revision_id="ct_clrev_w", doc_id="ct_doc_w", clause_key="k_w",
+            standard_no="GB 99001-2026", clause_number="1.0.1", content_text="写侧契约正文",
+            knowledge_type="rule", legal_status="effective", page_start=1, page_end=1)])
+        db.commit()
+        row = db.execute("SELECT doc_id FROM clause_vec"
+                         " WHERE clause_revision_id='ct_clrev_w'").fetchone()
+        assert row is not None, "向量没写进 clause_vec（嵌入器已打桩成可用，本该写）"
+        assert row[0] == "ct_doc_w", (
+            f"clause_vec.doc_id 应为 ct_doc_w，实测 {row[0]!r}"
+            "（漏了/取错它 ⇒ 这条只会在「按目录范围提问」里静默消失）")
+    finally:
+        for sql in ("DELETE FROM clause_vec WHERE clause_revision_id='ct_clrev_w'",
+                    "DELETE FROM clause_fts WHERE clause_revision_id='ct_clrev_w'",
+                    "DELETE FROM clause_revision WHERE clause_revision_id='ct_clrev_w'",
+                    "DELETE FROM doc_meta WHERE doc_id='ct_doc_w'"):
+            try:
+                db.execute(sql)
+            except Exception:  # noqa: BLE001
+                pass
+        db.commit()

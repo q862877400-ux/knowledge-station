@@ -287,6 +287,14 @@ def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
     三种写法都试过（`IN (SELECT value FROM json_each(?))` 直接把 id 列表喂进去 / 两级子查询 /
     单等值），**≥2 个 id 时全都返回 `[]`**（单等值本来就被本条文档认定为"先 KNN 再筛"）。
 
+    ⚠⚠ **2026-10-09 二次更正（spec 003，独立复核用更细的档位确认）**：上面那句
+    "**判据是范围子查询返回几个 id**"**不准确，已作废**。判决性实验
+    （`specs/003-vec-scope-pushdown/probes/probe-mechanism.py`，直接 SQL 跑两种写法、扫规模）给出：
+    **真正的失效条件是"范围子查询返回的 id 里，只要有一个在向量表里【没有对应行】，整体就返回 `[]`"**
+    —— 返回的 id **全都有向量 ⇒ 正常**；**少一条 ⇒ 空**；**与 id 个数无关、与表大小无关**
+    （近邻 25 → 100,000 条行为一样）。上面那张表之所以看起来像"≥2 个就坏"，是因为它每次只让
+    **1 条**有向量、其余全缺 —— 命中的是"缺行"，不是"个数"。
+
     **本用例为什么因此红**：fixture 给的 `in_doc` 有 **5 条**条款（`in_weak` / `in_exact` /
     `in_mod` / `in_sub` / `in_beh`）⇒ 范围子查询返回 **5 个 id** ⇒ 下推不发生 ⇒ 返回 `[]`。
     （fixture 在 2026-09-21 因复核 HIGH-1 重做过、条款集变过；重做后这条用例的前提就不再成立，
@@ -363,8 +371,8 @@ def test_vec_scope_holds_with_more_than_one_document(scope_db, monkeypatch):
 
     为什么要单独一条：上面那条的范围内**只有 1 篇**，所以
     `doc_id = (SELECT value FROM json_each(?))` 这种"标量子查询只取第一行"的写法**照样能过** ——
-    而它正是本项要关掉的那类"看着像"的写法（实测：≥2 个 id 时行为不同，
-    字面量列表 / `OR` 更会**返回范围外的行**，见 `specs/003-vec-scope-pushdown/research.md` R2）。
+    而它正是本项要关掉的那类"看着像"的写法（实测：字面量列表 / `OR` 更会**返回范围外的行**，
+    见 `specs/003-vec-scope-pushdown/research.md` R2）。
 
     本条把答案放在**第二篇**范围内文档里 ⇒ 只有"范围真的整体下推"才拿得到它。
     判据：两篇的向量条款**都要回来**，且不许混进 `out_`。

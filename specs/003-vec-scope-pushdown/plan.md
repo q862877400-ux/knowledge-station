@@ -6,8 +6,12 @@
 
 ## Summary
 
-**问题**：`clause_vec` 的范围过滤写成 `clause_revision_id IN (子查询)`，**只在子查询恰好返回 1 个 id 时**被下推进 KNN；
-**≥2 个 id 恒返回 `[]`** ⇒ 「按目录范围提问」在向量通道上**假报"范围内没有"**（真实目录通常几十上百条）。
+**问题**：`clause_vec` 的范围过滤写成 `clause_revision_id IN (子查询)`，而 `clause_revision_id` 是
+`vec0` 的 **TEXT PRIMARY KEY** —— sqlite-vec **不拿它做 KNN 前置过滤**：**只要范围子查询返回的 id 里
+有一个在向量表里没有对应行，整体就返回 `[]`**（全都有向量才正常；**与 id 个数、表大小都无关**）
+⇒ 「按目录范围提问」在向量通道上**假报"范围内没有"**。
+⚠ **初版这里写的是"≥2 个 id 恒返回 `[]`"—— 那句【已作废】**（依据的探针喂的是文档 id 不是条款 id），
+更正依据见 [research.md](research.md) R1-更正。
 
 **修法**：给 `vec0` 加一个**元数据列** `doc_id TEXT`，范围过滤改走
 `doc_id IN (SELECT value FROM json_each(?))` —— **本轮实测这是唯一能下推的写法**（见 [research.md](research.md) R2）。

@@ -119,8 +119,10 @@ CREATE VIRTUAL TABLE IF NOT EXISTS clause_fts USING fts5(
 -- 6. sqlite-vec 向量检索虚拟表 (bge-small-zh-v1.5, 512 维)
 -- ⚠ 2026-10-09（spec 003）：加 `doc_id` **元数据列** —— 「按目录范围提问」必须靠它才能把范围
 --    下推进 KNN。原因（实测）：sqlite-vec 0.1.9 **不把 `clause_revision_id`（TEXT PRIMARY KEY）
---    用于 KNN 前置过滤** —— 在它上面做 `IN (子查询)` 只在子查询恰好返回 1 个 id 时成立，
---    ≥2 个 id 恒返回 `[]` ⇒ 向量通道会假报"范围内没有"（真实目录通常几十上百条）。
+--    用于 KNN 前置过滤** —— 在它上面做 `IN (子查询)` 时，**只要范围子查询返回的 id 里有一个
+--    在向量表里没有对应行，整体就返回 `[]`**（全都有向量才正常；与 id 个数、表大小都无关）
+--    ⇒ 向量通道会假报"范围内没有"。见 pipeline/03-contract-delta.md 末节 +
+--    specs/003-vec-scope-pushdown/research.md R1-更正（**含初版那句"≥2 个 id"的作废留痕**）。
 --    见 pipeline/03-contract-delta.md 末节 + specs/003-vec-scope-pushdown/research.md R2。
 -- ⚠ 虚拟表不支持 ALTER TABLE ⇒ 存量库必须走 scripts/migrate-clause-vec-doc-id.py（纯拷贝、不重算向量）。
 CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0(

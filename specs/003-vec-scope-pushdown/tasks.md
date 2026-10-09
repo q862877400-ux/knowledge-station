@@ -90,8 +90,8 @@
   影子表 DDL 加 `doc_id TEXT` 并回填（保持"与生产同形"）
 - [x] T019 跑 `pwsh -File scripts/run-gates.ps1 -Quick`（**不新增本项引入的红**）
   ⇒ **5/5 · exit=0**（`tsc` / `mypy` / `verify:commands 22/22` / `pssa-guard` / `smoke 42/42 套全过`，11m07s）
-- [ ] T020 写归属层：`docs/DEVELOPMENT-HISTORY.md` + `AUTO-CHAIN-HANDOFF.md`
-- [ ] T021 **派独立复核**（本项属**必验类别**：改 schema + 动生产数据）
+- [x] T020 写归属层：`docs/DEVELOPMENT-HISTORY.md` + `AUTO-CHAIN-HANDOFF.md`
+- [x] T021 **派独立复核**（本项属**必验类别**：改 schema + 动生产数据）
 
 ---
 
@@ -134,3 +134,70 @@ US2 是**回归防线**（不新增功能，但必须成立）；US3 是**让真
 - ⚠ **范围过滤只许用 `doc_id IN (SELECT value FROM json_each(?))`** —— 字面量列表与 `OR` 实测**会返回范围外**（比现状更糟）。
 - ⚠ 迁移**不许重跑嵌入模型**（实测纯拷贝逐字节一致）。
 - ⚠ 本项**不碰**禁碰区（`tools/gov-qa/**`、公告组件），**不做** exp-17 接生产。
+
+---
+
+## Phase 7: Convergence
+
+> `/speckit-converge` 于 **2026-10-09** 跑：读 `spec.md` / `plan.md` / `tasks.md` 作为**唯一意图源**，
+> 逐条比对**当前代码与产物**（不是 diff、不看历史）。**只追加，不改上面任何一条。**
+>
+> **清点**：FR-001…FR-010 共 10 条｜SC-001…SC-006 共 6 条｜plan 决策 3 条｜宪法 7 条。
+> **判定**：FR-002/003/004/005/006/007/008/010、SC-001/002/003/004/006 **均已满足**（各有读数，见上）。
+> **发现 5 条未闭合**（下表），按严重度排序追加为任务。
+>
+> | ID | gap | 严重度 | 源 | 证据 | 剩余工作 |
+> |---|---|---|---|---|---|
+> | F1 | `partial` | **HIGH** | FR-009 / SC-005 | 写侧 `doc_id` 只有**静态锚点**判据（`test_contract.py` 数 INSERT 次数）；`test_kb_scope_retrieval.py` 的夹具是**直接 INSERT**、**绕过** `clause_repo` | 补**端到端**判据：真经 `clause_repo.insert_clauses` 写一条 → 断言 `clause_vec.doc_id == clause_revision.doc_id` |
+> | F2 | `missing` | **HIGH** | FR-009（运行前置） | 迁移的**运行前置**没写进任何产物：跑着的两个 `-m src.core.main` 是旧代码，仍按**两列**写向量 ⇒ `doc_id` 为空 ⇒ 新条款在范围提问里**静默消失** | 把"**引擎必须重启**"写进 `contracts/` 与 `quickstart.md`，并给**重启后的核验命令** |
+> | F3 | `missing` | MEDIUM | plan / `contracts` M5 | `clause_vec_pre003`（回滚源）占 **2.6 GB**（库 2.96→5.6 GB），而 **C 盘 93% 满**；spec/contracts 只说"保留"，**没说何时可删、删前要满足什么** | 定**回收时机与前置判据**（复核通过 + 备份在 + 无 NULL `doc_id`），并写进 `contracts/` |
+> | F4 | `partial` | LOW | 本轮过程 | `probes/probe-vec-scope-fix.py` 的 **Q1 已标作废**，但**脚本仍会跑那个无意义查询并打印"❌ 返回空"** ⇒ 后人只看输出会被误导 | 把 Q1 改成**生产形态**（或整段删掉），保留"作废"留痕 |
+> | F5 | `unrequested` | LOW | 本轮过程 | 我在 `-Full` 跑着时又提交了两次（`46f45c6` / `f6bb3ef`）⇒ **该读数不对应单一提交**（违反本仓"边改边验"） | **工作树静默时重跑一次 `-Full`**，记可引用的读数 |
+>
+> ⚠ **宪法检查：无违规**（七条逐条核过；说人话 → `读我-大白话版.md`；从事实出发 → 本轮那次自我更正；
+> 留痕 → 错话保留 + 就地更正）。
+
+- [x] T022 [F1] 补**端到端**写侧判据：经 `clause_repo.insert_clauses` 真写一条（把嵌入器打桩成可用）
+  ⇒ 断言 `clause_vec.doc_id` == `clause_revision.doc_id`；并做**变异**（去掉 `doc_id` ⇒ 必须红）
+  per FR-009 / SC-005 (`partial`)
+- [x] T023 [F2] 把"**引擎必须重启**"写进 `contracts/contracts.md`（迁移契约 M7）与 `quickstart.md` §4，
+  并给**重启后的核验命令**（`migrate-clause-vec-doc-id.py --dry-run` 看 `doc_id 为空` 是否为 0）
+  per FR-009 (`missing`)
+- [x] T024 [F3] 定 `clause_vec_pre003` 的**回收时机与前置判据**（复核 PASS + 全库副本在 + `doc_id` 空值 0
+  + 与 `clause_revision` 零不一致）⇒ 写进 `contracts/contracts.md`；**回收动作本身等业主点头**
+  per plan / contracts M5 (`missing`)
+- [x] T025 [F4] 改 `probes/probe-vec-scope-fix.py`：把 **Q1** 换成生产形态（`clause_revision_id IN
+  (SELECT clause_revision_id FROM clause_revision WHERE doc_id IN (json_each))`）或整段删掉，
+  **保留"作废"留痕** per 本轮过程 (`partial`)
+- [ ] T026 [F5] **工作树静默时**重跑 `run-gates.ps1 -Full` 并记可引用读数（含 junit 的 failed 清单）
+  per 本轮过程 (`unrequested`)
+
+**下一步**：跑 `/speckit-implement` 收掉 T022–T026（其中 **T024 的回收动作要业主点头**）；
+之后再跑一次 `converge` 应只剩更少项。
+
+---
+
+## Phase 8: Convergence（**复核回复轮**，2026-10-09）
+
+> 独立复核（`general-purpose-1`，冻结 `verify-freeze-spec003-vecscope` = `f5fd5ce`）判定
+> **有条件 PASS**（**无 P0**；P1×1 / P2×4）。报告已**字节级归档**：
+> `docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md`（sha256 `9f489a68…`，16,171 B）。
+> **逐条处置如下**（按本仓"打回就地更正并留痕"）。
+
+- [x] T027 [P1] **把已作废的说法从残留里清掉**（**复核抓到的真问题**）：
+  我先前只改了 `research.md` / `spec.md` / 大白话版 / 契约增量，**漏了 6 处** ——
+  `hybrid_engine.py` / `schema.sql` / `test_contract.py` / `test_kb_scope_retrieval.py`×2 /
+  `plan.md` / `data-model.md`。现已**逐处改成复核确认的精确条件**
+  （"**只要范围子查询返回的 id 里有一个在向量表里没有对应行，整体就返回 `[]`**"），
+  并**保留原话 + 更正留痕**（原则 V：不许留"半作废"的句子）。
+  ⚠ 其中 `hybrid_engine.py` 里那句引用 `probe-vec-scope-fix.py` Q1 的**也是被推翻的那条** ⇒ 一并改掉。
+- [x] T028 [P2-①] 迁移脚本 docstring 补**孤儿向量**说明（`vec0` 的 TEXT 列拒 NULL ⇒ 事务内失败、
+  整体回滚，不留半成品；实测真库孤儿 **0**）。
+- [x] T029 [P2-②] 迁移脚本 docstring 把"自检不过 ⇒ 整体回滚"**拆成两段**：
+  事务内 3 条（不过即回滚）+ 事务后 1 条（**逐字节比对在 COMMIT 之后** ⇒ 不过**不会**自动回滚，
+  靠脚本打印回滚命令兜）—— 原来那句**把两段混成一句，不准确**。
+- [x] T030 [P2-③] `probes/probe-vec-scope-fix.py` 的 **Q3 崩溃**（`vec0` 无 `rowid` 列）⇒ 包 try/except，
+  **不再把 Q4 带崩**；同时把收尾那句"Q2a/Q2b 才是修法"**更正**（Q2b 是**反例**）。
+- [x] T031 [P2-④] `research.md` 引用的 `probe-scale-flip2.py` **不存在**（副本已改名 `probe-mechanism.py`）⇒ 改正。
+
+**下一步**：只剩 **T026**（工作树静默时重跑 `-Full`）；其余全收。

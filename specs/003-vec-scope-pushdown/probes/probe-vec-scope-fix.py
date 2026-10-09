@@ -89,16 +89,26 @@ def main() -> int:
         conn.commit()
 
     print()
-    print("【Q1】现状复现：vec0(clause_revision_id TEXT PRIMARY KEY, embedding FLOAT[512])")
+    print("【Q1】旧写法（**生产形态**）：在 `clause_revision_id`（TEXT PRIMARY KEY）上做 `IN (子查询)`")
+    print("     ⚠ **2026-10-09 就地更正**：本段原来查的是 "
+          "`clause_revision_id IN (SELECT value FROM json_each(?))`，")
+    print("       并喂**文档 id**（不是条款 id）—— 那是**无意义查询**，它返回 0 行**不能**当复现。")
+    print("       现在改成**生产形态**：子查询回 `clause_revision`，且范围内 5 条里**只有 1 条有向量**")
+    print("       （`probe-mechanism.py` 实测：这正是旧写法的失效条件）。")
+    conn.execute("CREATE TABLE IF NOT EXISTS clause_revision"
+                 "(clause_revision_id TEXT PRIMARY KEY, doc_id TEXT)")
+    for cid in ("in_weak", "in_x1", "in_x2", "in_x3", "in_x4"):   # 5 条，只有 in_weak 有向量
+        conn.execute("INSERT OR REPLACE INTO clause_revision VALUES (?,?)", (cid, "in_doc"))
     _mk(conn, "v1", f"CREATE VIRTUAL TABLE v1 USING vec0("
                     f"clause_revision_id TEXT PRIMARY KEY, embedding FLOAT[{DIM}])")
     seed(conn, "v1", with_doc=False)
     rows = conn.execute(
         "SELECT clause_revision_id, distance FROM v1"
         " WHERE embedding MATCH ? AND k = 20"
-        " AND clause_revision_id IN (SELECT value FROM json_each(?))"
+        " AND clause_revision_id IN (SELECT clause_revision_id FROM clause_revision"
+        " WHERE doc_id IN (SELECT value FROM json_each(?)))"
         " ORDER BY distance", (_blob(QVEC), scope_json)).fetchall()
-    _report("clause_revision_id IN (SELECT … json_each)", rows)
+    _report("clause_revision_id IN (SELECT … FROM clause_revision)", rows)
 
     print()
     print("【Q2】修法候选：vec0(clause_revision_id TEXT PRIMARY KEY, doc_id TEXT, embedding FLOAT[512])")
@@ -137,12 +147,19 @@ def main() -> int:
 
     print()
     print("【Q3】rowid 路线：vec0 的 rowid 能不能被下推")
-    rows = conn.execute(
-        "SELECT clause_revision_id, distance FROM v2"
-        " WHERE rowid IN (SELECT rowid FROM v2 WHERE doc_id = 'in_doc')"
-        " AND embedding MATCH ? AND k = 20 ORDER BY distance",
-        (_blob(QVEC),)).fetchall()
-    _report("rowid IN (SELECT rowid … doc_id='in_doc')", rows)
+    # ⚠ 2026-10-09：本段原来**没有** try —— 实测 `vec0` 没有 `rowid` 列，查询直接抛
+    #   `sqlite3.OperationalError: no such column: rowid` ⇒ **把 Q4 也带崩了**（整段跑不到）。
+    #   现在包一层：结论仍然是"这条路不通"，但**不再影响后面的档位**。
+    try:
+        rows = conn.execute(
+            "SELECT clause_revision_id, distance FROM v2"
+            " WHERE rowid IN (SELECT rowid FROM v2 WHERE doc_id = 'in_doc')"
+            " AND embedding MATCH ? AND k = 20 ORDER BY distance",
+            (_blob(QVEC),)).fetchall()
+        _report("rowid IN (SELECT rowid … doc_id='in_doc')", rows)
+    except Exception as e:  # noqa: BLE001
+        print("    rowid IN (…)                                      → ❌ 该列不存在："
+              f"{type(e).__name__}: {str(e)[:60]}")
 
     print()
     print("【Q4】partition key 路线：vec0(..., partition key doc_id, ...)")
@@ -161,7 +178,11 @@ def main() -> int:
 
     print()
     print("=" * 100)
-    print("结论要读：只有 Q2a/Q2b 里「范围内那条被返回、且无 out_ 混入」的形态，才能当修法。")
+    print("结论：**只有 Q2a**（`doc_id IN (SELECT value FROM json_each(?))`）是可用修法。")
+    print("      Q2b（字面量 IN）/ Q2d（OR）/ Q3（rowid 不存在）都是**反例**；")
+    print("      ⚠ Q2c（`doc_id = ?`）只在**范围恰好 1 篇**时成立，**不能**当修法（多篇会漏）。")
+    print("      ⚠ Q4 用的是**字面量列表**（已知的坏形态）⇒ 它混进范围外**不能**说明")
+    print("        partition key 这条路不行（未用 `json_each` 试过，**未验**）。")
     print("=" * 100)
     return 0
 
