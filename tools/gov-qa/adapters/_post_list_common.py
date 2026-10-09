@@ -122,6 +122,12 @@ def harvest_post_list(fetch, *, SITE: dict, BASE: str, LIST: str,
             d = parse_detail(r.text or "", q_keys=q_keys, a_keys=a_keys)
             if not d["answer"] or len(d["answer"]) < 10:
                 continue
+            # ★ 2026-10-10 修：**必须把已收 id 并进 `skip_ids`** ——
+            #   实测江门 `/gzhd/lyxd/` 的 `index_2.html` 与 `index.html` **大量重叠**
+            #   （同一 id 在 1/2/3 页都出现）⇒ 不并就会**重复落库**
+            #   （实测：42 行只有 21 个唯一 id，判据③ 直接报红）。
+            #   `_igi_common.harvest_igi` 一直有 `seen.add(...)`，这里当初漏了。
+            skip_ids.add(str(pid))
             extra = {"platform": "post-list", "answer_kind": "留言答复（静态列表）"}
             for k, v in d["fields"].items():
                 if k in ("答复内容", "内容"):
