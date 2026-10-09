@@ -18,6 +18,7 @@
 """
 from __future__ import annotations
 
+import html
 import json
 import re
 import time
@@ -55,11 +56,24 @@ def existing_ids(site_key: str) -> set[str]:
     return ids
 
 
-def clean(html: str | None) -> str:
-    """去标签 + 压空白（答复正文是 HTML 片段）。"""
-    if not html:
+def clean(frag: str | None) -> str:
+    """去标签 + **还原 HTML 实体** + 压空白（答复正文是 HTML 片段）。
+
+    ★ 2026-10-09 修（**影响全部 96 个 IGI 适配器，含另一个对话的线**）：
+      原实现只去标签、**不还原实体** ⇒ `&nbsp;` 会以**字面 6 个字符**留在正文里
+      （`re.sub(r"\\s+")` 匹配不到它 —— 它不是空白字符，是实体文本）。
+      实测 `sx-igi` 7,281 条：**958 条（13.2%）正文含字面 `&nbsp;`**、
+      **422 条（5.8%）以它开头**（例：`"&nbsp; &nbsp; &nbsp;经与留言人沟通…"`）
+      ⇒ 污染考卷语料。山西/内蒙古/贵州/广西/宁夏等 IGI 源同样受影响。
+      顺序沿用本仓既有教训（`SITE-REGISTRY` §十二 jx-zf）：**先去标签、再还原实体**，
+      最后压空白（`&nbsp;` 还原成 `\\xa0` 后由 `\\s+` 吃掉）。
+      ⚠ 参数名由 `html` 改为 `frag` —— 原名会**遮蔽 `html` 模块**。
+      ⚠ 已落盘的历史行**不会被改写**（`harvest` 按 id 去重、只追加）⇒
+        存量要清必须整站重采（`skip_ids=set()`）。
+    """
+    if not frag:
         return ""
-    return re.sub(r"\s+", " ", TAG_RE.sub(" ", html)).strip()
+    return re.sub(r"\s+", " ", html.unescape(TAG_RE.sub(" ", frag))).strip()
 
 
 def ts(ms) -> str | None:
@@ -74,11 +88,18 @@ def ts(ms) -> str | None:
 def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
                 group_id: str | None, referer: str,
                 limit: int | None = None, max_pages: int = 200,
+                page_from: int = 1,
                 skip_ids: set[str] | None = None) -> list[dict]:
     """翻页取列表（仅已答复），逐条取明细拿答复正文，返回统一记录。
 
     `skip_ids`：已落盘的 id 集合；命中则**不请求明细**、不计入 `limit` ⇒
     `limit` 语义变为「本轮新增条数」，可反复跑逐轮推进（见 `existing_ids()`）。
+
+    `page_from`（2026-10-09 新增，默认 1 = 旧行为不变）：**从第几页开始翻**。
+    用于把一个大站按页窗口切开、逐窗口落盘（见 `recon/igi-chunked.py --page-chunk`）。
+    动机：`harvest_igi` 是「翻完页才返回」⇒ 一个 5,000 条的大站要跑 ~2 小时，
+    中途被中断则**整站零产出**（`igi-chunked.py` 的逐 siteId 落盘也救不了站内的部分）。
+    ★ 调用方必须自行保证 `max_pages` 是**绝对页号上界**（不是窗口长度）。
 
     ★ 2026-10-09 两处默认值改动（原因见 SITE-REGISTRY §十一，**影响另一个对话**）：
      1. `skip_ids=None` 由「不跳过」改为「**自动取 `existing_ids(SITE['key'])`**」。
@@ -93,7 +114,7 @@ def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
         skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     skipped = 0
-    for page in range(1, max_pages + 1):
+    for page in range(page_from, max_pages + 1):
         if limit and len(out) >= limit:
             break
         if group_id:
