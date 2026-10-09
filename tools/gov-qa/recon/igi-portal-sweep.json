@@ -1,0 +1,156 @@
+{
+  "beijing": {
+    "base": "https://www.beijing.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "tianjin": {
+    "base": "https://www.tj.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "hebei": {
+    "base": "https://www.hebei.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "neimenggu": {
+    "base": "https://www.nmg.gov.cn",
+    "verdict": "IGI",
+    "http": 200,
+    "total": 0,
+    "note": "★ 命中 IGI 平台"
+  },
+  "liaoning": {
+    "base": "https://www.ln.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "heilongjiang": {
+    "base": "https://www.hlj.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "shanghai": {
+    "base": "https://www.sh.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "jiangsu": {
+    "base": "https://www.jiangsu.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "zhejiang": {
+    "base": "https://www.zj.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "anhui": {
+    "base": "https://www.ah.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "fujian": {
+    "base": "https://www.fj.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "jiangxi": {
+    "base": "https://www.jiangxi.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "shandong": {
+    "base": "https://www.shandong.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)"
+  },
+  "henan": {
+    "base": "https://www.henan.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "hunan": {
+    "base": "https://www.hunan.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "guangdong": {
+    "base": "https://www.gd.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "hainan": {
+    "base": "https://www.hainan.gov.cn",
+    "verdict": "NO",
+    "http": 200,
+    "total": null,
+    "note": "200 但非 JSON（多半是首页 HTML）"
+  },
+  "sichuan": {
+    "base": "https://www.sc.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "yunnan": {
+    "base": "https://www.yn.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  },
+  "gansu": {
+    "base": "https://www.gansu.gov.cn",
+    "verdict": "BLOCK",
+    "http": 412,
+    "total": null,
+    "note": "反爬拦截，需换 Referer/UA 复测"
+  },
+  "qinghai": {
+    "base": "https://www.qinghai.gov.cn",
+    "verdict": "BLOCK",
+    "http": null,
+    "total": null,
+    "note": "ConnectTimeout: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。"
+  },
+  "xinjiang": {
+    "base": "https://www.xinjiang.gov.cn",
+    "verdict": "NO",
+    "http": 404,
+    "total": null,
+    "note": "HTTP 404"
+  }
+}

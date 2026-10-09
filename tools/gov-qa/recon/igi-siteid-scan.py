@@ -33,13 +33,19 @@ PAUSE = 1.5
 LIST = ("{base}/IGI/nbhd/openGovmsgbox.do?method=listGovmsgboxs"
         "&siteId={sid}&order=1&appId={aid}&pageIndex=1&pageSize=1")
 
+#: tag → (base, referer, lo, hi)。base/referer **取自各站已跑通的适配器**（2026-10-09 核对）：
+#:   xz_igi.BASE=www.xizang.gov.cn/IGI + REFERER=/；gz_portal.BASE=www.guizhou.gov.cn/IGI + REFERER=/；
+#:   hb_hdjl.BASE=**https**://www.hubei.gov.cn/IGI + REFERER=/（注意是 https，不是 http）。
 TARGETS = {
     "shanxi":   ("http://www.shanxi.gov.cn",  "http://www.shanxi.gov.cn/zmhd/",            1, 300),
     "guangxi":  ("http://www.gxzf.gov.cn",    "http://www.gxzf.gov.cn/hdjl/mailbox/index.shtml", 1, 300),
     "ningxia":  ("https://www.nx.gov.cn",     "https://www.nx.gov.cn/hdjl/",              1, 300),
-    "xizang":   ("http://www.xizang.gov.cn",  "http://www.xizang.gov.cn/zmhd/",           1, 300),
+    "xizang":   ("http://www.xizang.gov.cn",  "http://www.xizang.gov.cn/",                1, 300),
     "guizhou":  ("http://www.guizhou.gov.cn", "http://www.guizhou.gov.cn/",               1, 300),
-    "hubei":    ("http://www.hubei.gov.cn",   "http://www.hubei.gov.cn/hdjl/",            1, 300),
+    "hubei":    ("https://www.hubei.gov.cn",  "https://www.hubei.gov.cn/",                1, 300),
+    # ★ 2026-10-09 新增：门户横向普查（recon/igi-portal-sweep.py）命中，siteId=1 无记录但端点真实
+    "neimenggu": ("https://www.nmg.gov.cn",   "https://www.nmg.gov.cn/zmhd/",             1, 300),
+    "tianjin":  ("https://www.tj.gov.cn",     "https://www.tj.gov.cn/",                   1, 300),
 }
 
 
