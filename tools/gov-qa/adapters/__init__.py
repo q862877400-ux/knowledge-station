@@ -92,6 +92,7 @@ ADAPTERS: dict[str, str] = {
     # —— 新增省份：IGI 同族（2026-10-08 由「24 省系统性重探」发现，见 recon/province-platform-hunt.txt）——
     "nx-zxxx": "adapters.nx_zxxx",             # 宁夏回族自治区·主席信箱（IGI siteId=115/appId=4，带三级归属）
     "sx-szxx": "adapters.sx_szxx",             # 山西省·省长信箱（IGI siteId=110/appId=1742326）
+    "sx-igi": "adapters.sx_igi",               # 山西省·政民互动信箱（IGI 多 siteId，空 appId 取全量；2026-10-09 新增）
     "ah-kb": "adapters.ah_kb",                 # 安徽省直部门·共享问答知识库（全省站群 label 8888，跨厅局聚合 2282 条）
     # —— 「静态列表型」省份（2026-10-08：无统一接口平台，静态列表 + 明细页，同安徽旧模式）——
     "tj-hdjl": "adapters.tj_hdjl",             # 天津市·政民互动·留言选登（~500 条）
@@ -142,6 +143,7 @@ ADAPTERS: dict[str, str] = {
     "zj-mhww": "adapters.zj_mhww",             # 浙江省·民呼我为统一平台·办理公开（woff 字体反爬，49218 条）
     "xj-dchs": "adapters.xj_dchs",             # 新疆·互联网+督查·督查回声（静态 227 条）
     "gx-mailbox": "adapters.gx_mailbox",       # 广西·自治区人民政府信箱（IGI，138 条；带省/市/区三级归属）
+    "gx-igi": "adapters.gx_igi",               # 广西·政民互动信箱（IGI 多 siteId=207，3.48 万条；带真实三级归属；2026-10-09 新增）
     "sd-12345": "adapters.sd_12345",           # 山东·12345热线·典型留言（ashx JSON，71 条）
     # —— 山东地市级试点（2026-10-08）：4 市可采，青岛为加密接口待定。证据 recon/sd-city-*.txt ——
     "sd-jinan": "adapters.sd_jinan",           # 济南市·互动交流·回应关切（jpaas-jact 网关，count=6654）
