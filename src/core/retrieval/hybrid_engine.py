@@ -434,6 +434,16 @@ def _protect_exception_clauses(kept: List[ClauseRevisionModel],
     """例外条款保护（P1）：含但书/除外的条款被 rerank 挤出时强制保留。
 
     例外信息（但书/除外/另有规定）不可被 rerank 淘汰——漏例外=误导用户。
+
+    ⚠ **已知缺陷（2026-10-09 实测，已登记，本批未修）**：本函数在**真实调用形态**下恒不生效 ——
+    `_rerank_results` 传进来的 `kept` 长度**已经等于 `top_k`**，于是"append 例外条款"
+    紧接着被最后那句 `return kept[:top_k]` **原样切掉**。
+    实测（`var/tmp/probe-exception-protect.py`）：`kept` 长度 == `top_k` ⇒ 例外**不保留**；
+    只有 `kept` 一开始就短于 `top_k`（`tests/test_reranker.py::test_rerank_exception_clause_kept`
+    用的就是这种形态）才保留 ⇒ 那条判据测的是一个**真实路径上不会出现的形态**。
+    ⚠ 影响面：修好 `reranker.rerank` 的返回形状（总纲 0.7）之后，重排才**真的会发生**
+    ⇒ 本缺陷从"无害的摆设"变成"**例外条款会被重排挤掉**"的真风险。
+    ⇒ **把 rerank 接进生产之前必须先修它**（见 `docs/RETRIEVAL-LONG-RANGE-PLAN.md` P0·0.7 段）。
     """
     kept_ids = {c.clause_revision_id for c in kept}
     for r in results:
@@ -463,7 +473,7 @@ def _rerank_results(query: str, results: List[ClauseRevisionModel],
             debug["rerank_reason"] = reranker.offline_reason()
             return results[:top_k], debug
         texts = [(r.content_text or "")[:512] for r in results]
-        scores = reranker.rerank(query, texts)  # 已按得分降序
+        scores = reranker.rerank(query, texts)  # 与 texts 一一对应（未排序）
         ordered = sorted(range(len(results)), key=lambda i: scores[i], reverse=True)
         debug["rerank_score"] = {results[i].clause_revision_id: round(scores[i], 4)
                                  for i in ordered}

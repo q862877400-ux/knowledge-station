@@ -1825,8 +1825,14 @@ def create_app(token: str) -> FastAPI:
         search_query = expand_with_alias(  # R48 别名反查 + R9 追问增强
             expand_query_with_history(refined, history))
         _t_retr = _t.perf_counter()
+        # ⚠ `rerank` 显式写 False：`perform_hybrid_search` 的默认值是 `True`，但 2026-10-09 之前
+        #   重排阶段**恒空转**（总纲 P0·0.7 的返回形状缺陷 ⇒ 排序退化成恒等置换）⇒ 那个默认值
+        #   一直等价于关闭。0.7 修好后它会**真的重排**，而"要不要把重排接进生产"是**未复核的行为
+        #   改动**（实测与判决见 `eval/recall-funnel/exp-11-rerank-fix/`）⇒ 这里显式写 False，
+        #   保持与本批之前**逐位等价**的行为。要开启请先改这里，并走必验流程。
         out = search_with_details(search_query, top_k=top_k, channels=channels,
-                                  include_superseded=include_superseded)
+                                  include_superseded=include_superseded,
+                                  rerank=False)
         # R5a 证据链扩展：被引用条款并入证据（LLM 可见），主证据不足时自动补链
         evidences = list(out["results"])
         _seen_ids = {e.clause_revision_id for e in evidences}

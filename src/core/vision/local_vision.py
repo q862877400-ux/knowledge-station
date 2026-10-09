@@ -106,7 +106,9 @@ def vision_locate(image_path: Path, top_k: int = 5) -> dict:
         return {"status": "ok", "ocr_text": "", "results": []}
     # 文本过长时取首段 + 关键句
     query = text[:400]
-    results = perform_hybrid_search(query, top_k=top_k)
+    # `rerank` 显式写 False —— 理由与 `src/core/api/server.py` 主问答路径那处**同一条**
+    # （总纲 P0·0.7 修好前后保持逐位等价；实测见 `eval/recall-funnel/exp-11-rerank-fix/`）。
+    results = perform_hybrid_search(query, top_k=top_k, rerank=False)
     return {"status": "ok", "ocr_text": text[:300],
             "results": [
                 {"clause_revision_id": r.clause_revision_id,

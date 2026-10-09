@@ -51,17 +51,28 @@ def _get_model():
     return _model
 
 
-def rerank(query: str, texts: list[str], top_k: int | None = None) -> list[float]:
-    """返回与 texts 等长的相关性分数（已按得分降序）。模型不可用时抛异常由调用方降级。"""
+def rerank(query: str, texts: list[str]) -> list[float]:
+    """返回与 `texts` **一一对应**的相关性分数：`scores[i]` 就是 `texts[i]` 的分，**未排序**。
+
+    模型不可用时抛异常，由调用方降级（R30 语义）。排序是**调用方**的事 ——
+    只有它知道下标对应哪个候选。
+
+    ⚠ **2026-10-09 修（施工总纲 P0·0.7）**：旧版返回的是**已按分数降序**的列表，
+    而唯一的调用方 `hybrid_engine._rerank_results` 把 `scores[i]` 当"第 i 条候选的分"用
+    ⇒ 它那句 `sorted(range(n), key=lambda i: scores[i], reverse=True)` 作用在**降序输入**上
+    会退化成**恒等置换** ⇒ **rerank 阶段从不改变顺序**（实测 `var/tmp/probe-rerank-order.py`：
+    输出顺序 == 原始顺序），且 `debug["rerank_score"]` 把分数**贴到错的条款**上。
+    旧版那个 `top_k` 参数**全仓无人传**，而它的切片语义正是破坏这个对应关系的元凶 ⇒ 一并删掉。
+    """
     model = _get_model()
     if not texts:
         return []
-    scores = list(model.rerank(query, texts))
-    order = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
-    sorted_scores = [scores[i] for i in order]
-    if top_k is not None:
-        return sorted_scores[:top_k]
-    return sorted_scores
+    scores = [float(s) for s in model.rerank(query, texts)]
+    if len(scores) != len(texts):
+        # fail-closed：调用方按下标对齐，长度不符必须当场炸，不许静默错位
+        raise ValueError(
+            f"reranker 返回 {len(scores)} 个分数，与 {len(texts)} 条候选不匹配")
+    return scores
 
 
 def offline_reason() -> str | None:

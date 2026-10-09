@@ -1,0 +1,34 @@
+{
+  "experiment": "exp-11-rerank-fix",
+  "title": "总纲 P0·0.7 修复前后 A/B：rerank 阶段到底改不改 top-8",
+  "registered_at": "2026-10-09T12:58+08:00",
+  "registered_before_running": true,
+  "registered_by": "自动续接链 第 10 轮",
+  "why": "总纲 0.7 登记『reranker.py::rerank 只返回分数、不返回顺序』。本轮先用探针实测，确认它不只是『形状不好看』：调用方 hybrid_engine._rerank_results 按 scores[i] 当『第 i 条的分』用，而 scores 已被降序排过 ⇒ sorted(range(n), key=lambda i: scores[i]) 恒为恒等置换 ⇒ **rerank 阶段从不改变顺序**（实测 var/tmp/probe-rerank-order.py：输出顺序 == 原始顺序）。本实验量『修好之后』到底有没有收益，供『要不要把重排接进生产』拍板。",
+  "arms": {
+    "A": "search_with_details(q, top_k=K, rerank=False, boost_bookmarks=False, expand_chain=False) —— RRF 原序。**它同时是当前生产实际行为**，因为 rerank 是空转。",
+    "B": "search_with_details(q, top_k=K, rerank=True, rerank_n=24, boost_bookmarks=False, expand_chain=False) —— 经 rerank 阶段。修复前应恒等于 A 臂（这正是要证的）；修复后是真重排。"
+  },
+  "endpoints": {
+    "primary": "主结果 120 条的 top-8 命中数（K=8 = ks_answer 生产默认 top_k）",
+    "secondary": [
+      "全量 171 条 top-8",
+      "主结果 120 条 top-20",
+      "配对翻进 / 翻出"
+    ]
+  },
+  "stop_loss": {
+    "可接生产": "Δ(主终点命中数) ≥ +5 条（≥ +4.2pt）且 配对 McNemar 双侧 p < 0.05",
+    "观察": "Δ ≥ +3 条但 p ≥ 0.05，或 0 < Δ < +5 条",
+    "放弃": "Δ ≤ 0 条"
+  },
+  "resolution_note": "n=120，1 条 = 0.833pt；非配对单侧 1 倍标准差约 5.5 条 ⇒ 单看 Δ 会把噪声当成果，所以主判据是配对 McNemar。",
+  "instrument_control": "A 臂在『修复前』与『修复后』两次运行里必须**逐条完全相同**（同一配置、同一代码路径、rerank=False 不碰 reranker）。不一致即判仪器故障，整批作废。",
+  "cost_measure": "对 24 条候选的单次 rerank 耗时 p50 / p90（CPU / ONNX，条款正文前 512 字），以及 B 臂相对 A 臂的整轮耗时差。",
+  "decision_rule": "本轮**只**回答两件事：① 0.7 修不修（探针已答：必须修，否则这一层是死的）；② 要不要接生产（按上面 stop_loss 判）。**不接生产** = 把两处隐式 `rerank=True` 的调用点（`src/core/api/server.py` 的主问答路径、`src/core/vision/local_vision.py`）显式写成 `rerank=False` —— 这与修复前的实际行为**逐位等价**（空转 == 关闭），不构成新的行为改动。",
+  "boundary": [
+    "只读真库（mode=ro）；不改生产代码；零网络（HF 离线）。",
+    "考卷未换（gold 仍未人工/AI 确认，见 T015）⇒ 结论只对本批 171 条成立。",
+    "本条线此前已量过『两段式重排（术语池）无效且略负』（总纲 P1 段）—— 那是**术语级**、且**直接调模型绕开本包装器**；本实验是**条款级、走生产包装器**，两者不可互相替代。"
+  ]
+}

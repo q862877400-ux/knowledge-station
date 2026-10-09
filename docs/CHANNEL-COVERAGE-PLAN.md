@@ -2627,3 +2627,24 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R15（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> 本轮 = 自动续接链**第 10 轮**。
+
+- 本轮做的是 **总纲 P0·0.7**（`reranker.py::rerank` 返回形状缺陷）：修 `rerank()` 返回值 + 调用方 +
+  一条空判据测试，并**实测修复前后的 top-8 收益**（结论：修了，但**重排不接生产**）。
+  **六通道枚举 `SEARCH_CHANNELS` 一字未动**，通道 A/B/C/D/E/F 的触发条件、权重、RRF、SSE 顺序**全未触碰**。
+  详细记录在它自己的归属层 —— [开发史 §10.214](DEVELOPMENT-HISTORY.md)、
+  [总纲 P0·0.7-修](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [`eval/recall-funnel/exp-11-rerank-fix/README.md`](eval/recall-funnel/exp-11-rerank-fix/README.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- ⚠ **与本线唯一相关的一条**：本轮的修复**只影响"融合之后的条款级重排"**，**不影响任何一路通道的召回**
+  （重排只重排已召回的 24 条，不改变哪些条款被召回）⇒ 渠道覆盖台账**不受影响**。
+  且**重排未接生产**（两处调用点已显式 pin `rerank=False`）⇒ **线上行为与 R14 时逐位等价**。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`），渠道台账状态与 R14 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
