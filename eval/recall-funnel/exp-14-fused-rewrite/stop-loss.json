@@ -1,0 +1,27 @@
+{
+  "batch": "exp-14-fused-rewrite",
+  "registered_at": "2026-10-09T15:42:00+08:00",
+  "registered_before_run": true,
+  "note": "预注册止损线，跑前落盘。本文件在跑完后不再改动（含 registered_at）。",
+  "question": "exp-13 的三条查询侧改写（B1 官方指令前缀 / C1 自造领域前缀 / D1 语料内 PRF），对【用户实际看到的六路融合前 20 条】（fused@20）到底有没有用？exp-13 明写「fused@20 本批未测」。",
+  "corpus": "eval/recall-funnel/benchmark-v2.jsonl 的 headline 120 条（v2.bucket==\"keep\" 且 flags 不含 gold_multi_def/gold_dup_text）—— 与 exp-13 / exp-8 同一口径",
+  "model": "生产 bge-small-zh-v1.5（fastembed，CPU/ONNX），走 src.core.retrieval.embedder.embed_query",
+  "unique_variable": "送进【六路融合管线】的查询串（由 arm 决定）。索引 / 条文 / 向量表 / 生产代码一个字不动；改写只在实验脚本里 monkeypatch 生效。",
+  "arm_query_mapping": {
+    "A0_raw": "全通道用原样提问（生产口径，基线）",
+    "B1_bge_instruction": "只有【向量通道】的嵌入输入加 BGE 官方中文检索指令前缀；FTS / 精确 / 模态通道仍用原样（指令前缀喂 FTS 无意义）",
+    "C1_domain_prefix": "只有【向量通道】加自造领域前缀；其余通道原样",
+    "D1_prf_expand": "【向量通道】与【FTS 通道】用扩展后的查询串（原样 + 语料内 PRF 扩展词）；精确 / 模态通道原样"
+  },
+  "d1_query_source": "直接复用 exp-13 已冻结的 per-query.jsonl 里的 d1_query（不重算，保证与 exp-13 逐字同一串）",
+  "main_endpoint": "fused@20",
+  "secondary_endpoints": ["fused@100", "fused@1000", "fused 中位名次", "by_subset fused@20"],
+  "thresholds": {
+    "promote": "delta >= +8.18pt 且 McNemar 双侧 p < 0.05",
+    "observe": "0 < delta < +8.18pt",
+    "abandon": "delta <= 0"
+  },
+  "instrument_check": "A0 逐条 fused.gold_rank 必须与 eval/recall-funnel/funnel-per-query.jsonl 的同 i 记录 0 处不同（同一条生产融合调用 search_with_details(top_k=1000, rerank=False, boost_bookmarks=False, expand_chain=False)）",
+  "readonly": "真库以 file:...?mode=ro 打开；不写库、不改任何源文件；脚本首尾各记一次库 mtime，不一致即报错退出",
+  "decision_rule": "按上表阈值机械判档，不看感觉；落「推广」档才谈接生产"
+}

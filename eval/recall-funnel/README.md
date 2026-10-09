@@ -299,3 +299,24 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 详见 [`exp-13-query-rewrite/README.md §八`](exp-13-query-rewrite/README.md) 与
 [VERIFY-REPORT-exp13-query-rewrite](../../docs/verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md)。
 
+### 5.10 相邻实验：`exp-14-fused-rewrite`（P2 后半段·融合层，2026-10-09 第 13 轮）
+
+**本目录的"六路融合"这一格，第一次被拿来做"改写臂"的对照**：把 `exp-13` 的三条查询侧改写
+接进**生产融合函数** `search_with_details(...)`，量**用户实际看到的 `fused@20`**
+（`exp-13` 明写"只测向量路、不测 `fused@20`"）。口径/读数/判决全在
+[`exp-14-fused-rewrite/README.md`](exp-14-fused-rewrite/README.md)。
+
+一句话结论：**三条改写都没有用** —— `A0` **8.33%** / BGE 官方指令前缀 **9.17%（+0.84pt，1 进 0 出，p=1.0）** /
+自造领域前缀 **5.00%（−3.33pt）** / 语料内 PRF **7.50%（−0.83pt）**。
+**顺带量到本目录级的一条结构事实**：**生产融合池中位只有 40 条**（`fused@1000` == `fused@100`）
+⇒ **用户看不到第 41 条以后** ⇒ 本目录 §5.2 那个"六路并集 @1000"的深度收益
+**在当前生产限量下到不了用户面前**。
+⚠ **三处口径不许混**：① 本节的 `fused@20` 是**生产融合**（每路按生产限量）结果；
+② §5.2 的"六路并集 @1000、全量 171"是**同预算口径**（每路取前 1000），**不是生产行为**；
+③ §5.9 的 `by_subset`（`Vector@1000`、headline 120）也**不是**本节的 `fused@20`。
+⚠ **本目录的 `benchmark-v2.jsonl` / `funnel-summary.json` / `funnel-per-query.jsonl` 一个字节都没动。**
+★ **一条通用坑（本批踩到并登记）**：`funnel-per-query.jsonl`（**2026-10-06** 的产物）
+**不能**当"仪器对照"的参照物 —— 真库是**活的、会长**的（同批提问的 FTS 候选池全线上涨，
+i=166 54,359 → **68,475**）⇒ 历史 `fused` 名次**不可复现**（本批实测失配 6/120）。
+**参照物必须是"同期重跑"。**
+

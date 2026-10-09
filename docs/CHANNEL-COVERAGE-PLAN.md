@@ -2693,3 +2693,29 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R18（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> 本轮 = 自动续接链**第 13 轮**。
+
+- 本轮做的是 **P2 后半段·第二刀（融合层）**：把第 12 轮（`exp-13`）的三条**查询侧改写**
+  接进**完整六路融合**，量**用户实际看到的 `fused@20`**（`NEXT-DEV-PLAN §三序 4`）。
+  **结论：三条都不改**（BGE 官方指令前缀 +0.84pt 落"观察"档；**自造领域前缀 −3.33pt**、
+  **语料内 PRF −0.83pt** 均落"放弃"档 —— 与 `exp-13` 同向且更彻底）。
+  **顺带量到一条与"通道"直接相关的结构事实**：**生产融合池中位只有 40 条**
+  （向量 `k=20` + FTS `LIMIT 20` + 精确/模态；`fused@1000` == `fused@100`）
+  ⇒ **用户永远看不到第 41 条以后**，`exp-8` 的"候选深度 +21.7pt"**在当前生产限量下到不了用户面前**。
+  ⚠ 这条**不是**渠道覆盖问题（它讲的是"一条查询的候选池有多大"，台账记的是"哪些来源/渠道被采到"）。
+- **六通道枚举 `SEARCH_CHANNELS` 一字未动**；通道 A/B/C/D/E/F 的触发条件、**权重**、**RRF 常数**、
+  SSE 顺序**全未触碰**；索引（`clause_fts` / `clause_vec`）**一个字没动**（本轮是**纯查询侧**改写，
+  且只在实验脚本里 monkeypatch，**生产代码零改动**）。
+  详细记录在它自己的归属层 —— [开发史 §10.221](DEVELOPMENT-HISTORY.md)、
+  [总纲 P2 段「第 3 刀」](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [`eval/recall-funnel/exp-14-fused-rewrite/README.md`](eval/recall-funnel/exp-14-fused-rewrite/README.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**（只探过 Jev/HF 可达性，未下载）、真库只读（`mode=ro`），渠道台账状态与 R17 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。

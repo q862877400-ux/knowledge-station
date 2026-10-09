@@ -1,0 +1,152 @@
+{
+ "note": "exp-14 把 exp-13 的三条改写接进六路融合量 fused@20；口径见 run.py docstring 与 stop-loss.json",
+ "agg": {
+  "n": 120,
+  "arms": {
+   "A0_raw": {
+    "fused_top20": 8.33,
+    "fused_top100": 11.67,
+    "fused_top1000": 11.67,
+    "fused_median_rank": 9,
+    "fused_hit_n": 14,
+    "pool_median": 40,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 14.29
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    }
+   },
+   "B1_bge_instruction": {
+    "fused_top20": 9.17,
+    "fused_top100": 12.5,
+    "fused_top1000": 12.5,
+    "fused_median_rank": 7,
+    "fused_hit_n": 15,
+    "pool_median": 40,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 6.02
+     },
+     "普通": {
+      "n": 35,
+      "hit": 14.29
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": 0.84,
+     "flip_in": 1,
+     "flip_out": 0,
+     "mcnemar_p": 1.0
+    }
+   },
+   "C1_domain_prefix": {
+    "fused_top20": 5.0,
+    "fused_top100": 10.0,
+    "fused_top1000": 10.0,
+    "fused_median_rank": 26,
+    "fused_hit_n": 12,
+    "pool_median": 40,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 2.41
+     },
+     "普通": {
+      "n": 35,
+      "hit": 8.57
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": -3.33,
+     "flip_in": 0,
+     "flip_out": 4,
+     "mcnemar_p": 0.125
+    }
+   },
+   "D1_prf_expand": {
+    "fused_top20": 7.5,
+    "fused_top100": 9.17,
+    "fused_top1000": 9.17,
+    "fused_median_rank": 12,
+    "fused_hit_n": 11,
+    "pool_median": 37,
+    "by_subset_top20": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 4.82
+     },
+     "普通": {
+      "n": 35,
+      "hit": 11.43
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top20": {
+     "delta_pt": -0.83,
+     "flip_in": 1,
+     "flip_out": 2,
+     "mcnemar_p": 1.0
+    }
+   }
+  },
+  "instrument_check": {
+   "source": "eval/recall-funnel/funnel-per-query.jsonl（fused.gold_rank）",
+   "compared": 120,
+   "mismatch_count": 6,
+   "mismatch_samples": [
+    [
+     87,
+     29,
+     33
+    ],
+    [
+     113,
+     22,
+     32
+    ],
+    [
+     130,
+     6,
+     9
+    ],
+    [
+     133,
+     18,
+     28
+    ],
+    [
+     166,
+     22,
+     36
+    ],
+    [
+     167,
+     21,
+     null
+    ]
+   ],
+   "note": "A0 逐条 fused.gold_rank 必须 0 处不同"
+  }
+ }
+}

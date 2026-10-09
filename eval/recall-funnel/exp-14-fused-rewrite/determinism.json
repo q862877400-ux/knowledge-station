@@ -1,0 +1,19 @@
+{
+ "note": "exp-14 替代仪器对照：同会话确定性 + 改写钩子零泄漏（原预注册那条已失效，见 README §五）",
+ "repeat_same_session": {
+  "compared": 120,
+  "mismatch_count": 0,
+  "samples": []
+ },
+ "ledger_consistency": {
+  "compared": 120,
+  "mismatch_count": 0,
+  "samples": []
+ },
+ "patch_leak_check": {
+  "compared": 20,
+  "mismatch_count": 0,
+  "samples": []
+ },
+ "db_mtime_unchanged": true
+}
