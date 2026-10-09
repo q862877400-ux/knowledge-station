@@ -126,12 +126,19 @@ cd 'D:\AI\work space\zcode'
 |---|---|---|
 | **短条款** | gold 条款 `content_text` < **40 字** | `specs/002-recall-funnel/spec.md` 边界条"短条款占 36.8%（<40 字的条款）" |
 | **字面零重合** | 提问与 gold 条文**没有 ≥2 字的公共子串**（`overlap < 2`） | `docs/research/lay-phrasing-scaleup-test.md` L80 那张分解表（"与定义条款有 ≥2 字重合"= 否 ⇒ **53.0%** 那一档） |
-| **带标准号** | 提问里出现标准号**形态**，且**库里真有对应文档** | 与**通道 A 的真实触发条件同一把尺子**：`_STD_IN_QUERY_RE` + `_known_standard_keys`（`src/core/retrieval/hybrid_engine.py`） |
+| **带标准号** | 提问里出现标准号**形态**，且**库里真有对应文档** | 复用生产通道 A 的**两件**：`_STD_IN_QUERY_RE` + `_known_standard_keys`（`src/core/retrieval/hybrid_engine.py`）；⚠ 本批提问命中 **0/171** ⇒ 这条判据**本批未行使**（第 9 轮独立复核 P1-1：它当时还带着一个未定义变量，现已修 + 加回归自检，见 §5.5） |
 | **普通** | 以上都不是 | —— |
 
-⚠ **四个桶是互斥分区**（"普通"只有在互斥下才有意义），优先级 = spec 列举顺序：
+⚠ **四个桶是互斥分区**（"普通"只有在互斥下才有意义）。spec 只**列举**了四个子集（`spec.md` FR-005）、
+**没有规定优先级** ⇒ **优先级是选的**，这里取 spec 的列举顺序：
 **短条款 → 字面零重合 → 带标准号 → 普通**。各标记的**独立命中条数**也一起存在 `v2.subset` 里，
 想换优先级的人可以自己重算 —— `by_subset_sensitivity.partition_alt_priority` 就是换过优先级的对照。
+
+⚠ **这条优先级的已知代价（第 9 轮登记）**：spec 的 Edge Case 说"提问里带明确标准号 ⇒ 这类要能单独切片，
+它们是**'引用型通道'的适用对象**"。而在上面的顺序里 **"带标准号"排在"字面零重合"之后** ⇒
+**一道既带标准号、字面又零重合的题会被判成"字面零重合"**，恰好丢掉 spec 最想要的那个信号
+（本批 0 条带标准号，所以这个代价本批**没有显形**）。要按"引用型通道适用对象"切片时，
+**请用标记 `has_standard_no_verified` 而不是 `label`**（标记是独立布尔，不受优先级影响）。
 
 ### 5.1 本批 171 条实测：**四个子集里有两个几乎不存在**
 
@@ -191,4 +198,36 @@ cd 'D:\AI\work space\zcode'
 新增字段是**向后兼容**的，但**改它们要登记**：2026-10-09 那次（T016/T017）的改动面已逐字段核对 =
 **只新增 `v2.subset` / `v2.answer_out_of_corpus` 两个键 + 2 条 `flag_detail.same_def_docs` 的活计数
 （库长大所致：1,980 → 2,201）**，`v3` 层与 `tier-stats.json` **零变化**。
+
+⚠ **冻结的是产物，不是输入**（第 9 轮复核 P2-2）：`summarize.py` 的**输入**是 `funnel-per-query.jsonl`
+（171 行，六路逐条记录），它**没进**第 9 轮的冻结清单。它当时与 PRE 逐字节未变（`git diff --stat` 里没有它），
+但**以后派复核要把"输入级"也列进去** —— 只改它就会让 `funnel-summary.json` 变而冻结哈希核不出来。
+
+### 5.5 第 9 轮独立复核抓到的问题与处置（2026-10-09）
+
+复核报告：`D:\AI\verify-trees\VERIFY-REPORT-t016-t017-subsets.md`（结论 = **有条件放行**）。
+
+| 级别 | 问题 | 处置 |
+|---|---|---|
+| **P1-1** | `build-v2.py` 里 `_known_standard_keys(…, doc_stds)` 的 **`doc_stds` 从未定义** —— 本批 0/171 命中 `_STD_IN_QUERY_RE` ⇒ `bool(_std_form)` **短路**，那个名字从未被求值 ⇒ 既不报错也永不生效；**一旦新考卷有题带标准号就当场 `NameError`**（与 T017 想堵的"换考卷"直接冲突）。⇒ 之前文档里写的"与通道 A 同一把尺子"**在代码里不成立** | ✅ **已修**：补 `doc_stds = [s for (s,) in conn.execute("SELECT standard_no FROM doc_meta")]`（喂法照抄生产通道 A），`std_of_key` 改为由它派生（一次查询两用）；**并加回归自检** —— 用一条**合成提问**把同一段判据跑一遍（变量缺失/正则坏掉 ⇒ 构建当场失败），另加"喂空 `doc_stds` 必须零命中"钉住验库闸没退化 |
+| **P2-1** | 作者报的"排除机制变异"桶数 **`113→108 / 50→53` 数学上不可能**（只排除 3 条只会减不会增） | ✅ **已更正为实测的 `8→7 / 113→111 / 50→50`**（分母 171→168 不变）。根因：作者的变异产物 `var/tmp/round8-bak/mutA/` 里**除 3 条 aoc 外还手改了 5 条 label**（i=1,2,6,8,9）⇒ **两件事被混成一组读数**。已在 `tasks.md` / 开发史 §10.212 更正 |
+| **P2-2** | `funnel-per-query.jsonl`（`summarize.py` 的主输入）没进冻结清单 | ✅ 已登记（见上一段） |
+
+**端到端复验（作者自做，隔离副本 `D:/AI/verify-trees/_r9fix`，主仓未被触碰）**：
+
+```
+patched: i=1 query → "按 GB 50016-2014 的要求，这个间距该留多少？"；i=2 gold_std → GB/T 99999-9999（库里没有）
+$ .venv/Scripts/python.exe eval/recall-funnel/build-v2.py     # exit=0，无 Traceback
+自检：带标准号判据可执行（合成提问抽出 1 个形态，验库后 verified=True；空表零命中 ✓）
+i=1 aoc=False label=字面零重合  markers={short:False, zero:True, std_no:True, std_no_verified:True}
+i=2 aoc=True  label=字面零重合  markers={short:False, zero:True, std_no:False, std_no_verified:False}
+counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   partition_all={零重合:113, 短条款:8, 普通:50}
+```
+
+⚠ 顺带暴露一个**设计代价**（已登记在上面的优先级说明里）：i=1 明明 `std_no_verified=True`，
+`label` 却是**字面零重合**（优先级所致）⇒ 要按"引用型通道适用对象"切片请用**标记**而非 `label`。
+
+**修复后重跑三步链条 ⇒ 五个产物与修复前【逐字段完全一致】**（`benchmark-v2.jsonl` / `benchmark-v3.jsonl` /
+`clean-v3/tier-stats.json` / `benchmark-v2-stats.json` / `funnel-summary.json` 全部 `IDENTICAL`）
+⇒ **冻结读数一个都没变**，变的只是"这条判据现在真的能跑"。
 

@@ -76,7 +76,30 @@ def main() -> int:
 
     conn = ro_conn(DB)
     # 标准号键 → 库里的标准号原文（比对用 standard_key，与全仓唯一口径一致）
-    std_of_key = {standard_key(r[0]): r[0] for r in conn.execute("SELECT standard_no FROM doc_meta")}
+    # ⚠ 2026-10-09 独立复核 P1-1：**下面这个 `doc_stds` 原来漏了**（`_known_standard_keys` 的第二个实参
+    #   写的是未定义名）。本批 171 条提问里 `_STD_IN_QUERY_RE` 命中 **0** 条 ⇒ `bool(_std_form)` 短路，
+    #   那个名字**从未被求值** ⇒ 既不报错也永不生效；可一旦换进来的考卷有一道题带标准号，
+    #   构建器就当场 `NameError` —— 与 T017 想堵的"换考卷"直接冲突。
+    #   喂法照抄生产（`hybrid_engine.py` 通道 A）：
+    #   `[s for (s,) in conn.execute("SELECT standard_no FROM doc_meta")]`。
+    doc_stds = [s for (s,) in conn.execute("SELECT standard_no FROM doc_meta")]
+    std_of_key = {standard_key(s): s for s in doc_stds}
+
+    # 回归自检（2026-10-09 复核 P1-1 后加）：本批 0/171 命中 ⇒ 那条分支**从未被执行过**，
+    # 一个未定义变量能在里面躺很久而没人发现。这里用一条**合成提问**把同一段判据跑一遍。
+    # ⚠ 只断言"这段判据**能跑通**"，**不断言某个具体结果** —— 结果取决于库里有没有该文档
+    #   （实测 `GB 50016-2014` 库里**真有**，所以第一版自检"断言它不存在"当场就炸了，
+    #   那是我把假设写成了判据）。变量缺失 / 正则被改坏 ⇒ 这里当场失败。
+    _probe = _STD_IN_QUERY_RE.findall("按 GB 50016-2014 的要求，这个间距该留多少？")
+    assert _probe, "自检失败：_STD_IN_QUERY_RE 认不出 GB 50016-2014（形态正则被改坏了？）"
+    _probe_keys = {standard_key(s) for s in _probe}
+    _probe_verified = bool(_probe) and bool(_known_standard_keys(_probe_keys, doc_stds))
+    # 顺带钉住"验库闸真的在筛"：喂空表必须**零命中**（否则 `_known_standard_keys` 已退化成恒真）。
+    assert _known_standard_keys(_probe_keys, []) == set(), (
+        "自检失败：`_known_standard_keys` 对空 doc_stds 竟返回命中 ⇒ 验库闸没在筛")
+    print(f"自检：带标准号判据可执行（合成提问抽出 {len(_probe)} 个形态，"
+          f"验库后 verified={_probe_verified}；空表零命中 ✓）")
+    del _probe, _probe_keys, _probe_verified
 
     out_lines = []
     drop_reasons: list[dict] = []
