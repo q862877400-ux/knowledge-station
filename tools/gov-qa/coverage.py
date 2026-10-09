@@ -56,11 +56,23 @@ PROVINCE_NAMES = [
 
 
 class CoverageUnit:
-    """一个行政区或机构。字段见 data-model.md E4。"""
+    """一个行政区或机构。字段见 data-model.md E4。
+
+    ## ★ `total_records` vs `total_incl_cities`（2026-10-10 新增）
+
+    实测发现**省级口径会误导人**：甘肃省级显示 0 条，但实际该省已有 4 个市级源
+    共 9,659 条。原因：省级只统计 `level=province` 的通道。
+
+    ⇒ 两个数都给：
+    - `total_records`：**只算本级的通道**（原口径，回答「省级门户本身有多少」）
+    - `total_incl_cities`：**含下属地级市**（回答「这个省总共有多少」）
+
+    **薄弱省清单应该看后者** —— 否则会误判「甘肃没数据」。
+    """
 
     __slots__ = ("name", "level", "parent", "channels", "total_records",
-                 "threshold", "gap", "ratio_to_median", "status",
-                 "uncovered_channels")
+                 "total_incl_cities", "threshold", "gap", "ratio_to_median",
+                 "status", "uncovered_channels")
 
     def __init__(self, name: str, level: str, *, parent: str = "",
                  threshold: int = 0):
@@ -69,6 +81,7 @@ class CoverageUnit:
         self.parent = parent
         self.channels: list[str] = []
         self.total_records = 0
+        self.total_incl_cities = 0
         self.threshold = threshold
         self.gap = 0
         self.ratio_to_median = 0.0
@@ -76,11 +89,20 @@ class CoverageUnit:
         self.uncovered_channels: list[str] = []
 
     def recompute(self) -> None:
-        """按当前数据算状态与缺口（**状态是算出来的，不是存下来的**）。"""
-        self.gap = max(0, self.threshold - self.total_records)
-        if not self.channels:
+        """按当前数据算状态与缺口（**状态是算出来的，不是存下来的**）。
+
+        ⚠ **状态用 `total_incl_cities` 判定**（含下属市）——
+        否则「省级门户没建但地市级都有」的省会被误判为 `none`。
+        """
+        # 兜底：`total_incl_cities` 不得小于 `total_records`
+        # （单独构造 CoverageUnit 时不会走 build_units 的汇总逻辑）
+        if self.total_incl_cities < self.total_records:
+            self.total_incl_cities = self.total_records
+        effective = self.total_incl_cities if self.level == "province" else self.total_records
+        self.gap = max(0, self.threshold - effective)
+        if not self.channels and self.total_incl_cities == 0:
             self.status = STATUS_NONE
-        elif self.total_records < self.threshold:
+        elif effective < self.threshold:
             self.status = STATUS_THIN
         else:
             self.status = STATUS_OK
@@ -89,6 +111,7 @@ class CoverageUnit:
         return {
             "name": self.name, "level": self.level, "parent": self.parent,
             "channels": self.channels, "total_records": self.total_records,
+            "total_incl_cities": self.total_incl_cities,
             "threshold": self.threshold, "gap": self.gap,
             "ratio_to_median": self.ratio_to_median, "status": self.status,
             "uncovered_channels": self.uncovered_channels,
@@ -164,6 +187,16 @@ def build_units(channels, counts: dict, *, threshold_province: int,
             u.total_records += n
 
     units = list(prov.values()) + list(city.values()) + list(other.values())
+
+    # ★ 把「地级市的量」汇总到所属省 ⇒ 得到 total_incl_cities
+    #   实测动机：甘肃省级显示 0 条，但该省已有 4 个市级源共 9,659 条 ⇒ 口径误导。
+    for u in units:
+        u.total_incl_cities = u.total_records
+    for c in city.values():
+        parent = _province_of_city(c.name, alias)
+        if parent and parent in prov:
+            prov[parent].total_incl_cities += c.total_records
+
     for u in units:
         u.recompute()
 
@@ -180,6 +213,20 @@ def build_units(channels, counts: dict, *, threshold_province: int,
             if u.level == lvl:
                 u.ratio_to_median = round(u.total_records / med, 3) if med else 0.0
     return units
+
+
+def _province_of_city(city_name: str, alias: dict) -> str | None:
+    """由市名反查所属省。
+
+    ⚠ **做不到精确** —— 中国有 300+ 地级市，硬编码映射不现实。
+    这里只处理**能从名字直接看出省**的情况；其余返回 None（不汇总）。
+    ⇒ 这是**已知局限**：`total_incl_cities` 对多数市会偏低。
+    要精确需要一份「市→省」的行政区划表（下一轮补）。
+    """
+    for p in PROVINCE_NAMES:
+        if p in city_name or p.rstrip("省市自治区") in city_name:
+            return p
+    return None
 
 
 # ---------------------------------------------------------------- 未覆盖渠道

@@ -124,6 +124,9 @@ def main() -> int:
     if args.scope:
         human(f"口径过滤：{args.scope}")
     human("")
+    human("⚠ **两个口径**：`本级` = 只算省级门户；`含下属市` = 加上地级市的量。")
+    human("   **薄弱省清单应看「含下属市」** —— 否则会误判（如甘肃省级 0 但市级有 9,659 条）。")
+    human("")
     for label, us in (("省级", prov), ("地级", city)):
         if not us:
             continue
@@ -133,8 +136,9 @@ def main() -> int:
         human(f"  ❌ none  {_cnt(us, STATUS_NONE):3d} 个")
         human("")
 
-    # 缺口最大的
-    worst = sorted([u for u in sel if u.gap > 0], key=lambda u: -u.gap)
+    # 缺口最大的（**按含下属市排**，那才是真实缺口）
+    worst = sorted([u for u in sel if u.gap > 0],
+                   key=lambda u: -u.total_incl_cities if u.level == "province" else -u.total_records)
     if args.top:
         worst = worst[:args.top]
     if worst:
@@ -142,9 +146,13 @@ def main() -> int:
         for u in worst:
             miss = uncovered_for(u, channels)
             miss_s = "、".join(miss[:3])
-            human(f"    {u.name:16s} {u.total_records:8,d} 条"
-                  f"  还差 {u.gap:7,d} 条  （中位数 {u.ratio_to_median:.2f} 倍）"
-                  f"  ← 缺 {miss_s}")
+            if u.level == "province":
+                human(f"    {u.name:16s} 本级 {u.total_records:7,d}"
+                      f"  含下属市 {u.total_incl_cities:8,d}"
+                      f"  还差 {u.gap:7,d} 条  ← 缺 {miss_s}")
+            else:
+                human(f"    {u.name:16s} {u.total_records:8,d} 条"
+                      f"  还差 {u.gap:7,d} 条  ← 缺 {miss_s}")
 
     n_none = _cnt(sel, STATUS_NONE)
     if n_none:
