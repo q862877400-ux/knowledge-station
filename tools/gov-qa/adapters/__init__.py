@@ -326,6 +326,7 @@ ADAPTERS: dict[str, str] = {
     #    18 个市带指纹、**实测只有 8 个能出数据**（recon/probe-gd-city-hdjlpt.py）——
     "gd-shenzhen": "adapters.gd_shenzhen",  # 深圳市·政民互动（hdjlpt，年窗 5493）
     "gd-maoming": "adapters.gd_maoming",  # 茂名市·政民互动（hdjlpt，年窗 68）
+    "gd-jieyang": "adapters.gd_jieyang",  # 揭阳市·政民互动（hdjlpt，年窗 53）
     "gd-chaozhou": "adapters.gd_chaozhou",  # 潮州市·政民互动（hdjlpt，年窗 46）
     "gd-zhanjiang": "adapters.gd_zhanjiang",  # 湛江市·政民互动（hdjlpt，年窗 45）
     "gd-yangjiang": "adapters.gd_yangjiang",  # 阳江市·政民互动（hdjlpt，年窗 35）

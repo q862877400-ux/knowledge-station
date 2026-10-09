@@ -39,6 +39,7 @@ ADAPTERS_DIR = HERE.parent / "adapters"
 CITIES = [
     ("shenzhen", "深圳市", "http://www.shenzhen.gov.cn", 5493),
     ("maoming", "茂名市", "http://www.maoming.gov.cn", 68),
+    ("jieyang", "揭阳市", "http://www.jieyang.gov.cn", 53),
     ("chaozhou", "潮州市", "https://www.chaozhou.gov.cn", 46),
     ("zhanjiang", "湛江市", "https://www.zhanjiang.gov.cn", 45),
     ("yangjiang", "阳江市", "https://www.yangjiang.gov.cn", 35),
