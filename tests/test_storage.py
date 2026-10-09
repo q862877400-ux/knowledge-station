@@ -47,8 +47,13 @@ def test_fts5_and_vec_tables(db):
     from src.core.storage.sqlite_db import load_vec_extension
     assert load_vec_extension(db), "sqlite-vec 扩展加载失败"
     # vec0 虚拟表写入（json 序列化向量）
+    # ⚠ spec 003：**必须带 `doc_id`** —— 它是 vec0 的 **TEXT 元数据列**，而 vec0 **拒 NULL**
+    #   （`Expected text for TEXT metadata column doc_id, received NULL`）。
+    #   这条用例是本项**漏改**的那一个（2026-10-09 由 `-Full` 的 junit 抓到）：
+    #   我先前 grep 时用了 `head -40` 被截断，没看到本文件。
     vec = json.dumps([0.1] * 512)
-    db.execute("INSERT INTO clause_vec (clause_revision_id, embedding) VALUES ('st_c1', ?)", (vec,))
+    db.execute("INSERT INTO clause_vec (clause_revision_id, doc_id, embedding)"
+               " VALUES ('st_c1', 'st_doc_1', ?)", (vec,))
     db.commit()
     rows = db.execute(
         "SELECT clause_revision_id FROM clause_vec WHERE embedding MATCH ? AND k = 1",

@@ -374,6 +374,34 @@ try {
       } else {
         $junitError = "没找到 junitxml：$junitPath"
       }
+      # ⚠⚠ **2026-10-09（人工轮第 18 轮）补：汇总行拿不到时，从 junit 兜底。**
+      #   为什么需要：pytest 的汇总行（"N passed"）可能**被外来输出冲掉** ——
+      #   本机实测：收尾清 tmp 时往 stdout 注入了一条
+      #   `[safe-delete][SAFE_DELETE_BULK_CONFIRM_REQUIRED] {"count":55,...}`（沙箱的删除守卫），
+      #   把汇总行挤没了 ⇒ `$pytestPassed` 为 $null ⇒ 棘轮报"拿不到 passed 数字" ⇒ **整套判红**，
+      #   而 junit **就在那里、数字齐全**（实测 `tests=2697 failures=2 skipped=3`）。
+      #   ⇒ 汇总行缺失时用 junit 反推：`passed = tests − failures − errors − skipped`。
+      #   ⚠ **这不是放宽**：junit 是 pytest 自己写的机器可读结果，比 stdout 正则**更权威**；
+      #     而且**只在日志正则失败时**才走这条路（日志能解析时仍以日志为准，行为一字不变）。
+      if ($null -eq $pytestPassed -and $null -eq $junitError -and $allNodeIds.Count -gt 0) {
+        try {
+          $sumTests = 0; $sumFail = 0; $sumErr = 0; $sumSkip = 0
+          foreach ($sn in $jx.SelectNodes('//testsuite')) {
+            $sumTests += [int]$sn.GetAttribute('tests')
+            $sumFail += [int]$sn.GetAttribute('failures')
+            $sumErr += [int]$sn.GetAttribute('errors')
+            $sumSkip += [int]$sn.GetAttribute('skipped')
+          }
+          if ($sumTests -gt 0) {
+            $pytestPassed = $sumTests - $sumFail - $sumErr - $sumSkip
+            $pytestFailed = $sumFail
+            $pytestErrors = $sumErr
+            $pytestSkipped = $sumSkip
+            Write-Host ("   ℹ 汇总行拿不到（stdout 被冲掉）⇒ 从 junit 兜底：passed={0} failed={1} errors={2} skipped={3}" -f `
+              $pytestPassed, $pytestFailed, $pytestErrors, $pytestSkipped) -ForegroundColor Yellow
+          }
+        } catch { $junitError = "junit 计数兜底失败：$($_.Exception.Message)" }
+      }
       # ⚠ **解析不到 ⇒ 报错，不许静默丢弃**（复核 v2 指出的第二个洞）：若汇总说 skipped=N，
       #   而 junit 里只认出 M≠N 条，那判据就不可信 —— 判红并说清差在哪，别"当没事发生"。
       if ($null -eq $junitError -and $skipNodeIds.Count -ne [int]$pytestSkipped) {
