@@ -96,19 +96,58 @@ try {
   const { createRoot } = await import('react-dom/client')
   const root = createRoot(dom.window.document.getElementById('root'))
   root.render(React.createElement(KsMaterialsPanel, { visible: true }))
-  await new Promise((r) => setTimeout(r, 30))
+
+  /* ── ⚠⚠ 2026-10-10 修：把**固定等待**换成**等条件**（治本仓最后一条 `-Full` 红） ──
+   * 原来这里（以及下面两处）是 `setTimeout(30)` / `setTimeout(20)` 定死的时间。
+   * 实测**取率**（同一份代码，各跑 10 次）：node 父进程 spawn ⇒ **5/10 通过**、
+   * 直接跑 ⇒ **8/10 通过** ⇒ 这是个 **20–50% 失败率的真 flake**，
+   * 症状 = 「① 两行真渲染 … **行 0**」（面板还没渲染出行就被读了）。
+   * ⇒ 改成**轮询到条件成立**（上限 5 s）：语义一字未改，只是不再赌固定毫秒数。
+   */
+  const q = (s) => [...dom.window.document.querySelectorAll(s)]
+  const waitFor = async (fn, ms = 5000, step = 10) => {
+    const t0 = Date.now()
+    for (;;) {
+      let ok = false
+      try { ok = !!fn() } catch { ok = false }
+      if (ok) return true
+      if (Date.now() - t0 >= ms) return false
+      await new Promise((r) => setTimeout(r, step))
+    }
+  }
+  /* 等 DOM「静下来」：连续两次采样相同（用于点击后的重渲染，最多等 ms）。 */
+  const settle = async (ms = 1000, step = 10) => {
+    const snap = () => dom.window.document.body.innerHTML
+    let prev = snap()
+    const t0 = Date.now()
+    while (Date.now() - t0 < ms) {
+      await new Promise((r) => setTimeout(r, step))
+      const now = snap()
+      if (now === prev) return true
+      prev = now
+    }
+    return false
+  }
+
+  /* ① 先等面板首屏真的出来（下拉出现 或 行已渲染），再选项目。 */
+  await waitFor(() => q('.ks-mat-row').length > 0
+    || dom.window.document.querySelector('select[aria-label="参考资料项目"]') !== null)
+
   /* 选中项目（受控 select：原生 setter + change，同 setInput 惯例）。 */
   const sel = dom.window.document.querySelector('select[aria-label="参考资料项目"]')
   if (sel !== null) {
     const setter = Object.getOwnPropertyDescriptor(dom.window.HTMLSelectElement.prototype, 'value').set
     setter.call(sel, 'prj_1')
     sel.dispatchEvent(new dom.window.Event('change', { bubbles: true }))
-    await new Promise((r) => setTimeout(r, 30))
+    /* ② 选中后**等行真的渲染出来**（而不是睡 30 ms 就往下读）。 */
+    await waitFor(() => q('.ks-mat-row').length > 0)
   }
-  const q = (s) => [...dom.window.document.querySelectorAll(s)]
   const click = async (el) => {
+    const before = dom.window.document.body.innerHTML
     el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }))
-    await new Promise((r) => setTimeout(r, 20))
+    /* ③ 点击后：先等 DOM **变了**（说明 React 处理了），再等它**稳定**。 */
+    await waitFor(() => dom.window.document.body.innerHTML !== before, 2000)
+    await settle(500)
   }
 
   const rows = q('.ks-mat-row')
