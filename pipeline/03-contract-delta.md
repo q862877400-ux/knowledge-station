@@ -397,15 +397,24 @@ CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0(
 ## 为什么必须改（一手证据）
 
 **缺陷**：范围提问时，向量通道的过滤写成
-`clause_revision_id IN (SELECT clause_revision_id FROM clause_revision WHERE doc_id IN (…))`，
-而 `sqlite-vec 0.1.9` **不把 `TEXT PRIMARY KEY` 列用于 KNN 前置过滤** ⇒
+`clause_revision_id IN (SELECT clause_revision_id FROM clause_revision WHERE doc_id IN (…))`。
 
-| 范围子查询返回几个 id | 结果 |
+⚠ **2026-10-09 就地更正**（本增量初版写的"范围子查询返回 ≥2 个 id 就返回 `[]`"**不准确**，已作废）。
+判决性实验（`specs/003-vec-scope-pushdown/probes/probe-mechanism.py`）给出的**真正失效条件**：
+
+| 范围里的条款**有向量的比例** | 旧写法 |
 |---|---|
-| 恰好 1 个 | 下推成功 |
-| **≥ 2 个** | **返回 `[]`**（退化成"先 KNN 再筛"） |
+| **全部都有向量**（真库今天的常态） | ✅ 正常 |
+| **只有一部分有向量** | ❌ **返回 `[]`**（退化成"先 KNN 再筛"） |
 
-真实目录通常几十上百条 ⇒ **「按目录范围提问」在向量通道上假报"范围内没有"**。
+**与表大小无关**（近邻 25 → 100,000 条，行为一样）。
+
+**真库现状（实测）**：`clause_vec` = `clause_revision` = **663,634** 行、
+**"有条款却没有向量"的文档 = 0 篇** ⇒ **旧写法现在工作正常**。
+⇒ 本项修的是**潜在脆弱点**，**不是当前正在发生的故障**。触发路径是可达的：
+① 入库时嵌入模型不可用会**跳过向量写入**（`vec_ok=False`，设计如此）；
+② 部分重建（影子表只跑一部分就换表）；③ 删向量后未回填。
+一旦发生，症状**静默**（用户看到"这个目录里没有"）。
 
 **修法**：改用**元数据列** `doc_id`。实测（`specs/003-vec-scope-pushdown/probes/`）：
 

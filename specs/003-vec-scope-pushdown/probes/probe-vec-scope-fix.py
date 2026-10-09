@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
 """第 18 轮：验证「向量通道范围下推」的修法能不能成立（只读、纯内存库，不碰真库）。
 
+⚠⚠ **2026-10-09 就地更正：本文件的 Q1【作废】，不要引用它的读数。**
+   Q1 查的是 `clause_revision_id IN (SELECT value FROM json_each(?))`，而喂进去的是**文档 id**
+   （`["in_doc"]`）**不是条款 id** ⇒ 那是个**无意义的查询**，它返回 0 行**不能**当作"复现缺陷"。
+   ⇒ **真正的判决性实验在 `probe-mechanism.py`**（直接 SQL 跑两种写法，扫规模 × 有向量比例）：
+      失效条件是"**范围里只有一部分条款有向量**"，**与表大小无关**；
+      且**真库今天不满足该条件**（0 篇"有条款却没向量"的文档）⇒ 旧写法现在工作正常。
+   **Q2a / Q2b / Q2c / Q2d / Q5–Q9 不受影响**（它们喂的是 `doc_id`，是对的）。
+
 背景（第 17 轮实测，见 tests/test_kb_scope_retrieval.py 的 docstring）：
   `clause_vec` = `vec0(clause_revision_id TEXT PRIMARY KEY, embedding FLOAT[512])`，
   范围过滤写成 `clause_revision_id IN (SELECT clause_revision_id FROM clause_revision
   WHERE doc_id IN (SELECT value FROM json_each(?)))`
-  ⇒ **只有子查询恰好返回 1 个 id 时才下推**；≥2 个 id 就返回 `[]`。
+  ⇒ 在"范围里只有一部分条款有向量"时返回 `[]`（见 probe-mechanism.py）。
 
 本探针要回答的问题（决定修法）：
   Q1 现状能复现吗？

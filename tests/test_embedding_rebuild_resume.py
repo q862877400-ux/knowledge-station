@@ -136,16 +136,17 @@ def test_ckpt_guard_rejects_each_mismatch(key, value):
 # --------------------------------------------------------------------------- #
 def _make_source(path: Path, n: int = 50) -> None:
     c = sqlite3.connect(str(path))
+    # ⚠ spec 003：源库要带 `doc_id`（影子表也要搬它 —— 范围提问靠它下推）
     c.execute("CREATE TABLE clause_revision (clause_revision_id TEXT PRIMARY KEY,"
-              " title TEXT, content_text TEXT)")
+              " title TEXT, content_text TEXT, doc_id TEXT)")
     rows = []
     for i in range(n):
         cid = f"clrev_test_{i:04d}"
         # 混入 None / 空正文 / 超 512 字，覆盖真实数据的三种形态
         title = None if i % 7 == 0 else f"标题{i}"
         body = "" if i % 11 == 0 else ("正文" * (i % 3 + 1)) + ("尾巴" * (i * 13))
-        rows.append((cid, title, body))
-    c.executemany("INSERT INTO clause_revision VALUES (?,?,?)", rows)
+        rows.append((cid, title, body, f"doc_test_{i % 5:02d}"))
+    c.executemany("INSERT INTO clause_revision VALUES (?,?,?,?)", rows)
     c.commit()
     c.close()
 
@@ -339,13 +340,26 @@ def test_shadow_dim_matches_production_schema():
     """影子表维度必须 = 生产 `clause_vec` 的维度 ⇒ 换表**不需要改 schema**。
 
     生产若升维（`FLOAT[512]` → 别的），这条会红 —— 那时必须同步改 `OUT_DIM` 并重跑 E4 那一格。
+
+    ⚠ 2026-10-09（spec 003）：原正则把 DDL 形状**钉死**成
+    `…PRIMARY KEY,\\s*embedding FLOAT[512]`，而 spec 003 给 `clause_vec` 加了
+    `doc_id TEXT` **元数据列**（范围下推修复）⇒ 正则改成"取括号内整段再逐项断言"，
+    **意图一字未改**（仍然断言维度 == `OUT_DIM` == 512），并顺带钉住 `doc_id` 列还在。
     """
     sql = SCHEMA.read_text(encoding="utf-8")
-    m = re.search(r"CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0\("
-                  r"\s*clause_revision_id TEXT PRIMARY KEY,\s*embedding FLOAT\[(\d+)\]", sql)
+    m = re.search(r"CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0\(([^)]*)\)", sql)
     assert m, "schema.sql 里 clause_vec 的 DDL 形状变了"
-    assert int(m.group(1)) == RS.OUT_DIM == 512
+    body = m.group(1)
+    assert "clause_revision_id TEXT PRIMARY KEY" in body, f"主键列变了：{body}"
+    assert "doc_id TEXT" in body, f"缺 doc_id 元数据列（spec 003 范围下推）：{body}"
+    dm = re.search(r"embedding FLOAT\[(\d+)\]", body)
+    assert dm, f"找不到 embedding 维度声明：{body}"
+    assert int(dm.group(1)) == RS.OUT_DIM == 512
     assert RS.TABLE == "clause_vec_qwen" and RS.CKPT_TABLE == "_shadow_ckpt"
+    # ⚠ spec 003：影子表 DDL 必须跟着生产加 `doc_id`（否则换表后范围提问在向量通道上静默返回空）
+    script_src = SCRIPT.read_text(encoding="utf-8")
+    assert "clause_revision_id TEXT PRIMARY KEY, doc_id TEXT, embedding" in script_src, \
+        "影子表 DDL 没跟生产同步加 doc_id（spec 003）"
 
 
 def test_ckpt_and_data_are_committed_in_the_same_transaction():

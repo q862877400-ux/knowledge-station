@@ -8,8 +8,11 @@
 1. **只读真库**：源库一律 `file:...?mode=ro`。脚本**没有**任何写源库的路径。
 2. **影子表写在独立库文件里**（`--out`），不复制整库（真库 3.1 GB ⇒ 复制一次又慢又占盘）。
    表名默认 `clause_vec_qwen`，DDL 与生产 `clause_vec` **同形**（`vec0(id TEXT PRIMARY KEY,
-   embedding FLOAT[512])`）—— E4 第三轮已量出升到 1024 维只有 +1.67pt ⇒ **维度保持 512，
-   schema 一个字都不用改**。
+   doc_id TEXT, embedding FLOAT[512])`）—— E4 第三轮已量出升到 1024 维只有 +1.67pt ⇒ **维度保持 512，
+   不改维度**。
+   ⚠ 2026-10-09（spec 003）：**加了 `doc_id` 元数据列** —— 生产 `clause_vec` 也加了它
+   （「按目录范围提问」的向量通道要靠它下推）。影子表必须跟着加，否则**换表之后**
+   范围提问在向量通道上会**静默返回空**。
 3. **断点续跑按 `rowid` 游标 + 库内 checkpoint 表**：checkpoint 与数据**同事务提交**
    ⇒ 进程被强杀时，最后一个未提交的批次整批回滚、checkpoint 也停在上一批，**不会错位**。
    （`exp-4/01-embed-qwen.py` 用"把已算 id 全读进内存做集合差"来续跑；那在 66 万行上要多读
@@ -184,7 +187,7 @@ def _open_shadow(out: Path, dim: int) -> sqlite3.Connection:
     if not load_vec_extension(conn):
         raise SystemExit("⛔ sqlite-vec 加载失败")
     conn.execute(f"CREATE VIRTUAL TABLE IF NOT EXISTS {TABLE} USING vec0("
-                 f"clause_revision_id TEXT PRIMARY KEY, embedding FLOAT[{dim}])")
+                 f"clause_revision_id TEXT PRIMARY KEY, doc_id TEXT, embedding FLOAT[{dim}])")
     conn.execute(f"CREATE TABLE IF NOT EXISTS {CKPT_TABLE} (key TEXT PRIMARY KEY, value TEXT)")
     conn.commit()
     return conn
@@ -240,7 +243,9 @@ def run(source: Path, out: Path, *, limit: int | None = None, batch: int = DEFAU
 
     target = nonempty if limit is None else min(limit, nonempty)
     rows = src.execute(
-        "SELECT rowid, clause_revision_id, title, content_text FROM clause_revision"
+        # ⚠ doc_id 放在**末尾**（spec 003）：这样 r[2]/r[3] 仍是 title/content_text，
+        #   不会因为加一列而让下面的下标集体位移。
+        "SELECT rowid, clause_revision_id, title, content_text, doc_id FROM clause_revision"
         " WHERE trim(coalesce(content_text,'')) <> '' AND rowid > ? ORDER BY rowid LIMIT ?",
         (last_rowid, max(0, target - done))).fetchall()
     log(f"[exp-17] 源库 clause_revision={total}（非空正文 {nonempty}）；目标 {target}；"
@@ -268,9 +273,11 @@ def run(source: Path, out: Path, *, limit: int | None = None, batch: int = DEFAU
             embs = embedder([f"{r[1]}\x01{display_text(r[2], r[3])}" for r in chunk])
         else:
             embs = embedder([display_text(r[2], r[3]) for r in chunk])
-        payload = [(r[1], array.array("f", e).tobytes()) for r, e in zip(chunk, embs)]
-        conn.executemany(f"INSERT OR REPLACE INTO {TABLE} (clause_revision_id, embedding)"
-                         " VALUES (?, ?)", payload)
+        # ⚠ 必须带 doc_id（spec 003）：影子表要"与生产同形"，否则将来换表后
+        #   「按目录范围提问」在向量通道上会静默返回空。
+        payload = [(r[1], r[4], array.array("f", e).tobytes()) for r, e in zip(chunk, embs)]
+        conn.executemany(f"INSERT OR REPLACE INTO {TABLE}"
+                         " (clause_revision_id, doc_id, embedding) VALUES (?, ?, ?)", payload)
         written += len(chunk)
         done += len(chunk)
         batches += 1
