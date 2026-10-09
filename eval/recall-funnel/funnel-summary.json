@@ -2,7 +2,9 @@
  "meta": {
   "source": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\funnel-per-query.jsonl",
   "n_per_query": 171,
+  "n_excluded_answer_out_of_corpus": 0,
   "channel_definition": "六路 = A 条款号精确 / B FTS5 / C 向量 / D 模态 / E 法理要素 / F 行为客体",
+  "subset_definition": "四个难度子集 = 短条款 / 字面零重合 / 带标准号 / 普通（FR-005）；标签在 build-v2.py 里算，口径与出处见 eval/recall-funnel/README.md §五。⚠ `by_subset` 四个桶是**互斥分区**（优先级 短条款→字面零重合→带标准号→普通）。",
   "prod_caps": {
    "fts": 20,
    "vec": 20,
@@ -1011,6 +1013,1330 @@
     "max": 73268
    }
   }
+ },
+ "by_subset": {
+  "短条款": {
+   "n": 8,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 8,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 20.0
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 8,
+     "prod": {
+      "@20": 0.125,
+      "@100": 0.125,
+      "@1000": 0.125
+     },
+     "prod_within_fired": {
+      "@20": 0.125,
+      "@100": 0.125,
+      "@1000": 0.125
+     },
+     "deep": {
+      "@20": 0.125,
+      "@100": 0.125,
+      "@1000": 0.375
+     },
+     "n_candidates_median": 20.0
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.125,
+     "@100": 0.125,
+     "@1000": 0.375
+    },
+    "prod_caps": {
+     "hit": 0.125,
+     "pool_median": 39.5
+    }
+   },
+   "fused": {
+    "@20": 0.125,
+    "@100": 0.125,
+    "@1000": 0.125
+   },
+   "fused_rerank_top8": 0.125,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 3,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 5
+   },
+   "triage": {
+    "L1_六路深读1000都没召回": 5,
+    "L0_进得了用户看的8条": 1,
+    "L2_要读到20条以外才够得着": 2
+   },
+   "fts_pool": {
+    "n": 8,
+    "median": 28972.5,
+    "max": 72602
+   }
+  },
+  "字面零重合": {
+   "n": 113,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 113,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 20
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 113,
+     "prod": {
+      "@20": 0.0619,
+      "@100": 0.0619,
+      "@1000": 0.0619
+     },
+     "prod_within_fired": {
+      "@20": 0.0619,
+      "@100": 0.0619,
+      "@1000": 0.0619
+     },
+     "deep": {
+      "@20": 0.0619,
+      "@100": 0.115,
+      "@1000": 0.2743
+     },
+     "n_candidates_median": 20
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 4,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.0619,
+     "@100": 0.115,
+     "@1000": 0.2743
+    },
+    "prod_caps": {
+     "hit": 0.0708,
+     "pool_median": 40
+    }
+   },
+   "fused": {
+    "@20": 0.0619,
+    "@100": 0.0619,
+    "@1000": 0.0619
+   },
+   "fused_rerank_top8": 0.0265,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 31,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 82
+   },
+   "triage": {
+    "L4_融合后在前20但没进用户看的8条": 4,
+    "L1_六路深读1000都没召回": 82,
+    "L2_要读到20条以外才够得着": 24,
+    "L0_进得了用户看的8条": 3
+   },
+   "fts_pool": {
+    "n": 113,
+    "median": 8574,
+    "max": 75490
+   }
+  },
+  "带标准号": {
+   "n": 0,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": null,
+     "@100": null,
+     "@1000": null
+    },
+    "prod_caps": {
+     "hit": null,
+     "pool_median": null
+    }
+   },
+   "fused": {
+    "@20": null,
+    "@100": null,
+    "@1000": null
+   },
+   "fused_rerank_top8": null,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 0,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 0
+   },
+   "triage": {},
+   "fts_pool": {
+    "n": 0,
+    "median": null,
+    "max": null
+   }
+  },
+  "普通": {
+   "n": 50,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 50,
+     "prod": {
+      "@20": 0.1,
+      "@100": 0.1,
+      "@1000": 0.1
+     },
+     "prod_within_fired": {
+      "@20": 0.1,
+      "@100": 0.1,
+      "@1000": 0.1
+     },
+     "deep": {
+      "@20": 0.1,
+      "@100": 0.3,
+      "@1000": 0.46
+     },
+     "n_candidates_median": 20.0
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 50,
+     "prod": {
+      "@20": 0.14,
+      "@100": 0.14,
+      "@1000": 0.14
+     },
+     "prod_within_fired": {
+      "@20": 0.14,
+      "@100": 0.14,
+      "@1000": 0.14
+     },
+     "deep": {
+      "@20": 0.14,
+      "@100": 0.24,
+      "@1000": 0.5
+     },
+     "n_candidates_median": 20.0
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 4,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.22,
+     "@100": 0.4,
+     "@1000": 0.66
+    },
+    "prod_caps": {
+     "hit": 0.22,
+     "pool_median": 40.0
+    }
+   },
+   "fused": {
+    "@20": 0.14,
+    "@100": 0.22,
+    "@1000": 0.22
+   },
+   "fused_rerank_top8": 0.1,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 8,
+     "C 向量": 10,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 15,
+    "no_channel_hit": 17
+   },
+   "triage": {
+    "L1_六路深读1000都没召回": 17,
+    "L2_要读到20条以外才够得着": 22,
+    "L0_进得了用户看的8条": 5,
+    "L3_并集里有_融合后掉了": 4,
+    "L4_融合后在前20但没进用户看的8条": 2
+   },
+   "fts_pool": {
+    "n": 50,
+    "median": 16239.0,
+    "max": 73268
+   }
+  }
+ },
+ "by_subset_headline": {
+  "短条款": {
+   "n": 2,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 2,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 20.0
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 2,
+     "prod": {
+      "@20": 0.5,
+      "@100": 0.5,
+      "@1000": 0.5
+     },
+     "prod_within_fired": {
+      "@20": 0.5,
+      "@100": 0.5,
+      "@1000": 0.5
+     },
+     "deep": {
+      "@20": 0.5,
+      "@100": 0.5,
+      "@1000": 0.5
+     },
+     "n_candidates_median": 20.0
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0.0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.5,
+     "@100": 0.5,
+     "@1000": 0.5
+    },
+    "prod_caps": {
+     "hit": 0.5,
+     "pool_median": 40.0
+    }
+   },
+   "fused": {
+    "@20": 0.5,
+    "@100": 0.5,
+    "@1000": 0.5
+   },
+   "fused_rerank_top8": 0.5,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 1,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 1
+   },
+   "triage": {
+    "L1_六路深读1000都没召回": 1,
+    "L0_进得了用户看的8条": 1
+   },
+   "fts_pool": {
+    "n": 2,
+    "median": 34602.0,
+    "max": 37076
+   }
+  },
+  "字面零重合": {
+   "n": 83,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 83,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 20
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 83,
+     "prod": {
+      "@20": 0.0602,
+      "@100": 0.0602,
+      "@1000": 0.0602
+     },
+     "prod_within_fired": {
+      "@20": 0.0602,
+      "@100": 0.0602,
+      "@1000": 0.0602
+     },
+     "deep": {
+      "@20": 0.0602,
+      "@100": 0.1205,
+      "@1000": 0.2771
+     },
+     "n_candidates_median": 20
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 3,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.0602,
+     "@100": 0.1205,
+     "@1000": 0.2771
+    },
+    "prod_caps": {
+     "hit": 0.0723,
+     "pool_median": 40
+    }
+   },
+   "fused": {
+    "@20": 0.0602,
+    "@100": 0.0602,
+    "@1000": 0.0602
+   },
+   "fused_rerank_top8": 0.0361,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 23,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 60
+   },
+   "triage": {
+    "L1_六路深读1000都没召回": 60,
+    "L2_要读到20条以外才够得着": 18,
+    "L4_融合后在前20但没进用户看的8条": 2,
+    "L0_进得了用户看的8条": 3
+   },
+   "fts_pool": {
+    "n": 83,
+    "median": 7597,
+    "max": 75490
+   }
+  },
+  "带标准号": {
+   "n": 0,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "n_candidates_median": null
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": null,
+     "@100": null,
+     "@1000": null
+    },
+    "prod_caps": {
+     "hit": null,
+     "pool_median": null
+    }
+   },
+   "fused": {
+    "@20": null,
+    "@100": null,
+    "@1000": null
+   },
+   "fused_rerank_top8": null,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 0,
+     "C 向量": 0,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 0,
+    "no_channel_hit": 0
+   },
+   "triage": {},
+   "fts_pool": {
+    "n": 0,
+    "median": null,
+    "max": null
+   }
+  },
+  "普通": {
+   "n": 35,
+   "channel_recall": {
+    "exact": {
+     "name": "A 条款号精确",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "fts": {
+     "name": "B 全文 FTS5",
+     "fire_n": 35,
+     "prod": {
+      "@20": 0.1143,
+      "@100": 0.1143,
+      "@1000": 0.1143
+     },
+     "prod_within_fired": {
+      "@20": 0.1143,
+      "@100": 0.1143,
+      "@1000": 0.1143
+     },
+     "deep": {
+      "@20": 0.1143,
+      "@100": 0.3714,
+      "@1000": 0.4857
+     },
+     "n_candidates_median": 20
+    },
+    "vec": {
+     "name": "C 向量",
+     "fire_n": 35,
+     "prod": {
+      "@20": 0.1714,
+      "@100": 0.1714,
+      "@1000": 0.1714
+     },
+     "prod_within_fired": {
+      "@20": 0.1714,
+      "@100": 0.1714,
+      "@1000": 0.1714
+     },
+     "deep": {
+      "@20": 0.1714,
+      "@100": 0.2857,
+      "@1000": 0.5429
+     },
+     "n_candidates_median": 20
+    },
+    "modality": {
+     "name": "D 模态",
+     "fire_n": 2,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "legal_element": {
+     "name": "E 法理要素",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    },
+    "behavior_scope": {
+     "name": "F 行为客体",
+     "fire_n": 0,
+     "prod": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "prod_within_fired": {
+      "@20": null,
+      "@100": null,
+      "@1000": null
+     },
+     "deep": {
+      "@20": 0.0,
+      "@100": 0.0,
+      "@1000": 0.0
+     },
+     "n_candidates_median": 0
+    }
+   },
+   "union": {
+    "same_budget": {
+     "@20": 0.2571,
+     "@100": 0.4571,
+     "@1000": 0.6857
+    },
+    "prod_caps": {
+     "hit": 0.2571,
+     "pool_median": 40
+    }
+   },
+   "fused": {
+    "@20": 0.1429,
+    "@100": 0.2571,
+    "@1000": 0.2571
+   },
+   "fused_rerank_top8": 0.1143,
+   "contribution": {
+    "exclusive_hits": {
+     "A 条款号精确": 0,
+     "B 全文 FTS5": 5,
+     "C 向量": 7,
+     "D 模态": 0,
+     "E 法理要素": 0,
+     "F 行为客体": 0
+    },
+    "co_hit_2plus": 12,
+    "no_channel_hit": 11
+   },
+   "triage": {
+    "L1_六路深读1000都没召回": 11,
+    "L2_要读到20条以外才够得着": 15,
+    "L0_进得了用户看的8条": 4,
+    "L3_并集里有_融合后掉了": 4,
+    "L4_融合后在前20但没进用户看的8条": 1
+   },
+   "fts_pool": {
+    "n": 35,
+    "median": 8740,
+    "max": 73268
+   }
+  }
+ },
+ "by_subset_sensitivity": {
+  "zero_overlap_char_level": 121,
+  "zero_overlap_token_level": 132,
+  "partition_alt_priority": {
+   "短条款": 0,
+   "字面零重合": 121,
+   "带标准号": 0,
+   "普通": 50
+  },
+  "note": "char_level = 提问与 gold 条文无 ≥2 字公共子串（与 53.0% 那档同口径，**本批标签口径**）；token_level = 与通道 B 同款分词下无共同词（77.2% 那档）。partition_alt_priority = 若把优先级换成「带标准号→字面零重合→短条款」，四个桶各多少条。"
  },
  "replica_check": {
   "n_checked": 171,

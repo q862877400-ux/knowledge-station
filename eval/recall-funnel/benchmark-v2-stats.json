@@ -11,7 +11,8 @@
   "bucket_split": 28,
   "headline": 120,
   "headline_excluded_gold_not_unique": 23,
-  "flagged_has_subclauses": 7
+  "flagged_has_subclauses": 7,
+  "answer_out_of_corpus": 0
  },
  "vote_shapes": {
   "('PASS', 'PASS', 'PASS')": 143,
@@ -106,6 +107,31 @@
    "gold_dup_text": 4,
    "has_subclauses": 6
   }
+ },
+ "subset": {
+  "priority": [
+   "短条款",
+   "字面零重合",
+   "带标准号",
+   "普通"
+  ],
+  "partition_all": {
+   "字面零重合": 113,
+   "短条款": 8,
+   "普通": 50
+  },
+  "partition_headline": {
+   "字面零重合": 83,
+   "普通": 35,
+   "短条款": 2
+  },
+  "markers_all": {
+   "short_clause": 8,
+   "zero_overlap_char": 121,
+   "has_standard_no": 0,
+   "has_standard_no_verified": 0
+  },
+  "note": "⚠ 本批考卷对四个难度子集几乎不承载：带标准号 0 条、短条款 8 条；字面零重合 121 条（字符级口径）。原因见 eval/recall-funnel/README.md §五。"
  },
  "dropped_from_main": {
   "n": 28,

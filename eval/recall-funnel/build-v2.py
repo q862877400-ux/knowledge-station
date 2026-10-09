@@ -6,6 +6,11 @@
      的条文字节级重复 ⇒ 正确答案不止一条，"没找到 gold"不等于"没答对"；
   3. 机械标记 **部分回答**：gold 是**分节标题**（有子条款）⇒ 一个问法要的答案可能跨子条款；
   4. 统计并落盘（唯一条款数 / 唯一文档数 / 类型分布 / 票型分布 / 移出样本与原因）。
+  5. **（2026-10-09 T016 新增）标注 FR-005 的四个难度子集** ⇒ `v2.subset`
+     （短条款 / 字面零重合 / 带标准号 / 普通；口径与出处逐条写在 `main()` 里，
+     解释与边界见 `eval/recall-funnel/README.md` §五）。
+  6. **（2026-10-09 T017 新增）标出"答案不在库内"的题** ⇒ `v2.answer_out_of_corpus`（FR-006）。
+     ⚠ 原样是一句 `assert gold is not None` —— 那会把"换考卷"变成不可能，已改成记布尔字段。
 
 ⚠ 本脚本**只读**真库（URI `mode=ro`），不写库、不改源文件、不产生新考卷。
 用法： .venv\\Scripts\\python.exe eval\\recall-funnel\\build-v2.py
@@ -57,6 +62,8 @@ def head_term(gold_text: str) -> str | None:
 
 def main() -> int:
     from src.core.text_utils import standard_key
+    # FR-005 的"带标准号"子集必须与**通道 A 的真实触发条件**同一把尺子 ⇒ 直接借生产的两件：
+    from src.core.retrieval.hybrid_engine import _STD_IN_QUERY_RE, _known_standard_keys
 
     items = [json.loads(l) for l in BENCH.read_text(encoding="utf-8").splitlines() if l.strip()]
     verd = {}
@@ -84,11 +91,17 @@ def main() -> int:
         stk = standard_key(it["gold_std"])
         std_no = std_of_key.get(stk)
         gold = conn.execute(
-            "SELECT cr.clause_revision_id, cr.doc_id, cr.hierarchy_path, cr.content_hash"
+            "SELECT cr.clause_revision_id, cr.doc_id, cr.hierarchy_path, cr.content_hash,"
+            " cr.content_text"
             " FROM clause_revision cr JOIN doc_meta dm ON dm.doc_id=cr.doc_id"
             " WHERE dm.standard_no=? AND cr.clause_number=?",
             (std_no, it["gold_clause"])).fetchone()
-        assert gold is not None, f"gold 不在了: {it['i']}"
+        # 2026-10-09（T016/T017）：原样是一句 `assert gold is not None`。
+        # ⚠ 那句话把"换考卷"变成不可能：按 FR-006，**答案不在库内的题必须能被标出并排除**，
+        #   而不是让构建器当场崩掉。⇒ 改成记一个布尔字段（`answer_out_of_corpus`），
+        #   下游统计按它排除。本批 171 条实测**全部在库内** ⇒ 该字段全 False（不是没实现，
+        #   是这批考卷本来就没有库外题；换考卷时它才会变 True）。
+        answer_out_of_corpus = gold is None
 
         flags: list[str] = []
         flag_detail: dict[str, object] = {}
@@ -106,7 +119,7 @@ def main() -> int:
                 flag_detail["term"] = term
 
         # ── Gold 不唯一 (b)：条文字节级重复（content_hash 相同）───────────────
-        if gold["content_hash"]:
+        if gold is not None and gold["content_hash"]:
             n_dup = conn.execute(
                 "SELECT COUNT(DISTINCT doc_id) FROM clause_revision WHERE content_hash=?",
                 (gold["content_hash"],)).fetchone()[0]
@@ -123,20 +136,50 @@ def main() -> int:
         #     再按 `hp + ' > %'`（**匹配到的是兄弟节点**，把 153 条判成"有子条款"、
         #     单条子条款数一度报到 20,928）。现在这版才是语义正确的。
         #   这条是**备注**，不是移出主结果的理由（命中仍成立，只是"答案可能跨子条款"）。
-        hp = (gold["hierarchy_path"] or "").strip()
-        num = str(it["gold_clause"]).strip()
-        gold_path = f"{hp} > {num}" if hp else num
-        esc = _like_escape(gold_path)
-        n_child = conn.execute(
-            "SELECT COUNT(*) FROM clause_revision"
-            " WHERE doc_id = ?"
-            "   AND (hierarchy_path = ?"
-            "        OR hierarchy_path LIKE ? ESCAPE '\\')",
-            (gold["doc_id"], gold_path, f"{esc} > %")).fetchone()[0]
-        flag_detail["gold_path"] = gold_path
-        if n_child > 0:
-            flags.append("has_subclauses")
-            flag_detail["n_subclauses"] = n_child
+        if gold is not None:
+            hp = (gold["hierarchy_path"] or "").strip()
+            num = str(it["gold_clause"]).strip()
+            gold_path = f"{hp} > {num}" if hp else num
+            esc = _like_escape(gold_path)
+            n_child = conn.execute(
+                "SELECT COUNT(*) FROM clause_revision"
+                " WHERE doc_id = ?"
+                "   AND (hierarchy_path = ?"
+                "        OR hierarchy_path LIKE ? ESCAPE '\\')",
+                (gold["doc_id"], gold_path, f"{esc} > %")).fetchone()[0]
+            flag_detail["gold_path"] = gold_path
+            if n_child > 0:
+                flags.append("has_subclauses")
+                flag_detail["n_subclauses"] = n_child
+
+        # ── FR-005 难度子集（2026-10-09 T016 补）──────────────────────────────
+        # 口径与出处**逐条写死在代码里**，别处只链接（见 eval/recall-funnel/README.md §五）：
+        #   · `short_clause`      gold 条款正文 < 40 字（取自 `clause_revision.content_text`，
+        #                         与 spec.md 边界条"短条款占 36.8%（<40 字）"同一口径）。
+        #   · `zero_overlap_char` 提问与 gold 条文**没有 ≥2 字的公共子串** ——
+        #                         与 `docs/research/lay-phrasing-scaleup-test.md` L80 那张表
+        #                         "与定义条款有 ≥2 字重合"的**字符级**判据同口径（53.0% 那一档）。
+        #                         直接取 `overlap`（生成时算的最长公共子串长度）⇒ `< 2` 即零重合。
+        #   · `has_standard_no`   提问里出现标准号**形态**（`_STD_IN_QUERY_RE`，生产同一把正则）。
+        #   · `has_standard_no_verified` 再经 `_known_standard_keys` 在 `doc_meta` 里验过
+        #                         （**与通道 A 的真实触发条件同口径**：库里没有就不筛）。
+        # `label` = 互斥分区，优先级按 spec.md 列举顺序（短条款 → 字面零重合 → 带标准号 → 普通）；
+        # "普通" 只有在互斥分区下才有意义（否则 = 全体）⇒ 四个子集必须互斥。
+        _std_form = _STD_IN_QUERY_RE.findall(it["query"])
+        _std_verified = bool(_std_form) and bool(
+            _known_standard_keys({standard_key(s) for s in _std_form}, doc_stds))
+        _short = gold is not None and len(gold["content_text"] or "") < 40
+        _zero = (it.get("overlap") or 0) < 2
+        subset = {
+            "short_clause": _short,
+            "zero_overlap_char": _zero,
+            "has_standard_no": bool(_std_form),
+            "has_standard_no_verified": _std_verified,
+            "label": ("短条款" if _short else
+                      "字面零重合" if _zero else
+                      "带标准号" if _std_verified else "普通"),
+            "gold_text_len": len(gold["content_text"] or "") if gold is not None else None,
+        }
 
         bucket = "keep" if (n_pass == 3 and len(votes) == 3) else "split"
         if bucket == "split":
@@ -159,8 +202,12 @@ def main() -> int:
             "n_pass": n_pass, "n_fail": n_fail, "n_votes": len(votes),
             "flags": flags,
             "flag_detail": flag_detail,
-            "gold_cr_id": gold["clause_revision_id"],
-            "gold_doc_id": gold["doc_id"],
+            "gold_cr_id": gold["clause_revision_id"] if gold is not None else None,
+            "gold_doc_id": gold["doc_id"] if gold is not None else None,
+            # FR-006：答案不在库内的题（换考卷时才会出现）—— 统计侧按它排除
+            "answer_out_of_corpus": answer_out_of_corpus,
+            # FR-005：难度子集标签
+            "subset": subset,
         }
         out_lines.append(row)
 
@@ -197,6 +244,8 @@ def main() -> int:
             "headline": len(headline),
             "headline_excluded_gold_not_unique": len(flagged),
             "flagged_has_subclauses": sum(1 for r in out_lines if "has_subclauses" in r["v2"]["flags"]),
+            # FR-006：答案不在库内的题（本批 0 条 —— 字段存在的意义是换考卷时不裸奔）
+            "answer_out_of_corpus": sum(1 for r in out_lines if r["v2"]["answer_out_of_corpus"]),
         },
         "vote_shapes": {str(k): v for k, v in Counter(
             tuple(r.get("votes") or []) for r in out_lines).items()},
@@ -213,6 +262,22 @@ def main() -> int:
         "flags": {
             "counts": dict(Counter(f for r in out_lines for f in r["v2"]["flags"])),
             "in_main_3of3": dict(Counter(f for r in main_rows for f in r["v2"]["flags"])),
+        },
+        # FR-005 难度子集（2026-10-09 T016 新增）。`label` 是**互斥分区**（优先级见 main 里注释）；
+        # 四个 `markers` 是**各标记的独立命中条数**（可重叠）⇒ 想换优先级的人能自己重算。
+        "subset": {
+            "priority": ["短条款", "字面零重合", "带标准号", "普通"],
+            "partition_all": dict(Counter(r["v2"]["subset"]["label"] for r in out_lines)),
+            "partition_headline": dict(Counter(r["v2"]["subset"]["label"] for r in headline)),
+            "markers_all": {
+                "short_clause": sum(1 for r in out_lines if r["v2"]["subset"]["short_clause"]),
+                "zero_overlap_char": sum(1 for r in out_lines if r["v2"]["subset"]["zero_overlap_char"]),
+                "has_standard_no": sum(1 for r in out_lines if r["v2"]["subset"]["has_standard_no"]),
+                "has_standard_no_verified": sum(
+                    1 for r in out_lines if r["v2"]["subset"]["has_standard_no_verified"]),
+            },
+            "note": "⚠ 本批考卷对四个难度子集几乎不承载：带标准号 0 条、短条款 8 条；"
+                    "字面零重合 121 条（字符级口径）。原因见 eval/recall-funnel/README.md §五。",
         },
         "dropped_from_main": {
             "n": len(drop_reasons),

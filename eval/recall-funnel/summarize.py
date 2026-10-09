@@ -29,6 +29,10 @@ CN_NAME = {"exact": "A 条款号精确", "fts": "B 全文 FTS5", "vec": "C 向�
            "modality": "D 模态", "legal_element": "E 法理要素", "behavior_scope": "F 行为客体"}
 DEPTHS = (20, 100, 1000)
 
+#: FR-005 的四个难度子集（互斥分区，优先级见 `build-v2.py` 的 `main()`；标签由构建器算好，
+#: 本脚本**只读不重算** —— 免得同一件事出现第二套口径）。
+SUBSETS = ("短条款", "字面零重合", "带标准号", "普通")
+
 
 def _pct(hit: int, n: int) -> float | None:
     return round(hit / n, 4) if n else None
@@ -49,6 +53,15 @@ def main() -> int:
             if meta:
                 r["bucket"] = meta["bucket"]
                 r["flags"] = meta["flags"]
+                # FR-005 子集标签 + FR-006 库外标记（2026-10-09 T016/T017）
+                r["subset_label"] = (meta.get("subset") or {}).get("label")
+                r["subset_markers"] = meta.get("subset") or {}
+                r["answer_out_of_corpus"] = bool(meta.get("answer_out_of_corpus"))
+
+    # FR-006：**答案不在库内的题必须能被排除**（本批 0 条 —— 机制在，换考卷时才用得上）。
+    # ⚠ 排除发生在**所有表之前**：分母是"库内题"，否则库外题会把召回率算低。
+    ooc = [r for r in rows if r.get("answer_out_of_corpus")]
+    rows = [r for r in rows if not r.get("answer_out_of_corpus")]
 
     def tables(subset: list[dict]) -> dict:
         n = len(subset)
@@ -139,13 +152,48 @@ def main() -> int:
     by_kind = {k: tables([r for r in rows if r["kind"] == k]) for k in ("定义", "要求")}
     by_kind_headline = {k: tables([r for r in headline if r["kind"] == k])
                         for k in ("定义", "要求")}
+    # FR-005/FR-009：按四个难度子集分别给命中率（每个数都带分母 = `tables()` 的 `n`）。
+    # 标签由 `build-v2.py` 算好，这里只分组 —— 免得同一件事出现第二套口径。
+    by_subset = {k: tables([r for r in rows if r.get("subset_label") == k]) for k in SUBSETS}
+    by_subset_headline = {k: tables([r for r in headline if r.get("subset_label") == k])
+                          for k in SUBSETS}
+
+    # ── 子集口径的敏感性（2026-10-09 T016）─────────────────────────────────
+    # "字面零重合"在本仓有**两个都站得住的口径**（字符级 53% 那档 / 词级 77% 那档）。
+    # 本批把**字符级**定为标签口径（与 spec.md 边界条同源），词级数并列在此供对照。
+    # ⚠ 两个数**不是同一件事**，见 eval/recall-funnel/README.md §五。
+    lex_path = HERE / "lexical-overlap.json"
+    lex_zero_token = None
+    if lex_path.exists():
+        per = json.loads(lex_path.read_text(encoding="utf-8")).get("per_query") or []
+        ids = {r["i"] for r in rows}
+        lex_zero_token = sum(1 for p in per if p["i"] in ids and p.get("zero_overlap"))
+
+    def _part_alt(rs: list[dict]) -> dict:
+        """换个优先级（带标准号 → 字面零重合 → 短条款）时各桶会变成多少；从标记重算，不改标签。"""
+        out = {k: 0 for k in SUBSETS}
+        for r in rs:
+            m = r.get("subset_markers") or {}
+            if m.get("has_standard_no_verified"):
+                out["带标准号"] += 1
+            elif m.get("zero_overlap_char"):
+                out["字面零重合"] += 1
+            elif m.get("short_clause"):
+                out["短条款"] += 1
+            else:
+                out["普通"] += 1
+        return out
 
     checks = [r for r in rows if r.get("replica_check") != "ok"]
     summary = {
         "meta": {
             "source": str(PER),
             "n_per_query": len(rows),
+            "n_excluded_answer_out_of_corpus": len(ooc),
             "channel_definition": "六路 = A 条款号精确 / B FTS5 / C 向量 / D 模态 / E 法理要素 / F 行为客体",
+            "subset_definition": "四个难度子集 = 短条款 / 字面零重合 / 带标准号 / 普通（FR-005）；"
+                                 "标签在 build-v2.py 里算，口径与出处见 eval/recall-funnel/README.md §五。"
+                                 "⚠ `by_subset` 四个桶是**互斥分区**（优先级 短条款→字面零重合→带标准号→普通）。",
             "prod_caps": {"fts": 20, "vec": 20, "behavior_scope": 20, "exact": None,
                           "modality": None, "legal_element": None},
             "note": "same_budget = 每一路都只取前 d 条再取并集（报告主口径）；"
@@ -156,6 +204,17 @@ def main() -> int:
         "headline": tables(headline),
         "by_kind": by_kind,
         "by_kind_headline": by_kind_headline,
+        "by_subset": by_subset,
+        "by_subset_headline": by_subset_headline,
+        "by_subset_sensitivity": {
+            "zero_overlap_char_level": sum(1 for r in rows
+                                           if (r.get("subset_markers") or {}).get("zero_overlap_char")),
+            "zero_overlap_token_level": lex_zero_token,
+            "partition_alt_priority": _part_alt(rows),
+            "note": "char_level = 提问与 gold 条文无 ≥2 字公共子串（与 53.0% 那档同口径，**本批标签口径**）；"
+                    "token_level = 与通道 B 同款分词下无共同词（77.2% 那档）。"
+                    "partition_alt_priority = 若把优先级换成「带标准号→字面零重合→短条款」，四个桶各多少条。",
+        },
         "replica_check": {
             "n_checked": len(rows), "n_mismatch": len(checks),
             "note": "本脚本的通道副本 vs 生产 perform_hybrid_search(单通道) 的逐条比对",

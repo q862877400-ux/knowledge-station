@@ -2602,3 +2602,28 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R14（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> （**第 8 轮** = 业主指定的**人工轮**，做的是 P4 可行性实测，**未单独登记 R 条目**；
+> 它同样**零改动**渠道线。本轮 = 自动续接链**第 9 轮**。）
+
+- 本轮做的是 **考卷线收口（`specs/002-recall-funnel` 的 T016 + T017）**：
+  给 `benchmark-v2.jsonl` 的每条题打**四难度子集标签**（短条款 / 字面零重合 / 带标准号 / 普通，
+  **互斥分区**，优先级即 spec 列举顺序）并落 `funnel-summary.json` 的 `by_subset`；
+  新增 **`answer_out_of_corpus`**（答案不在库内的题，统计时**先排除**）。
+  **实测**：全量 171 条 = 短条款 8 / 字面零重合 121（互斥分区 113）/ 带标准号 **0** / 普通 50（相加 = 171 ✓）；
+  主结果 120 条 = 短条款 2 / 字面零重合 83 / 带标准号 0 / 普通 35（相加 = 120 ✓）。
+  **分辨力**（全量 171）：六路并集 @1000 字面零重合 **27.4%** vs 普通 **66.0%**（差 38.6pt）；
+  主结果 120 上同向（**27.71%** vs **68.57%**）。
+  **详细记录在它自己的归属层** —— [开发史 §10.212](DEVELOPMENT-HISTORY.md)、
+  [考卷线 README §五（口径唯一真源）](eval/recall-funnel/README.md)、
+  [REPORT §A](eval/recall-funnel/REPORT.md)、[tasks.md T016/T017](specs/002-recall-funnel/tasks.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`，且只读了 `clause_revision` / `doc_meta` 的**计数**），
+  渠道台账状态与 R13 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
