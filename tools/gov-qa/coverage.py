@@ -218,11 +218,18 @@ def build_units(channels, counts: dict, *, threshold_province: int,
 def _province_of_city(city_name: str, alias: dict) -> str | None:
     """由市名反查所属省。
 
-    ⚠ **做不到精确** —— 中国有 300+ 地级市，硬编码映射不现实。
-    这里只处理**能从名字直接看出省**的情况；其余返回 None（不汇总）。
-    ⇒ 这是**已知局限**：`total_incl_cities` 对多数市会偏低。
-    要精确需要一份「市→省」的行政区划表（下一轮补）。
+    **优先用 `regions.py` 的精确映射表**（333 个地级行政区）——
+    2026-10-10 之前靠「市名里含省名」猜，而**大多数市名不含省名**
+    （宝鸡市 / 天水市 / 烟台市），导致汇总严重偏低。
     """
+    try:
+        from regions import province_of_city as _poc
+        p = _poc(city_name)
+        if p:
+            return p
+    except Exception:                                                   # noqa: BLE001
+        pass
+    # 兜底：市名里含省名（极少见，但保留）
     for p in PROVINCE_NAMES:
         if p in city_name or p.rstrip("省市自治区") in city_name:
             return p
