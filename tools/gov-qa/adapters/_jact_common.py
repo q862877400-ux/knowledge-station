@@ -245,6 +245,7 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
     out: list[dict] = []
     total = None
     skipped = 0
+    tried = 0
     page = 1
     while True:
         start = (page - 1) * per_page + 1
@@ -271,6 +272,13 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
             if str(tid) in skip_ids:
                 skipped += 1            # ★ 已落盘 ⇒ 不取明细、不计入 limit
                 continue
+            tried += 1
+            # ★ 2026-10-10 加：明细是本引擎最慢的一步（每条一次请求 + pause），
+            #   而它**原来没有任何日志** ⇒ 跑起来像「卡死」。
+            #   （同一个坑在 `gs_tianshui` / `gd_huizhou` / `_post_list_common` 上各踩过）
+            if tried % 50 == 0:
+                print(f"    [{SITE['key']}] 明细进度 {tried}，已收 {len(out)} 条",
+                      flush=True)
             try:
                 d = fetch(f"{base}{DETAIL_PATH}?transactId={tid}&sysid={sysid}",
                           headers={"Referer":

@@ -96,11 +96,12 @@ def harvest_post_list(fetch, *, SITE: dict, BASE: str, LIST: str,
         skip_ids = existing_ids(SITE.get("key", ""))
     out: list[dict] = []
     skipped = 0
+    tried = 0
     for page in range(1, max_pages + 1):
         if limit and len(out) >= limit:
             break
         items = list_items(fetch, BASE=BASE, LIST=LIST, page=page)
-        print(f"    [{SITE['key']}] 列表第 {page} 页：{len(items)} 条")
+        print(f"    [{SITE['key']}] 列表第 {page} 页：{len(items)} 条", flush=True)
         if not items:
             break
         for pid, url, title in items:
@@ -109,6 +110,13 @@ def harvest_post_list(fetch, *, SITE: dict, BASE: str, LIST: str,
             if str(pid) in skip_ids:
                 skipped += 1
                 continue
+            tried += 1
+            # ★ 2026-10-10 加：明细是本引擎最慢的一步（每条一次请求 + pause），
+            #   而它**原来没有任何日志** ⇒ 跑起来像「卡死」。
+            #   （同一个坑在 `gs_tianshui` / `gd_huizhou` 上各踩过一次）
+            if tried % 50 == 0:
+                print(f"    [{SITE['key']}] 明细进度 {tried}，已收 {len(out)} 条",
+                      flush=True)
             time.sleep(pause)
             try:
                 r = fetch(url)
