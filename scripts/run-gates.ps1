@@ -48,6 +48,13 @@ if ($junitOld.Count -gt 0) {
   $junitOld | Remove-Item -Force -ErrorAction SilentlyContinue
   Write-Host ("（清掉 {0} 份旧的 ks-gates-junit-*.xml）" -f $junitOld.Count) -ForegroundColor DarkGray
 }
+#: ⚠⚠ **2026-10-10 加 `--basetemp`（治一个【假红】）**：不指定时 pytest 用**共享**的
+#:   `%TEMP%\pytest-of-Zegel`，启动时会把上一轮的残留**整目录搬走**（实测一次 **2248** 个文件）
+#:   ⇒ 撞上沙箱的删除守卫（阈值 50 个文件）⇒ **pytest 进程在收尾时被打断**：
+#:   stdout 汇总行没打出来、**退出码非 0，而 junit 里 `failed=0 errors=0`** ⇒ 门禁报"pytest 失败"。
+#:   **实测隔离**：同一套命令带 `--basetemp` ⇒ 汇总行正常打出、退出码反映真实结果。
+#:   ⚠ **这不是放宽判据**：退出码 / junit / 棘轮三条判据**一个字没改**，只是换了 tmp 的落点。
+$pytestBaseTemp = Join-Path ([System.IO.Path]::GetTempPath()) "ks-gates-pytest-$PID"
 
 if (-not $Quick -and -not $Full) { $Quick = $true }   # 缺省 = 快档（避免误触全量）
 if ($Quick -and $Full) { $Quick = $false }            # 同时给 ⇒ 按全量
@@ -242,7 +249,7 @@ Add-Step 'verify:commands'        'npm' @('run', 'verify:commands') $plugin
 Add-Step 'pssa-guard（命令层）'   'pwsh' @('-NoProfile', '-File', (Join-Path $repo 'scripts\pssa-guard.ps1')) $repo
 Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
-  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', '--durations=10', "--junitxml=$junitPath") $repo
+  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', '--durations=10', "--junitxml=$junitPath", "--basetemp=$pytestBaseTemp") $repo
   Add-Step '引擎门禁（uvicorn）'     $py  @('scripts/verify-engine-uvicorn.py') $repo
   # 真 DSH 的两条（放最后：最慢、最可能因环境红）。都需要检出 —— 见文件头的"环境前提"。
   # ⚠ 走 `node`（不是 npm script）：这两条**只**属于 -Full，不进 plugin/scripts/smoke-all.mjs
