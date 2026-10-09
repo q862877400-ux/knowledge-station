@@ -80,7 +80,14 @@ def main() -> int:
     else:
         site_ids = list(mod.SITE_IDS)
 
-    seen = existing_ids(SITE["key"]) | existing_ids("sx-szxx")
+    #: 除本适配器已落盘 id 外，还要并进来做去重的「兄弟源」（同门户另一入口，可能暴露同一批信件）。
+    #: 模块用 `EXTRA_SEEN_KEYS = ("gz-portal",)` 声明。
+    #: ⚠ 2026-10-09 修：原先**硬编码**了 `existing_ids("sx-szxx")` ⇒ 对宁夏/广西等模块
+    #: 会把山西的 400 个 id 并进 `skip_ids`（**跨省 id 污染**，日志里那句
+    #: 「已落盘 400 条」对宁夏来说其实一个都不是宁夏的）。现改为仅按模块声明并。
+    seen = existing_ids(SITE["key"])
+    for _k in getattr(mod, "EXTRA_SEEN_KEYS", ()):
+        seen |= existing_ids(_k)
     print(f"[{SITE['key']}] 已落盘 {len(seen)} 条；待跑 {len(site_ids)} 个 siteId："
           f"{','.join(site_ids)}", flush=True)
 

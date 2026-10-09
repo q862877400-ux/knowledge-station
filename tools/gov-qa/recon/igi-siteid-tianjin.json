@@ -1,0 +1,20 @@
+{
+  "tag": "tianjin",
+  "base": "https://www.tj.gov.cn",
+  "referer": "https://www.tj.gov.cn/",
+  "range": [
+    1,
+    300
+  ],
+  "appId": "",
+  "sites": {
+    "4": 1,
+    "42": 1,
+    "185": 3,
+    "186": 123546,
+    "212": 51,
+    "215": 16785,
+    "244": 800
+  },
+  "total": 141187
+}
