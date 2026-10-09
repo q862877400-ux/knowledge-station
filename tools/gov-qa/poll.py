@@ -79,10 +79,27 @@ def data_path_for(channel_key: str, site_name: str) -> Path:
 
 def poll_one(adapter, channel, store: WatermarkStore, *, dry_run: bool,
              force_full: bool, site_name: str) -> dict:
-    """轮询一个通道。**绝不抛异常** —— 任何错误都转成返回值（FR-021 故障隔离）。"""
+    """轮询一个通道。**绝不抛异常** —— 任何错误都转成返回值（FR-021 故障隔离）。
+
+    ## 增量算法（R1 的落地）
+
+    政务列表**新内容在顶部** ⇒ 正确策略是：
+
+        从第 1 页开始翻 → 每翻一批检查「这批是否全部已见过」
+          ├─ 全部已见过 ⇒ **停**（水位已到最新）
+          └─ 有新的     ⇒ 继续翻下一批
+
+    这比「记页码」健壮 —— 列表会因新增内容整体后移，页码会漂。
+
+    ## 为什么不用「一次取很多条 + 去重」
+
+    那样**幂等性对、但没省下请求**，等于没做增量。
+    真正省请求才是增量的完整价值（quickstart 场景 1.3 明确要求看 `pages_fetched`）。
+    """
     key = channel.key
     t0 = time.time()
-    result = {"key": key, "added": 0, "pages": 0, "status": "ok", "error": None}
+    result = {"key": key, "added": 0, "pages": 0, "batches": 0,
+              "status": "ok", "error": None}
 
     wm = store.ensure(key, channel.watermark_type)
     need_full = force_full or store.needs_full(key)
@@ -98,61 +115,101 @@ def poll_one(adapter, channel, store: WatermarkStore, *, dry_run: bool,
         store.mark_failure(key)
         return result
 
-    # 让 adapter 去采（增量语义通过 limit + 水位提示传递）
+    fetch = _make_fetch()
+
+    # ---- 迭代式增量抓取 -------------------------------------------------
+    # ⚠ **关键机制**：adapter 每次调用都**从第 1 页开始**（它们不支持「从第 N 页开始」
+    #   的入参），只认环境变量 `GOVQA_PAGE_FROM`。所以要推进页码，必须**每批改这个环境变量**。
+    #   这是本轮实测发现的 —— 一开始没设它，循环每批都拿到同一页数据。
+    BATCH = 400                         # 每批条数上限
+    MAX_BATCHES = 50                    # 安全上限，防死循环
+    PAGE_STEP = 20                      # 每批推进的页数（pageSize 多数是 20）
+    all_new: list[dict] = []
+    batches = 0
+    pages = 0
+    page_from = 1
+    degraded_reason = None
+    prev_env = os.environ.get("GOVQA_PAGE_FROM")
+
     try:
-        fetch = _make_fetch()
-        recs = adapter.harvest(fetch, limit=_limit_for(channel, need_full))
-    except Exception as e:                                              # noqa: BLE001
-        result["status"] = "failed"
-        result["error"] = f"{type(e).__name__}: {str(e)[:80]}"
-        store.mark_failure(key)
-        return result
+        while batches < MAX_BATCHES:
+            batches += 1
+            os.environ["GOVQA_PAGE_FROM"] = str(page_from)
+            try:
+                recs = adapter.harvest(fetch, limit=BATCH)
+            except Exception as e:                                      # noqa: BLE001
+                if batches == 1:
+                    result["status"] = "failed"
+                    result["error"] = f"{type(e).__name__}: {str(e)[:80]}"
+                    store.mark_failure(key)
+                    return result
+                degraded_reason = f"第 {batches} 批失败：{type(e).__name__}（已收部分）"
+                break
 
-    if not isinstance(recs, list):
-        result["status"] = "failed"
-        result["error"] = "adapter 未返回列表"
-        store.mark_failure(key)
-        return result
+            if not isinstance(recs, list) or not recs:
+                break
 
-    # 落盘前去重 + 边采边落盘
-    new_recs = []
-    for r in recs:
-        rid = str(r.get("id") or "")
-        if not rid or rid in seen:
-            continue
-        seen.add(rid)
-        r.setdefault("extra", {})
-        if isinstance(r["extra"], dict):
-            r["extra"]["ingested_at"] = now_iso()
-        new_recs.append(r)
+            got_pages = int(getattr(adapter, "last_pages_fetched", 0) or 0)
+            pages += got_pages or PAGE_STEP
 
-    if not dry_run and new_recs:
+            new_this = []
+            for r in recs:
+                rid = str(r.get("id") or "")
+                if not rid or rid in seen:
+                    continue
+                seen.add(rid)
+                new_this.append(r)
+            all_new.extend(new_this)
+
+            # 停：本批没有新记录 ⇒ 已翻到水位（R1）
+            if _should_stop(recs, new_this, need_full, wm):
+                break
+
+            # 推进页码继续翻（新内容都在顶部，越往后越旧）
+            page_from += got_pages or PAGE_STEP
+    finally:
+        # 恢复环境变量 —— 不能污染调用方的环境
+        if prev_env is None:
+            os.environ.pop("GOVQA_PAGE_FROM", None)
+        else:
+            os.environ["GOVQA_PAGE_FROM"] = prev_env
+
+    if degraded_reason:
+        result["degraded"] = degraded_reason
+
+    # ---- 落盘（边采边落盘，T016） --------------------------------------
+    if not dry_run and all_new:
         out_path = data_path_for(key, site_name)
-        for r in new_recs:
-            atomic_append_jsonl(out_path, r)                            # 边采边落盘
+        for r in all_new:
+            r.setdefault("extra", {})
+            if isinstance(r["extra"], dict):
+                r["extra"]["ingested_at"] = now_iso()
+            atomic_append_jsonl(out_path, r)                            # 每条 fsync
 
-    result["added"] = len(new_recs)
-    result["pages"] = int(getattr(adapter, "last_pages_fetched", 0) or 0)
+    result["added"] = len(all_new)
+    result["pages"] = pages
+    result["batches"] = batches
 
     # **只在成功后前移水位**（FR-003）
     if not dry_run:
-        store.mark_success(key, new_value=_next_value(wm, new_recs, need_full),
-                           batch_count=len(new_recs))
+        store.mark_success(key, new_value=_next_value(wm, all_new, need_full),
+                           batch_count=len(all_new))
     result["watermark"] = store.get(key).value if store.get(key) else None
     result["elapsed"] = round(time.time() - t0, 1)
     return result
 
 
-def _limit_for(channel, need_full: bool):
-    """增量模式的条数上限。
+def _should_stop(recs, new_this, need_full: bool, wm) -> bool:
+    """判断是否可以停止翻页（R1 的「翻到已知位置就停」）。
 
-    ⚠ 这里用「首轮取 cap、后续取小量」的朴素策略 —— **不是真正的增量**。
-    真正的「翻到已知位置就停」需要 adapter 暴露分页控制（部分 adapter 支持
-    `GOVQA_PAGE_FROM`）。**本函数是过渡实现，下一轮改为按水位驱动。**
+    - **全量模式**（`need_full`）：不早停 —— 目的就是把存量全拿下来
+    - **`page` / `since` 型**：本批**没有任何新记录** ⇒ 已翻到水位，停
+      （列表按时间倒序，新的在顶部；翻到全旧的说明后面的更旧）
+    - **`idset` 型**：同上（本批全新是旧的 ⇒ 后面的更旧）
     """
     if need_full:
-        return channel.cap or 2000
-    return 200
+        return False
+    return len(new_this) == 0
 
 
 def _next_value(wm, new_recs, need_full):
