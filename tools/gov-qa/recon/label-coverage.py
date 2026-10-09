@@ -68,10 +68,23 @@ def msg_type(rec: dict):
 
 
 def main() -> int:
+    # ⚠ 关键：**强制 UTF-8 输出**。
+    #   Stop hook 的执行环境里 stdout 编码不是 UTF-8（实测追踪日志里中文变 `�ܼ¼`），
+    #   而本脚本要打印中文（「总记录」「有标签」）⇒ 抛 UnicodeEncodeError ⇒ rc=1
+    #   ⇒ 闸门判据④ 假红（覆盖率其实是 100%）。
+    #   2026-10-10 排查了很久才定位到这一层。
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:                                                   # noqa: BLE001
+        pass
+
     ap = argparse.ArgumentParser(description="标签覆盖率体检")
     ap.add_argument("--gate", type=int, default=0, help="覆盖率闸门（%%）；低于则 exit 2")
     ap.add_argument("--by-source", action="store_true", help="按来源列出缺标签最多的")
     ap.add_argument("--samples", type=int, default=0, help="打印 N 条无标签样本")
+    ap.add_argument("--quiet", action="store_true",
+                    help="只输出一行纯 ASCII 的 COVERAGE=<pct>（给闸门用，避免中文编码问题）")
     args = ap.parse_args()
 
     tot = 0
@@ -97,6 +110,12 @@ def main() -> int:
         return 0
 
     rate = labeled / tot * 100
+
+    if args.quiet:
+        # 给闸门用：**纯 ASCII 一行**，彻底规避中文编码问题
+        print(f"COVERAGE={rate:.1f}")
+        return 2 if (args.gate and rate < args.gate) else 0
+
     print(f"总记录 {tot:,}  |  有标签 {labeled:,}  |  **覆盖率 {rate:.1f}%**")
     print(f"闸门要求 {args.gate}%  ⇒  {'✅ 通过' if rate >= args.gate else '❌ 未达标'}\n")
 
