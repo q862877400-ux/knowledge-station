@@ -12,7 +12,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from channel import Channel, _city_from_name, _province_from_name, infer_region  # noqa: E402
 from coverage import (DEFAULT_THRESHOLD_CITY, DEFAULT_THRESHOLD_PROVINCE,      # noqa: E402
                       PROVINCE_NAMES, STATUS_NONE, STATUS_OK, STATUS_THIN,
-                      CoverageUnit, build_units, uncovered_for)
+                      CoverageUnit, build_units, known_cities, merge_city_data,
+                      norm_city, uncovered_for)
 
 
 # ---------------------------------------------------------------- 名单完整性
@@ -151,3 +152,126 @@ def test_infer_region_city_level():
     lvl, reg = infer_region({"name": "宝鸡市·政民互动信箱（IGI）", "level": "city"})
     assert lvl == "city"
     assert reg == "宝鸡市"
+
+
+# ================================================================ 数据口径
+# 2026-10-10 第 7 轮：修「通道口径」漏计一整片市的问题。
+# 实测动机：辽宁 14 个市里 12 个有数据（在省级 `ln-8890` 里，带 extra.city），
+# 但只按通道数会被报成「13 个缺来源」。见 `CoverageUnit.data_records`。
+
+def test_norm_city():
+    """市名归一化：补「市」，但**自治州/地区/盟不得被补成市**。"""
+    assert norm_city("洛阳市") == "洛阳市"
+    assert norm_city("洛阳") == "洛阳市"
+    assert norm_city(" 张掖市 ") == "张掖市"
+    assert norm_city("昌吉回族自治州") == "昌吉回族自治州"
+    assert norm_city("阿克苏地区") == "阿克苏地区"
+    assert norm_city("锡林郭勒盟") == "锡林郭勒盟"
+    assert norm_city(None) == ""
+    assert norm_city("") == ""
+
+
+def test_known_cities_covers_334():
+    """334 个地级行政区的名单要能读到（`count_by_city` 用它过滤占位值）。"""
+    ks = known_cities()
+    assert len(ks) >= 330, f"名单过小：{len(ks)}"
+    assert "鞍山市" in ks
+    assert "昌吉回族自治州" in ks
+
+
+def test_data_records_drive_city_status():
+    """★ 核心修复：省级平台通道带 `extra.city` ⇒ 该市**不得**被判 `none`。
+
+    复现：辽宁 `ln-8890`（省级 12345 平台）的 2,307 条鞍山记录。
+    旧逻辑 `total_records == 0 and not channels` ⇒ `none`（错）。
+    """
+    u = CoverageUnit("鞍山市", "city", threshold=500)
+    assert u.total_records == 0 and not u.channels
+    u.recompute()
+    assert u.status == STATUS_NONE, "没有数据时确实应为 none（前提校验）"
+
+    u.data_records = 2307          # 数据来自省级通道
+    u.recompute()
+    assert u.status == STATUS_OK, "有数据就必须是 ok，不能再判 none"
+    assert u.gap == 0
+
+
+def test_data_records_thin_when_below_threshold():
+    """数据口径同样走达标线判定 —— 低于线是 `thin`，不是 `ok`。"""
+    u = CoverageUnit("抚顺市", "city", threshold=500)
+    u.data_records = 100
+    u.recompute()
+    assert u.status == STATUS_THIN
+    assert u.gap == 400
+
+
+def test_merge_city_data_creates_units_for_data_only_cities():
+    """只靠省级通道覆盖的市要被**补建**为市级单元，且 `total_records` 仍为 0。"""
+    units = build_units([], {}, threshold_province=3000, threshold_city=500)
+    added = merge_city_data(units, {"鞍山市": 2307, "抚顺市": 100})
+    assert added == 2
+
+    an = next(u for u in units if u.name == "鞍山市")
+    assert an.data_records == 2307
+    assert an.total_records == 0, "它确实没有专属通道，不能凭空记成通道产出"
+    assert an.status == STATUS_OK
+
+    fs = next(u for u in units if u.name == "抚顺市")
+    assert fs.status == STATUS_THIN
+
+
+def test_merge_does_not_inflate_province_total():
+    """★ 防重复计数：补建市级单元**不得**改变省级 `total_incl_cities`。
+
+    省级通道的记录本身已计入省级 `total_records`，再加一次会把省总量翻倍
+    （辽宁 `ln-8890` 2 万条全带 `extra.city`）。
+    """
+    ch = [Channel("ln-8890", level="province", region="辽宁省")]
+    base = build_units(ch, {"ln-8890": 20000},
+                       threshold_province=3000, threshold_city=500)
+    ln0 = next(u for u in base if u.name == "辽宁省")
+
+    withdata = build_units(ch, {"ln-8890": 20000}, threshold_province=3000,
+                           threshold_city=500,
+                           city_counts={"鞍山市": 2307, "抚顺市": 2189})
+    ln1 = next(u for u in withdata if u.name == "辽宁省")
+    assert ln1.total_incl_cities == ln0.total_incl_cities, "省级总量被重复计数了"
+    assert ln1.total_records == 20000
+
+
+def test_count_by_city_filters_placeholder_and_falls_back(tmp_path, monkeypatch):
+    """数据口径归属：优先 `extra.city`；缺失时按市级通道兜底；
+    **`市辖区` 这类占位值必须被过滤**（否则会凭空造出「市辖区市」）。"""
+    import json
+
+    import coverage as cov
+
+    rows = [
+        {"source": "ln-8890", "extra": {"city": "鞍山市"}},
+        {"source": "ln-8890", "extra": {"city": "鞍山市"}},
+        {"source": "ln-8890", "extra": {"city": "市辖区"}},      # 占位值
+        {"source": "ln-8890", "extra": {"city": "省直辖县级行政区划"}},
+        {"source": "gs-zhangye", "extra": {}},                   # 无 city，靠通道兜底
+    ]
+    (tmp_path / "x.jsonl").write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+    monkeypatch.setattr(cov, "DATA_DIR", tmp_path)
+
+    got = cov.count_by_city({"gs-zhangye": "张掖市"})
+    assert got == {"鞍山市": 2, "张掖市": 1}, got
+    assert all("市辖区" not in k for k in got)
+
+
+def test_count_by_city_extra_city_wins_over_channel(tmp_path, monkeypatch):
+    """`extra.city` 优先于通道兜底 —— 否则省级通道会把记录全算到一个市上。"""
+    import json
+
+    import coverage as cov
+
+    rows = [{"source": "ln-8890", "extra": {"city": "大连市"}},
+            {"source": "ln-8890", "extra": {"city": "鞍山市"}}]
+    (tmp_path / "y.jsonl").write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+    monkeypatch.setattr(cov, "DATA_DIR", tmp_path)
+    got = cov.count_by_city({})
+    assert got == {"大连市": 1, "鞍山市": 1}, got

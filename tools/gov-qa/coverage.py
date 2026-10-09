@@ -68,11 +68,31 @@ class CoverageUnit:
     - `total_incl_cities`：**含下属地级市**（回答「这个省总共有多少」）
 
     **薄弱省清单应该看后者** —— 否则会误判「甘肃没数据」。
+
+    ## ★★ `data_records`（2026-10-10 第 7 轮新增）—— 修「通道口径」的漏计
+
+    实测发现**通道口径会漏计一整片市**：
+
+    | 市 | 通道口径 | 数据口径 | 真相 |
+    |---|---|---|---|
+    | 鞍山市 | **0 个通道 ⇒ 判 `none`** | 2,307 条 | 数据在 `ln-8890`（**辽宁省级** 12345 平台）里，带 `extra.city` |
+    | 抚顺市 | 0 个通道 | 2,189 条 | 同上 |
+    | 张掖市 | 2 个通道 | 6,708 条 | 市、省两级都有 |
+
+    原因：`ln-8890` / 湖南统一平台 / 广东 hdjlpt 这类**省级或平台级通道**，
+    记录里带 `extra.city`（IGI 有 PROVINCE/CITY/AREA 三级归属），
+    **一个通道就覆盖了全省的市**。而 `build_units` 只按 `channel.region` 建市级单元
+    ⇒ 辽宁 14 个市里 12 个有数据，却被报成「13 个缺来源」。
+
+    ⇒ `data_records` = **按记录 `extra.city` 归属统计**的条数（与通道层级无关）。
+    `recompute()` 的**状态判定用 `max(total_records, data_records)`**
+    （`total_records` 保持「只算本级通道」的原义，不破坏既有报表与 `total_incl_cities` 汇总，
+    避免与省级通道重复计数）。
     """
 
     __slots__ = ("name", "level", "parent", "channels", "total_records",
-                 "total_incl_cities", "threshold", "gap", "ratio_to_median",
-                 "status", "uncovered_channels")
+                 "total_incl_cities", "data_records", "threshold", "gap",
+                 "ratio_to_median", "status", "uncovered_channels")
 
     def __init__(self, name: str, level: str, *, parent: str = "",
                  threshold: int = 0):
@@ -82,6 +102,7 @@ class CoverageUnit:
         self.channels: list[str] = []
         self.total_records = 0
         self.total_incl_cities = 0
+        self.data_records = 0
         self.threshold = threshold
         self.gap = 0
         self.ratio_to_median = 0.0
@@ -93,14 +114,21 @@ class CoverageUnit:
 
         ⚠ **状态用 `total_incl_cities` 判定**（含下属市）——
         否则「省级门户没建但地市级都有」的省会被误判为 `none`。
+
+        ⚠ **地级市用 `max(total_records, data_records)`** ——
+        见类文档 `data_records`：省级平台通道带 `extra.city` 时，
+        市级没有专属通道但**确实有数据**，不能用 0 判 `none`。
         """
         # 兜底：`total_incl_cities` 不得小于 `total_records`
         # （单独构造 CoverageUnit 时不会走 build_units 的汇总逻辑）
         if self.total_incl_cities < self.total_records:
             self.total_incl_cities = self.total_records
-        effective = self.total_incl_cities if self.level == "province" else self.total_records
+        if self.level == "province":
+            effective = self.total_incl_cities
+        else:
+            effective = max(self.total_records, self.data_records)
         self.gap = max(0, self.threshold - effective)
-        if not self.channels and self.total_incl_cities == 0:
+        if effective == 0 and not self.channels:
             self.status = STATUS_NONE
         elif effective < self.threshold:
             self.status = STATUS_THIN
@@ -112,10 +140,12 @@ class CoverageUnit:
             "name": self.name, "level": self.level, "parent": self.parent,
             "channels": self.channels, "total_records": self.total_records,
             "total_incl_cities": self.total_incl_cities,
+            "data_records": self.data_records,
             "threshold": self.threshold, "gap": self.gap,
             "ratio_to_median": self.ratio_to_median, "status": self.status,
             "uncovered_channels": self.uncovered_channels,
         }
+
 
     def __repr__(self) -> str:                                          # pragma: no cover
         return (f"CoverageUnit({self.name!r}, {self.level}, "
@@ -144,13 +174,122 @@ def count_by_source(*, scope_filter=None) -> dict:
     return counts
 
 
+def norm_city(city: str | None) -> str:
+    """归一化市名：去空白；自治州/地区/盟/特别行政区保持原样；其余补「市」。
+
+    ⚠ **不要**把「自治州」也补成「市」—— `regions.PROVINCE_CITIES` 里
+    新疆/云南/贵州的条目就是「昌吉回族自治州」「黔东南苗族侗族自治州」这种全称。
+    """
+    if not city:
+        return ""
+    c = "".join(str(city).split())
+    for suf in ("特别行政区", "自治州", "地区", "盟"):
+        if c.endswith(suf):
+            return c
+    return c if c.endswith("市") else c + "市"
+
+
+def channel_city_map(channels) -> dict:
+    """`{通道 key: 归一化市名}` —— 只含 `level == "city"` 且有 region 的通道。
+
+    用于数据口径的**兜底归属**：记录没带 `extra.city` 时，
+    若它来自某个市级通道，就归到那个市。
+    """
+    m: dict[str, str] = {}
+    for c in channels:
+        if c.level == "city" and (c.region or "").strip():
+            m[c.key] = norm_city(c.region)
+    return m
+
+
+def known_cities() -> set:
+    """334 个地级行政区的**全称集合**（来自 `regions.PROVINCE_CITIES`）。
+
+    用途：`count_by_city` 用它**过滤占位值**。实测 IGI 的 `CITY` 字段
+    常是 `市辖区` / `省直辖县级行政区划` 这类**非市名占位符**，
+    不过滤就会凭空造出「市辖区市」这种假单元（第 7 轮实测：虚增 ~80 个）。
+    """
+    try:
+        from regions import PROVINCE_CITIES
+        out: set = set()
+        for cities in PROVINCE_CITIES.values():
+            out.update(cities)
+        return out
+    except Exception:                                                   # noqa: BLE001
+        return set()
+
+
+def count_by_city(channel_city: dict | None = None, *, scope_filter=None,
+                  only_known: bool = True) -> dict:
+    """**数据口径**：按记录归属的地级市统计条数（见 `CoverageUnit.data_records`）。
+
+    归属规则（按优先级）：
+      1. 记录带 `extra.city` ⇒ 归该市（IGI / 省级 12345 平台 / 广东 hdjlpt 都带）
+      2. 否则，`source` 命中 `channel_city` ⇒ 归该市级通道的 region
+
+    `only_known=True`（默认）：**只保留 334 个地级行政区里的市** ——
+    过滤掉 IGI 的 `市辖区` 等占位值，避免造出假单元（见 `known_cities()`）。
+
+    ⇒ 返回 `{归一化市名: 条数}`。**这是「这个市到底有没有数据」的唯一可信口径**，
+    与「有没有注册一个叫该市的通道」是两件事。
+    """
+    channel_city = channel_city or {}
+    known = known_cities() if only_known else set()
+    counts: dict[str, int] = {}
+    for rec in iter_records(str(DATA_DIR / "*.jsonl")):
+        if scope_filter is not None:
+            try:
+                if not scope_filter(rec):
+                    continue
+            except Exception:                                           # noqa: BLE001
+                continue
+        extra = rec.get("extra")
+        city = norm_city((extra or {}).get("city") if isinstance(extra, dict) else None)
+        if not city:
+            city = channel_city.get(str(rec.get("source") or ""), "")
+        if not city:
+            continue
+        if only_known and city not in known and city.rstrip("市") not in known:
+            continue
+        counts[city] = counts.get(city, 0) + 1
+    return counts
+
+
+def merge_city_data(units: "list[CoverageUnit]", city_counts: dict,
+                    *, threshold_city: int = DEFAULT_THRESHOLD_CITY) -> int:
+    """把**数据口径**的市并入覆盖单元：已存在的填 `data_records`，缺失的**新建**。
+
+    ⇒ 返回**新增**的市级单元数（= 只靠省级通道覆盖、此前被判 `none` 的市）。
+    新建单元的 `total_records` 保持 0（它确实没有专属通道），
+    但 `data_records > 0` ⇒ `recompute()` 会给出真实状态（`ok` / `thin`），不再误判 `none`。
+    """
+    city_units = {u.name: u for u in units if u.level == "city"}
+    added = 0
+    for name, n in city_counts.items():
+        u = city_units.get(name)
+        if u is None:
+            u = CoverageUnit(name, "city", threshold=threshold_city)
+            units.append(u)
+            city_units[name] = u
+            added += 1
+        u.data_records = n
+    for u in city_units.values():
+        u.recompute()
+    return added
+
+
+
 def build_units(channels, counts: dict, *, threshold_province: int,
-                threshold_city: int) -> "list[CoverageUnit]":
+                threshold_city: int, city_counts: dict | None = None) -> "list[CoverageUnit]":
     """把通道 + 条数聚合成覆盖单元。
 
     - 省级单元：31 个行政区（**每个都有行**，哪怕一条数据都没有）
     - 地级单元：从 `channel.region` 里出现过的市名（动态发现）
     - 其它层级（national / other）：单列，不混进省市统计
+
+    `city_counts`（2026-10-10 第 7 轮新增，可选）：`count_by_city()` 的**数据口径**结果。
+    传入后，只靠省级平台通道覆盖的市会被**补建为市级单元**并填 `data_records`
+    ⇒ 不再被误报 `none`（辽宁 12 个市就是这么被漏计的）。传 `None` = 旧行为不变。
     """
     # 省级
     prov: dict[str, CoverageUnit] = {
@@ -200,18 +339,28 @@ def build_units(channels, counts: dict, *, threshold_province: int,
     for u in units:
         u.recompute()
 
+    # ★ 数据口径：把「只在省级平台里出现过、没有专属通道」的市补建为市级单元
+    #   ⚠ **不改 `total_incl_cities`** —— 那些记录的通道本身是省级/平台级，
+    #   其条数**已经计入省级 `total_records`**，再加一次就是重复计数
+    #   （辽宁 `ln-8890` 2 万条全带 `extra.city`，会把省总量翻倍）。
+    #   `data_records` 只用于**市级状态判定**，不进省级汇总。
+    if city_counts:
+        merge_city_data(units, city_counts, threshold_city=threshold_city)
+
     # 算相对中位数（**同级比同级**，R4）
     for lvl in ("province", "city"):
-        group = [u for u in units if u.level == lvl and u.total_records > 0]
+        group = [u for u in units if u.level == lvl and
+                 max(u.total_records, u.data_records) > 0]
         if not group:
             continue
-        vals = sorted(u.total_records for u in group)
+        vals = sorted(max(u.total_records, u.data_records) for u in group)
         n = len(vals)
         # 真中位数：偶数个取中间两个的平均（不是「上中位数」）
         med = vals[n // 2] if n % 2 else (vals[n // 2 - 1] + vals[n // 2]) / 2
         for u in units:
             if u.level == lvl:
-                u.ratio_to_median = round(u.total_records / med, 3) if med else 0.0
+                v = max(u.total_records, u.data_records)
+                u.ratio_to_median = round(v / med, 3) if med else 0.0
     return units
 
 

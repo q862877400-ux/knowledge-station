@@ -33,8 +33,8 @@ from channel import load_channels                                     # noqa: E4
 from common import ascii_kv, human                                    # noqa: E402
 from coverage import (DEFAULT_THRESHOLD_CITY,                         # noqa: E402
                       DEFAULT_THRESHOLD_PROVINCE, STATUS_NONE,
-                      STATUS_OK, STATUS_THIN, build_units, count_by_source,
-                      uncovered_for)
+                      STATUS_OK, STATUS_THIN, build_units, channel_city_map,
+                      count_by_city, count_by_source, uncovered_for)
 
 EXIT_OK = 0
 EXIT_NONE_UNIT = 1
@@ -68,18 +68,64 @@ def main() -> int:
     ap.add_argument("--threshold-province", type=int, default=DEFAULT_THRESHOLD_PROVINCE)
     ap.add_argument("--threshold-city", type=int, default=DEFAULT_THRESHOLD_CITY)
     ap.add_argument("--scope", default="", help="按口径过滤（读 extra.scope_tag）")
+    ap.add_argument("--no-city-data", action="store_true",
+                    help="关掉「数据口径」的市级补建（退回旧的通道口径）")
+    ap.add_argument("--missing-cities", action="store_true",
+                    help="列出**数据口径下真正零记录**的地级市（按省分组）")
     ap.add_argument("--quiet", action="store_true", help="纯 ASCII 机器可读")
     args = ap.parse_args()
 
     try:
         channels = load_channels()
-        counts = count_by_source(scope_filter=_scope_filter(args.scope))
+        sf = _scope_filter(args.scope)
+        counts = count_by_source(scope_filter=sf)
+        # ★ 数据口径：把「只在省级平台里出现过」的市补进来（见 coverage.CoverageUnit）
+        ccounts = {} if args.no_city_data else count_by_city(
+            channel_city_map(channels), scope_filter=sf)
         units = build_units(channels, counts,
                             threshold_province=args.threshold_province,
-                            threshold_city=args.threshold_city)
+                            threshold_city=args.threshold_city,
+                            city_counts=ccounts or None)
     except Exception as e:                                              # noqa: BLE001
         human(f"❌ 生成失败：{type(e).__name__}: {e}")
         return EXIT_FATAL
+
+    # ---- 真正零记录的地级市（--missing-cities） --------------------------
+    # 口径 = **数据**（max(total_records, data_records) == 0），不是「有没有专属通道」。
+    # 动机：辽宁 12 个市的数据在省级 `ln-8890` 里，按通道口径会被误报成「缺来源」。
+    if args.missing_cities:
+        try:
+            from regions import PROVINCE_CITIES                          # noqa: E402
+        except Exception as e:                                          # noqa: BLE001
+            human(f"❌ 读不到 regions.PROVINCE_CITIES：{e}")
+            return EXIT_FATAL
+        covered = {u.name for u in units
+                   if u.level == "city" and max(u.total_records, u.data_records) > 0}
+        # 通道/数据两侧都可能出现「去市」写法，做一次双向匹配
+        bare = {n.rstrip("市") for n in covered}
+        by_prov: dict[str, list[str]] = {}
+        n_total = n_miss = 0
+        for p, cities in PROVINCE_CITIES.items():
+            miss = []
+            for c in cities:
+                n_total += 1
+                if c in covered or c.rstrip("市") in bare:
+                    continue
+                miss.append(c)
+            n_miss += len(miss)
+            if miss:
+                by_prov[p] = miss
+        if args.quiet:
+            ascii_kv({"CITY_TOTAL": n_total, "CITY_HAVE": n_total - n_miss,
+                      "CITY_MISSING": n_miss})
+        else:
+            human(f"地级行政区 {n_total} 个｜**数据口径下有记录 {n_total - n_miss}**"
+                  f"｜**零记录 {n_miss}**")
+            human("")
+            for p, cs in sorted(by_prov.items(), key=lambda kv: -len(kv[1])):
+                human(f"  {p:16s} 缺 {len(cs):3d} 个："
+                      f"{'、'.join(cs[:8])}{'…' if len(cs) > 8 else ''}")
+        return EXIT_NONE_UNIT if n_miss else EXIT_OK
 
     # ---- 单地区查询（--region） ----------------------------------------
     if args.region:
@@ -116,6 +162,8 @@ def main() -> int:
             "PROV_THIN": _cnt(prov, STATUS_THIN), "PROV_NONE": _cnt(prov, STATUS_NONE),
             "CITY_TOTAL": len(city), "CITY_OK": _cnt(city, STATUS_OK),
             "CITY_THIN": _cnt(city, STATUS_THIN), "CITY_NONE": _cnt(city, STATUS_NONE),
+            "CITY_DATA_ONLY": sum(1 for u in city
+                                  if u.data_records > 0 and u.total_records == 0),
         })
         return EXIT_NONE_UNIT if _cnt(sel, STATUS_NONE) > 0 else EXIT_OK
 
@@ -126,6 +174,13 @@ def main() -> int:
     human("")
     human("⚠ **两个口径**：`本级` = 只算省级门户；`含下属市` = 加上地级市的量。")
     human("   **薄弱省清单应看「含下属市」** —— 否则会误判（如甘肃省级 0 但市级有 9,659 条）。")
+    human("")
+    human("⚠ **市级状态按「数据口径」判**（`max(本级通道, extra.city 归属)`）——")
+    human("   省级 12345 平台（如辽宁 `ln-8890`）的记录带 `extra.city`，"
+          "一个通道覆盖全省的市；只按通道数会把它们误报 `none`。")
+    n_data_only = sum(1 for u in city if u.data_records > 0 and u.total_records == 0)
+    if n_data_only:
+        human(f"   ⇒ 本轮有 **{n_data_only} 个市**是「无专属通道但有数据」，已不再计为 `none`。")
     human("")
     for label, us in (("省级", prov), ("地级", city)):
         if not us:
@@ -138,7 +193,8 @@ def main() -> int:
 
     # 缺口最大的（**按含下属市排**，那才是真实缺口）
     worst = sorted([u for u in sel if u.gap > 0],
-                   key=lambda u: -u.total_incl_cities if u.level == "province" else -u.total_records)
+                   key=lambda u: -u.total_incl_cities if u.level == "province"
+                   else -max(u.total_records, u.data_records))
     if args.top:
         worst = worst[:args.top]
     if worst:
@@ -151,7 +207,9 @@ def main() -> int:
                       f"  含下属市 {u.total_incl_cities:8,d}"
                       f"  还差 {u.gap:7,d} 条  ← 缺 {miss_s}")
             else:
-                human(f"    {u.name:16s} {u.total_records:8,d} 条"
+                eff = max(u.total_records, u.data_records)
+                tag = "（数据口径）" if u.data_records > u.total_records else ""
+                human(f"    {u.name:16s} {eff:8,d} 条{tag}"
                       f"  还差 {u.gap:7,d} 条  ← 缺 {miss_s}")
 
     n_none = _cnt(sel, STATUS_NONE)
