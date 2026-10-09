@@ -90,8 +90,11 @@ def _parse_items(html: str, page: int) -> list[dict]:
         answered_at = m_ans.group(1).strip() if m_ans else None
         mu = USER_RE.search(seg)
         user = _text(mu.group(1)) if mu else ""
-        # 站内无稳定 id ⇒ 用「提问+日期」做稳定指纹（同一条重跑不变，便于去重）
-        fp = hashlib.md5(f"{question}|{asked_at}".encode("utf-8")).hexdigest()[:16]
+        # 站内无稳定 id ⇒ 用指纹做稳定 id（同一条重跑不变，便于去重）。
+        # ⚠ 必须把 answer 也纳入哈希：实测只用「提问+日期」时，**同一天重复提问**会撞 id
+        #   （2026-10-09 全库扫描发现 59 行「同 id 不同内容」）。
+        #   纳入 answer 后，Q/A 完全相同的仍会被去重（符合预期），Q 同 A 不同的不再撞。
+        fp = hashlib.md5(f"{question}|{asked_at}|{answer}".encode("utf-8")).hexdigest()[:16]
         out.append({
             "source": SITE["key"],
             "id": fp,
