@@ -34,6 +34,10 @@ from typing import Any, Dict, List
 JOB_POLL_S = 0.5
 HEARTBEAT_STALE_S = 120.0
 _SUBMIT_ENV = "KS_DEEP_JOBS_DIR"
+#: `.spawn.lock` 的 `open()` 撞车重试上限（秒）。见 `_ensure_server` 里那段说明：
+#: Windows 上并发 `CreateFile(OPEN_ALWAYS)` 同一个不存在的路径会拿到 ERROR_ACCESS_DENIED。
+#: 有界 ⇒ 真·权限问题（目录只读等）仍然照原样抛出来，不被吞。
+_SPAWN_LOCK_OPEN_TIMEOUT_S = 2.0
 
 
 def _job_dir() -> Path:
@@ -110,7 +114,22 @@ def _ensure_server(job_dir: Path) -> None:
     """
     if _alive_count(job_dir) >= _target_workers():
         return
-    lock_fh = open(job_dir / ".spawn.lock", "ab")  # noqa: SIM115 - 短临界区
+    # ⚠⚠ 2026-10-09（第 17 轮）：**`open(..., 'ab')` 自己就会撞车** —— 不是"文件被锁"，
+    #   而是 Windows 上多个线程同时对一个**还不存在的**路径做 `CreateFile(OPEN_ALWAYS)` 时，
+    #   其中一个会拿到 **ERROR_ACCESS_DENIED ⇒ `PermissionError(13)`**（另一个线程的创建还没落地）。
+    #   实测：4 线程同时冷启动 ⇒ **3 个当场抛 `PermissionError`**
+    #   （`tests/test_deep_server.py::test_并发冷启动_按目标数拉起不超额`，跑 1 秒就红）。
+    #   ⇒ 加**有界重试**（与 `plugin/src/chatmode.js` 写锁处理 EPERM 是同一类问题、同一类处置）。
+    #   ⚠ 有界：超过 `_SPAWN_LOCK_OPEN_TIMEOUT_S` 仍失败就**照原样抛**（真·权限问题不许被吞）。
+    _open_deadline = time.monotonic() + _SPAWN_LOCK_OPEN_TIMEOUT_S
+    while True:
+        try:
+            lock_fh = open(job_dir / ".spawn.lock", "ab")  # noqa: SIM115 - 短临界区
+            break
+        except PermissionError:
+            if time.monotonic() > _open_deadline:
+                raise
+            time.sleep(0.02)
     try:
         if sys.platform == "win32":
             import msvcrt

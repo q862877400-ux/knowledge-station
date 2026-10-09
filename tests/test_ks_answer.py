@@ -93,7 +93,15 @@ DOC_B = dict(doc_id="docB", standard_no="GB/T 50493-2019", standard_name="石油
 DOC_C = dict(doc_id="docC", standard_no="GB 30871-2025", standard_name="危险化学品企业特殊作业安全规范（2025版）",
              short_code="30871", current_revision_id="revC", legal_status="upcoming",
              legal_hierarchy="GB", standard_type="mandatory", doc_type="standard",
-             quality_grade="A", domain_tags=["特殊作业"], effective_from="2026-10-01",
+             quality_grade="A", domain_tags=["特殊作业"],
+             # ⚠⚠ 2026-10-09（第 17 轮）**修日期炸弹**：原值是 `"2026-10-01"`，而
+             #   `legal_status.resolve_status()` 是**惰性翻转**——`upcoming` + 实施日期已到 ⇒ `effective`。
+             #   到 2026-10-01 之后，"这一版是即将生效"这个**前提就不成立了**（本用例是 2026-09-xx 写的）。
+             #   后果：`GB 30871-2025` 会（**正确地**）以现行身份进 evidence ⇒ 本文件 3 条用例一起红
+             #   （upcoming 过滤、tier 判档、以及"按 clause_number 取值"的 bookmarked 断言取到了这一条）。
+             #   ⇒ 换成**未来日期**，恢复"这是一版**已发布未实施**的标准"这个原意。
+             #   ⚠ 别再改回过去的日期；若将来 2027-10-01 也到了，**同样要往后挪**（这是种子数据的固有要求）。
+             effective_from="2027-10-01",
              file_path="/f/C.pdf", file_hash="hashC")
 DOC_D = dict(doc_id="docD", standard_no="GB 30871-2018", standard_name="化学品生产单位特殊作业安全规范",
              short_code="30871", current_revision_id="revD", legal_status="superseded",

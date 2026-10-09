@@ -52,7 +52,12 @@ def test_validate_middle_passes(tmp_path):
 def test_validate_middle_rejects_bad_json(tmp_path):
     p = tmp_path / "m.json"
     p.write_text("{not json", encoding="utf-8")
-    with pytest.raises(MineruCloudError, match="无法解析"):
+    # ⚠ 2026-10-09（第 17 轮）就地更正：这里原来 match `无法解析`，而实现（`mineru_cloud._validate_middle`
+    #   → `middle_schema.load_middle_json`）**早就把文案改成了** `middle 产物读取/解析失败（m.json）: …`，
+    #   外层再包一层「云产物 middle.json 非同构产物，拒绝消费…」⇒ 那条正则**永远匹配不上**、
+    #   用例恒红（**判据与实现脱节**，不是实现坏了）。
+    #   ⇒ 改成匹配**当前文案里真实存在**、且仍然专指"解析失败"的那一段。
+    with pytest.raises(MineruCloudError, match="解析失败"):
         _validate_middle(p)
 
 
