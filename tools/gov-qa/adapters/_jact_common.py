@@ -187,10 +187,45 @@ def _post_list(fetch, *, base: str, sysid: str, start: int, end: int,
     return r.text or ""
 
 
+def existing_ids(site_key: str) -> set:
+    """读 `data/<site_key>-*.jsonl` 已有 id（供增量续采）。
+
+    ⚠ 2026-10-10 第 7 轮新增：本引擎原先**没有** `skip_ids`（和修复前的
+    `_gd_hdjlpt_common` 一样），每次都从第 1 页重翻、**对每一行都取明细**
+    （明细是本引擎最贵的一步），且 `limit` 把**已落盘的条数**算进去。
+
+    **实测后果**：`js-yancheng --limit 1000` 跑 **1,737 秒**，
+    结果「取到 1000 条，其中**新增 0 条**」—— 一条新的都没拿到。
+    这解释了盐城完成度为什么长期卡在 49.8% 不动：
+    **不是站点没数据，是采集器在原地打转。**
+    """
+    import glob
+    import json
+    import os
+    ids: set = set()
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "data")
+    try:
+        for p in glob.glob(os.path.join(data_dir, f"{site_key}-*.jsonl")):
+            with open(p, encoding="utf-8", errors="replace") as fh:
+                for line in fh:
+                    if line.strip():
+                        try:
+                            mid = str(json.loads(line).get("id") or "").strip()
+                        except Exception:                               # noqa: BLE001
+                            continue
+                        if mid:
+                            ids.add(mid)
+    except Exception:                                                       # noqa: BLE001
+        pass
+    return ids
+
+
 def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
                  limit: int | None = None, pause: float = PAUSE,
                  per_page: int = PAGE_SIZE, scheme: str = "https",
-                 include_th: bool = False, label_aliases: dict | None = None) -> list[dict]:
+                 include_th: bool = False, label_aliases: dict | None = None,
+                 skip_ids: set | None = None) -> list[dict]:
     """按统一记录格式返回某江苏厅局 jact 信箱的留言选登（问题+答复全文）。
 
     ⚠ `fetch` 是 harvest.py 注入的 `_Fetcher`（用 `.post` 发列表、可调用发明细）。
@@ -198,10 +233,18 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
     传 `scheme="http"` 即可，**不影响既有调用方**。
     `include_th` / `label_aliases` 同为**可选**扩展（默认与江苏口径完全一致），
     供标签在 `<th>`、用词不同的同构站点复用同一引擎。
+
+    ★ `skip_ids`（2026-10-10 第 7 轮新增）：`None` 时自动取 `existing_ids(SITE['key'])`；
+    命中已落盘的 `tid` **连明细都不取**、且**不计入 `limit`** ⇒
+    `limit` 语义变为「本轮**新增**条数」，可反复跑逐轮推进。
+    要显式关掉（重刷已落盘条目的内容）传 `skip_ids=set()`。
     """
+    if skip_ids is None:
+        skip_ids = existing_ids(SITE.get("key", ""))
     base = f"{scheme}://{host}"
     out: list[dict] = []
     total = None
+    skipped = 0
     page = 1
     while True:
         start = (page - 1) * per_page + 1
@@ -215,13 +258,19 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
         t, rows = parse_list(text)
         if total is None:
             total = t
-            print(f"    [{SITE['key']}] {host} sysid={sysid} totalRecord={total}")
+            print(f"    [{SITE['key']}] {host} sysid={sysid} totalRecord={total}"
+                  + (f"（已落盘 {len(skip_ids)} 条，命中则跳过）" if skip_ids else ""))
         if not rows:
             break
         for row in rows:
             if limit and len(out) >= limit:
+                print(f"    [{SITE['key']}] 达 limit={limit}"
+                      + (f"（跳过已落盘 {skipped} 条）" if skipped else ""))
                 return out
             tid = row["tid"]
+            if str(tid) in skip_ids:
+                skipped += 1            # ★ 已落盘 ⇒ 不取明细、不计入 limit
+                continue
             try:
                 d = fetch(f"{base}{DETAIL_PATH}?transactId={tid}&sysid={sysid}",
                           headers={"Referer":
@@ -239,6 +288,7 @@ def harvest_jact(fetch, *, SITE: dict, host: str, sysid: str,
             if not answer:
                 time.sleep(pause)
                 continue                # 未答复/办理中，跳过
+            skip_ids.add(str(tid))      # ★ 运行中也要并回去，防同页重复
             title = f.get("标题") or row["title"]
             body = f.get("内容", "")
             question = title if not body else f"{title}\n{body}"
