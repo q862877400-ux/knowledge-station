@@ -294,4 +294,8 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 ⚠ **两处口径不许混**：本节的 `by_subset`（`Vector@1000`、headline 120，n=83/35/2）**不是**
 本目录 §5.2 那个"六路并集 @1000、全量 171"的 27.4%/66.0%。
 ⚠ 本目录的 `benchmark-v2.jsonl` / `funnel-summary.json` / `funnel-per-query.jsonl` **一个字节都没动**。
+✅ **独立复核已收（PASS，无 P0）**：四条主干（读数 / 仪器对照 / 可复跑 / float32 更正）全部独立复现；
+**2 P1 已处置**（判据补 2 条用例 ⇒ 7 处变异全抓；口径措辞全改"**向量路**前 20"，因 `fused@20` 本批未测）。
+详见 [`exp-13-query-rewrite/README.md §八`](exp-13-query-rewrite/README.md) 与
+[VERIFY-REPORT-exp13-query-rewrite](../../docs/verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md)。
 

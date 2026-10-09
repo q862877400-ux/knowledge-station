@@ -16,6 +16,15 @@
 5. **契约锚**：本尺子必须仍在用**生产**的向量入口与**生产**的模型名 ——
    若有人把生产模型换了，这把尺子的"生产口径"就不再成立。
    判据见 `test_still_uses_production_embedder_and_model`。
+6. **命中率的阈值是闭区间（`r <= thr`）** —— 名次恰等于阈值算命中；
+   写成 `<` 会让 `@20` 变成"前 19 名"。
+   判据见 `test_hit_rate_threshold_is_inclusive_at_boundary`。
+7. **`flip_counts` 返回 `(翻进 b, 翻出 c)` 是**有方向的** —— 对调会让判决表里
+   "5 进 0 出"变成"0 进 5 出"，含义完全相反。
+   判据见 `test_flip_counts_direction_is_b_then_c_on_asymmetric_sample`。
+
+> ⚠ 第 6/7 条是**第 12 轮独立复核 D-1 打回**后补的：原先没有这两条边界/方向用例，
+> 上述两处变异**各 15 passed 逃逸**（判据没牙）。补后 17 条，7 处变异全部被抓。
 
 ⚠ 本文件**不测** `main()`（要真库 + 全库矩阵，十几分钟），只测判据所依赖的**纯函数**。
 """
@@ -136,6 +145,19 @@ def test_hit_rate_counts_none_as_miss():
     assert RULER.hit_rate([], 1000) == 0.0
 
 
+def test_hit_rate_threshold_is_inclusive_at_boundary():
+    """★ 边界：名次**恰等于**阈值算命中（`r <= thr`，不是 `<`）。
+
+    ⚠ 第 12 轮复核 D-1 打回：原用例集里没有 `rank == thr` 的样本 ⇒ 把 `<=` 改成 `<`
+    仍然 15 passed（**判据没牙**）。这条钉住边界语义：`@1000` 的口径是"**前 1000 名**"，
+    名次 1000 是**在**里面的（否则 `@20` 会变成"前 19 名"）。
+    """
+    assert RULER.hit_rate([1000], 1000) == 100.0, "名次恰为阈值 ⇒ 算命中（<=）"
+    assert RULER.hit_rate([1001], 1000) == 0.0, "名次超过阈值 ⇒ 不命中"
+    assert RULER.hit_rate([20], 20) == 100.0, "@20 的边界同理（含第 20 名）"
+    assert RULER.hit_rate([21], 20) == 0.0
+
+
 def test_median_rank_ignores_none_and_is_deterministic():
     assert RULER.median_rank([1, 5, 2000, None]) == 5
     assert RULER.median_rank([None, None]) is None
@@ -155,6 +177,22 @@ def test_flip_counts():
     arm = [True, True, False, False]
     assert RULER.flip_counts(base, arm) == (1, 1)
     assert RULER.flip_counts(base, base) == (0, 0)
+
+
+def test_flip_counts_direction_is_b_then_c_on_asymmetric_sample():
+    """★ 方向：返回 `(翻进 b, 翻出 c)` —— b = base=False→arm=True，c = base=True→arm=False。
+
+    ⚠ 第 12 轮复核 D-1 打回：原用例只有**对称样例** `(1,1)` ⇒ 把 `return b, c` 改成
+    `return c, b` 仍然 15 passed（**方向反了测不出**）。这条用**非对称样例**钉住方向 ——
+    方向一错，判决表里"5 进 0 出"会变成"0 进 5 出"，含义完全相反。
+    """
+    # 只发生"翻进"（base False→arm True）：b=2, c=0
+    assert RULER.flip_counts([False, False, True], [True, True, True]) == (2, 0)
+    # 只发生"翻出"（base True→arm False）：b=0, c=2
+    assert RULER.flip_counts([True, True, False], [False, False, False]) == (0, 2)
+    # 混合且不对称：b=1, c=2
+    assert RULER.flip_counts([False, True, True, False], [True, False, False, True]) == (2, 2)
+    assert RULER.flip_counts([False, True, True], [True, False, False]) == (1, 2)
 
 
 def test_frozen_constants_are_pinned():
