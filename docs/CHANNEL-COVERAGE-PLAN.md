@@ -2648,3 +2648,23 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R16（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> 本轮 = 自动续接链**第 11 轮**。
+
+- 本轮做的是 **总纲 P0·0.10**（长条款尾巴没进向量）的**只读量化**：测"被截掉的尾巴有多大、
+  上面有多少只有尾巴才有的词、对召回的影响面"，**结论 = 本轮不改 schema**。
+  **六通道枚举 `SEARCH_CHANNELS` 一字未动**，通道 A/B/C/D/E/F 的触发条件、权重、RRF、SSE 顺序**全未触碰**。
+  详细记录在它自己的归属层 —— [开发史 §10.217](DEVELOPMENT-HISTORY.md)、
+  [总纲 0.10-量化](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [`eval/recall-funnel/exp-12-long-clause-tail/README.md`](eval/recall-funnel/exp-12-long-clause-tail/README.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- ⚠ **与本线唯一相关的一条**：本轮的发现是"**尾巴只漏在向量那一路**（`clause_fts` 索引全文 ⇒ 按字找不漏）"
+  ⇒ **渠道覆盖台账不受影响**（它记的是"哪些来源/渠道被采到"，与"一条条款的向量完整性"无关）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`），渠道台账状态与 R15 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。

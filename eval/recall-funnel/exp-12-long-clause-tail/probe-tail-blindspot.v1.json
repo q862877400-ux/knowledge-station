@@ -1,0 +1,327 @@
+{
+  "sample_n": 30,
+  "min_len": 700,
+  "head_chars": 512,
+  "fts_head": {
+    "n": 30,
+    "hits": 6,
+    "rate_pct": 20.0
+  },
+  "fts_tail": {
+    "n": 30,
+    "hits": 6,
+    "rate_pct": 20.0
+  },
+  "vec_head": {
+    "n": 30,
+    "hits": 8,
+    "rate_pct": 26.67
+  },
+  "vec_tail": {
+    "n": 30,
+    "hits": 2,
+    "rate_pct": 6.67
+  },
+  "rows": [
+    {
+      "crid": "clrev_01M2N5J6K900Y2RAGTPB68Q06B",
+      "len": 788,
+      "q_head": "应根据核电厂的设备或",
+      "q_tail": "故所需的所有其他的安",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A4SZ23NVP6FQ53Q36QBPCC",
+      "len": 1578,
+      "q_head": "上拉带固定点及",
+      "q_tail": "图中阴影区域最前面表",
+      "fts_head_rank": 13,
+      "vec_head_rank": 4,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MD7HMF7NKCG1XEK4PVC595",
+      "len": 860,
+      "q_head": "本部分定义的档次见表",
+      "q_tail": "移动档次的位流应满足",
+      "fts_head_rank": 6,
+      "vec_head_rank": 3,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": 15
+    },
+    {
+      "crid": "clrev_01M2MFMCS0GRPDC0SXJFC06XJD",
+      "len": 1763,
+      "q_head": "中华人民共和国国家标",
+      "q_tail": "铋磷钼蓝分光光度法",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2N6NZXBFHY9X7ZGH8MTGMFZ",
+      "len": 843,
+      "q_head": "以下简称缺陷",
+      "q_tail": "其结果即为最终级别",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4ACHB17MNZXHFDTX1Y41VPT",
+      "len": 799,
+      "q_head": "第三百五十八条",
+      "q_tail": "可以按其绰号或者自报",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MY9CNZRR3ZNCPZ1KP1QEEA",
+      "len": 867,
+      "q_head": "规范性引用文件",
+      "q_tail": "信息技术设备",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MYVZYQT1726GHRZ2CSPRB9",
+      "len": 1209,
+      "q_head": "试验条件满足以下要求",
+      "q_tail": "仿真嘴或测量传声器轴",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MF2KBSKQAHTT5M435FBKH8",
+      "len": 1447,
+      "q_head": "制热季节性能系数",
+      "q_tail": "时的机组实测制热量",
+      "fts_head_rank": null,
+      "vec_head_rank": 19,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MCHGRTR5SQ7K8T892DRMF2",
+      "len": 2573,
+      "q_head": "试验布置如图",
+      "q_tail": "该测试使用的屏蔽线缆",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MCZA3GEGGWRFVTEKK9J3PW",
+      "len": 1137,
+      "q_head": "其他沙漠环境",
+      "q_tail": "分类及其严酷程度分级",
+      "fts_head_rank": 2,
+      "vec_head_rank": 1,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MB5Y381SEGCTV9Q40XW6PE",
+      "len": 760,
+      "q_head": "装配好玻璃气雾剂试管",
+      "q_tail": "试样注入玻璃气雾剂试",
+      "fts_head_rank": 3,
+      "vec_head_rank": 2,
+      "fts_tail_rank": 2,
+      "vec_tail_rank": 2
+    },
+    {
+      "crid": "clrev_01M2N6GTRKMFTSMSDX3AS1YRFB",
+      "len": 938,
+      "q_head": "产品应贮存在通风良好",
+      "q_tail": "操控面板寿命试验",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 3,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2FYZEYEQP0MSX6DQG6N1G97",
+      "len": 705,
+      "q_head": "当针对特定产品的工艺",
+      "q_tail": "椅固定装置及头枕强度",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A4AX2XGXEE0NAY7CPV6TDT",
+      "len": 1338,
+      "q_head": "规范性引用文件",
+      "q_tail": "室内声学参量测量",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 4,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2N5EB77GYYNWG8KKFMQRDFJ",
+      "len": 3084,
+      "q_head": "中华人民共和国国家标",
+      "q_tail": "开始修订并发展检测和",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MEC6ZQK7EP07BVE7AT1FJK",
+      "len": 772,
+      "q_head": "分别利用以下的温度",
+      "q_tail": "溶解氧检测值",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A4GR5ANX97ZMHW9NKJRDN3",
+      "len": 899,
+      "q_head": "除非另有说明",
+      "q_tail": "向水样及标准系列管中",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MC7XDT19WC8T6BB49DZTTW",
+      "len": 1695,
+      "q_head": "数据元缩写为",
+      "q_tail": "表示时间的格式是",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A4TZSKGZC1YKJ4XWC92KE3",
+      "len": 2568,
+      "q_head": "皂树皮提取物高效液相",
+      "q_tail": "没有注明其他要求时",
+      "fts_head_rank": null,
+      "vec_head_rank": 1,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MWHBF1MPDWQ1CJHVC7KVVZ",
+      "len": 781,
+      "q_head": "当在信任方的系统上安",
+      "q_tail": "级是最低信任级别",
+      "fts_head_rank": 1,
+      "vec_head_rank": null,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MDP1B61A8GFVG8YJFAYR6Z",
+      "len": 728,
+      "q_head": "试验数据处理",
+      "q_tail": "标准溶液待测物色谱峰",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MZCTJ4MX9W4VFNXWK8WMT9",
+      "len": 913,
+      "q_head": "试验箱通用要求如下",
+      "q_tail": "监控过程应保证热电偶",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A76N9DMCB7QXCS7B460XD4",
+      "len": 3976,
+      "q_head": "生产设备试运行记录应",
+      "q_tail": "二极管生产工艺设备安",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MC5XB7XYK9HNJK25GBFNKD",
+      "len": 2197,
+      "q_head": "汽车用天然气",
+      "q_tail": "液化天然气汽车",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A322CBV9PR44PB0K9YW1BA",
+      "len": 1515,
+      "q_head": "加钼酸铵硫酸溶液",
+      "q_tail": "将两者同置黑色背景上",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A6B998FTF42GD1Z5J3FYYN",
+      "len": 1677,
+      "q_head": "当仅需脱氮时",
+      "q_tail": "并按本规范公式",
+      "fts_head_rank": null,
+      "vec_head_rank": 9,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MFYDSHS05P16MSTX4CW1R4",
+      "len": 1066,
+      "q_head": "毒理学实验中的动物福",
+      "q_tail": "要的充足的营养成分",
+      "fts_head_rank": null,
+      "vec_head_rank": 1,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MF75NBHDN9VPPH2TM652XP",
+      "len": 1572,
+      "q_head": "本标准以前的版本在塔",
+      "q_tail": "认为是不现实的",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MCYAP8JQA2AYDC39RXWR59",
+      "len": 1105,
+      "q_head": "通信口令产生与校验的",
+      "q_tail": "比特奇校验字节",
+      "fts_head_rank": 1,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    }
+  ]
+}

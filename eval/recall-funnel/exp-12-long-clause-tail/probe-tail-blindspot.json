@@ -1,0 +1,298 @@
+{
+  "sample_n": 24,
+  "min_len": 800,
+  "head_chars": 512,
+  "phrase_len": 14,
+  "fts_limit": 100,
+  "vec_k": 1000,
+  "fts_head": {
+    "n": 24,
+    "hits": 14,
+    "rate_pct": 58.33,
+    "median_rank_when_found": 7
+  },
+  "fts_tail": {
+    "n": 24,
+    "hits": 18,
+    "rate_pct": 75.0,
+    "median_rank_when_found": 12
+  },
+  "fts_head_at20": {
+    "n": 24,
+    "hits": 10,
+    "rate_pct": 41.67,
+    "median_rank_when_found": 7
+  },
+  "fts_tail_at20": {
+    "n": 24,
+    "hits": 13,
+    "rate_pct": 54.17,
+    "median_rank_when_found": 12
+  },
+  "vec_head": {
+    "n": 24,
+    "hits": 17,
+    "rate_pct": 70.83,
+    "median_rank_when_found": 2
+  },
+  "vec_tail": {
+    "n": 24,
+    "hits": 12,
+    "rate_pct": 50.0,
+    "median_rank_when_found": 21
+  },
+  "vec_head_at20": {
+    "n": 24,
+    "hits": 13,
+    "rate_pct": 54.17,
+    "median_rank_when_found": 2
+  },
+  "vec_tail_at20": {
+    "n": 24,
+    "hits": 6,
+    "rate_pct": 25.0,
+    "median_rank_when_found": 21
+  },
+  "rows": [
+    {
+      "crid": "clrev_01M2MDCZHTVTG0AK0JENC6YG6T",
+      "len": 1012,
+      "q_head": "增加了热水器安装位置需考虑的",
+      "q_tail": "青岛经济技术开发区海尔热水器",
+      "fts_head_rank": 56,
+      "vec_head_rank": 597,
+      "fts_tail_rank": 6,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A76N8X6S519FB6ZZ6JPV6Y",
+      "len": 2850,
+      "q_head": "中华人民共和国工业和信息化部",
+      "q_tail": "本标准在住房和城乡建设部门户",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 14,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MXPZFGG7ZHEDJPEWRCRH9J",
+      "len": 3220,
+      "q_head": "为某时段地段在当地气候条件下",
+      "q_tail": "作物水分利用效率和蒸发蒸腾估",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4ADT24HZVR0GC6813C8R9X0",
+      "len": 1156,
+      "q_head": "普通二轮摩托车或者轮式专用机",
+      "q_tail": "优眼裸视力或者矫正视力达到对",
+      "fts_head_rank": null,
+      "vec_head_rank": 81,
+      "fts_tail_rank": 22,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M4A6G47200GEPBK7YDR0PGFV",
+      "len": 974,
+      "q_head": "框架式电机基础顶板振动控制点",
+      "q_tail": "榀横向框架平面到顶板重心的距",
+      "fts_head_rank": 3,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": 21
+    },
+    {
+      "crid": "clrev_01M2N3VTAQ68AN5ZB0YEQMQSH9",
+      "len": 1014,
+      "q_head": "为了给出工业控制系统概念层面",
+      "q_tail": "工业控制系统需要与其他系统进",
+      "fts_head_rank": 3,
+      "vec_head_rank": 8,
+      "fts_tail_rank": 6,
+      "vec_tail_rank": 12
+    },
+    {
+      "crid": "clrev_01M2FYXN0Z8D60K74K2KM0HXFP",
+      "len": 1070,
+      "q_head": "管件的部位将组合件固定至支架",
+      "q_tail": "测量并记录熔接区域径向最大脆",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": 935
+    },
+    {
+      "crid": "clrev_01M4A38S4D1GM45H2G9P6SR52X",
+      "len": 895,
+      "q_head": "测量在电源的任一极与连接金属",
+      "q_tail": "其总泄漏电流可在对电热器具或",
+      "fts_head_rank": 53,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 12,
+      "vec_tail_rank": 5
+    },
+    {
+      "crid": "clrev_01M2MEQF67V0ZCS7TA3H9EKWWD",
+      "len": 866,
+      "q_head": "它们均为白色有毒的鹅膏菌种类",
+      "q_tail": "法测定鹅膏菌中毒患者体液中的",
+      "fts_head_rank": 1,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 1,
+      "vec_tail_rank": 4
+    },
+    {
+      "crid": "clrev_01M2MXGH964EAX1VJFBY6AS7RV",
+      "len": 843,
+      "q_head": "本标准由全国环境管理标准化技",
+      "q_tail": "包含着特定生产者所生产产品的",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M38W2TG1P9N489V1XA71PDB9",
+      "len": 814,
+      "q_head": "关于调整国家防汛抗旱总指挥部",
+      "q_tail": "中央军委国防动员部民兵预备役",
+      "fts_head_rank": 2,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 52,
+      "vec_tail_rank": 829
+    },
+    {
+      "crid": "clrev_01M2MY4ETYP1TQME98J6WPD9JB",
+      "len": 1622,
+      "q_head": "增加了电动牙刷的规格尺寸要求",
+      "q_tail": "删除了毛束拉力和颈部抗弯力的",
+      "fts_head_rank": 29,
+      "vec_head_rank": 2,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MFWT6CHCKR2J8Q4173EGET",
+      "len": 2138,
+      "q_head": "水质净化用竹炭基本性能试验方",
+      "q_tail": "竹炭发热量和竹炭远红外发射率",
+      "fts_head_rank": 7,
+      "vec_head_rank": 10,
+      "fts_tail_rank": 12,
+      "vec_tail_rank": 42
+    },
+    {
+      "crid": "clrev_01M2MBD6DNPVTHDQ218XP779QN",
+      "len": 1045,
+      "q_head": "压力容器及其受压元件的焊接工",
+      "q_tail": "但冲击试验温度不应高于设计温",
+      "fts_head_rank": 38,
+      "vec_head_rank": 2,
+      "fts_tail_rank": 31,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MDGW2CG45FX3HGNWN1BBPD",
+      "len": 1463,
+      "q_head": "因开孔削弱而要求补强的截面积",
+      "q_tail": "挤压成型接口外轮廓部分的过渡",
+      "fts_head_rank": 15,
+      "vec_head_rank": 9,
+      "fts_tail_rank": 24,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2N4GSM8C6AQRPXTCTGW5CK3",
+      "len": 1179,
+      "q_head": "下列文件对于本文件的应用是必",
+      "q_tail": "铋磷钼蓝分光光度法和锑磷钼蓝",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2MEQSEYKWYE1GHATD7TBN1M",
+      "len": 984,
+      "q_head": "风险处置实施阶段的工作过程和",
+      "q_tail": "在完成成本效益分析和残余风险",
+      "fts_head_rank": 4,
+      "vec_head_rank": 4,
+      "fts_tail_rank": 5,
+      "vec_tail_rank": 10
+    },
+    {
+      "crid": "clrev_01M4A32818VDFSD5FCXWPA23DF",
+      "len": 1079,
+      "q_head": "所示的对比插头应该用金属刷清",
+      "q_tail": "并且将三对插头的比值计算出来",
+      "fts_head_rank": 1,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 3,
+      "vec_tail_rank": 406
+    },
+    {
+      "crid": "clrev_01M2N52V64NQJYNCQXE7R71DM4",
+      "len": 961,
+      "q_head": "有确认数据帧紧随在有确认数据",
+      "q_tail": "的编码率的有确认数据帧结构见",
+      "fts_head_rank": 11,
+      "vec_head_rank": 124,
+      "fts_tail_rank": 3,
+      "vec_tail_rank": 13
+    },
+    {
+      "crid": "clrev_01M2N66AM8S27VENNNHGKSA2D7",
+      "len": 873,
+      "q_head": "下列文件对于本文件的应用是必",
+      "q_tail": "电动汽车用动力蓄电池安全要求",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": 17,
+      "vec_tail_rank": 89
+    },
+    {
+      "crid": "clrev_01M2METFT6JE289EZ6H8MRDGAF",
+      "len": 1368,
+      "q_head": "下列文件中的内容通过文中的规",
+      "q_tail": "短时中断和电压变化的抗扰度试",
+      "fts_head_rank": null,
+      "vec_head_rank": null,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2FYQ0TN5H0SD4VJYXQ7Q7CC",
+      "len": 1287,
+      "q_head": "低频电缆和电线无镀层和有镀层",
+      "q_tail": "中国标准出版社秦皇岛印刷厂印",
+      "fts_head_rank": null,
+      "vec_head_rank": 45,
+      "fts_tail_rank": null,
+      "vec_tail_rank": null
+    },
+    {
+      "crid": "clrev_01M2N6483C8YCVEKDQ2FWRAZZ1",
+      "len": 860,
+      "q_head": "储能电站在放电状态下的无功功",
+      "q_tail": "直至储能电站容性无功功率达到",
+      "fts_head_rank": 1,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 2,
+      "vec_tail_rank": 1
+    },
+    {
+      "crid": "clrev_01M38W0W8Y9VR9MTRGA2Z3QW8M",
+      "len": 2399,
+      "q_head": "国务院安委会办公室关于辽宁营",
+      "q_tail": "此阶段需格外关注炉缸安全状态",
+      "fts_head_rank": null,
+      "vec_head_rank": 1,
+      "fts_tail_rank": 27,
+      "vec_tail_rank": null
+    }
+  ]
+}

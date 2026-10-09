@@ -271,3 +271,14 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 本页读数可复现（**重跑 after 臂 per-query 0 处变化**）/ "逐位等价"成立 / D2 成立 / 冻结哈希 7/7。
 ⚠ 4 条 P2 已处置（详见 `exp-11-rerank-fix/README.md §六`）。
 
+### 5.8 相邻实验：`exp-12-long-clause-tail`（总纲 P0·0.10，2026-10-09 第 11 轮）
+
+**不是本考卷线的一部分**，但它**直接量了本目录这份 171 条考卷的一个盲区** ⇒ 在此登记指针，
+口径/读数/判决全在 [`exp-12-long-clause-tail/README.md`](exp-12-long-clause-tail/README.md)。
+
+一句话结论：**这个缺陷（长条款的尾巴没进向量）在当前考卷上的影响面 = 结构性零** ——
+**171 条 gold 条款最长 270 字、0 条 >512 字**，所以"字面信号只在尾巴"的题 **0/171**。
+⇒ **本目录这份考卷测不出它**；要能量，得在重建评测集（P1 第四刀，**需业主点头**）时**补一类"长条款 gold"题**。
+⚠ 本目录的 `benchmark-v2.jsonl` / `funnel-summary.json` / `funnel-per-query.jsonl` **一个字节都没动**
+（那次只读真库、不改考卷）。
+
