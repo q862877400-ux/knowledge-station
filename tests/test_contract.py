@@ -461,3 +461,18 @@ def test_clause_vec_doc_id_metadata_column(db):
     assert "+doc_id" not in ddl, "doc_id 不许写成 +aux 列（aux 不参与过滤）"
     assert "doc_id TEXT" in ddl, f"clause_vec 的 DDL 形状不对: {ddl}"
     assert re.search(r"embedding FLOAT\[512\]", ddl), f"embedding 维度不该变: {ddl}"
+
+
+def test_clause_repo_writes_doc_id_into_clause_vec():
+    """spec 003 · FR-009：写向量的**两处**都必须带 `doc_id`（**静态锚点**）。
+
+    为什么只能静态钉：漏了 `doc_id` **不报错**（列可空），那条条款只会在
+    「按目录范围提问」里**静默消失** —— 运行期**没有任何读数能发现**。
+    两处 = `insert_clauses_in_txn`（入库）与 `_reindex_clause_indexes`（补丁重算）。
+    """
+    from pathlib import Path
+    import src.core.storage.clause_repo as cr
+    src = Path(cr.__file__).read_text(encoding="utf-8")
+    n = src.count("INSERT OR REPLACE INTO clause_vec (clause_revision_id, doc_id, embedding)")
+    assert n == 2, (f"clause_repo 里写 clause_vec 的 INSERT 应**恰好 2 处**都带 doc_id，"
+                    f"实际 {n} 处（spec 003 · FR-009）")
