@@ -2668,3 +2668,27 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
   出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
 - **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。
+
+### R17（2026-10-09，**非渠道轮**）：渠道线**零改动** —— 仅登记
+
+> 本轮 = 自动续接链**第 12 轮**。
+
+- 本轮做的是 **P2 后半段·第一刀：查询侧改写 A/B/C/D**（`NEXT-DEV-PLAN §三序 4`）——
+  在生产模型 `bge-small-zh-v1.5` 上只读测量三种查询串改写对向量路名次的影响。
+  **结论：三条都够不上"接生产"线**（BGE 官方指令前缀 +4.17pt 落"观察"档；**自己发明的领域前缀 −6.67pt 显著为负**；
+  语料内 PRF 主终点 +6.67pt 但把**前 20 名**弄差）⇒ **本轮不改生产**。
+- **六通道枚举 `SEARCH_CHANNELS` 一字未动**，通道 A/B/C/D/E/F 的触发条件、权重、RRF、SSE 顺序**全未触碰**；
+  索引（`clause_fts` / `clause_vec`）**一个字没动**（本轮是**纯查询侧**改写）。
+  详细记录在它自己的归属层 —— [开发史 §10.219](DEVELOPMENT-HISTORY.md)、
+  [总纲 P2 段](RETRIEVAL-LONG-RANGE-PLAN.md)、
+  [`eval/recall-funnel/exp-13-query-rewrite/README.md`](eval/recall-funnel/exp-13-query-rewrite/README.md)。
+  本文不抄正文（宪法原则 IV：一个事实一个归属层）。
+- ⚠ **与本线唯一相关的一条**：本轮的 FTS 侧读数（`FTS@1000`：A0 **12.5%** / D1 **23.33%**）说明
+  **查询侧扩词能抬高词法路的覆盖面**，但那条路**不是渠道覆盖台账关心的对象**
+  （台账记"哪些来源/渠道被采到"，与"一条查询在词法路上排第几"无关）。
+- **渠道线一个字节都没动**：`src/core/update/channels/**`、`src/core/update/channel_seed.json`、
+  `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
+  本轮**零网络**、真库只读（`mode=ro`），渠道台账状态与 R16 时一致。
+- **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+  出处见 [NEXT-DEV-PLAN §一「渠道巡检」行](NEXT-DEV-PLAN-2026-09-28.md)。
+- **下一步（未开工）**：仍按 §7 的待裁定口径走 —— **无新裁定前不动渠道线**。

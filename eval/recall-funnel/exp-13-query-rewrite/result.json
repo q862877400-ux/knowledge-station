@@ -1,0 +1,125 @@
+{
+ "note": "exp-13 查询侧改写 A/B/C/D；口径见 run.py docstring 与 stop-loss.json",
+ "agg": {
+  "n": 120,
+  "total_clauses": 663634,
+  "arms": {
+   "A0_raw": {
+    "vector_top20": 9.17,
+    "vector_top100": 15.0,
+    "vector_top1000": 30.0,
+    "vector_median_rank": 4322,
+    "by_subset_top1000": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 21.69
+     },
+     "普通": {
+      "n": 35,
+      "hit": 48.57
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    }
+   },
+   "B1_bge_instruction": {
+    "vector_top20": 10.0,
+    "vector_top100": 17.5,
+    "vector_top1000": 34.17,
+    "vector_median_rank": 2195,
+    "by_subset_top1000": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 26.51
+     },
+     "普通": {
+      "n": 35,
+      "hit": 51.43
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top1000": {
+     "delta_pt": 4.17,
+     "flip_in": 5,
+     "flip_out": 0,
+     "mcnemar_p": 0.0625
+    }
+   },
+   "C1_domain_prefix": {
+    "vector_top20": 7.5,
+    "vector_top100": 10.83,
+    "vector_top1000": 23.33,
+    "vector_median_rank": 12244,
+    "by_subset_top1000": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 14.46
+     },
+     "普通": {
+      "n": 35,
+      "hit": 42.86
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top1000": {
+     "delta_pt": -6.67,
+     "flip_in": 1,
+     "flip_out": 9,
+     "mcnemar_p": 0.0215
+    }
+   },
+   "D1_prf_expand": {
+    "vector_top20": 7.5,
+    "vector_top100": 13.33,
+    "vector_top1000": 36.67,
+    "vector_median_rank": 4893,
+    "by_subset_top1000": {
+     "字面零重合": {
+      "n": 83,
+      "hit": 26.51
+     },
+     "普通": {
+      "n": 35,
+      "hit": 60.0
+     },
+     "短条款": {
+      "n": 2,
+      "hit": 50.0
+     }
+    },
+    "vs_A0_top1000": {
+     "delta_pt": 6.67,
+     "flip_in": 11,
+     "flip_out": 3,
+     "mcnemar_p": 0.0574
+    }
+   }
+  },
+  "fts": {
+   "A0_raw": {
+    "top20": 3.33,
+    "top100": 9.17,
+    "top1000": 12.5
+   },
+   "D1_prf_expand": {
+    "top20": 4.17,
+    "top100": 10.0,
+    "top1000": 23.33
+   }
+  },
+  "instrument_check": {
+   "exp8_median_vector_rank": 4322,
+   "mismatch_count": 0,
+   "mismatch_samples": [],
+   "note": "A0 逐条 vector_rank 必须与 exp-8/fullrank.json 0 处不同"
+  }
+ }
+}

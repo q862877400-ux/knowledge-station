@@ -282,3 +282,16 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 ⚠ 本目录的 `benchmark-v2.jsonl` / `funnel-summary.json` / `funnel-per-query.jsonl` **一个字节都没动**
 （那次只读真库、不改考卷）。
 
+### 5.9 相邻实验：`exp-13-query-rewrite`（P2 后半段·查询侧改写，2026-10-09 第 12 轮）
+
+**用了本考卷的 headline 120 条**（`v2.bucket=="keep"` 且无 `gold_multi_def`/`gold_dup_text`），
+但**只测向量路的名次**、**不跑融合** ⇒ 不是本目录那条"六路并集"的口径。
+口径/读数/判决全在 [`exp-13-query-rewrite/README.md`](exp-13-query-rewrite/README.md)。
+
+一句话结论：**只改查询串（不重建索引、不换模型）的三条改写，都没有达到预注册的"可推广"门槛**
+—— BGE 官方指令前缀 **+4.17pt**（观察档）、**自己发明的领域前缀 −6.67pt（显著变差）**、
+语料内 PRF 主终点 +6.67pt 但**把 `Vector@20` 从 9.17% 弄到 7.50%**。
+⚠ **两处口径不许混**：本节的 `by_subset`（`Vector@1000`、headline 120，n=83/35/2）**不是**
+本目录 §5.2 那个"六路并集 @1000、全量 171"的 27.4%/66.0%。
+⚠ 本目录的 `benchmark-v2.jsonl` / `funnel-summary.json` / `funnel-per-query.jsonl` **一个字节都没动**。
+

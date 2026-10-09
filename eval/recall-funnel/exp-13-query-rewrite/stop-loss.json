@@ -1,0 +1,41 @@
+{
+  "experiment": "exp-13-query-rewrite",
+  "registered_at": "2026-10-09T14:52:00+08:00",
+  "registered_by": "自动续接链第 12 轮",
+  "registered_note": "★ 本文件在【跑任何一臂之前】落盘。跑完只许按这里的阈值机械判决，不许事后放宽。",
+  "question": "把【查询串】改写（BGE 官方中文检索指令前缀 / 领域前缀 / 语料内 PRF 扩展）能不能把正确条文从全库深处捞进前 1000 / 前 20？",
+  "why_it_is_the_next_step": "exp-8 已答：向量对 120/120 全召回、中位名次 4,322 ⇒ 是【名次】问题不是【有无】问题。三条路已被量过并堵死（列先验 E9 上界 3.04x < 门槛 4.32x；重排器 exp-11 只 +1.67pt；放大上限 exp-6 没用）⇒ 剩下的是【查询改写 / 语料内统计关系】。本批做它的最便宜形式：只改查询串，索引一个字不动。",
+  "frozen": {
+    "corpus": "真库 %APPDATA%/KnowledgeStation/database/knowledge.db，sqlite3 uri=True&mode=ro（只读）",
+    "benchmark": "eval/recall-funnel/benchmark-v2.jsonl 的 headline 120 条（v2.bucket=='keep' 且 flags 不含 gold_multi_def / gold_dup_text）—— 与 exp-8 同一口径",
+    "model": "生产 bge-small-zh-v1.5（fastembed，CPU/ONNX）—— 用 src.core.retrieval.embedder.embed_query，生产同款",
+    "index": "clause_vec 一个字不动、不重建、不新增表（本轮是【纯查询侧】改写）",
+    "production_code": "零改动",
+    "single_variable": "送进 embed_query 的查询串（四臂之间只有这一个变量）"
+  },
+  "arms": {
+    "A0_raw": "原样提问（生产口径，基线）",
+    "B1_bge_instruction": "BGE 官方中文检索指令前缀 + 提问",
+    "C1_domain_prefix": "领域前缀（法规/标准条文检索） + 提问",
+    "D1_prf_expand": "语料内 PRF 扩展：A0 的向量 Top-20 条款文本 → 取在 >=3 篇里出现、且提问里没有的内容词（<=8 个）→ 追加到提问后面"
+  },
+  "primary_endpoint": "Vector@1000（headline 120 条）—— 对应 exp-8 的『候选深度』那条线",
+  "secondary_endpoints": [
+    "Vector@20（headline 120 条）",
+    "向量全库中位名次（headline 120 条）",
+    "by_subset：字面零重合档 vs 普通档（headline 120 条口径）",
+    "FTS@1000（仅 A0 与 D1 —— 只有这两臂的查询串是『内容』；B1/C1 是指令前缀，喂给 FTS 无意义）"
+  ],
+  "thresholds": {
+    "推广": "主终点 Δ >= +8.18pt 且 McNemar 双侧 p < 0.05",
+    "观察": "0 < Δ < +8.18pt",
+    "放弃": "Δ <= 0"
+  },
+  "threshold_source": "+8.18pt = 本仓实测的 120 条口径显著性阈值（见 eval/recall-funnel/exp-4-embedding-shadow/README.md 与 docs/RETRIEVAL-LONG-RANGE-PLAN.md 的 E4 段）。McNemar = 配对翻进/翻出的精确二项检验（exp-11 同法）。",
+  "instrument_check": "★ A0 臂的逐条 vector_rank 必须与 eval/recall-funnel/exp-8-fullrank/fullrank.json 的 per_query[].vector_rank 完全一致（0 处不同）。不一致 ⇒ 本批机器不可信，先修机器再谈读数。",
+  "known_boundaries": [
+    "只测『向量路能不能捞到』，不测 fused@20（生产实际给用户的 20 条）—— 那要跑完整六路融合，本批不做",
+    "结论只对本批 120 条考卷成立（gold 仍未人工确认，见 specs/002 T015）",
+    "单机单时点、只读活库（库在长，引用读数前先复核行数）"
+  ]
+}
