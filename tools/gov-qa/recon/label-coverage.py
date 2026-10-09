@@ -37,8 +37,11 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DATA = ROOT / "data"
 
-#: 从这些 extra 字段里找「消息类型」
-TYPE_KEYS = ("msg_type", "type", "objective_type", "rqstType", "type_dictText", "letterType")
+#: 从这些 extra 字段里找「消息类型」。
+#: ⚠ `msg_type_norm` 优先 —— 它由 `label-classify.py` 写入（站方标签归一化 + 模型预测），
+#:   是**干净的 9 分类**；原始 `msg_type` 是脏的（混了话题如「省直公积金」、部门如「办公室」）。
+TYPE_KEYS = ("msg_type_norm", "msg_type", "type", "objective_type", "rqstType",
+             "type_dictText", "letterType")
 
 
 def read_all():
