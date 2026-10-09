@@ -42,6 +42,14 @@ PROVINCE_PREFIX = {
     "xz-": "西藏自治区",
     # —— 2026-10-08 补：甘肃此前漏登记 ⇒ gs-longnan 414 条掉进「未归属」——
     "gs-": "甘肃省",
+    # —— ★ 2026-10-09 第 8 轮补：**城市门户**前缀（`<市>-igi-<siteId>`）——
+    # ⚠ 上一轮（第 7 轮）接 baotou/nanning 时**漏了这张表** ⇒ 1,907 条掉进「未归属」
+    #   （baotou-igi-46 1,068 + nanning-igi-8 443 + baotou-igi-57 396）。
+    #   城市门户的 key **不以省简称为前缀**（南宁是 `nanning-` 不是 `gx-`、沈阳是 `shenyang-` 不是 `ln-`）
+    #   ⇒ 每接一个城市门户，这里必须同步加一行，否则那批只能靠 `pForumNames` 归省
+    #   （包头/沈阳/南京的地域已被 `postprocess` 剥离 ⇒ 会**整批**掉「未归属」）。
+    "baotou-": "内蒙古自治区", "shenyang-": "辽宁省",
+    "nanning-": "广西壮族自治区", "nanjing-": "江苏省",
 }
 NATIONAL = {"mee", "mem", "people-liuyan"}
 #: 国家级来源的**前缀**（nat-* 是后加的国家部委适配器，早期只登记了 mee/mem/people-liuyan 三个全集名）
