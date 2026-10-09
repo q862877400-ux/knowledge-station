@@ -143,16 +143,30 @@ $ownDataDirRemovable = $false
 #   本机没缓存过就留空，首次仍会联网下载（与今天之前的行为一致）。
 $prevModelsDir = $env:KS_MODELS_DIR
 $modelsDir = Join-Path ([System.IO.Path]::GetTempPath()) 'ks-gates-models'
-$modelsNote = '已有'
-if (-not (Test-Path $modelsDir)) {
-  $realModels = if ($env:APPDATA) { Join-Path (Join-Path $env:APPDATA 'KnowledgeStation') 'models' } else { '' }
-  $cachedBge = if ($realModels) { Join-Path $realModels 'models--Qdrant--bge-small-zh-v1.5' } else { '' }
-  if ($cachedBge -and (Test-Path $cachedBge)) {
+$realModels = if ($env:APPDATA) { Join-Path (Join-Path $env:APPDATA 'KnowledgeStation') 'models' } else { '' }
+$cachedBge = if ($realModels) { Join-Path $realModels 'models--Qdrant--bge-small-zh-v1.5' } else { '' }
+# ⚠⚠ **2026-10-09 修（人工轮第 18 轮）—— 判据从"目录存在"改成"模型真的在里面"。**
+#   原来的 `if (-not (Test-Path $modelsDir))` 有个致命弱点：一次**被强杀/拷一半**的跑会留下
+#   **空骨架目录**（实测：`ks-gates-models` 只有 **12 KB**、目录树在、**0 个 onnx**；真缓存 91 MB），
+#   此后**永远不再 seed** ⇒ 每条要嵌入的用例都退到"联网下载失败 + 退避重试 9s+27s"，
+#   把 `INGEST_BUDGET_S`(45s) 吃光 ⇒ 实测 `test_announce_ingest` 因此 `tried=1`（期望 2）
+#   ⇒ **`-Full` 恒红，而且被误读成"公告组件的真缺陷"**（交接单第 17 轮就是这么记的）。
+#   ⇒ 现在：**没有可用模型就（重）seed**；seed 前先清掉空骨架。幂等、无网也可。
+function Test-BgeUsable([string]$dir) {
+  if (-not $dir -or -not (Test-Path $dir)) { return $false }
+  $hit = Get-ChildItem $dir -Recurse -File -Force -ErrorAction SilentlyContinue |
+         Where-Object { $_.Name -like '*.onnx' } | Select-Object -First 1
+  return [bool]$hit
+}
+$modelsNote = '已有（可用）'
+if (-not (Test-BgeUsable $modelsDir)) {
+  if (Test-BgeUsable $cachedBge) {
+    if (Test-Path $modelsDir) { Remove-Item $modelsDir -Recurse -Force }
     New-Item -ItemType Directory -Force -Path $modelsDir | Out-Null
     Copy-Item $cachedBge $modelsDir -Recurse -Force
     $modelsNote = '刚从本机缓存 seed（未联网）'
   } else {
-    $modelsNote = '空 ⇒ 首次要联网下载（代理不通时会挂）'
+    $modelsNote = '本机缓存也没有 ⇒ 要联网下载（代理不通时会挂）'
   }
 }
 $env:KS_MODELS_DIR = $modelsDir
