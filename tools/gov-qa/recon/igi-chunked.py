@@ -44,6 +44,9 @@ os.environ["NO_PROXY"] = (os.environ.get("NO_PROXY") or "").replace("[::1]", "::
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120 Safari/537.36")
 DATA = ROOT / "data"
+#: 跨轮页续跑的进度（`--resume-margin`）。键 = `<key>-<siteId>`，值 = **已翻完的最大页号**。
+#: 与 `data/.<key>.cursor` 同类：运行期产物，不是语料。
+PROGRESS = HERE / ".igi-page-progress.json"
 
 
 class _Fetcher:
@@ -72,6 +75,9 @@ def main() -> int:
                     help="绝对页数上界（0 = 自动：有 --sites-json 的 total 就按它算，"
                          "否则 300）。`--only` 路径没有 total，**必须显式给**，"
                          "否则会空翻 300 个窗口")
+    ap.add_argument("--resume-margin", type=int, default=0,
+                    help=">0 = **跨轮页续跑**：按 (key,siteId) 记「已翻到第几页」，下轮从 "
+                         "`已翻页+1-N` 续（N 页重叠）；0 = 旧行为（永远从第 1 页重列）")
     ap.add_argument("--pause", type=float, default=1.2, help="siteId 之间的间隔秒数")
     ap.add_argument("--retries", type=int, default=2, help="单个 siteId 失败后的重试次数")
     ap.add_argument("--cooldown", type=float, default=30.0, help="重试前的冷却秒数")
@@ -107,6 +113,11 @@ def main() -> int:
     print(f"[{SITE['key']}] 已落盘 {len(seen)} 条；待跑 {len(site_ids)} 个 siteId："
           f"{','.join(site_ids)}", flush=True)
 
+    prog = _load_progress() if args.resume_margin > 0 else {}
+    if args.resume_margin > 0:
+        print(f"[{SITE['key']}] 跨轮页续跑已开（margin={args.resume_margin}）："
+              f"进度文件已有 {len(prog)} 个 siteId", flush=True)
+
     grand_new = 0
     consec_fail = 0
     t_all = time.perf_counter()
@@ -131,7 +142,26 @@ def main() -> int:
             #   **整站零产出**（逐 siteId 落盘救不了站内的部分）。
             #   2026-10-09 实测 `sx-igi-24` 单站 5,998 条跑了 8,133 s ⇒ 必须能切。
             abs_pages = args.max_pages or _abs_pages(site_totals, sid, PAGE_SIZE)
+            # ★ 跨轮页续跑：该 siteId 上轮翻到第几页，本轮从 `已翻页 + 1 - margin` 续。
+            #   动机：每轮重跑都会把已落盘的页**重列一遍**（实测 nmg-66 白翻 160 页
+            #   ≈12 分钟、gz-70 同理），只为确认「没有新增」。margin 页重叠用来兜住
+            #   列表尾部的新内容。
+            #   ⚠ 已知代价：若上游把新信件**插在列表头部**，页号整体下移，续跑会漏掉它们
+            #   （整站重列才抓得到）⇒ 要「新信不漏」就不传本参数（默认 0 = 旧行为）。
+            pkey = f"{SITE['key']}-{sid}"
+            done_pages = int(prog.get(pkey, 0)) if args.resume_margin > 0 else 0
+            start_page = max(1, done_pages + 1 - args.resume_margin) \
+                if args.resume_margin > 0 else 1
+            if start_page > 1:
+                # 实际起点是**包含 start_page 的那个窗口的首页**（窗口按 --page-chunk 对齐）
+                aligned = start_page if args.page_chunk <= 0 else \
+                    ((start_page - 1) // args.page_chunk) * args.page_chunk + 1
+                print(f"  [{i}/{len(site_ids)}] siteId={sid} 跨轮续跑："
+                      f"上轮已翻到第 {done_pages} 页 ⇒ 从第 {aligned} 页起"
+                      f"（重叠 {max(0, done_pages + 1 - aligned)} 页）", flush=True)
             for (pf, pt) in _page_windows(args.page_chunk, abs_pages):
+                if pt < start_page:
+                    continue
                 remain = (args.limit - grand_new) if args.limit else None
                 if remain is not None and remain <= 0:
                     break
@@ -156,6 +186,11 @@ def main() -> int:
                 if rows is None:
                     failed = True
                     break
+
+                # ★ 窗口真翻完了才记进度（失败/异常不记，免得下次跳过没翻的页）
+                if args.resume_margin > 0:
+                    prog[pkey] = max(int(prog.get(pkey, 0)), pt)
+                    _save_progress(prog)
 
                 if strip:
                     rows = strip(rows)
@@ -216,6 +251,26 @@ def _page_windows(chunk: int, abs_pages: int) -> list[tuple[int, int]]:
         out.append((pf, pt))
         pf = pt + 1
     return out
+
+
+def _load_progress() -> dict[str, int]:
+    """读跨轮页进度；文件缺失/损坏一律当空（不能因为进度文件坏了就整轮不跑）。"""
+    if not PROGRESS.exists():
+        return {}
+    try:
+        d = json.loads(PROGRESS.read_text(encoding="utf-8"))
+    except Exception:                                                       # noqa: BLE001
+        print(f"  ⚠ 进度文件 {PROGRESS.name} 解析失败，按空进度继续", flush=True)
+        return {}
+    return {str(k): int(v) for k, v in (d or {}).items()} if isinstance(d, dict) else {}
+
+
+def _save_progress(prog: dict[str, int]) -> None:
+    """先写临时文件再 replace（避免被杀时留下半截 JSON 让下轮全丢进度）。"""
+    tmp = PROGRESS.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(prog, ensure_ascii=False, sort_keys=True),
+                   encoding="utf-8")
+    os.replace(tmp, PROGRESS)
 
 
 def _load_done(path: Path) -> set[tuple[str, str]]:

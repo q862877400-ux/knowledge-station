@@ -43,6 +43,10 @@ TARGETS: dict[str, tuple[str, str, list[str], list[str]]] = {
     "baotou":   ("https://www.baotou.gov.cn",   "https://www.baotou.gov.cn/",   ["46", "57"],           ["nmg-igi"]),
     "guiyang":  ("https://www.guiyang.gov.cn",  "https://www.guiyang.gov.cn/",  ["70"],                 ["gz-igi"]),
     "yinchuan": ("https://www.yinchuan.gov.cn", "https://www.yinchuan.gov.cn/", ["259"],                ["nx-igi"]),
+    # 2026-10-09 第 9 轮追加：天津 `tj.gov.cn` IGI（siteId=186 = 123,546 / 215 = 16,785，
+    # 见 scan-tianjin.log）。**接入前必须先验与 tj-enorth / tj-hdjl 的 id 重叠**
+    # —— 同一封信两个 source 会记两遍。所以这里 peer_keys 传了那两个已落盘源。
+    "tianjin":  ("https://www.tj.gov.cn",       "https://www.tj.gov.cn/",       ["186", "215"],         ["tj-enorth", "tj-hdjl"]),
 }
 
 

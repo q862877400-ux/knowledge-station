@@ -43,11 +43,20 @@ def main() -> int:
     provinces: set = set()
     samples: dict[str, list] = defaultdict(list)
     total = 0
+    skipped = 0
     for f in sorted(DATA.glob("*.jsonl")):
         for line in f.read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
-            rec = json.loads(line)
+            # 2026-10-09 第 9 轮加容错（影响另一个对话）：两个对话共写 data/，
+            # 采集进程正在追加时会读到**半行** ⇒ 原实现直接 JSONDecodeError 崩掉，
+            # 整份验收产物刷不出来。coverage-matrix.py 早就是「跳过并计数」的口径，
+            # 这里对齐它。跳过的行只影响本轮统计，下次重跑就补上。
+            try:
+                rec = json.loads(line)
+            except Exception:                                               # noqa: BLE001
+                skipped += 1
+                continue
             total += 1
             extra = rec.get("extra") or {}
             pn = [x for x in (extra.get("pForumNames") or []) if x]
@@ -96,6 +105,8 @@ def main() -> int:
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[levels] 总 {total} | 省级 {lv.get('省级',0)} | 省+市 {lv.get('省+市/区',0)} | "
           f"省+市+县 {lv.get('省+市+县',0)} | 无链 {lv.get('无归属链',0)}")
+    if skipped:
+        print(f"[levels] 跳过 {skipped} 行（解析失败，多为采集进行中的半行）")
     print(f"[levels] 覆盖省级 {len(provinces)} / 省市组合 {len(cities)} / 省市县组合 {len(counties)}")
     print("written recon/coverage-by-level.md + .json")
     return 0

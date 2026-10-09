@@ -89,8 +89,20 @@ def main() -> int:
         return 1
 
     report = {"db": str(db), "n_lib_names": len(lib), "sources": {}}
+    skipped = 0
     for f in files:
-        rows = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
+        # 2026-10-09 第 9 轮加容错（**影响另一个对话**）：两个对话共写 data/，
+        # 对方采集进程正在追加时本文件会读到**半行** ⇒ 原实现直接 JSONDecodeError
+        # 崩在第一个撞上的文件，整份验收产物（含 assets-*.json）刷不出来。
+        # 口径与 coverage-matrix.py 对齐：跳过并计数；下次重跑即补上。
+        rows = []
+        for l in f.read_text(encoding="utf-8").splitlines():
+            if not l.strip():
+                continue
+            try:
+                rows.append(json.loads(l))
+            except Exception:                                               # noqa: BLE001
+                skipped += 1
         a, b, c = [], [], []          # 考卷 / 补料 / 无依据
         cited_all = cited_in = 0
         for r in rows:
@@ -136,6 +148,8 @@ def main() -> int:
     Path(args.out).write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     tot_a = sum(v["可当考卷(A_点名且在我们库)"] for v in report["sources"].values())
     print(f"\n[m] **可用考卷合计 = {tot_a} 条**（目标 >=100，见 README「瓶颈在库不在采集」一节）")
+    if skipped:
+        print(f"[m] 跳过 {skipped} 行（解析失败，多为另一个对话采集进行中的半行）")
     print(f"[m] 已写 {args.out} 与每个来源的 assets-*.json")
     return 0
 

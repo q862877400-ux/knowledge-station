@@ -1642,3 +1642,156 @@ siteId=66 → **5651**、68 → 3436、88 → 3286、71 → 2068、92 → 1857�
 
 
 
+## 十九、★ 2026-10-09 第 9 轮（七条 IGI 线并行续采 +5,387；`--resume-margin` 跨轮页续跑；天津 IGI 明细判死）
+
+### 1. 开工盘点（任务书前提**第 9 次过时**）
+
+实测 `312` 个注册适配器 / `466` 个 data 文件，**零数据仍只有 2 个**，且都是 `status=dup`：
+
+```
+hb-rst-igi  湖北省人力资源和社会保障厅·互动交流（IGI）  dup
+hb-wjw      湖北省卫生健康委员会·互动交流（IGI）        dup
+```
+
+⇒ 任务书「45 个已登记、零数据的适配器（江苏 21 + 9 省门户 + 贵州 6）」**早已全部有数据**，
+不要再照单执行。**开工第一步永远是现场盘点。**
+
+**现场归属**（`Get-CimInstance Win32_Process` 实测）：另一对话在跑
+`sx_igi`（12:16 起、`igi-resume.sh`，至 18:1x 仍在翻 siteId=41）、`js-yangzhou`（17:15 起）、
+`sd-yantai`（17:38 起）⇒ **sx/gx/nx、江苏扬州、山东烟台一律不碰**。
+
+### 2. 选线：把「我建的、没人认领的」7 条 IGI 线一次全开
+
+| 线 | host | 起点 | 终点 | **本轮新增** |
+|---|---|---|---|---|
+| `shenyang-igi` | shenyang.gov.cn | 800 | **1,600** | **+800** |
+| `nanjing-igi` | nanjing.gov.cn | 868 | **1,790** | **+922** |
+| `xining-igi` | xining.gov.cn | 400 | **1,200** | **+800** |
+| `nmg-igi` | nmg.gov.cn | 3,200 | **4,000** | **+800** |
+| `gz-igi` | guizhou.gov.cn | 3,185 | **3,903** | **+718** |
+| `baotou-igi` | baotou.gov.cn | 2,516 | **3,441** | **+925** |
+| `hb-wuhan` | wuhan.gov.cn | 3,750 | **4,172** | **+422** |
+| **合计** | — | — | — | **+5,387** |
+
+- 全部**托管后台**（`run_in_background=true`，命令体直接是 python，**不加 `&`/`nohup`**），
+  窗口 `--page-chunk 20`，**逐窗口落盘** ⇒ 收工 `TaskStop` 只损失每线 ≤1 个窗口。
+- 新增文件（本轮的）：`baotou-igi-40/66`、`hb-wuhan-26/27/28/30/31/32/33`、
+  `nanjing-igi-5/13/64/70/71/72/130`（共 15 个新文件）；
+  追加的：`gz-igi-70`、`nmg-igi-66`、`shenyang-igi-123`、`xining-igi-43`。
+- `hb-wuhan` 走了 `--page-chunk 20 --max-pages 165`（无 `--sites-json`，按模块 `SITE_IDS` 顺序）。
+
+### 3. 质量审计（`recon/audit-igi-prov.py`，**审计时**落盘量）
+
+| 线 | 记录 | 唯一 id | 重复 | 空答复 | 答复==问题 | <10字 | 像问题 | 噪声 | 地域非空 |
+|---|---|---|---|---|---|---|---|---|---|
+| shenyang-igi | 1,600 | 1,600 | 0 | 0 | 0 | 0 | 0 | 0 | 0%（按设计剥离） |
+| nanjing-igi | 1,790 | 1,790 | 0 | 0 | 0 | 0 | 0 | 0 | 28% |
+| xining-igi | 1,200 | 1,200 | 0 | 0 | 0 | 0 | 0 | 0 | 2%（真但稀疏） |
+| nmg-igi | 4,000 | 4,000 | 0 | 0 | 0 | 0 | 1 | 0 | 0% |
+| gz-igi | 3,903 | 3,903 | 0 | 0 | 0 | 0 | 0 | 0 | 0% |
+| baotou-igi | 3,441 | 3,441 | 0 | 0 | 0 | 0 | 4 | 0 | 0% |
+| hb-wuhan | 4,172 | 4,172 | 0 | 0 | 0 | 0 | 0 | **10** | 99% |
+
+**完整性**：上述 7 条线全部数据 **20,106 行逐行 `json.loads` ⇒ 0 失败**（强杀不留半行）。
+
+**★ `hb-wuhan` 那 10 条「噪声」= 第 6 轮修复前的存量，不是本轮引入**（已逐条定位）：
+它们**全部落在老的主文件** `data/hb-wuhan-武汉市人民政府·市长信箱（12345）.jsonl`
+（line 72/122/174/803/2328/2690/2695/2696/2697/3284），答复以**字面 `&nbsp;`** 开头
+（例 `id=57515`：`&nbsp;您好，关于您提出的公司上市所需公积金无违规证明线上开具的问题…`）。
+⇒ 这是**第 6 轮 `_igi_common.clean()` 修 HTML 实体之前的落盘**，
+印证了当时登记的「**历史行不会被改写 ⇒ 存量要清必须整站重采**」——
+**第三个来源上复现了同一条**（前两个是 `sx-igi` 958 条、`gz-*` 若干）。
+
+### 4. ★ 新能力：`igi-chunked.py --resume-margin N`（跨轮页续跑）
+
+**为什么必须做**：本轮实测，**每轮重跑都会把已落盘的页重列一遍**——
+`shenyang-123` 白翻 40 页（146 s）、`nmg-66` 白翻 160 页（233 s）、`gz-70` 白翻 160 页（346 s），
+日志里这些窗口**全部「新增 0」**，纯浪费；7 条线一轮就烧掉约 **26 分钟**。
+（重列**不是**为了抓新增：本轮所有重列窗口都是 0 新增，说明列表在本轮时间尺度内是稳定的。）
+
+**做法**：按 `(key, siteId)` 记「已翻完的最大页号」到 `recon/.igi-page-progress.json`
+（临时文件 + `os.replace`，避免被杀时留半截 JSON）；下轮从 `已翻页 + 1 - N` 续，
+**窗口按 `--page-chunk` 对齐**。只在窗口**真翻完**（`harvest_igi` 正常返回）才记进度，
+异常/失败不记 —— 免得下次跳过没翻的页。
+
+**实测证据**（受控两遍，`nanjing_igi --only 13 --max-pages 3 --page-chunk 1 --resume-margin 1`）：
+
+```
+pass1: [nanjing-igi-13] 第 1 页：1 条 … 第 2 页 … 第 3 页
+       进度文件 = {"nanjing-igi-13": 3}
+pass2: [1/1] siteId=13 跨轮续跑：上轮已翻到第 3 页 ⇒ 从第 3 页起（重叠 1 页）
+       只请求了第 3 页
+```
+
+**默认关闭（`0` = 旧行为）** ⇒ 另一个对话的 `recon/igi-resume.sh` **一行不改、行为不变**。
+
+**⚠ 已知代价（必须知道再用）**：若上游把新信件**插在列表头部**，页号整体下移，
+续跑会**漏掉它们**（只有整站重列才抓得到）⇒ **要「新信不漏」就不传本参数**。
+本轮的取舍是：这是**历史回填**项目，先把存量拉满；将来需要「新信不漏」时整站重列一轮即可。
+
+**播种**：本轮结束时用**历史日志**把进度文件播种了 **35 个 siteId**（判据：`igi-chunked.py` 里
+`页pf-pt: 新增` 这行是**窗口写盘之后**才打印的 ⇒ 日志里出现过的窗口 = 数据真的落了盘；
+取每个 site 的 `max(pt)`）。已在 `nanjing-igi-126` 上验证生效（44 → 从第 25 页起，实际窗口对齐到 21）。
+⚠ `recon/.igi-page-progress.json` 是**运行期产物**（与 `data/.<key>.cursor` 同类），**不提交**。
+
+### 5. 顺手修的两处**共享脚本**容错（**影响另一个对话**）
+
+`recon/coverage-by-level.py` 与 `measure-locate-rate.py` 原来对**半行**（`json.loads` 失败）
+**直接崩**，于是「两个对话同时采集」时**验收产物整份刷不出来**（本轮实测两次都崩在
+`Unterminated string starting at: line 1 column 584`）。已改成与 `coverage-matrix.py` 同口径的
+**跳过并计数**（`skipped`），并在末尾打印跳过行数。**只加容错，不改任何统计口径。**
+
+### 6. 负面结论（本轮新增，别再试）
+
+| 结论 | 证据 |
+|---|---|
+| **天津 `tj.gov.cn` IGI 明细接口恒 500 ⇒ 暂不可采** | `igi-city-probe.py tianjin`：列表 `siteId=186` **HTTP 200 / total=123,546**、`siteId=215` **200 / 16,804**；但明细 `viewGovmsgbox` 对**两条 siteId 都是 `HTTP 500`**，错误体 `{"statusCode":300,"message":"未找到该信件！","datas":null}`。试过 `appId=` 变体、用行内 `SITEID` 当 siteId —— 全 500。 |
+| 同上：**列表行不内联答复** | 列表行有 `REPLYS` 键但**恒为空数组**（`ISREPLY=1` 而 `REPLYS=0`），只有 `CONTENT`（问题正文，`siteId=186` 首行正好被截到 1000 字）。⇒ **拿不到答复正文 = 当不了考卷**，本轮不接。 |
+| 同上：**地域是恒定默认值（假）** | `siteId=215` 行 `PROVINCE='天津市' CITY='市辖区' AREA='和平区'` —— 典型「门户自身位置」形态。 |
+| 同上：前端首页无 XHR 线索 | `https://www.tj.gov.cn/zmhd/`（HTTP 200 / 160,499 B）里 **grep `openGovmsgbox` 零命中** ⇒ 疑 SPA/JS 拼装。**下一步要接必须先抓真浏览器 XHR。** |
+| `nanning-igi` 本轮**未跑**（单站 18,977、≈56 s/页） | 本轮 7 条线已占满速率预算，留给下一轮。 |
+
+### 7. 第三条线：人民网 fid 密集扫描
+
+`recon/liuyan-fid-dense-scan.py 2426 4600 … 2.5 120` 续跑：
+`liuyan-fid-dense-scan.jsonl` **1,825 → 1,981 行（+156 个 fid）**，扫到 **fid 2581**，
+实测仍 ≈**5.9 fid/分钟**（每约 15 个 fid 撞一次 403、冷却 120 s）。
+⚠ **该 jsonl 是共享生成产物 ⇒ 不提交**，只登记增量。
+
+### 8. 验收产物（本轮刷新，**均不提交** —— 共享生成产物）
+
+- `recon/coverage-matrix.py` ⇒ **总 320,131 条 / 省级单位 31 个 / 来源 607 个**（跳过 40 行半行）。
+- `recon/coverage-by-level.py` ⇒ **省级 12,315 ｜省+市 568 ｜省+市+县 30,615 ｜无链 276,633**；
+  覆盖 **省级 31 / 省市组合 191 / 省市县组合 612**。
+- `measure-locate-rate.py` ⇒ **可用考卷合计 24,235 条**。
+⚠ 这三个脚本会重写 `coverage-*.json/.md`、`locate-rate.json`、约 **600 个 `assets-*.json`**
+⇒ **一律不 `git add`**（工作区里常混着另一个对话写一半的）。
+
+### 9. 收工状态（2026-10-09 18:46）
+
+- 本轮 7 个 IGI 后台任务 + 1 个 fid 扫描**全部 `TaskStop` 干净停掉**；
+  `Get-CimInstance Win32_Process` 复核：`tools/gov-qa` 相关只剩另一对话的 `sx_igi` / `js-yangzhou` / `sd-yantai`。
+- 被停时各线正在翻的窗口整块丢失 = `--page-chunk` 的设计代价（每线 ≤1 窗口）。
+- **未碰**：`MINISTRY-ENTRIES.md` / `probe-ministries.py` / `adapters/mem_gov.py` / `adapters/mee_gov.py`、
+  sx/gx/nx IGI、js-yangzhou、sd-yantai、另一个对话的未提交件（`gs_*.py` / `sh_12345.py` /
+  `_igi_multi.py` / `_jpaas_jact_common.py` / `assets-bj-hdjl` / `refix-sc2.sh`）。
+
+### 10. 下一轮可挑（第 9 轮重排）
+
+0. **★ 七条线续采 —— 这次带上 `--resume-margin 20`**（直接省掉重列；重跑只取新增）：
+   ```bash
+   .venv/Scripts/python.exe -u tools/gov-qa/recon/igi-chunked.py <mod> \
+     --sites-json igi-siteid-<tag>.json --page-chunk 20 --resume-margin 20
+   ```
+   `shenyang_igi` / `nanjing_igi` / `xining_igi` / `nmg_igi` / `gz_igi` / `baotou_igi`；
+   `hb_wuhan` 走 `--page-chunk 20 --max-pages 165 --resume-margin 20`（**无** `--sites-json`）。
+   ⚠ 全部**必须托管后台**，收工 `TaskStop`。
+1. **`nanning-igi` 续采**（1,193 / 18,977；**必须显式 `--max-pages 949`**，≈56 s/页）。
+2. **沈阳 `siteId=118`（4,109）/ `siteId=88`（914）/ `siteId=44`（746）** 仍未碰 —— 沈阳 17,369 里的大头。
+3. **天津 IGI 要接就先抓真浏览器 XHR**（见 §十九 6）；`tj-enorth` 与它的 id 重叠**本页 5 条实测为 0**，
+   但明细拿不到答复 ⇒ **暂不接**。
+4. `igi-siteid-scan.py` 补扫 **`guiyang`（贵阳）/ `yinchuan`（银川）**（已确认有 IGI、未枚举；
+   接前先验与 `gz-igi` / `nx-igi` 的 id 重叠）。
+5. 人民网 fid 密集扫描续跑（本轮停在 **fid 2581**；剩余 `2582..4600`）。
+6. 收尾：`recon/audit-igi-prov.py` 抽审 + 逐行 `json.loads` 完整性。
+
