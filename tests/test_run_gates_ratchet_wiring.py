@@ -39,6 +39,13 @@
    为什么必须有：判据 3 是**同现式**检查 —— 锚点名一改，就没有任何行再含它 ⇒ **静默失效**。
 4. **判据自己要被验**（否则「扫描器恒真」就是新的假绿）：把 8 处**逐处**改回 `$totalRan`，
    每一处都必须被本检测器报出；原样件必须零报；无关改动必须零报。
+5. **`$baseTotal` 的首选来源恰有一处**（`$baseTotal = [int]$base.pytest_total`）——
+   **2026-10-09 第 18 轮补，治审计 C2**。为什么单列：这一行**不含** `$totalForRatchet`
+   ⇒ 判据 1 的计数不变；它后面还有 5 行含 `$baseTotal` ⇒ 判据 3' 的"存在性"也过；
+   判据 3 是同现式 ⇒ 同样不报。**实测「只删这一行 ⇒ 零报」**（第 3 轮复核 B1 指出，一直挂着）。
+   删/改它 ⇒ 棘轮比较基准会**悄悄**退成 `passed+skipped`（靠第 492 行的 `-le 0` 兜底），
+   而**没有任何一条判据会提醒**。配套 `test_deleting_base_total_source_is_caught` /
+   `test_base_total_source_swap_is_caught`。
 
 ## 边界（如实说，不许超出证据）
 
@@ -82,6 +89,12 @@ _ASSIGN = re.compile(
 )
 #: 三处「必须接棘轮口径」的语义锚（含它就不得再出现旧写法）。
 _ANCHORS = ("$baseTotal", "$totalToRecord", "$prevPassed")
+#: 判据 5（2026-10-09 第 18 轮补，治审计 **C2**）：`$baseTotal` 的**首选来源**必须是基线的
+#: `pytest_total`。**为什么必须单独钉**：那一行**不含** `$totalForRatchet`
+#: ⇒ 删了它**不改判据 1 的计数**；而它后面还有 5 行含 `$baseTotal`
+#: ⇒ **判据 3'（锚点存在性）也不报**；判据 3 是"同现式"，同样不报。
+#: ⇒ 实测「只删 `$baseTotal = [int]$base.pytest_total` ⇒ **零报**」（第 3 轮复核 B1 已指出，一直挂着）。
+_BASE_ASSIGN = re.compile(r"^\s*\$baseTotal\s*=\s*\[int\]\$base\.pytest_total\s*$")
 
 
 def _read() -> str:
@@ -141,6 +154,16 @@ def find_violations(text: str) -> list[str]:
                     f"同一行既用 {anchor} 又用 {LEGACY}"
                     f"（判定点退回了实测总数）：{ln.strip()}"
                 )
+
+    # 判据 5（2026-10-09 第 18 轮补，治审计 C2）：`$baseTotal` 的**首选来源**必须恰有一处。
+    # ⚠ 删掉/改掉它 ⇒ 棘轮比较基准会**悄悄**退成"passed+skipped"（第 492 行的 `-le 0` 兜底），
+    #   而判据 1/2/3/3' **一条都不会报** —— 那正是 C2 说的"没牙"。
+    n_base = sum(1 for ln in code if _BASE_ASSIGN.match(ln))
+    if n_base != 1:
+        problems.append(
+            f"`$baseTotal = [int]$base.pytest_total` 有 {n_base} 处，应为 1 处"
+            "（删了/改了它 ⇒ 棘轮比较基准悄悄换掉，而计数与锚点检查都不会报）"
+        )
 
     return problems
 
@@ -282,3 +305,45 @@ def test_comment_occurrence_is_excluded_from_the_count() -> None:
     code = sum(len(_OCC.findall(ln)) for ln in _code_lines(text))
     assert code == EXPECTED_SITES
     assert total >= code, "全文出现次数不该少于代码行里的次数"
+
+
+# ───────────────── 判据 5 的自验（治审计 C2："只删 $baseTotal 赋值 ⇒ 零报"）─────────────────
+
+
+def test_base_total_primary_source_exists() -> None:
+    """原样件里 `$baseTotal` 的首选来源**恰有一处**（判据 5 的地基）。"""
+    n = sum(1 for ln in _code_lines(_read()) if _BASE_ASSIGN.match(ln))
+    assert n == 1, f"`$baseTotal = [int]$base.pytest_total` 应恰 1 处，实测 {n} 处"
+
+
+def test_deleting_base_total_source_is_caught() -> None:
+    """**C2 的核心**：删掉 `$baseTotal = [int]$base.pytest_total` 那一行 ⇒ **必须报违规**。
+
+    ⚠ 为什么单独一条：这一行**不含** `$totalForRatchet`（判据 1 不报）、
+    它后面还有 5 行含 `$baseTotal`（判据 3' 不报）、判据 3 是同现式（不报）
+    ⇒ **不补判据 5 时，删它零报**（第 3 轮复核 B1 指出、一直挂着的 C2）。
+    """
+    text = _read()
+    lines = text.splitlines(keepends=True)
+    idx = next((i for i, ln in enumerate(lines) if _BASE_ASSIGN.match(ln)), None)
+    assert idx is not None, "找不到 `$baseTotal = [int]$base.pytest_total`（锚点变了）"
+    mutated = "".join(lines[:idx] + lines[idx + 1:])
+    problems = find_violations(mutated)
+    assert any("baseTotal" in p for p in problems), (
+        "删掉 `$baseTotal` 的首选来源行竟然**零报** ⇒ 判据 5 没牙（审计 C2 未闭合）"
+    )
+
+
+def test_base_total_source_swap_is_caught() -> None:
+    """把首选来源**换成别的字段**（语义变了但行还在）⇒ 也必须报。"""
+    text = _read()
+    lines = text.splitlines(keepends=True)
+    idx = next((i for i, ln in enumerate(lines) if _BASE_ASSIGN.match(ln)), None)
+    assert idx is not None, "找不到首选来源行（锚点变了）"
+    # ⚠ 逐行替换：`_BASE_ASSIGN` 用 `^…$` 但**没开 MULTILINE**，对整篇 `sub` 不会命中
+    #   （判据里是**逐行** `match`，所以那里是对的）。
+    lines[idx] = lines[idx].replace("pytest_total", "pytest_passed")
+    problems = find_violations("".join(lines))
+    assert any("baseTotal" in p for p in problems), (
+        "把首选来源从 `pytest_total` 换成 `pytest_passed` 竟然零报 ⇒ 判据 5 没牙"
+    )
