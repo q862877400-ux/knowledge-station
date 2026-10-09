@@ -1,113 +1,115 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: 按目录范围提问时，向量通道要真的在范围内找
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+**Branch**: `003-vec-scope-pushdown` | **Date**: 2026-10-09 | **Spec**: [spec.md](spec.md)
 
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
-
-**Note**: This template is filled in by the `/speckit-plan` command; its definition describes the execution workflow.
+**Input**: Feature specification from `/specs/003-vec-scope-pushdown/spec.md`
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+**问题**：`clause_vec` 的范围过滤写成 `clause_revision_id IN (子查询)`，**只在子查询恰好返回 1 个 id 时**被下推进 KNN；
+**≥2 个 id 恒返回 `[]`** ⇒ 「按目录范围提问」在向量通道上**假报"范围内没有"**（真实目录通常几十上百条）。
+
+**修法**：给 `vec0` 加一个**元数据列** `doc_id TEXT`，范围过滤改走
+`doc_id IN (SELECT value FROM json_each(?))` —— **本轮实测这是唯一能下推的写法**（见 [research.md](research.md) R2）。
+
+**迁移**：已有 663,634 行**纯 SQL 拷贝**（不重跑嵌入模型，逐字节一致，分钟级）。
+
+**为什么现在做**：第 17 轮第一次把 `-Full` 跑通后，`tests/test_kb_scope_retrieval.py::test_vec_channel_is_restricted_without_the_model`
+现形。它是**用户可见的功能缺陷**，且**判据不许放宽**。
 
 ## Technical Context
 
-<!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
--->
+**Language/Version**: Python 3.13（引擎）｜项目内 `.venv/Scripts/python.exe`
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Primary Dependencies**: `sqlite-vec 0.1.9`（`vec0` 虚拟表）｜SQLite **3.53.1**｜裸 `sqlite3`（无 ORM）
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Storage**: `%APPDATA%\KnowledgeStation\database\knowledge.db`（3.1 GB；**核对一律 `mode=ro`**）；
+`clause_vec` = `clause_revision` = **663,634 行**
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Testing**: `pytest`；本仓门禁 `pwsh -File scripts/run-gates.ps1 -Quick|-Full`
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Target Platform**: Windows（本机）＋ 仓外 DSH 插件
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Project Type**: 单仓（Python 引擎 `src/core/` + Node 插件 `plugin/`）
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Performance Goals**: 单次范围提问**不劣化**（实测 0.96 → 0.97 ms/次 KNN，同量级）
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Constraints**: ① **零回归**（不加范围的主路径逐条不变）；② **向量一条不许变**（迁移是搬运）；
+③ **判据一个字不许放宽**；④ 迁移要**可回滚**且**先备份**；⑤ 属**必验类别**（改 schema + 动生产数据）
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
-
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Scale/Scope**: 真库 663,634 行向量；范围常见几十~上百篇文档
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+| 原则 | 本项如何满足 |
+|---|---|
+| **I 说人话** | 已产出 [`读我-大白话版.md`](读我-大白话版.md)（无表名/接口名，只说"点下去会怎样、代价是什么、能不能退回"） |
+| **II 从事实出发** | 修法是**实测**出来的（`probes/`），且**否掉了三个"看着像"的写法**；没有迎合"加个索引就行"的直觉 |
+| **III 证据优于断言** | 每条结论都挂探针读数；**未做的写明"未做"**（partition key 未采用、未测其代价） |
+| **IV 一个事实一个归属层** | 结论 → `docs/DEVELOPMENT-HISTORY.md`；存储契约 → `pipeline/03-contract-delta.md`；本目录只留方案与证据 |
+| **V 留痕不许悄悄删** | 第 17 轮那句错话（"子查询 = 带约束的 KNN"）**保留原文 + 就地更正**，见用例 docstring 与 research.md R1 |
+| **VI 先查现成的** | 先查了 `sqlite-vec` 自身的**元数据列**能力（文档化特性），没有自造索引/分区方案 |
+| **VII 对已否决台账** | 已对 `docs/NOT-DOING.md`：本项**不是**"改排序键"（0.4b）、**不是**"列先验"（E9 已堵死），是新缺陷 |
+
+**Gate 结论：通过**（无违规需豁免）。**Phase 1 后复核：仍通过**（设计未引入新表、新依赖、新接口）。
 
 ## Project Structure
 
 ### Documentation (this feature)
 
 ```text
-specs/[###-feature]/
-├── plan.md              # This file (/speckit-plan command output)
-├── research.md          # Phase 0 output (/speckit-plan command)
-├── data-model.md        # Phase 1 output (/speckit-plan command)
-├── quickstart.md        # Phase 1 output (/speckit-plan command)
-├── contracts/           # Phase 1 output (/speckit-plan command)
-└── tasks.md             # Phase 2 output (/speckit-tasks command - NOT created by /speckit-plan)
+specs/003-vec-scope-pushdown/
+├── spec.md              # 需求（做什么、为什么）
+├── 读我-大白话版.md      # 给业主看的一句话版
+├── plan.md              # 本文件
+├── research.md          # Phase 0：修法为什么成立（实测）
+├── data-model.md        # Phase 1：表形状与不变式
+├── contracts/           # Phase 1：存储契约 + 查询契约 + 迁移契约
+├── quickstart.md        # Phase 1：怎么验（可跑的判据）
+├── checklists/          # 需求质量检查单
+├── probes/              # 可复跑探针（修法证据）
+└── tasks.md             # Phase 2（/speckit-tasks 产出）
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+src/core/storage/
+├── schema.sql                     # ← 改：clause_vec 加 doc_id TEXT
+├── clause_repo.py                 # ← 改：两处 INSERT 带 doc_id
+└── sqlite_db.py                   #   不改（executescript 全量执行；虚拟表无 ALTER）
 
-tests/
-├── contract/
-├── integration/
-└── unit/
+src/core/retrieval/
+└── hybrid_engine.py               # ← 改：向量通道范围过滤走 doc_id
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
+pipeline/03-contract-delta.md      # ← 改（红线：先契约后实现）
+tests/test_contract.py             # ← 改（同上）
+tests/test_kb_scope_retrieval.py   # ← 只改 fixture（塞向量带 doc_id），断言一字不改
+tests/test_embedding_rebuild_resume.py  # ← 改：正则同步新 DDL 形状
 
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
+eval/recall-funnel/exp-17-embedding-production-plan/
+└── rebuild-shadow.py              # ← 改：影子表保持"与生产同形"
 
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+scripts/
+└── migrate-clause-vec-doc-id.py   # ← 新：迁移（纯 SQL 拷贝 + 备份 + 回滚步骤）
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**：**单项目结构**（本仓既有形状）。改动面 = **1 张虚拟表的 DDL + 4 个源文件/测试 + 1 个迁移脚本 + 2 份契约文档**，
+**不新增目录、不新增依赖、不改 API/SSE/通道枚举**。
+
+## Phase 0 → Phase 1 产物
+
+- **Phase 0**：[research.md](research.md) —— 修法成立性 + 三个反例 + 边界四条 + 连带影响九项
+- **Phase 1**：[data-model.md](data-model.md)（表形状与不变式）｜[contracts/](contracts/)（存储 + 查询 + 迁移契约）｜[quickstart.md](quickstart.md)（怎么验）
 
 ## Complexity Tracking
 
-> **Fill ONLY if Constitution Check has violations that must be justified**
+> 无宪法违规需豁免。
 
-| Violation | Why Needed | Simpler Alternative Rejected Because |
-|-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+| 项 | 说明 |
+|---|---|
+| 为什么**必须**动 schema | `sqlite-vec` 的过滤只认**元数据列**；`TEXT PRIMARY KEY` 推不下去（实测）。**没有不改表的等价修法**。 |
+| 为什么**不**重算向量 | 实测纯拷贝**逐字节一致** ⇒ 重算只会引入风险，不带来收益。 |
+| 为什么**不**顺手做 exp-17 接生产 | 那是**另一条线**（换模型 + 指令前缀），行为改动、独立必验；本项**只修范围下推**。 |

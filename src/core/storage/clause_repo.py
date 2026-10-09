@@ -277,13 +277,17 @@ def insert_clauses_in_txn(conn: sqlite3.Connection,
     向量引擎离线时跳过 clause_vec 写入（不阻塞入库，R30 精神）。
     """
     _ensure_content_hash_once()  # 幂等迁移：进程内仅首调执行（旧库补列/回填）
-    vec_batch: list[tuple[str, list[float]]] = []
+    vec_batch: list[tuple[str, str, list[float]]] = []
     vec_ok = embedder.is_available()
     if vec_ok:
         try:
             embs = embedder.embed_batch(
                 [f"{c.title or ''}\n{c.content_text[:512]}" for c in clauses])
-            vec_batch = list(zip([c.clause_revision_id for c in clauses], embs))
+            # ⚠ 必须带 `doc_id`（spec 003）：范围提问靠 `clause_vec.doc_id` 下推进 KNN。
+            #   漏了**不报错**（列可空），但那条条款会在「按目录范围提问」里**静默消失** ——
+            #   而**没有任何下游读数能发现**。见 pipeline/03-contract-delta.md 末节。
+            vec_batch = list(zip([c.clause_revision_id for c in clauses],
+                                 [c.doc_id for c in clauses], embs))
         except Exception:
             vec_ok = False
 
@@ -327,10 +331,11 @@ def insert_clauses_in_txn(conn: sqlite3.Connection,
              _seg(c.content_text), c.modality or "", c.subject or "",
              _seg(c.behavior_scope or "")))
     if vec_ok:
-        for cid, emb in vec_batch:
+        for cid, did, emb in vec_batch:
             conn.execute(
-                "INSERT OR REPLACE INTO clause_vec (clause_revision_id, embedding) VALUES (?, ?)",
-                (cid, _serialize_vec(emb)))
+                "INSERT OR REPLACE INTO clause_vec (clause_revision_id, doc_id, embedding)"
+                " VALUES (?, ?, ?)",
+                (cid, did, _serialize_vec(emb)))
     return len(clauses)
 
 
@@ -424,9 +429,14 @@ def _reindex_clause_indexes(conn: sqlite3.Connection,
     if embedder.is_available():
         try:
             emb = embedder.embed_query(f"{title or ''}\n{content_text[:512]}")
+            # ⚠ 必须带 `doc_id`（spec 003）：补丁重算出来的那条若不带，会在范围提问里静默消失。
+            #   `doc_id` 不在本函数签名里 ⇒ 就地查一次（补丁/回滚路径，非热路径）。
+            row = conn.execute("SELECT doc_id FROM clause_revision"
+                               " WHERE clause_revision_id=?", (clause_revision_id,)).fetchone()
             conn.execute(
-                "INSERT OR REPLACE INTO clause_vec (clause_revision_id, embedding)"
-                " VALUES (?, ?)", (clause_revision_id, _serialize_vec(emb)))
+                "INSERT OR REPLACE INTO clause_vec (clause_revision_id, doc_id, embedding)"
+                " VALUES (?, ?, ?)",
+                (clause_revision_id, row[0] if row else None, _serialize_vec(emb)))
         except Exception:
             pass  # 向量引擎离线时保留旧向量，不阻塞补丁（R30 精神）
 

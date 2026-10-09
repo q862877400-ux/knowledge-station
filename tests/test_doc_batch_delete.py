@@ -49,8 +49,9 @@ def _seed_doc(db, doc_id: str, clauses: list[str]) -> None:
             "INSERT INTO clause_fts (clause_revision_id, clause_number, standard_no,"
             " title, content_segmented) VALUES (?, ?, 'bd_std', 't', 'ce shi')",
             (crid, f"{i}.0"))
-        db.execute("INSERT INTO clause_vec (clause_revision_id, embedding) VALUES (?, ?)",
-                   (crid, array("f", [0.01] * 512).tobytes()))
+        db.execute("INSERT INTO clause_vec (clause_revision_id, doc_id, embedding)"
+                   " VALUES (?, ?, ?)",
+                   (crid, doc_id, array("f", [0.01] * 512).tobytes()))
     db.commit()
 
 

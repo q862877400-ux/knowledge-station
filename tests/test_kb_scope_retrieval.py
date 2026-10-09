@@ -296,6 +296,12 @@ def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
     几十上百条条款"的真实用法尤其如此）⇒ 「按目录范围提问」在向量这一路上会**假报"范围内没有"**。
     **这是待修的真缺陷，不是判据要放宽**（本用例保持红）。修法要动 schema 侧
     （给 `vec0` 加 `doc_id` 辅助列做元数据过滤，或分区）⇒ 属**必验类别**，需单独立项。
+
+    ---
+    ✅ **2026-10-09 已修（`specs/003-vec-scope-pushdown/`）**：给 `clause_vec` 加 `doc_id`
+    **元数据列**，向量通道的范围过滤改走 `doc_id IN (SELECT value FROM json_each(?))` ——
+    实测**只有这一种写法能下推**（字面量列表 / `OR` 会返回范围外，见该 spec 的 research.md R2）。
+    **本用例断言一个字未改**：转绿即证明修复成立（夹具补了 `doc_id`，属前提而非判据）。
     """
     from src.core.retrieval import embedder as emb
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
@@ -315,14 +321,18 @@ def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
                 standard="GB 90002-2026") for i in range(25)
     ])
     try:
+        # ⚠ 必须带 `doc_id`（spec 003）：范围提问靠 `clause_vec.doc_id` 下推进 KNN；
+        #   本用例判的正是"向量通道有没有被范围堵住"，夹具不带就等于没造出前提。
+        doc_of = {"in_weak": "in_doc", "out_hot1": "out_doc", "out_hot2": "out_doc"}
         for cid, v in vecs.items():
             conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (cid,))
-            conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
-                         (cid, json.dumps(v)))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, doc_id, embedding)"
+                         " VALUES (?,?,?)", (cid, doc_of[cid], json.dumps(v)))
         for i in range(25):
             conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (f"out_bulk{i}",))
-            conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
-                         (f"out_bulk{i}", json.dumps([1.0] + [0.0] * 511)))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, doc_id, embedding)"
+                         " VALUES (?,?,?)",
+                         (f"out_bulk{i}", "out_doc", json.dumps([1.0] + [0.0] * 511)))
         conn.commit()
         monkeypatch.setattr(emb, "is_available", lambda: True)
         monkeypatch.setattr(emb, "embed_query", lambda q: [1.0] + [0.0] * 511)
@@ -345,6 +355,71 @@ def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
                     conn.execute(sql, (f"out_bulk{i}",))
                 except Exception:  # noqa: BLE001 - 表不存在就跳过（列名随 schema 变）
                     pass
+        conn.commit()
+
+
+def test_vec_scope_holds_with_more_than_one_document(scope_db, monkeypatch):
+    """**范围里有 ≥2 篇文档**时，向量通道也必须整体下推（spec 003 · FR-003）。
+
+    为什么要单独一条：上面那条的范围内**只有 1 篇**，所以
+    `doc_id = (SELECT value FROM json_each(?))` 这种"标量子查询只取第一行"的写法**照样能过** ——
+    而它正是本项要关掉的那类"看着像"的写法（实测：≥2 个 id 时行为不同，
+    字面量列表 / `OR` 更会**返回范围外的行**，见 `specs/003-vec-scope-pushdown/research.md` R2）。
+
+    本条把答案放在**第二篇**范围内文档里 ⇒ 只有"范围真的整体下推"才拿得到它。
+    判据：两篇的向量条款**都要回来**，且不许混进 `out_`。
+    """
+    from src.core.retrieval import embedder as emb
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage.sqlite_db import get_db_connection, load_vec_extension
+    conn = get_db_connection()
+    load_vec_extension(conn)
+    far = [0.0] * 511 + [1.0]
+    near = [1.0] + [0.0] * 511
+    clause_repo.insert_document(conn, dict(
+        doc_id="in_doc2", standard_no="GB 90003-2026", standard_name="范围内第二份标准",
+        short_code="GB90003", current_revision_id="r_in2",
+        domain_tags=["测试"], file_path="in2.pdf", file_hash="h_in2"))
+    clause_repo.insert_clauses([
+        _clause("in2_weak", "1.0.1", "范围内第二篇的普通条款", "in_doc2",
+                standard="GB 90003-2026"),
+    ])
+    try:
+        for cid, doc in (("in_weak", "in_doc"), ("in2_weak", "in_doc2")):
+            conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (cid,))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, doc_id, embedding)"
+                         " VALUES (?,?,?)", (cid, doc, json.dumps(far)))
+        for i in range(25):   # 范围外、与查询向量完全一致的近邻（全局 top-k 全是它们）
+            conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (f"out_bulk{i}",))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, doc_id, embedding)"
+                         " VALUES (?,?,?)", (f"out_bulk{i}", "out_doc", json.dumps(near)))
+        conn.commit()
+        monkeypatch.setattr(emb, "is_available", lambda: True)
+        monkeypatch.setattr(emb, "embed_query", lambda q: near)
+        rows = perform_hybrid_search("随便问点什么", top_k=5, channels=["vec"], rerank=False,
+                                     doc_ids=["in_doc", "in_doc2"])
+        ids = set(_ids(rows))
+        assert not any(i.startswith("out_") for i in ids), f"向量通道没被范围堵住：{sorted(ids)}"
+        assert {"in_weak", "in2_weak"} <= ids, (
+            f"范围有 2 篇文档时只有整体下推才拿得到两篇的条款；实得 {sorted(ids)}"
+            "（标量子查询/只取第一行的写法会漏掉第二篇）")
+    finally:
+        for i in range(25):
+            for sql in ("DELETE FROM clause_vec WHERE clause_revision_id=?",
+                        "DELETE FROM clause_fts WHERE clause_revision_id=?",
+                        "DELETE FROM clause_revision WHERE clause_revision_id=?"):
+                try:
+                    conn.execute(sql, (f"out_bulk{i}",))
+                except Exception:  # noqa: BLE001
+                    pass
+        for sql in ("DELETE FROM clause_vec WHERE clause_revision_id='in2_weak'",
+                    "DELETE FROM clause_fts WHERE clause_revision_id='in2_weak'",
+                    "DELETE FROM clause_revision WHERE clause_revision_id='in2_weak'",
+                    "DELETE FROM doc_meta WHERE doc_id='in_doc2'"):
+            try:
+                conn.execute(sql)
+            except Exception:  # noqa: BLE001
+                pass
         conn.commit()
 
 

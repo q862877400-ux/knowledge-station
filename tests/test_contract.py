@@ -436,3 +436,28 @@ def test_folder_same_name_same_level_rejected_by_indexes(db):
         db.execute("INSERT INTO folder(folder_id, parent_id, name)"
                    " VALUES ('ct_c2','ct_p1','契约子')")
     db.rollback()
+
+
+# ===== 向量表 doc_id 元数据列契约（specs/003-vec-scope-pushdown；契约增量见 pipeline/03 末节） =====
+
+
+def test_clause_vec_doc_id_metadata_column(db):
+    """`clause_vec` 必须有 `doc_id` **元数据列**（范围下推修复）。
+
+    为什么必须是"元数据列"而不是随便一列：`sqlite-vec 0.1.9` 只把**元数据列**用于
+    KNN 前置过滤；`clause_revision_id` 是 `TEXT PRIMARY KEY`，在它上面做
+    `IN (子查询)` **不下推**（≥2 个 id 恒返回 `[]`）—— 那正是本项要修的缺陷。
+    见 `specs/003-vec-scope-pushdown/research.md` R2。
+
+    ⚠ 断言 `pk == 0` 是**要害**：`doc_id` 一旦变成主键列，下推就没了。
+    ⚠ `PRAGMA table_info` 对 vec0 表**不报声明类型**（type 是空串）⇒ 形状只能靠 DDL 文本断言。
+    """
+    import re
+    info = {r["name"]: r for r in db.execute("PRAGMA table_info(clause_vec)").fetchall()}
+    assert "doc_id" in info, f"clause_vec 缺 doc_id 列: {sorted(info)}"
+    assert info["doc_id"]["pk"] == 0, "doc_id 必须是普通列（主键列不参与 KNN 过滤）"
+    assert info["clause_revision_id"]["pk"] == 1, "主键仍须是 clause_revision_id"
+    ddl = db.execute("SELECT sql FROM sqlite_master WHERE name='clause_vec'").fetchone()[0]
+    assert "+doc_id" not in ddl, "doc_id 不许写成 +aux 列（aux 不参与过滤）"
+    assert "doc_id TEXT" in ddl, f"clause_vec 的 DDL 形状不对: {ddl}"
+    assert re.search(r"embedding FLOAT\[512\]", ddl), f"embedding 维度不该变: {ddl}"

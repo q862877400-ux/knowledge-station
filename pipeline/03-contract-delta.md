@@ -365,3 +365,97 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
   **+7**（第 1 步 24 → 31）+ `test_apply_folder_filing.py` **+6**（第 1 步 15 → 21）；
   `tests/_kb_folder_api_fixtures.py` 是夹具，**不算用例**）。
   ⚠ 原写 "+52" 与本行自列的 31+7+6 不符（2026-09-21 复核机械数过：批次内 `+def test_` 共 **44** 条）。
+
+---
+
+# 契约增量 · 向量表加 `doc_id` 元数据列（范围下推修复）
+
+> 2026-10-09 ｜ 依据：**`specs/003-vec-scope-pushdown/`**（spec-kit 立项；唯一方案真源）｜
+> 红线流程：本文档 → `tests/test_contract.py` → `schema.sql`
+
+## 变更内容
+
+`clause_vec` 由
+
+```sql
+CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0(
+    clause_revision_id TEXT PRIMARY KEY,
+    embedding FLOAT[512]
+);
+```
+
+改为
+
+```sql
+CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0(
+    clause_revision_id TEXT PRIMARY KEY,
+    doc_id TEXT,                       -- 元数据列：参与 KNN 前置过滤
+    embedding FLOAT[512]
+);
+```
+
+## 为什么必须改（一手证据）
+
+**缺陷**：范围提问时，向量通道的过滤写成
+`clause_revision_id IN (SELECT clause_revision_id FROM clause_revision WHERE doc_id IN (…))`，
+而 `sqlite-vec 0.1.9` **不把 `TEXT PRIMARY KEY` 列用于 KNN 前置过滤** ⇒
+
+| 范围子查询返回几个 id | 结果 |
+|---|---|
+| 恰好 1 个 | 下推成功 |
+| **≥ 2 个** | **返回 `[]`**（退化成"先 KNN 再筛"） |
+
+真实目录通常几十上百条 ⇒ **「按目录范围提问」在向量通道上假报"范围内没有"**。
+
+**修法**：改用**元数据列** `doc_id`。实测（`specs/003-vec-scope-pushdown/probes/`）：
+
+| 写法 | 结果 |
+|---|---|
+| `clause_revision_id IN (子查询)` | ❌ 0 行 |
+| **`doc_id IN (SELECT value FROM json_each(?))`** | ✅ **下推成功**（范围 100 篇也成立） |
+| `doc_id IN (?, ?)` 字面量 | ❌ **返回范围外的行**（比现状更糟） |
+| `doc_id = ? OR doc_id = ?` | ❌ 同上 |
+| `rowid IN (…)` | ❌ `no such column: rowid` |
+
+⇒ **`doc_id` 必须是普通元数据列**（不是 `+doc_id` aux、不是 PRIMARY KEY）；
+**范围过滤只许用 `json_each` 子查询这一种写法**。
+
+## 影响面
+
+- **改动文件**：`schema.sql`（1 张虚拟表加 1 列）、`tests/test_contract.py`（+1 用例）、本文档；
+  实现落点 `src/core/storage/clause_repo.py`（**两处** INSERT 带 `doc_id`）+
+  `src/core/retrieval/hybrid_engine.py`（向量通道范围片段改走 `doc_id`）。
+- **写入侧必须同步**：`clause_repo` 的两处 INSERT 若不带 `doc_id`，新条款会**静默地**在范围提问里查不到
+  （`doc_id` 可空 ⇒ **不报错**，且**没有任何下游读数能发现**）。
+- **⚠ 虚拟表不支持 `ALTER TABLE`** ⇒ 存量库**必须走迁移**（建新表 → 纯 SQL 拷贝 → 改名）；
+  `CREATE VIRTUAL TABLE IF NOT EXISTS` 对**已存在**的表**不会**升级形状。
+  迁移脚本：`scripts/migrate-clause-vec-doc-id.py`（`--dry-run` / `--apply` / `--db-copy`）。
+- **迁移不重算向量**：`doc_id` 从 `clause_revision.doc_id` 关联取得，`embedding` 原样搬运 ——
+  实测**逐字节一致**（`probes/probe-vec-scope-fix2.py` Q7）。
+- **连带**：`tests/test_embedding_rebuild_resume.py::test_shadow_dim_matches_production_schema`
+  用**严格正则**钉住 DDL 形状 ⇒ 同步改；`eval/recall-funnel/exp-17-…/rebuild-shadow.py`
+  的影子表自称"与生产同形" ⇒ 同步加列。
+- **零回归**：不加范围的主路径 **top-20 逐条不变**（探针 Q6）；KNN 耗时 0.96 → 0.97 ms/次（Q9）。
+- **不动**：`doc_delete.py`（按 `clause_revision_id` 删）、其余五条通道的范围写法、API/SSE/通道枚举。
+
+## 回滚
+
+**代码**：`git revert` 本增量（`schema.sql` / `clause_repo.py` / `hybrid_engine.py` / `test_contract.py`）。
+
+**数据**（若已跑迁移）：
+
+```sql
+-- ① 删掉新表，② 把备份表改回原名（备份表名由迁移脚本打印）
+DROP TABLE IF EXISTS clause_vec;
+ALTER TABLE clause_vec_pre003 RENAME TO clause_vec;
+```
+
+迁移脚本 `--apply` 时**自动**留下 `clause_vec_pre003`（旧表改名保留，**不删**）+ 全库副本，
+且把上面两条命令打印出来 ⇒ 回滚是**可执行命令**，不是"理论上可以"。
+
+## 验证记录
+
+- `pytest tests/test_contract.py -q` ⇒ 见收工读数
+- `pytest tests/test_kb_scope_retrieval.py -q` ⇒ **那条真缺陷用例转绿**（断言一字未改）
+- 迁移后自检：行数相同 / 向量逐字节相同 / `doc_id` 与 `clause_revision` 全表一致
+

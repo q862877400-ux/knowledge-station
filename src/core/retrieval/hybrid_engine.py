@@ -191,6 +191,13 @@ def perform_hybrid_search(
              本来有的那条也返回 0 行**（复核在"只有一行"的表上也是 0 行）；
              真正"先 KNN 再筛"的是**单字面量/等值**（`clause_revision_id = ?`）。
         ⇒ 结论不变（**只许用子查询形式**），但别再照"先 KNN 再筛"推理容量。
+
+      ⚠⚠ **2026-10-09 就地更正（spec 003，第 17 轮实测）—— 上面那段对向量通道【作废】。**
+        它说"`clause_revision_id IN (子查询)` 是带约束的 KNN"—— **只在子查询恰好返回 1 个 id 时成立**；
+        **≥2 个 id 恒返回 `[]`**。真实目录通常几十上百条 ⇒ 向量通道**假报"范围内没有"**。
+        根因：`clause_revision_id` 是 vec0 的 **TEXT PRIMARY KEY**，sqlite-vec **不把它用于 KNN 前置过滤**。
+        ⇒ 修法（已实测）：给 `clause_vec` 加**元数据列** `doc_id`，改用 `_scope_vec()`。
+        证据：`specs/003-vec-scope-pushdown/probes/probe-vec-scope-fix.py`（Q1 复现 / Q2a 修好）。
     """
     conn = _conn()
     if channels is None:
@@ -214,9 +221,28 @@ def perform_hybrid_search(
         return f" AND {param} IN (SELECT value FROM json_each(?))"
 
     def _scope_clause(param: str = "clause_revision_id") -> str:
-        """FTS/向量表没有 doc_id 列 ⇒ 回 `clause_revision.doc_id` 判（同为检索层过滤）。"""
+        """FTS 表没有 doc_id 列 ⇒ 回 `clause_revision.doc_id` 判（同为检索层过滤）。
+
+        ⚠ 2026-10-09（spec 003）就地更正：这句原来写的是"FTS/**向量表**没有 doc_id 列"，
+        且**向量通道也在调本函数**。**两处都不成立了** —— `clause_vec` 已加 `doc_id` 元数据列，
+        向量通道改走 `_scope_vec()`。原因见本函数上方那段 ⚠⚠ 与
+        `specs/003-vec-scope-pushdown/research.md` R2。
+        """
         return (f" AND {param} IN (SELECT clause_revision_id FROM clause_revision"
                 f" WHERE doc_id IN (SELECT value FROM json_each(?)))")
+
+    def _scope_vec() -> str:
+        """向量通道的范围片段：**必须**打在 `clause_vec.doc_id`（元数据列）上才下推。
+
+        ⚠ **只许这一种写法**。实测（sqlite-vec 0.1.9 / SQLite 3.53.1，
+        `specs/003-vec-scope-pushdown/probes/probe-vec-scope-fix.py`）：
+          · `doc_id IN (?, ?)` 字面量列表  ⇒ **返回范围外的行**（Q2b）
+          · `doc_id = ? OR doc_id = ?`     ⇒ 同上（Q2d）
+          · `rowid IN (…)`                 ⇒ `no such column: rowid`（Q3）
+        那两种"看着像"的写法**比不修更糟**：现状是"假报没有"，它们是"假报有"。
+        范围大小不设上限（Q5：100 篇仍下推）；不加范围时**不拼这一段**（Q6 零回归）。
+        """
+        return " AND doc_id IN (SELECT value FROM json_each(?))"
 
     # 通道 A: 条款号/法条号精确匹配
     if "exact" in channels:
@@ -311,7 +337,7 @@ def perform_hybrid_search(
             rows = conn.execute(
                 "SELECT clause_revision_id, distance FROM clause_vec"
                 " WHERE embedding MATCH ? AND k = 20"
-                + (_scope_clause("clause_revision_id") if scope_active else "")
+                + (_scope_vec() if scope_active else "")
                 + " ORDER BY distance",
                 ((json.dumps(q_emb), scope_json) if scope_active
                  else (json.dumps(q_emb),))).fetchall()
