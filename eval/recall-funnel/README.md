@@ -234,7 +234,7 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 ### 5.6 第 9 轮【第 2 批】独立复核：P1 修复批 = **PASS（无阻塞）**（2026-10-09）
 
 复核对象 = 冻结 tag `verify-freeze-t016-t017-p1fix` → `3138898`。
-报告 = [VERIFY-REPORT-t016-t017-p1fix](verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md)
+报告 = [VERIFY-REPORT-t016-t017-p1fix](../../docs/verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md)
 （**字节级搬运**，sha256 `b6f87878ca51f648128cb1ee1ca0f25a4d7ccf7866666d4a3cc522678d9f8748`、14,359 B，
 **未触碰**第 1 批那份 `VERIFY-REPORT-t016-t017-subsets.md`）。
 
