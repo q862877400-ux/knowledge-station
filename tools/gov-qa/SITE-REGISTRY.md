@@ -996,11 +996,17 @@ U+2029 (PARAGRAPH SEPARATOR)、U+0085 (NEL)** 也算换行；
 |---|---|---|---|---|
 | **山西** | **46** | **84,381** | 400（`sx-szxx` 只接了 siteId=110）| **211×** |
 | **广西** | **208** | **34,938** | 138（`gx-mailbox` 只接了 siteId=3）| **253×** |
-| 宁夏 | 1 | 667 | 597 → **664**（本轮补 67）| — |
+| **宁夏** | **65** | **13,014** | 597 → **664** | **19.6×** |
 
 山西大块：24→14662、32（教育厅）8836、41→8429、92（商务厅）7309、45（卫健委）6991、36（发改委）4653。
 广西大块：206→5184、156→2861、4→1742、145→1292、199→1185。
-原始证据：`recon/igi-siteid-shanxi.json`、`recon/igi-siteid-guangxi.json`（扫 1..300 的逐 siteId totalResults）。
+宁夏大块：259→**6055**、135→772、186→647、137→628、166→417。
+原始证据：`recon/igi-siteid-shanxi.json`、`igi-siteid-guangxi.json`、`igi-siteid-ningxia.json`。
+
+⚠ **更正留痕（本轮同一个错误犯了两次）**：我先后按**扫描中途的日志**下结论
+——先写「山西只有 29 个 siteId」（实为 **46**），后又写「宁夏只有 1 个 siteId，无可枚举增量」
+（实为 **65 个 / 13,014 条**）。两次都是扫描还没跑完就抄了日志。
+⇒ **枚举清单必须等扫描跑完、从 json 取，绝不能用手抄的中途日志。**
 
 ### 2. ★ `appId` 是**过滤条件**，不是站点标识
 
@@ -1050,8 +1056,9 @@ IGI 列表带 `PROVINCE/CITY/AREA`，但**不是每个站都真**：
 | `recon/igi-chunked.py` | IGI **分片增量**驱动：逐 siteId 落盘 + `skip_ids` 传回（重跑只取新增）|
 | `adapters/sx_igi.py` | key `sx-igi`，山西 45 个 siteId（剔除 110，由 `sx-szxx` 负责）；剥离门户默认地域 |
 | `adapters/gx_igi.py` | key `gx-igi`，广西 207 个 siteId（剔除 3，由 `gx-mailbox` 负责）；保留真地域 |
+| `adapters/nx_igi.py` | key `nx-igi`，宁夏 63 个 siteId（剔除 115，由 `nx-zxxx` 负责）；保留真地域 |
 
-`adapters/__init__.py` **只加 2 行**（`sx-igi` / `gx-igi`），提交前核过 diff 不含他人改动。
+`adapters/__init__.py` **只加 3 行**（`sx-igi` / `gx-igi` / `nx-igi`），提交前核过 diff 不含他人改动。
 
 ★ 为什么不复用 `recon/igi-chunked-harvest.py`（另一对话为 cq-igi 写）：
 它把全部 siteId 写进**同一个文件**，且**不把已落盘 id 传回** `harvest_igi`
@@ -1073,10 +1080,9 @@ IGI 列表带 `PROVINCE/CITY/AREA`，但**不是每个站都真**：
 
 ### 7. 待办 / 负面结论
 
-- **山西 45 站、广西 207 站都只跑了一小部分**（本轮受会话时长限制），续采直接重跑：
-  `.venv/Scripts/python.exe tools/gov-qa/recon/igi-chunked.py sx_igi`（或 `gx_igi`）。
+- **山西 45 站、广西 207 站、宁夏 63 站都只跑了一小部分**（本轮受会话时长限制），续采直接重跑：
+  `.venv/Scripts/python.exe tools/gov-qa/recon/igi-chunked.py sx_igi`（或 `gx_igi` / `nx_igi`）。
 - **西藏 / 贵州 / 湖北门户的 siteId>60 部分仍未重扫**（旧扫只到 60）⇒ 可能还有增量。
   枚举命令：`recon/igi-siteid-scan.py xizang|guizhou|hubei`。
-- **山西/广西的 IGI 归属字段是「省份靠前缀」**：山西地域被剥离 ⇒ 归省靠
-  `coverage-matrix.py` 的 `PROVINCE_PREFIX` 的 `sx-`；广西旧信地域为空的那 1/3 靠 `gx-`。
-- 宁夏只有 1 个 siteId（115），**没有可枚举增量**。
+- **归省靠来源前缀**：山西地域被剥离 ⇒ 靠 `coverage-matrix.py` 的 `PROVINCE_PREFIX` 的 `sx-`；
+  广西/宁夏旧信地域为空的那部分靠 `gx-` / `nx-`。
