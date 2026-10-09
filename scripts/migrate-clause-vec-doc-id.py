@@ -104,9 +104,22 @@ def main() -> int:
 
     c = _conn(db)
 
-    # ── 幂等：已经迁过就空操作 ──────────────────────────────────────────────
+    # ── 幂等：已经迁过就空操作（但**仍报一次自检读数**，便于事后核） ──────────────
     if _has_doc_id(c):
         print("✓ 已经是新形状（clause_vec 有 doc_id）⇒ 空操作")
+        n = _count(c, "clause_vec")
+        n_null = c.execute("SELECT COUNT(*) FROM clause_vec WHERE doc_id IS NULL").fetchone()[0]
+        bad = c.execute(
+            "SELECT COUNT(*) FROM clause_vec v JOIN clause_revision r"
+            " ON r.clause_revision_id = v.clause_revision_id"
+            " WHERE IFNULL(v.doc_id,'') <> IFNULL(r.doc_id,'')").fetchone()[0]
+        print(f"  自检：行数 {n:,}｜doc_id 为空 {n_null}｜与 clause_revision 不一致 {bad}")
+        if n_null or bad:
+            print("  ⚠ **有新写入没带 doc_id** —— 最可能是**跑着的旧引擎**（未重启）写的。")
+            print("    处置：① 重启引擎（`-m src.core.main`）；② 用下面的 SQL 回填：")
+            print("    UPDATE clause_vec SET doc_id = (SELECT r.doc_id FROM clause_revision r"
+                  " WHERE r.clause_revision_id = clause_vec.clause_revision_id)"
+                  " WHERE doc_id IS NULL;")
         return 0
 
     n_before = _count(c, "clause_vec")
