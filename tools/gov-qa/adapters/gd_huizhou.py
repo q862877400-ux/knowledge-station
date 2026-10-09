@@ -113,6 +113,7 @@ def harvest(fetch, *, limit: int | None = None, pause: float = PAUSE,
         print(f"    [{SITE['key']}] 已落盘 {len(skip_ids)} 条，本轮跳过其明细")
     out: list[dict] = []
     skipped = 0
+    tried = 0
     for call_type, label in CALL_TYPES:
         if limit and len(out) >= limit:
             break
@@ -153,6 +154,13 @@ def harvest(fetch, *, limit: int | None = None, pause: float = PAUSE,
                 if fid in skip_ids:
                     skipped += 1
                     continue
+                tried += 1
+                # ★ 2026-10-10 加：明细是本引擎最慢的一步（每条一次 POST + pause），
+                #   而它**原来没有任何日志** ⇒ 跑起来像「卡死」。
+                #   （同一个坑在 `gs_tianshui` 上踩过，见 `AUTO_HANDOFF.md` §15）
+                if tried % 50 == 0:
+                    print(f"    [{SITE['key']}] {label} 明细进度 {tried}，已收 {len(out)} 条",
+                          flush=True)
                 time.sleep(pause)
                 try:
                     dr = _post_json(fetch, DETAIL_API, {
