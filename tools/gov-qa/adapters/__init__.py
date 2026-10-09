@@ -101,6 +101,14 @@ ADAPTERS: dict[str, str] = {
     "shenyang-igi": "adapters.shenyang_igi",   # 沈阳市·政民互动信箱（IGI 53 站/1.74 万条；辽宁首条 IGI 线；地域为默认值已剥离；2026-10-09 第 8 轮新增）
     "nanjing-igi": "adapters.nanjing_igi",     # 南京市·政民互动信箱（IGI 63 站/4,065 条；江苏首条 IGI 线；地域为空/默认值已剥离；2026-10-09 第 8 轮新增）
     "xining-igi": "adapters.xining_igi",       # 西宁市·政民互动信箱（IGI 2 站/5,826 条；青海此前仅 353 条 ⇒ ≈16 倍；带真实区县归属；2026-10-09 第 8 轮新增）
+    "shannan-igi": "adapters.shannan_igi",     # 山南市·政民互动信箱（IGI 7 站/191 条枚举；**西藏第二条 IGI 线**，与 xz-igi id 重叠 0/20；带真实省/市/区县三级；2026-10-09 第 11 轮新增）
+    "danzhou-igi": "adapters.danzhou_igi",     # 儋州市·政民互动信箱（IGI 20 站/27,694 条枚举；**海南首条 IGI 线**；地域为门户默认值已剥离；2026-10-09 第 11 轮新增）
+    "chifeng-igi": "adapters.chifeng_igi",     # 赤峰市·政民互动信箱（IGI 53 站/11,485 条枚举；与 nmg-igi 不同部署：44 个 siteId 独有 / 记录 id 重叠 0/20；2026-10-09 第 11 轮新增）
+    "baoji-igi": "adapters.baoji_igi",         # 宝鸡市·政民互动信箱（IGI 49 站/12,561 条枚举；与 sn-igi 不同部署：记录 id 重叠 0/20；地域为门户默认值已剥离；2026-10-09 第 11 轮新增）
+    "changzhi-igi": "adapters.changzhi_igi",   # 长治市·政民互动信箱（IGI 15 站/6,657 条枚举；与 sx-igi 不同部署：9 站独有 / 记录 id 重叠 0/20；2026-10-09 第 11 轮新增）
+    "jingzhou-igi": "adapters.jingzhou_igi",   # 荆州市·政民互动信箱（IGI 29 站/5,130 条枚举；与 hb-* 记录 id 重叠 1/20 = 跨源重复投递；2026-10-09 第 11 轮新增）
+    "tongliao-igi": "adapters.tongliao_igi",   # 通辽市·政民互动信箱（IGI 39 站/3,843 条枚举；与 nmg-igi 不同部署：36 站独有 / 记录 id 重叠 0/20；2026-10-09 第 11 轮新增）
+    "xianyang-igi": "adapters.xianyang_igi",   # 咸阳市·政民互动信箱（IGI 17 站/52,859 条枚举；**本轮最大站**；与 sn-igi 不同部署：记录 id 重叠 0/20；2026-10-09 第 11 轮新增）
     "ah-kb": "adapters.ah_kb",                 # 安徽省直部门·共享问答知识库（全省站群 label 8888，跨厅局聚合 2282 条）
     # —— 「静态列表型」省份（2026-10-08：无统一接口平台，静态列表 + 明细页，同安徽旧模式）——
     "tj-hdjl": "adapters.tj_hdjl",             # 天津市·政民互动·留言选登（~500 条）
