@@ -116,7 +116,37 @@
 * **但它是"接重排进生产"的前置条件**：一旦将来开启重排，例外条款会被重排挤掉 ⇒
   **必须先修它再谈接生产**。已写进 `_protect_exception_clauses` 的 docstring 与总纲 P0·0.7 段。
 
-## 六、复跑
+## 六、独立复核：**PASS（无 P0 / 无 P1）**（2026-10-09，批次 `rerank-fix`）
+
+复核对象 = 冻结 tag `verify-freeze-rerank-fix` → `ec32f93`（窗口 `3138898..ec32f93` = **1 提交**、无夹带）。
+报告 = [VERIFY-REPORT-rerank-fix](../../../docs/verify-briefs/VERIFY-REPORT-rerank-fix.md)
+（**字节级搬运**，sha256 `d0252966…`、19,020 B）。
+
+| 复核项 | 判定 | 关键读数 |
+|---|---|---|
+| 修复真的成立 | ✅ | 真实模型：旧 `rerank()` → `[9.6354,-0.9695,-4.0088]`（**降序**）、argmax=**0**（正确条款在下标 2）、`_rerank_results` 输出 == 输入（**恒等**）、`debug` 分数贴到**错**条款 c0；新 → `[-4.0088,-0.9695,9.6354]`（**一一对应**）、argmax=**2**、输出 `c2,c1,c0`、分数贴对 c2 |
+| 判据有牙 | ✅ | 还原旧降序实现 ⇒ **4 failed / 3 passed**；按 blob 还原 ⇒ **7 passed** |
+| 那条空判据真的修好 | ✅ | 旧版 `test_rerank_real_model_reorders` **1 skipped**（`-rs`：模型未下载）——根因是旧用例名不含 "reranker"，被 `conftest._rerank_offline_for_tests` 强制离线 |
+| 本页读数可复现 | ✅ | 仪器对照 A 臂 **0/171 不一致**；修复前 B==A **171/171**；修复后 B!=A **171/171**；汇总从 per-query 独立重算**逐格 == `result-*.json`**；**重跑 after 臂 ⇒ per-query 0 处变化**（真库仍是 663,634 行、窗口内未增长 ⇒ 连小差异都没有） |
+| "逐位等价"成立 | ✅ | 旧实现下 `rerank=True` vs `rerank=False` **0/15 不同**；新实现 15/15 不同；生产调用点全 off（`server.py:1833` / `local_vision.py:111` 本批显式 False；`ks_answer.py:623` 本就默认 False） |
+| D2 登记与代码一致 | ✅ | 真实形态 `kept` 长度 == `top_k` ⇒ 例外被 `return kept[:top_k]` 切掉；`hybrid_engine.py:480` 静态确认 `kept = ordered[:top_k]` |
+| 冻结哈希 | ✅ | **7/7 逐字符吻合** |
+
+**⚠ 4 条 P2（登记级，不影响结论）**：
+1. **提交信息与冻结提交内容不符** —— `ec32f93` 的提交信息把 `DEVELOPMENT-HISTORY §10.214` 与 `NEXT-DEV-PLAN 登记块`列为归属层，
+   但该提交**不含这两个文件**（由下一提交 `5c68f47` 加入，内容正确）。属**追溯/口径**问题；
+   提交信息不可追改 ⇒ 已登记在开发史 §10.216。
+2. **`§10.214` 混用两套哈希约定** —— `reranker.py d37f72f4…`（blob/LF ✅）vs `hybrid_engine.py 3d440400…`（工作区/CRLF ❌，blob 应为 `f539e919…`）⇒ **已就地更正**。
+3. **`stop-loss.json` 的 `registered_at=12:58` 晚于其 mtime `12:46`** —— ⚠ **预注册顺序本身成立**
+   （mtime：`stop-loss.json 12:46:55` < `result-before-fix.json 12:56:48` < `result-after-fix.json 13:03:55` < 提交 13:08:57）；
+   属字段口径小瑕疵。**本页**：**登记不改** —— 该文件已被冻结（`fc112b69…`），改它会破坏冻结哈希；
+   且 mtime 是**弱证据**（可被任意设置），这里只作**一致性**佐证。
+4. **总纲 L125–127 措辞略陈旧**（"不动 reranker / 真要动先做 0.7"）⇒ **已就地更正**（"生产行为不动"仍成立）。
+
+**复核如实登记的未验**：未跑 `run-gates.ps1` / `npm run smoke`（禁并发）；未跑全量 pytest（只跑 `tests/test_reranker.py`）；
+单机单时点；"逐位等价"探针用 **15 条**真实查询（结论是**结构性**的，不依赖样本量）。
+
+## 七、复跑
 
 ```
 .venv/Scripts/python.exe eval/recall-funnel/exp-11-rerank-fix/measure-rerank-ab.py --out before-fix
@@ -125,7 +155,7 @@
 
 （`--limit N` 只跑前 N 条校验；`before-fix` 那份必须在**未修**的树上跑，`after-fix` 在**已修**的树上跑。）
 
-## 七、边界（如实说）
+## 八、边界（如实说）
 
 * 结论只对**本批 171 条考卷**成立；**考卷未换**（gold 仍未人工/AI 确认，见 T015）⇒ 换考卷需重跑。
 * 真库**只读**、规模会继续增长（本批 `clause_revision` 663,634 行）⇒ 引用旧读数前先复核。

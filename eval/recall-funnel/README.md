@@ -264,3 +264,10 @@ counts.answer_out_of_corpus = 1   markers_all={std_no:1, std_no_verified:1}   pa
 落**「观察」档、不接生产**（两处调用点已显式 pin `rerank=False`，与修前逐位等价）。
 ⇒ **本目录的 `funnel-summary.json` / `funnel-per-query.jsonl` 一个字节都没动**（那次实验只读真库、不改考卷）。
 
+✅ **独立复核 = PASS（无 P0 / 无 P1）**（批次 `rerank-fix`，报告
+[VERIFY-REPORT-rerank-fix](../../docs/verify-briefs/VERIFY-REPORT-rerank-fix.md)，
+冻结 tag `verify-freeze-rerank-fix` → `ec32f93`，窗口 **1 提交**）：
+修复成立 / 判据有牙（还原旧实现 ⇒ 4 failed 3 passed）/ 空判据真修好（旧版 **SKIP**）/
+本页读数可复现（**重跑 after 臂 per-query 0 处变化**）/ "逐位等价"成立 / D2 成立 / 冻结哈希 7/7。
+⚠ 4 条 P2 已处置（详见 `exp-11-rerank-fix/README.md §六`）。
+

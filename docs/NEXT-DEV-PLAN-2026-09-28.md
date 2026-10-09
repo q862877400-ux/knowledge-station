@@ -361,6 +361,13 @@
 >   `tests/test_reranker.py` + `eval/recall-funnel/exp-11-rerank-fix/`；
 >   详细记录 = [开发史 §10.214](DEVELOPMENT-HISTORY.md) / [总纲 P0·0.7-修](RETRIEVAL-LONG-RANGE-PLAN.md)。
 > - ⚠ **属必验类别**（改已上线路径的契约 + 改判据），已冻结 tag 并派独立复核。
+> - ✅ **独立复核 = PASS（无 P0 / 无 P1）**（批次 `rerank-fix`，报告
+>   [`VERIFY-REPORT-rerank-fix`](verify-briefs/VERIFY-REPORT-rerank-fix.md)，冻结 tag
+>   `verify-freeze-rerank-fix` → `ec32f93`，窗口 **1 提交**）：修复成立（真实模型：旧版降序 + argmax=0 + 恒等置换，
+>   新版一一对应 + argmax=2 + 真重排）、**判据有牙**（还原旧实现 ⇒ 4 failed / 3 passed）、
+>   **空判据真修好**（旧版 `test_rerank_real_model_reorders` **SKIP**）、exp-11 读数可复现
+>   （**重跑 after 臂 per-query 0 处变化**）、"逐位等价"成立（旧实现下 True/False **0/15 不同**）、
+>   D2 成立、冻结哈希 **7/7**。⚠ 4 条 P2 已处置（详见 [开发史 §10.216](DEVELOPMENT-HISTORY.md)）。
 
 ---
 
