@@ -275,6 +275,70 @@ def show_targets() -> int:
     return 0
 
 
+def show_gate() -> int:
+    """给 `check.sh` 用的**纯 ASCII 机器可读输出**。
+
+    为什么需要它：`check.sh` 原来用 `sed` 匹配**中文**（「数据总条数」「重复合计」）
+    来解析判据。**sed 的中文匹配依赖 locale/编码**，在 hook 的执行环境里可能失配
+    ⇒ 解析不到 ⇒ 误判「执行失败」⇒ 闸门永远红（2026-10-10 排查了很久）。
+
+    ⇒ 改为输出纯 ASCII 的 `KEY=VALUE`，`check.sh` 用 `grep`+`cut` 解析，**不碰中文**。
+    退出码：0 = 可解析（不代表通过，通过与否由 check.sh 判）。
+    """
+    # 数据总数
+    tot = 0
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        tot += count_lines(p)
+
+    # 零数据适配器数
+    n_empty = 0
+    n_keys = 0
+    try:
+        import adapters
+        keys = list(adapters.ADAPTERS)
+        n_keys = len(keys)
+        all_files = [os.path.basename(p) for p in glob.glob(str(ROOT / "data" / "*.jsonl"))]
+        key_prefixes = []
+        for k in keys:
+            try:
+                key_prefixes.append((f"{adapters.load(k).SITE['key']}-", k))
+            except Exception:                                           # noqa: BLE001
+                key_prefixes.append((f"{k}-", k))
+        key_prefixes.sort(key=lambda x: -len(x[0]))
+        owned = {}
+        for base in all_files:
+            for pre, k in key_prefixes:
+                if base.startswith(pre):
+                    owned[base] = k
+                    break
+        have = set(owned.values())
+        n_empty = sum(1 for k in keys if k not in have)
+    except Exception as e:                                              # noqa: BLE001
+        print(f"ADAPTERS_ERR={type(e).__name__}")
+
+    # 重复 id 行数
+    dups = 0
+    for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
+        per_src: dict[str, Counter] = defaultdict(Counter)
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.strip() or not line.lstrip().startswith("{"):
+                    continue
+                try:
+                    r = json.loads(line)
+                except Exception:                                       # noqa: BLE001
+                    continue
+                per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
+        for c in per_src.values():
+            dups += sum(c.values()) - len(c)
+
+    print(f"TOTAL={tot}")
+    print(f"ADAPTERS={n_keys}")
+    print(f"EMPTY={n_empty}")
+    print(f"DUPS={dups}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="数据落盘核查")
     ap.add_argument("--empty", action="store_true", help="只看零数据的适配器")
@@ -287,9 +351,13 @@ def main() -> int:
                     help="检测重复 id（发现「并发写导致重复落盘」）")
     ap.add_argument("--targets", action="store_true",
                     help="对比「自报总量 vs 实际落盘」（发现「采了但远未达目标」）")
+    ap.add_argument("--gate", action="store_true",
+                    help="★ 纯 ASCII 机器可读输出（给 check.sh 用，避免 sed 中文匹配失配）")
     ap.add_argument("--key", default="", help="只看某前缀的 key")
     args = ap.parse_args()
 
+    if args.gate:
+        return show_gate()
     if args.fields:
         return show_fields()
     if args.answers:
