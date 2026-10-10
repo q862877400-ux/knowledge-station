@@ -25,15 +25,20 @@
 
 ## 阶段 1：D1 + D2 —— token 缺口
 
-- [ ] **T010** `ksGuideStyles.ts` 补 `--ks-radius` 定义，**值必须落回官方 token**
-  —— `--ks-radius: var(--ks-radius-md)`（官方 `ui-radius.md`：不许引入 10/14/18/24 这种本地值）。
-  - **判据**：定义存在；且同文件里 `var(--ks-radius)` 的 1 处使用不再指向未定义 token。
-  - **变异**：删掉该定义 ⇒ T012 的判据必红。
+- [x] **T010** `ksGuideStyles.ts` 补 `--ks-radius` 定义，**值必须落回官方 token**
+  —— 实测落地为 `--ks-radius:var(--dsw-radius-md)`（官方 `ui-radius.md`：凸舌是 H32 标准控件档 ⇒ R12；
+     **不引入** 10/14/18/24 这种本地值）。
+  - **判据**：定义存在。✅
+  - **变异**：删掉该定义 ⇒ T012 的判据**精确红在那一条**。✅
 
-- [ ] **T011** `ksGuideStyles.ts` 补 `--ks-font-mono` 定义
-  —— 落进 `--ks-font-*` 家族；值用**本机真实可用**的等宽栈（不许凭空写一个字体名）。
-  - **判据**：定义存在；`var(--ks-font-mono,monospace)` 的兜底可留可去，但**定义必须存在**。
-  - **变异**：删掉该定义 ⇒ T012 判据必红。
+- [x] **T011** `ksGuideStyles.ts` 补 `--ks-font-mono` 定义
+  —— 实测落地为 `--ks-font-mono:var(--ds-font-family-code)`（**落回官方 token**）。
+     ⚠ 为什么不用裸 `monospace` 兜底：官方 `ui-theme/src/styles/base.css` 第 4 行逐字写着
+     「Code font stack deliberately omits a bare monospace tail (Windows CJK falls back to SimSun otherwise)」。
+     顺带把本仓另外 **3 处**硬写 `ui-monospace,Consolas,monospace` 的（`.ks-kb-no` / `.ks-field-v-mono` /
+     `.ks-ing-mono`）一并改走它 —— 同一件事不再有第二份写法。
+  - **判据**：定义存在。✅
+  - **变异**：删掉该定义 ⇒ T012 判据**精确红在那一条**。✅
 
 - [ ] **T012** 给 D1/D2 立**机械判据**，进 `smoke-ui-scale.mjs`（已在门禁链里）
   —— 从 `ksGuideStyles.ts` 抠出所有 `var(--ks-*)` 引用集合与 `--ks-*:` 定义集合，
@@ -41,45 +46,63 @@
   - **判据**：原样件 PASS；删任一 token 定义 ⇒ FAIL 并点名缺的是谁。
   - **变异**：**逐条**做（删 `--ks-radius` / 删 `--ks-font-mono`），各红一次。
   - **⚠ 反向也要有牙**：把判据写成恒真（比如比对空集合）⇒ 必须能被"注入一个假缺口"打红。
+  - **实测**：原样件 PASS（引用 48 个 / 定义 54 个 / **缺失 0**）；两条变异各红一次，还原后 sha256 逐字节一致。✅
+  - ⚠ **踩坑留痕（本批踩了 4 次同一个坑）**：给这段加注释时**在模板字符串里写了反引号**，
+    把 `KS_STYLES` 截断 ⇒ `:root` 块解析成 0 个、脚本报"剥除口径已与文件结构脱节"。
+    `ui-render-shot.mjs` 的**注入脚本**（也在模板字符串里）同一个坑又踩了 3 次。
 
 ## 阶段 2：D3 —— 表单溢出（有真机证据）
 
-- [ ] **T020** `KsSettingsSection.tsx` 的凭据表单修溢出
-  —— 给可收缩项加 `minWidth: 0`；**不许**发明第二种解法（本仓已有同坑的留痕）。
+- [x] **T020** `KsSettingsSection.tsx` 的凭据表单修"说明读不全"
+  —— ⚠ **修法不是挤布局**（第一版只加 `minWidth:0`，实测**不够**：600 宽下仍红）。
+     正解 = placeholder 从 `Base URL（留空保持不变；输 "-" 恢复内置默认）` 缩短为 `Base URL（可留空）`
+     （完整规则本来就由"改动时出现"的说明行承担；本轮顺手把"Base URL 清除后回到内置默认"补进那句，
+     信息量不减）；同时给可收缩项加 `minWidth: 0`。
   - **约束**：改动**不得**落在 `AnnounceTriageSection` 区间内（禁碰区）。
     施工前 `grep -n "function AnnounceTriageSection"` 拿行号区间，施工后**再核一次**。
   - **判据**：T021 的真浏览器量点通过。
 
-- [ ] **T021** `ui-render-shot.mjs` 加 `settings` 页 + 量点 + Node 侧判
-  —— 真浏览器量"每个输入框右缘 ≤ 其所在行容器内容盒右缘"，溢出 > 1px 即红；量不到即红。
-  - **判据**：修复后 PASS；把 `minWidth:0` 改回 ⇒ FAIL。
+- [x] **T021** `ui-render-shot.mjs` 加 `settings` 页 + 量点 + Node 侧判
+  —— 真浏览器量 `clipped`（canvas 量 placeholder 实宽 vs 框内可用宽）与 `overflow`；量不到即红。
+  - **判据**：修复后 **400 / 600 / 1018 三档全 PASS**；把长 placeholder 改回 ⇒ **600 宽下红**
+    （报 `文字实宽 266px > 框内可用 222px ⇒ 用户看到的是半截说明`）。✅
+  - ⚠⚠ **第一版量错了对象（本批最重要的留痕）**：第一版量的是"输入框右缘是否越过所在行"，
+    **变异打不红**（把修复改回去仍 PASS）—— 因为真机里的现象**不是**"容器溢出"，
+    而是"**框太窄、说明被截断**"。改成量 `clipped` 后才抓住。**这是最该被复核的一条。**
   - **⚠ 不许进 `MATRIX`**（那会要求同批改 `EXPECTED_RUNS`，把 diff 扯到冻结清单上）；
     用单独命令量，并把命令写进 tasks 与文档。
 
 ## 阶段 3：四个主面逐态审查（留痕）
 
-- [ ] **T030** 用 `ui-render-shot` 把 kb / ingest / capabilities / materials 的**每个交互态**渲一遍
-  —— `--interact` 的全部取值各跑一次，逐张 `read_image`。
-  - **判据**：每个面在 `docs/UI-BASELINE.md` 有一行：面名 / 截图 / 看到的事实 / 结论。
-  - **诚实边界**：真宿主进不去的面必须写明"**没在真宿主里看过**"。
+- [x] **T030** 用 `ui-render-shot` 把 kb / ingest / capabilities / materials 的交互态各渲一遍并看图
+  —— 证据 `var/tmp/ui-shots/survey/`（四面各一张）与 `var/tmp/ui-shots/states/`（kb 的 10 个交互态）。
+  - **结论**：四面板式成体系、无裁切；逐条写在 `docs/UI-BASELINE.md` §5aa 第四节。✅
+  - **诚实边界**：**都是离屏**（没有宿主外壳），**不是真机**；真机只看到设置面。
+  - ⚠ **`--interact kb-detail` 退出码 1**：已**机械证明是既有状态**——用冻结前的脚本
+    （`git show c136363b:plugin/scripts/ui-render-shot.mjs`）跑同一场景，**同样红**；
+    原因是该组合没在 `PAD_REQUIRED` 里声明期望元素（脚本按"声明了就必须判"的棘轮报红）。
+    **不是本批的回归。**
 
-- [ ] **T031** 把本轮结论写进归属层
-  —— `docs/UI-BASELINE.md` §5aa + `docs/DEVELOPMENT-HISTORY.md` §10.232。
+- [x] **T031** 把本轮结论写进归属层
+  —— `docs/UI-BASELINE.md` §5aa + `docs/DEVELOPMENT-HISTORY.md` §10.232。✅
 
 ## 阶段 4：收口
 
-- [ ] **T040** 重建交付产物 `plugin/client.js`（`node scripts/build-client.mjs`）
-  - **判据**：`smoke-client-entry` 的"产物 ↔ 从源码现构建整份一致"断言 PASS。
+- [x] **T040** 重建交付产物 `plugin/client.js`（`node scripts/build-client.mjs`）
+  - **判据**：`smoke-client-entry` 的"产物 ↔ 从源码现构建整份一致"断言 PASS。✅（205/205）
 
-- [ ] **T041** 跑改动面门禁
-  - **判据**：`smoke-all` 全链 PASS + `tsc` exit 0；收工跑 `-Quick`。
-  - **⚠ 退出码 3 = 有人在跑门禁，不是失败**。
+- [~] **T041** 跑改动面门禁 —— **部分完成**
+  - **已跑**：`tsc` exit 0 ｜ `smoke-client-entry` **205/205** ｜ `smoke-ui-scale` exit 0 ｜
+    `ui-render-shot --page settings` 400/600/1018 三档全绿。✅
+  - **未跑**：`smoke-all` 与 `-Quick`/`-Full` —— 当时**门禁锁被并行线占用**
+    （实测退出码 3 = "有人在跑"，按纪律**不并发**）。⇒ **留给门禁释放后补跑**，登记为未完成。
 
-- [ ] **T042** 小提交 + 快照
-  - **判据**：提交消息写清"改了什么 / 为什么 / 边界"；`snapshot-project.ps1` 出新 tag。
+- [x] **T042** 小提交 + 快照
+  - 提交 `1ee35df0`（源码+判据+产物）、`a91b6d5b`（开发史）；快照 `step-367-ui-polish-spec007`。✅
 
-- [ ] **T043** 派独立复核（属必验类别：改了共享样式 + 新增判据）
-  - **判据**：冻结 tag + 提取树；报告落盘 `docs/verify-briefs/`。
+- [~] **T043** 派独立复核（属必验类别：改了共享样式 + 新增判据）
+  - 已派（共享任务 `task-1`，冻结 tag `step-367-ui-polish-spec007` → `a91b6d5b`）；
+    报告落 `docs/verify-briefs/VERIFY-REPORT-spec007-ui-polish.md`。⏳ 进行中
 
 ---
 
