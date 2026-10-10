@@ -107,7 +107,12 @@
     做了源码级分析，**发现我新增的两处判据有假绿**（R1 裹注释 / R2 宽度依赖 / R3 关键字覆盖不全）
     ⇒ 我逐条复现后修掉（`d79ec7c8`）。**它的分析原样存在 `var/tmp/verifier-readonly-analysis.md`。**
   - **第二轮**（冻结 `step-368-ui-polish-spec007-r2` → `d79ec7c8`，换 `worker` 角色）：
-    报告 [VERIFY-REPORT-spec007-ui-polish](verify-briefs/VERIFY-REPORT-spec007-ui-polish.md)，
+    报告 [VERIFY-REPORT-spec007-ui-polish](../../docs/verify-briefs/VERIFY-REPORT-spec007-ui-polish.md)，
+    ⚠ **路径更正（2026-10-10）**：原文写 `verify-briefs/…`（相对本文件）⇒ 解析成
+    `specs/007-ui-polish/verify-briefs/…`，**那个目录不存在**（实测断链）。
+    报告实际在 **`docs/verify-briefs/`** ⇒ 从本文件出发是 `../../docs/verify-briefs/…`。
+    （本仓其它 spec 引这份报告一律用**仓库根相对**写法 `docs/verify-briefs/…`，
+    见 `specs/002/tasks.md:156`、`specs/003/tasks.md:193`；此处用相对写法以保持 Markdown 可点。）
     判定 **PASS —— R1/R2/R3 三条全部真堵住了、不是只堵举例**（R3 用**对照实验**实证）。
     另报 **P1 × 1 + P2 × 6** ⇒ 我修了 P1 与两条 P2（`94b1a4d8`）。
   - ⚠ **流程失误（我的，已留痕）**：第一轮先派了 `reviewer` 角色，而该角色 **deny write/edit/pwsh**，
