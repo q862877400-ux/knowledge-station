@@ -76,6 +76,47 @@ SELECT clause_revision_id, distance FROM clause_vec
   ③ `doc_id 为空` == 0；④ 与 `clause_revision` **零不一致**。
   ⚠ **回收动作本身要业主点头**（删了就只剩全库副本那条回滚路）。
 
+  ### ✅ **已执行（2026-10-10 14:3x）—— 且发现"只剩全库副本"这个顾虑本身不成立**
+
+  **授权**：业主 2026-10-10「我给你一切授权，一切需要拍板的事情都采纳你的建议」
+  ⇒ M8 里"要业主点头"那条**转为已授权**。
+
+  **四条前置逐条复测（只读真库，全部 PASS）**：
+  ① 独立复核 PASS ✅（[VERIFY-REPORT-spec003-vecscope](../../../docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md)，
+     判定"有条件 PASS、无 P0"）｜② 全库副本在 ✅（`backup/` 下三份，各 663,634 条）｜
+  ③ `doc_id` 为空 **0** ✅｜④ 孤儿（对不上 `clause_revision`）**0** ✅。
+
+  **★ 本轮补第五条前置 —— 它把"要不要删"这个问题从"权衡"变成了"没有代价"**：
+  ⑤ **`clause_vec_pre003` 可被 `clause_vec` 完整重建**：逐条比对 **663,634** 条的
+  `(clause_revision_id, embedding)` ⇒ **嵌入不一致 0 / pre003 独有 0**。
+  ⇒ 回滚源**零独有信息** —— 重建就是**一条 SQL**：
+
+  ```sql
+  CREATE TABLE clause_vec_pre003 AS
+    SELECT clause_revision_id, embedding FROM clause_vec;
+  ```
+
+  **不需要重算嵌入、不需要模型、不需要原文。** 回滚脚本落在
+  `var/tmp/clause-vec-pre003-rollback.sql`（**一行 SQL，不是一份 2.6 GB 副本** ——
+  那样会把刚回收的空间又吃回去）。**该 SQL 已在临时库里真跑过验证**
+  （抽样 2,000 条：重建 2,000 条、逐条比对相同 2,000 / 不同 0）。
+
+  ⚠ **原 M8 那句"删了就只剩全库副本那条回滚路"要更正**：实测**有两条**回滚路，
+  且新发现的那条**更省**（一行 SQL vs 恢复 2.9 GB 的库文件）。
+
+  **执行与读数**：
+  | 步 | 动作 | 读数 |
+  |---|---|---|
+  | 1 | `DROP TABLE clause_vec_pre003`（单事务） | 残留对象 **0**；`clause_vec` 仍 663,634；`doc_id` 为空仍 0；向量表仍可查 |
+  | 2 | `VACUUM` | **5.49 GB → 2.88 GB**（回收 **2.61 GB**），用时 0.6 分钟 |
+  | 3 | `PRAGMA wal_checkpoint(TRUNCATE)` | ⚠ **这一步是必需的**：VACUUM 在 WAL 模式下把整库重写**先写进 `-wal`**（实测涨到 **2.90 GB**）⇒ 不截断的话磁盘上反而是 `2.88 + 2.90 = 5.78 GB`，**比删之前还大**，"回收了 2.61 GB"在磁盘上就是假话。截断后 `-wal` = **0** |
+  | 4 | `PRAGMA integrity_check` | **ok**；`clause_revision` 663,634；`evidence_edge` 22,992（未变） |
+
+  **净效果**：库文件 **5.49 GB → 2.88 GB**；C 盘空闲 **76.90 → 82.40 GB**。
+
+  **边界**：只 `DROP` 这一张表 + `VACUUM`；不动 schema、不动 `clause_vec` 任何行、
+  不动其余五条通道；`backup/` 三份副本**一份未删**（M8 前置② 的保障仍在）。
+
 ---
 
 ## 契约 4 · 判据（不许放宽）
