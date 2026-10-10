@@ -480,6 +480,14 @@ ADAPTERS: dict[str, str] = {
     #    ② 必须带 `publicationFlag:1`；③ 分页参数叫 `current`/`pagesize`。
     #    错任一个都返回 `total:0` —— **看起来像"没有数据"**。实测 total=789。
     "kf-hdjl": "adapters.kf_hdjl",     # 开封市·政民互动·信件公开
+    # —— 安徽第 1 个市级源（2026-10-10，spec 005 T601）：
+    #    铜陵与开封是**同一套政务互动平台**，但**四处都不同**：
+    #    ① 接口前缀 `/api/mail/`（开封是 `/uapi/mail/`，多个 `u`）；
+    #    ② 配置对象 `window.useObj`（开封是 `defaultConfig.userIdObj`）；
+    #    ③ 列表 `siteId` 参数用 `useObj.siteId`（铜陵**没有 `qdId`**）；
+    #    ④ **不需要** `publicationFlag`（开封必须带）。
+    #    ⇒ **不能照抄开封**。实测 total=2605。
+    "tl-hdjl": "adapters.tl_hdjl",     # 铜陵市·政民互动·信件公开
 }
 
 #: 用户要能直接 `from adapters import load`
