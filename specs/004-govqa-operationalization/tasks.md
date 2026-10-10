@@ -138,8 +138,15 @@ description: "Task list for 政务问答采集系统的可运维化"
 - [x] T047 [P] [US4] 在 `health.py` 实现 `--trace <file>`：追加执行轨迹（时间 / 解析值 / 结论），复用 `check.sh` 的 trace 思路
 - [x] T048 [US4] 在 `health.py` 实现**耗时统计**并在超 60s 时警告（SC-010）
 - [x] T049 [US4] 写 `tools/gov-qa/tests/test_health.py`：制造 3 类故障（删文件 / 塞重复 id / 注册空适配器）验证一次全检出（SC-009）
-- [ ] T050 [P] [US4] 在 `tools/gov-qa/recon/audit-coverage.py` 加 `--coverage-table` 与 `--gaps --unit X`（quickstart 场景 2 要求，复用 US2 的 `coverage.py`）
-- [ ] T051 [P] [US4] 在 `tools/gov-qa/recon/audit-coverage.py` 加 `--health`（quickstart 场景 4.1 要求，委托给 `health.py`）
+- [—] T050 [P] [US4] 在 `tools/gov-qa/recon/audit-coverage.py` 加 `--coverage-table` 与 `--gaps --unit X`（quickstart 场景 2 要求，复用 US2 的 `coverage.py`）
+  ⇒ **本条不再做（2026-10-10 裁定）**：**它要的能力已存在，只是入口不同** ——
+  覆盖销号表与「某地区还缺哪些渠道」的正式入口是 **`coverage-report.py`**
+  （`--level` / `--region X --uncovered`），实测可用（见 `quickstart.md` 场景 6）。
+  在 `audit-coverage.py` 里再加一套同名开关 = **造第二个入口**，与 FR-004「一个事实一个出处」相悖。
+  ⚠ 且 `audit-coverage.py` 在 `tools/gov-qa/**`（**并行自动化的面**）。
+- [—] T051 [P] [US4] 在 `tools/gov-qa/recon/audit-coverage.py` 加 `--health`（quickstart 场景 4.1 要求，委托给 `health.py`）
+  ⇒ **本条不再做（2026-10-10 裁定）**：同 T050 —— 「一句话健康结论」的正式入口是 **`health.py`**，
+  实测可用（`--quiet` 出 `VERDICT=…`，不加则出中文结论）。**再包一层是重复入口**。
 
 **Checkpoint**: US4 完成 ⇒ 能回答「现在能不能用」
 
