@@ -43,7 +43,7 @@
 | `docs/ENCYCLOPEDIA.md` | §1.5 验收红线 v2 | 见 §2（外发条） |
 | `docs/ENCYCLOPEDIA.md` | §2.3 明确不做（Non-goal） | **「非官方渠道下载」要按语料分层重写**（见 §4.1），否则新功能与它直接冲突 |
 | `docs/ENCYCLOPEDIA.md` | §2.2 决策台账 | 追加 D3（本方案 §2）与 D4（材料平面）两条裁定记录 |
-| 旧主计划 v4.3（2026-09-19 大清洗中移除） | `:52` `[MUST NOT] 原始文档零外发` | **删除/替换**（见 §2） |
+| 旧主计划 v4.3（2026-09-19 大清洗中移除；⚠ **2026-10-10 已从 git 原样恢复** ⇒ [`docs/REQUIREMENTS-v4.3.md`](REQUIREMENTS-v4.3.md)） | `:52` `[MUST NOT] 原始文档零外发` | **删除/替换**（见 §2） |
 | `README.md` / `docs/INTRODUCTION.md` | 定位段 | 同步措辞 |
 
 ---
