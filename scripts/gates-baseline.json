@@ -1,14 +1,9 @@
 {
-  "pytest_passed": 2690,
-  "untracked_excluded": 5,
-  "pytest_total": 2692,
-  "runLive": false,
   "pytest_skipped": 2,
-  "updatedAt": "2026-10-10T03:32:36",
-  "skip_nodeids": [
-    "tests.test_golden_set::test_qa_retrieval_hits_golden",
-    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
-  ],
+  "runLive": false,
+  "untracked_excluded": 44,
+  "pytest_total": 2803,
+  "updatedAt": "2026-10-10T09:50:32",
   "caliber_applied": true,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
@@ -16,5 +11,10 @@
     "tests.test_reranker::test_reranker_real_model_reorders",
     "tests.test_retrieval::test_vec_channel",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
-  ]
+  ],
+  "skip_nodeids": [
+    "tests.test_golden_set::test_qa_retrieval_hits_golden",
+    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
+  ],
+  "pytest_passed": 2801
 }
