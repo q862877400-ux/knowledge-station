@@ -91,18 +91,32 @@
 - [x] **T040** 重建交付产物 `plugin/client.js`（`node scripts/build-client.mjs`）
   - **判据**：`smoke-client-entry` 的"产物 ↔ 从源码现构建整份一致"断言 PASS。✅（205/205）
 
-- [~] **T041** 跑改动面门禁 —— **部分完成**
-  - **已跑**：`tsc` exit 0 ｜ `smoke-client-entry` **205/205** ｜ `smoke-ui-scale` exit 0 ｜
+- [x] **T041** 跑门禁 —— **已完成（门禁锁释放后补跑）**
+  - `tsc` exit 0 ｜ `smoke-client-entry` **205/205** ｜ `smoke-ui-scale` exit 0 ｜
     `ui-render-shot --page settings` 400/600/1018 三档全绿。✅
-  - **未跑**：`smoke-all` 与 `-Quick`/`-Full` —— 当时**门禁锁被并行线占用**
-    （实测退出码 3 = "有人在跑"，按纪律**不并发**）。⇒ **留给门禁释放后补跑**，登记为未完成。
+  - **`smoke-all` → 42/42 套全过 · exit 0**。✅
+  - **`run-gates.ps1 -Full` → 10/10 步 · exit=0**（pytest 2854 passed / 0 failed / 2 skipped；棘轮通过）。✅
+  - ⚠ 首次尝试时**门禁锁被并行线占用**（退出码 3 = "有人在跑"，按纪律**不并发**），
+    等锁释放后补跑 —— **这是"不并发"纪律的一次实际执行**，不是漏跑。
 
 - [x] **T042** 小提交 + 快照
   - 提交 `1ee35df0`（源码+判据+产物）、`a91b6d5b`（开发史）；快照 `step-367-ui-polish-spec007`。✅
 
-- [~] **T043** 派独立复核（属必验类别：改了共享样式 + 新增判据）
-  - 已派（共享任务 `task-1`，冻结 tag `step-367-ui-polish-spec007` → `a91b6d5b`）；
-    报告落 `docs/verify-briefs/VERIFY-REPORT-spec007-ui-polish.md`。⏳ 进行中
+- [x] **T043** 派独立复核（属必验类别：改了共享样式 + 新增判据）—— **两轮，都已收**
+  - **第一轮**（冻结 `step-367-ui-polish-spec007` → `a91b6d5b`）：复核者只有只读工具，
+    做了源码级分析，**发现我新增的两处判据有假绿**（R1 裹注释 / R2 宽度依赖 / R3 关键字覆盖不全）
+    ⇒ 我逐条复现后修掉（`d79ec7c8`）。**它的分析原样存在 `var/tmp/verifier-readonly-analysis.md`。**
+  - **第二轮**（冻结 `step-368-ui-polish-spec007-r2` → `d79ec7c8`，换 `worker` 角色）：
+    报告 [VERIFY-REPORT-spec007-ui-polish](verify-briefs/VERIFY-REPORT-spec007-ui-polish.md)，
+    判定 **PASS —— R1/R2/R3 三条全部真堵住了、不是只堵举例**（R3 用**对照实验**实证）。
+    另报 **P1 × 1 + P2 × 6** ⇒ 我修了 P1 与两条 P2（`94b1a4d8`）。
+  - ⚠ **流程失误（我的，已留痕）**：第一轮先派了 `reviewer` 角色，而该角色 **deny write/edit/pwsh**，
+    与任务书要求（跑提取树、做变异、落盘报告）**直接矛盾**；且队友工具表在**创建那一刻定死**，
+    `update_teammate` 的 `allow_tools` **改不动已建会话的注册表**。
+    ⇒ **教训：派活前先核对该角色的 deny 清单与任务书要求是否相容。**
+  - **仍未修**：P2-2（判据不在 `smoke-all` 链 + 真机弹窗可用宽≈600 是推断）、
+    P2-5（shipped harness 到不了配置态）、P2-6（`DEVELOPMENT-HISTORY.md` §10.232 编号重复，
+    属别人批次，**不擅自改**）。
 
 ---
 
