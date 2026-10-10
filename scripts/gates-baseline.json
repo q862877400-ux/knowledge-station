@@ -1,10 +1,14 @@
 {
-  "pytest_skipped": 2,
+  "skip_nodeids": [
+    "tests.test_golden_set::test_qa_retrieval_hits_golden",
+    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
+  ],
+  "pytest_passed": 2849,
   "runLive": false,
-  "untracked_excluded": 44,
-  "pytest_total": 2803,
-  "updatedAt": "2026-10-10T09:50:32",
-  "caliber_applied": true,
+  "pytest_total": 2851,
+  "updatedAt": "2026-10-10T11:29:13",
+  "untracked_excluded": 5,
+  "pytest_skipped": 2,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
@@ -12,9 +16,5 @@
     "tests.test_retrieval::test_vec_channel",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
-  "skip_nodeids": [
-    "tests.test_golden_set::test_qa_retrieval_hits_golden",
-    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
-  ],
-  "pytest_passed": 2801
+  "caliber_applied": true
 }
