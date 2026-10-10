@@ -61,11 +61,38 @@ def existing_ids(channel_key: str) -> set[str]:
     ⚠ 每次都全读该通道的文件。为什么不用持久化索引：
     索引会与真实数据不一致（并行 agent 也在写），**真实数据才是唯一事实来源**。
     代价：大通道首轮慢一点（36 万条全库扫描实测 1.8 秒，可接受）。
+
+    ## ⚠⚠ 2026-10-10 修：**子源**的记录原来一条都读不到（独立复核级缺陷）
+
+    原判据是 `if str(rec.get("source")) == channel_key`。但**真实语料里 `source`
+    常常是子源**，不是通道 key：
+
+    | 文件 | 记录里的 `source` | 通道 key | 原判据 |
+    |---|---|---|---|
+    | `cq-igi-重庆市…jsonl` | `cq-igi-156` | `cq-igi` | **不相等 ⇒ 读不到** |
+    | `sx-igi-…jsonl` | `sx-igi-24` | `sx-igi` | **不相等 ⇒ 读不到** |
+    | `nat-tax-…jsonl` | `nat-tax` | `nat-tax` | 相等 ⇒ 读到 |
+
+    **实测后果**：33 个通道（132,569 条）里 `existing_ids` 只读到 7,807 条，
+    **漏 124,762 条（94.1%）**。其中 `cq-igi` / `sx-igi` / `gx-igi` / `nx-igi` /
+    `tj-enorth` 等**全部读到 0**。
+
+    受控复现（临时目录，不碰真实数据）：预置 3 条子源记录后重跑 `poll_one`
+    ⇒ `added=3`（应为 0）⇒ 落盘 **3 → 6 行，重复 3 条**。
+    ⇒ **SC-002（连续两次轮询第二次 0 新增）在这些通道上是坏的**。
+
+    **为什么假适配器测试抓不到**：`tests/test_poll.py` 的 `FakeAdapter` 用的
+    `source` 就是通道 key ⇒ 恰好命中旧判据。**只有拿真实语料重放才暴露。**
+
+    ⇒ 现在改为「**文件名前缀匹配 + 不过滤 source**」：文件已经是
+    `f"{channel_key}-*.jsonl"` 选出来的，其内容天然属于该通道，
+    再按 `source` 过滤反而会漏掉子源。
     """
     ids: set[str] = set()
     for rec in iter_records(str(DATA_DIR / f"{channel_key}-*.jsonl")):
-        if str(rec.get("source")) == channel_key:
-            ids.add(str(rec.get("id")))
+        rid = str(rec.get("id") or "")
+        if rid:
+            ids.add(rid)
     return ids
 
 

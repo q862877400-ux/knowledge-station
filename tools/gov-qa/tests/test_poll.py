@@ -337,3 +337,55 @@ def test_next_value_page_records_real_page_not_increment():
     wm = Watermark("k", "page", value=3, last_success_at=None, updated_at=None)
     got = poll._next_value(wm, [_rec(1)], need_full=False, page_reached=42)
     assert got == 42, f"应记真实页号 42，实际 {got}"
+
+def test_existing_ids_reads_sub_source_records():
+    """**子源**记录也必须被 `existing_ids` 读到（2026-10-10 修的真 bug）。
+
+    ## 为什么必须单独钉这一条
+
+    原判据是 `if str(rec.get("source")) == channel_key`。而**真实语料里 `source`
+    常常是子源**（`cq-igi-156`），通道 key 是 `cq-igi` ⇒ **读不到**。
+
+    实测后果：33 个通道（132,569 条）里只读到 7,807 条，**漏 124,762 条（94.1%）**；
+    受控复现：预置 3 条子源记录后重跑 `poll_one` ⇒ `added=3`（应为 0）
+    ⇒ 落盘 3 → 6 行，**重复 3 条**。SC-002 在这些通道上是坏的。
+
+    ## 为什么原来的测试抓不到
+
+    本文件其他用例的 `_rec(i)` 默认 `src="fake-1"`，而 `_ch()` 的 key 也是
+    `fake-1` ⇒ **恰好命中旧判据**。只有把 `source` 写成子源才暴露。
+    """
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        with _Isolated(d):
+            # 落盘一条"子源"记录：source='fake-1-99'，通道 key='fake-1'
+            p = poll.data_path_for("fake-1", "假站点")
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(json.dumps(_rec(1, src="fake-1-99"), ensure_ascii=False) + "\n",
+                         encoding="utf-8")
+            got = poll.existing_ids("fake-1")
+            assert got == {"r1"}, (
+                f"子源记录应被读到，实际读到 {got} —— "
+                f"退回按 source == channel_key 过滤会漏掉全部子源")
+
+
+def test_poll_one_is_idempotent_for_sub_source_records():
+    """**SC-002 的端到端判据（子源形态）**：第二次必须 0 新增。
+
+    这条与本文件的 `test_idempotent_second_run_adds_zero` **不同**：
+    那条用的 `source == 通道 key`，这条用**子源**（真实语料的形态）。
+    """
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        store = WatermarkStore(d / "watermarks.json")
+        with _Isolated(d):
+            recs = [_rec(1, src="fake-1-99"), _rec(2, src="fake-1-99")]
+            ch = _ch()
+            r1 = poll.poll_one(FakeAdapter(recs), ch, store, dry_run=False,
+                               force_full=True, site_name="假站点")
+            assert r1["added"] == 2, f"第一次应新增 2，实际 {r1['added']}"
+            r2 = poll.poll_one(FakeAdapter(recs), ch, store, dry_run=False,
+                               force_full=False, site_name="假站点")
+            assert r2["added"] == 0, (
+                f"**子源**记录第二次应新增 0，实际 {r2['added']} —— "
+                f"这是 SC-002 在真实语料形态上的判据")
