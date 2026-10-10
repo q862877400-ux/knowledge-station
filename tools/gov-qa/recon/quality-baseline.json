@@ -1,8 +1,8 @@
 {
  "answer_empty": 1,
- "content_dups": 8472,
- "time_inverted": 1188,
- "total": 399671,
+ "content_dups": 8476,
+ "time_inverted": 851,
+ "total": 400071,
  "per_source": {
   "ah-kb": {
    "total": 598,
@@ -1519,34 +1519,39 @@
    "dups": 1,
    "dup_rate": 89.52551477170994
   },
-  "hb-hdjl-10": {
+  "hb-rst-igi-10": {
    "total": 5,
-   "dups": 4,
-   "dup_rate": 80000.0
+   "dups": 5,
+   "dup_rate": 100000.0
   },
   "hb-wjw-10": {
    "total": 5,
    "dups": 5,
    "dup_rate": 100000.0
   },
-  "hb-rst-igi-10": {
+  "hb-hdjl-10": {
    "total": 5,
-   "dups": 5,
-   "dup_rate": 100000.0
-  },
-  "hb-rst-igi-16": {
-   "total": 110,
-   "dups": 110,
-   "dup_rate": 100000.0
+   "dups": 4,
+   "dup_rate": 80000.0
   },
   "hb-hdjl-16": {
    "total": 110,
    "dups": 104,
    "dup_rate": 94545.45454545454
   },
+  "hb-rst-igi-16": {
+   "total": 110,
+   "dups": 110,
+   "dup_rate": 100000.0
+  },
   "hb-wjw-16": {
    "total": 110,
    "dups": 110,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-19": {
+   "total": 4,
+   "dups": 4,
    "dup_rate": 100000.0
   },
   "hb-hdjl-19": {
@@ -1559,9 +1564,9 @@
    "dups": 4,
    "dup_rate": 100000.0
   },
-  "hb-rst-igi-19": {
-   "total": 4,
-   "dups": 4,
+  "hb-wjw-25": {
+   "total": 261,
+   "dups": 261,
    "dup_rate": 100000.0
   },
   "hb-hdjl-25": {
@@ -1569,22 +1574,17 @@
    "dups": 250,
    "dup_rate": 95785.44061302682
   },
-  "hb-wjw-25": {
-   "total": 261,
-   "dups": 261,
-   "dup_rate": 100000.0
-  },
   "hb-rst-igi-25": {
    "total": 261,
    "dups": 261,
    "dup_rate": 100000.0
   },
-  "hb-rst-igi-26": {
+  "hb-wjw-26": {
    "total": 22,
    "dups": 22,
    "dup_rate": 100000.0
   },
-  "hb-wjw-26": {
+  "hb-rst-igi-26": {
    "total": 22,
    "dups": 22,
    "dup_rate": 100000.0
@@ -1593,6 +1593,11 @@
    "total": 23,
    "dups": 19,
    "dup_rate": 82608.69565217392
+  },
+  "hb-hdjl-48": {
+   "total": 12,
+   "dups": 12,
+   "dup_rate": 100000.0
   },
   "hb-rst-igi-48": {
    "total": 12,
@@ -1604,35 +1609,30 @@
    "dups": 12,
    "dup_rate": 100000.0
   },
-  "hb-hdjl-48": {
-   "total": 12,
-   "dups": 12,
-   "dup_rate": 100000.0
-  },
   "hb-hdjl-57": {
    "total": 20,
    "dups": 16,
    "dup_rate": 80000.0
-  },
-  "hb-wjw-57": {
-   "total": 20,
-   "dups": 20,
-   "dup_rate": 100000.0
   },
   "hb-rst-igi-57": {
    "total": 20,
    "dups": 20,
    "dup_rate": 100000.0
   },
-  "hb-wjw-58": {
-   "total": 3,
-   "dups": 3,
+  "hb-wjw-57": {
+   "total": 20,
+   "dups": 20,
    "dup_rate": 100000.0
   },
   "hb-hdjl-58": {
    "total": 4,
    "dups": 3,
    "dup_rate": 75000.0
+  },
+  "hb-wjw-58": {
+   "total": 3,
+   "dups": 3,
+   "dup_rate": 100000.0
   },
   "hb-rst-igi-58": {
    "total": 3,
@@ -1654,22 +1654,22 @@
    "dups": 2,
    "dup_rate": 5714.285714285714
   },
-  "hb-rst-igi-4": {
-   "total": 1,
-   "dups": 1,
-   "dup_rate": 100000.0
-  },
   "hb-wjw-4": {
    "total": 1,
    "dups": 1,
    "dup_rate": 100000.0
   },
-  "hb-rst-igi-50": {
+  "hb-rst-igi-4": {
    "total": 1,
    "dups": 1,
    "dup_rate": 100000.0
   },
   "hb-wjw-50": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-50": {
    "total": 1,
    "dups": 1,
    "dup_rate": 100000.0
@@ -2655,9 +2655,9 @@
    "dup_rate": 0.0
   },
   "nx-igi-259": {
-   "total": 1562,
-   "dups": 32,
-   "dup_rate": 2048.65556978233
+   "total": 1958,
+   "dups": 36,
+   "dup_rate": 1838.6108273748723
   },
   "nx-igi-260": {
    "total": 1,
@@ -2769,15 +2769,15 @@
    "dups": 0,
    "dup_rate": 0.0
   },
-  "people-liuyan-prov": {
-   "total": 757,
-   "dups": 16,
-   "dup_rate": 2113.6063408190225
-  },
   "people-liuyan-df": {
    "total": 490,
    "dups": 100,
    "dup_rate": 20408.163265306124
+  },
+  "people-liuyan-prov": {
+   "total": 757,
+   "dups": 16,
+   "dup_rate": 2113.6063408190225
   },
   "people-liuyan-fid": {
    "total": 245,
@@ -3545,5 +3545,5 @@
    "dup_rate": 330.3964757709251
   }
  },
- "recorded_at": "2026-10-10T12:53:09"
+ "recorded_at": "2026-10-10T12:59:46"
 }

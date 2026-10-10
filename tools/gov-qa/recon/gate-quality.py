@@ -114,6 +114,12 @@ _TIME_TOLERANCE_SEC = 60
 #: ⇒ 判据：**若 `answered_at` 只精确到天，就只比到天**（同一天不算倒置）。
 #: 这不是放宽 —— 是**把判据的精度对齐到数据的精度**。
 #: 精度不对齐的判据会把"格式差异"报成"数据错误"（本批已第 3 次同类教训）。
+#:
+#: ⚠⚠ **2026-10-10 第四次修**：分类又发现 **666 条**同形 ——
+#: 它们的 `answered_at` 是 **`2018-06-26 00:00:00`**（带时分秒，但**恰为午夜整点**）。
+#: 那是"只给日期、时分秒填 0"的**另一种写法**，字符串正则 `_DATE_ONLY` 匹配不到。
+#: ⇒ 判据再加一条：**解析后恰为午夜 00:00:00 的 `answered_at`，也按"只到天"处理**。
+#: （午夜 00:00:00 作为真实答复时刻的概率极低；`hunan-st` 那 37 条非午夜的另算。）
 _DATE_ONLY = re.compile(r"^\d{4}[-/年]\d{1,2}[-/月]\d{1,2}日?\s*$")
 
 #: 标签只认这个键 —— 与 `health.py` 同口径。
@@ -249,10 +255,15 @@ def collect() -> dict:
         # ---- 判据 3：时间倒置（**必须解析后比，不能裸比字符串**）----
         pa, pb = parse_time(r.get("asked_at")), parse_time(r.get("answered_at"))
         if pa is not None and pb is not None:
-            # ⚠ `answered_at` 只精确到天 ⇒ **只比到天**（见 `_DATE_ONLY` 的文档）：
-            #   否则"同一天但答复在午夜"会被误判成倒置。
+            # ⚠ `answered_at` **只精确到天** ⇒ **只比到天**（见 `_DATE_ONLY` 的文档）。
+            #   两种"只到天"的写法都要认：
+            #     ① 纯日期串 `2025-05-27`
+            #     ② 带时分秒但**恰为午夜** `2018-06-26 00:00:00`
+            #   （不认②会漏 666 条 —— 2026-10-10 第四次修时实测）
             ans_raw = str(r.get("answered_at") or "").strip()
-            if _DATE_ONLY.match(ans_raw):
+            day_precision = bool(_DATE_ONLY.match(ans_raw)) or (
+                pb.hour == 0 and pb.minute == 0 and pb.second == 0)
+            if day_precision:
                 inverted_flag = pa.date() > pb.date()
             else:
                 inverted_flag = (pa - pb).total_seconds() > _TIME_TOLERANCE_SEC

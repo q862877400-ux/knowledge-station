@@ -193,6 +193,43 @@ def test_full_timestamp_same_day_hours_earlier_is_inverted(tmp_path):
     assert s["inverted"] == 1, "完整时间戳早 3 小时，应判倒置"
 
 
+def test_midnight_answered_at_is_treated_as_day_precision(tmp_path):
+    """`answered_at` 恰为 **00:00:00** 也按"只到天"处理（2026-10-10 第 4 次修）。
+
+    实测 1,188 条里又有 **666 条**是这种：`answered_at = '2018-06-26 00:00:00'`
+    —— 带时分秒但**恰为午夜整点**，那是"只给日期、时分秒填 0"的**另一种写法**。
+    字符串正则 `_DATE_ONLY` 匹配不到它，所以第三次修时漏了。
+
+    ⇒ 判据：**解析后恰为午夜 00:00:00 也按"只到天"处理**（同一天不算倒置）。
+    """
+    _write(tmp_path, [_rec(1, asked="2018-06-26 11:10:17",
+                           answered="2018-06-26 00:00:00")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0, "同一天、答复是午夜整点，不算倒置"
+
+
+def test_midnight_answered_at_across_days_IS_inverted(tmp_path):
+    """**反向用例**：午夜整点但**跨天更早** ⇒ 仍判倒置。
+
+    （这正是为什么修完只降 337 而不是 666：666 里有一部分是跨天的，必须留着。）
+    """
+    _write(tmp_path, [_rec(1, asked="2018-06-26 11:10:17",
+                           answered="2018-06-20 00:00:00")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 1, "答复早 6 天，必须判倒置"
+
+
+def test_non_midnight_same_day_hours_earlier_is_inverted(tmp_path):
+    """**反向用例**：同一天但答复**不是**午夜（真实时刻）⇒ 仍判倒置。"""
+    _write(tmp_path, [_rec(1, asked="2016-08-03 07:26:08",
+                           answered="2016-08-03 04:04:19")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 1, "同一天但早 3 小时（非午夜），仍判倒置"
+
+
 def test_missing_dates_are_not_counted_as_inverted(tmp_path):
     """缺字段**不算**倒置 —— 否则「没数据」会被误报成「数据错」。"""
     _write(tmp_path, [
