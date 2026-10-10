@@ -89,3 +89,8 @@ stdscan/
 
 # 项目级 agent 配置（Stop hook 等）
 /.codebuddy/
+
+# gov-qa 轮询：**锁文件不入库，水位入库存**（spec 004 T001，2026-10-10 补做）。
+# 锁是运行态、含持有者 pid，入库会让每次 poll 都制造一个假冲突。
+# 实测现场就残留过一把死锁（pid 31704 已不存在），挡掉后续 poll。
+tools/gov-qa/state/.poll.lock
