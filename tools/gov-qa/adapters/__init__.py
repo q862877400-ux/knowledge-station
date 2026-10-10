@@ -494,6 +494,13 @@ ADAPTERS: dict[str, str] = {
     #    详情 `/InFeedback/show/<id>.html`，两个 `message_con` 块（留言 / 回复）。
     #    实测 pagecount=13 total=128。
     "cz-hdjl": "adapters.cz_hdjl",     # 池州市·市长信箱·留言选登
+    # —— 安徽第 3 个市级源（2026-10-10，spec 005 T601）：
+    #    亳州 `/InFeedback/showList/1/page_N.html` **服务端渲染**（N 从 1 起，每页 12 条）。
+    #    ★★ **首页含登录入口，但本入口完全公开** —— 上一轮侦察把亳州标成
+    #    「首页即登录页」差点错过。⇒ **判"登录页"要看目标入口，不能只看首页。**
+    #    详情是**表格式**（`u-tit` 字段名 + 紧邻的 `u-item`/`u-desc` 值）。
+    #    实测 pagecount=14 total=163。
+    "bz-hdjl": "adapters.bz_hdjl",     # 亳州市·政民互动·信件选登
 }
 
 #: 用户要能直接 `from adapters import load`
