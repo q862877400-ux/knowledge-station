@@ -130,14 +130,30 @@ for (const f of files) {
 
 const declSrc = await readFile(join(clientDir, DECL_FILE), 'utf8')
 const declared = new Set()
-/* ⚠⚠ **只认真正的 `export const IconXxx` 声明行**（2026-10-10 修，留痕）：
+/* ⚠⚠ **只认真正的声明行，不认注释里的名字**（2026-10-10 修，留痕）：
  *   第一版扫的是"文件里出现的所有 `IconXxx` 字样" ⇒ 把**注释里提到的名字**
  *   （如"删掉 IconQueueOutlineRegular 的调用点"这种留痕句）也算成"声明了" ⇒
  *   报出 12 条**并不存在**的死声明（假红）。
- *   ⇒ 改成只匹配 `export const <名字>`，注释里的名字不再计入。
- *   ⚠ 这不是"放宽判据"：真正的声明**一个都没漏**（真声明行必然是 `export const`），
- *     而被排除的是**注释**，它本来就不构成声明。 */
+ *   ⇒ 改成只匹配声明形态，注释里的名字不再计入。
+ *   ⚠ 这不是"放宽判据"：真正的声明一个都没漏，被排除的是**注释**，它不构成声明。
+ *
+ * ⚠⚠ **2026-10-10 第二轮（我自己的独立复核发现的漏洞，留痕）**：
+ *   只认 `export const IconXxx` **会漏掉别名导出** —— 实测
+ *   `export { Button as IconFakeAliasOutlineRegular }` 能让判据**绿**（exit 0），
+ *   而那个名字**并没有真的作为一个图标被声明**（它是 Button 的别名）⇒ 假绿。
+ *   ⇒ 两种声明形态都认：
+ *     ① `export const IconXxx…`
+ *     ② `export { … as IconXxx … }`（别名导出，逐个抠出 `as` 后面的名字）
+ *   ⚠ 反过来也**不许**把 `export { IconXxx }`（无 as）算成"新名字"——
+ *     那只是转出，名字在别处声明；这里只收 `as` 后面的目标名。
+ */
 for (const m of declSrc.matchAll(/^\s*export\s+const\s+(Icon[A-Za-z0-9]+)\b/gm)) declared.add(m[1])
+for (const m of declSrc.matchAll(/^\s*export\s*\{([^}]*)\}/gm)) {
+  for (const part of m[1].split(',')) {
+    const as = /\bas\s+(Icon[A-Za-z0-9]+)\s*$/.exec(part.trim())
+    if (as !== null) declared.add(as[1])
+  }
+}
 
 /* ⚠ `IconProps` 是**类型**不是图标 —— 从两边的集合里排除（否则它会永远算"声明了没人用"）。 */
 used.delete('IconProps')
