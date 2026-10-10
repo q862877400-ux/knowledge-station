@@ -148,7 +148,7 @@ export function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: st
       return (
         <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-state-warn-primary)' }}>
           ⚠ <strong>引用锚点需复算</strong>：{why}
-          <br />（需复算**不代表已经坏了**。）点「复算锚点」用当前解析器重算比对。
+          <br />（需复算<strong>不代表已经坏了</strong>。）点「复算锚点」用当前解析器重算比对。
         </p>
       )
     case 'unknown':
@@ -403,7 +403,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       if (err instanceof Error && err.name === 'AbortError') return
       setInbox({ dir: '', files: [] })
       setError(`收件箱读取失败：${err instanceof Error ? err.message : String(err)}`
-        + '（下面的"未登记"计数不可信——不是"没有文件"，是**没读到**）')
+        + '（下面的"未登记"计数不可信——不是"没有文件"，是没读到）')
     }
   }, [])
 
@@ -873,8 +873,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           代价是没选项目时它描述的下拉还没上屏；宁可多说一句，也不静默降级。 */}
       {tierListFailed && (
         <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
-          ⚠ 来源层级清单（T0–T4）**没读到**：材料表里每份材料的「轴 A 来源可信度」下拉会只剩当前值、
-          <strong>改不了级</strong>。这**不代表**材料没有层级，是这份清单没取到——
+          ⚠ 来源层级清单（T0–T4）<strong>没读到</strong>：材料表里每份材料的「轴 A 来源可信度」下拉会只剩当前值、
+          <strong>改不了级</strong>。这<strong>不代表</strong>材料没有层级，是这份清单没取到——
           重开面板或重启引擎后再试。
         </p>
       )}
@@ -1158,7 +1158,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                   {(draft.warnings ?? []).length > 0 && (
                     <p style={{ margin: '4px 0 0', fontSize: 12,
                       color: 'var(--dsw-alias-state-warn-primary)' }}>
-                      ⚠ 起草提示（引用不成立 / 材料不足 / 模型输出问题，**原样列出、不静默改草稿**）：
+                      ⚠ 起草提示（引用不成立 / 材料不足 / 模型输出问题，<strong>原样列出、不静默改草稿</strong>）：
                       <br />{(draft.warnings ?? []).join('；')}
                     </p>
                   )}
@@ -1168,7 +1168,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                     <div style={{ marginTop: 4 }}>
                       <p style={{ margin: '0 0 4px', fontSize: 12,
                         color: 'var(--dsw-alias-state-warn-primary)' }}>
-                        ⚠ 结论框里已有内容（可能是你自己写的）——填草稿会**覆盖**它，且**不能撤销**。
+                        ⚠ 结论框里已有内容（可能是你自己写的）——填草稿会<strong>覆盖</strong>它，且<strong>不能撤销</strong>。
                         确认要覆盖吗？
                       </p>
                       <button
@@ -1218,7 +1218,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           )}
           {report !== null && (report.warnings ?? []).length > 0 && (
             <p role="status" style={{ margin: '6px 0 0', color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
-              ⚠ 引用警告（这些引用**不成立**或无法核验，报告里也照原样列出了）：
+              ⚠ 引用警告（这些引用<strong>不成立</strong>或无法核验，报告里也照原样列出了）：
               <br />
               {(report.warnings ?? []).join('；')}
             </p>
@@ -1401,7 +1401,7 @@ function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element 
         </p>
       )}
       <p style={{ margin: '4px 0 0', color: GRAY, fontSize: 11 }}>
-        非网页形态的产物（如 xlsx）浏览器渲染不了：上面给的是**下载一份**（本机原件仍在保存目录里）。
+        非网页形态的产物（如 xlsx）浏览器渲染不了：上面给的是<strong>下载一份</strong>（本机原件仍在保存目录里）。
         「用系统默认程序一键打开」需要在宿主侧加路由（要重启宿主），本轮未做。
       </p>
     </div>

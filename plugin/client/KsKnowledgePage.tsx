@@ -2668,7 +2668,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                     {p.is_empty ? null : (
                       <span className="ks-act-item-path">
                         整棵子树：{String(p.subtree_folder_count)} 个目录 / {String(p.subtree_file_count)} 篇文件；
-                        连文件一起删时，其中 {String(p.files_would_be_deleted)} 篇会**真的删掉**，
+                        连文件一起删时，其中 {String(p.files_would_be_deleted)} 篇会<strong>真的删掉</strong>，
                         {String(p.files_kept_elsewhere)} 篇还挂在别处（只丢这里的归属）；
                         {p.reparent_available
                           ? '移到上一层：里面的东西原样上去。'
@@ -2685,7 +2685,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 </span>
               ) : null}
               <span className="ks-act-hint">
-                删目录**不是**删文档：只有"在所有目录里都不再出现"的文件才会被真删。
+                删目录<strong>不是</strong>删文档：只有"在所有目录里都不再出现"的文件才会被真删。
               </span>
               <div className="ks-act-row">
                 <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
@@ -3374,8 +3374,8 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 {/* 发起**之后**如实说这次到底在什么范围里检索的（引擎回显，不是前端自己写的）。 */}
                 {askRes.scope === null ? (
                   <div className="ks-ask-msg ks-ask-msg-bad">
-                    注意：这次带了范围（{askScope.label}），可引擎回显说**没有限定范围** ——
-                    这份答案可能来自整个知识库，**不要**当成范围内检索的结果。
+                    注意：这次带了范围（{askScope.label}），可引擎回显说<strong>没有限定范围</strong> ——
+                    这份答案可能来自整个知识库，<strong>不要</strong>当成范围内检索的结果。
                   </div>
                 ) : (
                   <div className="ks-ask-echo">

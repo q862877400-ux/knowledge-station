@@ -38043,7 +38043,9 @@ function AnchorMark(props) {
         "\uFF1A",
         why,
         /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-        "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
+        "\uFF08\u9700\u590D\u7B97",
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86" }),
+        "\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
       ] });
     case "unknown":
       return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY2 }, children: [
@@ -38180,7 +38182,7 @@ function KsMaterialsPanel(props) {
     } catch (err) {
       if (err instanceof Error && err.name === "AbortError") return;
       setInbox({ dir: "", files: [] });
-      setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
+      setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F\u6CA1\u8BFB\u5230\uFF09`);
     }
   }, []);
   (0, import_react9.useEffect)(() => {
@@ -38571,9 +38573,13 @@ function KsMaterialsPanel(props) {
     loading && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY2 }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
     /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(AnchorNoteLine, { note: anchorNote }),
     tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
-      "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
+      "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09",
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6CA1\u8BFB\u5230" }),
+      "\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
       /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
-      "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
+      "\u3002\u8FD9",
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
+      "\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
     ] }),
     projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY2 }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
     projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY2 }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF08\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u5C31\u4F4D\u5373\u53EF\u7528\uFF09\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u81EA\u91C7\u7684\u8981\u4F60\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
@@ -38860,16 +38866,24 @@ function KsMaterialsPanel(props) {
                 fontSize: 12,
                 color: "var(--dsw-alias-state-warn-primary)"
               }, children: [
-                "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
+                "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C",
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F" }),
+                "\uFF09\uFF1A",
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
                 (draft.warnings ?? []).join("\uFF1B")
               ] }),
               flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 4 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: {
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: {
                   margin: "0 0 4px",
                   fontSize: 12,
                   color: "var(--dsw-alias-state-warn-primary)"
-                }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
+                }, children: [
+                  "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A",
+                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u8986\u76D6" }),
+                  "\u5B83\uFF0C\u4E14",
+                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u80FD\u64A4\u9500" }),
+                  "\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F"
+                ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
                   "button",
                   {
@@ -38917,7 +38931,9 @@ function KsMaterialsPanel(props) {
         report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
       ] }),
       report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
-        "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
+        "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528",
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u6210\u7ACB" }),
+        "\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
         /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
         (report.warnings ?? []).join("\uFF1B")
       ] }),
@@ -39060,7 +39076,11 @@ function Deliverables(props) {
       "\u6253\u5F00\u5931\u8D25\uFF1A",
       error
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "4px 0 0", color: GRAY2, fontSize: 11 }, children: "\u975E\u7F51\u9875\u5F62\u6001\u7684\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", color: GRAY2, fontSize: 11 }, children: [
+      "\u975E\u7F51\u9875\u5F62\u6001\u7684\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F",
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0B\u8F7D\u4E00\u4EFD" }),
+      "\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002"
+    ] })
   ] });
 }
 
@@ -40798,7 +40818,9 @@ function KsKnowledgePage({ useTabInfo }) {
               String(p.subtree_file_count),
               " \u7BC7\u6587\u4EF6\uFF1B \u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\u65F6\uFF0C\u5176\u4E2D ",
               String(p.files_would_be_deleted),
-              " \u7BC7\u4F1A**\u771F\u7684\u5220\u6389**\uFF0C",
+              " \u7BC7\u4F1A",
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u771F\u7684\u5220\u6389" }),
+              "\uFF0C",
               String(p.files_kept_elsewhere),
               " \u7BC7\u8FD8\u6302\u5728\u522B\u5904\uFF08\u53EA\u4E22\u8FD9\u91CC\u7684\u5F52\u5C5E\uFF09\uFF1B",
               p.reparent_available ? "\u79FB\u5230\u4E0A\u4E00\u5C42\uFF1A\u91CC\u9762\u7684\u4E1C\u897F\u539F\u6837\u4E0A\u53BB\u3002" : "\u26A0 \u8FD9\u662F\u4E00\u7EA7\u76EE\u5F55\uFF0C\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF08\u53EA\u80FD\u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\uFF0C\u6216\u53D6\u6D88\uFF09\u3002"
@@ -40809,7 +40831,11 @@ function KsKnowledgePage({ useTabInfo }) {
             folderIdsOf(action.targets).length - delPreview.length,
             " \u4E2A\u76EE\u5F55\u7684\u5F71\u54CD\u6CA1\u8BFB\u5230 \uFF08\u4E0A\u9762\u90A3\u6761\u6D88\u606F\u91CC\u5199\u4E86\u539F\u8BDD\uFF09\u2014\u2014 \u5B83\u4EEC\u4E0D\u4F1A\u88AB\u5220\u3002"
           ] }) : null,
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: '\u5220\u76EE\u5F55**\u4E0D\u662F**\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002' }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-hint", children: [
+            "\u5220\u76EE\u5F55",
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u4E0D\u662F" }),
+            '\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002'
+          ] }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
             /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
               setAction(null);
@@ -41457,7 +41483,11 @@ function KsKnowledgePage({ useTabInfo }) {
         askRes.scope === null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-msg ks-ask-msg-bad", children: [
           "\u6CE8\u610F\uFF1A\u8FD9\u6B21\u5E26\u4E86\u8303\u56F4\uFF08",
           askScope.label,
-          "\uFF09\uFF0C\u53EF\u5F15\u64CE\u56DE\u663E\u8BF4**\u6CA1\u6709\u9650\u5B9A\u8303\u56F4** \u2014\u2014 \u8FD9\u4EFD\u7B54\u6848\u53EF\u80FD\u6765\u81EA\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C**\u4E0D\u8981**\u5F53\u6210\u8303\u56F4\u5185\u68C0\u7D22\u7684\u7ED3\u679C\u3002"
+          "\uFF09\uFF0C\u53EF\u5F15\u64CE\u56DE\u663E\u8BF4",
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u6CA1\u6709\u9650\u5B9A\u8303\u56F4" }),
+          " \u2014\u2014 \u8FD9\u4EFD\u7B54\u6848\u53EF\u80FD\u6765\u81EA\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C",
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u4E0D\u8981" }),
+          "\u5F53\u6210\u8303\u56F4\u5185\u68C0\u7D22\u7684\u7ED3\u679C\u3002"
         ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-echo", children: [
           "\u5F15\u64CE\u56DE\u663E\uFF1A\u8FD9\u6B21\u5B9E\u9645\u8303\u56F4 = ",
           String(askRes.scope.folder_count),
