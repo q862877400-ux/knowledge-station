@@ -458,6 +458,12 @@ ADAPTERS: dict[str, str] = {
     #    不证明这些市没有别的平台。实测商丘门户服务端渲染，
     #    来信总数 10,462 / 已办理 10,441，抽 10 条详情**答复全部非空**。
     "sq-szxx": "adapters.sq_szxx",     # 商丘市·市长信箱（letterList 表 + /petition/<id>）
+    # —— 河南第 2 个市级源（2026-10-10，spec 005 T601）：
+    #    安阳首页**直接暴露** `page.anyang.gov.cn/zwfw/leader-mail/list`
+    #    （POST size/page/systemType，响应自带问答全文）。
+    #    实测 totalRow 合计 2,509（连线政府 338 / 市长电话 1620 / 市长信箱 551），
+    #    抽 120 条**空答复 0**。
+    "ay-zmhd": "adapters.ay_zmhd",     # 安阳市·政民互动（leader-mail，三类聚合）
 }
 
 #: 用户要能直接 `from adapters import load`

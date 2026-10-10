@@ -130,7 +130,16 @@ def main() -> int:
         for k in keys:
             mod = adapters.load(k)
             site = mod.SITE
-            out_path = DATA / f"{site['key']}-{site['name']}.jsonl"
+            # ⚠⚠ **站名必须先去非法文件名字符**（2026-10-10 修，实测踩到）。
+            #   原样拼 `f"{key}-{name}.jsonl"`，而 `ay-zmhd` 的站名是
+            #   `安阳市·政民互动（市长信箱/连线政府/市长电话）` —— 里面有个 `/`
+            #   ⇒ 路径被当成**多一层目录** ⇒ `FileNotFoundError`，
+            #   整个采集**跑完全程却一条没落盘**（日志看起来像"采集完了"）。
+            #   `poll.py::data_path_for` **本来就做了这个过滤**，
+            #   两处命名规则必须一致（否则增量轮询与首采会写进不同文件）。
+            safe = "".join(ch for ch in str(site["name"])
+                           if ch not in '\\/:*?"<>|').strip() or site["key"]
+            out_path = DATA / f"{site['key']}-{safe}.jsonl"
             done = _load_done(out_path)
             print(f"\n[{site['key']}] {site['name']} → {out_path.name}"
                   f"（已有 {len(done)} 条）", flush=True)
