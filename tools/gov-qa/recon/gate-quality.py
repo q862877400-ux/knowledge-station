@@ -103,6 +103,19 @@ _RATCHET_EPS = 0.05
 #: ⇒ 现在**先解析成 datetime 再比**，并容忍同一分钟内的截断差异（60 秒）。
 _TIME_TOLERANCE_SEC = 60
 
+#: ⚠⚠ **`answered_at` 是纯日期时的比较精度（2026-10-10 第三次修，同一判据）**。
+#:
+#: 第二次修完后还剩 1,517 条"倒置"。逐条**分类**后发现 **329 条（21.7%）** 是
+#: **格式假阳性**：
+#:   `asked_at = '2025-05-27 13:57:05'` vs `answered_at = '2025-05-27'`（**同一天**）
+#: 解析后 `answered_at` 落在**当天 00:00**，永远早于当天的 13:57
+#: ⇒ 被判"倒置"，**但它们是同一天**，真实语义是"答复日期 = 提问日期"。
+#:
+#: ⇒ 判据：**若 `answered_at` 只精确到天，就只比到天**（同一天不算倒置）。
+#: 这不是放宽 —— 是**把判据的精度对齐到数据的精度**。
+#: 精度不对齐的判据会把"格式差异"报成"数据错误"（本批已第 3 次同类教训）。
+_DATE_ONLY = re.compile(r"^\d{4}[-/年]\d{1,2}[-/月]\d{1,2}日?\s*$")
+
 #: 标签只认这个键 —— 与 `health.py` 同口径。
 #: ⚠ 旧闸门用的是 `label-coverage.py` 的**宽口径**（回落到原始脏 `msg_type`），
 #:   两者实测差 3,025 条 / 0.8pt（100.0 vs 99.2）。**本脚本以窄口径为准。**
@@ -236,7 +249,14 @@ def collect() -> dict:
         # ---- 判据 3：时间倒置（**必须解析后比，不能裸比字符串**）----
         pa, pb = parse_time(r.get("asked_at")), parse_time(r.get("answered_at"))
         if pa is not None and pb is not None:
-            if (pa - pb).total_seconds() > _TIME_TOLERANCE_SEC:
+            # ⚠ `answered_at` 只精确到天 ⇒ **只比到天**（见 `_DATE_ONLY` 的文档）：
+            #   否则"同一天但答复在午夜"会被误判成倒置。
+            ans_raw = str(r.get("answered_at") or "").strip()
+            if _DATE_ONLY.match(ans_raw):
+                inverted_flag = pa.date() > pb.date()
+            else:
+                inverted_flag = (pa - pb).total_seconds() > _TIME_TOLERANCE_SEC
+            if inverted_flag:
                 inverted += 1
                 inv_sources[src] += 1
         elif r.get("asked_at") and r.get("answered_at"):

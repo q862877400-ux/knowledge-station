@@ -154,6 +154,45 @@ def test_time_inversion_is_detected(tmp_path):
     assert s["inverted"] == 1, f"应数出 1 条倒置，实际 {s['inverted']}"
 
 
+def test_date_only_answered_at_same_day_is_not_inverted(tmp_path):
+    """**同一天、`answered_at` 只精确到天 ⇒ 不算倒置**（2026-10-10 第 3 次修）。
+
+    实测 1,517 条"倒置"里 **329 条（21.7%）** 是这种：
+    `asked_at='2025-05-27 13:57:05'` vs `answered_at='2025-05-27'`（**同一天**）。
+    解析后 `answered_at` 落在当天 00:00，永远早于 13:57 ⇒ 被判倒置，
+    但**它们是同一天**。
+
+    ⇒ 判据：**`answered_at` 只精确到天就只比到天**。
+    谁改回"一律比到秒"，本用例必红。
+    """
+    _write(tmp_path, [_rec(1, asked="2025-05-27 13:57:05", answered="2025-05-27")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0, "同一天、答复只精确到天，不算倒置"
+
+
+def test_date_only_answered_at_across_days_IS_inverted(tmp_path):
+    """**反向用例**：`answered_at` 是纯日期但**跨天更早** ⇒ 仍须判倒置。
+
+    （不能因为"只比到天"就把真倒置也放过。）
+    """
+    _write(tmp_path, [_rec(1, asked="2025-05-27 13:57:05", answered="2025-05-20")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 1, "答复日期早于提问日期 7 天，必须判倒置"
+
+
+def test_full_timestamp_same_day_hours_earlier_is_inverted(tmp_path):
+    """**反向用例**：两个都是完整时间戳、答复早几小时 ⇒ 仍判倒置。
+
+    （"只比到天"的放宽**只**适用于 `answered_at` 是纯日期的情况。）
+    """
+    _write(tmp_path, [_rec(1, asked="2016-08-03 07:26:08", answered="2016-08-03 04:04:19")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 1, "完整时间戳早 3 小时，应判倒置"
+
+
 def test_missing_dates_are_not_counted_as_inverted(tmp_path):
     """缺字段**不算**倒置 —— 否则「没数据」会被误报成「数据错」。"""
     _write(tmp_path, [
