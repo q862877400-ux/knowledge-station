@@ -194,18 +194,60 @@ $.ajax({ url: 'https://page.anyang.gov.cn/zwfw/leader-mail/list',
 
 ⇒ **看到 `api` 不能就以为能采。**
 
-## 河南已打通的 3 个市（小结）
+## ★ 周口市·咨询受理 —— **已打通**（`zk-zxsq`，河南第 4 个可采市级源）
+
+### 站点结构（每一步都是抄来的）
+
+1. 列表页 `/front/mailbox/mailboxs?siteId=…&category=1` 是**壳**（10KB，
+   正文只有 `var siteId`）⇒ 列表由 JS 拉
+2. 抓 `sitesources/zksrmzf/jsp/common/mailbox/mailboxList.js`：
+   ```js
+   $.ajax({ type:'post', url: basePath+'/front/mailbox/tableData',
+            data:{ loadMailboxsDataToken:…, category:1, title:'',
+                   starttime:'', endtime:'', siteId:siteId,
+                   type:1, state:2, open:1, offset:offset, limit:limit } })
+   ```
+3. 详情 URL 从同文件 `getHtml(result)` 抄到：
+   `/front/mailbox/mailbox?id=<id>&siteId=<sid>`
+
+### ⚠⚠ 两个坑
+
+**① 必须带 CSRF token，且 `value` 在 `id` 之前**
+
+```html
+<input type="hidden" value="e6e53…" id="loadMailboxsDataToken">
+```
+
+我第一版正则按 `id` 在前写 ⇒ 抠到空串 ⇒ 接口返回 `{"rows":[],"total":-1}`
+—— **看起来像"这个站没有数据"**。（修正后 `total=91`。）
+
+**② 窄正则吃不掉 HTML 注释**（真缺陷，已修 4 个适配器）
+
+本模块有两套剥标签正则：
+
+| 变体 | 正则 | 中文尖括号 | HTML 注释 |
+|---|---|---|---|
+| 宽 | `<[^>]+>` | **会误吃** `《出生证明》` | 能剥 |
+| 窄 | `</?[A-Za-z][^>]*>` | 保留 ✅ | **漏剥** ❌ |
+
+⇒ 在剥标签**之前**先剥注释。已同步修 `zk_zxsq` / `ay_zmhd` / `jz_zxhf` / `sq_szxx`。
+
+### 落盘
+
+**91 条，0 空答复**，与站点 `total=91` **精确吻合**。
+
+## 河南已打通的 4 个市
 
 | 市 | 适配器 | 落盘 | 站点形态 |
 |---|---|---|---|
 | 商丘市 | `sq-szxx` | 26 | 服务端渲染表 + 详情页 |
 | 安阳市 | `ay-zmhd` | **2,509** | POST JSON 接口（**自带问答全文**）|
 | 焦作市 | `jz-zxhf` | 34 | 服务端渲染列表 + 详情页 |
+| 周口市 | `zk-zxsq` | 91 | POST JSON（**需 CSRF token**）+ 详情页 |
 
-## 其余 15 个市的下一步（未做）
+## 其余 14 个市的下一步（未做）
 
-1. **周口 / 开封**：也暴露了带 `api` 的 URL（`/front/mailbox/...`、
-   `szzx.kaifeng.gov.cn`），**但按焦作/安阳的经验，先验证是不是登录页**。
+1. **开封**：`/kfsrmzfwz/hdjl/pc/list.html` **非登录页**（129KB），**未深挖** —— 下一步。
 2. **许昌市**：本机 **ConnectTimeout**，未验。
 3. **不要**再按"河南 10 市判死"处理 —— 那条只对 IGI 成立。
 
