@@ -464,6 +464,11 @@ ADAPTERS: dict[str, str] = {
     #    实测 totalRow 合计 2,509（连线政府 338 / 市长电话 1620 / 市长信箱 551），
     #    抽 120 条**空答复 0**。
     "ay-zmhd": "adapters.ay_zmhd",     # 安阳市·政民互动（leader-mail，三类聚合）
+    # —— 河南第 3 个市级源（2026-10-10，spec 005 T601）：
+    #    焦作 `/zmhd/zxhf/` **服务端渲染**，分页 `index.html` / `index_N.html`
+    #    （页号从 0 起，从 `paging.js` 的 `goto` 抄到）。实测 34 条（2 页）。
+    #    ⚠ 它的 `consultview/api/...` 是**登录页**（与安阳同形）⇒ 不可采。
+    "jz-zxhf": "adapters.jz_zxhf",     # 焦作市·政民互动·咨询回复
 }
 
 #: 用户要能直接 `from adapters import load`
