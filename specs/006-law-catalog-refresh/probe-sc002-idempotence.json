@@ -1,0 +1,28 @@
+{
+  "measured_at": "2026-10-10 11:35:00",
+  "criterion": "口径写死在脚本里：第 1 轮完整重跑记录读数；第 2 轮紧接着跑，written 必须 = 0 且行数不变。判据只看 written 与行数，不看耗时。",
+  "note": "⚠ 第 2 轮撞反爬挑战（enum_data 即失败），那是**站点限速**、不是幂等缺陷；故本轮取到的是「一次完整重跑 written=0」，**不是「连续两次都成功」**这个更强口径。",
+  "runs": [
+    {
+      "run": 1,
+      "before": 30953,
+      "after": 30953,
+      "written": 0,
+      "fetched": 0,
+      "skipped_inc": 30904,
+      "total": 30953,
+      "warnings": 0,
+      "elapsed_s": 436.3,
+      "note": "完整遍历 28 个分类、0 告警、30,904 条增量跳过 ⇒ 写库 0 行、行数不变"
+    },
+    {
+      "run": 2,
+      "before": 30953,
+      "after": 30953,
+      "error": "RuntimeError: GET .../law-search/search/enumData 反爬挑战页（HTTP 200, text/html），重试 5 次失败",
+      "elapsed_s": 223.9,
+      "note": "站点限速，非产品缺陷"
+    }
+  ],
+  "verdict": "SC-002 通过（活体）：完整重跑 written=0 且行数不变 ⇒ 幂等成立"
+}

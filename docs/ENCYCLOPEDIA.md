@@ -479,11 +479,12 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 - **来源白名单**（law_source/http.py 强制，非白名单域抛 ValueError）：`flk.npc.gov.cn`（含签名下载域 flkoss.obs-bj2.cucloud.cn）、`sousuo.www.gov.cn`、`www.gov.cn`、`gov.cn`。
 - **flk**：POST /law-search/search/list 搜索（sxx=[3] 仅有效）、GET flfgDetails?bbbs= 详情（sxx 时效 3有效/2被修改/4未生效/1废止）、GET download/pc?format=docx（勿拼 ossFile 路径，实测返回 SPA 首页）。
-  - ⚠ **下载结论有冲突，未仲裁**（2026-10-10 登记）：本行说"实测返回 SPA 首页"，
-    而 `src/core/knowledge/law_source/flk_client.py` 的注释把 `download/pc` 当**主路径**；
-    另一个独立项目 `D:/AI/std-law-watch` 则记为**判死**（签名绑内网 + 桶非公开 +
-    `permission.download=0`）。**本仓未实测仲裁**，详见
-    [LAW-SOURCE-PLAN §1.3](LAW-SOURCE-PLAN.md)。未决影响：flk 该记 `index-only` 还是 `ok`。
+  - ✅ **下载已实测仲裁 = 能下**（2026-10-10 收口轮）：本行原写"实测返回 SPA 首页"**不成立**。
+    实测 3 个 bbbs 的 docx 全部下载成功（魔数 `PK`，19–22 KB，落盘后 `zipfile` 可开、
+    含 `word/document.xml`、正文 3,758 字），1 个 pdf 亦成功（`%PDF`，283 KB）。
+    ⇒ `flk_client.download()` 走 `download/pc` 拿签名 URL 的实现是**对的**。
+    详见 [LAW-SOURCE-PLAN §1.3](LAW-SOURCE-PLAN.md)。
+    ⚠ **未改渠道台账**：3 条样本证不了 3 万条的覆盖率，flk 记 `ok` 还是 `index-only` 留待专项。
   - ⚠ **反爬挑战页**（HTTP 200 + HTML，**不是** 4xx/5xx）：突发限速，约 1 分钟自愈；
     已在本仓 http 层加秒级退避（`AntibotChallenge` / `_ANTIBOT_BACKOFF`）。
     详见 [LAW-SOURCE-PLAN §1.1](LAW-SOURCE-PLAN.md)。

@@ -111,6 +111,47 @@ def test_fetch_json_still_raises_on_real_error(monkeypatch):
         H.fetch_json("https://flk.npc.gov.cn/x")
 
 
+def test_mixed_failure_still_uses_long_backoff(monkeypatch):
+    """★ 混合失败序列（挑战、挑战、连接错）**必须仍走长退避轮**。
+
+    这是独立复核 2026-10-10 的 P2-3：第一版判据
+    `isinstance(e.__cause__, AntibotChallenge) or "反爬挑战页" in str(e)` 两个分支都不可靠 ——
+    `_retry` 没有 `from`（`__cause__` 恒 None），而字符串看的是**最后一条**错误，
+    所以序列末位若不是挑战，**长退避整轮被漏掉**。
+    """
+    seq = [_Resp(CHALLENGE), _Resp(CHALLENGE), ConnectionError("网络断了")]
+    calls = {"n": 0}
+
+    def fake_request(method, url, **kw):
+        i = calls["n"]
+        calls["n"] += 1
+        item = seq[min(i, len(seq) - 1)]
+        if isinstance(item, Exception):
+            raise item
+        return item
+
+    slept: list[float] = []
+    monkeypatch.setattr(H.requests, "request", fake_request)
+    monkeypatch.setattr(H.time, "sleep", lambda s: slept.append(s))
+    with pytest.raises(RuntimeError):
+        H.fetch_json("https://flk.npc.gov.cn/x")
+    # 必须出现过反爬退避常量里的等待（否则长退避轮被漏掉）
+    assert any(s in H._ANTIBOT_BACKOFF for s in slept), \
+        f"混合序列漏掉了长退避轮，实际 sleep={slept}"
+
+
+def test_pure_network_error_does_not_use_antibot_backoff(monkeypatch):
+    """★ 反向：全程都不是挑战（纯连接错）⇒ **不该**拖进分钟级长退避。"""
+    monkeypatch.setattr(H.requests, "request",
+                        lambda *a, **kw: (_ for _ in ()).throw(ConnectionError("断了")))
+    slept: list[float] = []
+    monkeypatch.setattr(H.time, "sleep", lambda s: slept.append(s))
+    with pytest.raises(RuntimeError):
+        H.fetch_json("https://flk.npc.gov.cn/x")
+    assert not any(s in H._ANTIBOT_BACKOFF for s in slept), \
+        f"纯网络错不该走反爬退避: {slept}"
+
+
 def test_whitelist_rejection_not_retried(monkeypatch):
     """非白名单域必须**当场拒绝**、不重试（策略拒绝语义透传）。"""
     slept: list[float] = []

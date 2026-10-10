@@ -105,20 +105,58 @@
 **另外两条本仓已用上的**（同源发现，本仓已实现）：
 `sxx` 时效枚举（1废止/2已修改/3有效/4尚未生效）、`lsyg` 历史沿革（历次版本链）。
 
-### 1.3 ⚠ 结论冲突：flk 全文到底能不能下（**未实测仲裁**）
+### 1.3 ★ flk 全文下载：**已实测仲裁 = 能下**（2026-10-10 收口轮）
 
-**两个来源给出相反结论，本仓不单方面采信任一方**：
+**⚠ 三个来源曾给出互相矛盾的结论，本节把仲裁结果定下来。**
 
-| 出处 | 结论 |
+| 出处 | 原结论 |
 |---|---|
-| **本仓** `src/core/knowledge/law_source/flk_client.py` 注释 | 「签名下载 URL（**主路径**，勿拼 ossFile）」 |
-| **本仓** `docs/ENCYCLOPEDIA.md` | 「GET download/pc?format=docx（勿拼 ossFile 路径，**实测返回 SPA 首页**）」 |
-| **`std-law-watch` §6.7**（记为「有证据的判死」） | `ofdGenerateLink` 签名**绑内网主机** `flkoss.obs-bj2-internal.cucloud.cn`（换公网域 ⇒ 403 SignatureDoesNotMatch）；OBS 桶直连 ⇒ 403 AccessDenied；`download/pc?bbbs=` ⇒ 系统异常；`permission` 字段写着 **`download:0, print:0`** ⇒ 站点刻意禁下载 |
+| 本仓 `flk_client.py` 注释 | 「签名下载 URL（**主路径**，勿拼 ossFile）」 |
+| 本仓 `docs/ENCYCLOPEDIA.md` | 「实测返回 SPA 首页」 |
+| `std-law-watch` §6.7 | 「**有证据的判死**」：签名绑内网 + 桶非公开 + `permission.download=0` |
 
-⇒ **本仓内部这两句本身就不一致**（一句说"主路径"、一句说"实测返回 SPA 首页"）。
-**本特性未实测仲裁**（spec 006 FR-011）。
-**未决影响**：flk 在渠道台账里该记 `index-only`（仅目录）还是 `ok`（全文可下）。
-**要仲裁就得真跑一次 `download/pc` 并检查产物魔数**——留待专项，本轮不动。
+#### 实测（判据写在脚本 docstring，跑前定死）
+
+**判据**：能下 = 响应体魔数是 docx（`PK\x03\x04`）或 pdf（`%PDF`）且体积 > 10KB；
+再把 docx 真存盘，验证它是**可打开的 OOXML**（`zipfile` 能开 + 含 `[Content_Types].xml`
++ 含 `word/document.xml` + 能抽出中文正文 > 200 字）。
+
+**读数**（`probe-download-pc.json` / `probe-download-verify.json`）：
+
+| bbbs | format | `download/pc` | 下载 | 魔数 | 体积 | 判定 |
+|---|---|---|---|---|---|---|
+| 包头市水资源管理条例（2024 版） | docx | `code:200` 成功 | 200 | `504b0304` | 19,715 B | **DOCX_OK** |
+| 同上 | pdf | `code:200` **无 url** | — | — | — | 无官方 PDF（按设计回退 docx） |
+| 包头市水资源管理条例（2026 版） | docx | `code:200` 成功 | 200 | `504b0304` | 19,165 B | **DOCX_OK** |
+| 同上 | pdf | `code:200` **无 url** | — | — | — | 无官方 PDF |
+| 绍兴市大气污染防治条例（2026 版） | docx | `code:200` 成功 | 200 | `504b0304` | 21,756 B | **DOCX_OK** |
+| 同上 | pdf | `code:200` 成功 | 200 | `25504446`(`%PDF`) | 283,626 B | **PDF_OK** |
+
+**docx 真实性深验**（落盘 `var/tmp/flk-dl-check/sample.docx`，19,715 B）：
+
+```
+is_zip=True   has_content_types=True   has_document_xml=True
+entries=18    text_len=3758（可读中文正文）
+```
+
+#### ⇒ 仲裁结论
+
+**flk 全文能下。** 路径是 `GET /law-search/download/pc?format=docx|pdf&bbbs=`
+→ 拿 `data.url`（签名 OSS，host `flkoss.obs-bj2.cucloud.cn`）→ 直接下载。
+本仓 `flk_client.download()` 的实现（走 `download/pc` 拿签名 URL）**是对的**；
+`ENCYCLOPEDIA.md` 那句「实测返回 SPA 首页」**不成立**。
+
+**⚠ 仍未解释的部分（不装作已查清）**：
+`std-law-watch` 记的三条反证（签名绑**内网**主机 `…-internal.cucloud.cn`、
+OBS 桶直连 403、`permission` 字段 `download:0`）本轮**没有逐条复现**。
+可能的解释是**它当时拿的是不同格式/不同 bbbs 的返回**，或**站点在此期间改了**——
+**两种都可能，本轮证据不足以判定是哪一个**。
+⇒ 本节只对**当前实测**负责：**今天、这三个 bbbs、docx/pdf 都能下**。
+
+**对渠道台账的影响**：flk 不应记 `index-only`（仅目录）。
+是否记 `ok`（全文可下）**取决于全文覆盖率**——本轮只验了 3 个 bbbs，
+**没有量过"3 万条里有多少条能下"** ⇒ **不据此改台账**，留待专项。
+⚠ 这句是**刻意的范围收窄**：3 条样本证不了 3 万条的覆盖率。
 
 ## 2. 来源二：国务院政策文件库 gov.cn
 

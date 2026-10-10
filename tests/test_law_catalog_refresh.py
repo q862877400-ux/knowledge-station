@@ -187,6 +187,56 @@ def test_restart_after_stop_runs_again(cfg, monkeypatch):
         law_refresh.stop_law_refresh()
 
 
+def test_stop_timeout_does_not_lie_or_double_start(cfg, monkeypatch):
+    """★ join 超时后：`is_running()` 不得假阴，`start` 不得再起第二个线程。
+
+    独立复核 2026-10-10 P2-4：第一版 stop 无条件清 `_thread` ⇒
+    明明还有线程在跑却报"已停"，紧接着 start 会**并发起第二个刷新线程**。
+    这里用一个"卡住不退出"的假线程复现该窗口。
+    """
+    import threading
+    import time as _t
+
+    started = threading.Event()
+
+    def stubborn(poll_interval, stop):
+        started.set()
+        while not stop.is_set():
+            _t.sleep(0.01)
+        _t.sleep(30)          # 置位后仍赖着不走，模拟 join 超时
+
+    monkeypatch.setattr(law_refresh, "_run", stubborn)
+    try:
+        assert law_refresh.start_law_refresh(poll_interval=0.05) is True
+        assert started.wait(2.0), "假线程没起来"
+        _t.sleep(0.1)
+        ok = law_refresh.stop_law_refresh(timeout=0.3)
+        assert ok is False, "线程没退出，stop 不该报 True"
+        # ★ 关键：不许谎报"已停"
+        assert law_refresh.is_running() is True, "is_running 假阴了"
+        # ★ 关键：不许再起第二个
+        assert law_refresh.start_law_refresh(poll_interval=0.05) is False, \
+            "停不掉却允许再起一个 ⇒ 会并发刷新"
+    finally:
+        # 真收尾：让假线程的 30s 等待走完
+        law_refresh._stop.set() if law_refresh._stop else None
+        th = law_refresh._thread
+        if th is not None:
+            th.join(timeout=40)
+        with law_refresh._lock:
+            law_refresh._thread, law_refresh._stop = None, None
+
+
+def test_stop_returns_true_when_clean(cfg, monkeypatch):
+    """正常退出 ⇒ stop 返回 True（与超时分支可区分）。"""
+    _fake_refresh(monkeypatch, [])
+    try:
+        law_refresh.start_law_refresh(poll_interval=0.05)
+        assert law_refresh.stop_law_refresh(timeout=5.0) is True
+    finally:
+        law_refresh.stop_law_refresh()
+
+
 # ------------------------------------------------- 生产启动点（防"接进去没人拉"）
 
 def test_run_starts_and_stops_law_refresh():

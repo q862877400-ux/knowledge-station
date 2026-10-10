@@ -74,16 +74,38 @@ def start_law_refresh(poll_interval: float = _POLL_INTERVAL_S) -> bool:
         return True
 
 
-def stop_law_refresh(timeout: float = 5.0) -> None:
-    """置位停止并等线程退出；未在跑则无操作（幂等）。"""
+def stop_law_refresh(timeout: float = 5.0) -> bool:
+    """置位停止并等线程退出。返回**线程是否真的退出了**。
+
+    未在跑 ⇒ 返回 True（幂等，无操作）。
+
+    ⚠ **join 超时不许把引用丢掉**（2026-10-10 独立复核 P2-4 打回，已就地更正）：
+    第一版无论如何都 `_thread = None`，于是——
+    ① `is_running()` **假阴**（明明还有线程在跑）；
+    ② 紧接着 `start_law_refresh()` 会**再起一个线程** ⇒ **两个线程并发刷新**。
+    虽然刷新本身幂等（upsert）兜底、生产触发面也小（只在引擎关停路径），
+    但"说停了其实没停"是**状态谎报**，必须修。
+
+    现在：**只有 join 成功才清引用**；超时则保留（`is_running()` 继续报真、
+    `start_law_refresh()` 会拒绝重复起线程），并把事件置位让它在下一拍自行退出。
+    """
     global _thread, _stop
     with _lock:
         thread, stop = _thread, _stop
-        _thread, _stop = None, None
     if stop is not None:
         stop.set()
-    if thread is not None:
-        thread.join(timeout=timeout)
+    if thread is None:
+        return True
+    thread.join(timeout=timeout)
+    if thread.is_alive():
+        # 没退干净：保留引用（不谎报"已停"），也不再接受新线程
+        logger.warning("法规刷新线程 %.1fs 内未退出，保留引用避免并发起新线程", timeout)
+        return False
+    with _lock:
+        # 只有当引用仍是这一个时才清（防期间被 start 换过）
+        if _thread is thread:
+            _thread, _stop = None, None
+    return True
 
 
 def is_running() -> bool:

@@ -10,5 +10,21 @@
   "missing_vs_flk_csv": 1187,
   "flk_csv_rows": 29994,
   "flk_remote_total": 30910,
+  "baseline_source": {
+    "kind": "flk 全量索引 CSV（另一个独立项目的产物，不是本仓实测）",
+    "path": "D:/AI/std-law-watch/govstd/out/lawindex_flk.csv",
+    "rows": 29994,
+    "sha256": "1501CE0F08EF86079726C02E06F9B1D98FCD291E25D6BBDA00EA743C472BC71F",
+    "mtime": "2026-10-10 07:25:48",
+    "⚠ 不要用错文件": "同项目下另有 D:/AI/std-law-watch/out/flk_catalog.csv（**24,164** 行，注意在项目根的 out/ 而不是 govstd/out/）—— 它是另一个口径的产物，拿它当基准会算出「缺失 0 / 漂移 12」这种**反向结论**。独立复核 2026-10-10 第一轮就踩了这个坑（P2-2）。⇒ **认路径 + 认 sha256，不要认文件名。**",
+    "为什么基准是它而不是官方现况": "开工时官方接口未逐条拉取（3 万次请求不现实），只能用这份快照做**批量比对**；⚠ 但快照会过期 ⇒ **判「谁对」时必须回官方现况**，见 drift_vs_official 字段。"
+  },
+  "drift_vs_official": {
+    "measured_at": "2026-10-10 11:20:00",
+    "method": "对 CSV 判为漂移的每个 bbbs 逐个调 flk_client.detail() 查官方现况，以官方为准重判",
+    "artifact": "probe-drift-vs-official.json",
+    "result": "KS 真的错 0 条 / CSV 过期（KS 正确）1 条 / 无法核 0 条",
+    "⚠ 教训": "把「另一个项目的快照」当基准去判「库里的值对不对」，方向可能整个反过来 —— 实测抓到的这条（武汉市…综合管理规定）CSV=3、KS=2、**官方现况=2** ⇒ KS 正确。"
+  },
   "note": "sxx_drift 口径：两库都有、且官方 sxx 非空的 bbbs 逐条比对。flk_csv 来自 D:/AI/std-law-watch（独立项目产物），仅作对照，非本仓实测。"
 }

@@ -1,0 +1,70 @@
+{
+  "probed_at": "2026-10-10 11:26:52",
+  "criterion": "魔数 docx(PK) / pdf(%PDF) 且 >10KB 才算能下；判据写在脚本 docstring",
+  "results": [
+    {
+      "bbbs": "ff8081818f19d3bc018f6038d6d54d36",
+      "format": "docx",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": true,
+      "url_host": "flkoss.obs-bj2.cucloud.cn",
+      "dl_status": 200,
+      "dl_bytes": 19715,
+      "magic_hex": "504b03040a000000",
+      "verdict": "DOCX_OK"
+    },
+    {
+      "bbbs": "ff8081818f19d3bc018f6038d6d54d36",
+      "format": "pdf",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": false,
+      "verdict": "无 url"
+    },
+    {
+      "bbbs": "ff8081819ff54a6401a056dc1f7676d6",
+      "format": "docx",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": true,
+      "url_host": "flkoss.obs-bj2.cucloud.cn",
+      "dl_status": 200,
+      "dl_bytes": 19165,
+      "magic_hex": "504b030414000000",
+      "verdict": "DOCX_OK"
+    },
+    {
+      "bbbs": "ff8081819ff54a6401a056dc1f7676d6",
+      "format": "pdf",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": false,
+      "verdict": "无 url"
+    },
+    {
+      "bbbs": "ff8081819ff54ab801a06b37cbc33373",
+      "format": "docx",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": true,
+      "url_host": "flkoss.obs-bj2.cucloud.cn",
+      "dl_status": 200,
+      "dl_bytes": 21756,
+      "magic_hex": "504b030414000000",
+      "verdict": "DOCX_OK"
+    },
+    {
+      "bbbs": "ff8081819ff54ab801a06b37cbc33373",
+      "format": "pdf",
+      "json_code": 200,
+      "json_msg": "操作成功",
+      "has_url": true,
+      "url_host": "flkoss.obs-bj2.cucloud.cn",
+      "dl_status": 200,
+      "dl_bytes": 283626,
+      "magic_hex": "255044462d312e37",
+      "verdict": "PDF_OK"
+    }
+  ]
+}

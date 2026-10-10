@@ -135,28 +135,42 @@ def fetch_json(url: str, *, method: str = "GET", json_body: dict | None = None,
 
     遇反爬挑战页自动按秒级退避重试（``_ANTIBOT_BACKOFF``），
     因为该挑战实测约 1 分钟内自愈；用默认的亚秒退避会必然失败。
+
+    ⚠ **判据用"本轮有没有遇到过挑战"的标志，不看异常字符串**
+    （2026-10-10 独立复核 P2-3 打回，已就地更正）：
+    第一版写成 `isinstance(e.__cause__, AntibotChallenge) or "反爬挑战页" in str(e)`，
+    两个分支**都不可靠**——
+    ① `_retry` 里是 `raise RuntimeError(...)` **没有 `from`** ⇒ `__cause__` **恒为 None**，前半是死代码；
+    ② 后半看的是 `_retry` 包装后的**最后一条**错误串 ⇒
+       **混合失败序列（挑战、挑战、连接错）里最后一次不是挑战，长退避整轮被漏掉**。
+    ⇒ 现在用闭包标志 `saw_challenge`：**只要本轮出现过一次挑战，就走长退避轮**。
     """
     host = check_host(url)
     headers = {"User-Agent": _UA, "Accept": "application/json"}
     if referer:
         headers["Referer"] = referer
+    saw_challenge = False
 
     def _do() -> dict:
+        nonlocal saw_challenge
         _pace(host)
         resp = requests.request(method, url, json=json_body, params=params,
                                 headers=headers, timeout=timeout, verify=False)
         resp.raise_for_status()
-        return _json_or_challenge(resp)
+        try:
+            return _json_or_challenge(resp)
+        except AntibotChallenge:
+            saw_challenge = True          # 记下来：本轮被挡过
+            raise
 
     try:
         out = _retry(_do, desc=f"{method} {url}")
-    except RuntimeError as e:
-        # 挑战页用更长的退避再试一轮（上面那轮用的是亚秒退避，对它不够）
-        if isinstance(e.__cause__, AntibotChallenge) or "反爬挑战页" in str(e):
-            out = _retry(_do, tries=_ANTIBOT_TRIES, desc=f"{method} {url}（反爬退避）",
-                         backoff=_ANTIBOT_BACKOFF)
-        else:
+    except RuntimeError:
+        # 只要本轮出现过挑战，就用长退避再试一轮（上面那轮用的是亚秒退避，对它不够）
+        if not saw_challenge:
             raise
+        out = _retry(_do, tries=_ANTIBOT_TRIES, desc=f"{method} {url}（反爬退避）",
+                     backoff=_ANTIBOT_BACKOFF)
     if not isinstance(out, dict):
         raise ValueError(f"非 JSON 对象响应: {url}")
     return out
