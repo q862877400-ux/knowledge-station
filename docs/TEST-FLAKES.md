@@ -17,3 +17,4 @@
 1. 新偶发先跑 3 次单跑 + 1 次串行链——**单跑可复现 = 不是 flake**，按真缺陷查。
 2. 表内条目失败时：重跑一次并留两次日志；仍红按真缺陷处理。
 3. 修掉一条就从表里划掉（保留行做历史，标「已修 <提交>」）。
+| `tests/test_reingest_keeps_filing.py::test_reingest_keeps_failed_old_state_from_smearing_a_success` | 全量串行链里偶发 1 次红（2026-10-10 `-Full` 门禁，11/12），**单跑即过**（实测 18.09s 绿） | 与上表**同族**：`tests/conftest.py` 的临时数据目录是**会话级**，跨文件批量里相互影响。**已机械排除本批改动**：该文件 `git status` 未修改，且本批只动 `tools/gov-qa/**` | ⚠ **登记**（非本批引入）。单跑复现：`pytest -q -p no:cacheprovider tests/test_reingest_keeps_filing.py::test_reingest_keeps_failed_old_state_from_smearing_a_success` |

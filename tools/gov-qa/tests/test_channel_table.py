@@ -66,11 +66,17 @@ def test_channel_table_is_up_to_date():
     """**结构判据**：表必须与脚本重算的结果一致（防手改后不更新）。
 
     这条是"表会漂移"的闸 —— 加了通道、改了 `self_reported_total`、
-    或语料涨了，表就过期，本用例报红。
+    或通道状态变了，表就过期，本用例报红。
+
+    ⚠ **只比"稳定列"**（`mod._stable_part`）：「已落盘」一列**随采集实时变化**
+    （并行采集进程一直在写）⇒ 比它会让本用例在**数据正常增长时假红**。
+    这与 `gen-channel-table.py --check` **同一口径**（两处必须一致，
+    否则门禁过、pytest 红，或者反过来）。
     """
     mod = _load_gen()
     old = REGISTRY.read_text(encoding="utf-8")
-    assert mod.splice(old, mod.render()) == old, (
+    new = mod.splice(old, mod.render())
+    assert mod._stable_part(mod._block_of(new)) == mod._stable_part(mod._block_of(old)), (
         "通道台账表已过期 —— 跑 `python tools/gov-qa/recon/gen-channel-table.py` 重生成")
 
 
