@@ -341,10 +341,12 @@ def _save_baseline(s: dict) -> int:
            "recorded_at": __import__("time").strftime("%Y-%m-%dT%H:%M:%S")}
     if old:
         worse = []
-        for skey, bkey in (("answer_empty", "answer_empty"),
-                           ("content_dups", "content_dups"),
-                           ("inverted", "time_inverted")):
-            cur_rate = cur[skey] / cur["total"] * 100000 if cur["total"] else 0.0
+        # ⚠ 键名对照：`cur` 里叫 `time_inverted`，而 `s` 里叫 `inverted`
+        #   （基线的键名更自解释，给读文件的人看）。这里显式写映射，不用猜。
+        for skey, ckey, bkey in (("answer_empty", "answer_empty", "answer_empty"),
+                                 ("content_dups", "content_dups", "content_dups"),
+                                 ("inverted", "time_inverted", "time_inverted")):
+            cur_rate = cur[ckey] / cur["total"] * 100000 if cur["total"] else 0.0
             old_rate = (old.get(bkey, 0) / old.get("total", 1) * 100000) if old.get("total") else 0.0
             if cur_rate > old_rate + _RATCHET_EPS:
                 worse.append(f"{bkey}({old_rate:.1f}->{cur_rate:.1f}/10万)")

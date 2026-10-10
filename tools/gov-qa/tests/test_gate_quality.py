@@ -266,6 +266,33 @@ def test_ratchet_is_silent_without_baseline(monkeypatch):
     assert gq.ratchet({"answer_empty": 0, "content_dups": 0, "inverted": 0, "total": 1}) == []
 
 
+def test_save_baseline_key_mapping_does_not_crash(tmp_path, monkeypatch):
+    """`--update-baseline` 不得因键名不一致而崩（实测踩过）。
+
+    `collect()` 里时间倒置的键叫 `inverted`，而基线文件里叫 `time_inverted`。
+    第一版 `_save_baseline` 拿 `cur[skey]` 去取 `inverted` ⇒ `KeyError`，
+    **记基线这条命令整个不可用**（而它是缺陷修好后锁定成果的唯一途径）。
+    """
+    monkeypatch.setattr(gq, "BASELINE", tmp_path / "b.json")
+    s = {"answer_empty": 1, "content_dups": 2, "inverted": 3, "total": 100}
+    monkeypatch.setattr(gq, "_load_baseline", lambda: {})
+    rc = gq._save_baseline(s)
+    assert rc == 0
+    import json as _json
+    got = _json.loads((tmp_path / "b.json").read_text(encoding="utf-8"))
+    assert got["time_inverted"] == 3, f"应写入 time_inverted=3，实际 {got}"
+
+
+def test_save_baseline_refuses_regression(tmp_path, monkeypatch):
+    """**反向用例**：缺陷率变坏时必须**拒绝**写基线（不能把坏数记成基线）。"""
+    monkeypatch.setattr(gq, "BASELINE", tmp_path / "b.json")
+    monkeypatch.setattr(gq, "_load_baseline", lambda: {
+        "answer_empty": 1, "content_dups": 1, "time_inverted": 1, "total": 1000})
+    s = {"answer_empty": 500, "content_dups": 1, "inverted": 1, "total": 1000}
+    rc = gq._save_baseline(s)
+    assert rc == 1, "缺陷率从 100/10万 涨到 50000/10万，必须拒绝记基线"
+
+
 # ---------------------------------------------------------------- 纯 ASCII 出口
 
 def test_quiet_output_is_pure_ascii(tmp_path, capsys):
