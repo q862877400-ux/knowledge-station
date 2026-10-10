@@ -169,8 +169,17 @@ US2 是**回归防线**（不新增功能，但必须成立）；US3 是**让真
 - [x] T025 [F4] 改 `probes/probe-vec-scope-fix.py`：把 **Q1** 换成生产形态（`clause_revision_id IN
   (SELECT clause_revision_id FROM clause_revision WHERE doc_id IN (json_each))`）或整段删掉，
   **保留"作废"留痕** per 本轮过程 (`partial`)
-- [ ] T026 [F5] **工作树静默时**重跑 `run-gates.ps1 -Full` 并记可引用读数（含 junit 的 failed 清单）
+- [x] T026 [F5] **工作树静默时**重跑 `run-gates.ps1 -Full` 并记可引用读数（含 junit 的 failed 清单）
   per 本轮过程 (`unrequested`)
+  ⇒ **2026-10-10 07:42 收口**：`-Full` = **9/9 · exit=0**（`tsc` / `mypy` 153 文件 /
+  `verify:commands 22/22` / `pssa-guard` / `smoke 42/42` / `pytest 2695 passed · 0 failed · 2 skipped` /
+  引擎门禁 / `verify-tools-real 9/9` / 真宿主 e2e / 棘轮 `2692 ≥ 2692`），**junit 的 failed 清单为空**。
+  **静默已机械核**：该跑窗口（07:13–07:45）里**代码面**（`src/ tests/ plugin/ scripts/`）
+  **零提交**（`git log --since=... --name-only` 过滤该四前缀为空）；窗口内唯一提交 `88644c6`
+  只动 `tools/gov-qa/**`（另一个自动化）。⇒ 这次读数**对应单一代码面**（`3f23206`）。
+  ⚠ **同一代码面的第一次跑（07:26）是 8/9**：`pytest` 1 条红
+  （`test_measure_harness.py::test_尺能量出_def_没有把事件循环堵住`）。已定性为
+  **非本批引入的 GIL 争用型 flake**并登记进 `docs/TEST-FLAKES.md`（含**复现探针**与两个被证伪的候选）。
 
 **下一步**：跑 `/speckit-implement` 收掉 T022–T026（其中 **T024 的回收动作要业主点头**）；
 之后再跑一次 `converge` 应只剩更少项。

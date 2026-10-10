@@ -32,7 +32,7 @@ CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec USING vec0(
 `sqlite-vec 0.1.9` 实测：**只有元数据列**参与 KNN 前置过滤。
 `clause_revision_id TEXT PRIMARY KEY` 上做 `IN (子查询)` **不下推** ——
 **只要范围子查询返回的 id 里有一个在向量表里没有对应行，整体就返回 `[]`**（与 id 个数、表大小都无关）——
-这正是本项要修的缺陷。见 [research.md](../research.md) R2。
+这正是本项要修的缺陷。见 [research.md](research.md) R2。
 
 ## 不变式（**必须有判据钉住**）
 
