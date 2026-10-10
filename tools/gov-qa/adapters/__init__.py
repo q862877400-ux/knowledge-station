@@ -453,6 +453,11 @@ ADAPTERS: dict[str, str] = {
     # —— 甘肃补源（2026-10-10）：省级被 WAF 拦（412），但地市级可用。
     "gs-tianshui": "adapters.gs_tianshui", # 天水市·政民互动（万户 leadermail，4 栏聚合列表 ≈2444 条）
     "gs-linxia": "adapters.gs_linxia",   # 临夏州·政民互动
+    # —— 河南第 1 个市级源（2026-10-10，spec 005 T601）：
+    #    ⚠ `SITE-REGISTRY` 的「河南 10 市全判死」**只对 IGI 成立**，
+    #    不证明这些市没有别的平台。实测商丘门户服务端渲染，
+    #    来信总数 10,462 / 已办理 10,441，抽 10 条详情**答复全部非空**。
+    "sq-szxx": "adapters.sq_szxx",     # 商丘市·市长信箱（letterList 表 + /petition/<id>）
 }
 
 #: 用户要能直接 `from adapters import load`
