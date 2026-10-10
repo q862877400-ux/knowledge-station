@@ -53,12 +53,31 @@ def test_tracked_files_returns_real_paths_not_escaped():
 
 
 def test_non_ascii_paths_survive_round_trip():
-    """带中文的路径必须能真的**在磁盘上存在**（转义形态必然不存在）。"""
+    """带中文的路径必须是**真路径**（转义形态 `\\345\\271\\277` 必然不是）。
+
+    ⚠ **不能断言"每个受控中文路径都在磁盘上存在"**——这条判据本身是错的，
+    实测被它咬过（2026-10-10 08:2x）：`tools/gov-qa/` 由**另一个自动化**在并行写，
+    它在 `-Full` 跑到一半时删掉了 `tools/gov-qa/data/xz-lasa-*.jsonl`
+    （那正是它自己 spec 005 T201 要处置的"1030 条空答复"源）
+    ⇒ "git 里有、磁盘上没有"**是并发下的正常中间态，不是 bug**。
+    本仓有并行写入面（见 `tools/gov-qa/WRITE-SCOPE.md`），
+    **断言"文件系统与 git 索引逐条一致"在并发下必然偶发假红**。
+
+    ⇒ 判据改成：**除那个已知的并发写入面外**，受控中文路径必须都在磁盘上。
+    这样仍有牙——**八进制转义一旦复发，`docs/` 等稳定面的路径会集体不存在**，
+    测试照样红。
+    """
     files = SCANNER.tracked_files()
     cjk = [f for f in files if any("\u4e00" <= ch <= "\u9fff" for ch in f)]
     assert cjk, "本仓有大量中文文件名，应该能取到至少一条"
-    missing = [f for f in cjk if not (REPO / f).exists()]
+    #: 另一个自动化（gov-qa，见 tools/gov-qa/WRITE-SCOPE.md）的写入面：
+    #: 它随时增删自己的数据文件 ⇒ 不参与"必须存在"这条判据。
+    live_write_surface = "tools/gov-qa/"
+    stable = [f for f in cjk if not f.startswith(live_write_surface)]
+    assert stable, "前提：中文路径不能全部落在并发写入面里"
+    missing = [f for f in stable if not (REPO / f).exists()]
     assert not missing, f"这些中文路径在磁盘上不存在（说明取到的不是真路径）：{missing[:3]}"
+
 
 
 def test_govqa_data_dir_is_excluded():
