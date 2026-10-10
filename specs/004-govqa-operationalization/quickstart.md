@@ -327,12 +327,19 @@ bash "D:/AI/output/check.sh"; echo "exit=$?"
 | 0 现状体检 | `audit-coverage.py --gate` | `TOTAL=398062` `ADAPTERS=345` `EMPTY=0` `DUPS=0`，**exit=0** |
 | 1.1 首次轮询 | `poll.py --channel mee --dry-run` | **exit=0**，正常翻页并丢弃"问题当答复"条目 |
 | 1.3 增量省请求 | `poll.py --channel mee --dry-run --timing` | `新增 0 条`、**`pages_fetched=20`**、用时 3.9s |
+| **1.4 水位损坏退化** | 隔离副本里写 `{"mee":{"broken":true}}` 后 `poll.py --channel mee --dry-run` | ✅ **不崩、`exit=0`**、`成功 1 / 失败 0 / 新增 0 条`。⚠ **水位文件没被改写**（`broken` 原样留着）⇒ **退化的判据是"不崩 + 继续跑"，不是"自动修复水位"**。⚠ 隔离做法同 §4.2（复制工具 + 数据，**不是**设环境变量） |
 | 2 覆盖销号表 | `coverage-report.py --level province --quiet` | `PROV_TOTAL=31` `PROV_OK=18` `PROV_THIN=13` `PROV_NONE=0`；⚠ **exit=1**（见下方说明） |
 | 2.1 薄弱地区缺口 | `coverage-report.py --region 云南 --uncovered --quiet` | `RECORDS=66` `GAP=2934` `STATUS=thin` + **未覆盖渠道 4 个**（门户·政民互动 / 12345 热线 / 省长信箱 / 人大·法规征求意见） |
 | 3.1 字段体检 | `field-audit.py` | `question` **100.00%**、`answer` 100.00%、`asked_at` 97.39%、`answered_at` 98.41%、`dept` 96.55%；**「问题与答复同时为空」= 0** ✅（SC-008 达成） |
 | 3.2 标签抽检 | `label-accuracy.py --sample 200 --export …` | 导出 **166 条**（31 层 × 6）；⚠ **`--score` 未填的 CSV 会正确报「明确未做」**（FR-014 守住了） |
 | 4.1 一句话结论 | `health.py` | `✅ 当前可用：398,062 条 / 0 空通道 / 0 重复 / 标签覆盖 98.4%`；四项判据逐条 ✅ |
 | 4.2 隔离机制 | 复制工具到临时目录 | `VERDICT=not_usable / TOTAL=0` ⇒ **隔离真的生效**（不是读真库） |
+| 4.3 体检耗时 | `time audit-coverage.py --gate` | 秒级（远小于 60s 预算） |
+| 5 全量验收 | `bash tools/gov-qa/gate/check.sh` | ✅ **exit=0**（6 项判据全过；"连续工作 0h8m / 24h" 那条**设计上必然未满**） |
+
+**仍未跑的**：**1.2（第二次轮询新增 0）**与 **4.2 的"3 类故障"完整演示** ——
+1.2 需要**真落盘**（会动 `tools/gov-qa/data/**`，那是并行自动化的面）⇒ **本轮不做**。
+⇒ **T054 仍不勾**（9 个场景里 8 个有读数，但 1.2 与 4.2 的完整演示缺失）。
 
 **⚠ 两处"看起来像失败、其实是设计"**：
 1. **场景 2 的 `exit=1`**：`PROV_NONE=0` 却退 1 —— 触发它的是 **`CITY_MISSING_FROM_334=176`**
