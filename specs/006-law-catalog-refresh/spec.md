@@ -4,7 +4,8 @@
 
 **Created**: 2026-10-10
 
-**Status**: Implemented（2026-10-10）｜ 提交 `9df6d8b7` ｜ 快照 `step-369-law-catalog-refresh`
+**Status**: **Closed**（2026-10-10，含收口轮）｜ 提交 `9df6d8b7` + `7fdd2c15` + `e1ce59c5` ｜ 快照 `step-369-law-catalog-refresh`
+｜ 独立复核：`verify-freeze-006` = `7fdd2c15`，报告 sha256 `22F13C10…`，**通过**（P0=0 / P1=0 / P2=4，四条全修）
 
 **Input**: 业主指令「从 std-law-watch 项目里把能用的提取出来，融入我们现在的 ks 项目中」「自动下载要保留，a」「全部按照你的推荐，你设置好目标，全自动按照 spec 的规则推进」
 
