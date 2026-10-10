@@ -25,6 +25,17 @@ import re
 import time
 from urllib.parse import urljoin, urlparse
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120 Safari/537.36")
 PAUSE = 1.5
@@ -153,7 +164,7 @@ def harvest_rd(fetch, *, site_key: str, limit: int | None = None,
             print(f"    [{site_key}] 列表 HTTP {r.status_code}（跳过）")
             continue
         items = _items(r.text or "", list_url)
-        print(f"    [{site_key}] {list_url[:56]} → {len(items)} 条")
+        safe_print(f"    [{site_key}] {list_url[:56]} -> {len(items)} 条")
         for title, url in items:
             if limit and len(out) >= limit:
                 return out

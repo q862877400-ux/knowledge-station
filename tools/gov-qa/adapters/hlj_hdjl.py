@@ -51,6 +51,17 @@ from __future__ import annotations
 import re
 import time
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 SITE = {
     "key": "hlj-hdjl",
     "name": "黑龙江省人民政府·政民互动（留言选登）",
@@ -171,7 +182,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 20,
         results = data.get("results") or []
         if total is None:
             total = data.get("total")
-            print(f"    [{SITE['key']}] total={total}（pageSize={page_size} ⇒ 约 "
+            safe_print(f"    [{SITE['key']}] total={total}（pageSize={page_size} => 约 "
                   f"{-(-int(total or 0) // page_size)} 页即可取全）")
         if not results:
             break

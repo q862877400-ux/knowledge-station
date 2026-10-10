@@ -24,6 +24,17 @@ import os
 import re
 import time
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 
 def _env_page_from() -> int:
     """起始页号：环境变量 `GOVQA_PAGE_FROM`（用于把超长源分块采）。"""
@@ -144,7 +155,7 @@ def harvest(fetch, *, limit: int | None = None,
                 print(f"    [{SITE['key']}] 明细 {code} {type(e).__name__}"
                       f"（连续失败 {consec_fail}/{MAX_CONSEC_FAIL}）")
                 if consec_fail >= MAX_CONSEC_FAIL:
-                    print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 ⇒ 熔断，"
+                    safe_print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 => 熔断，"
                           f"返回已收 {len(out)} 条（下次续采）")
                     return out
                 time.sleep(PAUSE * 3)

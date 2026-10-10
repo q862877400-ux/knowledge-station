@@ -28,6 +28,17 @@ import time
 
 from adapters._igi_common import existing_ids
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 SITE = {
     "key": "sh-12345",
     "name": "上海市·12345热线诉求公开",
@@ -97,8 +108,22 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600,
         try:
             obj = _page(fetch, page)
         except Exception as e:                                          # noqa: BLE001
-            print(f"    [{SITE['key']}] 第 {page} 页：{type(e).__name__} {e}（停）")
-            break
+            # ★ 2026-10-09：本站**偶发 ReadTimeout**（实测第 81 页撞一次就把整轮带停）。
+            #   484 页的长跑必须容忍瞬时故障 ⇒ 重试 3 次（退避 2/4/6s）再放弃。
+            last = e
+            obj = None
+            for attempt in range(3):
+                time.sleep(2.0 * (attempt + 1))
+                try:
+                    obj = _page(fetch, page)
+                    break
+                except Exception as e2:                                     # noqa: BLE001
+                    last = e2
+            if obj is None:
+                print(f"    [{SITE['key']}] 第 {page} 页：{type(last).__name__} {last}"
+                      f"（重试 3 次仍失败，停）")
+                break
+            safe_print(f"    [{SITE['key']}] 第 {page} 页：{type(e).__name__} -> 重试成功")
         rows = obj.get("list") or []
         if total is None:
             total = obj.get("count")

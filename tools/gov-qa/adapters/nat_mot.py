@@ -25,7 +25,16 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 import time
+from pathlib import Path
+
+# ⚠ `safe_print`：本机控制台是 GBK，而本站的日志里有 `⇒`（U+21D2）这类字符。
+#   实测（2026-10-10 T401）：裸 `print("… ⇒ …")` 会让 `harvest.py` **整个采集崩掉**
+#   （`UnicodeEncodeError: 'gbk' codec can't encode character '\u21d2'`），
+#   表现为"取到 0 条 + 一行 [采集失败]"——**看起来像站点封了，其实是打不出一个箭头**。
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from common import safe_print                                      # noqa: E402
 
 
 def _env_page_from() -> int:
@@ -171,7 +180,7 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
                 print(f"    [{SITE['key']}] 明细 {qid} {type(e).__name__}"
                       f"（连续失败 {consec_fail}/{MAX_CONSEC_FAIL}）")
                 if consec_fail >= MAX_CONSEC_FAIL:
-                    print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 ⇒ 熔断，"
+                    safe_print(f"    [{SITE['key']}] 连续 {consec_fail} 次失败 => 熔断，"
                           f"返回已收 {len(out)} 条（下次续采）")
                     return out
                 time.sleep(PAUSE * 3)
@@ -182,7 +191,7 @@ def harvest(fetch, *, limit: int | None = None, page_size: int = PAGE_SIZE,
                 f403 += 1
                 print(f"    [{SITE['key']}] 明细 {qid} HTTP 403（连续第 {f403} 次）")
                 if f403 >= MAX_403:
-                    print(f"    [{SITE['key']}] 连续 {f403} 次 403 ⇒ 触发 IP 级反爬，熔断停止"
+                    safe_print(f"    [{SITE['key']}] 连续 {f403} 次 403 => 触发 IP 级反爬，熔断停止"
                           f"（已收 {len(out)} 条）。请冷却数十分钟后再跑。")
                     return out
                 time.sleep(PAUSE * 3)

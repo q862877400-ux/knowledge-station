@@ -27,6 +27,17 @@ import html as _html
 import re
 import time
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 SITE = {
     "key": "sc-meishan",
     "name": "眉山市·政民互动·来信选登",
@@ -98,7 +109,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
             break
         t = _decode(r)
         if _CAPTCHA_RE.search(t):               # 触发频率验证码，立刻停
-            print(f"    [{SITE['key']}] ⚠ 触发 IP 频率验证码（第 {page} 页），本轮停止（已采 {len(out)} 条）")
+            safe_print(f"    [{SITE['key']}] [!!] 触发 IP 频率验证码（第 {page} 页），本轮停止（已采 {len(out)} 条）")
             blocked = True
             break
         if total_pages is None:
@@ -125,7 +136,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 600) -> list[di
                 vr = fetch(VIEW_TPL.format(g=g), headers={"Referer": LIST_TPL.format(p=page)})
                 vh = _decode(vr)
                 if _CAPTCHA_RE.search(vh):      # 详情页也被打回验证码
-                    print(f"    [{SITE['key']}] ⚠ 触发 IP 频率验证码（详情），本轮停止（已采 {len(out)} 条）")
+                    safe_print(f"    [{SITE['key']}] [!!] 触发 IP 频率验证码（详情），本轮停止（已采 {len(out)} 条）")
                     blocked = True
                     break
             except Exception as e:                                          # noqa: BLE001

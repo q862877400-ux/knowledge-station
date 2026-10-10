@@ -28,6 +28,17 @@ import html as _html
 import re
 import time
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 SITE = {
     "key": "sc-yaan",
     "name": "雅安市·政民互动·党政领导信箱",
@@ -131,7 +142,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
                 break
             t = _decode(r)
             if _BLOCK_RE.search(t):                 # 反爬拦截，立刻停（别再加剧）
-                print(f"    [{SITE['key']}] ⚠ 触发 IP 反爬拦截（第 {page} 页），本轮停止")
+                safe_print(f"    [{SITE['key']}] [!!] 触发 IP 反爬拦截（第 {page} 页），本轮停止")
                 blocked = True
                 break
             if total_pages is None:
@@ -158,7 +169,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 60) -> list[dic
                                headers={"Referer": list_url})
                     vh = _decode(vr)
                     if _BLOCK_RE.search(vh):        # 详情页也被拦，停
-                        print(f"    [{SITE['key']}] ⚠ 触发 IP 反爬拦截（详情），本轮停止")
+                        safe_print(f"    [{SITE['key']}] [!!] 触发 IP 反爬拦截（详情），本轮停止")
                         blocked = True
                         break
                 except Exception as e:                                      # noqa: BLE001

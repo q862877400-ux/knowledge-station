@@ -54,6 +54,29 @@ def ascii_kv(pairs: dict, *, stream=None) -> None:
             out.write(f"{key}=<unprintable>\n")
 
 
+def safe_print(*args) -> None:
+    """打印，**绝不因控制台编码抛异常**。
+
+    动机（2026-10-10 T401 实测）：本机控制台是 GBK，而适配器/工具的日志里
+    常有 `⇒`（U+21D2）、`⚠`、`✓` 这类字符。裸 `print` 会 `UnicodeEncodeError`
+    **把整个采集带崩**，表现为"取到 0 条 + 一行 [采集失败]" ——
+    **看起来像站点封了，其实是打不出一个箭头**。
+
+    ⇒ 与 `harvest.py::_safe()` 同法：按当前 stdout 编码转义后再打。
+    凡日志里可能含非 ASCII 符号的，一律走这里。
+    """
+    enc = getattr(sys.stdout, "encoding", None) or "ascii"
+    parts = []
+    for a in args:
+        s = str(a)
+        try:
+            s.encode(enc)
+        except (UnicodeEncodeError, LookupError):
+            s = s.encode(enc, "replace").decode(enc, "replace")
+        parts.append(s)
+    print(" ".join(parts))
+
+
 def human(msg: str, *, stream=None) -> None:
     """给人看的输出（可用中文）。**绝不用于机器可读路径。**
 

@@ -17,6 +17,17 @@ from __future__ import annotations
 import re
 from urllib.parse import urljoin
 
+# ⚠ 本机控制台是 GBK，日志里的 emoji/箭头（⚠ ⇒ 等）用裸 `print` 会
+#   `UnicodeEncodeError` **把整个采集带崩**（实测 2026-10-10）⇒ 走 `safe_print`。
+try:
+    from common import safe_print
+except ImportError:                                          # 适配器被单独 import 时
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from common import safe_print
+
+
 SITE = {
     "key": "mem",
     "name": "应急管理部",
@@ -64,7 +75,7 @@ def harvest(fetch, *, limit: int | None = None) -> list[dict]:
     for u in LIST_URLS:
         r = fetch(u)
         if getattr(r, "status_code", 0) != 200:
-            print(f"    [{SITE['key']}] 列表 {u} → HTTP {getattr(r, 'status_code', '?')}（跳过）")
+            safe_print(f"    [{SITE['key']}] 列表 {u} -> HTTP {getattr(r, 'status_code', '?')}（跳过）")
             continue
         for rel in ENTRY_RE.findall(r.text):
             full = urljoin(BASE, rel)

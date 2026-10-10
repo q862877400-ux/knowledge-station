@@ -45,20 +45,27 @@ def test_every_subcommand_survives_gbk_console():
     assert not bad, f"这些子命令崩了：{bad}"
 
 
-def test_no_emoji_reaches_bare_print():
-    """**结构判据**：带 emoji 的字符串不得直接进 `print(...)`。
+def test_no_adapter_prints_emoji_through_bare_print():
+    """**结构判据**：适配器里的 `print(...)` 不得直接含 emoji/箭头。
 
-    这条防的是 T108 的漏网形态 —— 当时我修了 `print("⚠ …")`，
-    却漏了 `flag = "⚠ …"` 再 `print(f"…{flag}")` 的写法。
+    ⚠ 动机（2026-10-10 T401 实测）：`adapters/nat_mot.py` 的日志里有
+    `⇒`（U+21D2），裸 `print` 让 `harvest.py` **整个采集崩掉**
+    （`UnicodeEncodeError: 'gbk' codec can't encode character '\\u21d2'`），
+    表现为"取到 0 条 + 一行 [采集失败]" —— **看起来像站点封了，其实是打不出一个箭头**。
+
+    这条扫**全部适配器**，不依赖"我记得改了哪几个文件"。
     """
-    src = SCRIPT.read_text(encoding="utf-8")
+    adapters = sorted((ROOT / "adapters").glob("*.py"))
+    assert adapters, "应当有适配器文件"
+    emoji = ("⚠", "✅", "❌", "✓", "←", "→", "⇒", "★", "⏱", "🔴", "🟡", "🟢")
     offenders = []
-    for i, ln in enumerate(src.splitlines(), 1):
-        code = ln.split("#", 1)[0]
-        if "print(" not in code:
-            continue
-        if "safe_print(" in code:
-            continue
-        if any(ch in code for ch in ("⚠", "✅", "❌", "✓", "←", "→")):
-            offenders.append(f"L{i}: {ln.strip()[:90]}")
-    assert not offenders, "这些 print 里有 emoji，会 GBK 崩：\n" + "\n".join(offenders)
+    for f in adapters:
+        for i, ln in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            code = ln.split("#", 1)[0]
+            if "print(" not in code or "safe_print(" in code:
+                continue
+            if any(ch in code for ch in emoji):
+                offenders.append(f"{f.name} L{i}: {ln.strip()[:80]}")
+    assert not offenders, (
+        "这些适配器的裸 print 里有 emoji/箭头，会 GBK 崩掉整个采集：\n"
+        + "\n".join(offenders))
