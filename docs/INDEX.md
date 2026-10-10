@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **184 份** / **6586 KB**。
+> 共 **186 份** / **6676 KB**。
 
 ## 方案与台账（11 份 / 499 KB）
 
@@ -107,10 +107,12 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 复核任务书（17 份 / 255 KB）
+## 复核任务书（19 份 / 336 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
+| `docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md` | 43 | 2026-10-10 | 独立数据质量取证报告 —— `tools/gov-qa/` 政务问答语料 |
+| `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md` | 38 | 2026-10-10 | 独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层 |
 | `docs/verify-briefs/VERIFY-REPORT-govqa-conformance.md` | 30 | 2026-10-10 | 复核对象：冻结 tag `verify-freeze-govqa-conformance`（**annotated ta |
 | `docs/verify-briefs/VERIFY-REPORT-e4b-round2.md` | 20 | 2026-10-09 | 0. 提取树首尾取证 |
 | `docs/verify-briefs/VERIFY-REPORT-exp17-prod-plan.md` | 20 | 2026-10-09 | 总判定 |
@@ -129,11 +131,11 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（69 份 / 1323 KB）
+## 根文档与其他（69 份 / 1332 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/DEVELOPMENT-HISTORY.md` | 282 | 2026-10-10 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
+| `docs/DEVELOPMENT-HISTORY.md` | 284 | 2026-10-10 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 66 | 2026-10-09 | 一、我们现在进行到哪里（一页） |
@@ -153,6 +155,7 @@
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
 | `docs/GOVQA-DIAGNOSIS-2026-10-10.md` | 15 | 2026-10-10 | 零、结论先行 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
+| `docs/README.md` | 13 | 2026-10-10 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-07 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
@@ -164,28 +167,27 @@
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
 | `docs/BASELINE-DIAGNOSIS-2026-10-06.md` | 10 | 2026-10-06 | 〇、先定两件事（业主 2026-10-06 亲述，不再讨论） |
-| `docs/README.md` | 9 | 2026-10-10 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
+| `docs/wiki/architecture.md` | 8 | 2026-10-10 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/TEST-FLAKES.md` | 7 | 2026-10-10 | 处置纪律 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
 | `docs/PROJECT-STATUS-2026-10-05.md` | 6 | 2026-10-06 | 一、状态：**开发暂停** |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
-| `docs/wiki/architecture.md` | 6 | 2026-10-06 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
+| `docs/BROKEN-LINKS.md` | 4 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
 | `docs/wiki/components/exports.md` | 4 | 2026-10-05 | **位置**：`src/core/exports/` |
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
 | `docs/wiki/components/llm.md` | 4 | 2026-10-05 | **位置**：`src/core/llm/` |
 | `docs/wiki/components/quality.md` | 4 | 2026-10-05 | **位置**：`src/core/quality/` |
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
-| `docs/BROKEN-LINKS.md` | 3 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
 | `docs/wiki/components/api.md` | 3 | 2026-10-05 | **位置**：`src/core/api/` |
