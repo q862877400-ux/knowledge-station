@@ -53,6 +53,73 @@
 
 限速：≥0.5s/请求（参考社区官方 API 客户端惯例），失败指数退避重试（最多 3 次）。
 
+### 1.1 ⚠ 反爬挑战页：HTTP 200 + HTML（2026-10-10 实测，本仓已修）
+
+**症状**：连续请求到某个量之后，接口**不再返回 JSON**，而是返回
+**`HTTP 200` + `Content-Type: text/html`** 的一页
+「Please enable JavaScript and refresh the page.」——**不是** 4xx/5xx。
+
+**为什么这个形状特别坑**：`raise_for_status()` 会**放行**（200），
+只有 `resp.json()` 抛 `JSONDecodeError` ⇒ 挑战被当成"普通网络错误"，
+用亚秒退避重试 ⇒ **必然失败**，而错误信息里看不出"是被挡了"。
+
+**实测读数**（2026-10-10，本机）：
+
+| 实验 | 结果 |
+|---|---|
+| 每 0.6s 一页连打 | 第 **33** 页起被挡 |
+| 被挡后等 60s 再试 | **1 分钟内自愈** |
+| 带自适应退避（失败退避 20–120s）连打 **120** 页 | **0 次被挡** |
+| 换全浏览器头（Sec-Fetch-*、Origin、Accept-Language） | **无效**（照样被挡） |
+| 换 GET 首页预热（std-law-watch 记的"坑 1"） | **无效** |
+| 直连 vs 走本机代理 `127.0.0.1:7897` | **一样被挡**（与代理无关） |
+
+⇒ **判读**：这是**突发限速**（可变阈值、分钟级自愈），不是封 IP、不是头指纹问题。
+**唯一有效的对策是拉长退避**，不是换头、不是预热、不是绕代理。
+
+**本仓的修法**（`src/core/knowledge/law_source/http.py`）：
+- 新增 `AntibotChallenge`（RuntimeError 子类）+ `_looks_like_antibot()`
+  —— **判据以 `Content-Type` 为主**：`fetch_json` 的契约就是"拿 JSON"，
+  所以**声明不是 JSON 的响应**本身就说明没拿到数据，一律走长退避重试；
+- 反爬退避常量 `_ANTIBOT_BACKOFF = (5.0, 20.0, 45.0)`、`_ANTIBOT_TRIES = 4`
+  —— 亚秒退避对"分钟级自愈"的挑战无效。
+
+⚠ **第一版判据只查特征串**（`"Please enable JavaScript"`），实测**漏判**：
+站点有时返回**另一种** HTML 页（正文里没有该串）⇒ 已改成 Content-Type 优先。
+
+**取证**：`specs/006-law-catalog-refresh/research.md` R6；
+测试 `tests/test_law_source_http_antibot.py`（含变异验证）。
+
+### 1.2 接口事实（来自 `D:/AI/std-law-watch` 独立项目，**非本仓实测**）
+
+以下四条来自另一个 Agent 建的 `D:/AI/std-law-watch`（2026-10-10），
+**本仓未逐条复验**，登记备查——官方改版时能省一次重新摸索：
+
+| # | 事实 | 说明 |
+|---|---|---|
+| 1 | **`POST /law-search/highSearch/highSearch`** | 该项目的**主力**高级检索端点。本仓**未使用**（本仓用 `search/list`），两者请求体形状不同 |
+| 2 | **翻页 offset 上限 30,000** | `(pageNum-1)*pageSize >= 30000` ⇒ `{"code":500,"msg":"系统异常"}`。该项目实测 size=500 卡 page 60、size=100 卡 page 300、size=50 卡 page 600，**三种都恰好 30000**。⇒ 空条件直拉只能拿 29,992/30,910。⚠ **本仓 `catalog.py` 的分片策略（按叶子分类）不受此限**——实测各叶子分类 total 之和 = 30,909 ≈ 空条件 30,910 |
+| 3 | **`flfg_code_id` / `zdjg_code_id` 传的是 `codeId` 不是 `id`** | 分类树里是 `{"id":14,"name":"行政法规","codeId":210}`；传 `id` ⇒ 0 条，传 `codeId` ⇒ 正确。⚠ 本仓 `catalog.py` 的 `_CODE_KEYS` 已含 `codeId` 优先 |
+| 4 | **发文字号藏在详情接口的 `xgzl`（相关资料）里** | 列表接口**没有** `doc_no` 字段；详情返回 `xgzl: [{"fileId":...,"title":"中华人民共和国国务院令第847号","busiType":"国务院令","fileType":"docx"}]`。⇒ 要补文号只能逐条查详情 |
+
+**另外两条本仓已用上的**（同源发现，本仓已实现）：
+`sxx` 时效枚举（1废止/2已修改/3有效/4尚未生效）、`lsyg` 历史沿革（历次版本链）。
+
+### 1.3 ⚠ 结论冲突：flk 全文到底能不能下（**未实测仲裁**）
+
+**两个来源给出相反结论，本仓不单方面采信任一方**：
+
+| 出处 | 结论 |
+|---|---|
+| **本仓** `src/core/knowledge/law_source/flk_client.py` 注释 | 「签名下载 URL（**主路径**，勿拼 ossFile）」 |
+| **本仓** `docs/ENCYCLOPEDIA.md` | 「GET download/pc?format=docx（勿拼 ossFile 路径，**实测返回 SPA 首页**）」 |
+| **`std-law-watch` §6.7**（记为「有证据的判死」） | `ofdGenerateLink` 签名**绑内网主机** `flkoss.obs-bj2-internal.cucloud.cn`（换公网域 ⇒ 403 SignatureDoesNotMatch）；OBS 桶直连 ⇒ 403 AccessDenied；`download/pc?bbbs=` ⇒ 系统异常；`permission` 字段写着 **`download:0, print:0`** ⇒ 站点刻意禁下载 |
+
+⇒ **本仓内部这两句本身就不一致**（一句说"主路径"、一句说"实测返回 SPA 首页"）。
+**本特性未实测仲裁**（spec 006 FR-011）。
+**未决影响**：flk 在渠道台账里该记 `index-only`（仅目录）还是 `ok`（全文可下）。
+**要仲裁就得真跑一次 `download/pc` 并检查产物魔数**——留待专项，本轮不动。
+
 ## 2. 来源二：国务院政策文件库 gov.cn
 
 搜索后端（公开，无需认证）：

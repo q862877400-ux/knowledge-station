@@ -1,0 +1,14 @@
+{
+  "measured_at": "2026-10-10 08:45:32",
+  "law_catalog_rows": 29764,
+  "max_gbrq": "2026-08-10",
+  "max_updated_at": "2026-08-25T05:15:16+00:00",
+  "rows_2026_08": 26,
+  "rows_2026_07": 67,
+  "sxx_drift_count": 1130,
+  "sxx_danger_effective_but_repealed": 147,
+  "missing_vs_flk_csv": 1187,
+  "flk_csv_rows": 29994,
+  "flk_remote_total": 30910,
+  "note": "sxx_drift 口径：两库都有、且官方 sxx 非空的 bbbs 逐条比对。flk_csv 来自 D:/AI/std-law-watch（独立项目产物），仅作对照，非本仓实测。"
+}

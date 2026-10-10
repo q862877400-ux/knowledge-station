@@ -94,3 +94,9 @@ stdscan/
 # 锁是运行态、含持有者 pid，入库会让每次 poll 都制造一个假冲突。
 # 实测现场就残留过一把死锁（pid 31704 已不存在），挡掉后续 poll。
 tools/gov-qa/state/.poll.lock
+
+# 法规目录刷新的**回滚快照**（spec 006 T020）：约 3.9 MB 的 29,764 行 CSV，
+# 是**跑一次刷新前导出的运行态产物**，不是源码。按本仓「原始/大体积产物不入库」
+# 的既有约定（同 docs/research/papers/*.pdf、hindsight-official/llms-full.txt），
+# 留在盘上不入库；**重建命令**见 specs/006-law-catalog-refresh/research.md R1。
+specs/006-law-catalog-refresh/rollback-*.csv

@@ -54,7 +54,12 @@ def check_host(url: str) -> str:
     return host
 
 
-def _retry(fn: Callable[[], Any], tries: int = 3, desc: str = "请求") -> Any:
+def _retry(fn: Callable[[], Any], tries: int = 3, desc: str = "请求",
+           backoff: tuple[float, ...] = (0.8, 1.6)) -> Any:
+    """重试包装。``backoff`` 是各次重试前的等待秒数（长度不足则复用最后一个）。
+
+    ⚠ 反爬挑战需要**秒级**退避，见 ``_ANTIBOT_BACKOFF``。
+    """
     last_err: Exception | None = None
     for i in range(tries):
         try:
@@ -64,14 +69,73 @@ def _retry(fn: Callable[[], Any], tries: int = 3, desc: str = "请求") -> Any:
         except Exception as e:  # noqa: BLE001
             last_err = e
             if i < tries - 1:
-                time.sleep(0.8 * (2 ** i))
+                wait = backoff[i] if i < len(backoff) else backoff[-1]
+                time.sleep(wait)
     raise RuntimeError(f"{desc} 失败（重试 {tries} 次）: {last_err}")
+
+
+#: 反爬挑战页的识别特征（2026-10-10 实测）。
+#: flk 站点在被突发限速时返回 **HTTP 200 + text/html**，正文是
+#: "Please enable JavaScript and refresh the page." 的挑战页——**不是** 4xx/5xx。
+#: ⇒ `raise_for_status()` 放行、`resp.json()` 抛 JSONDecodeError，
+#:   挑战被误判成"普通网络错误"，只用 0.8s/1.6s 重试 ⇒ 必然失败。
+_ANTIBOT_MARKERS = ("Please enable JavaScript", "enable JavaScript and refresh")
+
+#: 反爬挑战的重试节奏：实测挑战**约 1 分钟内自愈**（见
+#: `specs/006-law-catalog-refresh/research.md` R6），故退避必须到秒级/十秒级。
+#: ⚠ 2026-10-10 追加实测：**持续猛打后封禁会变长**（>73s 仍未解）。
+#: 故退避拉到分钟级，并把次数提到 5 —— 宁可慢，也不要"假失败"。
+_ANTIBOT_BACKOFF = (10.0, 30.0, 60.0, 120.0)
+_ANTIBOT_TRIES = 5
+
+
+def _looks_like_antibot(text: str, content_type: str) -> bool:
+    """响应体是不是反爬挑战页。
+
+    ⚠ **判据以 Content-Type 为主、特征串为辅**（2026-10-10 实测教训）：
+    第一版只查特征串 `"Please enable JavaScript"`，实测漏判——站点有时返回
+    **另一种 HTML 页**（不是那个 noscript 挑战页，正文里没有该串）。
+    而 `fetch_json` 的契约就是"拿 JSON"，所以**声明不是 JSON 的响应**本身
+    就说明没拿到数据，应当走长退避重试而不是当场失败。
+    """
+    if "json" in (content_type or "").lower():
+        return False
+    head = (text or "")[:4000]
+    if any(m in head for m in _ANTIBOT_MARKERS):
+        return True
+    # 非 JSON 声明（text/html 等）⇒ 视为被挡，走长退避；正文为空同理。
+    return True
+
+
+def _json_or_challenge(resp) -> dict:
+    """响应 → dict；遇反爬挑战（或非 JSON 声明）抛 ``AntibotChallenge``。
+
+    用 ``AntibotChallenge``（RuntimeError 子类）而不是 JSONDecodeError：
+    `_retry` 对 ValueError 是不重试直接抛，故必须避开 ValueError。
+    """
+    ctype = resp.headers.get("Content-Type", "")
+    if _looks_like_antibot(resp.text, ctype):
+        raise AntibotChallenge(
+            f"反爬挑战页（HTTP {resp.status_code}, {ctype[:40]}）")
+    return resp.json()
+
+
+class AntibotChallenge(RuntimeError):
+    """官方站返回反爬挑战页（HTTP 200 + HTML）。
+
+    单列一个类型是为了**可与普通网络错误区分**：它需要更长的退避，
+    且失败时应记成"被限速"而不是"接口坏了"。
+    """
 
 
 def fetch_json(url: str, *, method: str = "GET", json_body: dict | None = None,
                params: dict | None = None, referer: str | None = None,
                timeout: int = 30) -> dict:
-    """白名单内 JSON 请求（搜索/详情/下载链接接口）。"""
+    """白名单内 JSON 请求（搜索/详情/下载链接接口）。
+
+    遇反爬挑战页自动按秒级退避重试（``_ANTIBOT_BACKOFF``），
+    因为该挑战实测约 1 分钟内自愈；用默认的亚秒退避会必然失败。
+    """
     host = check_host(url)
     headers = {"User-Agent": _UA, "Accept": "application/json"}
     if referer:
@@ -82,9 +146,17 @@ def fetch_json(url: str, *, method: str = "GET", json_body: dict | None = None,
         resp = requests.request(method, url, json=json_body, params=params,
                                 headers=headers, timeout=timeout, verify=False)
         resp.raise_for_status()
-        return resp.json()
+        return _json_or_challenge(resp)
 
-    out = _retry(_do, desc=f"{method} {url}")
+    try:
+        out = _retry(_do, desc=f"{method} {url}")
+    except RuntimeError as e:
+        # 挑战页用更长的退避再试一轮（上面那轮用的是亚秒退避，对它不够）
+        if isinstance(e.__cause__, AntibotChallenge) or "反爬挑战页" in str(e):
+            out = _retry(_do, tries=_ANTIBOT_TRIES, desc=f"{method} {url}（反爬退避）",
+                         backoff=_ANTIBOT_BACKOFF)
+        else:
+            raise
     if not isinstance(out, dict):
         raise ValueError(f"非 JSON 对象响应: {url}")
     return out

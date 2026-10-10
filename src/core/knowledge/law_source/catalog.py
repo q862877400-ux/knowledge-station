@@ -44,6 +44,28 @@ PAGE_SIZE = 100          # 单页上限（官方接口实测支持 100）
 _BATCH_WRITE = 200       # 攒批写库阈值
 ManifestCb = Callable[[dict], None]
 
+# ---- 定时刷新配置（spec 006）----
+#: 刷新周期（天）；缺省 1。≤0 = 关闭。deployment-varying ⇒ 走 app_config，不硬编码。
+REFRESH_DAYS_KEY = "law.catalog_refresh_days"
+#: 上次刷新完成时间（UTC ISO）；失败 MUST NOT 更新它。
+LAST_REFRESH_KEY = "law.catalog_last_refresh_at"
+DEFAULT_REFRESH_DAYS = 1
+
+
+def refresh_days() -> int:
+    """读刷新周期天数；未设返回 DEFAULT_REFRESH_DAYS，非法/≤0 返回 0 表示关闭。
+
+    与 ``update.scheduler.schedule_days`` 同构（同一套"缺省 / 非法 / 关闭"语义）。
+    """
+    raw = _read_config(REFRESH_DAYS_KEY)
+    if raw is None:
+        return DEFAULT_REFRESH_DAYS
+    try:
+        days = int(float(raw))
+    except (TypeError, ValueError):
+        return 0
+    return days if days > 0 else 0
+
 
 def sxx_label(sxx: int | str | None) -> str:
     """sxx 数字 → 展示文案；未知值原样标注（不猜）。"""
@@ -61,6 +83,17 @@ def manifest_path() -> Path:
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def _read_config(key: str) -> str | None:
+    """读 app_config 单值（延迟导入 inspector，避免 knowledge ⇄ update 顶层成环）。"""
+    from src.core.update.inspector import get_config
+    return get_config(key)
+
+
+def _write_config(key: str, value: str) -> None:
+    from src.core.update.inspector import set_config
+    set_config(key, value)
 
 
 # ---------------------------------------------------------------------------
@@ -427,6 +460,47 @@ def refresh_catalog(progress_cb: ManifestCb | None = None,
            "written": written, "elapsed_sec": round(time.time() - t0, 1)}
     progress({"stage": "done", **out})
     return out
+
+
+def _parse_last_refresh(raw: str | None) -> datetime | None:
+    """上次刷新时间串 → UTC aware datetime；缺失/解析失败返回 None（视为"从没刷过"）。"""
+    if not raw:
+        return None
+    try:
+        return datetime.fromisoformat(str(raw))
+    except (TypeError, ValueError):
+        return None
+
+
+def refresh_catalog_if_due(*, now: datetime | None = None,
+                           progress_cb: ManifestCb | None = None) -> dict:
+    """到期才刷新（spec 006 的自动刷新入口）。
+
+    周期取 ``law.catalog_refresh_days``（缺省 1 天，≤0 关闭）。
+    未到期返回 ``{"skipped": True, "reason": "not_due"|"disabled", ...}``，**不碰网络**。
+
+    ⚠ ``skipped`` 是**本次是否跳过**（bool）；刷新真正执行时，
+    明细放在 ``result`` 里——因为 ``refresh_catalog`` 自己的返回值里也有一个
+    ``skipped``，那是**增量跳过的条数**（int）。两者语义不同，故不摊平，避免混淆。
+
+    ⚠ 刷新失败时 **MUST NOT** 更新 ``law.catalog_last_refresh_at`` ——
+    否则一次失败会被当成"刷过了"，接下来一整个周期都不再重试。
+    """
+    days = refresh_days()
+    if days <= 0:
+        return {"skipped": True, "reason": "disabled", "refresh_days": days}
+    moment = now or datetime.now(timezone.utc)
+    last = _parse_last_refresh(_read_config(LAST_REFRESH_KEY))
+    if last is not None:
+        if last.tzinfo is None:                 # 历史值可能无时区（手工写入）
+            last = last.replace(tzinfo=timezone.utc)
+        if (moment - last).total_seconds() < days * 86400:
+            return {"skipped": True, "reason": "not_due", "refresh_days": days,
+                    "last_refresh_at": last.isoformat(timespec="seconds")}
+    result = refresh_catalog(progress_cb)
+    _write_config(LAST_REFRESH_KEY, _now())
+    return {"skipped": False, "reason": "refreshed", "refresh_days": days,
+            "result": result}
 
 
 # ---------------------------------------------------------------------------

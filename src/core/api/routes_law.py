@@ -170,6 +170,30 @@ def register(app, json_error):
         return {"code": 200, "status": "success",
                 "data": verify_law(bbbs)}
 
+    @app.get("/api/v1/laws/history")
+    def law_history(request: Request):
+        """一部法规的**历次版本链**（spec 006 US2；flk 详情接口的 `lsyg` 历史沿革）。
+
+        `?bbbs=` 必填。返回 `data.versions`（按公布日期降序）+ `data.count`。
+
+        ⚠ **空链与查询失败必须区分**（spec FR-007）：
+        - 官方无 `lsyg` ⇒ `200` + `versions: []`（确实没有历次版本）；
+        - 官方不可达 ⇒ `502`，**绝不**用空列表冒充"无版本"。
+        """
+        from src.core.knowledge.law_source import flk_client as flk
+        bbbs = str(request.query_params.get("bbbs") or "").strip()
+        if not bbbs:
+            return json_error(422, "missing_bbbs", "缺少 bbbs")
+        try:
+            versions = flk.history(bbbs)
+        except ValueError as e:
+            return json_error(403, "source_not_allowed", str(e))
+        except Exception as e:  # noqa: BLE001 网络/接口异常统一上报（不伪装成空链）
+            return json_error(502, "history_fetch_failed", f"官方源请求失败: {e}")
+        return {"code": 200, "status": "success",
+                "data": {"bbbs": bbbs, "count": len(versions),
+                         "versions": versions}}
+
     # ===== 合规护栏判定（2026-09-24，Jev / TypeSafe System One）=====
 
     @app.get("/api/v1/laws/change-signals")

@@ -479,6 +479,14 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 - **来源白名单**（law_source/http.py 强制，非白名单域抛 ValueError）：`flk.npc.gov.cn`（含签名下载域 flkoss.obs-bj2.cucloud.cn）、`sousuo.www.gov.cn`、`www.gov.cn`、`gov.cn`。
 - **flk**：POST /law-search/search/list 搜索（sxx=[3] 仅有效）、GET flfgDetails?bbbs= 详情（sxx 时效 3有效/2被修改/4未生效/1废止）、GET download/pc?format=docx（勿拼 ossFile 路径，实测返回 SPA 首页）。
+  - ⚠ **下载结论有冲突，未仲裁**（2026-10-10 登记）：本行说"实测返回 SPA 首页"，
+    而 `src/core/knowledge/law_source/flk_client.py` 的注释把 `download/pc` 当**主路径**；
+    另一个独立项目 `D:/AI/std-law-watch` 则记为**判死**（签名绑内网 + 桶非公开 +
+    `permission.download=0`）。**本仓未实测仲裁**，详见
+    [LAW-SOURCE-PLAN §1.3](LAW-SOURCE-PLAN.md)。未决影响：flk 该记 `index-only` 还是 `ok`。
+  - ⚠ **反爬挑战页**（HTTP 200 + HTML，**不是** 4xx/5xx）：突发限速，约 1 分钟自愈；
+    已在本仓 http 层加秒级退避（`AntibotChallenge` / `_ANTIBOT_BACKOFF`）。
+    详见 [LAW-SOURCE-PLAN §1.1](LAW-SOURCE-PLAN.md)。
 - **gov.cn**：GET sousuo.www.gov.cn/search-gov/data（t=zhengcelibrary、childtype、文号/年份）；结果链接字段是 `url`（piclinksurl 常空）；公报页无下载 → 正文 HTML 生成 docx 兜底（content_origin:"web"）。
 - **转换链**：LibreOffice headless 主选 → WPS/Word COM 回退。转换源头只能是官方 docx。
 - **入库**：docx 落 `<data_dir>/law_source/<source>/<source_id>/`（meta.json 溯源）→ run_full_ingest(doc_type="法律法规")；doc_meta 溯源列（source/source_id/source_url/downloaded_at/source_status）幂等迁移。

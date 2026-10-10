@@ -3294,6 +3294,14 @@ def run() -> None:
         start_write_worker()
     except Exception:  # noqa: BLE001 - 队列消费失败不阻塞引擎启动
         pass
+    # 法规目录定时刷新（spec 006）：按 law.catalog_refresh_days（缺省 1 天）自动刷新。
+    # ⚠ 不走 src/core/update/scheduler.py —— 那个调度器的 start() 全仓无人调用（死代码），
+    #   接进去刷新永不执行。这里沿用上面 write_queue_bootstrap 的同一模式。
+    try:
+        from src.core.knowledge.law_source.law_refresh import start_law_refresh
+        start_law_refresh()
+    except Exception:  # noqa: BLE001 - 刷新线程失败不阻塞引擎启动
+        pass
     # token 通过 stdout 交给 Electron 主进程注入（P8：同时写 session 文件供启动器/前端读取）
     print(f"KNOWLEDGE_STATION_PORT={port}", flush=True)
     print(f"KNOWLEDGE_STATION_TOKEN={token}", flush=True)
@@ -3311,3 +3319,8 @@ def run() -> None:
     finally:
         from src.core.storage.write_queue_bootstrap import stop_write_worker
         stop_write_worker()
+        try:
+            from src.core.knowledge.law_source.law_refresh import stop_law_refresh
+            stop_law_refresh()
+        except Exception:  # noqa: BLE001 - 关停失败不覆盖启动路径的退出码
+            pass

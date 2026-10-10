@@ -117,6 +117,44 @@ def detail(bbbs: str) -> FlkDetail:
         content=d.get("content") or {}, raw=d)
 
 
+def history(bbbs: str) -> list[dict[str, Any]]:
+    """一部法规的**历次版本链**（详情接口的 `lsyg` = 历史沿革）。
+
+    返回 ``[{"bbbs","title","gbrq","highlight"}]``，**按公布日期降序**
+    （日期为空的沉底）。没有 `lsyg` 字段或为空 ⇒ 返回 ``[]``。
+
+    ⚠ **空列表与查询失败必须区分**（spec FR-007）：
+    - 官方返回了 `lsyg` 但为空/缺失 ⇒ 这是"确实没有历次版本"，返回 `[]`；
+    - 网络/接口失败 ⇒ **抛异常**（`fetch_json` 会抛），**绝不**用 `[]` 冒充。
+
+    ⚠ 字段名是 `highLight`（驼峰，官方原样），本函数**归一成 `highlight`** 输出。
+    ⚠ `gbrq` 实测**可为 null**（如"包头市水资源管理条例"链上有一条 null），
+      故排序时须容忍缺失——不能假定它是字符串。
+
+    实测样例（2026-10-10，`bbbs=ff8081818f19d3bc018f6038d6d54d36`）：
+    三版（2026-08-04 / 2024-04-07 / null）。⚠ 注意 `highLight=true` 标的是
+    **2024-04-07 那版**而不是最新版——官方该标记的语义**未核实**，
+    故本函数只**透传**它，不据此判断"哪版是现行"。
+    """
+    d = detail(bbbs)
+    raw = d.raw.get("lsyg") or []
+    if not isinstance(raw, list):
+        return []
+    out: list[dict[str, Any]] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        out.append({
+            "bbbs": item.get("bbbs") or "",
+            "title": item.get("title") or "",
+            "gbrq": item.get("gbrq") or "",
+            "highlight": bool(item.get("highLight")),
+        })
+    # 公布日期降序；空日期沉底（空串比任何 YYYY-MM-DD 小，故 reverse 后会沉底）
+    out.sort(key=lambda r: r["gbrq"] or "", reverse=True)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # 下载（主路径：download/pc 拿签名 URL）
 # ---------------------------------------------------------------------------
