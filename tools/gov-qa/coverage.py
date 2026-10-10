@@ -7,7 +7,7 @@
 用户要求「**所有省、所有市**」。但现有 681 个来源是「能采就采」攒出来的，
 **不是按名单销号推进的** —— 从来没有一张表能回答：
 
-- 333 个地级行政区，**覆盖了几个**？
+- 334 项地级行政区（本表收录数，含省直辖县级市济源市；严格意义是 333 个），**覆盖了几个**？
 - 云南 84 条，**还差多少**？
 - 云南**还缺哪些渠道**？（只知道"数据少"没用，要知道"缺什么"才能补）
 
@@ -203,7 +203,7 @@ def channel_city_map(channels) -> dict:
 
 
 def known_cities() -> set:
-    """334 个地级行政区的**全称集合**（来自 `regions.PROVINCE_CITIES`）。
+    """**本表收录的 334 项**地级行政区全称集合（来自 `regions.PROVINCE_CITIES`）。
 
     用途：`count_by_city` 用它**过滤占位值**。实测 IGI 的 `CITY` 字段
     常是 `市辖区` / `省直辖县级行政区划` 这类**非市名占位符**，
@@ -227,7 +227,7 @@ def count_by_city(channel_city: dict | None = None, *, scope_filter=None,
       1. 记录带 `extra.city` ⇒ 归该市（IGI / 省级 12345 平台 / 广东 hdjlpt 都带）
       2. 否则，`source` 命中 `channel_city` ⇒ 归该市级通道的 region
 
-    `only_known=True`（默认）：**只保留 334 个地级行政区里的市** ——
+    `only_known=True`（默认）：**只保留 `known_cities()` 里的 334 项** ——
     过滤掉 IGI 的 `市辖区` 等占位值，避免造出假单元（见 `known_cities()`）。
 
     ⇒ 返回 `{归一化市名: 条数}`。**这是「这个市到底有没有数据」的唯一可信口径**，
@@ -424,7 +424,7 @@ def build_units(channels, counts: dict, *, threshold_province: int,
 def _province_of_city(city_name: str, alias: dict) -> str | None:
     """由市名反查所属省。
 
-    **优先用 `regions.py` 的精确映射表**（333 个地级行政区）——
+    **优先用 `regions.py` 的精确映射表**（334 项收录）——
     2026-10-10 之前靠「市名里含省名」猜，而**大多数市名不含省名**
     （宝鸡市 / 天水市 / 烟台市），导致汇总严重偏低。
     """
