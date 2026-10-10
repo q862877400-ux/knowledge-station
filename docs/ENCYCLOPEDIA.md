@@ -1,8 +1,27 @@
 # KnowledgeStation 技术百科全书（ENCYCLOPEDIA）
 
-> **文档地图**：本文件 = 技术事实唯一权威（架构/契约/坑/规则）。并行文档仅四份——
-> `README.md`（快速开始）、`docs/INTRODUCTION.md`（产品介绍）、`docs/VISION-TREE.md`（功能愿景，客户视角）、`docs/DEVELOPMENT-HISTORY.md`（开发简史）。
+> **文档地图**：本文件 = 技术事实唯一权威（架构/契约/坑/规则）。并行文档仅五份——
+> `README.md`（快速开始）、`docs/INTRODUCTION.md`（产品介绍）、`docs/VISION-TREE.md`（功能愿景，客户视角）、`docs/DEVELOPMENT-HISTORY.md`（开发简史）、
+> **`docs/wiki/`（接手入口，见下）**。
 > ⚠ 本仓库**不存在** `docs/_deprecated/` 或旧 phase 交接文档——历史只存在于 git 提交（`git log`）与 `docs/DEVELOPMENT-HISTORY.md`。
+
+> ## ⚠ 与 `docs/wiki/` 的分工（**2026-10-10 定，FR-019**）
+>
+> **本文件与 `docs/wiki/` 都曾自称"接手先读这一份"** ⇒ 新人拿到两个"第一步"，**这是重叠**。
+> 现明确分工，**只此一处说全文**（其余位置链接）：
+>
+> | 你想知道 | 读哪一份 | 粒度 |
+> |---|---|---|
+> | **这个项目要做什么、现在做到哪、主要部件有哪些** | **[`wiki/architecture.md`](wiki/architecture.md)** ← **接手先读这一份** | 一页（~145 行） |
+> | **某一块代码负责什么 / 依赖什么 / 明确不做什么** | [`wiki/components/`](wiki/components/)（19 篇 + 索引） | 每子系统一页 |
+> | **每一类文件在哪、干什么** | [`README.md`](README.md)（文件地图） | 一张表 |
+> | **技术事实的完整权威**：数据契约、API/SSE、入库管线、凭据体系、坑全集、红线宪法 | **本文件**（§1–§17 + 附录） | 全书（~900 行） |
+>
+> **⇒ 阅读顺序**：`README.md`（根）→ `docs/README.md` → `wiki/architecture.md` → 需要时下钻
+> `wiki/components/` 或**本文件的对应章节**。
+> **本文件不再是"第一份要读的"**，而是**"要查具体技术事实时的唯一权威"**——
+> 它没有被废弃（内容仍然算数、且是唯一权威），只是**不再是入口**。
+> 原话「接手先读这一份」保留于此作为留痕（原则 V：打回的说法就地更正、不许悄悄删）。
 
 ## 目录
 

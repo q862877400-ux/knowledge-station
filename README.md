@@ -107,11 +107,15 @@ npm run typecheck                           # tsc：0 错误（tsc --noEmit -p p
 ## 文件在哪、文档怎么读
 
 - **每一样东西在哪、干什么** ⇒ [`docs/README.md`](docs/README.md)（**文件地图**）
-- **这个项目要做什么、现在做到哪** ⇒ [`docs/wiki/architecture.md`](docs/wiki/architecture.md)
+- **接手先读哪一份** ⇒ **[`docs/wiki/architecture.md`](docs/wiki/architecture.md)**（项目目标 + 现状 + 主要部件，一页）
 - **某块代码负责什么、改它会影响谁** ⇒ [`docs/wiki/components/`](docs/wiki/components/README.md)
 - **历史与备份在哪** ⇒ [`docs/archive/README.md`](docs/archive/README.md)
-- **接手先读哪一份** ⇒ **`docs/ENCYCLOPEDIA.md`**（技术百科全书：架构/数据契约/检索/入库/坑全集/红线宪法）
-- **113 份文档的机械索引** ⇒ [`docs/INDEX.md`](docs/INDEX.md)（脚本生成，勿手改）
+- **要查具体技术事实**（数据契约 / API / 入库管线 / 凭据 / 坑全集 / 红线） ⇒ [`docs/ENCYCLOPEDIA.md`](docs/ENCYCLOPEDIA.md)
+  ⚠ **它不是入口**（2026-10-10 更正）：本行原先写「接手先读哪一份 ⇒ ENCYCLOPEDIA」，
+  与 `wiki/architecture.md` 的定位**重叠**（两处都自称第一步）。现在分工是：
+  **wiki 是入口（一页读懂）**，**ENCYCLOPEDIA 是"要查具体事实时的唯一权威"（全书）**。
+  两处都保留——它没有被废弃，只是不再是第一份要读的。原话见 `docs/ENCYCLOPEDIA.md` 抬头。
+- **文档的机械索引** ⇒ [`docs/INDEX.md`](docs/INDEX.md)（脚本生成，勿手改）
 
 > 本文件只做**入口**：我是什么、怎么跑、**动之前勿删什么**、**剩下的去哪读**。
 > 具体的地图与说明住在上面那几个链接里——**同一件事不在两处写全文**。
