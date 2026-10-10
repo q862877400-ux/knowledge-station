@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **198 份** / **7069 KB**。
+> 共 **200 份** / **7137 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -48,7 +48,7 @@
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
 | `docs/wiki/components/vision.md` | 3 | 2026-10-11 | **位置**：`src/core/vision/` |
 
-## 渠道与巡检（7 份 / 695 KB）
+## 渠道与巡检（8 份 / 743 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -57,6 +57,7 @@
 | `docs/research/channels/law-cn.md` | 112 | 2026-09-18 | 1. [国家法律法规数据库（flk.npc.gov.cn）](#1-国家法律法规数据库flknpcgovcn) |
 | `docs/research/channels/std-cn.md` | 73 | 2026-09-18 | 0. 本次调研最重要的三个发现（先看这个） |
 | `docs/research/channels/internal-inventory.md` | 67 | 2026-09-18 | 0. 阅读本文件需要的三条结构事实 |
+| `docs/GOVQA-UNWIRED-CHANNELS.md` | 48 | 未提交 | 一、先弄清「接线」是什么意思 |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 | 2026-10-10 | **实测 236 条**：有效 110 · 边缘 21 · 接口 6 · 空壳/JS壳 35 · 被拦 7 · 不通/失 |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
 
@@ -122,7 +123,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（63 份 / 1302 KB）
+## 根文档与其他（64 份 / 1322 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -132,10 +133,10 @@
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
+| `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 32 | 2026-10-11 | 1. 一句话：这是什么 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
-| `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 24 | 未提交 | 1. 一句话：这是什么 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
 | `docs/research/substitute-scan.md` | 22 | 2026-09-19 | 一、扫描结果：四类替代品（+ 一类交付形态替代） |
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
@@ -147,6 +148,7 @@
 | `docs/README.md` | 14 | 2026-10-11 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
+| `docs/PLAN-REAL-QUESTION-RULER.md` | 12 | 未提交 | 一、先说结论 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
