@@ -154,7 +154,7 @@ description: "Task list for 政务问答采集系统的可运维化"
 
 ## Phase 7: Polish & 跨切面
 
-- [ ] T052 [P] 更新 `tools/gov-qa/SITE-REGISTRY.md`：登记每个通道的 `watermark_type` 与 `self_reported_total`（M1 要求）
+- [x] T052 [P] 更新 `tools/gov-qa/SITE-REGISTRY.md`：登记每个通道的 `watermark_type` 与 `self_reported_total`（M1 要求）
 - [x] T053 [P] 写 `tools/gov-qa/README.md`：面向使用者的「怎么轮询 / 怎么看覆盖 / 怎么体检」三段说明（宪法 I：说人话，不用内部术语）
 - [x] T054 按 `quickstart.md` 的 **9 个验证场景**逐条跑通，把实测结果写回 `quickstart.md`（宪法 III：证据优于断言）
 - [x] T055 [P] 在 `GOAL.md` 更新 §三 基线与 §四 验收条件（把新的 `poll.py` / `health.py` 纳入闸门或明确不纳入）

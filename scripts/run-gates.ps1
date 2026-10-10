@@ -271,6 +271,12 @@ if ($Full) {
   #   ⇒ **恰好命中旧判据**，抓不到"真实语料里 source 是子源"这个缺陷
   #   （实测该缺陷让 33 个通道、124,762 条记录的幂等性失效）。
   Add-Step 'gov-qa 幂等验证'        $py  @('tools/gov-qa/recon/verify-idempotent.py', '--quiet') $repo
+  # ---- gov-qa 通道台账（spec 004 T052 / M1）--------------------------------------
+  # ⚠ 2026-10-10 新增：`SITE-REGISTRY.md` 里有一张**脚本生成**的通道台账表
+  #   （每个通道的 `watermark_type` + `self_reported_total` + 已落盘量）。
+  #   M1 要求"每个来源登记自报总量与落盘量"；表**会随通道增减/语料增长而过期**
+  #   ⇒ 这条 `--check` 只核对不写，过期即报红（表不许手改后不更新）。
+  Add-Step 'gov-qa 通道台账最新'    $py  @('tools/gov-qa/recon/gen-channel-table.py', '--check', '--quiet') $repo
 }
 }
 
