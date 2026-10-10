@@ -80,7 +80,13 @@ export function KsOfficeRow(props: {
           background: 'var(--dsw-alias-bg-layer-1)', border: '0.5px solid var(--dsw-alias-border-l1)',
         }}
       >
-        <Icon size={14} />
+        {/* ⚠ 2026-10-10（spec 008 D5）：图标 14 → **16**。
+            官方图标画布是 16×16（`ui-primitives/lib/index.js` 的 `viewBox="0 0 16 16"`），
+            16 是**基准档**；14 是宿主的**默认值**、不是设计意图。
+            这里原本显式传 14，而外层容器是 28×28 —— 14 在 28 里只占一半、偏小；
+            统一到 16 后与知识库页、渠道库页**同一档**（Ant Design 图标规范：
+            「同一用途用同一档」，见 docs/UI-ICON-SYSTEM.md）。 */}
+        <Icon size={16} />
       </span>
       <span style={{ flex: 1, minWidth: 0 }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 600 }}>

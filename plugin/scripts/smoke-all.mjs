@@ -119,6 +119,13 @@ const SUITES = [
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
   'scripts/smoke-ui-scale.mjs',
+  /* ⚠ 2026-10-10（spec 008）：**图标体系判据**。
+     为什么进链：实测发现 KS 用到的 17 个图标里，**宿主的默认 size 本身就分两档**
+     （6 个默认 14、10 个默认 16，见 `ui-primitives/lib/index.js` 各 artwork 的 `size = N`）
+     ⇒ 同一排按钮里「返回上一层」(14) 紧挨着「新建下级目录」(16)，**天生不齐**；
+     而"记得传 size"这种纪律**已经失败过一次**（本次实测就是证据）。
+     ⇒ 变成脚本、进链，不靠人记得。判据见 docs/UI-ICON-SYSTEM.md。 */
+  'scripts/smoke-icon-system.mjs',
   // 5j-补（2026-09-20，复核 verify-freeze-5j 打回 E②/H③）：**两条要真浏览器的断言现在进链**。
   //   打回的原话是"`ksPadCheck` 这条像素断言不在任何门禁链里"⇒ 5j 在门禁内的实际保护只有 jsdom 那 5 条
   //   （jsdom 没有布局引擎，判不了"外缘到内容边多少像素"）。两条脚本的位置都放在渲染类之后

@@ -74,8 +74,13 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   }
   export const Button: ComponentType<DshButtonProps>
 
-  /** 14px 下拉箭头，用于菜单触发器。 */
-  export const IconChevronDownOutlineRegular: ComponentType<{ readonly className?: string }>
+  /** 下拉箭头，用于菜单触发器。
+   *  ⚠ **2026-10-10（spec 008）更正**：原来声明成 `ComponentType<{ readonly className?: string }>`
+   *  ——**漏了 `size`**。而 `DshIconProps`（下面那个接口）逐字写着 `size?: number`。
+   *  漏 size 的后果：**调用点传 `size={16}` 会 `tsc` 报 TS2322**（"Property 'size' does not exist"），
+   *  逼着这一处只能用宿主默认值（**14**）⇒ 正是"同一排图标不齐"的一部分。
+   *  ⇒ 改成与其他图标同一个 `DshIconProps`，口径统一。 */
+  export const IconChevronDownOutlineRegular: ComponentType<DshIconProps>
 
   /**
    * 宿主图标集（`ui-primitives/src/icons/`，`IconProps = { size?: number; className?: string }`，
@@ -93,6 +98,17 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   /** 空态/补位卡用的「＋」与文件夹字形。 */
   export const IconPlusOutlineRegular: ComponentType<DshIconProps>
   export const IconFolderOpenOutlineRegular: ComponentType<DshIconProps>
+  /**
+   * **Medium 档**（1.3px 描边）—— 2026-10-10（spec 008 D3）首次启用。
+   *
+   * 官方为**每个**图标提供两档描边：`…Regular` = `strokeWidth 1`、
+   * `…Medium` = `ICON_MEDIUM_STROKE = 1.3`（`ui-primitives/lib/index.js`，逐字）。
+   * ⚠ 用途（**唯一用途**）：**当前选中**的行 —— 底色 + 字重之外，图标也重一档。
+   *   实测对照：`var/tmp/ui-shots/medium-vs-regular-2x.png`（1.3px 确实更实）。
+   * ⚠ **不要**拿它当"随便加粗"用：Regular 是默认档，Medium 只给"当前项/主操作"这类语义。
+   *   KS 此前一次没用过这一档 ⇒ "当前选中"少了一档表达手段（这是本批补上的）。
+   */
+  export const IconFolderOpenOutlineMedium: ComponentType<DshIconProps>
   /** 危险动作（批量删除）用的垃圾桶。 */
   export const IconTrashOutlineRegular: ComponentType<DshIconProps>
   /**
@@ -102,21 +118,24 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
    * 只会运行时 undefined ⇒ 必须读源码/产物确认）。
    */
   export const IconEllipsisOutlineRegular: ComponentType<DshIconProps>
-  /** 筛选条的行首图标（P1-4；语义 = "这一排是筛选"，同法核过宿主 `icons/index.tsx`）。 */
-  export const IconInspectOutlineRegular: ComponentType<DshIconProps>
+  /** 筛选条的行首图标（P1-4；语义 = "这一排是筛选"，同法核过宿主 `icons/index.tsx`）。
+   *  ⚠ **2026-10-10（spec 008 T030）**：`IconInspectOutlineRegular` 的**调用点已不存在**
+   *  （筛选条后来改用了别的图标）⇒ 按"只声明我们真调用的"**删掉**。 */
   /**
-   * P2 头条（2026-09-20）新用的 4 个**行内文件图标** + 1 个搜索框放大镜。
-   * 五个名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`（**const 定义与
-   * export 列表都在**，一条命令核的）：
-   *   `const IconShieldOutlineRegular = ` / `export { … IconShieldOutlineRegular … }` 同理其余四个。
-   * ⚠ 为什么必须核：这个包在我们的构建里是 **external** ⇒ 名字写错**不会构建失败**，
-   *   只会在真机运行时变成 undefined（图标整块消失），见本文件顶部那条边界。
-   *   `src/index.ts:77` 的 `export * from './icons/index.tsx'` 把它们抬到包根 ⇒ 可 import。
+   * P2 头条（2026-09-20）新用的**行内文件图标** + 搜索框放大镜。
+   * ⚠ **2026-10-10（spec 008 T030）就地收窄**：本段原有 5 个名字，其中
+   *   `IconShieldOutlineRegular` / `IconArchiveOutlineRegular` 的**调用点已不存在**
+   *   （那几处 UI 后来改了/删了）⇒ 按本文件自己的纪律「只声明**我们真调用**的那几个」**删掉**。
+   *   原话留在这里（本仓规矩：删了什么要留痕）：
+   *     「遗留：IconInspect/IconShield/IconArchive/IconQueue/IconNewChat 的 Regular 档调用点已不再用
+   *       —— 本次保留声明（宿主确实导出它们，留着零风险、删了也不减错）」。
+   *   ⚠ 那条"删了也不减错"的理由**不成立**：留着会让"声明集合 == 调用集合"这条判据**永远红**
+   *     （或反过来逼着判据放宽口径），而且下一个人看到声明会以为**还在用**。
+   *   ⇒ 现在删掉；将来要用再加回一行（宿主确实导出它们，加回的成本是一行）。
+   *   判据见 `plugin/scripts/smoke-icon-system.mjs` 的 ③（双向集合相等）。
    */
-  export const IconShieldOutlineRegular: ComponentType<DshIconProps>
   export const IconChecklistOutlineRegular: ComponentType<DshIconProps>
   export const IconListPenOutlineRegular: ComponentType<DshIconProps>
-  export const IconArchiveOutlineRegular: ComponentType<DshIconProps>
   export const IconSearchOutlineRegular: ComponentType<DshIconProps>
   /** 「在此范围内提问」按钮的问号（诊断 J1 换图标；名字逐字核过宿主 icons/*.d.ts 全集，
    *  宿主无对话气泡类图标 ⇒ 问号=提问最贴）。同边界：写错名字不构建失败、真机变 undefined。 */
@@ -130,14 +149,14 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
     holdMs?: number
     onDone?: () => void
   }>
-  /** S2 办事台菜单行新增的 4 枚图标（2026-09-22；名字逐字核过宿主 icons/*.d.ts 全集）。
-   *  另 3 枚（IconShieldOutlineRegular/IconChecklistOutlineRegular/IconListPenOutlineRegular）**上面已有声明**
-   *  ——我第一版补声明时撞了重复（一个名字两处声明），已去重。
+  /** S2 办事台菜单行新增的图标（2026-09-22；名字逐字核过宿主 icons/*.d.ts 全集）。
+   *  ⚠ **2026-10-10（spec 008 T030）**：`IconQueueOutlineRegular` / `IconNewChatOutlineRegular`
+   *  的**调用点已不存在** ⇒ 按"只声明我们真调用的"**删掉**（原声明见 git 历史）。
+   *  ⚠ 这里原写"另 3 枚上面已有声明 —— 我第一版补声明时撞了重复，已去重"：
+   *  那句话说的是**当时的**去重，与本批删死声明是两件事，保留原文不改。
    *  同边界：写错名字不构建失败、真机变 undefined ⇒ 用前先核全集。 */
   export const IconPlanOutlineRegular: ComponentType<DshIconProps>
-  export const IconQueueOutlineRegular: ComponentType<DshIconProps>
   export const IconClockOutlineRegular: ComponentType<DshIconProps>
-  export const IconNewChatOutlineRegular: ComponentType<DshIconProps>
   /**
    * 5h（2026-09-20）卡片带**左右翻页**用的两个箭头。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`
