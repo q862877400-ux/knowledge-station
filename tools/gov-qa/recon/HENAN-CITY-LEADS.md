@@ -245,11 +245,54 @@ $.ajax({ url: 'https://page.anyang.gov.cn/zwfw/leader-mail/list',
 | 焦作市 | `jz-zxhf` | 34 | 服务端渲染列表 + 详情页 |
 | 周口市 | `zk-zxsq` | 91 | POST JSON（**需 CSRF token**）+ 详情页 |
 
-## 其余 14 个市的下一步（未做）
+## ★ 开封市·信件公开 —— **已打通**（`kf-hdjl`，河南第 5 个可采市级源）
 
-1. **开封**：`/kfsrmzfwz/hdjl/pc/list.html` **非登录页**（129KB），**未深挖** —— 下一步。
-2. **许昌市**：本机 **ConnectTimeout**，未验。
-3. **不要**再按"河南 10 市判死"处理 —— 那条只对 IGI 成立。
+### 站点结构（配置全从 `config.js` 抄）
+
+```js
+ajaxUrl.sr.hd.mail.list   = '/uapi/mail/list'
+ajaxUrl.sr.hd.mail.detail = '/uapi/mail/detail'
+userIdObj: tenantId='1735586219994349568' deptId='1735588321223213056'
+           siteId='1735601820788891648'   qdId='1736686125818318848'
+```
+
+详情返回 **21 个字段**：`content`（提问）+ `replyContent`（答复）+
+`submitTime`/`finishedTime` + `aimName`（类型）+ `metadataList`（答复单位）
+⇒ **一次调用拿全问答**。
+
+### ⚠⚠ 三个必须踩对的点（错任一个都返回 `total:0`）
+
+| # | 陷阱 | 正确做法 |
+|---|---|---|
+| ① | 列表的 `siteId` 参数 | 传 **`qdId`**（`…818848`），**不是** `userIdObj.siteId` |
+| ② | `publicationFlag` | **必须带 `1`**（不带也 200，但 `total:0`）|
+| ③ | 分页参数名 | **`current` / `pagesize`**，不是 `page` / `size` |
+
+**我第一版三个全错** ⇒ 返回 `{"total":0,"data":[]}` —— **看起来像"没有数据"**。
+（从 `zmhd.js::getMailList` 抄到原样调用才对。）
+
+### 落盘
+
+**788 条**（站点自报 789，**差的 1 条没有答复**），0 空答复。
+
+## 河南已打通的 5 个市
+
+| 市 | 适配器 | 落盘 | 站点形态 |
+|---|---|---|---|
+| 商丘市 | `sq-szxx` | 26 | 服务端渲染表 + 详情页 |
+| 安阳市 | `ay-zmhd` | **2,509** | POST JSON（**自带问答全文**）|
+| 焦作市 | `jz-zxhf` | 34 | 服务端渲染列表 + 详情页 |
+| 周口市 | `zk-zxsq` | 91 | POST JSON（**需 CSRF token**）+ 详情页 |
+| 开封市 | `kf-hdjl` | **788** | GET JSON（**三个参数陷阱**）|
+
+⇒ **合计 3,448 条**（此前该省这些市**一条数据都没有**）。
+
+## 其余 13 个市的下一步（未做）
+
+1. **许昌市**：本机 **ConnectTimeout**，未验。
+2. **不要**再按"河南 10 市判死"处理 —— 那条只对 IGI 成立。
+3. ★ **经验**：河南这批市门户**大多是"壳 + JS 接口"** ⇒
+   **先抓 JS 找接口、再照抄调用参数**，别猜（本轮 5 个市里 3 个是靠抄 JS 才通的）。
 
 ## 诚实边界
 
