@@ -147,6 +147,26 @@ def collect() -> dict:
             "coverage": round(coverage, 1), "adapters": n_keys}
 
 
+def build_checks(s: dict) -> list:
+    """把实测值判成 `(名称, 是否通过, 详情)` 列表。
+
+    ⚠⚠ **抽成独立函数是有原因的**（spec 005 T112，2026-10-10）：
+    原来这四行**内联在 `main()` 里**，独立复核发现"把任意一项改成恒真，
+    测试全绿；四项同时改才变红" —— 也就是**每项判据没有被各自钉住**，
+    `test_health_detects_all_three_faults` 只验证了输出格式。
+    ⇒ 抽出来后，测试可以对**单项**造故障并断言**该项**失败
+    （见 `tests/test_health_checks.py`）。
+    """
+    return [
+        ("数据总数 ≥ 地板", s["total"] >= s["floor"],
+         f"{s['total']:,} ≥ {s['floor']:,}"),
+        ("无零数据适配器", s["empty"] == 0, f"{s['empty']} 个"),
+        ("无重复 id", s["dups"] == 0, f"{s['dups']} 行"),
+        (f"标签覆盖率 ≥ {COVERAGE_GATE:.0f}%",
+         s["coverage"] >= COVERAGE_GATE, f"{s['coverage']}%"),
+    ]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="健康结论（spec 004 US4）")
     ap.add_argument("--detail", action="store_true", help="展开每项实测值")
@@ -162,14 +182,8 @@ def main() -> int:
         return 2
     elapsed = round(time.time() - t0, 1)
 
-    # ---- 逐项判定 ------------------------------------------------------
-    checks = []
-    checks.append(("数据总数 ≥ 地板", s["total"] >= s["floor"],
-                   f"{s['total']:,} ≥ {s['floor']:,}"))
-    checks.append(("无零数据适配器", s["empty"] == 0, f"{s['empty']} 个"))
-    checks.append(("无重复 id", s["dups"] == 0, f"{s['dups']} 行"))
-    checks.append((f"标签覆盖率 ≥ {COVERAGE_GATE:.0f}%",
-                   s["coverage"] >= COVERAGE_GATE, f"{s['coverage']}%"))
+    # ---- 逐项判定（构造抽到 `build_checks`，便于单测）------------------
+    checks = build_checks(s)
 
     failed = [(n, d) for n, ok, d in checks if not ok]
     verdict = VERDICT_OK if not failed else VERDICT_BAD
