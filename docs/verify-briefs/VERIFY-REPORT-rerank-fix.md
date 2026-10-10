@@ -187,7 +187,7 @@
 
 `§10.214` 的产物行写：`reranker.py（d37f72f4…）+ hybrid_engine.py（docstring，3d440400…）`。独立核：
 - `reranker.py` 的 `d37f72f4…` = **git blob（LF）** 哈希（= `git show tag:path | sha256sum`）✅ 正确。
-- `hybrid_engine.py` 的 `3d440400…` = **工作区（CRLF）** 哈希；其 **blob（LF）** 哈希是 **`f539e919d0667d4a`**（与冻结核对法一致）。出处见 `.workbuddy-ai/memory/AUTO-CHAIN-HANDOFF.md:270`（"工作区 `3d440400…` vs blob `f539e919…`"）。
+- `hybrid_engine.py` 的 `3d440400…` = **工作区（CRLF）** 哈希；其 **blob（LF）** 哈希是 **`f539e919d0667d4a`**（与冻结核对法一致）。出处见 `../archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md:270`（"工作区 `3d440400…` vs blob `f539e919…`"）。
 
 ⇒ **同一句里两个文件用了两套约定**，正是本仓 §10.210 F2 已登记的"冻结哈希对 EOL 敏感且两处约定不一致"那个跨批次通用坑。**判 P2**（登记；不影响冻结核对——我用 blob 法 7/7 全过）。
 

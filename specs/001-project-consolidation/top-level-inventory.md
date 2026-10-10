@@ -108,9 +108,9 @@
 实测只剩 `.gitkeep`（回收区建了、复核过、**没有待删项**）。⇒ T037 的"逐项确认后删除"**无可删项**，
 `docs/trash-2026-10-05/` 作为**回收区的存在本身**保留（它是"先移后删"这条纪律的落点）。
 
-### 3.4 `.workbuddy-ai/` —— **未被忽略**（FR-011 相关，只登记）
+### 3.4 `.workbuddy-ai/` —— ✅ **已删（2026-10-10，业主裁定）**
 
-- **实测**：`git check-ignore -v .workbuddy-ai` **未命中**；`git ls-files` = **0**；
+- **实测（当时）**：`git check-ignore -v .workbuddy-ai` **未命中**；`git ls-files` = **0**；
   `git status --short` 里**以 `?? .workbuddy-ai/` 出现**。
 - **含义**：它**未被跟踪、也未被忽略** ⇒ 每次 `git status` 都会带一条噪声，
   且任何人 `git add -A` 都会把它扫进去（本仓为此已发生过多次事故，见 `baseline.md` §五 坑 1/坑 5）。
@@ -119,6 +119,17 @@
   **登记待业主裁定。**
 - 同类状态（`output/`、`.codebuddy/`）**已在 `.gitignore` 里**（`/output/`、`/.codebuddy/`），
   只有 `.workbuddy-ai/` 这一条是缺口。
+
+> **✅ 结案（2026-10-10 晚，业主裁定）**：业主令「**workbuddy 现在已经不用了，把这些东西删除掉**」。
+> **删前做了两件事**（否则会留断链与证据丢失）：
+> ① **字节级归档 13 个文件**到 [`docs/archive/workbuddy-memory/`](../../docs/archive/workbuddy-memory/README.md)
+>    （逐文件 sha256 已核；其中 `CHAIN-UNCLOSED-AUDIT.md` 的相对链接**按新深度改过**，
+>    故它与原件**故意不逐字节相同**，其余 12 份逐字节一致）；
+> ② **同步改 5 处引用**（开发史 §10.214/§10.217/§10.228、`NEXT-DEV-PLAN`、
+>    `HANDOVER-2026-10-09`、`exp-12 README`、`VERIFY-REPORT-rerank-fix`）指向归档位置
+>    —— 按 `docs/naming-convention.md` §九 第 3 条「同步改正三类引用」。
+> **读数**：删除后链接检查 **0 处断链**；`git status` 的 `?? .workbuddy-ai/` 噪声消失。
+> **同批未动**：用户级 `~/.workbuddy-ai/`（**122 GB**）**按业主令保留**（不在本仓、不进版本控制）。
 
 ---
 

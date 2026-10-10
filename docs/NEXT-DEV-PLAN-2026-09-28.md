@@ -370,7 +370,7 @@
 >   D2 成立、冻结哈希 **7/7**。⚠ 4 条 P2 已处置（详见 [开发史 §10.216](DEVELOPMENT-HISTORY.md)）。
 
 > **🆕 2026-10-09（自动续接链第 11 轮）P0·0.10 只读量化：成因拆成两道截断，考卷结构上看不见它 ⇒ 判决不改 schema**
-> - **为什么是它**：开工先读 `.workbuddy-ai/memory/CHAIN-UNCLOSED-AUDIT.md`，其 **A2 = 总纲 P0·0.10**
+> - **为什么是它**：开工先读 `archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md`，其 **A2 = 总纲 P0·0.10**
 >   是 A 类里**唯一还影响"找得到"、且不依赖外网/显卡/业主**的一条；交接单 ④ 明写"**先只读量化，再谈改 schema**"。
 > - **★ 成因更正**（总纲原写只有一道截断，实测**两道**）：① **代码层** `f"{title}\n{content_text[:512]}"`
 >   （`clause_repo.py:285`/`:426`）⇒ 按 **512 字符**截；② **模型层** `model_max_length = 512` **token**。
