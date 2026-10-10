@@ -23,7 +23,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PY = ROOT.parent.parent / ".venv" / "Scripts" / "python.exe"
+# ⚠ **不要硬编码 `../../.venv/Scripts/python.exe`**（独立复核发现 9）：
+#   提取树（`git worktree`）里 `.venv` 被 gitignore ⇒ 那个路径不存在
+#   ⇒ 用例在**任何提取树/CI 上都会红**（复核实测 FileNotFoundError）。
+#   ⇒ 用 `sys.executable`（正在跑本用例的那个解释器，必然是好的）。
+PY = sys.executable
 SCRIPT = ROOT / "coverage-report.py"
 
 
@@ -99,3 +103,42 @@ def test_both_entrypoints_return_the_same_exit_code():
     """**核心判据**：退出码也必须一致（实测原来是 0 vs 1）。"""
     a, b = _quiet_run().returncode, _missing_run().returncode
     assert a == b, f"退出码不一致：--quiet={a} vs --missing-cities={b}"
+
+
+def test_missing_count_matches_an_independent_recount():
+    """**关键补强（独立复核发现 6）**：一致性不等于正确性。
+
+    原版四条用例只锁"两个入口**相等**" —— 复核实测：把 `_missing_cities_detail`
+    改成"全部市都算已覆盖"（两边都报 0），**四条全绿**。
+    ⇒ 两个入口**一致地报错**，判据照样通过。
+
+    这条**独立重算**缺失数（不调被测实现），再与入口读数比对。
+    """
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT))
+    from regions import PROVINCE_CITIES
+    from coverage import count_by_city, count_by_source, build_units, channel_city_map
+    from channel import load_channels
+
+    channels = load_channels()
+    counts = count_by_source()
+    cc = count_by_city(channel_city_map(channels))
+    units = build_units(channels, counts, threshold_province=3000,
+                        threshold_city=500, city_counts=cc or None)
+
+    # 独立重算：334 名录里「数据口径下零记录」的有几个
+    covered = {u.name for u in units
+               if u.level == "city" and max(u.total_records, u.data_records) > 0}
+    bare = {n.rstrip("市") for n in covered}
+    independent = 0
+    for _prov, cities in PROVINCE_CITIES.items():
+        for c in cities:
+            if c not in covered and c.rstrip("市") not in bare:
+                independent += 1
+
+    out = _quiet_run().stdout or ""
+    m = re.search(r"CITY_MISSING_FROM_334=(\d+)", out)
+    assert m, f"应报 CITY_MISSING_FROM_334：{out[:200]}"
+    assert int(m.group(1)) == independent, (
+        f"入口报 {m.group(1)}，独立重算是 {independent} —— "
+        f"两者不一致说明入口算错了（不只是两入口互相一致）")

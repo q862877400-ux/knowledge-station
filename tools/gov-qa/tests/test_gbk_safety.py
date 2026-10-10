@@ -18,7 +18,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PY = ROOT.parent.parent / ".venv" / "Scripts" / "python.exe"
+# ⚠ **不要硬编码 `../../.venv/Scripts/python.exe`**（独立复核发现 9）：
+#   提取树（`git worktree`）里 `.venv` 被 gitignore ⇒ 那个路径不存在
+#   ⇒ 用例在**任何提取树/CI 上都会红**。用 `sys.executable`。
+PY = sys.executable
 SCRIPT = ROOT / "recon" / "audit-coverage.py"
 
 SUBCMDS = ["--fields", "--answers", "--targets", "--dups", "--gate"]

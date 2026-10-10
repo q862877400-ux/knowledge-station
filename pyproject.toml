@@ -77,12 +77,18 @@ exclude = ["tests*", "scripts*", "eval*", "plugin*", "var*", "docs*"]
 #
 # 背景：`tools/gov-qa/` 建了 4 天 297 个提交、39.5 万条数据，
 # 但**根 pytest 一步都不收它**（`testpaths` 只有 `tests`）——
-# 它的 102 条测试此前靠"人记得跑"。
+# 它的测试此前靠"人记得跑"。
 #
-# 实测合并无冲突：`pytest tests tools/gov-qa/tests` ⇒ **2845 passed / 2 skipped / 0 failed**。
-# 两边的 `conftest.py` 不打架（gov-qa 侧没有 conftest，靠测试文件自己 `sys.path.insert`）。
+# **条数（⚠ 独立复核发现 3/4 打回后更正，原写法把工作区数与冻结数混用了）**：
+#   冻结提交 `7bc67704` 实测：`tests` **2701** + `tools/gov-qa/tests` **102** = **2803**
+#   ⇒ 增量 **+102**。
+#   ⚠ 别拿"工作区当前数"（`tests` 2745 / gov-qa 109）去记 —— 工作区里有**未跟踪的
+#     测试文件**（`test_jev_cn_baseline` 等 4 个）与冻结提交无关。
 #
-# ⚠ 代价：gov-qa 那 102 条里两条要全表扫 39.8 万条记录（各约 16 秒）
+# 实测合并无冲突：两边的 `conftest.py` 不打架（gov-qa 侧没有 conftest，
+# 靠测试文件自己 `sys.path.insert`）。
+#
+# ⚠ 代价：gov-qa 里两条要全表扫 39.8 万条记录（各约 16 秒）
 #   ⇒ 套件多约 35 秒。已加模块级缓存把它从 4 次降到 2 次。
 testpaths = ["tests", "tools/gov-qa/tests"]
 

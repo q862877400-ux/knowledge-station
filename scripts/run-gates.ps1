@@ -260,7 +260,8 @@ if ($Full) {
   # ⚠ 2026-10-10 修订：`tools/gov-qa/tests` 已并入**根 pytest** 的 `testpaths`
   #   （见 `pyproject.toml`）⇒ 上面那一步 `pytest（引擎用例）` **已经跑了它**，
   #   这里**不再重复跑**（重复跑会让套件多花 35 秒且毫无新信息）。
-  #   实测：`pytest --collect-only` 从 2745 → **2847**（+102 条 gov-qa 用例）。
+  #   实测（冻结提交 `7bc67704`）：`tests` 2701 + `tools/gov-qa/tests` 102 = **2803**
+  #   ⇒ 增量 **+102**。⚠ 别拿工作区当前数记 —— 工作区含未跟踪的测试文件。
   #   下面只保留**质量闸门**这一步（它不是 pytest，根 pytest 不会跑）。
   Add-Step 'gov-qa 质量闸门'        $py  @('tools/gov-qa/recon/gate-quality.py', '--quiet') $repo
 }

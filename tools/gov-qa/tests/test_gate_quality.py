@@ -13,13 +13,31 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "recon"))
+ROOT = Path(__file__).resolve().parent.parent          # tools/gov-qa
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "recon"))
 
 import importlib.util                                            # noqa: E402
+
+SCRIPT = ROOT / "recon" / "gate-quality.py"
+
+
+def _python() -> str:
+    """解释器路径。
+
+    ⚠ **不要硬编码 `../../.venv/Scripts/python.exe`**（独立复核发现 9）：
+    提取树（`git worktree`）里 `.venv` 被 gitignore ⇒ 那个路径不存在
+    ⇒ 用例在**任何提取树/CI 上都会红**（复核实测 FileNotFoundError）。
+    ⇒ 优先用 `sys.executable`（正在跑本用例的那个解释器，必然是好的）。
+    """
+    return sys.executable
+
+
+PY = _python()
 
 
 def _load_gate():
@@ -295,15 +313,61 @@ def test_save_baseline_refuses_regression(tmp_path, monkeypatch):
 
 # ---------------------------------------------------------------- 纯 ASCII 出口
 
-def test_quiet_output_is_pure_ascii(tmp_path, capsys):
-    """`--quiet` 是**给闸门读的**，必须纯 ASCII（GBK 控制台会崩）。"""
-    _write(tmp_path, [_rec(1, q="中文问题", a="中文答复")])
-    with _Data(tmp_path):
-        gq.DATA = tmp_path
-        rc = gq.main.__wrapped__() if hasattr(gq.main, "__wrapped__") else None
-    # 直接测 ascii_kv 出口，不依赖 main 的 argv
-    import io
-    from common import ascii_kv
-    buf = io.StringIO()
+def test_quiet_output_is_pure_ascii():
+    """`--quiet` 是**给闸门读的**，必须纯 ASCII（GBK 控制台会崩）。
+
+    ⚠⚠ **2026-10-10 修（独立复核发现 4.1，严重度高）**：原用例的正文是
+
+    ```python
     ascii_kv({"TOTAL": 1, "NOTE": "中文"}, stream=buf)
-    buf.getvalue().encode("ascii")            # 非 ASCII 会在这里抛
+    buf.getvalue().encode("ascii")
+    ```
+
+    ⇒ 它测的是 **`common.ascii_kv` 会不会替换非 ASCII**（那一条由
+    `test_ascii_kv_is_pure_ascii` 正确钉住），**根本没执行 `gate-quality.py --quiet`**。
+    复核实测：把 `--quiet` 里真正决定输出内容的 `MODE` 值改成中文，
+    **闸门输出真的变脏了，而这条用例仍然全绿**。
+    ⇒ 这正是"判据有牙但咬错了对象"的第 4 处 —— 而它守的是
+    "**给门禁读的机器接口必须纯 ASCII**"这条硬约束。
+
+    ⇒ 现在**真的跑 `--quiet` 并检查它的字节**。
+    """
+    r = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
+                       capture_output=True, timeout=600)
+    stdout = r.stdout or b""
+    stderr = r.stderr or b""
+    # ⚠⚠ **必须分开看 stdout 与 stderr**（我自己第一版又漏了，两次返工）：
+    #   实测往 `--quiet` 分支插一句裸 `print("⚠ …")` ⇒ 它 **UnicodeEncodeError 崩掉**，
+    #   而 **stdout 是空的、stderr 里也没有非 ASCII 字节**（崩在写出之前）。
+    #   ⇒ 把两者拼起来查"有没有非 ASCII"会**漏掉"它崩了"**这种最严重的形态。
+    #   正确判据：**stdout 必须非空、纯 ASCII、且含闸门要读的键**。
+    assert stdout, (f"--quiet 的 stdout 是空的 —— 它崩了？\n"
+                    f"rc={r.returncode}  stderr 末尾：{stderr[-400:]!r}")
+    # ⚠⚠ **必须查 stderr 里有没有异常**（我自己前两版都漏了这一条，两次返工）：
+    #   实测往 `--quiet` 分支插一句裸 `print("⚠ …")` ⇒ 它 **UnicodeEncodeError 崩掉**。
+    #   而 `ascii_kv(...)` 已经先写进了 stdout ⇒ **stdout 非空、且纯 ASCII**，
+    #   崩的痕迹**只在 stderr**（`UnicodeEncodeError: 'gbk' codec ...`）。
+    #   ⇒ 不查 stderr 就永远看不见这个形态。
+    assert b"Traceback" not in stderr and b"Error" not in stderr, (
+        f"--quiet 的 stderr 里有异常（它崩了）：{stderr[-400:]!r}")
+    try:
+        stdout.decode("ascii")
+    except UnicodeDecodeError as e:
+        raise AssertionError(
+            f"--quiet 的 stdout 不是纯 ASCII（GBK 控制台会崩）：{e}\n"
+            f"原始字节前 200：{stdout[:200]!r}")
+    assert b"TOTAL=" in stdout, f"--quiet 的 stdout 里没有闸门要读的键：{stdout[:200]!r}"
+
+
+def test_quiet_output_has_the_expected_keys():
+    """**补强**：`--quiet` 必须打出闸门要解析的那些键。
+
+    只测"纯 ASCII"不够 —— 一个空输出也是纯 ASCII。
+    这条钉住**输出里真的有闸门读的键**。
+    """
+    r = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8",
+                       errors="replace", timeout=600)
+    out = r.stdout or ""
+    for key in ("TOTAL=", "ANSWER_EMPTY=", "CONTENT_DUPS=", "TIME_INVERTED=", "MODE="):
+        assert key in out, f"--quiet 输出缺 {key}，实际：{out[:300]}"

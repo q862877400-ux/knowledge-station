@@ -103,14 +103,44 @@ def count_adapters() -> int:
         return 0
 
 
+def count_duplicate_ids(files) -> int:
+    """全库重复 id 行数 —— **按 `(source, id)` 全局计数**。
+
+    ⚠⚠ **2026-10-10 修（独立复核发现 5）**：本函数原来内联在 `collect()` 里，
+    且 `per_src` 在**文件循环内**初始化 ⇒ 同一个 `(source, id)` 落在**两个不同文件**里
+    **永远比不到**（跨文件重复恒报 0）。
+
+    本批（T203 之二）在 `recon/audit-coverage.py` 修掉了**同一个 bug**、
+    写了测试、写了注释 —— **却把兄弟文件 `health.py` 原样留着**。
+    复核原话："同一个 bug 在兄弟文件里原样留着，而且那个文件连门禁都没接。"
+
+    ⇒ 现在两处**都**用全局 `(source, id)` 计数。谁改回按文件计数，本文件与
+    `audit-coverage.py` 的对应用例都会红。
+    """
+    hits: dict[tuple, int] = {}
+    for p in files:
+        try:
+            with open(p, encoding="utf-8", errors="replace") as fh:
+                for line in fh:
+                    if not line.strip() or not line.lstrip().startswith("{"):
+                        continue
+                    try:
+                        r = json.loads(line)
+                    except Exception:                                   # noqa: BLE001
+                        continue
+                    key = (str(r.get("source") or "?"), str(r.get("id")))
+                    hits[key] = hits.get(key, 0) + 1
+        except OSError:
+            continue
+    return sum(n - 1 for n in hits.values() if n > 1)
+
+
 def collect() -> dict:
     """一次遍历收集全部判据（**一次运行检出全部故障**，SC-009）。"""
     files = sorted(glob.glob(str(DATA / "*.jsonl")))
     total = 0
     labeled = 0
-    dups = 0
     for p in files:
-        per_src: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
         try:
             with open(p, encoding="utf-8", errors="replace") as fh:
                 for line in fh:
@@ -126,11 +156,11 @@ def collect() -> dict:
                     #   各算各的（那边回落到脏 `msg_type`）⇒ 同一指标两个数字。
                     if has_label(r, strict=True):
                         labeled += 1
-                    per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
         except OSError:
             continue
-        for c in per_src.values():
-            dups += sum(c.values()) - len(c)
+
+    # ⚠ 重复 id 走**独立函数**（口径唯一出处，见 `count_duplicate_ids` 的文档）
+    dups = count_duplicate_ids(files)
 
     n_empty = count_empty_adapters(files)
     n_keys = count_adapters()
