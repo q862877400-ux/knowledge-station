@@ -157,10 +157,55 @@ $.ajax({ url: 'https://page.anyang.gov.cn/zwfw/leader-mail/list',
 —— 实测那是**登录页**（要账号验证码）⇒ **不可采**。
 **同一个站可能同时暴露"要登录的"和"公开的"两个入口，不能看到 api 就以为能采。**
 
-## 其余 16 个市的下一步（未做）
+## ★ 焦作市·咨询回复 —— **已打通**（`jz-zxhf`，河南第 3 个可采市级源）
 
-1. **焦作 / 周口 / 开封**：它们也暴露了带 `api` 的 URL
-   （`t.jiaozuo.gov.cn/consultview/api/...`、`/front/mailbox/...`），**次优候选**。
+### 站点事实
+
+- 列表 `https://www.jiaozuo.gov.cn/zmhd/zxhf/` **服务端渲染**
+- **分页**（从 `paging.js` 的 `goto` **抄的**，不是猜的）：
+
+  ```js
+  var returnp = page == 0 ? '' : ('_' + page);
+  var dataUrl = this.reLoadUrl + 'index' + returnp + '.html';
+  ```
+
+  ⇒ **页号从 0 起**：`index.html` → `index_1.html` → …
+- 详情 `/YYYY/MM-DD/<id>.html` **服务端渲染**，含「详细信息」+「受理回复」
+
+### ⚠ `pagecount=34` 是**总条数**不是总页数
+
+页面写 `<div id="pageDec" pagesize="24" pagecount="34">`，JS 里
+`pages = ceil(pagecount/pagesize)` = 2。**实测**：`index_0` 24 条 +
+`index_1` 10 条 = **34 条**，`index_2` 空 ⇒ **2 页**。
+
+⇒ 谁把 `pagecount` 当页数去翻 34 页，**会白跑 32 页**。
+
+### 质量（铁律第 6 条）
+
+抽 3 条详情，**答复非空**且带具体依据/电话：
+「依据焦作市相关文件规定，新参保人员应连续参保交费 6 个月以上…拨打 **0391-8826930**」
+
+### ⚠ 一个被否掉的入口
+
+首页也暴露 `https://t.jiaozuo.gov.cn/consultview/api/view/selectsiteconsult`
+—— 实测是**登录页**（要账号验证码）⇒ **不可采**。
+（与安阳 `letter.anyang.gov.cn/api/view/welcome` **同形** ——
+河南省政府网站统一技术平台的登录页。）
+
+⇒ **看到 `api` 不能就以为能采。**
+
+## 河南已打通的 3 个市（小结）
+
+| 市 | 适配器 | 落盘 | 站点形态 |
+|---|---|---|---|
+| 商丘市 | `sq-szxx` | 26 | 服务端渲染表 + 详情页 |
+| 安阳市 | `ay-zmhd` | **2,509** | POST JSON 接口（**自带问答全文**）|
+| 焦作市 | `jz-zxhf` | 34 | 服务端渲染列表 + 详情页 |
+
+## 其余 15 个市的下一步（未做）
+
+1. **周口 / 开封**：也暴露了带 `api` 的 URL（`/front/mailbox/...`、
+   `szzx.kaifeng.gov.cn`），**但按焦作/安阳的经验，先验证是不是登录页**。
 2. **许昌市**：本机 **ConnectTimeout**，未验。
 3. **不要**再按"河南 10 市判死"处理 —— 那条只对 IGI 成立。
 
