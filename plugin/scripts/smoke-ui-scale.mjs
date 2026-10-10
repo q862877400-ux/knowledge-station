@@ -90,8 +90,17 @@ if (m === null) {
 }
 const rawBody = m[1]
 
-// 纪律 2：先剥**注释**（整块），免得注释里的数字被算成现场值。
-const withoutComments = rawBody.replace(/\/\*[\s\S]*?\*\//g, '')
+// 纪律 2：先剥**注释**（整块 + 行注释），免得注释里的数字被算成现场值。
+// ⚠⚠ 2026-10-10（spec 007 P2-1，第二轮独立复核发现）：第一版只剥 `/* … */`。
+//   而 CSS 模板里写 `// …` 形式的声明**同样非法、浏览器不会定义该 token**
+//   ⇒ 只剥块注释时，"把定义写成 `// --ks-radius:…;`"会让第③段判绿，而病还在（与 R1 同类）。
+//   复核实测：`// --ks-radius:var(--dsw-radius-md);` ⇒ 旧剥除器下 **exit 0**（假绿）。
+//   ⇒ 补一条行注释剥除。**顺序**：先剥块注释再剥行注释 —— 反过来会把 `/*` 里的 `//` 误当行注释、
+//     把块注释后半段当代码（本仓 `ksGuideStyles.ts` 里 `https://…` 这类 URL 只出现在注释中，
+//     块注释先剥掉就不会被误伤；而模板串里若出现裸 URL，行注释正则要求 `//` 前是行首或空白，见下）。
+const withoutComments = rawBody
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .replace(/(^|\s)\/\/[^\n]*/gm, '$1')
 
 // 纪律 1：剥掉 `:root{...}` 那一整块（token **定义**，不是现场数字）。
 const rootBlocks = [...withoutComments.matchAll(/:root\s*\{[\s\S]*?\n\}/g)]

@@ -2417,8 +2417,11 @@ const html = `<!doctype html>
           第二版按 placeholder 含 "Base URL" / "API Key" 来挑 —— 而**已配置态**的 Key 框
           placeholder 是「Key 已配置（留空保持不变；输 "-" 清除）」，**不含** "API Key"
           ⇒ 它同样可能被截断，却**永远不被量**（同类缺陷换个分支就漏）。
-       ⇒ 现在**按位置挑**：凡是凭据表单行里的 input（其所在行的祖先含 API 配置块）**全都量**，
-          不靠 placeholder 文案。
+       ⇒ 现在**按位置挑**：凡是凭据表单行里的 input（其所在行有保存/测试按钮）**全都量**，
+          另保留按 placeholder 关键字兜底（Base URL / API Key）—— 关键字只是**放宽**方向，
+          主口径是位置（改文案不会让它掉出量点范围）。
+       ⚠ 措辞更正（2026-10-10，第二轮独立复核指出 P2-4）：上一版这里写"不靠 placeholder 文案"，
+          而代码里关键字兜底仍在（OR）⇒ 那句话**说得太满**，已按实际口径改写。
        ⚠ 本段在**模板字符串内部**：一个反引号都不能出现（本批我为这个坑红了 4 次）。 */
     var credInputs = [...document.querySelectorAll('input')].filter(function (el) {
       /* 按位置：输入框所在行是 flex 行、且该行里有保存/测试按钮 ⇒ 就是凭据表单行。
@@ -4276,8 +4279,13 @@ if (listCapSkipReason !== null) {
 if (settingsFormSkipReason !== null) {
   console.error(`· #settingsform 自检：**这一跑不判**（${settingsFormSkipReason}）`)
 } else if (settingsFormProblems.length === 0) {
-  console.error(`· #settingsform 自检通过：${String(settingsFormCheck.n)} 个输入框都不越过所在行的内容盒右缘`
-    + `（最大溢出 ${String(settingsFormCheck.maxOverflow)}px ≤ 1px 容差；page=${page} width=${width} theme=${themeName}）`)
+  /* ⚠ 2026-10-10（spec 007 P2-3，第二轮独立复核发现）：这条 PASS 文案原来只报"溢出"，
+     而判据其实**还判 `clipped`**（文字放不下 placeholder）⇒ 只看这行的人会以为只判了溢出。
+     ⇒ 现在两条都报出来。 */
+  console.error(`· #settingsform 自检通过：${String(settingsFormCheck.n)} 个输入框 —— `
+    + `① 都不越过所在行的内容盒右缘（最大溢出 ${String(settingsFormCheck.maxOverflow)}px ≤ 1px 容差）；`
+    + `② 都放得下自己的 placeholder（被截断 ${String(settingsFormCheck.clippedCount)} 个）`
+    + `（page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')
   console.error(`❌ 设置面凭据表单溢出自检失败（spec 007 D3；page=${page} width=${width} theme=${themeName}）：`)

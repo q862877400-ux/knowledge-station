@@ -36545,7 +36545,7 @@ function KsApiConfigSection(props) {
             value: keyVal,
             onChange: (e) => setKey(e.currentTarget.value),
             placeholder: configured2 ? 'Key \u5DF2\u914D\u7F6E\uFF08\u7559\u7A7A\u4FDD\u6301\u4E0D\u53D8\uFF1B\u8F93 "-" \u6E05\u9664\uFF09' : "\u7C98\u8D34 API Key",
-            style: { fontSize: 12, padding: "3px 8px", width: 220, flex: "0 0 auto" }
+            style: { fontSize: 12, padding: "3px 8px", width: 228, flex: "0 0 auto" }
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(

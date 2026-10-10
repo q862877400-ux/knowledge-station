@@ -1510,8 +1510,14 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
             autoComplete="off"
             value={keyVal}
             onChange={(e) => setKey(e.currentTarget.value)}
+            /* ⚠ 2026-10-10（spec 007 P1，第二轮独立复核实测发现）：宽度 220 → **228**。
+               已配置态这个框的 placeholder 是「Key 已配置（留空保持不变；输 "-" 清除）」，
+               实测文字实宽 **223px > 框内可用 220px** ⇒ 收尾那个全角「）」被截掉一小块。
+               框是**定宽**（`flex:'0 0 auto'`）、与窗口宽无关 ⇒ 加宽是唯一解，228 仍在 4px 网格上。
+               ⚠ 这个缺陷**批前就存在**，只是被"只认两个关键字"的旧挑选逻辑**恒掩盖**（它从不被量）
+               —— 判据修好之后它才显形。 */
             placeholder={configured ? 'Key 已配置（留空保持不变；输 "-" 清除）' : '粘贴 API Key'}
-            style={{ fontSize: 12, padding: '3px 8px', width: 220, flex: '0 0 auto' }}
+            style={{ fontSize: 12, padding: '3px 8px', width: 228, flex: '0 0 auto' }}
           />
           <input
             value={urlVal}
