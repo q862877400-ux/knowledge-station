@@ -286,3 +286,54 @@ def test_ascii_kv_is_pure_ascii():
     out.encode("ascii")            # 非 ASCII 会在这里抛异常
     assert "TOTAL=123" in out
     assert "中文" not in out, "中文必须被替换掉"
+
+
+# ---------------------------------------------------------------- T303 水位真读
+
+def test_page_watermark_is_actually_read():
+    """**T303**：`page` 型水位必须被**读** —— 不是只写不读的摆设。
+
+    独立复核实测：手改水位为 999999，`pages requested` 仍是 `[1]`。
+    修法是「起点从水位 +1 页算」。谁改回恒为 1，这条必红。
+    """
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        store = WatermarkStore(d / "watermarks.json")
+        with _Isolated(d):
+            ch = _ch("fake-1", wtype="page")
+            store.ensure(ch.key, "page")
+            store.mark_success(ch.key, new_value=7, batch_count=1)
+
+            adapter = FakeAdapter(pages_data=[[_rec(1)], [_rec(2)], []])
+            r = poll.poll_one(adapter, ch, store, dry_run=False,
+                              force_full=False, site_name="fake")
+            # 水位是 7 ⇒ 应从第 8 页起翻
+            assert adapter.pages_requested[0] == 8, \
+                f"应从水位 7 的下一页(8)起，实际 {adapter.pages_requested}"
+
+
+def test_idset_watermark_still_starts_at_page_one():
+    """**反向用例**：`idset` 型不靠页码（靠 `seen` 去重）⇒ 仍从第 1 页起。
+
+    修 T303 时不能把 `idset` 型也改坏 —— 它没有页号语义。
+    """
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        store = WatermarkStore(d / "watermarks.json")
+        with _Isolated(d):
+            ch = _ch("fake-1", wtype="idset")
+            store.ensure(ch.key, "idset")
+            store.mark_success(ch.key, new_value=["old1", "old2"], batch_count=2)
+            adapter = FakeAdapter(pages_data=[[_rec(1)], []])
+            poll.poll_one(adapter, ch, store, dry_run=False,
+                          force_full=False, site_name="fake")
+            assert adapter.pages_requested[0] == 1, \
+                f"idset 型应从第 1 页起，实际 {adapter.pages_requested}"
+
+
+def test_next_value_page_records_real_page_not_increment():
+    """**T303**：`page` 型水位记的是**本轮实际翻到的页号**，不是"每批 +1"。"""
+    from state import Watermark
+    wm = Watermark("k", "page", value=3, last_success_at=None, updated_at=None)
+    got = poll._next_value(wm, [_rec(1)], need_full=False, page_reached=42)
+    assert got == 42, f"应记真实页号 42，实际 {got}"

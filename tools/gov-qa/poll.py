@@ -127,7 +127,20 @@ def poll_one(adapter, channel, store: WatermarkStore, *, dry_run: bool,
     all_new: list[dict] = []
     batches = 0
     pages = 0
+    # ⚠⚠ **起点要读水位，不能恒为 1**（spec 005 T303，2026-10-10 修）。
+    #   实测（独立复核 Finding 1）：`page` / `since` 型水位**只写不读** ——
+    #   手改水位为 999999，`pages requested` 仍是 `[1]`，`_should_stop` 的代码体
+    #   也根本不用 `recs`/`wm`。⇒ 那两种水位是**摆设**。
+    #   `idset` 型不受影响（它靠 `seen` 集合去重，语义上不需要页码）。
+    #   ⇒ 现在：`page` 型从水位 +1 页起翻；`idset` 型仍从第 1 页起（保持原行为）。
     page_from = 1
+    wm0 = store.get(key)
+    if wm0 is not None and getattr(wm0, "type", None) == "page" and not need_full:
+        try:
+            page_from = max(1, int(wm0.value or 0) + 1)
+            result["resumed_from_page"] = page_from
+        except (TypeError, ValueError):
+            page_from = 1
     degraded_reason = None
     prev_env = os.environ.get("GOVQA_PAGE_FROM")
 
@@ -192,7 +205,8 @@ def poll_one(adapter, channel, store: WatermarkStore, *, dry_run: bool,
 
     # **只在成功后前移水位**（FR-003）
     if not dry_run:
-        store.mark_success(key, new_value=_next_value(wm, all_new, need_full),
+        store.mark_success(key, new_value=_next_value(wm, all_new, need_full,
+                                                     page_reached=page_from + batches * PAGE_STEP),
                            batch_count=len(all_new))
     result["watermark"] = store.get(key).value if store.get(key) else None
     result["elapsed"] = round(time.time() - t0, 1)
@@ -206,23 +220,33 @@ def _should_stop(recs, new_this, need_full: bool, wm) -> bool:
     - **`page` / `since` 型**：本批**没有任何新记录** ⇒ 已翻到水位，停
       （列表按时间倒序，新的在顶部；翻到全旧的说明后面的更旧）
     - **`idset` 型**：同上（本批全新是旧的 ⇒ 后面的更旧）
+
+    ⚠ 2026-10-10（spec 005 T303）：本函数**只用 `new_this`**，
+    `recs` / `wm` 两个参数**没有被用到**。这不是 bug（判定确实只需要"本批有没有新记录"），
+    但参数名会让人以为它在比水位。**保留签名**（调用方与测试都在用），
+    在文档里写明真实依据，避免下次误读。
     """
     if need_full:
         return False
     return len(new_this) == 0
 
 
-def _next_value(wm, new_recs, need_full):
+def _next_value(wm, new_recs, need_full, *, page_reached: int | None = None):
     """算新水位值。
 
     - `idset` 型：把新 id 并入旧集合（`state.py` 的 `_trim` 会做 LRU 裁剪）
-    - `page` 型：页码 + 本轮新增（过渡实现，下一轮改为 adapter 回报真实页数）
+    - `page` 型：记**本轮实际翻到的页号**（`page_reached`），不是"每批 +1"
     - `since` 型：取本轮最大时间
+
+    ⚠ 2026-10-10（spec 005 T303）：`page` 型原来是 `old + (1 if new_recs else 0)` ——
+    **每批只 +1**，与本轮实际翻了多少页无关。现在由调用方传真实页号。
     """
     if wm.type == "idset":
         old = wm.value if isinstance(wm.value, list) else []
         return [str(r.get("id")) for r in new_recs] + old
     if wm.type == "page":
+        if page_reached is not None:
+            return int(page_reached)
         old = int(wm.value or 0)
         return old + (1 if new_recs else 0)
     if wm.type == "since":
