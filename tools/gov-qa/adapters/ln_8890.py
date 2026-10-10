@@ -208,7 +208,16 @@ def _harvest_qa(fetch, out: list[dict], limit: int | None) -> int:
                 "url": f"{QA_DETAIL_API}?id={mid}",
                 "question": question,
                 "answer": answer,
-                "asked_at": d.get("createTime") or it.get("createTime"),
+                # ⚠⚠ **不再把 `createTime` 当提问时刻**（spec 005 T202，2026-10-10 实测）。
+                #   证据：7,807 条里 **4,946 条（63.4%）挤在同一分钟**
+                #   `2026-01-23 08:16`，折合 **82 条/秒** —— 真实群众提问不可能有这种速率
+                #   ⇒ `createTime` 是**入库/批量发布时间**，不是提问时刻。
+                #   同源 `ln-8890-kb`（走知识库接口、字段不同）13,941 条**零倒置**，
+                #   是绝好的对照组 ⇒ 问题只在这一条路径的字段选择上。
+                #   ⇒ 提问时刻**本源不可得**，诚实写 None（不许拿发布时间冒充）。
+                "asked_at": None,
+                # `finishDate` 是**纯日期**（`2026-09-29`，无时分秒），且实测**恒 ≤ createTime**；
+                # 作为「办结日期」使用，精度只到天 —— 下游按天用，别当精确时刻。
                 "answered_at": d.get("finishDate") or it.get("finishDate"),
                 "dept": clean(d.get("unit")) or None,
                 "channel": "咨询投诉",
@@ -221,6 +230,10 @@ def _harvest_qa(fetch, out: list[dict], limit: int | None) -> int:
                     "view_count": d.get("viewCount") or it.get("viewCount"),
                     "platform": "辽宁12345民心智慧听",
                     "answer_kind": "办理答复",
+                    # 保留原始值，但**标清它是入库时间不是提问时间**
+                    "record_publish_time": d.get("createTime") or it.get("createTime"),
+                    "time_fields_note": "createTime 是入库/批量发布时间（实测 63.4% 挤在同一分钟）；"
+                                        "finishDate 是纯日期办结日；本源无可靠提问时刻",
                 },
             })
             got += 1

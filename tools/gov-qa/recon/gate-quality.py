@@ -63,8 +63,10 @@ import argparse
 import glob
 import json
 import os
+import re
 import sys
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent          # tools/gov-qa/recon
@@ -89,6 +91,18 @@ MAX_TIME_INVERTED = 0
 #: 棘轮容差：每十万条的缺陷率允许的抖动（浮点/采样）。
 _RATCHET_EPS = 0.05
 
+#: 时间倒置的容忍秒数。
+#:
+#: ⚠⚠ **必须解析后比较，不能直接比字符串**（2026-10-10 实测踩到）。
+#: 第一版用 `str(answered) < str(asked)` 裸比字符串，报出 20,131 条"倒置"，
+#: 逐条看下来**大半是假阳性**，三种形态：
+#:   1. `Thu Oct 19 10:57:25 CST 2023` vs `Fri Oct 20 …` —— 字母序 `Fri` < `Thu`，
+#:      但 10-20 明明晚于 10-19（`nat-tax` 5,720 条全是这个）
+#:   2. `2021-09-22 15:02:00` vs `2021-09-22 15:02` —— 同一分钟，短串排前面
+#:   3. `2026年09月7日` vs `2026年09月09日` —— `"7" > "0"`，但 9-7 早于 9-9
+#: ⇒ 现在**先解析成 datetime 再比**，并容忍同一分钟内的截断差异（60 秒）。
+_TIME_TOLERANCE_SEC = 60
+
 #: 标签只认这个键 —— 与 `health.py` 同口径。
 #: ⚠ 旧闸门用的是 `label-coverage.py` 的**宽口径**（回落到原始脏 `msg_type`），
 #:   两者实测差 3,025 条 / 0.8pt（100.0 vs 99.2）。**本脚本以窄口径为准。**
@@ -111,6 +125,52 @@ def _p(s: str) -> str:
 def _norm(s) -> str:
     """归一化文本用于内容比较：去掉所有空白。"""
     return "".join(str(s or "").split())
+
+
+# ---- 时间解析（判据 3 用）----------------------------------------------------
+
+_ISO = re.compile(r"^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?")
+_CN = re.compile(r"^(\d{4})年(\d{1,2})月(\d{1,2})日\s*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?")
+_JAVA = re.compile(r"^\w{3} (\w{3}) (\d{1,2}) (\d{2}):(\d{2}):(\d{2}) \w+ (\d{4})$")
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])}
+
+
+def parse_time(s):
+    """把各站各式的日期串解析成 `datetime`；**解析不了返回 None**。
+
+    语料里实测至少三种格式（见 `_TIME_TOLERANCE_SEC` 的注释）：
+    ISO（`2026-09-30 02:37:41`）/ 中文（`2026年09月7日`）/
+    Java `Date.toString()`（`Thu Oct 19 10:57:25 CST 2023`）。
+    """
+    if not s:
+        return None
+    s = str(s).strip()
+    m = _ISO.match(s)
+    if m:
+        y, mo, d, hh, mm, ss = m.groups()
+        try:
+            return datetime(int(y), int(mo), int(d),
+                            int(hh or 0), int(mm or 0), int(ss or 0))
+        except ValueError:
+            return None
+    m = _CN.match(s)
+    if m:
+        y, mo, d, hh, mm, ss = m.groups()
+        try:
+            return datetime(int(y), int(mo), int(d),
+                            int(hh or 0), int(mm or 0), int(ss or 0))
+        except ValueError:
+            return None
+    m = _JAVA.match(s)
+    if m:
+        mon, d, hh, mm, ss, y = m.groups()
+        try:
+            return datetime(int(y), _MONTHS.get(mon, 1), int(d),
+                            int(hh), int(mm), int(ss))
+        except ValueError:
+            return None
+    return None
 
 
 def _iter_all():
@@ -143,6 +203,8 @@ def collect() -> dict:
 
     inverted = 0
     inv_sources: Counter = Counter()
+    unparsed_time = 0
+    unparsed_sources: Counter = Counter()
 
     labeled = 0
     label_sources: Counter = Counter()
@@ -164,11 +226,17 @@ def collect() -> dict:
             key = (q, a)
             content_groups[key] += 1
 
-        # ---- 判据 3：时间倒置 ----
-        asked, answered = r.get("asked_at"), r.get("answered_at")
-        if asked and answered and str(answered) < str(asked):
-            inverted += 1
-            inv_sources[src] += 1
+        # ---- 判据 3：时间倒置（**必须解析后比，不能裸比字符串**）----
+        pa, pb = parse_time(r.get("asked_at")), parse_time(r.get("answered_at"))
+        if pa is not None and pb is not None:
+            if (pa - pb).total_seconds() > _TIME_TOLERANCE_SEC:
+                inverted += 1
+                inv_sources[src] += 1
+        elif r.get("asked_at") and r.get("answered_at"):
+            # 两个字段都有值、但至少一个解析不了 ⇒ 无法判定，单独计数
+            # （不许当成"没问题"悄悄放过，也不许当成"倒置"冤枉它）
+            unparsed_time += 1
+            unparsed_sources[src] += 1
 
         # ---- 判据 4：标签覆盖（只认窄口径） ----
         ex = r.get("extra")
@@ -194,6 +262,8 @@ def collect() -> dict:
         "dup_examples": dup_examples,
         "inverted": inverted,
         "inv_sources": inv_sources,
+        "unparsed_time": unparsed_time,
+        "unparsed_sources": unparsed_sources,
         "labeled": labeled,
         "coverage": (labeled / total * 100) if total else 0.0,
         "label_sources": label_sources,
@@ -216,7 +286,7 @@ def verdicts(s: dict) -> list:
         ("内容无重复", s["content_dups"] <= MAX_CONTENT_DUPS,
          f"冗余 {s['content_dups']} 条 / {s['content_dup_groups']} 组"),
         ("时间序正确", s["inverted"] <= MAX_TIME_INVERTED,
-         f"倒置 {s['inverted']} 条"),
+         f"倒置 {s['inverted']} 条（另有 {s['unparsed_time']} 条时间格式无法解析，未计入）"),
     ]
 
 

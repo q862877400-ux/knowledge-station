@@ -147,6 +147,66 @@ def test_missing_dates_are_not_counted_as_inverted(tmp_path):
     assert s["inverted"] == 0
 
 
+# ------------------------------------------- 判据 3 的解析（防"裸比字符串"回归）
+
+def test_java_date_string_is_not_a_false_inversion(tmp_path):
+    """**`Thu Oct 19` vs `Fri Oct 20` 不是倒置** —— 字母序 `Fri` < `Thu`。
+
+    这是实测踩到的最大一类假阳性（`nat-tax` 5,720 条全是这个）。
+    若谁把实现改回 `str(b) < str(a)`，这条必须红。
+    """
+    _write(tmp_path, [_rec(1, asked="Thu Oct 19 10:57:25 CST 2023",
+                           answered="Fri Oct 20 16:35:05 CST 2023")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0, "10-20 晚于 10-19，不是倒置"
+
+
+def test_minute_truncation_is_not_a_false_inversion(tmp_path):
+    """`15:02:00` vs `15:02` 是同一分钟，**不算倒置**（容忍 60 秒）。"""
+    _write(tmp_path, [_rec(1, asked="2021-09-22 15:02:00",
+                           answered="2021-09-22 15:02")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0
+
+
+def test_chinese_date_string_is_parsed_correctly(tmp_path):
+    """`2026年09月7日` 早于 `2026年09月09日` —— 裸比字符串会判反。"""
+    _write(tmp_path, [_rec(1, asked="2026年09月7日", answered="2026年09月09日")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0, "9-7 早于 9-9，不是倒置"
+
+
+def test_real_inversion_in_chinese_format_is_caught(tmp_path):
+    """**反向用例**：中文格式下真倒置必须被抓住（解析不能把判据变恒假）。"""
+    _write(tmp_path, [_rec(1, asked="2026年09月09日", answered="2026年09月7日")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 1
+
+
+def test_unparsable_dates_are_counted_separately(tmp_path):
+    """两个字段都有值但解析不了 ⇒ 计入 `unparsed_time`，**不当倒置也不当没事**。"""
+    _write(tmp_path, [_rec(1, asked="某个怪格式", answered="另一个怪格式")])
+    with _Data(tmp_path):
+        s = gq.collect()
+    assert s["inverted"] == 0
+    assert s["unparsed_time"] == 1, "解析不了的要单独计数，不许悄悄放过"
+
+
+def test_parse_time_handles_all_three_observed_formats():
+    """三种实测格式都要能解析（ISO / 中文 / Java toString）。"""
+    from datetime import datetime
+    assert gq.parse_time("2026-09-30 02:37:41") == datetime(2026, 9, 30, 2, 37, 41)
+    assert gq.parse_time("2026年09月7日") == datetime(2026, 9, 7)
+    assert gq.parse_time("Thu Oct 19 10:57:25 CST 2023") == datetime(2023, 10, 19, 10, 57, 25)
+    assert gq.parse_time("") is None
+    assert gq.parse_time(None) is None
+    assert gq.parse_time("不是日期") is None
+
+
 # ---------------------------------------------------------------- 判据 4：标签口径
 
 def test_label_coverage_counts_only_clean_key(tmp_path):
