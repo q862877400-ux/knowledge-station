@@ -56,6 +56,20 @@ def existing_ids(site_key: str) -> set[str]:
     return ids
 
 
+def _real(v) -> str:
+    """清洗后**只保留真实内容** —— 把 `null` / `None` / 空串一律当"没有"。
+
+    ⚠ 为什么需要它（spec 005 T205，2026-10-10 实测）：
+    IGI 接口把「没有正文」编码成**字符串 `"null"`**（不是 JSON `null`），
+    于是 `clean(v) or fallback` 里的 `clean("null")` 返回 **truthy** 的 `"null"`，
+    **fallback 永远不执行** ⇒ `question` 落成字面 `"null"`。
+    实测 `shannan-igi-*` 152 条中招，而真标题就在 `extra.title` 里。
+    ⇒ 凡是"取正文、取不到就回落到标题"的地方，都要用本函数，不能用 `clean(...) or ...`。
+    """
+    s = clean(v)
+    return "" if s.strip().lower() in ("null", "none", "undefined") else s
+
+
 def clean(frag: str | None) -> str:
     """去标签 + **还原 HTML 实体** + 压空白（答复正文是 HTML 片段）。
 
@@ -176,7 +190,14 @@ def harvest_igi(fetch, *, SITE: dict, base: str, site_id: str, app_id: str,
                 "source": SITE["key"],
                 "id": str(mid),
                 "url": SITE["entry"] + f"?id={mid}",
-                "question": clean(it.get("CONTENT")) or clean(it.get("HTMLCONTENT"))
+                # ⚠⚠ 2026-10-10（spec 005 T205）：**必须过滤字面 `"null"`**。
+                #   IGI 接口把「没有正文」编码成**字符串 `"null"`**（不是 JSON null），
+                #   而 `clean("null")` 返回 `"null"` —— **truthy** ⇒ 后面的
+                #   `or clean(it.get("HTMLCONTENT")) or extra["title"]` **永远走不到**。
+                #   实测：`shannan-igi-*` 152 条 `question` 字面为 `"null"`，
+                #   而真标题明明在 `extra.title` 里（如「山南实习岗位」）。
+                #   ⇒ 用 `_real()` 把 `null/None/空串` 一律当"没有"，让 `or` 正确回落。
+                "question": _real(it.get("CONTENT")) or _real(it.get("HTMLCONTENT"))
                             or extra["title"],
                 "answer": answer,
                 "asked_at": ts(it.get("SUBMITTIME") or it.get("CRTIME")),
