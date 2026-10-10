@@ -469,6 +469,11 @@ ADAPTERS: dict[str, str] = {
     #    （页号从 0 起，从 `paging.js` 的 `goto` 抄到）。实测 34 条（2 页）。
     #    ⚠ 它的 `consultview/api/...` 是**登录页**（与安阳同形）⇒ 不可采。
     "jz-zxhf": "adapters.jz_zxhf",     # 焦作市·政民互动·咨询回复
+    # —— 河南第 4 个市级源（2026-10-10，spec 005 T601）：
+    #    周口 `/front/mailbox/mailboxs` 是**壳**，列表走 POST `/front/mailbox/tableData`
+    #    （**必须带 CSRF token `loadMailboxsDataToken`** —— 页面上 `value` 在 `id` 之前）。
+    #    详情 `/front/mailbox/mailbox?id=&siteId=` 服务端渲染。实测 total=91。
+    "zk-zxsq": "adapters.zk_zxsq",     # 周口市·政民互动·咨询受理
 }
 
 #: 用户要能直接 `from adapters import load`

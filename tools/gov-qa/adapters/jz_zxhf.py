@@ -48,6 +48,10 @@ LIST_TPL = BASE + "/index{page}.html"      # page = "" 或 "_1" / "_2" …
 PAUSE = 0.8
 MAX_PAGES = 40
 
+#: HTML 注释 / doctype / CDATA —— 窄正则 `</?[A-Za-z]` **吃不掉**它们
+#:   （`<!--` 不以字母开头）。实测（2026-10-10）：周口答复里混进了
+#:   `<!--47个文件要求meta-->` ⇒ 必须在剥标签**之前**先剥注释。
+_COMMENT = re.compile(r"<!--.*?-->|<![^>]*>", re.S)
 _TAG = re.compile(r"</?[A-Za-z][^>]*>")
 _BR = re.compile(r"(?i)<br\s*/?>")
 _WS = re.compile(r"[ \t\r\f\v]+")
@@ -56,6 +60,7 @@ _WS = re.compile(r"[ \t\r\f\v]+")
 def _clean(s) -> str:
     if not s:
         return ""
+    s = _COMMENT.sub(" ", str(s))
     s = _BR.sub("\n", str(s))
     s = _TAG.sub("", s)
     s = _html.unescape(s)

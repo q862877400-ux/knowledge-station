@@ -67,6 +67,10 @@ DETAIL_TPL = BASE + "/petition/{mid}"
 PAUSE = 2.5
 MAX_PAGES = 30
 
+#: HTML 注释 / doctype / CDATA —— 窄正则 `</?[A-Za-z]` **吃不掉**它们
+#:   （`<!--` 不以字母开头）。实测（2026-10-10）：周口答复里混进了
+#:   `<!--47个文件要求meta-->` ⇒ 必须在剥标签**之前**先剥注释。
+_COMMENT = re.compile(r"<!--.*?-->|<![^>]*>", re.S)
 _TAG = re.compile(r"</?[A-Za-z][^>]*>")          # ⚠ 只吃**真 HTML 标签**，
 #   否则 `《出生证明》` 这类中文尖括号会被当成标签吃掉（本模块已踩过的坑）。
 _BR = re.compile(r"(?i)<br\s*/?>")
@@ -78,6 +82,7 @@ def _clean(s) -> str:
     """去标签 + 还原实体 + 压空白。"""
     if not s:
         return ""
+    s = _COMMENT.sub(" ", str(s))
     s = _BR.sub("\n", str(s))
     s = _P.sub("\n", s)
     s = _TAG.sub("", s)
