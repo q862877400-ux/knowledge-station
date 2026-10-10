@@ -216,10 +216,17 @@ def show_dups() -> int:
     （2026-10-09 实测：浙江金华被两路并发写 ⇒ 6350 行 / 只有 3351 唯一 id，重复 2,999 条。）
 
     ⚠ 规则：**同一个站（同 source）只能有一路在采。**
+
+    ⚠⚠ **2026-10-10 修盲区（spec 005 T203 之二）**：原来 `per_src` 在
+    **文件循环内**初始化 ⇒ 同一个 `(source, id)` 落在**两个不同文件**里
+    **永远比不到**。受控复现：两个文件各放一条同 `(source,id)`，旧写法算出 `dups=0`。
+    ⇒ 现在改成**全局** `(source, id)` 计数，并报告**涉及哪些文件**
+    （契约要求的「定位到文件」此前根本不存在）。
     """
-    rows = []
+    # 全局 (source, id) -> 出现次数 + 出现在哪些文件
+    hits: dict[tuple, list] = {}
     for p in sorted(glob.glob(str(ROOT / "data" / "*.jsonl"))):
-        per_src: dict[str, Counter] = defaultdict(Counter)
+        fn = os.path.basename(p)
         with open(p, encoding="utf-8", errors="replace") as fh:
             for line in fh:
                 if not line.strip() or not line.lstrip().startswith("{"):
@@ -228,20 +235,32 @@ def show_dups() -> int:
                     r = json.loads(line)
                 except Exception:                                   # noqa: BLE001
                     continue
-                per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
-        for s, c in per_src.items():
-            total = sum(c.values())
-            uniq = len(c)
-            if total != uniq:
-                rows.append((s, total, uniq, total - uniq, os.path.basename(p)))
+                key = (str(r.get("source") or "?"), str(r.get("id")))
+                hits.setdefault(key, []).append(fn)
+
+    # 按 source 汇总
+    per_src: dict[str, dict] = defaultdict(lambda: {"n": 0, "uniq": 0, "files": Counter()})
+    for (s, _mid), files in hits.items():
+        per_src[s]["n"] += len(files)
+        per_src[s]["uniq"] += 1
+        for f in files:
+            per_src[s]["files"][f] += 1
+
+    rows = []
+    for s, d in per_src.items():
+        dup = d["n"] - d["uniq"]
+        if dup:
+            rows.append((s, d["n"], d["uniq"], dup, d["files"]))
+
     if not rows:
         safe_print("重复 id 检测：**全部干净** ✓")
         return 0
     rows.sort(key=lambda r: -r[3])
     safe_print(f"⚠ 发现 {len(rows)} 个来源存在重复 id：\n")
     print(f"  {'source':26s} {'总行数':>9s} {'唯一':>9s} {'重复':>8s}  文件")
-    for s, total, uniq, dup, fn in rows:
-        print(f"  {s:26s} {total:9,d} {uniq:9,d} {dup:8,d}  {fn[:40]}")
+    for s, total, uniq, dup, files in rows:
+        where = " / ".join(f"{f[:26]}×{c}" for f, c in files.most_common(2))
+        print(f"  {s:26s} {total:9,d} {uniq:9,d} {dup:8,d}  {where}")
     print(f"\n  重复合计 {sum(r[3] for r in rows):,} 行")
     return 0
 
@@ -339,9 +358,12 @@ def show_gate() -> int:
         adapters_err = type(e).__name__
 
     # 重复 id 行数
-    dups = 0
+    # ⚠⚠ **必须是全局 (source, id) 计数**（2026-10-10 spec 005 T203 之二修）。
+    #   旧写法把 `per_src` 放在**文件循环内** ⇒ 同一个 `(source,id)` 落在两个文件里
+    #   **永远比不到**，判据③ 会报 `DUPS=0`。受控复现：两文件各一条同 `(source,id)`
+    #   ⇒ 旧写法算出 0。这是"判据只看单文件"的假绿。
+    hits: dict[tuple, int] = {}
     for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
-        per_src: dict[str, Counter] = defaultdict(Counter)
         with open(p, encoding="utf-8", errors="replace") as fh:
             for line in fh:
                 if not line.strip() or not line.lstrip().startswith("{"):
@@ -350,9 +372,9 @@ def show_gate() -> int:
                     r = json.loads(line)
                 except Exception:                                       # noqa: BLE001
                     continue
-                per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
-        for c in per_src.values():
-            dups += sum(c.values()) - len(c)
+                key = (str(r.get("source") or "?"), str(r.get("id")))
+                hits[key] = hits.get(key, 0) + 1
+    dups = sum(n - 1 for n in hits.values() if n > 1)
 
     print(f"TOTAL={tot}")
     print(f"ADAPTERS={n_keys}")
