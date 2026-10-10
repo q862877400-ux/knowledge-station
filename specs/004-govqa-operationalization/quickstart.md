@@ -247,24 +247,39 @@ $P tools/gov-qa/health.py --quiet
 
 > ⚠ **必须在副本上做**，不许动真数据。
 > ⚠ **更正**：原文用 `audit-coverage.py --health --data-dir …` —— 那两个开关**都不存在**（实测 rc=2）。
-> 正确入口是 `health.py`，且它**没有 `--data-dir`**（隔离靠环境变量 `KS_DATA_DIR`）。
-> ⚠ **本节的"3 类故障"演示本轮未重跑**（属 T054 的未做项，见文件抬头的更正块）。
+>
+> ⚠⚠ **本节又踩了一次坑（2026-10-10 实测，留痕）**：我第一版把隔离写成 `KS_DATA_DIR=… health.py`
+> —— **那个环境变量 `health.py` 根本不读**！实测它在 `KS_DATA_DIR` 指向空目录时**仍报 `398,062` 条**
+> （因为 `health.py` 用 **`DATA = HERE / "data"`**，即**脚本自己所在目录**，硬编码、无覆盖开关）。
+> ⇒ **正确的隔离方式 = 把工具脚本复制到一个空目录旁边**（`health.py` 会去读**它旁边**的 `data/`）。
+> **实测验证**：复制 `health.py` 到临时目录、旁边建空的 `data/` ⇒
+> 输出 `VERDICT=not_usable / TOTAL=0`（**证明隔离真的生效**，而不是在读真库）。
+>
+> ⚠ **本节的"3 类故障"演示本轮仍未完整重跑**（属 T054 的未做项，见文件抬头的更正块）——
+> 但**隔离机制本身已实测正确**（下面命令是改过的写法）。
 
 ```bash
-# 准备隔离副本（用 KS_DATA_DIR 指过去，不是 --data-dir）
-mkdir -p /tmp/health-test && cp -r tools/gov-qa/data /tmp/health-test/
+# 准备隔离副本：把【工具本身】连同空的 data/ 复制出去（不是设环境变量）
+ISO=/tmp/health-test
+mkdir -p "$ISO/data"
+cp tools/gov-qa/health.py tools/gov-qa/common.py "$ISO/"
+cp -r tools/gov-qa/data/. "$ISO/data/"     # 先要一份真实数据，再制造故障
 
 # 故障 1：删一个数据文件（模拟损坏）
-mv /tmp/health-test/data/mee-*.jsonl /tmp/
+mv "$ISO"/data/mee-*.jsonl /tmp/
 
 # 故障 2：塞一条重复 id
-head -1 /tmp/health-test/data/hb-wuhan-*.jsonl >> /tmp/health-test/data/hb-wuhan-*.jsonl
+head -1 "$ISO"/data/hb-wuhan-*.jsonl >> "$ISO"/data/hb-wuhan-*.jsonl
 
 # 故障 3：注册一个空适配器
 # （在副本的 registry 里加一个无数据的源）
 
-KS_DATA_DIR=/tmp/health-test $P tools/gov-qa/health.py --detail
+$P "$ISO/health.py" --detail
 ```
+
+> ⚠ **两个已知的边界**（实测，别把它们读成"演示失败"）：
+> ① `health.py` 的**地板值**读 `HERE.parent.parent/.round-floor` ⇒ 复制到 `/tmp` 后
+> **读不到地板**（会退化成默认值）；② 故障 3 要"注册一个空适配器"，那需要连 `adapters/` 一起复制。
 
 **期望（SC-009）**：**一次运行内三类故障全部检出**，且每条给出可定位的信息（哪个文件 / 哪个源）。
 
@@ -294,6 +309,50 @@ bash "D:/AI/output/check.sh"; echo "exit=$?"
 
 **期望**：`exit=0`（质量 4 项全绿 + 连续工作 ≥24h）。
 未满 24h 时必然 `exit=1` —— 这是设计如此，不是故障。
+
+> ⚠ **更正**：`D:/AI/output/check.sh` **已不在那个位置** —— 并行自动化把它
+> **字节级搬进了版本控制**：`tools/gov-qa/gate/check.sh`（spec 005 的 T003/FR-010）。
+> ⇒ 现在跑 `bash tools/gov-qa/gate/check.sh`。**原位置那条路已作废**。
+
+---
+
+## 场景 6：**本轮实测读数**（T054 的部分回填，2026-10-10）
+
+> ⚠ **这是部分回填，不是全部**：本轮真跑了下面这些命令并抄下读数，
+> 但 **1.2/1.4（水位损坏退化）、4.2（3 类故障）没有完整重跑** ⇒ **T054 仍不勾**。
+> 口径：全部在**本机真库**上跑；只读命令不传 `--apply`；写盘类一律加 `--dry-run`。
+
+| 场景 | 命令 | 实测读数（2026-10-10 10:2x） |
+|---|---|---|
+| 0 现状体检 | `audit-coverage.py --gate` | `TOTAL=398062` `ADAPTERS=345` `EMPTY=0` `DUPS=0`，**exit=0** |
+| 1.1 首次轮询 | `poll.py --channel mee --dry-run` | **exit=0**，正常翻页并丢弃"问题当答复"条目 |
+| 1.3 增量省请求 | `poll.py --channel mee --dry-run --timing` | `新增 0 条`、**`pages_fetched=20`**、用时 3.9s |
+| 2 覆盖销号表 | `coverage-report.py --level province --quiet` | `PROV_TOTAL=31` `PROV_OK=18` `PROV_THIN=13` `PROV_NONE=0`；⚠ **exit=1**（见下方说明） |
+| 2.1 薄弱地区缺口 | `coverage-report.py --region 云南 --uncovered --quiet` | `RECORDS=66` `GAP=2934` `STATUS=thin` + **未覆盖渠道 4 个**（门户·政民互动 / 12345 热线 / 省长信箱 / 人大·法规征求意见） |
+| 3.1 字段体检 | `field-audit.py` | `question` **100.00%**、`answer` 100.00%、`asked_at` 97.39%、`answered_at` 98.41%、`dept` 96.55%；**「问题与答复同时为空」= 0** ✅（SC-008 达成） |
+| 3.2 标签抽检 | `label-accuracy.py --sample 200 --export …` | 导出 **166 条**（31 层 × 6）；⚠ **`--score` 未填的 CSV 会正确报「明确未做」**（FR-014 守住了） |
+| 4.1 一句话结论 | `health.py` | `✅ 当前可用：398,062 条 / 0 空通道 / 0 重复 / 标签覆盖 98.4%`；四项判据逐条 ✅ |
+| 4.2 隔离机制 | 复制工具到临时目录 | `VERDICT=not_usable / TOTAL=0` ⇒ **隔离真的生效**（不是读真库） |
+
+**⚠ 两处"看起来像失败、其实是设计"**：
+1. **场景 2 的 `exit=1`**：`PROV_NONE=0` 却退 1 —— 触发它的是 **`CITY_MISSING_FROM_334=176`**
+   （**跨层级**：即使只看省级，市级缺口也参与判定）。按 `contracts/coverage.md`，`1` = "有 `none` 单元"。
+   ⇒ **读退出码要连输出一起看**。
+2. **场景 3.2 不给准确率**：`label_ok` 一列**必须人工填**，未填就报"明确未做"——
+   这是 `FR-014`/宪法 III 要求的（**不许拿模型自评数充数**）。⇒ **SC-007 的人工那半仍未做**。
+
+### ⚠ 顺带实测到一处**口径不一致**（登记，不修）
+
+**同一个"标签覆盖率"，两个工具给两个数**（2026-10-10 实测）：
+
+| 工具 | 报的覆盖率 |
+|---|---|
+| `health.py --quiet` | `COVERAGE=98.4` |
+| `tools/gov-qa/gate/check.sh` | `标签覆盖率 100.0%` |
+
+⇒ 这正是 **FR-004「标签覆盖率 MUST 只有一个出处」**要防的（两个入口两个数，读者无法判断哪个对）。
+⚠ spec 005 的 **T105** 声称"口径统一"已完成，但**实测这两个数仍不同** ⇒ **登记为未闭合**。
+（两个工具都在 `tools/gov-qa/**` ⇒ **归并行自动化**，本轮只登记。）
 
 ---
 
