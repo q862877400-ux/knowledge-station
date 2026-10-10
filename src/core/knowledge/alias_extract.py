@@ -23,7 +23,73 @@ def _alias_clean(alias: str) -> bool:
     if not alias or len(alias) < 2 or len(alias) > 8:
         return False
     return not any(ch in _ALIAS_DIRTY for ch in alias)
-_TERM_SECTION = re.compile(r"术语和定义|下列术语和定义|术语与定义")
+# 术语章节标题。实测的**真实形态**（2026-10-10 真库抽样）：
+#   `3 术语和定义`（最常见）/ `3 术语和定义、符号、缩略语` / `3.1 术语和定义`
+#   `下列术语和定义` / `术语与定义` / `术语`
+# ⚠ 原先写作 `^\s*[0-9]*\s*(术语和定义|…)\s*$` —— **要求整行只有"编号 + 这几个字"**，
+#   于是把 `3 术语和定义、符号、缩略语` 判成不匹配 ⇒ 区间定位失败 ⇒ 回退全文 ⇒
+#   前言又被扫进来（2026-10-10 实测：40 条里 8 条定位不到，正是这一类）。
+#   ⇒ 改成"行首编号（可有可无）+ 这几个字 **开头**"，允许后面还有顿号分隔的并列词。
+_TERM_SECTION = re.compile(
+    r"^\s*(?:[0-9]+(?:\.[0-9]+)*\s*)?(?:下列)?术语(?:和定义|与定义)?\s*(?:[、，,].*)?$")
+
+# 下一章标题（术语章节到此结束）。标准正文的章节标题形如 "4 结构型式和型号"。
+# ⚠ **必须是「裸整数 + 标题」**（`4 结构型式和型号`），不能是 `3.1 动火作业：…`：
+#   后者是**术语条目**（带小数点编号、且通常带冒号），若把它当章节边界，
+#   术语章节会在**第一条术语行**处就结束 ⇒ 一条都抽不到（2026-10-10 实测踩到）。
+# ⚠ **标题要够长**：目录页的"页码行"形如 `4`、`5`、`6` 或 `附录A (规范性附录) …`
+#   也在正文里出现，若把裸数字当章节边界，区间会**在目录处就截断**。
+#   ⇒ 要求标题正文 ≥2 字（`4 结构型式和型号` 满足；`4` 不满足）。
+_NEXT_SECTION = re.compile(r"^\s*[0-9]+\s+\S{2,}")
+
+# 前言类噪音行：起草单位 / 起草人 / 代替关系 / 发布实施 —— 它们不是术语定义。
+_FRONT_MATTER = re.compile(
+    r"起草单位|起草人|主要起草|参加起草|代替|被代替|发布|实施|"
+    r"国家质量监督检验检疫总局|国家标准化管理委员会|"
+    r"按照\s*GB/T\s*1\.1|给出的规则起草|规范性附录|资料性附录|"
+    r"^ICS|^[A-Z]\d{2}\s*$|^前言$|^前\s+言$")
+
+# 「引导句」不是术语：标准的术语章节常以一句**引用语**开头，形如
+#   `GB/T 19278 界定的以及下列术语和定义适用于本文件。`
+#   `下列术语和定义适用于本文件。`
+# 它满足"术语行 + 定义行"的形状（下一行可能还有内容），但**它本身是章节引导语**，
+# 抽出来会得到 term=`GB/T6274` / cores=`界定/术语/定义` 这种垃圾（2026-10-10 实测）。
+# ⇒ 术语行**自身**命中这些词就整条丢掉。
+_LEAD_IN = re.compile(
+    r"适用于本文件|适用于本标准|界定的|下列术语和定义|术语和定义适用于|"
+    r"^注\s*[0-9]|^警告$|^范围$|^规范性引用文件$|^一般要求$")
+
+
+def _term_section_span(lines: list[str]) -> tuple[int, int] | None:
+    """定位**术语章节**的行区间 `[start, end)`。
+
+    为什么要它：本函数原先只判"全文含『术语和定义』"（`_TERM_SECTION.search(text)`），
+    然后**扫描全文每一行**。而标准的正文前有**封面与前言**（起草单位、起草人、代替关系），
+    那几行同样满足"编号+术语"或"术语行+下一行定义"的形状 ⇒ 被当术语抽走。
+
+    实测后果（2026-10-10，真库只读）：`alias_store` 里出现
+    `term='本标准负责起草单位' alias='西安'`、`term='本标准主要起草人' alias='赵卉'`、
+    `term='规范性引用文件' alias='下列文件中的'` 这类**前言碎片**。
+
+    ⇒ 现在先框出术语章节的**行区间**，只在区间内扫描。
+    找不到区间（章节标题不在行首/不独立成行）⇒ 返回 `None`，由调用方按老行为处理。
+    """
+    start = None
+    for i, ln in enumerate(lines):
+        if _TERM_SECTION.match(ln):
+            start = i
+            break
+    if start is None:
+        return None
+    # 章节结束：标题之后第一个"编号 + 非空标题"的行
+    for j in range(start + 1, len(lines)):
+        s = lines[j].strip()
+        if not s:
+            continue
+        if _NEXT_SECTION.match(s) and not _TERM_SECTION.match(s):
+            return (start, j)
+    return (start, len(lines))
+
 
 
 def _term_key(term: str) -> str:
@@ -36,10 +102,23 @@ def extract_terms_from_text(text: str, source_doc_id: str | None = None,
 
     定义中的核心名词（2-6 字、非虚词开头）作 alias，供用户"大白话"反查。
     """
-    if not _TERM_SECTION.search(text):
-        return []
     found: list[dict] = []
     lines = [ln.strip() for ln in text.splitlines()]
+
+    # ★ 区间定位不到 ⇒ **不再回退全文**（2026-10-10 修）。
+    #   判据（真库 300 条抽样，`var/tmp/n5-fallback-tradeoff.py`）：
+    #   定位不到的 **96 条**里，回退全文抽出的 **86** 个 term，
+    #   逐条看**全部**是前言/标准号/目录/注（`GB/T10544`、`本标准使用翻译法等同采用ISO3862`、
+    #   `第4部分`、`注1`、`范围`、`规范性引用文件`…），**没有一个真术语**。
+    #   ⇒ 回退的收益是 0、代价是往 `alias_store` 灌垃圾，而垃圾别名会被
+    #   `expand_with_alias` 真的并进用户查询（污染 FTS 的 OR 扩展）。
+    #   **宁可少抽，不可抽错。**
+    span = _term_section_span(lines)
+    if span is None:
+        return []
+    lo, hi = span
+    lines = lines[lo:hi]
+
     # 模式B：术语行（编号+术语，可含英文，无冒号）→ 下一行为定义
     #   例：'3.1 特殊作业 special work' \n '危险化学品企业……的作业。'
     # 模式B 术语行必须行首带编号（排除封面/前言等无编号噪音行）
@@ -86,6 +165,14 @@ def extract_terms_from_text(text: str, source_doc_id: str | None = None,
             continue
         if _DEF_NOISE.search(definition):
             continue
+        # ★ 前言类噪音闸（2026-10-10 修）：术语行**自身**若像前言条目，整条丢掉。
+        #   区间定位已挡住绝大多数；这一条挡"术语章节里混进前言句"的残余形态。
+        if _FRONT_MATTER.search(term) or _FRONT_MATTER.search(definition[:24]):
+            continue
+        # ★ 引导句闸（2026-10-10 修）：术语行自身若是"…界定的…适用于本文件"这类
+        #   章节引导语，整条丢掉（它会被抽成 term=`GB/T6274` 这种）。
+        if _LEAD_IN.search(term) or _LEAD_IN.search(definition[:24]):
+            continue
         cores = _core_nouns(definition)[:3]
         found.append({"term": term, "definition": definition, "cores": cores})
 
@@ -130,18 +217,28 @@ def _core_nouns(definition: str) -> list[str]:
         out = []
     if out:
         return out
-    for w in re.findall(r"[一-鿿]{2,6}", cleaned):
-        if len(w) < 2:
+    # ★ jieba 不可用时的回退（2026-10-10 修）：**不再对整段中文做滑窗切块**。
+    #   原实现是 `re.findall(r"[一-鿿]{2,6}", cleaned)` —— `{2,6}` 是**贪婪**的，
+    #   对一整段连续中文会**每 6 个字切一段**，于是产出
+    #     "危险化学品企" / "业生产经营过" / "程中可能涉及" / "的，可能造成" …
+    #   这些**不是词**，是窗口碎片。实测后果（真库只读）：`alias_store` 的 32 行里
+    #   有 25 行是这种碎片，其中 **7 条标 `active`** ⇒ 会被 `expand_with_alias`
+    #   真的并进用户查询（"危险化学品企" 这种假词会污染 FTS 的 OR 扩展）。
+    #   ⇒ 现在改成**按标点/顿号切段，只接受"整段就是 2-6 字"的段** ——
+    #   枚举式定义（"挖土、打桩、钻探"）仍能抽出可用别名，
+    #   而散文式长定义**什么都不抽**（宁可少抽，不可抽错：错别名会污染检索）。
+    for seg in re.split(r"[，,。；;：:、（）()【】\[\]/\\\s]+", cleaned):
+        seg = seg.strip()
+        if not (2 <= len(seg) <= 6):
             continue
-        if _STOP_WORD_HEAD.match(w):
+        if not re.fullmatch(r"[一-鿿]+", seg):
             continue
-        if any(ch in _ALIAS_DIRTY for ch in w):
+        if _STOP_WORD_HEAD.match(seg):
             continue
-        if w in out:
+        if any(ch in _ALIAS_DIRTY for ch in seg):
             continue
-        out.append(w)
-    if not out:
-        return [cleaned[:4]]
+        if seg not in out:
+            out.append(seg)
     return out
 
 
