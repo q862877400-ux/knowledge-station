@@ -227,7 +227,7 @@ def load_or_train(force: bool = False):
     return pipe, texts, labels
 
 
-def do_apply(dry_run: bool, force: bool = False) -> int:
+def do_apply(dry_run: bool, force: bool = False, only=None) -> int:
     import glob as _glob
 
     pipe, texts, labels = load_or_train(force)
@@ -239,6 +239,12 @@ def do_apply(dry_run: bool, force: bool = False) -> int:
     by_source: Counter = Counter()
 
     for p in sorted(glob.glob(str(DATA / "*.jsonl"))):
+        # ⚠ `--only`：**只处理文件名匹配这些子串的文件**（2026-10-10 加）。
+        #   动机：并行采集进程在写某些文件（如 `nx-igi-259-*.jsonl`）⇒
+        #   本工具是"整文件读-改-写"，**同时写会丢采集器刚追加的行**。
+        #   ⇒ 用 `--only` 先做**没人写**的那些文件，正在写的等采集停了再做。
+        if only and not any(s in Path(p).name for s in only):
+            continue
         lines_out = []
         touched = False
         with open(p, encoding="utf-8", errors="replace") as fh:
@@ -299,12 +305,16 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="配合 --apply：只统计不改文件")
     ap.add_argument("--force", action="store_true",
                     help="配合 --apply：重算**全部**记录（默认只补未标注的，增量很快）")
+    ap.add_argument("--only", default="",
+                    help="只处理文件名含这些子串的文件（逗号分隔）—— "
+                         "避开并行采集正在写的文件，否则整文件重写会丢它刚追加的行")
     args = ap.parse_args()
 
     if args.validate:
         return do_validate(args.verbose)
     if args.apply:
-        return do_apply(args.dry_run, args.force)
+        only = [x.strip() for x in args.only.split(",") if x.strip()]
+        return do_apply(args.dry_run, args.force, only)
     print(__doc__)
     return 0
 
