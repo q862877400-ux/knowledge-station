@@ -1498,6 +1498,12 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
             </span>
           )}
         </div>
+        {/* ⚠ 2026-10-10（spec 007 D3）：这一行原来**溢出**——真机实测（1018 与 1576 两档窗口宽）
+            Base URL 输入框被右侧裁掉、placeholder 读不全。根因是 flex 项默认 `min-width:auto`：
+            输入框的内容（那句很长的 placeholder）撑住不肯缩 ⇒ 整行超出容器宽。
+            修法 = 给**可收缩**的那一项显式 `minWidth: 0`（本仓 `ksGuideStyles.ts` 里
+            `.ks-main` 那条注释记的是同一个坑，别再发明第二种解法）。
+            ⚠ Key 框是固定宽（220），它**不该**收缩；要收缩的是 flex:1 的 Base URL。 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
           <input
             type="password"
@@ -1505,13 +1511,21 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
             value={keyVal}
             onChange={(e) => setKey(e.currentTarget.value)}
             placeholder={configured ? 'Key 已配置（留空保持不变；输 "-" 清除）' : '粘贴 API Key'}
-            style={{ fontSize: 12, padding: '3px 8px', width: 220 }}
+            style={{ fontSize: 12, padding: '3px 8px', width: 220, flex: '0 0 auto' }}
           />
           <input
             value={urlVal}
             onChange={(e) => setUrl(e.currentTarget.value)}
-            placeholder='Base URL（留空保持不变；输 "-" 恢复内置默认）'
-            style={{ fontSize: 12, padding: '3px 8px', flex: 1, minWidth: 200 }}
+            /* ⚠ 2026-10-10（spec 007 D3）：placeholder **缩短**了。
+               原来写 `Base URL（留空保持不变；输 "-" 恢复内置默认）` —— 真机实测这句
+               在设置弹窗的可用宽里**放不下**（文字实宽 266px > 框内可用 222px @600 宽），
+               用户看到的是**半截说明**。
+               ⇒ 处置不是继续挤布局，而是**别在 placeholder 里重复整句规则**：
+                 完整规则（留空保持不变 / 输 "-" 清除）由下面那条**改动时出现**的说明行承担
+                 （见 `dirty &&` 那一段，它本来就把三件事写全了）。
+                 placeholder 只留"这是什么框"这一件事。 */
+            placeholder='Base URL（可留空）'
+            style={{ fontSize: 12, padding: '3px 8px', flex: '1 1 200px', minWidth: 0 }}
           />
           {modeSlot}
           <button type="button" disabled={busy !== null}
@@ -1530,7 +1544,8 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
         {dirty && (
           <p style={{ margin: '3px 0 0', fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
             探测使用已保存的凭据；新填的 Key / Base URL / 模式请先保存。
-            留空表示保持不变，输入 <code>-</code> 表示清除该值（Key 清除后回到纯本地通道）。
+            留空表示保持不变，输入 <code>-</code> 表示清除该值（Key 清除后回到纯本地通道；
+            Base URL 清除后回到内置默认）。
           </p>
         )}
         {t && (

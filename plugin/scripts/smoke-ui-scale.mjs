@@ -132,6 +132,35 @@ for (const d of body.matchAll(fsDecl)) {
   rawFontSize.push({ value, decl: `font-size: ${value}` })
 }
 
+/* ───────── ③ `--ks-*` 引用必须都有定义（2026-10-10，spec 007 D1/D2）─────────
+ *
+ * ## 为什么加这一条
+ * `.ks-tabfolder` 一直写着 `border-radius:var(--ks-radius) var(--ks-radius) 0 0`，
+ * 而 `--ks-radius` **从未定义** ⇒ 那条声明**整条失效**、凸舌的圆角一直是 **0（直角）**，
+ * 而且**不报错**（CSS 变量不存在时属性静默失效）。`.ks-ccs-fail-no` 同病
+ * （`var(--ks-font-mono,monospace)`，吃兜底）。
+ * ⇒ 上面两条棘轮（spacing / font-size）都**看不见**这类缺陷：它们只看字面值，不看变量解析。
+ *
+ * ## 口径（三条，都必须写清，否则这条判据会变成"永远绿"）
+ * 1. **只判 `--ks-*`**：它们是我们自己的 token，定义**必须**在本文件里（`--dsw-*` 归官方主题，
+ *    不在这里判 —— 那要拿 DSH 检出当输入，本脚本刻意保持零外部依赖）。
+ * 2. **引用集合 vs 定义集合**：从 `KS_STYLES` 全文抠出 `var(--ks-xxx)` 与 `--ks-xxx:`，
+ *    要求**引用 ⊆ 定义**。
+ * 3. **带兜底的（`var(--x, y)`）单独列出并放行**：那是**刻意**兜底，不是缺陷；
+ *    但它们必须被**打印出来**（看得见才叫"登记"，藏起来就变成暗账）。
+ *
+ * ⚠ 这条**不是**棘轮（不是"只减不增"）：它要求的是**恒等**关系 —— 引用一个不存在的 token 就是红。
+ */
+const ksUsed = new Set()
+const ksUsedWithFallback = new Set()
+for (const d of rawBody.matchAll(/var\(\s*(--ks-[a-z0-9-]+)\s*(,)?/g)) {
+  ksUsed.add(d[1])
+  if (d[2] === ',') ksUsedWithFallback.add(d[1])
+}
+const ksDefined = new Set()
+for (const d of rawBody.matchAll(/(--ks-[a-z0-9-]+)\s*:/g)) ksDefined.add(d[1])
+const ksMissing = [...ksUsed].filter((t) => !ksDefined.has(t)).sort()
+
 /* ─────────────────────────────── 断言 ─────────────────────────────── */
 const lines = []
 lines.push(`样式源：${stylesPath}`)
@@ -143,6 +172,14 @@ for (const r of offGrid) lines.push(`     - ${r.value}  来自  ${r.decl}`)
 lines.push(`② font-size 未走 --ks-fs-*：${rawFontSize.length} 处（基线 ${BASELINE_RAW_FONT_SIZE}，只减不增）`)
 for (const r of rawFontSize) lines.push(`     - ${r.value}  来自  ${r.decl}`)
 lines.push('')
+lines.push(`③ --ks-* 引用/定义：引用 ${ksUsed.size} 个 / 定义 ${ksDefined.size} 个`
+  + ` ⇒ 引用了但没定义 ${ksMissing.length} 个`)
+for (const t of ksMissing) lines.push(`     - ❌ ${t}（引用了但本文件没有定义 ⇒ 该声明会静默失效）`)
+const withFallback = [...ksUsedWithFallback].sort()
+if (withFallback.length > 0) {
+  lines.push(`     （带兜底、故放行 ${withFallback.length} 个：${withFallback.join(' / ')}）`)
+}
+lines.push('')
 lines.push('基线来历（只减不增）：')
 for (const s of SHRINK_LOG) lines.push(`   · ${s}`)
 
@@ -152,6 +189,10 @@ if (offGrid.length > BASELINE_OFF_GRID_SPACING) {
 }
 if (rawFontSize.length > BASELINE_RAW_FONT_SIZE) {
   failures.push(`font-size 现场值 ${rawFontSize.length} 处 > 冻结基线 ${BASELINE_RAW_FONT_SIZE} 处`)
+}
+if (ksMissing.length > 0) {
+  failures.push(`引用了 ${ksMissing.length} 个没定义的 --ks-* token：${ksMissing.join(' / ')}`
+    + '（CSS 变量不存在时该声明会**静默失效**，不报错）')
 }
 
 if (failures.length > 0) {
@@ -182,4 +223,5 @@ if (better.length > 0) {
 }
 console.log('')
 console.log(`✅ 尺度棘轮未变差（spacing ${offGrid.length}/${BASELINE_OFF_GRID_SPACING}，`
-  + `font-size ${rawFontSize.length}/${BASELINE_RAW_FONT_SIZE}）`)
+  + `font-size ${rawFontSize.length}/${BASELINE_RAW_FONT_SIZE}）`
+  + ` ｜ --ks-* 引用全部有定义（引用 ${ksUsed.size} 个 / 缺失 ${ksMissing.length} 个）`)

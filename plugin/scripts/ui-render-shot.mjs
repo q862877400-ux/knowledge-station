@@ -151,6 +151,13 @@ const PAGES = {
   ingest: { width: 520, file: 'KsIngestPanel.tsx', symbol: 'KsIngestPanel', interact: ['ingest-batch'] },
   capabilities: { width: 900, file: 'KsCapabilityPage.tsx', symbol: 'KsCapabilityPage', interact: [] },
   materials: { width: 900, file: 'KsMaterialsPanel.tsx', symbol: 'KsMaterialsPanel', interact: [] },
+  /* ⚠ 2026-10-10（spec 007 D3）**加法式**新增：设置面（`KsSettingsSection`）。
+     为什么必须走这条路：D3 是**布局溢出**（Base URL 输入框被右侧裁掉），
+     而 jsdom **没有布局引擎**、量不出溢出 ⇒ 只能在真浏览器里量。
+     ⚠ 本页**不进** `smoke-kb-pad-pixels.mjs` 的 `MATRIX`/`EXPECTED_RUNS`
+       （那会要求同批改冻结清单、把 diff 扯到别的面上）；用单独命令量，命令写进 spec 007 的 tasks。
+     默认宽度取 1018：那是真机审查时**实际看到裁切**的那一档窗口宽。 */
+  settings: { width: 1018, file: 'KsSettingsSection.tsx', symbol: 'KsSettingsSection', interact: ['settings-creds'] },
 }
 const page = arg('page', 'kb')
 if (!PAGES[page]) { console.error(`❌ 未知 --page ${page}（可选：${Object.keys(PAGES).join(' / ')}）`); process.exit(2) }
@@ -206,6 +213,8 @@ const SCENARIOS = [
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
   'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'kb-ask', 'kb-filemenu', 'kb-dirmenu',
   'ingest-batch', 'office-page',
+  /* ⚠ 2026-10-10（spec 007 D3）：设置面 → 展开「API配置」类目（那里面有会溢出的凭据表单）。 */
+  'settings-creds',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -833,6 +842,9 @@ const PROPS = {
   ingest: { visible: true },
   capabilities: {},
   materials: { projectId: 'prj_demo', visible: true },
+  /* ⚠ 2026-10-10（spec 007 D3）：设置面。注入面按 `KsSettingsSectionInjected` 的真实形状给最小集
+     （只给渲染必需的；缺的会让组件自己报"没读到"——那正是我们要看的状态）。 */
+  settings: { evidence: { openEvidence: () => {} } },
 }
 
 const root = mount(container, PROPS[page])
@@ -1339,6 +1351,21 @@ for (const how of interacts) {
       `office-page ${ok ? '点了第一行' : '没找到菜单行'} 但「返回办事台」钮 ${back === undefined ? '不在' : '在'}`)
     notes.push(`office-page: ${ok ? '点了第一行进专门页面' : '没找到行'}`
       + `；返回钮 ${back === undefined ? 0 : 1} 个`)
+  } else if (how === 'settings-creds') {
+    /* ⚠ 2026-10-10（spec 007 D3）：展开设置面的「API配置」类目 —— 那里面是会溢出的凭据表单。
+       为什么要点开而不是直接渲染：`KsSettingsSection` 的类目**默认收起**（`<details>`），
+       不展开的话那段 DOM 虽在、却**不参与布局**，量不到溢出（正是要抓的东西）。
+       ⚠ 这里点的是**类目 summary**，不是任何会写盘的按钮（零副作用）。 */
+    const summaries = [...container.querySelectorAll('summary')]
+    const creds = summaries.find((s) => (s.textContent ?? '').includes('API配置'))
+    const ok = await click(creds)
+    const opened = creds !== undefined && creds.closest('details')?.open === true
+    mustLand(ok && opened, `settings-creds 没展开「API配置」类目（点了=${String(ok)}、details.open=${String(opened)}）`)
+    const inputs = q('input')
+    mustLand(inputs.length >= 4,
+      `settings-creds 展开后只有 ${String(inputs.length)} 个输入框（期望 ≥4：两组 Key + 两组 Base URL）`)
+    notes.push(`settings-creds: 展开了「API配置」 → 输入框 ${String(inputs.length)} 个、`
+      + `按钮 ${String(q('button').length)} 个`)
   } else {
     /* ⚠ **兜底分支**（5i-补 2026-09-20）：名字在 `SCENARIOS` 表里、但这条 if/else 链**没有**任何
      * 分支接住它 ⇒ 当场报红（走下面 `landing` 那条路 = **exit 1**，并打出这个名字）。
@@ -2368,6 +2395,62 @@ const html = `<!doctype html>
                           pieceCount: kept.length,
                           members: members.map(function (m) {
                             return m.tag + '.' + m.cls + '[' + m.txt + ']@' + String(m.x) + '-' + String(m.r); }) };
+    }
+    /* ⚠ 2026-10-10（spec 007 D3）：**凭据表单的可见性量点**。
+       为什么必须真浏览器量：这是**布局/排版**问题，jsdom 没有布局引擎、量不出来。
+       ⚠⚠ **第一版量错了对象（我自己踩的，留痕）**：第一版量的是"输入框右缘是否越过所在行"，
+          结果**变异打不红**（把修复改回去仍然 PASS）—— 因为真机里的现象根本不是"输入框越界"，
+          而是**输入框太窄、里面的 placeholder 文字被截断**（Base URL（留空保持不变；输 "-" 恢复内置默认）
+          只显示前半截）。"容器没溢出"与"说明读得全"是两件事。
+       ⇒ 改成量**真正会被人看见的那个现象**：
+          · clipped：输入框**放不下它自己的 placeholder**（用 canvas 量文字实宽 vs 输入框内容宽）；
+          · overflow：输入框右缘越过所在行内容盒（保留，作为第二种失败形态）。
+       判红口径（Node 侧）：clipped 或 overflow > 1 任一成立即红。
+       ⚠ "量不到就红"：一个输入框都没量到 ⇒ 产出 n:0，Node 侧判红（不许静默绿）。
+       ⚠ 本段在**模板字符串内部**：一个反引号都不能出现（本批我为这个坑红了 4 次）。 */
+    var credInputs = [...document.querySelectorAll('input')].filter(function (el) {
+      return (el.getAttribute('placeholder') || '').indexOf('Base URL') >= 0
+        || (el.getAttribute('placeholder') || '').indexOf('API Key') >= 0;
+    });
+    if (credInputs.length > 0) {
+      /* 用一个离屏 canvas 量 placeholder 的**真实文字宽度**（与输入框同字号/同字体）。 */
+      var measureCtx = document.createElement('canvas').getContext('2d');
+      var rowGaps = [];
+      credInputs.forEach(function (el) {
+        var row = el.parentElement;
+        var box = el.getBoundingClientRect();
+        var rowBox = row ? row.getBoundingClientRect() : box;
+        var cs = row ? getComputedStyle(row) : null;
+        var padRight = cs ? (parseFloat(cs.paddingRight) || 0) : 0;
+        var rowContentRight = rowBox.right - padRight;
+        var elCs = getComputedStyle(el);
+        measureCtx.font = elCs.fontStyle + ' ' + elCs.fontWeight + ' ' + elCs.fontSize + ' ' + elCs.fontFamily;
+        var ph = el.getAttribute('placeholder') || '';
+        var textW = measureCtx.measureText(ph).width;
+        var padL = parseFloat(elCs.paddingLeft) || 0;
+        var padR = parseFloat(elCs.paddingRight) || 0;
+        var borderL = parseFloat(elCs.borderLeftWidth) || 0;
+        var borderR = parseFloat(elCs.borderRightWidth) || 0;
+        /* 输入框**内容盒**能给文字的宽度 */
+        var innerW = box.width - padL - padR - borderL - borderR;
+        rowGaps.push({
+          ph: ph.slice(0, 30),
+          clipped: textW > innerW,
+          textW: Math.round(textW),
+          innerW: Math.round(innerW),
+          overflow: Math.round(box.right - rowContentRight),
+          w: Math.round(box.width),
+          x: Math.round(box.left),
+        });
+      });
+      out['#settingsform'] = {
+        n: credInputs.length,
+        rows: rowGaps,
+        /* 有任何一个 placeholder 放不下 = 真的被截断了 */
+        clippedCount: rowGaps.filter(function (r) { return r.clipped; }).length,
+        /* 最大的溢出量（正数 = 真的越界了） */
+        maxOverflow: rowGaps.reduce(function (a, r) { return Math.max(a, r.overflow); }, -1e9),
+      };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
@@ -3833,6 +3916,48 @@ const listCapCheck = {
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
+/* ⚠ 2026-10-10（spec 007 D3）：**凭据表单可见性**判据。
+ * 口径（**第一版量错了对象，已留痕更正**，见注入脚本里那段）：
+ *   · 只对 `--page settings` 有意义（其余页面没有这个量点）⇒ 别的页面 `skipReason` 写明"本页不适用"。
+ *   · 设置面**必须**量到输入框（`n > 0`）：量不到 ⇒ 红（不许静默绿 —— 本仓反复记过的假绿形态）。
+ *   · 两种失败形态**任一**成立即红：
+ *       ① `clipped`：输入框放不下自己的 placeholder ⇒ 用户看到的说明是**半截**
+ *          （这正是真机截图里看到的现象）；
+ *       ② 输入框右缘越过所在行内容盒 **> 1px**（1px 是取整容差）。
+ * 为什么按"所在那一行"而不是页面根：设置面在弹窗里，对页面根量太松 ⇒ 会漏判。 */
+const sf = measured['#settingsform']
+const settingsFormProblems = []
+let settingsFormSkipReason = null
+if (page !== 'settings') {
+  settingsFormSkipReason = `本页不是设置面（page=${page}）—— 凭据表单可见性这一跑不判`
+} else if (sf === undefined) {
+  settingsFormProblems.push('设置面没产出 #settingsform 量点（选择器没匹配到任何输入框）'
+    + ' ⇒ 按"量不到就红"处理（不许静默绿）')
+} else if (sf.n === 0) {
+  settingsFormProblems.push('#settingsform 量到 0 个输入框 ⇒ 红（量不到不等于没问题）')
+} else {
+  for (const r of sf.rows) {
+    if (r.clipped) {
+      settingsFormProblems.push(`输入框「${r.ph}…」放不下自己的 placeholder：`
+        + `文字实宽 ${String(r.textW)}px > 框内可用 ${String(r.innerW)}px`
+        + ` ⇒ 用户看到的是半截说明`)
+    }
+    if (r.overflow > 1) {
+      settingsFormProblems.push(`输入框「${r.ph}…」右缘越过所在行内容盒 ${String(r.overflow)}px`
+        + `（宽 ${String(r.w)}px、左缘 x=${String(r.x)}）`)
+    }
+  }
+}
+const settingsFormCheck = {
+  checked: settingsFormProblems.length === 0 && settingsFormSkipReason === null,
+  skipReason: settingsFormSkipReason,
+  problems: settingsFormProblems,
+  n: sf?.n ?? null,
+  clippedCount: sf?.clippedCount ?? null,
+  maxOverflow: sf?.maxOverflow ?? null,
+  rows: sf?.rows ?? null,
+}
+
 const shot = runBrowser([`--screenshot=${outPng}`, `--window-size=${width},${shotHeight}`, fileUrl])
 if (!existsSync(outPng)) {
   console.error('❌ 截图失败。stderr 尾部：')
@@ -3869,6 +3994,7 @@ console.log(JSON.stringify({
   faceNavCheck,
   listCapCheck,
   capCardsCheck,
+  settingsFormCheck,
   ksPadCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
@@ -4123,6 +4249,21 @@ if (listCapSkipReason !== null) {
   console.error('   ⇒ 这一行（.ks-list-cap）里的成员（文件夹名 / 导出效力总览 / 在此范围内提问 / 计数）'
     + '必须各自成件：既不许边框盒真重叠，也不许贴成 0px（两个东西贴成一个词）；'
     + '控件压在文字上（绝对定位也算）与被 overflow 裁到行外，同样是这条要抓的回归。')
+  process.exit(1)
+}
+
+/* ⚠ 2026-10-10（spec 007 D3）：凭据表单溢出自检（走 stderr，理由同上面各段）。 */
+if (settingsFormSkipReason !== null) {
+  console.error(`· #settingsform 自检：**这一跑不判**（${settingsFormSkipReason}）`)
+} else if (settingsFormProblems.length === 0) {
+  console.error(`· #settingsform 自检通过：${String(settingsFormCheck.n)} 个输入框都不越过所在行的内容盒右缘`
+    + `（最大溢出 ${String(settingsFormCheck.maxOverflow)}px ≤ 1px 容差；page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 设置面凭据表单溢出自检失败（spec 007 D3；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of settingsFormProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 输入框是 flex 项，默认 min-width:auto ⇒ 内容（很长的 placeholder）撑住不缩、整行溢出。')
+  console.error('      修法：给**可收缩**的那一项显式 minWidth:0（ksGuideStyles.ts 里 .ks-main 那条注释记的是同一个坑）。')
   process.exit(1)
 }
 

@@ -33788,7 +33788,26 @@ var KS_STYLES = `
      \u4F1A\u8BA9\u300C\u25BE\u300D\u548C Tag \u80F6\u56CA\u660E\u663E\u53D1\u80D6\u3001\u884C\u8282\u8DDD\u8DDF\u7740\u6DA8\uFF08--ks-row-h-narrow \u662F 44px \u7684\u786C\u7EA6\u675F\uFF09\u3002
      \u5B83**\u4E0D\u662F**"11px \u7684\u8FD1\u4F3C\u503C"\uFF0C\u662F\u4E0A\u9762\u90A3\u4E09\u5904\u7684\u4E13\u6863 \u21D2 \u52A0 token \u800C\u4E0D\u662F\u786C\u63B0\u56DE 11px\u3002 */
   --ks-fs-2xs:10px;
-  /* \u5706\u89D2\uFF08WeKnora \u7684 4/6/8/10/12/999\uFF09 */
+  /* \u7B49\u5BBD\u5B57\u4F53\u6863\uFF082026-10-10\uFF0Cspec 007 D2 \u8865\uFF09
+     \u26A0 .ks-ccs-fail-no \u4E00\u76F4\u5199\u7740 var(--ks-font-mono,monospace)\uFF0C\u800C\u8FD9\u4E2A token **\u4ECE\u672A\u5B9A\u4E49**
+       \u21D2 \u5B83\u4E00\u76F4\u5728\u5403\u515C\u5E95 monospace\u3002\u515C\u5E95\u672C\u8EAB\u662F\u574F\u9009\u62E9\uFF1A\u5B98\u65B9 ui-theme/src/styles/base.css
+       \u7B2C 4 \u884C\u9010\u5B57\u5199\u7740\u300CCode font stack deliberately omits a bare monospace tail
+       (Windows CJK falls back to SimSun otherwise)\u300D\u2014\u2014 \u88F8 monospace \u5728 Windows \u4E2D\u6587\u4E0B\u4F1A\u6389\u5230**\u5B8B\u4F53**\u3002
+     \u21D2 \u503C\u843D\u56DE\u5B98\u65B9\u7684 --ds-font-family-code\uFF08\u672C\u673A\u5B9E\u6D4B\u5B83\u5DF2\u5728 :root \u5B9A\u4E49\uFF09\u3002
+       \u672C\u4ED3\u53E6\u5916 3 \u5904\uFF08.ks-kb-no / .ks-field-v-mono / .ks-ing-mono\uFF09\u6B64\u524D\u5404\u81EA\u786C\u5199
+       ui-monospace,Consolas,monospace\uFF0C\u672C\u6279\u4E00\u5E76\u6539\u8D70\u8FD9\u4E2A token \u2014\u2014 \u540C\u4E00\u4EF6\u4E8B\u4E0D\u518D\u6709\u7B2C\u4E8C\u4EFD\u5199\u6CD5\u3002
+     \u26A0 \u672C\u6BB5\u5728**\u6A21\u677F\u5B57\u7B26\u4E32\u5185\u90E8**\uFF1A\u4E00\u4E2A\u53CD\u5F15\u53F7\u90FD\u4E0D\u80FD\u51FA\u73B0\uFF08\u672C\u4ED3\u5DF2\u8E29 20+ \u6B21\uFF0C\u672C\u6279\u6211\u81EA\u5DF1\u53C8\u8E29\u4E00\u6B21\uFF09\u3002 */
+  --ks-font-mono:var(--ds-font-family-code);
+  /* \u5706\u89D2\uFF08WeKnora \u7684 4/6/8/10/12/999\uFF09
+     \u26A0 2026-10-10\uFF08spec 007 D1\uFF09\u8865 --ks-radius\uFF1A.ks-tabfolder\uFF08\u9875\u9762\u9876\u6761\u51F8\u820C\uFF09\u4E00\u76F4\u5199\u7740
+       var(--ks-radius)\uFF0C\u800C\u8FD9\u4E2A token **\u4ECE\u672A\u5B9A\u4E49\u8FC7** \u21D2 \u90A3\u6761 border-radius **\u6574\u6761\u5931\u6548**\u3001
+       \u51F8\u820C\u7684\u5706\u89D2\u4E00\u76F4\u662F **0\uFF08\u76F4\u89D2\uFF09**\uFF0C\u4E14**\u4E0D\u62A5\u9519**\uFF08\u9759\u9ED8\uFF09\u3002
+       \u503C\u843D\u56DE\u5B98\u65B9 ui-radius.md \u7684\u8BED\u4E49\u6863\uFF08**\u4E0D\u8BB8**\u5199 10/14/18/24 \u8FD9\u79CD\u672C\u5730\u503C\uFF09\uFF1A
+       \u51F8\u820C\u662F H32 \u7684\u6807\u51C6\u63A7\u4EF6\u6863 \u21D2 \u5B98\u65B9 R12 = --dsw-radius-md\u3002
+       \u26A0 \u4E0D\u662F\u5220\u5F15\u7528\u6539\u56DE --ks-r-xl\uFF1A--ks-radius \u8FD9\u4E2A\u540D\u5B57\u8868\u8FBE\u7684\u662F"**\u51F8\u820C\u7684**\u5706\u89D2"\uFF0C
+         \u4E0E --ks-r-* \u90A3\u5957"\u901A\u7528\u5C3A\u5EA6\u8868"\u662F\u4E24\u4EF6\u4E8B\uFF08\u524D\u8005\u662F\u7EC4\u4EF6\u8BED\u4E49\u3001\u540E\u8005\u662F\u5C3A\u5EA6\u6863\u4F4D\uFF09\u3002
+         \u4FDD\u7559\u540D\u5B57 + \u8BA9\u5B83\u6307\u5411\u5B98\u65B9 token\uFF0C\u4E24\u8FB9\u7684\u610F\u56FE\u90FD\u4FDD\u4F4F\u3002 */
+  --ks-radius:var(--dsw-radius-md);
   --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
   /* \u52A8\u6548\u65F6\u957F */
   --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
@@ -33985,7 +34004,7 @@ var KS_STYLES = `
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm)}
+.ks-kb-no{flex:none;font-weight:600;font-family:var(--ks-font-mono);font-size:var(--ks-fs-sm)}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
@@ -34624,7 +34643,7 @@ var KS_STYLES = `
 .ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
 .ks-field-k{flex:0 0 62px;color:var(--dsw-alias-label-tertiary)}
 .ks-field-v{flex:1;min-width:0;color:var(--dsw-alias-label-primary);word-break:break-word}
-.ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
+.ks-field-v-mono{font-family:var(--ks-font-mono)}
 /* \u26A0\u26A0 **2026-09-21\uFF08\u7B2C 3 \u6B65\uFF09\u5C31\u5730\u5220\u9664\u8BB0\u5F55\uFF08\u672C\u4ED3\u89C4\u77E9\uFF1A\u5220\u4E86\u4EC0\u4E48\u5FC5\u987B\u7559\u75D5\uFF09**\uFF1A
    \u4E0B\u9762\u8FD9\u51E0\u7EC4\u9009\u62E9\u5668**\u5DF2\u968F\u529F\u80FD\u4E00\u8D77\u5220\u6389**\uFF0C\u4E0D\u662F"\u5FD8\u4E86\u5199"\uFF1A
      \xB7 .ks-tag\uFF08\u884C\u5185/\u8BE6\u60C5\u91CC\u7684\u6807\u7B7E chip\uFF09\u3001.ks-tagrow*\u3001.ks-parse*\u3001.ks-subtabs
@@ -34718,7 +34737,7 @@ var KS_STYLES = `
 .ks-ing-toggle input{flex:none;margin:0}
 .ks-ing-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 .ks-ing-dir{width:62%;min-width:180px}
-.ks-ing-mono{font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm);word-break:break-all}
+.ks-ing-mono{font-family:var(--ks-font-mono);font-size:var(--ks-fs-sm);word-break:break-all}
 .ks-ing-num{width:64px}
 .ks-ing-files{display:flex;flex-direction:column;gap:var(--ks-space-1)}
 .ks-ing-size{color:var(--dsw-alias-label-tertiary)}
@@ -36526,7 +36545,7 @@ function KsApiConfigSection(props) {
             value: keyVal,
             onChange: (e) => setKey(e.currentTarget.value),
             placeholder: configured2 ? 'Key \u5DF2\u914D\u7F6E\uFF08\u7559\u7A7A\u4FDD\u6301\u4E0D\u53D8\uFF1B\u8F93 "-" \u6E05\u9664\uFF09' : "\u7C98\u8D34 API Key",
-            style: { fontSize: 12, padding: "3px 8px", width: 220 }
+            style: { fontSize: 12, padding: "3px 8px", width: 220, flex: "0 0 auto" }
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -36534,8 +36553,8 @@ function KsApiConfigSection(props) {
           {
             value: urlVal,
             onChange: (e) => setUrl(e.currentTarget.value),
-            placeholder: 'Base URL\uFF08\u7559\u7A7A\u4FDD\u6301\u4E0D\u53D8\uFF1B\u8F93 "-" \u6062\u590D\u5185\u7F6E\u9ED8\u8BA4\uFF09',
-            style: { fontSize: 12, padding: "3px 8px", flex: 1, minWidth: 200 }
+            placeholder: "Base URL\uFF08\u53EF\u7559\u7A7A\uFF09",
+            style: { fontSize: 12, padding: "3px 8px", flex: "1 1 200px", minWidth: 0 }
           }
         ),
         modeSlot,
@@ -36569,7 +36588,7 @@ function KsApiConfigSection(props) {
       dirty && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
         "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL / \u6A21\u5F0F\u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { children: "-" }),
-        " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF09\u3002"
+        " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF1B Base URL \u6E05\u9664\u540E\u56DE\u5230\u5185\u7F6E\u9ED8\u8BA4\uFF09\u3002"
       ] }),
       t && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
         t.ok ? "\u2705 " : "\u274C ",

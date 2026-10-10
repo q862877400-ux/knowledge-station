@@ -53,7 +53,26 @@ export const KS_STYLES = `
      会让「▾」和 Tag 胶囊明显发胖、行节距跟着涨（--ks-row-h-narrow 是 44px 的硬约束）。
      它**不是**"11px 的近似值"，是上面那三处的专档 ⇒ 加 token 而不是硬掰回 11px。 */
   --ks-fs-2xs:10px;
-  /* 圆角（WeKnora 的 4/6/8/10/12/999） */
+  /* 等宽字体档（2026-10-10，spec 007 D2 补）
+     ⚠ .ks-ccs-fail-no 一直写着 var(--ks-font-mono,monospace)，而这个 token **从未定义**
+       ⇒ 它一直在吃兜底 monospace。兜底本身是坏选择：官方 ui-theme/src/styles/base.css
+       第 4 行逐字写着「Code font stack deliberately omits a bare monospace tail
+       (Windows CJK falls back to SimSun otherwise)」—— 裸 monospace 在 Windows 中文下会掉到**宋体**。
+     ⇒ 值落回官方的 --ds-font-family-code（本机实测它已在 :root 定义）。
+       本仓另外 3 处（.ks-kb-no / .ks-field-v-mono / .ks-ing-mono）此前各自硬写
+       ui-monospace,Consolas,monospace，本批一并改走这个 token —— 同一件事不再有第二份写法。
+     ⚠ 本段在**模板字符串内部**：一个反引号都不能出现（本仓已踩 20+ 次，本批我自己又踩一次）。 */
+  --ks-font-mono:var(--ds-font-family-code);
+  /* 圆角（WeKnora 的 4/6/8/10/12/999）
+     ⚠ 2026-10-10（spec 007 D1）补 --ks-radius：.ks-tabfolder（页面顶条凸舌）一直写着
+       var(--ks-radius)，而这个 token **从未定义过** ⇒ 那条 border-radius **整条失效**、
+       凸舌的圆角一直是 **0（直角）**，且**不报错**（静默）。
+       值落回官方 ui-radius.md 的语义档（**不许**写 10/14/18/24 这种本地值）：
+       凸舌是 H32 的标准控件档 ⇒ 官方 R12 = --dsw-radius-md。
+       ⚠ 不是删引用改回 --ks-r-xl：--ks-radius 这个名字表达的是"**凸舌的**圆角"，
+         与 --ks-r-* 那套"通用尺度表"是两件事（前者是组件语义、后者是尺度档位）。
+         保留名字 + 让它指向官方 token，两边的意图都保住。 */
+  --ks-radius:var(--dsw-radius-md);
   --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
   /* 动效时长 */
   --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
@@ -250,7 +269,7 @@ export const KS_STYLES = `
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm)}
+.ks-kb-no{flex:none;font-weight:600;font-family:var(--ks-font-mono);font-size:var(--ks-fs-sm)}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
@@ -889,7 +908,7 @@ export const KS_STYLES = `
 .ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
 .ks-field-k{flex:0 0 62px;color:var(--dsw-alias-label-tertiary)}
 .ks-field-v{flex:1;min-width:0;color:var(--dsw-alias-label-primary);word-break:break-word}
-.ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
+.ks-field-v-mono{font-family:var(--ks-font-mono)}
 /* ⚠⚠ **2026-09-21（第 3 步）就地删除记录（本仓规矩：删了什么必须留痕）**：
    下面这几组选择器**已随功能一起删掉**，不是"忘了写"：
      · .ks-tag（行内/详情里的标签 chip）、.ks-tagrow*、.ks-parse*、.ks-subtabs
@@ -983,7 +1002,7 @@ export const KS_STYLES = `
 .ks-ing-toggle input{flex:none;margin:0}
 .ks-ing-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 .ks-ing-dir{width:62%;min-width:180px}
-.ks-ing-mono{font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm);word-break:break-all}
+.ks-ing-mono{font-family:var(--ks-font-mono);font-size:var(--ks-fs-sm);word-break:break-all}
 .ks-ing-num{width:64px}
 .ks-ing-files{display:flex;flex-direction:column;gap:var(--ks-space-1)}
 .ks-ing-size{color:var(--dsw-alias-label-tertiary)}
