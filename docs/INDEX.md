@@ -1,15 +1,15 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **177 份** / **6197 KB**。
+> 共 **178 份** / **6203 KB**。
 
-## 方案与台账（11 份 / 496 KB）
+## 方案与台账（11 份 / 497 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/KB-FOLDER-PLAN.md` | 154 | 2026-09-24 | 一、定案（业主原话要点） |
 | `docs/MATERIALS-PLANE-PLAN.md` | 154 | 2026-09-26 | 0. 业主已裁定的事项（本方案的前提，不是提议） |
-| `docs/ENCYCLOPEDIA.md` | 75 | 2026-10-06 | 1. 项目概览与产品承诺 |
+| `docs/ENCYCLOPEDIA.md` | 76 | 2026-10-10 | 1. 项目概览与产品承诺 |
 | `docs/EXECUTION-PLAN.md` | 18 | 2026-09-20 | **怎么用这份文件**：每轮开工先读它 → 按序做 → 收工把该行状态改成「✅ 完成（提交号+快照）」 |
 | `docs/HANDOVER-2026-10-09.md` | 18 | 2026-10-09 | ⚠ 接手前先看这三条（顺序别乱） |
 | `docs/AUTO-DRAFT-PLAN.md` | 17 | 2026-09-19 | 1. 结论（先给结论） |
@@ -125,7 +125,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-ratchet-1.md` | 7 | 2026-10-09 | 0. 冻结与提取树信息 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（66 份 / 1018 KB）
+## 根文档与其他（67 份 / 1023 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -145,7 +145,7 @@
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
-| `docs/GOVQA-DIAGNOSIS-2026-10-10.md` | 15 | 未提交 | 零、结论先行 |
+| `docs/GOVQA-DIAGNOSIS-2026-10-10.md` | 15 | 2026-10-10 | 零、结论先行 |
 | `docs/LAW-SOURCE-PLAN.md` | 14 | 2026-10-05 | 0. 目标与原则 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
@@ -162,16 +162,17 @@
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
-| `docs/README.md` | 8 | 2026-10-09 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
+| `docs/README.md` | 8 | 2026-10-10 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
 | `docs/PROJECT-STATUS-2026-10-05.md` | 6 | 2026-10-06 | 一、状态：**开发暂停** |
-| `docs/TEST-FLAKES.md` | 6 | 2026-10-07 | 处置纪律 |
+| `docs/TEST-FLAKES.md` | 6 | 2026-10-10 | 处置纪律 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/wiki/architecture.md` | 6 | 2026-10-06 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
+| `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
 | `docs/wiki/components/exports.md` | 4 | 2026-10-05 | **位置**：`src/core/exports/` |
