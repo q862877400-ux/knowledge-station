@@ -54,22 +54,40 @@ def test_shared_helper_exists_and_is_the_only_source():
             raise AssertionError(f"分支里仍有内联遍历：{ln.strip()}")
 
 
+def _run(*args) -> subprocess.CompletedProcess:
+    return subprocess.run([str(PY), str(SCRIPT), *args], cwd=str(ROOT),
+                          capture_output=True, text=True, encoding="utf-8",
+                          errors="replace")
+
+
+#: ⚠ **每个入口只跑一次**，四条用例共用 —— 每次 `coverage-report.py` 要全表扫
+#: 398,000 条记录（约 10–20 秒）。第一版让每条用例各自跑，四条共跑 4 次
+#: ⇒ 测试套件从 0.5 秒涨到 85 秒，**违反本特性自己的 SC-004**（门禁耗时 ≤ 现状 +60s）。
+#: 用模块级缓存把 4 次降为 2 次。
+_CACHE: dict = {}
+
+
+def _quiet_run() -> subprocess.CompletedProcess:
+    if "quiet" not in _CACHE:
+        _CACHE["quiet"] = _run("--quiet")
+    return _CACHE["quiet"]
+
+
+def _missing_run() -> subprocess.CompletedProcess:
+    if "missing" not in _CACHE:
+        _CACHE["missing"] = _run("--missing-cities", "--quiet")
+    return _CACHE["missing"]
+
+
 def test_quiet_reports_missing_from_334():
     """`--quiet` 必须打出 `CITY_MISSING_FROM_334` —— 否则读者只看到 `CITY_NONE=0`。"""
-    r = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
-                       capture_output=True, text=True, encoding="utf-8",
-                       errors="replace")
-    out = (r.stdout or "") + (r.stderr or "")
+    out = (_quiet_run().stdout or "") + (_quiet_run().stderr or "")
     assert "CITY_MISSING_FROM_334=" in out, f"--quiet 应报真实缺口，实际输出：{out[:300]}"
 
 
 def test_two_entrypoints_agree_on_missing_count():
     """**核心判据**：两个入口报出的缺失数必须**相等**。"""
-    a = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    b = subprocess.run([str(PY), str(SCRIPT), "--missing-cities", "--quiet"], cwd=str(ROOT),
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    oa, ob = a.stdout or "", b.stdout or ""
+    oa, ob = _quiet_run().stdout or "", _missing_run().stdout or ""
     ma = re.search(r"CITY_MISSING_FROM_334=(\d+)", oa)
     mb = re.search(r"CITY_MISSING=(\d+)", ob)
     assert ma and mb, f"两入口都要报缺口数：a={oa[:200]} b={ob[:200]}"
@@ -79,9 +97,5 @@ def test_two_entrypoints_agree_on_missing_count():
 
 def test_both_entrypoints_return_the_same_exit_code():
     """**核心判据**：退出码也必须一致（实测原来是 0 vs 1）。"""
-    a = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    b = subprocess.run([str(PY), str(SCRIPT), "--missing-cities", "--quiet"], cwd=str(ROOT),
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    assert a.returncode == b.returncode, \
-        f"退出码不一致：--quiet={a.returncode} vs --missing-cities={b.returncode}"
+    a, b = _quiet_run().returncode, _missing_run().returncode
+    assert a == b, f"退出码不一致：--quiet={a} vs --missing-cities={b}"
