@@ -152,12 +152,18 @@ const PAGES = {
   capabilities: { width: 900, file: 'KsCapabilityPage.tsx', symbol: 'KsCapabilityPage', interact: [] },
   materials: { width: 900, file: 'KsMaterialsPanel.tsx', symbol: 'KsMaterialsPanel', interact: [] },
   /* ⚠ 2026-10-10（spec 007 D3）**加法式**新增：设置面（`KsSettingsSection`）。
-     为什么必须走这条路：D3 是**布局溢出**（Base URL 输入框被右侧裁掉），
-     而 jsdom **没有布局引擎**、量不出溢出 ⇒ 只能在真浏览器里量。
+     为什么必须走这条路：D3 是**排版可见性**问题（placeholder 被截断），
+     而 jsdom **没有布局引擎**、量不出文字是否放得下 ⇒ 只能在真浏览器里量。
      ⚠ 本页**不进** `smoke-kb-pad-pixels.mjs` 的 `MATRIX`/`EXPECTED_RUNS`
        （那会要求同批改冻结清单、把 diff 扯到别的面上）；用单独命令量，命令写进 spec 007 的 tasks。
-     默认宽度取 1018：那是真机审查时**实际看到裁切**的那一档窗口宽。 */
-  settings: { width: 1018, file: 'KsSettingsSection.tsx', symbol: 'KsSettingsSection', interact: ['settings-creds'] },
+     ⚠⚠ **默认宽度为什么是 600 而不是真机窗口宽（1018）**（2026-10-10 独立复核指出后改，留痕）：
+       第一版默认取 1018，理由是"那是真机审查时看到裁切的那一档**窗口**宽"——**这个理由是错的**：
+       `#ks-shell{width:<width>px}` 是**写死的像素宽**，离屏 1018 给的是"这个面本身 1018 宽"，
+       而真机里设置面住在**弹窗**里、可用宽远小于窗口宽 ⇒ 用 1018 跑，长 placeholder **放得下**、
+       判据**假绿**（实测：把长 placeholder 改回去，1018 档仍 PASS）。
+       600 是本机实测**能复现截断**的那一档（`文字实宽 266px > 框内可用 222px`）
+       ⇒ 默认取它，**判据不靠"调用方记得传对宽度"**。 */
+  settings: { width: 600, file: 'KsSettingsSection.tsx', symbol: 'KsSettingsSection', interact: ['settings-creds'] },
 }
 const page = arg('page', 'kb')
 if (!PAGES[page]) { console.error(`❌ 未知 --page ${page}（可选：${Object.keys(PAGES).join(' / ')}）`); process.exit(2) }
@@ -2407,10 +2413,24 @@ const html = `<!doctype html>
           · overflow：输入框右缘越过所在行内容盒（保留，作为第二种失败形态）。
        判红口径（Node 侧）：clipped 或 overflow > 1 任一成立即红。
        ⚠ "量不到就红"：一个输入框都没量到 ⇒ 产出 n:0，Node 侧判红（不许静默绿）。
+       ⚠⚠ **第二版只认两个关键字，又漏了一类（2026-10-10 独立复核指出后改，留痕）**：
+          第二版按 placeholder 含 "Base URL" / "API Key" 来挑 —— 而**已配置态**的 Key 框
+          placeholder 是「Key 已配置（留空保持不变；输 "-" 清除）」，**不含** "API Key"
+          ⇒ 它同样可能被截断，却**永远不被量**（同类缺陷换个分支就漏）。
+       ⇒ 现在**按位置挑**：凡是凭据表单行里的 input（其所在行的祖先含 API 配置块）**全都量**，
+          不靠 placeholder 文案。
        ⚠ 本段在**模板字符串内部**：一个反引号都不能出现（本批我为这个坑红了 4 次）。 */
     var credInputs = [...document.querySelectorAll('input')].filter(function (el) {
-      return (el.getAttribute('placeholder') || '').indexOf('Base URL') >= 0
-        || (el.getAttribute('placeholder') || '').indexOf('API Key') >= 0;
+      /* 按位置：输入框所在行是 flex 行、且该行里有保存/测试按钮 ⇒ 就是凭据表单行。
+         这样"改文案"不会让它掉出量点范围（第二版的教训）。 */
+      var row = el.parentElement;
+      if (!row) return false;
+      var hasButton = [...row.querySelectorAll('button')].some(function (b) {
+        var t = b.textContent || '';
+        return t.indexOf('保存') >= 0 || t.indexOf('测试') >= 0;
+      });
+      var ph = el.getAttribute('placeholder') || '';
+      return hasButton || ph.indexOf('Base URL') >= 0 || ph.indexOf('API Key') >= 0;
     });
     if (credInputs.length > 0) {
       /* 用一个离屏 canvas 量 placeholder 的**真实文字宽度**（与输入框同字号/同字体）。 */

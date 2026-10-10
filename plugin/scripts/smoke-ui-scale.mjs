@@ -144,21 +144,30 @@ for (const d of body.matchAll(fsDecl)) {
  * ## 口径（三条，都必须写清，否则这条判据会变成"永远绿"）
  * 1. **只判 `--ks-*`**：它们是我们自己的 token，定义**必须**在本文件里（`--dsw-*` 归官方主题，
  *    不在这里判 —— 那要拿 DSH 检出当输入，本脚本刻意保持零外部依赖）。
- * 2. **引用集合 vs 定义集合**：从 `KS_STYLES` 全文抠出 `var(--ks-xxx)` 与 `--ks-xxx:`，
+ * 2. **引用集合 vs 定义集合**：从 `KS_STYLES` 抠出 `var(--ks-xxx)` 与 `--ks-xxx:`，
  *    要求**引用 ⊆ 定义**。
  * 3. **带兜底的（`var(--x, y)`）单独列出并放行**：那是**刻意**兜底，不是缺陷；
  *    但它们必须被**打印出来**（看得见才叫"登记"，藏起来就变成暗账）。
+ *
+ * ## ⚠⚠ 本段第一版有**空洞**（2026-10-10 独立复核发现，已修，留痕）
+ * 第一版在**未剥注释**的 `rawBody` 上同时抠"引用"与"定义"⇒ 把一行定义**裹进块注释**后，
+ * 定义正则**照样命中** ⇒ 判据绿，**而浏览器里该 token 真的不存在、那条声明整条静默失效**
+ * （正是本判据要抓的那个病）。**实测复现**：把 `--ks-radius:var(--dsw-radius-md);` 整行
+ * 用块注释括起来 ⇒ 旧写法报"缺失 0 个 / exit 0"（定义正则照样命中注释里的那一行）。
+ * ⇒ 现在两边都改用**剥过注释的** `withoutComments`。
+ * ⚠ 另：任务书举例的 `--ks-radius :`（冒号前带空格）**不是**漏洞 —— 定义正则含 `\s*` 会判绿，
+ * 而 CSS 语义上它**确实定义了**，判绿是对的。
  *
  * ⚠ 这条**不是**棘轮（不是"只减不增"）：它要求的是**恒等**关系 —— 引用一个不存在的 token 就是红。
  */
 const ksUsed = new Set()
 const ksUsedWithFallback = new Set()
-for (const d of rawBody.matchAll(/var\(\s*(--ks-[a-z0-9-]+)\s*(,)?/g)) {
+for (const d of withoutComments.matchAll(/var\(\s*(--ks-[a-z0-9-]+)\s*(,)?/g)) {
   ksUsed.add(d[1])
   if (d[2] === ',') ksUsedWithFallback.add(d[1])
 }
 const ksDefined = new Set()
-for (const d of rawBody.matchAll(/(--ks-[a-z0-9-]+)\s*:/g)) ksDefined.add(d[1])
+for (const d of withoutComments.matchAll(/(--ks-[a-z0-9-]+)\s*:/g)) ksDefined.add(d[1])
 const ksMissing = [...ksUsed].filter((t) => !ksDefined.has(t)).sort()
 
 /* ─────────────────────────────── 断言 ─────────────────────────────── */
