@@ -488,6 +488,12 @@ ADAPTERS: dict[str, str] = {
     #    ④ **不需要** `publicationFlag`（开封必须带）。
     #    ⇒ **不能照抄开封**。实测 total=2605。
     "tl-hdjl": "adapters.tl_hdjl",     # 铜陵市·政民互动·信件公开
+    # —— 安徽第 2 个市级源（2026-10-10，spec 005 T601）：
+    #    池州 `/InFeedback/showList/2/page_N.html` **服务端渲染**（N **从 1 起**，
+    #    与焦作的"从 0 起"不同 ⇒ 分页形态不能照抄别市）。
+    #    详情 `/InFeedback/show/<id>.html`，两个 `message_con` 块（留言 / 回复）。
+    #    实测 pagecount=13 total=128。
+    "cz-hdjl": "adapters.cz_hdjl",     # 池州市·市长信箱·留言选登
 }
 
 #: 用户要能直接 `from adapters import load`
