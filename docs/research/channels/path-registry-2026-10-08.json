@@ -1,0 +1,4684 @@
+{
+ "generated_at": "2026-10-08",
+ "total": 236,
+ "valid": [
+  {
+   "url": "https://flk.npc.gov.cn/law-search/search/enumData",
+   "name": "国家法律法规数据库-枚举字典",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 7936,
+   "verdict": "api",
+   "note": "json 7936B",
+   "sample": []
+  },
+  {
+   "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081819ff541ea01a07eb41e2709fb",
+   "name": "国家法律法规数据库-详情",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 883,
+   "verdict": "api",
+   "note": "json 883B",
+   "sample": []
+  },
+  {
+   "url": "https://flk.npc.gov.cn/law-search/index/aggregateData",
+   "name": "国家法律法规数据库-首页聚合",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 3435,
+   "verdict": "api",
+   "note": "json 3435B",
+   "sample": []
+  },
+  {
+   "url": "https://www.gdpc.gov.cn/bascdata/",
+   "name": "广东人大-广东省法规规章规范性文件数据库",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "广东省法规规章规范性文件数据库",
+   "bytes": 61749,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "广东省法规规章规范性文件数据库",
+    "审查建议在线提交",
+    "\" + Conn.htmlDecodeByRegExp(Conn.htm"
+   ]
+  },
+  {
+   "url": "https://www.zj.gov.cn/col/col1229577560/index.html",
+   "name": "浙江省政策文件库",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 1,
+   "diag": {
+    "parsed": 1,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "浙江省政策文件库",
+   "bytes": 5975,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "国务院政策文件库"
+   ]
+  },
+  {
+   "url": "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/744120751/index.html",
+   "name": "北京市司法局-法律法规规章",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "down",
+   "http": 200,
+   "items": 24,
+   "diag": {
+    "parsed": 24,
+    "truncated": false,
+    "nav_skipped": 101,
+    "js_shell_suspected": false
+   },
+   "title": "规范性文件",
+   "bytes": 96053,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "访问我的专属空间",
+    "司法行政要闻",
+    "普法与依法治理"
+   ]
+  },
+  {
+   "url": "https://www.shrd.gov.cn/TrueCMS/messageController/getMessage.do",
+   "name": "上海市人大-法规公布AJAX(TrueCMS)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 13,
+   "verdict": "api",
+   "note": "json 13B",
+   "sample": []
+  },
+  {
+   "url": "https://www.gov.cn/zhengce/zuixin/ZUIXINZHENGCE.json",
+   "name": "中国政府网-最新政策静态JSON",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 265788,
+   "verdict": "api",
+   "note": "json 265788B",
+   "sample": []
+  },
+  {
+   "url": "https://flk.npc.gov.cn/law-search/search/list",
+   "name": "国家法律法规数据库-检索列表API",
+   "category": "law",
+   "source": "new",
+   "kind": "api",
+   "http": 200,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 55,
+   "verdict": "api",
+   "note": "json 55B",
+   "sample": []
+  },
+  {
+   "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/",
+   "name": "国家市场监督管理总局-法规司",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 2,
+   "diag": {
+    "parsed": 2,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "法规司",
+   "bytes": 3589,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "政府信息公开",
+    "法定主动公开内容"
+   ]
+  },
+  {
+   "url": "https://www.shrd.gov.cn/shrd/fggb/fggb.html",
+   "name": "上海市人大-法规公布",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 200,
+   "items": 29,
+   "diag": {
+    "parsed": 29,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "上海人大",
+   "bytes": 11375,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "上海市人民代表大会常务委员会关于修改《上海市优化营商环境条例》的决定",
+    "上海市军事设施保护条例",
+    "上海市人民代表大会常务委员会关于修改《上海市会展业条例》的决定"
+   ]
+  },
+  {
+   "url": "https://www.shanghai.gov.cn/xxzfgzwj/",
+   "name": "上海市人民政府-政府规章库",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 10,
+   "diag": {
+    "parsed": 10,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "现行市政府规章_上海市人民政府",
+   "bytes": 19236,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "上海市放射性污染防治若干规定\r\n                    ",
+    "上海市餐饮业大气污染防治办法\r\n                    ",
+    "上海市社会生活噪声污染防治办法\r\n                   "
+   ]
+  },
+  {
+   "url": "https://www.shanghai.gov.cn/nw12344/index.html",
+   "name": "上海市人民政府-近期信息公开",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 21,
+   "diag": {
+    "parsed": 21,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "近期信息公开_上海市人民政府",
+   "bytes": 28474,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "近期信息公开",
+    "上海市人民政府办公厅关于印发《上海市促进和规范商事调解发展若干规定》的通",
+    "市政府新闻发布会介绍第二十五届中国上海国际艺术节总体安排"
+   ]
+  },
+  {
+   "url": "https://sfj.sh.gov.cn/2020jcgk_gfxwj/",
+   "name": "上海市司法局-规范性文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 200,
+   "items": 20,
+   "diag": {
+    "parsed": 20,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "规范性文件_上海市司法局",
+   "bytes": 17890,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "【有效】\r\n                              ",
+    "【有效】\r\n                              ",
+    "【有效】\r\n                              "
+   ]
+  },
+  {
+   "url": "http://www.npc.gov.cn/npc/c2/c12435/c12488/",
+   "name": "中国人大网-法律文件",
+   "category": "law",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 29,
+   "diag": {
+    "parsed": 29,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "法律文件_中国人大网",
+   "bytes": 8943,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "关于《中华人民共和国耕地保护和质量提升法（草案）》的说明",
+    "关于《中华人民共和国律师法（修正草案）》的说明",
+    "关于《中华人民共和国农业法（修订草案）》的说明"
+   ]
+  },
+  {
+   "url": "http://www.npc.gov.cn/npc/c2/c183/",
+   "name": "中国人大网-立法",
+   "category": "law",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 30,
+   "diag": {
+    "parsed": 30,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "立法_中国人大网",
+   "bytes": 7316,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "法治护田，全方位夯实粮食安全根基",
+    "全国人大常委会法工委基层立法联系点已设立60个",
+    "全国人大常委会将推进制定备案审查专门法律"
+   ]
+  },
+  {
+   "url": "http://www.pbc.gov.cn/tiaofasi/144941/index.html",
+   "name": "中国人民银行-条法司",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 35,
+   "diag": {
+    "parsed": 35,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "中国人民银行-条法司",
+   "bytes": 54286,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中国人民银行行长潘功胜会见欧盟...",
+    "中国人民银行召开外资金融机构座...",
+    "中国人民银行行长潘功胜会见香港..."
+   ]
+  },
+  {
+   "url": "https://www.gov.cn/zhengce/xxgk/gjgzk/index.htm",
+   "name": "中国政府网-国家规章库",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 6,
+   "diag": {
+    "parsed": 6,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国家规章库_中国政府网",
+   "bytes": 21161,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国务院部门网站",
+    "地方政府网站",
+    "驻港澳机构网站"
+   ]
+  },
+  {
+   "url": "https://www.gov.cn/zhengce/xxgk/",
+   "name": "中国政府网-政策文件库检索",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开平台_中国政府网",
+   "bytes": 226263,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中华人民共和国政府信息公开条例",
+    "国务院办公厅关于印发《公共企事业单位信息公开规定制定办法》的通知",
+    "国务院办公厅关于印发《政府信息公开信息处理费管理办法》的通知"
+   ]
+  },
+  {
+   "url": "http://www.csrc.gov.cn/csrc/c101803/common_list.shtml",
+   "name": "中国证监会-法律法规",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国证券监督管理委员会",
+   "bytes": 221976,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "吴清主席会见沙特投资部助理大臣穆巴拉克",
+    "湖北证监局原党委书记、局长王广幼被开除党籍",
+    "中国证监会拟对17起案件线索的“吹哨人”给予奖励"
+   ]
+  },
+  {
+   "url": "https://xxgk.mot.gov.cn/zhengce/index.html",
+   "name": "交通运输部-政府信息公开政策",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 38,
+   "diag": {
+    "parsed": 38,
+    "truncated": false,
+    "nav_skipped": 15,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开 交通运输部",
+   "bytes": 113783,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "行政权力事项",
+    "安全质量与应急管理",
+    "安全与质量监督管理司"
+   ]
+  },
+  {
+   "url": "https://xxgk.mot.gov.cn/2020/gz/",
+   "name": "交通运输部-规章库",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "交通运输部规章库",
+   "bytes": 50042,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中华人民共和国船舶及其有关作业活动污染海洋环境防治管理规定",
+    "铁路工程建设失信管理办法",
+    "通用航空经营管理规定"
+   ]
+  },
+  {
+   "url": "http://www.moa.gov.cn/gk/tzgg_1/",
+   "name": "农业农村部-通知公告",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 89,
+    "js_shell_suspected": false
+   },
+   "title": "通知公告",
+   "bytes": 45952,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开指南",
+    "政府信息依申请公开",
+    "中华人民共和国农业农村部令 2026年第3号"
+   ]
+  },
+  {
+   "url": "https://www.bjrd.gov.cn/",
+   "name": "北京市人大",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 35,
+   "diag": {
+    "parsed": 35,
+    "truncated": false,
+    "nav_skipped": 10,
+    "js_shell_suspected": false
+   },
+   "title": "北京市人民代表大会常务委员会",
+   "bytes": 67236,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "习近平文化思想引领文化强国建设迈出坚实步伐",
+    "庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话",
+    "《求是》杂志发表习近平总书记重要文章"
+   ]
+  },
+  {
+   "url": "https://www.bjrd.gov.cn/zyfb/",
+   "name": "北京市人大常委会-重要发布",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "重要发布_北京市人民代表大会常务委员会",
+   "bytes": 48395,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "​北京市人民代表大会监察和司法委员会对北京市人民检察院关于加强法律监督工",
+    "​北京市人民检察院关于加强法律监督工作情况的报告",
+    "​北京市人民代表大会监察和司法委员会对北京市高级人民法院关于提高审判效率"
+   ]
+  },
+  {
+   "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/",
+   "name": "北京市人民政府-政策文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "政策文件_首都之窗_北京市人民政府门户网站",
+   "bytes": 394641,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "北京市广播电视局关于印发《北京市关于支持超高清视听产业高质量发展的若干措",
+    "北京市商务局关于做好2027年度汽车和摩托车出口许可申报工作的通知",
+    "北京市教育委员会关于印发《北京市加强城乡学校共同体建设工作方案》的通知"
+   ]
+  },
+  {
+   "url": "https://www.ndrc.gov.cn/xxgk/zcfb/gg/",
+   "name": "发改委-公告",
+   "category": "law",
+   "source": "rescue",
+   "verdict": "work",
+   "items": 34,
+   "sample": [],
+   "title": "公告-国家发展和改革委员会"
+  },
+  {
+   "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/",
+   "name": "发改委-通知",
+   "category": "law",
+   "source": "rescue",
+   "verdict": "work",
+   "items": 44,
+   "sample": [],
+   "title": "通知-国家发展和改革委员会"
+  },
+  {
+   "url": "http://xzfg.moj.gov.cn/search2.html",
+   "name": "司法部-国家行政法规库(xzfg)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 29,
+   "diag": {
+    "parsed": 29,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家行政法规库",
+   "bytes": 52992,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中华人民共和国审计法实施条例",
+    "中华人民共和国审计法实施条例",
+    "中华人民共和国审计法实施条例"
+   ]
+  },
+  {
+   "url": "https://www.moj.gov.cn/",
+   "name": "司法部-备案审查",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 15,
+    "js_shell_suspected": false
+   },
+   "title": "中华人民共和国司法部",
+   "bytes": 103783,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家行政法规库",
+    "政府信息公开",
+    "习近平文化思想引领文化强国建设迈出坚实步伐"
+   ]
+  },
+  {
+   "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzbmgz/",
+   "name": "司法部-部门规章栏目",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 65,
+    "js_shell_suspected": false
+   },
+   "title": "中华人民共和国司法部",
+   "bytes": 41478,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家行政法规库",
+    "政府信息公开",
+    "外国医师来华短期行医暂行管理办法"
+   ]
+  },
+  {
+   "url": "https://www.mofcom.gov.cn/zfxxgk/",
+   "name": "商务部-政策",
+   "category": "law",
+   "source": "rescue",
+   "verdict": "work",
+   "items": 5,
+   "sample": [],
+   "title": "商务部政府信息公开"
+  },
+  {
+   "url": "https://www.nfra.gov.cn/cn/view/pages/index/index.html",
+   "name": "国家金融监督管理总局",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 7,
+   "diag": {
+    "parsed": 7,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家金融监督管理总局",
+   "bytes": 59587,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "-->\n                                ",
+    "总局监管动态",
+    "-->\n                            \n   "
+   ]
+  },
+  {
+   "url": "https://www.gdpc.gov.cn/gdrdw/rdhy/cwhhy/cwhgb/index.html",
+   "name": "广东人大-常委会公报",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 200,
+   "items": 10,
+   "diag": {
+    "parsed": 10,
+    "truncated": false,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "常委会公报-广东人大网",
+   "bytes": 21439,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "代表大会会议",
+    "广东省当选的十四届全国人大代表名单",
+    "广东省第十四届人民代表大会代表名单"
+   ]
+  },
+  {
+   "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/ggtz/index.html",
+   "name": "广东人大-权威发布公告通知",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 200,
+   "items": 30,
+   "diag": {
+    "parsed": 30,
+    "truncated": false,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "公告通知-广东人大网",
+   "bytes": 24094,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "代表大会会议",
+    "广东省第十四届人民代表大会常务委员会公告（第88号）",
+    "《广东省规范性文件制定和管理监督条例》"
+   ]
+  },
+  {
+   "url": "https://www.gdpc.gov.cn/",
+   "name": "广东人大网",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "广东人大网",
+   "bytes": 108711,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "代表大会会议",
+    "习近平文化思想引领文化强国建设迈出坚实步伐",
+    "烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席"
+   ]
+  },
+  {
+   "url": "https://www.gd.gov.cn/zwgk/wjk/qbwj/",
+   "name": "广东省人民政府-文件库",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 32,
+   "diag": {
+    "parsed": 32,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "全部文件&nbsp;&nbsp;广东省人民政府门户网站",
+   "bytes": 62928,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国务院部门网站",
+    "地方政府网站",
+    "驻港澳机构网站"
+   ]
+  },
+  {
+   "url": "https://www.gd.gov.cn/zwgk/wjk/qbwj/yfl/index.html",
+   "name": "广东省人民政府-粤府令",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 32,
+   "diag": {
+    "parsed": 32,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "粤府令&nbsp;&nbsp;广东省人民政府门户网站",
+   "bytes": 62257,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国务院部门网站",
+    "地方政府网站",
+    "驻港澳机构网站"
+   ]
+  },
+  {
+   "url": "http://sft.gd.gov.cn/sfw/zwgk/zcwj/",
+   "name": "广东省司法厅-政策文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 37,
+   "diag": {
+    "parsed": 37,
+    "truncated": false,
+    "nav_skipped": 14,
+    "js_shell_suspected": false
+   },
+   "title": "政策文件&nbsp;&nbsp;广东省司法厅网站",
+   "bytes": 27661,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "广东省司法厅印发关于推动法律服务业与制造业协同融合发展行动方案的通知",
+    "广东省司法厅关于印发《疑难、复杂和有重大社会影响的司法鉴定事项认定标准》",
+    "广东省司法厅印发《广东省司法厅关于开展省内律师事务所聘请外籍律师担任外国"
+   ]
+  },
+  {
+   "url": "https://www.mem.gov.cn/fw/flfgbz/fg/index.shtml",
+   "name": "应急管理部-法律法规",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 40,
+   "diag": {
+    "parsed": 40,
+    "truncated": false,
+    "nav_skipped": 67,
+    "js_shell_suspected": false
+   },
+   "title": "法律法规",
+   "bytes": 72395,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中华人民共和国危险化学品安全法",
+    "中华人民共和国突发事件应对法",
+    "中华人民共和国安全生产法"
+   ]
+  },
+  {
+   "url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/",
+   "name": "应急管理部-规章(法定主动公开)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开",
+   "bytes": 17994,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "社会消防技术服务管理规定",
+    "煤矿企业安全生产许可证实施办法",
+    "煤矿重大事故隐患判定标准"
+   ]
+  },
+  {
+   "url": "https://www.mct.gov.cn/whzx/",
+   "name": "文化和旅游部-政策法规",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "信息发布",
+   "bytes": 52265,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "5A级旅游景区天气",
+    "文化和旅游部印发《艺术发展“十五...",
+    "文化和旅游部 中国气象局联合发布20..."
+   ]
+  },
+  {
+   "url": "https://www.spp.gov.cn/spp/flfgxwj/",
+   "name": "最高人民检察院-法律法规规范性文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "中华人民共和国最高人民检察院",
+   "bytes": 73379,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "最高人民检察院简介",
+    "落实审议意见报告",
+    "普通犯罪检察"
+   ]
+  },
+  {
+   "url": "https://www.court.gov.cn/fabu/gengduo/16.html",
+   "name": "最高人民法院-司法解释",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 23,
+   "diag": {
+    "parsed": 23,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "司法解释 - 中华人民共和国最高人民法院",
+   "bytes": 16880,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "最高人民法院发布《关于审理涉及刑事犯罪的民事纠纷案件若干问题的规定》",
+    "最高人民法院关于适用《中华人民共和国生态环境法典》时间效力的若干规定",
+    "最高人民法院关于修改《最高人民法院关于审理船舶油污损害赔偿纠纷案件若干问"
+   ]
+  },
+  {
+   "url": "http://www.mwr.gov.cn/zwgk/",
+   "name": "水利部-政务公开",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 45,
+   "diag": {
+    "parsed": 45,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开",
+   "bytes": 61504,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "-->\n                        \n       ",
+    "体裁分类(4806)",
+    "政策法规(476)&nbsp;"
+   ]
+  },
+  {
+   "url": "https://www.zj.gov.cn/col/col1229836653/index.html",
+   "name": "浙江省人民政府-政府规章省级有效",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 10,
+   "diag": {
+    "parsed": 10,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开专栏_浙江省人民政府",
+   "bytes": 10124,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "省政府办公厅",
+    "浙江省政策文件库",
+    "政府信息\n\t\t\n\t\t\t公开指南"
+   ]
+  },
+  {
+   "url": "https://sft.zj.gov.cn/",
+   "name": "浙江省司法厅",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "首页",
+   "bytes": 56692,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "全省深化数字法治改革推进政法智能化建设工作例...",
+    "省委更高水平法治浙江建设推进会召开",
+    "法治浙江建设20年座谈会在杭州召开 以“走在..."
+   ]
+  },
+  {
+   "url": "https://sft.zj.gov.cn/col/col1229247318/index.html",
+   "name": "浙江省司法厅-政策文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 19,
+   "diag": {
+    "parsed": 19,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "政策文件",
+   "bytes": 25812,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开指南",
+    "政府信息公开制度",
+    "行政许可/其他对外管理服务"
+   ]
+  },
+  {
+   "url": "https://www.mee.gov.cn/ywgz/fgbz/",
+   "name": "生态环境部-法规标准",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "法规标准_中华人民共和国生态环境部",
+   "bytes": 80593,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "环境影响评价",
+    "中华人民共和国生态环境法典",
+    "中华人民共和国渔业法"
+   ]
+  },
+  {
+   "url": "https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/",
+   "name": "科技部-法规政策",
+   "category": "law",
+   "source": "rescue",
+   "verdict": "work",
+   "items": 18,
+   "sample": [],
+   "title": "中华人民共和国科学技术部"
+  },
+  {
+   "url": "https://www.chinatax.gov.cn/chinatax/n810341/n810755/index.html",
+   "name": "税务总局-政策",
+   "category": "law",
+   "source": "rescue",
+   "verdict": "work",
+   "items": 41,
+   "sample": [],
+   "title": "最新文件"
+  },
+  {
+   "url": "http://www.mnr.gov.cn/gk/tzgg/",
+   "name": "自然资源部-通知公告",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 49,
+   "diag": {
+    "parsed": 49,
+    "truncated": false,
+    "nav_skipped": 116,
+    "js_shell_suspected": false
+   },
+   "title": "通知公告",
+   "bytes": 81061,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "自然资源部国土整治中心（自然资源部土地科技创新中心）2026年度公开招收",
+    "关于公开征求《自然资源部关于进一步推进海域分层立体利用工作的通知（公开征",
+    "自然资源部 国家林业和草原局关于支持服务业优质高效发展的通知"
+   ]
+  },
+  {
+   "url": "http://www.mof.gov.cn/zhengwuxinxi/zhengcefabu/",
+   "name": "财政部-政策发布",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 25,
+   "diag": {
+    "parsed": 25,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "政策发布",
+   "bytes": 20911,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "财政部  中国人民银行 金融监管总局关于实施居民购房贷款贴息政策的通知",
+    "《紧急采购管理暂行办法》印发",
+    "《关于加快农业保险高质量发展的实施方案》印发"
+   ]
+  },
+  {
+   "url": "https://www.beijing.gov.cn/zhengce/dfxfg/",
+   "name": "首都之窗-地方性法规镜像",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 25,
+   "diag": {
+    "parsed": 25,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "地方性法规_首都之窗_北京市人民政府门户网站",
+   "bytes": 20551,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "[地方性法规] 北京市测绘地理信息条例",
+    "[地方性法规] 北京市人民代表大会常务委员会关于加强新时代检察机关法律监",
+    "[地方性法规] 北京市人民代表大会常务委员会关于进一步促进民族团结进步的"
+   ]
+  },
+  {
+   "url": "https://www.beijing.gov.cn/zhengce/zfwj/zfwj2016/szfl/",
+   "name": "首都之窗-市政府令(按文号)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "市政府令_首都之窗_北京市人民政府门户网站",
+   "bytes": 171048,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "北京市“门前三包”责任制管理办法",
+    "北京市科学技术奖励办法",
+    "​北京市人民政府规章立法后评估办法"
+   ]
+  },
+  {
+   "url": "https://www.beijing.gov.cn/gongkai/zfxxgk/zc/gz/",
+   "name": "首都之窗-政府规章(现行有效)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "规章_首都之窗_北京市人民政府门户网站",
+   "bytes": 38336,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "北京市“门前三包”责任制管理办法",
+    "北京市科学技术奖励办法",
+    "​北京市无线电管理规定"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/db/dbQuery",
+   "name": "全国标准信息公共服务平台-地方标准(旧路径)",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "地方标准目录- 全国标准信息公共服务平台",
+   "bytes": 52583,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc/nocDB",
+   "name": "地方标准备案公告(nocDB)",
+   "category": "std_db",
+   "source": "batch4",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "地方标准备案月报- 全国标准信息公共服务平台",
+   "bytes": 45037,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://zlzx.zjamr.zj.gov.cn/bzzx/public/std/list/ALL/1.html",
+   "name": "浙江标准在线-标准查询",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "标准查询_浙江标准在线",
+   "bytes": 52980,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "浙江政务服务网",
+    "两新标准提升",
+    "浙公网安备 33010602010565号"
+   ]
+  },
+  {
+   "url": "http://scjgj.sh.gov.cn/",
+   "name": "上海市市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 15,
+    "js_shell_suspected": false
+   },
+   "title": "上海市市场监督管理局",
+   "bytes": 38403,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "医疗器械广告审查",
+    "企业年报/及时报",
+    "食品生产许可（特殊食品）"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/db",
+   "name": "全国标准信息公共服务平台-地方标准公告",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 200,
+   "items": 14,
+   "diag": {
+    "parsed": 14,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "地方标准 - 全国标准信息公共服务平台",
+   "bytes": 48719,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://scjgj.beijing.gov.cn/",
+   "name": "北京市市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 17,
+    "js_shell_suspected": false
+   },
+   "title": "北京市市场监督管理局",
+   "bytes": 259454,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "自设赛道宣称“全国第一” 这家门店被罚2万元",
+    "遇到AI生成的广告，这些“坑”要留意！",
+    "挑梨记住“看掂辨”，存梨分清“凉和冰” ——秋季..."
+   ]
+  },
+  {
+   "url": "http://scjgj.sc.gov.cn/scsjgj/c104492/list.shtml",
+   "name": "四川省市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 24,
+   "diag": {
+    "parsed": 24,
+    "truncated": false,
+    "nav_skipped": 19,
+    "js_shell_suspected": false
+   },
+   "title": "公示公告 - 四川省市场监督管理局",
+   "bytes": 34485,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "四川省人民政府",
+    "党中央国务院信息",
+    "省委省政府信息"
+   ]
+  },
+  {
+   "url": "http://amr.shandong.gov.cn/col/col76510/index.html?number=SD1002",
+   "name": "山东省市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "山东省市场监督管理局 通知公告",
+   "bytes": 34551,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "山东省市场监督管理局关于开展2026年检验检测机构资质认定评审员新录用及",
+    "山东省市场监督管理局等五部门关于2026年山东省计量和检验检测职业技能竞",
+    "关于启用食品经营有关事项报告系统的通告"
+   ]
+  },
+  {
+   "url": "https://amr.gd.gov.cn/zwgk/tzgg/index.html",
+   "name": "广东省市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 46,
+   "diag": {
+    "parsed": 46,
+    "truncated": false,
+    "nav_skipped": 36,
+    "js_shell_suspected": false
+   },
+   "title": "通知公告-广东省市场监督管理局网站",
+   "bytes": 29764,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "重点领域信息公开",
+    "政府信息公开指南",
+    "政府信息公开目录"
+   ]
+  },
+  {
+   "url": "http://scjgj.jiangsu.gov.cn/col/col78963/index.html",
+   "name": "江苏省市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 5,
+   "diag": {
+    "parsed": 5,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "江苏省市场监督管理局 通知公告",
+   "bytes": 63889,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开指南",
+    "政府信息公开制度",
+    "建议提案办理结果"
+   ]
+  },
+  {
+   "url": "https://zlzx.zjamr.zj.gov.cn/bzzx/public/news/list/lstd/ALL/1.html",
+   "name": "浙江省市场监督管理局 / 浙江标准在线",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 13,
+   "diag": {
+    "parsed": 13,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "浙江省市场监督管理局 - 浙江标准在线",
+   "bytes": 28978,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "浙江政务服务网",
+    "两新标准提升",
+    "浙江省市场监督管理局关于下达2026年第一批浙江省地方标准制修订计划的通"
+   ]
+  },
+  {
+   "url": "https://scjg.ln.gov.cn/scjdglj/fw/wyb/bz/index.shtml",
+   "name": "辽宁省市场监督管理局",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 33,
+   "diag": {
+    "parsed": 33,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "辽宁省市场监督管理局",
+   "bytes": 41142,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开",
+    "政务公开重点工作",
+    "企业登记注销信息公告"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/gb/gbQuery",
+   "name": "全国标准信息公共服务平台-国家标准目录",
+   "category": "std_gb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准目录查询- 全国标准信息公共服务平台",
+   "bytes": 53923,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc/nocCMR",
+   "name": "全国标准信息公共服务平台-技术委员会公告",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "技术委员会公告- 全国标准信息公共服务平台",
+   "bytes": 44981,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc/nocGB",
+   "name": "国家标准批准发布公告",
+   "category": "std_gb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 4,
+   "diag": {
+    "parsed": 4,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准公告- 全国标准信息公共服务平台",
+   "bytes": 45592,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bzcxs/",
+   "name": "市场监管总局-标准技术管理司",
+   "category": "std_gb",
+   "source": "batch2",
+   "http": 200,
+   "items": 2,
+   "diag": {
+    "parsed": 2,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "标准创新司",
+   "bytes": 3631,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "政府信息公开",
+    "法定主动公开内容"
+   ]
+  },
+  {
+   "url": "https://www.spc.org.cn/standardonline/replace?type=0",
+   "name": "中国标准在线服务网",
+   "category": "std_gb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 6,
+    "js_shell_suspected": false
+   },
+   "title": "被代替国家标准、已废止国家标准_标准下载、标准查询、标准阅读_中国标准在线服务网",
+   "bytes": 35925,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "购物车2件 -->",
+    "标准进度查询",
+    "标准术语查询"
+   ]
+  },
+  {
+   "url": "https://www.spc.org.cn/news/stdbzgg",
+   "name": "中国标准在线服务网-标准公告",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 15,
+   "diag": {
+    "parsed": 15,
+    "truncated": false,
+    "nav_skipped": 6,
+    "js_shell_suspected": false
+   },
+   "title": "标准公告_标准资讯_国家行业标准分享-中国标准在线服务网",
+   "bytes": 24296,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "购物车2件 -->",
+    "标准进度查询",
+    "标准术语查询"
+   ]
+  },
+  {
+   "url": "https://www.spc.org.cn/",
+   "name": "中国标准在线服务网-首页",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 39,
+   "diag": {
+    "parsed": 39,
+    "truncated": false,
+    "nav_skipped": 7,
+    "js_shell_suspected": false
+   },
+   "title": "中国标准在线服务网_国家标准下载、标准查询、专业国家标准网",
+   "bytes": 60169,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "购物车2件 -->",
+    "标准进度查询",
+    "标准术语查询"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/gb.html",
+   "name": "全国标准信息公共服务平台-国家标准公告",
+   "category": "std_gb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准 - 全国标准信息公共服务平台",
+   "bytes": 75474,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/org",
+   "name": "全国标准信息公共服务平台-技术委员会",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 200,
+   "items": 25,
+   "diag": {
+    "parsed": 25,
+    "truncated": false,
+    "nav_skipped": 9,
+    "js_shell_suspected": false
+   },
+   "title": "技术委员会 - 全国标准信息公共服务平台",
+   "bytes": 65104,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc",
+   "name": "全国标准信息公共服务平台-标准公告查询",
+   "category": "std_gb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 30,
+   "diag": {
+    "parsed": 30,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "标准公告查询 - 全国标准信息公共服务平台",
+   "bytes": 19878,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "2026年第42号",
+    "2026年第39号",
+    "2026年第38号"
+   ]
+  },
+  {
+   "url": "https://openstd.samr.gov.cn/bzgk/std/",
+   "name": "国家标准全文公开系统",
+   "category": "std_gb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 9,
+   "diag": {
+    "parsed": 9,
+    "truncated": false,
+    "nav_skipped": 6,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准全文公开",
+   "bytes": 100225,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "强制性国家标准",
+    "推荐性国家标准",
+    "指导性技术文件"
+   ]
+  },
+  {
+   "url": "https://openstd.samr.gov.cn/bzgk/std/index",
+   "name": "国家标准全文公开系统(index)",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 9,
+   "diag": {
+    "parsed": 9,
+    "truncated": false,
+    "nav_skipped": 6,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准全文公开",
+   "bytes": 100225,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "强制性国家标准",
+    "推荐性国家标准",
+    "指导性技术文件"
+   ]
+  },
+  {
+   "url": "http://org.sacinfo.org.cn/tcrm/cmrNotice/announcement/list?menuItem=11",
+   "name": "技术委员会公告(sacinfo)",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "技术委员会公告",
+   "bytes": 59915,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "注销&nbsp;",
+    "・国家标准委关于批准全国光学和光子学标准化技术委员会等11个技术委员会换",
+    "・国家标准委关于成立全国标准化教育标准化技术委员会的公告"
+   ]
+  },
+  {
+   "url": "http://www.chinacoop.gov.cn/",
+   "name": "中华全国供销合作总社",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 1,
+   "diag": {
+    "parsed": 1,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国供销合作网_中华全国供销合作总社",
+   "bytes": 34331,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "-->\r\n            -->\r\n            <!"
+   ]
+  },
+  {
+   "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index.html",
+   "name": "住房和城乡建设部标准公告",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 1,
+   "diag": {
+    "parsed": 1,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "标准公告",
+   "bytes": 6552,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "法定主动公开内容"
+   ]
+  },
+  {
+   "url": "http://www.lrs.org.cn/channels/198.html",
+   "name": "国土资源标准化信息服务平台",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "lrs.org.cn",
+   "bytes": 1771,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "click here",
+    "Contact us",
+    "Cashback"
+   ]
+  },
+  {
+   "url": "https://www.nea.gov.cn/ztzl/nybz/bzgl/hybzcx.htm",
+   "name": "国家能源局-行业标准查询",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 2,
+   "diag": {
+    "parsed": 2,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "行业标准目录查询---能源标准",
+   "bytes": 2327,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "能源行业标准列表（NB）",
+    "电力行业标准列表（DL）"
+   ]
+  },
+  {
+   "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/gg/",
+   "name": "工业和信息化部-公告",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 1,
+   "diag": {
+    "parsed": 1,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "公告",
+   "bytes": 5340,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "建议提案复文"
+   ]
+  },
+  {
+   "url": "https://www.miit.gov.cn/jgsj/kjs/wjfb/index.html",
+   "name": "工信部-科技司文件发布",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "文件发布",
+   "bytes": 5426,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "工业和信息化部",
+    "质量品牌中试",
+    "产业技术基础"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc/nocHB",
+   "name": "行业标准公告(nocHB)",
+   "category": "std_hb",
+   "source": "batch4",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "行业标准备案月报- 全国标准信息公共服务平台",
+   "bytes": 45165,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://www.cea.gov.cn/",
+   "name": "中国地震局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "中国地震局",
+   "bytes": 111157,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "王　昆 应急管理部党委委员，中国地震局党组书记、局长",
+    "倪岳伟 党组成员、副局长",
+    "张　敏 党组成员、副局长，直属机关党委书记"
+   ]
+  },
+  {
+   "url": "http://www.spc.net.cn/",
+   "name": "中国标准出版社",
+   "category": "std_hb",
+   "source": "batch4",
+   "http": 200,
+   "items": 45,
+   "diag": {
+    "parsed": 45,
+    "truncated": false,
+    "nav_skipped": 10,
+    "js_shell_suspected": false
+   },
+   "title": "中国标准出版社",
+   "bytes": 41091,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "习近平就发展先进制造业作出重要指示",
+    "《求是》杂志发表习近平总书记重要文章《在加强基础研究座谈会上的讲话》",
+    "习近平将赴印度出席金砖国家领导人第十八次会晤"
+   ]
+  },
+  {
+   "url": "https://www.cnis.ac.cn/wap/",
+   "name": "中国标准化研究院",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 15,
+    "js_shell_suspected": false
+   },
+   "title": "中国标准化研究院",
+   "bytes": 37894,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话",
+    "中国标准化研究院参加第二届精准营养产业大会并作主...",
+    "新型可食用活性保鲜膜产品产业化，助力肉制品保鲜减损"
+   ]
+  },
+  {
+   "url": "http://www.caac.gov.cn/XXGK/",
+   "name": "中国民用航空局-信息公开",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 19,
+   "diag": {
+    "parsed": 19,
+    "truncated": false,
+    "nav_skipped": 20,
+    "js_shell_suspected": false
+   },
+   "title": "中国民用航空局--信息公开",
+   "bytes": 61693,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "华北地区管理局",
+    "东北地区管理局",
+    "华东地区管理局"
+   ]
+  },
+  {
+   "url": "http://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/",
+   "name": "中国气象局-标准",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 20,
+   "diag": {
+    "parsed": 20,
+    "truncated": false,
+    "nav_skipped": 10,
+    "js_shell_suspected": false
+   },
+   "title": "法律法规标准-气象标准",
+   "bytes": 29708,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "L波段风廓线雷达测试方法",
+    "地面气象观测场（室）雷电防护装置检测技术规范",
+    "公众气象观测规范  数据传输格式"
+   ]
+  },
+  {
+   "url": "http://www.cma.gov.cn/root7/auto13139/",
+   "name": "中国气象局-行业标准",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "中国气象网-中国气象局政府门户网站",
+   "bytes": 139275,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "省（区、市）气象局",
+    "气象信息服务企业备案",
+    "专业气象服务"
+   ]
+  },
+  {
+   "url": "https://jtst.mot.gov.cn/search/std?q=",
+   "name": "交通运输标准化信息系统",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 5,
+   "diag": {
+    "parsed": 5,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "标准检索 - 交通运输标准化信息系统",
+   "bytes": 62696,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "其他管理文件",
+    "交通运输标准化业务管理平台",
+    "项目提案申报入口"
+   ]
+  },
+  {
+   "url": "https://jtst.mot.gov.cn/noc",
+   "name": "交通运输标准化信息系统-标准公告",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 7,
+   "diag": {
+    "parsed": 7,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "标准公告 - 交通运输标准化信息系统",
+   "bytes": 54121,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "其他管理文件",
+    "交通运输标准化业务管理平台",
+    "项目提案申报入口"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/hb",
+   "name": "全国标准信息公共服务平台-行业标准",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 23,
+   "diag": {
+    "parsed": 23,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "行业标准 - 全国标准信息公共服务平台",
+   "bytes": 64289,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "http://www.moa.gov.cn/gk/zcfg/",
+   "name": "农业农村部-政策法规",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 75,
+    "js_shell_suspected": false
+   },
+   "title": "政策法规",
+   "bytes": 47065,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开指南",
+    "政府信息依申请公开",
+    "中华人民共和国农村集体经济组织法（2024年6月28日第十四届全国人民代"
+   ]
+  },
+  {
+   "url": "http://www.natcm.gov.cn/",
+   "name": "国家中医药管理局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 49,
+   "diag": {
+    "parsed": 49,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "国家中医药管理局政府网站",
+   "bytes": 57574,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话",
+    "烈士纪念日向人民英雄敬献花篮仪式在京隆...",
+    "习近平和彭丽媛同美国总统特朗普夫妇茶叙..."
+   ]
+  },
+  {
+   "url": "http://www.sastind.gov.cn/",
+   "name": "国家国防科技工业局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 25,
+   "diag": {
+    "parsed": 25,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国家国防科技工业局",
+   "bytes": 105049,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息 公开目录",
+    "我为政府网找错",
+    "国家国防科工局党组理论学习中心组召开扩大会议 深入学习贯彻习..."
+   ]
+  },
+  {
+   "url": "https://www.safe.gov.cn/",
+   "name": "国家外汇管理局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "国家外汇管理局门户网站",
+   "bytes": 102128,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家外汇管理局公布2026年9月末外汇储备规模数据",
+    "政策法规解读",
+    "朱鹤新局长会见香港证监会主席黄天祐、 行政总裁梁凤仪"
+   ]
+  },
+  {
+   "url": "http://www.nrta.gov.cn/col/col2081/index.html",
+   "name": "国家广播电视总局-标准",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 10,
+   "diag": {
+    "parsed": 10,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家广播电视总局 标准信息查询",
+   "bytes": 10831,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "标准信息查询",
+    "行政事项受理服务",
+    "电视剧、动画片拍摄制作备案公示查询"
+   ]
+  },
+  {
+   "url": "http://www.ncha.gov.cn/",
+   "name": "国家文物局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家文物局",
+   "bytes": 99560,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "习近平：在加强基础研究座谈会上的讲话",
+    "美国向我国返还64件（套）文物艺术品和古生物化石",
+    "新闻联播 |【文化中国行】绍兴历史街区保护：留人..."
+   ]
+  },
+  {
+   "url": "https://www.forestry.gov.cn/c/www/gkgjlyjgb.jhtml",
+   "name": "国家林业和草原局-公告",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 30,
+   "diag": {
+    "parsed": 30,
+    "truncated": false,
+    "nav_skipped": 7,
+    "js_shell_suspected": false
+   },
+   "title": "国家林业和草原局公告_国家林业和草原局政府网",
+   "bytes": 40177,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家政务服务平台",
+    "林草科技大讲堂",
+    "国务院政策文件"
+   ]
+  },
+  {
+   "url": "https://www.forestry.gov.cn/gsgg.jhtml",
+   "name": "国家林业和草原局-公示公告",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 28,
+   "diag": {
+    "parsed": 28,
+    "truncated": false,
+    "nav_skipped": 7,
+    "js_shell_suspected": false
+   },
+   "title": "公示公告_国家林业和草原局政府网",
+   "bytes": 39744,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家政务服务平台",
+    "林草科技大讲堂",
+    "国务院政策文件"
+   ]
+  },
+  {
+   "url": "https://www.saac.gov.cn/",
+   "name": "国家档案局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": null,
+   "items": 50,
+   "diag": null,
+   "title": "",
+   "bytes": 0,
+   "verdict": "work",
+   "note": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: unable to get local i",
+   "sample": []
+  },
+  {
+   "url": "http://www.tobacco.gov.cn/",
+   "name": "国家烟草专卖局-标准",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家烟草专卖局",
+   "bytes": 96646,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家烟草专卖局",
+    "张建民工业和信息化部党组成员，国家烟草专卖局党组书记、局长，中国烟草总公",
+    "姚来英工业和信息化部党组成员，国家烟草专卖局党组书记、局长，中国烟草总公"
+   ]
+  },
+  {
+   "url": "https://www.ndcpa.gov.cn/",
+   "name": "国家疾病预防控制局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 6,
+   "diag": {
+    "parsed": 6,
+    "truncated": false,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "国家疾病预防控制局",
+   "bytes": 404075,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "政府信息公开",
+    "\" target=\"_blank\" class=\"img-box\" ti",
+    "法定主动公开内容"
+   ]
+  },
+  {
+   "url": "https://www.chinamine-safety.gov.cn/",
+   "name": "国家矿山安全监察局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 20,
+    "js_shell_suspected": false
+   },
+   "title": "国家矿山安全监察局",
+   "bytes": 70202,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国务院办公厅关于发展体育赛事激发消费活力的意见",
+    "国务院 互联网+督查",
+    "矿山安全生产举报"
+   ]
+  },
+  {
+   "url": "https://www.nia.gov.cn/",
+   "name": "国家移民管理局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 5,
+    "js_shell_suspected": false
+   },
+   "title": "国家移民管理局",
+   "bytes": 102934,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "移民管理要闻",
+    "国务院关于出境入境管理的规定",
+    "国务院关于对外投资的规定"
+   ]
+  },
+  {
+   "url": "http://www.lswz.gov.cn/",
+   "name": "国家粮食和物资储备局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家粮食和物资储备局",
+   "bytes": 89378,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "粮食和储备研究",
+    "铸就社会主义文化新辉煌——习近平文化思想引领文化强国建设迈出坚实步伐",
+    "国家粮食和物资储备局召开全系统安全生产视频会议"
+   ]
+  },
+  {
+   "url": "http://www.lswz.gov.cn/html/zcfb/index.shtml",
+   "name": "国家粮食和物资储备局-政策发布",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 24,
+   "diag": {
+    "parsed": 24,
+    "truncated": false,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "政策发布-国家粮食和物资储备局",
+   "bytes": 33688,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "粮食和储备研究",
+    "国家粮食和物资储备局权责清单",
+    "关于开展2026年世界粮食日和全国粮食安全宣传周活动的通知"
+   ]
+  },
+  {
+   "url": "https://www.stats.gov.cn/",
+   "name": "国家统计局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "国家统计局",
+   "bytes": 141480,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "庆祝中华人民共和国成立77周年招待会在京举行 ...\n\t\t\t\t\t\t\t\t\t",
+    "烈士纪念日向人民英雄敬献花篮仪式在京隆重举...\n\t\t\t\t\t\t\t\t\t\t\t",
+    "习近平和彭丽媛同美国总统特朗普夫妇茶叙\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t"
+   ]
+  },
+  {
+   "url": "https://www.nea.gov.cn/ztzl/nybz/bzgl/index.htm",
+   "name": "国家能源局-标准管理",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 23,
+   "diag": {
+    "parsed": 23,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "标准管理---能源标准",
+   "bytes": 8725,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家能源局综合司关于下达2021年能源领域行业标准制修订计划及外文版翻译",
+    "国家能源局综合司关于下达2019年能源领域行业标准制修订增补、调整计划项",
+    "国家能源局关于下达2015年能源领域行业标准制（修）订计划的通知"
+   ]
+  },
+  {
+   "url": "https://www.nmpa.gov.cn/",
+   "name": "国家药品监督管理局",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "home",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 2,
+    "js_shell_suspected": false
+   },
+   "title": "国家药品监督管理局",
+   "bytes": 54789,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "&nbsp;",
+    "&nbsp;",
+    "中国药监App"
+   ]
+  },
+  {
+   "url": "https://www.nmpa.gov.cn/xxgk/ggtg/",
+   "name": "国家药监局-公告通告",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 32,
+   "diag": {
+    "parsed": 32,
+    "truncated": false,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "公告通告",
+   "bytes": 25878,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "&nbsp;",
+    "&nbsp;",
+    "中国药监App"
+   ]
+  },
+  {
+   "url": "https://www.spb.gov.cn/",
+   "name": "国家邮政局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "中华人民共和国国家邮政局",
+   "bytes": 85098,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "办公室（外事司）",
+    "政策法规标准",
+    "政府信息公开制度"
+   ]
+  },
+  {
+   "url": "http://www.nra.gov.cn/",
+   "name": "国家铁路局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 16,
+    "js_shell_suspected": false
+   },
+   "title": "国家铁路局",
+   "bytes": 101482,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "庆祝中华人民共和国成立77周年招待会在京举行 习近平发表重要讲话",
+    "烈士纪念日向人民英雄敬献花篮仪式在京隆重举行 习近平等党和国家领导人出席",
+    "习近平抵达华盛顿对美国进行国事访问"
+   ]
+  },
+  {
+   "url": "https://www.cfsa.net.cn/",
+   "name": "国家食品安全风险评估中心",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家食品安全风险评估中心",
+   "bytes": 56832,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家食品安全风险评估中心简介国家食品安全风险评估中心（以下简称食品评估中",
+    "2023年10月30日，国家食品安全风险评估中心（以下简称“食品评估中心",
+    "国内外食品安全动态"
+   ]
+  },
+  {
+   "url": "https://www.ccsn.org.cn/News/More.aspx?ClassID=004001",
+   "name": "工程建设标准化信息网",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 20,
+   "diag": {
+    "parsed": 20,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "工程建设标准化信息网",
+   "bytes": 46456,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "简 介 About Us",
+    "&nbsp;首&nbsp;&nbsp;页",
+    "&nbsp;标&nbsp;&nbsp;准"
+   ]
+  },
+  {
+   "url": "https://www.mem.gov.cn/fw/flfgbz/bz/bzgg/",
+   "name": "应急管理部-AQ行业标准公告",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 20,
+   "diag": {
+    "parsed": 20,
+    "truncated": false,
+    "nav_skipped": 14,
+    "js_shell_suspected": false
+   },
+   "title": "制度文件--中华人民共和国应急管理部",
+   "bytes": 29285,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "中华人民共和国应急管理部公告（2026年第9号）：批准5项行业标准",
+    "中华人民共和国应急管理部公告（2026年第8号）：批准4项行业标准",
+    "中华人民共和国应急管理部公告（2026年第6号）：批准10项行业标准"
+   ]
+  },
+  {
+   "url": "http://www.bzw.com.cn/",
+   "name": "标准网(中机生产力促进中心)",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 42,
+   "diag": {
+    "parsed": 42,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "标准网",
+   "bytes": 25003,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "标准信息查询",
+    "关于发布“经确认的紧固件制造者识别标志 公告15号”的通知",
+    "关于公开征求《冰雪装备 术语》等206项行业标准报批意见的公示（公示结束"
+   ]
+  },
+  {
+   "url": "http://gjkj.mwr.gov.cn/jsjd1/bzcx/",
+   "name": "水利部-技术标准查询",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 14,
+   "diag": {
+    "parsed": 14,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "标准查询",
+   "bytes": 9511,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "国家市场监督管理总局",
+    "国家认证认可监督管理委员会",
+    "国家标准化管理委员会"
+   ]
+  },
+  {
+   "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzfb/index.shtml",
+   "name": "生态环境部-标准发布",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 35,
+   "diag": {
+    "parsed": 35,
+    "truncated": false,
+    "nav_skipped": 108,
+    "js_shell_suspected": false
+   },
+   "title": "标准发布_中华人民共和国生态环境部",
+   "bytes": 43075,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "环境影响评价",
+    "关于发布《环境空气和废气挥发性有机物便携式气相色谱仪技术要求》等10项国",
+    "关于发布国家生态环境标准《海洋倾倒区选划技术导则》的公告"
+   ]
+  },
+  {
+   "url": "https://www.mee.gov.cn/zcwj/bwj/gg/index.shtml",
+   "name": "生态环境部-部文件公告",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 35,
+   "diag": {
+    "parsed": 35,
+    "truncated": false,
+    "nav_skipped": 104,
+    "js_shell_suspected": false
+   },
+   "title": "公告_中华人民共和国生态环境部",
+   "bytes": 45652,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "环境影响评价",
+    "关于禁止生产以一氯二氟甲烷（HCFC-22）为制冷剂的多联式空调（热泵）",
+    "关于发布《环境空气和废气挥发性有机物便携式气相色谱仪技术要求》等10项国"
+   ]
+  },
+  {
+   "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzfb/",
+   "name": "生态环境部标准",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 35,
+   "diag": {
+    "parsed": 35,
+    "truncated": false,
+    "nav_skipped": 108,
+    "js_shell_suspected": false
+   },
+   "title": "标准发布_中华人民共和国生态环境部",
+   "bytes": 43075,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "环境影响评价",
+    "关于发布《环境空气和废气挥发性有机物便携式气相色谱仪技术要求》等10项国",
+    "关于发布国家生态环境标准《海洋倾倒区选划技术导则》的公告"
+   ]
+  },
+  {
+   "url": "https://cnas.spc.net.cn/cnas/newinfo/stdbzgg",
+   "name": "行业标准备案月报(cnas.spc)",
+   "category": "std_hb",
+   "source": "batch4",
+   "http": 200,
+   "items": 5,
+   "diag": {
+    "parsed": 5,
+    "truncated": false,
+    "nav_skipped": 9,
+    "js_shell_suspected": false
+   },
+   "title": "-标准公告详情-标准信息服务管理系统",
+   "bytes": 8354,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "ISO/CASCO归口标准",
+    "国际国外标准转化查询",
+    "国家标准制修订查询"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/gw/news?channelId=87",
+   "name": "全国标准信息公共服务平台-国外标准动态",
+   "category": "std_intl",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国外标准动态- 全国标准信息公共服务平台",
+   "bytes": 48212,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/gj/news?op=ISO",
+   "name": "全国标准信息公共服务平台-国际标准动态",
+   "category": "std_intl",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "国际标准动态- 全国标准信息公共服务平台",
+   "bytes": 45949,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "https://www.iso.org/standards.html",
+   "name": "ISO",
+   "category": "std_intl",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "ISO - Standards",
+   "bytes": 64456,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "&nbsp;Applications",
+    "español",
+    "français"
+   ]
+  },
+  {
+   "url": "https://www.ccsa.org.cn/standard",
+   "name": "中国通信标准化协会",
+   "category": "std_tb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 2,
+   "diag": {
+    "parsed": 2,
+    "truncated": false,
+    "nav_skipped": 8,
+    "js_shell_suspected": false
+   },
+   "title": "中国通信标准化协会",
+   "bytes": 273050,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "国家奖励办公室",
+    "中国信息通信科技集团"
+   ]
+  },
+  {
+   "url": "https://std.samr.gov.cn/tb/",
+   "name": "全国标准信息公共服务平台-团体标准",
+   "category": "std_tb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 3,
+   "diag": {
+    "parsed": 3,
+    "truncated": false,
+    "nav_skipped": 4,
+    "js_shell_suspected": false
+   },
+   "title": "团体标准 - 全国标准信息公共服务平台",
+   "bytes": 51507,
+   "verdict": "weak",
+   "note": "",
+   "sample": [
+    "' + data.username\r\n            + ',个",
+    "' + data.username + ',个人中心",
+    "全国标准信息公共服务平台"
+   ]
+  },
+  {
+   "url": "http://www.cecs.org.cn/",
+   "name": "中国工程建设标准化协会",
+   "category": "std_tb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国工程建设标准化协会",
+   "bytes": 52186,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "市政管网工程",
+    "中国工程建设标准化协会学术大会在厦门圆满召开",
+    "新型标准体系赋能中国好住房建设论坛在北京隆重召开"
+   ]
+  },
+  {
+   "url": "http://www.china-cas.org/",
+   "name": "中国标准化协会",
+   "category": "std_tb",
+   "source": "batch2",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 3,
+    "js_shell_suspected": false
+   },
+   "title": "中国标准化协会-首页",
+   "bytes": 81632,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "《国家标准样品管理办法》修订启动会在中国标准化协...",
+    "中国标准化协会发起的APEC/SCSC项目“探讨自愿性可...",
+    "团体标准化良好行为评价工作交流会在京召开"
+   ]
+  },
+  {
+   "url": "https://www.qybz.org.cn/",
+   "name": "企业标准信息公共服务平台",
+   "category": "std_tb",
+   "source": "registry",
+   "old_state": "unknown",
+   "http": 200,
+   "items": 20,
+   "diag": {
+    "parsed": 20,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "企业标准信息公共服务平台",
+   "bytes": 349898,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "监督检查系统",
+    "企标平台设置“两个方案”国家标准企业自我声明公开情况专栏",
+    "落实《企业标准化促进办法》平台功能升级（一图读懂）"
+   ]
+  },
+  {
+   "url": "https://www.ttbz.org.cn/standard.html",
+   "name": "全国团体标准信息平台",
+   "category": "std_tb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 10,
+   "diag": {
+    "parsed": 10,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "全国团体标准信息平台 - 团体标准",
+   "bytes": 144974,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "2026-08-27\r\n                        ",
+    "2026-08-19\r\n                        ",
+    "2026-08-18\r\n                        "
+   ]
+  },
+  {
+   "url": "https://www.ttbz.org.cn/",
+   "name": "全国团体标准信息平台-首页",
+   "category": "std_tb",
+   "source": "new",
+   "kind": "list",
+   "http": 200,
+   "items": 50,
+   "diag": {
+    "parsed": 50,
+    "truncated": true,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "全国团体标准信息平台 - 首页",
+   "bytes": 240614,
+   "verdict": "work",
+   "note": "",
+   "sample": [
+    "2026-08-27\r\n                        ",
+    "2026-08-19\r\n                        ",
+    "2026-08-18\r\n                        "
+   ]
+  }
+ ],
+ "invalid": [
+  {
+   "url": "https://flk.npc.gov.cn/search",
+   "name": "国家法律法规数据库-检索列表",
+   "category": "aggregator",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家法律法规数据库",
+   "bytes": 552,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mohurd.gov.cn/gongkai/zhengce/",
+   "name": "住房和城乡建设部-政策发布",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 403,
+   "items": null,
+   "diag": null,
+   "title": "403 Forbidden",
+   "bytes": 548,
+   "verdict": "blocked",
+   "note": "403 Forbidden",
+   "sample": []
+  },
+  {
+   "url": "https://www.nhc.gov.cn/",
+   "name": "国家卫生健康委员会",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 412,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 3420,
+   "verdict": "blocked",
+   "note": "412",
+   "sample": []
+  },
+  {
+   "url": "http://www.customs.gov.cn/customs/302249/index.html",
+   "name": "海关总署-法规",
+   "category": "law",
+   "source": "batch2",
+   "http": 412,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 2079,
+   "verdict": "blocked",
+   "note": "412",
+   "sample": []
+  },
+  {
+   "url": "https://sft.sh.gov.cn/",
+   "name": "上海市司法局",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": null,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 0,
+   "verdict": "down",
+   "note": "ConnectionError: Failed to perform, curl: (7) CONNECT tunnel failed, response 502. See https://curl.se/libc",
+   "sample": []
+  },
+  {
+   "url": "http://sft.sh.gov.cn/",
+   "name": "上海市司法局(http)",
+   "category": "law",
+   "source": "batch2",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://law.mot.gov.cn/listNewLaw.action",
+   "name": "交通运输部-规章速递",
+   "category": "law",
+   "source": "batch2",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 94,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.mofcom.gov.cn/article/zwgk/",
+   "name": "商务部-政务公开",
+   "category": "law",
+   "source": "batch2",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.zjrd.gov.cn/sylf/fggg/",
+   "name": "浙江人大-法规公告(http)",
+   "category": "law",
+   "source": "batch2",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "502 Bad Gateway",
+   "bytes": 568,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mohrss.gov.cn/",
+   "name": "人力资源和社会保障部",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 989,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zcfg/",
+   "name": "人力资源社会保障部-政策法规",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 986,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzflk/",
+   "name": "司法部-国家行政法规库入口(实为跳转flk)",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 118,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.gov.cn/gongbao/",
+   "name": "国务院公报",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国政府网_中央人民政府门户网站",
+   "bytes": 898,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.ndrc.gov.cn/xxgk/zcfb/",
+   "name": "国家发展改革委-政策发布",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 54,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.miit.gov.cn/zwgk/zcwj/index.html",
+   "name": "工业和信息化部-政策文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "政策文件",
+   "bytes": 2116,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/",
+   "name": "市场监管总局-法定主动公开",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "法定主动公开内容",
+   "bytes": 9193,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.moe.gov.cn/jyb_xxgk/",
+   "name": "教育部-信息公开",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 24,
+    "js_shell_suspected": false
+   },
+   "title": "公开 - 中华人民共和国教育部政府门户网站",
+   "bytes": 28070,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.zj.gov.cn/col/col1229019364/index.html",
+   "name": "浙江省人民政府-省政府文件",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "省政府文件",
+   "bytes": 1750,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.most.gov.cn/xxgk/",
+   "name": "科技部-信息公开",
+   "category": "law",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 168,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mot.gov.cn/zhengcejiedu/",
+   "name": "交通运输部-政策解读",
+   "category": "law",
+   "source": "registry",
+   "old_state": "down",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 287,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.chinatax.gov.cn/chinatax/n810341/index.html",
+   "name": "国家税务总局-政策文件",
+   "category": "law",
+   "source": "batch2",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "国家税务总局",
+   "bytes": 144332,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.zjrd.gov.cn/",
+   "name": "浙江省人大",
+   "category": "law",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": true
+   },
+   "title": "中国浙江人大",
+   "bytes": 58738,
+   "verdict": "shell",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.zjrd.gov.cn/sylf/fggg/",
+   "name": "浙江省人大-省域立法法规公告",
+   "category": "law",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": true
+   },
+   "title": "法规公告",
+   "bytes": 97447,
+   "verdict": "shell",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://db43.hnbzw.com/StdSearch.aspx",
+   "name": "湖南省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 403,
+   "items": null,
+   "diag": null,
+   "title": "��ҳ����ͨ����ȫͨ���鿴",
+   "bytes": 433,
+   "verdict": "blocked",
+   "note": "403",
+   "sample": []
+  },
+  {
+   "url": "http://www.cnsis.org.cn/law/LawQueryServlet",
+   "name": "上海市地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://222.172.223.74:8090/web/guest/-4",
+   "name": "云南省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 94,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.imisinfo.org.cn/",
+   "name": "内蒙古地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://innerapp.capital-std.com.cn/outerApp/standardSearchAction.do?method=specialSearch",
+   "name": "北京市地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://221.8.65.189/stdcore/standard/info/findLocalStandard.do",
+   "name": "吉林省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://118.114.77.13/bzwxup/stdsearch.jsp",
+   "name": "四川省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://60.29.186.229/wenxianpdf/c_gonggao4.asp",
+   "name": "天津市地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.nstd.org.cn/",
+   "name": "宁夏地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 169,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://bqts.gov.cn/office/show.action?alias=bzhc",
+   "name": "山西省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://gdstandard.gdqts.gov.cn:8089/gdzj-lsips/modules/details/open.jsp",
+   "name": "广东省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://218.94.159.231:8012/zjkms/kms/publish.rkt?type_code=gy",
+   "name": "江苏省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.bzsb.info/",
+   "name": "河北省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 94,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://db33.sinostd.com/stdlist.aspx",
+   "name": "浙江省地方标准(旧)",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://qtsb.hainan.gov.cn/ywdt/dfbz/",
+   "name": "海南省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://223.75.53.52:81/finddbSearch",
+   "name": "湖北省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://pt.fjbz.org.cn:8060/StandardSearch/StdSearch.aspx",
+   "name": "福建省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": null,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 0,
+   "verdict": "down",
+   "note": "ConnectionError: Failed to perform, curl: (52) Empty reply from server. See https://curl.se/libcurl/c/libcu",
+   "sample": []
+  },
+  {
+   "url": "http://www.xzzj.gov.cn/xzzj/bsdt/dfbzfb/list/",
+   "name": "西藏地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://cloud.gzqts.gov.cn/dfbz/index.action",
+   "name": "贵州省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://218.60.145.253/ywcx/cx/listAction.do?key=011",
+   "name": "辽宁省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://113.204.47.237:81/SharePage/bzgkBzjs.htm?code=bzgk",
+   "name": "重庆市地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://219.144.196.28/std/db_std.asp",
+   "name": "陕西省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://125.72.41.89:8008/home/res/search?keywords=DB",
+   "name": "青海省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.hljqts.gov.cn/",
+   "name": "黑龙江省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://dbba.sacinfo.org.cn/stdList",
+   "name": "地方标准信息公共服务平台",
+   "category": "std_db",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 5,
+    "js_shell_suspected": false
+   },
+   "title": "全国标准信息公共服务平台",
+   "bytes": 52552,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.bz100.cn/member/standard/standard!getfreedb.action",
+   "name": "山东省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "查询页面",
+   "bytes": 31353,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.jxbz.org.cn/list.aspx?nid=11",
+   "name": "江西省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "DPTECH ONLINE",
+   "bytes": 371,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.gsdfbz.cn",
+   "name": "甘肃省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 163,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://bzxx.ahbz.org.cn/search_list.html",
+   "name": "安徽省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 306,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.hndb41.com/publish/index.jhtml",
+   "name": "河南省地方标准",
+   "category": "std_db",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "哎呀…您访问的页面不存在！",
+   "bytes": 2819,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.std.gov.cn/",
+   "name": "全国标准信息公共服务平台(旧域名)",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 169,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.gb688.cn/bzgk/gb/index",
+   "name": "国家标准委-全文公开(gb688)",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.sac.gov.cn/bzhdt/index.html",
+   "name": "国家标准化管理委员会",
+   "category": "std_gb",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "标准化动态",
+   "bytes": 3338,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://std.sacinfo.org.cn/PCNoc/queryAll",
+   "name": "国家标准化管理委员会-标准公告查询",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家标准化管理委员会",
+   "bytes": 14998,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.sac.gov.cn/xw/tzgg/",
+   "name": "国家标准化管理委员会-通知公告",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "通知公告",
+   "bytes": 3275,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.samr.gov.cn/bzjss/tzgg/index.html",
+   "name": "市场监管总局-标准技术管理司通知公告",
+   "category": "std_gb",
+   "source": "batch4",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "通知公告",
+   "bytes": 4583,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.gov.cn/fuwu/bzxxcx/bzh.htm",
+   "name": "中国政府网-标准查询",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "中国政府网",
+   "bytes": 15556,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://tc.sacinfo.org.cn/",
+   "name": "全国专业标准化技术委员会管理系统",
+   "category": "std_gb",
+   "source": "batch3",
+   "http": 401,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 0,
+   "verdict": "other",
+   "note": "401",
+   "sample": []
+  },
+  {
+   "url": "http://www.nhc.gov.cn/zhuz/wjjsbz/wsbz.shtml",
+   "name": "卫生标准网",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 412,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 3546,
+   "verdict": "blocked",
+   "note": "412",
+   "sample": []
+  },
+  {
+   "url": "https://www.nhc.gov.cn/sps/new_index.shtml",
+   "name": "国家卫生健康委-食品安全标准",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 412,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 3479,
+   "verdict": "blocked",
+   "note": "412",
+   "sample": []
+  },
+  {
+   "url": "http://www.nhc.gov.cn/sps/new_index.shtml",
+   "name": "国家卫生健康委-食品安全标准司",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 412,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 3536,
+   "verdict": "blocked",
+   "note": "412",
+   "sample": []
+  },
+  {
+   "url": "http://www.ccsainfo.com/",
+   "name": "中国标准服务网(ccsainfo)",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "down",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://tybz.sport.gov.cn/home/standard",
+   "name": "体育标准化信息平台",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://wsbz.nhfpc.gov.cn/wsbzw/",
+   "name": "卫生标准网(旧)",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.ccsn.gov.cn/",
+   "name": "国家工程建设标准化信息网",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://124.205.185.55/bzk/search_standard_catalog.asp",
+   "name": "国家林业标准化管理信息系统",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 46,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://bzgk.nasg.gov.cn/",
+   "name": "测绘地理信息标准化服务平台",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://kjs.mee.gov.cn/hjbhbz/",
+   "name": "生态环境部-科技标准司",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.cfstc.org/",
+   "name": "金融标准化技术委员会",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "down",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.cfstc.org/bzgk/gk",
+   "name": "金融标准化技术委员会-标准公开",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://bz.cfsa.net.cn/db",
+   "name": "食品安全国家标准数据检索平台",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 502,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 70,
+   "verdict": "down",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.cnis.ac.cn/",
+   "name": "中国标准化研究院",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "home",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国标准化研究院",
+   "bytes": 876,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://dls.cec.org.cn/zhongdianlianbiaozhun/",
+   "name": "中国电力企业联合会-标准化",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 155,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.mohrss.gov.cn/gkml/index.html",
+   "name": "人力资源和社会保障部-政务公开",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "",
+   "bytes": 988,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mohurd.gov.cn/gongkai/zc/wgk/",
+   "name": "住建部-工程建设标准文告",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "文告库",
+   "bytes": 5274,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://app.mps.gov.cn:9000/gdnps/index.jsp",
+   "name": "公安部-公共安全行业标准",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 1,
+    "js_shell_suspected": false
+   },
+   "title": "政府信息公开目录",
+   "bytes": 26251,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.nea.gov.cn/policy/gg.htm",
+   "name": "国家能源局公告",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "国家能源局—公告",
+   "bytes": 3485,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.miit.gov.cn/gyhxxhbwjcx/",
+   "name": "工信部-文件查询",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "工业和信息化部文件查询",
+   "bytes": 7566,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://std.miit.gov.cn/",
+   "name": "工信部标准信息服务平台",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "工业和信息化标准信息服务平台",
+   "bytes": 2740,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mem.gov.cn/fw/flfgbz/bz/",
+   "name": "应急管理部标准",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "标准--中华人民共和国应急管理部",
+   "bytes": 465,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://hbba.sacinfo.org.cn/stdList",
+   "name": "行业标准信息公共服务平台",
+   "category": "std_hb",
+   "source": "registry",
+   "old_state": "ok",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 5,
+    "js_shell_suspected": false
+   },
+   "title": "全国标准信息公共服务平台",
+   "bytes": 56001,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://hbba.sacinfo.org.cn/snList",
+   "name": "行业标准信息服务平台-公告/计划",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "api",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 5,
+    "js_shell_suspected": false
+   },
+   "title": "全国标准信息公共服务平台",
+   "bytes": 13356,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://jtysbz.com.cn/",
+   "name": "中国交通运输标准服务平台",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "Not Found",
+   "bytes": 315,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.caac.gov.cn/website/old/BZJL/MHBZ/",
+   "name": "中国民航标准计量网",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "404 Not Found",
+   "bytes": 548,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index_1.html",
+   "name": "住建部-标准公告(第2页)",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "404 Not Found",
+   "bytes": 548,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://ltbzh.mofcom.gov.cn/ltbzh_index.shtml",
+   "name": "商务部-流通标准",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "HTTP状态 404 - 未找到",
+   "bytes": 425,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.forestry.gov.cn/lyj/1/gsgg/",
+   "name": "国家林业和草原局-公告公示",
+   "category": "std_hb",
+   "source": "new",
+   "kind": "list",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "内容找不到",
+   "bytes": 27695,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.nra.gov.cn/jgzf/bzgf/",
+   "name": "国家铁路局-标准规范",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "Apusic Application Server/9.0 -Error report",
+   "bytes": 669,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.miit.gov.cn/n1146295/n1146567/index.html",
+   "name": "工信部-标准库",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "404 Not Found",
+   "bytes": 548,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "http://www.ncosm.org.cn/ncosm/",
+   "name": "海洋标准化信息系统",
+   "category": "std_hb",
+   "source": "batch3",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "404 Not Found",
+   "bytes": 548,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.119.gov.cn/",
+   "name": "国家消防救援局",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 405,
+   "items": null,
+   "diag": null,
+   "title": "请稍候…",
+   "bytes": 22857,
+   "verdict": "other",
+   "note": "405",
+   "sample": []
+  },
+  {
+   "url": "https://cfstc.pbc.gov.cn/bzgk/",
+   "name": "金融标准全文公开系统",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": true
+   },
+   "title": "金融标准全文公开系统",
+   "bytes": 463064,
+   "verdict": "shell",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://cfstc.pbc.gov.cn/",
+   "name": "金融标准化技术委员会",
+   "category": "std_hb",
+   "source": "batch2",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": true
+   },
+   "title": "全国金融标准化技术委员会 - CFSTC",
+   "bytes": 497255,
+   "verdict": "shell",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://www.iec.ch/",
+   "name": "IEC",
+   "category": "std_intl",
+   "source": "registry",
+   "old_state": "down",
+   "http": 202,
+   "items": null,
+   "diag": null,
+   "title": "",
+   "bytes": 2051,
+   "verdict": "other",
+   "note": "202",
+   "sample": []
+  },
+  {
+   "url": "https://www.cesa.cn/",
+   "name": "中国电子工业标准化技术协会",
+   "category": "std_tb",
+   "source": "registry",
+   "old_state": "suspicious",
+   "http": 200,
+   "items": 0,
+   "diag": {
+    "parsed": 0,
+    "truncated": false,
+    "nav_skipped": 0,
+    "js_shell_suspected": false
+   },
+   "title": "中国电子工业标准化技术协会",
+   "bytes": 1102,
+   "verdict": "empty",
+   "note": "",
+   "sample": []
+  },
+  {
+   "url": "https://std.samr.gov.cn/noc/nocTB",
+   "name": "团体标准公告(nocTB)",
+   "category": "std_tb",
+   "source": "batch4",
+   "http": 404,
+   "items": null,
+   "diag": null,
+   "title": "HTTP状态 404 - 未找到",
+   "bytes": 714,
+   "verdict": "notfound",
+   "note": "",
+   "sample": []
+  }
+ ]
+}
