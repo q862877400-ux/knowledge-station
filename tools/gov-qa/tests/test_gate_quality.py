@@ -302,13 +302,46 @@ def test_save_baseline_key_mapping_does_not_crash(tmp_path, monkeypatch):
 
 
 def test_save_baseline_refuses_regression(tmp_path, monkeypatch):
-    """**反向用例**：缺陷率变坏时必须**拒绝**写基线（不能把坏数记成基线）。"""
+    """**反向用例**：**已有来源**的重复率变坏时必须**拒绝**写基线。
+
+    ⚠ 2026-10-10 改（棘轮从"全库率"改成"**按来源**的率"）：
+    原用例把全库 `answer_empty` 从 1 调到 500 期望拒绝 ——
+    但新语义下 `answer_empty` 不再逐项比（只有**按来源的重复率**在比）。
+    ⇒ 改为：给基线一个来源、当前值比它差 ⇒ 必须拒绝。
+    """
     monkeypatch.setattr(gq, "BASELINE", tmp_path / "b.json")
     monkeypatch.setattr(gq, "_load_baseline", lambda: {
-        "answer_empty": 1, "content_dups": 1, "time_inverted": 1, "total": 1000})
-    s = {"answer_empty": 500, "content_dups": 1, "inverted": 1, "total": 1000}
+        "total": 1000,
+        "per_source": {"srcA": {"total": 100, "dups": 1, "dup_rate": 1000.0}},
+    })
+    s = {
+        "answer_empty": 1, "content_dups": 50, "inverted": 1, "total": 1000,
+        "per_source_dup": {"srcA": {"total": 100, "dups": 50, "dup_rate": 50000.0}},
+    }
     rc = gq._save_baseline(s)
-    assert rc == 1, "缺陷率从 100/10万 涨到 50000/10万，必须拒绝记基线"
+    assert rc == 1, "已有来源 srcA 的重复率从 1000 涨到 50000/10万，必须拒绝记基线"
+
+
+def test_save_baseline_allows_a_new_high_dup_source(tmp_path, monkeypatch):
+    """**新来源**即使重复率高也**不算恶化**（它没有基线可比）。
+
+    ⚠ 这正是 2026-10-10 那次假红的根因：新采的 `nx-igi-259` 源内重复率
+    2.38% 高于全库均值 2.12% ⇒ 全库率被拉高 ⇒ 棘轮误判"变坏"。
+    """
+    monkeypatch.setattr(gq, "BASELINE", tmp_path / "b.json")
+    monkeypatch.setattr(gq, "_load_baseline", lambda: {
+        "total": 1000,
+        "per_source": {"srcA": {"total": 100, "dups": 1, "dup_rate": 1000.0}},
+    })
+    s = {
+        "answer_empty": 1, "content_dups": 60, "inverted": 1, "total": 1100,
+        "per_source_dup": {
+            "srcA": {"total": 100, "dups": 1, "dup_rate": 1000.0},   # 没变
+            "srcNEW": {"total": 100, "dups": 50, "dup_rate": 50000.0},  # 新来源，高
+        },
+    }
+    rc = gq._save_baseline(s)
+    assert rc == 0, "新来源没有基线可比，不该判成恶化"
 
 
 # ---------------------------------------------------------------- 纯 ASCII 出口

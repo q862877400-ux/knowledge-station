@@ -1,7 +1,3549 @@
 {
  "answer_empty": 1,
- "content_dups": 8435,
- "time_inverted": 1516,
- "total": 398062,
- "recorded_at": "2026-10-10T10:18:04"
+ "content_dups": 8454,
+ "time_inverted": 1517,
+ "total": 398871,
+ "per_source": {
+  "ah-kb": {
+   "total": 598,
+   "dups": 43,
+   "dup_rate": 7190.635451505016
+  },
+  "ah-st": {
+   "total": 136,
+   "dups": 41,
+   "dup_rate": 30147.05882352941
+  },
+  "baoji-igi-12": {
+   "total": 796,
+   "dups": 1,
+   "dup_rate": 125.62814070351759
+  },
+  "baotou-igi-15": {
+   "total": 425,
+   "dups": 4,
+   "dup_rate": 941.1764705882352
+  },
+  "baotou-igi-20": {
+   "total": 359,
+   "dups": 9,
+   "dup_rate": 2506.9637883008354
+  },
+  "baotou-igi-21": {
+   "total": 383,
+   "dups": 1,
+   "dup_rate": 261.0966057441253
+  },
+  "baotou-igi-40": {
+   "total": 465,
+   "dups": 8,
+   "dup_rate": 1720.4301075268818
+  },
+  "baotou-igi-46": {
+   "total": 1065,
+   "dups": 3,
+   "dup_rate": 281.69014084507046
+  },
+  "baotou-igi-57": {
+   "total": 694,
+   "dups": 36,
+   "dup_rate": 5187.319884726225
+  },
+  "baotou-igi-64": {
+   "total": 699,
+   "dups": 4,
+   "dup_rate": 572.2460658082975
+  },
+  "baotou-igi-66": {
+   "total": 445,
+   "dups": 6,
+   "dup_rate": 1348.314606741573
+  },
+  "baotou-igi-8": {
+   "total": 434,
+   "dups": 2,
+   "dup_rate": 460.8294930875576
+  },
+  "bj-hdjl": {
+   "total": 195,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "changzhi-igi-4": {
+   "total": 398,
+   "dups": 2,
+   "dup_rate": 502.51256281407035
+  },
+  "chifeng-igi-12": {
+   "total": 661,
+   "dups": 95,
+   "dup_rate": 14372.16338880484
+  },
+  "cq-hdjl": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-156": {
+   "total": 45,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-157": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-162": {
+   "total": 29,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-161": {
+   "total": 91,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-164": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-165": {
+   "total": 68,
+   "dups": 2,
+   "dup_rate": 2941.176470588235
+  },
+  "cq-igi-166": {
+   "total": 68,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-159": {
+   "total": 820,
+   "dups": 4,
+   "dup_rate": 487.8048780487805
+  },
+  "cq-igi-167": {
+   "total": 298,
+   "dups": 2,
+   "dup_rate": 671.1409395973154
+  },
+  "cq-igi-168": {
+   "total": 35,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-170": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-171": {
+   "total": 1148,
+   "dups": 9,
+   "dup_rate": 783.9721254355401
+  },
+  "cq-igi-173": {
+   "total": 157,
+   "dups": 2,
+   "dup_rate": 1273.8853503184714
+  },
+  "cq-igi-174": {
+   "total": 104,
+   "dups": 3,
+   "dup_rate": 2884.6153846153848
+  },
+  "cq-igi-175": {
+   "total": 161,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-176": {
+   "total": 99,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-178": {
+   "total": 17,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-180": {
+   "total": 57,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-182": {
+   "total": 46,
+   "dups": 2,
+   "dup_rate": 4347.826086956522
+  },
+  "cq-igi-184": {
+   "total": 825,
+   "dups": 5,
+   "dup_rate": 606.060606060606
+  },
+  "cq-igi-186": {
+   "total": 51,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-188": {
+   "total": 17,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-190": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-191": {
+   "total": 61,
+   "dups": 1,
+   "dup_rate": 1639.344262295082
+  },
+  "cq-igi-194": {
+   "total": 90,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-197": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-199": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-200": {
+   "total": 29,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-202": {
+   "total": 53,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-204": {
+   "total": 222,
+   "dups": 11,
+   "dup_rate": 4954.954954954955
+  },
+  "cq-igi-206": {
+   "total": 110,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-207": {
+   "total": 104,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-208": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-209": {
+   "total": 44,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-210": {
+   "total": 31,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-213": {
+   "total": 91,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-217": {
+   "total": 51,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-218": {
+   "total": 56,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-221": {
+   "total": 53,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-224": {
+   "total": 70,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-225": {
+   "total": 79,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-229": {
+   "total": 88,
+   "dups": 1,
+   "dup_rate": 1136.3636363636365
+  },
+  "cq-igi-230": {
+   "total": 146,
+   "dups": 4,
+   "dup_rate": 2739.72602739726
+  },
+  "cq-igi-231": {
+   "total": 31,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-232": {
+   "total": 55,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-233": {
+   "total": 1577,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-235": {
+   "total": 60,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-236": {
+   "total": 27,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-237": {
+   "total": 80,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-238": {
+   "total": 1017,
+   "dups": 29,
+   "dup_rate": 2851.5240904621432
+  },
+  "cq-igi-239": {
+   "total": 221,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-240": {
+   "total": 47,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-241": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-242": {
+   "total": 326,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-243": {
+   "total": 118,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-244": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-245": {
+   "total": 33,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-246": {
+   "total": 67,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-247": {
+   "total": 83,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-249": {
+   "total": 98,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-250": {
+   "total": 103,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-251": {
+   "total": 42,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-252": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-253": {
+   "total": 97,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-254": {
+   "total": 32,
+   "dups": 1,
+   "dup_rate": 3125.0
+  },
+  "cq-igi-257": {
+   "total": 74,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-258": {
+   "total": 73,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-260": {
+   "total": 60,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-263": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-264": {
+   "total": 33,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-266": {
+   "total": 111,
+   "dups": 6,
+   "dup_rate": 5405.405405405406
+  },
+  "cq-igi-268": {
+   "total": 801,
+   "dups": 5,
+   "dup_rate": 624.2197253433208
+  },
+  "cq-igi-269": {
+   "total": 35,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-270": {
+   "total": 22,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "cq-igi-271": {
+   "total": 55,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "danzhou-igi-64": {
+   "total": 532,
+   "dups": 12,
+   "dup_rate": 2255.6390977443607
+  },
+  "fj-hdjl": {
+   "total": 143,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-amr": {
+   "total": 6128,
+   "dups": 5,
+   "dup_rate": 81.59268929503916
+  },
+  "gd-chaozhou": {
+   "total": 205,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-com": {
+   "total": 326,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-coop": {
+   "total": 133,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-czt": {
+   "total": 462,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-dara": {
+   "total": 155,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-dfz": {
+   "total": 77,
+   "dups": 1,
+   "dup_rate": 1298.7012987012988
+  },
+  "gd-dva": {
+   "total": 346,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-edu": {
+   "total": 1165,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-fg": {
+   "total": 330,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gbdsj": {
+   "total": 274,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdaudit": {
+   "total": 36,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdcss": {
+   "total": 52,
+   "dups": 1,
+   "dup_rate": 1923.076923076923
+  },
+  "gd-gdgrain": {
+   "total": 70,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdii": {
+   "total": 486,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdjyj": {
+   "total": 98,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdstc": {
+   "total": 74,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdwsxf": {
+   "total": 78,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gdyjzx": {
+   "total": 42,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-gzw": {
+   "total": 68,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-hr": {
+   "total": 510,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-hsa": {
+   "total": 173,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-huizhou": {
+   "total": 3896,
+   "dups": 2,
+   "dup_rate": 51.3347022587269
+  },
+  "gd-jgsw": {
+   "total": 34,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-jiangmen": {
+   "total": 21,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-jieyang": {
+   "total": 442,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-jt": {
+   "total": 381,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-jy": {
+   "total": 513,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-lyj": {
+   "total": 234,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-maoming": {
+   "total": 412,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-mpa": {
+   "total": 437,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-nr": {
+   "total": 1681,
+   "dups": 1,
+   "dup_rate": 59.488399762046406
+  },
+  "gd-shanwei": {
+   "total": 1222,
+   "dups": 1,
+   "dup_rate": 81.83306055646482
+  },
+  "gd-shenzhen": {
+   "total": 14886,
+   "dups": 70,
+   "dup_rate": 470.2404944242912
+  },
+  "gd-smzt": {
+   "total": 976,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-st": {
+   "total": 3328,
+   "dups": 1,
+   "dup_rate": 30.048076923076923
+  },
+  "gd-stats": {
+   "total": 4275,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-szyyj": {
+   "total": 334,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-tyj": {
+   "total": 398,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-whly": {
+   "total": 202,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-ws": {
+   "total": 909,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-yangjiang": {
+   "total": 76,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-yj": {
+   "total": 179,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-yunfu": {
+   "total": 245,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-zfcxjst": {
+   "total": 177,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-zfsg": {
+   "total": 331,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-zhanjiang": {
+   "total": 2500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gd-zhaoqing": {
+   "total": 71,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-baiyin": {
+   "total": 1873,
+   "dups": 2,
+   "dup_rate": 106.78056593699947
+  },
+  "gs-dingxi-91": {
+   "total": 215,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-dingxi-3": {
+   "total": 542,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-linxia-书记选登": {
+   "total": 46,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-linxia-州长选登": {
+   "total": 39,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-longnan": {
+   "total": 413,
+   "dups": 1,
+   "dup_rate": 242.13075060532688
+  },
+  "gs-tianshui": {
+   "total": 250,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-zhangye-9": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-zhangye-15": {
+   "total": 1311,
+   "dups": 9,
+   "dup_rate": 686.4988558352402
+  },
+  "gs-zhangye-19": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-zhangye-20": {
+   "total": 63,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gs-zhangye-23": {
+   "total": 4146,
+   "dups": 374,
+   "dup_rate": 9020.742884708152
+  },
+  "zhangye-igi-23": {
+   "total": 398,
+   "dups": 357,
+   "dup_rate": 89698.49246231157
+  },
+  "gs-zhangye-61": {
+   "total": 498,
+   "dups": 1,
+   "dup_rate": 200.8032128514056
+  },
+  "gs-zhangye-67": {
+   "total": 191,
+   "dups": 1,
+   "dup_rate": 523.5602094240838
+  },
+  "gs-zhangye-77": {
+   "total": 309,
+   "dups": 3,
+   "dup_rate": 970.8737864077669
+  },
+  "gx-igi-101": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-102": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-103": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-104": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-105": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-106": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-107": {
+   "total": 17,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-108": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-110": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-111": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-112": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-114": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-117": {
+   "total": 11,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-119": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-120": {
+   "total": 21,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-132": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-135": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-141": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-145": {
+   "total": 1254,
+   "dups": 8,
+   "dup_rate": 637.9585326953749
+  },
+  "gx-igi-151": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-152": {
+   "total": 765,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-153": {
+   "total": 16,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-156": {
+   "total": 2615,
+   "dups": 26,
+   "dup_rate": 994.263862332696
+  },
+  "gx-igi-157": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-16": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-160": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-161": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-162": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-164": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-166": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-167": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-172": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-173": {
+   "total": 16,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-174": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-176": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-177": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-179": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-183": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-185": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-186": {
+   "total": 5,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-187": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-188": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-190": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-191": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-193": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-198": {
+   "total": 767,
+   "dups": 5,
+   "dup_rate": 651.890482398957
+  },
+  "gx-igi-199": {
+   "total": 49,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-200": {
+   "total": 884,
+   "dups": 1,
+   "dup_rate": 113.12217194570137
+  },
+  "gx-igi-202": {
+   "total": 689,
+   "dups": 7,
+   "dup_rate": 1015.9651669085631
+  },
+  "gx-igi-206": {
+   "total": 829,
+   "dups": 1,
+   "dup_rate": 120.62726176115801
+  },
+  "gx-igi-208": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-210": {
+   "total": 17,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-213": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-217": {
+   "total": 148,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-218": {
+   "total": 960,
+   "dups": 3,
+   "dup_rate": 312.5
+  },
+  "gx-igi-225": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-228": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-232": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-236": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-240": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-247": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-252": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-257": {
+   "total": 5,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-259": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-26": {
+   "total": 11,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-262": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-263": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-267": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-268": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-269": {
+   "total": 9,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-270": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-272": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-273": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-274": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-275": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-276": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-277": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-280": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-281": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-282": {
+   "total": 22,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-288": {
+   "total": 18,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-291": {
+   "total": 5,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-293": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-295": {
+   "total": 18,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-296": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-298": {
+   "total": 9,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-300": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-35": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-4": {
+   "total": 1733,
+   "dups": 2,
+   "dup_rate": 115.40680900173109
+  },
+  "gx-igi-42": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-43": {
+   "total": 25,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-44": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-45": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-46": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-48": {
+   "total": 27,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-51": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-58": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-60": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-61": {
+   "total": 9,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-72": {
+   "total": 18,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-75": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-79": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-igi-99": {
+   "total": 21,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gx-mailbox": {
+   "total": 138,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-atcm": {
+   "total": 54,
+   "dups": 1,
+   "dup_rate": 1851.8518518518517
+  },
+  "gz-czt": {
+   "total": 83,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-dsj": {
+   "total": 58,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-fgw": {
+   "total": 456,
+   "dups": 4,
+   "dup_rate": 877.1929824561403
+  },
+  "gz-gxt": {
+   "total": 86,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-gzw": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-igi-48": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-igi-70": {
+   "total": 4021,
+   "dups": 1091,
+   "dup_rate": 27132.55409102213
+  },
+  "gz-igi-93": {
+   "total": 219,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-invest": {
+   "total": 29,
+   "dups": 1,
+   "dup_rate": 3448.2758620689656
+  },
+  "gz-jdglj": {
+   "total": 22,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-jkj": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-jyglj": {
+   "total": 40,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-jyt": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-kjt": {
+   "total": 79,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-lshwzcb": {
+   "total": 32,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-lyj": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-mwr": {
+   "total": 74,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-mzt": {
+   "total": 105,
+   "dups": 1,
+   "dup_rate": 952.3809523809525
+  },
+  "gz-mzw": {
+   "total": 28,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-nynct": {
+   "total": 29,
+   "dups": 1,
+   "dup_rate": 3448.2758620689656
+  },
+  "gz-portal-31": {
+   "total": 3,
+   "dups": 1,
+   "dup_rate": 33333.33333333333
+  },
+  "gz-portal-35": {
+   "total": 181,
+   "dups": 2,
+   "dup_rate": 1104.9723756906076
+  },
+  "gz-portal-36": {
+   "total": 16,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-portal-48": {
+   "total": 394,
+   "dups": 4,
+   "dup_rate": 1015.228426395939
+  },
+  "gz-rst": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-sft": {
+   "total": 292,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-sjt": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-st": {
+   "total": 120,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-stjj": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-stymj": {
+   "total": 100,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-swt": {
+   "total": 107,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-tyj": {
+   "total": 160,
+   "dups": 1,
+   "dup_rate": 625.0
+  },
+  "gz-tyjrswt": {
+   "total": 121,
+   "dups": 1,
+   "dup_rate": 826.4462809917355
+  },
+  "gz-whhly": {
+   "total": 302,
+   "dups": 3,
+   "dup_rate": 993.3774834437087
+  },
+  "gz-wjw": {
+   "total": 40,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-wsb": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-wsg": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-yjgl": {
+   "total": 126,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-ylbzj": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-zfcx": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "gz-zrzy": {
+   "total": 1117,
+   "dups": 1,
+   "dup_rate": 89.52551477170994
+  },
+  "hb-wjw-10": {
+   "total": 5,
+   "dups": 5,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-10": {
+   "total": 5,
+   "dups": 5,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-10": {
+   "total": 5,
+   "dups": 4,
+   "dup_rate": 80000.0
+  },
+  "hb-wjw-16": {
+   "total": 110,
+   "dups": 110,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-16": {
+   "total": 110,
+   "dups": 110,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-16": {
+   "total": 110,
+   "dups": 104,
+   "dup_rate": 94545.45454545454
+  },
+  "hb-rst-igi-19": {
+   "total": 4,
+   "dups": 4,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-19": {
+   "total": 4,
+   "dups": 4,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-19": {
+   "total": 4,
+   "dups": 4,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-25": {
+   "total": 261,
+   "dups": 261,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-25": {
+   "total": 261,
+   "dups": 261,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-25": {
+   "total": 261,
+   "dups": 250,
+   "dup_rate": 95785.44061302682
+  },
+  "hb-hdjl-26": {
+   "total": 23,
+   "dups": 19,
+   "dup_rate": 82608.69565217392
+  },
+  "hb-wjw-26": {
+   "total": 22,
+   "dups": 22,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-26": {
+   "total": 22,
+   "dups": 22,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-48": {
+   "total": 12,
+   "dups": 12,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-48": {
+   "total": 12,
+   "dups": 12,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-48": {
+   "total": 12,
+   "dups": 12,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-57": {
+   "total": 20,
+   "dups": 16,
+   "dup_rate": 80000.0
+  },
+  "hb-wjw-57": {
+   "total": 20,
+   "dups": 20,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-57": {
+   "total": 20,
+   "dups": 20,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-58": {
+   "total": 3,
+   "dups": 3,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-58": {
+   "total": 3,
+   "dups": 3,
+   "dup_rate": 100000.0
+  },
+  "hb-hdjl-58": {
+   "total": 4,
+   "dups": 3,
+   "dup_rate": 75000.0
+  },
+  "hb-hdjl-63": {
+   "total": 941,
+   "dups": 5,
+   "dup_rate": 531.3496280552604
+  },
+  "hb-hdjl-71": {
+   "total": 2006,
+   "dups": 18,
+   "dup_rate": 897.3080757726821
+  },
+  "hb-hdjl-88": {
+   "total": 35,
+   "dups": 2,
+   "dup_rate": 5714.285714285714
+  },
+  "hb-rst-igi-4": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-4": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "hb-wjw-50": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "hb-rst-igi-50": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "hb-rst": {
+   "total": 79,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-10": {
+   "total": 2819,
+   "dups": 176,
+   "dup_rate": 6243.348705214615
+  },
+  "hb-wuhan-15": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-21": {
+   "total": 36,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-23": {
+   "total": 10,
+   "dups": 1,
+   "dup_rate": 10000.0
+  },
+  "hb-wuhan-25": {
+   "total": 101,
+   "dups": 1,
+   "dup_rate": 990.0990099009902
+  },
+  "hb-wuhan-26": {
+   "total": 108,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-27": {
+   "total": 53,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-28": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-30": {
+   "total": 137,
+   "dups": 1,
+   "dup_rate": 729.92700729927
+  },
+  "hb-wuhan-31": {
+   "total": 110,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-32": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-33": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-43": {
+   "total": 1380,
+   "dups": 11,
+   "dup_rate": 797.1014492753623
+  },
+  "hb-wuhan-45": {
+   "total": 82,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-49": {
+   "total": 39,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-50": {
+   "total": 36,
+   "dups": 1,
+   "dup_rate": 2777.777777777778
+  },
+  "hb-wuhan-6": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-7": {
+   "total": 29,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hb-wuhan-8": {
+   "total": 151,
+   "dups": 7,
+   "dup_rate": 4635.761589403974
+  },
+  "hb-wuhan-9": {
+   "total": 173,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "heb-czt": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "heb-szj": {
+   "total": 1015,
+   "dups": 16,
+   "dup_rate": 1576.3546798029556
+  },
+  "hi-zcwd": {
+   "total": 2238,
+   "dups": 3,
+   "dup_rate": 134.04825737265415
+  },
+  "hlj-hdjl": {
+   "total": 3950,
+   "dups": 2,
+   "dup_rate": 50.63291139240506
+  },
+  "hn-hdjl": {
+   "total": 622,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-agri": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-amr": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-czt": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "hunan-fgw": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "hunan-gat": {
+   "total": 195,
+   "dups": 4,
+   "dup_rate": 2051.2820512820513
+  },
+  "hunan-gxt": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "hunan-gzw": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-jgswj": {
+   "total": 47,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-jtt": {
+   "total": 195,
+   "dups": 5,
+   "dup_rate": 2564.102564102564
+  },
+  "hunan-jyt": {
+   "total": 187,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-kjt": {
+   "total": 129,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-lshwzcbj": {
+   "total": 36,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-lyj": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "hunan-mpa": {
+   "total": 82,
+   "dups": 1,
+   "dup_rate": 1219.5121951219512
+  },
+  "hunan-mzt": {
+   "total": 118,
+   "dups": 1,
+   "dup_rate": 847.457627118644
+  },
+  "hunan-mzw": {
+   "total": 193,
+   "dups": 4,
+   "dup_rate": 2072.538860103627
+  },
+  "hunan-rst": {
+   "total": 195,
+   "dups": 2,
+   "dup_rate": 1025.6410256410256
+  },
+  "hunan-sft": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-sjt": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-slt": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-st": {
+   "total": 3789,
+   "dups": 22,
+   "dup_rate": 580.6281340723145
+  },
+  "hunan-swt": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "hunan-tjj": {
+   "total": 198,
+   "dups": 2,
+   "dup_rate": 1010.1010101010102
+  },
+  "hunan-tyj": {
+   "total": 198,
+   "dups": 2,
+   "dup_rate": 1010.1010101010102
+  },
+  "hunan-tyjrswt": {
+   "total": 94,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-whhlyt": {
+   "total": 196,
+   "dups": 4,
+   "dup_rate": 2040.816326530612
+  },
+  "hunan-wjw": {
+   "total": 100,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-xfj": {
+   "total": 193,
+   "dups": 5,
+   "dup_rate": 2590.6735751295337
+  },
+  "hunan-ybj": {
+   "total": 188,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-yj": {
+   "total": 535,
+   "dups": 3,
+   "dup_rate": 560.7476635514018
+  },
+  "hunan-zjt": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "hunan-zrzyt": {
+   "total": 197,
+   "dups": 3,
+   "dup_rate": 1522.8426395939086
+  },
+  "jingzhou-igi-15": {
+   "total": 383,
+   "dups": 5,
+   "dup_rate": 1305.4830287206266
+  },
+  "jiujiang-igi-72": {
+   "total": 799,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-czt": {
+   "total": 76,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-fgw": {
+   "total": 104,
+   "dups": 1,
+   "dup_rate": 961.5384615384615
+  },
+  "jl-gat": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-gbdsj": {
+   "total": 21,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-gfdy": {
+   "total": 33,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-ggzy": {
+   "total": 29,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-gxj": {
+   "total": 78,
+   "dups": 1,
+   "dup_rate": 1282.051282051282
+  },
+  "jl-gzw": {
+   "total": 35,
+   "dups": 1,
+   "dup_rate": 2857.142857142857
+  },
+  "jl-hrss": {
+   "total": 152,
+   "dups": 1,
+   "dup_rate": 657.8947368421052
+  },
+  "jl-jgsw": {
+   "total": 25,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-jt": {
+   "total": 71,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-jyj": {
+   "total": 29,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-kjt": {
+   "total": 39,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-lsj": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-lyj": {
+   "total": 41,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-mzt": {
+   "total": 55,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-mzw": {
+   "total": 25,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-nyj": {
+   "total": 26,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-nynct": {
+   "total": 179,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-scjd": {
+   "total": 136,
+   "dups": 1,
+   "dup_rate": 735.2941176470588
+  },
+  "jl-sft": {
+   "total": 48,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-sjt": {
+   "total": 49,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-slt": {
+   "total": 47,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-st": {
+   "total": 94,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-swt": {
+   "total": 23,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-tjj": {
+   "total": 119,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-tyj": {
+   "total": 66,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-tyjr": {
+   "total": 62,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-wjw": {
+   "total": 40,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-wlt": {
+   "total": 336,
+   "dups": 2,
+   "dup_rate": 595.2380952380952
+  },
+  "jl-wsb": {
+   "total": 31,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-xmy": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-ybj": {
+   "total": 56,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-yjt": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-ypj": {
+   "total": 119,
+   "dups": 1,
+   "dup_rate": 840.3361344537815
+  },
+  "jl-zfcx": {
+   "total": 60,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jl-zrzy": {
+   "total": 77,
+   "dups": 1,
+   "dup_rate": 1298.7012987012988
+  },
+  "jl-zyy": {
+   "total": 136,
+   "dups": 1,
+   "dup_rate": 735.2941176470588
+  },
+  "js-credit": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-czt": {
+   "total": 448,
+   "dups": 2,
+   "dup_rate": 446.4285714285714
+  },
+  "js-czt2": {
+   "total": 200,
+   "dups": 1,
+   "dup_rate": 500.0
+  },
+  "js-da": {
+   "total": 583,
+   "dups": 4,
+   "dup_rate": 686.106346483705
+  },
+  "js-da2": {
+   "total": 156,
+   "dups": 1,
+   "dup_rate": 641.025641025641
+  },
+  "js-doc": {
+   "total": 390,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-fzggw": {
+   "total": 143,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-gxt": {
+   "total": 171,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-gxt2": {
+   "total": 140,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jsdk": {
+   "total": 35,
+   "dups": 1,
+   "dup_rate": 2857.142857142857
+  },
+  "js-jsgd": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jsip": {
+   "total": 39,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jsip2": {
+   "total": 69,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jsstyj": {
+   "total": 25,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jsstyj2": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jssxfj": {
+   "total": 107,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jswater": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jtyst": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jtyst2": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jyt": {
+   "total": 76,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-jyt2": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-mzt": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-nanjing": {
+   "total": 48,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-nantong": {
+   "total": 302,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-nynct": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-sthjt": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-suqian": {
+   "total": 1365,
+   "dups": 3,
+   "dup_rate": 219.78021978021977
+  },
+  "js-suzhou": {
+   "total": 2970,
+   "dups": 26,
+   "dup_rate": 875.4208754208754
+  },
+  "js-taizhou": {
+   "total": 3000,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-tj": {
+   "total": 106,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-tj2": {
+   "total": 199,
+   "dups": 1,
+   "dup_rate": 502.51256281407035
+  },
+  "js-wuxi": {
+   "total": 2988,
+   "dups": 12,
+   "dup_rate": 401.6064257028112
+  },
+  "js-xuzhou": {
+   "total": 1430,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-yancheng": {
+   "total": 2814,
+   "dups": 1,
+   "dup_rate": 35.536602700781806
+  },
+  "js-yangzhou": {
+   "total": 7753,
+   "dups": 2,
+   "dup_rate": 25.796465884173866
+  },
+  "js-ybj": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-ybj2": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "js-zhenjiang": {
+   "total": 453,
+   "dups": 7,
+   "dup_rate": 1545.2538631346579
+  },
+  "jx-gzw-lyxd": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "jx-zf": {
+   "total": 410,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "ln-8890": {
+   "total": 7237,
+   "dups": 962,
+   "dup_rate": 13292.80088434434
+  },
+  "ln-8890-kb": {
+   "total": 13553,
+   "dups": 1048,
+   "dup_rate": 7732.605327233823
+  },
+  "ln-st": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "mee": {
+   "total": 145,
+   "dups": 1,
+   "dup_rate": 689.6551724137931
+  },
+  "sc-st": {
+   "total": 15,
+   "dups": 1,
+   "dup_rate": 6666.666666666667
+  },
+  "mem": {
+   "total": 60,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-111": {
+   "total": 76,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-126": {
+   "total": 766,
+   "dups": 13,
+   "dup_rate": 1697.1279373368147
+  },
+  "nanjing-igi-13": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-130": {
+   "total": 192,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-137": {
+   "total": 94,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-16": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-36": {
+   "total": 100,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-48": {
+   "total": 130,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-5": {
+   "total": 130,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-55": {
+   "total": 118,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-58": {
+   "total": 118,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-6": {
+   "total": 71,
+   "dups": 4,
+   "dup_rate": 5633.802816901409
+  },
+  "nanjing-igi-64": {
+   "total": 172,
+   "dups": 2,
+   "dup_rate": 1162.7906976744187
+  },
+  "nanjing-igi-67": {
+   "total": 67,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-70": {
+   "total": 133,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-71": {
+   "total": 139,
+   "dups": 1,
+   "dup_rate": 719.4244604316547
+  },
+  "nanjing-igi-72": {
+   "total": 148,
+   "dups": 1,
+   "dup_rate": 675.6756756756757
+  },
+  "nanjing-igi-74": {
+   "total": 65,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-85": {
+   "total": 93,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-86": {
+   "total": 122,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nanjing-igi-9": {
+   "total": 69,
+   "dups": 1,
+   "dup_rate": 1449.2753623188405
+  },
+  "nanning-igi-8": {
+   "total": 2337,
+   "dups": 45,
+   "dup_rate": 1925.5455712451862
+  },
+  "nat-cma": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nat-cnipa": {
+   "total": 6153,
+   "dups": 7,
+   "dup_rate": 113.76564277588167
+  },
+  "nat-forestry": {
+   "total": 670,
+   "dups": 1,
+   "dup_rate": 149.2537313432836
+  },
+  "nat-moa": {
+   "total": 723,
+   "dups": 19,
+   "dup_rate": 2627.939142461964
+  },
+  "nat-mohurd": {
+   "total": 670,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nat-most": {
+   "total": 8043,
+   "dups": 2,
+   "dup_rate": 24.86634340420241
+  },
+  "nat-mot": {
+   "total": 85,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nat-nea": {
+   "total": 144,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nat-nhsa": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nat-tax": {
+   "total": 13864,
+   "dups": 74,
+   "dup_rate": 533.7564916330064
+  },
+  "nmg-igi-66": {
+   "total": 5532,
+   "dups": 94,
+   "dup_rate": 1699.2046276211133
+  },
+  "nmg-xinxiang": {
+   "total": 67,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-145": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-157": {
+   "total": 43,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-168": {
+   "total": 5,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-182": {
+   "total": 8,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-187": {
+   "total": 23,
+   "dups": 1,
+   "dup_rate": 4347.826086956522
+  },
+  "nx-igi-205": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-206": {
+   "total": 31,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-223": {
+   "total": 42,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-228": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-233": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-234": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-238": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-240": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-241": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-250": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-254": {
+   "total": 39,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-256": {
+   "total": 7,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-258": {
+   "total": 18,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-259": {
+   "total": 780,
+   "dups": 18,
+   "dup_rate": 2307.6923076923076
+  },
+  "nx-igi-260": {
+   "total": 1,
+   "dups": 1,
+   "dup_rate": 100000.0
+  },
+  "nx-igi-261": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-262": {
+   "total": 38,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-263": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-264": {
+   "total": 38,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-267": {
+   "total": 30,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-269": {
+   "total": 60,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-270": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-272": {
+   "total": 9,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-274": {
+   "total": 11,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-277": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-280": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-281": {
+   "total": 39,
+   "dups": 1,
+   "dup_rate": 2564.102564102564
+  },
+  "nx-igi-284": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-285": {
+   "total": 47,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-286": {
+   "total": 55,
+   "dups": 1,
+   "dup_rate": 1818.181818181818
+  },
+  "nx-igi-288": {
+   "total": 6,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-289": {
+   "total": 11,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-292": {
+   "total": 13,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-294": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-igi-300": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "nx-zxxx": {
+   "total": 664,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "people-liuyan-prov": {
+   "total": 757,
+   "dups": 16,
+   "dup_rate": 2113.6063408190225
+  },
+  "people-liuyan-fid": {
+   "total": 245,
+   "dups": 101,
+   "dup_rate": 41224.489795918365
+  },
+  "people-liuyan-df": {
+   "total": 490,
+   "dups": 100,
+   "dup_rate": 20408.163265306124
+  },
+  "people-liuyan": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "qh-wsxf": {
+   "total": 335,
+   "dups": 3,
+   "dup_rate": 895.5223880597016
+  },
+  "rd-gd": {
+   "total": 17,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-hb": {
+   "total": 12,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-hn": {
+   "total": 38,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-jl": {
+   "total": 15,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-js": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-ln": {
+   "total": 2,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-npc": {
+   "total": 5,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-sd": {
+   "total": 18,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "rd-tj": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-aba-zwfw": {
+   "total": 119,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-aba": {
+   "total": 2433,
+   "dups": 17,
+   "dup_rate": 698.7258528565558
+  },
+  "sc-bazhong-zwfw": {
+   "total": 72,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-bazhong": {
+   "total": 548,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-chengdu": {
+   "total": 3000,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-dazhou-zwfw": {
+   "total": 146,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-dazhou": {
+   "total": 258,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-deyang-zwfw": {
+   "total": 268,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-deyang": {
+   "total": 1044,
+   "dups": 2,
+   "dup_rate": 191.57088122605364
+  },
+  "sc-ganzi-zwfw": {
+   "total": 174,
+   "dups": 4,
+   "dup_rate": 2298.8505747126437
+  },
+  "sc-ganzi": {
+   "total": 14,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-guangan-zwfw": {
+   "total": 534,
+   "dups": 1,
+   "dup_rate": 187.26591760299627
+  },
+  "sc-guangan": {
+   "total": 16,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-guangyuan-zwfw": {
+   "total": 806,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-guangyuan": {
+   "total": 438,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-leshan-zwfw": {
+   "total": 68,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-leshan": {
+   "total": 450,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-liangshan-zwfw": {
+   "total": 96,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-liangshan": {
+   "total": 96,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-luzhou-zwfw": {
+   "total": 454,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-luzhou": {
+   "total": 52,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-meishan-zwfw": {
+   "total": 308,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-meishan": {
+   "total": 119,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-mianyang-zwfw": {
+   "total": 620,
+   "dups": 74,
+   "dup_rate": 11935.483870967742
+  },
+  "sc-mianyang": {
+   "total": 5145,
+   "dups": 2,
+   "dup_rate": 38.87269193391643
+  },
+  "sc-nanchong-zwfw": {
+   "total": 631,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-nanchong-4": {
+   "total": 2318,
+   "dups": 4,
+   "dup_rate": 172.5625539257981
+  },
+  "sc-neijiang-zwfw": {
+   "total": 718,
+   "dups": 3,
+   "dup_rate": 417.8272980501393
+  },
+  "sc-neijiang": {
+   "total": 3874,
+   "dups": 110,
+   "dup_rate": 2839.442436757873
+  },
+  "sc-panzhihua-zwfw": {
+   "total": 1289,
+   "dups": 2,
+   "dup_rate": 155.1590380139643
+  },
+  "sc-panzhihua": {
+   "total": 70,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-suining-zwfw": {
+   "total": 207,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-suining": {
+   "total": 474,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-yaan-zwfw": {
+   "total": 230,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-yaan": {
+   "total": 1570,
+   "dups": 2,
+   "dup_rate": 127.38853503184713
+  },
+  "sc-yibin-zwfw": {
+   "total": 203,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-yibin": {
+   "total": 2304,
+   "dups": 16,
+   "dup_rate": 694.4444444444445
+  },
+  "sc-zigong-zwfw": {
+   "total": 58,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-zigong": {
+   "total": 213,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sc-ziyang-zwfw": {
+   "total": 281,
+   "dups": 8,
+   "dup_rate": 2846.9750889679713
+  },
+  "sc-ziyang": {
+   "total": 87,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-12345": {
+   "total": 71,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-binzhou": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-dezhou": {
+   "total": 161,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-dongying": {
+   "total": 20257,
+   "dups": 13,
+   "dup_rate": 64.17534679370094
+  },
+  "sd-heze": {
+   "total": 611,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-jinan": {
+   "total": 37,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-jining": {
+   "total": 6821,
+   "dups": 28,
+   "dup_rate": 410.4969945755754
+  },
+  "sd-liaocheng": {
+   "total": 1249,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-linyi": {
+   "total": 821,
+   "dups": 1,
+   "dup_rate": 121.80267965895248
+  },
+  "sd-rizhao": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-weihai": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-yantai": {
+   "total": 18981,
+   "dups": 390,
+   "dup_rate": 2054.686265212581
+  },
+  "sd-zaozhuang": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sd-zibo": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sh-12345": {
+   "total": 7248,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-31": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-34": {
+   "total": 20,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-37": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-39": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-4": {
+   "total": 162,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-42": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shannan-igi-46": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "shenyang-igi-123": {
+   "total": 2286,
+   "dups": 43,
+   "dup_rate": 1881.0148731408574
+  },
+  "sn-igi": {
+   "total": 4062,
+   "dups": 21,
+   "dup_rate": 516.98670605613
+  },
+  "sn-lyxd": {
+   "total": 184,
+   "dups": 1,
+   "dup_rate": 543.4782608695652
+  },
+  "sq-szxx": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-100": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-106": {
+   "total": 4,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-126": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-24": {
+   "total": 5908,
+   "dups": 59,
+   "dup_rate": 998.645903859174
+  },
+  "sx-igi-25": {
+   "total": 182,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-28": {
+   "total": 33,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-29": {
+   "total": 200,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-32": {
+   "total": 5605,
+   "dups": 70,
+   "dup_rate": 1248.884924174844
+  },
+  "sx-igi-41": {
+   "total": 2978,
+   "dups": 13,
+   "dup_rate": 436.5345869711216
+  },
+  "sx-igi-44": {
+   "total": 55,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-45": {
+   "total": 717,
+   "dups": 35,
+   "dup_rate": 4881.450488145049
+  },
+  "sx-igi-52": {
+   "total": 231,
+   "dups": 3,
+   "dup_rate": 1298.7012987012988
+  },
+  "sx-igi-59": {
+   "total": 155,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-65": {
+   "total": 3,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-66": {
+   "total": 24,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-68": {
+   "total": 56,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-70": {
+   "total": 201,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-73": {
+   "total": 43,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-83": {
+   "total": 89,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "sx-igi-92": {
+   "total": 4518,
+   "dups": 5,
+   "dup_rate": 110.66843736166445
+  },
+  "sx-szxx": {
+   "total": 398,
+   "dups": 1,
+   "dup_rate": 251.25628140703517
+  },
+  "tj-enorth-binhai": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-heping": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-hebei": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-hexi": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-hedong": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-nankai": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-hongqiao": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-dongli": {
+   "total": 485,
+   "dups": 4,
+   "dup_rate": 824.7422680412371
+  },
+  "tj-enorth-xiqing": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-jinnan": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-beichen": {
+   "total": 497,
+   "dups": 3,
+   "dup_rate": 603.6217303822938
+  },
+  "tj-enorth-wuqing": {
+   "total": 352,
+   "dups": 11,
+   "dup_rate": 3125.0
+  },
+  "tj-enorth-baodi": {
+   "total": 434,
+   "dups": 2,
+   "dup_rate": 460.8294930875576
+  },
+  "tj-enorth-jinghai": {
+   "total": 498,
+   "dups": 2,
+   "dup_rate": 401.6064257028112
+  },
+  "tj-enorth-ninghe": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-jixian": {
+   "total": 500,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-fagaiwei": {
+   "total": 497,
+   "dups": 3,
+   "dup_rate": 603.6217303822938
+  },
+  "tj-enorth-jiaowei": {
+   "total": 499,
+   "dups": 1,
+   "dup_rate": 200.4008016032064
+  },
+  "tj-enorth-kewei": {
+   "total": 301,
+   "dups": 1,
+   "dup_rate": 332.22591362126246
+  },
+  "tj-enorth-jingxin": {
+   "total": 497,
+   "dups": 3,
+   "dup_rate": 603.6217303822938
+  },
+  "tj-enorth-mzzjw": {
+   "total": 59,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tj-enorth-gongan": {
+   "total": 498,
+   "dups": 1,
+   "dup_rate": 200.8032128514056
+  },
+  "tj-hdjl": {
+   "total": 495,
+   "dups": 2,
+   "dup_rate": 404.04040404040404
+  },
+  "tongliao-igi-12": {
+   "total": 118,
+   "dups": 1,
+   "dup_rate": 847.457627118644
+  },
+  "tongliao-igi-13": {
+   "total": 43,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "tongliao-igi-15": {
+   "total": 118,
+   "dups": 1,
+   "dup_rate": 847.457627118644
+  },
+  "tongliao-igi-36": {
+   "total": 284,
+   "dups": 1,
+   "dup_rate": 352.11267605633805
+  },
+  "tongliao-igi-9": {
+   "total": 71,
+   "dups": 2,
+   "dup_rate": 2816.9014084507044
+  },
+  "xianyang-igi-127": {
+   "total": 383,
+   "dups": 1,
+   "dup_rate": 261.0966057441253
+  },
+  "xining-igi-43": {
+   "total": 2390,
+   "dups": 8,
+   "dup_rate": 334.7280334728033
+  },
+  "xj-dchs": {
+   "total": 227,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-22": {
+   "total": 1,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-24": {
+   "total": 140,
+   "dups": 1,
+   "dup_rate": 714.2857142857142
+  },
+  "xz-igi-30": {
+   "total": 19,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-32": {
+   "total": 44,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-37": {
+   "total": 72,
+   "dups": 1,
+   "dup_rate": 1388.888888888889
+  },
+  "xz-igi-39": {
+   "total": 40,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-45": {
+   "total": 10,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-igi-56": {
+   "total": 21,
+   "dups": 0,
+   "dup_rate": 0.0
+  },
+  "xz-lasa": {
+   "total": 1023,
+   "dups": 7,
+   "dup_rate": 684.2619745845552
+  },
+  "yn-xf": {
+   "total": 65,
+   "dups": 1,
+   "dup_rate": 1538.4615384615386
+  },
+  "zj-hangzhou": {
+   "total": 2800,
+   "dups": 72,
+   "dup_rate": 2571.4285714285716
+  },
+  "zj-mhww": {
+   "total": 994,
+   "dups": 9,
+   "dup_rate": 905.4325955734407
+  },
+  "zj-huzhou": {
+   "total": 2065,
+   "dups": 3,
+   "dup_rate": 145.27845036319613
+  },
+  "zj-jiaxing": {
+   "total": 5793,
+   "dups": 4,
+   "dup_rate": 69.04885206283446
+  },
+  "zj-jinhua": {
+   "total": 3334,
+   "dups": 13,
+   "dup_rate": 389.9220155968806
+  },
+  "zj-lishui": {
+   "total": 2806,
+   "dups": 19,
+   "dup_rate": 677.12045616536
+  },
+  "zj-ningbo": {
+   "total": 2993,
+   "dups": 6,
+   "dup_rate": 200.46775810223855
+  },
+  "zj-quzhou": {
+   "total": 3130,
+   "dups": 8,
+   "dup_rate": 255.59105431309905
+  },
+  "zj-shaoxing": {
+   "total": 3176,
+   "dups": 41,
+   "dup_rate": 1290.9319899244333
+  },
+  "zj-taizhou": {
+   "total": 2676,
+   "dups": 8,
+   "dup_rate": 298.95366218236177
+  },
+  "zj-wenzhou": {
+   "total": 2973,
+   "dups": 17,
+   "dup_rate": 571.8129835183316
+  },
+  "zj-zhoushan": {
+   "total": 1816,
+   "dups": 6,
+   "dup_rate": 330.3964757709251
+  }
+ },
+ "recorded_at": "2026-10-10T12:32:42"
 }

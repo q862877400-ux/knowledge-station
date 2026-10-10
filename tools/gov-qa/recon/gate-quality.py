@@ -198,6 +198,7 @@ def collect() -> dict:
 
     # 内容重复：按 (question, answer) 归一化后分组，看有几组、冗余几条
     content_groups: dict = defaultdict(int)
+    content_group_sources: dict = {}
     content_dups = 0
     dup_examples: list = []
 
@@ -225,6 +226,12 @@ def collect() -> dict:
         if q or a:
             key = (q, a)
             content_groups[key] += 1
+            # 记录该组涉及哪些 source（棘轮按来源比，见 `ratchet()`）
+            srcs = content_group_sources.get(key)
+            if srcs is None:
+                content_group_sources[key] = {src}
+            else:
+                srcs.add(src)
 
         # ---- 判据 3：时间倒置（**必须解析后比，不能裸比字符串**）----
         pa, pb = parse_time(r.get("asked_at")), parse_time(r.get("answered_at"))
@@ -251,6 +258,17 @@ def collect() -> dict:
             if len(dup_examples) < 5:
                 dup_examples.append((n, key[0][:60]))
 
+    # ★ 按来源的内容重复率（棘轮的比较单位，见 `ratchet()` 的文档）
+    per_source_dup: dict = {}
+    for key, n in content_groups.items():
+        for src in content_group_sources.get(key, ()):
+            d = per_source_dup.setdefault(src, {"total": 0, "dups": 0})
+            d["total"] += 1
+            if n > 1:
+                d["dups"] += 1
+    for d in per_source_dup.values():
+        d["dup_rate"] = (d["dups"] / d["total"] * 100000) if d["total"] else 0.0
+
     return {
         "total": total,
         "answer_empty": answer_empty,
@@ -259,6 +277,7 @@ def collect() -> dict:
         "per_source_empty": per_source_empty,
         "content_dups": content_dups,
         "content_dup_groups": sum(1 for n in content_groups.values() if n > 1),
+        "per_source_dup": per_source_dup,
         "dup_examples": dup_examples,
         "inverted": inverted,
         "inv_sources": inv_sources,
@@ -291,36 +310,68 @@ def verdicts(s: dict) -> list:
 
 
 def ratchet(s: dict) -> list:
-    """棘轮判据：与基线比，**缺陷率只许变好不许变坏**。返回 `(名称, 是否通过, 详情)`。
+    """棘轮判据：与基线比，**每个来源的缺陷率只许变好不许变坏**。
 
-    ## 为什么比的是**率**而不是**绝对条数**（2026-10-10 实测教训）
+    ## 为什么比**率**而不是**绝对条数**（2026-10-10 第一次教训）
 
     第一版比绝对条数，接进闸门后**立刻报红**：`content_dups` 8470 → 8475。
-    查下来**不是回归** —— 是本目录**有另一个 Agent 的采集进程在持续加数据**
-    （`igi-chunked.py`，实测仍在写 `gx-igi-*.jsonl`）。
+    查下来**不是回归** —— 本目录有另一个 Agent 的采集进程在持续加数据。
     语料变大，缺陷的**绝对条数**自然变大。
 
-    ⇒ 不变量应该是「**每十万条的缺陷数不上升**」，而不是「缺陷条数不上升」。
-    绝对条数在输出里照常打印，只是不单独作为判据。
+    ## 为什么还要从"全库率"改成"**按来源**的率"（2026-10-10 第二次教训）
 
-    容差 `_RATCHET_EPS`：允许极小的浮点/采样抖动，避免同一份数据两跑判出不同结论。
+    改成全库率后，**又报红了一次**：`content_dups` 2119.0 → 2119.5/10万。
+    查下来**仍不是回归** —— 本轮新采的 `nx-igi-259` 有 19 条**站方重复公示**
+    （同内容、id 相邻），它的源内重复率 **2.38%** 高于全库均值 **2.12%**，
+    于是把全库率**拉高了一点点**。
+
+    ⇒ 全库率仍然混淆了两件事：**"已有来源变坏"**（该报红）
+      与 **"新增了一个本身重复率较高的来源"**（不该报红）。
+    ⇒ 现在**按来源比**：只对**基线里已存在**的来源比它的率；
+      新来源登记为 `new`，**不计入失败**（它没有基线可比）。
     """
     b = _load_baseline()
     if not b:
         return []
-    out = []
-    for skey, bkey, name in (("answer_empty", "answer_empty", "答复为空"),
-                             ("content_dups", "content_dups", "内容重复"),
-                             ("inverted", "time_inverted", "时间倒置")):
-        cur_n, cur_t = int(s[skey]), int(s["total"])
-        old_n, old_t = int(b.get(bkey, cur_n)), int(b.get("total", cur_t))
-        cur_rate = (cur_n / cur_t * 100000) if cur_t else 0.0
-        old_rate = (old_n / old_t * 100000) if old_t else 0.0
-        ok = cur_rate <= old_rate + _RATCHET_EPS
-        out.append((f"棘轮·{name}率不恶化", ok,
-                    f"{cur_rate:.1f}/10万 ≤ 基线 {old_rate:.1f}/10万"
-                    f"（{cur_n:,} 条 / 共 {cur_t:,}）"))
-    return out
+    base_src = b.get("per_source") or {}
+    if not base_src:
+        # 老格式基线（没有 per_source）⇒ 退回全库率，并提示需要重记基线
+        out = []
+        for skey, bkey, name in (("answer_empty", "answer_empty", "答复为空"),
+                                 ("content_dups", "content_dups", "内容重复"),
+                                 ("inverted", "time_inverted", "时间倒置")):
+            cur_n, cur_t = int(s[skey]), int(s["total"])
+            old_n, old_t = int(b.get(bkey, cur_n)), int(b.get("total", cur_t))
+            cur_rate = (cur_n / cur_t * 100000) if cur_t else 0.0
+            old_rate = (old_n / old_t * 100000) if old_t else 0.0
+            out.append((f"棘轮·{name}率不恶化", cur_rate <= old_rate + _RATCHET_EPS,
+                        f"{cur_rate:.1f}/10万 ≤ 基线 {old_rate:.1f}/10万"
+                        f"（老格式基线，建议 --update-baseline 重记）"))
+        return out
+
+    cur = _per_source_rates(s)
+    worse = []
+    for src, d in cur.items():
+        old = base_src.get(src)
+        if old is None:
+            continue                       # 新来源：没有基线可比，不算恶化
+        old_rate = old.get("dup_rate", 0.0)
+        if d["dup_rate"] > old_rate + _RATCHET_EPS:
+            worse.append((src, old_rate, d["dup_rate"], d["n"], d["total"]))
+    n_new = sum(1 for src in cur if src not in base_src)
+    ok = not worse
+    detail = (f"按来源比：{len(cur) - n_new} 个已有来源无一恶化"
+              f"（新增 {n_new} 个来源，无基线可比，不计）"
+              if ok else
+              f"**{len(worse)} 个已有来源恶化**：" +
+              "；".join(f"{s}({o:.0f}->{c:.0f}/10万, {n}/{t})"
+                        for s, o, c, n, t in worse[:4]))
+    return [("棘轮·各来源重复率不恶化", ok, detail)]
+
+
+def _per_source_rates(s: dict) -> dict:
+    """`{source: {total, dup_rate}}` —— 棘轮的比较单位。"""
+    return s.get("per_source_dup") or {}
 
 
 def _load_baseline() -> dict:
@@ -333,28 +384,33 @@ def _load_baseline() -> dict:
 def _save_baseline(s: dict) -> int:
     """记基线。**只在缺陷率确实变好（或首次）时允许写** —— 变坏时报错拒绝。
 
-    ⚠ 比的是**率**不是绝对条数（理由见 `ratchet()` 的文档：并行采集会持续加数据）。
+    ⚠ 比的是**按来源**的率（理由见 `ratchet()` 的文档：
+    全库率会把"新增了一个重复率较高的来源"误判成"已有来源变坏"）。
+    新来源直接写入基线（它没有旧值可比）。
     """
     old = _load_baseline()
+    per_src = s.get("per_source_dup") or {}
     cur = {"answer_empty": s["answer_empty"], "content_dups": s["content_dups"],
            "time_inverted": s["inverted"], "total": s["total"],
+           "per_source": {k: {"total": v["total"], "dups": v["dups"],
+                              "dup_rate": v["dup_rate"]}
+                          for k, v in per_src.items()},
            "recorded_at": __import__("time").strftime("%Y-%m-%dT%H:%M:%S")}
-    if old:
+    if old and old.get("per_source"):
         worse = []
-        # ⚠ 键名对照：`cur` 里叫 `time_inverted`，而 `s` 里叫 `inverted`
-        #   （基线的键名更自解释，给读文件的人看）。这里显式写映射，不用猜。
-        for skey, ckey, bkey in (("answer_empty", "answer_empty", "answer_empty"),
-                                 ("content_dups", "content_dups", "content_dups"),
-                                 ("inverted", "time_inverted", "time_inverted")):
-            cur_rate = cur[ckey] / cur["total"] * 100000 if cur["total"] else 0.0
-            old_rate = (old.get(bkey, 0) / old.get("total", 1) * 100000) if old.get("total") else 0.0
-            if cur_rate > old_rate + _RATCHET_EPS:
-                worse.append(f"{bkey}({old_rate:.1f}->{cur_rate:.1f}/10万)")
+        for src, v in per_src.items():
+            o = old["per_source"].get(src)
+            if o is None:
+                continue                        # 新来源：无旧值可比
+            if v["dup_rate"] > o.get("dup_rate", 0.0) + _RATCHET_EPS:
+                worse.append(f"{src}({o.get('dup_rate', 0):.0f}->{v['dup_rate']:.0f}/10万)")
         if worse:
-            print(f"拒绝记基线：这些缺陷率变坏了 {worse}（棘轮只许变好）")
+            print(f"拒绝记基线：这些**已有来源**的重复率变坏了 {worse}"
+                  f"（棘轮只许变好）")
             return 1
     BASELINE.write_text(json.dumps(cur, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"已记基线：{cur}")
+    print(f"已记基线：{ {k: cur[k] for k in ('answer_empty','content_dups','time_inverted','total')} }")
+    print(f"          按来源登记 {len(cur['per_source'])} 个")
     return 0
 
 
