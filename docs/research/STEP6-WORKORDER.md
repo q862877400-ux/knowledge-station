@@ -1,6 +1,6 @@
 # 第 6 步施工单 —— 插件侧借鉴 WeKnora 自带 DSH 插件的 6 条
 
-> **这是什么**：[EXECUTION-PLAN.md](../EXECUTION-PLAN.md) 第 6 步（`:18`）的可施工任务书。
+> **这是什么**：[EXECUTION-PLAN.md](../archive/old-plans/EXECUTION-PLAN.md) 第 6 步（`:18`）的可施工任务书。
 > 第 6 步原文：「json-schema 三件套+"返回值满足自己声明 schema" 门禁、`output.schema`+`render` 配对、
 > `isConcurrencySafe`、`AbortSignal.any`、fixture 回放、e2e 三段式」；验收：「6 条各有冒烟/用例；
 > e2e 在真宿主里断言"插件挂上 + 工具被 offer + 原文进上下文"」。

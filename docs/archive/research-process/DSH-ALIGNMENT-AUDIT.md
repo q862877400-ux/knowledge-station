@@ -20,9 +20,9 @@
 | 4 | 注入的 `<style>` **没标 `data-plugin`/`data-plugin-css`** ⇒ ①宿主 HMR 的 `removeOwnedStyles` 找不到我们的标签、而 `ensureKsStyles` 按 `#id` 去重直接 return ⇒ **改 CSS 必须整页刷新**（我们自找的例外）②别的插件 `claimStyles` 会把我们的标签认领走、卸载时删掉 | 宿主 `system.ts`/`entry-lifecycle.ts`/`manifest.ts` 的所有权规则（官方 preset 同形） | 两个属性都写；去重键改为 `style[data-plugin-css=…]`；**首次注入移到模块顶层**（落在 `claimStyles` 窗口内）；冒烟加断言钉住两个属性 |
 | 5 | `.ks-dot{border-radius:50%}` 缺 `corner-shape:round` ⇒ 支持 superellipse 的 Chromium 上圆点被压成方角 | `docs/web-styling.md`：full-round 半径必须配 `corner-shape:round` | 补上（官方那张同款卡用 24px 胶囊且**不**需要，故只改这一处） |
 | 6 | **`inject` 把"可缺省的服务"声明成硬依赖** ⇒ 为它们写的兜底是**死代码**；真缺服务时插件**永远 PENDING 且不打任何日志** | `cordis-tutorial/03-services.md`：「`inject` is for hard requirements…otherwise the consumer stays PENDING and prints nothing」；`postmortem/0001`：「use `ctx.get(name)`, never `ctx.<name>`」 | ⚠ **这条第一轮只做了一半，复核抓住并列为"不成立"**：代码里已改用 `ctx.get()` 读，`inject` 数组却**一字未改**（`['tools','webServer','systemPrompt','agents','commands']`）⇒ 死兜底仍不可达。**第二轮真做了**：`inject = ['tools','webServer','systemPrompt']`；`chatmode.registerKsChatModeCommands` 改走 `ctx.get('commands')`（`agents` 早已是 `ctx.get`）；缺服务时**吼日志**而不是让整个插件挂起。冒烟假 `ctx` 同步实现 `get()`（桩与真契约一致） |
-| 7 | **我们全仓没有 `AGENTS.md`** —— 官方那层"每会话必读的站立指令"完全缺失，纪律散落在**史书**与**施工计划**里（归属错层） | `docs/AGENTS.md`：standing orders 住根 `AGENTS.md`（≤1950 字），"一个事实一个归属层" | 新建根 [`AGENTS.md`](../AGENTS.md)；把 `DEVELOPMENT-HISTORY` §五 与 `CHANNEL-COVERAGE-PLAN` §5 的**正文收敛过去**、原处只留**来历**（并指出 §五第 6 条原先自我重复，正是官方 slop 清单的 "duplicated rules"） |
-| 8 | **"门禁只涨不跌"是散文** —— 每轮靠人记得手敲 5–6 条命令、手抄数字 | `docs/development.md`：门禁即代码 | 新增 [`scripts/run-gates.ps1`](../scripts/run-gates.ps1)：`-Quick`/`-Full` 两档 + **锁文件**（并发跑门禁 ⇒ 当场退出码 3，因为并发会造假红）+ **读基线文件判"只涨不跌"**。⚠ 第一版的棘轮有两处缺陷，第二轮修掉（见 §三与 [开发史 §10.136](DEVELOPMENT-HISTORY.md)）：**与环境耦合**（基线记了 `RUN_LIVE` 环境的值 ⇒ 默认环境假红）与**命令不存在时假绿**（`$LASTEXITCODE` 残留 ⇒ 提取树里门禁恒绿） |
-| 9 | 复核任务书写在 **gitignored 的 `var/tmp/`** ⇒ 任务书与结论**都不在版本控制里** | 官方把证据放进 PR body 的 `<details>Proof</summary>` | 新增 [`docs/verify-briefs/`](archive/review-briefs/README.md)（含约定：冻结端点、提取树验证、首尾各记 `rev-parse`+`status`）；方案 §6 里的路径改过去 |
+| 7 | **我们全仓没有 `AGENTS.md`** —— 官方那层"每会话必读的站立指令"完全缺失，纪律散落在**史书**与**施工计划**里（归属错层） | `docs/AGENTS.md`：standing orders 住根 `AGENTS.md`（≤1950 字），"一个事实一个归属层" | 新建根 [`AGENTS.md`](../../../AGENTS.md)；把 `DEVELOPMENT-HISTORY` §五 与 `CHANNEL-COVERAGE-PLAN` §5 的**正文收敛过去**、原处只留**来历**（并指出 §五第 6 条原先自我重复，正是官方 slop 清单的 "duplicated rules"） |
+| 8 | **"门禁只涨不跌"是散文** —— 每轮靠人记得手敲 5–6 条命令、手抄数字 | `docs/development.md`：门禁即代码 | 新增 [`scripts/run-gates.ps1`](../../../scripts/run-gates.ps1)：`-Quick`/`-Full` 两档 + **锁文件**（并发跑门禁 ⇒ 当场退出码 3，因为并发会造假红）+ **读基线文件判"只涨不跌"**。⚠ 第一版的棘轮有两处缺陷，第二轮修掉（见 §三与 [开发史 §10.136](../../DEVELOPMENT-HISTORY.md)）：**与环境耦合**（基线记了 `RUN_LIVE` 环境的值 ⇒ 默认环境假红）与**命令不存在时假绿**（`$LASTEXITCODE` 残留 ⇒ 提取树里门禁恒绿） |
+| 9 | 复核任务书写在 **gitignored 的 `var/tmp/`** ⇒ 任务书与结论**都不在版本控制里** | 官方把证据放进 PR body 的 `<details>Proof</summary>` | 新增 [`docs/verify-briefs/`](../review-briefs/README.md)（含约定：冻结端点、提取树验证、首尾各记 `rev-parse`+`status`）；方案 §6 里的路径改过去 |
 | 10 | 权威导航层 `dshdocs-C.md` 里**留着一条已被 alpha.2 放宽的规则**，且没有反向指针 ⇒ 会被再引用一次 | 一个事实一个归属层 | 就地加反向指针指向 `ERRATA-alpha.2 §A2` |
 
 **门禁（⚠ 这一段的原始版本是假绿，已按复核实测重写）**：原始版本写「`-Quick` 4/4、`-Full` 6/6
@@ -30,7 +30,7 @@
 `pytest` 是 **2142/4**，而基线记的是 **2143/3**（我这边 `Run-Live` 用例没被 skip 的环境值）
 ⇒ 棘轮判红（**退出码 1**），而汇总行仍打印"6/6 步通过" —— ⚠ **这句"6/6"是 2026-09-20 当时的输出，不是现值**
 （现值 `-Full` 是 **8/8**，见下面第四轮） —— 按本仓"以退出码为准"的口径，那是一处
-**假绿**（详见 [开发史 §10.136](DEVELOPMENT-HISTORY.md) 二，含修法：棘轮改按"账要平 + skip 理由集"判，
+**假绿**（详见 [开发史 §10.136](../../DEVELOPMENT-HISTORY.md) 二，含修法：棘轮改按"账要平 + skip 理由集"判，
 且棘轮结论进汇总行）。当前值：`-Quick` **4/4**、`-Full` **6/6 且棘轮通过**（pytest **2141/3**、
 总账 **2144**（⚠ 这两个"当前值"本身也早已过期，见第四轮；此处保留原文只作留痕）；
 ⚠ 这里原写 `2177/3` 是**陈旧数**——第 4 步撤 Word/PPT 产出通路时删了约 20 条用例，
@@ -92,7 +92,7 @@
 
 | 优先级 | 项 | 性质 | 量 |
 |---|---|---|---|
-| ~~**1**~~ | ⏸ **缓办（业主 2026-09-19：多语言先不管）** —— 见[已否决台账](NOT-DOING.md) 第 5 条。原文描述：**客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
+| ~~**1**~~ | ⏸ **缓办（业主 2026-09-19：多语言先不管）** —— 见[已否决台账](../../NOT-DOING.md) 第 5 条。原文描述：**客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
 | **2** | **持久化归属**：`chatmode.js`/`inspection.js`/`announce.js`/`ingest.js` 四处**自造 JSON 状态文件**（直写、无 schema、无版本），绕开 `ctx.settings`/`ctx.storageDomain`。本仓自己的证据：状态只在进程启动读一次 ⇒ **别的进程改了要重启才生效** | **违规 + 会坏** | S/M/L 分三档；⚠ 诚实边界：`domain/changed` **仅进程内**，迁移**换不到**我们现手搓的跨进程锁 |
 | 3 | 6 个工具用**裸对象字面量**注册、没用官方 `defineTool({...})` | 不违规（官方承认 raw JSON-Schema 这条路），代价是自己扛参数校验 | M |
 | 3b | **`Config` 用 schemastery 挡不住键名拼错**（我们靠 `apply` 里的手写检查兜住）。官方插件用的是 **zod `z.object(...).strict()`** ⇒ Loader 在 `resolveConfig` 就拒 | 更早、更响亮、少一处手写判据 | M（要加 zod 依赖 + **实验**验证宿主 cordis 接受 zod schema；没验过不写进计划） |
@@ -105,16 +105,16 @@
 
 | 曾列为待办 | 业主裁定 | 归属 |
 |---|---|---|
-| ~~7~~ **binary 交付物**（`.docx`/`.pptx`）在客户端只能"下载一份" | **不要 Word/PPT 交付物，只出 Markdown**（早就明确过） | 决策正文在[交互设计 §九](INTERACTION-DESIGN.md)："不做 PPT/多形态分发（业主已明确：产出物只要 Markdown）" |
+| ~~7~~ **binary 交付物**（`.docx`/`.pptx`）在客户端只能"下载一份" | **不要 Word/PPT 交付物，只出 Markdown**（早就明确过） | 决策正文在[交互设计 §九](../../INTERACTION-DESIGN.md)："不做 PPT/多形态分发（业主已明确：产出物只要 Markdown）" |
 | ~~8~~ 官方 `record-browser-gif`：产品可见的 GUI 改动要有**真机 GIF** | **不做** | 同上（本条只有这句裁定，没有别的正文） |
 
 ⚠ 我把这两条又列进清单，是**没读到既有决策**（§九 早就写着）⇒ 记在这里当**反面样本**：
 "待办清单要对着既有决策核一遍，别把已经否掉的东西重新端上来"。
-✅ **2026-09-19：代码侧已不再不一致**（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）——
+✅ **2026-09-19：代码侧已不再不一致**（[EXECUTION-PLAN](../old-plans/EXECUTION-PLAN.md) 第 4 步）——
 研究/巡检报告落 `.docx`、PPT 生成（`slide_export.py`）、各类 Word 导出与为它们写的用例
 **全部撤除**；`python-pptx` 依赖删除。**保留**的是 `office_roundtrip`（用 Word 编辑条款再回传的
 **编辑工具**，不是交付 Word 文件）、`.md`/`.html` 报告形态、`.xlsx` 导出与输入侧 Word 解析
-（`python-docx` 因此仍在依赖里）。裁决与逐项对照见 [NOT-DOING](NOT-DOING.md) 第 1 条与
+（`python-docx` 因此仍在依赖里）。裁决与逐项对照见 [NOT-DOING](../../NOT-DOING.md) 第 1 条与
 开发史 §10.138 的后续段落。
 
 ### 特别注意（避免误判）
@@ -135,7 +135,7 @@
 
 ## 三、第二轮已修（2026-09-19）：积压 #4 + 施工中**新发现**的两条
 
-详细记录在[开发史 §10.135](DEVELOPMENT-HISTORY.md)（含修复前 0/5 的失败输出）；此处只留结论。
+详细记录在[开发史 §10.135](../../DEVELOPMENT-HISTORY.md)（含修复前 0/5 的失败输出）；此处只留结论。
 
 | 项 | 性质 | 结果 |
 |---|---|---|
@@ -151,7 +151,7 @@
 **`ingest` 是潜伏的无界泄漏**——它的循环 `while (!jobTick(jobId))` **只在 `_jobPoll` 被清空后**
 才为真，而基线 disposer 从不清它（复核变异体：卸载后 3.5s 内又 `ensureLive` 2 次，上限 6h）。
 ⇒ 原始审计在**方向上是部分对的**，错的是我那半句更正。逐条证据在
-[开发史 §10.135 六](DEVELOPMENT-HISTORY.md)。
+[开发史 §10.135 六](../../DEVELOPMENT-HISTORY.md)。
 
 
 **施工中被修复"当场"暴露的两个问题**（都属"桩不真 / 污染真数据"）：

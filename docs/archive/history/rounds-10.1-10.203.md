@@ -5960,7 +5960,7 @@ citations, warnings = check_conclusion_citations(draft, assembled)   # ← 与�
 | `tests/test_research_draft.py`（新） | 13 条：没材料不调模型 / 空输出不是成功 / 项目不存在 / LLM 不可用 / 正常路径 / 同源不变量 / 越界与"仅线索"引用 / 端点 422·404·200·500 |
 | 冒烟 | `smoke-report-routes` **33/33**（新增 8 条：路径、白名单、缺 query 不打扰引擎、405、`llm_called=false` 原样透传、500 不伪装）；`smoke-report-ui` **21/21**（新增 5 条） |
 | `tests/test_material_api.py` | `test_declared_sync` 表 +1 行（`/report/research/draft` 必须 `def`） |
-| 文档 | 本节 + `docs/AUTO-DRAFT-PLAN.md`（更正形态取舍、§4.1–§4.3 按实现重写、§8/§9 记"业主已答按推荐"）+ 方案 D-3b / D-5a / 账本第 42 条 |
+| 文档 | 本节 + `../old-plans/AUTO-DRAFT-PLAN.md`（更正形态取舍、§4.1–§4.3 按实现重写、§8/§9 记"业主已答按推荐"）+ 方案 D-3b / D-5a / 账本第 42 条 |
 
 ### 3. 证据
 
@@ -6095,7 +6095,7 @@ citations, warnings = check_conclusion_citations(draft, assembled)   # ← 与�
 ### 3. 改口径的一条（b25-MEDIUM-2）：那次失误**归因过轻**
 
 b25 指出 §10.96 §1 只承认"我漏读了答案链的材料范围"，没说**架构差异**——而那才是选**形态 C**
-的隐藏理由。补上（同时写进 `docs/AUTO-DRAFT-PLAN.md` §3）：
+的隐藏理由。补上（同时写进 `../old-plans/AUTO-DRAFT-PLAN.md` §3）：
 
 1. **答案链的材料路是"fail-open + 披露"**：材料装载失败时它 `except` 住、把错误记进
    `material_usage["error"]` 与 `notes`，然后**照样调模型**（提示词里没有材料节，
@@ -6245,7 +6245,7 @@ H6（产物是真构建：**行尾归一化后逐字节相同**）。
 
 **一句话**：方案 Phase D 末尾一直挂着"**自动成文**（由系统得出结论）未立项（触及答案链，P1）"。
 本步按 §10.38（PPT 那次的流程：先论证值不值、单独立项）把它论证清楚，产出
-**`docs/AUTO-DRAFT-PLAN.md`**，**不写任何生产代码**，把三个决策点留给业主。
+**`../old-plans/AUTO-DRAFT-PLAN.md`**，**不写任何生产代码**，把三个决策点留给业主。
 
 ### 1. 论证的结论
 
@@ -6271,7 +6271,7 @@ H6（产物是真构建：**行尾归一化后逐字节相同**）。
 
 ### 4. 证据与诚实边界
 
-- **本步没有运行时改动**：`git diff` 只有 `docs/AUTO-DRAFT-PLAN.md` + 两处文档登记
+- **本步没有运行时改动**：`git diff` 只有 `../old-plans/AUTO-DRAFT-PLAN.md` + 两处文档登记
   （方案 Phase D 与账本），**没有**碰 `src/`、`tests/`、`plugin/`。
 - 文档里的每条"现状"都是**读代码**得到的（owner 名字、docstring 原文、评审硬门位置），
   不是推断；但**提示词的实际输出质量没有任何证据**——那要有评测集，本立项明确写了
@@ -8126,7 +8126,7 @@ reflect 500 {"detail":"LLM output exceeded token limits (openai/deepseek-flash, 
 
 ## §10.135 两处「不报错的坏」：入库接管**整条死掉** + 启动收尾竞态**泄漏定时器**
 
-承接 §10.134 之后按 [DSH 适配审计](../../DSH-ALIGNMENT-AUDIT.md) 的积压清单施工。本轮动的两项都是
+承接 §10.134 之后按 [DSH 适配审计](../research-process/DSH-ALIGNMENT-AUDIT.md) 的积压清单施工。本轮动的两项都是
 **"会坏但不会报错"**那一类：没有异常、没有日志、界面也大致正常，所以能活到今天。
 
 ### 一、新发现（**不在**审计清单里）：入库任务接管从来没接管过
@@ -8432,7 +8432,7 @@ tsc 0、引擎门禁 4/4 全绿。**单独重跑 `smoke-chatmode` → 173/173 �
 | 做什么 | 结果 |
 |---|---|
 | DSH 适配清单里的那两条 | **从积压表移出**，单列「⛔ 业主已否决 —— 不再作为待办，也不许再提」，并注明决策的归属层（交互设计 §九），把我这次的错误当**反面样本**记下：*待办清单要对着既有决策核一遍* |
-| `docs/AUTO-DRAFT-PLAN.md` 里两处拿 PPT 当类比/流程的写法（文件头 + 边界第 4 条） | 就地更正为"PPT 已否决，这两处只当'先交最小可用形态'读，不要再据此立 PPT 的项" |
+| `../old-plans/AUTO-DRAFT-PLAN.md` 里两处拿 PPT 当类比/流程的写法（文件头 + 边界第 4 条） | 就地更正为"PPT 已否决，这两处只当'先交最小可用形态'读，不要再据此立 PPT 的项" |
 | 真机录屏证据 | 业主裁定**不做** ⇒ 从清单移出（只此一句，无正文） |
 
 **⚠ 存量代码与裁定不一致（登记为"待撤"，不是新工作）**：产品里仍有 Word/PPT 的**导出通路**：
@@ -8443,7 +8443,7 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 
 ⚠ 边界：**这一轮只改文档与登记，没动代码**；代码撤除单独一轮做（带门禁 + 独立复核）。
 
-**✅ 2026-09-19 后续：代码撤除已实施**（[EXECUTION-PLAN](../../EXECUTION-PLAN.md) 第 4 步）。
+**✅ 2026-09-19 后续：代码撤除已实施**（[EXECUTION-PLAN](../old-plans/EXECUTION-PLAN.md) 第 4 步）。
 上面那段"待撤"登记至此**兑现**，逐项对照如下（就地更正，不悄悄删）：
 
 | 上面登记的"待撤" | 实际处置 |
@@ -10149,12 +10149,12 @@ cols 三档 / pad 矩阵 **22 组** / ui-render-shot 的 kb-ask）+ `client-entr
   自述"全量门禁真跑 **7/8**（棘轮基线已记=总账 2333）；唯一红=ui-scale 抓我两处 6px
   （真字节形=**冒号后无空格**，此前带空格搜=不中）"。
 * `0ea7cf8`（23:25）`docs: 交接文档入档（2026-09-23 晚，上一模型留给接手者）—— 只入库，不改一字`：
-  `docs/HANDOVER-2026-09-23.md` **52 行**、纯新增（出处 `git show --stat 0ea7cf8` ⇒ `1 file changed, 52 insertions(+)`）。
+  `../handovers/HANDOVER-2026-09-23.md` **52 行**、纯新增（出处 `git show --stat 0ea7cf8` ⇒ `1 file changed, 52 insertions(+)`）。
 
 ## §10.171 登记：2026-09-22 的「删单批」（`683c6f6` + `c18a1da`）——删了什么、判据去哪了、"docs/ 零登记"更正
 
 **为什么在这里登记**：`683c6f6` 在 09-22 **21:59:13**、`c18a1da` 在同日 **20:52:01**（**前端那笔在前**），
-当时这两笔没写开发史；09-24 的复盘清单（`docs/AUTORUN-PLAN-2026-09-24.md` B6②）要求"补登记（删了什么、为什么、判据去哪了）"。
+当时这两笔没写开发史；09-24 的复盘清单（`../old-plans/AUTORUN-PLAN-2026-09-24.md` B6②）要求"补登记（删了什么、为什么、判据去哪了）"。
 以下数字**全部回原始来源核过**，测量时点 2026-09-24，树 `D:\AI\work space\zcode-b7-docs`，HEAD `4ed4b0d`。
 
 ### 一、删了什么（出处：`git show --stat 683c6f6` / `git show --stat c18a1da`）
@@ -10183,7 +10183,7 @@ cols 三档 / pad 矩阵 **22 组** / ui-render-shot 的 kb-ask）+ `client-entr
 
 ⚠ **连带发现（只登记，B7 不改）**：`scripts/gates-baseline.json` 的 `environmental_skip_nodeids` 里仍留着
 `tests.test_compliance::test_behavior_review_face_collection` —— **那个测试文件已不存在**。
-这正是 `docs/AUTORUN-PLAN-2026-09-24.md` **B5** 点的那条"白名单里不许有已消失的节点"的实物标本。
+这正是 `../old-plans/AUTORUN-PLAN-2026-09-24.md` **B5** 点的那条"白名单里不许有已消失的节点"的实物标本。
 
 ### 三、`docs/` 零登记？—— **不成立**（错话原文保留 + 更正 + 为什么）
 
@@ -10199,7 +10199,7 @@ cols 三档 / pad 矩阵 **22 组** / ui-render-shot 的 kb-ask）+ `client-entr
 
 ⇒ **"`docs/` 零登记"不成立**。合理解释（**推测，不是取证**）：复核只读了 `683c6f6` 的**标题+摘要**、
 没读 `c18a1da` 的 diff 与 `NOT-DOING.md` 的表格（登记行在**前端那笔**里，不在后端那笔里）。
-**这句话已在 `docs/AUTORUN-PLAN-2026-09-24.md` 原地更正并保留原文**（见该文件 B6 节）。
+**这句话已在 `../old-plans/AUTORUN-PLAN-2026-09-24.md` 原地更正并保留原文**（见该文件 B6 节）。
 
 **同段另两处陈旧数（我一并核了，就地更正）**：
 * "`DEVELOPMENT-HISTORY.md` 缺 **09-23 全天（约 90 提交）**" ⇒ 实测 **55 笔**
@@ -10211,7 +10211,7 @@ cols 三档 / pad 矩阵 **22 组** / ui-render-shot 的 kb-ask）+ `client-entr
 
 业主 2026-09-24 的授权原话：「创建一个自动任务，把刚刚说的这些应该做的事情全部列进去，然后自动运行。
 我授权你替我执行。自动运行过程中**不要暂停询问我**，直接代替我按照你的建议做出决定，有问题我自己承担。」
-⇒ 工作清单 = `docs/AUTORUN-PLAN-2026-09-24.md`（批次 B1–B8 + 决策 D1–D5，执行中追加 D6–D11）。
+⇒ 工作清单 = `../old-plans/AUTORUN-PLAN-2026-09-24.md`（批次 B1–B8 + 决策 D1–D5，执行中追加 D6–D11）。
 每批的纪律（清单自己写的）：**小步提交 → 父代理自己跑全量门禁 → 父代理自己看真机截图 →
 按"必验五种"派独立复核（冻结 tag + 提取树）→ 登记残余**。
 

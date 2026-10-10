@@ -13,7 +13,7 @@
 
 | # | 事项 | 裁决 | 日期 / 业主原话要点 | 归属（正文在哪 / 该怎么做） |
 |---|---|---|---|---|
-| 1 | **Word/PPT 交付物**（研究/巡检报告落 `.docx`、PPT 生成、Office 往返） | ⛔ **否决**：产出物**只出 Markdown** | 2026-09-19「Word / PPT 这类交付物这个我不是说了吗，不要，就输出 markdown」「早就否定了又在说」 | [交互设计 §九](INTERACTION-DESIGN.md)：**不做 PPT/多形态分发**。✅ **已实施拆除（本轮，2026-09-19，[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）**：`slide_export.py` 与 `/report/research/slides` 删除、研究报告的 `.docx` 形态与 `_to_docx`/`_docx_template_path` 删除、`report_export` 的两条 Word 导出（问答依据/审查报告）与 `_open_document`/`_templates_dir` 删除、更新检查报告 Word 版与 `/update/report/{batch_id}` 删除、义务清单 Word 导出删除、`python-pptx` 依赖删除（`python-docx` **保留**：输入侧解析与 `office_roundtrip` 要用）、UI 的「生成 PPT」按钮与 `exportResearchSlides` 删除。**仍在的**：`.md`（交付物本体）/ `.html`（界面预览形态）/ `.xlsx`（裁决没碰 Excel）/ `office_roundtrip`（编辑工具，不是交付 Word 文件）。⇒ 从此**不许**再把它当"功能"介绍，**也不许**把它写回待办 |
+| 1 | **Word/PPT 交付物**（研究/巡检报告落 `.docx`、PPT 生成、Office 往返） | ⛔ **否决**：产出物**只出 Markdown** | 2026-09-19「Word / PPT 这类交付物这个我不是说了吗，不要，就输出 markdown」「早就否定了又在说」 | [交互设计 §九](INTERACTION-DESIGN.md)：**不做 PPT/多形态分发**。✅ **已实施拆除（本轮，2026-09-19，[EXECUTION-PLAN](archive/old-plans/EXECUTION-PLAN.md) 第 4 步）**：`slide_export.py` 与 `/report/research/slides` 删除、研究报告的 `.docx` 形态与 `_to_docx`/`_docx_template_path` 删除、`report_export` 的两条 Word 导出（问答依据/审查报告）与 `_open_document`/`_templates_dir` 删除、更新检查报告 Word 版与 `/update/report/{batch_id}` 删除、义务清单 Word 导出删除、`python-pptx` 依赖删除（`python-docx` **保留**：输入侧解析与 `office_roundtrip` 要用）、UI 的「生成 PPT」按钮与 `exportResearchSlides` 删除。**仍在的**：`.md`（交付物本体）/ `.html`（界面预览形态）/ `.xlsx`（裁决没碰 Excel）/ `office_roundtrip`（编辑工具，不是交付 Word 文件）。⇒ 从此**不许**再把它当"功能"介绍，**也不许**把它写回待办 |
 | 2 | **取证呈现用 bbox 高亮框** | ⛔ **否决**：改成**红色定位箭头** | 早于 2026-09-19（本次复核时业主重申） | [交互设计 §三](INTERACTION-DESIGN.md)：`[点开原文] ← 跳 PDF 对应页 + **红箭头**高亮`；§"保留，不动"一表亦写明**红箭头高亮**；实现在 `plugin/client/KsEvidenceTab.tsx`（`bbox` 只是**定位坐标**，呈现是箭头）。⇒ **不许**再说"bbox 高亮/跳页高亮"，说**红色定位箭头** |
 | 3 | **真机录屏 / GIF 证据** | ⛔ **不做** | 2026-09-19 | 只有这条裁定，无正文（DSH 适配清单里已移出） |
 | 4 | **照抄 WeKnora 的形态**（曾裁定"不照抄"） | 🔄🔄 **再翻案（2026-09-22，以本条最新裁定为准）**：**骨架不再照抄 WeKnora** —— 业主原话要点：WeKnora 那套「是我自己没思路的时候参考的」，现在**按助手自己的设计意见来做**（业主信任其前端设计能力）；**细节遵循 DSH 设计规范**；**结构性大改先问业主**。⚠ 补充口径（2026-09-22 业主同日追加）：「**这种小改动你直接改，大的结构化变化再问我**」——小改（图标/用词/样式/文案/单点缺陷）**不必请示**、照旧小提交+截图；只有**结构性大改**才来问 |⚠ 历史留痕（不许删）：2026-09-19 曾翻案为「形态与界面照抄（知识库管理那套）；技术栈仍不引入」，UI-BASELINE/INTERACTION-DESIGN 中以 WeKnora 为骨架的段落将按本裁定重写 | 2026-09-22「骨架不要照抄weknora了，那是我自己没思路的时候参考的，现在你来了，你可以按照你的意见来做，我还是相信你的前端设计的能力的，细节遵循DSH的设计规范没问题。不过如果要结构性大改，那还是先问问我」；历史裁定 2026-09-19「我想让照抄 weknora 的部分 UI」「你先把人家这块儿的东西读明白」 | 抄什么/不抄什么见 [weknora-ui 清单](research/weknora-ui/00-index-and-proposal.md)；理由与边界见 [交互设计 §九](INTERACTION-DESIGN.md)（**该节已按新裁定更正**）：我们是 React + 宿主原生组件，**照结构/视觉重写**，不搬 Vue/TDesign 代码 |
@@ -110,7 +110,7 @@ smoke exit 1、页面崩。两个毛病：
 
 **「预览器」页内化（把它做成页面内的第四个面、四个标签行为完全一致）—— 业主 2026-09-24 当场撤回，不做。**
 
-- 原来它挂在交接文档 `docs/HANDOVER-2026-09-23.md` §四第 2 条（"业主要求四个标签行为一致"）；
+- 原来它挂在交接文档 `archive/handovers/HANDOVER-2026-09-23.md` §四第 2 条（"业主要求四个标签行为一致"）；
   父代理 2026-09-24 追问"为什么一开始没做、有什么困难"并给出事实后，业主回：
   「**算了，保持现状不动了**」。
 - 现状即**最终形态**：`KsTopTabs` 里「预览器」是一个**动作**（`{ id: 'pdf', go: props.onPdf }`

@@ -1561,7 +1561,7 @@ b33 自己说过它没有跑端到端（没造 PDF 跑整条管线），我这�
    类的信息**静默丢失**；要分开就得改 CHECK（§3.3 明确不新增表/列）。
 3. `unanswerable` 今天只是"调用方约定"，没有可算的判据。
 
-⇒ **R6c-4 计划已改**（写进 `docs/CHANNEL-R6C-DESIGN.md` §3.2.2）：**不写"每类一条事件"**，
+⇒ **R6c-4 计划已改**（写进 `archive/old-plans/CHANNEL-R6C-DESIGN.md` §3.2.2）：**不写"每类一条事件"**，
 改为在那一条 judged 事件的 `latest_info` 里加 `classes` 映射（每类 `{channel, conclusion, reason,
 unanswerable}`）——原意（每类各自记结论 + 可归属渠道）满足，且**不动 schema、不 ×5、不压掉**；
 终态恒等式加"有 `unanswerable` 不算 done"；**真正提精度的活是能力表保真度**（把第一候选的声明
@@ -2356,7 +2356,7 @@ R6h 只做了**减法**（人工停用/known-broken 真的把渠道从链里去�
 `tsc` 0 · `smoke` 全链 25/25（catalog-ui **51/51**，kb-page-render 23/23）。~~
 ⚠ **就地更正（复核 r2 2026-09-20 C 系列 + 本轮自己量）——上面那串是陈旧数**：
 `2177/3` 与 `25/25` 都不是今天的真实值（这是**第三处**同类陈旧数，前两处在
-`DSH-ALIGNMENT-AUDIT.md`，见开发史 §10.140 三·4）。**以本机实测为准**：
+`archive/research-process/DSH-ALIGNMENT-AUDIT.md`，见开发史 §10.140 三·4）。**以本机实测为准**：
 - `pytest`：**2143 passed / 3 skipped**（总账 **2146**）—— 出处 `scripts/gates-baseline.json`
   （`pytest_passed: 2143` / `pytest_skipped: 3` / `pytest_total: 2146`，`updatedAt 2026-09-20T01:54:14`，HEAD `d49b1ac` 的 `-Full`）。
   （历史更正：复核第二轮曾把这里改成 `2141/3`、总账 2144；第 7 步数据轮的 **+2** 用例把它推到 **2143/2146**。）

@@ -49,4 +49,4 @@
 
 - **查询串只取 OCR 文本的前 400 字**：长截图 / 多栏图会截断，命中结果随之偏。
 - **两条 OCR 路径质量不同**：RapidOCR 快但弱，回退到 MinerU 才有模型级精度——用户看到的差别来自这个回退是否触发。
-- **仓内有一份被否决的方案**：`docs/WSL2-VLM-BACKEND-DECISION.md` 记录了 WSL2 后端那次「否决，保留复议权」。改本模块前先读它。
+- **仓内有一份被否决的方案**：`../../archive/research-process/WSL2-VLM-BACKEND-DECISION.md` 记录了 WSL2 后端那次「否决，保留复议权」。改本模块前先读它。

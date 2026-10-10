@@ -1,6 +1,6 @@
 # 项目状态与卡点（2026-10-05）
 
-> **本文是一份状态记录，不是计划。** 计划在 [`RETRIEVAL-LONG-RANGE-PLAN.md`](RETRIEVAL-LONG-RANGE-PLAN.md)（施工总纲）。
+> **本文是一份状态记录，不是计划。** 计划在 [`RETRIEVAL-LONG-RANGE-PLAN.md`](../../RETRIEVAL-LONG-RANGE-PLAN.md)（施工总纲）。
 > 本文只回答两个问题：**现在停在哪、为什么停。**
 > **具体查到了什么 → [BASELINE-DIAGNOSIS-2026-10-06.md](BASELINE-DIAGNOSIS-2026-10-06.md)（基础层诊断）。**
 

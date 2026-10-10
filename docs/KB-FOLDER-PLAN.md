@@ -1581,7 +1581,7 @@ smoke-trim: 1/34 FAILED
 >   `DEFAULT_BACKFILL_DOCS = 50`、`:228` `start_ccs_backfill(..., limit: int = DEFAULT_BACKFILL_DOCS, …)`
 >   ⇒ **一批 50 篇就停**（与账面相符：本文件上文记 6417 篇里 6037 有、**380 篇没有**；
 >   "业主只授权修机制、不替他补完"这条口径见
->   [`AUTORUN-PLAN-2026-09-24.md`](AUTORUN-PLAN-2026-09-24.md) §3 的 **D3**）。
+>   [`archive/old-plans/AUTORUN-PLAN-2026-09-24.md`](archive/old-plans/AUTORUN-PLAN-2026-09-24.md) §3 的 **D3**）。
 > * **取证脚本**：父代理当时用的 `var/tmp/ks-ccs-write-audit.py`（**未入库**，mtime 2026-09-24 01:13:22）。
 >   我**没有跑它**，而是**自己另写了一份只读查询**（`%TEMP%\b7-ccs-audit-24071.py`，未入库）独立复算 ——
 >   上面 1–4 四个数是我自己的查询输出，不是转抄。
@@ -1600,7 +1600,7 @@ smoke-trim: 1/34 FAILED
 >   实数 **42** 条 `.mjs`；脚本自己在 `:127`/`:146` 打印的就是 `SUITES.length` ⇒ 跑一次即得当期值。
 >   ⚠ **"42"是我读源码数出来的、不是我跑出来的**（B7 不跑门禁）；"34" 是 09-22 07:35（`5d2c512`）那一跑的数。
 > 两处的详细沿革（`34→42` 逐笔差集、`-Full` `6/6→8/8`）见
-> [DSH-ALIGNMENT-AUDIT §一·再更正（第四轮）](DSH-ALIGNMENT-AUDIT.md)。
+> [DSH-ALIGNMENT-AUDIT §一·再更正（第四轮）](archive/research-process/DSH-ALIGNMENT-AUDIT.md)。
 * **设置界面里配置网页抓取途径**：只登记（见 §二十一·补5），**零代码改动**（本批不做）。
 * `GBZ 336-2025` / `GBZ 337-2025` 判"查无"是**当时**的实测（两个站点都没有）；
   将来站点收录了，重跑一次「补全分类号」就会补上（机制是幂等可重跑的）。

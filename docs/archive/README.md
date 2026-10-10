@@ -5,7 +5,7 @@
 
 ---
 
-## 一、四类，按**性质**分（不按时间）
+## 一、五类，按**性质**分（不按时间）
 
 | 分类 | 装什么 | 判据 |
 |---|---|---|
@@ -13,6 +13,10 @@
 | **`old-baselines/`** | 过期的基线快照（旧 UI 基线、旧规模数字） | 内容与被维护的基线冲突且无人更新 |
 | **`research-process/`** | 调研的**过程**记录（怎么查的、试了几版） | 结论已落进别的文档，此份只剩过程 |
 | **`review-briefs/`** | 已收口的复核任务书与报告 | 对应的复核已完成 |
+| **`handovers/`** | **被更新交接取代的旧交接文档** | 有更新的同类交接取代了它（2026-10-11 新增） |
+| `history/` | 逐轮开发明细（从 `DEVELOPMENT-HISTORY.md` 拆出） | 过程记录，索引仍在开发史 |
+| `impl-reports/` | 一次性实施报告 | 工作已收口 |
+| `workbuddy-memory/` | 已退役工具（WorkBuddy）的记忆与交接单 | 工具已停用（2026-10-11） |
 
 **为什么按性质不按时间**：你要的是"**按用途能找到**"。按时间分（`2026-09/`）会让"找某类历史"变成翻多个目录。
 
@@ -40,6 +44,8 @@
 | 过期基线 | `docs/archive/old-baselines/` |
 | 调研过程 | `docs/archive/research-process/` |
 | 复核任务书与报告 | `docs/archive/review-briefs/` |
+| **旧交接文档** | `docs/archive/handovers/` |
+| 逐轮开发明细 | `docs/archive/history/` |
 | **某个词出现在哪** | 直接搜：`git grep -n "<词>" -- docs/archive/` |
 | **某份文件原来在哪** | 看它被搬走那次提交：`git log --follow --oneline -- <路径>` |
 

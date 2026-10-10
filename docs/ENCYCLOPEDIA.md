@@ -253,7 +253,7 @@ SSE `verification` 事件：`{is_valid, answer_confidence, confidence_reasons[],
 引用块（R19 标准引用**纯文本**，供前端一键复制）+ `exports/` 目录与命名约定的单一所有者；
 下载接口严格限定 exports 目录（路径穿越 403，有测试）。
 
-⚠ **2026-09-19（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）已撤销 Word/PPT 交付物**
+⚠ **2026-09-19（[EXECUTION-PLAN](archive/old-plans/EXECUTION-PLAN.md) 第 4 步）已撤销 Word/PPT 交付物**
 （见 [NOT-DOING](NOT-DOING.md) 第 1 条：业主裁定"产出物只出 Markdown"）：
 问答依据 Word、合规审查报告 Word、义务清单/检查表 Word、更新检查报告 Word、
 研究报告 `.docx`、PPT（`slide_export.py`）与 `%APPDATA%\KnowledgeStation\templates\`
@@ -498,7 +498,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 9.9 标准状态巡检渠道（2026-08-27 实测定型）
 
-渠道能力矩阵（保留原文件 `docs/STD-STATUS-CHANNELS.md`）：**cssn 单渠道覆盖国标 1~6 类**（openstd 盲区正是此前 270 条 miss/53% 的根因）；ndls 有验证码；全渠道探测实证见 `docs/CHANNEL-PROBE-REPORT.md`（含 ANOM-002 JA3/TLS 指纹拦截与 curl_cffi impersonate 决策）。铁律：**真实站点先于 mock**（ANOM-003 教训）；渠道适配器 RUN_LIVE 门控。
+渠道能力矩阵（保留原文件 `archive/research-process/STD-STATUS-CHANNELS.md`）：**cssn 单渠道覆盖国标 1~6 类**（openstd 盲区正是此前 270 条 miss/53% 的根因）；ndls 有验证码；全渠道探测实证见 `archive/research-process/CHANNEL-PROBE-REPORT.md`（含 ANOM-002 JA3/TLS 指纹拦截与 curl_cffi impersonate 决策）。铁律：**真实站点先于 mock**（ANOM-003 教训）；渠道适配器 RUN_LIVE 门控。
 
 
 ---

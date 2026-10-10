@@ -9,7 +9,7 @@
 > 当**交付物**的地方（D-2 节、复核台账里的 "人眼确认 Word/PPT"、"PPT 行预算待修"、
 > `Deliverables` 的 "Word·PPT 下载" 等），**一律是当时的记录，不是当前能力**——
 > 业主早已否决 Word/PPT 交付物（产出物只出 Markdown，见 [NOT-DOING](NOT-DOING.md) 第 1 条），
-> 相关通路已在 [EXECUTION-PLAN](EXECUTION-PLAN.md) **第 4 步整条拆除**（含 `python-pptx` 依赖）。
+> 相关通路已在 [EXECUTION-PLAN](archive/old-plans/EXECUTION-PLAN.md) **第 4 步整条拆除**（含 `python-pptx` 依赖）。
 > 那些"下一步：人眼确认 Word/PPT"的待办**随之作废**，不要再当成待办读。
 > 与 Word 无关的 `.xlsx` 导出、`.md`/`.html` 报告、`office_roundtrip`（编辑工具）**不受影响**。
 
@@ -510,7 +510,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   新冒烟 `smoke-report-ui` 15 条（含 `dry_run` 必须是布尔、空串不发、缺 pptx 抛可操作错误）。
   仍未做：**自动成文**（由系统得出结论）~~未立项~~ → 见下。
   ✅ ~~`.docx` 侧未扩到材料平面~~ —— **§10.92 已闭合**（同一份内容块的第三种形态）。
-  → **自动成文**：§10.95 立项论证（`docs/AUTO-DRAFT-PLAN.md`）→ 业主答"按你的推荐继续"
+  → **自动成文**：§10.95 立项论证（`archive/old-plans/AUTO-DRAFT-PLAN.md`）→ 业主答"按你的推荐继续"
     → **§10.96 已落地 D-5a**（引擎 `/report/research/draft` + 主机白名单转发 + 客户端 api；
     草稿带 `unapproved_draft`、引用逐条校验、**不落盘**）；**D-5b**（面板「用这段填进结论框」）待做。
 
@@ -698,7 +698,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | 编号 | 一句话 | 状态 |
     |---|---|---|
     | b10-MEDIUM-2 | 我把锚点判据改成会读盘（每份材料一次 sha256），端点却还在 `async def` ⇒ 卡单事件循环（同文件的 `reverify` 恰恰为此声明成 `def`） | ✅ 已修（step-58，§10.59：两条端点改 `def` + 两处"很便宜"说明改准 + **进 `TestSlowEndpointsAreDeclaredSync` 参数化表**，P1/P2 变异 RED） |
-    | b10-MEDIUM-1 | PPT 宽度模型把 General Punctuation（`——` `""` `''` `…`，U+2000–206F）当 **0.5em**，渲染实测 **1.000em** ⇒ 含这些标点的要点**低估行数**、渲染**裁字**：合成输入丢 42%，**产品路径**（18 份真材料→报告→pptx→PDF）丢 **98/252 汉字 = 39%**；**变异 G1（改对这类标点）22 条用例全绿 ⇒ 这一类零覆盖** | ⚰ **整条作废（2026-09-19）**：PPT 通路已拆除（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）⇒ 这个"待修"**不再存在**，别再当待办；⚠ 另记：本机字体 `字`=1.020em、前缀 `· `=0.605em，**两处偏差恰好抵消**才让 38/39 临界点看起来对——换字体就会漂，这条曾是 PPT 的诚实边界 |
+    | b10-MEDIUM-1 | PPT 宽度模型把 General Punctuation（`——` `""` `''` `…`，U+2000–206F）当 **0.5em**，渲染实测 **1.000em** ⇒ 含这些标点的要点**低估行数**、渲染**裁字**：合成输入丢 42%，**产品路径**（18 份真材料→报告→pptx→PDF）丢 **98/252 汉字 = 39%**；**变异 G1（改对这类标点）22 条用例全绿 ⇒ 这一类零覆盖** | ⚰ **整条作废（2026-09-19）**：PPT 通路已拆除（[EXECUTION-PLAN](archive/old-plans/EXECUTION-PLAN.md) 第 4 步）⇒ 这个"待修"**不再存在**，别再当待办；⚠ 另记：本机字体 `字`=1.020em、前缀 `· `=0.605em，**两处偏差恰好抵消**才让 38/39 临界点看起来对——换字体就会漂，这条曾是 PPT 的诚实边界 |
     | b10-LOW-1 | `xmp`/`plaintext` **内部**的字面 `<script>`/`<style>` 仍被整串剥掉，而浏览器 `innerText` **会显示**它们 ⇒ 仍丢可见正文（零覆盖） | ⏳ 待修 |
     | b10-LOW-2 | §10.56 的表把 `A→B0` 写成"0 行"，实为 **5879 行 `std→law`**（我的探针根本没算这一格，它打印的是 `A→B`）⇒ 这个格子恰好抵消了该节要立的"根因=上一区间 `\b`→枚举的回归" | ⏳ 待改记录 |
     | b10-LOW-3 | `raw_path` 有、文件在磁盘、`content_hash=NULL` 时 `why` 谎称"源文件不在磁盘上"（文件明明在那儿）；当前不可达（两个入库口都写 content_hash），但是公开 API 的合法状态，且恢复建议误导 | ⏳ 待修（措辞 + 恢复建议） |
@@ -1267,7 +1267,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （`git archive` 在 autocrlf 下是 CRLF）写进复核模板。
 
 
-41. **§10.95 自动成文立项论证（只出文档，不动代码）**（step-95；文档：`docs/AUTO-DRAFT-PLAN.md`；
+41. **§10.95 自动成文立项论证（只出文档，不动代码）**（step-95；文档：`archive/old-plans/AUTO-DRAFT-PLAN.md`；
     快照标签 `step-94-auto-draft-plan`，标签号比章节号小 1）。
 
     | 项 | 一句话 | 状态 |
