@@ -340,6 +340,52 @@ def test_save_baseline_key_mapping_does_not_crash(tmp_path, monkeypatch):
     assert got["time_inverted"] == 3, f"应写入 time_inverted=3，实际 {got}"
 
 
+def test_ratchet_skips_sources_still_being_harvested(monkeypatch):
+    """**采集中**的来源不判恶化（样本还在长，不下结论）。
+
+    ⚠ 2026-10-10 第 3 次修同一判据。实测 `nx-igi-259` 从 1,562 涨到 1,599 条时
+    重复率 1698 → 2049/10万，棘轮报红。查证**不是回归**：
+    重复组全是**相邻 id**（`10142046/47/48/49`）⇒ 站方一次公示多条；
+    `dup_ids = 0` ⇒ 不是采集器重复写。
+    ⇒ 根源：**正在采集中的来源，重复率会随样本增长而波动**
+      （小样本没采到那几条重复的，样本一大就出现）。
+
+    判据：样本量比基线**增长 >20%** ⇒ 视为"采集中"，不判恶化。
+    """
+    monkeypatch.setattr(gq, "_load_baseline", lambda: {
+        "total": 1000,
+        "per_source": {"srcGrowing": {"total": 100, "dups": 1, "dup_rate": 1000.0}},
+    })
+    s = {
+        "answer_empty": 0, "content_dups": 0, "inverted": 0, "total": 1000,
+        "per_source_dup": {
+            # 样本涨了 50%（100 -> 150），重复率也涨了 ⇒ **不该判恶化**
+            "srcGrowing": {"total": 150, "dups": 5, "dup_rate": 33333.0},
+        },
+    }
+    checks = {n: ok for n, ok, _d in gq.ratchet(s)}
+    key = next(iter(checks))
+    assert checks[key] is True, f"采集中（样本 +50%）的来源不该判恶化：{checks}"
+
+
+def test_ratchet_still_flags_a_settled_source(monkeypatch):
+    """**反向用例**：样本量**没怎么变**（已采完）的来源，重复率变坏 ⇒ 必须报红。"""
+    monkeypatch.setattr(gq, "_load_baseline", lambda: {
+        "total": 1000,
+        "per_source": {"srcDone": {"total": 100, "dups": 1, "dup_rate": 1000.0}},
+    })
+    s = {
+        "answer_empty": 0, "content_dups": 0, "inverted": 0, "total": 1000,
+        "per_source_dup": {
+            # 样本只涨 5%（100 -> 105，不算"采集中"），但重复率暴涨
+            "srcDone": {"total": 105, "dups": 50, "dup_rate": 47619.0},
+        },
+    }
+    checks = {n: ok for n, ok, _d in gq.ratchet(s)}
+    key = next(iter(checks))
+    assert checks[key] is False, f"已采完的来源重复率变坏，必须报红：{checks}"
+
+
 def test_save_baseline_refuses_regression(tmp_path, monkeypatch):
     """**反向用例**：**已有来源**的重复率变坏时必须**拒绝**写基线。
 

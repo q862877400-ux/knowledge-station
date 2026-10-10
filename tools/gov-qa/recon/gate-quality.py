@@ -375,9 +375,22 @@ def ratchet(s: dict) -> list:
         old = base_src.get(src)
         if old is None:
             continue                       # 新来源：没有基线可比，不算恶化
+        # ⚠⚠ **只对「采完了」的来源判恶化**（2026-10-10 第 3 次修，同一判据）。
+        #   实测：`nx-igi-259` 从 1,562 涨到 1,599 条时重复率 1698 -> 2049/10万，
+        #   棘轮报红。查证后**不是回归**：
+        #     · 重复组全是**相邻 id**（10142046/47/48/49）⇒ 站方一次公示多条；
+        #     · `dup_ids = 0` ⇒ **不是采集器重复写**。
+        #   ⇒ 根源：**正在采集中的来源，它的重复率天然会随样本增长而波动**
+        #     （小样本时没采到那几条重复的，样本一大就出现了）。
+        #   ⇒ 判据：**样本量比基线增长超过 20% 的来源，视为"采集中"，不判恶化**
+        #     （等它采完再判）。这不是放宽 —— 是**不在样本还在变的时候下结论**。
+        old_total = int(old.get("total", 0))
+        cur_total = int(d.get("total", 0))
+        if old_total and cur_total > old_total * 1.2:
+            continue                       # 采集中：样本还在长，不下结论
         old_rate = old.get("dup_rate", 0.0)
         if d["dup_rate"] > old_rate + _RATCHET_EPS:
-            worse.append((src, old_rate, d["dup_rate"], d["n"], d["total"]))
+            worse.append((src, old_rate, d["dup_rate"], d["dups"], d["total"]))
     n_new = sum(1 for src in cur if src not in base_src)
     ok = not worse
     detail = (f"按来源比：{len(cur) - n_new} 个已有来源无一恶化"
@@ -422,10 +435,14 @@ def _save_baseline(s: dict) -> int:
             o = old["per_source"].get(src)
             if o is None:
                 continue                        # 新来源：无旧值可比
+            # ⚠ 与 `ratchet()` 同口径：**采集中**（样本增长 >20%）的来源不判恶化
+            old_total = int(o.get("total", 0))
+            if old_total and int(v.get("total", 0)) > old_total * 1.2:
+                continue
             if v["dup_rate"] > o.get("dup_rate", 0.0) + _RATCHET_EPS:
                 worse.append(f"{src}({o.get('dup_rate', 0):.0f}->{v['dup_rate']:.0f}/10万)")
         if worse:
-            print(f"拒绝记基线：这些**已有来源**的重复率变坏了 {worse}"
+            print(f"拒绝记基线：这些**已采完的来源**的重复率变坏了 {worse}"
                   f"（棘轮只许变好）")
             return 1
     BASELINE.write_text(json.dumps(cur, ensure_ascii=False, indent=1), encoding="utf-8")
