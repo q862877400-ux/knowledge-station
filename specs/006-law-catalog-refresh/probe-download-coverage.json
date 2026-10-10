@@ -1,0 +1,178 @@
+{
+  "sampled_at": "2026-10-10 11:49:30",
+  "seed": 20261010,
+  "population": 30953,
+  "sample_n": 40,
+  "valid": 40,
+  "has_url": 40,
+  "no_url": 0,
+  "probe_failed": 0,
+  "coverage_point": 1.0,
+  "coverage_ci95_wilson": [
+    0.9124,
+    1.0
+  ],
+  "note": "口径：download/pc?format=docx 返回非空 data.url 记为「有全文」；只探测不真下载。FAIL 不计入分母（站点限速）。⚠ 这是抽样估计，不是全量。",
+  "details": [
+    {
+      "bbbs": "4028abcc612777930161285f83b31eb1",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612810eeba5158",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081817edd5786017ee7f0ae6c1b3d",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081819150458d0191b188bf29607e",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "2c90e5ba6200715a01641c6bb8da7357",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff80818188c8b06b018900f26ece3bbf",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff808181927f0e7b01967b962dde49e9",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161281e7a775fd2",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161285211b811c7",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612886e6533e67",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161285089701048",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612863a71e22ad",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161281c8f585dbb",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081817be7b934017c817c0feb73eb",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc61277793016127ee36ea2e04",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc61277793016127ea18872988",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161287d023b385f",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081818c24e05b018c8a519db30af4",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8080816ea719d7016eaff943f33d33",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "0f524f6d32bc4c52b79c11dbe085737b",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081818f19d70e018f80b5d9df4865",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff80808175265dd401766fedd2f7761b",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8080816f3cbb3c016f64c4cd034974",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612838eeb7786c",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612850e3ab10a4",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "cd9941c53cbd4b48965b05395e8e06b9",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff80818179b2b3250179c64e97140a3b",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081818f19d3bc018f61b6f6435d08",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc61277793016127ec69732c23",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc61277793016127f8abbf394c",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161285c88181bc8",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612835c28e75ae",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc612777930161283c34687ba4",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc61277793016127c694270761",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff8081818c24da9e018ca41753ef55bb",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "402881e45ffbbe41015ffc859ca40e98",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "ff80818181669d2401816a967b3d1717",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "2c90e5ba6a291d8f016d42dbe2b85be1",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "402881e45ffb0c10015ffb50f34702ce",
+      "verdict": "HAS_URL"
+    },
+    {
+      "bbbs": "4028abcc6127779301612823f3c7661f",
+      "verdict": "HAS_URL"
+    }
+  ]
+}
