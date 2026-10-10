@@ -38,6 +38,27 @@ ROOT = HERE.parent                              # tools/gov-qa
 sys.path.insert(0, str(ROOT))
 
 
+def safe_print(*args) -> None:
+    """打印，**绝不因控制台编码抛异常**（spec 005 T108，2026-10-10 修）。
+
+    动机：本机控制台是 GBK，而本脚本的人看输出里有 `⚠` / `✓` 这类字符。
+    实测 `--answers` / `--targets` / `--fields` 三个子命令**直接 rc=1**
+    （`UnicodeEncodeError: 'gbk' codec can't encode character '\\u26a0'`）——
+    一个只读体检工具因为打不出一个符号就整个失败。
+    ⇒ 与 `harvest.py::_safe()` 同法：按当前 stdout 编码转义后再打。
+    """
+    enc = getattr(sys.stdout, "encoding", None) or "ascii"
+    parts = []
+    for a in args:
+        s = str(a)
+        try:
+            s.encode(enc)
+        except (UnicodeEncodeError, LookupError):
+            s = s.encode(enc, "replace").decode(enc, "replace")
+        parts.append(s)
+    print(" ".join(parts))
+
+
 def count_lines(path: str) -> int:
     """数有效行（跳过采集进行中的半行）。"""
     n = 0
@@ -82,7 +103,7 @@ def show_fields() -> int:
         print("无数据")
         return 0
     print(f"总记录 {tot:,}")
-    print("\n=== 主字段非空率（⚠ 某列接近 0% 就是静默缺陷）===")
+    safe_print("\n=== 主字段非空率（⚠ 某列接近 0% 就是静默缺陷）===")
     for k in fields:
         n = nonempty[k]
         flag = "   ← ⚠ 整列几乎全空！" if n / tot < 0.05 else ""
@@ -130,7 +151,7 @@ def show_answers() -> int:
     print(f"总记录 {tot:,}    答复长度：min={all_len[0]} "
           f"p10={pct(all_len, .1)} 中位={pct(all_len, .5)} p90={pct(all_len, .9)} max={all_len[-1]}")
     short_all = sum(1 for n in all_len if n < 30)
-    print(f"⚠ 答复 <30 字的记录：{short_all:,}（{short_all / tot * 100:.2f}%）\n")
+    safe_print(f"⚠ 答复 <30 字的记录：{short_all:,}（{short_all / tot * 100:.2f}%）\n")
 
     rows = []
     for s, xs in per_src.items():
@@ -148,7 +169,7 @@ def show_answers() -> int:
     # ★ 锋利的截断判据：**短答复是不是同来源里某条长答复的「前缀」**。
     #   巴中那 192 条截断后全是「尊敬的网友：您好！」—— 它正是同来源其它长答复的开头部分。
     #   而「感谢您对市长信箱工作的关注！」这类**固定套话**不是任何长答复的前缀 ⇒ 不会误报。
-    print("\n=== ⚠ 疑似截断（短答复是同来源长答复的「前缀」）===")
+    safe_print("\n=== ⚠ 疑似截断（短答复是同来源长答复的「前缀」）===")
     flagged = 0
     for p in glob.glob(str(ROOT / "data" / "*.jsonl")):
         by_src: dict[str, list[str]] = defaultdict(list)
@@ -214,10 +235,10 @@ def show_dups() -> int:
             if total != uniq:
                 rows.append((s, total, uniq, total - uniq, os.path.basename(p)))
     if not rows:
-        print("重复 id 检测：**全部干净** ✓")
+        safe_print("重复 id 检测：**全部干净** ✓")
         return 0
     rows.sort(key=lambda r: -r[3])
-    print(f"⚠ 发现 {len(rows)} 个来源存在重复 id：\n")
+    safe_print(f"⚠ 发现 {len(rows)} 个来源存在重复 id：\n")
     print(f"  {'source':26s} {'总行数':>9s} {'唯一':>9s} {'重复':>8s}  文件")
     for s, total, uniq, dup, fn in rows:
         print(f"  {s:26s} {total:9,d} {uniq:9,d} {dup:8,d}  {fn[:40]}")
@@ -270,7 +291,7 @@ def show_targets() -> int:
         print(f"{k:16s} {t:10,d} {cap_s:>8s} {goal:10,d} {a:9,d} {ratio * 100:6.1f}%{flag}")
         if flag:
             print(f"{'':16s} {'':10s} {'':8s} {'':10s} {'':9s}         {note}")
-    print(f"\n⚠ 完成度 <50%（且有效目标 ≥1000 条）的源：{warn} 个")
+    safe_print(f"\n⚠ 完成度 <50%（且有效目标 ≥1000 条）的源：{warn} 个")
     print("（cap = 我方主动设定的上限：单源 2 万、每市 3000/8000）")
     return 0
 
@@ -293,6 +314,7 @@ def show_gate() -> int:
     # 零数据适配器数
     n_empty = 0
     n_keys = 0
+    adapters_err = ""
     try:
         import adapters
         keys = list(adapters.ADAPTERS)
@@ -314,7 +336,7 @@ def show_gate() -> int:
         have = set(owned.values())
         n_empty = sum(1 for k in keys if k not in have)
     except Exception as e:                                              # noqa: BLE001
-        print(f"ADAPTERS_ERR={type(e).__name__}")
+        adapters_err = type(e).__name__
 
     # 重复 id 行数
     dups = 0
@@ -334,7 +356,18 @@ def show_gate() -> int:
 
     print(f"TOTAL={tot}")
     print(f"ADAPTERS={n_keys}")
-    print(f"EMPTY={n_empty}")
+    # ⚠⚠ **不能把"适配器注册表读不到"输出成 `EMPTY=0`**（2026-10-10 spec 005 T104 修）。
+    #   旧写法在 `import adapters` 抛异常时只打一行 `ADAPTERS_ERR=...`，
+    #   而 `n_empty` 保持初值 0 ⇒ 打出 `EMPTY=0`；`check.sh` 只 `grep '^EMPTY='`
+    #   ⇒ **判据②「无零数据适配器」报绿** —— 整个注册表失效时闸门照样全绿。
+    #   实测复现：注入 `raise ImportError` ⇒ `ADAPTERS=0` 而 `EMPTY=0`。
+    #   ⇒ 现在把 EMPTY 输出成**非数字哨兵**：`check.sh` 侧 `tr -dc '0-9'` 会把它清成空串，
+    #     从而走"拿不到…（--gate 执行失败）"那条**红**分支。修的是假绿，不是判据松紧。
+    if adapters_err:
+        print(f"ADAPTERS_ERR={adapters_err}")
+        print("EMPTY=ERR")
+    else:
+        print(f"EMPTY={n_empty}")
     print(f"DUPS={dups}")
     return 0
 

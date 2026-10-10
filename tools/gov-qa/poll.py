@@ -329,8 +329,12 @@ def _run(args) -> int:
             kv["PAGES_FETCHED"] = sum(r.get("pages", 0) for r in results)
         ascii_kv(kv)
         for r in results:
-            ascii_kv({}, stream=None) if False else None
-            print(f"CHANNEL={r['key']} ADDED={r['added']} STATUS={r['status']}")
+            # ⚠ 走 `ascii_kv` 而不是 `print`（spec 005 T109）。
+            #   旧写法直接 `print(f"CHANNEL=...")` 绕过了纯 ASCII 出口：
+            #   当前 345 个 key 恰好全是 ASCII 所以没崩，但**通道名一旦含中文**
+            #   就会在 GBK 控制台上 `UnicodeEncodeError` —— 而这条路径是**给闸门读的**。
+            #   同时删掉一行死代码 `ascii_kv({}, stream=None) if False else None`。
+            ascii_kv({"CHANNEL": r["key"], "ADDED": r["added"], "STATUS": r["status"]})
     else:
         human("")
         human(f"汇总：成功 {ok} / 失败 {failed} ｜ 新增 {added:,} 条 ｜ 用时 {elapsed}s")

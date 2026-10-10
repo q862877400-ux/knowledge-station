@@ -37,11 +37,13 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DATA = ROOT / "data"
 
-#: 从这些 extra 字段里找「消息类型」。
-#: ⚠ `msg_type_norm` 优先 —— 它由 `label-classify.py` 写入（站方标签归一化 + 模型预测），
-#:   是**干净的 9 分类**；原始 `msg_type` 是脏的（混了话题如「省直公积金」、部门如「办公室」）。
-TYPE_KEYS = ("msg_type_norm", "msg_type", "type", "objective_type", "rqstType",
-             "type_dictText", "letterType")
+# ⚠⚠ **标签口径的唯一出处是 `common.LABEL_KEYS` / `common.has_label()`**（spec 005 T105）。
+#   2026-10-10 之前这里另有一份 `TYPE_KEYS`，与 `health.py` 的实现**各算各的**：
+#   本脚本回落到原始脏 `msg_type` ⇒ 报 100.0%；`health.py` 只认 `msg_type_norm` ⇒ 报 99.2%。
+#   同一份数据、同一个指标、两个数字，而闸门判据④用的是宽的那个。
+#   ⇒ 现在只保留一份定义，本脚本按历史口径（允许回落）调用。
+sys.path.insert(0, str(ROOT))
+from common import LABEL_KEYS as TYPE_KEYS, has_label  # noqa: E402
 
 
 def read_all():
@@ -89,6 +91,7 @@ def main() -> int:
 
     tot = 0
     labeled = 0
+    strict_labeled = 0          # 只认 msg_type_norm 的干净口径
     dist = Counter()
     per_src = defaultdict(lambda: [0, 0])      # source -> [total, labeled]
     unlabeled_samples = []
@@ -102,6 +105,9 @@ def main() -> int:
             labeled += 1
             dist[t] += 1
             per_src[s][1] += 1
+            # 干净口径：**只认 `msg_type_norm`**（与 health.py 同源）
+            if has_label(r, strict=True):
+                strict_labeled += 1
         elif len(unlabeled_samples) < max(args.samples, 0):
             unlabeled_samples.append((s, (r.get("question") or "")[:60]))
 
@@ -110,13 +116,19 @@ def main() -> int:
         return 0
 
     rate = labeled / tot * 100
+    strict_rate = strict_labeled / tot * 100
 
     if args.quiet:
-        # 给闸门用：**纯 ASCII 一行**，彻底规避中文编码问题
+        # 给闸门用：**纯 ASCII 一行**，彻底规避中文编码问题。
+        # ⚠ 同时打 STRICT_COVERAGE —— 闸门判据④用宽口径（历史行为），
+        #   但**干净口径的数字必须一起打出来**，否则又变成"只有一个数、看不出宽窄"。
         print(f"COVERAGE={rate:.1f}")
+        print(f"STRICT_COVERAGE={strict_rate:.1f}")
         return 2 if (args.gate and rate < args.gate) else 0
 
     print(f"总记录 {tot:,}  |  有标签 {labeled:,}  |  **覆盖率 {rate:.1f}%**")
+    print(f"  其中**干净标签**（`msg_type_norm`）{strict_labeled:,} = {strict_rate:.1f}%")
+    print(f"  差 {labeled - strict_labeled:,} 条只有原始脏 `msg_type`（混话题/部门）")
     print(f"闸门要求 {args.gate}%  ⇒  {'✅ 通过' if rate >= args.gate else '❌ 未达标'}\n")
 
     print("=== 标签分布 top20 ===")

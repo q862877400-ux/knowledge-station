@@ -55,13 +55,25 @@ def ascii_kv(pairs: dict, *, stream=None) -> None:
 
 
 def human(msg: str, *, stream=None) -> None:
-    """给人看的输出（可用中文）。**绝不用于机器可读路径。**"""
+    """给人看的输出（可用中文）。**绝不用于机器可读路径。**
+
+    ⚠ 兜底方向必须对（2026-10-10 spec 005 T107 修）：
+    旧写法是 `msg.encode("utf-8","replace").decode("ascii","replace")` ——
+    但 `encode("utf-8")` 对**任何**字符串都成功，非 ASCII 会被**原样保留成多字节**，
+    接着 `decode("ascii")` 得到一坨 `\\ufffd`，**再交给 GBK 流去写 ⇒ 又抛 UnicodeEncodeError**
+    （实测：`human('✅ …')` 在 GBK strict 流上崩在 `\\ufffd`）。
+    ⇒ 正确做法是**按目标流的编码**转义，与 `harvest.py::_safe()` 同法。
+    """
     out = stream or sys.stderr
     try:
         out.write(msg + "\n")
     except UnicodeEncodeError:
-        # 终端编码不支持中文时的兜底，不让它崩
-        out.write(msg.encode("utf-8", "replace").decode("ascii", "replace") + "\n")
+        enc = getattr(out, "encoding", None) or "ascii"
+        try:
+            out.write(msg.encode(enc, "replace").decode(enc, "replace") + "\n")
+        except Exception:                                               # noqa: BLE001
+            # 连按流编码转义都失败 ⇒ 退到纯 ASCII，绝不再抛
+            out.write(msg.encode("ascii", "replace").decode("ascii") + "\n")
 
 
 # ---------------------------------------------------------------- 原子落盘
@@ -146,6 +158,49 @@ def file_lock(path, *, timeout: float = 0.0):
             path.unlink()
         except OSError:
             pass
+
+
+# ---------------------------------------------------------------- 标签覆盖口径
+
+#: 判定「这条记录有类型标签」时**按顺序**尝试的键。
+#:
+#: ⚠⚠ **这个常量就是「标签覆盖率」的唯一出处**（spec 005 T105，2026-10-10 立）。
+#: 立它之前，同一个指标有两个实现、两个数字：
+#:   - `health.py`           只认 `msg_type_norm`            ⇒ 报 99.2%
+#:   - `recon/label-coverage.py` 优先 `msg_type_norm`，**回落到原始脏 `msg_type`** ⇒ 报 100.0%
+#: 两者实测差 3,025 条（0.8pt），而**闸门判据④用的正是宽的那个**。
+#: ⇒ 现在两边都调 `label_key_of()`；要改口径只改这里一处。
+#:
+#: **为什么以窄口径（`msg_type_norm`）为准**：`msg_type` 是站方原始值，
+#: 混了话题（「省直公积金」）与部门（「办公室」），不是干净的 9 分类；
+#: `msg_type_norm` 才是归一化后的标签。用脏值凑覆盖率会**虚高**。
+LABEL_KEYS = ("msg_type_norm", "msg_type", "type", "objective_type", "rqstType")
+
+
+def label_key_of(rec: dict) -> "str | None":
+    """返回这条记录**实际带标签的那个键名**，没有则 `None`。
+
+    给需要区分口径的调用方用（例如要分别报「干净标签」与「只有脏标签」）。
+    """
+    ex = rec.get("extra")
+    if not isinstance(ex, dict):
+        return None
+    for k in LABEL_KEYS:
+        if ex.get(k) not in (None, "", [], {}):
+            return k
+    return None
+
+
+def has_label(rec: dict, *, strict: bool = False) -> bool:
+    """这条记录算不算「有类型标签」。
+
+    `strict=True` 时**只认 `msg_type_norm`**（干净 9 分类）；
+    默认（`strict=False`）按 `LABEL_KEYS` 顺序回落 —— 与 `label-coverage.py` 的历史口径一致。
+    """
+    k = label_key_of(rec)
+    if k is None:
+        return False
+    return (k == "msg_type_norm") if strict else True
 
 
 # ---------------------------------------------------------------- 其它

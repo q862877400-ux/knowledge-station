@@ -44,7 +44,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from common import ascii_kv, human                              # noqa: E402
+from common import ascii_kv, has_label, human                     # noqa: E402
 
 DATA = HERE / "data"
 FLOOR_FILE = HERE.parent.parent / ".round-floor"
@@ -121,8 +121,10 @@ def collect() -> dict:
                     except Exception:                                   # noqa: BLE001
                         continue
                     total += 1
-                    ex = r.get("extra") or {}
-                    if isinstance(ex, dict) and ex.get("msg_type_norm"):
+                    # ⚠ 口径唯一出处 = `common.has_label(strict=True)`（spec 005 T105）。
+                    #   此前这里是内联的 `ex.get("msg_type_norm")`，与 `label-coverage.py`
+                    #   各算各的（那边回落到脏 `msg_type`）⇒ 同一指标两个数字。
+                    if has_label(r, strict=True):
                         labeled += 1
                     per_src[str(r.get("source") or "?")][str(r.get("id"))] += 1
         except OSError:

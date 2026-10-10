@@ -256,6 +256,15 @@ if ($Full) {
   #   （冒烟链要保持零外部依赖）。
   Add-Step 'verify-tools-real（真 ToolRuntime）' 'node' @('plugin/scripts/verify-tools-real.mjs') $repo
   Add-Step '真宿主 e2e（临时 profile）' 'node' @('plugin/scripts/e2e-install-compose.mjs') $repo
+  # ---- gov-qa（spec 005 T101/T103）------------------------------------------------
+  # 为什么加在这里：`tools/gov-qa/` 建了 4 天 297 个提交、39.5 万条数据，
+  # 但**本门禁一步都不跑它**（此前 `grep gov-qa scripts/run-gates.ps1` 命中 0），
+  # 它自己的闸门在 `D:/AI/output/check.sh` —— 那个目录**不是 git 仓库**。
+  # ⇒ 它的 58 个测试与质量判据此前全靠"人记得跑"。这两步把它接进来。
+  # ⚠ 放在最后：gov-qa 是独立子项目，它的红不该掩盖引擎/宿主的问题；
+  #   且 pytest 步骤（上面）已用掉 junit 路径，这两步**不复用**那份结果。
+  Add-Step 'gov-qa 测试'            $py  @('-m', 'pytest', 'tools/gov-qa/tests', '-q', '--no-header', '-p', 'no:cacheprovider') $repo
+  Add-Step 'gov-qa 质量闸门'        $py  @('tools/gov-qa/recon/gate-quality.py', '--quiet') $repo
 }
 }
 

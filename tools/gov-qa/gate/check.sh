@@ -49,10 +49,26 @@ getv(){ printf '%s\n' "$GATE" | grep "^$1=" | head -1 | cut -d= -f2 | tr -dc '0-
 TOTAL=$(getv TOTAL)
 EMPTY=$(getv EMPTY)
 DUPS=$(getv DUPS)
+ADAPTERS=$(getv ADAPTERS)
 FLOOR=$(tr -dc '0-9' < .round-floor 2>/dev/null)
 [ -z "$FLOOR" ] && FLOOR=0
 
-_trace "  parsed: TOTAL=${TOTAL:-<empty>} EMPTY=${EMPTY:-<empty>} DUPS=${DUPS:-<empty>} FLOOR=$FLOOR"
+_trace "  parsed: TOTAL=${TOTAL:-<empty>} EMPTY=${EMPTY:-<empty>} DUPS=${DUPS:-<empty>} ADAPTERS=${ADAPTERS:-<empty>} FLOOR=$FLOOR"
+
+# ---- 0) 适配器注册表必须真的读到了（spec 005 T104 修的**假绿**）-------------
+# ⚠ 2026-10-10：此前 `import adapters` 抛异常时，指标源打出 `ADAPTERS_ERR=...`
+#   但 `EMPTY=0`；而本脚本只 `grep '^EMPTY='` ⇒ **判据②在注册表整体失效时仍报绿**。
+#   实测复现：注入 `raise ImportError` ⇒ `ADAPTERS=0` + `EMPTY=0` ⇒ 全绿。
+#   两道防线：① 指标源侧把 EMPTY 输出成非数字哨兵 `ERR`（已修）；
+#             ② 这里显式要求 ADAPTERS>0 且无 ADAPTERS_ERR（本段）。
+#   两道都要，因为任一侧被改回旧写法都会重新打开这个洞。
+if printf '%s\n' "$GATE" | grep -q '^ADAPTERS_ERR='; then
+  bad "适配器注册表读取失败（$(printf '%s\n' "$GATE" | grep '^ADAPTERS_ERR=' | head -1)）—— 判据②无从判定"
+elif [ -z "$ADAPTERS" ] || [ "$ADAPTERS" -eq 0 ]; then
+  bad "适配器数为 0（注册表读不到或为空）—— 判据②无从判定，不许当作「无零数据适配器」"
+else
+  ok "适配器注册表可读（$ADAPTERS 个）"
+fi
 
 # ---- 1) 数据总数不降（防空转闸门） -----------------------------------------
 if [ -z "$TOTAL" ]; then
@@ -93,6 +109,28 @@ if [ "$LBL_RC" -eq 0 ]; then
   ok "标签覆盖率 ${COV:-?}% ≥90%"
 else
   bad "标签覆盖率 ${COV:-?}% <90%（rc=$LBL_RC）"
+fi
+
+# ---- 5) 数据质量四项（spec 005 T102/T103）-----------------------------------
+# 为什么加：前四条判据**都不覆盖「字段非空但内容是垃圾」**。2026-10-10 独立诊断实测：
+#   `xz-lasa` 全源 1,030 条答复为空、8,470 条内容重复（id 不同）、20,131 条时间倒置
+#   —— 旧闸门在这份数据上照样报「质量全绿」。
+# 口径：`gate-quality.py` 是这四项的**唯一数字源**；默认走**棘轮**模式
+#   （缺陷不许恶化），`--strict` 才判绝对阈值。过渡态说明见该脚本模块文档。
+# 退出码：0 = 棘轮全过 / 1 = 有指标恶化 / 2 = 执行失败。
+Q_OUT=$("$P" tools/gov-qa/recon/gate-quality.py --quiet 2>&1)
+Q_RC=$?
+Q_DUPS=$(printf '%s' "$Q_OUT" | grep '^CONTENT_DUPS=' | head -1 | cut -d= -f2)
+Q_INV=$(printf '%s' "$Q_OUT" | grep '^TIME_INVERTED=' | head -1 | cut -d= -f2)
+Q_EMPTY=$(printf '%s' "$Q_OUT" | grep '^ANSWER_EMPTY=' | head -1 | cut -d= -f2)
+Q_MODE=$(printf '%s' "$Q_OUT" | grep '^MODE=' | head -1 | cut -d= -f2)
+_trace "  gate-quality rc=$Q_RC mode=${Q_MODE:-<none>} dups=${Q_DUPS:-<none>} inv=${Q_INV:-<none>} empty=${Q_EMPTY:-<none>}"
+if [ "$Q_RC" -eq 2 ]; then
+  bad "数据质量闸门执行失败（rc=2）"
+elif [ "$Q_RC" -eq 0 ]; then
+  ok "数据质量（棘轮）：重复 ${Q_DUPS:-?} · 倒置 ${Q_INV:-?} · 空答复 ${Q_EMPTY:-?}（未恶化）"
+else
+  bad "数据质量**恶化**：重复 ${Q_DUPS:-?} · 倒置 ${Q_INV:-?} · 空答复 ${Q_EMPTY:-?}（跑 gate-quality.py 看明细）"
 fi
 
 # ---- 结论：**质量全绿 + 连续工作 ≥24h，两个都满足才放行** -------------------
