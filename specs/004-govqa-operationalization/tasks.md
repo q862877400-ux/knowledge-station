@@ -28,7 +28,15 @@ description: "Task list for 政务问答采集系统的可运维化"
 ## Phase 1: Setup（项目初始化）
 
 - [x] T001 建 `tools/gov-qa/state/` 目录并在 `.gitignore` 里排除 `state/.poll.lock`（锁文件不入库，水位入库存）
-- [ ] T002 [P] 建 `tools/gov-qa/tests/` 目录与 `tests/__init__.py`
+- [—] T002 [P] 建 `tools/gov-qa/tests/` 目录与 `tests/__init__.py`
+  —— **判「不再需要」（2026-10-10 接手方实测，不是推断）**。
+  **① 目录已在**（`tools/gov-qa/tests/` 里有 `test_poll.py` / `test_channel_table.py` 等）。
+  **② `__init__.py` 不存在也不影响**：`pytest tools/gov-qa/tests --collect-only` ⇒
+  **141 tests collected · exit=0**（收集全成功）。
+  它当初的作用是让测试能被当包导入；实测本仓的用例靠 `sys.path.insert` 自己解决导入
+  （与 spec 005 后来把 gov-qa 测试并入根 pytest 的做法一致）⇒ **这个文件是多余的**。
+  **③ 加它反而有风险**：一旦成为包，`conftest.py` 的作用域与 `sys.path` 语义都会变，
+  而 141 条用例**当前全绿**。⇒ **不动**（不加一个没用的文件去换一个不必要的风险）。
 - [x] T003 [P] 在 `tools/gov-qa/` 下建 `common.py`：提供 `atomic_append_jsonl(path, rec)`（O_APPEND 单行写入）、`file_lock(path, timeout)`（文件锁）、`iter_records(glob)`（流式读 jsonl）三个工具函数
 - [x] T004 [P] 在 `tools/gov-qa/common.py` 加 `ascii_kv(dict)` 输出器：**所有机器可读输出必须走它**，保证纯 ASCII（R5 教训）
 
@@ -120,7 +128,22 @@ description: "Task list for 政务问答采集系统的可运维化"
 - [x] T040 [P] [US3] 在 `label-accuracy.py` 实现 `--score <csv>`：读人工填的 `label_ok` 列算真实准确率
 - [x] T041 [P] [US3] 在 `label-accuracy.py` 里**强制留痕**：未核对时输出「明确未做」，不许用模型自评数充数（宪法 III）
 - [x] T042 [US3] 修 `nat-mohurd` 的 `question` 为空问题（GOAL.md 下轮待办 2；已在 data-model.md E3 的验证规则里写明「指纹输入字段必须参与空值处理」）
-- [ ] T043 [US3] 为 `extra.ingested_at` 与 `extra.scope_tag` 两个新字段写回填脚本 `tools/gov-qa/recon/backfill-derived.py`（data-model.md 的「本特性对现有数据的改动」要求纯新增、可回滚）
+- [—] T043 [US3] 为 `extra.ingested_at` 与 `extra.scope_tag` 两个新字段写回填脚本 `tools/gov-qa/recon/backfill-derived.py`（data-model.md 的「本特性对现有数据的改动」要求纯新增、可回滚）
+  —— **判「不该做」（2026-10-10 接手方实测）**。**依据就是它自己引用的那句 data-model**：
+  > | 新增 `extra.ingested_at` | **新写入的记录才有；旧记录留空** | ✅（纯新增字段） |
+  > | 新增 `extra.scope_tag` | 同上 | ✅（纯新增字段） |
+  ⇒ **规格本身写明这两个字段只对"新写入的记录"生效、旧记录留空** ⇒ **回填是违反规格的**，不是欠做。
+  **实测复核（只读，408,439 条 / 568 个数据文件）**：
+  · `extra.ingested_at` 出现 **0** 次、`extra.scope_tag` 出现 **0** 次
+  （连**最新写的**文件也是 0：`ay-zmhd` 2,509 行 / `nx-igi-137` 400 行 / `nx-igi-186` 647 行，全部 0）。
+  **为什么是 0 —— 根因是"写这两个字段的那条路径当前不是主路径"**：
+  · `ingested_at` **只有 `poll.py:226` 写**（`r["extra"]["ingested_at"] = now_iso()`），
+    而**当前在跑的是 `harvest.py`**（实测进程：`harvest.py --site tj-enorth`、
+    `recon/igi-chunked.py nx_igi`）—— `harvest.py` 里**一个都没写**（`git grep` 空）。
+  · `scope_tag` **全仓没有任何写入点**（`coverage-report.py` 只**读**它）⇒ 它是**只读的约定字段**。
+  ⇒ **回填脚本会是空操作**（回填对象为零），而且**会把"旧记录留空"这个规格意图改掉**。
+  ⚠ **这不是"做完了"，是"判不该做"** —— 若将来 `poll.py` 成为主路径（即改用增量轮询采集），
+  新记录自然带上 `ingested_at`，那时**也不需要回填**（规格就是"旧记录留空"）。
 
 **Checkpoint**: US3 完成 ⇒ 能回答「这份数据的标签能不能信」
 
