@@ -1,0 +1,87 @@
+"""测试：`coverage-report.py` 的两个入口必须给出**一致的**缺口结论。
+
+## 为什么（spec 005 T106）
+
+实测矛盾（独立复核 Finding 2）：
+- `--quiet` 报 `CITY_NONE=0` rc=**0**
+- `--missing-cities` 报「零记录 182」rc=**1**
+
+**同一工具、同一数据、两个结论。** 根因是两条路算的**不是同一件事**：
+- `CITY_NONE` = 已建单元里状态 none 的个数（`build_units` 只为「有通道或有数据」
+  的市建单元 ⇒ 天然接近 0）
+- `--missing-cities` = 334 市全名单减「有数据的市」⇒ 真正的缺口
+
+⇒ 修法：抽出 `_missing_cities_detail()` 作**唯一出处**，
+`--quiet` 也报 `CITY_MISSING_FROM_334`，且**退出码按它判**。
+"""
+from __future__ import annotations
+
+import importlib.util
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PY = ROOT.parent.parent / ".venv" / "Scripts" / "python.exe"
+SCRIPT = ROOT / "coverage-report.py"
+
+
+def _load():
+    spec = importlib.util.spec_from_file_location("covrep", SCRIPT)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_shared_helper_exists_and_is_the_only_source():
+    """**结构判据**：`--missing-cities` 分支不得再自己算一遍。
+
+    谁把那段内联逻辑写回去，本用例必红。
+    ⚠ 只看**可执行语句**里的 `PROVINCE_CITIES`（排除注释与错误消息字符串）——
+    第一版把错误消息里的 `regions.PROVINCE_CITIES` 也算成"内联"，是误报。
+    """
+    src = SCRIPT.read_text(encoding="utf-8")
+    assert "def _missing_cities_detail" in src, "应有唯一出处函数"
+    i = src.find("if args.missing_cities:")
+    j = src.find("\n    # ----", i)
+    branch = src[i:j if j > 0 else len(src)]
+    assert "_missing_cities_detail" in branch, "分支应调用唯一出处函数"
+    # 逐行看：只看非注释、且不是字符串字面量里的出现
+    for ln in branch.splitlines():
+        code = ln.split("#", 1)[0]
+        if "PROVINCE_CITIES" in code and "human(" not in code and "f\"" not in code:
+            raise AssertionError(f"分支里仍有内联遍历：{ln.strip()}")
+
+
+def test_quiet_reports_missing_from_334():
+    """`--quiet` 必须打出 `CITY_MISSING_FROM_334` —— 否则读者只看到 `CITY_NONE=0`。"""
+    r = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8",
+                       errors="replace")
+    out = (r.stdout or "") + (r.stderr or "")
+    assert "CITY_MISSING_FROM_334=" in out, f"--quiet 应报真实缺口，实际输出：{out[:300]}"
+
+
+def test_two_entrypoints_agree_on_missing_count():
+    """**核心判据**：两个入口报出的缺失数必须**相等**。"""
+    a = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    b = subprocess.run([str(PY), str(SCRIPT), "--missing-cities", "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    oa, ob = a.stdout or "", b.stdout or ""
+    ma = re.search(r"CITY_MISSING_FROM_334=(\d+)", oa)
+    mb = re.search(r"CITY_MISSING=(\d+)", ob)
+    assert ma and mb, f"两入口都要报缺口数：a={oa[:200]} b={ob[:200]}"
+    assert ma.group(1) == mb.group(1), \
+        f"两个入口结论不一致：--quiet={ma.group(1)} vs --missing-cities={mb.group(1)}"
+
+
+def test_both_entrypoints_return_the_same_exit_code():
+    """**核心判据**：退出码也必须一致（实测原来是 0 vs 1）。"""
+    a = subprocess.run([str(PY), str(SCRIPT), "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    b = subprocess.run([str(PY), str(SCRIPT), "--missing-cities", "--quiet"], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    assert a.returncode == b.returncode, \
+        f"退出码不一致：--quiet={a.returncode} vs --missing-cities={b.returncode}"

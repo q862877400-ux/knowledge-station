@@ -41,6 +41,42 @@ EXIT_NONE_UNIT = 1
 EXIT_FATAL = 2
 
 
+def _missing_cities_detail(units) -> tuple:
+    """算「334 市全名单里，数据口径下零记录的有哪些」。
+
+    **这是"缺多少个市"的唯一出处** —— `--missing-cities` 与 `--quiet` 都调它，
+    避免两条路各算各的（spec 005 T106 修的正是这个：同工具同数据两个结论）。
+
+    返回 `(按省分组的缺失清单, 市总数, 缺失总数)`。
+    """
+    from regions import PROVINCE_CITIES                                 # noqa: E402
+    covered = {u.name for u in units
+               if u.level == "city" and max(u.total_records, u.data_records) > 0}
+    # 通道/数据两侧都可能出现「去市」写法，做一次双向匹配
+    bare = {n.rstrip("市") for n in covered}
+    by_prov: dict[str, list[str]] = {}
+    n_total = n_miss = 0
+    for p, cities in PROVINCE_CITIES.items():
+        miss = []
+        for c in cities:
+            n_total += 1
+            if c in covered or c.rstrip("市") in bare:
+                continue
+            miss.append(c)
+        n_miss += len(miss)
+        if miss:
+            by_prov[p] = miss
+    return by_prov, n_total, n_miss
+
+
+def _missing_city_count(units) -> int:
+    """只要总数（给 `--quiet` 用）。"""
+    try:
+        return _missing_cities_detail(units)[2]
+    except Exception:                                                   # noqa: BLE001
+        return 0
+
+
 def _scope_filter(scope: str):
     """口径过滤器（FR-034）。
 
@@ -95,26 +131,10 @@ def main() -> int:
     # 动机：辽宁 12 个市的数据在省级 `ln-8890` 里，按通道口径会被误报成「缺来源」。
     if args.missing_cities:
         try:
-            from regions import PROVINCE_CITIES                          # noqa: E402
+            by_prov, n_total, n_miss = _missing_cities_detail(units)
         except Exception as e:                                          # noqa: BLE001
             human(f"❌ 读不到 regions.PROVINCE_CITIES：{e}")
             return EXIT_FATAL
-        covered = {u.name for u in units
-                   if u.level == "city" and max(u.total_records, u.data_records) > 0}
-        # 通道/数据两侧都可能出现「去市」写法，做一次双向匹配
-        bare = {n.rstrip("市") for n in covered}
-        by_prov: dict[str, list[str]] = {}
-        n_total = n_miss = 0
-        for p, cities in PROVINCE_CITIES.items():
-            miss = []
-            for c in cities:
-                n_total += 1
-                if c in covered or c.rstrip("市") in bare:
-                    continue
-                miss.append(c)
-            n_miss += len(miss)
-            if miss:
-                by_prov[p] = miss
         if args.quiet:
             ascii_kv({"CITY_TOTAL": n_total, "CITY_HAVE": n_total - n_miss,
                       "CITY_MISSING": n_miss})
@@ -165,7 +185,19 @@ def main() -> int:
             "CITY_DATA_ONLY": sum(1 for u in city
                                   if u.data_records > 0 and u.total_records == 0),
         })
-        return EXIT_NONE_UNIT if _cnt(sel, STATUS_NONE) > 0 else EXIT_OK
+        # ⚠⚠ **两个口径必须都说清，且退出码要一致**（spec 005 T106，2026-10-10 修）。
+        #   实测矛盾：`--quiet` 报 `CITY_NONE=0` rc=0，而 `--missing-cities`
+        #   报「零记录 182」rc=1 —— **同一工具、同一数据、两个结论**。
+        #   根因：两条路算的**不是同一件事**：
+        #     · `CITY_NONE` = 在**已建单元**里状态为 none 的个数
+        #       （`build_units` 只为「有通道或有数据」的市建单元 ⇒ 天然接近 0）
+        #     · `--missing-cities` = 拿 **334 市全名单**减「有数据的市」⇒ 真正缺多少个市
+        #   ⇒ 前者恒小、后者才是有意义的缺口。**退出码按后者**（真实缺口）判，
+        #     并把两个数**都打出来**，避免读者再被 `CITY_NONE=0` 误导成"覆盖完整"。
+        n_missing = _missing_city_count(units)
+        ascii_kv({"CITY_MISSING_FROM_334": n_missing})
+        has_none = _cnt(sel, STATUS_NONE) > 0 or n_missing > 0
+        return EXIT_NONE_UNIT if has_none else EXIT_OK
 
     human(f"覆盖销号表 —— 全国政务问答来源"
           f"（达标线：省级 {args.threshold_province:,} / 地级 {args.threshold_city:,}）")
