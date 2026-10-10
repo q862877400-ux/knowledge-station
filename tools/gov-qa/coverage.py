@@ -279,6 +279,51 @@ def merge_city_data(units: "list[CoverageUnit]", city_counts: dict,
 
 
 
+def _count_for_channel(channel_key: str, counts: dict,
+                       channel_keys: "set | None" = None) -> int:
+    """某通道的数据量 = 它自己 + 所有以 `它-` 开头的子 source。
+
+    ⚠ 为什么需要（spec 005 T602，2026-10-10 实测）：
+    `counts` 的键是**数据文件里的 `source` 值**，通道的键是 `c.key`，两者不总是相等：
+      · IGI 系：数据写 `sx-igi-24`，通道 key 是 `sx-igi`
+      · 天津 enorth：数据写 `tj-enorth-wuqing`，通道 key 是 `tj-enorth`
+      · `ln-8890-kb`：数据带 `-kb` 后缀，通道 key 是 `ln-8890`
+    原来只 `counts.get(c.key, 0)` ⇒ 这些数据**在覆盖报表里隐形**
+    （实测 393 个 source / 121,762 条）。
+
+    ⚠ **必须做最长前缀消歧**：若同时登记了 `gx-igi` 与 `gx-igi-293` 两个**通道**，
+    文件 `gx-igi-293-….jsonl` 会被两个都匹配到 ⇒ 重复计数。
+    故对每个 source，先算它**最长匹配的通道 key**，只有那个通道吃它。
+
+    ⚠ 关键：判定归属时比的是**通道 key 集合**，不是 `counts` 的键集合 ——
+    `sx-igi-24` 只是数据里的 source（不是通道），它应归给通道 `sx-igi`。
+    `channel_keys=None`（默认）时退化为"用 `counts` 的键当通道集合"，
+    便于单测直接喂两个字典。
+    """
+    return _attribute_counts(channel_key, counts, channel_keys)[0]
+
+
+def _attribute_counts(channel_key: str, counts: dict,
+                      channel_keys: "set | None" = None) -> tuple:
+    """把 `counts` 里每个 source 归给「最长匹配的通道 key」，返回本通道拿到的合计。
+
+    `channel_keys=None` 时退化为"用 `counts` 的键当通道集合"（便于单测）。
+    """
+    keys = list(channel_keys) if channel_keys is not None else list(counts)
+    total = 0
+    n_src = 0
+    for k, v in counts.items():
+        owner = None
+        for ck in keys:
+            if k == ck or k.startswith(ck + "-"):
+                if owner is None or len(ck) > len(owner):
+                    owner = ck
+        if owner == channel_key:
+            total += v
+            n_src += 1
+    return total, n_src
+
+
 def build_units(channels, counts: dict, *, threshold_province: int,
                 threshold_city: int, city_counts: dict | None = None) -> "list[CoverageUnit]":
     """把通道 + 条数聚合成覆盖单元。
@@ -303,8 +348,20 @@ def build_units(channels, counts: dict, *, threshold_province: int,
     city: dict[str, CoverageUnit] = {}
     other: dict[str, CoverageUnit] = {}
 
+    #: 通道 key 集合 —— 判定 source 归属时**只比这些**（见 `_attribute_counts`）
+    channel_keys = {c.key for c in channels}
+
     for c in channels:
-        n = counts.get(c.key, 0)
+        # ⚠⚠ 2026-10-10（spec 005 T602）：**必须把「子 source」的数据也算进来**。
+        #   实测：706 个有数据的 source 里 **393 个（121,762 条）不在销号表内** ——
+        #   因为 `counts` 的键是**数据文件里的 `source` 值**，而通道的键是 `c.key`，
+        #   两者不总是相等：
+        #     · IGI 系（368 个）：数据里写 `sx-igi-24`（子 siteId），通道 key 是 `sx-igi`
+        #     · 天津 enorth（24 个）：数据里写 `tj-enorth-wuqing` 等，通道 key 是 `tj-enorth`
+        #     · `ln-8890-kb`（13,941 条）：数据里带 `-kb` 后缀，通道 key 是 `ln-8890`
+        #   ⇒ 原来 `counts.get(c.key, 0)` 对它们**取到 0** ⇒ 那些数据在覆盖报表里**隐形**。
+        #   ⇒ 现在按「最长匹配的通道 key」归集，且**只归一次**（防重复计数）。
+        n, _n_src = _attribute_counts(c.key, counts, channel_keys)
         region = (c.region or "").strip()
         if c.level == "province" and region:
             std = alias.get(region) or alias.get(region[:2]) or region
