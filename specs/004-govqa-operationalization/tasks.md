@@ -81,7 +81,7 @@ description: "Task list for 政务问答采集系统的可运维化"
 - [x] T025 [P] [US1] 写 `tools/gov-qa/tests/test_poll_watermark_broken.py`：**FR-006** —— 水位损坏时不崩溃、退化为全量、不产生重复
 - [x] T026 [P] [US1] 写 `tools/gov-qa/tests/test_poll_isolation.py`：**SC-012** —— 一个通道失败不影响其他通道
 - [x] T027 [P] [US1] 写 `tools/gov-qa/tests/test_poll_lock.py`：**R7** —— 两个进程同时跑，一个返回 3，另一个正常完成
-- [ ] T028 [US1] 写 `tools/gov-qa/recon/verify-idempotent.py`：**可自动跑的幂等验证器**（把 SC-002 从「靠人记」变成「一条命令」）
+- [x] T028 [US1] 写 `tools/gov-qa/recon/verify-idempotent.py`：**可自动跑的幂等验证器**（把 SC-002 从「靠人记」变成「一条命令」）
 
 **Checkpoint**: US1 完成 ⇒ 用户唯一明说的目的达成 ⇒ **这是 MVP**
 

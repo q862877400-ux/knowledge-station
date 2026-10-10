@@ -264,6 +264,13 @@ if ($Full) {
   #   ⇒ 增量 **+102**。⚠ 别拿工作区当前数记 —— 工作区含未跟踪的测试文件。
   #   下面只保留**质量闸门**这一步（它不是 pytest，根 pytest 不会跑）。
   Add-Step 'gov-qa 质量闸门'        $py  @('tools/gov-qa/recon/gate-quality.py', '--quiet') $repo
+  # ---- gov-qa 幂等验证（spec 004 T028 / SC-002）----------------------------------
+  # ⚠ 2026-10-10 新增：这条**不是 pytest**，根 pytest 不会跑它。
+  #   它拿**真实语料**重放 `poll_one`，验「连续两次轮询第二次 0 新增」。
+  #   为什么必须有：`tests/test_poll.py` 的假适配器用 `source == 通道 key`
+  #   ⇒ **恰好命中旧判据**，抓不到"真实语料里 source 是子源"这个缺陷
+  #   （实测该缺陷让 33 个通道、124,762 条记录的幂等性失效）。
+  Add-Step 'gov-qa 幂等验证'        $py  @('tools/gov-qa/recon/verify-idempotent.py', '--quiet') $repo
 }
 }
 
