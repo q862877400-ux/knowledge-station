@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **197 份** / **7044 KB**。
+> 共 **198 份** / **7069 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -122,7 +122,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（62 份 / 1277 KB）
+## 根文档与其他（63 份 / 1302 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -135,6 +135,7 @@
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
+| `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 24 | 未提交 | 1. 一句话：这是什么 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
 | `docs/research/substitute-scan.md` | 22 | 2026-09-19 | 一、扫描结果：四类替代品（+ 一类交付形态替代） |
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
@@ -143,8 +144,8 @@
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
+| `docs/README.md` | 14 | 2026-10-11 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
-| `docs/README.md` | 13 | 2026-10-11 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
