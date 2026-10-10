@@ -54,8 +54,8 @@
   "cq-igi": {
    "total": 32580,
    "cap": 32580,
-   "note": "重庆 IGI 75 site（无上限，应全采）",
-   "_status": "verified-total"
+   "note": "⚠ **上游自报 total，实测虚高**（2026-10-10 核实）：`pageInfo.totalResults` 合计 32,582，但逐站核对 0 个站整站未采、57 个站首页全在库；对 2 个'部分在库'的站完整重采**新增 0** ⇒ **可采的都已采到**，34.6% 的分母虚高。详见 recon/CQ-IGI-EXHAUSTED-2026-10-10.md",
+   "_status": "verified-total-inflated"
   },
   "danzhou-igi": {
    "total": null,
