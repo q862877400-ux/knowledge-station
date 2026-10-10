@@ -106,8 +106,8 @@ def show_fields() -> int:
     safe_print("\n=== 主字段非空率（⚠ 某列接近 0% 就是静默缺陷）===")
     for k in fields:
         n = nonempty[k]
-        flag = "   ← ⚠ 整列几乎全空！" if n / tot < 0.05 else ""
-        print(f"  {k:14s} {n:8,d}  {n / tot * 100:6.1f}%{flag}")
+        flag = "   <- [!!] 整列几乎全空！" if n / tot < 0.05 else ""
+        safe_print(f"  {k:14s} {n:8,d}  {n / tot * 100:6.1f}%{flag}")
     print("\n=== extra 子字段出现率 top20 ===")
     for k, n in sorted(extras.items(), key=lambda kv: -kv[1])[:20]:
         print(f"  {k:26s} {n:8,d}  {n / tot * 100:6.1f}%")
@@ -210,7 +210,7 @@ def show_answers() -> int:
             if hit:
                 flagged += 1
                 t, n = hit.most_common(1)[0]
-                print(f"  {s:26s} 「{t[:34]}」× {n}  ← 开头相同，**待核对**")
+                safe_print(f"  {s:26s} 「{t[:34]}」× {n}  <- 开头相同，**待核对**")
     if not flagged:
         print("  （无）")
     safe_print("  本条**不是**「已确认截断」—— 必须回原站抓明细页才能定性（T204 的教训）。")
@@ -314,13 +314,16 @@ def show_targets() -> int:
     for k, t, cap, goal, a, ratio, note in rows:
         flag = ""
         if ratio < 0.5 and goal >= 1000:
-            flag = "  ⚠ 远未达目标"
+            flag = "  [!!] 远未达目标"
             warn += 1
         cap_s = f"{cap:,}" if cap else "-"
-        print(f"{k:16s} {t:10,d} {cap_s:>8s} {goal:10,d} {a:9,d} {ratio * 100:6.1f}%{flag}")
+        # ⚠ 走 `safe_print`（spec 005 T302）：`flag` 里带 emoji，
+        #   而本机控制台是 GBK ⇒ 直接 `print` 会 UnicodeEncodeError 把整个命令带崩。
+        #   实测 `--targets` 就是这么崩的（rc=1，一条报告都出不来）。
+        safe_print(f"{k:16s} {t:10,d} {cap_s:>8s} {goal:10,d} {a:9,d} {ratio * 100:6.1f}%{flag}")
         if flag:
-            print(f"{'':16s} {'':10s} {'':8s} {'':10s} {'':9s}         {note}")
-    safe_print(f"\n⚠ 完成度 <50%（且有效目标 ≥1000 条）的源：{warn} 个")
+            safe_print(f"{'':16s} {'':10s} {'':8s} {'':10s} {'':9s}         {note}")
+    safe_print(f"\n完成度 <50%（且有效目标 >=1000 条）的源：{warn} 个")
     print("（cap = 我方主动设定的上限：单源 2 万、每市 3000/8000）")
     return 0
 
