@@ -74,7 +74,13 @@ def test_field_audit_exit_code_on_both_empty(tmp_path, monkeypatch):
 # ---------------------------------------------------------------- US3 标签准确率
 
 def test_label_accuracy_refuses_without_human_check(tmp_path, monkeypatch, capsys):
-    """**宪法 III**：未人工核对时必须输出「明确未做」，**不给数字**。"""
+    """**宪法 III**：未人工核对时必须输出「明确未做」，**不给数字**。
+
+    ⚠⚠ **2026-10-10 修（spec 005 T502）**：原断言是
+    `assert "%" not in out or "未做" in out` —— 那是**「或」**，
+    只要输出里有「未做」两字，**塞进去一个假百分比也照样过**（独立复核实测）。
+    ⇒ 现在改成**两条独立断言**：必须说「未做」**且**不得出现百分比数字。
+    """
     import importlib
     la = importlib.import_module("label-accuracy")
     p = tmp_path / "c.csv"
@@ -86,8 +92,16 @@ def test_label_accuracy_refuses_without_human_check(tmp_path, monkeypatch, capsy
     rc = la.main()
     out = capsys.readouterr().err + capsys.readouterr().out
     assert rc == 1
-    # 不能出现准确率数字
-    assert "%" not in out or "未做" in out
+    # ① 必须明确说「未做」
+    assert "未做" in out, f"未核对时必须说「明确未做」，实际输出：{out[:300]}"
+    # ② **且**不得把百分比当**结论**给出来。
+    #    ⚠ 不能简单断言"输出里没有 %" —— 未做分支的**解释句**里
+    #      本来就引用了"模型自评的 78.9%"来说明"不许拿它充数"
+    #      （第一版这么断言，当场误报）。⇒ 只查**结论形态**：
+    #      `真实准确率：NN.N%` 或 `准确率 NN.N%`（那才是给数字）。
+    import re as _re
+    conclusion = _re.findall(r"(?:真实)?准确率[：:]\s*\d+(?:\.\d+)?\s*%", out)
+    assert not conclusion, f"未核对时不得给出准确率结论，实际出现了 {conclusion}"
 
 
 def test_label_accuracy_scores_after_human_check(tmp_path, monkeypatch):
