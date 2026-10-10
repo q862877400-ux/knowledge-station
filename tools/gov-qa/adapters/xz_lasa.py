@@ -73,6 +73,9 @@ REFERER = SITE["entry"]
 SELF_DEPT = "d548f0a35d60483c8c67bbb86f7a5723"
 PAGE_SIZE = 20
 PAUSE = 1.2
+#: 列表翻页的瞬时失败重试次数与等待（实测第 44 页遇 `RemoteProtocolError`）。
+PAGE_RETRIES = 3
+RETRY_WAIT = 3.0
 
 _TAG = re.compile(r"<[^>]+>")
 
@@ -160,26 +163,37 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = 200) -> list[di
           "(KHTML, like Gecko) Chrome/120 Safari/537.36")
     n_detail = 0
     n_detail_fail = 0
+    # ⚠ 列表翻页要能扛**瞬时断连**（2026-10-10 实测：第 44 页
+    #   `RemoteProtocolError: Server disconnected without sending a response`
+    #   ⇒ 旧版直接 break，只收到 859 / 1,031 条）。
+    #   ⇒ 每个页面最多重试 `PAGE_RETRIES` 次；仍失败才停。
     with httpx.Client(timeout=30, headers={"User-Agent": ua},
                       follow_redirects=True, trust_env=False, verify=False) as c:
         for page in range(1, max_pages + 1):
             if limit and len(out) >= limit:
                 break
-            try:
-                r = c.post(API, json=_body(page, PAGE_SIZE),
-                           headers={"Referer": REFERER,
-                                    "Content-Type": "application/json",
-                                    "X-Requested-With": "XMLHttpRequest"})
-            except Exception as e:                                      # noqa: BLE001
-                print(f"    [{SITE['key']}] 第 {page} 页失败 {type(e).__name__}: {e}（停）")
-                break
-            if getattr(r, "status_code", 0) != 200:
-                print(f"    [{SITE['key']}] 第 {page} 页 HTTP {getattr(r, 'status_code', '?')}（停）")
-                break
-            try:
-                d = r.json() or {}
-            except Exception:                                           # noqa: BLE001
-                print(f"    [{SITE['key']}] 第 {page} 页非 JSON（停）")
+            d = None
+            for attempt in range(PAGE_RETRIES):
+                try:
+                    r = c.post(API, json=_body(page, PAGE_SIZE),
+                               headers={"Referer": REFERER,
+                                        "Content-Type": "application/json",
+                                        "X-Requested-With": "XMLHttpRequest"})
+                    if getattr(r, "status_code", 0) != 200:
+                        raise RuntimeError(f"HTTP {getattr(r, 'status_code', '?')}")
+                    d = r.json() or {}
+                    break
+                except Exception as e:                                  # noqa: BLE001
+                    if attempt == PAGE_RETRIES - 1:
+                        print(f"    [{SITE['key']}] 第 {page} 页失败"
+                              f"（重试 {PAGE_RETRIES} 次后仍错）"
+                              f" {type(e).__name__}: {e}（停）")
+                        d = None
+                    else:
+                        print(f"    [{SITE['key']}] 第 {page} 页"
+                              f" {type(e).__name__}，第 {attempt + 1} 次重试…", flush=True)
+                        time.sleep(RETRY_WAIT)
+            if d is None:
                 break
             if d.get("status") != "success":
                 print(f"    [{SITE['key']}] 第 {page} 页 status={d.get('status')}（停）")
