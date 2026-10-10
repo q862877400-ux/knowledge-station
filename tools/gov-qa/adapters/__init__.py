@@ -474,6 +474,12 @@ ADAPTERS: dict[str, str] = {
     #    （**必须带 CSRF token `loadMailboxsDataToken`** —— 页面上 `value` 在 `id` 之前）。
     #    详情 `/front/mailbox/mailbox?id=&siteId=` 服务端渲染。实测 total=91。
     "zk-zxsq": "adapters.zk_zxsq",     # 周口市·政民互动·咨询受理
+    # —— 河南第 5 个市级源（2026-10-10，spec 005 T601）：
+    #    开封 `/uapi/mail/list` + `/uapi/mail/detail`（配置全从 `config.js` 抄）。
+    #    ⚠⚠ 三个必须踩对的点：① 列表的 `siteId` 参数传的是 **`qdId`**（不是 `siteId`）；
+    #    ② 必须带 `publicationFlag:1`；③ 分页参数叫 `current`/`pagesize`。
+    #    错任一个都返回 `total:0` —— **看起来像"没有数据"**。实测 total=789。
+    "kf-hdjl": "adapters.kf_hdjl",     # 开封市·政民互动·信件公开
 }
 
 #: 用户要能直接 `from adapters import load`
