@@ -1,6 +1,10 @@
 # gov-qa 本轮交付摘要 · 2026-10-08 夜
 
-> **这是索引**：本轮全部事实与证据在 [SITE-REGISTRY §九](SITE-REGISTRY.md)（"2026-10-08 夜场"）。
+> **这是索引**：本轮全部事实与证据在 [SITE-REGISTRY §九](../SITE-REGISTRY.md)（"2026-10-08 夜场"）。
+> ⚠ **路径更正（2026-10-10 接手方）**：原文写 `SITE-REGISTRY.md`（相对本文件）⇒ 解析成
+> `tools/gov-qa/recon/SITE-REGISTRY.md`，**那个文件不存在**（实测断链，登记在
+> `docs/BROKEN-LINKS.md`）。`SITE-REGISTRY.md` 实际在 **`tools/gov-qa/`（上一级）**
+> ⇒ 从本文件出发是 `../SITE-REGISTRY.md`。
 > 提交 `9e6df9c`；快照 `step-315-govqa-zj-sn-xz-20261008`。
 
 ## 一、数据成果（全部已落盘、已提交）

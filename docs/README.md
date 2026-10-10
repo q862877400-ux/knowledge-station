@@ -24,8 +24,16 @@
 |---|---|---|
 | `src/core/` | **Python 引擎**，19 个子系统：`api`（HTTP 端点）/ `ingestion`（解析入库）/ `knowledge`（法规知识）/ `retrieval`（检索）/ `storage`（sqlite 存取）/ `update`（渠道巡检）/ `materials`（材料平面）/ `llm` / `exports` / `quality` / `verification` / `settings` / `compliance` / `domain` / `vision` / `query` / `law_source` / `update/channels` | ✅ |
 | `plugin/` | **DSH 插件**（Node）：宿主桥 + 侧栏 React 界面 + 对 agent 暴露的 4 个工具 | ✅ |
+| **`tools/`** | **独立工具与数据集**（**仓里最大的组件**）。目前只有一族：**`tools/gov-qa/`** —— 政务问答采集（347 通道 / 40,943 条 / **已进本仓门禁**）。**它是另一条线**，入口见 [`tools/gov-qa/README.md`](../tools/gov-qa/README.md)；**可复用资产清单见** [`REUSE-FOR-ANNOUNCEMENTS.md`](../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md) | ✅（数据 634 MB 亦在版本控制） |
 | `tests/` | pytest 测试（约 163 个文件）；`tests/fixtures/` 放夹具 | ✅ |
 | `scripts/` | 工具脚本：门禁 `run-gates.ps1`、快照 `snapshot-project.ps1`、文档工具 `docs/` | ✅ |
+
+> **⚠ 关于 `tools/`（2026-10-10 补）**：它是**仓里最大的组件**（924 MB / 3,456 文件），
+> 但此前**本文件与 `wiki/architecture.md` 都没提过它** —— 接手的人看不到它。
+> 它**不属于主引擎**（不改 `src/`、不跑主检索），但**与主项目共用同一批政府站点**，
+> 因此有**可直接复用的资产**（中间件指纹 / 可达性矩阵 / 水位三型 / 纯 ASCII 机器接口 /
+> 地级市→省映射）。**要拿它的东西之前，先读 `REUSE-FOR-ANNOUNCEMENTS.md` 的「写入边界」节** ——
+> 那个目录**由另一条自动化线高频写入**。
 
 ### 1.2 文档
 
@@ -47,6 +55,8 @@
 | `docs/research/` | **外部研究**的结论（读别人的东西得到的） | ✅ |
 | `specs/` | **Spec Kit 工作区**：规格 → 计划 → 任务。不是产品文档 | ✅ |
 | `eval/` | 评测语料与脚本（`eval/golden/` 是门禁三件最小集，**⚠ 勿删**） | ✅ |
+| **`tools/gov-qa/`** | **另一条线**（政务问答采集，**已进本仓门禁**）。**它的可复用资产清单** = [`REUSE-FOR-ANNOUNCEMENTS.md`](../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md)（中间件指纹 / 可达性矩阵 / 水位三型 / 纯 ASCII 接口 / 地级市→省映射）。**入口** = [`README.md`](../tools/gov-qa/README.md) | ✅ |
+| **`docs/verify-briefs/`** | **独立复核与取证报告**（17 份）。⚠ 其中两份是 **2026-10-10 从仓库临时件字节级搬进来的**（原件在 `.tmp-*`，会被清）——`VERIFY-REPORT-govqa-data-forensics.md` / `VERIFY-REPORT-spec004-operationalization.md` | ✅ |
 
 ### 1.3 工程配置
 
