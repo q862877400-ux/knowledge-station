@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **200 份** / **7137 KB**。
+> 共 **201 份** / **7181 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -57,7 +57,7 @@
 | `docs/research/channels/law-cn.md` | 112 | 2026-09-18 | 1. [国家法律法规数据库（flk.npc.gov.cn）](#1-国家法律法规数据库flknpcgovcn) |
 | `docs/research/channels/std-cn.md` | 73 | 2026-09-18 | 0. 本次调研最重要的三个发现（先看这个） |
 | `docs/research/channels/internal-inventory.md` | 67 | 2026-09-18 | 0. 阅读本文件需要的三条结构事实 |
-| `docs/GOVQA-UNWIRED-CHANNELS.md` | 48 | 未提交 | 一、先弄清「接线」是什么意思 |
+| `docs/GOVQA-UNWIRED-CHANNELS.md` | 48 | 2026-10-11 | 一、先弄清「接线」是什么意思 |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 | 2026-10-10 | **实测 236 条**：有效 110 · 边缘 21 · 接口 6 · 空壳/JS壳 35 · 被拦 7 · 不通/失 |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
 
@@ -123,7 +123,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（64 份 / 1322 KB）
+## 根文档与其他（65 份 / 1366 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -132,6 +132,7 @@
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
+| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v1.md` | 44 | 未提交 | **这是什么项目**：一个跑在个人电脑上的「本地资料检索与取证」工具 —— 用户用大白话提问，它在本机资料库里定位到那一 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 32 | 2026-10-11 | 1. 一句话：这是什么 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
@@ -148,7 +149,7 @@
 | `docs/README.md` | 14 | 2026-10-11 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
-| `docs/PLAN-REAL-QUESTION-RULER.md` | 12 | 未提交 | 一、先说结论 |
+| `docs/PLAN-REAL-QUESTION-RULER.md` | 12 | 2026-10-11 | 一、先说结论 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
