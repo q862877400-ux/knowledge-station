@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **201 份** / **7181 KB**。
+> 共 **201 份** / **7205 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -123,16 +123,16 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（65 份 / 1366 KB）
+## 根文档与其他（65 份 / 1390 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/DEVELOPMENT-HISTORY.md` | 306 | 2026-10-11 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
+| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v2.md` | 68 | 未提交 | **这是什么项目**：一个跑在个人电脑上的「本地资料检索与取证」工具 —— 用户用大白话提问，它在本机资料库里定位到那一 |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
-| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v1.md` | 44 | 未提交 | **这是什么项目**：一个跑在个人电脑上的「本地资料检索与取证」工具 —— 用户用大白话提问，它在本机资料库里定位到那一 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 32 | 2026-10-11 | 1. 一句话：这是什么 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
