@@ -22,6 +22,23 @@
 ```
 
 ⚠ 默认只读**生产库**（不写）。要对着别的库量就把 `--db` 指过去。
+
+## ⚠⚠ 本脚本会**写文件**，而且不止 `--out` 那一个
+
+它会为**每个来源**写一个 `assets-<源名>.json`（实测 **592 个**），
+默认写在**本脚本所在目录**（`tools/gov-qa/`）—— 其中 **160 个受版本控制**
+⇒ 在干净的工作区里跑一次，`git status` 会多出几百行改动。
+
+**`--out` 只控制那份汇总报告，不控制 `assets-*.json`** —— 这是本脚本最容易踩的坑
+（2026-10-11 实测：有人以为给了 `--out` 就不会动仓库，结果改了 592 个文件）。
+
+三条正确用法：
+
+| 你想干什么 | 怎么跑 |
+|---|---|
+| **只想看数字、不碰仓库** | 加 `--assets-dir` 指向临时目录：`--assets-dir "$env:TEMP\\ks-assets"` |
+| **就是要刷新仓库里的验收产物** | 直接跑（默认写回 `tools/gov-qa/`），然后 `git status` 看差异 |
+| **先知道会写多少** | 脚本启动时会打印「将写 N 个 assets-*.json 到 <目录>」 |
 """
 from __future__ import annotations
 
@@ -72,7 +89,12 @@ def find_std(lib: dict[str, str], name: str) -> str | None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=None, help="要对照的库（默认生产库，只读）")
-    ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--out", default=str(OUT),
+                    help="汇总报告写到哪（**不影响 assets-*.json**）")
+    ap.add_argument("--assets-dir", default=str(HERE),
+                    help="每个来源的 assets-*.json 写到哪。默认写回本目录"
+                         "（⚠ 那里有 160 个受版本控制的 assets 文件，会被覆盖）；"
+                         "**只想看数字就指到临时目录**")
     args = ap.parse_args()
 
     db = Path(args.db) if args.db else (
@@ -87,6 +109,17 @@ def main() -> int:
     if not files:
         print(f"⛔ {DATA} 下没有采集结果；先跑 harvest.py")
         return 1
+
+    # ⚠ 先说清"会写什么、写到哪" —— 免得跑完才发现动了仓库（2026-10-11 的教训）
+    assets_dir = Path(args.assets_dir)
+    assets_dir.mkdir(parents=True, exist_ok=True)
+    n_existing = len(list(assets_dir.glob("assets-*.json")))
+    print(f"[m] ⚠ 将写 {len(files)} 个 assets-*.json 到 {assets_dir}"
+          f"（该目录现有 {n_existing} 个 assets-*.json，**会被覆盖**）")
+    print(f"[m]    汇总报告另写到 {args.out}")
+    if assets_dir.resolve() == HERE.resolve() and n_existing:
+        print("[m]    ⇒ 你正在写回仓库目录；只想看数字请加 "
+              "--assets-dir <临时目录>")
 
     report = {"db": str(db), "n_lib_names": len(lib), "sources": {}}
     skipped = 0
@@ -141,7 +174,7 @@ def main() -> int:
         print(f"\n[{f.stem}] {len(rows)} 条")
         print(f"    A 可当考卷 = {len(a)}   B 补料清单 = {len(b)}   C 无依据 = {len(c)}")
         print(f"    可定位率 = {len(a)+len(b)}/{n} ； 在库率 = {cited_in}/{cited_all}")
-        (HERE / f"assets-{f.stem}.json").write_text(
+        (assets_dir / f"assets-{f.stem}.json").write_text(
             json.dumps({"A_考卷": a, "B_补料": b, "C_无依据": c},
                        ensure_ascii=False, indent=1), encoding="utf-8")
 
@@ -150,7 +183,7 @@ def main() -> int:
     print(f"\n[m] **可用考卷合计 = {tot_a} 条**（目标 >=100，见 README「瓶颈在库不在采集」一节）")
     if skipped:
         print(f"[m] 跳过 {skipped} 行（解析失败，多为另一个对话采集进行中的半行）")
-    print(f"[m] 已写 {args.out} 与每个来源的 assets-*.json")
+    print(f"[m] 已写 {args.out} 与 {len(files)} 个 assets-*.json（写到 {assets_dir}）")
     return 0
 
 
