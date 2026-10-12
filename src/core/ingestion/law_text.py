@@ -304,6 +304,31 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
         "effective_from": effective_from,
         "file_path": source_marker, "file_hash": file_hash,
         "source_url": source_url}
+    # ── CCS 标签（spec 011 第 ② 条，2026-10-12）──────────────────────────────
+    # ⚠ **真缺口**：填 CCS 的代码原本只在 `pipeline.py`（本地文件那条入库路），
+    #   而**通道/网页**入库走的是本函数 ⇒ 实测 `web://` 来源 **380 篇 CCS 标签 0 篇**，
+    #   目录树（读时按 `CCS:xxx` 分类）认不出它们 ⇒ 全落「其他标准」兜底桶。
+    #
+    # 判据**只有一个所有者**：`ccs_fetcher`（三级链：官方接口 → 网页 → 本地兜底），
+    # 与 `pipeline.py` L2216-2224 用的是同一对函数（`resolve_ccs` / `ccs_to_tag`）。
+    # **不在本文件另写一份解析** —— 两份判断迟早漂移（本仓「一个事实一个归属层」）。
+    #
+    # 只对 `doc_type == "standard"` 查（法规没有 CCS 分类体系，与 pipeline 同口径）。
+    # 失败**降级不阻塞入库**（查不到 / 超时 / 被墙 ⇒ 少一个标签，不该让整篇进不了库）；
+    # 但**必须留痕**（`ccs_store.record_ccs_lookup`，与 pipeline 同口径）。
+    ccs_lookup: dict | None = None
+    if doc_type == "standard":
+        try:
+            from src.core.knowledge.ccs_fetcher import ccs_to_tag, resolve_ccs
+            ccs_lookup = resolve_ccs(standard_no, standard_name)
+            ccs_tag = ccs_to_tag(ccs_lookup, standard_no)
+            if ccs_tag:
+                tags_now = list(doc_row.get("domain_tags") or [])
+                if ccs_tag not in tags_now:
+                    tags_now.append(ccs_tag)
+                    doc_row["domain_tags"] = tags_now
+        except Exception:  # noqa: BLE001 — CCS 查不到不该让整篇进不了库
+            ccs_lookup = None
     # `__default__` 哨兵：**显式**区分"调用方没给"（沿用既有默认）与"调用方要给 NULL"
     # （采集路径就要 NULL ⇒ 效力状态"未知" ⇒ 效力报告显示 ⚪ 而不是 🟢）。
     if legal_status != "__default__":
@@ -333,6 +358,15 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
             ("ingest_law_text", "doc", doc_id,
              json.dumps({"standard_no": standard_no, "clauses": len(models)},
                         ensure_ascii=False)))
+
+    # CCS 台账（spec 011 第 ② 条）：**事务提交之后**记 —— 与 `pipeline.py` 同口径
+    # （那边也是"事务提交后落 doc_ccs_state"）。失败只留日志，不影响入库结果。
+    if ccs_lookup is not None:
+        try:
+            from src.core.knowledge import ccs_store
+            ccs_store.record_ccs_lookup(doc_id, ccs_lookup)
+        except Exception:  # noqa: BLE001 — 台账失败不该让入库失败
+            pass
 
     return {"status": "ok", "doc_id": doc_id, "total_clauses": len(models),
             "evidence_edges": len(edges)}

@@ -3302,6 +3302,15 @@ def run() -> None:
         start_law_refresh()
     except Exception:  # noqa: BLE001 - 刷新线程失败不阻塞引擎启动
         pass
+    # 更新巡检定时线程（spec 011 第 ① 条）：把**已建成但没接线**的调度器接上生产。
+    # 它负责两件 scheduler.py 自己做不到的事：① 真的被启动（`UpdateScheduler.start()`
+    # 全仓无人调用）；② **建批之后执行**（`tick()` 只建不跑，批会躺在 pending）。
+    # 周期走 `update.schedule_days`（缺省 7 天；≤0 关闭调度）——沿用既有配置语义。
+    try:
+        from src.core.update.scheduler_runner import start_update_scheduler
+        start_update_scheduler()
+    except Exception:  # noqa: BLE001 - 巡检线程失败不阻塞引擎启动
+        pass
     # token 通过 stdout 交给 Electron 主进程注入（P8：同时写 session 文件供启动器/前端读取）
     print(f"KNOWLEDGE_STATION_PORT={port}", flush=True)
     print(f"KNOWLEDGE_STATION_TOKEN={token}", flush=True)
@@ -3322,5 +3331,10 @@ def run() -> None:
         try:
             from src.core.knowledge.law_source.law_refresh import stop_law_refresh
             stop_law_refresh()
+        except Exception:  # noqa: BLE001 - 关停失败不覆盖启动路径的退出码
+            pass
+        try:
+            from src.core.update.scheduler_runner import stop_update_scheduler
+            stop_update_scheduler()
         except Exception:  # noqa: BLE001 - 关停失败不覆盖启动路径的退出码
             pass
