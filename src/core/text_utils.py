@@ -1901,6 +1901,56 @@ def strip_duplicate_suffix(name: str | None) -> str:
         s = nxt
 
 
+#: 标准号尾部的**来源后缀**：`(OCR采集)`。
+#:
+#: ⚠ **只此一种，字面匹配** —— 不放宽成"任意尾部括号"。库内大量**合法**括号名
+#: （`聚丙烯(PP)树脂`、`GB/T 27668-2023显微镜光学显微术术语(1)`）必须原样保留。
+#:
+#: 为什么单开一个判据、不复用 `_RE_DUP_SUFFIX`（spec 009 T001）：
+#: 那个判据吃的是**结尾的 `(数字)`**（副本后缀 `(1)`），与"来源后缀 `(OCR采集)`"
+#: **不是同一件事**。混用会把合法括号名误伤，也违反本仓"一个判据一个所有者"。
+_RE_OCR_SOURCE_SUFFIX = re.compile(r"\s*[（(]\s*OCR采集\s*[)）]\s*$")
+
+
+def strip_ocr_source_suffix(s: str | None) -> str:
+    """剥掉标准号**结尾**的来源后缀 `(OCR采集)`（只此一种，其余一字不动）。
+
+    ## 为什么需要（2026-10-12 实测）
+
+    生产库 **1,430 篇**（占 8,983 篇的 **15.9%**）的 `doc_meta.standard_no` 尾部带这个后缀，
+    它们全部来自 2026-10-07 那次 **LawRefBook** 导入（`file_path` 前缀 `lawrefbook://`）。
+    用户点开证据卡片时**会直接看到**（`plugin/client/KsTurnTab.tsx` 渲染 `standard_no`）。
+
+    ## ⚠ 为什么是"搬"而不是"删"（本函数只做"搬"的前一半）
+
+    实测这 1,430 篇的其余字段**全部按"官方现行"登记**（`quality_grade='A'` /
+    `legal_status='effective'` / `standard_type='mandatory'`，`source` 是 `NULL`）
+    ⇒ **这个后缀是它们唯一的"非官方来源"标记**。
+    只剥后缀 = 把来路信息删干净 ⇒ 调用方**必须**同时把来源写进 `doc_meta.source`。
+    完整口径见 `specs/009-standard-no-ocr-suffix/spec.md`。
+
+    ## 有牙的三条（`tests/test_standard_no_ocr_suffix.py`）
+
+    * `"刑法(OCR采集)"` → `"刑法"`（不剥 ⇒ 红）
+    * `"聚丙烯(PP)树脂"` → **原值不变**（判据写宽 ⇒ 红）
+    * `"GB 5009.12-2023食品安全国家标准"` → **原值不变**（把"尾部带中文"也剥 ⇒ 红）
+
+    ## ⚠ 要反复剥，不能只剥一次
+
+    与 `strip_duplicate_suffix` **同一个坑**（那里 2026-09-17 被写后复验抓到过双重后缀
+    `…测定法(1)(1)`）：`re.sub` 一趟只吃掉一个 —— 锚定 `$` 的匹配在引擎扫过之后
+    就不再回头。本函数**第一次就写对了**，是因为 A1 之外还留了一条
+    `"刑法(OCR采集)(OCR采集)"` 的断言（写实现时就跑，当场红）。
+    循环剥到稳定为止（每轮长度严格减小，必然终止）。
+    """
+    s = s or ""
+    while True:
+        nxt = _RE_OCR_SOURCE_SUFFIX.sub("", s).strip()
+        if nxt == s:
+            return s
+        s = nxt
+
+
 def clean_standard_name(raw: str | None, *, standard_no: str | None = None) -> str:
     """文件名（或原始串）→ **干净的标准名称**（展示用，不改内容）。
 
