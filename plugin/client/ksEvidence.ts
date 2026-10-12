@@ -33,6 +33,29 @@ export interface KsEvidence {
   bboxPage?: number
   /** Optional clause revision id (annotated in the tab header). */
   rev?: string
+  /**
+   * **同一轮里也被引用的其他条款**（业主 2026-10-12 要求）。
+   *
+   * 业主原话：「在一个文件里面，它现在有 6 个条文都和它相关，那么我随便点哪一处…
+   * 都可以跳到对应的原文的位置。同时呢，我点的那一条条目它的箭头是红的，
+   * 其他同一个文件里面其他的被引用上的条目，就变成半透明…把透明度降低一点的这个箭头。」
+   *
+   * ⇒ 本 tab 打开时：**点开的那条**画实心红箭头，**这些**画半透明红箭头
+   * （让人一眼看出"这一轮还引用了同一份文件的哪几处"）。
+   *
+   * 编码：URL 上重复的 `also=<page>,<x0>,<y0>,<x1>,<y1>`（`URLSearchParams.getAll`）。
+   * 用重复参数而不是自定义分隔符串：值里不必再转义，`getAll` 天然给数组。
+   * ⚠ 只收**同一份文档**的其他条款（跨文档的箭头没有意义 —— 本 tab 只显示一份 PDF）。
+   */
+  siblings?: KsEvidenceSibling[]
+}
+
+/** 同轮同文档的"其他被引用条款"（画半透明箭头用）。 */
+export interface KsEvidenceSibling {
+  /** 1-based 页。 */
+  page: number
+  /** PDF 用户空间 bbox（底部原点）。 */
+  bbox: [number, number, number, number]
 }
 
 export const EVIDENCE_PATH = '/__ks_evidence__'
@@ -79,6 +102,7 @@ export function parseEvidence(input: string | KsEvidence | undefined | null): Ks
         ? Math.floor(input.bboxPage)
         : undefined,
       rev: typeof input.rev === 'string' && input.rev.length > 0 ? input.rev : undefined,
+      siblings: Array.isArray(input.siblings) ? input.siblings : undefined,
     }
   }
 
@@ -108,7 +132,13 @@ export function parseEvidence(input: string | KsEvidence | undefined | null): Ks
 
   const rev = url.searchParams.get('rev') ?? undefined
 
-  return { doc, page, bbox, bboxPage, rev }
+  /* ⚠ 2026-10-12（spec 012 R4）：同轮其他条款（画半透明箭头用）。
+     用**重复参数** `also=…`（`getAll` 天然给数组），形状不对的整条丢掉。 */
+  const siblings = url.searchParams.getAll('also')
+    .map(parseSibling)
+    .filter((s): s is KsEvidenceSibling => s !== null)
+
+  return { doc, page, bbox, bboxPage, rev, siblings: siblings.length > 0 ? siblings : undefined }
 }
 
 /** Validate a numeric bbox array [x0, y0, x1, y1]. */
@@ -118,6 +148,18 @@ export function isBbox(value: unknown): value is [number, number, number, number
     && value.length === 4
     && value.every((n) => typeof n === 'number' && Number.isFinite(n))
   )
+}
+
+/** 解析一条 `also=<page>,<x0>,<y0>,<x1>,<y1>`（同轮其他条款）。形状不对 ⇒ null。 */
+function parseSibling(raw: string): KsEvidenceSibling | null {
+  const parts = raw.split(',').map((s) => Number(s.trim()))
+  if (parts.length !== 5 || parts.some((n) => !Number.isFinite(n))) return null
+  const [page, x0, y0, x1, y1] = parts
+  if (page < 1) return null
+  return {
+    page: Math.floor(page),
+    bbox: [Math.min(x0, x1), Math.min(y0, y1), Math.max(x0, x1), Math.max(y0, y1)],
+  }
 }
 
 /** Pseudo host used to RECONSTRUCT an evidence anchor URL (matches the host's
@@ -158,6 +200,17 @@ export function evidenceUrlOf(ev: KsEvidence | null | undefined): string | null 
     params.set('bbox', ev.bbox.map((n) => String(n)).join(','))
     if (typeof ev.bboxPage === 'number' && Number.isFinite(ev.bboxPage) && ev.bboxPage >= 1) {
       params.set('bboxPage', String(Math.floor(ev.bboxPage)))
+    }
+  }
+  /* ⚠ 2026-10-12（spec 012 R4，业主要求）：同轮**其他**被引用的条款也要带上
+     —— 渲染层据此画半透明红箭头（点开的那条是实心红）。
+     ⚠ 只在形状合法时编；**编了 bbox 才编 siblings**（没有主箭头就没有"其他"可言）。 */
+  if (isBbox(ev.bbox) && Array.isArray(ev.siblings)) {
+    for (const s of ev.siblings) {
+      if (s === null || typeof s !== 'object') continue
+      if (!(typeof s.page === 'number' && Number.isFinite(s.page) && s.page >= 1)) continue
+      if (!isBbox(s.bbox)) continue
+      params.append('also', `${Math.floor(s.page)},${s.bbox.map((n) => String(n)).join(',')}`)
     }
   }
   return `${EVIDENCE_ORIGIN}${EVIDENCE_PATH}?${params.toString()}`

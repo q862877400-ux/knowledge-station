@@ -16,7 +16,7 @@
  */
 import * as React from 'react'
 
-import { evidenceUrlOf, type KsEvidence } from './ksEvidence'
+import { evidenceUrlOf, type KsEvidence, type KsEvidenceSibling } from './ksEvidence'
 
 /** 框架按 hookContext 交给 body 的运行时面（同 KsEvidenceHost 的用法）。 */
 export interface KsTurnTabRuntime {
@@ -77,8 +77,55 @@ export interface KsTurnRecord {
 
 const str = (v: unknown): string => (typeof v === 'string' ? v : v === undefined || v === null ? '' : String(v))
 
+/**
+ * 从本轮**全部**依据里，挑出"与这一条同文档、但不是我这条"的其他条款
+ * （spec 012 R4，业主 2026-10-12 要求）。
+ *
+ * 业主原话：「在一个文件里面，它现在有 6 个条文都和它相关，那么我随便点哪一处，
+ * 你这个哪一处的看原文，然后呢都可以跳到对应的原文的位置。同时呢，我点的那一条条目
+ * 它的箭头是红的，其他同一个文件里面其他的被引用上的条目，就变成半透明…」
+ *
+ * 判据（三条，缺一不可）：
+ * ① **同一 `doc_id`** —— 跨文档的箭头没意义（本 tab 只显示一份 PDF）；
+ * ② **不是我这条**（按 `clause_revision_id` 排除；缺失时按 `clause_number` 排除）；
+ * ③ **有可用的 bbox + 页** —— 没坐标画不出，宁缺毋滥（不编造）。
+ *
+ * ⚠ 去重：同一条款可能在 evidence 里出现两次（不同检索通道命中）⇒
+ * 按 `clause_revision_id`（缺失时按 `页码+bbox`）去重，否则会在同一位置叠画两个半透明箭头
+ * （视觉上比一个深，看起来像"更重要的条款"，那是假象）。
+ */
+export function siblingEvidenceOf(
+  self: KsTurnEvidenceItem, all: readonly KsTurnEvidenceItem[],
+): KsEvidenceSibling[] {
+  const doc = str(self.doc_id)
+  if (doc.length === 0) return []
+  const selfRev = str(self.clause_revision_id)
+  const selfNo = str(self.clause_number)
+  const seen = new Set<string>()
+  const out: KsEvidenceSibling[] = []
+  for (const ev of all) {
+    if (str(ev.doc_id) !== doc) continue
+    const rev = str(ev.clause_revision_id)
+    if (rev.length > 0 ? rev === selfRev : str(ev.clause_number) === selfNo) continue
+    const bboxRaw = ev.bbox
+    if (!(Array.isArray(bboxRaw) && bboxRaw.length === 4
+      && bboxRaw.every((n) => typeof n === 'number' && Number.isFinite(n)))) continue
+    const pageRaw = ev.bbox_page !== undefined ? ev.bbox_page : ev.page_start
+    if (!(typeof pageRaw === 'number' && Number.isFinite(pageRaw) && pageRaw >= 1)) continue
+    const page = Math.floor(pageRaw)
+    const bb = bboxRaw as [number, number, number, number]
+    const key = rev.length > 0 ? rev : `${page}|${bb.join(',')}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push({ page, bbox: bb })
+  }
+  return out
+}
+
 /** 引擎公开字段 → 证据锚点（KsEvidence 形状，evidenceUrlOf 是唯一 URL 构造者）。 */
-export function turnEvidenceHref(ev: KsTurnEvidenceItem): string | null {
+export function turnEvidenceHref(
+  ev: KsTurnEvidenceItem, siblings: readonly KsEvidenceSibling[] = [],
+): string | null {
   const doc = str(ev.doc_id)
   if (doc.length === 0) return null
   const pageRaw = ev.page_start
@@ -102,6 +149,9 @@ export function turnEvidenceHref(ev: KsTurnEvidenceItem): string | null {
     rev: str(ev.clause_revision_id).length > 0 ? str(ev.clause_revision_id) : undefined,
     bbox,
     bboxPage,
+    /* ⚠ 2026-10-12（spec 012 R4）：同轮其他条款一并进 URL ⇒ PDF 里画半透明箭头。
+       只在有主 bbox 时才传（没有主箭头就没有"其他"可言，见 `evidenceUrlOf` 的闸门）。 */
+    siblings: siblings.length > 0 ? [...siblings] : undefined,
   }
   return evidenceUrlOf(target)
 }
@@ -305,11 +355,16 @@ export function KsTurnEvidenceRow(props: {
   onLook?: () => void
   /** 组内第几条（从 1 起）。用于"条款按先后排列"的可读性，不参与排序。 */
   ordinal?: number
+  /**
+   * 同轮**同文档**的其他被引用条款（spec 012 R4）。
+   * 传给「看原文」的 URL ⇒ PDF 里那些条款画半透明红箭头。
+   */
+  siblings?: readonly KsEvidenceSibling[]
 }): React.ReactElement {
-  const { ev, onLook, ordinal } = props
+  const { ev, onLook, ordinal, siblings } = props
   /* ⚠ 2026-10-12（spec 010）：`statusBadge` 不再在这里调用 —— 效力徽章已移到
      分组卡的**文件标题行**（业主：「现行有效是文件级别的」）。 */
-  const href = turnEvidenceHref(ev)
+  const href = turnEvidenceHref(ev, siblings ?? [])
   const clause = str(ev.clause_number)
   return (
     <div
@@ -503,17 +558,26 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
             </div>
           )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-            {group.items.map((ev, i) => (
-              <KsTurnEvidenceRow
-                key={`${str(ev.doc_id)}-${str(ev.clause_revision_id)}-${String(i)}`}
-                ev={ev}
-                ordinal={group.items.length > 1 ? i + 1 : undefined}
-                onLook={() => {
-                  const href = turnEvidenceHref(ev)
-                  if (href !== null) openEvidence(href)
-                }}
-              />
-            ))}
+            {group.items.map((ev, i) => {
+              /* ⚠ 2026-10-12（spec 012 R4）：同组（= 同文档）其他条款 ⇒ 半透明箭头。
+                 用 **group.items** 而不是全量 evidence：分组已经按 doc_id 分好，
+                 组内就是"同一份文件里的条款"，语义正好对上业主说的"一个文件里面 6 个条文"。
+                 （`siblingEvidenceOf` 里仍会再按 doc_id 校验一次 —— 分组键缺 doc_id 时
+                  会各自成组，那道校验是必要的第二层。） */
+              const sibs = siblingEvidenceOf(ev, group.items)
+              return (
+                <KsTurnEvidenceRow
+                  key={`${str(ev.doc_id)}-${str(ev.clause_revision_id)}-${String(i)}`}
+                  ev={ev}
+                  ordinal={group.items.length > 1 ? i + 1 : undefined}
+                  siblings={sibs}
+                  onLook={() => {
+                    const href = turnEvidenceHref(ev, sibs)
+                    if (href !== null) openEvidence(href)
+                  }}
+                />
+              )
+            })}
           </div>
         </div>
         )

@@ -56,7 +56,7 @@ await rm(outfile, { force: true })
 
 const {
   KsTurnEvidenceRow, KsTurnEmptyState, KsTurnModeChip, KsTurnTab, turnEvidenceHref,
-  groupTurnEvidence, compareClauseOrder, clauseOrderKey,
+  groupTurnEvidence, compareClauseOrder, clauseOrderKey, siblingEvidenceOf,
 } = mod
 check('导出齐：KsTurnEvidenceRow / KsTurnEmptyState / KsTurnModeChip / turnEvidenceHref'
   + ' / groupTurnEvidence / compareClauseOrder',
@@ -435,6 +435,88 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
 
 await rm(tmp, { recursive: true, force: true })
 await rm(primStubDir, { recursive: true, force: true }).catch(() => {})
+
+/* ══════════════════════════════════════════════════════════════════════════
+   spec 012 R4：**同轮其他条款的半透明箭头**（业主 2026-10-12 要求）
+
+   业主原话：「在一个文件里面，它现在有 6 个条文都和它相关，那么我随便点哪一处…
+   都可以跳到对应的原文的位置。同时呢，我点的那一条条目它的箭头是红的，
+   其他同一个文件里面其他的被引用上的条目，就变成半透明，把透明度降低一点的这个箭头。」
+
+   判据分两层：
+     · **选谁**（`siblingEvidenceOf`）—— 同文档、不是我、有坐标、去重；
+     · **编进 URL**（`turnEvidenceHref`）—— 真的带上了 `also=` 参数。
+   两层都要钉：只钉一层时，另一层改坏不会被发现。
+   ══════════════════════════════════════════════════════════════════════════ */
+if (typeof siblingEvidenceOf === 'function') {
+  const mk = (o) => ({
+    doc_id: 'doc_A', clause_revision_id: 'rev_x', clause_number: '6.4.3.2',
+    page_start: 9, bbox: [10, 20, 30, 40], bbox_page: 9, ...o,
+  })
+  const self = mk({ clause_revision_id: 'rev_self', clause_number: '6.4.3.2' })
+  const other = mk({ clause_revision_id: 'rev_other', clause_number: '6.4.4.3.3', bbox: [50, 60, 70, 80], bbox_page: 11 })
+  const otherDoc = mk({ doc_id: 'doc_B', clause_revision_id: 'rev_b', clause_number: '1.1' })
+  const noBbox = mk({ clause_revision_id: 'rev_nb', clause_number: '9.9', bbox: undefined, bbox_page: undefined, page_start: undefined })
+
+  const sibs = siblingEvidenceOf(self, [self, other, otherDoc, noBbox])
+  check('★ R4 同轮其他条款：只收同文档、不是我、且有坐标的',
+    sibs.length === 1 && sibs[0].page === 11, JSON.stringify(sibs))
+  check('★ R4 跨文档的**不收**（箭头只对本文件有意义）',
+    !sibs.some((s) => s.bbox[0] === 10 && s.page === 9), JSON.stringify(sibs))
+  check('★ R4 没坐标的**不收**（宁缺毋滥，不编造位置）',
+    sibs.every((s) => Array.isArray(s.bbox) && s.bbox.length === 4))
+
+  /* 去重：同一条款被两个检索通道命中 ⇒ 只画一个箭头。
+     不去重会在同一位置叠画两个半透明箭头 ⇒ 看起来比别的深 ⇒
+     用户会以为"这一条更重要"，那是**假象**。 */
+  const dup = siblingEvidenceOf(self, [self, other, other])
+  check('★ R4 同一条款命中两次 ⇒ 只画一个箭头（不叠画成"更重要"的假象）',
+    dup.length === 1, `sibs=${dup.length}`)
+
+  /* 端到端：选出来 ⇒ 真的编进 URL。 */
+  const href = turnEvidenceHref(other, sibs)
+  check('★ R4 同轮其他条款编进 URL（`also=` 参数）',
+    typeof href === 'string' && href.includes('also=11%2C50%2C60%2C70%2C80'),
+    String(href))
+  /* 反向：没有兄弟 ⇒ **不许**编空的 also（空参会让前端解析出垃圾）。 */
+  const hrefSolo = turnEvidenceHref(other, [])
+  check('★ R4 没有兄弟 ⇒ 一个 also 参数都不编（不许编空参）',
+    typeof hrefSolo === 'string' && !hrefSolo.includes('also'), String(hrefSolo))
+}
+
+/* 半透明箭头图形：与主箭头**同一 path**、只加 opacity。
+   换颜色会让"红"这个产品记号分叉；透明度才是"也是本轮、但不是我点的"的正确表达。 */
+{
+  /* ⚠ KsArrowOverlay 是**独立模块**（`KsTurnTab` 不 import 它）⇒
+     必须单独打一份 bundle，不能从上头那个 `.turn-tab.smoke.mjs` 里取。 */
+  const arrowOut = join(pluginRoot, '.arrow-overlay.smoke.mjs')
+  await build({
+    entryPoints: [join(pluginRoot, 'client', 'KsArrowOverlay.tsx')],
+    bundle: true, platform: 'node', format: 'esm', outfile: arrowOut,
+    absWorkingDir: pluginRoot, loader: { '.tsx': 'tsx', '.ts': 'ts' },
+    external: ['react', 'react-dom', 'react/jsx-runtime', 'pdfjs-dist'],
+    alias: { ...primitivesAlias },
+    logLevel: 'warning',
+  })
+  const arrowMod = await import(pathToFileURL(arrowOut).href)
+  await rm(arrowOut, { force: true })
+  const main = arrowMod.KS_ARROW_SVG
+  const sib = arrowMod.KS_ARROW_SVG_SIBLING
+  check('★ R4 半透明箭头与主箭头**同一图形**（只差 opacity，不换色）',
+    typeof main === 'string' && typeof sib === 'string'
+    && sib.includes('fill="#e02020"') && sib.includes('opacity=')
+    && main.includes('fill="#e02020"') && !main.includes('opacity='),
+    `main=${String(main).slice(0, 60)} / sib=${String(sib).slice(0, 80)}`)
+  check('★ R4 透明度落在"看得见但明显更淡"的区间（0.15~0.6）',
+    typeof arrowMod.KS_SIBLING_OPACITY === 'number'
+    && arrowMod.KS_SIBLING_OPACITY >= 0.15 && arrowMod.KS_SIBLING_OPACITY <= 0.6,
+    String(arrowMod.KS_SIBLING_OPACITY))
+  check('★ R4 两个覆盖层共用同一个背景图转换（不许各写一份 data-URI 拼法）',
+    typeof arrowMod.arrowBackground === 'function'
+    && arrowMod.arrowBackground(main).startsWith('url("data:image/svg+xml'),
+    String(arrowMod.arrowBackground(main)).slice(0, 60))
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== turn-tab smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} (${results.filter((r) => r.ok).length}/${results.length}) ==`)
 process.exit(failed.length === 0 ? 0 : 1)

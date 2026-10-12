@@ -65,7 +65,10 @@ import { KsFilesView } from './KsFilesTab'
 import { KsBookmarksView, type KsBookmarkJump } from './KsBookmarksTab'
 import { KsDocTextView } from './KsDocTextView'
 import { KsAnchorWarn } from './KsAnchorWarn'
-import { KsArrowOverlay } from './KsArrowOverlay'
+import { KsArrowOverlay, KsSiblingArrowsOverlay, arrowBackground, KS_ARROW_SVG_SIBLING } from './KsArrowOverlay'
+
+/** 半透明箭头的背景图（唯一转换处 `arrowBackground`，与主箭头同一实现）。 */
+const siblingArrowBg = arrowBackground(KS_ARROW_SVG_SIBLING)
 import {
   evidenceUrlOf,
   parseEvidence,
@@ -194,6 +197,8 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const abortRef = useRef<AbortController | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const bboxRef = useRef<HTMLDivElement | null>(null)
+  /** 同轮其他条款的半透明箭头覆盖层（spec 012 R4）。 */
+  const siblingBoxesRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
   /** 把目录列锚点同步到"容器所在侧栏列的左缘"（见 `paneLeftEdge` 的坑注释），
    *  同时刷新 `paneOnScreen`——同一处测量，避免两套"在不在屏上"的判据各写一份慢慢漂开。 */
@@ -291,6 +296,13 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     top: number
     height: number
   } | null>(null)
+  /**
+   * **同轮其他被引用条款**的半透明箭头几何（spec 012 R4，业主 2026-10-12 要求）。
+   * 每条一个矩形；由 `renderPage` 现算（与主箭头同一套坐标换算）。
+   */
+  const [siblingArrowRects, setSiblingArrowRects] = useState<
+    { left: number; top: number; width: number; height: number }[]
+  >([])
   // refreshMeta 的引用（loadEvidence 在函数定义前调用它）
   const refreshMetaRef = useRef<((rev: string) => void) | null>(null)
   /**
@@ -563,6 +575,51 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       } else {
         box.style.display = 'none'
         setArrowPos(null)
+      }
+    }
+    /* ⚠⚠ 2026-10-12（spec 012 R4，业主 2026-10-12 要求）：
+       **同轮其他被引用的条款** —— 画半透明红箭头。
+
+       业主原话：「我点的那一条条目它的箭头是红的，其他同一个文件里面其他的被引用上的
+       条目，就变成半透明，把透明度降低一点的这个箭头」。
+
+       ⚠ 与主箭头的**两点不同**，都是刻意的：
+       ① **不受 `showArrowRef` 影响**？—— 受影响。用户关掉"显示红色定位箭头"就是要
+          整片安静，留一堆半透明箭头违背那个开关的语义。⇒ 同开关。
+       ② **同一页可能有多条** ⇒ 主箭头是"一个 div 一条"，这里要画 N 条。
+          做法：覆盖层里按 `page` 分组建子元素（见 JSX 侧的 `siblingArrows`），
+          本函数只负责把"每条的几何"算出来放进 state。
+          为什么不塞进主箭头那个 div：主箭头的 `div.style` 被本函数**独占覆写**，
+          塞子元素会把那条既有链路改复杂（而它现在全绿）。 */
+    if (siblingBoxesRef.current !== null) {
+      const sib = siblingBoxesRef.current
+      const anchors = (evidence.current?.siblings ?? []).filter((s) => s.page === clamped)
+      if (anchors.length === 0 || !showArrowRef.current) {
+        sib.style.display = 'none'
+        setSiblingArrowRects((prev) => (prev.length === 0 ? prev : []))
+      } else {
+        const rects: { left: number; top: number; width: number; height: number }[] = []
+        const pageTop = pagingMode === 'continuous'
+          ? (pageCanvasRefs.current.get(clamped)?.offsetTop ?? 0)
+          : 0
+        for (const a of anchors) {
+          const [ax0, ay0] = viewport.convertToViewportPoint(a.bbox[0], a.bbox[1])
+          const [ax1, ay1] = viewport.convertToViewportPoint(a.bbox[2], a.bbox[3])
+          const rLeft = Math.min(ax0, ax1)
+          const rTop = Math.min(ay0, ay1)
+          const rH = Math.max(Math.max(ay0, ay1) - rTop, 1)
+          const aH = Math.max(10, Math.min(rH, 56))
+          const aW = Math.max(14, Math.min(aH * 1.4, 40))
+          rects.push({
+            left: Math.max(18, rLeft - aW - 2),
+            top: rTop + (rH - aH) / 2 + pageTop,
+            width: aW,
+            height: aH,
+          })
+        }
+        // 覆盖层容器本身要覆盖整块内容区（子元素绝对定位相对它算）。
+        sib.style.display = 'block'
+        setSiblingArrowRects(rects)
       }
     }
   }, [pagingMode])
@@ -2055,6 +2112,26 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
                 contain:layout 重排）就不会再触发这块大位图的重光栅化/黑闪。 */}
             <canvas ref={canvasRef} style={{ display: 'block', transform: 'translateZ(0)' }} />
             <KsArrowOverlay ref={bboxRef} />
+            {/* 同轮其他条款的半透明红箭头（spec 012 R4，业主 2026-10-12 要求）。
+                ⚠ 独立覆盖层：它要画 0~N 条，而主箭头那个 div 的 style 被 renderPage 独占覆写。 */}
+            <KsSiblingArrowsOverlay ref={siblingBoxesRef} />
+            {siblingArrowRects.map((r, i) => (
+              <div
+                key={`sib-${i}`}
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: `${r.left}px`,
+                  top: `${r.top}px`,
+                  width: `${r.width}px`,
+                  height: `${r.height}px`,
+                  pointerEvents: 'none',
+                  backgroundImage: siblingArrowBg,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: '100% 100%',
+                }}
+              />
+            ))}
             {/* 增强③-A: 条款收藏按钮——竖版文字「收藏本条款」，固定在页面左边注带
                 （2..18px），垂直居中条款行；与红箭头左右分离互不遮挡。
                 悬停 title 补充说明。 */}
@@ -2094,6 +2171,25 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
         {load.status === 'ready' && viewMode === 'pdf' && pagingMode === 'continuous' && (
           <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
             <KsArrowOverlay ref={bboxRef} />
+            {/* 同轮其他条款的半透明红箭头（连续模式，spec 012 R4）。 */}
+            <KsSiblingArrowsOverlay ref={siblingBoxesRef} />
+            {siblingArrowRects.map((r, i) => (
+              <div
+                key={`sib-c-${i}`}
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: `${r.left}px`,
+                  top: `${r.top}px`,
+                  width: `${r.width}px`,
+                  height: `${r.height}px`,
+                  pointerEvents: 'none',
+                  backgroundImage: siblingArrowBg,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: '100% 100%',
+                }}
+              />
+            ))}
             {Array.from({ length: total }, (_, i) => i + 1).map((p) => (
               <canvas
                 key={p}
