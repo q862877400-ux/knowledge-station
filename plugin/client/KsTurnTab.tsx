@@ -276,7 +276,8 @@ export function KsTurnEvidenceRow(props: {
   ordinal?: number
 }): React.ReactElement {
   const { ev, onLook, ordinal } = props
-  const badge = statusBadge(ev)
+  /* ⚠ 2026-10-12（spec 010）：`statusBadge` 不再在这里调用 —— 效力徽章已移到
+     分组卡的**文件标题行**（业主：「现行有效是文件级别的」）。 */
   const href = turnEvidenceHref(ev)
   const clause = str(ev.clause_number)
   return (
@@ -298,14 +299,12 @@ export function KsTurnEvidenceRow(props: {
         <span style={{ fontWeight: 600 }}>
           {clause.length > 0 ? clause : '（无条款号）'}
         </span>
-        <span
-          style={{
-            fontSize: 11, borderRadius: 999, padding: '1px 8px',
-            border: `0.5px solid ${badge.color}`, color: badge.color,
-          }}
-        >
-          {badge.text}
-        </span>
+        {/* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 1）：**效力徽章从条款行移走**。
+            业主原话：「现行有效是**文件级别**的，所以在文件名后面展示有效状态就行了」。
+            **业主是对的，且与数据结构一致**：`legal_status` 存在 `doc_meta`（**文件级**），
+            不在 `clause_revision`（条款级）。我上一批把它画在了条款级上。
+            ⇒ 徽章现在挂在**分组卡的文件标题行**（见下面的分组渲染）。
+            ⚠ 这里**不再调用 statusBadge**（`badge` 变量已移到分组卡里）。 */}
         {/* ⚠ 2026-10-10（spec 009，业主要求）：**不再显示 `legal_hierarchy`**。
             业主原话：「现行有效后面的 GB 字样删除。」
             理由（我的判定）：徽章已经说了"现行有效 / 已被替代"，
@@ -391,7 +390,22 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
   const notes: string[] = Array.isArray(record.notes) ? record.notes.map((x) => str(x)).filter((x) => x.length > 0) : []
 
   return (
-    <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+    /* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 2）：**本页原来没法滚动**。
+       业主原话：「这个页面**没法翻页**」。
+       根因：这个根容器原来**没有任何 overflow 设置** ⇒ 内容超过面板高度时被裁掉、滚不动
+       （同插件其它面板都在内层做了 `overflow:'auto'` + `maxHeight`，本页漏了）。
+       ⚠ 为什么用 `height:'100%'` + `overflowY:'auto'` 而不是 `maxHeight:<数字>`：
+         · 面板高度由宿主决定（业主自己拖侧栏），**不能写死一个数字**；
+         · `height:100%` 让本容器填满宿主给的高度，`overflowY:auto` 让超长内容**在本容器内滚**。
+       ⚠ `minHeight:0` 是必需的：flex 子项默认 `min-height:auto` ⇒ 内容会**撑开**容器而不是
+         在内部滚动（本仓 `ksGuideStyles.ts` 里 `.ks-main` 那条注释记的是同一个坑）。
+       ⚠ `boxSizing:'border-box'` 让 padding 计入 100% 高度，避免多出 24px 溢出。 */
+    <div
+      style={{
+        padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8,
+        height: '100%', minHeight: 0, overflowY: 'auto', boxSizing: 'border-box',
+      }}
+    >
       {/* 这一轮的口径（冻结快照，只读胶囊） */}
       <KsTurnModeChip mode={record.mode} scope={record.scope} />
       {/* 核对结果行（语言规范：失败写在脸上；这里按 is_valid 分成败两个色） */}
@@ -413,7 +427,17 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
           「一个文件里的多个条款就不要重复文件标题了，一个文件标题下面多个条款按先后顺序排列。」
           ⇒ 按 `doc_id` 分组：**一个文件出一个标题**，组内条款按条款号升序（`groupTurnEvidence`）。
           ⚠ 组**之间**保持检索给出的相关度次序（不按标题字母序排 —— 那会把最相关的文件挤到后面）。 */}
-      {groupTurnEvidence(evidence).map((group) => (
+      {groupTurnEvidence(evidence).map((group) => {
+        /* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 1）：**效力徽章挂在文件标题行**。
+           业主原话：「现行有效是**文件级别**的，所以在文件名后面展示有效状态就行了」。
+           **业主与数据结构一致**：`legal_status` 在 `doc_meta`（文件级）。
+           ⚠ 但引擎是**逐条款**给的 `legal_status` ⇒ 同组理论上同值、异常时会不同。
+             处置：取**第一条**的状态显示，若组内出现**两种以上**，在组下加一行小字如实说明
+             （不许静默 —— 否则用户以为整组都是那个状态）。 */
+        const statuses = [...new Set(group.items.map((x) => str(x.legal_status)).filter((x) => x.length > 0))]
+        const head = group.items[0]
+        const headBadge = head === undefined ? null : statusBadge(head)
+        return (
         <div
           key={group.key}
           style={{
@@ -421,8 +445,26 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
             padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 6,
           }}
         >
-          {/* 文件标题：同一文件**只出现这一遍** */}
-          <div style={{ fontWeight: 600, fontSize: 13 }}>{group.title}</div>
+          {/* 文件标题行：标题 + **效力徽章**（文件级，只出现这一遍） */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <span style={{ fontWeight: 600, fontSize: 13 }}>{group.title}</span>
+            {headBadge !== null && (
+              <span
+                style={{
+                  fontSize: 11, borderRadius: 999, padding: '1px 8px',
+                  border: `0.5px solid ${headBadge.color}`, color: headBadge.color,
+                }}
+              >
+                {headBadge.text}
+              </span>
+            )}
+          </div>
+          {statuses.length > 1 && (
+            <div style={{ fontSize: 11, color: 'var(--dsw-alias-state-warn-primary)' }}>
+              ⚠ 这个文件下的条款报了**不止一种**效力状态（{statuses.join(' / ')}），
+              上面显示的是第一条的；逐条状态请看各条款自己的数据。
+            </div>
+          )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {group.items.map((ev, i) => (
               <KsTurnEvidenceRow
@@ -437,7 +479,8 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
             ))}
           </div>
         </div>
-      ))}
+        )
+      })}
 
       {notes.map((n, i) => (
         <div key={`note-${String(i)}`} style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: 1.6 }}>

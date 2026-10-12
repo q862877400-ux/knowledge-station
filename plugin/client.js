@@ -42249,7 +42249,6 @@ function KsTurnEmptyState() {
 }
 function KsTurnEvidenceRow(props) {
   const { ev, onLook, ordinal } = props;
-  const badge = statusBadge(ev);
   const href = turnEvidenceHref(ev);
   const clause = str2(ev.clause_number);
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
@@ -42269,20 +42268,7 @@ function KsTurnEvidenceRow(props) {
             String(ordinal),
             "."
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: clause.length > 0 ? clause : "\uFF08\u65E0\u6761\u6B3E\u53F7\uFF09" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "span",
-            {
-              style: {
-                fontSize: 11,
-                borderRadius: 999,
-                padding: "1px 8px",
-                border: `0.5px solid ${badge.color}`,
-                color: badge.color
-              },
-              children: badge.text
-            }
-          )
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: clause.length > 0 ? clause : "\uFF08\u65E0\u6761\u6B3E\u53F7\uFF09" })
         ] }),
         str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "div",
@@ -42355,57 +42341,109 @@ function KsTurnTab(props) {
     ...Array.isArray(verification?.cite_warnings) ? verification.cite_warnings : []
   ].map((x) => str2(x)).filter((x) => x.length > 0);
   const notes = Array.isArray(record.notes) ? record.notes.map((x) => str2(x)).filter((x) => x.length > 0) : [];
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { padding: "12px 14px", display: "flex", flexDirection: "column", gap: 8 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnModeChip, { mode: record.mode, scope: record.scope }),
-    verification !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
-      "div",
-      {
-        role: verification.is_valid === true ? void 0 : "alert",
-        style: {
-          fontSize: 12,
-          lineHeight: 1.6,
-          borderRadius: 6,
-          padding: "4px 10px",
-          border: `0.5px solid ${verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"}`,
-          color: verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"
-        },
-        children: [
-          verification.is_valid === true ? "\u2705 \u6838\u5BF9\u901A\u8FC7" : "\u26A0 \u6838\u5BF9\u63D0\u793A",
-          reasons.length > 0 ? `\uFF1A${reasons.join(" \xB7 ")}` : ""
-        ]
-      }
-    ),
-    groupTurnEvidence(evidence).map((group) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+  return (
+    /* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 2）：**本页原来没法滚动**。
+       业主原话：「这个页面**没法翻页**」。
+       根因：这个根容器原来**没有任何 overflow 设置** ⇒ 内容超过面板高度时被裁掉、滚不动
+       （同插件其它面板都在内层做了 `overflow:'auto'` + `maxHeight`，本页漏了）。
+       ⚠ 为什么用 `height:'100%'` + `overflowY:'auto'` 而不是 `maxHeight:<数字>`：
+         · 面板高度由宿主决定（业主自己拖侧栏），**不能写死一个数字**；
+         · `height:100%` 让本容器填满宿主给的高度，`overflowY:auto` 让超长内容**在本容器内滚**。
+       ⚠ `minHeight:0` 是必需的：flex 子项默认 `min-height:auto` ⇒ 内容会**撑开**容器而不是
+         在内部滚动（本仓 `ksGuideStyles.ts` 里 `.ks-main` 那条注释记的是同一个坑）。
+       ⚠ `boxSizing:'border-box'` 让 padding 计入 100% 高度，避免多出 24px 溢出。 */
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
       "div",
       {
         style: {
-          border: "0.5px solid var(--dsw-alias-border-l1)",
-          borderRadius: 8,
-          padding: "8px 10px",
+          padding: "12px 14px",
           display: "flex",
           flexDirection: "column",
-          gap: 6
+          gap: 8,
+          height: "100%",
+          minHeight: 0,
+          overflowY: "auto",
+          boxSizing: "border-box"
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { fontWeight: 600, fontSize: 13 }, children: group.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: group.items.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            KsTurnEvidenceRow,
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnModeChip, { mode: record.mode, scope: record.scope }),
+          verification !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+            "div",
             {
-              ev,
-              ordinal: group.items.length > 1 ? i + 1 : void 0,
-              onLook: () => {
-                const href = turnEvidenceHref(ev);
-                if (href !== null) openEvidence(href);
-              }
-            },
-            `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
-          )) })
+              role: verification.is_valid === true ? void 0 : "alert",
+              style: {
+                fontSize: 12,
+                lineHeight: 1.6,
+                borderRadius: 6,
+                padding: "4px 10px",
+                border: `0.5px solid ${verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"}`,
+                color: verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"
+              },
+              children: [
+                verification.is_valid === true ? "\u2705 \u6838\u5BF9\u901A\u8FC7" : "\u26A0 \u6838\u5BF9\u63D0\u793A",
+                reasons.length > 0 ? `\uFF1A${reasons.join(" \xB7 ")}` : ""
+              ]
+            }
+          ),
+          groupTurnEvidence(evidence).map((group) => {
+            const statuses = [...new Set(group.items.map((x) => str2(x.legal_status)).filter((x) => x.length > 0))];
+            const head = group.items[0];
+            const headBadge = head === void 0 ? null : statusBadge(head);
+            return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+              "div",
+              {
+                style: {
+                  border: "0.5px solid var(--dsw-alias-border-l1)",
+                  borderRadius: 8,
+                  padding: "8px 10px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 6
+                },
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600, fontSize: 13 }, children: group.title }),
+                    headBadge !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+                      "span",
+                      {
+                        style: {
+                          fontSize: 11,
+                          borderRadius: 999,
+                          padding: "1px 8px",
+                          border: `0.5px solid ${headBadge.color}`,
+                          color: headBadge.color
+                        },
+                        children: headBadge.text
+                      }
+                    )
+                  ] }),
+                  statuses.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { fontSize: 11, color: "var(--dsw-alias-state-warn-primary)" }, children: [
+                    "\u26A0 \u8FD9\u4E2A\u6587\u4EF6\u4E0B\u7684\u6761\u6B3E\u62A5\u4E86**\u4E0D\u6B62\u4E00\u79CD**\u6548\u529B\u72B6\u6001\uFF08",
+                    statuses.join(" / "),
+                    "\uFF09\uFF0C \u4E0A\u9762\u663E\u793A\u7684\u662F\u7B2C\u4E00\u6761\u7684\uFF1B\u9010\u6761\u72B6\u6001\u8BF7\u770B\u5404\u6761\u6B3E\u81EA\u5DF1\u7684\u6570\u636E\u3002"
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: group.items.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+                    KsTurnEvidenceRow,
+                    {
+                      ev,
+                      ordinal: group.items.length > 1 ? i + 1 : void 0,
+                      onLook: () => {
+                        const href = turnEvidenceHref(ev);
+                        if (href !== null) openEvidence(href);
+                      }
+                    },
+                    `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
+                  )) })
+                ]
+              },
+              group.key
+            );
+          }),
+          notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
         ]
-      },
-      group.key
-    )),
-    notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
-  ] });
+      }
+    )
+  );
 }
 
 // client/entry.ts

@@ -36,6 +36,11 @@ logger = logging.getLogger(__name__)
 # 常量
 # ---------------------------------------------------------------------------
 EVIDENCE_SNIPPET_MAX = 800     # 供 prompt 的正文截断（ENCYCLOPEDIA §15.1 条 5）
+# 红箭头定位用的 bbox 的**最小可用尺寸**（pt）。小于它就算"退化框"，不写进证据。
+# 依据（全库 20 万 span 实测）：正常正文行宽 p0.1 = 11pt、高 p0.1 = 6pt；
+# 取 5/3 ⇒ 误伤率 0.02%，与正常行有 2 倍以上余量。详见 attach_bboxes 的注释。
+DEGENERATE_BBOX_MIN_W = 5.0
+DEGENERATE_BBOX_MIN_H = 3.0
 EVIDENCE_TABLE_MAX = 300       # 附表格截断（对齐 build_evidence_prompt）
 EVIDENCE_CAP = 8               # 证据上限（§5.1 硬规则④ / 过期影响面）
 
@@ -191,6 +196,22 @@ def attach_bboxes(evidence: List[Dict[str, Any]]) -> None:
         except (TypeError, ValueError):
             continue
         if not all(math.isfinite(n) for n in nums):
+            continue
+        # ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 3「红箭头还是没有」的**真因之一**）：
+        #   拒收**退化框**（几乎是一个点的 span）。
+        #   实测（真库 `GB 17681-2024`）：该文档 **370/370 条条款**的 span 全是
+        #   宽 0.01–0.9pt、高 0.01–0.09pt 的碎片（坐标贴在页面左上角 x≈0.1, y≈784）
+        #   ⇒ 画出来的"箭头"只有**一个点**那么大，**肉眼看不见**
+        #   —— 那等于骗用户"标好了"，比不画更糟。
+        #   ⇒ 与其画一个看不见的点，不如**不写坐标**，让前端如实说"这一条取不到定位"。
+        # ⚠ 阈值怎么来的（**不是拍脑袋**，全库 20 万 span 实测）：
+        #   · 正常正文行：宽 p0.1 = **11pt**、高 p0.1 = **6pt**（中位 240×13pt）；
+        #   · 取「宽 < 5pt 或 高 < 3pt」⇒ 误伤率 **0.02%**（20 万里 40 条），
+        #     与正常行有 2 倍以上余量；而要抓的碎片最大才 0.9pt ⇒ 收益确定、误伤极小。
+        #   · 更松的 (8,4)/(10,5) 误伤率翻倍而**收益为零**（碎片最大 0.9pt）⇒ 不取。
+        w = abs(nums[2] - nums[0])
+        h = abs(nums[3] - nums[1])
+        if w < DEGENERATE_BBOX_MIN_W or h < DEGENERATE_BBOX_MIN_H:
             continue
         by_rev.setdefault(rev, []).append({"page": page, "bbox": nums})
 

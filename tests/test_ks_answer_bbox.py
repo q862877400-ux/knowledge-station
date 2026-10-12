@@ -65,10 +65,10 @@ def _row(rev, page, bbox_json, order=0):
 # ① 有 span ⇒ 补上 bbox / bbox_page
 # --------------------------------------------------------------------------
 def test_attach_bboxes_fills_bbox_and_page(fake_db):
-    fake_db([_row("rev1", 7, "[76.0, 643.43, 117.0, 655.43]")])
+    fake_db([_row("rev1", 7, "[76.0, 643.43, 176.0, 656.43]")])
     evidence = [{"clause_revision_id": "rev1", "page_start": 7}]
     attach_bboxes(evidence)
-    assert evidence[0]["bbox"] == [76.0, 643.43, 117.0, 655.43]
+    assert evidence[0]["bbox"] == [76.0, 643.43, 176.0, 656.43]
     assert evidence[0]["bbox_page"] == 7
 
 
@@ -77,17 +77,17 @@ def test_attach_bboxes_fills_bbox_and_page(fake_db):
 # --------------------------------------------------------------------------
 def test_attach_bboxes_prefers_page_start(fake_db):
     fake_db([
-        _row("rev1", 8, "[1.0, 1.0, 2.0, 2.0]", order=0),   # 页 8 在前（sort_order 小）
-        _row("rev1", 7, "[9.0, 9.0, 10.0, 10.0]", order=1),  # 但 page_start=7
+        _row("rev1", 8, "[10.0, 100.0, 110.0, 113.0]", order=0),   # 页 8 在前（sort_order 小）
+        _row("rev1", 7, "[20.0, 200.0, 120.0, 213.0]", order=1),  # 但 page_start=7
     ])
     evidence = [{"clause_revision_id": "rev1", "page_start": 7}]
     attach_bboxes(evidence)
     assert evidence[0]["bbox_page"] == 7, "箭头必须指条款**起始页**，不是 sort_order 第一页"
-    assert evidence[0]["bbox"] == [9.0, 9.0, 10.0, 10.0]
+    assert evidence[0]["bbox"] == [20.0, 200.0, 120.0, 213.0]
 
 
 def test_attach_bboxes_falls_back_to_first_when_page_start_missing(fake_db):
-    fake_db([_row("rev1", 3, "[1.0, 2.0, 3.0, 4.0]")])
+    fake_db([_row("rev1", 3, "[40.0, 400.0, 140.0, 413.0]")])
     evidence = [{"clause_revision_id": "rev1"}]  # 没有 page_start
     attach_bboxes(evidence)
     assert evidence[0]["bbox_page"] == 3
@@ -104,7 +104,7 @@ def test_attach_bboxes_skips_when_no_span_on_page_start(fake_db):
     箭头会画在**错页的错误位置**上。留空则会走证据 tab 的既有兜底（它按目标页筛 span），
     那条路是**正确**的。
     """
-    fake_db([_row("rev1", 9, "[1.0, 2.0, 3.0, 4.0]")])
+    fake_db([_row("rev1", 9, "[40.0, 400.0, 140.0, 413.0]")])
     evidence = [{"clause_revision_id": "rev1", "page_start": 5}]
     attach_bboxes(evidence)
     assert "bbox" not in evidence[0], "跨页时不许把别页的坐标写进去（会画错页）"
@@ -114,13 +114,13 @@ def test_attach_bboxes_skips_when_no_span_on_page_start(fake_db):
 def test_attach_bboxes_uses_page_start_span_when_cross_page(fake_db):
     """跨页条款：只要 `page_start` 那一页**有** span，就取它（不取 sort_order 第一个）。"""
     fake_db([
-        _row("rev1", 9, "[1.0, 1.0, 2.0, 2.0]", order=0),
-        _row("rev1", 5, "[9.0, 9.0, 10.0, 10.0]", order=1),
+        _row("rev1", 9, "[10.0, 100.0, 110.0, 113.0]", order=0),
+        _row("rev1", 5, "[20.0, 200.0, 120.0, 213.0]", order=1),
     ])
     evidence = [{"clause_revision_id": "rev1", "page_start": 5}]
     attach_bboxes(evidence)
     assert evidence[0]["bbox_page"] == 5
-    assert evidence[0]["bbox"] == [9.0, 9.0, 10.0, 10.0]
+    assert evidence[0]["bbox"] == [20.0, 200.0, 120.0, 213.0]
 
 
 # --------------------------------------------------------------------------
@@ -145,17 +145,17 @@ def test_attach_bboxes_never_writes_zero_placeholder(fake_db):
 def test_attach_bboxes_skips_malformed_bbox(fake_db):
     fake_db([
         _row("rev1", 1, "not json", order=0),
-        _row("rev1", 1, "[1.0, 2.0, 3.0]", order=1),        # 3 个数
-        _row("rev1", 1, "[1.0, 2.0, 3.0, null]", order=2),  # 含 null
-        _row("rev1", 1, "[1.0, 2.0, 3.0, 4.0]", order=3),   # 唯一合法的
+        _row("rev1", 1, "[40.0, 400.0, 140.0]", order=1),        # 3 个数
+        _row("rev1", 1, "[40.0, 400.0, 140.0, null]", order=2),  # 含 null
+        _row("rev1", 1, "[40.0, 400.0, 140.0, 413.0]", order=3),   # 唯一合法的
     ])
     evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
     attach_bboxes(evidence)
-    assert evidence[0]["bbox"] == [1.0, 2.0, 3.0, 4.0]
+    assert evidence[0]["bbox"] == [40.0, 400.0, 140.0, 413.0]
 
 
 def test_attach_bboxes_rejects_non_finite(fake_db):
-    fake_db([_row("rev1", 1, "[1.0, 2.0, 3.0, Infinity]")])
+    fake_db([_row("rev1", 1, "[40.0, 400.0, 140.0, Infinity]")])
     evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
     attach_bboxes(evidence)
     # JSON 的 Infinity 是非标准扩展；json.loads 能读出来，但 isfinite 必须拒掉
@@ -207,8 +207,8 @@ def test_attach_bboxes_noop_when_no_revs(fake_db):
 
 def test_attach_bboxes_handles_multiple_revs(fake_db):
     fake_db([
-        _row("revA", 1, "[1.0, 1.0, 2.0, 2.0]"),
-        _row("revB", 5, "[3.0, 3.0, 4.0, 4.0]"),
+        _row("revA", 1, "[10.0, 100.0, 110.0, 113.0]"),
+        _row("revB", 5, "[30.0, 300.0, 130.0, 313.0]"),
     ])
     evidence = [
         {"clause_revision_id": "revA", "page_start": 1},
@@ -216,6 +216,82 @@ def test_attach_bboxes_handles_multiple_revs(fake_db):
         {"clause_revision_id": "revC", "page_start": 1},  # 库里没有
     ]
     attach_bboxes(evidence)
-    assert evidence[0]["bbox"] == [1.0, 1.0, 2.0, 2.0]
-    assert evidence[1]["bbox"] == [3.0, 3.0, 4.0, 4.0]
+    assert evidence[0]["bbox"] == [10.0, 100.0, 110.0, 113.0]
+    assert evidence[1]["bbox"] == [30.0, 300.0, 130.0, 313.0]
     assert "bbox" not in evidence[2]
+
+
+# --------------------------------------------------------------------------
+# ⑥ ★★ 退化框拒收（spec 010，业主「红箭头还是没有」的真因之一）
+# --------------------------------------------------------------------------
+def test_attach_bboxes_rejects_degenerate_box(fake_db):
+    """**退化框必须拒收** —— 真库实测 `GB 17681-2024` 全篇 370/370 条都是这种碎片。
+
+    业主那轮的实测值：`[0.1, 784.33, 0.88, 784.4]` ⇒ 宽 **0.79pt**、高 **0.07pt**。
+    画出来的"箭头"只有**一个点**那么大、**肉眼看不见** ⇒ 那等于骗用户"标好了"，
+    比不画更糟。⇒ 不写坐标，让前端如实说"这一条取不到定位"。
+    """
+    fake_db([_row("rev1", 9, "[0.1, 784.33, 0.88, 784.4]")])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 9}]
+    attach_bboxes(evidence)
+    assert "bbox" not in evidence[0], "退化框（宽0.79×高0.07pt）不许写进证据"
+    assert "bbox_page" not in evidence[0]
+
+
+def test_attach_bboxes_rejects_thin_box(fake_db):
+    """只满足一个维度也不许 —— 宽 200pt 但高 0.5pt 的"一条线"同样看不见。"""
+    fake_db([_row("rev1", 1, "[10.0, 100.0, 210.0, 100.5]")])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
+    attach_bboxes(evidence)
+    assert "bbox" not in evidence[0]
+
+
+def test_attach_bboxes_rejects_narrow_box(fake_db):
+    """高 13pt（正常）但宽 2pt 的窄条也不许（画出来是一根看不见的竖线）。"""
+    fake_db([_row("rev1", 1, "[10.0, 100.0, 12.0, 113.0]")])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
+    attach_bboxes(evidence)
+    assert "bbox" not in evidence[0]
+
+
+def test_attach_bboxes_accepts_normal_line(fake_db):
+    """**正常正文行必须通过**（防"阈值太松把正常行也拒了"）—— 用真库实测的中位量级。"""
+    fake_db([_row("rev1", 1, "[73.0, 360.9, 334.0, 372.9]")])   # 261×12pt，真库实测值
+    evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
+    attach_bboxes(evidence)
+    assert evidence[0]["bbox"] == [73.0, 360.9, 334.0, 372.9]
+    assert evidence[0]["bbox_page"] == 1
+
+
+def test_degenerate_thresholds_are_the_documented_values():
+    """阈值是**规范值**（有实测依据），不许随手改。
+
+    依据（全库 20 万 span）：正常正文行宽 p0.1 = 11pt、高 p0.1 = 6pt；
+    取 5/3 ⇒ 误伤率 0.02%，与正常行有 2 倍以上余量。
+    """
+    from src.core.llm.ks_answer import DEGENERATE_BBOX_MIN_W, DEGENERATE_BBOX_MIN_H
+    assert DEGENERATE_BBOX_MIN_W == 5.0
+    assert DEGENERATE_BBOX_MIN_H == 3.0
+
+
+def test_attach_bboxes_skips_degenerate_but_keeps_normal(fake_db):
+    """同一条款有多个 span 时：退化框被跳过，**正常框仍被采用**（不是整条丢弃）。"""
+    fake_db([
+        _row("rev1", 1, "[0.1, 784.33, 0.88, 784.4]", order=0),   # 退化（排最前）
+        _row("rev1", 1, "[73.0, 360.9, 334.0, 372.9]", order=1),   # 正常
+    ])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 1}]
+    attach_bboxes(evidence)
+    assert evidence[0]["bbox"] == [73.0, 360.9, 334.0, 372.9], \
+        "退化框被跳过后，应当用同一页里那个正常的 span"
+
+
+def test_attach_bboxes_all_degenerate_leaves_empty(fake_db):
+    """该条款的 span **全是**退化框 ⇒ 留空（不许拿任意一个凑数）。"""
+    fake_db([
+        _row("rev1", 9, "[0.1, 784.33, 0.88, 784.4]", order=0),
+        _row("rev1", 9, "[0.12, 784.56, 0.18, 784.57]", order=1),
+    ])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 9}]
+    attach_bboxes(evidence)
+    assert "bbox" not in evidence[0]

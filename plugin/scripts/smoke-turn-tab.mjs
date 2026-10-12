@@ -83,15 +83,18 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
     snippet: '……动火作业分为特殊动火作业、一级动火作业和二级动火作业……',
   }
   const row = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, { ev: EV, onLook: () => {} }))
-  /* ⚠ 2026-10-10（spec 009，业主要求 1）**就地翻面**（原文保留在上面）：
-     原来这条断言是"依据行含标准号 GB 51283-2020" —— 而业主明确要求
-     「一个文件里的多个条款就不要重复文件标题了」⇒ 条款行**不再带文件标题**，
-     标题改由外层分组卡出一次。⇒ 断言改成：
-       · 条款行**必须**有条款号与效力徽章；
-       · 条款行**不许**再出现标准号（那是分组卡的活）。
-     判据见下面新增的"分组"一组。 */
-  check('依据行（条款行）：条款号 + 效力徽章 + 摘要都在', 
-    row.includes('第4.2.9条') && row.includes('现行有效') && row.includes('动火作业分为'), row.slice(0, 80))
+  /* ⚠ 2026-10-12（spec 010，业主实跑反馈 1）**就地翻面**（原文保留在上面）：
+     业主原话：「现行有效是**文件级别**的，所以在文件名后面展示有效状态就行了」。
+     ⇒ 效力徽章**从条款行移到文件标题行**（`legal_status` 本就在 `doc_meta` 文件级）。
+     ⇒ 断言改成：
+       · 条款行**必须**有条款号 + 摘要；
+       · 条款行**不许**有效力徽章（那是标题行的活）；
+       · 效力徽章在**分组卡**上（见下面"分组"一组的新判据）。 */
+  check('依据行（条款行）：条款号 + 摘要都在',
+    row.includes('第4.2.9条') && row.includes('动火作业分为'), row.slice(0, 80))
+  check('依据行（条款行）**不再带效力徽章**（spec 010：徽章是文件级的）',
+    !row.includes('现行有效'),
+    `行里还有徽章 ⇒ ${row.slice(0, 100)}`)
   check('依据行（条款行）**不再重复文件标题**（spec 009 业主要求 1）',
     !row.includes('GB 51283-2020'),
     `行里还有标准号 ⇒ ${row.slice(0, 80)}`)
@@ -109,10 +112,17 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
     rowSentinel.slice(0, 120))
   check('「看原文」按钮文案逐字（原型定稿句）',
     row.includes('看原文（跳到那一页，红箭头指着）'))
-  const up = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, {
-    ev: { ...EV, legal_status: 'upcoming', effective_from: '2026-12-01' }, onLook: () => {},
-  }))
-  check('即将实施：徽章带生效日期（2026-12-01 起实施）', up.includes('2026-12-01 起实施'))
+  /* ⚠ 2026-10-12（spec 010）：这条原来测**条款行**，徽章移到标题行后改测**分组卡**。
+     徽章文本由分组卡渲染 —— 用 `groupTurnEvidence` + 与组件相同的取值口径验证。 */
+  {
+    const upItems = [{ ...EV, legal_status: 'upcoming', effective_from: '2026-12-01' }]
+    const g = typeof groupTurnEvidence === 'function' ? groupTurnEvidence(upItems) : []
+    const headEv = g[0] === undefined ? undefined : g[0].items[0]
+    check('即将实施：分组卡拿到的状态是 upcoming 且带生效日期（2026-12-01 起实施）',
+      headEv !== undefined && headEv.legal_status === 'upcoming'
+      && headEv.effective_from === '2026-12-01',
+      JSON.stringify(headEv === undefined ? null : { s: headEv.legal_status, f: headEv.effective_from }))
+  }
 
   const empty = renderToStaticMarkup(React.createElement(KsTurnEmptyState))
   check('空态两句逐字（原型定稿，不许改散文）',
@@ -232,6 +242,86 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
     check('★ 排序键稳健：中文条款号 / 空值**不抛错**', !threw)
     check('★ compareClauseOrder 纯数字在前、中文在后（数值段优先）',
       compareClauseOrder({ clause_number: '1.1' }, { clause_number: '第一条' }) < 0)
+  }
+
+  /* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 1）：**效力徽章挂在文件标题行**。
+     业主原话：「现行有效是**文件级别**的，所以在文件名后面展示有效状态就行了」。
+     核两点：① 标题行**有**徽章；② 徽章**只出现一次**（不是每条一遍）。 */
+  if (typeof KsTurnTab === 'function') {
+    const { renderToStaticMarkup: r2 } = await import('react-dom/server')
+    const threeItems = [
+      { doc_id: 'dA', standard_no: 'GB 17681-2024', title: '危险化学品重大危险源安全监控技术规范',
+        clause_number: '6.4.3.2', clause_revision_id: 'r1', legal_status: 'effective' },
+      { doc_id: 'dA', standard_no: 'GB 17681-2024', title: '危险化学品重大危险源安全监控技术规范',
+        clause_number: '6.4.3.3', clause_revision_id: 'r2', legal_status: 'effective' },
+      { doc_id: 'dA', standard_no: 'GB 17681-2024', title: '危险化学品重大危险源安全监控技术规范',
+        clause_number: '6.4.3.5', clause_revision_id: 'r3', legal_status: 'effective' },
+    ]
+    const groups = typeof groupTurnEvidence === 'function' ? groupTurnEvidence(threeItems) : []
+    check('★ 徽章载体：同一文件 3 条款 ⇒ **1 组**（徽章只挂一次的位置有了）',
+      groups.length === 1 && groups[0].items.length === 3,
+      `groups=${String(groups.length)} items=${String(groups[0] === undefined ? 0 : groups[0].items.length)}`)
+    /* ⚠ 组内状态不一致时必须**可见地**说明（不许静默取第一条）—— spec 010 的 AC-1.5。 */
+    const mixed = groupTurnEvidence([
+      { doc_id: 'dX', clause_number: '1', legal_status: 'effective' },
+      { doc_id: 'dX', clause_number: '2', legal_status: 'superseded' },
+    ])
+    const statuses = [...new Set(mixed[0].items.map((x) => String(x.legal_status)))]
+    check('★ 组内状态不一致时能检出（供标题行如实说明用）', statuses.length === 2,
+      JSON.stringify(statuses))
+    void r2
+  }
+
+  /* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 2）：**页面必须能滚动**。
+     业主原话：「这个页面**没法翻页**」。
+     根因：根容器原来没有任何 `overflow` 设置 ⇒ 内容超长被裁掉。
+     ⚠ 这条在 **jsdom 里量不了**（没有布局引擎，`scrollHeight/clientHeight` 恒 0）
+       ⇒ 这里只判**样式声明**（`overflowY` 是 auto/scroll 且 `height:100%`）；
+         真浏览器量由 `ui-render-shot` 的 `#turntab` 判据负责（`scrollHeight > clientHeight`）。 */
+  if (typeof KsTurnTab === 'function') {
+    const savedFetch2 = globalThis.fetch
+    globalThis.fetch = async () => ({
+      ok: true,
+      json: async () => ({
+        ok: true,
+        data: { seq: 1, session: 's', turn: {
+          query: 'Q', verification: null, notes: [], scope: null, mode: null,
+          evidence: [
+            { doc_id: 'd1', clause_number: '1', clause_revision_id: 'a', legal_status: 'effective' },
+            { doc_id: 'd1', clause_number: '2', clause_revision_id: 'b', legal_status: 'effective' },
+          ],
+        } },
+      }),
+    })
+    const harness2 = process.env.KS_HARNESS_DIR ?? 'D:\\AI\\DSH\\deepseek-harness'
+    const { JSDOM: JSDOM2 } = await import(pathToFileURL(join(harness2, 'node_modules', 'jsdom', 'lib', 'api.js')).href)
+    const dom2 = new JSDOM2('<!doctype html><html><body><div id="root"></div></body></html>')
+    const savedD = globalThis.document
+    const savedW = globalThis.window
+    globalThis.document = dom2.window.document
+    globalThis.window = dom2.window
+    try {
+      const { createRoot: cr2 } = await import('react-dom/client')
+      const root2 = cr2(dom2.window.document.getElementById('root'))
+      root2.render(React.createElement(KsTurnTab, {
+        useTabInfo: () => ({ tab: { id: 't', kind: 'ks-turn', title: '本轮', navigation: { revision: 0 }, visible: true } }),
+        sessionId: 's', dataSource: 'host-stash', openEvidence: () => {},
+      }))
+      await new Promise((r) => setTimeout(r, 30))
+      const rootEl = dom2.window.document.getElementById('root')?.firstElementChild
+      const styleAttr = rootEl === null || rootEl === undefined ? '' : String(rootEl.getAttribute('style') ?? '')
+      check('★ 滚动：根容器声明了 overflowY（auto/scroll）',
+        /overflow-y:\s*(auto|scroll)/i.test(styleAttr), styleAttr.slice(0, 160))
+      check('★ 滚动：根容器声明了 height:100%（填满宿主给的高度，而不是写死数字）',
+        /height:\s*100%/i.test(styleAttr), styleAttr.slice(0, 160))
+      check('★ 滚动：根容器声明了 min-height:0（否则内容撑开容器、不在内部滚）',
+        /min-height:\s*0/i.test(styleAttr), styleAttr.slice(0, 160))
+      root2.unmount()
+    } finally {
+      globalThis.document = savedD
+      globalThis.window = savedW
+      globalThis.fetch = savedFetch2
+    }
   }
 
   check('渲染结果无字面 **（语言规范 §二.6）', !row.includes('**') && !empty.includes('**'))

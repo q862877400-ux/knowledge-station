@@ -1506,9 +1506,24 @@ function registerKsBboxRoute(ctx, manager) {
         if (probe.status !== 200) {
           throw new Error(`引擎返回 HTTP ${probe.status}: ${probe.error || probe.text}`)
         }
-        const spans = probe.body && probe.body.data && Array.isArray(probe.body.data.spans)
+        const spansRaw = probe.body && probe.body.data && Array.isArray(probe.body.data.spans)
           ? probe.body.data.spans
           : []
+        /* 2026-10-12（spec 010，业主实跑反馈 3「红箭头还是没有」的**真因之一**）：
+           过滤**退化框**（几乎是一个点的 span）—— 与引擎侧 `attach_bboxes` 同一口径。
+           实测（真库 `GB 17681-2024`）：该文档 370/370 条条款的 span 全是
+           宽 0.01–0.9pt、高 0.01–0.09pt 的碎片（坐标贴在页面左上角 x≈0.1, y≈784）。
+           若把它们原样给前端，箭头会画成**一个看不见的点** —— 等于骗用户"标好了"。
+           ⇒ 过滤掉之后前端拿到空数组，会走既有的"取不到坐标"可见提示（如实告知）。
+           阈值 5/3pt 的依据（全库 20 万 span 实测）：正常正文行宽 p0.1 = 11pt、高 p0.1 = 6pt；
+           取 5/3 ⇒ 误伤率 0.02%，与正常行有 2 倍以上余量。与引擎侧常量保持同值。 */
+        const spans = spansRaw.filter((s) => {
+          if (s === null || typeof s !== 'object') return false
+          const box = s.bbox
+          if (!Array.isArray(box) || box.length !== 4) return false
+          if (!box.every((n) => typeof n === 'number' && Number.isFinite(n))) return false
+          return Math.abs(box[2] - box[0]) >= 5 && Math.abs(box[3] - box[1]) >= 3
+        })
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
         res.end(JSON.stringify({ ok: true, found: spans.length > 0, spans }))
       } catch (error) {

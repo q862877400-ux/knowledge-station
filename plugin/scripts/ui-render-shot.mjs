@@ -164,6 +164,12 @@ const PAGES = {
        600 是本机实测**能复现截断**的那一档（`文字实宽 266px > 框内可用 222px`）
        ⇒ 默认取它，**判据不靠"调用方记得传对宽度"**。 */
   settings: { width: 600, file: 'KsSettingsSection.tsx', symbol: 'KsSettingsSection', interact: ['settings-creds'] },
+  /* 2026-10-12（spec 010）加法式新增：「本轮」页（KsTurnTab）。
+     为什么必须真浏览器量：业主实跑报「这个页面没法翻页」，而"能不能滚"是**布局**问题
+     （scrollHeight > clientHeight）—— jsdom 没有布局引擎，那两个数恒 0 ⇒ 只能在真浏览器里量。
+     ⚠ 本页不进 smoke-kb-pad-pixels.mjs 的 MATRIX/EXPECTED_RUNS（那会要求同批改冻结清单）。
+     宽度取 520：与右侧栏窄档一致（业主的侧栏就是这个量级）。 */
+  turn: { width: 520, file: 'KsTurnTab.tsx', symbol: 'KsTurnTab', interact: ['turn-many'] },
 }
 const page = arg('page', 'kb')
 if (!PAGES[page]) { console.error(`❌ 未知 --page ${page}（可选：${Object.keys(PAGES).join(' / ')}）`); process.exit(2) }
@@ -221,6 +227,9 @@ const SCENARIOS = [
   'ingest-batch', 'office-page',
   /* ⚠ 2026-10-10（spec 007 D3）：设置面 → 展开「API配置」类目（那里面有会溢出的凭据表单）。 */
   'settings-creds',
+  /* 2026-10-12（spec 010）：「本轮」页 → 塞足够多的依据，让内容超出面板高度，
+     这样"能不能滚"才有对象可量（内容比容器矮时，滚不滚都看不出来）。 */
+  'turn-many',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -541,6 +550,38 @@ globalThis.fetch = async (input, init = {}) => {
   if (url === '/ks/session') {
     return reply({ ok: true, engine: { port: 1234, pid: 42, reused: false }, token: 'stub-token' })
   }
+  /* 2026-10-12（spec 010）：「本轮」页的取数口。
+     形状按 KsTurnRecord（plugin/src/turn.js 的 turn 负载）。
+     造**两组以上、共 12 条**依据 —— 目的是让内容超出面板高度，
+     这样"能不能滚"才有对象（内容比容器矮时看不出来）。 */
+  if (url.startsWith('/ks/turn/last')) {
+    const mk = (doc, std, name, clause, status, page) => ({
+      doc_id: doc, standard_no: std, title: name, clause_number: clause,
+      clause_revision_id: doc + '-rev-' + clause, legal_status: status, page_start: page,
+      snippet: '这是 ' + clause + ' 的正文摘要：用于验证滚动与分组版式的占位文本，'
+        + '长度刻意写长一些，让每一行都占满两行的高度。',
+    })
+    const evidence = [
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.2', 'effective', 9),
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.3', 'effective', 9),
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.5', 'effective', 9),
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.6', 'effective', 10),
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.12', 'effective', 10),
+      mk('doc_a', 'GB 17681-2024', '危险化学品重大危险源安全监控技术规范', '6.4.3.17', 'effective', 11),
+      mk('doc_b', 'GB/T 26718-2024', '城市轨道交通通信工程质量验收规范', '10.3.5', 'effective', 17),
+      mk('doc_b', 'GB/T 26718-2024', '城市轨道交通通信工程质量验收规范', '10.3.7', 'effective', 17),
+      mk('doc_c', 'GB 50016-2014', '建筑设计防火规范', '3.6.8', 'superseded', 22),
+      mk('doc_c', 'GB 50016-2014', '建筑设计防火规范', '3.6.9', 'superseded', 23),
+      mk('doc_d', 'GB 55037-2022', '建筑防火通用规范', '5.2.3', 'upcoming', 30),
+      mk('doc_d', 'GB 55037-2022', '建筑防火通用规范', '5.2.4', 'upcoming', 31),
+    ]
+    return reply({ ok: true, data: { seq: 1, session: 'stub-session', turn: {
+      query: '动火作业怎么分级', tier: 'standard', verification: { is_valid: true }, notes: [],
+      scope: null,
+      mode: { forensic: true, bookmarksOnly: false, folderId: null, folderName: null, materialProjectName: null },
+      evidence,
+    } } })
+  }
   if (url.includes('/ks/ingest/inbox-default')) return reply({ ok: true, data: { dir: STUB_DIR } })
   if (url.includes('/ks/ingest/inbox')) return reply({ ok: true, data: { dir: STUB_DIR, count: stubFiles.length, files: stubFiles } })
   if (url.includes('/ks/ingest/preview/batch')) return reply({ ok: true, data: stubBatch })
@@ -851,6 +892,16 @@ const PROPS = {
   /* ⚠ 2026-10-10（spec 007 D3）：设置面。注入面按 `KsSettingsSectionInjected` 的真实形状给最小集
      （只给渲染必需的；缺的会让组件自己报"没读到"——那正是我们要看的状态）。 */
   settings: { evidence: { openEvidence: () => {} } },
+  /* 2026-10-12（spec 010）：「本轮」页。注入面按 KsTurnInjected 给最小集。
+     数据由 turn-many 场景喂的 fetch 桩提供（见 fetch 桩里的 /ks/turn/last 分支）。 */
+  turn: {
+    useTabInfo: () => ({
+      tab: { id: 'ks-turn-tab', kind: 'ks-turn', title: '本轮', navigation: { revision: 1 }, visible: true },
+    }),
+    sessionId: 'stub-session',
+    dataSource: 'stub',
+    openEvidence: () => {},
+  },
 }
 
 const root = mount(container, PROPS[page])
@@ -1372,6 +1423,14 @@ for (const how of interacts) {
       `settings-creds 展开后只有 ${String(inputs.length)} 个输入框（期望 ≥4：两组 Key + 两组 Base URL）`)
     notes.push(`settings-creds: 展开了「API配置」 → 输入框 ${String(inputs.length)} 个、`
       + `按钮 ${String(q('button').length)} 个`)
+  } else if (how === 'turn-many') {
+    /* 2026-10-12（spec 010）：等「本轮」页把 12 条依据渲染出来。
+       内容必须超出面板高度，否则"能不能滚"量不出来。
+       这里不点击任何东西 —— 页面挂载即自动取数（GET /ks/turn/last）。 */
+    for (let i = 0; i < 6; i += 1) await flush()
+    const hasContent = container.textContent.includes('GB 17681-2024')
+    mustLand(hasContent, 'turn-many 没渲染出依据（fetch 桩没被调用或数据形状不对）')
+    notes.push(`turn-many: 依据已渲染 = ${String(hasContent)}`)
   } else {
     /* ⚠ **兜底分支**（5i-补 2026-09-20）：名字在 `SCENARIOS` 表里、但这条 if/else 链**没有**任何
      * 分支接住它 ⇒ 当场报红（走下面 `landing` 那条路 = **exit 1**，并打出这个名字）。
@@ -1449,6 +1508,13 @@ const darkAttr = themeName === 'dark' ? ' data-ds-dark-theme' : ''
  * **固定视口**时必须是 auto —— 否则 `--window-size=W,H` 下文档不足 H 时会被 100vh 撑高。
  */
 const shellMinHeight = fixedHeight === null ? '100vh' : 'auto'
+/* 2026-10-12（spec 010）：「本轮」页要量**能不能滚**，而 #ks-shell 默认**没有高度上限**
+   ⇒ 容器会被内容撑开（实测 1515px 内容 / 1515px 容器、差 0）⇒ **永远量不到滚动**（假绿）。
+   ⇒ 给「本轮」页的 shell 一个**受控高度**（模拟宿主给面板的固定高度），
+     这样内容超出时容器不跟着长，才量得出 scrollHeight > clientHeight。
+   高度取 700px：真宿主右侧栏面板的典型高度量级；**只为可测性**，不是产品约束
+   （产品里高度由宿主决定，我们的容器是 height:100%）。 */
+const shellMaxHeightCss = page === 'turn' ? 'height:700px;overflow:hidden;' : ''
 /**
  * `--band-scroll` 的注入片段（见上面该参数的注释）。
  * ⚠⚠ **2026-09-21（第 3 步）：`--band-scroll` 的注入段整段删除** —— 它滚的是卡片带
@@ -1473,7 +1539,7 @@ const html = `<!doctype html>
   body{font-family:var(--dsw-font-family);font-size:13px;color:var(--dsw-alias-label-primary);
        background:var(--dsw-alias-bg-layer-2);}
   #ks-shell{width:${width}px;box-sizing:border-box;padding:12px;background:var(--dsw-alias-bg-layer-1);
-            min-height:${shellMinHeight};}
+            min-height:${shellMinHeight};${shellMaxHeightCss}}
 </style>
 </head>
 <body${darkAttr}>
@@ -2474,6 +2540,64 @@ const html = `<!doctype html>
         /* 最大的溢出量（正数 = 真的越界了） */
         maxOverflow: rowGaps.reduce(function (a, r) { return Math.max(a, r.overflow); }, -1e9),
       };
+    }
+    /* 2026-10-12（spec 010，业主实跑反馈 2「这个页面没法翻页」）：
+       真浏览器量"能不能滚"。jsdom 没有布局引擎，scrollHeight/clientHeight 恒 0，
+       所以这条只能在真浏览器里量。
+       怎么认根容器：#ks-shell 里第一个 overflow-y 为 auto/scroll 的 div。
+       为什么不靠 page 变量：那是 Node 侧作用域，在注入脚本里不可见（实测报过 ReferenceError）。
+       本段在模板字符串内部：注释里不许出现反引号。 */
+    {
+      var shellT = document.getElementById('ks-shell') || document.body
+      var scrollerT = null
+      var candsT = shellT.querySelectorAll('div')
+      for (var ti = 0; ti < candsT.length; ti += 1) {
+        var stT = getComputedStyle(candsT[ti])
+        if (stT.overflowY === 'auto' || stT.overflowY === 'scroll') { scrollerT = candsT[ti]; break }
+      }
+      if (scrollerT !== null) {
+        /* 数"文件"：数**分组卡的标题 span**。
+           四版教训（全部留痕）：
+             v1 按"分组卡边框特征"数 ⇒ 0（边框是简写属性，取不到 0.5px）；
+             v2 按"font-weight 600 + 13px"数 ⇒ 16（条款号也是这个样式）；
+             v3 按标准号正则数 ⇒ 0（正则没匹配上）；
+             v4 同样 0 —— **真因是模板字符串把正则里的反斜杠吃掉了**：
+                反斜杠加 s 在模板串里退化成单独的 s（实测：反斜杠消失）。
+                ⇒ 这不是选择器逻辑错，是**字符串转义**问题。
+             v5（现在）：**完全不依赖正则** —— 用字符串方法判定标题。
+               标题 = 粗体 span，且文本**含全角空格**（分组卡用全角空格连接标准号与文件名），
+               而条款号（6.4.3.2）与徽章文本都不含全角空格。
+           本段在模板字符串内部：注释里不许出现反引号；正则里的反斜杠会被吃掉（上面已踩）。 */
+        var titleCount = 0
+        var spansT = shellT.querySelectorAll('span')
+        for (var si = 0; si < spansT.length; si += 1) {
+          var csT = getComputedStyle(spansT[si])
+          if (csT.fontWeight !== '600') continue
+          var txtT = (spansT[si].textContent || '').trim()
+          /* 全角空格 U+3000：用 String.fromCharCode 构造，**不写字面量**（避免任何转义问题）。 */
+          if (txtT.indexOf(String.fromCharCode(12288)) >= 0) { titleCount += 1 }
+        }
+        var badgeCount = 0
+        for (var bi = 0; bi < spansT.length; bi += 1) {
+          var tb = (spansT[bi].textContent || '').trim()
+          if (tb === '现行有效' || tb === '已被替代' || tb === '已废止'
+              || tb === '即将实施' || tb.indexOf('起实施') >= 0
+              || tb === '状态未知' || tb.indexOf('参考资料') === 0) { badgeCount += 1 }
+        }
+        out['#turntab'] = {
+          scrollHeight: scrollerT.scrollHeight,
+          clientHeight: scrollerT.clientHeight,
+          overflowY: getComputedStyle(scrollerT).overflowY,
+          scrollable: scrollerT.scrollHeight - scrollerT.clientHeight > 1,
+          badgeTexts: badgeCount,
+          groupCount: titleCount,
+        }
+      } else {
+        out['#turntab'] = {
+          scrollHeight: -1, clientHeight: -1, overflowY: 'none',
+          scrollable: false, badgeTexts: 0, groupCount: 0,
+        }
+      }
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
@@ -3981,6 +4105,52 @@ const settingsFormCheck = {
   rows: sf?.rows ?? null,
 }
 
+/* 2026-10-12（spec 010，业主实跑反馈 2）：「本轮」页能不能滚（真浏览器量）。
+ * 口径：
+ *   · 只对 --page turn 有意义（别的页面没有这个量点）⇒ 其它页 skipReason 写明"本页不适用"。
+ *   · **必须量到根容器**（scrollHeight >= 0）：量不到 ⇒ 红（不许静默绿）。
+ *   · 内容超出容器时（scrollHeight > clientHeight）⇒ 必须 scrollable === true。
+ *   · 内容没超出 ⇒ 这一跑判"无对象"（不是失败：内容比容器矮时本来就不该有滚动条）。
+ *   · **徽章数必须 == 文件数**（业主：「现行有效是文件级别的」）——
+ *     把徽章放回条款行时，徽章数会变成条款数 ⇒ 立刻红。
+ * 为什么必须真浏览器：jsdom 没有布局引擎，scrollHeight/clientHeight 恒 0。 */
+const tt = measured['#turntab']
+const turnTabProblems = []
+let turnTabSkipReason = null
+if (page !== 'turn') {
+  turnTabSkipReason = `本页不是「本轮」页（page=${page}）—— 滚动与徽章层级这一跑不判`
+} else if (tt === undefined || tt.scrollHeight < 0) {
+  turnTabProblems.push('「本轮」页没量到可滚动容器（根容器的 overflowY 不是 auto/scroll）'
+    + ' ⇒ 按"量不到就红"处理')
+} else {
+  if (tt.scrollHeight - tt.clientHeight > 1 && tt.scrollable !== true) {
+    turnTabProblems.push(`内容（${String(tt.scrollHeight)}px）高于容器（${String(tt.clientHeight)}px）`
+      + ' 但判定为不可滚 —— 这正是业主说的"没法翻页"')
+  }
+  /* ⚠⚠ **量不到就当通过 = 假绿**（我自己的变异③抓到的漏洞）：
+     原来写 `if (tt.groupCount > 0 && ...)` ⇒ 文件数数成 0 时**静默跳过**徽章判据。
+     变异实测：把标题分隔符改成半角空格 ⇒ 文件数变 0、徽章 4 枚 ⇒ **exit 0（假绿）**。
+     ⇒ 现在：文件数必须是正数（这一跑塞了 12 条依据、4 个文件 ⇒ 数不到就是判据坏了）。 */
+  if (!(tt.groupCount > 0)) {
+    turnTabProblems.push(`「本轮」页数不到任何"文件"（groupCount=${String(tt.groupCount)}）`
+      + ' —— 这一跑塞了 4 个文件的依据，数不到就是量测判据坏了（按"量不到就红"处理）')
+  } else if (tt.badgeTexts !== tt.groupCount) {
+    turnTabProblems.push(`效力徽章 ${String(tt.badgeTexts)} 枚 ≠ 文件数 ${String(tt.groupCount)} 个`
+      + ' —— 徽章必须是**文件级**的（每个文件一枚），不是每条款一枚')
+  }
+}
+const turnTabCheck = {
+  checked: turnTabProblems.length === 0 && turnTabSkipReason === null,
+  skipReason: turnTabSkipReason,
+  problems: turnTabProblems,
+  scrollHeight: tt?.scrollHeight ?? null,
+  clientHeight: tt?.clientHeight ?? null,
+  overflowY: tt?.overflowY ?? null,
+  scrollable: tt?.scrollable ?? null,
+  badgeTexts: tt?.badgeTexts ?? null,
+  groupCount: tt?.groupCount ?? null,
+}
+
 const shot = runBrowser([`--screenshot=${outPng}`, `--window-size=${width},${shotHeight}`, fileUrl])
 if (!existsSync(outPng)) {
   console.error('❌ 截图失败。stderr 尾部：')
@@ -4018,6 +4188,7 @@ console.log(JSON.stringify({
   listCapCheck,
   capCardsCheck,
   settingsFormCheck,
+  turnTabCheck,
   ksPadCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
@@ -4292,6 +4463,27 @@ if (settingsFormSkipReason !== null) {
   for (const p of settingsFormProblems) console.error(`   - ${p}`)
   console.error('   ⇒ 输入框是 flex 项，默认 min-width:auto ⇒ 内容（很长的 placeholder）撑住不缩、整行溢出。')
   console.error('      修法：给**可收缩**的那一项显式 minWidth:0（ksGuideStyles.ts 里 .ks-main 那条注释记的是同一个坑）。')
+  process.exit(1)
+}
+
+/* 2026-10-12（spec 010）：「本轮」页滚动与徽章层级自检（走 stderr，理由同上面各段）。 */
+if (turnTabSkipReason !== null) {
+  console.error(`· #turntab 自检：**这一跑不判**（${turnTabSkipReason}）`)
+} else if (turnTabProblems.length === 0) {
+  const diff = (turnTabCheck.scrollHeight ?? 0) - (turnTabCheck.clientHeight ?? 0)
+  console.error(`· #turntab 自检通过：内容 ${String(turnTabCheck.scrollHeight)}px / 容器 `
+    + `${String(turnTabCheck.clientHeight)}px（差 ${String(diff)}px）｜overflowY=${String(turnTabCheck.overflowY)}`
+    + `｜可滚=${String(turnTabCheck.scrollable)}`
+    + `｜文件级徽章 ${String(turnTabCheck.badgeTexts)} 枚 / 文件 ${String(turnTabCheck.groupCount)} 个`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 「本轮」页自检失败（spec 010；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of turnTabProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 滚动：根容器需要 height:100% + min-height:0 + overflow-y:auto（三者缺一不可）——')
+  console.error('      height:100% 填满宿主给的高度；min-height:0 让内容在内部滚而不是撑开容器；')
+  console.error('      overflow-y:auto 才真的能滚。')
+  console.error('   ⇒ 徽章：效力是**文件级**的，应挂在文件标题行（每个文件一枚）。')
   process.exit(1)
 }
 
