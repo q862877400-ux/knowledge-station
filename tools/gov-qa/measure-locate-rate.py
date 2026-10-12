@@ -129,7 +129,18 @@ def main() -> int:
         # 崩在第一个撞上的文件，整份验收产物（含 assets-*.json）刷不出来。
         # 口径与 coverage-matrix.py 对齐：跳过并计数；下次重跑即补上。
         rows = []
-        for l in f.read_text(encoding="utf-8").splitlines():
+        # ⚠ **2026-10-12 修（真缺陷：静默丢记录）**：这里原写 `f.read_text().splitlines()`。
+        # `str.splitlines()` 不**只**按 `\n` 切 —— 它还按 `\v \f \x1c \x1d \x1e \x85 \u2028 \u2029` 切。
+        # 而采集数据里**有记录的值里含 U+2028**（LINE SEPARATOR，实测 7 个源共 40 处，
+        # 如 `zj-hangzhou` 的 `question` 字段）⇒ 一条记录被**从中间切成两半**
+        # ⇒ 两半都不是合法 JSON ⇒ 双双计入 skipped，**那条记录被静默丢掉**。
+        #
+        # 实测影响（2026-10-12）：`read_text().splitlines()` 得 415,771 行 / 40 行"解析失败"；
+        # 按 `\n` 切得 **415,742** 行 / **0** 行失败。**差值 = 40 行被切碎、约 20 条记录被丢**，
+        # 表现为"可用考卷 28,597"而真实是 **28,601**（少 4 条 —— 那 20 条切碎的行里
+        # 只有 4 条恰好是"可当考卷"）。
+        # ⇒ 用 `split("\n")`（**只按换行切**），并用 `f.open()` 逐行迭代的等价写法。
+        for l in f.read_text(encoding="utf-8").split("\n"):
             if not l.strip():
                 continue
             try:
