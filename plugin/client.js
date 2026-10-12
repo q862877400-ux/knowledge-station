@@ -41964,13 +41964,11 @@ function KsScopeChip(props) {
   const [busy, setBusy] = (0, import_react11.useState)(false);
   const abortRef = (0, import_react11.useRef)(null);
   const [sentry, setSentry] = (0, import_react11.useState)(false);
-  const [sentryHint, setSentryHint] = (0, import_react11.useState)(null);
   const draft = props.input?.draft ?? "";
   (0, import_react11.useEffect)(() => {
     if (sessionId === void 0 || sessionId.length === 0) return;
     if (draft.trim().length === 0) {
       setSentry(false);
-      setSentryHint(null);
       return;
     }
     const timer = setTimeout(() => {
@@ -41980,10 +41978,8 @@ function KsScopeChip(props) {
         body: JSON.stringify({ session: sessionId, text: draft })
       }).then((r) => r.ok ? r.json() : null).then((b) => {
         setSentry(b?.data?.triggered === true);
-        setSentryHint(b?.data?.verdict === "review" ? "\u8FD9\u9898\u53EF\u80FD\u8981\u7528\u6CD5\u89C4\u4F9D\u636E\uFF08\u4E0D\u786E\u5B9A\uFF0C\u672A\u81EA\u52A8\u542F\u7528\uFF09" : null);
       }).catch(() => {
         setSentry(false);
-        setSentryHint(null);
       });
     }, 300);
     return () => clearTimeout(timer);
@@ -42018,7 +42014,7 @@ function KsScopeChip(props) {
       setBusy(false);
     }
   }, [sessionId, busy]);
-  if (folderName === null && !sentry && sentryHint === null) return null;
+  if (folderName === null && !sentry) return null;
   return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
     sentry && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
       "span",
@@ -42037,25 +42033,6 @@ function KsScopeChip(props) {
           border: "0.5px solid var(--dsw-alias-state-warn-primary)"
         },
         children: "\u2696 \u5408\u89C4\u62A4\u822A\uFF1A\u5F85\u547D"
-      }
-    ),
-    sentryHint !== null && !sentry && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-      "span",
-      {
-        "data-ks-compliance-hint": "",
-        title: "\u5224\u65AD\u628A\u63E1\u4E0D\u5927\uFF1A\u6CA1\u6709\u81EA\u52A8\u542F\u7528\u5408\u89C4\u6D41\u7A0B\uFF0C\u53EA\u63D0\u793A\u4E00\u53E5\uFF08\u70B9\u300C\u5408\u89C4\u62A4\u822A\uFF1A\u5F85\u547D\u300D\u4E0D\u5B58\u5728\u5373\u8868\u793A\u672A\u542F\u7528\uFF09",
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          padding: "3px 10px",
-          margin: "0 2px 4px",
-          borderRadius: 999,
-          fontSize: 12,
-          color: "var(--dsw-alias-label-secondary)",
-          border: "0.5px solid var(--dsw-alias-border-l2)"
-        },
-        children: sentryHint
       }
     ),
     folderName !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
