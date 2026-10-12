@@ -206,8 +206,24 @@ def attach_bboxes(evidence: List[Dict[str, Any]]) -> None:
                 if s["page"] == page_start:
                     chosen = s
                     break
-        if chosen is None:
+        else:
+            # `page_start` 缺失（引擎没给页号）：此时前端 `page` 也是 undefined，
+            # 证据 tab 的 onPage 判据是 `page === undefined || …` ⇒ **任何页都算目标页**
+            # ⇒ 用第一个 span 是安全的（箭头会画在它自己那一页）。
             chosen = spans[0]
+        # ⚠⚠ 2026-10-10（spec 009，**我自己复核时发现的风险**，已修）：
+        #   条款**跨页**时（真库实测 44711 / 603537 = **7.4%**），`spans[0]` 可能落在
+        #   **与 `page_start` 不同的一页**。而前端证据 tab 判"箭头画哪页"用的是
+        #   `evidence.current?.page`（= 这里的 `page_start`），**它完全没用 `bboxPage`**
+        #   （`KsEvidenceTab.tsx` 里 `bboxPage` 出现 0 次）⇒ 若把别页的坐标写进去，
+        #   箭头会画在**错页的错误位置**上。
+        #   ⇒ **只有坐标与 page_start 同页时才写**；不同页宁可**留空** ——
+        #     留空会走证据 tab 的既有兜底（`ev.bbox === undefined` 分支会自己去 `/ks/bbox`
+        #     取并**按目标页筛** span），那条路是**正确**的。
+        #   ⚠ 实测（抽样 3000 个有 span 的条款）：`page_start` **100%** 落在其 span 的页范围内
+        #     ⇒ 这条防御在今天的真库上**基本不会触发**；留着是为了跨页/边界数据下不出错。
+        if chosen is None:
+            continue
         ev["bbox"] = chosen["bbox"]
         ev["bbox_page"] = chosen["page"]
 

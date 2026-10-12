@@ -94,6 +94,36 @@ def test_attach_bboxes_falls_back_to_first_when_page_start_missing(fake_db):
 
 
 # --------------------------------------------------------------------------
+# ②b ★ 跨页时**不许**把别页的坐标写进去（我自己复核时发现的风险）
+# --------------------------------------------------------------------------
+def test_attach_bboxes_skips_when_no_span_on_page_start(fake_db):
+    """`page_start=5` 但该条款的 span 只在第 9 页 ⇒ **留空**，不许退化到 spans[0]。
+
+    为什么：前端证据 tab 判"箭头画哪页"用的是 `page_start`（它**完全没用 `bbox_page`**，
+    `KsEvidenceTab.tsx` 里 `bboxPage` 出现 0 次）⇒ 把第 9 页的坐标配第 5 页的 page，
+    箭头会画在**错页的错误位置**上。留空则会走证据 tab 的既有兜底（它按目标页筛 span），
+    那条路是**正确**的。
+    """
+    fake_db([_row("rev1", 9, "[1.0, 2.0, 3.0, 4.0]")])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 5}]
+    attach_bboxes(evidence)
+    assert "bbox" not in evidence[0], "跨页时不许把别页的坐标写进去（会画错页）"
+    assert "bbox_page" not in evidence[0]
+
+
+def test_attach_bboxes_uses_page_start_span_when_cross_page(fake_db):
+    """跨页条款：只要 `page_start` 那一页**有** span，就取它（不取 sort_order 第一个）。"""
+    fake_db([
+        _row("rev1", 9, "[1.0, 1.0, 2.0, 2.0]", order=0),
+        _row("rev1", 5, "[9.0, 9.0, 10.0, 10.0]", order=1),
+    ])
+    evidence = [{"clause_revision_id": "rev1", "page_start": 5}]
+    attach_bboxes(evidence)
+    assert evidence[0]["bbox_page"] == 5
+    assert evidence[0]["bbox"] == [9.0, 9.0, 10.0, 10.0]
+
+
+# --------------------------------------------------------------------------
 # ③ ★ 没有 span ⇒ **不许编造**（这是红线）
 # --------------------------------------------------------------------------
 def test_attach_bboxes_leaves_absent_when_no_span(fake_db):
