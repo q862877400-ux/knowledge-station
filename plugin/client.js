@@ -31627,24 +31627,29 @@ function KsAnchorWarn(props) {
 var React = __toESM(require("react"), 1);
 var import_jsx_runtime5 = require("react/jsx-runtime");
 var KS_ARROW_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10"><path d="M0 4h11V1l9 4-9 4V6H0z" fill="#e02020"/></svg>';
+var KS_SIBLING_OPACITY = 0.35;
+var KS_ARROW_SVG_SIBLING = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10"><path d="M0 4h11V1l9 4-9 4V6H0z" fill="#e02020" opacity="${KS_SIBLING_OPACITY}"/></svg>`;
+function arrowBackground(svg) {
+  return `url("data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}")`;
+}
+function overlayStyle(svg) {
+  return {
+    position: "absolute",
+    display: "none",
+    pointerEvents: "none",
+    backgroundImage: arrowBackground(svg),
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%"
+  };
+}
 var KsArrowOverlay = React.forwardRef(
   function KsArrowOverlay2(_props, ref) {
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-      "div",
-      {
-        ref,
-        "aria-hidden": "true",
-        style: {
-          position: "absolute",
-          display: "none",
-          pointerEvents: "none",
-          // 红色实心右箭头（data-URI SVG，2:1），指向条款行左缘。
-          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${encodeURIComponent(KS_ARROW_SVG)}")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100% 100%"
-        }
-      }
-    );
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { ref, "aria-hidden": "true", style: overlayStyle(KS_ARROW_SVG) });
+  }
+);
+var KsSiblingArrowsOverlay = React.forwardRef(
+  function KsSiblingArrowsOverlay2(_props, ref) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { ref, "aria-hidden": "true", style: overlayStyle(KS_ARROW_SVG_SIBLING) });
   }
 );
 
@@ -31668,7 +31673,8 @@ function parseEvidence(input) {
       /* ⚠ 2026-10-10（spec 009）：补 `bboxPage` —— 原来**对象形态也不解析它**，
          于是"箭头该显示在哪一页"这个信息在这一步就丢了。 */
       bboxPage: typeof input.bboxPage === "number" && input.bboxPage >= 1 ? Math.floor(input.bboxPage) : void 0,
-      rev: typeof input.rev === "string" && input.rev.length > 0 ? input.rev : void 0
+      rev: typeof input.rev === "string" && input.rev.length > 0 ? input.rev : void 0,
+      siblings: Array.isArray(input.siblings) ? input.siblings : void 0
     };
   }
   let url;
@@ -31687,10 +31693,21 @@ function parseEvidence(input) {
   const bboxPageRaw = url.searchParams.get("bboxPage");
   const bboxPage = bboxPageRaw !== null && /^\d+$/.test(bboxPageRaw) ? Math.max(1, parseInt(bboxPageRaw, 10)) : void 0;
   const rev = url.searchParams.get("rev") ?? void 0;
-  return { doc, page, bbox, bboxPage, rev };
+  const siblings = url.searchParams.getAll("also").map(parseSibling).filter((s) => s !== null);
+  return { doc, page, bbox, bboxPage, rev, siblings: siblings.length > 0 ? siblings : void 0 };
 }
 function isBbox(value) {
   return Array.isArray(value) && value.length === 4 && value.every((n) => typeof n === "number" && Number.isFinite(n));
+}
+function parseSibling(raw) {
+  const parts = raw.split(",").map((s) => Number(s.trim()));
+  if (parts.length !== 5 || parts.some((n) => !Number.isFinite(n))) return null;
+  const [page, x0, y0, x1, y1] = parts;
+  if (page < 1) return null;
+  return {
+    page: Math.floor(page),
+    bbox: [Math.min(x0, x1), Math.min(y0, y1), Math.max(x0, x1), Math.max(y0, y1)]
+  };
 }
 var EVIDENCE_ORIGIN = "http://127.0.0.1:1";
 function evidenceUrlOf(ev) {
@@ -31709,6 +31726,14 @@ function evidenceUrlOf(ev) {
       params.set("bboxPage", String(Math.floor(ev.bboxPage)));
     }
   }
+  if (isBbox(ev.bbox) && Array.isArray(ev.siblings)) {
+    for (const s of ev.siblings) {
+      if (s === null || typeof s !== "object") continue;
+      if (!(typeof s.page === "number" && Number.isFinite(s.page) && s.page >= 1)) continue;
+      if (!isBbox(s.bbox)) continue;
+      params.append("also", `${Math.floor(s.page)},${s.bbox.map((n) => String(n)).join(",")}`);
+    }
+  }
   return `${EVIDENCE_ORIGIN}${EVIDENCE_PATH}?${params.toString()}`;
 }
 function parseBbox(raw) {
@@ -31723,6 +31748,7 @@ function parseBbox(raw) {
 
 // client/KsEvidenceTab.tsx
 var import_jsx_runtime6 = require("react/jsx-runtime");
+var siblingArrowBg = arrowBackground(KS_ARROW_SVG_SIBLING);
 var EMPTY_EVIDENCE = null;
 var HISTORY_CAP = 20;
 var SCALE_EPSILON = 0.03;
@@ -31763,6 +31789,7 @@ function KsEvidenceTab(props) {
   const abortRef = (0, import_react4.useRef)(null);
   const canvasRef = (0, import_react4.useRef)(null);
   const bboxRef = (0, import_react4.useRef)(null);
+  const siblingBoxesRef = (0, import_react4.useRef)(null);
   const containerRef = (0, import_react4.useRef)(null);
   const syncTocAnchor = (0, import_react4.useCallback)(() => {
     const el = containerRef.current;
@@ -31804,6 +31831,7 @@ function KsEvidenceTab(props) {
   const [curClauseKey, setCurClauseKey] = (0, import_react4.useState)(null);
   const [anchorWarn, setAnchorWarn] = (0, import_react4.useState)(null);
   const [arrowPos, setArrowPos] = (0, import_react4.useState)(null);
+  const [siblingArrowRects, setSiblingArrowRects] = (0, import_react4.useState)([]);
   const refreshMetaRef = (0, import_react4.useRef)(null);
   const loadEvidenceRef = (0, import_react4.useRef)(null);
   const [docClauseBms, setDocClauseBms] = (0, import_react4.useState)([]);
@@ -31936,6 +31964,34 @@ function KsEvidenceTab(props) {
       } else {
         box2.style.display = "none";
         setArrowPos(null);
+      }
+    }
+    if (siblingBoxesRef.current !== null) {
+      const sib = siblingBoxesRef.current;
+      const anchors = (evidence.current?.siblings ?? []).filter((s) => s.page === clamped);
+      if (anchors.length === 0 || !showArrowRef.current) {
+        sib.style.display = "none";
+        setSiblingArrowRects((prev) => prev.length === 0 ? prev : []);
+      } else {
+        const rects = [];
+        const pageTop = pagingMode === "continuous" ? pageCanvasRefs.current.get(clamped)?.offsetTop ?? 0 : 0;
+        for (const a of anchors) {
+          const [ax0, ay0] = viewport.convertToViewportPoint(a.bbox[0], a.bbox[1]);
+          const [ax1, ay1] = viewport.convertToViewportPoint(a.bbox[2], a.bbox[3]);
+          const rLeft = Math.min(ax0, ax1);
+          const rTop = Math.min(ay0, ay1);
+          const rH = Math.max(Math.max(ay0, ay1) - rTop, 1);
+          const aH = Math.max(10, Math.min(rH, 56));
+          const aW = Math.max(14, Math.min(aH * 1.4, 40));
+          rects.push({
+            left: Math.max(18, rLeft - aW - 2),
+            top: rTop + (rH - aH) / 2 + pageTop,
+            width: aW,
+            height: aH
+          });
+        }
+        sib.style.display = "block";
+        setSiblingArrowRects(rects);
       }
     }
   }, [pagingMode]);
@@ -33072,6 +33128,25 @@ function KsEvidenceTab(props) {
         load.status === "ready" && viewMode === "pdf" && pagingMode === "single" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { position: "relative", display: "inline-block", contain: "paint" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("canvas", { ref: canvasRef, style: { display: "block", transform: "translateZ(0)" } }),
           /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KsArrowOverlay, { ref: bboxRef }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KsSiblingArrowsOverlay, { ref: siblingBoxesRef }),
+          siblingArrowRects.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+            "div",
+            {
+              "aria-hidden": "true",
+              style: {
+                position: "absolute",
+                left: `${r.left}px`,
+                top: `${r.top}px`,
+                width: `${r.width}px`,
+                height: `${r.height}px`,
+                pointerEvents: "none",
+                backgroundImage: siblingArrowBg,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100% 100%"
+              }
+            },
+            `sib-${i}`
+          )),
           arrowPos !== null && evidence.current?.rev !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
@@ -33094,6 +33169,25 @@ function KsEvidenceTab(props) {
         ] }),
         load.status === "ready" && viewMode === "pdf" && pagingMode === "continuous" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { position: "relative", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 8 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KsArrowOverlay, { ref: bboxRef }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KsSiblingArrowsOverlay, { ref: siblingBoxesRef }),
+          siblingArrowRects.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+            "div",
+            {
+              "aria-hidden": "true",
+              style: {
+                position: "absolute",
+                left: `${r.left}px`,
+                top: `${r.top}px`,
+                width: `${r.width}px`,
+                height: `${r.height}px`,
+                pointerEvents: "none",
+                backgroundImage: siblingArrowBg,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100% 100%"
+              }
+            },
+            `sib-c-${i}`
+          )),
           Array.from({ length: total }, (_, i) => i + 1).map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "canvas",
             {
@@ -41963,23 +42057,16 @@ function KsScopeChip(props) {
   const [folderName, setFolderName] = (0, import_react11.useState)(null);
   const [busy, setBusy] = (0, import_react11.useState)(false);
   const abortRef = (0, import_react11.useRef)(null);
-  const [sentry, setSentry] = (0, import_react11.useState)(false);
   const draft = props.input?.draft ?? "";
   (0, import_react11.useEffect)(() => {
     if (sessionId === void 0 || sessionId.length === 0) return;
-    if (draft.trim().length === 0) {
-      setSentry(false);
-      return;
-    }
+    if (draft.trim().length === 0) return;
     const timer = setTimeout(() => {
       void fetch("/ks/compliance/ping", {
         method: "POST",
         headers: { "content-type": "application/json", accept: "application/json" },
         body: JSON.stringify({ session: sessionId, text: draft })
-      }).then((r) => r.ok ? r.json() : null).then((b) => {
-        setSentry(b?.data?.triggered === true);
       }).catch(() => {
-        setSentry(false);
       });
     }, 300);
     return () => clearTimeout(timer);
@@ -42014,83 +42101,86 @@ function KsScopeChip(props) {
       setBusy(false);
     }
   }, [sessionId, busy]);
-  if (folderName === null && !sentry) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-    sentry && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-      "span",
-      {
-        "data-ks-compliance-marker": "",
-        title: "\u8FD9\u8F6E\u6D89\u53CA\u5408\u89C4\u4E8B\u9879\uFF1A\u4F5C\u7B54\u5C06\u4EE5\u5E93\u5185\u539F\u6587\u4E3A\u4F9D\u636E\uFF08\u8BE6\u89C1\u5408\u89C4\u95EE\u7B54\u6280\u80FD\uFF09",
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          padding: "3px 10px",
-          margin: "0 2px 4px",
-          borderRadius: 999,
-          fontSize: 12,
-          color: "var(--dsw-alias-state-warn-primary)",
-          border: "0.5px solid var(--dsw-alias-state-warn-primary)"
-        },
-        children: "\u2696 \u5408\u89C4\u62A4\u822A\uFF1A\u5F85\u547D"
-      }
-    ),
-    folderName !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
-      "div",
-      {
-        "data-ks-scope-chip": "",
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          padding: "3px 10px",
-          margin: "0 2px 4px",
-          width: "fit-content",
-          borderRadius: 999,
-          border: "1px solid #d99000",
-          background: "#fff8e6",
-          color: "#7a4a00",
-          fontSize: 11.5,
-          lineHeight: 1.4
-        },
-        title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-            "button",
-            {
-              type: "button",
-              onClick: () => void close(),
-              disabled: busy,
-              "aria-label": "\u5173\u95ED\u6536\u85CF\u5939\u8303\u56F4\u63D0\u95EE\uFF08\u6062\u590D\u5168\u5E93\uFF09",
-              title: "\u5173\u95ED\uFF1A\u6062\u590D\u5168\u5E93\u68C0\u7D22",
-              style: {
-                border: "none",
-                background: "transparent",
-                color: "#7a4a00",
-                cursor: busy ? "default" : "pointer",
-                fontSize: 13,
-                lineHeight: 1,
-                padding: "0 2px",
-                fontWeight: 700,
-                marginLeft: 2
-              },
-              children: "\u2715"
-            }
-          )
-        ]
-      }
-    )
-  ] });
+  if (folderName === null) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+    "div",
+    {
+      "data-ks-scope-chip": "",
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "3px 10px",
+        margin: "0 2px 4px",
+        width: "fit-content",
+        borderRadius: 999,
+        border: "1px solid #d99000",
+        background: "#fff8e6",
+        color: "#7a4a00",
+        fontSize: 11.5,
+        lineHeight: 1.4
+      },
+      title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          "button",
+          {
+            type: "button",
+            onClick: () => void close(),
+            disabled: busy,
+            "aria-label": "\u5173\u95ED\u6536\u85CF\u5939\u8303\u56F4\u63D0\u95EE\uFF08\u6062\u590D\u5168\u5E93\uFF09",
+            title: "\u5173\u95ED\uFF1A\u6062\u590D\u5168\u5E93\u68C0\u7D22",
+            style: {
+              border: "none",
+              background: "transparent",
+              color: "#7a4a00",
+              cursor: busy ? "default" : "pointer",
+              fontSize: 13,
+              lineHeight: 1,
+              padding: "0 2px",
+              fontWeight: 700,
+              marginLeft: 2
+            },
+            children: "\u2715"
+          }
+        )
+      ]
+    }
+  );
 }
 
 // client/KsTurnTab.tsx
 var React4 = __toESM(require("react"), 1);
 var import_jsx_runtime17 = require("react/jsx-runtime");
 var str2 = (v) => typeof v === "string" ? v : v === void 0 || v === null ? "" : String(v);
-function turnEvidenceHref(ev) {
+function siblingEvidenceOf(self, all) {
+  const doc = str2(self.doc_id);
+  if (doc.length === 0) return [];
+  const selfRev = str2(self.clause_revision_id);
+  const selfNo = str2(self.clause_number);
+  const seen = /* @__PURE__ */ new Set();
+  const out = [];
+  for (const ev of all) {
+    if (str2(ev.doc_id) !== doc) continue;
+    const rev = str2(ev.clause_revision_id);
+    if (rev.length > 0 ? rev === selfRev : str2(ev.clause_number) === selfNo) continue;
+    const bboxRaw = ev.bbox;
+    if (!(Array.isArray(bboxRaw) && bboxRaw.length === 4 && bboxRaw.every((n) => typeof n === "number" && Number.isFinite(n)))) continue;
+    const pageRaw = ev.bbox_page !== void 0 ? ev.bbox_page : ev.page_start;
+    if (!(typeof pageRaw === "number" && Number.isFinite(pageRaw) && pageRaw >= 1)) continue;
+    const page = Math.floor(pageRaw);
+    const bb = bboxRaw;
+    const key = rev.length > 0 ? rev : `${page}|${bb.join(",")}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ page, bbox: bb });
+  }
+  return out;
+}
+function turnEvidenceHref(ev, siblings = []) {
   const doc = str2(ev.doc_id);
   if (doc.length === 0) return null;
   const pageRaw = ev.page_start;
@@ -42103,7 +42193,10 @@ function turnEvidenceHref(ev) {
     page: typeof pageRaw === "number" && pageRaw >= 1 ? Math.floor(pageRaw) : void 0,
     rev: str2(ev.clause_revision_id).length > 0 ? str2(ev.clause_revision_id) : void 0,
     bbox,
-    bboxPage
+    bboxPage,
+    /* ⚠ 2026-10-12（spec 012 R4）：同轮其他条款一并进 URL ⇒ PDF 里画半透明箭头。
+       只在有主 bbox 时才传（没有主箭头就没有"其他"可言，见 `evidenceUrlOf` 的闸门）。 */
+    siblings: siblings.length > 0 ? [...siblings] : void 0
   };
   return evidenceUrlOf(target);
 }
@@ -42138,6 +42231,16 @@ function compareClauseOrder(a, b) {
   }
   if (aNum !== bNum) return aNum ? -1 : 1;
   return ka.text.localeCompare(kb.text, "zh");
+}
+function snippetCarriesClauseNo(ev) {
+  const no = str2(ev.clause_number).trim();
+  const text = str2(ev.snippet);
+  if (no.length === 0 || text.length === 0) return false;
+  const norm = (s) => s.replace(/\s+/g, "").replace(/[．。]/g, ".").replace(/[（]/g, "(").replace(/[）]/g, ")");
+  const nNo = norm(no);
+  const nText = norm(text);
+  if (nNo.length === 0) return false;
+  return nText.startsWith(nNo);
 }
 function groupTurnEvidence(items) {
   const order = [];
@@ -42225,8 +42328,8 @@ function KsTurnEmptyState() {
   );
 }
 function KsTurnEvidenceRow(props) {
-  const { ev, onLook, ordinal } = props;
-  const href = turnEvidenceHref(ev);
+  const { ev, onLook, ordinal, siblings } = props;
+  const href = turnEvidenceHref(ev, siblings ?? []);
   const clause = str2(ev.clause_number);
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
@@ -42245,7 +42348,7 @@ function KsTurnEvidenceRow(props) {
             String(ordinal),
             "."
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: clause.length > 0 ? clause : "\uFF08\u65E0\u6761\u6B3E\u53F7\uFF09" })
+          !snippetCarriesClauseNo(ev) && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: clause.length > 0 ? clause : "\uFF08\u65E0\u6761\u6B3E\u53F7\uFF09" })
         ] }),
         str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "div",
@@ -42399,18 +42502,22 @@ function KsTurnTab(props) {
                     statuses.join(" / "),
                     "\uFF09\uFF0C \u4E0A\u9762\u663E\u793A\u7684\u662F\u7B2C\u4E00\u6761\u7684\uFF1B\u9010\u6761\u72B6\u6001\u8BF7\u770B\u5404\u6761\u6B3E\u81EA\u5DF1\u7684\u6570\u636E\u3002"
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: group.items.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-                    KsTurnEvidenceRow,
-                    {
-                      ev,
-                      ordinal: group.items.length > 1 ? i + 1 : void 0,
-                      onLook: () => {
-                        const href = turnEvidenceHref(ev);
-                        if (href !== null) openEvidence(href);
-                      }
-                    },
-                    `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
-                  )) })
+                  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: group.items.map((ev, i) => {
+                    const sibs = siblingEvidenceOf(ev, group.items);
+                    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+                      KsTurnEvidenceRow,
+                      {
+                        ev,
+                        ordinal: group.items.length > 1 ? i + 1 : void 0,
+                        siblings: sibs,
+                        onLook: () => {
+                          const href = turnEvidenceHref(ev, sibs);
+                          if (href !== null) openEvidence(href);
+                        }
+                      },
+                      `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
+                    );
+                  }) })
                 ]
               },
               group.key

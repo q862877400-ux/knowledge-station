@@ -389,6 +389,49 @@ const v4SourceOk = (s) =>
   check('⑩ deferContext 缺席 ⇒ 探针降级不炸（可缺省面纪律）', true)
 }
 
+/* ============================================================================
+   ⑪ 界面零展示 + 后台判断仍在（2026-10-12，业主裁定 A）
+   ----------------------------------------------------------------------------
+   业主原话：「这个自动检测哨兵，你后台可以继续这样判断，但我不需要你在前台展示，
+   也不要搞任何展示，就把它定回去，直接把展示相关的逻辑删掉就好了。」
+   ⇒ 钉两件事，**必须同时成立**（少任一都是做错）：
+     · ① 界面**一个合规字样都没有**（徽章 / 提示都不许有）；
+     · ② 后台判断**仍活着** —— `KsScopeChip` 照发 `POST /ks/compliance/ping`
+          （它**不是展示**，是宿主打会话标记的**唯一触发点**；删了就一起死）。
+   ============================================================================ */
+{
+  const chipSrc = await readFile(join(pluginRoot, 'client', 'KsScopeChip.tsx'), 'utf8')
+  /* ⚠ 计数前剥注释（本仓纪律）：源码注释里会**引用旧文案作留痕**
+     （本次就写着「删掉『⚖ 合规护航：待命』徽章」）⇒ 朴素 grep 会把留痕算成"还在显示"。 */
+  const chipCode = chipSrc
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/^\s*\/\/.*$/gm, ' ')
+
+  check('⑪ 界面零展示：代码里没有「合规护航：待命」徽章字面',
+    !chipCode.includes('合规护航：待命'))
+  check('⑪ 界面零展示：代码里没有合规徽章的 DOM 钩子（data-ks-compliance-marker）',
+    !chipCode.includes('data-ks-compliance-marker'))
+  check('⑪ 界面零展示：代码里没有那句中间档提示',
+    !chipCode.includes('可能要用法规依据'))
+  check('⑪ 界面零展示：组件里没有 sentry 状态（没有可显示的合规状态）',
+    !/\bsentry\b/.test(chipCode))
+  /* ★ ② 后台判断仍在：这次 fetch 是**唯一触发点**，必须在。 */
+  check('⑪ ★ 后台判断仍在：KsScopeChip 照发 POST /ks/compliance/ping（删了后台就一起死）',
+    chipCode.includes("'/ks/compliance/ping'") && chipCode.includes("method: 'POST'"))
+  check('⑪ 后台判断仍在：发的 body 带 session + text（宿主据此判并打会话标记）',
+    chipCode.includes('session: sessionId') && chipCode.includes('text: draft'))
+  /* ⚠ 发请求但**不消费回执**（界面不需要任何状态）—— 钉住"只发不读"。 */
+  check('⑪ 只发不读：不再解析回执（没有 .then 读 triggered）',
+    !chipCode.includes('triggered'))
+  /* 宿主侧三件（哨句 / 打标记 / 段文两态）**必须仍在** —— 后台判断的另一半。 */
+  const sentrySrc = await readFile(join(pluginRoot, 'src', 'compliance-sentry.js'), 'utf8')
+  check('⑪ ★ 后台判断仍在：宿主侧仍打会话标记（markComplianceTriggered 调用点在场）',
+    sentrySrc.includes('markComplianceTriggered(sessionId, verdict ==='),
+    '宿主打标记的调用点')
+  check('⑪ ★ 后台判断仍在：段文仍是两态（未触发=只哨句 / 触发=哨句+L1）',
+    sentrySrc.includes('return triggered ? `${KS_COMPLIANCE_SENTRY}\\n\\n${extractL1()}` : KS_COMPLIANCE_SENTRY'))
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== compliance-sentry smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} (${results.filter((r) => r.ok).length}/${results.length}) ==`)
 process.exit(failed.length === 0 ? 0 : 1)
