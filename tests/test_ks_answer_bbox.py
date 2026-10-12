@@ -266,8 +266,14 @@ def test_attach_bboxes_accepts_normal_line(fake_db):
 def test_degenerate_thresholds_are_the_documented_values():
     """阈值是**规范值**（有实测依据），不许随手改。
 
-    依据（全库 20 万 span）：正常正文行宽 p0.1 = 11pt、高 p0.1 = 6pt；
-    取 5/3 ⇒ 误伤率 0.02%，与正常行有 2 倍以上余量。
+    依据（全库 184 万 span **随机抽样** 20 万）：尺寸分布**双峰** ——
+    0–1pt 碎片占 13.6%、≥10pt 正常行占 86%，中间的 **1–5pt 几乎为空**（20 万里只有 7 条）
+    ⇒ 5/3 落在**两峰之间的空隙**里 ⇒ 不误伤正常行。
+
+    ⚠ **更正留痕（2026-10-12 复核时自己发现）**：原写"正常正文行宽 p0.1 = 11pt、高 p0.1 = 6pt；
+    取 5/3 ⇒ 误伤率 0.02%"——**那是错的**，且是**抽样偏差**（`LIMIT 200000` 按行序取，
+    集中在少数正常文档 ⇒ 偏低 686 倍）。真实**退化率 13.6%**。
+    "退化率"与"误伤率"被混为一谈，一并更正。
     """
     from src.core.llm.ks_answer import DEGENERATE_BBOX_MIN_W, DEGENERATE_BBOX_MIN_H
     assert DEGENERATE_BBOX_MIN_W == 5.0
