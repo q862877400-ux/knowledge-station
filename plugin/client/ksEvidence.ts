@@ -73,6 +73,11 @@ export function parseEvidence(input: string | KsEvidence | undefined | null): Ks
       doc,
       page: typeof input.page === 'number' && input.page >= 1 ? Math.floor(input.page) : undefined,
       bbox: isBbox(input.bbox) ? input.bbox : undefined,
+      /* ⚠ 2026-10-10（spec 009）：补 `bboxPage` —— 原来**对象形态也不解析它**，
+         于是"箭头该显示在哪一页"这个信息在这一步就丢了。 */
+      bboxPage: typeof input.bboxPage === 'number' && input.bboxPage >= 1
+        ? Math.floor(input.bboxPage)
+        : undefined,
       rev: typeof input.rev === 'string' && input.rev.length > 0 ? input.rev : undefined,
     }
   }
@@ -94,9 +99,16 @@ export function parseEvidence(input: string | KsEvidence | undefined | null): Ks
   const bboxRaw = url.searchParams.get('bbox')
   const bbox = bboxRaw !== null ? parseBbox(bboxRaw) : undefined
 
+  /* ⚠ 2026-10-10（spec 009）：补 `bboxPage` 的 URL 侧解析 —— 与上面的对象形态同口径
+     （非数字 / <1 ⇒ undefined，不许变成 NaN 或 0）。 */
+  const bboxPageRaw = url.searchParams.get('bboxPage')
+  const bboxPage = bboxPageRaw !== null && /^\d+$/.test(bboxPageRaw)
+    ? Math.max(1, parseInt(bboxPageRaw, 10))
+    : undefined
+
   const rev = url.searchParams.get('rev') ?? undefined
 
-  return { doc, page, bbox, rev }
+  return { doc, page, bbox, bboxPage, rev }
 }
 
 /** Validate a numeric bbox array [x0, y0, x1, y1]. */
@@ -133,6 +145,21 @@ export function evidenceUrlOf(ev: KsEvidence | null | undefined): string | null 
   if (page !== null) params.set('page', String(page))
   const rev = typeof ev.rev === 'string' && ev.rev.length > 0 ? ev.rev : null
   if (rev !== null) params.set('rev', rev)
+  /* ⚠⚠ 2026-10-10（spec 009，**红箭头不出现的决定性一环**）：
+     本函数**原来只编 `doc` / `page` / `rev`，从不编 `bbox`** ——
+     而 `parseEvidence` 早就实现了 `parseBbox`（能**解析** bbox）⇒ 结果是
+     **bbox 只进不出**：任何调用方把 bbox 放进 `KsEvidence` 目标，都会在编码这一步被丢掉，
+     于是证据 tab 里 `evidence.current?.bbox` 永远 undefined ⇒ **箭头永远不画**。
+     （这正是业主实测到的"能跳转但没箭头"的最后一环；前两环见
+      `KsTurnTab.tsx` 的 `turnEvidenceHref` 与引擎的 `_clause_to_evidence`。）
+     ⚠ 只在这一项**存在且是 4 个有限数**时才编 —— **不许编空参**（编空串会让
+     `parseBbox` 得到 NaN、反而画出错位置的箭头）。 */
+  if (isBbox(ev.bbox)) {
+    params.set('bbox', ev.bbox.map((n) => String(n)).join(','))
+    if (typeof ev.bboxPage === 'number' && Number.isFinite(ev.bboxPage) && ev.bboxPage >= 1) {
+      params.set('bboxPage', String(Math.floor(ev.bboxPage)))
+    }
+  }
   return `${EVIDENCE_ORIGIN}${EVIDENCE_PATH}?${params.toString()}`
 }
 

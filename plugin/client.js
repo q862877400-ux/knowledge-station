@@ -31665,6 +31665,9 @@ function parseEvidence(input) {
       doc: doc2,
       page: typeof input.page === "number" && input.page >= 1 ? Math.floor(input.page) : void 0,
       bbox: isBbox(input.bbox) ? input.bbox : void 0,
+      /* ⚠ 2026-10-10（spec 009）：补 `bboxPage` —— 原来**对象形态也不解析它**，
+         于是"箭头该显示在哪一页"这个信息在这一步就丢了。 */
+      bboxPage: typeof input.bboxPage === "number" && input.bboxPage >= 1 ? Math.floor(input.bboxPage) : void 0,
       rev: typeof input.rev === "string" && input.rev.length > 0 ? input.rev : void 0
     };
   }
@@ -31681,8 +31684,10 @@ function parseEvidence(input) {
   const page = pageRaw !== null && /^\d+$/.test(pageRaw) ? Math.max(1, parseInt(pageRaw, 10)) : void 0;
   const bboxRaw = url.searchParams.get("bbox");
   const bbox = bboxRaw !== null ? parseBbox(bboxRaw) : void 0;
+  const bboxPageRaw = url.searchParams.get("bboxPage");
+  const bboxPage = bboxPageRaw !== null && /^\d+$/.test(bboxPageRaw) ? Math.max(1, parseInt(bboxPageRaw, 10)) : void 0;
   const rev = url.searchParams.get("rev") ?? void 0;
-  return { doc, page, bbox, rev };
+  return { doc, page, bbox, bboxPage, rev };
 }
 function isBbox(value) {
   return Array.isArray(value) && value.length === 4 && value.every((n) => typeof n === "number" && Number.isFinite(n));
@@ -31698,6 +31703,12 @@ function evidenceUrlOf(ev) {
   if (page !== null) params.set("page", String(page));
   const rev = typeof ev.rev === "string" && ev.rev.length > 0 ? ev.rev : null;
   if (rev !== null) params.set("rev", rev);
+  if (isBbox(ev.bbox)) {
+    params.set("bbox", ev.bbox.map((n) => String(n)).join(","));
+    if (typeof ev.bboxPage === "number" && Number.isFinite(ev.bboxPage) && ev.bboxPage >= 1) {
+      params.set("bboxPage", String(Math.floor(ev.bboxPage)));
+    }
+  }
   return `${EVIDENCE_ORIGIN}${EVIDENCE_PATH}?${params.toString()}`;
 }
 function parseBbox(raw) {
@@ -42106,12 +42117,72 @@ function turnEvidenceHref(ev) {
   const doc = str2(ev.doc_id);
   if (doc.length === 0) return null;
   const pageRaw = ev.page_start;
+  const bboxRaw = ev.bbox;
+  const bbox = Array.isArray(bboxRaw) && bboxRaw.length === 4 && bboxRaw.every((n) => typeof n === "number" && Number.isFinite(n)) ? bboxRaw : void 0;
+  const bboxPageRaw = ev.bbox_page;
+  const bboxPage = typeof bboxPageRaw === "number" && Number.isFinite(bboxPageRaw) && bboxPageRaw >= 1 ? Math.floor(bboxPageRaw) : void 0;
   const target = {
     doc,
     page: typeof pageRaw === "number" && pageRaw >= 1 ? Math.floor(pageRaw) : void 0,
-    rev: str2(ev.clause_revision_id).length > 0 ? str2(ev.clause_revision_id) : void 0
+    rev: str2(ev.clause_revision_id).length > 0 ? str2(ev.clause_revision_id) : void 0,
+    bbox,
+    bboxPage
   };
   return evidenceUrlOf(target);
+}
+function clauseOrderKey(raw) {
+  const s = str2(raw).trim();
+  const parts = s.split(/[.．、\s]+/).filter((x) => x.length > 0);
+  const numeric = [];
+  let allNumeric = parts.length > 0;
+  for (const p of parts) {
+    const n = Number(p);
+    if (Number.isFinite(n)) numeric.push(n);
+    else {
+      allNumeric = false;
+      break;
+    }
+  }
+  return allNumeric ? { numeric, text: "" } : { numeric: [], text: s };
+}
+function compareClauseOrder(a, b) {
+  const ka = clauseOrderKey(a.clause_number);
+  const kb = clauseOrderKey(b.clause_number);
+  const aNum = ka.numeric.length > 0;
+  const bNum = kb.numeric.length > 0;
+  if (aNum && bNum) {
+    const n = Math.max(ka.numeric.length, kb.numeric.length);
+    for (let i = 0; i < n; i += 1) {
+      const x = ka.numeric[i] ?? -1;
+      const y = kb.numeric[i] ?? -1;
+      if (x !== y) return x - y;
+    }
+    return 0;
+  }
+  if (aNum !== bNum) return aNum ? -1 : 1;
+  return ka.text.localeCompare(kb.text, "zh");
+}
+function groupTurnEvidence(items) {
+  const order = [];
+  const map = /* @__PURE__ */ new Map();
+  items.forEach((ev, i) => {
+    const doc = str2(ev.doc_id);
+    const key = doc.length > 0 ? doc : `#${String(i)}`;
+    if (!map.has(key)) {
+      map.set(key, []);
+      order.push(key);
+    }
+    map.get(key)?.push(ev);
+  });
+  return order.map((key) => {
+    const group = map.get(key) ?? [];
+    const sorted = [...group].sort(compareClauseOrder);
+    const first = sorted[0];
+    const std = first === void 0 ? "" : str2(first.standard_no);
+    const title = first === void 0 ? "" : str2(first.title);
+    const label = std.length > 0 && title.length > 0 ? `${std}\u3000${title}` : std.length > 0 ? std : title.length > 0 ? title : "\uFF08\u6CA1\u6709\u6587\u4EF6\u4FE1\u606F\uFF09";
+    return { key, title: label, items: sorted };
+  });
 }
 function statusBadge(ev) {
   const s = str2(ev.legal_status);
@@ -42177,9 +42248,10 @@ function KsTurnEmptyState() {
   );
 }
 function KsTurnEvidenceRow(props) {
-  const { ev, onLook } = props;
+  const { ev, onLook, ordinal } = props;
   const badge = statusBadge(ev);
   const href = turnEvidenceHref(ev);
+  const clause = str2(ev.clause_number);
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
     {
@@ -42193,11 +42265,11 @@ function KsTurnEvidenceRow(props) {
       },
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { style: { fontWeight: 600 }, children: [
-            str2(ev.standard_no),
-            " ",
-            str2(ev.clause_number)
+          ordinal !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-tertiary)", flex: "none" }, children: [
+            String(ordinal),
+            "."
           ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: clause.length > 0 ? clause : "\uFF08\u65E0\u6761\u6B3E\u53F7\uFF09" }),
           /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "span",
             {
@@ -42210,8 +42282,7 @@ function KsTurnEvidenceRow(props) {
               },
               children: badge.text
             }
-          ),
-          str2(ev.legal_hierarchy).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-tertiary)" }, children: str2(ev.legal_hierarchy) })
+          )
         ] }),
         str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "div",
@@ -42304,16 +42375,34 @@ function KsTurnTab(props) {
         ]
       }
     ),
-    evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-      KsTurnEvidenceRow,
+    groupTurnEvidence(evidence).map((group) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+      "div",
       {
-        ev,
-        onLook: () => {
-          const href = turnEvidenceHref(ev);
-          if (href !== null) openEvidence(href);
-        }
+        style: {
+          border: "0.5px solid var(--dsw-alias-border-l1)",
+          borderRadius: 8,
+          padding: "8px 10px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 6
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { fontWeight: 600, fontSize: 13 }, children: group.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: group.items.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            KsTurnEvidenceRow,
+            {
+              ev,
+              ordinal: group.items.length > 1 ? i + 1 : void 0,
+              onLook: () => {
+                const href = turnEvidenceHref(ev);
+                if (href !== null) openEvidence(href);
+              }
+            },
+            `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
+          )) })
+        ]
       },
-      `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
+      group.key
     )),
     notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
   ] });

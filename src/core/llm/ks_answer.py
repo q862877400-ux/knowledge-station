@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import re
 from typing import Any, Dict, Iterator, List, Optional
 
@@ -126,6 +127,89 @@ def _clause_to_evidence(clause: ClauseRevisionModel) -> Dict[str, Any]:
         "_is_suspicious": bool(getattr(clause, "is_suspicious", False)),
         "_type_confidence": getattr(clause, "type_confidence", 1.0),
     }
+
+
+def attach_bboxes(evidence: List[Dict[str, Any]]) -> None:
+    """给证据条目补 ``bbox`` / ``bbox_page``（**红箭头定位用**），原地修改。
+
+    为什么需要它（2026-10-10，spec 009，业主实测"能跳转但没箭头"）：
+        证据字段里原来**只有 ``page_start``、没有任何坐标** ⇒ 前端构造证据 URL 时
+        没有 bbox 可传 ⇒ 证据 tab 里 ``evidence.current?.bbox`` 恒为 undefined
+        ⇒ **红色定位箭头永远不画**。坐标在 ``source_span`` 表里（``bbox_json``，
+        184 万行），本函数把它接出来。
+
+    取值口径：
+        · 取该条款的**首个 span**（``sort_order`` 最小）—— 与证据 tab 自己的兜底
+          （``KsEvidenceTab.tsx`` 的 fetchBbox 分支）**同一口径**，两处不会画出不同的箭头；
+        · 优先取 ``page_number == page_start`` 的那个（条款跨页时，箭头该指条款起始页）；
+        · ``bbox_json`` 必须是 4 个有限数才采用（形状不对就跳过，**不编造**）。
+
+    边界（**失败不阻塞回答**，与既有兜底同口径）：
+        · 库不可用 / 查询报错 ⇒ 静默返回（证据条目保持无 bbox，前端会显示"取不到坐标"）；
+        · 条款没有 span（如 docx 直解的文档没有原页）⇒ 同样留空；
+        · **绝不写 0 兜底** —— 0 会让前端在页面左上角画一个错位置的箭头，
+          比"没有箭头"更糟（那是**假证据**）。
+
+    Args:
+        evidence: ``_clause_to_evidence`` 产出的证据 dict 列表（原地修改）。
+    """
+    revs = [e.get("clause_revision_id") for e in evidence]
+    revs = [r for r in revs if isinstance(r, str) and r]
+    if not revs:
+        return
+    try:
+        from src.core.storage.sqlite_db import get_db_connection  # 局部导入：避免模块级循环依赖
+    except Exception:  # noqa: BLE001 - 取坐标失败不得阻塞回答
+        logger.warning("attach_bboxes: 拿不到数据库连接，本轮证据不带坐标", exc_info=True)
+        return
+    try:
+        conn = get_db_connection()
+        placeholders = ",".join("?" * len(revs))
+        rows = conn.execute(
+            "SELECT clause_revision_id, page_number, bbox_json, sort_order"
+            f" FROM source_span WHERE clause_revision_id IN ({placeholders})"
+            "  AND bbox_json IS NOT NULL"
+            " ORDER BY clause_revision_id, sort_order",
+            revs,
+        ).fetchall()
+    except Exception:  # noqa: BLE001 - 同上：坐标是增强，不是回答的前置条件
+        logger.warning("attach_bboxes: 查询 source_span 失败，本轮证据不带坐标", exc_info=True)
+        return
+
+    by_rev: Dict[str, List[Dict[str, Any]]] = {}
+    for row in rows:
+        try:
+            rev = row["clause_revision_id"]
+            page = int(row["page_number"])
+            box = json.loads(row["bbox_json"])
+        except Exception:  # noqa: BLE001 - 单行坏了跳过，不影响其余条款
+            continue
+        if not (isinstance(box, list) and len(box) == 4):
+            continue
+        try:
+            nums = [float(x) for x in box]
+        except (TypeError, ValueError):
+            continue
+        if not all(math.isfinite(n) for n in nums):
+            continue
+        by_rev.setdefault(rev, []).append({"page": page, "bbox": nums})
+
+    for ev in evidence:
+        rev = ev.get("clause_revision_id")
+        spans = by_rev.get(rev) if isinstance(rev, str) else None
+        if not spans:
+            continue
+        page_start = ev.get("page_start")
+        chosen = None
+        if isinstance(page_start, int):
+            for s in spans:
+                if s["page"] == page_start:
+                    chosen = s
+                    break
+        if chosen is None:
+            chosen = spans[0]
+        ev["bbox"] = chosen["bbox"]
+        ev["bbox_page"] = chosen["page"]
 
 
 def _html_to_text_compact(html: Optional[str], limit: int = EVIDENCE_TABLE_MAX) -> str:
@@ -688,6 +772,12 @@ def answer(query: str,
     evidence = [_clause_to_evidence(c) for c in ranked]
     evidence = _filter_effective(evidence)
     evidence = _dedupe(evidence)
+    # ⚠ 2026-10-10（spec 009）：补**红箭头定位坐标**（`bbox` / `bbox_page`）。
+    # 为什么在这里：① 放在 `_dedupe` **之后** ⇒ 只对最终入选的条款查库（最省）；
+    #   ② 放在 `_cap` 之前 ⇒ 被截断掉的那些也带上坐标没意义，但先补也无害
+    #      （实测一次批量查询 0.2 ms，不是性能问题）。
+    # 失败不阻塞回答（函数内部吞异常并记日志）。
+    attach_bboxes(evidence)
 
     # 检索元数据（供 tier / confidence）
     retr_meta = {

@@ -55,6 +55,13 @@ export interface KsTurnEvidenceItem {
   page_start?: unknown
   effective_from?: unknown
   snippet?: unknown
+  /* ⚠ 2026-10-10（spec 009，**红箭头的第①②环**）：引擎新增这两个字段 ——
+     箭头完全依赖 `bbox`（`KsEvidenceTab` 里 `const anchor = evidence.current?.bbox`），
+     而原来**引擎不输出它、这里也不声明它** ⇒ 箭头永远不画（业主实测：能跳转、没箭头）。
+     · `bbox`：PDF 用户空间 `[x0,y0,x1,y1]`（**左下原点**，与 ksEvidence 契约逐字一致）；
+     · `bbox_page`：该 bbox 所在的页（渲染层只在这一页画箭头）。 */
+  bbox?: unknown
+  bbox_page?: unknown
 }
 
 /** 暂存的一轮（`plugin/src/turn.js` 的 `turn` 负载，防御式读取）。 */
@@ -75,12 +82,118 @@ export function turnEvidenceHref(ev: KsTurnEvidenceItem): string | null {
   const doc = str(ev.doc_id)
   if (doc.length === 0) return null
   const pageRaw = ev.page_start
+  /* ⚠ 2026-10-10（spec 009，**红箭头的第②环**）：把 `bbox` / `bbox_page` 一并带上。
+     原来这里**只传 doc/page/rev** ⇒ 即便引擎给了 bbox，也会在这一步丢掉。
+     ⚠ `bbox` 必须原样是 4 个有限数才传 —— 交给 `isBbox`（在 evidenceUrlOf 里）把关，
+     这里只做形状初筛，**不编造、不用 0 兜底**（0 会画出左上角一个错箭头）。 */
+  const bboxRaw = ev.bbox
+  const bbox = Array.isArray(bboxRaw)
+    && bboxRaw.length === 4
+    && bboxRaw.every((n) => typeof n === 'number' && Number.isFinite(n))
+    ? (bboxRaw as [number, number, number, number])
+    : undefined
+  const bboxPageRaw = ev.bbox_page
+  const bboxPage = typeof bboxPageRaw === 'number' && Number.isFinite(bboxPageRaw) && bboxPageRaw >= 1
+    ? Math.floor(bboxPageRaw)
+    : undefined
   const target: KsEvidence = {
     doc,
     page: typeof pageRaw === 'number' && pageRaw >= 1 ? Math.floor(pageRaw) : undefined,
     rev: str(ev.clause_revision_id).length > 0 ? str(ev.clause_revision_id) : undefined,
+    bbox,
+    bboxPage,
   }
   return evidenceUrlOf(target)
+}
+
+/**
+ * 条款号排序键（**数值感知**，永不抛错）。
+ *
+ * ⚠ 2026-10-10（spec 009，业主要求"按先后顺序排列"）：
+ *   业主原话只说"按先后顺序"，**没说按什么排**。我取**条款号升序** —— 这是最自然的读法
+ *   （条款号本身就是文档内的先后），并在 `docs/UI-BASELINE.md` §5ac 登记为**我的判断**。
+ *
+ * ⚠ 为什么要"数值感知"：字典序下 `5.10.1` **小于** `5.2.3`（因为 `'1' < '2'`），
+ *   而真实顺序相反 ⇒ 必须**逐段比数字**。
+ * ⚠ 稳健性：条款号可能是 `第一条`、`8.1.1`、空串、纯中文。**一律不抛错** ——
+ *   能切成数字段的比数值，切不出来的按原串比（中文用 `localeCompare`，中文排序正常）。
+ */
+export function clauseOrderKey(raw: unknown): { numeric: number[]; text: string } {
+  const s = str(raw).trim()
+  const parts = s.split(/[.．、\s]+/).filter((x) => x.length > 0)
+  const numeric: number[] = []
+  let allNumeric = parts.length > 0
+  for (const p of parts) {
+    const n = Number(p)
+    if (Number.isFinite(n)) numeric.push(n)
+    else { allNumeric = false; break }
+  }
+  return allNumeric ? { numeric, text: '' } : { numeric: [], text: s }
+}
+
+/** 比较两条依据的先后（数值段优先；一方纯数字、另一方不是 ⇒ 数字的在前）。 */
+export function compareClauseOrder(a: KsTurnEvidenceItem, b: KsTurnEvidenceItem): number {
+  const ka = clauseOrderKey(a.clause_number)
+  const kb = clauseOrderKey(b.clause_number)
+  const aNum = ka.numeric.length > 0
+  const bNum = kb.numeric.length > 0
+  if (aNum && bNum) {
+    const n = Math.max(ka.numeric.length, kb.numeric.length)
+    for (let i = 0; i < n; i += 1) {
+      const x = ka.numeric[i] ?? -1
+      const y = kb.numeric[i] ?? -1
+      if (x !== y) return x - y
+    }
+    return 0
+  }
+  if (aNum !== bNum) return aNum ? -1 : 1
+  return ka.text.localeCompare(kb.text, 'zh')
+}
+
+/** 一条依据按文件分组后的形状。 */
+export interface KsTurnEvidenceGroup {
+  /** 分组键（doc_id）；空 doc_id 的条目各自成组（`#i`），不许被合并成一组。 */
+  key: string
+  /** 组标题：标准号 + 文件名（同一文件**只显示一次**）。 */
+  title: string
+  /** 组内条款（**已按条款号升序**）。 */
+  items: KsTurnEvidenceItem[]
+}
+
+/**
+ * 把依据按文件分组（spec 009 业主要求 1）。
+ *
+ * 业主原话：「一个文件里的多个条款就不要重复文件标题了，一个文件标题下面多个条款按先后顺序排列。」
+ * ⇒ 同一 `doc_id` **只出一遍标题**，条款按 `compareClauseOrder` 升序。
+ *
+ * ⚠ 无 `doc_id` 的条目：**各自成组**（键 `#<序号>`），不许把它们合并成一个"（无文件）"组
+ *   —— 那会把不同文件的东西混在一起，比重复标题更糟。
+ * ⚠ 组顺序：**按组内第一条的出现次序**（即检索给出的相关度次序）——
+ *   不按标题字母序（那会把最相关的文件排到后面）。组**内**才排序。
+ */
+export function groupTurnEvidence(items: readonly KsTurnEvidenceItem[]): KsTurnEvidenceGroup[] {
+  const order: string[] = []
+  const map = new Map<string, KsTurnEvidenceItem[]>()
+  items.forEach((ev, i) => {
+    const doc = str(ev.doc_id)
+    const key = doc.length > 0 ? doc : `#${String(i)}`
+    if (!map.has(key)) {
+      map.set(key, [])
+      order.push(key)
+    }
+    map.get(key)?.push(ev)
+  })
+  return order.map((key) => {
+    const group = map.get(key) ?? []
+    const sorted = [...group].sort(compareClauseOrder)
+    const first = sorted[0]
+    const std = first === undefined ? '' : str(first.standard_no)
+    const title = first === undefined ? '' : str(first.title)
+    const label = std.length > 0 && title.length > 0 ? `${std}　${title}`
+      : std.length > 0 ? std
+        : title.length > 0 ? title : '（没有文件信息）'
+    return { key, title: label, items: sorted }
+  })
 }
 
 /** 效力徽章（语言规范词汇 + 宿主真 token 色；无字面兜底——F0 的教训）。 */
@@ -155,14 +268,17 @@ export function KsTurnEmptyState(): React.ReactElement {
   )
 }
 
-/** 依据行（纯组件；原型第一屏的每张小卡）。 */
+/** 条款行（纯组件）—— ⚠ spec 009 起它**不再重复文件标题**（标题由外层分组卡出一遍）。 */
 export function KsTurnEvidenceRow(props: {
   ev: KsTurnEvidenceItem
   onLook?: () => void
+  /** 组内第几条（从 1 起）。用于"条款按先后排列"的可读性，不参与排序。 */
+  ordinal?: number
 }): React.ReactElement {
-  const { ev, onLook } = props
+  const { ev, onLook, ordinal } = props
   const badge = statusBadge(ev)
   const href = turnEvidenceHref(ev)
+  const clause = str(ev.clause_number)
   return (
     <div
       style={{
@@ -171,8 +287,16 @@ export function KsTurnEvidenceRow(props: {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        {/* ⚠ spec 009：这里**只显示条款号**，不再带 `standard_no` / `title`
+            —— 文件标题由外层分组卡统一出一次（业主：「一个文件里的多个条款就不要重复文件标题了」）。
+            `ordinal` 是"这是这个文件里的第几条"，让人一眼看出先后。 */}
+        {ordinal !== undefined && (
+          <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-tertiary)', flex: 'none' }}>
+            {String(ordinal)}.
+          </span>
+        )}
         <span style={{ fontWeight: 600 }}>
-          {str(ev.standard_no)} {str(ev.clause_number)}
+          {clause.length > 0 ? clause : '（无条款号）'}
         </span>
         <span
           style={{
@@ -182,11 +306,15 @@ export function KsTurnEvidenceRow(props: {
         >
           {badge.text}
         </span>
-        {str(ev.legal_hierarchy).length > 0 && (
-          <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-tertiary)' }}>
-            {str(ev.legal_hierarchy)}
-          </span>
-        )}
+        {/* ⚠ 2026-10-10（spec 009，业主要求）：**不再显示 `legal_hierarchy`**。
+            业主原话：「现行有效后面的 GB 字样删除。」
+            理由（我的判定）：徽章已经说了"现行有效 / 已被替代"，
+            再挂一个 `GB`（层级）对用户**没有增量信息**，只是噪声。
+            ⚠ **只删显示，数据保留**：`KsTurnEvidenceItem.legal_hierarchy` 仍在接口上、
+            仍在 `evidence` 里 —— 别的消费者（导出、审计）可能要用，本批不动数据。
+            ⚠ 另登记（**不本批修**）：真库实测 1043 篇 `legal_hierarchy = 'GB'` 里，
+            有 **19 篇**是法律/条例被默认值兜成 GB（`src/core/domain/models.ts:102` 同族的
+            `src/core/domain/models.py:102` 的 `legal_hierarchy: str = "GB"`）—— 那是**数据层**问题。 */}
       </div>
       {str(ev.snippet).length > 0 && (
         <div
@@ -281,15 +409,34 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
         </div>
       )}
 
-      {evidence.map((ev, i) => (
-        <KsTurnEvidenceRow
-          key={`${str(ev.doc_id)}-${str(ev.clause_revision_id)}-${String(i)}`}
-          ev={ev}
-          onLook={() => {
-            const href = turnEvidenceHref(ev)
-            if (href !== null) openEvidence(href)
+      {/* ⚠ 2026-10-10（spec 009，业主要求 1）：
+          「一个文件里的多个条款就不要重复文件标题了，一个文件标题下面多个条款按先后顺序排列。」
+          ⇒ 按 `doc_id` 分组：**一个文件出一个标题**，组内条款按条款号升序（`groupTurnEvidence`）。
+          ⚠ 组**之间**保持检索给出的相关度次序（不按标题字母序排 —— 那会把最相关的文件挤到后面）。 */}
+      {groupTurnEvidence(evidence).map((group) => (
+        <div
+          key={group.key}
+          style={{
+            border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8,
+            padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 6,
           }}
-        />
+        >
+          {/* 文件标题：同一文件**只出现这一遍** */}
+          <div style={{ fontWeight: 600, fontSize: 13 }}>{group.title}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {group.items.map((ev, i) => (
+              <KsTurnEvidenceRow
+                key={`${str(ev.doc_id)}-${str(ev.clause_revision_id)}-${String(i)}`}
+                ev={ev}
+                ordinal={group.items.length > 1 ? i + 1 : undefined}
+                onLook={() => {
+                  const href = turnEvidenceHref(ev)
+                  if (href !== null) openEvidence(href)
+                }}
+              />
+            ))}
+          </div>
+        </div>
       ))}
 
       {notes.map((n, i) => (
