@@ -1,0 +1,41 @@
+{
+  "kind": "AI 判定（**不是**人工确认）",
+  "source_csv": "D:\\AI\\output\\label-check-200.csv",
+  "source_rows": 191,
+  "items_fact": 191,
+  "items_lang": 191,
+  "label_distribution": {
+    "其他": 30,
+    "举报": 20,
+    "咨询": 20,
+    "建议": 20,
+    "投诉": 20,
+    "求助": 20,
+    "申诉": 20,
+    "表扬": 20,
+    "反映": 10,
+    "征求意见": 10,
+    "监察": 1
+  },
+  "label_source_distribution": {
+    "source_label": 101,
+    "model": 80,
+    "too_short": 10
+  },
+  "labels_universe": [
+    "咨询",
+    "求助",
+    "投诉",
+    "举报",
+    "建议",
+    "申诉",
+    "表扬",
+    "反映",
+    "征求意见",
+    "监察",
+    "其他"
+  ],
+  "rule": "业主 2026-10-07 裁定：放弃人工审核，改用外部高级 AI 复核（docs/NOT-DOING.md 第 23 条）",
+  "warning": "规格原文没改 —— confirmed_by 必须是人处照旧保留；本产物不得被写成已满足 FR-004 / SC-003",
+  "accuracy": null
+}
