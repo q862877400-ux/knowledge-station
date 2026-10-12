@@ -92,6 +92,49 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
        · 效力徽章在**分组卡**上（见下面"分组"一组的新判据）。 */
   check('依据行（条款行）：条款号 + 摘要都在',
     row.includes('第4.2.9条') && row.includes('动火作业分为'), row.slice(0, 80))
+  /* ⚠⚠ 2026-10-12（spec 012，业主实跑截图反馈）：
+     业主原话：「我红色框框选的这些标题都不需要，你没看到**正文本来就自带编号**了吗」
+     ⇒ 正文自带条款号时，**不再单出一行条款号**（那一行是重复）。
+     实测支持业主：真库抽样 3 万条，**98.2% 的正文以条款号开头**（29,473 条）。
+
+     ⚠ 但**不能一律不显示**：那 1.8%（527 条）是 `前置1`（封面）/`附录A` 等 ——
+     正文**不含**该编号，删了用户就看不出"这是哪一条"。
+     ⇒ 两条判据成对：自带的不显示、不带的自显示。缺任一条都是假绿。 */
+  {
+    const carried = { ...EV, clause_number: '6.4.3.2', snippet: '6.4.3.2 探测器应安装在无冲击的场所。' }
+    const html = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, { ev: carried, onLook: () => {} }))
+    /* 判法：条款号在**整行里只出现一次**（= 只在正文里）。
+       用 `split` 数出现次数比"包含/不包含"更准：正文本身含它，所以不能测"不包含"。 */
+    const times = html.split('6.4.3.2').length - 1
+    check('★ 正文自带条款号时**不再单出一行**（spec 012 业主反馈：重复）',
+      times === 1, `条款号在行里出现了 ${times} 次（应为 1 = 只在正文里）⇒ ${html.slice(0, 140)}`)
+  }
+  {
+    /* ⚠ 第一版我用 `附录A` 当"不带编号"的反例 —— **那是错的**：
+       真库里附录条款的正文首行就是「附 录 A」（归一后与条款号相同）⇒ 它**属于"自带"**，
+       隐藏那一行是**对的**（正文自己写了）。实测全库抽样 6 万条：
+       归一后**带** 59,429（99.05%）、**不带** 571（0.95%）。
+       真正"不带"的是 `前置N`（封面/前言）—— 正文是"中华人民共和国国家标准…"，
+       **完全不含**那个编号 ⇒ 这种必须显示。 */
+    const notCarried = { ...EV, clause_number: '前置1', snippet: '中华人民共和国国家标准\n代替 GB 30871—2014\n危险化学品企业特殊作业安全规范' }
+    const html = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, { ev: notCarried, onLook: () => {} }))
+    check('★ 正文**不含**条款号时仍要显示（0.95% 的 前置N 封面/前言不能丢）',
+      html.includes('前置1'), `「前置1」没显示 ⇒ 用户看不出这是哪一条 ⇒ ${html.slice(0, 140)}`)
+  }
+  {
+    /* 对照：正文**含**「附 录 A」时（真库就是这种形态）⇒ 隐藏那一行，不重复。 */
+    const appendix = { ...EV, clause_number: '附录A', snippet: '附 录 A\n(规范性附录)\n绝缘子螺套…' }
+    const html = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, { ev: appendix, onLook: () => {} }))
+    const times = html.split('附录A').length - 1 + (html.split('附 录 A').length - 1)
+    check('★ 正文自带「附 录 A」时不再单出一行（附录也算自带）',
+      times <= 1, `出现了 ${times} 次（应为 ≤1 = 只在正文里）⇒ ${html.slice(0, 140)}`)
+  }
+  {
+    const blank = { ...EV, clause_number: '', snippet: '某段没有编号的正文' }
+    const html = renderToStaticMarkup(React.createElement(KsTurnEvidenceRow, { ev: blank, onLook: () => {} }))
+    check('无条款号时仍显示占位（既有行为不变）',
+      html.includes('（无条款号）'), html.slice(0, 120))
+  }
   check('依据行（条款行）**不再带效力徽章**（spec 010：徽章是文件级的）',
     !row.includes('现行有效'),
     `行里还有徽章 ⇒ ${row.slice(0, 100)}`)

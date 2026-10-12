@@ -150,6 +150,37 @@ export function compareClauseOrder(a: KsTurnEvidenceItem, b: KsTurnEvidenceItem)
   return ka.text.localeCompare(kb.text, 'zh')
 }
 
+/**
+ * 正文是否**自带**这条条款号（决定要不要单独显示条款号那一行）。
+ *
+ * 业主 2026-10-12 实跑截图后提出：「我红色框框选的这些标题都不需要，
+ * 你没看到**正文本来就自带编号**了吗」—— 那行标题（如 `6.4.3.2`）与正文首行的
+ * `6.4.3.2 …` 重复。
+ *
+ * **业主是对的**：真库抽样 3 万条，**98.2% 的正文以条款号开头**（29,473 条）。
+ *
+ * ⚠ 但**不能一律不显示**：那 1.8%（527 条）里是 `前置1`（封面/前言，294 条）、
+ * `附录A`（189 条）这类 —— 正文**不含**这个编号（是"中华人民共和国国家标准…"或
+ * "附 录 A"），删了就**丢掉"这是哪一条"**。⇒ 只有"正文确实自带"时才省。
+ *
+ * 比对做**宽松归一**：去掉所有空白与全角/半角标点差异后比前缀
+ * （正文里条款号后常跟空格或换行，且 PDF 抽取可能把 `.` 抽成全角）。
+ */
+export function snippetCarriesClauseNo(ev: KsTurnEvidenceItem): boolean {
+  const no = str(ev.clause_number).trim()
+  const text = str(ev.snippet)
+  if (no.length === 0 || text.length === 0) return false
+  const norm = (s: string): string => s
+    .replace(/\s+/g, '')
+    .replace(/[．。]/g, '.')
+    .replace(/[（]/g, '(')
+    .replace(/[）]/g, ')')
+  const nNo = norm(no)
+  const nText = norm(text)
+  if (nNo.length === 0) return false
+  return nText.startsWith(nNo)
+}
+
 /** 一条依据按文件分组后的形状。 */
 export interface KsTurnEvidenceGroup {
   /** 分组键（doc_id）；空 doc_id 的条目各自成组（`#i`），不许被合并成一组。 */
@@ -288,17 +319,23 @@ export function KsTurnEvidenceRow(props: {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        {/* ⚠ spec 009：这里**只显示条款号**，不再带 `standard_no` / `title`
-            —— 文件标题由外层分组卡统一出一次（业主：「一个文件里的多个条款就不要重复文件标题了」）。
-            `ordinal` 是"这是这个文件里的第几条"，让人一眼看出先后。 */}
+        {/* ⚠ 2026-10-12（spec 012，业主实跑截图反馈）：**正文自带条款号时，不再单出一行**。
+            业主原话：「我红色框框选的这些标题都不需要，你没看到正文本来就自带编号了吗」
+            实测支持业主：真库抽样 3 万条，**98.2% 的正文以条款号开头** ⇒ 那一行是重复。
+            ⚠ 但**1.8% 例外**（`前置1` 封面 / `附录A` 等，正文不含该编号）仍要显示，
+            否则用户看不出"这是哪一条" ⇒ 判据见 `snippetCarriesClauseNo`。
+            ⚠ spec 009 的旧注释（"这里只显示条款号，不带 standard_no/title"）仍然成立：
+            文件标题由外层分组卡出一次。 */}
         {ordinal !== undefined && (
           <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-tertiary)', flex: 'none' }}>
             {String(ordinal)}.
           </span>
         )}
-        <span style={{ fontWeight: 600 }}>
-          {clause.length > 0 ? clause : '（无条款号）'}
-        </span>
+        {!snippetCarriesClauseNo(ev) && (
+          <span style={{ fontWeight: 600 }}>
+            {clause.length > 0 ? clause : '（无条款号）'}
+          </span>
+        )}
         {/* ⚠⚠ 2026-10-12（spec 010，业主实跑反馈 1）：**效力徽章从条款行移走**。
             业主原话：「现行有效是**文件级别**的，所以在文件名后面展示有效状态就行了」。
             **业主是对的，且与数据结构一致**：`legal_status` 存在 `doc_meta`（**文件级**），

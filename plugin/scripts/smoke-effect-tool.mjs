@@ -329,6 +329,30 @@ async function main() {
     === 'http://127.0.0.1:1/__ks_evidence__?doc=doc_x')
   check('F18 evidenceAnchor no doc → null', evidenceAnchor({}) === null)
 
+  /* ⚠⚠ 2026-10-12（spec 012 R3）：**宿主侧也必须编 bbox**。
+     原来本函数只编 doc/page/rev（注释写"bbox 参数暂不拼"），而 client 半的
+     `evidenceUrlOf` 编 bbox ⇒ **同一件事两个构造者，一个编一个不编**：
+       · 模型拿到的 `evidence_url`（走本函数）⇒ 永远没箭头；
+       · 侧边栏「看原文」⇒ 有箭头。
+     业主实测"能跳转、没箭头"与"放到侧边栏以后就不行了"正是这个分叉。
+     ⇒ 这四条钉住"宿主侧与客户端**同口径**"。 */
+  check('★ R3 宿主侧 evidenceAnchor 必须编 bbox（与 evidenceUrlOf 同口径）',
+    evidenceAnchor({ doc_id: 'doc_x', page_start: 3, clause_revision_id: 'rev_1',
+      bbox: [76, 643.43, 117, 655.43], bbox_page: 3 })
+    === 'http://127.0.0.1:1/__ks_evidence__?doc=doc_x&page=3&rev=rev_1'
+      + '&bbox=76%2C643.43%2C117%2C655.43&bboxPage=3',
+    evidenceAnchor({ doc_id: 'doc_x', page_start: 3, clause_revision_id: 'rev_1',
+      bbox: [76, 643.43, 117, 655.43], bbox_page: 3 }))
+  check('★ R3 没有 bbox ⇒ 一个 bbox 参数都不编（不许编空参）',
+    evidenceAnchor({ doc_id: 'doc_x', page_start: 3 })
+    === 'http://127.0.0.1:1/__ks_evidence__?doc=doc_x&page=3')
+  check('★ R3 bbox 只有 3 个数 ⇒ 不编（不许编错参）',
+    evidenceAnchor({ doc_id: 'doc_x', bbox: [1, 2, 3] })
+    === 'http://127.0.0.1:1/__ks_evidence__?doc=doc_x')
+  check('★ R3 bbox 含 NaN ⇒ 不编',
+    evidenceAnchor({ doc_id: 'doc_x', bbox: [1, Number.NaN, 3, 4] })
+    === 'http://127.0.0.1:1/__ks_evidence__?doc=doc_x')
+
   // ---- ks_resolve_clause 的「查无此条」路径（verifier P1-4）：引擎 404 体
   //      没有 data 键，若原样返回 undefined 会让整条工具输出被 DSH 判
   //      INVALID_TOOL_OUTPUT。这里打真实引擎查一个不存在的条款。

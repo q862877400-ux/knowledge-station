@@ -147,7 +147,23 @@ export const KS_EVIDENCE_PATH = '/__ks_evidence__'
 export const KS_EVIDENCE_ORIGIN = 'http://127.0.0.1:1'
 
 /** 拼一条证据锚点 URL（供编排把 ks_answer 证据变成可点 PDF 链接）。
- * @param {{doc_id?:unknown, page_start?:unknown, clause_revision_id?:unknown}} ev
+ *
+ * ⚠⚠ 2026-10-12（spec 012 R3）：**必须与 client 半的 `evidenceUrlOf` 同口径**。
+ *
+ * 本函数原来**只编 doc/page/rev、不编 bbox**（原注释写着"bbox 参数暂不拼"），
+ * 而 client 半的 `evidenceUrlOf` 在 2026-10-10 补上了 bbox ⇒
+ * **同一件事有两个 URL 构造者，一个编 bbox、一个不编**：
+ *   · 模型拿到的 `evidence_url`（走本函数）⇒ **永远没箭头**；
+ *   · 侧边栏「看原文」（走 `evidenceUrlOf`）⇒ 有箭头。
+ * 业主实测到的"能跳转、没箭头"以及"放到侧边栏以后就不行了"正是这个分叉。
+ *
+ * ⇒ 现在两条路都编 `bbox` / `bboxPage`，且**只在形状合法时编**
+ * （4 个有限数；不合法一律不编 —— 编空参会让前端 `parseBbox` 得 NaN、画出错位置）。
+ * `client/ksEvidence.ts` 里 `evidenceUrlOf` 是这条 URL 契约的**唯一权威描述**，
+ * 本函数是它的宿主侧镜像；改一处必须同步另一处（`tests` 有跨半一致性判据）。
+ *
+ * @param {{doc_id?:unknown, page_start?:unknown, clause_revision_id?:unknown,
+ *          bbox?:unknown, bbox_page?:unknown}} ev
  * @returns {string|null} doc 缺失/非法 → null（宁缺毋滥：无 doc 的链接点开也没用）。
  */
 export function evidenceAnchor(ev) {
@@ -162,6 +178,16 @@ export function evidenceAnchor(ev) {
   const rev = typeof ev.clause_revision_id === 'string' && ev.clause_revision_id.length > 0
     ? ev.clause_revision_id : null
   if (rev !== null) qs.set('rev', rev)
+  // 与 `evidenceUrlOf` 同口径：4 个有限数才编，且编了 bbox 才编 bboxPage。
+  const bb = ev.bbox
+  if (Array.isArray(bb) && bb.length === 4
+      && bb.every((n) => typeof n === 'number' && Number.isFinite(n))) {
+    qs.set('bbox', bb.map((n) => String(n)).join(','))
+    const bp = ev.bbox_page
+    if (typeof bp === 'number' && Number.isFinite(bp) && bp >= 1) {
+      qs.set('bboxPage', String(Math.floor(bp)))
+    }
+  }
   return `${KS_EVIDENCE_ORIGIN}${KS_EVIDENCE_PATH}?${qs.toString()}`
 }
 

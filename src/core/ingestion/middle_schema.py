@@ -113,7 +113,37 @@ def _spans_of(items: Any) -> list[dict]:
 
 
 def _convert_40_to_34(mj: dict) -> dict:
-    """MinerU 4.0 结构 → 3.4 结构（``load_middle_items`` 直接可消费）。"""
+    """MinerU 4.0 结构 → 3.4 结构（``load_middle_items`` 直接可消费）。
+
+    ## ⚠⚠ bbox 单位换算（2026-10-12 修，真缺陷）
+
+    **4.0 的 ``bbox`` 是归一化比例（0~1），3.4 的是绝对点** —— 两者单位不同，
+    而本函数原来只做**结构映射**、不做**单位换算**，于是把比例当点直接往下传。
+
+    后果链（实测，`GB 1094.1-2013`）：
+      原始 ``[0.116, 0.138, 0.937, 0.176]``（比例）
+      → 本函数原样传 → ``calibrate_new`` 按"顶部原点"做 ``y' = H − y``
+      → 库里的值 ``[0.116, 3455.82, 0.937, 3455.86]``
+      ⇒ **同一行里 x 是比例、y 是"H 减比例"**，前端画出来的"箭头"只有一个点大，
+        被退化框闸门拒收 ⇒ **红箭头永远不出现**。
+
+    实测判据（`GB 1094.1-2013` 第 1 页，**7/7 命中**）：
+      · 库里的 x 值命中原始 x 集合（**x 未被缩放**）
+      · 库里的 y 值命中 ``{H − 原始y}``（**y 只翻转、没乘页高**）
+
+    影响面：**756 篇 / 253,222 条条款（13.7%）**，全部是 `2026-10-07`
+    MinerU 4.0 那批标准。
+
+    ⇒ 修法：**在这里**按页尺寸把 bbox 还原成点（``x*W`` / ``y*H``）。
+    选这里当修复点的理由（规范所有者）：本模块的职责就是"MinerU 4.0 → 3.4 形状归一"，
+    而"4.0 是比例、3.4 是点"正是**两个版本之间的差异**；
+    下游（`calibrate_new` 的翻转、`pipeline` 的坐标契约）都按"点"消费，
+    不该各自去猜上游是比例还是点（那会让每个消费者都要带一份换算）。
+
+    ⚠ 换算后是**顶部原点**（原始 ``y=0.034`` 是页眉，在页顶）——
+    顶部原点 → 底部原点的翻转由既有的 `calibrate_new` 投票负责，**本函数不做翻转**
+    （保持"只归一形状与单位、不判原点方向"的单一职责）。
+    """
     layout = (((mj.get("extensions") or {}).get("docvortex_layout") or {}).get("pages")) or []
     size_by_idx: dict[Any, list[float]] = {}
     for k, p in enumerate(layout):
@@ -122,18 +152,37 @@ def _convert_40_to_34(mj: dict) -> dict:
         size_by_idx[p.get("page_idx", k)] = [
             float(p.get("width_pt") or 595.0), float(p.get("height_pt") or 841.0)]
 
+    def _to_points(bbox: Any, size: list[float]) -> list[float]:
+        """4.0 的**归一化比例** bbox → 3.4 的**绝对点** bbox。
+
+        ⚠ 只在"确实像比例"时才换算：4 个有限数、且**全部落在 [0,1]**。
+        若某个坐标 >1，说明这份产物本来就是点（或形状异常）⇒ **原样返回**，
+        不猜、不缩 —— 误缩一次会让整份文档的箭头全画错位置，比不画更糟。
+        """
+        if not (isinstance(bbox, list) and len(bbox) == 4):
+            return bbox
+        try:
+            nums = [float(v) for v in bbox]
+        except (TypeError, ValueError):
+            return bbox
+        if not all(0.0 <= v <= 1.0 for v in nums):
+            return bbox
+        w, h = float(size[0]), float(size[1])
+        return [nums[0] * w, nums[1] * h, nums[2] * w, nums[3] * h]
+
     pdf_info: list[dict] = []
     for k, pg in enumerate(mj.get("pages") or []):
         if not isinstance(pg, dict):
             continue
         pidx = pg.get("page_idx", k)
+        size = size_by_idx.get(pidx, [595.0, 841.0])
         para: list[dict] = []
         discarded: list[dict] = []
         for b in pg.get("blocks") or []:
             if not isinstance(b, dict):
                 continue
             t = b.get("type")
-            bbox = b.get("bbox") or []
+            bbox = _to_points(b.get("bbox") or [], size)
             if t in _DISCARD_40:
                 discarded.append({"type": t, "bbox": bbox})
                 continue
