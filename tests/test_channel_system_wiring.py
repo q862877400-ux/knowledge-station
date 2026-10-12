@@ -304,6 +304,84 @@ class Test绝不自动下载:
         assert "archive_pdf" not in window, "new_version 判定附近出现了下载调用"
 
 
+class Test识别占位回退:
+    """★ C4c：**真站点实测发现的缺陷**（2026-10-12）。
+
+    ## 缺陷
+
+    `govcn_announce.archive_pdf()` **无论成败都返回一个路径** ——
+    下载失败 / 内容不是 PDF 时，它回退写一个 **132 字节的最小合法 PDF 占位**
+    （`_MINIMAL_PDF`），照样 `return str(path)`。它的 docstring 写明这是刻意的
+    （"保证巡检链路不因存档失败中断"）。
+
+    ⇒ **调用方若只看"有没有路径"就会把占位当成功**。实测（真站点）：
+    拿一个返回 HTML 的详情页地址喂进去，第一版 `download_gate` 报了
+    `downloaded=True` —— 而盘上是个 132 字节空壳，真 PDF 是 6.3 MB。**那是假绿。**
+
+    ## 判据
+
+    文件**比占位大**才算真下到东西。占位的确切字节数引用
+    `govcn_announce._MINIMAL_PDF`（唯一所有者），不另抄一份。
+    """
+
+    def test_占位回退被判为失败(self, monkeypatch, tmp_path):
+        """模拟 `archive_pdf` 写了占位 ⇒ `download_gate` 必须报失败。"""
+        from src.core.update import download_gate as dg
+        from src.core.update.channels.govcn_announce import _MINIMAL_PDF
+
+        placeholder = tmp_path / "x.pdf"
+        placeholder.write_bytes(_MINIMAL_PDF)          # 就是那个 132 字节空壳
+
+        class FakeAdapter:
+            def __init__(self):
+                self._last_hit = None
+
+            def archive_pdf(self, no):
+                return str(placeholder)
+
+        monkeypatch.setattr(
+            "src.core.update.channels.govcn_announce.GovcnAnnounceAdapter",
+            FakeAdapter)
+        out = dg.handle_download({"standard_no": "GB 1-2020",
+                                  "evidence_url": "https://x/y.html"},
+                                 approved=True)
+        assert out["downloaded"] is False, \
+            "把 132 字节占位当成下载成功了（假绿）"
+        assert "占位" in str(out.get("reason")), "失败理由没说清是占位"
+
+    def test_真文件被判为成功(self, monkeypatch, tmp_path):
+        """对照：真下到东西（比占位大）⇒ 报成功。"""
+        from src.core.update import download_gate as dg
+
+        real = tmp_path / "real.pdf"
+        real.write_bytes(b"%PDF-1.4\n" + b"x" * 5000)   # 明显大于占位
+
+        class FakeAdapter:
+            def __init__(self):
+                self._last_hit = None
+
+            def archive_pdf(self, no):
+                return str(real)
+
+        monkeypatch.setattr(
+            "src.core.update.channels.govcn_announce.GovcnAnnounceAdapter",
+            FakeAdapter)
+        out = dg.handle_download({"standard_no": "GB 1-2020",
+                                  "evidence_url": "https://x/y.pdf"},
+                                 approved=True)
+        assert out["downloaded"] is True
+
+    def test_占位阈值引用唯一所有者(self):
+        """结构判据：不许自己抄一份占位字节数（判据分叉）。"""
+        import inspect as _inspect
+        from src.core.update import download_gate as dg
+        src = _inspect.getsource(dg)
+        assert "_MINIMAL_PDF" in src, "没引用 _MINIMAL_PDF（唯一所有者）"
+        # 不许硬编码 132
+        assert "== 132" not in src and "<= 132" not in src, \
+            "硬编码了占位字节数 ⇒ 占位改了这里不会跟着变（判据分叉）"
+
+
 class Test下载走审批门:
     """C2/C3：同意才下、拒绝不下。"""
 

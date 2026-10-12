@@ -34,6 +34,7 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
@@ -101,9 +102,26 @@ def _do_download(change: dict[str, Any]) -> dict[str, Any]:
     """真正去下（**复用** `govcn_announce.archive_pdf` 的实现与校验）。
 
     ⚠ 本函数**不自己写 `%PDF` 校验** —— 那是 `archive_pdf` 的唯一职责。
-    这里只负责"把 change 里的信息喂给它"。
+    这里只负责"把 change 里的信息喂给它"，**并识别它的占位回退**。
+
+    ## ⚠⚠ 为什么要识别占位（2026-10-12 实测发现的真缺陷）
+
+    `archive_pdf()` **无论成败都返回一个路径** —— 下载失败/内容不是 PDF 时，
+    它回退写一个 **132 字节的最小合法 PDF 占位**（`_MINIMAL_PDF`），
+    照样 `return str(path)`。它的 docstring 写明这是刻意的：
+    "保证巡检链路不因存档失败中断"。
+
+    ⇒ 但**调用方若只看"有没有路径"就会把占位当成功** —— 实测：
+    拿一个返回 HTML 的详情页地址喂进去，`archive_pdf` 返回了路径，
+    我第一版就据此报 `downloaded=True`（**假绿**：盘上是个 132 字节空壳，
+    真 PDF 是 6.3 MB）。
+
+    ⇒ 判据：**文件比占位大**才算真下到东西。占位的确切字节数是
+    `govcn_announce._MINIMAL_PDF`（唯一所有者），这里**引用它**，不另抄一份。
     """
-    from src.core.update.channels.govcn_announce import GovcnAnnounceAdapter
+    from src.core.update.channels.govcn_announce import (
+        GovcnAnnounceAdapter, _MINIMAL_PDF,
+    )
 
     ch = GovcnAnnounceAdapter()
     # archive_pdf 要求"先 probe 命中"才肯归档（它自己会抛 UpdateError）。
@@ -114,4 +132,15 @@ def _do_download(change: dict[str, Any]) -> dict[str, Any]:
     ch._last_hit = {"pdf_url": url, "title": change.get("title") or "",
                     "no": change.get("standard_no") or ""}
     path = ch.archive_pdf(str(change.get("standard_no") or ""))
-    return {"ok": bool(path), "path": path}
+
+    # ⚠ 识别占位回退：拿盘上的文件与 _MINIMAL_PDF 比字节数。
+    #   相等（或更小）⇒ 那是占位，**不是真下载到的内容** ⇒ 如实报失败。
+    try:
+        size = Path(path).stat().st_size if path else 0
+    except OSError:
+        size = 0
+    if size <= len(_MINIMAL_PDF):
+        return {"ok": False, "path": path,
+                "reason": (f"下载未成功（盘上是 {size} 字节的占位空壳，"
+                           f"不是真 PDF）—— 该地址可能返回的是网页而非附件")}
+    return {"ok": True, "path": path}
