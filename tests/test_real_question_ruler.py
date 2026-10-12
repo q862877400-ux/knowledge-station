@@ -166,3 +166,50 @@ class Test分层如实:
         assert n < 50, (
             f"zero_overlap 有 {n} 条 —— 与已知事实不符。若这是真的改善了，"
             "必须同时更新 README 的『已知缺陷 1』并说明口径变化。")
+
+
+class Test新分层有区分度:
+    """`layering_v2`（问句 vs **官方答复** 的分级重合）—— 2026-10-12 新增。
+
+    ## 为什么要这个分层
+
+    旧口径（文档级零重合）实测只 4/500 ⇒ **没有区分度**（一篇法规几万字，
+    与任何问句都大概率有 2 字公共子串）。
+
+    新口径改比**官方答复**：问句是**老百姓**写的、答复是**官方**写的
+    ⇒ **两个不同的人写的** ⇒ **不循环**（不是"照着条文编问题"）。
+    实测分布铺得开（220 / 164 / 60 / 56）⇒ 有区分度。
+
+    ## 这些断言防什么
+
+    防"分层退化成全挤一档"（那它就又没用了），以及防答复原文被写进产物。
+    """
+
+    def test_各档合计等于条数(self, ruler, stats):
+        lay2 = Counter(c["layering_v2"] for c in ruler)
+        assert stats["layering_v2"] == dict(lay2)
+        assert sum(lay2.values()) == len(ruler)
+
+    def test_至少四档非空(self, ruler):
+        lay2 = Counter(c["layering_v2"] for c in ruler)
+        assert len(lay2) >= 4, f"分层塌了: {dict(lay2)}"
+
+    def test_最大一档不超过七成(self, ruler):
+        """若某一档占了绝大多数，说明分层退化成"一档独大" ⇒ 又没区分度了。"""
+        lay2 = Counter(c["layering_v2"] for c in ruler)
+        top = max(lay2.values()) / len(ruler)
+        assert top <= 0.70, f"最大一档占 {top:.1%}，分层退化: {dict(lay2)}"
+
+    def test_overlap_值在_0_到_1_之间(self, ruler):
+        for c in ruler:
+            v = c["overlap_with_answer"]
+            assert 0.0 <= v <= 1.0, f"{c['id']} 的 overlap={v}"
+
+    def test_overlap_中位与_stats_一致(self, ruler, stats):
+        ov = sorted(c["overlap_with_answer"] for c in ruler)
+        assert round(stats["overlap_with_answer"]["median"], 4) == round(ov[len(ov) // 2], 4)
+
+    def test_答复原文没被写进产物(self, ruler):
+        """答复原文受版权/使用条款约束（README 已写明），**不入库**。"""
+        for c in ruler:
+            assert "_answer" not in c, f"{c['id']} 泄漏了答复原文"

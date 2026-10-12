@@ -205,6 +205,9 @@ def main() -> int:
                 "gold_std": uniq,
                 "gold_weak": all(h["weak"] for h in hits),
                 "has_clause_ref": bool(LOC.CLAUSE_RE.search(ans)),
+                #: 内部字段（**只用于算重合度，不写进产物**）——
+                #: 答复原文受版权/使用条款约束（见 README），不入库。
+                "_answer": ans,
             })
 
     print(f"\n[m] 总记录 {total:,}")
@@ -263,15 +266,36 @@ def main() -> int:
         gold_text = "".join(idx.get(d, "") for d in c["gold_doc_id"])
         gb = _bigrams(gold_text)
         qb = _bigrams(c["question"])
+        # ---- 分层 A：**文档级**零重合（旧口径，保留以对齐旧文档）----
+        # ⚠ 实测几乎没有区分度（500 条里只 4 条零重合）—— 一篇法规几万字，
+        #   与任何问句都大概率有 2 字公共子串。见 README「已知缺陷 1」。
         if not (qb & gb):
             c["layering"] = "zero_overlap"
         else:
             c["layering"] = "has_overlap"
+        # ---- 分层 B（2026-10-12 新增）：**问句 vs 官方答复** 的**分级**重合 ----
+        # ⚠ 为什么换参照物：答复是**官方**写的，问句是**老百姓**写的 ⇒ 两个人写的
+        #   ⇒ **不循环**（不是"照着条文编问题"）。实测分布铺得开：
+        #   0:4 / (0,0.2):216 / [0.2,0.4):164 / [0.4,0.6):60 / [0.6,0.8):26 / [0.8,1]:30
+        #   （中位 0.220）⇒ **有区分度**，这才能量"大白话 vs 官话"的落差。
+        ans = c.get("_answer") or ""
+        ab = _bigrams(ans)
+        c["overlap_with_answer"] = round(len(qb & ab) / len(qb), 4) if qb else 0.0
+        v = c["overlap_with_answer"]
+        if v < 0.2:
+            c["layering_v2"] = "L1_几乎无重合"
+        elif v < 0.4:
+            c["layering_v2"] = "L2_低重合"
+        elif v < 0.6:
+            c["layering_v2"] = "L3_中重合"
+        else:
+            c["layering_v2"] = "L4_高重合"
         # 含术语（问句里出现库内标准名）
         if any(nm and nm in LOC.norm(c["question"]) for nm in lib):
             c["layering_term"] = "has_term"
         else:
             c["layering_term"] = "no_term"
+        c.pop("_answer", None)   # 答复原文**不入库**（版权待核，见 README）
 
     picked.sort(key=lambda x: (str(x["source"]), str(x["id"])))
 
@@ -283,6 +307,8 @@ def main() -> int:
 
     src_dist = Counter(str(c["source"]) for c in picked)
     lay_dist = Counter(c["layering"] for c in picked)
+    lay2_dist = Counter(c["layering_v2"] for c in picked)
+    ov = sorted(c["overlap_with_answer"] for c in picked)
     stats = {
         "generated_from": {
             "data_files": len(files),
@@ -298,7 +324,15 @@ def main() -> int:
         "source_distribution": dict(src_dist.most_common()),
         "max_source_share": (max(src_dist.values()) / len(picked)) if picked else 0.0,
         "n_sources": len(src_dist),
+        #: 旧口径（文档级零重合）—— **几乎没有区分度**，保留只为对齐旧文档
         "layering": dict(lay_dist),
+        #: 新口径（问句 vs 官方答复的分级重合）—— **有区分度**，用它量"大白话 vs 官话"
+        "layering_v2": dict(lay2_dist),
+        "overlap_with_answer": {
+            "min": ov[0] if ov else None,
+            "median": ov[len(ov) // 2] if ov else None,
+            "max": ov[-1] if ov else None,
+        },
         "layering_term": dict(Counter(c["layering_term"] for c in picked)),
         "complaint_in_ruler": sum(1 for c in picked if is_complaint(c["question"])),
         "over_maxlen_in_ruler": sum(1 for c in picked if len(c["question"]) > MAX_Q),

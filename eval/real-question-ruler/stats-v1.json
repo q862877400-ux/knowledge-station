@@ -417,6 +417,17 @@
     "has_overlap": 496,
     "zero_overlap": 4
   },
+  "layering_v2": {
+    "L1_几乎无重合": 220,
+    "L4_高重合": 56,
+    "L2_低重合": 164,
+    "L3_中重合": 60
+  },
+  "overlap_with_answer": {
+    "min": 0.0,
+    "median": 0.2198,
+    "max": 1.0
+  },
   "layering_term": {
     "no_term": 472,
     "has_term": 28

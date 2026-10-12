@@ -151,20 +151,39 @@ def main() -> int:
     print()
     print("=== ⑥ 分层统计复算 ===")
     lay = Counter(c["layering"] for c in ruler)
-    check("stats 的 layering 与复算一致", stats["layering"], dict(lay))
+    check("stats 的 layering（旧·文档级）与复算一致", stats["layering"], dict(lay))
     print(f"      zero_overlap={lay.get('zero_overlap',0)}  has_overlap={lay.get('has_overlap',0)}")
+    lay2 = Counter(c["layering_v2"] for c in ruler)
+    check("stats 的 layering_v2（新·答复级）与复算一致", stats["layering_v2"], dict(lay2))
+    print(f"      {dict(lay2)}")
+    ov = sorted(c["overlap_with_answer"] for c in ruler)
+    check("overlap_with_answer 中位与复算一致",
+          round(stats["overlap_with_answer"]["median"], 4), round(ov[len(ov) // 2], 4))
     term = Counter(c["layering_term"] for c in ruler)
     check("stats 的 layering_term 与复算一致", stats["layering_term"], dict(term))
+
+    print()
+    print("=== ⑥b 新分层必须有区分度（**这是它存在的理由**）===")
+    print("  ⚠ 旧口径（文档级零重合）只 4/500 —— 一篇法规几万字，与任何问句都大概率")
+    print("     有 2 字公共子串 ⇒ **没有区分度**。")
+    print("     新口径改比**官方答复**（问句与答复是**两个不同的人**写的 ⇒ 非循环）。")
+    n_buckets = len([k for k, v in lay2.items() if v > 0])
+    check("新分层里非空的档数 ≥ 4", n_buckets >= 4, True)
+    print(f"      各档条数: {dict(lay2)}")
+    check("旧口径零重合 < 50（已知事实，防被说成「损耗很小」）",
+          lay.get("zero_overlap", 0) < 50, True)
 
     print()
     print("=== ⑦ 必填字段完整性 ===")
     need = {"id", "source", "url", "dept", "question", "q_len", "gold_std",
             "gold_doc_id", "gold_weak", "layering", "dup_count", "has_clause_ref",
-            "trace_key"}
+            "trace_key", "layering_v2", "overlap_with_answer"}
     missing = [i for i, c in enumerate(ruler) if not need.issubset(c.keys())]
     check("缺字段的记录数", len(missing), 0)
     no_gold = sum(1 for c in ruler if not c["gold_std"])
     check("gold_std 为空的条数", no_gold, 0)
+    leaked = [c["id"] for c in ruler if "_answer" in c]
+    check("答复原文泄漏进产物的条数（版权待核，不许入库）", len(leaked), 0)
 
     print()
     print(f"===== 通过 / 失败：{len(fails)} 项失败 =====")
