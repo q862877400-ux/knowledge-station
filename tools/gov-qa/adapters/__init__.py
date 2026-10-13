@@ -501,6 +501,13 @@ ADAPTERS: dict[str, str] = {
     #    详情是**表格式**（`u-tit` 字段名 + 紧邻的 `u-item`/`u-desc` 值）。
     #    实测 pagecount=14 total=163。
     "bz-hdjl": "adapters.bz_hdjl",     # 亳州市·政民互动·信件选登
+    # —— 安徽第 4 个市级源（2026-10-13）：芜湖市 12345 热线·信件选登。
+    #    栏目页是 JS 外壳，真实数据在 `/site/label/8888`（labelName=messageBoardPageList）。
+    #    ★ pageIndex **请求 1 起 / 响应 0 起**；请求 0 会 HTTP 550。
+    #    ★ 直接打页面 JS 里那个 `/OneToFiveMessageBoard/getSzxxMessageBoardPageLst`
+    #      只会得到「标签ID(8888)：不存在或已被删除.」⇒ 必须走标签路由。
+    #    实测 total=847；明细 /content/article/<baseContentId> 服务端渲染（th/td 成对）。
+    "wh-hdjl": "adapters.wh_hdjl",     # 芜湖市·12345政务服务便民热线·信件选登
 }
 
 #: 用户要能直接 `from adapters import load`
