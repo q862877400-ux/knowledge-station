@@ -29,6 +29,27 @@ GET https://www.wuhu.gov.cn/site/label/8888
 分页（pageSize=3 实测）：`total=847 / pageCount=283`
 ⇒ pageSize=15 时约 **57 页**、**847 条**。
 
+### ★★ `total` / `pageCount` 都是**虚的** —— 真实可采只有 735 条（2026-10-13 实测钉死）
+
+| 口径 | 值 | 来源 |
+|---|---|---|
+| `total`（自报） | **847** | 响应字段 |
+| `pageCount`（自报） | **57** | 响应字段，**= ceil(847 / pageSize)**，算出来的 |
+| **实际能翻到的页** | **49 页** | 第 50 页起**稳定 404** |
+| **实际可采条数** | **735** | 49 × 15 |
+
+逐页实测（pageSize=15）：`page 48` ✅ 15 条 · `page 49` ✅ 15 条 ·
+`page 50/51/52/55/57/58` ❌ **全部 404**（不是瞬时错误，是稳定 404）。
+
+换 `type`(1/3/7)、去掉 `type`、`isReply=0/1`、去掉 `isReply` —— **`total` 恒为 847、`pageCount` 恒为 57**，
+说明这两个字段**不随过滤条件变化**，是**站点侧的全量统计（含 `isPublic=0` 未公开件）**。
+
+**⇒ 三条可复用的判据**：
+1. **`pageCount` 不可信** —— 它是 `ceil(total/pageSize)` 算出来的，**不是「真有这么多页」**。
+2. **只能翻到 404 / 空页才算到底**，不能拿 `total` 当分母算完成度。
+3. 自报总量 ≠ 可采量（与铁律第 6 条「`totalResults` 大 ≠ 有问答」同源，这里是它的分页版）。
+   ⇒ 芜湖按**可采量**算完成度是 **735/735 = 100%**，不是 86.8%。
+
 ### 数据形态
 
 列表 JSON 已带 `messageBoardContent`（**问题全文**）与 `className`（站方标签），
@@ -278,8 +299,15 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = MAX_PAGES,
             print(f"    [{SITE['key']}] 列表第 {page} 页失败 {type(e).__name__}（停）", flush=True)
             break
         if getattr(r, "status_code", 0) != 200:
-            print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP "
-                  f"{getattr(r, 'status_code', '?')}（重试后仍失败，停）", flush=True)
+            code = getattr(r, "status_code", "?")
+            # ⚠ 本站在「翻到底」时回 **404**（不是空页）。见模块文档：
+            #   total/pageCount 都是虚的，只有 404 才是真实的结束信号。
+            if code == 404:
+                print(f"    [{SITE['key']}] 列表第 {page} 页 404 ⇒ **到底**"
+                      f"（前 {page - 1} 页共 {(page - 1) * PAGE_SIZE} 条上限）", flush=True)
+            else:
+                print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP {code}"
+                      f"（重试后仍失败，停）", flush=True)
             break
         # 列表页之间必须停顿，否则触发站点限流（实测第 12 页回 429）
         time.sleep(LIST_PAUSE)
