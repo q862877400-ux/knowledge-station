@@ -89,6 +89,17 @@ PAGE_SIZE = 15
 PAUSE = 0.8
 MAX_PAGES = 120
 
+#: 列表页之间的停顿。**必须有** —— 实测（2026-10-13 第 2 块）：
+#: 连续打 11 个列表页后第 12 页回 **HTTP 429**，采集整段中止。
+#: 详情页的 PAUSE 只保护了明细，列表页原先**完全没停顿**，是限流的触发点。
+#: ⚠ 退避重试（5/10/20s）**救不回来** —— 说明它是**按时间窗口的 IP 配额**，
+#: 不是瞬时限流。触发后只能**整体冷却十几分钟**再跑。实测 1.5s 停顿仍会撞。
+LIST_PAUSE = 3.0
+#: 429/5xx 的重试次数与退避基数（指数：base × 2^n）。
+RETRY_ATTEMPTS = 4
+RETRY_BACKOFF = 5.0
+RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
+
 _TAG = re.compile(r"</?[A-Za-z][^>]*>")
 _COMMENT = re.compile(r"<!--.*?-->|<![^>]*>", re.S)
 _BR = re.compile(r"(?i)<br\s*/?>")
@@ -209,6 +220,34 @@ def _parse_detail(html_text: str) -> dict:
     return out
 
 
+def _get(fetch, url, *, params=None, attempts: int = RETRY_ATTEMPTS):
+    """带退避重试的取页。返回最后一个响应（即使仍是错误码），由调用方判定。
+
+    ★ 为什么需要（2026-10-13 实测）：连打列表页会被站点回 **HTTP 429**。
+    裸 fetch 一遇 429 就整段中止 ⇒ 一条也落不了盘。
+    这里对 429/5xx 做指数退避重试，非重试类状态码原样返回。
+    """
+    r = None
+    for n in range(attempts):
+        try:
+            r = fetch(url, params=params) if params is not None else fetch(url)
+        except Exception as e:                                          # noqa: BLE001
+            if n == attempts - 1:
+                raise
+            print(f"    [{SITE['key']}] 请求异常 {type(e).__name__}，"
+                  f"退避 {RETRY_BACKOFF * (2 ** n):.0f}s 后重试", flush=True)
+            time.sleep(RETRY_BACKOFF * (2 ** n))
+            continue
+        code = getattr(r, "status_code", 0)
+        if code not in RETRY_STATUS or n == attempts - 1:
+            return r
+        wait = RETRY_BACKOFF * (2 ** n)
+        print(f"    [{SITE['key']}] HTTP {code}（限流/故障），"
+              f"退避 {wait:.0f}s 后重试（第 {n + 1}/{attempts - 1} 次）", flush=True)
+        time.sleep(wait)
+    return r
+
+
 def harvest(fetch, *, limit: int | None = None, max_pages: int = MAX_PAGES,
             skip_ids: set | None = None) -> list[dict]:
     """翻列表 JSON（pageIndex **1 起**）+ 逐条取明细。
@@ -234,14 +273,16 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = MAX_PAGES,
             "title": "", "startDate": "", "endDate": "", "searchType": "title",
         }
         try:
-            r = fetch(LIST_URL, params=params)
+            r = _get(fetch, LIST_URL, params=params)
         except Exception as e:                                          # noqa: BLE001
             print(f"    [{SITE['key']}] 列表第 {page} 页失败 {type(e).__name__}（停）", flush=True)
             break
         if getattr(r, "status_code", 0) != 200:
             print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP "
-                  f"{getattr(r, 'status_code', '?')}（停）", flush=True)
+                  f"{getattr(r, 'status_code', '?')}（重试后仍失败，停）", flush=True)
             break
+        # 列表页之间必须停顿，否则触发站点限流（实测第 12 页回 429）
+        time.sleep(LIST_PAUSE)
         items, meta = _parse_list(getattr(r, "text", "") or "")
         if page == 1 and meta:
             print(f"    [{SITE['key']}] 站点自报 total={meta.get('total')} "
@@ -262,7 +303,7 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = MAX_PAGES,
                 continue
             det = {}
             try:
-                d = fetch(it["url"])
+                d = _get(fetch, it["url"])
                 if getattr(d, "status_code", 0) == 200:
                     det = _parse_detail(getattr(d, "text", "") or "")
             except Exception:                                           # noqa: BLE001

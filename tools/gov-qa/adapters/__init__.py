@@ -508,6 +508,13 @@ ADAPTERS: dict[str, str] = {
     #      只会得到「标签ID(8888)：不存在或已被删除.」⇒ 必须走标签路由。
     #    实测 total=847；明细 /content/article/<baseContentId> 服务端渲染（th/td 成对）。
     "wh-hdjl": "adapters.wh_hdjl",     # 芜湖市·12345政务服务便民热线·信件选登
+    # —— 安徽第 5 个市级源（2026-10-13）：蚌埠市·政民直通车·信件选登。
+    #    与芜湖**同一个 `/site/label/8888` 标签路由**，但四处全不一样：
+    #    labelName=hotlineSZPageList（芜湖是 messageBoardPageList）、
+    #    返回 **HTML** 而非 JSON、pageIndex **0 起**（芜湖 1 起）、
+    #    明细 `/site/tpl/8002?cguid=<uuid>`（芜湖 `/content/article/<id>`）。
+    #    ⇒ 「同一个标签路由」≠「同一套参数」，四处都要从目标站自己的 JS 抄。
+    "bb-hdjl": "adapters.bb_hdjl",     # 蚌埠市·政民直通车·信件选登
 }
 
 #: 用户要能直接 `from adapters import load`
