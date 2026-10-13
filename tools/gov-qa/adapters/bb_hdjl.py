@@ -107,7 +107,14 @@ _FIELD = re.compile(
 
 
 def existing_ids(site_key: str) -> set:
-    """读 `data/<site_key>-*.jsonl` 已有 id（增量续采用）。"""
+    """读 `data/<site_key>-*.jsonl` 已有 id（增量续采用）。
+
+    ★★ 必须**同时收 `id` 与 `extra.cguid`**（2026-10-13 实测踩到）：
+    本适配器落盘时 `id` 取的是**信件编号**（doc_num，明细页才有），
+    而列表项给的是 **cguid**。若只收 `id`，`skip_ids` 永远匹配不上列表项
+    ⇒ 每轮把已落盘的记录**再逐条取一遍明细**（实测：`--limit 300` 第二轮
+    「跳过已落盘 0 条、新增 0 条」，白跑 340 秒）—— 就是交接单警告的 O(n²)。
+    """
     out: set[str] = set()
     d = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
     if not os.path.isdir(d):
@@ -126,6 +133,9 @@ def existing_ids(site_key: str) -> set:
                     rid = rec.get("id")
                     if rid:
                         out.add(str(rid))
+                    cg = (rec.get("extra") or {}).get("cguid")
+                    if cg:
+                        out.add(str(cg))
     return out
 
 
