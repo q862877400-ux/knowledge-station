@@ -89,3 +89,69 @@
   **不排除**它们有别的公开入口。
 - 只有 **14 个市**在 `city-domains-all.json` 里（安徽共 16 个地级市）⇒
   **2 个市域名未登记**，未验。
+
+---
+
+# ★★ 2026-10-13 第 8 轮补记：**还有 6 个市用同一套 `/site/label/8888` CMS**
+
+芜湖（`wh-hdjl`）打通后，拿 `/site/label/8888` 当指纹扫了其余 10 个市 ——
+**6 个命中**，这是「找到一个接口 = 找到一片站点」的又一次实证。
+
+| 市 | 命中路径 | 该站自己的 `labelName` |
+|---|---|---|
+| **马鞍山** | `/hdjl/index.html` | `interviewInfoListByMonth` / `keyWordsHeatRank` |
+| **淮北** | `/hdjl/index.html` | `interviewInfoList` / `publicInfoList` |
+| **安庆** | `/zmhd/index.html` | **`messageBoardPageListFrom12345`** |
+| **六安** | `/hdjl/index.html` | `collectInfoList` / `docList` / `mayorHotLineCount` / `surveyList` |
+| **滁州** | `/zmhd/index.html` | `collectInfoList` / `keyWordsHeatRank` |
+| **淮南** | `/zmhd/index.html` | `collectInfoList` / `mayorHotLineHfxdPageList` / `messageBoardTjByTimeType` |
+
+**未命中**（探过 6 个路径）：合肥 / 黄山 / 宿州 / 宣城 / 阜阳。
+
+## 安庆：**列表可采，明细不可达 ⇒ 判死（待复验）**
+
+安庆的 label 叫 `messageBoardPageListFrom12345`（芜湖是 `messageBoardPageList`，**只差后缀**），
+调用形态：
+
+```
+GET /site/label/8888?labelName=messageBoardPageListFrom12345&pageSize=9&queryType=0
+    &isDate=4&isHit=true&length=25&dealStatus=1&dateFormat=yyyy-MM-dd
+    &action=singleList&file=/c1/anqing/12345test0530/messageBoardInfoList_aq_12345new
+    &fromArea=zmhdMainPage
+```
+
+**列表确实能拿到**（HTTP 200，3674 B），条目形如：
+
+```html
+<li>
+  <div class="p1">26092520080011</div>                                  <!-- 信件编号 -->
+  <div class="p2"><a href="/site/tpl/2000001371?id=28318412" title="…">…</a></div>
+  <div class="p3">2026-09-29</div>                                      <!-- 日期 -->
+  <div class="p4"><span class="responseYes">[已办结]</span></div>
+</li>
+```
+
+**但明细 `/site/tpl/2000001371` 一律 HTTP 521**（Cloudflare「Web Server Is Down」）：
+
+| 请求 | 结果 |
+|---|---|
+| `https://…/site/tpl/2000001371?id=28318412` | **521** |
+| `https://…/site/tpl/2000001371?id=28307531`（换 id） | **521** |
+| `http://…/site/tpl/2000001371?id=28307531`（换协议） | **521** |
+| `https://…/site/tpl/2000001371`（不带 id） | **521** |
+| `https://…/zmhd/index.html`（对照） | **200** |
+
+补全浏览器头（UA/Accept/Accept-Language/Referer/Upgrade-Insecure-Requests）**无效**，重试 3 次全 521。
+
+⇒ **按铁律第 6 条，取不到答复正文就不许写适配器** —— 硬建会变成零数据源污染判据②。
+⇒ 记为 **判死（待复验）**。**复验方式**：换 IP / 走浏览器抓一次 `/site/tpl/…` 看是不是反爬；
+若确认是反爬，需要带完整浏览器指纹或走 Playwright 才能采。
+
+## 给下一轮的动作（按收益）
+
+1. **先扫「同 CMS 家族」**：对这 6 个市，抓各自 `/hdjl/*` 或 `/zmhd/*` 页面里的
+   **真实 ajax 调用块**（不是模板里的 `<?=…?>`），抄 `labelName` + `file` + `action` 三件套。
+   **每站都要单独抄** —— 芜湖/蚌埠已经证明「同一个 `/site/label/8888`，参数四处全不一样」。
+2. **安庆**：先解决 521（反爬 or 真挂），再谈适配器。
+3. **淮北/淮南/六安/滁州/马鞍山**：`collectInfoList` / `interviewInfoList` 这些名字
+   **未必是信件问答**（可能是征集调查 / 在线访谈）⇒ **写适配器前必须先取一条明细确认是问答**。
