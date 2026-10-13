@@ -155,3 +155,81 @@ GET /site/label/8888?labelName=messageBoardPageListFrom12345&pageSize=9&queryTyp
 2. **安庆**：先解决 521（反爬 or 真挂），再谈适配器。
 3. **淮北/淮南/六安/滁州/马鞍山**：`collectInfoList` / `interviewInfoList` 这些名字
    **未必是信件问答**（可能是征集调查 / 在线访谈）⇒ **写适配器前必须先取一条明细确认是问答**。
+
+---
+
+# ★ 2026-10-13 第 8 轮补记之二：**淮南市 —— 已验可采，但服务器极慢**
+
+**结论：数据质量是本项目目前见过最好的，但站点响应慢到需要专用超时策略。**
+
+## 一、明细答复质量（铁律第 6 条 ✅ 已验）
+
+抽 1 条（`/site/tpl/150847861?detailId=e4936b0a-af8a-4a22-bd4e-19d40eef1e7f`，
+「谢家集区新家园A区房屋墙皮脱落相关问题」）：答复是**完整公文式**——
+
+```
+基本情况 / 调查情况 / 处理意见 / 回访情况
+办理部门: 谢区房产服务中心   经办人:孙敏   联系方式:0554-********
+回复单位：谢家集区房产管理中心  回复时间：2026-09-01 09:59
+```
+**另带「评价」与「二次评价」**（本例：二次评价=不满意，8月29日回访群众表示未解决）。
+⇒ 这是**带办结闭环**的高档考卷料，比芜湖/蚌埠又高一档。
+
+## 二、明细 HTML 结构 —— **与池州 `cz-hdjl` 逐字一致**（可复用解析）
+
+```
+<div class="message_con clearfix">
+  <div class="message_title lx_title"><span>留言</span></div>
+  <div class="message_nr">
+    <div class="message_nr_text">…诉求正文…</div>
+    <div class="message_info fr">
+      <span class="lxr">留言类型：投诉</span><span class="lxsj">留言时间：2026-08-17 17:02</span>
+    </div>
+  </div>
+</div>
+<div class="message_con clearfix">
+  <div class="message_title hf_title"><span>回复</span></div>   <!-- 回复正文在 message_nr_text -->
+    <span class="lxr">回复单位：…</span><span class="lxsj">回复时间：…</span>
+</div>
+<!-- 还有 pj_title 评价 / 二次评价 两块（message_con 共 4 个） -->
+```
+⇒ **`cz_hdjl.py` 的 `_parse_detail` 逻辑可以直接搬**（class 名完全相同）。
+
+## 三、两个列表入口（形态不同，都要）
+
+| 入口 | 列表 | 明细 | 分页 |
+|---|---|---|---|
+| **市长信箱** | `/content/column/5002739?pageIndex=N`（**服务端渲染**）| `/content/article/<id>` | **17 页**（页面里 `pageCount:17`）|
+| 市长热线回复选登 | `/site/label/8888?labelName=mayorHotLineHfxdPageList&pageSize=7&isPage=false&file=/c1/huainan/mayorHotLineHfxdPageList-new` | `/site/tpl/150847861?detailId=<uuid>` | **首页只给 7 条，无分页** |
+
+市长信箱列表条目结构（服务端渲染，**静态可取**）：
+```html
+<li class="odd">
+  <p class="p1">我要咨询</p>
+  <p class="p2" title=" 市交通运输局 ">市交通运输局</p>
+  <div class="p3 p"><a href="https://www.huainan.gov.cn/content/article/1261058139"
+                      title="请问S19淮桐高速淮南段通车时间？">…</a></div>
+  <p class="p4">2026-07-11</p>
+</li>
+```
+⇒ 与芜湖的 `<th class="tit">/td` 完全不同，**要另写列表解析**。
+
+## 四、⚠⚠ 站点极慢 —— 必须专用超时策略
+
+| 请求 | 实测 |
+|---|---|
+| `/zmhd/index.html`（首页）| 快（~几秒，62 KB）|
+| `mayorHotLineHfxdPageList` 默认参数（首页那套）| 快（缓存）|
+| `mayorHotLineHfxdPageList` + `pageSize=100` | **ReadTimeout 90s** |
+| 同上 + `isPage=true&pageIndex=1` | **ReadTimeout 90s** |
+| 明细 `/site/tpl/150847861?detailId=…` | **时快时慢**：一次 ~5s 成功，另几次 **90s / 40s 超时** |
+| `/content/column/5002739?pageIndex=1` | 多次 **90–400s 超时** |
+
+⇒ **写适配器时必须**：`timeout` 给到 **60–120s**、`_get()` 重试 **4–5 次**、
+`PAUSE` 放大到 **2–3s**、**必须分小块**（每块 100~200 条）并且**每块单独 commit**。
+
+## 五、下一步（淮南）
+
+1. 用 `cz_hdjl.py` 的明细解析 + 新写的列表解析，建 `hn-szxx`（市长信箱，17 页）。
+2. 先只跑 **1 页**验证解析，再放量。
+3. 若 `/content/column/` 持续超时 ⇒ 改走首页那个 `mayorHotLineHfxdPageList`（只 7 条，但明细质量最高）。
