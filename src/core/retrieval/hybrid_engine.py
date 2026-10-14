@@ -159,6 +159,57 @@ def _fts_query(text: str) -> str:
     return fts_match_expr(text)
 
 
+def _catalog_visible_fragment(conn: sqlite3.Connection, param: str = "dm.doc_id") -> str:
+    """`catalog_hidden` 可见性片段（spec 013）——**唯一所有者**。
+
+    ## 为什么检索路径也要它（2026-10-14 实测缺陷）
+
+    `catalog_hidden=1` 以前**只在浏览类接口**被过滤
+    （`/api/v1/documents*`、`/documents/categories`、`report/effect`），
+    检索路径**完全不认它**（`git grep catalog_hidden -- src/core/retrieval/` 当时为空）。
+
+    ⇒ 实测后果：拿真问题「个人信息处理者处理个人信息应当取得同意吗」跑真实检索
+    （`top_k=20`），那篇**测试假样本** `个人信息保护法(测试)` 的条款排在
+    **第 3 名与第 16 名** —— 而库里有**真的**《个人信息保护法》（74 条）
+    ⇒ 它不只是噪声，是**用一个拼接的假法条去竞争真法条的位置**。
+
+    ## 为什么这样写
+
+    * **只对 `doc_meta` 有效**：片段引用 `dm.doc_id`，因此只能拼进
+      **JOIN 了 `doc_meta`** 的通道（A/D/E）。通道 B/C/F 走 `_catalog_visible_by_clause()`。
+    * **列可能不存在**（`catalog_hidden` 是 `clause_repo.ensure_catalog_hidden_column()`
+      加的**增量列**，**不在 `schema.sql`**）⇒ 列不在时**返回空串**（不加条件），
+      而不是拼一个会 `no such column` 报错的片段。这与
+      `folder_store` / `apply-folder-filing` 的"读取时自适应"同口径。
+    * **列在 ⇒ 一律过滤**，不提供"不过滤"的开关：`catalog_hidden=1` 的语义就是
+      "不该被用户看见"，浏览与检索**必须一致**（两套可见性迟早漂移）。
+    """
+    try:
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(doc_meta)")}
+    except sqlite3.Error:
+        return ""
+    if "catalog_hidden" not in cols:
+        return ""
+    return f" AND COALESCE({param} NOT IN (SELECT doc_id FROM doc_meta WHERE catalog_hidden = 1), 1)"
+
+
+def _catalog_visible_by_clause(conn: sqlite3.Connection, param: str = "clause_revision_id") -> str:
+    """同上，但给**没 JOIN `doc_meta`** 的通道用（B/C/F 走 `clause_revision` 中转）。
+
+    ⚠ 与 `_catalog_visible_fragment` **同一个判据**（`catalog_hidden = 1` 排除），
+    只是写法不同（多一跳 `clause_revision`）—— 两处**必须同时改**，
+    `tests/test_catalog_hidden_retrieval.py` 有一条结构判据钉住这一点。
+    """
+    try:
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(doc_meta)")}
+    except sqlite3.Error:
+        return ""
+    if "catalog_hidden" not in cols:
+        return ""
+    return (f" AND {param} NOT IN (SELECT clause_revision_id FROM clause_revision"
+            f" WHERE doc_id IN (SELECT doc_id FROM doc_meta WHERE catalog_hidden = 1))")
+
+
 def perform_hybrid_search(
     query: str,
     top_k: int = 5,
@@ -218,6 +269,25 @@ def perform_hybrid_search(
             return []
         scope_json = json.dumps(wanted, ensure_ascii=False)
         logger.info("范围提问：候选限定在 %d 篇文档内（检索层过滤，六通道）", len(wanted))
+
+    # ── 目录可见性（spec 013）：`catalog_hidden=1` 的文档**不进检索** ──────────────
+    # 判据的唯一所有者是上面两个函数；这里只取一次片段，六条通道共用。
+    # ⚠ 为什么不提供开关：`catalog_hidden=1` 的语义就是"不该被用户看见"，
+    #   浏览与检索**必须一致** —— 两套可见性迟早漂移（这正是本缺陷的成因）。
+    vis_doc = _catalog_visible_fragment(conn)
+    vis_clause = _catalog_visible_by_clause(conn)
+    #: 隐藏文档的 doc_id 集合（通道 C 在 Python 里筛要用）。
+    hidden_doc_ids: set[str] = set()
+    #: `clause_revision_id -> doc_id` 的小缓存（通道 C 逐条查会 N+1）。
+    _doc_of_clause: Dict[str, Any] = {}
+    if vis_doc:
+        try:
+            hidden_doc_ids = {r[0] for r in conn.execute(
+                "SELECT doc_id FROM doc_meta WHERE catalog_hidden = 1")}
+        except sqlite3.Error:
+            hidden_doc_ids = set()
+        if hidden_doc_ids:
+            logger.info("目录卫生：%d 篇 catalog_hidden=1 的文档不进检索", len(hidden_doc_ids))
 
     def _scope_doc(param: str = "cr.doc_id") -> str:
         """范围 SQL 片段（**只在真的限定范围时**拼进查询）。"""
@@ -288,6 +358,9 @@ def perform_hybrid_search(
                    else " AND (dm.legal_status IS NULL OR dm.legal_status"
                         " NOT IN ('withdrawn','superseded'))")
                 + (_scope_doc() if scope_active else "")
+                # ⚠ 目录可见性（spec 013）：`catalog_hidden=1` 的文档不进检索。
+                # 判据的唯一所有者见 `_catalog_visible_fragment`。
+                + vis_doc
                 # ⚠ 排序必须**显式把"未核验"放最后**（2026-09-18 复核 b9 的 LOW-3）：
                 # SQLite 的 `ORDER BY x` 把 **NULL 排在最前**，而 `rank` 直接决定
                 # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)` ⇒ 上面那两处刚把 NULL **放进来**，
@@ -325,6 +398,8 @@ def perform_hybrid_search(
                 rows = conn.execute(
                     "SELECT clause_revision_id FROM clause_fts WHERE clause_fts MATCH ?"
                     + (_scope_clause() if scope_active else "")
+                    # 目录可见性（spec 013）：FTS 表没有 doc_id，走 clause_revision 中转。
+                    + vis_clause
                     + " ORDER BY rank LIMIT 20",
                     ((fq, scope_json) if scope_active else (fq,))).fetchall()
                 for rank, row in enumerate(rows):
@@ -344,6 +419,27 @@ def perform_hybrid_search(
                 + " ORDER BY distance",
                 ((json.dumps(q_emb), scope_json) if scope_active
                  else (json.dumps(q_emb),))).fetchall()
+            # ⚠ 目录可见性（spec 013）：**这一路在 Python 里筛**，不拼 SQL。
+            # 为什么与其余五路不同：`clause_vec` 是 vec0 虚表，
+            # 实测**只验证过** `doc_id IN (子查询)` 这一种下推写法
+            # （`specs/003-vec-scope-pushdown`），**`NOT IN` 没验证过** ——
+            # 而这个仓库已经栽过一次"看着像的写法比不修更糟"（见 `_scope_vec` 的注释：
+            # 字面量列表会**返回范围外的行**）。⇒ 在没验证之前，宁可**取回再筛**
+            # （代价：k=20 里可能少几条；隐藏文档实测 7 篇 / 8,983 = 0.08%，
+            #  影响可忽略，而写错一个 vec0 约束会让整路返回空）。
+            if hidden_doc_ids:
+                keep = []
+                for r in rows:
+                    owner = _doc_of_clause.get(r[0])
+                    if owner is None:
+                        owner = conn.execute(
+                            "SELECT doc_id FROM clause_vec WHERE clause_revision_id = ?",
+                            (r[0],)).fetchone()
+                        owner = owner[0] if owner else None
+                        _doc_of_clause[r[0]] = owner
+                    if owner not in hidden_doc_ids:
+                        keep.append(r)
+                rows = keep
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["vec"] / (RRF_K + rank + 1)
             degraded["vector_engine"] = "ok"
@@ -361,6 +457,8 @@ def perform_hybrid_search(
                else " AND (dm.legal_status IS NULL OR dm.legal_status"
                     " NOT IN ('withdrawn','superseded'))")
             + (_scope_doc() if scope_active else "")
+            # 目录可见性（spec 013）。
+            + vis_doc
             # ⚠ 这一条**原先完全没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、本步修，
             # 方案未决第 12 条的 INFO-6）：`rank` 直接决定
             # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，而**没有 ORDER BY 的 SELECT 返回次序
@@ -388,6 +486,8 @@ def perform_hybrid_search(
             " LEFT JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
             " WHERE cr.subject = ? AND cr.knowledge_type = 'legal'"
             + (_scope_doc() if scope_active else "")
+            # 目录可见性（spec 013）。
+            + vis_doc
             # ⚠ 这条原先**没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、§10.58 先补了"确定性"）：
             # `rank` 直接决定 `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，没有 ORDER BY 的返回次序
             # 是未定义的 ⇒ 同一查询的权重分配不可复现。
@@ -409,6 +509,8 @@ def perform_hybrid_search(
                     "SELECT clause_revision_id FROM clause_fts"
                     " WHERE behavior_scope_segmented MATCH ?"
                     + (_scope_clause() if scope_active else "")
+                    # 目录可见性（spec 013）。
+                    + vis_clause
                     + " ORDER BY rank LIMIT 20",
                     ((fq, scope_json) if scope_active else (fq,))).fetchall()
                 for rank, row in enumerate(rows):
