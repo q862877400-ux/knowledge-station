@@ -101,7 +101,30 @@ class Test可见性片段:
             "没有隐藏文档时不生成片段 ⇒ 第一篇被隐藏后守卫失效"
 
 
-class Test真标准该挡而不是不该挡:
+def _real_db() -> "Path | None":
+    """真库路径 —— **只认显式点名的 `KS_REAL_DB`**。
+
+    ## 为什么不用 `get_settings().db_path` / `APPDATA`
+
+    `tests/conftest.py` 的会话级 fixture 把 `KS_DATA_DIR` 指到**临时库**
+    （全量测试的既有纪律：不许碰生产库）⇒ 在 pytest 里
+    `get_settings().db_path` **永远不是生产库**。
+    而直接拼 `APPDATA` 会**绕过**那道隔离 —— 那等于测试偷偷读了生产库，
+    是全量测试纪律不允许的事。
+
+    ⇒ 涉及真库的三条判据一律走本函数：**没显式点名就如实跳过**，
+    要点名就跑 `KS_REAL_DB=<path> python -m pytest …`。
+    """
+    import os
+    from pathlib import Path
+    explicit = os.environ.get("KS_REAL_DB")
+    if not explicit:
+        return None
+    p = Path(explicit)
+    return p if p.exists() else None
+
+
+class Test那6篇真标准该挡而不是不该挡:
     """★ 我 2026-10-12 说错过的一句话：那 6 篇真标准"不该被挡" —— **错了**。
 
     实测：它们 `n_normal = 0`（只抽出附录/前置说明、一条正文都没有），
@@ -117,12 +140,10 @@ class Test真标准该挡而不是不该挡:
             "隐藏规则不是 n_normal==0 ⇒ 我对那 6 篇的判定依据要重核"
 
     def test_那6篇真标准只有附录没有正文(self):
-        """若真库可达，直接核那 6 篇的 `normal` 条数为 0。"""
-        import os
-        from pathlib import Path
-        db = Path(os.environ.get("APPDATA", "")) / "KnowledgeStation" / "database" / "knowledge.db"
-        if not db.exists():
-            pytest.skip("生产库不可达（CI/新环境）")
+        """若**显式点名真库**，直接核那 6 篇的 `normal` 条数为 0。"""
+        db = _real_db()
+        if db is None:
+            pytest.skip("未显式点名真库（设 KS_REAL_DB=<path> 才跑）")
         conn = sqlite3.connect(f"file:{db.as_posix()}?mode=ro", uri=True)
         try:
             rows = conn.execute("""
@@ -142,17 +163,33 @@ class Test真标准该挡而不是不该挡:
 
 
 class Test假样本不进检索:
-    """端到端：真库可达时直接跑检索。"""
+    """端到端：**必须显式指向真库**才跑（见下）。
+
+    ## 为什么不能"库在就跑"
+
+    `tests/conftest.py` 的会话级 fixture 把 `KS_DATA_DIR` 指到**临时库**
+    （这是全量测试的既有纪律：不许碰生产库）。
+    ⇒ 在 pytest 里，`get_settings().db_path` **永远不是生产库**
+    ⇒ "拿真库跑检索"这件事**在测试套件里结构上做不到**。
+
+    ⇒ 判据分两层：
+      · **套件内**：结构判据（上面那两组）钉住"守卫接上了"；
+      · **套件外**：本条用 `KS_REAL_DB` 环境变量**显式点名**真库才跑，
+        并在真库上验"假样本不进结果"（`python -m pytest -k 真库`
+        加 `KS_REAL_DB=<path>`）。
+    """
 
     def test_假样本不在检索结果里(self):
         import os
         from pathlib import Path
-        db = Path(os.environ.get("APPDATA", "")) / "KnowledgeStation" / "database" / "knowledge.db"
+        explicit = os.environ.get("KS_REAL_DB")
+        if not explicit:
+            pytest.skip("未显式点名真库（设 KS_REAL_DB=<path> 才跑；见类注释）")
+        db = Path(explicit)
         if not db.exists():
-            pytest.skip("生产库不可达（CI/新环境）")
-        from src.core.config import get_settings
+            pytest.skip(f"KS_REAL_DB 指向的库不存在：{db}")
         from src.core.retrieval.hybrid_engine import perform_hybrid_search
-        conn = sqlite3.connect(str(get_settings().db_path))
+        conn = sqlite3.connect(f"file:{db.as_posix()}?mode=ro", uri=True)
         conn.row_factory = sqlite3.Row
         try:
             res = perform_hybrid_search("个人信息处理者处理个人信息应当取得同意吗", top_k=20)
@@ -235,26 +272,56 @@ class Test隐藏集合本身被算出来:
             "`if vis_doc:` 块里没有查 catalog_hidden=1 ⇒ 隐藏集合算不出来"
 
     def test_隐藏集合的行为(self):
-        """行为判据：真库可达时，隐藏集合必须**恰好等于** catalog_hidden=1 的集合。"""
+        """行为判据：真库可达时，隐藏集合必须**恰好等于** `catalog_hidden=1` 的集合。
+
+        ⚠ **本测试第一版写错了**（被门禁抓到，如实留痕）：
+        我原来查 `SELECT doc_id FROM doc_meta WHERE 1=1 + frag` ——
+        而 `frag` 里的参数是 **`dm.doc_id`**（生产里五条通道都写 `doc_meta dm`）
+        ⇒ 不带别名查会 `no such column: dm.doc_id`。
+        **修法是让测试与生产同口径**（带 `dm` 别名），
+        而不是把片段的默认参数改掉 —— 生产五处都带别名，改片段反而会把判据弄松。
+        """
         import os
         from pathlib import Path
-        db = Path(os.environ.get("APPDATA", "")) / "KnowledgeStation" / "database" / "knowledge.db"
-        if not db.exists():
-            pytest.skip("生产库不可达（CI/新环境）")
-        from src.core.config import get_settings
+        # ⚠ 用**同一个**库做"存在性检查"与"查询"，且只认真库显式点名
+        #    （第一版用 `APPDATA` 判存在、却查 `get_settings().db_path` ——
+        #     门禁里后者是临时库，两者不是同一个文件）。
+        db = _real_db()
+        if db is None:
+            pytest.skip("未显式点名真库（设 KS_REAL_DB=<path> 才跑）")
         from src.core.retrieval.hybrid_engine import _catalog_visible_fragment
-        conn = sqlite3.connect(str(get_settings().db_path))
+        conn = sqlite3.connect(f"file:{db.as_posix()}?mode=ro", uri=True)
         try:
             frag = _catalog_visible_fragment(conn)
             if not frag:
                 pytest.skip("该库没有 catalog_hidden 列")
             hidden = {r[0] for r in conn.execute(
                 "SELECT doc_id FROM doc_meta WHERE catalog_hidden = 1")}
+            # ⚠ 必须带 `dm` 别名：片段里的参数就是 `dm.doc_id`（与生产五条通道同口径）。
             visible = {r[0] for r in conn.execute(
-                "SELECT doc_id FROM doc_meta WHERE 1=1" + frag)}
+                "SELECT dm.doc_id FROM doc_meta dm WHERE 1=1" + frag)}
             allids = {r[0] for r in conn.execute("SELECT doc_id FROM doc_meta")}
             assert visible == allids - hidden, (
                 f"可见集合 != 全库 − 隐藏集合（漏 {len(visible - (allids - hidden))}、"
                 f"多 {len((allids - hidden) - visible)}）")
         finally:
             conn.close()
+
+    def test_片段默认参数与生产别名一致(self):
+        """★ 结构判据：片段的默认参数**必须**是 `dm.doc_id`。
+
+        生产五条通道（A/D/E）都写 `doc_meta dm` ⇒ 片段只能引用 `dm`。
+        若有人把默认值改成 `doc_meta.doc_id` 之类，**生产查询会当场报错**
+        （`no such column`）—— 而那种错只会在真跑检索时才炸。
+        """
+        import inspect
+        from src.core.retrieval.hybrid_engine import (
+            _catalog_visible_by_clause, _catalog_visible_fragment,
+        )
+        sig = inspect.signature(_catalog_visible_fragment)
+        assert sig.parameters["param"].default == "dm.doc_id", \
+            f"片段默认参数不是 dm.doc_id：{sig.parameters['param'].default}"
+        # 按条款那个的默认参数是 `clause_revision_id`（不带表别名 —— FTS 表直接有这列）
+        sig2 = inspect.signature(_catalog_visible_by_clause)
+        assert sig2.parameters["param"].default == "clause_revision_id", \
+            f"按条款片段的默认参数不对：{sig2.parameters['param'].default}"
