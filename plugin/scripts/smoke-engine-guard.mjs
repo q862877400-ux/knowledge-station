@@ -13,7 +13,8 @@
  *
  * Run: node scripts/smoke-engine-guard.mjs   (exit 0 = pass)
  */
-import { mkdtemp, writeFile, readdir } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, writeFile, readdir } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -25,9 +26,8 @@ const pluginRoot = resolve(here, '..')
 const dataDir = await mkdtemp(join(tmpdir(), 'ks-engine-guard-'))
 process.env.KS_DATA_DIR = dataDir
 
-const { EngineManager, sessionFilePath } = await import(
-  new URL('../src/engine.js', import.meta.url).href
-)
+const { EngineManager, sessionFilePath, ENGINE_ROOT, DEFAULT_PYTHON, healVenvHome,
+  findEngineRoot } = await import(new URL('../src/engine.js', import.meta.url).href)
 
 const results = []
 function check(name, ok, detail) {
@@ -161,6 +161,81 @@ function check(name, ok, detail) {
   m2._spawning = null
   await m2.ensureLive()
   check('sequential ensureLive each spawns (no false sharing)', spawns2 === 2, `spawns=${spawns2}`)
+}
+
+/* ============================================== 6. 便携：路径运行时推导 + venv 自愈 */
+/*
+ * 业主 2026-10-17：「便携版随时一拷贝就能走…不会产生对我当前环境有依赖的东西」。
+ * 这一组钉两件事：
+ *  ① `ENGINE_ROOT` 必须是**运行时推导**的（不是写死的绝对路径）；
+ *  ② 整包换盘符后 venv 的 `pyvenv.cfg` 里 `home =` 会指向不存在的旧路径
+ *     （venv **不带标准库** ⇒ 直接不可用）⇒ 拉起引擎前必须**自愈**。
+ */
+{
+  // ① 不是写死的旧工作区路径
+  check('便携：ENGINE_ROOT 不是写死的旧工作区路径',
+    !/[\\/]AI[\\/]work space/i.test(ENGINE_ROOT), ENGINE_ROOT)
+
+  // ② 指向真正的仓 —— 用**仓库标记**判，不用字符串比
+  check('便携：ENGINE_ROOT 含仓库标记 src/core/main.py',
+    existsSync(join(ENGINE_ROOT, 'src', 'core', 'main.py')), ENGINE_ROOT)
+
+  // ②b ★ **直接测标记查找本身**（这一条才有牙）
+  //
+  // ⚠ 为什么必须有它（变异自验发现的缺口）：只测 `ENGINE_ROOT` 的最终值
+  //   **测不出标记查找有没有生效** —— 插件就在仓里时，"往上两级"的回退
+  //   也能得到同一个答案。实测：把标记查找关掉，上面那条**照样绿**（假绿）。
+  // ⇒ 造一个"**插件被装到仓外/仓内深处**"的结构，让两条路**给出不同答案**：
+  //   仓根 `<tmp>/repo`（含标记），插件在 `<tmp>/repo/node_modules/ks-dsh-plugin/src`
+  //   ⇒ "往上两级"到 `<tmp>/repo/node_modules/ks-dsh-plugin`（**错**），
+  //      只有标记查找能到 `<tmp>/repo`（**对**）。
+  {
+    const fakeRepo = await mkdtemp(join(tmpdir(), 'ks-fakeroot-'))
+    await mkdir(join(fakeRepo, 'src', 'core'), { recursive: true })
+    await writeFile(join(fakeRepo, 'src', 'core', 'main.py'), '# marker\n', 'utf8')
+    // 装到仓内深处（模拟 profile 的 node_modules）——必须**深于两级**，
+    // 否则"往上两级"会碰巧落到仓根，判据就没有区分力（第一版就是这么错的）。
+    const fakePluginSrc = join(fakeRepo, 'node_modules', 'ks-dsh-plugin', 'src')
+    await mkdir(fakePluginSrc, { recursive: true })
+    const twoUp = resolve(fakePluginSrc, '..', '..')
+    const found = findEngineRoot(fakePluginSrc)
+    check('便携：标记查找能找到真正的仓根（插件装在仓内深处时也对）',
+      found === fakeRepo, `found=${found} expect=${fakeRepo}`)
+    check('便携：标记查找**不是**靠"往上两级"蒙对的',
+      found !== twoUp && twoUp !== fakeRepo,
+      `found=${found} 两级=${twoUp}`)
+  }
+
+  // ③ venv 路径从 ENGINE_ROOT 派生（不是独立写死的第二个常量）
+  check('便携：DEFAULT_PYTHON 派生自 ENGINE_ROOT',
+    DEFAULT_PYTHON === join(ENGINE_ROOT, '.venv', 'Scripts', 'python.exe'), DEFAULT_PYTHON)
+
+  // ④ 自愈：临时仓 + 失效 home ⇒ 必须改指一个**真实存在**的解释器
+  const tmpRoot = await mkdtemp(join(tmpdir(), 'ks-portable-'))
+  await mkdir(join(tmpRoot, '.venv'), { recursive: true })
+  const cfg = join(tmpRoot, '.venv', 'pyvenv.cfg')
+  await writeFile(cfg, 'home = E:\\NoSuchDrive\\python\nversion_info = 3.12\n', 'utf8')
+  const r1 = healVenvHome(tmpRoot)
+  check('便携自愈：失效 home 被改指真实解释器', r1.healed === true, JSON.stringify(r1))
+  const after1 = await readFile(cfg, 'utf8')
+  check('便携自愈：只改 home 一行，别的不动',
+    after1.includes('version_info = 3.12') && /^home\s*=/mu.test(after1),
+    after1.replace(/\n/g, '|'))
+  check('便携自愈：改后的 home 指向真实存在的目录',
+    existsSync(r1.home), String(r1.home))
+
+  // ⑤ 幂等：home 已有效 ⇒ 一个字节不改（每次启动都跑，必须无副作用）
+  const before2 = await readFile(cfg, 'utf8')
+  const r2 = healVenvHome(tmpRoot)
+  const after2 = await readFile(cfg, 'utf8')
+  check('便携自愈：home 已有效时是 no-op（幂等）',
+    r2.healed === false && r2.reason === 'ok' && before2 === after2, JSON.stringify(r2))
+
+  // ⑥ 没有 venv ⇒ 如实报，不假装成功
+  const bare = await mkdtemp(join(tmpdir(), 'ks-bare-'))
+  const r3 = healVenvHome(bare)
+  check('便携自愈：没有 venv 时如实报（不假装成功）',
+    r3.healed === false && r3.reason === 'no-pyvenv-cfg', JSON.stringify(r3))
 }
 
 /* ============================================== 汇总 */

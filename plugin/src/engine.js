@@ -13,8 +13,10 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process'
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { readFile, stat } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { homedir } from 'node:os'
 
 /* ------------------------------------------------------------------ *
@@ -23,7 +25,47 @@ import { homedir } from 'node:os'
 
 /** Binds a random free port, writes session.json, prints PORT/TOKEN. */
 export const MODULE_ARG = 'src.core.main'
-export const ENGINE_ROOT = 'D:\\AI\\work space\\zcode'
+
+/** 本模块所在目录（`<repo>/plugin/src`）。运行时推导，**不写死**。 */
+const HERE = dirname(fileURLToPath(import.meta.url))
+
+/**
+ * 引擎仓库根 —— **不许写死绝对路径**（2026-10-17 便携化）。
+ *
+ * ## 为什么必须运行时推导
+ *
+ * 这一行原先写死成 `'D:\\AI\\work space\\zcode'`。后果：把整个便携包拷到
+ * 另一个盘符（或另一台机器）之后，插件仍然去**旧路径**找引擎 ⇒
+ * **"拷贝即走"不成立**（实测：包搬到 `D:\Agent-Studio\...` 后，
+ * `ENGINE_ROOT` 仍指向 `D:\AI\work space\zcode`）。
+ * ⚠ 把写死值**换成新路径**同样不行 —— 下次再拷贝还会坏。
+ *
+ * ## 三级取值（逐级回退）
+ *
+ *  1. `$KS_ENGINE_ROOT` —— 部署方显式指定，最高优先；
+ *  2. **从本模块往上找仓库标记**（`src/core/main.py`）—— 这样**即使插件被装到
+ *     别处**（例如 profile 的 `node_modules/` 里）也能找到真正的仓；
+ *  3. 回退"往上两级"（`<repo>/plugin/src` → `<repo>`）。
+ *
+ * 第 2 级是关键：单靠第 3 级只在"插件就在仓里"时成立，
+ * 而插件被安装/复制到别处是常态。
+ *
+ * ⚠ **导出是为了可单测**：只测 `ENGINE_ROOT` 的最终值**测不出第 2 级有没有生效**
+ * —— 插件在仓里时，第 3 级的回退也能得到同一个答案（变异自验实测：把第 2 级
+ * 关掉，端到端判据**照样全绿**）。⇒ 必须直接拿"插件不在仓里"的目录结构测它。
+ */
+export function findEngineRoot(start) {
+  let dir = start
+  for (let i = 0; i < 8; i += 1) {
+    if (existsSync(join(dir, 'src', 'core', 'main.py'))) return dir
+    const parent = dirname(dir)
+    if (parent === dir) break
+    dir = parent
+  }
+  return resolve(start, '..', '..')
+}
+
+export const ENGINE_ROOT = process.env.KS_ENGINE_ROOT || findEngineRoot(HERE)
 export const DEFAULT_PYTHON = join(ENGINE_ROOT, '.venv', 'Scripts', 'python.exe')
 export const HEALTH_PATH = '/api/v1/health'
 /** P1b: synchronous forensic-answer endpoint (Bearer). */
@@ -35,6 +77,101 @@ export function sessionFilePath() {
     process.env.KS_DATA_DIR ||
     join(process.env.APPDATA || join(homedir(), 'AppData', 'Roaming'), 'KnowledgeStation')
   return join(root, 'engine.session.json')
+}
+
+/**
+ * 找一个**随包走**的 Python 解释器，给仓内 venv 当底座。
+ *
+ * ## 为什么需要它
+ *
+ * Windows venv 的 `pyvenv.cfg` 里 `home =` 是**绝对路径**，指向创建时的 base
+ * 解释器；而 venv 自己**不带标准库**（实测：`Lib/` 下只有 `site-packages`，
+ * 没有 `os.py`、没有 `python312.dll`）⇒ base 一找不到，venv 直接不可用。
+ * 便携包换盘符之后，那个绝对路径就死了。
+ *
+ * ## 查找顺序（都不写死盘符）
+ *
+ *  1. `$KS_PYTHON` 所在目录（部署方显式指定）；
+ *  2. 从仓根**往上逐级**找便携包的 `services/`（DSH 便携版的布局：
+ *     `<包根>/services/<服务>/python/python.exe`，以及带版本层的那一种）；
+ *  3. `PATH` 上的 `python`（系统装的）。
+ *
+ * 返回解释器**目录**（`pyvenv.cfg` 的 `home` 要的就是目录，不是 exe）。
+ */
+function findBaseInterpreter(root) {
+  const explicit = process.env.KS_PYTHON
+  if (explicit && existsSync(explicit)) return dirname(explicit)
+
+  let dir = root
+  for (let i = 0; i < 5; i += 1) {
+    const services = join(dir, 'services')
+    if (existsSync(services)) {
+      try {
+        for (const name of readdirSync(services)) {
+          const base = join(services, name, 'python')
+          const direct = join(base, 'python.exe')
+          if (existsSync(direct)) return base
+          if (!existsSync(base)) continue
+          for (const ver of readdirSync(base)) {
+            const nested = join(base, ver, 'python.exe')
+            if (existsSync(nested)) return dirname(nested)
+          }
+        }
+      } catch { /* 读不了就继续往上找 */ }
+    }
+    const parent = dirname(dir)
+    if (parent === dir) break
+    dir = parent
+  }
+
+  const probe = spawnSync('python', ['-c', 'import sys;print(sys.prefix)'],
+                          { encoding: 'utf8', windowsHide: true })
+  if (probe.status === 0 && probe.stdout.trim()) return probe.stdout.trim()
+  return null
+}
+
+/**
+ * 让仓内 venv 在"整包被拷到别处"之后**仍然可用**（自愈）。
+ *
+ * ## 纪律
+ *
+ * * **只在 `home` 指向不存在的目录时动手** —— 路径没变就一个字节不改（幂等，
+ *   每次启动都跑也安全）。实测依据：DSH 便携版自己的 `adaptPythonVenvs()`
+ *   （`bin/lib/launch.mjs`）就是"no-op when the path already matches"。
+ * * **只改 `home` 这一行**，别的一字不动（`version_info` 等由创建时决定）。
+ * * 改不了（只读包/没有可用解释器）⇒ **静默返回 false**，由调用方如实报错，
+ *   不假装成功。
+ *
+ * @returns {{healed: boolean, home: string|null, reason: string}}
+ * @param root - 引擎仓库根；缺省 `ENGINE_ROOT`（**可注入**：判据要能拿临时仓测它，
+ *   否则每次测都会去改真 venv）。
+ */
+export function healVenvHome(root) {
+  const repoRoot = root || ENGINE_ROOT
+  const cfg = join(repoRoot, '.venv', 'pyvenv.cfg')
+  if (!existsSync(cfg)) return { healed: false, home: null, reason: 'no-pyvenv-cfg' }
+  let text
+  try {
+    text = readFileSync(cfg, 'utf8')
+  } catch {
+    return { healed: false, home: null, reason: 'cfg-unreadable' }
+  }
+  const m = /^home\s*=\s*(.+)$/mu.exec(text)
+  const current = m ? m[1].trim() : null
+  if (current && existsSync(current)) return { healed: false, home: current, reason: 'ok' }
+
+  const base = findBaseInterpreter(repoRoot)
+  if (!base) return { healed: false, home: current, reason: 'no-base-interpreter' }
+
+  const next = m
+    ? text.replace(/^home\s*=.*$/mu, `home = ${base}`)
+    : `home = ${base}\n${text}`
+  try {
+    writeFileSync(cfg, next)
+  } catch {
+    return { healed: false, home: current, reason: 'cfg-readonly' }
+  }
+  return { healed: true, home: base, reason: 'rewritten' }
 }
 
 /** Resolve the python interpreter: $KS_PYTHON first, else the repo venv. */
@@ -564,6 +701,16 @@ export class EngineManager {
     this.lastSpawnError = null
     this.enginePid = null
     this.touchActivity()
+
+    // 便携自愈：整包被拷到别处之后，venv 的 `pyvenv.cfg` 里 `home =` 会指向
+    // 不存在的旧路径（venv 不带标准库 ⇒ 直接不可用）。**拉起引擎前先修一次**；
+    // 路径没变时是 no-op（幂等）。失败不拦 —— 由下面的 spawn 如实报错。
+    try {
+      const healed = healVenvHome()
+      if (healed.healed) {
+        this.diag += `[便携自愈] venv 的 home 已改指 ${healed.home}\n`
+      }
+    } catch { /* 自愈失败不拦启动，spawn 会给出真实错误 */ }
 
     const child = spawn(this.python, ['-m', MODULE_ARG], {
       cwd: this.engineRoot,
