@@ -303,7 +303,12 @@ def harvest(fetch, *, limit: int | None = None, max_pages: int = MAX_PAGES,
             # ⚠ 本站在「翻到底」时回 **404**（不是空页）。见模块文档：
             #   total/pageCount 都是虚的，只有 404 才是真实的结束信号。
             if code == 404:
-                print(f"    [{SITE['key']}] 列表第 {page} 页 404 ⇒ **到底**"
+                # ⚠ 用纯 ASCII 的 `->`，**不用 `⇒`**（2026-10-18）：这一行是**裸 print**，
+                #   而 `⇒`（U+21D2）**不在 GBK 里** ⇒ 采集机若是 GBK 控制台，
+                #   `print` 当场抛 `UnicodeEncodeError`，**整个采集崩掉**。
+                #   判据：`tools/gov-qa/tests/test_gbk_safety.py`（本仓纪律：
+                #   适配器里的裸 print 不许含 emoji/箭头）。
+                print(f"    [{SITE['key']}] 列表第 {page} 页 404 -> **到底**"
                       f"（前 {page - 1} 页共 {(page - 1) * PAGE_SIZE} 条上限）", flush=True)
             else:
                 print(f"    [{SITE['key']}] 列表第 {page} 页 HTTP {code}"
