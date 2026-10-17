@@ -13,7 +13,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { readFile, stat } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -177,6 +177,94 @@ export function healVenvHome(root) {
 /** Resolve the python interpreter: $KS_PYTHON first, else the repo venv. */
 export function resolvePythonPath() {
   return process.env.KS_PYTHON || DEFAULT_PYTHON
+}
+
+/* ------------------------------------------------------------------ *
+ * 模型：一律用包内的，不依赖用户主目录/缓存（业主 2026-10-18）
+ * ------------------------------------------------------------------ */
+
+/**
+ * 包内模型根目录 —— `<仓>/var/models`。
+ *
+ * ## 为什么模型必须搬进包
+ *
+ * 业主 2026-10-18：「让 KS 适配当前的便携版 DSH…不要依赖环境中的其他东西。
+ * 比如说…MinerU 的 OCR 模型…把那个 OCR 模型搬到便携包里」。
+ *
+ * 实测（2026-10-18）这些模型原先都在**包外**：
+ *  - KS 自己的向量/重排模型 → `%APPDATA%\KnowledgeStation\models`（1,168 MB）
+ *  - MinerU pipeline（PDF-Extract-Kit）→ `~\.cache\modelscope\...`（2,475 MB）
+ *  - MinerU vlm（MinerU2.5-Pro）→ 同上（2,205 MB）
+ * 而 `~/mineru.json` 里把后两者的**绝对路径写死** ⇒ 换台机器/换盘符就找不到。
+ */
+export function modelsRoot(root) {
+  return join(root || ENGINE_ROOT, 'var', 'models')
+}
+
+/**
+ * 生成**包内**的 MinerU 配置（`<models>/mineru.json`），并返回它的路径。
+ *
+ * ## 机制（读 `mineru` 包源码得到，不是猜的）
+ *
+ * `mineru/utils/models_download_utils.py` 的 `auto_download_and_get_model_root_path`：
+ * ```
+ * if model_source == 'local':
+ *     root_path = get_local_models_dir().get(repo_mode)   # repo_mode ∈ {pipeline, vlm}
+ *     return root_path
+ * ```
+ * ⇒ 设 `MINERU_MODEL_SOURCE=local` + 配置里 `models-dir: {pipeline, vlm}`
+ * 就能把两套模型都钉在包内，**且完全不联网**。
+ *
+ * ## 纪律
+ *
+ * 内容是**运行时按当前仓根算出来的**（不写死）⇒ 整包换盘符后重跑一次就对。
+ * **只在内容变化时写盘**（幂等，每次启动都调也安全）。
+ *
+ * @param root - 仓根；缺省 `ENGINE_ROOT`（可注入，便于判据用临时仓测）。
+ * @returns {string} 配置文件绝对路径（供 `MINERU_TOOLS_CONFIG_JSON` 用）
+ */
+export function ensureMineruConfig(root) {
+  const base = join(modelsRoot(root), 'mineru')
+  const cfgPath = join(modelsRoot(root), 'mineru.json')
+  const cfg = {
+    'model-source': 'local',
+    'models-dir': {
+      pipeline: join(base, 'pipeline'),
+      vlm: join(base, 'vlm'),
+    },
+  }
+  const text = `${JSON.stringify(cfg, null, 4)}\n`
+  try {
+    if (!existsSync(cfgPath) || readFileSync(cfgPath, 'utf8') !== text) {
+      mkdirSync(dirname(cfgPath), { recursive: true })
+      writeFileSync(cfgPath, text, 'utf8')
+    }
+  } catch { /* 只读包：留给调用方按原样报错，不假装成功 */ }
+  return cfgPath
+}
+
+/**
+ * 拉起引擎时要注入的**模型位置**环境变量。
+ *
+ * 三项都**先看外部有没有设**（部署方可覆盖），没设才用包内的 ⇒ 与既有
+ * `KS_PYTHON`/`KS_ENGINE_ROOT` 同一套"显式优先"惯例。
+ *
+ * @param root - 仓根；缺省 `ENGINE_ROOT`。
+ * @returns {Record<string, string>} 要并进子进程 env 的键值
+ */
+export function modelEnv(root) {
+  const repoRoot = root || ENGINE_ROOT
+  const env = {}
+  if (!process.env.KS_MODELS_DIR) {
+    env.KS_MODELS_DIR = join(modelsRoot(repoRoot), 'ks')
+  }
+  if (!process.env.MINERU_MODEL_SOURCE) {
+    env.MINERU_MODEL_SOURCE = 'local'
+  }
+  if (!process.env.MINERU_TOOLS_CONFIG_JSON) {
+    env.MINERU_TOOLS_CONFIG_JSON = ensureMineruConfig(repoRoot)
+  }
+  return env
 }
 
 /* ------------------------------------------------------------------ *
@@ -712,11 +800,14 @@ export class EngineManager {
       }
     } catch { /* 自愈失败不拦启动，spawn 会给出真实错误 */ }
 
+    // 模型只用**包内**的（业主 2026-10-18：不许依赖包外的东西）。
+    // 注入的是 KS_MODELS_DIR / MINERU_MODEL_SOURCE / MINERU_TOOLS_CONFIG_JSON；
+    // 外部已设的键不覆盖（部署方可自行指向别处）。
     const child = spawn(this.python, ['-m', MODULE_ARG], {
       cwd: this.engineRoot,
       stdio: ['ignore', 'pipe', 'pipe'],
       windowsHide: true,
-      env: { ...process.env },
+      env: { ...process.env, ...modelEnv(this.engineRoot) },
     })
     this.child = child
 

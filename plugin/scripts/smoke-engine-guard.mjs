@@ -27,7 +27,8 @@ const dataDir = await mkdtemp(join(tmpdir(), 'ks-engine-guard-'))
 process.env.KS_DATA_DIR = dataDir
 
 const { EngineManager, sessionFilePath, ENGINE_ROOT, DEFAULT_PYTHON, healVenvHome,
-  findEngineRoot } = await import(new URL('../src/engine.js', import.meta.url).href)
+  findEngineRoot, modelsRoot, modelEnv, ensureMineruConfig } =
+  await import(new URL('../src/engine.js', import.meta.url).href)
 
 const results = []
 function check(name, ok, detail) {
@@ -236,6 +237,78 @@ function check(name, ok, detail) {
   const r3 = healVenvHome(bare)
   check('便携自愈：没有 venv 时如实报（不假装成功）',
     r3.healed === false && r3.reason === 'no-pyvenv-cfg', JSON.stringify(r3))
+}
+
+/* ============================================== 7. 模型只用包内的（业主 2026-10-18） */
+/*
+ * 业主 2026-10-18：「让 KS 适配当前的便携版 DSH…不要依赖环境中的其他东西。
+ * 比如说…MinerU 的 OCR 模型…把那个 OCR 模型搬到便携包里」。
+ *
+ * 实测这些模型原先都在**包外**：KS 自己的（`%APPDATA%`）、MinerU 的
+ * （`~\.cache\modelscope`，而且 `~/mineru.json` 把绝对路径**写死**）。
+ * 这一组钉：注入给引擎的模型位置**全部由仓根算出来**，且 MinerU 被明确
+ * 告知"用本地、别下载"。
+ */
+{
+  // ① 模型根从仓根派生（不是独立写死的第二个常量）
+  check('模型：modelsRoot 派生自 ENGINE_ROOT',
+    modelsRoot() === join(ENGINE_ROOT, 'var', 'models'), modelsRoot())
+
+  // ② 注入的三项都在、且都落在包内
+  const env = modelEnv()
+  check('模型：注入 KS_MODELS_DIR 且落在包内',
+    env.KS_MODELS_DIR === join(ENGINE_ROOT, 'var', 'models', 'ks'), env.KS_MODELS_DIR)
+  check('模型：注入 MINERU_MODEL_SOURCE=local（明确"不联网下载"）',
+    env.MINERU_MODEL_SOURCE === 'local', env.MINERU_MODEL_SOURCE)
+  check('模型：注入 MINERU_TOOLS_CONFIG_JSON 且落在包内',
+    String(env.MINERU_TOOLS_CONFIG_JSON).startsWith(join(ENGINE_ROOT, 'var', 'models')),
+    String(env.MINERU_TOOLS_CONFIG_JSON))
+
+  // ③ 生成的 MinerU 配置：必须 model-source=local（否则 MinerU 会去联网拉）
+  //    且两个路径都要指到包内 —— 用一个**临时仓**测，不碰真配置。
+  const fakeRoot = await mkdtemp(join(tmpdir(), 'ks-models-'))
+  const cfgPath = ensureMineruConfig(fakeRoot)
+  const cfg = JSON.parse(await readFile(cfgPath, 'utf8'))
+  check('模型：MinerU 配置的 model-source=local（不联网）',
+    cfg['model-source'] === 'local', JSON.stringify(cfg['model-source']))
+  check('模型：MinerU 配置的 pipeline 路径在包内',
+    cfg['models-dir'].pipeline === join(fakeRoot, 'var', 'models', 'mineru', 'pipeline'),
+    cfg['models-dir'].pipeline)
+  check('模型：MinerU 配置的 vlm 路径在包内',
+    cfg['models-dir'].vlm === join(fakeRoot, 'var', 'models', 'mineru', 'vlm'),
+    cfg['models-dir'].vlm)
+  check('模型：MinerU 配置里没有写死的绝对路径（换仓根 ⇒ 内容跟着变）',
+    !JSON.stringify(cfg).includes('C:\\Users\\'), JSON.stringify(cfg))
+
+  // ④ 幂等：同样的仓根再调一次，文件内容一字不改
+  const before = await readFile(cfgPath, 'utf8')
+  ensureMineruConfig(fakeRoot)
+  const after = await readFile(cfgPath, 'utf8')
+  check('模型：生成配置是幂等的（同仓根不重写）', before === after)
+
+  // ⑤ 换一个仓根 ⇒ 内容必须跟着变（防"写死第一次的结果"）
+  const otherRoot = await mkdtemp(join(tmpdir(), 'ks-models2-'))
+  ensureMineruConfig(otherRoot)
+  const cfg2 = JSON.parse(await readFile(join(otherRoot, 'var', 'models', 'mineru.json'), 'utf8'))
+  check('模型：换仓根后配置跟着变（不是写死一次）',
+    cfg2['models-dir'].pipeline !== cfg['models-dir'].pipeline,
+    `${cfg2['models-dir'].pipeline}`)
+
+  // ⑥ 外部已设的键**不许被覆盖**（部署方要能指到别处）
+  const saved = {}
+  for (const k of ['KS_MODELS_DIR', 'MINERU_MODEL_SOURCE']) {
+    saved[k] = process.env[k]
+    process.env[k] = `EXTERNAL-${k}`
+  }
+  const env2 = modelEnv()
+  check('模型：外部已设的 KS_MODELS_DIR 不被覆盖',
+    env2.KS_MODELS_DIR === undefined, String(env2.KS_MODELS_DIR))
+  check('模型：外部已设的 MINERU_MODEL_SOURCE 不被覆盖',
+    env2.MINERU_MODEL_SOURCE === undefined, String(env2.MINERU_MODEL_SOURCE))
+  for (const k of Object.keys(saved)) {
+    if (saved[k] === undefined) delete process.env[k]
+    else process.env[k] = saved[k]
+  }
 }
 
 /* ============================================== 汇总 */
