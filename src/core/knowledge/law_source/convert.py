@@ -10,7 +10,33 @@ from pathlib import Path
 
 
 def find_libreoffice() -> Path | None:
-    """探测 soffice 可执行（常见安装路径 + PATH）。"""
+    """探测 soffice 可执行。
+
+    ## 取值顺序（2026-10-18 加第 1 级）
+
+      1. **`$KS_SOFFICE`** —— 部署方显式指定（与 `KS_PYTHON`/`KS_DATA_DIR` 同一套约定）。
+         便携包场景要的就是这一级：LibreOffice 可以放在包里任意位置，
+         **不必**是系统安装目录。
+      2. 两个**标准安装位置**（`C:\\Program Files[ (x86)]\\LibreOffice\\program`，
+         另加 `D:` 盘那份 —— 本机实测装在 D:）
+      3. `PATH` 上的 `soffice`
+
+    ## 为什么这里可以有"写死盘符"（与 `docs/PORTABILITY.md` 的纪律不矛盾）
+
+    那三条写的是**"这个程序通常装在哪"**，不是**"我的数据在哪"**：
+    换了机器、装了 LibreOffice，它就在那儿；没装，`None` ⇒ 走 COM 回退。
+    ⚠ 它**不是硬依赖**：`convert_docx_to_pdf` 有完整降级链
+    （LibreOffice → 完整性校验 → WPS/Word COM → 校验 → 空串），
+    没有 LibreOffice 只是"这条通道不可用"，**不是"KS 跑不起来"**。
+    ⇒ 按 `docs/PORTABILITY.md` §二 的判据（「没有它，KS 是坏了，还是只是空着？」）
+      它属于**后者** ⇒ 保留探测，但必须**可显式覆盖**（就是第 1 级）。
+    """
+    import os
+    override = os.environ.get("KS_SOFFICE")
+    if override:
+        p = Path(override)
+        if p.exists():
+            return p
     candidates = [
         Path(r"C:\Program Files\LibreOffice\program\soffice.exe"),
         Path(r"C:\Program Files (x86)\LibreOffice\program\soffice.exe"),

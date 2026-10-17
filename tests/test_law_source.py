@@ -133,7 +133,39 @@ def test_convert_probe_never_raises():
     find_libreoffice()
     assert docx_to_pdf_libreoffice(Path("nope.docx"), Path("nope.pdf")) is False
     assert docx_to_pdf_com(Path("nope.docx"), Path("nope.pdf")) is False
-    assert find_libreoffice() is not None or True  # 允许未安装（CI 无 soffice）
+    # ⚠ 2026-10-18：原来这里是 `assert find_libreoffice() is not None or True` ——
+    #   `X or True` **恒真**，是个**空判据**（看着在断言，其实什么都没断言）。
+    #   改成有内容的：要么没装（None），要么返回的东西**真的存在**。
+    _so = find_libreoffice()
+    assert _so is None or _so.exists(), f"返回了不存在的路径：{_so}"
+
+
+def test_find_libreoffice_honours_KS_SOFFICE(tmp_path, monkeypatch):
+    """`$KS_SOFFICE` 显式覆盖（2026-10-18 加）—— 便携场景要能指定**包内**的 LibreOffice。
+
+    ## 为什么需要它
+
+    原先只探测**三个写死的标准安装位置** + `PATH`。便携包里带的 LibreOffice
+    不在那些位置 ⇒ 用户在包里放了也用不上，只能自己去装一个系统版。
+    ⇒ 加第 1 级 `$KS_SOFFICE`（与 `KS_PYTHON`/`KS_DATA_DIR` 同一套"显式优先"惯例）。
+
+    ## 两个方向都要钉
+
+    ① 设成**真实存在**的文件 ⇒ 必须**用它**（哪怕文件名不叫 `soffice.exe`）；
+    ② 设成**不存在**的路径 ⇒ **不许**当覆盖（否则会返回一个死路径，
+       后面 `subprocess` 拿它去跑就炸）。
+    """
+    from src.core.knowledge.law_source.convert import find_libreoffice
+
+    fake = tmp_path / "my-soffice.exe"
+    fake.write_text("stub", encoding="utf-8")
+    monkeypatch.setenv("KS_SOFFICE", str(fake))
+    assert find_libreoffice() == fake
+
+    monkeypatch.setenv("KS_SOFFICE", str(tmp_path / "nope.exe"))
+    got = find_libreoffice()
+    assert got != tmp_path / "nope.exe", "不存在的覆盖路径被当成了结果"
+    assert got is None or got.exists(), f"回退后返回了不存在的路径：{got}"
 
 
 def test_pdf_completeness_detects_truncation(tmp_path):

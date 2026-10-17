@@ -62,6 +62,7 @@ get_local_models_dir().get(repo_mode)`，而 `config_reader.py` 里
 | **归档** | `docs/archive/**` | **不改** | 冻结历史 |
 | **历史数据** | 结果快照 `*.json`（如 `FREEZE.json` 的 `git_status_short`） | **不改** | 它记录的是"在哪台机器、什么状态下产出的"，是**证据** |
 | **文档正文** | `docs/**/*.md` 里引用的路径 | **不改** | 同上 —— 记的是"当时在哪个路径下发生" |
+| **可选外部程序的标准安装位置** | `src/core/knowledge/law_source/convert.py` 探 `C:\Program Files\LibreOffice\...` | **保留探测，但必须可显式覆盖** | 写的是"**这个程序通常装在哪**"，不是"我的数据在哪"。⚠ 它不是硬依赖：有完整降级链（LibreOffice → 完整性校验 → WPS/Word COM → 校验 → 空串）。⇒ 已加 `$KS_SOFFICE` 第 1 级 |
 
 ⚠ **改了历史记录 = 丢证据**。本仓已有过教训：清掉复核对照树 ⇒ 原始 JSON 证据永久丢失。
 
