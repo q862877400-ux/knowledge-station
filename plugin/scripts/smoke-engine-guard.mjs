@@ -254,12 +254,30 @@ function check(name, ok, detail) {
   check('模型：modelsRoot 派生自 ENGINE_ROOT',
     modelsRoot() === join(ENGINE_ROOT, 'var', 'models'), modelsRoot())
 
-  // ② 注入的三项都在、且都落在包内
+  // ② 注入的三项都要落在包内 —— ⚠ 但**必须先看外部有没有设**。
+  //
+  // ⚠ 为什么必须这么写（门禁实测抓到的）：**门禁自己会设 `KS_MODELS_DIR`**
+  //   （`run-gates.ps1` 把它指到 `<bundle>\tmp\ks-gates-models`，为了让模型在多次
+  //   pytest 之间只落地一次）。而本冒烟的正确行为是"**外部设了就不覆盖**" ⇒
+  //   那时 `modelEnv()` 里**根本没有**这个键。
+  //   第一版判据硬写"必须有且等于包内路径" ⇒ **单独跑绿、进门禁就红**（假红），
+  //   因为两条腿（"不覆盖外部"与"必须注入包内"）在同一个环境里互斥。
+  //   ⇒ 判据要按**当前环境**分叉，两边都要断言，不能只断一边。
   const env = modelEnv()
-  check('模型：注入 KS_MODELS_DIR 且落在包内',
-    env.KS_MODELS_DIR === join(ENGINE_ROOT, 'var', 'models', 'ks'), env.KS_MODELS_DIR)
-  check('模型：注入 MINERU_MODEL_SOURCE=local（明确"不联网下载"）',
-    env.MINERU_MODEL_SOURCE === 'local', env.MINERU_MODEL_SOURCE)
+  if (process.env.KS_MODELS_DIR) {
+    check('模型：外部已设 KS_MODELS_DIR ⇒ 不覆盖它（门禁就是这么跑的）',
+      env.KS_MODELS_DIR === undefined, String(env.KS_MODELS_DIR))
+  } else {
+    check('模型：注入 KS_MODELS_DIR 且落在包内',
+      env.KS_MODELS_DIR === join(ENGINE_ROOT, 'var', 'models', 'ks'), env.KS_MODELS_DIR)
+  }
+  if (process.env.MINERU_MODEL_SOURCE) {
+    check('模型：外部已设 MINERU_MODEL_SOURCE ⇒ 不覆盖它',
+      env.MINERU_MODEL_SOURCE === undefined, String(env.MINERU_MODEL_SOURCE))
+  } else {
+    check('模型：注入 MINERU_MODEL_SOURCE=local（明确"不联网下载"）',
+      env.MINERU_MODEL_SOURCE === 'local', String(env.MINERU_MODEL_SOURCE))
+  }
   check('模型：注入 MINERU_TOOLS_CONFIG_JSON 且落在包内',
     String(env.MINERU_TOOLS_CONFIG_JSON).startsWith(join(ENGINE_ROOT, 'var', 'models')),
     String(env.MINERU_TOOLS_CONFIG_JSON))
