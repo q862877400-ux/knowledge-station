@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **201 份** / **7205 KB**。
+> 共 **207 份** / **7214 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -14,11 +14,11 @@
 | `docs/VISION-TREE.md` | 16 | 2026-09-25 | 本版修订记录（2026-09-25） |
 | `docs/INTRODUCTION.md` | 11 | 2026-10-06 | 一、我们解决的问题 |
 
-## 检索与通用化研究（29 份 / 1236 KB）
+## 检索与通用化研究（29 份 / 1238 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 166 | 2026-10-11 | 1. 现状基线（一页看完，全部是实测） |
+| `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 168 | 2026-10-14 | 1. 现状基线（一页看完，全部是实测） |
 | `docs/research/weknora-ui/02-shell-and-other-pages.md` | 115 | 2026-09-19 | 0. 一张图先看结论 |
 | `docs/research/weknora-kb-ui/02-components-and-visual-language.md` | 87 | 2026-09-19 | 1. 组件清单 |
 | `docs/research/weknora-kb-ui/01-pages-and-flows.md` | 86 | 2026-09-19 | **来源**：`D:\AI\WeKnora`（Git checkout），commit `b82fd6c0f9939e8 |
@@ -48,7 +48,7 @@
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
 | `docs/wiki/components/vision.md` | 3 | 2026-10-11 | **位置**：`src/core/vision/` |
 
-## 渠道与巡检（8 份 / 743 KB）
+## 渠道与巡检（9 份 / 749 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -60,12 +60,13 @@
 | `docs/GOVQA-UNWIRED-CHANNELS.md` | 48 | 2026-10-11 | 一、先弄清「接线」是什么意思 |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 | 2026-10-10 | **实测 236 条**：有效 110 · 边缘 21 · 接口 6 · 空壳/JS壳 35 · 被拦 7 · 不通/失 |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
+| `docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md` | 6 | 2026-10-12 | 业主问：「我不是做了一套自动嗅探各个网站的法规和标准的更新动态，然后根据更新动态去下载 |
 
-## 界面与交互（5 份 / 344 KB）
+## 界面与交互（5 份 / 351 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/UI-BASELINE.md` | 249 | 2026-10-10 | **这份文件干什么**：把"照抄 WeKnora"从口号变成**可施工的规格**：① 参照物清单位置；② 一套**尺度系 |
+| `docs/UI-BASELINE.md` | 256 | 2026-10-12 | **这份文件干什么**：把"照抄 WeKnora"从口号变成**可施工的规格**：① 参照物清单位置；② 一套**尺度系 |
 | `docs/INTERACTION-DESIGN.md` | 63 | 2026-10-11 | 〇、落地状态（**以代码为准**，2026-09-19 §10.130 更新） |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 | 2026-10-05 | 零、一句话结论 |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 | 2026-09-25 | 〇、总目标（一句话） |
@@ -99,7 +100,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 复核任务书（19 份 / 336 KB）
+## 复核任务书（21 份 / 352 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -119,25 +120,26 @@
 | `docs/verify-briefs/VERIFY-REPORT-e4c-1024.md` | 12 | 2026-10-09 | 首尾状态（冻结提取树） |
 | `docs/verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md` | 11 | 2026-10-09 | **报告首部**：worktree `git rev-parse HEAD` = `cc42d9f600b549ab28 |
 | `docs/verify-briefs/VERIFY-REPORT-ratchet-2.md` | 11 | 2026-10-09 | 0. 冻结与提取树信息 |
+| `docs/verify-briefs/VERIFY-REPORT-spec010-turn-tab-fixes.md` | 9 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-ratchet-1.md` | 7 | 2026-10-09 | 0. 冻结与提取树信息 |
 | `docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md` | 7 | 2026-10-10 | 0. 冻结与现场 |
+| `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（65 份 / 1390 KB）
+## 根文档与其他（68 份 / 1368 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/DEVELOPMENT-HISTORY.md` | 306 | 2026-10-11 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
+| `docs/DEVELOPMENT-HISTORY.md` | 326 | 2026-10-12 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
-| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v2.md` | 68 | 未提交 | **这是什么项目**：一个跑在个人电脑上的「本地资料检索与取证」工具 —— 用户用大白话提问，它在本机资料库里定位到那一 |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
-| `docs/PROJECT-STATE-FOR-EXTERNAL-AI-2026-10-11.md` | 32 | 2026-10-11 | 1. 一句话：这是什么 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
+| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 未提交 | 0. 先读这一页 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
 | `docs/research/substitute-scan.md` | 22 | 2026-09-19 | 一、扫描结果：四类替代品（+ 一类交付形态替代） |
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
@@ -146,32 +148,36 @@
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
-| `docs/README.md` | 14 | 2026-10-11 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
+| `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
+| `docs/README.md` | 14 | 2026-10-17 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
-| `docs/PLAN-REAL-QUESTION-RULER.md` | 12 | 2026-10-11 | 一、先说结论 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
 | `docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md` | 11 | 2026-10-10 | 0. 一句话 |
+| `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 11 | 2026-10-14 | **日期**：2026-10-14 |
 | `docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md` | 11 | 2026-10-07 | ★★★ 主线③ 最重要的一条：`GuRE` —— **"法条检索的生成式查询改写器"，和我们判据①是同一件事** |
 | `docs/research/SURVEY-学术调研-第3轮-还债与收敛.md` | 11 | 2026-10-07 | ★★★★★ 本轮颠覆性的发现：**中文法条检索基准是存在的，而且完全公开、MIT 许可** |
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
+| `docs/TEST-FLAKES.md` | 10 | 2026-10-13 | 处置纪律 |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
 | `docs/wiki/architecture.md` | 8 | 2026-10-10 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/PORTABILITY.md` | 7 | 2026-10-18 | 一、运行时靠什么做到便携（已实现） |
+| `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 未提交 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
-| `docs/TEST-FLAKES.md` | 7 | 2026-10-10 | 处置纪律 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/BROKEN-LINKS.md` | 4 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
+| `docs/research/ARROW-ROOT-CAUSES-2026-10-12.md` | 4 | 2026-10-12 | 业主令：「你先把所有根因都查清楚，然后一次性修复，设置好目标自动进行」 |
 | `docs/wiki/components/exports.md` | 4 | 2026-10-05 | **位置**：`src/core/exports/` |
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
 | `docs/wiki/components/llm.md` | 4 | 2026-10-05 | **位置**：`src/core/llm/` |
