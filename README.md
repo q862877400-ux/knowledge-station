@@ -48,14 +48,16 @@ Python FastAPI 引擎（`src/core/`，入口 `python -m src.core.main`）+ Node 
 | **插件找引擎** | 运行时**从插件自身位置往上找仓库标记**（`src/core/main.py`）⇒ 换到哪都找得到。也可用 `$KS_ENGINE_ROOT` 显式指定 |
 | **venv 的底座** | Python 的 `pyvenv.cfg` 里 `home =` 是**绝对路径**（而 venv **不带标准库**）⇒ 换盘符后会失效。拉起引擎前会**自愈**：找一个**随包走**的解释器（便携包的 `services/*/python`）把 `home` 改过去。路径没变时一个字节不改 |
 | **模型** | 向量/重排模型与 MinerU 的两套 OCR 模型都**搬进了包内** `var/models/`；拉起引擎时把 `KS_MODELS_DIR`、`MINERU_MODEL_SOURCE=local`、`MINERU_TOOLS_CONFIG_JSON` 一并注入。⇒ **换到没网的机器也能解析文档、做检索**，不会去用户主目录或缓存里找 |
+| **数据** | 知识库、解析产物、备份都放在**包内** `var/data/`（不再落 `%APPDATA%`）⇒ **换台机器知识库跟着走**，不会变成空库 |
 
-**⚠ 前提：`.venv/` 与 `var/models/` 必须随包走。** 两者都被 `.gitignore` 盖住、
+**⚠ 前提：`.venv/`、`var/models/`、`var/data/` 都必须随包走。** 三者都被 `.gitignore` 盖住、
 **不在版本控制里**，所以**用 git 拉代码不会带上它们** —— 拷贝时要连它们一起拷。
 
 | 丢了什么 | 怎么办 |
 |---|---|
 | `.venv/` | 在包内找一个 3.12 解释器（如 `services\hindsight\python\python.exe`）建新的，再 `pip install -e .`；或从还在的旧副本拷回 |
 | `var/models/` | 从还在的旧副本拷回；KS 自己的模型（bge）缺失时首次使用会**联网下载**，MinerU 的模型缺失时解析会**明确报错**（不会静默降级） |
+| `var/data/` | 从还在的旧副本拷回。**引擎会如实显示空库**（不冒充有数据）——这条是刻意的：宁可空，也不静默用另一份数据 |
 
 判据与判据背后的机制 → [`docs/PORTABILITY.md`](docs/PORTABILITY.md)。
 

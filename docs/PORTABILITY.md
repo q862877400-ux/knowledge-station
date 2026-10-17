@@ -13,6 +13,13 @@
 | **插件找引擎** | 运行时**从插件自身位置往上找仓库标记**（`src/core/main.py`）；`$KS_ENGINE_ROOT` 可显式覆盖 | `plugin/src/engine.js` 的 `findEngineRoot` |
 | **venv 的底座** | 拉起引擎前，若 `pyvenv.cfg` 的 `home` 指向不存在的目录，就找一个**随包走**的解释器（`services/*/python`）改过去；路径没变时**一个字节不改** | `plugin/src/engine.js` 的 `healVenvHome` |
 | **模型** | 拉起引擎时注入三个环境变量，全部**从仓根算出来**：`KS_MODELS_DIR`、`MINERU_MODEL_SOURCE=local`、`MINERU_TOOLS_CONFIG_JSON`（配置文件也**运行时生成**）。外部已设的键**不覆盖** | `plugin/src/engine.js` 的 `modelsRoot` / `ensureMineruConfig` / `modelEnv` |
+| **数据** | 默认值改成**包内** `<仓>/var/data`（不再落 `%APPDATA%`）。`KS_DATA_DIR` 仍是显式覆盖 | `src/core/config.py` 的 `_repo_root` / `_default_data_dir` / `_default_models_dir` |
+
+**⚠ 数据这一条有个"两边必须同一口径"的硬约束**：引擎把 `engine.session.json`
+写进**它**的数据目录，而插件去**它**的数据目录**读**同一个文件
+（`plugin/src/engine.js` 的 `dataRoot`，与 Python 侧的取值顺序**逐字对齐**）。
+两处口径一旦不一致，插件就**永远找不到**引擎留下的会话 ⇒ **每次都会重复拉起一个新引擎**
+（表现为"引擎反复重启、端口一直变"）。改任何一边都要同时改另一边。
 
 **为什么 venv 需要自愈**：Windows venv **不带标准库**（实测 `Lib/` 下只有 `site-packages`，
 没有 `os.py`、没有 `python312.dll`），它靠 `pyvenv.cfg` 的 `home =` 找 base ——
