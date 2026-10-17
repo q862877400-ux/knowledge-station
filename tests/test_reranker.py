@@ -151,8 +151,15 @@ def test_reranker_real_model_reorders(monkeypatch):
 
     from src.core.retrieval import reranker
 
+    # ⚠ 2026-10-18 改：模型已**搬进包内** `<仓>/var/models/ks`（业主令「不要依赖
+    #   环境中的其他东西」）。原先这里指 `%APPDATA%\KnowledgeStation\models` ——
+    #   那条路在包外，换台机器就没了。现在按**与 `config._default_models_dir` 同一口径**
+    #   算包内路径；`KS_MODELS_DIR` 设了就用它（门禁就是这么跑的）。
+    _override = os.environ.get("KS_MODELS_DIR")
+    _repo = Path(__file__).resolve().parents[1]
+
     class _RealModelsDir:
-        models_dir = Path(os.environ["APPDATA"]) / "KnowledgeStation" / "models"
+        models_dir = Path(_override) if _override else _repo / "var" / "models" / "ks"
 
     monkeypatch.setattr(reranker, "get_settings", lambda: _RealModelsDir)
     monkeypatch.setattr(reranker, "_model", None)

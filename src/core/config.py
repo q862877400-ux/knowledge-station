@@ -23,11 +23,48 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 
+def _repo_root() -> Path:
+    """仓根 —— 从本文件位置算出来（`<仓>/src/core/config.py` ⇒ 往上三级）。
+
+    ⚠ **不许写死绝对路径**（业主 2026-10-18：便携包一拷贝就能走）。
+    """
+    return Path(__file__).resolve().parents[2]
+
+
 def _default_data_dir() -> Path:
-    appdata = os.environ.get("APPDATA") or str(Path.home() / "AppData" / "Roaming")
-    # 支持测试/开发重定向
+    """KS 数据目录 —— **包内优先**，不依赖用户主目录（业主 2026-10-18）。
+
+    ## 为什么改
+
+    业主令：「让 KS 适配当前的便携版 DSH…不要依赖环境中的其他东西」。
+    原先默认 `%APPDATA%\\KnowledgeStation` —— 实测那里有 **73.45 GB**
+    （知识库 2.96 GB + 解析产物 35.8 GB + 备份 35 GB），**全在便携包外**
+    ⇒ 整包拷到别的机器，知识库就空了。
+
+    ## 取值顺序
+
+      1. `KS_DATA_DIR`（显式覆盖；测试与门禁用这条，它们各指各的临时目录）
+      2. **包内** `<仓>/var/data` —— 路径是**算出来的**，整包换盘符后自然跟着走
+
+    ⚠ **刻意不给 `%APPDATA%` 兜底**：那样会在 `var/data` 缺失时**静默**用另一份数据，
+    用户会看到"知识库突然空了/变了"却找不到原因。缺了就是缺了，如实空库。
+    """
     override = os.environ.get("KS_DATA_DIR")
-    return Path(override) if override else Path(appdata) / "KnowledgeStation"
+    if override:
+        return Path(override)
+    return _repo_root() / "var" / "data"
+
+
+def _default_models_dir() -> Path:
+    """模型目录 —— 同样**包内优先**（`<仓>/var/models/ks`），详见 `_default_data_dir`。
+
+    实测包外三套模型：KS 自己的 1,168 MB（`%APPDATA%`）+ MinerU 的
+    2,475 MB / 2,220 MB（`~\\.cache\\modelscope`）。现在都在 `<仓>/var/models/`。
+    """
+    override = os.environ.get("KS_MODELS_DIR")
+    if override:
+        return Path(override)
+    return _repo_root() / "var" / "models" / "ks"
 
 
 #: LLM 通道变量名：第一个是「显式覆盖名」（也是存储里的键名），其余只作旧系统层只读回退
@@ -194,9 +231,12 @@ class Settings:
 
         与 `KS_DATA_DIR` 同一套约定（进程环境变量覆盖）；覆盖只改模型缓存，**不动**
         `data_dir`/`db_path`（有测试钉住这一点）。
+
+        ⚠ 2026-10-18 起**默认不再是 `<data_dir>/models`**，而是**包内** `<仓>/var/models/ks`
+        （见 `_default_models_dir`）—— 业主令「不要依赖环境中的其他东西」。
+        仍可被 `KS_MODELS_DIR` 覆盖。
         """
-        override = os.environ.get("KS_MODELS_DIR")
-        return Path(override) if override else self.data_dir / "models"
+        return _default_models_dir()
 
     def ensure_dirs(self) -> None:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)

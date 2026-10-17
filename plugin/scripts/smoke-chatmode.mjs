@@ -1117,12 +1117,17 @@ check('turning one off frees a slot',
 /* --- 落盘隔离自检（比的是 chatModeFilePath() 的真值，不是局部常量） --- */
 check('state path follows $KS_CHATMODE_DIR (the isolation mechanism itself works)',
   chat.chatModeFilePath() === statePath, chat.chatModeFilePath())
-check('without $KS_CHATMODE_DIR the default path is the real %APPDATA%\\KnowledgeStation',
+check('without $KS_CHATMODE_DIR the default path falls back INSIDE the bundle',
   (() => {
     const saved = process.env.KS_CHATMODE_DIR
-    // ⚠ 也要摘掉 `KS_DATA_DIR`：默认路径链是 `KS_CHATMODE_DIR` → `KS_DATA_DIR` → `%APPDATA%`，
+    // ⚠ 也要摘掉 `KS_DATA_DIR`：默认路径链是 `KS_CHATMODE_DIR` → `KS_DATA_DIR` → 包内，
     //   而门禁（2026-09-19 起）**自己**给整轮设临时 `KS_DATA_DIR`（防冒烟污染真实数据区）
     //   ⇒ 不摘它，这条断言测的就是那个临时目录，成了假红。
+    //
+    // ⚠⚠ 2026-10-18 契约变更（业主令「不要依赖环境中的其他东西」）：
+    //   兜底从 `%APPDATA%\KnowledgeStation` 改成**包内** `<仓>/var/data`。
+    //   旧断言写的是 `endsWith('KnowledgeStation', 'ks-chatmode.json')` —— 那钉的是旧契约。
+    //   新契约的分辨点：兜底路径必须**落在仓根底下**（而不是用户主目录）。
     const savedData = process.env.KS_DATA_DIR
     delete process.env.KS_CHATMODE_DIR
     delete process.env.KS_DATA_DIR
@@ -1130,7 +1135,8 @@ check('without $KS_CHATMODE_DIR the default path is the real %APPDATA%\\Knowledg
     process.env.KS_CHATMODE_DIR = saved
     if (savedData === undefined) delete process.env.KS_DATA_DIR
     else process.env.KS_DATA_DIR = savedData
-    return fallback.endsWith(join('KnowledgeStation', 'ks-chatmode.json'))
+    return fallback.endsWith(join('var', 'data', 'ks-chatmode.json'))
+      && !fallback.includes('AppData')
       && !fallback.startsWith(dataDir)
   })(), chat.chatModeFilePath())
 

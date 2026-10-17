@@ -108,18 +108,24 @@ def test_model_window_matches_local_tokenizer_config():
     """契约锚：本机若有 bge-small-zh 的 `tokenizer_config.json`，其 `model_max_length` 必须 == MODEL_WINDOW。
 
     本机没有该模型快照时 **skip**（不是失败）—— 这是"有证据才断言"的写法，不拿环境缺失当通过。
+
+    ⚠ 2026-10-18 改：模型已**搬进包内** `<仓>/var/models/ks`（业主令「不要依赖环境中的
+    其他东西」）。原先这里找用户 `APPDATA` 下的 `KnowledgeStation` 模型目录 —— 那条路在包外，
+    换台机器就找不到 ⇒ 这条会**永远静默跳过**（形式上的绿、实际的空转）。
+    现在按**与 `config._default_models_dir` 同一口径**找：`KS_MODELS_DIR` 优先，否则包内。
     """
     import glob
     import json
     import os
+    from pathlib import Path
     import pytest
 
-    pattern = os.path.expandvars(
-        r"%APPDATA%\KnowledgeStation\models\models--Qdrant--bge-small-zh-v1.5"
-        r"\snapshots\*\tokenizer_config.json")
+    override = os.environ.get("KS_MODELS_DIR")
+    root = Path(override) if override else Path(__file__).resolve().parents[1] / "var" / "models" / "ks"
+    pattern = str(root / "models--Qdrant--bge-small-zh-v1.5" / "snapshots" / "*" / "tokenizer_config.json")
     files = glob.glob(pattern)
     if not files:
-        pytest.skip("本机没有该模型快照 ⇒ 跳过（不是通过）")
+        pytest.skip(f"本机没有该模型快照 ⇒ 跳过（不是通过）：{pattern}")
     with open(files[0], encoding="utf-8") as f:
         cfg = json.load(f)
     assert cfg.get("model_max_length") == RULER.MODEL_WINDOW

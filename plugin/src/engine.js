@@ -17,7 +17,6 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { readFile, stat } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { homedir } from 'node:os'
 
 /* ------------------------------------------------------------------ *
  * Constants (match the engine's own contract — do not edit the engine)
@@ -71,12 +70,35 @@ export const HEALTH_PATH = '/api/v1/health'
 /** P1b: synchronous forensic-answer endpoint (Bearer). */
 export const KS_ANSWER_PATH = '/api/v1/ks/answer'
 
-/** %APPDATA%\KnowledgeStation\engine.session.json */
-export function sessionFilePath() {
-  const root =
-    process.env.KS_DATA_DIR ||
-    join(process.env.APPDATA || join(homedir(), 'AppData', 'Roaming'), 'KnowledgeStation')
-  return join(root, 'engine.session.json')
+/**
+ * KS 数据目录 —— **包内优先**（`<仓>/var/data`）。
+ *
+ * ## 为什么改（业主 2026-10-18）
+ *
+ * 「让 KS 适配当前的便携版 DSH…不要依赖环境中的其他东西」。
+ * 原先默认 `%APPDATA%\KnowledgeStation` —— 实测那里有 **73.45 GB**
+ * （知识库 2.96 GB + 解析产物 35.8 GB + 备份 35 GB），**全在便携包外**
+ * ⇒ 整包拷到别的机器，知识库就空了。
+ *
+ * ## ⚠ 两边必须同一口径
+ *
+ * 引擎（`src/core/config.py::_default_data_dir`）把 `engine.session.json` 写进**它**的数据目录，
+ * 插件（本函数）则去**它**的数据目录**读**同一个文件。两处口径一旦不一致，
+ * 插件就**永远找不到**引擎留下的会话 ⇒ 每次都会重复拉起一个新引擎。
+ * ⇒ 所以这里的顺序与 Python 那边**逐字对齐**：`$KS_DATA_DIR` → `<仓>/var/data`。
+ *
+ * @param root - 仓根；缺省 `ENGINE_ROOT`。
+ * @returns {string} 数据目录绝对路径
+ */
+export function dataRoot(root) {
+  const override = process.env.KS_DATA_DIR
+  if (typeof override === 'string' && override.length > 0) return override
+  return join(root || ENGINE_ROOT, 'var', 'data')
+}
+
+/** `<data_dir>/engine.session.json` —— 引擎会话文件（两边同一口径，见 `dataRoot`）。 */
+export function sessionFilePath(root) {
+  return join(dataRoot(root), 'engine.session.json')
 }
 
 /**
