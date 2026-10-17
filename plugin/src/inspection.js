@@ -41,7 +41,6 @@
 
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
-import { homedir } from 'node:os'
 
 import { apiGet, apiPost, originUrl, sessionFilePath } from './engine.js'
 import { triggerAfterInspection } from './announce.js'

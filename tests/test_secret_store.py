@@ -45,6 +45,26 @@ def test_store_path_matches_config_data_dir(tmp_path, monkeypatch):
     assert ss.store_path() == tmp_path / "secrets.json"
 
 
+def test_store_path_matches_config_WITHOUT_override(monkeypatch):
+    """⚠ **缺口钉子（2026-10-18 补）**：**不设 `KS_DATA_DIR`** 时两边也必须一致。
+
+    ## 为什么必须补这一条
+
+    上面那条只测了"**设了** `KS_DATA_DIR`"的情形 —— 那种情形下两边都走覆盖值，
+    **恒等**，所以它对"默认值漂移"**零分辨力**。
+
+    实测后果（就是这条缺口放过去的）：业主令把 `config` 的默认值改成**包内**
+    `<仓>/var/data` 之后，`secret_store` 里**重抄的**那份规则还指着
+    `%APPDATA%\\KnowledgeStation` ⇒ **库落包内、密钥落包外**，而那条测试**照样绿**。
+    现在 `secret_store` 改成**直接调 config 那一份**（不再抄），本钉子保证它别抄回去。
+    """
+    monkeypatch.delenv("KS_DATA_DIR", raising=False)
+    from src.core.config import _default_data_dir
+    assert ss.store_path() == _default_data_dir() / "secrets.json"
+    # 反向钉子：默认必须落在**包内**（不含 AppData），防有人把规则抄回包外
+    assert "AppData" not in str(ss.store_path()), str(ss.store_path())
+
+
 # ---------- 加密往返 ----------
 def test_protect_roundtrip_and_no_plaintext():
     cipher = ss.protect("sk-secret-marker-1234567890")

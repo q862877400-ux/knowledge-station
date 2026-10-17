@@ -60,20 +60,31 @@ class SecretStoreError(RuntimeError):
 # --------------------------------------------------------------------------
 # 路径
 # --------------------------------------------------------------------------
-def store_path(data_dir: Path | None = None) -> Path:
-    """密钥文件路径。`data_dir` 缺省时与 `src.core.config._default_data_dir` 同规则。
+def _resolve_data_dir() -> Path:
+    """取 KS 数据目录 —— **直接用 `config` 那一份**（函数内 import，避开环形）。
 
-    这里刻意**不 import config**（config 会懒 import 本模块，避免环形依赖）；两条
-    路径规则的一致性由 `tests/test_secret_store.py::test_store_path_matches_config_data_dir`
-    守着——规则漂移会让测试红。
+    ## 为什么不再自己抄一份规则（2026-10-18）
+
+    原先这里**重抄**了 `config._default_data_dir` 的规则（`%APPDATA%\\KnowledgeStation`），
+    两份靠 `tests/test_secret_store.py::test_store_path_matches_config_data_dir` 同步。
+    业主令把默认值改成**包内** `<仓>/var/data` 之后 —— **两份规则当场漂移**：
+    库落包内、密钥落 `%APPDATA%`。
+
+    ⚠ 而那条"守着一致性"的测试**没咬住**，因为**它只测了"设了 `KS_DATA_DIR`"那一种情况**
+    （两边都走覆盖值 ⇒ 恒等）。⇒ 修法不是"把新值也抄一遍"，而是**消掉重复的规则本身**：
+    函数内 import（模块级 import 才会成环，函数内不会）。
+    """
+    from src.core.config import _default_data_dir
+    return _default_data_dir()
+
+
+def store_path(data_dir: Path | None = None) -> Path:
+    """密钥文件路径。`data_dir` 缺省时与 `src.core.config._default_data_dir` **同一实现**。
+
+    一致性不再靠"两份规则 + 一条测试",而是**只有一份规则**（见 `_resolve_data_dir`）。
     """
     if data_dir is None:
-        override = os.environ.get("KS_DATA_DIR")
-        if override:
-            data_dir = Path(override)
-        else:
-            appdata = os.environ.get("APPDATA") or str(Path.home() / "AppData" / "Roaming")
-            data_dir = Path(appdata) / "KnowledgeStation"
+        data_dir = _resolve_data_dir()
     return Path(data_dir) / "secrets.json"
 
 
