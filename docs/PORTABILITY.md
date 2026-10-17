@@ -12,16 +12,35 @@
 |---|---|---|
 | **插件找引擎** | 运行时**从插件自身位置往上找仓库标记**（`src/core/main.py`）；`$KS_ENGINE_ROOT` 可显式覆盖 | `plugin/src/engine.js` 的 `findEngineRoot` |
 | **venv 的底座** | 拉起引擎前，若 `pyvenv.cfg` 的 `home` 指向不存在的目录，就找一个**随包走**的解释器（`services/*/python`）改过去；路径没变时**一个字节不改** | `plugin/src/engine.js` 的 `healVenvHome` |
+| **模型** | 拉起引擎时注入三个环境变量，全部**从仓根算出来**：`KS_MODELS_DIR`、`MINERU_MODEL_SOURCE=local`、`MINERU_TOOLS_CONFIG_JSON`（配置文件也**运行时生成**）。外部已设的键**不覆盖** | `plugin/src/engine.js` 的 `modelsRoot` / `ensureMineruConfig` / `modelEnv` |
 
 **为什么 venv 需要自愈**：Windows venv **不带标准库**（实测 `Lib/` 下只有 `site-packages`，
 没有 `os.py`、没有 `python312.dll`），它靠 `pyvenv.cfg` 的 `home =` 找 base ——
 **那是绝对路径**，整包一换盘符就失效。
 
-**⚠ 前提**：`.venv/` **必须随包走**。它被 `.gitignore` 盖住、**不在版本控制里**
-⇒ 用 git 拉代码**不会**带上它，拷贝时要连它一起拷。丢了就用包内 3.12 解释器重建
-（`services\hindsight\python\python.exe`）+ `pip install -e .`，或从旧副本拷回。
+**为什么模型必须进包**（业主 2026-10-18 点名 MinerU 的 OCR 模型）：
+三套模型原先都在包外，而 `~/mineru.json` 把路径**写死** ⇒ 换机/换盘符后
+**检索（向量/重排）与文档解析（MinerU）都会失效**。
 
-**判据**：`plugin/scripts/smoke-engine-guard.mjs` 第 6 组（9 条）+ 变异自验 6/6。
+| 模型 | 体积 | 原位置 | 谁用 |
+|---|---|---|---|
+| bge-reranker-base + bge-small-zh-v1.5 | 1,168 MB | `%APPDATA%\KnowledgeStation\models` | KS 向量/重排 |
+| PDF-Extract-Kit-1.0 | 2,475 MB | `~\.cache\modelscope\...` | MinerU **pipeline**（默认 backend） |
+| MinerU2.5-Pro-2605-1.2B | 2,220 MB | 同上 | MinerU `vlm-engine` |
+
+**MinerU 怎么被指进包**（读 `mineru` 包源码得到，不是猜的）：
+`mineru/utils/models_download_utils.py` 里 `if model_source == 'local': return
+get_local_models_dir().get(repo_mode)`，而 `config_reader.py` 里
+`MINERU_TOOLS_CONFIG_JSON` **可以是绝对路径**。
+⇒ 设 `MINERU_MODEL_SOURCE=local` + 配置 `models-dir: {pipeline, vlm}` 即可，**完全不联网**。
+（⚠ 2.x 读的是 `~/mineru.json`，**不是**旧的 `~/magic-pdf.json` —— 两个文件都在，生效的是前者。）
+
+**⚠ 前提**：`.venv/` 与 `var/models/` **都必须随包走**。两者都被 `.gitignore` 盖住、
+**不在版本控制里** ⇒ 用 git 拉代码**不会**带上它们，拷贝时要连它们一起拷。
+`.venv/` 丢了就用包内 3.12 解释器重建（`services\hindsight\python\python.exe`）+ `pip install -e .`。
+
+**判据**：`plugin/scripts/smoke-engine-guard.mjs` 第 6 组（9 条，路径/venv）+ 第 7 组
+（12 条，模型）+ 变异自验 **12/12**。
 
 ---
 
