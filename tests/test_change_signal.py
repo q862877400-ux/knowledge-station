@@ -170,9 +170,26 @@ def test_real_db_backfilled_values_match_rule():
     ⚠ 这是**脚本复算的固有盲区**："库里的值 == 规则算的值"**证明不了规则没判错**。
     """
     from pathlib import Path
-    real = Path(r"C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db")
-    plan_file = Path(r"D:\AI\work space\zcode\var\tmp\change-signal-backfill-plan.json")
-    corr_file = Path(r"D:\AI\work space\zcode\var\tmp\change-signal-correct.json")
+    # ⚠ 2026-10-18 改（两次，第二次是修第一次的错）：
+    #   ① 原先写死 `C:\Users\Zegel\AppData\Roaming\KnowledgeStation\...` 与
+    #      `D:\AI\work space\zcode\...`（**旧工作区**）⇒ 业主令「不依赖包外任何东西」，
+    #      且旧库已按业主令删除 ⇒ 必须改成算出来的路径。
+    #   ② ⚠ **我第一次改成 `get_settings().db_path` 是错的**：门禁的 pytest 跑在
+    #      `conftest` 的**临时空库**上（会话级 fixture 把 `KS_DATA_DIR` 指到
+    #      `%TEMP%\ks_test_*`）⇒ 那里 `doc_meta` 是空的 ⇒ 计划里 55 条**全被判"不符"**
+    #      ⇒ 这条判据从"跳过"变成"假红"。
+    #   ⇒ 正确做法与 `tests/test_catalog_hidden_retrieval.py` 同一套：
+    #      **只认显式点名的真库**（`KS_REAL_DB`），没点名就**如实 skip**。
+    import os
+    repo = Path(__file__).resolve().parents[1]
+    explicit = os.environ.get("KS_REAL_DB")
+    real = Path(explicit) if explicit else repo / "var" / "data" / "database" / "knowledge.db"
+    plan_file = repo / "var" / "tmp" / "change-signal-backfill-plan.json"
+    corr_file = repo / "var" / "tmp" / "change-signal-correct.json"
+    if not explicit:
+        #: 门禁里跑的是临时空库 ⇒ 这条**结构上验不了**，如实跳过（不假装通过）。
+        import pytest
+        pytest.skip("未显式点名真库（设 KS_REAL_DB=<path> 才跑；门禁跑的是临时空库）")
     if not real.exists() or not plan_file.exists():
         # ⚠ 显式 skip，**不是**静默 return（独立复核 2026-09-24 指出：`return` 让判据恒真，
         #   换台机器就"通过"但什么都没验；`skip` 会进 skip 清单被门禁盯住）。

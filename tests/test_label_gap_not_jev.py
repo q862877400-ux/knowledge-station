@@ -39,10 +39,19 @@ Jev 在这里的价值只剩"给没跑过的那批**猜一个候选**"，那恰�
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from pathlib import Path
 
-REAL_DB = r"C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db"
+#: ⚠ 2026-10-18 改（两次）：原先写死 `C:\Users\Zegel\AppData\Roaming\KnowledgeStation\...`（**包外**）。
+#:   ① 业主令「不依赖包外任何东西」+ 旧库已删 ⇒ 必须改成算出来的路径。
+#:   ② ⚠ **不能**用 `get_settings().db_path`：门禁的 pytest 跑在 `conftest` 的**临时空库**上
+#:      ⇒ 那几条"真库事实"判据会**假红**（空库什么都不符）。
+#:   ⇒ 与 `tests/test_catalog_hidden_retrieval.py` 同一套：**只认显式点名的真库**。
+_REPO = Path(__file__).resolve().parents[1]
+REAL_DB = os.environ.get("KS_REAL_DB") or str(_REPO / "var" / "data" / "database" / "knowledge.db")
+#: 没显式点名 ⇒ 这条在门禁里**结构上验不了**，如实跳过（不假装通过）
+_EXPLICIT = bool(os.environ.get("KS_REAL_DB"))
 #: 迁移前后应当恒等的事实（真库量测时的取值；变了说明库被别处改过，先查再动）
 #: ⚠ 2026-10-09（第 17 轮）**复量后的值**：真库从 6797 长到 8983 篇 ⇒ 绊线按设计红了，
 #: 逐条复核后原结论仍然成立（见文件头那张表的复量列与下面的复核说明）。
@@ -59,8 +68,15 @@ def _ro():
 
 def _require_real_db():
     """**真库不在就显式 skip，不许静默通过**（独立复核 2026-09-24 指出 `if not exists(): return`
-    会让判据恒真——换台机器/库还没建时，测试"通过"但什么都没验）。"""
+    会让判据恒真——换台机器/库还没建时，测试"通过"但什么都没验）。
+
+    ⚠ 2026-10-18 加：**没显式点名 `KS_REAL_DB` 也 skip** —— 门禁的 pytest 跑在
+    `conftest` 的临时空库上，而本文件的判据全部建立在那 8,983 篇的**真库事实**上
+    （`FACTS`）；在空库上跑必然全红，那是**假红**、不是回归。
+    """
     import pytest
+    if not _EXPLICIT:
+        pytest.skip("未显式点名真库（设 KS_REAL_DB=<path> 才跑；门禁跑的是临时空库）")
     if not Path(REAL_DB).exists():
         pytest.skip(f"真库不在：{REAL_DB}（静默 return 会让这条判据恒真）")
 

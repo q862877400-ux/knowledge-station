@@ -6,9 +6,9 @@
   "pytest_passed": 3057,
   "runLive": false,
   "pytest_total": 3065,
-  "updatedAt": "2026-10-18T04:46:16",
+  "updatedAt": "2026-10-18T09:09:51",
   "untracked_excluded": 5,
-  "pytest_skipped": 5,
+  "pytest_skipped": 8,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
@@ -17,7 +17,10 @@
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200",
     "tests.test_catalog_hidden_retrieval.Test假样本不进检索::test_假样本不在检索结果里",
     "tests.test_catalog_hidden_retrieval.Test那6篇真标准该挡而不是不该挡::test_那6篇真标准只有附录没有正文",
-    "tests.test_catalog_hidden_retrieval.Test隐藏集合本身被算出来::test_隐藏集合的行为"
+    "tests.test_catalog_hidden_retrieval.Test隐藏集合本身被算出来::test_隐藏集合的行为",
+    "tests.test_change_signal::test_real_db_backfilled_values_match_rule",
+    "tests.test_label_gap_not_jev::test_change_signal_column_exists_after_migration",
+    "tests.test_label_gap_not_jev::test_facts_still_hold"
   ],
   "caliber_applied": true
 }
