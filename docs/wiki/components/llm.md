@@ -53,6 +53,21 @@
 - **`ks_answer` 工具**：`plugin/src/index.js` 的 `trimVerification` 是白名单——引擎新增核验字段而白名单没加，就到不了模型眼前
 - **答案质量基线**：改提示词或装配 MUST 重跑 Golden Set
 
+
+## 规模与覆盖（2026-10-23 实测）
+
+| 项 | 数字 |
+|---|---|
+| 文件数 | **7** 个 `.py` |
+| 行数 | **1,883** |
+| 提到本子系统的测试文件 | **20** 个 |
+
+取证问答 `ks_answer.py` 在这里
+
+⚠ 本子系统内有**零测试模块**：`routes_law`（全仓没有任何一条用例是为它写的）。
+
+> 数字口径：`rglob("*.py")` 排除 `__pycache__`；测试覆盖 = 在 `tests/*.py` 里出现过 `src.core.<本子系统>` 的文件数（**只是「提到」，不等于「被测」**）。
+
 ## 已知边界（诚实）
 
 - **Jev 三条硬约束**（照做）：Noul 没有 confidence；每个 Noul 必须写 `criteria`；要门控只能用 Choice / Score 的 confidence。

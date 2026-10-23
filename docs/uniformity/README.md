@@ -33,12 +33,50 @@
 
 | 缺什么 | 症状 | 怎么补 |
 |---|---|---|
-| `var/data/` | 引擎能起，但库里 0 篇文档，问什么都答"库里没有" | 从**旧副本**拷回（`README.md` §便携 写着：「从还在的旧副本拷回。引擎会如实显示空库」）；或从 `var/data/backups/` 的 13 个快照恢复。**没有自动重下** |
-| `var/models/` | 检索退化成只剩全文检索；PDF 解析不可用 | 重新下载（要联网）。`mineru.json` 由插件启动时自动生成，不用手写 |
-| `.venv/` | `python -m src.core.main` 直接报找不到模块 | `python -m venv .venv` + `.venv\Scripts\pip install -e .`（可选 extras：`parser` / `vision` / `proc` / `wincom` / `dev`，见 `pyproject.toml`） |
+| `var/data/` | 引擎能起，但库里 0 篇文档，问什么都答"库里没有" | **见下方「⚠ 数据获取是循环引用」** |
+| `var/models/` | 检索退化成只剩全文检索；PDF 解析不可用 | **见下方「模型怎么拿」** |
+| `.venv/` | `python -m src.core.main` 直接报找不到模块 | `python -m venv .venv` + `.venv\Scripts\pip install -e .` |
 
-**⚠ 只想先看看代码、不跑数据**：那可以只建 `.venv` + 装 `plugin/node_modules`，
-跑 pytest 与冒烟（它们在临时空库上跑，不需要 `var/data`）。但**任何"检索答得对不对"的验证都必须在真库上做**。
+**⚠ 数据获取是循环引用（本仓当前的真实缺口，未解决）**：
+
+本文档能给的只有两条路，**而两条都指向新克隆的人手上没有的东西**：
+- 路 A「从旧副本拷回」—— 新克隆的人**没有旧副本**；
+- 路 B「从 `var/data/backups/` 的 13 个快照恢复」—— `backups/` **就在 `var/data/` 里面**，
+  而 `var/data` 正是缺的那个 ⇒ **循环**。
+
+⇒ **结论：新环境目前拿不到生产库，这一步没有可执行方案。**
+这不是文档漏写，是**仓库本身缺一个"数据从哪来"的出口**（没有导出包、没有种子库、没有下载地址）。
+**要补它需要拍板**，三条候选（**都未实施**）：
+1. 把 `var/data/backups/` 里最新的一个快照做成独立可分发的包（体积约 1~2 GB）；
+2. 建一个**缩小版种子库**（几百篇代表性文档）进版本控制，够跑通全流程与多数判据；
+3. 写一个从零抓取/入库的脚本链（`tools/gov-qa` 那边有采集能力，但抓的是政务问答不是标准全文）。
+
+**只想验证代码逻辑**可以跳过这一步：pytest 与门禁在空库上跑，能验大部分逻辑。
+
+**模型怎么拿（本仓也未给可执行步骤）**：
+`var/models/` 下是两组模型 —— `ks/`（bge-small-zh 向量 + bge-reranker-base 重排）
+与 `mineru/{pipeline,vlm}/`（PDF 解析）。文档能确认的是：
+- 插件启动时会自动生成 `var/models/mineru.json`（`model-source: local` + 两个子目录路径），
+  **所以配置文件不用手写**；
+- MinerU 的模型目录结构是 `pipeline/` 与 `vlm/` 两个子目录。
+**但没有**：下载地址、命令、版本号、授权方式。**明确未做。**
+
+**装依赖时要装哪些 extras**（`pyproject.toml` 里定义的）：
+
+| extra | 装什么 | 不装会怎样 |
+|---|---|---|
+| `parser` | `mineru>=2.0`（PDF 深度解析） | 解析 PDF 不可用；已有 `parse_out` 的库仍能查 |
+| `vision` | `numpy` / `opencv-python` / `rapidocr-onnxruntime`（图形重绘） | 流程图重绘自动降级成 PNG 截图 |
+| `proc` | `psutil`（进程管理） | `parser_worker` / `deep_server` 的 psutil 调用降级 |
+| `wincom` | `pywin32`（Word COM 往返） | Office 编辑往返不可用（仅 Windows） |
+| `dev` | `pytest` / `pytest-timeout` / `mypy` | **跑不了测试与 mypy 门禁** |
+
+⇒ **要跑测试就必须装 `dev`**（§0.4 让你跑 pytest，这不是"可选"）。
+
+**⚠ 只想先看看代码、不跑数据**：可以只建 `.venv` + 装 `plugin/node_modules`，
+跑 `pytest` 与门禁（**它们确定在临时空库上跑，已实测**）。但**冒烟碰不碰真库未验证** ——
+见 §0.3，别在装着生产库的机器上直接跑 44 套冒烟。
+任何「检索答得对不对」的验证都必须在真库上做。
 
 ### 0.2 引擎怎么起、端口在哪、怎么探活
 
@@ -279,7 +317,7 @@ var/models/                        6.87 GB（合计，实测）
 
 ```
 zcode/                                     HEAD 64f37707
-├── src/core/          Python 引擎    155 py / 45,439 行 / 16 子系统 + 9 根文件
+├── src/core/          Python 引擎    155 py / 45,439 行 / 16 子系统 + 10 根文件
 ├── plugin/            DSH 插件       19 js (9,968 行) + 31 tsx/ts (1,167 KB) + 56 mjs
 ├── tests/             pytest         181 py / 3,076 条用例
 ├── scripts/           工具脚本       68 个（55 py / 9 ps1 / 4 mjs）
@@ -382,9 +420,23 @@ zcode/                                     HEAD 64f37707
 
 ---
 
-## 4. 已经坏掉的地方（按严重度，都有现场）
+## 4. 已经坏掉的地方
 
-### 4.1 【最严重】`resolve_clause` 跨标准误命中 —— **已拿到现场**
+### 4.0 两套排序，先说清（避免与 `wiki/architecture.md` 看起来冲突）
+
+**本节按「证据充分度」排（有现场的先写），不是按「产品影响面」排。**
+
+| 按**产品影响**排（`wiki/architecture.md` §四 用这个，**要动手看那张**） | 按**证据充分度**排（本节用这个） |
+|---|---|
+| 第 1：§4.4 引擎 LLM 取证调用失败（**主输出整体为空**，但状态未知） | 第 1：§4.1 `resolve_clause` 误命中（**有现场、有量化**） |
+| 第 2：§4.1 `resolve_clause` 跨标准误命中 | 第 2：§4.2 `channels.js`（**已修**） |
+| 第 3~8：见 `wiki/architecture.md` 的 8 行缺陷表 | 第 3~5：§4.3 / §4.4 / §4.5 |
+
+**为什么故意不一致**：每条的证据强度不同 —— §4.1 有复现现场，§4.4 只是上一轮的观察。
+混在一起排会让读者以为 §4.4 的证据也那么硬。
+**⇒ 要按严重度动手，看 `wiki/architecture.md` §四那张 8 行表。**
+
+### 4.1 【证据最充分】`resolve_clause` 跨标准误命中 —— **已拿到现场**
 
 **现象**：`ks_resolve_clause("GBZ 188-2025", "5.22.3")` 返回
 **`GB 6675.2-2025`（玩具安全标准）** 的条款正文，且 `httpStatus=200, ok=true, found=true,
@@ -637,7 +689,7 @@ junit：     全部 3 条，带 <skipped> 的 **2 条**（含 xfail 那条）
 | 表数量 | 34 / 38 / 60 / 62 | — | **44** |
 | 语料规模 | 6,797 | 8,983 | — |
 | 渠道数 | 131 / 280 / 286 | — | — |
-| 子系统数 | 19 / 18 / 16 | — | **16**（+9 根文件） |
+| 子系统数 | 19 / 18 / 16 | — | **16**（+10 根文件） |
 | 总纲状态 | 「已暂停」 | 010/013 仍在施工 | — |
 | `INDEX.md` | 210 | 磁盘 214 | — |
 | `EXTERNAL-REVIEW-v4` | README 标 ✅ | 实为未跟踪 | **属实** |
@@ -763,7 +815,7 @@ junit：     全部 3 条，带 <skipped> 的 **2 条**（含 xfail 那条）
 | 文件 | 内容 | 可信度 |
 |---|---|---|
 | [`00-review-of-surveys.md`](00-review-of-surveys.md) | **主对话复核记录**：10 条已核实 / 2 条推翻 / 2 条更正 | ★★★ 先看这个 |
-| [`01-core.md`](01-core.md) | `src/core` 16 子系统 + 9 根文件逐文件职责、入口、依赖、写什么 | ★★ 骨架可信，具体结论抽查过 |
+| [`01-core.md`](01-core.md) | `src/core` 16 子系统 + 10 根文件逐文件职责、入口、依赖、写什么 | ★★ 骨架可信，具体结论抽查过 |
 | [`02-plugin.md`](02-plugin.md) | `plugin/` 宿主 19 js + 客户端 31 tsx + 56 mjs；40 条重复；端点清单 | ★★ 同上 |
 | [`03-docs-specs-scripts.md`](03-docs-specs-scripts.md) | 29 顶层文档 + 9 组冲突 + specs 15 个 + scripts 68 个 | ★★ 同上 |
 | [`04-tests-tools-gates.md`](04-tests-tools-gates.md) | tests 结构 + 覆盖率缺口 + 门禁 12 步 + 棘轮绕过分析 | ★★★ 唯一被推翻的是 xfail 那条（见 §4.5） |

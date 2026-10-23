@@ -24,8 +24,17 @@
 | 法规来源端点 | `routes_law.py` | 法规抓取 |
 | 设置端点 | `routes_settings.py` | 设置界面 |
 
-**规模**：`server.py` **187.7 KB**（最大单文件），其余 9 个路由文件 3.7–37.2 KB。
-**端点总数**：几十个（实测 `/api/v1/...` 前缀）。
+**规模**：`server.py` **194.5 KB**（最大单文件，**装了 107 条端点**），其余 8 个 `routes_*.py` 分装 69 条。
+**端点总数**：**176 条**，全部在 `/api/v1/` 下（2026-10-23 实测；旧文写「几十个」）。
+
+按业务域（路径第 4 段）分：`kb` 24 · `update` 22 · `materials` 18 · `documents` 14 ·
+`clauses` 11 · `channels` 10 · `ingest` 10 · `laws` 10 · `bookmark-folders` 7 ·
+`report` 6 · `discover` 4 · `bookmarks` 4 · `doc-bookmarks` 4 · `projects` 4 ·
+其余 15 个域各 1~3 条。
+
+**⚠ 路由分布本身是个问题**：`server.py` 一个文件装了 **107 条**，其余 8 个文件分装 69 条。
+改路由时先确认它落在哪个文件 —— `server.py` 里那些**在 `create_app` 闭包内**
+（`create_app` 定义在 `server.py` 约 L278），模块外拿不到，**没法写单测**。
 
 ## 依赖什么
 
@@ -53,6 +62,21 @@
 - **`plugin/` 全部界面**：界面全靠这些端点
 - **`ks_*` 模型工具**（`ks_ping` / `ks_resolve_clause` / `ks_answer` / `ks_materials` / `ks_effect_report`）
 - **外部调用方**（若有）
+
+
+## 规模与覆盖（2026-10-23 实测）
+
+| 项 | 数字 |
+|---|---|
+| 文件数 | **10** 个 `.py` |
+| 行数 | **6,086** |
+| 提到本子系统的测试文件 | **13** 个 |
+
+`server.py` 一个文件装 107 条端点，其余 8 个 `routes_*.py` 装 69 条
+
+⚠ 本子系统内有**零测试模块**：`routes_law`, `routes_settings`, `routes_update`（全仓没有任何一条用例是为它写的）。
+
+> 数字口径：`rglob("*.py")` 排除 `__pycache__`；测试覆盖 = 在 `tests/*.py` 里出现过 `src.core.<本子系统>` 的文件数（**只是「提到」，不等于「被测」**）。
 
 ## 已知边界（诚实）
 

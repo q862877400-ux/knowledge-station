@@ -131,8 +131,14 @@ npm run typecheck                           # tsc：0 错误（tsc --noEmit -p p
 ## 文件在哪、文档怎么读
 
 - **每一样东西在哪、干什么** ⇒ [`docs/README.md`](docs/README.md)（**文件地图**）
-- **接手先读哪一份** ⇒ **[`docs/wiki/architecture.md`](docs/wiki/architecture.md)**（项目目标 + 现状 + 主要部件，一页）
-- **某块代码负责什么、改它会影响谁** ⇒ [`docs/wiki/components/`](docs/wiki/components/README.md)
+- **接手先读哪一份（按顺序）** ⇒
+  1. **[`docs/uniformity/README.md`](docs/uniformity/README.md)** —— 2026-10-23 全仓摸底。
+     **怎么从零跑起来** / 项目是什么 / 每块代码干什么 / 哪里已经坏了（带现场）/
+     重复实现清单 / 门禁真实边界 / **明确未做的清单**。自包含，不依赖别处。
+  2. **[`docs/wiki/architecture.md`](docs/wiki/architecture.md)** —— 项目目标 + 现状 +
+     主要部件，一页。**长期维护的那份**（uniformity 是它的证据层）。
+  3. **[`docs/wiki/components/`](docs/wiki/components/README.md)** —— 要改的那个子系统，
+     文件级的职责 / 接口 / 依赖 / 明确不做什么。
 - **历史与备份在哪** ⇒ [`docs/archive/README.md`](docs/archive/README.md)
 - **要查具体技术事实**（数据契约 / API / 入库管线 / 凭据 / 坑全集 / 红线） ⇒ [`docs/ENCYCLOPEDIA.md`](docs/ENCYCLOPEDIA.md)
   ⚠ **它不是入口**（2026-10-10 更正）：本行原先写「接手先读哪一份 ⇒ ENCYCLOPEDIA」，

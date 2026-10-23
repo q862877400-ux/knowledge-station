@@ -10,12 +10,20 @@
 > 因为那是人最先看的地方，**不该藏进二级文档**。
 > **⇒ 从现在起：地图只住本文件，入口只住根 README。加内容时别加错地方。**
 
-> 想知道**项目目标与现状**，看 [wiki/architecture.md](wiki/architecture.md)。
-> 想知道**历史在哪**，看 [archive/README.md](archive/README.md)。
-> 想知道**某个功能由哪块代码负责**，看 [wiki/components/](wiki/components/)。
-> **完全没有记忆、要从零接手**，看 [uniformity/README.md](uniformity/README.md)
-> —— 2026-10-23 全仓摸底：项目是什么 / 怎么跑 / 每个子系统干什么 / 已坏的地方（带现场）
-> / 重复实现清单 / 门禁真实边界 / **明确未做的清单**。那一份自包含，不依赖别处。
+> **接手先读哪一份 —— 按顺序读，别跳（2026-10-23 定序）**
+>
+> 仓里曾有**三份文档都自称「接手先读这一份」**（`wiki/architecture.md` /
+> `HANDOVER-2026-10-09.md` / `ENCYCLOPEDIA.md`）。现已定序：
+>
+> | 顺序 | 读什么 | 读完能回答 |
+> |---|---|---|
+> | **第 1 步** | [uniformity/README.md](uniformity/README.md) | **怎么从零跑起来** / 项目是什么 / 每块代码干什么 / 哪里已经坏了（带现场）/ 哪些还没验证 |
+> | **第 2 步** | [wiki/architecture.md](wiki/architecture.md) | 项目**目标**、当前规模、主要部件一览、已知缺陷（**比 uniformity 精简**，是长期维护的那份） |
+> | **第 3 步** | [wiki/components/](wiki/components/) | 要改的那个子系统，**文件级**的职责/接口/依赖/不做什么 |
+>
+> **想知道历史在哪** → [archive/README.md](archive/README.md)。
+> **`ENCYCLOPEDIA.md` 不是入口**（2026-10-10 已降为"查具体技术事实"）；
+> **`HANDOVER-2026-10-09.md` 是 2026-10-09 的时点快照**，里面的数字会过期，只作历史参考。
 
 ---
 
