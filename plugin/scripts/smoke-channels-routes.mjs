@@ -140,7 +140,20 @@ async function invokeRaw(path, { method = 'GET', rawBody = '', search = '' } = {
   await p
   return { status: res.out.status, body: res.out.body, writes: res.out.writes }
 }
-const lastEngine = () => seen[seen.length - 1]
+/** 最近一次"打到引擎"的记录。**永不返回 undefined** —— 没打过就返回一个井号占位。
+ *
+ *  ⚠ 为什么要有占位（2026-10-24 `-Full` 门禁实测）：
+ *  原来这里直接 `seen[seen.length - 1]`，`seen` 为空时返回 `undefined`，
+ *  于是断言 `eng.method === 'POST'` 抛 `TypeError: Cannot read properties of undefined`
+ *  —— **整个冒烟进程当场崩掉**，后面 20 多条断言一条都不再跑。
+ *  那次是偶发（单跑 3/3 通过、门禁里 1 次失败），而崩溃把"引擎到底有没有被调、
+ *  宿主返回了什么"这些**最有用的现场**全吞了。
+ *  改成返回 `{ method: '(none)', path: '(none)', sent: {} }` 之后，
+ *  断言仍然会**判失败**（`'(none)' === 'POST'` 为假），但会把
+ *  `(none) (none)` 打出来，且**后面的断言继续跑**。判据强度没变，只是不再自毁。
+ */
+const NO_ENGINE_HIT = Object.freeze({ method: '(none)', path: '(none)', sent: {} })
+const lastEngine = () => seen[seen.length - 1] ?? NO_ENGINE_HIT
 
 /* --------------------------- 1. 注册面 --------------------------- */
 check('注册了 3 条渠道路由（列表+新增 / 单条维护前缀 / 探针）',
