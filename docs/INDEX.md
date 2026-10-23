@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **220 份** / **7758 KB**。
+> 共 **221 份** / **7774 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -126,7 +126,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（81 份 / 1912 KB）
+## 根文档与其他（82 份 / 1928 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -137,20 +137,20 @@
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
-| `docs/research/archify/01-archify-逆向.md` | 58 | 未提交 | 一句话结论 |
-| `docs/uniformity/README.md` | 47 | 2026-10-23 | 1. 项目是什么 |
+| `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
+| `docs/uniformity/README.md` | 53 | 2026-10-23 | 1. 项目是什么 |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
-| `docs/research/archify/02-ks-现状.md` | 43 | 未提交 | 一句话结论 |
+| `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
-| `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 未提交 | 一句话结论 |
-| `docs/research/ks-fixes/02-modality-residual.md` | 29 | 未提交 | 一句话结论 |
+| `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
+| `docs/research/ks-fixes/02-modality-residual.md` | 29 | 2026-10-23 | 一句话结论 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
-| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 未提交 | 0. 先读这一页 |
+| `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 2026-10-23 | 0. 先读这一页 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
-| `docs/research/ks-fixes/01-d2-rootcause.md` | 23 | 未提交 | 一句话结论 |
+| `docs/research/ks-fixes/01-d2-rootcause.md` | 23 | 2026-10-23 | 一句话结论 |
 | `docs/research/substitute-scan.md` | 22 | 2026-09-19 | 一、扫描结果：四类替代品（+ 一类交付形态替代） |
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
 | `docs/research/HANDOFF-external-solutions.md` | 21 | 2026-09-28 | 0. 一句话任务 |
@@ -159,15 +159,15 @@
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
 | `docs/README.md` | 16 | 2026-10-23 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
-| `docs/research/archify/03-借鉴结论.md` | 16 | 未提交 | 一句话结论 |
+| `docs/research/archify/03-借鉴结论.md` | 16 | 2026-10-23 | 一句话结论 |
+| `docs/wiki/architecture.md` | 16 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
-| `docs/wiki/architecture.md` | 15 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
+| `docs/uniformity/START-HERE.md` | 13 | 2026-10-23 | 0. 从零到能跑（新人第一步，**别跳过**） |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
-| `docs/uniformity/START-HERE.md` | 12 | 未提交 | 0. 从零到能跑（新人第一步，**别跳过**） |
 | `docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md` | 11 | 2026-10-10 | 0. 一句话 |
 | `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 11 | 2026-10-14 | **日期**：2026-10-14 |
 | `docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md` | 11 | 2026-10-07 | ★★★ 主线③ 最重要的一条：`GuRE` —— **"法条检索的生成式查询改写器"，和我们判据①是同一件事** |
@@ -182,10 +182,12 @@
 | `docs/PORTABILITY.md` | 8 | 2026-10-18 | 一、运行时靠什么做到便携（已实现） |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
-| `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 未提交 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
+| `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 2026-10-23 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
+| `docs/uniformity/05-verifier-findings.md` | 6 | 未提交 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
+| `docs/wiki/components/storage.md` | 6 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/wiki/components/exports.md` | 5 | 2026-10-23 | **位置**：`src/core/exports/` |
@@ -199,7 +201,6 @@
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
 | `docs/wiki/components/quality.md` | 4 | 2026-10-23 | **位置**：`src/core/quality/` |
 | `docs/wiki/components/settings.md` | 4 | 2026-10-23 | **位置**：`src/core/settings/` |
-| `docs/wiki/components/storage.md` | 4 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |

@@ -48,9 +48,9 @@
 | 法规/国标语料 | **8,983 篇 / 663,634 条条款 / 1,842,493 条位置片段** | 直接查生产库 `doc_meta` / `clause_revision` / `source_span` |
 | 渠道台账 | **131 条**（其中含 github 字样 19 条） | `docs/CHANNEL-COVERAGE-PLAN.md`（**未重测**） |
 | 材料平面 | **81 份**材料 / 3 个项目 / 7,872 切片 | **未重测**（沿用旧数） |
-| 引擎源码 | `src/core/` **155 个 py / 45,439 行** | `rglob("*.py")` 排除 `__pycache__` |
-| 插件源码 | `plugin/src/` **19 个 js / 9,968 行**；`plugin/client/` **31 个 tsx/ts / 1,167 KB** | 同上 |
-| 测试 | `tests/` **181 个 py**；pytest **3,076 条用例**（含 `tools/gov-qa/tests` 的 176） | `--collect-only` |
+| 引擎源码 | `src/core/` **155 个 py / 45,542 行**（工作树；HEAD `64f37707` 上 45,338） | `rglob("*.py")` 排除 `__pycache__` |
+| 插件源码 | `plugin/src/` **19 个 js / 9,974 行**；`plugin/client/` **31 个 tsx/ts / 1,167 KB** | 同上 |
+| 测试 | `tests/` **184 个 py**；pytest **3,115 条用例**（含 `tools/gov-qa/tests` 的 176） | `--collect-only` |
 | 生产库体积 | `var/data/` **72.32 GB**（库目录 13.82 GB / 单文件 2.90 GB） | `Measure-Object Length -Sum` |
 | 模型 | `var/models/` **6.87 GB** | 同上 |
 
@@ -59,7 +59,7 @@
 | 旧写法 | 实际 | 为什么会错 |
 |---|---|---|
 | 语料 **6,797 篇 / 522,021 条** | **8,983 / 663,634** | 语料持续增长，旧数是某一时点快照，没更新 |
-| `src/` **152 个 py / 2,244 KB** | **155 个 / 45,439 行** | 同上 |
+| `src/` **152 个 py / 2,244 KB** | **155 个 / 45,542 行**（工作树） | 同上 |
 | `tests/` 约 **163 个文件** | **181 个** | 同上 |
 | 运行产物在 **`%APPDATA%\KnowledgeStation\`** | **`var/data/`**（包内） | **2026-10-17 便携化后已迁移**；`%APPDATA%` 那个目录**已不存在**（实测 `Test-Path` 为假） |
 
@@ -69,7 +69,7 @@
 |---|---|---|
 | `src/core/` **155 个 py** | **文件系统里有多少个 `.py`**（含 `__init__.py`） | 实测 `Get-ChildItem` |
 | mypy **实际检查的文件数** | **门禁实际类型检查了多少**（`files = ["src"]`，有排除规则） | 门禁 |
-| pytest **3,076 条** | **用例数**，不是文件数 | `--collect-only` |
+| pytest **3,115 条** | **用例数**，不是文件数 | `--collect-only` |
 
 **⇒ 一个是"有多少文件"，一个是"查了多少文件"，本来就不该相等。**
 
@@ -88,7 +88,7 @@
 | `ingestion` | 把 PDF/Office/网页解析成条款并入库 | 20 | 7,684 | `doc_meta` / `clause_revision` / `parse_out` |
 | `knowledge` | 法规知识本体：分类目录、CCS 分类号、官方来源、别名 | 22 | 6,769 | 目录树、别名、CCS 记录 |
 | `update` | 渠道巡检与台账（去 13 个官网查新版/废止/公告） | 36 | 8,811 | 渠道表、公告表、检查批次 |
-| `storage` | sqlite 存取、schema、向量索引、备份、写队列 | 13 | 3,198 | `knowledge.db` |
+| `storage` | sqlite 存取、schema、向量索引、备份、写队列 | 13 | 3,301 | `knowledge.db` |
 | `llm` | 模型调用与作答（取证问答、外发审计、Jev 判断） | 7 | 1,883 | 外发审计日志 |
 | `materials` | 材料平面（用户上传与自采资料） | 7 | 1,715 | 材料表 |
 | `exports` | 交付物导出（效力报告、研究报告、Office 往返） | 7 | 1,505 | `exports/` 目录 |
@@ -101,9 +101,12 @@
 | `compliance` | 合规门与差距分析 | 2 | 177 | —（只读） |
 | `vision` | 图像反查 | 2 | 117 | —（只读） |
 | **根 10 个文件** | `config` / `exceptions` / `main` / `supervisor` / `text_utils` / `figure_locator` / `figure_redraw` / `formula_locator` / `middle_geo` / `__init__` | 10 | 3,821 | — |
-| **合计** | | **155** | **45,439** | |
+| **合计** | | **155** | **45,542** | |
 
-> 数字为 2026-10-23 实测，已对账（子目录 145 + 根 10 = 155；41,618 + 3,821 = 45,439）。
+> 数字为 2026-10-23 **工作树**实测，已对账（子目录 145 + 根 10 = 155；41,721 + 3,821 = 45,542）。
+> **HEAD（`64f37707`）上是 45,338 行** —— 差 204 行来自 5 个带历史未提交改动的文件
+> （`config.py` / `ks_answer.py` / `typed_verifier.py` / `announce.py` / `routes_update.py`）。
+> 引用这些数字时**必须说清是哪棵树**。
 > `law_source` 不是独立子系统，它是 `knowledge/law_source/` 子目录（法规官方源抓取）。
 
 > **「改 `retrieval` 具体要动哪个文件、哪个函数」** —— 本页只到**子系统**这一层。
@@ -113,7 +116,7 @@
 
 ### 3.2 插件（`plugin/`，Node）
 
-挂在 DSH 宿主上：宿主桥（`plugin/src/` 19 个 js / 9,968 行）+ 侧栏 React 界面（`plugin/client/` 31 个 tsx/ts / 1,167 KB）。
+挂在 DSH 宿主上：宿主桥（`plugin/src/` 19 个 js / **9,974 行**）+ 侧栏 React 界面（`plugin/client/` 31 个 tsx/ts / 1,167 KB）。
 宿主侧还注册了 **49 条 `/ks/*` HTTP 路由**（与引擎的 `/api/v1/*` 是两套）。
 
 **对 agent 暴露的工具 —— 实际 6 个**（旧文只写了 5 个，缺 `ks_collect`，且把 `ks_effect_report` 说成"效果上报"，那是错的）：
@@ -194,10 +197,10 @@ sqlite（`schema.sql` 冻结 38 张表对象）。
 | 1 | **引擎 LLM 取证调用失败**：`ks_answer` 返回 `llm_error=Connection error.`，`derivation`/`conclusion` 为空 ⇒ **产品主输出整体为空** | **状态未知**（上一轮实测有，本轮未复测） | 复测法见 uniformity §4.4 |
 | 2 | **`resolve_clause` 跨标准误命中**：`GBZ 188-2025 / 5.22.3` 返回 `GB 6675.2-2025`（玩具标准）的正文，且 `ok=true` | 已确认，未修 | 真库 8,983 部里 **9 部**会误命中（全是职业健康/安全类标准） |
 | 3 | **`standard_key` 丢标准号前缀**：`GB 188-2025` 与 `GBZ 188-2025` 压成同一个键 `188-2025` | 已确认，未修 | 用于 `hybrid_engine` 筛「提问点名的标准」 |
-| 4 | **标准号归一有 11 个不同名字，散在 6 个模块** | 已确认，未修 | 该字段全仓 1,472 处引用 / 152 文件 |
+| 4 | **标准号归一有 10 个不同名字，散在 4 个文件** | 已确认，未修 | `standard_no` 在 `src`+`tests` 里 **1,250 处引用 / 147 文件**（逐文件实测；原写「11 个 / 6 个模块 / 1,472 / 152」是错的，已更正） |
 | 5 | **`_answer_confidence` / `_expand_title_clauses` 两对同名函数已分叉**（字段名不同 ⇒ 静默判 high） | 已确认，未修 | 两者在 `create_app` 闭包内 ⇒ 没法写单测 ⇒ 没有测试能发现 |
 | 6 | **门禁对 `pytest.xfail()` 会假红**（junit 里带 `<skipped>` ⇒ 与汇总行计数不等 ⇒ 报「判据不可信」） | 已确认，未修 | 实测复现 |
-| 7 | **`conftest` 把全部测试钉在空临时库上** ⇒ 3,076 条用例里**跑在真库上的是 0 条** | 结构性 | 这正是第 2 条能活到今天的原因 |
+| 7 | ~~`conftest` 把全部测试钉在空临时库上 ⇒ 跑在真库上的是 0 条~~ **已部分解决**：2026-10-23 加了种子库 + **13 条跑在真语料上的用例** | 已改善 | 第 2 条（`resolve_clause`）正是靠它才被验出并修掉；完整 72 GB 库上的召回率/排序质量仍只有手动能验 |
 | 8 | **6 处 `assert ... or True` 恒真断言**（永不红） | 已确认，未修 | `test_appendix_split:212` / `test_patches:60` / `test_phase4:59` / `test_phase6:195` / `test_reranker:127` / `test_research_report:241` |
 
 **已修（2026-10-23）**：`plugin/src/channels.js` 的 `POST /{id}/test-case` 判据恒假

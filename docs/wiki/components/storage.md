@@ -82,7 +82,34 @@
   但**不受版本控制**。
   **⚠ 旧文写的是 `%APPDATA%\KnowledgeStation\`，那个目录已于 2026-10-17 便携化后不存在**
   （实测 `Test-Path` 为假；`get_settings().data_dir` 现返回 `<仓根>/var/data`）。
-  ⇒ **新克隆的仓是空库，且拿不到数据**（`backups/` 就在缺的那个目录里，循环引用）。
-  详见 [`../../uniformity/README.md`](../../uniformity/README.md) §0.1。
+  ⇒ **新克隆的仓是空库**。
+  **2026-10-23 已补种子库**（见下），所以"能否开发与回归"不再被这件事卡住。
 - **生产库实测规模**（2026-10-23）：`knowledge.db` 目录 13.82 GB / 单文件 2.90 GB，
   8,983 部标准 / 663,634 条条款 / 1,842,493 条位置片段。
+
+## 种子库（随仓提交的测试语料）
+
+| 项 | 值 |
+|---|---|
+| 位置 | `tests/fixtures/seed/knowledge-seed.db` |
+| 体积 | **13.3 MB** |
+| 内容 | **82 部标准 / 4,809 条条款 / 16,198 条位置片段 / 1,127 个目录 / FTS 4,809 行** |
+| 生成 | `python scripts/make-seed-db.py --docs 60`（需本机有完整 `var/data`） |
+| 使用 | pytest fixture `seed_data_dir`（`tests/conftest.py`） |
+| 护栏 | `tests/test_seed_db_guard.py`（6 条）+ `tests/test_real_corpus_retrieval.py`（7 条） |
+
+**为什么要有它**：`var/data` 进不了版本控制 ⇒ 在这之前，
+「在真库上验证」在门禁里**结构上做不到**（实测 3,076 条用例跑在真库上的是 0 条）。
+这正是 `resolve_clause` 跨标准误命中（wiki §四 #2）能活到今天的原因 ——
+那条 SQL 在空库上永远返回 `None`，走不到误命中分支。
+
+**挑样本的判据不是"随便抽"**：`scripts/make-seed-db.py` 的 `MUST_INCLUDE` 钉了
+9 部受害标准 + 3 部被误命中的别家标准 + 2 部年份宽容正向样本。
+**少一部，那条缺陷就复现不了。**
+
+**它不解决什么**：82 部 ≠ 8,983 部。六路检索的**召回率与排序质量**、
+`parse_out` 里的图片与公式、材料平面、巡检台账，仍只有完整库能验。
+
+**⚠ 用它写测试时必踩的坑**：`get_db_connection()` 是**按线程缓存**的。
+切 `KS_DATA_DIR` 前不 `close_thread_connection()`，会拿到前一个用例的旧连接
+⇒ 读到空库。症状是**单跑绿、全跑红**（已实测）。
