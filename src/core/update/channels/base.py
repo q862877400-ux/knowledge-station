@@ -426,6 +426,40 @@ class ChannelAdapter(ABC):
             raise UpdateError(f"channel_unreachable: {url} ({type(e).__name__}: {e})",
                               code=UPD_CHANNEL_ERROR) from e
 
+    #: 抓页面用的 User-Agent。**两个渠道（`mem_gov` / `mohurd`）原来各写了一份逐字相同的**，
+    #: 2026-10-23 统一化第三批收在这里。
+    #: 选 Chrome 126 的串是因为这两个站点会按 UA 拦老浏览器 —— 换之前先在真站点上验。
+    _DEFAULT_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                   " (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+
+    @staticmethod
+    def _ua() -> str:
+        """抓页面用的 User-Agent 串。子类要换 UA 就覆盖这个方法。"""
+        return ChannelAdapter._DEFAULT_UA
+
+    def _fetch_text(self, url: str) -> str | None:
+        """GET 一个页面返回 HTML 文本；**异常 / 非 200 / 非文本一律返回 None（不抛）**。
+
+        原实现逐字存在于 `mem_gov.py` 与 `mohurd.py` 两处，2026-10-23 收进基类。
+
+        ⚠ 为什么吞异常而不是抛：调用方（`probe`）把「抓不到」当成**一条普通的失败结果**
+        去记账（`ChannelResult` 带 `reason`），不需要异常传播。`_fetch` 那层已经把
+        超时/不可达翻成了 `UpdateError`，这里接住即可。
+
+        Args:
+            url: 要抓的页面地址。
+
+        Returns:
+            页面 HTML 文本；抓不到 / 非 200 / 响应体不是文本时返回 `None`。
+        """
+        try:
+            status, body = self._fetch(url, headers={"User-Agent": self._ua()})
+        except Exception:  # noqa: BLE001 — 见 docstring：抓不到就是一条失败结果
+            return None
+        if status != 200 or not isinstance(body, str):
+            return None
+        return body
+
     def _log_probe(self, t0: float, standard_no: str, result: ChannelResult) -> ChannelResult:
         """每次探测必落一条结构化日志（含耗时 ms，pipeline/05 §1）。"""
         duration_ms = round((perf_counter() - t0) * 1000, 1)

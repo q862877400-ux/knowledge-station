@@ -18,8 +18,10 @@
 - SSRF：仅 http/https；**默认禁内网**（用户拍板严格版，无豁免开关）——loopback /
   RFC1918 / 链路本地(含云元数据) / 0.0.0.0 / IPv6 本地 / .local 一律 422 拒绝，
   主机字面量与 DNS 解析结果都查。
-- 预算：单页 15s/2MB、每页条目上限 50、源间 1s 礼貌间隔、源数上限 50、
-  全程软上限 5 分钟（超时剩余源标 skipped_timeout）。
+- 预算：单页 15s/2MB、每页条目上限 50、源间 1s 礼貌间隔、
+  **源数量不设上限**（2026-10-08 删 `SOURCES_MAX`）、
+  全程软上限 5 分钟（超时剩余源标 skipped_timeout；可用 app_config
+  ``announce.scan_soft_cap_s`` 覆盖）。
 - 失败诚实：WAF/验证码、JS 渲染壳、解析 0 条、超时——每源 status=failed+reason
   直达 UI，绝不静默假装"0 新公告"。
 """
@@ -51,15 +53,19 @@ from src.core.update.channels.govcn_announce import _STD_TOKEN_RE
 from ulid import ULID
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
+from src.core.exports.xlsx_common import xlsx_header_style as _xlsx_header_style
 
 from src.core.exports.report_export import _exports_dir, _safe_name
 
 # ---------------------------------------------------------------- 常量（预算，P0 不开放配置）
 SOURCES_KEY = "announce.sources"
 STATE_KEY = "announce.scan_state"
-SOURCES_MAX = 50                    # 源数量上限
+# ⚠ 2026-10-08 业主拍板：**取消源数量上限**（原 `SOURCES_MAX = 50` 已删）。
+#   理由：要覆盖「法律法规 / 国标 / 行标 / 团标 / 地标」全量官方入口，50 条根本不够
+#   （实测有效入口已 100+）。源数量不再设闸；真正的成本闸是**扫描全程软上限**
+#   `SCAN_SOFT_CAP_S`（超时的源如实标 `skipped_timeout`，绝不假装扫过）。
 ITEMS_PER_PAGE_MAX = 50             # 每页条目上限（防导航页误判）
 PAGE_TIMEOUT_S = 15.0               # 单页超时（比渠道探测 30s 收紧一倍）
 PAGE_BYTES_MAX = 2 * 1024 * 1024    # 单页字节上限（截断标记）
@@ -218,8 +224,7 @@ def add_source(name: str, url: str, note: str = "") -> dict:
     name_s, url_s = _validate_source_payload(name, url)
     with _SCAN_LOCK:
         sources = get_sources()
-        if len(sources) >= SOURCES_MAX:
-            raise UpdateError(f"源数量已达上限 {SOURCES_MAX}", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+        # 2026-10-08：**源数量不设上限**（原 SOURCES_MAX 闸已删）。仍拦重复 URL。
         if any(normalize_url(s.get("url", "")) == normalize_url(url_s) for s in sources):
             raise UpdateError("该 URL 已存在（归一化后重复）", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
         src = {"id": f"src_{ULID()}", "name": name_s, "url": url_s, "enabled": True,
@@ -371,6 +376,18 @@ def _min_interval_hours() -> float:
         return MIN_INTERVAL_HOURS_DEFAULT
 
 
+def _scan_soft_cap_s() -> float:
+    """扫描全程软上限（秒）。默认 `SCAN_SOFT_CAP_S`(300)；
+    2026-10-08 起源数量不设上限 ⇒ 这里可用 app_config ``announce.scan_soft_cap_s`` 覆盖
+    （源多了要相应放宽，否则后半截源会被如实标成 skipped_timeout 而扫不到）。"""
+    raw = _read_json_key("announce.scan_soft_cap_s", SCAN_SOFT_CAP_S)
+    try:
+        v = float(raw)
+        return v if v > 0 else float(SCAN_SOFT_CAP_S)
+    except (TypeError, ValueError):
+        return float(SCAN_SOFT_CAP_S)
+
+
 def get_scan_state() -> dict:
     """最近一次扫描快照（从未扫过 → status=never，恒可读）。"""
     state = _get_state()
@@ -442,7 +459,10 @@ def run_announce_scan(scan_id: str, trigger: str, transport: Any = None) -> dict
     """逐源串行扫描：fetch → parse → 去重落库（每源一个短事务）→ 状态逐源写回。
     transport 仅测试注入用。"""
     t0 = time.monotonic()
-    upd_log(scan_id, "announce", "INFO", "scan_started", trigger=trigger)
+    soft_cap = _scan_soft_cap_s()
+    upd_log(scan_id, "announce", "INFO", "scan_started", trigger=trigger,
+            sources=len([s for s in get_sources() if s.get("enabled") is not False]),
+            soft_cap_s=soft_cap)
     transport = transport if transport is not None else default_transport()
     state = _get_state()
     per_source: list[dict] = []
@@ -452,7 +472,7 @@ def run_announce_scan(scan_id: str, trigger: str, transport: Any = None) -> dict
     recent: list[dict] = []
 
     for src in [s for s in get_sources() if s.get("enabled") is not False]:
-        if time.monotonic() - t0 > SCAN_SOFT_CAP_S:
+        if time.monotonic() - t0 > soft_cap:
             per_source.append({"id": src["id"], "name": src.get("name", ""),
                                "status": "failed", "reason": "skipped_timeout",
                                "items": 0, "new_items": 0})
@@ -744,13 +764,6 @@ _ANN_HEADERS = ["来源源", "标题", "标准号（识别）", "发布日期", 
 _ANN_SOURCE_HEADERS = ["源名称", "URL", "状态", "条目", "新条目", "基线收录", "失败原因"]
 
 
-def _xlsx_header_style(ws, row: int, cols: int) -> None:
-    fill = PatternFill("solid", fgColor="DDEBF7")
-    for c in range(1, cols + 1):
-        cell = ws.cell(row=row, column=c)
-        cell.font = Font(bold=True)
-        cell.fill = fill
-        cell.alignment = Alignment(vertical="center")
 
 
 def export_announce_xlsx() -> Path:

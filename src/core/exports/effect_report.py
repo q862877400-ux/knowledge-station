@@ -27,8 +27,9 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
+from src.core.exports.xlsx_common import xlsx_header_style as _xlsx_header_style
 
 from src.core.knowledge.doc_catalog import classify_document
 from src.core.knowledge.legal_status import resolve_status
@@ -322,13 +323,6 @@ _COLOR_CN = {"red": "🔴 红", "yellow": "🟡 黄", "green": "🟢 绿", "gray
              "reference": "🔵 蓝"}
 
 
-def _xlsx_header_style(ws, row: int, cols: int) -> None:
-    fill = PatternFill("solid", fgColor="DDEBF7")
-    for c in range(1, cols + 1):
-        cell = ws.cell(row=row, column=c)
-        cell.font = Font(bold=True)
-        cell.fill = fill
-        cell.alignment = Alignment(vertical="center")
 
 
 def export_effect_report_xlsx(window: str = "all", color=None) -> Path:

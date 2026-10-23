@@ -24,7 +24,6 @@ FRB F-26「全量数据+设置打包/还原；成功各出简报（法规数/批
 """
 from __future__ import annotations
 
-import hashlib
 import json
 import shutil
 import sqlite3
@@ -33,6 +32,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from src.core.config import get_settings
+from src.core.file_digest import file_sha256 as _file_sha256
 from src.core.storage import backup
 from src.core.storage.sqlite_db import get_db_connection
 from src.core.update.channels.base import UpdateError, upd_log
@@ -94,13 +94,6 @@ def brief_counts(conn: sqlite3.Connection) -> dict:
     return {k: int(conn.execute(sql).fetchone()[0]) for k, sql in _BRIEF_SQL.items()}
 
 
-def _file_sha256(path: Path) -> str:
-    """SHA-256 文件指纹（与 backup._checksum 同一口径：64KB 分块）。"""
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
 
 
 def _connect_ro(path: Path) -> sqlite3.Connection:

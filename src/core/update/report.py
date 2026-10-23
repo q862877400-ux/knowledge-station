@@ -26,10 +26,11 @@ from datetime import datetime
 from pathlib import Path
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 
 from src.core.exports.report_export import _exports_dir, _safe_name
+from src.core.exports.xlsx_common import xlsx_header_style as _xlsx_header_style
 from src.core.storage.sqlite_db import get_db_connection
 from src.core.update.channels.base import (
     UPD_BATCH_NOT_FOUND,
@@ -142,14 +143,6 @@ _CHANGE_TYPE_ORDER = ("new_version", "superseded", "withdrawn",
                       "not_found", "no_change")
 
 
-def _xlsx_header_style(ws, row: int, cols: int) -> None:
-    """表头行加粗 + 浅底（明细大表仅头行有样式，行内不加——几万行免样式提速）。"""
-    fill = PatternFill("solid", fgColor="DDEBF7")
-    for c in range(1, cols + 1):
-        cell = ws.cell(row=row, column=c)
-        cell.font = Font(bold=True)
-        cell.fill = fill
-        cell.alignment = Alignment(vertical="center")
 
 
 def export_batch_report_xlsx(batch_id: str) -> Path:

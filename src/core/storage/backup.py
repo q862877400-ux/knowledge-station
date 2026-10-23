@@ -12,15 +12,14 @@
 """
 from __future__ import annotations
 
-import hashlib
 import os
 import shutil
-from datetime import datetime
 from pathlib import Path
 
 from ulid import ULID
 
 from src.core.config import get_settings
+from src.core.file_digest import file_sha256 as _checksum
 from src.core.storage.sqlite_db import get_db_connection, write_transaction
 
 AUTO_KEEP = 7
@@ -40,12 +39,6 @@ def _backups_dir() -> Path:
     return d
 
 
-def _checksum(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
 
 
 def _secrets_snapshot_path(snap_id: str) -> Path:

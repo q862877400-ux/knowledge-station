@@ -79,14 +79,6 @@ class MohurdAdapter(ChannelAdapter):
                 return urljoin(LIST_URL, href), "effective"
         return None, None
 
-    def _fetch_text(self, url: str) -> str | None:
-        try:
-            status, body = self._fetch(url, headers={"User-Agent": self._ua()})
-        except Exception:  # noqa: BLE001
-            return None
-        if status != 200 or not isinstance(body, str):
-            return None
-        return body
 
     @staticmethod
     def _parse_list_links(html: str) -> list[tuple[str, str]]:
@@ -100,7 +92,3 @@ class MohurdAdapter(ChannelAdapter):
             out.append((href, raw))
         return out
 
-    @staticmethod
-    def _ua() -> str:
-        return ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-                " (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")

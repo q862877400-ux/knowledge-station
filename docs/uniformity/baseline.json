@@ -1,21 +1,21 @@
 {
   "ceilings": {
-    "ruff_total": 1052,
+    "ruff_total": 1051,
     "missing_module_docstrings": 2,
     "duplicate_filenames": 0,
-    "ast_dupe_groups": 13
+    "ast_dupe_groups": 10
   },
   "info_only": {
-    "pyscn_clone_groups": 132,
+    "pyscn_clone_groups": 130,
     "measure_only_ruff_total": 452,
     "measure_only_ast_dupe_groups": 32
   },
   "ruff_by_code": {
-    "E501_散文行_88到120_已豁免": 4639,
+    "E501_散文行_88到120_已豁免": 4642,
     "N802_已豁免": 492,
     "E501_代码行": 409,
     "I001": 256,
-    "F401": 106,
+    "F401": 105,
     "E501_散文行_超120": 64,
     "N806": 56,
     "E702": 34,
@@ -55,6 +55,27 @@
       "key": "ruff_total",
       "from": 1053,
       "to": 1052,
+      "why": "本轮实测降低（见 docs/uniformity/report.md）"
+    },
+    {
+      "at": "2026-10-23",
+      "key": "ast_dupe_groups",
+      "from": 13,
+      "to": 12,
+      "why": "本轮实测降低（见 docs/uniformity/report.md）"
+    },
+    {
+      "at": "2026-10-23",
+      "key": "ruff_total",
+      "from": 1052,
+      "to": 1051,
+      "why": "本轮实测降低（见 docs/uniformity/report.md）"
+    },
+    {
+      "at": "2026-10-23",
+      "key": "ast_dupe_groups",
+      "from": 12,
+      "to": 10,
       "why": "本轮实测降低（见 docs/uniformity/report.md）"
     }
   ]
