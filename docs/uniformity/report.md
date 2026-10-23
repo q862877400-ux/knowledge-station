@@ -176,3 +176,66 @@
 | 冒烟碰不碰真库的 39/44 套 | **未逐套确认**（只验了 5 套，全安全） |
 
 **这些都不算「已解决」**，是明确未做。
+
+---
+
+## 八、门禁最终状态（2026-10-24）
+
+### 最后一次 `-Full`：**11/12**
+
+```
+PASS tsc（客户端类型）              exit=0
+PASS mypy（引擎类型）              158 source files
+PASS verify:commands              22/22
+PASS pssa-guard（命令层）          9 脚本零命中
+PASS smoke（全链）                 44/44 套
+PASS pytest（引擎用例）            passed=3117 skipped=8 failed=0 errors=0
+PASS 引擎门禁（uvicorn）           4/4
+PASS verify-tools-real             9/9
+FAIL 真宿主 e2e（临时 profile）      exit=1   ← 已登记偶发
+PASS gov-qa 质量闸门               RATCHET=on
+PASS gov-qa 幂等验证               355/355
+PASS gov-qa 通道台账最新            TABLE_UP_TO_DATE=1
+PASS 棘轮（pytest 只涨不跌）        passed=3117 ≥ 基线
+```
+
+**12 步里 11 步绿；唯一红的是 `docs/TEST-FLAKES.md` 已登记的那条偶发。**
+
+### 为什么不是「门禁失败」
+
+按 `docs/TEST-FLAKES.md` 的处置纪律第 1 条：
+> 新偶发先跑 3 次单跑 + 1 次串行链——**单跑可复现 = 不是 flake**，按真缺陷查。
+
+实测：
+- **单跑** `node plugin/scripts/e2e-install-compose.mjs` ⇒ **exit=0**，
+  且 `toolResultEngine.port === fakeEnginePort`（10849 = 10849）、
+  `httpStatus:200`、`reused:true` 全齐；
+- 同签名（`FAIL 5/8` + `headlessExit=0`）在 `TEST-FLAKES.md` 里**已有两次记录**
+  （2026-10-10 / 2026-10-18），本次是**第三次**，已补登记。
+
+⇒ **同一份代码，单跑绿、链里偶发红** ⇒ 按既有条目处置，**不当作本批回归**。
+
+### 两条偶发交替出现的观察（留档，不下结论）
+
+2026-10-24 连跑两次 `-Full`：
+
+| 跑次 | 红的那一步 | 其余 11 步 |
+|---|---|---|
+| 第 2 跑 | `smoke（全链）` 的 `smoke-channels-routes` | 全绿（含 e2e） |
+| 第 3 跑 | `真宿主 e2e` | 全绿（含 smoke 44/44） |
+
+**两条都在 `%TEMP%` 下跑 node 子进程**，怀疑同一类子进程/端口时序，
+但**未取证，不作结论**。两条都已登记。
+
+### 顺带收紧的：pytest 基线余量 49 → 0
+
+基线停在 3065（2026-10-18），而实测受版本控制总账已达 **3114**
+⇒ 中间 **49 条余量**，这 49 条用例**可以被静默删掉而门禁不报警**。
+
+已按门禁自己的记账公式收紧（`scripts/gates-baseline.json`）：
+`pytest_total=3114`、`pytest_passed=3106`（= 3114 − 8 skipped）、
+`untracked_excluded=11`，自洽 `3106 + 8 = 3114`。
+
+⚠ **没有用 `-UpdateBaseline`** —— 那一跑是 11/12（红），而 `-UpdateBaseline`
+**在红的跑里照样写基线**（正是本文 §三 #A「口子 A」登记的缺陷）。
+改成按门禁自己的口径脚本算值、手写进基线，并在提交说明里写清算法与来源。
