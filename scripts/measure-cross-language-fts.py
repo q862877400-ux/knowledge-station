@@ -45,7 +45,15 @@ import sys
 import time
 from pathlib import Path
 
-from _measure_common import chunk_text
+# ⚠ 让 `_measure_common` 能被导入：**必须把本文件所在的 scripts/ 放进搜索路径**。
+#   只在 cwd=仓根、以 `python scripts/xxx.py` 方式跑时才能直接 import；
+#   而 `tests/test_classical_segmentation_ruler.py` 是用 `spec_from_file_location`
+#   **按文件路径**加载本脚本的 —— 那时 cwd 与 sys.path 都不是 scripts/，
+#   直接 import 会 ModuleNotFoundError（2026-10-23 被门禁的 pytest 步当场抓到）。
+#   全仓另 10 个脚本用同样的写法处理 `src`，这里照抄同一模式。
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _measure_common import chunk_text  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
