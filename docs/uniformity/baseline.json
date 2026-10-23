@@ -1,0 +1,54 @@
+{
+  "ceilings": {
+    "ruff_total": 1053,
+    "missing_module_docstrings": 2,
+    "duplicate_filenames": 0,
+    "ast_dupe_groups": 13
+  },
+  "info_only": {
+    "pyscn_clone_groups": 132,
+    "measure_only_ruff_total": 452,
+    "measure_only_ast_dupe_groups": 32
+  },
+  "ruff_by_code": {
+    "E501_散文行_88到120_已豁免": 4621,
+    "N802_已豁免": 492,
+    "E501_代码行": 412,
+    "I001": 254,
+    "F401": 106,
+    "E501_散文行_超120": 64,
+    "N806": 56,
+    "E702": 34,
+    "F841": 25,
+    "E741": 18,
+    "E701": 15,
+    "F811": 15,
+    "F541": 14,
+    "E402": 14,
+    "N812": 8,
+    "N818": 6,
+    "N801": 4,
+    "E401": 3,
+    "N803": 2,
+    "N815": 1,
+    "F821": 1,
+    "E714": 1
+  },
+  "scope_note": "扫描面 = src/tests/scripts（本仓自己的代码）。tools/gov-qa 是另一条线的活跃工作，只测量不判红。",
+  "_下调记录": [
+    {
+      "at": "2026-10-23",
+      "key": "ruff_total",
+      "from": 6166,
+      "to": 1054,
+      "why": "本轮实测降低（见 docs/uniformity/report.md）"
+    },
+    {
+      "at": "2026-10-23",
+      "key": "ruff_total",
+      "from": 1054,
+      "to": 1053,
+      "why": "本轮实测降低（见 docs/uniformity/report.md）"
+    }
+  ]
+}

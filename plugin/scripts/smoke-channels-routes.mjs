@@ -64,10 +64,17 @@ const disposers = registerKsChannelsRoutes(ctx, manager)
 
 /* ----------------------------- 假 req / res ----------------------------- */
 function makeRes() {
-  const out = { status: null, body: null, headers: null }
+  // ⚠ `writes` 记**响应写了多少次**（2026-10-23 加）：`channels.js` 那次真 bug 的形态是
+  //   「400 已写、又往引擎转发一次、再写一次」⇒ 看最后一次写什么抓不到它，必须看次数。
+  //   真 Node 里第二次写会抛 `ERR_HTTP_HEADERS_SENT`，这个桩不抛，所以只能靠计数。
+  const out = { status: null, body: null, headers: null, writes: 0 }
   return {
     out,
-    writeHead(status, headers) { out.status = status; out.headers = headers ?? null },
+    writeHead(status, headers) {
+      out.writes += 1
+      out.status = status
+      out.headers = headers ?? null
+    },
     end(text) { try { out.body = JSON.parse(text) } catch { out.body = text } },
   }
 }
@@ -106,6 +113,32 @@ async function invoke(path, { method = 'GET', body = undefined, search = '' } = 
   })
   await p
   return { status: res.out.status, body: res.out.body }
+}
+
+/** 发**原始字节**（不是 JSON.stringify 过的对象）。
+ *
+ *  为什么必须有它（2026-10-23）：`invoke` 只会把对象序列化成**合法** JSON，
+ *  于是 `readBodyOr400` 的两个失败分支（非法 JSON / 非对象）**一条都发不进来**
+ *  ⇒ `channels.js` 里 `if (raw === undefined) return` 那个恒假判据能活到线上。
+ *  这个入口专门用来打失败分支，并且把 `writeHead` 的**次数**也记下来
+ *  （双重响应是本仓那次真 bug 的形态，只看最后一次写什么会漏掉它）。
+ */
+async function invokeRaw(path, { method = 'GET', rawBody = '', search = '' } = {}) {
+  const def = resolveRoute(path)
+  if (def === undefined) throw new Error(`路由未注册: ${path}`)
+  const { EventEmitter } = await import('node:events')
+  const req = new EventEmitter()
+  req.method = method
+  req.url = `${path}${search}`
+  req.destroy = () => {}
+  const res = makeRes()
+  const p = def.handler(req, res)
+  setImmediate(() => {
+    req.emit('data', Buffer.from(rawBody, 'utf8'))
+    req.emit('end')
+  })
+  await p
+  return { status: res.out.status, body: res.out.body, writes: res.out.writes }
 }
 const lastEngine = () => seen[seen.length - 1]
 
@@ -239,6 +272,40 @@ check('单条维护前缀不许带尾斜杠（带了 ⇒ 真派发器下 /{id} �
     decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/test'
     && lastEngine().method === 'POST' && tcRun.body.data.result === 'ok',
     `${lastEngine().path} ${JSON.stringify(tcRun.body)}`)
+
+  /* ── 非法 body 打三个写口：**不许**继续往引擎转发（2026-10-23 修的真 bug）──
+   *
+   * 病灶：`readBodyOr400` 的两个失败分支都 `return null`，它**永远不会**返回 `undefined`；
+   * 而 `POST …/test-case` 那处原写 `if (raw === undefined) return` ⇒ 判据**恒假** ⇒
+   * 400 已经写出去了，却继续 `proxyWrite(..., null)` 写第二次 ⇒ **双重响应**
+   * （真 Node 里 `ERR_HTTP_HEADERS_SENT`；这个桩不抛，所以只能靠 `writes` 计数抓）。
+   *
+   * ⚠ 断言必须**同时**覆盖三件事，缺一件都抓不到它：
+   *   ① 状态 400 —— 说明 `readBodyOr400` 真的拒了；
+   *   ② `seen.length === 0` —— 引擎**一次都没被调**，这才是 bug 的现场；
+   *   ③ `writes === 1` —— 响应只写了一次，直接钉住"双重响应"这个形态。
+   *   只断言 ① 会让 bug 活着通过（400 本来就是 `readBodyOr400` 写的，
+   *   `res.out` 里看到的仍是首个 400）。
+   *
+   * 三个写口各钉一遍：同一个文件里 PATCH 与 enabled 判的是 `null`（对的），
+   * 只有 test-case 判 `undefined`（错的）—— 三条钉在一起，防止将来有人"统一"成 `undefined`。
+   */
+  for (const [label, path, method, rawBody] of [
+    ['test-case（原病灶）', `${KS_CHANNELS_ITEM_PREFIX}/ch:a/test-case`, 'POST', '{ 这不是 JSON'],
+    ['PATCH {id}', `${KS_CHANNELS_ITEM_PREFIX}/ch:a`, 'PATCH', '{ 这不是 JSON'],
+    ['POST {id}/enabled', `${KS_CHANNELS_ITEM_PREFIX}/ch:a/enabled`, 'POST', '{ 这不是 JSON'],
+    ['test-case + 数组 body', `${KS_CHANNELS_ITEM_PREFIX}/ch:a/test-case`, 'POST', '[1,2,3]'],
+    ['test-case + 标量 body', `${KS_CHANNELS_ITEM_PREFIX}/ch:a/test-case`, 'POST', '42'],
+  ]) {
+    seen.length = 0
+    responder = () => ({ body: { code: 200, data: { result: 'ok' } } })
+    const bad = await invokeRaw(path, { method, rawBody })
+    check(`非法 body 打 ${label}：回 400、引擎零调用、响应只写一次`,
+      bad.status === 400 && bad.body.error.code === 'bad_request'
+      && seen.length === 0 && bad.writes === 1,
+      `status=${bad.status} engineCalls=${seen.length} writes=${bad.writes} `
+      + `body=${JSON.stringify(bad.body)}`)
+  }
 }
 
 /* --------------------------- 3. query 白名单 --------------------------- */

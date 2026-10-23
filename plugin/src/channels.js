@@ -292,7 +292,13 @@ function registerChannelsWriteRoutes(ctx, manager) {
         // 跑测试（POST）。`{id}/test` 与 `{id}/test-case` 都是两段路径，走同一 prefix。
         if (parts.length === 2 && parts[1] === 'test-case' && req.method === 'POST') {
           const raw = await readBodyOr400(req, res)
-          if (raw === undefined) return
+          // ⚠ 判 `null` 而不是 `undefined`：`readBodyOr400` 的两个失败分支都 `return null`，
+          //   它**永远不会**返回 `undefined`。这里原写 `raw === undefined` ⇒ 判据恒假 ⇒
+          //   非法 JSON 时 400 已写、却继续 `proxyWrite` ⇒ **双重响应**
+          //   （Node 侧 `ERR_HTTP_HEADERS_SENT`，或响应被静默吞掉）。
+          //   同一个文件里 PATCH（判 `null`）与 enabled（判 `null`）都是对的，只有这一处写错。
+          //   `smoke-channels-routes.mjs` 只覆盖了合法 body 的转发，这条分支此前零覆盖。
+          if (raw === null) return
           await proxyWrite(res, manager, 'POST', `${engineId}/test-case`, raw)
           return
         }

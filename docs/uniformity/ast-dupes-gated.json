@@ -1,0 +1,219 @@
+{
+  "groups": 13,
+  "hits": 31,
+  "min_stmts": 4,
+  "detail": {
+    "991db9f79b781cc2": [
+      {
+        "file": "src\\core\\exports\\effect_report.py",
+        "name": "_xlsx_header_style",
+        "line": 325,
+        "stmts": 6
+      },
+      {
+        "file": "src\\core\\update\\announce.py",
+        "name": "_xlsx_header_style",
+        "line": 766,
+        "stmts": 6
+      },
+      {
+        "file": "src\\core\\update\\report.py",
+        "name": "_xlsx_header_style",
+        "line": 145,
+        "stmts": 6
+      }
+    ],
+    "dc43e4b07728d24c": [
+      {
+        "file": "src\\core\\storage\\backup.py",
+        "name": "_checksum",
+        "line": 43,
+        "stmts": 5
+      },
+      {
+        "file": "src\\core\\update\\data_package.py",
+        "name": "_file_sha256",
+        "line": 97,
+        "stmts": 5
+      }
+    ],
+    "bbe2efd50c8020f5": [
+      {
+        "file": "src\\core\\update\\channels\\mem_gov.py",
+        "name": "_fetch_text",
+        "line": 103,
+        "stmts": 5
+      },
+      {
+        "file": "src\\core\\update\\channels\\mohurd.py",
+        "name": "_fetch_text",
+        "line": 82,
+        "stmts": 5
+      }
+    ],
+    "8bf44b2441d40679": [
+      {
+        "file": "tests\\test_api_config.py",
+        "name": "fake_reg",
+        "line": 53,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "fake_reg",
+        "line": 76,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "fake_reg",
+        "line": 133,
+        "stmts": 4
+      }
+    ],
+    "1e6cacbf7b00fc74": [
+      {
+        "file": "tests\\test_api_config.py",
+        "name": "store_dir",
+        "line": 64,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "store_dir",
+        "line": 84,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "store_dir",
+        "line": 142,
+        "stmts": 4
+      }
+    ],
+    "86fcdaed6775c134": [
+      {
+        "file": "tests\\test_batch7_security_hardening.py",
+        "name": "data_dir",
+        "line": 23,
+        "stmts": 5
+      },
+      {
+        "file": "tests\\test_secret_store.py",
+        "name": "data_dir",
+        "line": 23,
+        "stmts": 5
+      }
+    ],
+    "ba61e62220597211": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "_write_pdf",
+        "line": 802,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "_write_pdf",
+        "line": 101,
+        "stmts": 6
+      }
+    ],
+    "f2a85b71a2b73a38": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "synthetic_parser",
+        "line": 812,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "synthetic_parser",
+        "line": 112,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_reingest_keeps_filing.py",
+        "name": "synthetic_parser",
+        "line": 100,
+        "stmts": 6
+      }
+    ],
+    "54b3565b16fa8995": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "_install",
+        "line": 814,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "_install",
+        "line": 120,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_reingest_keeps_filing.py",
+        "name": "_install",
+        "line": 102,
+        "stmts": 4
+      }
+    ],
+    "1d707b0c9c755dc2": [
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "QueryValueEx",
+        "line": 62,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "QueryValueEx",
+        "line": 119,
+        "stmts": 4
+      }
+    ],
+    "d7efecb252da7de0": [
+      {
+        "file": "tests\\test_fused_rewrite_ruler.py",
+        "name": "_load",
+        "line": 47,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_pool_depth_ruler.py",
+        "name": "_load",
+        "line": 56,
+        "stmts": 6
+      }
+    ],
+    "b58b8acb9542998c": [
+      {
+        "file": "scripts\\measure-classical-chinese-segmentation.py",
+        "name": "chunk_text",
+        "line": 82,
+        "stmts": 12
+      },
+      {
+        "file": "scripts\\measure-cross-language-fts.py",
+        "name": "chunk_text",
+        "line": 80,
+        "stmts": 12
+      }
+    ],
+    "03d3dffd03939d3f": [
+      {
+        "file": "scripts\\normalize-standard-no-slash.py",
+        "name": "_db_stat",
+        "line": 60,
+        "stmts": 7
+      },
+      {
+        "file": "scripts\\repair-missing-standard-no.py",
+        "name": "_db_stat",
+        "line": 55,
+        "stmts": 7
+      }
+    ]
+  }
+}

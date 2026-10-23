@@ -13,6 +13,9 @@
 > 想知道**项目目标与现状**，看 [wiki/architecture.md](wiki/architecture.md)。
 > 想知道**历史在哪**，看 [archive/README.md](archive/README.md)。
 > 想知道**某个功能由哪块代码负责**，看 [wiki/components/](wiki/components/)。
+> **完全没有记忆、要从零接手**，看 [uniformity/README.md](uniformity/README.md)
+> —— 2026-10-23 全仓摸底：项目是什么 / 怎么跑 / 每个子系统干什么 / 已坏的地方（带现场）
+> / 重复实现清单 / 门禁真实边界 / **明确未做的清单**。那一份自包含，不依赖别处。
 
 ---
 

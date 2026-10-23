@@ -1,0 +1,1345 @@
+{
+  "groups": 45,
+  "hits": 208,
+  "min_stmts": 4,
+  "detail": {
+    "991db9f79b781cc2": [
+      {
+        "file": "src\\core\\exports\\effect_report.py",
+        "name": "_xlsx_header_style",
+        "line": 325,
+        "stmts": 6
+      },
+      {
+        "file": "src\\core\\update\\announce.py",
+        "name": "_xlsx_header_style",
+        "line": 766,
+        "stmts": 6
+      },
+      {
+        "file": "src\\core\\update\\report.py",
+        "name": "_xlsx_header_style",
+        "line": 145,
+        "stmts": 6
+      }
+    ],
+    "dc43e4b07728d24c": [
+      {
+        "file": "src\\core\\storage\\backup.py",
+        "name": "_checksum",
+        "line": 43,
+        "stmts": 5
+      },
+      {
+        "file": "src\\core\\update\\data_package.py",
+        "name": "_file_sha256",
+        "line": 97,
+        "stmts": 5
+      }
+    ],
+    "bbe2efd50c8020f5": [
+      {
+        "file": "src\\core\\update\\channels\\mem_gov.py",
+        "name": "_fetch_text",
+        "line": 103,
+        "stmts": 5
+      },
+      {
+        "file": "src\\core\\update\\channels\\mohurd.py",
+        "name": "_fetch_text",
+        "line": 82,
+        "stmts": 5
+      }
+    ],
+    "8bf44b2441d40679": [
+      {
+        "file": "tests\\test_api_config.py",
+        "name": "fake_reg",
+        "line": 53,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "fake_reg",
+        "line": 76,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "fake_reg",
+        "line": 133,
+        "stmts": 4
+      }
+    ],
+    "1e6cacbf7b00fc74": [
+      {
+        "file": "tests\\test_api_config.py",
+        "name": "store_dir",
+        "line": 64,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "store_dir",
+        "line": 84,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "store_dir",
+        "line": 142,
+        "stmts": 4
+      }
+    ],
+    "86fcdaed6775c134": [
+      {
+        "file": "tests\\test_batch7_security_hardening.py",
+        "name": "data_dir",
+        "line": 23,
+        "stmts": 5
+      },
+      {
+        "file": "tests\\test_secret_store.py",
+        "name": "data_dir",
+        "line": 23,
+        "stmts": 5
+      }
+    ],
+    "ba61e62220597211": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "_write_pdf",
+        "line": 802,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "_write_pdf",
+        "line": 101,
+        "stmts": 6
+      }
+    ],
+    "f2a85b71a2b73a38": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "synthetic_parser",
+        "line": 812,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "synthetic_parser",
+        "line": 112,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_reingest_keeps_filing.py",
+        "name": "synthetic_parser",
+        "line": 100,
+        "stmts": 6
+      }
+    ],
+    "54b3565b16fa8995": [
+      {
+        "file": "tests\\test_ccs_chain.py",
+        "name": "_install",
+        "line": 814,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_filing_state_pipeline.py",
+        "name": "_install",
+        "line": 120,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_reingest_keeps_filing.py",
+        "name": "_install",
+        "line": 102,
+        "stmts": 4
+      }
+    ],
+    "1d707b0c9c755dc2": [
+      {
+        "file": "tests\\test_credentials_migrate_script.py",
+        "name": "QueryValueEx",
+        "line": 62,
+        "stmts": 4
+      },
+      {
+        "file": "tests\\test_credentials_namespace.py",
+        "name": "QueryValueEx",
+        "line": 119,
+        "stmts": 4
+      }
+    ],
+    "d7efecb252da7de0": [
+      {
+        "file": "tests\\test_fused_rewrite_ruler.py",
+        "name": "_load",
+        "line": 47,
+        "stmts": 6
+      },
+      {
+        "file": "tests\\test_pool_depth_ruler.py",
+        "name": "_load",
+        "line": 56,
+        "stmts": 6
+      }
+    ],
+    "b58b8acb9542998c": [
+      {
+        "file": "scripts\\measure-classical-chinese-segmentation.py",
+        "name": "chunk_text",
+        "line": 82,
+        "stmts": 12
+      },
+      {
+        "file": "scripts\\measure-cross-language-fts.py",
+        "name": "chunk_text",
+        "line": 80,
+        "stmts": 12
+      }
+    ],
+    "03d3dffd03939d3f": [
+      {
+        "file": "scripts\\normalize-standard-no-slash.py",
+        "name": "_db_stat",
+        "line": 60,
+        "stmts": 7
+      },
+      {
+        "file": "scripts\\repair-missing-standard-no.py",
+        "name": "_db_stat",
+        "line": 55,
+        "stmts": 7
+      }
+    ],
+    "138ff03e9aecc9a8": [
+      {
+        "file": "tools\\gov-qa\\common.py",
+        "name": "safe_print",
+        "line": 57,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\audit-coverage.py",
+        "name": "safe_print",
+        "line": 41,
+        "stmts": 8
+      }
+    ],
+    "402b58b8335cf0d3": [
+      {
+        "file": "tools\\gov-qa\\measure-locate-rate.py",
+        "name": "load_lib",
+        "line": 69,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\check-locate-rate-caliber.py",
+        "name": "load_lib",
+        "line": 39,
+        "stmts": 7
+      }
+    ],
+    "ba5b9777dc68c597": [
+      {
+        "file": "tools\\gov-qa\\adapters\\ay_zmhd.py",
+        "name": "_clean",
+        "line": 71,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\jz_zxhf.py",
+        "name": "_clean",
+        "line": 60,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\zk_zxsq.py",
+        "name": "_clean",
+        "line": 73,
+        "stmts": 9
+      }
+    ],
+    "ca4e3e3464633f88": [
+      {
+        "file": "tools\\gov-qa\\adapters\\_igi_multi.py",
+        "name": "strip_constant_geo",
+        "line": 32,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\baoji_igi.py",
+        "name": "postprocess",
+        "line": 57,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\baotou_igi.py",
+        "name": "postprocess",
+        "line": 46,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\changzhi_igi.py",
+        "name": "postprocess",
+        "line": 45,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\chifeng_igi.py",
+        "name": "postprocess",
+        "line": 55,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\danzhou_igi.py",
+        "name": "postprocess",
+        "line": 52,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\gz_igi.py",
+        "name": "postprocess",
+        "line": 57,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\jingzhou_igi.py",
+        "name": "postprocess",
+        "line": 47,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nmg_igi.py",
+        "name": "postprocess",
+        "line": 58,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\shenyang_igi.py",
+        "name": "postprocess",
+        "line": 55,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\tongliao_igi.py",
+        "name": "postprocess",
+        "line": 48,
+        "stmts": 14
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\xianyang_igi.py",
+        "name": "postprocess",
+        "line": 52,
+        "stmts": 14
+      }
+    ],
+    "42c4e6cf9ec08e49": [
+      {
+        "file": "tools\\gov-qa\\adapters\\baoji_igi.py",
+        "name": "harvest",
+        "line": 82,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\baotou_igi.py",
+        "name": "harvest",
+        "line": 72,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\changzhi_igi.py",
+        "name": "harvest",
+        "line": 67,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\chifeng_igi.py",
+        "name": "harvest",
+        "line": 80,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\danzhou_igi.py",
+        "name": "harvest",
+        "line": 78,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\jingzhou_igi.py",
+        "name": "harvest",
+        "line": 69,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nanjing_igi.py",
+        "name": "harvest",
+        "line": 83,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\shenyang_igi.py",
+        "name": "harvest",
+        "line": 81,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\tongliao_igi.py",
+        "name": "harvest",
+        "line": 70,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\xianyang_igi.py",
+        "name": "harvest",
+        "line": 77,
+        "stmts": 12
+      }
+    ],
+    "414da0c3a0d265d1": [
+      {
+        "file": "tools\\gov-qa\\adapters\\bb_hdjl.py",
+        "name": "_clean",
+        "line": 142,
+        "stmts": 10
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\wh_hdjl.py",
+        "name": "_clean",
+        "line": 161,
+        "stmts": 10
+      }
+    ],
+    "11df24d0a03c2254": [
+      {
+        "file": "tools\\gov-qa\\adapters\\bz_hdjl.py",
+        "name": "_clean",
+        "line": 71,
+        "stmts": 11
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\cz_hdjl.py",
+        "name": "_clean",
+        "line": 68,
+        "stmts": 11
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\tl_hdjl.py",
+        "name": "_clean",
+        "line": 91,
+        "stmts": 11
+      }
+    ],
+    "8c7bc363819dcd89": [
+      {
+        "file": "tools\\gov-qa\\adapters\\bz_hdjl.py",
+        "name": "_parse_total",
+        "line": 106,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\cz_hdjl.py",
+        "name": "_parse_total",
+        "line": 105,
+        "stmts": 9
+      }
+    ],
+    "17109da4dbd176f6": [
+      {
+        "file": "tools\\gov-qa\\adapters\\_gd_hdjlpt_common.py",
+        "name": "existing_ids",
+        "line": 54,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\gd_huizhou.py",
+        "name": "existing_ids",
+        "line": 84,
+        "stmts": 9
+      }
+    ],
+    "6df854565d8906ad": [
+      {
+        "file": "tools\\gov-qa\\adapters\\gz_portal.py",
+        "name": "harvest",
+        "line": 43,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\hb_hdjl.py",
+        "name": "harvest",
+        "line": 53,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\hb_wuhan.py",
+        "name": "harvest",
+        "line": 44,
+        "stmts": 12
+      }
+    ],
+    "d055bc1d808b84e0": [
+      {
+        "file": "tools\\gov-qa\\adapters\\hb_rst_igi.py",
+        "name": "harvest",
+        "line": 67,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\hb_wjw.py",
+        "name": "harvest",
+        "line": 67,
+        "stmts": 9
+      }
+    ],
+    "4c6c1ae456efdede": [
+      {
+        "file": "tools\\gov-qa\\adapters\\jiujiang_igi.py",
+        "name": "harvest",
+        "line": 49,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nanning_igi.py",
+        "name": "harvest",
+        "line": 51,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\shannan_igi.py",
+        "name": "harvest",
+        "line": 50,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\xining_igi.py",
+        "name": "harvest",
+        "line": 57,
+        "stmts": 12
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\zhangye_igi.py",
+        "name": "harvest",
+        "line": 54,
+        "stmts": 12
+      }
+    ],
+    "8f9a5ad8091665cd": [
+      {
+        "file": "tools\\gov-qa\\adapters\\nat_cnipa.py",
+        "name": "_text",
+        "line": 110,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nat_mohurd.py",
+        "name": "_text",
+        "line": 68,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nat_mot.py",
+        "name": "_text",
+        "line": 86,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\nat_tax.py",
+        "name": "_text",
+        "line": 75,
+        "stmts": 6
+      }
+    ],
+    "e4b54a6800ccc221": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_aba.py",
+        "name": "_clean",
+        "line": 46,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_ganzi.py",
+        "name": "_clean",
+        "line": 42,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_guangan.py",
+        "name": "_clean",
+        "line": 48,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_mianyang.py",
+        "name": "_clean",
+        "line": 74,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_neijiang.py",
+        "name": "_clean",
+        "line": 73,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_suining.py",
+        "name": "_clean",
+        "line": 44,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_zigong.py",
+        "name": "_clean",
+        "line": 51,
+        "stmts": 7
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_ziyang.py",
+        "name": "_clean",
+        "line": 51,
+        "stmts": 7
+      }
+    ],
+    "fda3412f8bb59861": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_bazhong.py",
+        "name": "_clean",
+        "line": 53,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_guangyuan.py",
+        "name": "_clean",
+        "line": 54,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_meishan.py",
+        "name": "_clean",
+        "line": 73,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_yaan.py",
+        "name": "_clean",
+        "line": 76,
+        "stmts": 8
+      }
+    ],
+    "bb1430732bb0b924": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_guangan.py",
+        "name": "_dept",
+        "line": 58,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_ziyang.py",
+        "name": "_dept",
+        "line": 61,
+        "stmts": 6
+      }
+    ],
+    "e8fe530e0b113f80": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_leshan.py",
+        "name": "_clean",
+        "line": 44,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_liangshan.py",
+        "name": "_clean",
+        "line": 46,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_yibin.py",
+        "name": "_clean",
+        "line": 45,
+        "stmts": 8
+      }
+    ],
+    "23322929d946fb9d": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_mianyang.py",
+        "name": "_enc",
+        "line": 54,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_neijiang.py",
+        "name": "_enc",
+        "line": 53,
+        "stmts": 4
+      }
+    ],
+    "2ab5423447820e11": [
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_mianyang.py",
+        "name": "_sign",
+        "line": 61,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\sc_neijiang.py",
+        "name": "_sign",
+        "line": 60,
+        "stmts": 8
+      }
+    ],
+    "92bb715e42e6129b": [
+      {
+        "file": "tools\\gov-qa\\adapters\\_igi_common.py",
+        "name": "existing_ids",
+        "line": 38,
+        "stmts": 9
+      },
+      {
+        "file": "tools\\gov-qa\\adapters\\_zj_mhww_common.py",
+        "name": "existing_ids",
+        "line": 43,
+        "stmts": 9
+      }
+    ],
+    "766339e618333c28": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-hunt.py",
+        "name": "links",
+        "line": 42,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\sd-city-hunt.py",
+        "name": "links",
+        "line": 35,
+        "stmts": 8
+      }
+    ],
+    "dc3bd942e8af8f47": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe13.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe14.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe15.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe16.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe17.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe18.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe19.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe20.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe21.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe22.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe23.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe24.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe25.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe26.py",
+        "name": "w",
+        "line": 14,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe27.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe28.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-js-probe29.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe1.py",
+        "name": "w",
+        "line": 25,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe10.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe11.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe12.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe13.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe14.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe15.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe16.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe17.py",
+        "name": "w",
+        "line": 32,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe18.py",
+        "name": "w",
+        "line": 56,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe19.py",
+        "name": "w",
+        "line": 32,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe2.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe20.py",
+        "name": "w",
+        "line": 33,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe21.py",
+        "name": "w",
+        "line": 33,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe22.py",
+        "name": "w",
+        "line": 15,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe23.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe24.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe25.py",
+        "name": "w",
+        "line": 14,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe26.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe27.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe28.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe29.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe3.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe30.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe31.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe32.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe33.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe34.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe35.py",
+        "name": "w",
+        "line": 14,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe36.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe37.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe38.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe39.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe4.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe40.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe41.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe42.py",
+        "name": "w",
+        "line": 15,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe43.py",
+        "name": "w",
+        "line": 15,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe44.py",
+        "name": "w",
+        "line": 16,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe45.py",
+        "name": "w",
+        "line": 24,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe5.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe6.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe7.py",
+        "name": "w",
+        "line": 13,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe8.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe9.py",
+        "name": "w",
+        "line": 12,
+        "stmts": 4
+      }
+    ],
+    "6ec49a44f076562c": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe10.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe11.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe12.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe13.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe4.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe5.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe6.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe7.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe8.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe9.py",
+        "name": "get",
+        "line": 19,
+        "stmts": 6
+      }
+    ],
+    "1957b544c09f6824": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe26.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe28.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      }
+    ],
+    "c4b79a20c5bf68c4": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe27.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe29.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe30.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe31.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe32.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe33.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe34.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      }
+    ],
+    "baa2f88fdfea0bf1": [
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe36.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe37.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\city-sc-probe38.py",
+        "name": "get",
+        "line": 20,
+        "stmts": 5
+      }
+    ],
+    "dfc29ebfe8c4af3c": [
+      {
+        "file": "tools\\gov-qa\\recon\\igi-chunked-harvest.py",
+        "name": "load_done",
+        "line": 60,
+        "stmts": 8
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\igi-chunked.py",
+        "name": "_load_done",
+        "line": 276,
+        "stmts": 8
+      }
+    ],
+    "5d8b7d7307d13315": [
+      {
+        "file": "tools\\gov-qa\\recon\\igi-dig-2.py",
+        "name": "find_params",
+        "line": 35,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\igi-dig.py",
+        "name": "find_params",
+        "line": 45,
+        "stmts": 4
+      }
+    ],
+    "a70cb2fb4f86406a": [
+      {
+        "file": "tools\\gov-qa\\recon\\jx-dept-probe.py",
+        "name": "load_depts",
+        "line": 37,
+        "stmts": 5
+      },
+      {
+        "file": "tools\\gov-qa\\recon\\jx-mailbox-probe.py",
+        "name": "load_depts",
+        "line": 46,
+        "stmts": 5
+      }
+    ],
+    "8ad221e2127c7c29": [
+      {
+        "file": "tools\\gov-qa\\recon\\verify-idempotent.py",
+        "name": "__enter__",
+        "line": 60,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_poll.py",
+        "name": "__enter__",
+        "line": 88,
+        "stmts": 4
+      }
+    ],
+    "e1a97e01c50de4bd": [
+      {
+        "file": "tools\\gov-qa\\tests\\test_ay_zmhd.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 41,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_bz_hdjl.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 115,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_cz_hdjl.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 109,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_kf_hdjl.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 65,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_sq_szxx.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 98,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_tl_hdjl.py",
+        "name": "test_real_treats_literal_null_as_absent",
+        "line": 91,
+        "stmts": 4
+      }
+    ],
+    "c7f48eaa13c869ca": [
+      {
+        "file": "tools\\gov-qa\\tests\\test_bz_hdjl.py",
+        "name": "test_clean_strips_comments_and_keeps_brackets",
+        "line": 108,
+        "stmts": 4
+      },
+      {
+        "file": "tools\\gov-qa\\tests\\test_cz_hdjl.py",
+        "name": "test_clean_strips_comments_and_keeps_brackets",
+        "line": 102,
+        "stmts": 4
+      }
+    ]
+  }
+}

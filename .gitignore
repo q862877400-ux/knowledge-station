@@ -42,6 +42,13 @@ _rescue/
 
 # 子代理/临时探针的草稿（勿入库；磁盘上保留）
 .tmp-*
+# `.tmp/`（带点的目录，无后缀）—— **2026-10-23 实测漏了一条**：
+# 上面那条 `.tmp-*` 只匹配 `.tmp-xxx` 这种**带后缀**的名字，`.tmp/` 本身不匹配
+# （`git check-ignore -v .tmp/calibrate.py` 返回 1 = 没被忽略）。
+# 后果实测：我在 `.tmp/` 里放了一个临时探针脚本，`tests/test_credentials_namespace.py`
+# 那条**全仓源码扫描**把它扫了进去、当场判红（`源码里仍有系统层写入: .tmp/calibrate.py:104`）。
+# ⇒ 临时目录必须显式忽略，否则它既会污染全仓扫描，也会在 `git add -A` 时被带进库。
+.tmp/
 
 # 记忆入库的续跑状态（机器态，可由 scripts/ingest-dsh-docs-into-memory.mjs 重跑重建；
 # 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
