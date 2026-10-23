@@ -17,7 +17,7 @@
 >
 > | 顺序 | 读什么 | 读完能回答 |
 > |---|---|---|
-> | **第 1 步** | [uniformity/README.md](uniformity/README.md) | **怎么从零跑起来** / 项目是什么 / 每块代码干什么 / 哪里已经坏了（带现场）/ 哪些还没验证 |
+> | **第 1 步** | [uniformity/START-HERE.md](uniformity/START-HERE.md) → [uniformity/README.md](uniformity/README.md) | **怎么从零跑起来**（228 行，先读）/ 再按需查证据层（772 行） |
 > | **第 2 步** | [wiki/architecture.md](wiki/architecture.md) | 项目**目标**、当前规模、主要部件一览、已知缺陷（**比 uniformity 精简**，是长期维护的那份） |
 > | **第 3 步** | [wiki/components/](wiki/components/) | 要改的那个子系统，**文件级**的职责/接口/依赖/不做什么 |
 >
@@ -33,10 +33,13 @@
 
 | 位置 | 是什么 | 受版本控制 |
 |---|---|---|
-| `src/core/` | **Python 引擎**，19 个子系统：`api`（HTTP 端点）/ `ingestion`（解析入库）/ `knowledge`（法规知识）/ `retrieval`（检索）/ `storage`（sqlite 存取）/ `update`（渠道巡检）/ `materials`（材料平面）/ `llm` / `exports` / `quality` / `verification` / `settings` / `compliance` / `domain` / `vision` / `query` / `law_source` / `update/channels` | ✅ |
-| `plugin/` | **DSH 插件**（Node）：宿主桥 + 侧栏 React 界面 + 对 agent 暴露的 4 个工具 | ✅ |
+| `src/core/` | **Python 引擎**，**16 个子系统**（+10 个根文件；2026-10-23 实测）：`api`（HTTP 端点）/ `ingestion`（解析入库）/ `knowledge`（法规知识）/ `retrieval`（检索）/ `storage`（sqlite 存取）/ `update`（渠道巡检）/ `materials`（材料平面）/ `llm` / `exports` / `quality` / `verification` / `settings` / `compliance` / `domain` / `vision` / `query` | ✅ |
+> ⚠ 旧文写「19 个子系统」，把 `knowledge/law_source/` 与 `update/channels/` 这两个**子目录**
+> 也算成了子系统。按目录口径是 **16 个一级子系统**（合计 155 py / 45,439 行）。
+> 数字以 [`wiki/architecture.md`](wiki/architecture.md) §二 为准。 |
+| `plugin/` | **DSH 插件**（Node）：宿主桥 + 侧栏 React 界面 + 对 agent 暴露的 **6 个工具**（旧文写 4 个，漏了 `ks_materials` 与 `ks_collect`） | ✅ |
 | **`tools/`** | **独立工具与数据集**（**仓里最大的组件**）。目前只有一族：**`tools/gov-qa/`** —— 政务问答采集（347 通道 / 40,943 条 / **已进本仓门禁**）。**它是另一条线**，入口见 [`tools/gov-qa/README.md`](../tools/gov-qa/README.md)；**可复用资产清单见** [`REUSE-FOR-ANNOUNCEMENTS.md`](../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md) | ✅（数据 634 MB 亦在版本控制） |
-| `tests/` | pytest 测试（约 163 个文件）；`tests/fixtures/` 放夹具 | ✅ |
+| `tests/` | pytest 测试（**181 个 py / 3,076 条用例**，2026-10-23 实测；旧文「约 163 个文件」已过期）；`tests/fixtures/` 放夹具 | ✅ |
 | `scripts/` | 工具脚本：门禁 `run-gates.ps1`、快照 `snapshot-project.ps1`、文档工具 `docs/` | ✅ |
 
 > **⚠ 关于 `tools/`（2026-10-10 补）**：它是**仓里最大的组件**（924 MB / 3,456 文件），
@@ -57,7 +60,7 @@
 | `docs/wiki/` | **接手文档**：项目现状 `architecture.md` + 每套组件的职责/接口/依赖/非目标 | ✅ |
 | `docs/archive/` | **历史**：旧计划 / 过期基线 / 调研过程 / 已完成复核 / **旧交接**。**索引见它自己的 README**（2026-10-11 扩容：又收了 16 份「已被取代」的） | ✅ |
 | **`docs/ENCYCLOPEDIA.md`** | **技术百科全书**（架构 / 数据契约 / 检索 / 入库 / 坑全集 / 红线宪法）——**要查具体技术事实时的唯一权威**。⚠ **不是入口**（2026-10-10 更正：原先标「接手先读这一份」，与 `wiki/architecture.md` 重叠；现入口是 wiki，本文件降为"查事实"） | ✅ |
-| **`docs/HANDOVER-2026-10-09.md`** | **最新交接文档**——接手主体项目先读这一份（项目是什么 / 现在在哪 / 下一步 / 禁碰边界 / 自动链说明） | ✅ |
+| **`docs/HANDOVER-2026-10-09.md`** | **2026-10-09 的交接快照**（项目是什么 / 当时在哪 / 下一步 / 禁碰边界 / 自动链说明）。⚠ **不是入口**：它正文自写「下表是 2026-10-09 快照」，里面的数字会继续过期。入口顺序见本文件顶部定序表 | ✅ |
 | **`docs/PLAN-REAL-QUESTION-RULER.md`** | **用真人问答造新评测尺子的方案**（三层尺子：召回 / 大白话 / 答对；三个必须先处理的坑；待业主拍板三件）。⚠ **方案，不是施工单** | ✅ |
 | **`docs/GOVQA-UNWIRED-CHANNELS.md`** | **未接线渠道清单（273 条）**——给接线的对话用。**自包含**：什么叫「接线」/ 逐条清单 / 接线完成的判据 / 接线前必读 | ✅ |
 | **`docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md`** | **给外部高级 AI 的路线征询（自包含）**：一页纸背景 + 名词 + 系统流程 + 核验过的现状数字（每个数写口径）+ 已定事项 + 一个主问题、三个子问题 + 真实样本附录。**要请外部给下一步路线时，发这一份** | ✅ |
@@ -71,7 +74,7 @@
 | `specs/` | **Spec Kit 工作区**：规格 → 计划 → 任务。不是产品文档 | ✅ |
 | `eval/` | 评测语料与脚本（`eval/golden/` 是门禁三件最小集，**⚠ 勿删**） | ✅ |
 | **`tools/gov-qa/`** | **另一条线**（政务问答采集，**已进本仓门禁**）。**它的可复用资产清单** = [`REUSE-FOR-ANNOUNCEMENTS.md`](../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md)（中间件指纹 / 可达性矩阵 / 水位三型 / 纯 ASCII 接口 / 地级市→省映射）。**入口** = [`README.md`](../tools/gov-qa/README.md) | ✅ |
-| **`docs/verify-briefs/`** | **独立复核与取证报告**（17 份）。⚠ 其中两份是 **2026-10-10 从仓库临时件字节级搬进来的**（原件在 `.tmp-*`，会被清）——`VERIFY-REPORT-govqa-data-forensics.md` / `VERIFY-REPORT-spec004-operationalization.md` | ✅ |
+| **`docs/verify-briefs/`** | **独立复核与取证报告**（**21 份**，2026-10-23 实测；旧文 17 份已过期）。⚠ 其中两份是 **2026-10-10 从仓库临时件字节级搬进来的**（原件在 `.tmp-*`，会被清）——`VERIFY-REPORT-govqa-data-forensics.md` / `VERIFY-REPORT-spec004-operationalization.md` | ✅ |
 
 ### 1.3 工程配置
 

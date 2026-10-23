@@ -6,7 +6,8 @@
 ## 职责
 
 **把 sqlite 的读写包成仓储**，对上层屏蔽 SQL 细节；**持有并演进 `schema.sql`**
-（38 张表对象：35 实体 + 3 虚拟表 `clause_fts` / `clause_vec` / `material_fts`）。
+（**44 张表对象**：`schema.sql` 里 `CREATE TABLE` 44 条，其中 3 张虚拟表 `clause_fts` / `clause_vec` / `material_fts`。
+2026-10-23 实测；旧文「38 张」已过期。库内 `sqlite_master` 实际 62 张，差额是 FTS/vec 的影子表）。
 
 **它不负责**：数据从哪来（`ingestion` / `update`）、怎么检索（`retrieval`）、怎么用（`api`）。
 
@@ -45,7 +46,7 @@
 
 | 表/对象 | 说明 |
 |---|---|
-| `clause_revision` / `source_span` | 条款与其原文坐标（`source_span` 实测 1,589,271 行） |
+| `clause_revision` / `source_span` | 条款与其原文坐标（`source_span` 实测 **1,842,493** 行（2026-10-23；旧文 1,589,271 已过期）） |
 | `clause_fts` / `clause_vec` / `material_fts` | 3 张虚拟表（全文 / 向量 / 材料全文） |
 | `doc_meta` | 文档元数据；**`file_path` 指向磁盘上的证据 PDF**（见 `docs/README.md` §三） |
 | `update_channel` | 渠道台账（实测 131 行） |

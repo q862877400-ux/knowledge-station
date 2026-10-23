@@ -69,9 +69,9 @@ Python FastAPI 引擎（`src/core/`，入口 `python -m src.core.main`）+ Node 
 > 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：1708 passed + 3 skipped + 0 failed
+.venv/Scripts/python -m pytest tests -q     # pytest：3068 passed + 8 skipped + 0 failed（2026-10-23 实测；旧文 1708 已过期）
 .venv/Scripts/python -m mypy                # mypy：134 文件 0 错误（按 pyproject 配置）
-cd plugin && npm run smoke                  # 插件冒烟：19 段（含产物↔源码一致 + 锚点标记渲染级）
+cd plugin && npm run smoke                  # 插件冒烟：44 套（含产物↔源码一致 + 锚点标记渲染级；旧文 19 已过期）
 cd plugin && npm run verify:commands        # 命令回归：22/22
 npm run typecheck                           # tsc：0 错误（tsc --noEmit -p plugin/client）
 ```
@@ -132,9 +132,10 @@ npm run typecheck                           # tsc：0 错误（tsc --noEmit -p p
 
 - **每一样东西在哪、干什么** ⇒ [`docs/README.md`](docs/README.md)（**文件地图**）
 - **接手先读哪一份（按顺序）** ⇒
-  1. **[`docs/uniformity/README.md`](docs/uniformity/README.md)** —— 2026-10-23 全仓摸底。
-     **怎么从零跑起来** / 项目是什么 / 每块代码干什么 / 哪里已经坏了（带现场）/
-     重复实现清单 / 门禁真实边界 / **明确未做的清单**。自包含，不依赖别处。
+  1. **[`docs/uniformity/START-HERE.md`](docs/uniformity/START-HERE.md)** —— **先读这个**。
+     **怎么从零跑起来 + 这个仓的硬规矩**（约 228 行，新人第一份）。
+     证据层（哪里坏了、重复实现清单、门禁真实边界、明确未做）在
+     [`docs/uniformity/README.md`](docs/uniformity/README.md)（约 772 行，按需查）。
   2. **[`docs/wiki/architecture.md`](docs/wiki/architecture.md)** —— 项目目标 + 现状 +
      主要部件，一页。**长期维护的那份**（uniformity 是它的证据层）。
   3. **[`docs/wiki/components/`](docs/wiki/components/README.md)** —— 要改的那个子系统，
@@ -154,7 +155,10 @@ npm run typecheck                           # tsc：0 错误（tsc --noEmit -p p
 
 - API Key 只存引擎加密存储 `<data_dir>/secrets.json`（DPAPI）；环境变量只读覆盖；引擎绝不写注册表（凭据链权威表述见 ENCYCLOPEDIA §15）。
 - 每次云调用完整 payload 落库可审计（外发审计面板可查可导出）；OCR 出网带 went_on_the_wire 标记。
-- 数据/代码分离：运行产物全在 `%APPDATA%\KnowledgeStation\`（`KS_DATA_DIR` 可重定向）。
+- **数据在包内 `var/data/`**（2026-10-17 便携化后迁移，`KS_DATA_DIR` 可重定向）。
+  ⚠ 旧文写「运行产物全在 `%APPDATA%\KnowledgeStation\`」——**那个目录已不存在**
+  （实测 `Test-Path` 为假；`get_settings().data_dir` 现返回 `<仓根>/var/data`）。
+  这条与同文件 §便携 表里「包内 `var/data/`（不再落 `%APPDATA%`）」原先正面对撞，已统一。
 
 ## 已知红线（改代码前必读，全表见 ENCYCLOPEDIA §16）
 

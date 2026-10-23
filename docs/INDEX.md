@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **219 份** / **7754 KB**。
+> 共 **220 份** / **7758 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -46,7 +46,7 @@
 | `docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-10-05.md` | 8 | 2026-10-05 | 一、结论（三句） |
 | `docs/research/lay-phrasing-prompt.md` | 7 | 2026-09-25 | 一、v1 实测暴露的三个毛病（v2 就是为修它们） |
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
-| `docs/wiki/components/vision.md` | 3 | 2026-10-11 | **位置**：`src/core/vision/` |
+| `docs/wiki/components/vision.md` | 3 | 2026-10-23 | **位置**：`src/core/vision/` |
 
 ## 渠道与巡检（9 份 / 749 KB）
 
@@ -126,7 +126,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（80 份 / 1908 KB）
+## 根文档与其他（81 份 / 1912 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -138,7 +138,7 @@
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 未提交 | 一句话结论 |
-| `docs/uniformity/README.md` | 56 | 2026-10-23 | 0. 从零到能跑（新人第一步，**别跳过**） |
+| `docs/uniformity/README.md` | 47 | 2026-10-23 | 1. 项目是什么 |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
 | `docs/research/archify/02-ks-现状.md` | 43 | 未提交 | 一句话结论 |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
@@ -158,15 +158,16 @@
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
+| `docs/README.md` | 16 | 2026-10-23 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/archify/03-借鉴结论.md` | 16 | 未提交 | 一句话结论 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
-| `docs/README.md` | 15 | 2026-10-23 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
-| `docs/wiki/architecture.md` | 15 | 2026-10-10 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/wiki/architecture.md` | 15 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
+| `docs/uniformity/START-HERE.md` | 12 | 未提交 | 0. 从零到能跑（新人第一步，**别跳过**） |
 | `docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md` | 11 | 2026-10-10 | 0. 一句话 |
 | `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 11 | 2026-10-14 | **日期**：2026-10-14 |
 | `docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md` | 11 | 2026-10-07 | ★★★ 主线③ 最重要的一条：`GuRE` —— **"法条检索的生成式查询改写器"，和我们判据①是同一件事** |
@@ -187,29 +188,29 @@
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
-| `docs/wiki/components/exports.md` | 5 | 2026-10-05 | **位置**：`src/core/exports/` |
-| `docs/wiki/components/llm.md` | 5 | 2026-10-05 | **位置**：`src/core/llm/` |
+| `docs/wiki/components/exports.md` | 5 | 2026-10-23 | **位置**：`src/core/exports/` |
+| `docs/wiki/components/llm.md` | 5 | 2026-10-23 | **位置**：`src/core/llm/` |
 | `docs/BROKEN-LINKS.md` | 4 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
 | `docs/research/ARROW-ROOT-CAUSES-2026-10-12.md` | 4 | 2026-10-12 | 业主令：「你先把所有根因都查清楚，然后一次性修复，设置好目标自动进行」 |
-| `docs/wiki/components/api.md` | 4 | 2026-10-05 | **位置**：`src/core/api/` |
-| `docs/wiki/components/compliance.md` | 4 | 2026-10-05 | **位置**：`src/core/compliance/` |
-| `docs/wiki/components/domain.md` | 4 | 2026-10-05 | **位置**：`src/core/domain/` |
+| `docs/wiki/components/api.md` | 4 | 2026-10-23 | **位置**：`src/core/api/` |
+| `docs/wiki/components/compliance.md` | 4 | 2026-10-23 | **位置**：`src/core/compliance/` |
+| `docs/wiki/components/domain.md` | 4 | 2026-10-23 | **位置**：`src/core/domain/` |
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
-| `docs/wiki/components/quality.md` | 4 | 2026-10-05 | **位置**：`src/core/quality/` |
-| `docs/wiki/components/settings.md` | 4 | 2026-10-05 | **位置**：`src/core/settings/` |
-| `docs/wiki/components/storage.md` | 4 | 2026-10-05 | **位置**：`src/core/storage/` |
+| `docs/wiki/components/quality.md` | 4 | 2026-10-23 | **位置**：`src/core/quality/` |
+| `docs/wiki/components/settings.md` | 4 | 2026-10-23 | **位置**：`src/core/settings/` |
+| `docs/wiki/components/storage.md` | 4 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
-| `docs/wiki/components/ingestion.md` | 3 | 2026-10-05 | **位置**：`src/core/ingestion/` |
-| `docs/wiki/components/query.md` | 3 | 2026-10-05 | **位置**：`src/core/query/` |
+| `docs/wiki/components/ingestion.md` | 3 | 2026-10-23 | **位置**：`src/core/ingestion/` |
+| `docs/wiki/components/query.md` | 3 | 2026-10-23 | **位置**：`src/core/query/` |
 | `docs/wiki/components/README.md` | 3 | 2026-10-05 | **每套组件一篇**，逐篇回答同一个问题：**这块负责什么、提供什么、依赖什么、明确不做什么。** |
-| `docs/wiki/components/retrieval.md` | 3 | 2026-10-05 | **位置**：`src/core/retrieval/` |
-| `docs/wiki/components/update.md` | 3 | 2026-10-05 | **位置**：`src/core/update/` |
-| `docs/wiki/components/verification.md` | 3 | 2026-10-05 | **位置**：`src/core/verification/` |
-| `docs/wiki/components/knowledge.md` | 2 | 2026-10-05 | **位置**：`src/core/knowledge/` |
-| `docs/wiki/components/materials.md` | 2 | 2026-10-05 | **位置**：`src/core/materials/` |
+| `docs/wiki/components/retrieval.md` | 3 | 2026-10-23 | **位置**：`src/core/retrieval/` |
+| `docs/wiki/components/update.md` | 3 | 2026-10-23 | **位置**：`src/core/update/` |
+| `docs/wiki/components/verification.md` | 3 | 2026-10-23 | **位置**：`src/core/verification/` |
+| `docs/wiki/components/knowledge.md` | 2 | 2026-10-23 | **位置**：`src/core/knowledge/` |
+| `docs/wiki/components/materials.md` | 2 | 2026-10-23 | **位置**：`src/core/materials/` |
 
 ## 归档（46 份 / 1854 KB）
 
