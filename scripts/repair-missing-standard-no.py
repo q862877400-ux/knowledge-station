@@ -33,13 +33,13 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from _measure_common import db_stat as _db_stat
 from ulid import ULID
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # noqa: UP026
 
-from src.core.config import get_settings  # noqa: E402
 from src.core.storage.sqlite_db import get_db_connection, write_transaction  # noqa: E402
 from src.core.text_utils import clean_standard_name, store_standard_no  # noqa: E402
 
@@ -51,17 +51,6 @@ HEAD = ("GB", "GB/T", "GB/Z", "GBZ", "GBZ/T", "GBT",
 #: 拼出来的"号"必须长这样（宁可判不出，也不要瞎补）
 SHAPE = re.compile(r"^[A-Z]{1,4}(?:/[A-Z]{1,2})?\s?\d")
 
-
-def _db_stat() -> dict:
-    import hashlib
-    p = Path(get_settings().db_path)
-    h = hashlib.sha256()
-    with p.open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 22), b""):
-            h.update(chunk)
-    return {"path": str(p), "size": p.stat().st_size,
-            "mtime": datetime.fromtimestamp(p.stat().st_mtime).isoformat(timespec="seconds"),
-            "sha256": h.hexdigest()}
 
 
 def derive_from_path(file_path: str | None) -> tuple[str | None, str]:

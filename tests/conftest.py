@@ -1,3 +1,22 @@
+"""pytest 全局夹具。
+
+## 四个关键夹具（每个都对应一个踩过的坑）
+
+- `_isolate_data_dir`（session 级 autouse）：把 `KS_DATA_DIR` 换成临时目录，
+  **保证测试永不碰生产库**。清理失败会 `raise`，不静默。
+- `db`：在**空库**上初始化 schema（镜像生产启动引导：`init_schema` →
+  `ensure_additive_columns` → `ensure_material_columns`）。验「逻辑对不对」。
+- `seed_data_dir`：把**种子库**（82 部真实标准 / 4,809 条条款）拷进
+  本用例**独占**的临时目录。验「在真语料上对不对」。
+  ⚠ 与 `db` 的分工是刻意的：空库验不出「真语料上会不会串号」这类缺陷。
+- `client`：带 token 的 FastAPI TestClient。
+
+## 两个必须知道的口径
+
+1. **`get_db_connection()` 按线程缓存** —— 切 `KS_DATA_DIR` 前必须
+   `close_thread_connection()`，否则会读到前一个用例的库（症状：单跑绿、全跑红）。
+2. 默认禁用 reranker（模型推理极慢），`test_reranker` 那类专项不受影响。
+"""
 import gc
 import os
 import shutil

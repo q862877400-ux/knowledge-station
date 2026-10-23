@@ -45,6 +45,8 @@ import sys
 import time
 from pathlib import Path
 
+from _measure_common import chunk_text
+
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
@@ -76,22 +78,6 @@ def head(t: str) -> None:
     print(t)
     print("=" * W)
 
-
-def chunk_text(text: str, size: int = 1000) -> list[str]:
-    """按空行切段再拼到 ~size 字，不跨段切断。"""
-    paras = [p.strip() for p in text.replace("\r\n", "\n").split("\n\n")]
-    out, buf = [], ""
-    for p in paras:
-        if not p:
-            continue
-        if len(buf) + len(p) + 2 > size and buf:
-            out.append(buf)
-            buf = p
-        else:
-            buf = (buf + "\n\n" + p) if buf else p
-    if buf:
-        out.append(buf)
-    return out
 
 
 def load_corpus(root: Path, pattern: str) -> list[tuple[str, str]]:

@@ -185,7 +185,7 @@
 | `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 2026-10-23 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
-| `docs/uniformity/05-verifier-findings.md` | 6 | 未提交 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
+| `docs/uniformity/05-verifier-findings.md` | 6 | 2026-10-23 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/wiki/components/storage.md` | 6 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |

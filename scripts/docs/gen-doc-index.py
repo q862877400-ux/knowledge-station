@@ -1,3 +1,14 @@
+"""生成 `docs/INDEX.md`（文档的机械索引）——**生成物，勿手改**。
+
+扫描 `docs/` 下全部 `.md`（排除 `INDEX.md` 自身），按目录分组成表，
+每行给出文件名、一句话描述（取正文首个有意义的标题行）、体积。
+
+用法：
+    python scripts/docs/gen-doc-index.py
+
+⚠ 改了 `docs/` 里的文档之后要重跑本脚本，否则索引与实际不一致。
+   `scripts/run-gates.ps1` 会检查这一致性。
+"""
 import pathlib, re, subprocess, collections
 root = pathlib.Path(".").resolve()
 docs = sorted(p for p in (root/"docs").rglob("*.md") if p.name != "INDEX.md")

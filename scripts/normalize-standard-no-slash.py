@@ -43,36 +43,19 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from _measure_common import db_stat as _db_stat
 from ulid import ULID
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # noqa: UP026
 
-from src.core.config import get_settings  # noqa: E402
 from src.core.storage.sqlite_db import get_db_connection, write_transaction  # noqa: E402
 
 COLS = ("standard_no", "short_code", "standard_name")
 FW = "／"
 OUT_DIR = ROOT / "var" / "backup"
 
-
-def _db_stat() -> dict:
-    """库文件的 (大小, mtime, sha256)。
-
-    ⚠ 独立复核 b31 的收尾建议：**"可回滚"不能只是口头承诺**——回滚清单必须逐行记 doc_id→原值，
-    并且**带上写前/写后的库指纹**，否则事后无法证明"改的就是这些行、库也没被别的东西动过"。
-    （2.3GB 的库哈希一次约十几秒；这一步只在 `--apply` 时做两次。）
-    """
-    import hashlib
-    p = Path(get_settings().db_path)
-    h = hashlib.sha256()
-    with p.open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 22), b""):
-            h.update(chunk)
-    return {"path": str(p), "size": p.stat().st_size,
-            "mtime": datetime.fromtimestamp(p.stat().st_mtime).isoformat(timespec="seconds"),
-            "sha256": h.hexdigest()}
 
 
 def _plan(conn) -> tuple[list[dict], list[dict]]:
