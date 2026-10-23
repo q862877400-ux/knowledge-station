@@ -3,11 +3,11 @@
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
-  "pytest_passed": 3057,
+  "pytest_passed": 3106,
   "runLive": false,
-  "pytest_total": 3065,
-  "updatedAt": "2026-10-18T09:09:51",
-  "untracked_excluded": 5,
+  "pytest_total": 3114,
+  "updatedAt": "2026-10-24T01:38:16",
+  "untracked_excluded": 11,
   "pytest_skipped": 8,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
