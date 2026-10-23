@@ -18,6 +18,82 @@ from src.core.text_utils import store_standard_name, store_standard_no
 
 log = logging.getLogger(__name__)
 
+#: 标准号「主体数字」：字母前缀（可选）+ 数字（可带小数点）。
+#: 例：`GB 30871-2022` → 30871；`GB/T 150.4-2024` → 150.4；`GBZ 188-2025` → 188
+#:
+#: ⚠ 前缀里**允许夹数字**（`DB11/T 1322.1-2017` → 1322.1）。
+#: 第一版写 `[A-Z]*\s*/?\s*[A-Z]*`（前缀不许有数字）⇒ 对 `DB11/T` 会抽到 `11`
+#: （前缀里的地方代码），**抽错**。真库实测这种写法 0 部，但抽错是静默的，
+#: 将来进一部地方标准就会串号 —— 所以按「前缀可含数字」写死。
+_STD_BODY_RE = __import__("re").compile(
+    r"(?:[A-Z]+\d*/?\s*[A-Z]*(?:\s+\d+/\s*[A-Z]*)?|[A-Z]*)\s*(\d{1,5}(?:\.\d+)*)")
+
+
+def _standard_body(standard_no: str) -> str | None:
+    """从标准号里抽「主体数字」，**抽不到就返回 None（调用方不兜底）**。
+
+    ## 为什么需要这个函数（2026-10-23 修 wiki §四 #2）
+
+    年份宽容兜底原来用的是 `re.search(r"(\\d{4,5})", standard_no)` ——
+    它**没有前缀约束**，所以先命中 4 位年份：
+
+    | 输入 | 旧实现抽到 | 应该是 | 后果 |
+    |---|---|---|---|
+    | `GBZ 188-2025` | **2025** | 188 | 兜底变成 `LIKE '%2025%'` ⇒ 串到 `GB 6675.2-2025`（玩具标准） |
+    | `GBZ 1-2010` | **2010** | 1 | 同上 |
+    | `GB/T 150.4-2024` | **2024** | 150.4 | 同上 |
+
+    真库实测：8,983 部里 **36 部**的 token 抓错，其中 **9 部会误命中别家标准**
+    （全是职业健康/安全类，正是本项目的核心领域）。
+
+    ## 判据
+
+    1. **先剥掉尾部年份**（只认尾部 `-YYYY` / `—YYYY` / ` YYYY`），
+    2. 再在剩下的「号」里抽数字主体，
+    3. 抽不到就 `None` —— **宁可不兜底，也不许串到别家**。
+
+    ## 正向路径不能改坏
+
+    `GB 3608-2019` → 抽 `3608` → 仍能宽松到 `GB 3608-2025`（旧版号→现行版）。
+    这条由 `tests/test_real_corpus_retrieval.py` 与
+    `tests/test_seed_db_guard.py` 双向钉住。
+    """
+    s = (standard_no or "").strip().upper()
+    if not s:
+        return None
+    # 剥尾部年份（19xx / 20xx）。只在**末尾**剥，中间的数字不当年份。
+    body = __import__("re").sub(r"[\s\-—–－]*(?:19|20)\d{2}\s*$", "", s).strip()
+    # ⚠ **必须是"像标准号"的串**：`FY2021-2022` / `ABC123-4567` 这类
+    #   形态像标准号但库里没有的记号，抽出来的主体（`1` / `3`）毫无意义，
+    #   拿去 LIKE 反而会乱命中。判据：剥完年份后，**剩余部分必须以字母开头**
+    #   （`GB 1234` / `DB11/T 1322.1` / `T/CCSAS 001` 都是），
+    #   且不含"字母紧跟年份"这种年份写法。
+    if not __import__("re").match(r"^[A-Z]", body):
+        return None
+    m = _STD_BODY_RE.search(body)
+    return m.group(1) if m else None
+
+
+def _std_body_hits(doc_standard_no: str | None, body: str) -> bool:
+    """`body` 是否以**数字边界**出现在 `doc_standard_no` 的主体里。
+
+    ⚠ 不能只用 `LIKE '%body%'`（本函数存在的理由，2026-10-23 实测）：
+    `GBZ 24-2025` 的主体是 `24`，而 `GB/T 13537-2024` 的主体是 `13537` ——
+    `'%24%'` 会命中 `13537` 里的 `24` ⇒ 串号。
+    实测 9 部受害标准里 `GBZ 24` / `GBZ 37` 就栽在这里。
+
+    判据与 `retrieval/hybrid_engine.py::_std_key_hits_doc` 同源（词边界包含），
+    只是这里只需要数字边界：
+    `(?<!\\d)24(?!\\d)` —— 前面不许是数字，后面也不许是数字。
+    """
+    if not body:
+        return False
+    other = _standard_body(doc_standard_no or "")
+    if not other:
+        return False
+    return __import__("re").search(
+        rf"(?<!\d){__import__('re').escape(body)}(?!\d)", other) is not None
+
 
 def make_clause_key(doc_id: str, normalized_clause_no: str) -> str:
     return hashlib.sha256(f"{doc_id}{normalized_clause_no}".encode("utf-8")).hexdigest()[:24]
@@ -779,7 +855,13 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
         norm = raw
 
     def _lookup(cn: str) -> Any:
-        """1) 精确标准号匹配（含版本年份）；2) 年份宽容（按标准数字主体）。"""
+        """1) 精确标准号匹配（含版本年份）；2) 年份宽容（按标准数字主体）。
+
+        ⚠ 第 2 步的 LIKE **必须带数字边界**（`_std_body_like`）：
+        只写 `LIKE '%24%'` 会让 `GBZ 24-2025` 命中 `GB/T 13537-2024`
+        （`13537` 里含 `24`）。实测 9 部受害标准里有 2 部（`GBZ 24` / `GBZ 37`）
+        就栽在这一点上。
+        """
         r = conn.execute(
             "SELECT cr.clause_revision_id FROM clause_revision cr"
             " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
@@ -788,15 +870,36 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
             (cn, standard_no)).fetchone()
         if r:
             return r
-        m = _re.search(r"(\d{4,5})", standard_no.strip())
-        if not m:
+        body = _standard_body(standard_no)
+        if not body:
             return None
-        return conn.execute(
-            "SELECT cr.clause_revision_id FROM clause_revision cr"
+        # ⚠ 兜底**必须先确认库里真有「以这个主体数字开头」的标准**，否则不给兜。
+        #
+        # 判据是「主体**前缀**存在」，**不是「整串精确存在」**（这是关键差别）：
+        # - `GB 3608-2019`：整串库里没有（只有 -2008 / -2025），但主体 `3608`
+        #   有对应标准 ⇒ **要兜**（旧版号→现行版，这是设计意图）；
+        # - `FY2021-2022`：主体抽出来是 `1`，库里没有任何标准以 `1` 为主体
+        #   ⇒ **不兜**（形态像标准号但库里没有，兜了只会乱命中）。
+        #
+        # 判据与 `retrieval/hybrid_engine.py::_known_standard_keys` 同源。
+        known = conn.execute(
+            "SELECT 1 FROM doc_meta WHERE standard_no LIKE ? LIMIT 1",
+            ("%" + body + "%",)).fetchone()
+        if not known:
+            return None
+        # 用 LIKE 取候选，再**在 Python 里按数字边界过滤**
+        # （只写 `LIKE '%24%'` 会让 `GBZ 24-2025` 命中 `GB/T 13537-2024`，
+        #   实测 9 部受害标准里 `GBZ 24` / `GBZ 37` 就栽在这一点上）。
+        cands = conn.execute(
+            "SELECT cr.clause_revision_id, dm.standard_no FROM clause_revision cr"
             " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
             " WHERE cr.clause_number = ? AND dm.standard_no LIKE ?"
-            " ORDER BY cr.rowid DESC LIMIT 1",
-            (cn, "%" + m.group(1) + "%")).fetchone()
+            " ORDER BY cr.rowid DESC",
+            (cn, "%" + body + "%")).fetchall()
+        for cand in cands:
+            if _std_body_hits(cand["standard_no"], body):
+                return cand
+        return None
 
     row = _lookup(verbatim)
     if not row and raw != verbatim:
@@ -817,8 +920,8 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
             " ORDER BY cr.rowid DESC LIMIT 1",
             (standard_no, like, like)).fetchone()
         if not row:
-            m = _re.search(r"(\d{4,5})", standard_no.strip())
-            if m:
+            body = _standard_body(standard_no)
+            if body:
                 row = conn.execute(
                     "SELECT DISTINCT cr.clause_revision_id FROM clause_revision cr"
                     " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
@@ -826,7 +929,7 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
                     " AND cp.field_name='content_text'"
                     " WHERE dm.standard_no LIKE ? AND (cr.content_text LIKE ? OR cp.patched_value LIKE ?)"
                     " ORDER BY cr.rowid DESC LIMIT 1",
-                    ("%" + m.group(1) + "%", like, like)).fetchone()
+                    ("%" + body + "%", like, like)).fetchone()
     if not row:
         return None
     return fetch_full_clause(conn, row["clause_revision_id"])

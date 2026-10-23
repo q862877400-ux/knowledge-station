@@ -21,7 +21,8 @@ def _isolate_data_dir():
     现在：`close_all_connections()` 真关所有线程那一份（并摘掉那个线程的键），清理自己来、
     失败**抛出去**（不许静默）。取证与手法见 `src/core/storage/sqlite_db.py::close_all_connections`。
     """
-    from src.core.storage.sqlite_db import close_all_connections, close_thread_connection
+    from src.core.storage.sqlite_db import (
+        close_all_connections, close_thread_connection)
 
     td = Path(tempfile.mkdtemp(prefix="ks_test_"))
     old = os.environ.get("KS_DATA_DIR")
@@ -67,14 +68,85 @@ def db(_isolate_data_dir):
     放在文件里跑**绿**（前一条用例经由 `delete_document` 触发了写路径迁移）。
     现在这里与生产走**同一个入口**，测试库的形状就与真库一致了。
     """
-    from src.core.storage.sqlite_db import init_schema, get_db_connection, close_thread_connection
+    from src.core.storage.sqlite_db import (
+        init_schema, get_db_connection, close_thread_connection)
     from src.core.storage.clause_repo import ensure_additive_columns
-    from src.core.storage.material_repo import ensure_additive_columns as ensure_material_columns
+    from src.core.storage.material_repo import (
+        ensure_additive_columns as ensure_material_columns)
     init_schema()
     ensure_additive_columns()
     ensure_material_columns()
     yield get_db_connection()
     close_thread_connection()
+
+
+#: 随仓提交的种子库（82 部标准 / 4,809 条条款 / 13.3 MB）。
+#: 由 `python scripts/make-seed-db.py --docs 60` 从生产库切出。
+#: **它存在的唯一理由**：`var/data` 72 GB 进不了版本控制 ⇒ 在这之前，
+#: 「在真库上验证」在门禁里**结构上做不到**（实测 3,076 条用例跑在真库上的是 0 条）。
+SEED_DB = Path(__file__).resolve().parent / "fixtures" / "seed" / "knowledge-seed.db"
+
+
+@pytest.fixture()
+def seed_data_dir(tmp_path):
+    """把**本测试独占**的数据目录灌成种子库（有真实语料的库）。
+
+    ⚠⚠ **必须用 `tmp_path`（函数级独占），不能复用 `_isolate_data_dir`**（2026-10-23 实测）：
+    `_isolate_data_dir` 是 **session 级**的，全跑时它已经被前面几千条用例写过
+    （`test_api` 之类会 `init_schema()` 建表、插入自己的测试数据）。
+    如果往那个目录里拷种子库，`knowledge.db` 要么被覆盖、要么覆盖不掉，
+    实测结果是「种子库只有 3 部文档」—— 拿到的是别人留下的库，不是种子库。
+
+    ⇒ 每个用例一个**干净**目录，种子库原样拷进去。代价是每次拷 13 MB（约 30 ms），
+    换来的是**没有顺序依赖**。
+
+    与 `db` fixture 的区别（这是关键）：
+    - `db`：空库，只有表结构 ⇒ 验的是「逻辑对不对」；
+    - `seed_data_dir`：82 部真实标准 / 4,809 条真实条款 ⇒ 验的是「在真语料上对不对」。
+
+    用法：
+        def test_x(seed_data_dir):
+            from src.core.storage import clause_repo
+            got = clause_repo.resolve_clause("GBZ 188-2025", "5.22")   # 有真数据可查
+
+    ⚠ 它**拷贝**种子库到临时目录，不会写生产库，也不会写 `tests/fixtures/`。
+    ⚠ 种子库不存在时 `pytest.skip`（不是静默通过）。
+    """
+    from src.core import config
+    from src.core.storage.sqlite_db import (
+        close_all_connections, close_thread_connection)
+
+    if not SEED_DB.exists():
+        pytest.skip(
+            f"种子库不存在：{SEED_DB}。"
+            "用 `python scripts/make-seed-db.py --docs 60` 生成")
+    data_dir = Path(tmp_path) / "data"
+    dbdir = data_dir / "database"
+    dbdir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SEED_DB, dbdir / "knowledge.db")
+
+    # ⚠⚠ **切换数据目录前必须先关掉旧连接**（2026-10-23 实测踩过，全跑时红、单跑时绿）：
+    #   `sqlite_db.get_db_connection()` 是**按线程缓存**的。前面几千条用例早就
+    #   在本线程上开了一条指向 session 级空库的连接；只改 `KS_DATA_DIR` 而不关它，
+    #   `get_db_connection()` 会**直接返回那条旧连接** ⇒ 读到的仍是空库
+    #   ⇒ 「年份宽容应命中 GB 3608-2025」变成 None。
+    #   症状极具迷惑性：单独跑这个文件全绿，和别的文件一起跑才红。
+    close_thread_connection()
+    close_all_connections()
+
+    old = os.environ.get("KS_DATA_DIR")
+    os.environ["KS_DATA_DIR"] = str(data_dir)
+    config.reset_settings()
+    try:
+        yield data_dir
+    finally:
+        close_thread_connection()
+        close_all_connections()
+        config.reset_settings()
+        if old is None:
+            os.environ.pop("KS_DATA_DIR", None)
+        else:
+            os.environ["KS_DATA_DIR"] = old
 
 
 @pytest.fixture()
