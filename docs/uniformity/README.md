@@ -726,6 +726,7 @@ $skipNodeIds = @($jx.SelectNodes('//testcase') |
 | [`03-docs-specs-scripts.md`](03-docs-specs-scripts.md) | 29 顶层文档 + 9 组冲突 + specs 15 个 + scripts 68 个 | ★★ 同上 |
 | [`04-tests-tools-gates.md`](04-tests-tools-gates.md) | tests 结构 + 覆盖率缺口 + 门禁 12 步 + 棘轮绕过分析 | ★★★ 唯一被推翻的是 xfail 那条（见 §4.5） |
 | [`05-verifier-findings.md`](05-verifier-findings.md) | **两路独立 verifier 抽查 18 条的结果**：我说对 14 / 我说错 3 / verifier 说错 1（含不采纳的理由） | ★★★ 先看这个再引用任何数字 |
+| [`report.md`](report.md) | **统一化逐轮留档**：读数演进 / 两条判据校准 / 五批改动的守恒证据 / **我自己制造的 6 个回归** / 判「不统一」的否定裁决 | ★★★ 做统一化前必读 |
 
 **⚠ 引用子代理报告时先看 `00-review-of-surveys.md`**：
 `04` 的「xfail 隐身」已被实测推翻；`01` 的「storage ⇄ retrieval 靠 import 顺序侥幸」
