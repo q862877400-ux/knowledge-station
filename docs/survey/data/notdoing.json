@@ -1,0 +1,272 @@
+{
+ "generated_by": "scripts/survey/09-requirements.py::step_notdoing",
+ "source": "docs/NOT-DOING.md",
+ "caliber": "否决台账 = `NOT-DOING.md` 里的表格行 `| 编号 | 事项 | 裁决 | … |`；`verdict` 只取第三列前 40 字并去掉符号。`code_refs` = 代码里 `NOT-DOING #<n>` 的文本出现。",
+ "counts": {
+  "items": 24,
+  "items_referenced_in_code": 3,
+  "ids_referenced_but_not_in_ledger": 0
+ },
+ "ids_referenced_but_not_in_ledger": [],
+ "items": [
+  {
+   "id": 1,
+   "what": "Word/PPT 交付物（研究/巡检报告落 `.docx`、PPT 生成、Office 往返）",
+   "verdict": "否决：产出物只出 Markdown",
+   "lineno": 16,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 2,
+   "what": "取证呈现用 bbox 高亮框",
+   "verdict": "否决：改成红色定位箭头",
+   "lineno": 17,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 3,
+   "what": "真机录屏 / GIF 证据",
+   "verdict": "不做",
+   "lineno": 18,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 4,
+   "what": "照抄 WeKnora 的形态（曾裁定\"不照抄\"）",
+   "verdict": "再翻案（2026-09-22，以本条最新裁定为准）：骨架不再照抄 WeKnora",
+   "lineno": 19,
+   "n_cells": 6,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 5,
+   "what": "客户端文案多语言（locale 化）",
+   "verdict": "缓办（不是否决）",
+   "lineno": 20,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 6,
+   "what": "通用层自己设计/手搓",
+   "verdict": "否决（造轮子）",
+   "lineno": 21,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 7,
+   "what": "`peerDependencies` 必须声明",
+   "verdict": "已作废（官方 alpha.2 取消该校验）",
+   "lineno": 22,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 8,
+   "what": "插件改动必须重启宿主",
+   "verdict": "已作废（热重载；只有引导/静态装配/壳要重建）",
+   "lineno": 23,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 9,
+   "what": "`priority` 是数字",
+   "verdict": "已作废（是 band 字面量）",
+   "lineno": 24,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 10,
+   "what": "`reflect` 的 `max_tokens` 是 4096 上限",
+   "verdict": "已作废（真实上限在服务端配置 `reflect_max_completion_t",
+   "lineno": 25,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 11,
+   "what": "布局只在内存里",
+   "verdict": "已作废（会话级持久化 + provider 恢复）",
+   "lineno": 26,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 12,
+   "what": "`schemastery` 有 `.strict()`",
+   "verdict": "已作废（本地 3.18.2 没有；官方那些 `.strict()` 来自 zod",
+   "lineno": 27,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 13,
+   "what": "知识库页内的搜索框（文件列表按标准号/名称过滤）",
+   "verdict": "✅ 业主 2026-09-20 明确：保留（原话：「搜索框：保留」）—— 这条翻",
+   "lineno": 28,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 14,
+   "what": "知识库文件层右栏那张「详情」提示卡（写着「点每一行行尾的「⋮」→「详情」看这一篇的元数据（含发布日期 / 生效日期 / 废止日期）」的占位卡）",
+   "verdict": "业主 2026-09-20 明确：删除 —— 已拆（不是隐藏、不是改文案）",
+   "lineno": 29,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 15,
+   "what": "人工上传材料的\"待评审\"步骤",
+   "verdict": "裁定：免评审（2026-09-22，范围收窄）——用户亲手上传的材料（公司制度/",
+   "lineno": 30,
+   "n_cells": 5,
+   "code_refs": [
+    {
+     "file": "src/core/storage/material_repo.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_material_api.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_material_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_material_repo.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/measure-material-recall.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": 16,
+   "what": "合同审查 / 义务清单→检查表 / 批量问答 / 取证问答（办事台指路页）/ 条款释义 —— 五件套整体删除，前后端都删",
+   "verdict": "业主（2026-09-22）：\"…全部删除，前后端都删除，没用\"（「制度差距分析",
+   "lineno": 31,
+   "n_cells": 4,
+   "code_refs": [
+    {
+     "file": "scripts/survey/09-requirements.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_material_api.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase12.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/survey/04-reconcile.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": 17,
+   "what": "渠道台账的「标签」功能删除（标签列 + 改标签按钮 + 标签小方块），换「搜索筛选」",
+   "verdict": "业主（2026-09-22）：\"标签不要弄技术细节，要从用户使用角度去思考…不需",
+   "lineno": 32,
+   "n_cells": 4,
+   "code_refs": [
+    {
+     "file": "plugin/client/ksGuideStyles.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": 18,
+   "what": "PPT 的「输入侧」解析（把 `.pptx` 读进材料平面）",
+   "verdict": "缓办（先不做；其余格式先做通）",
+   "lineno": 33,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 19,
+   "what": "代码 / JSON 文件的专门解析（把它当结构化对象解析、建专门索引）",
+   "verdict": "不作专门支持：当纯文本兜底即可",
+   "lineno": 34,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 20,
+   "what": "缺标准提示的「批量问」（一次列清单、逐项可勾、可全否）",
+   "verdict": "✅ 允许（只放宽粒度，不放宽\"必须人批、无旁路\"）",
+   "lineno": 35,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 21,
+   "what": "「不重建 522k 条索引」（原为 [检索长周期计划 §7](RETRIEVAL-LONG-RANGE-PLAN.md) 的一条硬约束）",
+   "verdict": "2026-09-30 解除（业主亲裁）：不再是硬约束，如有必要该重建就重建",
+   "lineno": 36,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 22,
+   "what": "「三字滑窗」切词（MemPalace 的做法：按 3 字符滑窗建全文索引）",
+   "verdict": "业主否决：不适合我们的术语形态",
+   "lineno": 37,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 23,
+   "what": "「靠人工审核做基准确认」（原 FR-004 / SC-003：每条答案经人工确认、`confirmed_by` 必须是人）",
+   "verdict": "2026-10-07 业主裁定：放弃人工审核，改用外部高级 AI 复核（事实与语",
+   "lineno": 38,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": 24,
+   "what": "把 `D:/AI/std-law-watch` 的代码/站点注册表并入本仓",
+   "verdict": "只并知识，不并代码（2026-10-10 Lead 裁定，业主「能并入就并入呗」",
+   "lineno": 39,
+   "n_cells": 5,
+   "code_refs": [],
+   "code_ref_total": 0
+  }
+ ]
+}

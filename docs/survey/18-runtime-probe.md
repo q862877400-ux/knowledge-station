@@ -49,6 +49,86 @@
 
 | 前缀 | 超时条数 |
 |---|---:|
+| `/api/v1/documents` | 14 |
+| `/api/v1/clauses` | 11 |
+| `/api/v1/bookmark-folders` | 7 |
+| `/api/v1/bookmarks` | 4 |
+| `/api/v1/doc-bookmarks` | 4 |
+| `/api/v1/projects` | 4 |
+| `/api/v1/data` | 3 |
+| `/api/v1/annotations` | 3 |
+| `/api/v1/compliance` | 3 |
+| `/api/v1/snapshots` | 3 |
+| `/api/v1/export` | 2 |
+| `/api/v1/egress` | 2 |
+| `/api/v1/diagnostics` | 2 |
+| `/api/v1/laws` | 1 |
+| `/api/v1/ingest` | 1 |
+| `/api/v1/health` | 1 |
+| `/api/v1/compare` | 1 |
+| `/api/v1/operation-log` | 1 |
+| `/api/v1/aliases` | 1 |
+| `/api/v1/chat` | 1 |
+| `/api/v1/ks` | 1 |
+| `/api/v1/vision` | 1 |
+
+### 超时的 71 条：按**这一个 handler 的函数体**粗分
+
+| handler 里碰到什么 | 条数 |
+|---|---:|
+| **handler 里看不出明确来源** | 41 |
+| 查数据库 | 12 |
+| 重入库/解析 + 查数据库 | 7 |
+| 等云模型 | 3 |
+| 重入库/解析 | 2 |
+| 等云模型 + 查数据库 | 2 |
+| 等云模型 + 重入库/解析 | 1 |
+| 联网 | 1 |
+| 等云模型 + 联网 | 1 |
+| 等云模型 + 重入库/解析 + 查数据库 | 1 |
+
+> ⚠ 这是**按关键词粗分**：只扫该 handler 自己的函数体（不含同文件其它函数），看有没有模型/联网/入库/数据库字样。
+> **不能证明超时就是因为那个**；要定因得在超时时抓线程栈。**本检查没做。**
+
+**⚠ 这一栏最重要的读数是第一行**：大多数超时的 handler **本身看不出会慢**
+（没有模型、没有联网、没有重入库）。而它们在第 1 次跑里是**连续 70 条**
+一起超时的（第 107–176 条）⇒ 更可能是**整体被卡住**，不是各自慢。
+与 [`10-observed.md`](10-observed.md) §七 O-22 的间歇性卡死对应着看。
+
+**逐条明细**（前 30 条）：
+
+| 端点 | handler | 函数体行数 | 命中 |
+|---|---|---:|---|
+| `/api/v1/laws/catalog/refresh` | `law_catalog_refresh` | 10 | — |
+| `/api/v1/ingest/bulk/{batch_id}/abort` | `bulk_ingest_abort` | 11 | 重入库/解析 |
+| `/api/v1/data/package/export` | `data_package_export` | 15 | — |
+| `/api/v1/data/package/import` | `data_package_import` | 15 | — |
+| `/api/v1/health` | `health` | 22 | 重入库/解析、查数据库 |
+| `/api/v1/clauses/patches` | `create_patch` | 52 | 查数据库 |
+| `/api/v1/clauses/resolve` | `resolve_clause` | 59 | 等云模型 |
+| `/api/v1/data/quality-issues` | `data_quality_issues` | 43 | 重入库/解析、查数据库 |
+| `/api/v1/clauses/patches` | `get_patches` | 5 | — |
+| `/api/v1/clauses/patches/{patch_id}` | `remove_patch` | 16 | — |
+| `/api/v1/documents/{doc_id}/file` | `get_document_file` | 22 | 查数据库 |
+| `/api/v1/documents/{doc_id}/figure/{fig_no}` | `get_document_figure` | 153 | 重入库/解析、查数据库 |
+| `/api/v1/documents/{doc_id}/formula/{fno}` | `get_document_formula` | 61 | 重入库/解析、查数据库 |
+| `/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}` | `get_document_table_image` | 60 | 重入库/解析、查数据库 |
+| `/api/v1/documents` | `doc_list` | 16 | 查数据库 |
+| `/api/v1/documents/categories` | `doc_categories` | 45 | 查数据库 |
+| `/api/v1/documents/batch-delete` | `documents_batch_delete` | 22 | — |
+| `/api/v1/documents/{doc_id}/tree` | `document_tree` | 256 | 重入库/解析、查数据库 |
+| `/api/v1/bookmarks` | `get_bookmarks` | 4 | — |
+| `/api/v1/bookmarks` | `add_bookmark` | 11 | — |
+| `/api/v1/bookmarks/by-clause/{clause_key}` | `del_bookmark_by_clause` | 6 | — |
+| `/api/v1/bookmarks/{bookmark_id}` | `del_bookmark` | 8 | — |
+| `/api/v1/doc-bookmarks` | `get_doc_bookmarks` | 4 | — |
+| `/api/v1/doc-bookmarks` | `add_doc_bookmark` | 11 | — |
+| `/api/v1/doc-bookmarks/by-doc/{doc_id}` | `del_doc_bookmark_by_doc` | 6 | — |
+| `/api/v1/doc-bookmarks/{doc_bookmark_id}` | `del_doc_bookmark` | 9 | — |
+| `/api/v1/bookmark-folders` | `get_bookmark_folders` | 4 | — |
+| `/api/v1/bookmark-folders` | `create_bookmark_folder` | 11 | — |
+| `/api/v1/bookmark-folders/{folder_id}` | `rename_bookmark_folder` | 11 | — |
+| `/api/v1/bookmark-folders/{folder_id}` | `delete_bookmark_folder` | 9 | — |
 
 ## 六、全部端点实测结果
 

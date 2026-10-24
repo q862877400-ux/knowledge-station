@@ -2,10 +2,10 @@
  "generated_by": "scripts/survey/02-surface.py::step6_docs",
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
-  "docs_files": 249,
-  "docs_tracked_md": 234,
-  "orphans_no_inbound": 117,
-  "total_links": 570
+  "docs_files": 250,
+  "docs_tracked_md": 235,
+  "orphans_no_inbound": 118,
+  "total_links": 571
  },
  "orphans": [
   "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
@@ -119,6 +119,7 @@
   "docs/survey/15-doc-index-content.md",
   "docs/survey/16-frontend.md",
   "docs/survey/17-function-index.md",
+  "docs/survey/19-requirements.md",
   "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
   "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
   "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
@@ -900,8 +901,8 @@
   },
   {
    "path": "docs/INDEX.md",
-   "bytes": 31761,
-   "lines": 295,
+   "bytes": 31862,
+   "lines": 296,
    "title": "docs/ 总索引（机械生成，勿手改）",
    "out_links": [],
    "n_links": 0,
@@ -2505,7 +2506,7 @@
   },
   {
    "path": "docs/survey/01-inventory.md",
-   "bytes": 3714,
+   "bytes": 3715,
    "lines": 83,
    "title": "全仓清单（四本账）",
    "out_links": [],
@@ -2515,8 +2516,8 @@
   },
   {
    "path": "docs/survey/02-code-map.md",
-   "bytes": 12087,
-   "lines": 210,
+   "bytes": 12354,
+   "lines": 214,
    "title": "代码地图（AST 级符号清单）",
    "out_links": [],
    "n_links": 0,
@@ -2576,8 +2577,8 @@
   },
   {
    "path": "docs/survey/07-doc-surface.md",
-   "bytes": 39362,
-   "lines": 393,
+   "bytes": 39502,
+   "lines": 395,
    "title": "文档面",
    "out_links": [
     "p"
@@ -2623,14 +2624,15 @@
    ],
    "n_links": 2,
    "inbound": [
+    "docs/survey/18-runtime-probe.md",
     "docs/survey/README.md"
    ],
-   "inbound_count": 1
+   "inbound_count": 2
   },
   {
    "path": "docs/survey/11-module-index.md",
-   "bytes": 169515,
-   "lines": 1346,
+   "bytes": 169938,
+   "lines": 1349,
    "title": "模块职责索引",
    "out_links": [],
    "n_links": 0,
@@ -2669,8 +2671,8 @@
   },
   {
    "path": "docs/survey/15-doc-index-content.md",
-   "bytes": 77567,
-   "lines": 603,
+   "bytes": 78006,
+   "lines": 605,
    "title": "文档内容索引（每份讲什么）",
    "out_links": [],
    "n_links": 0,
@@ -2689,8 +2691,8 @@
   },
   {
    "path": "docs/survey/17-function-index.md",
-   "bytes": 914473,
-   "lines": 15743,
+   "bytes": 916306,
+   "lines": 15781,
    "title": "函数索引（每个符号的职责与引用计数）",
    "out_links": [],
    "n_links": 0,
@@ -2699,20 +2701,32 @@
   },
   {
    "path": "docs/survey/18-runtime-probe.md",
-   "bytes": 16859,
-   "lines": 232,
+   "bytes": 21032,
+   "lines": 312,
    "title": "运行时探测（真启动引擎，176 条端点实测）",
-   "out_links": [],
-   "n_links": 0,
+   "out_links": [
+    "10-observed.md"
+   ],
+   "n_links": 1,
    "inbound": [
     "docs/survey/10-observed.md"
    ],
    "inbound_count": 1
   },
   {
+   "path": "docs/survey/19-requirements.md",
+   "bytes": 27005,
+   "lines": 15,
+   "title": "需求编号 / 否决台账 / 数据样例",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
    "path": "docs/survey/COVERAGE.md",
-   "bytes": 3266,
-   "lines": 54,
+   "bytes": 3491,
+   "lines": 55,
    "title": "覆盖对账（九个面）",
    "out_links": [],
    "n_links": 0,

@@ -11,10 +11,10 @@
 
 | 项 | 数 |
 |---|---:|
-| `docs/` 下 `.md` | **249** |
-| 其中受版本控制 | 234 |
-| 链接总数 | 570 |
-| **没有任何入链（孤儿）** | **117** |
+| `docs/` 下 `.md` | **250** |
+| 其中受版本控制 | 235 |
+| 链接总数 | 571 |
+| **没有任何入链（孤儿）** | **118** |
 
 ## 三、孤儿文档（没有任何别的文档链到它）
 
@@ -131,6 +131,7 @@
 - `docs/survey/15-doc-index-content.md`
 - `docs/survey/16-frontend.md`
 - `docs/survey/17-function-index.md`
+- `docs/survey/19-requirements.md`
 - `docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md`
@@ -143,7 +144,7 @@
 | 文件 | 体积 | 行数 | 入链 | 出链 | 标题 |
 |---|---:|---:|---:|---:|---|
 | `docs/archive/history/rounds-10.1-10.203.md` | 999 KB | 11,670 | 1 | 11 | 端点里嵌套的 async def 生成器（体内含 yield）若整段没有 Awa |
-| `docs/survey/17-function-index.md` | 893 KB | 15,743 | 0 | 0 | 函数索引（每个符号的职责与引用计数） |
+| `docs/survey/17-function-index.md` | 895 KB | 15,781 | 0 | 0 | 函数索引（每个符号的职责与引用计数） |
 | `docs/DEVELOPMENT-HISTORY.md` | 331 KB | 524 | 12 | 46 | KnowledgeStation 开发历程简史 |
 | `docs/UI-BASELINE.md` | 256 KB | 2,460 | 8 | 27 | UI 视觉基线（照 WeKnora 知识库管理复刻）—— 第 5 步的施工依据 |
 | `docs/survey/14-test-index.md` | 251 KB | 3,651 | 0 | 0 | 测试索引（每个测试钉住了什么） |
@@ -153,7 +154,7 @@
 | `docs/REQUIREMENTS-v4.3.md` | 208 KB | 3,053 | 3 | 0 | 《通用国标与法律法规本地 AI 知识工作站 (Win11)》开发主计划 (v4. |
 | `docs/archive/workbuddy-memory/memory/2026-10-09.md` | 178 KB | 2,110 | 0 | 0 | 2026-10-09 工作日志（workspace: zcode） |
 | `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 168 KB | 1,500 | 13 | 51 | 检索与通用化：长周期计划 |
-| `docs/survey/11-module-index.md` | 166 KB | 1,346 | 0 | 0 | 模块职责索引 |
+| `docs/survey/11-module-index.md` | 166 KB | 1,349 | 0 | 0 | 模块职责索引 |
 | `docs/MATERIALS-PLANE-PLAN.md` | 154 KB | 1,394 | 2 | 6 | 材料平面与通用研究改造方案（v1 草案，待业主批准） |
 | `docs/KB-FOLDER-PLAN.md` | 154 KB | 1,630 | 2 | 9 | 知识库多级目录 —— 施工单（业主 2026-09-21 定案） |
 | `docs/research/channels/oss-decomposition.md` | 126 KB | 1,267 | 0 | 0 | 法规/标准获取与监控 · 开源项目**代码级**拆解 |
@@ -166,7 +167,7 @@
 | `docs/research/weknora-ui-vs-ours.md` | 83 KB | 581 | 1 | 26 | 我们 vs WeKnora：知识库管理 UI 差距清单（**只诊断，不改代码** |
 | `docs/research/STEP6-WORKORDER.md` | 82 KB | 1,043 | 1 | 4 | 第 6 步施工单 —— 插件侧借鉴 WeKnora 自带 DSH 插件的 6 条 |
 | `docs/ENCYCLOPEDIA.md` | 78 KB | 926 | 0 | 9 | KnowledgeStation 技术百科全书（ENCYCLOPEDIA） |
-| `docs/survey/15-doc-index-content.md` | 76 KB | 603 | 0 | 0 | 文档内容索引（每份讲什么） |
+| `docs/survey/15-doc-index-content.md` | 76 KB | 605 | 0 | 0 | 文档内容索引（每份讲什么） |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 KB | 641 | 1 | 6 | docs / specs / scripts 事实地图 |
 | `docs/research/channels/std-cn.md` | 73 KB | 1,145 | 0 | 0 | 中国标准类官方渠道实测调研 |
 | `docs/uniformity/01-core.md` | 70 KB | 1,064 | 1 | 0 | src/core 事实地图 |
@@ -194,14 +195,14 @@
 | `docs/uniformity/04-tests-tools-gates.md` | 41 KB | 621 | 1 | 0 | tests / tools / 门禁 事实地图 |
 | `docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md` | 40 KB | 477 | 0 | 0 | 自动化执行记忆：gov-qa 推进到全国省市全覆盖 |
 | `docs/uniformity/10-api-server.md` | 40 KB | 452 | 2 | 0 | api/server.py 事实地图 |
-| `docs/survey/07-doc-surface.md` | 38 KB | 393 | 1 | 1 | 文档面 |
+| `docs/survey/07-doc-surface.md` | 39 KB | 395 | 1 | 1 | 文档面 |
 | `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md` | 38 KB | 619 | 0 | 0 | 独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 KB | 644 | 0 | 0 | Hindsight 部署：对一份外部 AI 分析报告的事实核查（2026-09- |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 KB | 428 | 0 | 0 | 法规/标准发布源路径总表（2026-10-08 实测） |
 | `docs/research/vision-coverage-map.md` | 36 KB | 341 | 0 | 2 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 KB | 378 | 0 | 0 | 渠道台账状态快照（自动生成，勿手改） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 KB | 322 | 0 | 0 | 等待期前台提示：现状盘点 + 外部借鉴（只分析，未改代码） |
-| `docs/INDEX.md` | 31 KB | 295 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
+| `docs/INDEX.md` | 31 KB | 296 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
 | `docs/research/dsh-official/INGEST-LEDGER-repo-docs.md` | 30 KB | 190 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md` | 30 KB | 314 | 0 | 6 | 自动推进链「忽略 / 没收口」审计（2026-10-09 人工轮） |
 | `docs/verify-briefs/VERIFY-REPORT-govqa-conformance.md` | 30 KB | 660 | 1 | 0 | 独立复核报告 —— `verify-freeze-govqa-conforman |
@@ -218,6 +219,7 @@
 | `docs/survey/04-data-shape.md` | 28 KB | 879 | 1 | 0 | 数据形状（表 / 列 / 索引） |
 | `docs/research/dsh-official/dshdocs-C.md` | 28 KB | 173 | 0 | 1 | DSH 文档消化 · 面向「在 DSH 内做功能」的插件作者 |
 | `docs/archive/impl-reports/B3A-REPORT.md` | 27 KB | 377 | 0 | 3 | B3a 实施报告 —— 「补全分类号」引擎侧第二轮（CCS 自愈） |
+| `docs/survey/19-requirements.md` | 26 KB | 15 | 0 | 0 | 需求编号 / 否决台账 / 数据样例 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 KB | 424 | 0 | 0 | 一份自包含的求助文档：**我们的检索召回上不去，接下来该走哪条路？** |
 | `docs/research/cross-language-retrieval-evidence.md` | 25 KB | 305 | 4 | 5 | 非中文资料上的检索口径证据（英文开发文档 / 技术文档） |
 | `docs/research/wikiskill-integration-assessment.md` | 25 KB | 371 | 2 | 1 | WikiSkill（arXiv 2608.27454）融合评估 |
@@ -241,6 +243,7 @@
 | `docs/research/rag-encyclopedia-study.md` | 21 KB | 220 | 0 | 1 | RAG 全景资料学习笔记：哪些能借、哪些是我们自己走出来的 |
 | `docs/research/HANDOFF-external-solutions.md` | 21 KB | 276 | 0 | 0 | 交接任务书：把「我们当前未解的问题」的外部解法找齐 |
 | `docs/research/dsh-official/dshdocs-H.md` | 21 KB | 92 | 0 | 0 | DSH 官方技能与门禁摘要（H） |
+| `docs/survey/18-runtime-probe.md` | 21 KB | 312 | 1 | 1 | 运行时探测（真启动引擎，176 条端点实测） |
 | `docs/verify-briefs/VERIFY-REPORT-exp17-prod-plan.md` | 20 KB | 263 | 1 | 0 | 独立复核报告 · exp-17-embedding-production-pla |
 | `docs/research/cross-plane-jump-assessment.md` | 20 KB | 283 | 1 | 3 | 跨平面交叉引用（法条 ↔ 你自己的文档）：评估与待决方案 |
 | `docs/verify-briefs/VERIFY-REPORT-e4b-round2.md` | 20 KB | 308 | 3 | 0 | 独立复核报告：E4 第二轮验证（批次 `e4b-round2`） |
@@ -260,8 +263,7 @@
 | `docs/archive/old-plans/AUTO-DRAFT-PLAN.md` | 17 KB | 210 | 0 | 1 | 自动成文（系统起草结论）——立项论证与设计（2026-09-18） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 KB | 136 | 0 | 0 | 对策表：抄哪一处 / 不抄哪一处 / 我们独有的那一条 |
 | `docs/research/dsh-official/dshdocs-D.md` | 17 KB | 123 | 0 | 0 | DSH 官方文档消化：工具 / LLM / 会话 / 子代理 |
-| `docs/survey/10-observed.md` | 17 KB | 359 | 1 | 2 | 观察记录（中性，不下结论） |
-| `docs/survey/18-runtime-probe.md` | 16 KB | 232 | 1 | 0 | 运行时探测（真启动引擎，176 条端点实测） |
+| `docs/survey/10-observed.md` | 17 KB | 359 | 2 | 2 | 观察记录（中性，不下结论） |
 | `docs/research/archify/03-借鉴结论.md` | 16 KB | 207 | 0 | 1 | archify 对比与借鉴结论 |
 | `docs/wiki/architecture.md` | 16 KB | 248 | 5 | 13 | KnowledgeStation：项目目标与现状 |
 | `docs/survey/16-frontend.md` | 16 KB | 274 | 0 | 0 | 前端清单（文件 / 导出 / 说明） |
@@ -291,10 +293,10 @@
 | `docs/archive/review-briefs/d508773-report.md` | 12 KB | 172 | 0 | 0 | 独立复核报告 — `d508773`（"③假绿补硬：复核点名三处验收牙加硬"） |
 | `docs/research/dsh-official/dshdocs-A.md` | 12 KB | 87 | 0 | 0 | DSH 客户端插件（右栏 UI）开发摘要 |
 | `docs/verify-briefs/VERIFY-REPORT-e4c-1024.md` | 12 KB | 137 | 3 | 0 | 独立复核报告 · E4c「同模型升维 512→1024」 |
+| `docs/survey/02-code-map.md` | 12 KB | 214 | 2 | 0 | 代码地图（AST 级符号清单） |
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 KB | 179 | 1 | 0 | 他们的"有效"到底拿什么量的？（口径核查）+ **多跳这件事** |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 KB | 160 | 0 | 0 | 评审任务书 B：路线级独立评审与超越（交给最强的 AI） |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 KB | 164 | 2 | 0 | 学术调研 · 第 1 轮：**排序/重排**与**评测集**（对应我们的判据①② |
-| `docs/survey/02-code-map.md` | 12 KB | 210 | 2 | 0 | 代码地图（AST 级符号清单） |
 | `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 11 KB | 233 | 1 | 0 | P0.4b 取证报告：通道 A/D/E 的排序键**到底有没有用** |
 | `docs/verify-briefs/VERIFY-REPORT-ratchet-2.md` | 11 KB | 137 | 3 | 0 | 独立复核报告 —— ratchet-2 批次（复核员 general-purpo |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 KB | 172 | 1 | 0 | 学界做法**到底值不值得抄**：效果、工作量、能不能纯写代码 |
@@ -370,11 +372,11 @@
 | `docs/wiki/components/README.md` | 3 KB | 53 | 13 | 20 | 组件契约索引 |
 | `docs/wiki/components/verification.md` | 3 KB | 63 | 1 | 0 | verification（核验与纠错守卫） |
 | `docs/wiki/components/vision.md` | 3 KB | 67 | 1 | 0 | vision（本地视觉反查） |
+| `docs/survey/COVERAGE.md` | 3 KB | 55 | 2 | 0 | 覆盖对账（九个面） |
 | `docs/wiki/components/query.md` | 3 KB | 65 | 1 | 0 | query（查询理解） |
 | `docs/archive/workbuddy-memory/README.md` | 3 KB | 59 | 13 | 0 | 归档：项目内 `.workbuddy-ai/`（WorkBuddy 自动链的记忆 |
 | `docs/research/dsh-official/INGEST-LEDGER-notes-client-ui.md` | 3 KB | 27 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/history/README.md` | 3 KB | 80 | 13 | 1 | 开发史明细归档（§10.1 – §10.203） |
-| `docs/survey/COVERAGE.md` | 3 KB | 54 | 2 | 0 | 覆盖对账（九个面） |
 | `docs/research/papers/README.md` | 3 KB | 54 | 13 | 0 | 外部原件存放处（检索文献调研） |
 | `docs/wiki/components/retrieval.md` | 3 KB | 71 | 2 | 0 | retrieval（检索） |
 | `docs/archive/README.md` | 3 KB | 68 | 13 | 2 | 归档区：这里放什么、怎么查 |

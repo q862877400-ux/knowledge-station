@@ -1,0 +1,2288 @@
+{
+ "generated_by": "scripts/survey/09-requirements.py::step_requirements",
+ "sources": [
+  "docs"
+ ],
+ "caliber": "需求编号**没有单一权威文档**（实测）：`REQUIREMENTS-v4.3.md` 用 `### R24`；`R6c` 是 `CHANNEL-R6C-DESIGN.md` 的 `# R6c 设计：…` 一级标题；`R6a/R6b` 只在 `CHANNEL-COVERAGE-PLAN.md` 正文内联出现。⇒ 扫**全部 `docs/**/*.md`**，三级认定：①标题 ②行首加粗 ③仅正文提及；④任何文档都没有。`code_refs` = `src/ tests/ scripts/ plugin/src/ plugin/client/` 里 `R<n>` 的文本出现，按文件计数。",
+ "counts": {
+  "level1_heading": 97,
+  "level2_bold": 1,
+  "level3_mention_only": 0,
+  "level4_nowhere": 1,
+  "referenced_in_code": 62,
+  "defined_but_never_referenced": 36,
+  "definition_by_source": {
+   "docs/REQUIREMENTS-v4.3.md": 61,
+   "docs/CHANNEL-COVERAGE-PLAN.md": 35,
+   "docs/archive/old-plans/CHANNEL-R6C-DESIGN.md": 1,
+   "docs/archive/history/rounds-10.1-10.203.md": 1
+  }
+ },
+ "referenced_but_defined_nowhere": [
+  {
+   "id": "R85",
+   "code_ref_files": [
+    {
+     "file": "src/core/update/discover.py",
+     "n": 1
+    }
+   ],
+   "first_source_line": "src/core/update/discover.py: {\"kw\": (\"客运\", \"货运\", \"物流运输\"), \"path\": [\"R\", \"R85\"], \"conf\": 0.80},",
+   "hint": "原文里有 `\"path\"` / CCS / 分类 等字样 ⇒ 可能不是需求编号"
+  }
+ ],
+ "requirements": [
+  {
+   "id": "R1",
+   "title": "（2026-09-18 起）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 285,
+   "level": "①标题",
+   "summary": "已确认：**底座比业主预期厚**，改造重心是\"台账 + 覆盖率 + 打通\"，不是从零造爬虫。",
+   "code_refs": [
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 6
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 5
+    },
+    {
+     "file": "tests/test_text_utils.py",
+     "n": 3
+    },
+    {
+     "file": "scripts/docs/scan-rename-targets.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channel_answers.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channel_probe.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_channel_answers.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_naming_convention_scanner.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_resolve_clause_normalization.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/text_utils.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/smoke_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/govcn_announce.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channel_probe.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_contract.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_middle_bbox_units.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_question_router.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_routing.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/backfill-bbox-units.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/channel-status-report.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 45
+  },
+  {
+   "id": "R2",
+   "title": ".5 的一部分（2026-09-18 完成）：G23 修掉",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 375,
+   "level": "①标题",
+   "summary": "`inspector._build_adapters()` 原先按 `ADAPTER_CLASSES` 的**键**建字典（键取自文件名 `ttzb`）， 而 `routing.select_chain()` 返回的是**适配器名** `ttbz` ⇒ 查不到 ⇒ **静默跳过该渠道**。 改成**按适配器 `name` 建表**（类没声明 `name` 时退回注册键），并在 `tests/test_update_channels.py` 加两条：① **数据驱动不变量**——穷举 `_PREFIX_ROUTE` ",
+   "code_refs": [
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 4
+    },
+    {
+     "file": "scripts/docs/scan-rename-targets.py",
+     "n": 4
+    },
+    {
+     "file": "tests/test_kb_scope_retrieval.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_resolve_clause_normalization.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/llm/deepseek_client.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_naming_convention_scanner.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/backfill-bbox-units.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 21
+  },
+  {
+   "id": "R3",
+   "title": "（2026-09-18 完成）：语义探针 —— 把\"有效性\"变成实测，而不是配置里的声明",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 387,
+   "level": "①标题",
+   "summary": "（8 条，每条都带 `evidence` = 锚点是从哪次实测看到的）。",
+   "code_refs": [
+    {
+     "file": "tests/test_channel_probe.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_resolve_clause_normalization.py",
+     "n": 2
+    },
+    {
+     "file": "scripts/docs/scan-rename-targets.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channel_probe.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_naming_convention_scanner.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/index.js",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 13
+  },
+  {
+   "id": "R4",
+   "title": "精确引用问答",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 322,
+   "level": "①标题",
+   "summary": "1. 大模型的回答中必须带有严格的引用角标 Badge（如 `[引用:GB50016-5.2.3]` 或 `[引用:民法典-496]`），并在界面左侧回答下方列出对应的证据卡片清单； 2. 证据清单中的每一项必须精确对应知识库返回的不可变 `clause_revision_id`，格式统一为：`标准号/法律名 条款号 (第 P 页)`； 3. **防编造硬校验**：回答中出现的所有条款号必须 100% 属于本次检索返回的不可变证据快照集合；若检测到模型提及了未检索到的条款号，本地核验器直接触发拦截，并在界面弹窗或标",
+   "code_refs": [
+    {
+     "file": "scripts/channel-status-report.py",
+     "n": 2
+    },
+    {
+     "file": "plugin/client/ksEvidence.ts",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/preview_jobs.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_preview_jobs.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 7
+  },
+  {
+   "id": "R5",
+   "title": "混合检索",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 370,
+   "level": "①标题",
+   "summary": "1. **六路并行召回（v4.3 从三路扩展为六路）**：",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R6",
+   "title": "接入 Win11 独立客户端",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 419,
+   "level": "①标题",
+   "summary": "1. 采用 **Electron + React 18** 构建独立的 Windows 11 桌面客户端，前后端通过本地环回 HTTP/SSE 协议通信； 2. 后台 Python 引擎作为独立子进程静默运行，**v4.3 改为随机端口 + token 鉴权**（不再固定 28108），支持流式打字机输出、动态取消请求及健康状态心跳监控； 3. **（v4.3 新增）Python 子进程 heartbeat + auto-restart**：Electron 主进程每 3 秒探测 Python 后端 `/healt",
+   "code_refs": [
+    {
+     "file": "src/core/update/channel_probe.py",
+     "n": 4
+    },
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_update_routing.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/supervisor.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/__init__.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/knowledge/law_source/http.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channel_probe.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_law_source_http_antibot.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/channel-anchor-measure.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/channel-status-report.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 20
+  },
+  {
+   "id": "R7",
+   "title": "（2026-09-19 完成）：号段字段——把「号段→渠道」从代码搬进台账（目标②的加法那一半）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2312,
+   "level": "①标题",
+   "summary": "R6h 只做了**减法**（人工停用/known-broken 真的把渠道从链里去掉），**加法**那一半缺一个字段： \"这条渠道管哪些标准号\"此前**只硬编码在 `routing._PREFIX_ROUTE` 里**——那是代码，不是台账， 业主改不了；于是那 10 条适配器永远只能\"为将来保留\"。",
+   "code_refs": [
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 8
+    },
+    {
+     "file": "tests/test_ledger_chain.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 2
+    },
+    {
+     "file": "scripts/chain-snapshot.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/sqlite_db.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channels_write_api.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_inspector.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 23
+  },
+  {
+   "id": "R8",
+   "title": "（2026-09-24 量测）：两个公告源的逐页覆盖率实测 —— 不是\"漏了 339 条\"，是 500/501",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2506,
+   "level": "①标题",
+   "summary": "差的 339 条可能在年份归档里」。那条是我早先探针笔记的**转述**，没回原始来源核过。 按本仓纪律（转述的数字要回原始来源核），这次直接数。",
+   "code_refs": [
+    {
+     "file": "tests/test_phase6.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/law_text.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 6
+  },
+  {
+   "id": "R9",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记，免得\"没记\"被读成\"没人管\"",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2529,
+   "level": "①标题",
+   "summary": "补锚点存在性守卫（fail-open → fail-closed）。**详细记录在它自己的归属层** —— [开发史 §10.206](DEVELOPMENT-HISTORY.md) 与 [NEXT-DEV-PLAN 甲](NEXT-DEV-PLAN-2026-09-28.md)， 本文不抄正文（宪法原则 IV：一个事实一个归属层）。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 6
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 5
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase5.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/llm/ks_answer.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/discover.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase8.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/index.js",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 22
+  },
+  {
+   "id": "R10",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2542,
+   "level": "①标题",
+   "summary": "（结论：**没有**，最好样本内 oracle 只有 3.04×、最低门槛要 4.32×）。**详细记录在它自己的归属层** —— [开发史 §10.207](DEVELOPMENT-HISTORY.md)、[施工总纲 P2 段](RETRIEVAL-LONG-RANGE-PLAN.md)、 [NEXT-DEV-PLAN §二乙后](NEXT-DEV-PLAN-2026-09-28.md)、[E9 VERDICT](eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R11",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2556,
+   "level": "①标题",
+   "summary": "领域词典）在古籍语料上都优于现状（recall@5 30.8% → 34.3% / 40.2% / 42.3%）， 但**判据不足以开工 ⇒ 决定不改**；并查清古籍的**主因是繁简**（简体提问在繁體原文上 0 命中）。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase6.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R12",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2572,
+   "level": "①标题",
+   "summary": "硬约束点名\"E4 第二轮验证照常跑、不要跳过\"）：**A 提问侧成本**（Qwen3 GPU warm p50 32.02 ms / 峰值显存 1164 MiB / 只占向量路扫描的 2.98%）+ **B 查询侧指令前缀**（Vector@1000 主结果 120 条 0.6833 → 0.8417，**+15.84pt**，簇级 CI [+9.43, +22.73]）。",
+   "code_refs": [
+    {
+     "file": "plugin/client/ksGuideStyles.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R13",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2589,
+   "level": "①标题",
+   "summary": "簇级 CI [-5.08, +8.55]、p=0.7284，且 @20/@100/生产上限口径**全降**、代价 **×1.647** ⇒ **判决\"放弃升维\"**（低于半条分辨率线 4pt）。",
+   "code_refs": [
+    {
+     "file": "src/core/quality/grading.py",
+     "n": 4
+    },
+    {
+     "file": "tests/test_phase13_blindspots.py",
+     "n": 4
+    },
+    {
+     "file": "tests/test_dryrun_report.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 9
+  },
+  {
+   "id": "R14",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2606,
+   "level": "①标题",
+   "summary": "给 `benchmark-v2.jsonl` 的每条题打**四难度子集标签**（短条款 / 字面零重合 / 带标准号 / 普通，",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R15",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2631,
+   "level": "①标题",
+   "summary": "一条空判据测试，并**实测修复前后的 top-8 收益**（结论：修了，但**重排不接生产**）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R16",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2652,
+   "level": "①标题",
+   "summary": "上面有多少只有尾巴才有的词、对召回的影响面\"，**结论 = 本轮不改 schema**。",
+   "code_refs": [
+    {
+     "file": "tests/test_phase6.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/versioning.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/discover.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R17",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2672,
+   "level": "①标题",
+   "summary": "在生产模型 `bge-small-zh-v1.5` 上只读测量三种查询串改写对向量路名次的影响。",
+   "code_refs": [
+    {
+     "file": "src/core/llm/deepseek_client.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/llm/fewshot.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_fewshot.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 3
+  },
+  {
+   "id": "R18",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2697,
+   "level": "①标题",
+   "summary": "接进**完整六路融合**，量**用户实际看到的 `fused@20`**（`NEXT-DEV-PLAN §三序 4`）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R19",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2730,
+   "level": "①标题",
+   "summary": "`exp-7`（只换融合公式）的**交互**补上 —— 7 格二维对照（池深 20/100/1000 × 加权 RRF k=60/200/1000 / RRM / 文档去重），终点 `fused@20`（headline 120）。",
+   "code_refs": [
+    {
+     "file": "src/core/exports/report_export.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase4.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R20",
+   "title": "（2026-10-09，非渠道轮）：渠道线零改动 —— 仅登记",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2767,
+   "level": "①标题",
+   "summary": "影子表 `clause_vec_qwen`（与生产 `clause_vec` **同形** `FLOAT[512]`）+ 只读真库的**可续跑重建**脚本 （`rowid` 游标 + 库内 checkpoint 同事务提交 + 口径守卫），**`src/` / `plugin/` 零改动、真库一行没动**。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R21",
+   "title": "知识库健康度诊断看板",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1393,
+   "level": "①标题",
+   "summary": "1. 记录全量本地检索、问答与合规审查事件日志（`audit_log` + `event_log`，自动脱敏，不含敏感隐私）； 2. 支持一键将整套知识库（SQLite 数据库文件 + 原始 PDF 目录 + 审查报告）打包导出为标准 `.zip` / `.tar.gz` 归档包。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R22",
+   "title": "检索降级扩检",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 515,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R23",
+   "title": "条款标题独立检索",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 523,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R24",
+   "title": "答案置信度分级与存疑提示",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 691,
+   "level": "①标题",
+   "summary": "1. 入库新标准/法规时自动识别前言/附则中的\"代替 GB XXXX-XXXX\"或\"本法自 X 年 X 月 X 日起施行，原 XX 法同时废止\"，自动将旧版的 `legal_status` 置为 `superseded`，并记录 `superseded_by` 指向新版 `doc_id`； 2. 支持手动触发全库时效核验；若处于断网离线模式，明确提示\"当前处于离线模式，仅依据本地数据库判定时效\"。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 3
+    },
+    {
+     "file": "tests/test_phase5.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R25",
+   "title": "条款收藏与快捷自然语言指代",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1231,
+   "level": "①标题",
+   "summary": "1. 支持用户在左侧回答或右侧 PDF 中一键收藏条款（存入 `user_bookmark` 表）并添加自定义备注； 2. 支持后续对话中的自然语言快捷指代（如\"按我收藏的防火间距算\"或\"按我收藏的格式条款规定审\"）； 3. 已收藏的条款在用户后续发起相关检索时，获得轻量 RRF 排名加分（`bookmark_boost: +0.15`），优先呈现给该用户。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/user_data.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R27",
+   "title": "入库预览报告 (Dry-Run)",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 531,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/quality/grading.py",
+     "n": 4
+    },
+    {
+     "file": "src/core/api/routes_ingest_preview.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/ingestion/dry_run.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/quality/recognition.py",
+     "n": 3
+    },
+    {
+     "file": "plugin/src/ingest.js",
+     "n": 3
+    },
+    {
+     "file": "src/core/ingestion/mineru_adapter.py",
+     "n": 2
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 2
+    },
+    {
+     "file": "src/core/ingestion/bulk.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/parser_worker.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/quality/clause_health.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/verification/patch_guard.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_dryrun_report.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/index.js",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 30
+  },
+  {
+   "id": "R28",
+   "title": "审计日志与全量知识库一键导出",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1401,
+   "level": "①标题",
+   "summary": "1. 记录全量本地检索、问答与合规审查事件日志（`audit_log` + `event_log`，自动脱敏，不含敏感隐私）； 2. 支持一键将整套知识库（SQLite 数据库文件 + 原始 PDF 目录 + 审查报告）打包导出为标准 `.zip` / `.tar.gz` 归档包。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R29",
+   "title": "版本更新检测与自动替代",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 702,
+   "level": "①标题",
+   "summary": "1. 入库新标准/法规时自动识别前言/附则中的\"代替 GB XXXX-XXXX\"或\"本法自 X 年 X 月 X 日起施行，原 XX 法同时废止\"，自动将旧版的 `legal_status` 置为 `superseded`，并记录 `superseded_by` 指向新版 `doc_id`； 2. 支持手动触发全库时效核验；若处于断网离线模式，明确提示\"当前处于离线模式，仅依据本地数据库判定时效\"。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/versioning.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase6.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 3
+  },
+  {
+   "id": "R2a",
+   "title": "（2026-09-18 完成，同一轮）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 341,
+   "level": "①标题",
+   "summary": "（注册数、研究期实测、运行期健康度），另有 `category_raw`（保留调研原文，不丢证据）、 `probe_url`/`probe_expect`（留给 R3）、`last_try_at` **与** `last_ok_at` 分开。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R2b",
+   "title": "（2026-09-18 完成，同一轮）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 359,
+   "level": "①标题",
+   "summary": "两条口径写进用例：**参数错要 422，不许返回空结果**（空结果会让人以为库里没这条）；",
+   "code_refs": [
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 6
+  },
+  {
+   "id": "R30",
+   "title": "检索故障降级",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 539,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/retrieval/reranker.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/clause_repo.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/retrieval/embedder.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/doc_delete.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/sqlite_db.py",
+     "n": 1
+    },
+    {
+     "file": "tests/conftest.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_ks_answer.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_reranker.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_retrieval.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 13
+  },
+  {
+   "id": "R31",
+   "title": "检索可解释性得分",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 547,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R32",
+   "title": "工具调用与会话预算防护",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 555,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R33",
+   "title": "个人工程笔记与条款批注",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1242,
+   "level": "①标题",
+   "summary": "1. 允许用户在任意条款上附加个人审图经验、法务心得或项目批注（存入 `user_annotation` 表）； 2. 严格按本地用户存储隔离，绝不污染公共标准/法规数据库； 3. 后续查阅或检索命中该条款时，界面左侧回答或右侧 PDF 悬浮条上伴随展示：\"【我的批注：本项目地下车库已通过专家论证，按 1.50h 执行】\"或\"【我的批注：该条'单独同意'在 XX 案中法院认定标准较严】\"。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/user_data.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R34",
+   "title": "项目化合规条款依据清单",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1253,
+   "level": "①标题",
+   "summary": "1. 支持用户创建命名的工程项目/合规审查项目清单（`project_list`，如\"华润万象城二期\"或\"XX 公司数据合规审查\"）； 2. 支持在对话或合规审查过程中一键将当前核验通过的 `clause_revision_id` 批量加入项目清单； 3. 支持随时调取、重排序与移除清单内的条款依据； 4. **（v4.3）合规审查报告可关联到项目清单**，实现\"一个项目 → 多份审查报告 → 一组条款依据\"的层级管理。",
+   "code_refs": [
+    {
+     "file": "src/core/storage/user_data.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_head_unit_fragment_gate.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R35",
+   "title": "多格式合规依据报告导出",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1265,
+   "level": "①标题",
+   "summary": "1. 支持将项目清单、单次问答依据或合规审查报告一键导出为标准本地排版文件：",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R36",
+   "title": "答案风格预设",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1277,
+   "level": "①标题",
+   "summary": "1. 填入 DeepSeek API Key（或勾选本地 LM Studio）；**（v4.3）API Key 使用 Win11 DPAPI 加密存储**； 2. 选择主要专业领域（建筑 / 消防 / 暖通 / 合同 / 数据安全 / 劳动 等）； 3. 选择首批导入的标准/法规 PDF 文件夹； 4. **（v4.3 新增）选择是否下载 MinerU 完整模型权重**（基础包仅含 fastembed，首次导入 PDF 需 MinerU 模型）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R37",
+   "title": "章节大纲目录树浏览",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1285,
+   "level": "①标题",
+   "summary": "1. 填入 DeepSeek API Key（或勾选本地 LM Studio）；**（v4.3）API Key 使用 Win11 DPAPI 加密存储**； 2. 选择主要专业领域（建筑 / 消防 / 暖通 / 合同 / 数据安全 / 劳动 等）； 3. 选择首批导入的标准/法规 PDF 文件夹； 4. **（v4.3 新增）选择是否下载 MinerU 完整模型权重**（基础包仅含 fastembed，首次导入 PDF 需 MinerU 模型）。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R38",
+   "title": "个人本地使用统计看板",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1293,
+   "level": "①标题",
+   "summary": "1. 填入 DeepSeek API Key（或勾选本地 LM Studio）；**（v4.3）API Key 使用 Win11 DPAPI 加密存储**； 2. 选择主要专业领域（建筑 / 消防 / 暖通 / 合同 / 数据安全 / 劳动 等）； 3. 选择首批导入的标准/法规 PDF 文件夹； 4. **（v4.3 新增）选择是否下载 MinerU 完整模型权重**（基础包仅含 fastembed，首次导入 PDF 需 MinerU 模型）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R39",
+   "title": "现成文本条款引用核验",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 712,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R3b",
+   "title": "（2026-09-18 完成）：探针覆盖 8 → 17 条（锚点全部来自实测）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 408,
+   "level": "①标题",
+   "summary": "第二批 9 条（法规/标准各半），锚点取自**实测看到的 `<title>`**（`var/tmp/probe-batch2-anchors.py` 一次抓齐）：`xzfg`→`国家行政法规库`、`mem 法律法规`→`法律法规`、`mem 规章`→`政府信息公开`、 `mee 法规标准`→`法规标准`、`zjrd`→`法规公告`、`gdpc`→`广东省法规规章规范性文件数据库`、 `cssn`→`standard`（JSON 字段名）、`mohurd`→`文告库`、`mem_gov`→**故意钉 `标准公告`**",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R3c",
+   "title": "（2026-09-18 完成）：探针覆盖 17 → 28 条；当场又抓出 5 条死链",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 467,
+   "level": "①标题",
+   "summary": "批次3：从\"已验证但未探\"的 71 条候选里挑 GET 得动的 11 条（锚点同样取自**实测 `<title>`**， 脚本 `var/tmp/probe-batch3-scan.py`）：北京市司法局/人大/政府、上海市人大/政府规章库/近期信息公开/ 司法局、司法部部门规章栏目、广东人大两个栏目等。",
+   "code_refs": [
+    {
+     "file": "scripts/channel-status-report.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R3d",
+   "title": "（2026-09-18）：对自己的结论做了一次证伪（代理/传输层）——结论站得住，但捞出两个环境级发现",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 562,
+   "level": "①标题",
+   "summary": "而 `curl_cffi` 的 Session **默认尊重环境代理** ⇒ 我前面 28 条探针**都是走代理出去的**。 于是\"渠道不可用\"有可能是**测法**造成的（部分政府站对代理出口会更凶）。",
+   "code_refs": [
+    {
+     "file": "src/core/update/channels/base.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 3
+  },
+  {
+   "id": "R40",
+   "title": "强制性标准 (强标) 优先与置顶",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 852,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R41",
+   "title": "工程参数反查适用条款（v4.3 升级为条件推理检索）",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 860,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 3
+  },
+  {
+   "id": "R42",
+   "title": "标准替代链时间线查询",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 720,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/storage/versioning.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_phase6.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R43",
+   "title": "重复检测与覆盖控制",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 563,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/ingestion/smoke_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_selfcheck_fixes.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R44",
+   "title": "纯离线一键硬件级断网降级",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1411,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12",
+   "code_refs": [
+    {
+     "file": "tests/test_head_unit_fragment_gate.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase13_blindspots.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R45",
+   "title": "截图/图纸条款特征识别",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 879,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R46",
+   "title": "知识库快照创建与一键回滚",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1419,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [
+    {
+     "file": "src/core/storage/backup.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R47",
+   "title": "条款级质量评分与待复核标记",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 728,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R48",
+   "title": "术语大白话反向查询",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 887,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase6.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/knowledge/alias_extract.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/llm/ks_answer.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 6
+  },
+  {
+   "id": "R49",
+   "title": "版本更迭影响面深度分析",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1427,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [
+    {
+     "file": "src/core/storage/versioning.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_phase6.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/impact.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 8
+  },
+  {
+   "id": "R4a",
+   "title": "（2026-09-18 完成）：宿主路由 + 引擎探测端点（面板的前置件）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 513,
+   "level": "①标题",
+   "summary": "谁探了哪个站、探几次都不受控，`Referer/Origin` 还会带上 GUI 地址，对政府站反爬是无谓信号。 （这与\"大字体直连引擎取产物\"那条**故意不同**，两条路径的取舍理由都写在文件头。）",
+   "code_refs": [
+    {
+     "file": "src/core/domain/models.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/knowledge/classifier.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/channels.js",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/index.js",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R4b",
+   "title": "（2026-09-18 完成）：面板 UI —— 业主\"看得见\"的那一半",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 531,
+   "level": "①标题",
+   "summary": "走**同源宿主路由** `/ks/channels*`（不是直连引擎）——理由写在注释里：探针会对外发请求， 必须在宿主侧受控。",
+   "code_refs": [
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R50",
+   "title": "首次启动初始化向导",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1301,
+   "level": "①标题",
+   "summary": "1. 填入 DeepSeek API Key（或勾选本地 LM Studio）；**（v4.3）API Key 使用 Win11 DPAPI 加密存储**； 2. 选择主要专业领域（建筑 / 消防 / 暖通 / 合同 / 数据安全 / 劳动 等）； 3. 选择首批导入的标准/法规 PDF 文件夹； 4. **（v4.3 新增）选择是否下载 MinerU 完整模型权重**（基础包仅含 fastembed，首次导入 PDF 需 MinerU 模型）。",
+   "code_refs": [
+    {
+     "file": "tests/test_head_unit_fragment_gate.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R51",
+   "title": "定时自动滚动快照备份",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1435,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [
+    {
+     "file": "src/core/storage/backup.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R52",
+   "title": "条件感知过滤检索",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 895,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R53",
+   "title": "支撑依据充分度自检",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 903,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R54",
+   "title": "批量条款状态核验",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 736,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R55",
+   "title": "引用完整性与缺失依赖检查",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 744,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R56",
+   "title": "知识库更新时间线与日志",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1313,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R57",
+   "title": "收藏/批注条款变更主动告警",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1321,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R58",
+   "title": "显式反馈与单条纠错",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1329,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。",
+   "code_refs": [
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/pypdf_backfill.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R59",
+   "title": "回答覆盖范围模式切换",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 911,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "tests/test_phase13_blindspots.py",
+     "n": 4
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R5a",
+   "title": "（2026-09-18，未完成）：找回应急部「标准公告」新地址 —— 一次诚实的失败",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 596,
+   "level": "①标题",
+   "summary": "`https://www.mem.gov.cn/fw/flfgbz/` 找候选链接 → 逐个探。",
+   "code_refs": [
+    {
+     "file": "src/core/update/channel_probe.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/api/server.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/llm/ks_answer.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/retrieval/hybrid_engine.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channel_probe.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_r5a.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 7
+  },
+  {
+   "id": "R5b",
+   "title": "（2026-09-18 完成）：govcn 换棒 —— 三棒降级链从\"只有一根在工作\"变成\"两根\"",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 613,
+   "level": "①标题",
+   "summary": "（mock 契约），而它打的 `sousuo/…/search.shtml` 是 **HTML 搜索页** ⇒ 真实网络**恒 miss**（R1 的 G6）。 换成政策文件库的**真 JSON 接口** `GET https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=…`， 并**复用** `law_source/govcn_client.parse_rows` 做解析（响应形状的唯一所有者，不在本文件再抄一份 字段映射）；mock 分支保留（离",
+   "code_refs": [
+    {
+     "file": "src/core/update/channels/govcn_announce.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 7
+  },
+  {
+   "id": "R5c",
+   "title": "（2026-09-18 完成）：把 `web`（bing，第三根棒）摘出链外 —— 三棒故事收口",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 643,
+   "level": "①标题",
+   "summary": "理由（R1 的 G6 + R5b 的实测）：`WebFallbackAdapter` 只解 `isinstance(body, dict)`（mock 契约）， 而它打的是 bing 的 **HTML 搜索页** ⇒ 真实网络**恒 miss**：每次探测白花一次请求，而且",
+   "code_refs": [
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 3
+    },
+    {
+     "file": "tests/test_update_routing.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/web_fallback.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 10
+  },
+  {
+   "id": "R5c",
+   "title": "（收起面板后 chip 仍在同一行）；`ui-render-shot` 的 `#ask` 量点新增 `where`/`chipWhere`",
+   "source": "docs/archive/history/rounds-10.1-10.203.md",
+   "lineno": 9789,
+   "level": "②行首加粗",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 3
+    },
+    {
+     "file": "tests/test_update_routing.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/web_fallback.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channel_repo.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 10
+  },
+  {
+   "id": "R5d",
+   "title": "（2026-09-18 完成）：httpx 回退自检 —— 把\"两个栈都不可用\"从静默失败变成点名报错",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 672,
+   "level": "①标题",
+   "summary": "就回退 httpx。而本机实测 **httpx 连 `Client()` 都构造不出来** （`NO_PROXY` 含 `[::1]` ⇒ `InvalidURL: Invalid port: ':1]'`）⇒ 那种环境下**每个渠道都会失败**， 现场却只表现为\"每条都失败\"（症状离原因很远，最难查的一类）。",
+   "code_refs": [
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  },
+  {
+   "id": "R60",
+   "title": "多轮对话局部纠错感知",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 921,
+   "level": "①标题",
+   "summary": "1. **分歧核心**：明确指出具体量化指标或定性要求差异（如\"间距要求：GB A 为 13m，GB B 为 15m\"或\"同意要求：《个保法》需单独同意，《数据安全法》未明确\"）； 2. **适用边界差异**：明确两本标准/法规的前置适用对象（如\"GB A 适用于一般民用建筑，GB B 专门针对大型商业综合体\"或\"《个保法》适用于所有个人信息处理者，《数安法》聚焦重要数据\"）； 3. **实操建议**：说明行业报审/司法实践常见口径（如\"通常以严格者 15m 为准\"或\"实务中通常同时遵守两法，取更严格要求\"）。",
+   "code_refs": [
+    {
+     "file": "src/core/api/server.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/llm/deepseek_client.py",
+     "n": 3
+    },
+    {
+     "file": "tests/test_phase5.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/query/understanding.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_understanding.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 10
+  },
+  {
+   "id": "R61",
+   "title": "条文说明独立入库与双向穿透",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 752,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R62",
+   "title": "特殊工程字符保真",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 571,
+   "level": "①标题",
+   "summary": "",
+   "code_refs": [
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/knowledge/classifier.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 3
+  },
+  {
+   "id": "R63",
+   "title": "图表与附图标注内容处理",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 579,
+   "level": "①标题",
+   "summary": "1. 默认检索接口对返回的单条 Evidence 实施 Token 预算截断（默认正文保留前 800 字符；对于内嵌大表格，仅返回表头及 `table_summary`，不返回全量 Markdown 行）； 2. 提供内部明细获取接口 `get_clause_detail(clause_revision_id)`：当且仅当大模型在推理中判定必须深入引用全量大表格或超长条文时，按需二次拉取完整大块数据。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R64",
+   "title": "标准层级效力与地域优先",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 929,
+   "level": "①标题",
+   "summary": "1. **分歧核心**：明确指出具体量化指标或定性要求差异（如\"间距要求：GB A 为 13m，GB B 为 15m\"或\"同意要求：《个保法》需单独同意，《数据安全法》未明确\"）； 2. **适用边界差异**：明确两本标准/法规的前置适用对象（如\"GB A 适用于一般民用建筑，GB B 专门针对大型商业综合体\"或\"《个保法》适用于所有个人信息处理者，《数安法》聚焦重要数据\"）； 3. **实操建议**：说明行业报审/司法实践常见口径（如\"通常以严格者 15m 为准\"或\"实务中通常同时遵守两法，取更严格要求\"）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R65",
+   "title": "边角无意义内容智能过滤",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 587,
+   "level": "①标题",
+   "summary": "1. 默认检索接口对返回的单条 Evidence 实施 Token 预算截断（默认正文保留前 800 字符；对于内嵌大表格，仅返回表头及 `table_summary`，不返回全量 Markdown 行）； 2. 提供内部明细获取接口 `get_clause_detail(clause_revision_id)`：当且仅当大模型在推理中判定必须深入引用全量大表格或超长条文时，按需二次拉取完整大块数据。",
+   "code_refs": [
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/ingestion/smoke_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/clause_repo.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_clause_head_gates.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_pipeline.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 6
+  },
+  {
+   "id": "R66",
+   "title": "新旧版本条文在线对比 (Diff)",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 760,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R67",
+   "title": "过渡期并行有效状态呈现",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 768,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [
+    {
+     "file": "tests/test_phase13_blindspots.py",
+     "n": 5
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R68",
+   "title": "用户企业自定义内规入库",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1337,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R69",
+   "title": "冲突客观法理指引",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 937,
+   "level": "①标题",
+   "summary": "1. **分歧核心**：明确指出具体量化指标或定性要求差异（如\"间距要求：GB A 为 13m，GB B 为 15m\"或\"同意要求：《个保法》需单独同意，《数据安全法》未明确\"）； 2. **适用边界差异**：明确两本标准/法规的前置适用对象（如\"GB A 适用于一般民用建筑，GB B 专门针对大型商业综合体\"或\"《个保法》适用于所有个人信息处理者，《数安法》聚焦重要数据\"）； 3. **实操建议**：说明行业报审/司法实践常见口径（如\"通常以严格者 15m 为准\"或\"实务中通常同时遵守两法，取更严格要求\"）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R6a",
+   "title": "（2026-09-18 完成）：探针判据扩容 + 第一波覆盖率（未探 103 → 29）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 690,
+   "level": "①标题",
+   "summary": "79% 是空的。而\"补探针\"不是体力活就能凑数的：锚点必须**实测看到过**（R3 的纪律）， 否则就是把\"猜\"洗成\"实测\"。",
+   "code_refs": [
+    {
+     "file": "src/core/update/channel_probe.py",
+     "n": 3
+    },
+    {
+     "file": "tests/test_channel_probe.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/channel-anchor-measure.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 8
+  },
+  {
+   "id": "R6b",
+   "title": "（2026-09-18 完成）：我方通路探针 + \"未探\"的两种处境看得见",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 808,
+   "level": "①标题",
+   "summary": "重复的字面量，已无人引用：只有 `update/__init__.py` 在转出它），并让 `inspector._FALLBACK_CHAIN` **向唯一所有者取**（新增 `routing.fallback_chain()`，返回同一个 tuple 对象）。R5c 那次\"摘一棒要改两处\"的教训由此变成**代码约束**： 新用例用 `is` 钉住同一对象，任何人再抄一份都会红。`src/core/update/__init__.py` 的 `__all__` 里保留了说明（为什么删、去哪取）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R6c",
+   "title": "设计：五类监控打通 + 巡检降级链来自台账（只出设计，不动代码）",
+   "source": "docs/archive/old-plans/CHANNEL-R6C-DESIGN.md",
+   "lineno": 1,
+   "level": "①标题",
+   "summary": "⇒ 结论：**零件差一层，且差一块数据**——缺的是\"按问题选渠道\"这一层； 而且\"哪条渠道能答哪几类\"这份声明**只覆盖一半渠道**，R6c 必须先把它补齐（或明确\"不参与五类\"）， 否则\"按问题选链\"只对一半台账有效。",
+   "code_refs": [
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 16
+    },
+    {
+     "file": "tests/test_update_channels.py",
+     "n": 10
+    },
+    {
+     "file": "src/core/update/channels/question_router.py",
+     "n": 8
+    },
+    {
+     "file": "tests/test_update_inspector.py",
+     "n": 8
+    },
+    {
+     "file": "tests/test_update_routing.py",
+     "n": 8
+    },
+    {
+     "file": "src/core/update/channels/routing.py",
+     "n": 7
+    },
+    {
+     "file": "tests/test_channel_answers.py",
+     "n": 7
+    },
+    {
+     "file": "tests/test_question_router.py",
+     "n": 7
+    },
+    {
+     "file": "src/core/update/channels/ndls.py",
+     "n": 6
+    },
+    {
+     "file": "src/core/update/channels/base.py",
+     "n": 5
+    },
+    {
+     "file": "src/core/update/channels/hbba.py",
+     "n": 5
+    },
+    {
+     "file": "src/core/update/channels/official_gb.py",
+     "n": 5
+    },
+    {
+     "file": "src/core/update/channels/class_outcomes.py",
+     "n": 4
+    },
+    {
+     "file": "src/core/update/channels/ttzb.py",
+     "n": 4
+    },
+    {
+     "file": "tests/test_class_outcomes.py",
+     "n": 4
+    },
+    {
+     "file": "tests/test_ledger_chain.py",
+     "n": 4
+    },
+    {
+     "file": "src/core/ingestion/bulk.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channel_answers.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/cssn.py",
+     "n": 3
+    },
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 3
+    },
+    {
+     "file": "scripts/chain-snapshot.py",
+     "n": 3
+    },
+    {
+     "file": "scripts/five-class-order-diff.py",
+     "n": 3
+    },
+    {
+     "file": "plugin/src/inspection.js",
+     "n": 3
+    },
+    {
+     "file": "src/core/storage/clause_repo.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/govcn_announce.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/laws_db.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/update/channels/std_samr_hb.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_store_standard_no.py",
+     "n": 2
+    },
+    {
+     "file": "scripts/normalize-standard-no-slash.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/text_utils.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/dry_run.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/law_text.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/pipeline.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/ingestion/smoke_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/knowledge/auto_tag.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/knowledge/ccs_fetcher.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/web_ingest.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/mee.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/update/channels/web_fallback.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_normalize_std_slash.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/answers-matrix.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/question-route.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/repair-missing-standard-no.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/verify-answer-citations.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 157
+  },
+  {
+   "id": "R6d",
+   "title": "（2026-09-18 完成·引擎侧）：渠道台账的人工增删与复核（目标②的后半）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2101,
+   "level": "①标题",
+   "summary": "目标是\"渠道台账要能人工增删与复核\"，而在此之前**只有读**：`GET /api/v1/channels`（列表+小结）、 `GET .../{id}`（详情）、`POST .../probe`（立刻探一遍）。仓储层其实早就有 `upsert_channel`/`set_enabled`/`delete_channel`（种子导入在用），缺的是**给人用的写入口**。",
+   "code_refs": [
+    {
+     "file": "src/core/api/routes_channels.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_channels_write_api.py",
+     "n": 1
+    },
+    {
+     "file": "plugin/src/channels.js",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R6e",
+   "title": "（2026-09-18 完成·离线验证）：五类结论第一次显示到面板上（目标③的可见性）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2147,
+   "level": "①标题",
+   "summary": "是哪根渠道答的、答得全不全\"——但**面板一直不读它**（数据在库里躺着； `finalizeBatch` 只归组 `change_type`）。也就是说 R6c-4/R6c-7 这些投入，业主**看不到**。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R6f",
+   "title": "（2026-09-18 完成·离线验证）：渠道台账的人工增删复核接到界面上（目标②收口）",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2176,
+   "level": "①标题",
+   "summary": "引擎侧 R6d 已落四个写口，宿主侧这一步补齐代理与界面：",
+   "code_refs": [
+    {
+     "file": "plugin/src/channels.js",
+     "n": 1
+    },
+    {
+     "file": "plugin/client/api.ts",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R6g",
+   "title": "（2026-09-18 量测）：覆盖率量化——以及一个从没量过的战略事实",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2206,
+   "level": "①标题",
+   "summary": "目标里明写的缺口是「覆盖率未量化」（R1 就登记了）。这一轮把它量出来，并**拆成四层**—— 混着看就是 R1 的 G5/G6 那种虚高（\"台账 131 条\"听着很多，其实没有一条能用于今天的号）。",
+   "code_refs": [
+    {
+     "file": "src/core/update/channels/ledger_chain.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_ledger_chain.py",
+     "n": 2
+    },
+    {
+     "file": "src/core/storage/channel_repo.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R6h",
+   "title": "（2026-09-19 完成）：把台账接进巡检——业主那条「渠道可人工维护」真正生效的那一半",
+   "source": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "lineno": 2265,
+   "level": "①标题",
+   "summary": "其中第 1 条是\"台账驱动的链\"。查代码发现 `ledger_chain.py` **已经存在**，但它自己的 docstring 写着「**只被 `scripts/chain-snapshot.py` 与用例使用；巡检本身还没接**」 ⇒ 台账在那之前**只是个观察面板**：业主在里面停用一条渠道，**巡检照旧会去问它**。 而业主原话里的第二条诉求正是「**渠道可人工维护**」。所以这一步不是新功能，是**把已有的东西接上**。",
+   "code_refs": [
+    {
+     "file": "src/core/update/inspector.py",
+     "n": 2
+    },
+    {
+     "file": "tests/test_ledger_chain.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_update_inspector.py",
+     "n": 1
+    },
+    {
+     "file": "scripts/chain-snapshot.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 5
+  },
+  {
+   "id": "R70",
+   "title": "公式编号精准索引",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 595,
+   "level": "①标题",
+   "summary": "1. 默认检索接口对返回的单条 Evidence 实施 Token 预算截断（默认正文保留前 800 字符；对于内嵌大表格，仅返回表头及 `table_summary`，不返回全量 Markdown 行）； 2. 提供内部明细获取接口 `get_clause_detail(clause_revision_id)`：当且仅当大模型在推理中判定必须深入引用全量大表格或超长条文时，按需二次拉取完整大块数据。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R71",
+   "title": "多栏排版顺序验证",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 603,
+   "level": "①标题",
+   "summary": "1. 默认检索接口对返回的单条 Evidence 实施 Token 预算截断（默认正文保留前 800 字符；对于内嵌大表格，仅返回表头及 `table_summary`，不返回全量 Markdown 行）； 2. 提供内部明细获取接口 `get_clause_detail(clause_revision_id)`：当且仅当大模型在推理中判定必须深入引用全量大表格或超长条文时，按需二次拉取完整大块数据。",
+   "code_refs": [
+    {
+     "file": "tests/test_phase10_blindspots.py",
+     "n": 2
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R72",
+   "title": "答案不确定度审慎表达",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 945,
+   "level": "①标题",
+   "summary": "1. **分歧核心**：明确指出具体量化指标或定性要求差异（如\"间距要求：GB A 为 13m，GB B 为 15m\"或\"同意要求：《个保法》需单独同意，《数据安全法》未明确\"）； 2. **适用边界差异**：明确两本标准/法规的前置适用对象（如\"GB A 适用于一般民用建筑，GB B 专门针对大型商业综合体\"或\"《个保法》适用于所有个人信息处理者，《数安法》聚焦重要数据\"）； 3. **实操建议**：说明行业报审/司法实践常见口径（如\"通常以严格者 15m 为准\"或\"实务中通常同时遵守两法，取更严格要求\"）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R73",
+   "title": "实施日期临近主动提醒",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 776,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R74",
+   "title": "专家审校权威认证标记",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1345,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R75",
+   "title": "选择性关注标准推送",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 1353,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R76",
+   "title": "废止条款醒目视觉隔离",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 784,
+   "level": "①标题",
+   "summary": "【仓库注记 2026-09-12】本文件是需求 SSOT（R1~R79 + R-L1~L14 + T00~T13）。 以下条目已被后续业主裁决覆盖，需求本身作废/改向（详见 ENCYCLOPEDIA.md）： · R6  「接入 Win11 独立客户端」——其定义即 Electron+React 形态，已于 2026-09-12 批 8 整体退役；桌面化改由 DSH 整体打包承担，本项目不再单独打包 EXE。 · T08（React 双栏 UI）已退役重做，现为 DSH 侧栏 plugin/client。 · T0",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R77",
+   "title": "Token 预算截断与大块按需加载",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 611,
+   "level": "①标题",
+   "summary": "1. 默认检索接口对返回的单条 Evidence 实施 Token 预算截断（默认正文保留前 800 字符；对于内嵌大表格，仅返回表头及 `table_summary`，不返回全量 Markdown 行）； 2. 提供内部明细获取接口 `get_clause_detail(clause_revision_id)`：当且仅当大模型在推理中判定必须深入引用全量大表格或超长条文时，按需二次拉取完整大块数据。",
+   "code_refs": [
+    {
+     "file": "src/core/llm/deepseek_client.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/llm/fewshot.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 2
+  },
+  {
+   "id": "R78",
+   "title": "冲突归因结构化卡片",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 953,
+   "level": "①标题",
+   "summary": "1. **分歧核心**：明确指出具体量化指标或定性要求差异（如\"间距要求：GB A 为 13m，GB B 为 15m\"或\"同意要求：《个保法》需单独同意，《数据安全法》未明确\"）； 2. **适用边界差异**：明确两本标准/法规的前置适用对象（如\"GB A 适用于一般民用建筑，GB B 专门针对大型商业综合体\"或\"《个保法》适用于所有个人信息处理者，《数安法》聚焦重要数据\"）； 3. **实操建议**：说明行业报审/司法实践常见口径（如\"通常以严格者 15m 为准\"或\"实务中通常同时遵守两法，取更严格要求\"）。",
+   "code_refs": [],
+   "code_ref_total": 0
+  },
+  {
+   "id": "R79",
+   "title": "不可变修订快照与数据平移",
+   "source": "docs/REQUIREMENTS-v4.3.md",
+   "lineno": 621,
+   "level": "①标题",
+   "summary": "1. `clause_revision_id` 采用确定性唯一 ID（ULID）生成，每次入库生成只读快照； 2. **跨修订平移机制**：当文档重新 OCR 或微调纠错入库导致生成新修订版时，系统自动通过稳定逻辑标识 `clause_key`（`sha256(doc_id + normalized_clause_no)`）进行映射，自动平移该条款绑定的用户本地收藏（`user_bookmark`）、批注（`user_annotation`）和项目清单（`project_list`），**严禁产生悬空死链**； 3",
+   "code_refs": [
+    {
+     "file": "src/core/storage/clause_repo.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/doc_delete.py",
+     "n": 1
+    },
+    {
+     "file": "src/core/storage/user_data.py",
+     "n": 1
+    },
+    {
+     "file": "tests/test_patches.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 4
+  },
+  {
+   "id": "R85",
+   "level": "④任何文档都没有",
+   "source": "",
+   "lineno": 0,
+   "title": "",
+   "code_refs": [
+    {
+     "file": "src/core/update/discover.py",
+     "n": 1
+    }
+   ],
+   "code_ref_total": 1
+  }
+ ]
+}

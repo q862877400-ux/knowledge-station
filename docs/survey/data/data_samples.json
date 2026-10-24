@@ -1,0 +1,1426 @@
+{
+ "generated_by": "scripts/survey/09-requirements.py::step_data_samples",
+ "source": "tests/fixtures/seed/knowledge-seed.db（随仓种子库）",
+ "caliber": "每张表抽 **2 行**；每个值截断 80 字。列名命中 ('token', 'secret', 'password', 'key', 'phone', 'mobile', 'id_card', 'email', 'address', 'name') 之一的，**只记类型与长度、不记值** （记录 ≠ 抄录）。",
+ "counts": {
+  "tables": 59,
+  "tables_with_samples": 24
+ },
+ "tables": [
+  {
+   "table": "alias_store",
+   "columns": [
+    "alias_id",
+    "term",
+    "alias",
+    "source_type",
+    "source_doc_id",
+    "confidence",
+    "status"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "alias_id": "al_ce478e88c18edd84_0",
+     "term": "特殊作业 special work",
+     "alias": "危险化学品企",
+     "source_type": "auto_extract",
+     "source_doc_id": "kb",
+     "confidence": "0.8",
+     "status": "retired"
+    },
+    {
+     "alias_id": "al_ce478e88c18edd84_1",
+     "term": "特殊作业 special work",
+     "alias": "业生产经营过",
+     "source_type": "auto_extract",
+     "source_doc_id": "kb",
+     "confidence": "0.8",
+     "status": "retired"
+    }
+   ]
+  },
+  {
+   "table": "announcement_observed",
+   "columns": [
+    "observed_id",
+    "source_id",
+    "source_name",
+    "title",
+    "url",
+    "url_hash",
+    "standard_no",
+    "published_date",
+    "first_seen",
+    "last_seen",
+    "scan_id",
+    "user_ack"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "app_config",
+   "columns": [
+    "config_key",
+    "config_value",
+    "is_encrypted",
+    "updated_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "config_key": "<str len=27 未记录>",
+     "config_value": "[\"劳动\", \"化工\", \"卫生\", \"合同\", \"安全\", \"建筑\", \"数据\", \"消防\", \"环保\"]",
+     "is_encrypted": "0",
+     "updated_at": "2026-08-24 11:15:58"
+    },
+    {
+     "config_key": "<str len=16 未记录>",
+     "config_value": "[{\"id\": \"src_01M1VMRBG6CHCMQQGK0JX8ZFVD\", \"name\": \"应急部标准公告\", \"url\": \"https://www…",
+     "is_encrypted": "0",
+     "updated_at": "2026-10-08 17:09:21"
+    }
+   ]
+  },
+  {
+   "table": "audit_log",
+   "columns": [
+    "log_id",
+    "event_type",
+    "user_action",
+    "target_type",
+    "target_id",
+    "detail",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "bulk_import_batch",
+   "columns": [
+    "batch_id",
+    "batch_kind",
+    "trigger_type",
+    "status",
+    "total",
+    "checked",
+    "red_count",
+    "yellow_count",
+    "green_count",
+    "gray_count",
+    "tier",
+    "checkpoint_json",
+    "started_at",
+    "finished_at",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "channel_test_case",
+   "columns": [
+    "channel_id",
+    "sample_url",
+    "expect_no",
+    "note",
+    "last_result",
+    "last_detail",
+    "last_run_at",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_fts",
+   "columns": [
+    "clause_revision_id",
+    "clause_number",
+    "standard_no",
+    "title",
+    "content_segmented",
+    "modality",
+    "subject",
+    "behavior_scope_segmented"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "clause_revision_id": "clrev_01M2FY0CQVCN3NDK4F2BF1VER4",
+     "clause_number": "1",
+     "standard_no": "GB 30871-2022",
+     "title": "",
+     "content_segmented": "1 范围 本 文件 规定 了 危险 化学 化学品 企业 动火 作业 、 受限 空间 作业 、 盲板 抽 堵 作业 、 高处 作业 、 吊装 作业 、 临时 用电…",
+     "modality": "",
+     "subject": "",
+     "behavior_scope_segmented": ""
+    },
+    {
+     "clause_revision_id": "clrev_01M2FY0CQWJVS0TP39PSP2G6PE",
+     "clause_number": "2",
+     "standard_no": "GB 30871-2022",
+     "title": "",
+     "content_segmented": "2 规范 范性 规范性 引用 文件 下列 文件 中 的 内容 通过 文中 的 规范 范性 规范性 引用 而 构成 本 文件 不可 必不可少 的 条款 。 其中 …",
+     "modality": "应",
+     "subject": "",
+     "behavior_scope_segmented": ""
+    }
+   ]
+  },
+  {
+   "table": "clause_fts_config",
+   "columns": [
+    "k",
+    "v"
+   ],
+   "n_sample": 1,
+   "rows": [
+    {
+     "k": "version",
+     "v": "4"
+    }
+   ]
+  },
+  {
+   "table": "clause_fts_content",
+   "columns": [
+    "id",
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "c6",
+    "c7"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "id": "1",
+     "c0": "clrev_01M2FY0CQVCN3NDK4F2BF1VER4",
+     "c1": "1",
+     "c2": "GB 30871-2022",
+     "c3": "",
+     "c4": "1 范围 本 文件 规定 了 危险 化学 化学品 企业 动火 作业 、 受限 空间 作业 、 盲板 抽 堵 作业 、 高处 作业 、 吊装 作业 、 临时 用电…",
+     "c5": "",
+     "c6": "",
+     "c7": ""
+    },
+    {
+     "id": "2",
+     "c0": "clrev_01M2FY0CQWJVS0TP39PSP2G6PE",
+     "c1": "2",
+     "c2": "GB 30871-2022",
+     "c3": "",
+     "c4": "2 规范 范性 规范性 引用 文件 下列 文件 中 的 内容 通过 文中 的 规范 范性 规范性 引用 而 构成 本 文件 不可 必不可少 的 条款 。 其中 …",
+     "c5": "应",
+     "c6": "",
+     "c7": ""
+    }
+   ]
+  },
+  {
+   "table": "clause_fts_data",
+   "columns": [
+    "id",
+    "block"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "id": "1",
+     "block": "b'\\xa5I\\x00\\xdfd\\xf0}\\x02\\x93\\x83]\\x00\\x00\\x00'"
+    },
+    {
+     "id": "10",
+     "block": "b'\\x00\\x00\\x00\\x00\\x01\\x03\\x82`\\x00\\x03\\x01\\x01\\x81\\x08\\x02\\x01\\x81\\x14\\x03\\x01D…"
+    }
+   ]
+  },
+  {
+   "table": "clause_fts_docsize",
+   "columns": [
+    "id",
+    "sz"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "id": "1",
+     "sz": "b'\\x00\\x01\\x03\\x00G\\x00\\x00\\x00'"
+    },
+    {
+     "id": "2",
+     "sz": "b'\\x00\\x01\\x03\\x00\\x82\\x06\\x00\\x00\\x00'"
+    }
+   ]
+  },
+  {
+   "table": "clause_fts_idx",
+   "columns": [
+    "segid",
+    "term",
+    "pgno"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "segid": "1",
+     "term": "b''",
+     "pgno": "2"
+    },
+    {
+     "segid": "1",
+     "term": "b'0100'",
+     "pgno": "4"
+    }
+   ]
+  },
+  {
+   "table": "clause_patch",
+   "columns": [
+    "patch_id",
+    "clause_revision_id",
+    "field_name",
+    "patched_value",
+    "patch_reason",
+    "created_by",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "patch_id": "bp_82W7ZTS4BR13",
+     "clause_revision_id": "clrev_01M2M9HN7JSYNA82W7ZTS4BR13",
+     "field_name": "<str len=12 未记录>",
+     "patched_value": "3.1 自给开路式压缩空气呼吸器 self-containedopen-circuitcompressedairbreathingapparatus 利用面罩与…",
+     "patch_reason": "OCR数字回填(pypdf)",
+     "created_by": "local-user",
+     "created_at": "2026-09-16 05:03:08",
+     "updated_at": "2026-09-16 17:52:50"
+    },
+    {
+     "patch_id": "bpv_82W7ZTS4BR13",
+     "clause_revision_id": "clrev_01M2M9HN7JSYNA82W7ZTS4BR13",
+     "field_name": "<str len=13 未记录>",
+     "patched_value": "false",
+     "patch_reason": "OCR回填联动",
+     "created_by": "local-user",
+     "created_at": "2026-09-16 05:03:08",
+     "updated_at": "2026-09-16 05:03:08"
+    }
+   ]
+  },
+  {
+   "table": "clause_revision",
+   "columns": [
+    "clause_revision_id",
+    "doc_revision_id",
+    "doc_id",
+    "clause_key",
+    "clause_number",
+    "title",
+    "content_text",
+    "content_markdown",
+    "table_summary",
+    "formula_number",
+    "formula_desc",
+    "image_text",
+    "hierarchy_path",
+    "knowledge_type",
+    "type_confidence",
+    "modality",
+    "modality_strength",
+    "modality_confidence",
+    "behavior_scope",
+    "subject",
+    "object",
+    "behavior",
+    "applicability_condition",
+    "restriction",
+    "exception",
+    "legal_refs",
+    "is_mandatory",
+    "is_suspicious",
+    "ocr_confidence",
+    "content_type",
+    "page_start",
+    "page_end",
+    "cross_refs",
+    "explanation_ref",
+    "created_at",
+    "content_hash",
+    "page_breaks",
+    "figure_html"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "clause_revision_id": "clrev_01M2FY0CQVCN3NDK4F2BF1VER4",
+     "doc_revision_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "clause_key": "<str len=24 未记录>",
+     "clause_number": "1",
+     "title": null,
+     "content_text": "1 范围\n本文件规定了危险化学品企业动火作业、受限空间作业、盲板抽堵作业、高处作业、吊装作业、临时用电作业、动土作业、断路作业等特殊作业的安全要求。\n本文件适用…",
+     "content_markdown": null,
+     "table_summary": null,
+     "formula_number": null,
+     "formula_desc": null,
+     "image_text": null,
+     "hierarchy_path": null,
+     "knowledge_type": "rule",
+     "type_confidence": "0.5",
+     "modality": null,
+     "modality_strength": null,
+     "modality_confidence": null,
+     "behavior_scope": null,
+     "subject": null,
+     "object": null,
+     "behavior": null,
+     "applicability_condition": null,
+     "restriction": null,
+     "exception": null,
+     "legal_refs": "[]",
+     "is_mandatory": "0",
+     "is_suspicious": "1",
+     "ocr_confidence": "1.0",
+     "content_type": "normal",
+     "page_start": "7",
+     "page_end": "7",
+     "cross_refs": "[]",
+     "explanation_ref": null,
+     "created_at": "2026-09-14 12:24:29",
+     "content_hash": "58dbcf9478bb9d9ae1bdd8243717b93c249a8f60ca1e21d8ab23a40ef15948e0",
+     "page_breaks": "[[0, 7]]",
+     "figure_html": null
+    },
+    {
+     "clause_revision_id": "clrev_01M2FY0CQWJVS0TP39PSP2G6PE",
+     "doc_revision_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "clause_key": "<str len=24 未记录>",
+     "clause_number": "2",
+     "title": null,
+     "content_text": "2 规范性引用文件\n下列文件中的内容通过文中的规范性引用而构成本文件必不可少的条款。其中，注日期的引用文件，仅该日期对应的版本适用于本文件；不注日期的引用文件，…",
+     "content_markdown": null,
+     "table_summary": null,
+     "formula_number": null,
+     "formula_desc": null,
+     "image_text": null,
+     "hierarchy_path": null,
+     "knowledge_type": "rule",
+     "type_confidence": "0.9",
+     "modality": "应",
+     "modality_strength": "3",
+     "modality_confidence": "0.92",
+     "behavior_scope": null,
+     "subject": null,
+     "object": null,
+     "behavior": null,
+     "applicability_condition": null,
+     "restriction": null,
+     "exception": null,
+     "legal_refs": "[\"GB 2894\", \"GB/T 3608\", \"GB/T 5082\", \"GB 6095\", \"GB 15322\", \"GB 15577\", \"GB/T 1…",
+     "is_mandatory": "0",
+     "is_suspicious": "0",
+     "ocr_confidence": "1.0",
+     "content_type": "normal",
+     "page_start": "7",
+     "page_end": "7",
+     "cross_refs": "[]",
+     "explanation_ref": null,
+     "created_at": "2026-09-14 12:24:30",
+     "content_hash": "3e05b2f7abc3b62556fd6e9b685eeede0c3e5c2beb986d3f6f89ed5091c46f5b",
+     "page_breaks": "[[0, 7]]",
+     "figure_html": null
+    }
+   ]
+  },
+  {
+   "table": "clause_vec_chunks",
+   "columns": [
+    "chunk_id",
+    "size",
+    "validity",
+    "rowids"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_vec_info",
+   "columns": [
+    "key",
+    "value"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_vec_metadatachunks00",
+   "columns": [
+    "rowid",
+    "data"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_vec_metadatatext00",
+   "columns": [
+    "rowid",
+    "data"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_vec_rowids",
+   "columns": [
+    "rowid",
+    "id",
+    "chunk_id",
+    "chunk_offset"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "clause_vec_vector_chunks00",
+   "columns": [
+    "rowid",
+    "vectors"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "debug_dump",
+   "columns": [
+    "dump_id",
+    "trigger_type",
+    "query",
+    "retrieval_result",
+    "prompt",
+    "llm_output",
+    "claim_parsed",
+    "verification_result",
+    "logs",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "doc_ccs_state",
+   "columns": [
+    "doc_id",
+    "outcome",
+    "source",
+    "keyword_form",
+    "matched_no",
+    "ccs_code",
+    "ccs_name",
+    "reason",
+    "attempts_json",
+    "checked_at",
+    "applied_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "doc_id": "doc_01M2M9HN4MNY3NHF2XZP4M6QK6",
+     "outcome": "found",
+     "source": "official_api",
+     "keyword_form": "<str len=4 未记录>",
+     "matched_no": "GB 16556-2025",
+     "ccs_code": "C73",
+     "ccs_name": "<str len=6 未记录>",
+     "reason": "",
+     "attempts_json": "[{\"layer\": \"official_api\", \"keyword_form\": \"full\", \"keyword\": \"GB 16556-2025\", \"…",
+     "checked_at": "2026-09-23 05:19:51",
+     "applied_at": "2026-09-23 05:19:51"
+    },
+    {
+     "doc_id": "doc_01M4A34BWE20F96YBN99STRRDC",
+     "outcome": "found",
+     "source": "official_api",
+     "keyword_form": "<str len=4 未记录>",
+     "matched_no": "GB 3608-2025",
+     "ccs_code": "C75",
+     "ccs_name": "<str len=8 未记录>",
+     "reason": "",
+     "attempts_json": "[{\"layer\": \"official_api\", \"keyword_form\": \"full\", \"keyword\": \"GB 3608-2025\", \"r…",
+     "checked_at": "2026-10-07 02:29:58",
+     "applied_at": "2026-10-07 02:29:58"
+    }
+   ]
+  },
+  {
+   "table": "doc_filing_state",
+   "columns": [
+    "doc_id",
+    "stage",
+    "confidence",
+    "failure_kind",
+    "suggested_folder_id",
+    "suggest_new_path",
+    "placed_folder_id",
+    "placed_by",
+    "placed_at",
+    "last_error",
+    "updated_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "stage": "filed",
+     "confidence": null,
+     "failure_kind": null,
+     "suggested_folder_id": null,
+     "suggest_new_path": null,
+     "placed_folder_id": "fld_01M323522RHY77J6PJCB2XCE51",
+     "placed_by": "apply-folder-filing",
+     "placed_at": "2026-09-21 21:40:41",
+     "last_error": null,
+     "updated_at": "2026-09-21 13:40:41"
+    },
+    {
+     "doc_id": "doc_01M2FY0JMZ873NBDR9GWP14T2E",
+     "stage": "filed",
+     "confidence": null,
+     "failure_kind": null,
+     "suggested_folder_id": null,
+     "suggest_new_path": null,
+     "placed_folder_id": "fld_01M323523BXN5QBNRFSWJ58V4D",
+     "placed_by": "apply-folder-filing",
+     "placed_at": "2026-09-21 21:40:41",
+     "last_error": null,
+     "updated_at": "2026-09-21 13:40:41"
+    }
+   ]
+  },
+  {
+   "table": "doc_meta",
+   "columns": [
+    "doc_id",
+    "standard_no",
+    "standard_name",
+    "short_code",
+    "current_revision_id",
+    "legal_status",
+    "legal_hierarchy",
+    "standard_type",
+    "doc_type",
+    "quality_grade",
+    "domain_tags",
+    "effective_from",
+    "superseded_by",
+    "normative_refs",
+    "file_path",
+    "file_hash",
+    "created_at",
+    "updated_at",
+    "source",
+    "source_id",
+    "source_url",
+    "downloaded_at",
+    "source_status",
+    "published_at",
+    "ccs_code",
+    "ccs_name",
+    "ics",
+    "withdrawn_date",
+    "catalog_hidden",
+    "change_signal"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "standard_no": "GB 30871-2022",
+     "standard_name": "<str len=15 未记录>",
+     "short_code": "GB308712022",
+     "current_revision_id": "rev_01M2FY0D8T8X3KX0RXXEB377SG",
+     "legal_status": "effective",
+     "legal_hierarchy": "GB",
+     "standard_type": "mandatory",
+     "doc_type": "standard",
+     "quality_grade": "A",
+     "domain_tags": "[\"CCS:C65 劳动安全技术综合\"]",
+     "effective_from": "2022-10-01",
+     "superseded_by": null,
+     "normative_refs": "[]",
+     "file_path": "C:\\Users\\Zegel\\Documents\\DSH\\Attachments\\files\\2026-09-01\\1788220822060-cf6fe615…",
+     "file_hash": "a4ea7f8f2bfee1130c53ff20e51221b2e2cf9b8c01c1fd225a996552a149eab9",
+     "created_at": "2026-09-14 12:24:26",
+     "updated_at": "2026-09-14 12:24:26",
+     "source": null,
+     "source_id": null,
+     "source_url": null,
+     "downloaded_at": null,
+     "source_status": null,
+     "published_at": "2022-03-15",
+     "ccs_code": null,
+     "ccs_name": null,
+     "ics": null,
+     "withdrawn_date": null,
+     "catalog_hidden": "0",
+     "change_signal": null
+    },
+    {
+     "doc_id": "doc_01M2FY0JMZ873NBDR9GWP14T2E",
+     "standard_no": "GB/T 1000-2016",
+     "standard_name": "<str len=15 未记录>",
+     "short_code": "GB/T10002016",
+     "current_revision_id": "rev_01M2FY0M387EEZ56AN4C0N4QN3",
+     "legal_status": "effective",
+     "legal_hierarchy": "GB/T",
+     "standard_type": "recommended",
+     "doc_type": "standard",
+     "quality_grade": "A",
+     "domain_tags": "[\"CCS:K48 绝缘子\"]",
+     "effective_from": "2016-11-01",
+     "superseded_by": null,
+     "normative_refs": "[]",
+     "file_path": "D:\\AI\\work space\\标准\\🇨🇳《国家标准》(35000+ 141G)\\GBT\\GBT 00001 - GBT 10000\\GB／T 1000-20…",
+     "file_hash": "23f3cd28e0df033390cf22f91ec0dba9294a26f94fd8473731bb12468e5456fe",
+     "created_at": "2026-09-14 12:24:33",
+     "updated_at": "2026-09-14 12:24:33",
+     "source": null,
+     "source_id": null,
+     "source_url": null,
+     "downloaded_at": null,
+     "source_status": null,
+     "published_at": "2016-04-25",
+     "ccs_code": null,
+     "ccs_name": null,
+     "ics": null,
+     "withdrawn_date": null,
+     "catalog_hidden": "0",
+     "change_signal": null
+    }
+   ]
+  },
+  {
+   "table": "doc_page_geometry",
+   "columns": [
+    "doc_id",
+    "page_number",
+    "width",
+    "height",
+    "rotation",
+    "crop_box",
+    "media_box"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "page_number": "1",
+     "width": "595.2760009765625",
+     "height": "841.8900146484375",
+     "rotation": "0",
+     "crop_box": "[0.0, 0.0, 595.2760009765625, 841.8900146484375]",
+     "media_box": "[0.0, 0.0, 595.2760009765625, 841.8900146484375]"
+    },
+    {
+     "doc_id": "doc_01M2FY04ZG31DVS7WP39PYXZ0R",
+     "page_number": "2",
+     "width": "595.2760009765625",
+     "height": "841.8900146484375",
+     "rotation": "0",
+     "crop_box": "[0.0, 0.0, 595.2760009765625, 841.8900146484375]",
+     "media_box": "[0.0, 0.0, 595.2760009765625, 841.8900146484375]"
+    }
+   ]
+  },
+  {
+   "table": "event_log",
+   "columns": [
+    "event_id",
+    "event_type",
+    "actor",
+    "target_type",
+    "target_id",
+    "before_state",
+    "after_state",
+    "metadata",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "evidence_edge",
+   "columns": [
+    "edge_id",
+    "edge_type",
+    "source_clause_id",
+    "target_clause_id",
+    "confidence",
+    "status",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "edge_id": "edge_01M2FY0HQP2VKFGKRH5C0512VF",
+     "edge_type": "reference_relation",
+     "source_clause_id": "clrev_01M2FY0CR28R4QJG21ZRQXPE3X",
+     "target_clause_id": "clrev_01M2FY0CR1FYD8T1FS9YM2TG3M",
+     "confidence": "0.9",
+     "status": "active",
+     "created_at": "2026-09-14 12:24:30"
+    },
+    {
+     "edge_id": "edge_01M2FY0HQP2VKFGKRH5C0512VG",
+     "edge_type": "reference_relation",
+     "source_clause_id": "clrev_01M2FY0CR4TTANDDG814E1YD8F",
+     "target_clause_id": "clrev_01M2FY0CR28R4QJG21ZRQXPE3Q",
+     "confidence": "0.9",
+     "status": "active",
+     "created_at": "2026-09-14 12:24:30"
+    }
+   ]
+  },
+  {
+   "table": "feedback_log",
+   "columns": [
+    "feedback_id",
+    "clause_revision_ids",
+    "feedback_type",
+    "feedback_content",
+    "rating",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "folder",
+   "columns": [
+    "folder_id",
+    "parent_id",
+    "name",
+    "sort",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "folder_id": "fld_01M323522HAX8K2WGSPGW7RCFQ",
+     "parent_id": null,
+     "name": "<str len=2 未记录>",
+     "sort": "10",
+     "created_at": "2026-09-21 13:40:41"
+    },
+    {
+     "folder_id": "fld_01M323522HAX8K2WGSPGW7RCFR",
+     "parent_id": null,
+     "name": "<str len=4 未记录>",
+     "sort": "20",
+     "created_at": "2026-09-21 13:40:41"
+    }
+   ]
+  },
+  {
+   "table": "folder_member",
+   "columns": [
+    "folder_id",
+    "item_kind",
+    "item_id",
+    "added_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "gap_analysis",
+   "columns": [
+    "gap_id",
+    "task_id",
+    "legal_obligation_id",
+    "legal_obligation_text",
+    "internal_policy_section",
+    "verdict",
+    "gap_description",
+    "remediation_suggestion",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "gap_id": "gap_01M0MV1GZMHNJAB04Z0PS578ET",
+     "task_id": "task_01M0MV1GMM7EB53QFHSC3BN977",
+     "legal_obligation_id": "ob_01M0MV1GHCAXN2Z9EWHHTAKQH2",
+     "legal_obligation_text": "GB 30871-2022 3.5：3.5\n受限空间 confined space\n进出受限，通风不良，可能存在易燃易爆、有毒有害物质或缺氧，对进入人员的身体健…",
+     "internal_policy_section": "[\"第二章\"]",
+     "verdict": "green",
+     "gap_description": "关键词命中率 0.11，命中 4 个：受限、空间、受限、进入",
+     "remediation_suggestion": "已覆盖，无需整改。",
+     "created_at": "2026-08-22 13:37:25"
+    },
+    {
+     "gap_id": "gap_01M0MV1GZMHNJAB04Z0PS578EV",
+     "task_id": "task_01M0MV1GMM7EB53QFHSC3BN977",
+     "legal_obligation_id": "ob_01M0MV1GHCAXN2Z9EWHHTAKQH3",
+     "legal_obligation_text": "GB 30871-2022 4.1：4.1 作业前，危险化学品企业应组织作业单位对作业现场和作业过程中可能存在的危险有害因素进行\n辨识，开展作业危害分析，制定相…",
+     "internal_policy_section": "[\"第一章\", \"第二章\"]",
+     "verdict": "green",
+     "gap_description": "关键词命中率 0.21，命中 6 个：作业、作业、作业、现场、作业、作业",
+     "remediation_suggestion": "已覆盖，无需整改。",
+     "created_at": "2026-08-22 13:37:25"
+    }
+   ]
+  },
+  {
+   "table": "internal_policy",
+   "columns": [
+    "policy_id",
+    "policy_name",
+    "file_path",
+    "sections",
+    "created_at"
+   ],
+   "n_sample": 1,
+   "rows": [
+    {
+     "policy_id": "pol_01M0MV1GK5ZMABWSPDEAK4B47X",
+     "policy_name": "<str len=12 未记录>",
+     "file_path": "policy-text://inline",
+     "sections": "{\"第一章\": \"动火作业管理\\n动火作业前应清除动火现场及周围的易燃物品，配备消防器材，设专人监护。\", \"第二章\": \"受限空间作业管理\\n进入受限空间作业…",
+     "created_at": "2026-08-22 13:37:25"
+    }
+   ]
+  },
+  {
+   "table": "law_catalog",
+   "columns": [
+    "title",
+    "bbbs",
+    "flxz",
+    "sxx",
+    "category",
+    "gbrq",
+    "sxrq",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "legal_obligation",
+   "columns": [
+    "obligation_id",
+    "clause_revision_id",
+    "obligation_text",
+    "domain_tag"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material",
+   "columns": [
+    "material_id",
+    "project_id",
+    "origin",
+    "kind",
+    "title",
+    "url",
+    "domain",
+    "fetched_at",
+    "published_at",
+    "content_hash",
+    "raw_path",
+    "mime",
+    "source_tier",
+    "tier_source",
+    "tier_reason",
+    "tier_evidence",
+    "task_role",
+    "review_status",
+    "review_note",
+    "reviewed_at",
+    "lifecycle",
+    "doc_id",
+    "derived_text_hash",
+    "parser_fingerprint",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_chunk",
+   "columns": [
+    "chunk_id",
+    "material_id",
+    "ord",
+    "text",
+    "char_start",
+    "char_end",
+    "page",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_fts_config",
+   "columns": [
+    "k",
+    "v"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_fts_content",
+   "columns": [
+    "id",
+    "c0",
+    "c1",
+    "c2",
+    "c3"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_fts_data",
+   "columns": [
+    "id",
+    "block"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_fts_docsize",
+   "columns": [
+    "id",
+    "sz"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_fts_idx",
+   "columns": [
+    "segid",
+    "term",
+    "pgno"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "material_project",
+   "columns": [
+    "project_id",
+    "name",
+    "authority_policy",
+    "note",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "obligation_list",
+   "columns": [
+    "list_id",
+    "business_description",
+    "mode",
+    "items",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "list_id": "obl_01M0MD2EBC1ZVSK7HVNTCBPH58",
+     "business_description": "化学品企业特殊作业安全管理",
+     "mode": "list",
+     "items": "[{\"clause_revision_id\": \"clrev_01M0MA5WFTN7X1XQNVFJE3CT83\", \"standard_no\": \"GB 3…",
+     "created_at": "2026-08-22 09:33:15"
+    },
+    {
+     "list_id": "obl_01M0MEDBKA2NPTH126FTZHVGEV",
+     "business_description": "开一个餐厅",
+     "mode": "list",
+     "items": "[{\"clause_revision_id\": \"clrev_01M0MA5WFWCVJXZ9KM5SJPNBDE\", \"standard_no\": \"GB 3…",
+     "created_at": "2026-08-22 09:56:41"
+    }
+   ]
+  },
+  {
+   "table": "operation_log",
+   "columns": [
+    "log_id",
+    "operation",
+    "target_type",
+    "target_id",
+    "detail",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "project_list",
+   "columns": [
+    "project_id",
+    "project_name",
+    "project_type",
+    "clause_revision_ids",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "remapping_queue",
+   "columns": [
+    "queue_id",
+    "old_clause_key",
+    "new_clause_key",
+    "old_doc_id",
+    "new_doc_id",
+    "status",
+    "user_id",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "review_point",
+   "columns": [
+    "point_id",
+    "task_id",
+    "point_type",
+    "point_content",
+    "matched_clause_ids",
+    "match_scores",
+    "verdict",
+    "verdict_reason",
+    "modality_comparison",
+    "suggestion",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "point_id": "pt_01M0MASZZW42XFCVE8FB514AEA",
+     "task_id": "task_01M0MASZZTR5FZTBAM1T207PFG",
+     "point_type": "一般条款",
+     "point_content": "# 房屋租赁合同\n\n**甲方（出租方）：** \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_ 身份证号：\\_\\_\\_\\…",
+     "matched_clause_ids": "[\"clrev_01M0MAP7G4P2AF2QWNH3SAVDPX\", \"clrev_01M0MAP7G4P2AF2QWNH3SAVDPW\", \"clrev_…",
+     "match_scores": null,
+     "verdict": "red",
+     "verdict_reason": "审查点落入禁止性规定（民法典(节选) 第五百八十四条：第五百八十四条 中华人民共和国民法典（合同编节选·测试用）\n当事人一方不履行合同义务或者履行合同义务不符合…",
+     "modality_comparison": null,
+     "suggestion": null,
+     "created_at": "2026-08-22 08:53:41"
+    },
+    {
+     "point_id": "pt_01M0MASZZW42XFCVE8FB514AEB",
+     "task_id": "task_01M0MASZZTR5FZTBAM1T207PFG",
+     "point_type": "数据使用行为",
+     "point_content": "1.1 甲方将位于 \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_ 的房屋出租给乙方使用，建筑面积 \\_\\_\\_\\_\\…",
+     "matched_clause_ids": "[\"clrev_01M0MAP7G4P2AF2QWNH3SAVDPX\", \"clrev_01M0MA5WFYRMDJ779RHKNYHXNN\", \"clrev_…",
+     "match_scores": null,
+     "verdict": "yellow",
+     "verdict_reason": "涉及「应当」型义务（GB 30871-2022 8.2.3），审查点未见履行表述，需人工确认落实情况。",
+     "modality_comparison": null,
+     "suggestion": null,
+     "created_at": "2026-08-22 08:53:41"
+    }
+   ]
+  },
+  {
+   "table": "review_task",
+   "columns": [
+    "task_id",
+    "project_id",
+    "review_type",
+    "object_name",
+    "object_content",
+    "object_file_path",
+    "status",
+    "total_points",
+    "red_count",
+    "yellow_count",
+    "green_count",
+    "report_data",
+    "report_path",
+    "created_at",
+    "completed_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "task_id": "task_01M0MASZZTR5FZTBAM1T207PFG",
+     "project_id": null,
+     "review_type": "contract",
+     "object_name": "<str len=6 未记录>",
+     "object_content": "# 房屋租赁合同\n\n**甲方（出租方）：** \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_ 身份证号：\\_\\_\\_\\…",
+     "object_file_path": null,
+     "status": "completed",
+     "total_points": "19",
+     "red_count": "13",
+     "yellow_count": "5",
+     "green_count": "1",
+     "report_data": "{\"results\": [{\"point_id\": \"pt_01M0MASZZW42XFCVE8FB514AEA\", \"point_type\": \"一般条款\",…",
+     "report_path": null,
+     "created_at": "2026-08-22 08:53:41",
+     "completed_at": "2026-08-22 08:53:42"
+    },
+    {
+     "task_id": "task_01M0MATG1RQFT0JVK6BQS5DTNF",
+     "project_id": null,
+     "review_type": "contract",
+     "object_name": "<str len=6 未记录>",
+     "object_content": "# 房屋租赁合同\n\n**甲方（出租方）：** \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_ 身份证号：\\_\\_\\_\\…",
+     "object_file_path": null,
+     "status": "completed",
+     "total_points": "19",
+     "red_count": "13",
+     "yellow_count": "5",
+     "green_count": "1",
+     "report_data": "{\"results\": [{\"point_id\": \"pt_01M0MATG1T7G487SD2NZB69G6Q\", \"point_type\": \"一般条款\",…",
+     "report_path": null,
+     "created_at": "2026-08-22 08:53:57",
+     "completed_at": "2026-08-22 08:53:58"
+    }
+   ]
+  },
+  {
+   "table": "snapshot_meta",
+   "columns": [
+    "snapshot_id",
+    "snapshot_type",
+    "db_checksum",
+    "file_count",
+    "clause_count",
+    "created_at"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "snapshot_id": "snap_01M29A6HKHQ16J057NQNXKNEKX",
+     "snapshot_type": "manual",
+     "db_checksum": "da6db6a31cd24a6eb785e95e1b81e5c61adbbfe291fce0a8be94bb71cfb722d3",
+     "file_count": "31",
+     "clause_count": "3735",
+     "created_at": "2026-09-11 22:43:00"
+    },
+    {
+     "snapshot_id": "snap_01M29AHK0X8S3X80G3ETY8256Y",
+     "snapshot_type": "manual",
+     "db_checksum": "92e07fd8813b53848819cd82eef5a95ed5c21898f77cd5a4d28257f5266d6484",
+     "file_count": "31",
+     "clause_count": "3735",
+     "created_at": "2026-09-11 22:48:52"
+    }
+   ]
+  },
+  {
+   "table": "source_span",
+   "columns": [
+    "span_id",
+    "clause_revision_id",
+    "page_number",
+    "bbox_json",
+    "span_type",
+    "sort_order"
+   ],
+   "n_sample": 2,
+   "rows": [
+    {
+     "span_id": "span_01M2FY0CQVCN3NDK4F2BF1VER5",
+     "clause_revision_id": "clrev_01M2FY0CQVCN3NDK4F2BF1VER4",
+     "page_number": "7",
+     "bbox_json": "[76.0, 643.43, 117.0, 655.43]",
+     "span_type": "text",
+     "sort_order": "0"
+    },
+    {
+     "span_id": "span_01M2FY0CQVCN3NDK4F2BF1VER6",
+     "clause_revision_id": "clrev_01M2FY0CQVCN3NDK4F2BF1VER4",
+     "page_number": "7",
+     "bbox_json": "[74.0, 593.43, 545.0, 622.43]",
+     "span_type": "text",
+     "sort_order": "1"
+    }
+   ]
+  },
+  {
+   "table": "update_change_event",
+   "columns": [
+    "change_id",
+    "batch_id",
+    "doc_id",
+    "standard_no",
+    "standard_name",
+    "change_type",
+    "current_legal_status",
+    "latest_info_json",
+    "source_channel",
+    "evidence_url",
+    "archived_pdf_path",
+    "user_ack",
+    "detected_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "update_channel",
+   "columns": [
+    "channel_id",
+    "name",
+    "category",
+    "category_raw",
+    "url",
+    "fetch_kind",
+    "list_endpoint",
+    "params_json",
+    "answers_json",
+    "covers",
+    "gaps",
+    "wiring",
+    "verification",
+    "state",
+    "probe_url",
+    "probe_expect",
+    "enabled",
+    "last_try_at",
+    "last_ok_at",
+    "last_error",
+    "last_error_code",
+    "consecutive_failures",
+    "latency_ms",
+    "source_file",
+    "note",
+    "created_at",
+    "updated_at",
+    "segments_json",
+    "org_kind"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "update_check_batch",
+   "columns": [
+    "batch_id",
+    "trigger_type",
+    "status",
+    "total",
+    "checked",
+    "red_count",
+    "yellow_count",
+    "green_count",
+    "gray_count",
+    "started_at",
+    "finished_at",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "user_annotation",
+   "columns": [
+    "annotation_id",
+    "clause_key",
+    "content",
+    "annotation_type",
+    "created_at",
+    "updated_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "user_bookmark",
+   "columns": [
+    "bookmark_id",
+    "clause_key",
+    "fixed_revision_id",
+    "remark",
+    "tags",
+    "created_at",
+    "folder_id"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "user_bookmark_folder",
+   "columns": [
+    "folder_id",
+    "folder_name",
+    "created_at"
+   ],
+   "n_sample": 1,
+   "rows": [
+    {
+     "folder_id": "bmf_01M2DDJJYTGC8GE8DTM16HW95R",
+     "folder_name": "<str len=4 未记录>",
+     "created_at": "2026-09-13 12:58:47"
+    }
+   ]
+  },
+  {
+   "table": "user_doc_bookmark",
+   "columns": [
+    "doc_bookmark_id",
+    "doc_id",
+    "remark",
+    "created_at",
+    "folder_id"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "watch_list",
+   "columns": [
+    "watch_id",
+    "doc_id",
+    "created_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  },
+  {
+   "table": "write_queue",
+   "columns": [
+    "queue_id",
+    "operation_type",
+    "payload",
+    "status",
+    "result",
+    "created_at",
+    "processed_at"
+   ],
+   "n_sample": 0,
+   "rows": []
+  }
+ ]
+}

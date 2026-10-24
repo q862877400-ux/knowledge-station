@@ -8,13 +8,13 @@
 | 项 | 数 |
 |---|---:|
 | 扫描面 | `src`, `tests`, `scripts`, `tools/gov-qa`, `eval` |
-| `.py` 文件 | **1,271** |
-| 解析成功模块 | **1,271** |
+| `.py` 文件 | **1,274** |
+| 解析成功模块 | **1,274** |
 | 解析失败 | **0**（判据：成功 + 失败 == 总数）|
-| 符号总数 | **7,025** |
+| 符号总数 | **7,042** |
 | 类 | 386 |
-| 函数（含方法） | 6,639 |
-| 无 docstring 的符号 | 3,313 |
+| 函数（含方法） | 6,656 |
+| 无 docstring 的符号 | 3,323 |
 
 ## 二、按目录看规模
 
@@ -24,11 +24,11 @@
 | `src/core` | 157 | 1,341 | 1,265 | 76 | 333 |
 | `eval/recall-funnel` | 135 | 293 | 293 | 0 | 225 |
 | `tests/test_ccs_chain.py` | 1 | 77 | 76 | 1 | 5 |
+| `scripts/survey` | 12 | 76 | 76 | 0 | 61 |
 | `tests/test_material_harvest.py` | 1 | 72 | 61 | 11 | 27 |
 | `tests/test_update_inspector.py` | 1 | 69 | 68 | 1 | 17 |
 | `tests/test_material_api.py` | 1 | 66 | 58 | 8 | 28 |
 | `tests/test_channel_repo.py` | 1 | 62 | 53 | 9 | 39 |
-| `scripts/survey` | 9 | 59 | 59 | 0 | 51 |
 | `tests/test_ledger_chain.py` | 1 | 58 | 50 | 8 | 25 |
 | `tests/test_update_channels.py` | 1 | 57 | 47 | 10 | 23 |
 | `tests/test_dryrun_report.py` | 1 | 56 | 56 | 0 | 14 |
@@ -53,7 +53,7 @@
 | `answer` | `src/core/llm/ks_answer.py:810` | **351** |
 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` | **343** |
 | `register` | `src/core/api/routes_materials.py:63` | **325** |
-| `main` | `scripts/survey/04-reconcile.py:41` | **258** |
+| `main` | `scripts/survey/04-reconcile.py:41` | **292** |
 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` | **256** |
 | `main` | `eval/recall-funnel/build-v2.py:63` | **255** |
 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` | **246** |
@@ -66,7 +66,7 @@
 | `register` | `src/core/api/routes_channels.py:62` | **198** |
 | `main` | `eval/lay-phrasing/analyze-gen.py:79` | **194** |
 
-## 四、超过 100 行的函数（逐个列，共 117 个）
+## 四、超过 100 行的函数（逐个列，共 121 个）
 
 | 行数 | 函数 | 位置 |
 |---:|---|---|
@@ -78,7 +78,7 @@
 | 351 | `answer` | `src/core/llm/ks_answer.py:810` |
 | 343 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` |
 | 325 | `register` | `src/core/api/routes_materials.py:63` |
-| 258 | `main` | `scripts/survey/04-reconcile.py:41` |
+| 292 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 256 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` |
 | 255 | `main` | `eval/recall-funnel/build-v2.py:63` |
 | 246 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` |
@@ -92,6 +92,7 @@
 | 194 | `main` | `eval/lay-phrasing/analyze-gen.py:79` |
 | 189 | `main` | `eval/recall-funnel/summarize.py:41` |
 | 187 | `main` | `eval/lay-phrasing/check-lay-50.py:41` |
+| 187 | `main` | `scripts/survey/07-runtime-probe.py:158` |
 | 186 | `_main` | `scripts/apply-folder-filing.py:1145` |
 | 179 | `register` | `src/core/api/routes_report.py:35` |
 | 177 | `main` | `eval/recall-funnel/funnel.py:178` |
@@ -123,8 +124,10 @@
 | 131 | `main` | `eval/recall-funnel/exp-4-embedding-shadow/03-verdict-e4.py:53` |
 | 131 | `main` | `scripts/pick-domain-terms.py:88` |
 | 130 | `main` | `eval/recall-funnel/exp-3-query-side/03-run-e3.py:35` |
+| 130 | `step_requirements` | `scripts/survey/09-requirements.py:157` |
 | 130 | `assemble_evidence` | `src/core/materials/authority.py:116` |
 | 129 | `main` | `scripts/measure-material-bridge.py:112` |
+| 129 | `gen_runtime_probe` | `scripts/survey/03-render.py:826` |
 | 128 | `main` | `scripts/migrate-clause-vec-doc-id.py:107` |
 | 128 | `_scan_one_source` | `src/core/update/announce.py:605` |
 | 127 | `main` | `eval/recall-funnel/exp-5-real-questions/34-ingest-full.py:123` |
@@ -144,6 +147,7 @@
 | 118 | `main` | `eval/recall-funnel/exp-5-real-questions/24-ingest-sample.py:49` |
 | 118 | `main` | `scripts/measure-term-victim-side.py:69` |
 | 118 | `_run` | `src/core/knowledge/ccs_backfill.py:309` |
+| 116 | `main` | `scripts/survey/08-repro-resume-hang.py:105` |
 | 116 | `_cell_html` | `src/core/ingestion/pipeline.py:1621` |
 | 115 | `build_snapshot` | `scripts/loop2/oracle_snapshot.py:194` |
 | 115 | `harvest` | `tools/gov-qa/adapters/sc_yaan.py:116` |
@@ -190,7 +194,7 @@
 
 ## 五、模块 docstring 覆盖
 
-**16 / 1271 个模块没有模块级 docstring。**
+**16 / 1274 个模块没有模块级 docstring。**
 
 - `eval/lay-phrasing/validate-gen.py`
 - `src/__init__.py`

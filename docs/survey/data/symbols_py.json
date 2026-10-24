@@ -9,16 +9,16 @@
  ],
  "reference_caliber": "text_hits = 该名字在扫描面内全部 .py 文本里出现的次数（含定义行本身）。**这是下界，不是精确调用图** —— Python 的 getattr/importlib/装饰器注册/字符串派发会让精确图漏掉真实调用。用 count 判断「有没有人提到」够用，判断「是不是死代码」不够。",
  "summary": {
-  "files_found": 1271,
-  "modules": 1271,
+  "files_found": 1274,
+  "modules": 1274,
   "parse_errors": 0,
-  "symbols": 7025,
+  "symbols": 7042,
   "classes": 386,
-  "functions": 6639,
-  "no_docstring": 3313,
-  "text_hits_1": 2342,
+  "functions": 6656,
+  "no_docstring": 3323,
+  "text_hits_1": 2343,
   "text_hits_1_breakdown": {
-   "其他（**待下一棒自己核**，本检查不判断）": 22,
+   "其他（**待下一棒自己核**，本检查不判断）": 23,
    "AST 访问器方法（由 ast.NodeVisitor **动态派发**调用 ⇒ 文本里当然只出现一次）": 5,
    "异常类（定义处各一次；有没有被 raise 要另查）": 4,
    "测试文件的私有辅助函数": 15,
@@ -95,7 +95,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 17
+     "text_hits": 27
     },
     {
      "module": "eval/bunny-benchmark/run-batch.py",
@@ -111,7 +111,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 343
+     "text_hits": 348
     },
     {
      "module": "eval/bunny-benchmark/run-batch.py",
@@ -143,7 +143,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -239,7 +239,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -298,7 +298,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -390,7 +390,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "eval/lay-phrasing/analyze-gen.py",
@@ -454,7 +454,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -530,7 +530,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/bridge-ceiling.py",
@@ -546,7 +546,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -638,7 +638,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -713,7 +713,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/cooccur-bridge.py",
@@ -729,7 +729,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -815,7 +815,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -899,7 +899,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 17
+     "text_hits": 27
     },
     {
      "module": "eval/lay-phrasing/gen-lay.py",
@@ -947,7 +947,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1033,7 +1033,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-end-to-end.py",
@@ -1049,7 +1049,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1140,7 +1140,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-fanout-curve.py",
@@ -1172,7 +1172,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1231,7 +1231,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-literal-baseline.py",
@@ -1263,7 +1263,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1349,7 +1349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-selection-strategies.py",
@@ -1365,7 +1365,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1440,7 +1440,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-semantic-baseline.py",
@@ -1456,7 +1456,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1531,7 +1531,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/p1-semantic-select.py",
@@ -1563,7 +1563,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1650,7 +1650,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-hier-select.py",
@@ -1666,7 +1666,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1736,7 +1736,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-nonA-criterion.py",
@@ -1752,7 +1752,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1833,7 +1833,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-query-instruction.py",
@@ -1849,7 +1849,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -1959,7 +1959,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-rerank-control.py",
@@ -1975,7 +1975,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2085,7 +2085,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-rerank-two-stage.py",
@@ -2101,7 +2101,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2193,7 +2193,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/probe-select-rank.py",
@@ -2209,7 +2209,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2275,7 +2275,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2362,7 +2362,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/repro-endtoend.py",
@@ -2394,7 +2394,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2481,7 +2481,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "eval/lay-phrasing/repro-fanout.py",
@@ -2513,7 +2513,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2598,7 +2598,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2673,7 +2673,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2710,7 +2710,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     }
    ]
   },
@@ -2896,7 +2896,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -2986,7 +2986,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3102,7 +3102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3244,7 +3244,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3319,7 +3319,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3372,7 +3372,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3426,7 +3426,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3479,7 +3479,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3533,7 +3533,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3602,7 +3602,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3655,7 +3655,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3718,7 +3718,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3794,7 +3794,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3863,7 +3863,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -3953,7 +3953,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4007,7 +4007,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4098,7 +4098,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4253,7 +4253,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4328,7 +4328,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4397,7 +4397,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4509,7 +4509,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4573,7 +4573,7 @@
      "has_docstring": true,
      "purpose": "读一次行数。",
      "private": false,
-     "text_hits": 280
+     "text_hits": 281
     },
     {
      "module": "eval/recall-funnel/exp-1-contextual/07-wait-and-run.py",
@@ -4605,7 +4605,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4684,7 +4684,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4753,7 +4753,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4838,7 +4838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4896,7 +4896,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -4971,7 +4971,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5035,7 +5035,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5120,7 +5120,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5196,7 +5196,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 775
+     "text_hits": 819
     }
    ]
   },
@@ -5363,7 +5363,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5459,7 +5459,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5631,7 +5631,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -5733,7 +5733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6039,7 +6039,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6135,7 +6135,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6332,7 +6332,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6406,7 +6406,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6695,7 +6695,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6797,7 +6797,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6884,7 +6884,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -6960,7 +6960,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7253,7 +7253,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7525,7 +7525,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7595,7 +7595,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7659,7 +7659,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7745,7 +7745,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7840,7 +7840,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -7933,7 +7933,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8028,7 +8028,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8102,7 +8102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8199,7 +8199,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "eval/recall-funnel/exp-4-embedding-shadow/00-measure-throughput.py",
@@ -8349,7 +8349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8408,7 +8408,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8478,7 +8478,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8586,7 +8586,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8676,7 +8676,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8724,7 +8724,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8788,7 +8788,7 @@
      "has_docstring": true,
      "purpose": "⚠ 读 `vec0` 表**必须**加载 sqlite-vec 扩展（本会话已踩过四次）。",
      "private": false,
-     "text_hits": 280
+     "text_hits": 281
     },
     {
      "module": "eval/recall-funnel/exp-4-embedding-shadow/04-wait-and-run.py",
@@ -8804,7 +8804,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -8895,7 +8895,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9012,7 +9012,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 139
+     "text_hits": 140
     },
     {
      "module": "eval/recall-funnel/exp-4b-embedding-round2/10-latency.py",
@@ -9028,7 +9028,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9136,7 +9136,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9221,7 +9221,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9274,7 +9274,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9375,7 +9375,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9477,7 +9477,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9600,7 +9600,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9708,7 +9708,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9761,7 +9761,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9830,7 +9830,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -9922,7 +9922,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/01-probe-real-questions.py",
@@ -10044,7 +10044,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10120,7 +10120,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10210,7 +10210,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10278,7 +10278,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10384,7 +10384,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10447,7 +10447,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10521,7 +10521,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10579,7 +10579,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10637,7 +10637,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10700,7 +10700,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10763,7 +10763,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10826,7 +10826,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10894,7 +10894,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -10967,7 +10967,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11067,7 +11067,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11167,7 +11167,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11257,7 +11257,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11331,7 +11331,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11395,7 +11395,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11459,7 +11459,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11523,7 +11523,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11591,7 +11591,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11676,7 +11676,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11751,7 +11751,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11821,7 +11821,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11891,7 +11891,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -11955,7 +11955,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12009,7 +12009,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12153,7 +12153,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12245,7 +12245,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12310,7 +12310,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12373,7 +12373,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12561,7 +12561,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12642,7 +12642,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12733,7 +12733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12791,7 +12791,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12844,7 +12844,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -12930,7 +12930,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13004,7 +13004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 300
+     "text_hits": 309
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/40-promote-to-prod.py",
@@ -13036,7 +13036,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13100,7 +13100,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13175,7 +13175,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13245,7 +13245,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/43-verify-prod-after-push.py",
@@ -13261,7 +13261,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13329,7 +13329,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13397,7 +13397,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13465,7 +13465,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13528,7 +13528,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13591,7 +13591,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13680,7 +13680,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13748,7 +13748,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13811,7 +13811,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -13890,7 +13890,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/freeze.py",
@@ -13959,7 +13959,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/verdict.py",
@@ -14007,7 +14007,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -14352,7 +14352,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -14448,7 +14448,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -14556,7 +14556,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -14620,7 +14620,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -14935,7 +14935,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15004,7 +15004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15070,7 +15070,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15128,7 +15128,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15186,7 +15186,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15234,7 +15234,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "eval/recall-funnel/regression-ingest/verdict.py",
@@ -15266,7 +15266,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15319,7 +15319,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15394,7 +15394,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15462,7 +15462,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 17
+     "text_hits": 27
     },
     {
      "module": "eval/reverse-benchmark/generate.py",
@@ -15526,7 +15526,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15599,7 +15599,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15736,7 +15736,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -15916,7 +15916,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -16613,7 +16613,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -16985,7 +16985,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17210,7 +17210,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17282,7 +17282,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "scripts/chain-snapshot.py",
@@ -17412,7 +17412,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17479,7 +17479,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17542,7 +17542,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17918,7 +17918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -17997,7 +17997,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "scripts/convert-library-to-text.py",
@@ -18114,7 +18114,7 @@
      "has_docstring": true,
      "purpose": "返回 (是否存在, 是按哪种基准找到的)。",
      "private": false,
-     "text_hits": 671
+     "text_hits": 674
     },
     {
      "module": "scripts/docs/check-links.py",
@@ -18130,7 +18130,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -18335,7 +18335,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -18545,7 +18545,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -18656,7 +18656,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -18838,7 +18838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -18931,7 +18931,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19042,7 +19042,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19102,7 +19102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19178,7 +19178,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19336,7 +19336,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19448,7 +19448,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19537,7 +19537,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -19935,7 +19935,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1664
+     "text_hits": 1686
     },
     {
      "module": "scripts/loop2/driver_v2.py",
@@ -19967,7 +19967,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -20164,7 +20164,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -20454,7 +20454,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -20639,7 +20639,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -20751,7 +20751,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -20815,7 +20815,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21113,7 +21113,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21258,7 +21258,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 782
+     "text_hits": 784
     },
     {
      "module": "scripts/measure-cross-language-fts.py",
@@ -21274,7 +21274,7 @@
      "has_docstring": true,
      "purpose": "这个段落**能不能**被 q 匹配上（不看排名）。",
      "private": false,
-     "text_hits": 338
+     "text_hits": 350
     },
     {
      "module": "scripts/measure-cross-language-fts.py",
@@ -21322,7 +21322,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21563,7 +21563,7 @@
      "has_docstring": true,
      "purpose": "`GET /api/v1/health`。",
      "private": false,
-     "text_hits": 111
+     "text_hits": 133
     },
     {
      "module": "scripts/measure-endpoint-blocking.py",
@@ -21699,7 +21699,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21813,7 +21813,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21910,7 +21910,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -21991,7 +21991,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -22088,7 +22088,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "scripts/measure-term-aggregation.py",
@@ -22152,7 +22152,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -22257,7 +22257,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "scripts/measure-term-bridge.py",
@@ -22273,7 +22273,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -22377,7 +22377,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 90
+     "text_hits": 92
     },
     {
      "module": "scripts/measure-term-selection.py",
@@ -22393,7 +22393,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "scripts/measure-term-selection.py",
@@ -22495,7 +22495,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -22564,7 +22564,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "scripts/measure-term-window-coverage.py",
@@ -22712,7 +22712,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "scripts/migrate-clause-vec-doc-id.py",
@@ -22827,7 +22827,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -22919,7 +22919,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23107,7 +23107,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23204,7 +23204,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23303,7 +23303,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23430,7 +23430,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23562,7 +23562,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23628,7 +23628,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -23756,7 +23756,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24001,7 +24001,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24192,7 +24192,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24285,7 +24285,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24349,7 +24349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24508,7 +24508,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24577,7 +24577,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6
+     "text_hits": 9
     },
     {
      "module": "scripts/survey/01-symbols.py",
@@ -24689,7 +24689,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24757,7 +24757,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 51
+     "text_hits": 55
     },
     {
      "module": "scripts/survey/02-surface.py",
@@ -24853,7 +24853,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -24871,6 +24871,11 @@
     {
      "kind": "import",
      "module": "json",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "re",
      "as": null
     },
     {
@@ -24894,6 +24899,12 @@
      "kind": "import",
      "module": "re",
      "as": "_re"
+    },
+    {
+     "kind": "from",
+     "module": "collections",
+     "name": "Counter",
+     "as": null
     }
    ],
    "stars": [],
@@ -24904,15 +24915,15 @@
      "name": "load",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 44,
-     "end_lineno": 48,
+     "lineno": 45,
+     "end_lineno": 49,
      "lines": 5,
      "signature": "(name)",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24920,15 +24931,15 @@
      "name": "cell",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 51,
-     "end_lineno": 68,
+     "lineno": 52,
+     "end_lineno": 69,
      "lines": 18,
      "signature": "(s)",
      "decorators": [],
      "has_docstring": true,
      "purpose": "把任意文本安全放进 markdown 表格单元格。",
      "private": false,
-     "text_hits": 87
+     "text_hits": 94
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24936,8 +24947,8 @@
      "name": "mb",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 71,
-     "end_lineno": 72,
+     "lineno": 72,
+     "end_lineno": 73,
      "lines": 2,
      "signature": "(n)",
      "decorators": [],
@@ -24952,15 +24963,15 @@
      "name": "write",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 75,
-     "end_lineno": 78,
+     "lineno": 76,
+     "end_lineno": 79,
      "lines": 4,
      "signature": "(name, title, body)",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 406
+     "text_hits": 408
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24968,8 +24979,8 @@
      "name": "gen_inventory",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 82,
-     "end_lineno": 136,
+     "lineno": 83,
+     "end_lineno": 137,
      "lines": 55,
      "signature": "()",
      "decorators": [],
@@ -24984,8 +24995,8 @@
      "name": "gen_code_map",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 140,
-     "end_lineno": 220,
+     "lineno": 141,
+     "end_lineno": 221,
      "lines": 81,
      "signature": "()",
      "decorators": [],
@@ -25000,8 +25011,8 @@
      "name": "gen_cross_ref",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 224,
-     "end_lineno": 280,
+     "lineno": 225,
+     "end_lineno": 281,
      "lines": 57,
      "signature": "()",
      "decorators": [],
@@ -25016,8 +25027,8 @@
      "name": "gen_data_shape",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 284,
-     "end_lineno": 339,
+     "lineno": 285,
+     "end_lineno": 340,
      "lines": 56,
      "signature": "()",
      "decorators": [],
@@ -25032,8 +25043,8 @@
      "name": "gen_api",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 343,
-     "end_lineno": 391,
+     "lineno": 344,
+     "end_lineno": 392,
      "lines": 49,
      "signature": "()",
      "decorators": [],
@@ -25048,8 +25059,8 @@
      "name": "gen_tests",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 395,
-     "end_lineno": 429,
+     "lineno": 396,
+     "end_lineno": 430,
      "lines": 35,
      "signature": "()",
      "decorators": [],
@@ -25064,8 +25075,8 @@
      "name": "gen_docs",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 433,
-     "end_lineno": 470,
+     "lineno": 434,
+     "end_lineno": 471,
      "lines": 38,
      "signature": "()",
      "decorators": [],
@@ -25080,8 +25091,8 @@
      "name": "gen_gates",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 474,
-     "end_lineno": 499,
+     "lineno": 475,
+     "end_lineno": 500,
      "lines": 26,
      "signature": "()",
      "decorators": [],
@@ -25096,8 +25107,8 @@
      "name": "gen_readme",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 503,
-     "end_lineno": 569,
+     "lineno": 504,
+     "end_lineno": 570,
      "lines": 67,
      "signature": "()",
      "decorators": [],
@@ -25112,8 +25123,8 @@
      "name": "gen_module_index",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 574,
-     "end_lineno": 605,
+     "lineno": 575,
+     "end_lineno": 606,
      "lines": 32,
      "signature": "()",
      "decorators": [],
@@ -25128,8 +25139,8 @@
      "name": "gen_config",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 609,
-     "end_lineno": 637,
+     "lineno": 610,
+     "end_lineno": 638,
      "lines": 29,
      "signature": "()",
      "decorators": [],
@@ -25144,8 +25155,8 @@
      "name": "gen_table_io",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 641,
-     "end_lineno": 675,
+     "lineno": 642,
+     "end_lineno": 676,
      "lines": 35,
      "signature": "()",
      "decorators": [],
@@ -25160,8 +25171,8 @@
      "name": "gen_test_index",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 680,
-     "end_lineno": 715,
+     "lineno": 681,
+     "end_lineno": 716,
      "lines": 36,
      "signature": "()",
      "decorators": [],
@@ -25176,8 +25187,8 @@
      "name": "gen_doc_index_content",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 718,
-     "end_lineno": 744,
+     "lineno": 719,
+     "end_lineno": 745,
      "lines": 27,
      "signature": "()",
      "decorators": [],
@@ -25192,8 +25203,8 @@
      "name": "gen_frontend",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 747,
-     "end_lineno": 775,
+     "lineno": 748,
+     "end_lineno": 776,
      "lines": 29,
      "signature": "()",
      "decorators": [],
@@ -25208,8 +25219,8 @@
      "name": "gen_function_index",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 779,
-     "end_lineno": 821,
+     "lineno": 780,
+     "end_lineno": 822,
      "lines": 43,
      "signature": "()",
      "decorators": [],
@@ -25220,19 +25231,51 @@
     },
     {
      "module": "scripts/survey/03-render.py",
-     "qualname": "main",
-     "name": "main",
+     "qualname": "gen_runtime_probe",
+     "name": "gen_runtime_probe",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 824,
-     "end_lineno": 842,
-     "lines": 19,
+     "lineno": 826,
+     "end_lineno": 954,
+     "lines": 129,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "gen_requirements",
+     "name": "gen_requirements",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 959,
+     "end_lineno": 1042,
+     "lines": 84,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "需求编号 / 否决台账索引 + 种子库数据样例。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 1045,
+     "end_lineno": 1065,
+     "lines": 21,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1140
     }
    ]
   },
@@ -25290,7 +25333,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "scripts/survey/04-reconcile.py",
@@ -25299,14 +25342,14 @@
      "kind": "function",
      "file": "scripts/survey/04-reconcile.py",
      "lineno": 41,
-     "end_lineno": 298,
-     "lines": 258,
+     "end_lineno": 332,
+     "lines": 292,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -25381,7 +25424,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6
+     "text_hits": 9
     },
     {
      "module": "scripts/survey/05-deep.py",
@@ -25461,7 +25504,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -25574,7 +25617,453 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/07-runtime-probe.py",
+   "docstring": "检查第 7 步（运行时层）：**真启动引擎，把每条端点都调一遍**。\n\n## 为什么必须有这一步\n\n前面十步全是**静态**的：看代码写了什么。但业主问的是「了解透彻了吗」——\n**静态检查验不了「跑起来会怎样」**。这是本检查最大的一道缺口，本脚本补它。\n\n## 安全边界（硬约束）\n\n| 约束 | 做法 |\n|---|---|\n| **绝不碰生产数据** | `KS_DATA_DIR` 指向**临时目录**，里面是随仓种子库的副本（13 MB） |\n| **绝不碰生产模型** | `KS_MODELS_DIR` 也指向临时目录 ⇒ 模型不可用就降级，不下载 |\n| **不落任何持久产物** | 临时目录用完即删；只把**探测结果**写进 `docs/survey/data/` |\n| **每条请求有超时** | 单条 12 秒；整体有上限 |\n| **引擎一定是被我们启动的** | 记 ",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "json",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "os",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "shutil",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "signal",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "socket",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "subprocess",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sys",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "tempfile",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "time",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "urllib.error",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "urllib.request",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sqlite3",
+     "as": "_sq"
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/07-runtime-probe.py",
+     "qualname": "free_port",
+     "name": "free_port",
+     "kind": "function",
+     "file": "scripts/survey/07-runtime-probe.py",
+     "lineno": 62,
+     "end_lineno": 68,
+     "lines": 7,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "要一个空闲端口（只为探活，引擎自己会绑随机端口）。",
+     "private": false,
+     "text_hits": 1
+    },
+    {
+     "module": "scripts/survey/07-runtime-probe.py",
+     "qualname": "wait_port",
+     "name": "wait_port",
+     "kind": "function",
+     "file": "scripts/survey/07-runtime-probe.py",
+     "lineno": 71,
+     "end_lineno": 82,
+     "lines": 12,
+     "signature": "(port, proc, timeout)",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "等端口能连上（进程还活着为前提）。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/07-runtime-probe.py",
+     "qualname": "call",
+     "name": "call",
+     "kind": "function",
+     "file": "scripts/survey/07-runtime-probe.py",
+     "lineno": 85,
+     "end_lineno": 155,
+     "lines": 71,
+     "signature": "(port, token, method, path, body)",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "发一条请求，返回记录（不抛异常，失败也记）。",
+     "private": false,
+     "text_hits": 27
+    },
+    {
+     "module": "scripts/survey/07-runtime-probe.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/07-runtime-probe.py",
+     "lineno": 158,
+     "end_lineno": 344,
+     "lines": 187,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1140
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/08-repro-resume-hang.py",
+   "docstring": "定向复现：`POST /api/v1/ingest/bulk/{batch_id}/resume` 会不会把整个引擎卡死。\n\n## 为什么单独写这一支\n\n全量探针（`07-runtime-probe.py`）跑出：第 106 条 `resume` 用了 12 秒返回 500，\n**之后所有请求（含 `/api/v1/health`）连续 70 条全部超时**。\n\n`/health` 是门禁里实测「12 条重活在飞时仍毫秒级」的那个廉价探针。\n它都超时 ⇒ 引擎整体不响应了。\n\n**一次不算数。** 本脚本做定向复现，并记录「卡死前后」的对照：\n\n1. 起引擎 → `/health` 记一次基线\n2. 调 `resume`（用一个**故意不存在**的批次号）\n3. 立刻再调 `/health`\n4. 再调一条无关的便宜接口（`GET /api/v1/update/subscriptions`",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "json",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "os",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "shutil",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "signal",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sqlite3",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "subprocess",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sys",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "tempfile",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "time",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "urllib.error",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "urllib.request",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "threading",
+     "as": null
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/08-repro-resume-hang.py",
+     "qualname": "call",
+     "name": "call",
+     "kind": "function",
+     "file": "scripts/survey/08-repro-resume-hang.py",
+     "lineno": 44,
+     "end_lineno": 69,
+     "lines": 26,
+     "signature": "(port, token, method, path, body, timeout)",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 27
+    },
+    {
+     "module": "scripts/survey/08-repro-resume-hang.py",
+     "qualname": "prepare",
+     "name": "prepare",
+     "kind": "function",
+     "file": "scripts/survey/08-repro-resume-hang.py",
+     "lineno": 72,
+     "end_lineno": 102,
+     "lines": 31,
+     "signature": "(tmp)",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "临时数据目录 + 种子库副本 + 清掉孤儿影子表（否则 init_schema 撞名）。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/08-repro-resume-hang.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/08-repro-resume-hang.py",
+     "lineno": 105,
+     "end_lineno": 220,
+     "lines": 116,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1140
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/09-requirements.py",
+   "docstring": "检查第 9 步（派生层）：需求编号索引 / 否决台账索引 / 种子库数据样例。\n\n## 为什么必须有这一层\n\n代码注释里到处引 `R24`、`R30`、`NOT-DOING #16`，但地图里**查不到它们指什么**。\n`REQUIREMENTS-v4.3.md`（208 KB）与 `NOT-DOING.md` 也没通读 —— 这就是本检查\n最后一块结构性空白。\n\n本脚本把它们**机械提取**成索引，并做**双向交叉引用**：\n- 正向：每个编号 → 标题 / 原文首段 / 定义在哪一行\n- 反向：每个编号 → 代码里哪儿引用了它（文件 + 次数）\n\n## 三件事\n\n1. `requirements.json` —— 需求编号索引（`### R<n> 标题`）+ 代码引用点\n2. `notdoing.json` —— 否决台账索引（表格行）+ 代码引用点\n3. `data_samples.",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "json",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "re",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sqlite3",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sys",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "dump",
+     "name": "dump",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 65,
+     "end_lineno": 69,
+     "lines": 5,
+     "signature": "(name, payload)",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 55
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "iter_py",
+     "name": "iter_py",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 72,
+     "end_lineno": 80,
+     "lines": 9,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 9
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "first_body_para",
+     "name": "first_body_para",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 86,
+     "end_lineno": 108,
+     "lines": 23,
+     "signature": "(lines, start, limit)",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "取标题之后的第一个正文段（跳过空行、表格、代码块、引用）。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "collect_definitions",
+     "name": "collect_definitions",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 111,
+     "end_lineno": 154,
+     "lines": 44,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "扫全部 docs，返回 (定义表, 仅正文提及表)。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "step_requirements",
+     "name": "step_requirements",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 157,
+     "end_lineno": 286,
+     "lines": 130,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "step_notdoing",
+     "name": "step_notdoing",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 292,
+     "end_lineno": 354,
+     "lines": 63,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "step_data_samples",
+     "name": "step_data_samples",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 366,
+     "end_lineno": 415,
+     "lines": 50,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/09-requirements.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/09-requirements.py",
+     "lineno": 418,
+     "end_lineno": 423,
+     "lines": 6,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1140
     }
    ]
   },
@@ -25633,7 +26122,7 @@
      "has_docstring": true,
      "purpose": "把一份机器可读数据写进 `docs/survey/data/<name>.json`。",
      "private": false,
-     "text_hits": 51
+     "text_hits": 55
     }
    ]
   },
@@ -25678,8 +26167,8 @@
      "name": "run",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 51,
-     "end_lineno": 70,
+     "lineno": 55,
+     "end_lineno": 74,
      "lines": 20,
      "signature": "(script, label)",
      "decorators": [],
@@ -25694,15 +26183,15 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 73,
-     "end_lineno": 95,
+     "lineno": 77,
+     "end_lineno": 99,
      "lines": 23,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -26016,7 +26505,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -26084,7 +26573,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -26339,7 +26828,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -26452,7 +26941,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -26633,7 +27122,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -29594,7 +30083,7 @@
      "has_docstring": true,
      "purpose": "模型权重缓存目录（默认 `<data_dir>/models`）。",
      "private": false,
-     "text_hits": 16
+     "text_hits": 19
     },
     {
      "module": "src/core/config.py",
@@ -29920,7 +30409,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 5
+     "text_hits": 6
     },
     {
      "module": "src/core/exceptions.py",
@@ -32985,7 +33474,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -33551,7 +34040,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -35973,7 +36462,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 86
+     "text_hits": 87
     },
     {
      "module": "src/core/ingestion/pipeline.py",
@@ -35989,7 +36478,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -36724,7 +37213,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -37145,7 +37634,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -40933,7 +41422,7 @@
      "has_docstring": true,
      "purpose": "搜索（searchRange 1=标题 2=正文。",
      "private": false,
-     "text_hits": 782
+     "text_hits": 784
     },
     {
      "module": "src/core/knowledge/law_source/flk_client.py",
@@ -41019,7 +41508,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 406
+     "text_hits": 408
     },
     {
      "module": "src/core/knowledge/law_source/flk_client.py",
@@ -41067,7 +41556,7 @@
      "has_docstring": true,
      "purpose": "下载官方 Word/PDF 到 dest。",
      "private": false,
-     "text_hits": 20
+     "text_hits": 21
     }
    ]
   },
@@ -41163,7 +41652,7 @@
      "has_docstring": true,
      "purpose": "搜索政策文件库。",
      "private": false,
-     "text_hits": 782
+     "text_hits": 784
     },
     {
      "module": "src/core/knowledge/law_source/govcn_client.py",
@@ -41229,7 +41718,7 @@
      "has_docstring": true,
      "purpose": "下载官方文件（docx/ofd），魔数校验 ZIP。",
      "private": false,
-     "text_hits": 20
+     "text_hits": 21
     }
    ]
   },
@@ -43541,7 +44030,7 @@
      "has_docstring": true,
      "purpose": "同步取证答案主体。",
      "private": false,
-     "text_hits": 667
+     "text_hits": 668
     },
     {
      "module": "src/core/llm/ks_answer.py",
@@ -44767,7 +45256,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 121
+     "text_hits": 135
     },
     {
      "module": "src/core/middle_geo.py",
@@ -45007,7 +45496,7 @@
      "has_docstring": true,
      "purpose": "读取并缓存 parse_root 的几何索引。",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     }
    ]
   },
@@ -46117,7 +46606,7 @@
      "has_docstring": true,
      "purpose": "**廉价**三态：`ok` / `offline` / `unknown`（**不加载模型**，只读已有证据）。",
      "private": false,
-     "text_hits": 111
+     "text_hits": 133
     },
     {
      "module": "src/core/retrieval/embedder.py",
@@ -46828,7 +47317,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "src/core/retrieval/term_bridge.py",
@@ -48122,7 +48611,7 @@
      "has_docstring": true,
      "purpose": "面板头部用的小结：**能力数**（wiring=wired）与**注册数**分开报。",
      "private": false,
-     "text_hits": 181
+     "text_hits": 183
     },
     {
      "module": "src/core/storage/channel_repo.py",
@@ -49460,7 +49949,7 @@
      "has_docstring": true,
      "purpose": "线程局部连接。",
      "private": false,
-     "text_hits": 448
+     "text_hits": 449
     },
     {
      "module": "src/core/storage/sqlite_db.py",
@@ -49478,7 +49967,7 @@
      "has_docstring": true,
      "purpose": "短事务上下文：由单写者队列调用，普通代码不应直接绕过队列写库。",
      "private": false,
-     "text_hits": 248
+     "text_hits": 249
     },
     {
      "module": "src/core/storage/sqlite_db.py",
@@ -49494,7 +49983,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 68
+     "text_hits": 74
     },
     {
      "module": "src/core/storage/sqlite_db.py",
@@ -50444,7 +50933,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 323
+     "text_hits": 334
     },
     {
      "module": "src/core/storage/write_queue.py",
@@ -50828,7 +51317,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 622
+     "text_hits": 626
     },
     {
      "module": "src/core/supervisor.py",
@@ -50844,7 +51333,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 323
+     "text_hits": 334
     },
     {
      "module": "src/core/supervisor.py",
@@ -50860,7 +51349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 732
+     "text_hits": 746
     },
     {
      "module": "src/core/supervisor.py",
@@ -51004,7 +51493,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -54008,7 +54497,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -54072,7 +54561,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -54186,7 +54675,7 @@
      "has_docstring": true,
      "purpose": "探测单个标准号的最新官方状态。",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -54489,7 +54978,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/cssn.py",
@@ -54555,7 +55044,7 @@
      "has_docstring": true,
      "purpose": "归一号 → (数字主体, 年份)。",
      "private": true,
-     "text_hits": 8
+     "text_hits": 9
     },
     {
      "module": "src/core/update/channels/cssn.py",
@@ -54808,7 +55297,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/govcn_announce.py",
@@ -55004,7 +55493,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/hbba.py",
@@ -55135,7 +55624,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     }
    ]
   },
@@ -55599,7 +56088,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/mee.py",
@@ -55710,7 +56199,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/mem_gov.py",
@@ -55833,7 +56322,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/mohurd.py",
@@ -56009,7 +56498,7 @@
      "has_docstring": true,
      "purpose": "探测单号状态。",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/ndls.py",
@@ -56343,7 +56832,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/official_gb.py",
@@ -56669,7 +57158,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "src/core/update/channels/proxy_rotate.py",
@@ -57145,7 +57634,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/std_samr_hb.py",
@@ -57349,7 +57838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "src/core/update/channels/ttzb.py",
@@ -57584,7 +58073,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     }
    ]
   },
@@ -58167,7 +58656,7 @@
      "has_docstring": true,
      "purpose": "按分类路径查网络渠道，返回结果卡片列表（字段见模块头注，F-17）。",
      "private": false,
-     "text_hits": 782
+     "text_hits": 784
     },
     {
      "module": "src/core/update/discover.py",
@@ -59434,7 +59923,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 323
+     "text_hits": 334
     },
     {
      "module": "src/core/update/scheduler.py",
@@ -60681,7 +61170,7 @@
      "has_docstring": true,
      "purpose": "带 token 的请求（``json`` / ``params`` 透传）。",
      "private": false,
-     "text_hits": 1718
+     "text_hits": 1730
     },
     {
      "module": "tests/_kb_folder_api_fixtures.py",
@@ -60713,7 +61202,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 92
+     "text_hits": 96
     }
    ]
   },
@@ -60879,7 +61368,7 @@
      "has_docstring": true,
      "purpose": "初始化好 schema 的库连接（会话级临时库。",
      "private": false,
-     "text_hits": 1641
+     "text_hits": 1651
     },
     {
      "module": "tests/conftest.py",
@@ -60915,7 +61404,7 @@
      "has_docstring": true,
      "purpose": "带 token 的 FastAPI TestClient。",
      "private": false,
-     "text_hits": 566
+     "text_hits": 568
     },
     {
      "module": "tests/conftest.py",
@@ -61086,7 +61575,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_announce_ingest.py",
@@ -64318,7 +64807,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 165
+     "text_hits": 175
     },
     {
      "module": "tests/test_batch7_security_hardening.py",
@@ -66028,7 +66517,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_ccs_chain.py",
@@ -67781,7 +68270,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 488
+     "text_hits": 496
     },
     {
      "module": "tests/test_channel_answers.py",
@@ -68128,7 +68617,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_channel_probe.py",
@@ -85151,7 +85640,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_govcn_archive.py",
@@ -85298,7 +85787,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 181
+     "text_hits": 183
     },
     {
      "module": "tests/test_govqa_label_review.py",
@@ -89385,7 +89874,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 291
+     "text_hits": 292
     },
     {
      "module": "tests/test_ks_answer_bbox.py",
@@ -89433,7 +89922,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1645
+     "text_hits": 1655
     },
     {
      "module": "tests/test_ks_answer_bbox.py",
@@ -92723,7 +93212,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 3581
+     "text_hits": 3611
     },
     {
      "module": "tests/test_law_source_http_antibot.py",
@@ -113055,7 +113544,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 488
+     "text_hits": 496
     },
     {
      "module": "tests/test_question_router.py",
@@ -117969,7 +118458,7 @@
      "has_docstring": true,
      "purpose": "把存储重定向到临时目录（KS_DATA_DIR 是 config 与 secret_store 共用的开关）。",
      "private": false,
-     "text_hits": 165
+     "text_hits": 175
     },
     {
      "module": "tests/test_secret_store.py",
@@ -118962,7 +119451,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1611
+     "text_hits": 1628
     },
     {
      "module": "tests/test_standard_body.py",
@@ -120201,7 +120690,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 323
+     "text_hits": 334
     },
     {
      "module": "tests/test_supervisor.py",
@@ -120217,7 +120706,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 732
+     "text_hits": 746
     },
     {
      "module": "tests/test_supervisor.py",
@@ -123758,7 +124247,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_update_announce.py",
@@ -124777,7 +125266,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_update_channels.py",
@@ -125003,7 +125492,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_update_channels.py",
@@ -125846,7 +126335,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_update_discover.py",
@@ -126553,7 +127042,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_update_inspector.py",
@@ -126747,7 +127236,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 3019
+     "text_hits": 3024
     },
     {
      "module": "tests/test_update_inspector.py",
@@ -128878,7 +129367,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tests/test_web_ingest.py",
@@ -129089,7 +129578,7 @@
      "has_docstring": true,
      "purpose": "按 key 载入适配器模块（延迟导入，免得没装的依赖拦住别的站）。",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     }
    ]
   },
@@ -129403,7 +129892,7 @@
      "has_docstring": true,
      "purpose": "毫秒时间戳 → `YYYY-MM-DD HH:MM:SS`。",
      "private": false,
-     "text_hits": 61
+     "text_hits": 62
     },
     {
      "module": "tools/gov-qa/adapters/_igi_common.py",
@@ -149722,7 +150211,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150128,7 +150617,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150321,7 +150810,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150437,7 +150926,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150650,7 +151139,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "tools/gov-qa/poll.py",
@@ -150767,7 +151256,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150884,7 +151373,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -150953,7 +151442,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151033,7 +151522,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151127,7 +151616,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151212,7 +151701,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151294,7 +151783,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151358,7 +151847,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151401,7 +151890,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151449,7 +151938,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151651,7 +152140,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151705,7 +152194,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151769,7 +152258,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151823,7 +152312,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -151965,7 +152454,7 @@
      "has_docstring": true,
      "purpose": "实测域名是否可达。",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/build-city-domains.py",
@@ -151981,7 +152470,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152030,7 +152519,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152079,7 +152568,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152122,7 +152611,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152233,7 +152722,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152319,7 +152808,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152404,7 +152893,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152461,7 +152950,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152523,7 +153012,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152585,7 +153074,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152647,7 +153136,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152694,7 +153183,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe13.py",
@@ -152710,7 +153199,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152757,7 +153246,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe14.py",
@@ -152773,7 +153262,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152820,7 +153309,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe15.py",
@@ -152836,7 +153325,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152888,7 +153377,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe16.py",
@@ -152904,7 +153393,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -152956,7 +153445,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe17.py",
@@ -152972,7 +153461,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153024,7 +153513,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe18.py",
@@ -153040,7 +153529,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153092,7 +153581,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe19.py",
@@ -153108,7 +153597,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153177,7 +153666,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153229,7 +153718,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe20.py",
@@ -153245,7 +153734,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153292,7 +153781,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe21.py",
@@ -153308,7 +153797,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153355,7 +153844,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe22.py",
@@ -153371,7 +153860,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153418,7 +153907,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe23.py",
@@ -153434,7 +153923,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153481,7 +153970,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe24.py",
@@ -153497,7 +153986,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153544,7 +154033,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe25.py",
@@ -153560,7 +154049,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153612,7 +154101,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe26.py",
@@ -153628,7 +154117,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153675,7 +154164,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe27.py",
@@ -153691,7 +154180,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153738,7 +154227,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe28.py",
@@ -153754,7 +154243,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153801,7 +154290,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe29.py",
@@ -153817,7 +154306,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153886,7 +154375,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -153971,7 +154460,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154044,7 +154533,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154106,7 +154595,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154168,7 +154657,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154230,7 +154719,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154292,7 +154781,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154350,7 +154839,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154397,7 +154886,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe1.py",
@@ -154413,7 +154902,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe1.py",
@@ -154429,7 +154918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154476,7 +154965,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe10.py",
@@ -154492,7 +154981,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe10.py",
@@ -154508,7 +154997,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154560,7 +155049,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe11.py",
@@ -154576,7 +155065,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe11.py",
@@ -154592,7 +155081,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154639,7 +155128,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe12.py",
@@ -154655,7 +155144,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe12.py",
@@ -154671,7 +155160,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154718,7 +155207,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe13.py",
@@ -154734,7 +155223,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe13.py",
@@ -154750,7 +155239,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154797,7 +155286,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe14.py",
@@ -154813,7 +155302,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154860,7 +155349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe15.py",
@@ -154876,7 +155365,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe15.py",
@@ -154892,7 +155381,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -154939,7 +155428,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe16.py",
@@ -154955,7 +155444,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155002,7 +155491,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe17.py",
@@ -155018,7 +155507,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe17.py",
@@ -155034,7 +155523,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155081,7 +155570,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe18.py",
@@ -155097,7 +155586,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe18.py",
@@ -155113,7 +155602,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155160,7 +155649,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe19.py",
@@ -155176,7 +155665,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe19.py",
@@ -155192,7 +155681,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155239,7 +155728,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe2.py",
@@ -155255,7 +155744,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe2.py",
@@ -155271,7 +155760,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155318,7 +155807,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe20.py",
@@ -155334,7 +155823,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe20.py",
@@ -155350,7 +155839,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155397,7 +155886,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe21.py",
@@ -155413,7 +155902,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe21.py",
@@ -155429,7 +155918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155476,7 +155965,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe22.py",
@@ -155492,7 +155981,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe22.py",
@@ -155540,7 +156029,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155587,7 +156076,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe23.py",
@@ -155603,7 +156092,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe23.py",
@@ -155651,7 +156140,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155698,7 +156187,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe24.py",
@@ -155714,7 +156203,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe24.py",
@@ -155762,7 +156251,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155809,7 +156298,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe25.py",
@@ -155825,7 +156314,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe25.py",
@@ -155873,7 +156362,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155920,7 +156409,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe26.py",
@@ -155936,7 +156425,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe26.py",
@@ -155952,7 +156441,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -155999,7 +156488,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -156015,7 +156504,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -156031,7 +156520,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -156047,7 +156536,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156094,7 +156583,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe28.py",
@@ -156110,7 +156599,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe28.py",
@@ -156126,7 +156615,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156173,7 +156662,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe29.py",
@@ -156189,7 +156678,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe29.py",
@@ -156221,7 +156710,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156268,7 +156757,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe3.py",
@@ -156284,7 +156773,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe3.py",
@@ -156300,7 +156789,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156347,7 +156836,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe30.py",
@@ -156363,7 +156852,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe30.py",
@@ -156379,7 +156868,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156426,7 +156915,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -156442,7 +156931,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -156474,7 +156963,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1470
+     "text_hits": 1483
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -156490,7 +156979,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156537,7 +157026,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe32.py",
@@ -156553,7 +157042,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe32.py",
@@ -156585,7 +157074,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156632,7 +157121,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe33.py",
@@ -156648,7 +157137,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe33.py",
@@ -156696,7 +157185,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156743,7 +157232,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe34.py",
@@ -156759,7 +157248,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe34.py",
@@ -156791,7 +157280,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156843,7 +157332,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe35.py",
@@ -156859,7 +157348,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe35.py",
@@ -156891,7 +157380,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -156938,7 +157427,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe36.py",
@@ -156954,7 +157443,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe36.py",
@@ -156986,7 +157475,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157033,7 +157522,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe37.py",
@@ -157049,7 +157538,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe37.py",
@@ -157097,7 +157586,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157144,7 +157633,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe38.py",
@@ -157160,7 +157649,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe38.py",
@@ -157208,7 +157697,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157255,7 +157744,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe39.py",
@@ -157287,7 +157776,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157334,7 +157823,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe4.py",
@@ -157350,7 +157839,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe4.py",
@@ -157366,7 +157855,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157413,7 +157902,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe40.py",
@@ -157445,7 +157934,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157492,7 +157981,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe41.py",
@@ -157524,7 +158013,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157571,7 +158060,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -157587,7 +158076,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -157619,7 +158108,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -157635,7 +158124,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157687,7 +158176,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe43.py",
@@ -157719,7 +158208,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157771,7 +158260,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe44.py",
@@ -157803,7 +158292,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157850,7 +158339,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe45.py",
@@ -157866,7 +158355,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157913,7 +158402,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe5.py",
@@ -157929,7 +158418,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe5.py",
@@ -157945,7 +158434,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -157992,7 +158481,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe6.py",
@@ -158008,7 +158497,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe6.py",
@@ -158024,7 +158513,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158071,7 +158560,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe7.py",
@@ -158087,7 +158576,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe7.py",
@@ -158119,7 +158608,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158166,7 +158655,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe8.py",
@@ -158182,7 +158671,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe8.py",
@@ -158198,7 +158687,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158245,7 +158734,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1464
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe9.py",
@@ -158261,7 +158750,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe9.py",
@@ -158277,7 +158766,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158364,7 +158853,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158445,7 +158934,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158508,7 +158997,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158604,7 +159093,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158647,7 +159136,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158798,7 +159287,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 51
+     "text_hits": 55
     },
     {
      "module": "tools/gov-qa/recon/df-datatype-diagnose.py",
@@ -158814,7 +159303,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158890,7 +159379,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -158964,7 +159453,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159013,7 +159502,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159118,7 +159607,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159181,7 +159670,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159259,7 +159748,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159312,7 +159801,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159359,7 +159848,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159423,7 +159912,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159471,7 +159960,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159535,7 +160024,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159615,7 +160104,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159867,7 +160356,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -159971,7 +160460,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160045,7 +160534,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160219,7 +160708,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160294,7 +160783,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160445,7 +160934,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "tools/gov-qa/recon/gen-channel-table.py",
@@ -160519,7 +161008,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160562,7 +161051,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160600,7 +161089,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160638,7 +161127,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160707,7 +161196,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160745,7 +161234,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160797,7 +161286,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -160849,7 +161338,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 200
+     "text_hits": 201
     },
     {
      "module": "tools/gov-qa/recon/gs-lx-direct.py",
@@ -160949,7 +161438,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/gs-more-probe.py",
@@ -160965,7 +161454,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161012,7 +161501,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 51
+     "text_hits": 55
     },
     {
      "module": "tools/gov-qa/recon/gs4-baiyin-deep.py",
@@ -161028,7 +161517,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161075,7 +161564,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161154,7 +161643,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161233,7 +161722,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161285,7 +161774,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161385,7 +161874,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161465,7 +161954,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161534,7 +162023,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161582,7 +162071,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161692,7 +162181,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161842,7 +162331,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161921,7 +162410,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -161984,7 +162473,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162047,7 +162536,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162110,7 +162599,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162173,7 +162662,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162236,7 +162725,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162299,7 +162788,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162362,7 +162851,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162425,7 +162914,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162504,7 +162993,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162658,7 +163147,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -162808,7 +163297,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "tools/gov-qa/recon/igi-chunked.py",
@@ -162962,7 +163451,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163047,7 +163536,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163160,7 +163649,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163219,7 +163708,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163337,7 +163826,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163406,7 +163895,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163469,7 +163958,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163521,7 +164010,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/igi-siteid-scan.py",
@@ -163537,7 +164026,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163606,7 +164095,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163670,7 +164159,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163734,7 +164223,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163798,7 +164287,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1553
+     "text_hits": 1557
     },
     {
      "module": "tools/gov-qa/recon/jl-groupid-roster.py",
@@ -163814,7 +164303,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163878,7 +164367,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -163958,7 +164447,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164049,7 +164538,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164134,7 +164623,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164234,7 +164723,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164318,7 +164807,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164429,7 +164918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164508,7 +164997,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164624,7 +165113,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -164776,7 +165265,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165063,7 +165552,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165182,7 +165671,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165225,7 +165714,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165273,7 +165762,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165354,7 +165843,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165435,7 +165924,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165516,7 +166005,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165597,7 +166086,7 @@
      "has_docstring": true,
      "purpose": "探一个 fid。",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/liuyan-fid-dense-scan.py",
@@ -165613,7 +166102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165656,7 +166145,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165705,7 +166194,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165758,7 +166247,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165811,7 +166300,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165913,7 +166402,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -165994,7 +166483,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166058,7 +166547,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166101,7 +166590,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166182,7 +166671,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166258,7 +166747,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166339,7 +166828,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166419,7 +166908,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166488,7 +166977,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166547,7 +167036,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166606,7 +167095,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166734,7 +167223,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166783,7 +167272,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166848,7 +167337,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166927,7 +167416,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -166985,7 +167474,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 200
+     "text_hits": 201
     },
     {
      "module": "tools/gov-qa/recon/nat-smoke.py",
@@ -167049,7 +167538,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167118,7 +167607,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167165,7 +167654,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -167181,7 +167670,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 51
+     "text_hits": 55
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -167281,7 +167770,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167381,7 +167870,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167444,7 +167933,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167588,7 +168077,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167688,7 +168177,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167729,7 +168218,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167820,7 +168309,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -167947,7 +168436,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168026,7 +168515,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168117,7 +168606,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168228,7 +168717,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168339,7 +168828,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168385,7 +168874,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168464,7 +168953,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168510,7 +168999,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168556,7 +169045,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168607,7 +169096,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168653,7 +169142,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168699,7 +169188,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168745,7 +169234,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168861,7 +169350,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/probe-longxun-cities.py",
@@ -168877,7 +169366,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168923,7 +169412,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -168990,7 +169479,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169036,7 +169525,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169088,7 +169577,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169167,7 +169656,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169268,7 +169757,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169390,7 +169879,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169436,7 +169925,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169482,7 +169971,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169528,7 +170017,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169590,7 +170079,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169636,7 +170125,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169682,7 +170171,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169728,7 +170217,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169797,7 +170286,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1027
+     "text_hits": 1028
     },
     {
      "module": "tools/gov-qa/recon/prov-platform-probe.py",
@@ -169829,7 +170318,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -169967,7 +170456,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170025,7 +170514,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170099,7 +170588,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170253,7 +170742,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170300,7 +170789,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170347,7 +170836,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170394,7 +170883,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170515,7 +171004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170595,7 +171084,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170659,7 +171148,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170723,7 +171212,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170787,7 +171276,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170867,7 +171356,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -170964,7 +171453,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171039,7 +171528,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/sd-city-probe2.py",
@@ -171071,7 +171560,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171162,7 +171651,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171247,7 +171736,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171338,7 +171827,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171429,7 +171918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171520,7 +172009,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171583,7 +172072,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-probe.py",
@@ -171599,7 +172088,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171662,7 +172151,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 103
+     "text_hits": 107
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-verify.py",
@@ -171742,7 +172231,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -171995,7 +172484,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172052,7 +172541,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-probe.py",
@@ -172068,7 +172557,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-probe.py",
@@ -172168,7 +172657,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172347,7 +172836,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-dig.py",
@@ -172363,7 +172852,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172420,7 +172909,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-fetch.py",
@@ -172468,7 +172957,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172525,7 +173014,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-js.py",
@@ -172541,7 +173030,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172614,7 +173103,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 301
+     "text_hits": 311
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-probe.py",
@@ -172630,7 +173119,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172698,7 +173187,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172755,7 +173244,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172812,7 +173301,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -172940,7 +173429,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -173004,7 +173493,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -173144,7 +173633,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1131
+     "text_hits": 1140
     }
    ]
   },
@@ -173346,7 +173835,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6333
+     "text_hits": 6394
     },
     {
      "module": "tools/gov-qa/state.py",

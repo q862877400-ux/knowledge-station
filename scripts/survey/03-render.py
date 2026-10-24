@@ -27,6 +27,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -862,12 +863,87 @@ def gen_runtime_probe() -> None:
     from collections import Counter
     pref = Counter()
     for r in d["results"]:
-        if str(r.get("status")) is None and r.get("timeout"):
+        if r.get("status") is None and r.get("timeout"):
             parts = r["declared_path"].split("/")
             pref["/".join(parts[:4])] += 1
     out += ["| 前缀 | 超时条数 |", "|---|---:|"]
     for k, v in pref.most_common():
         out.append(f"| `{k}` | {v} |")
+    # ── 超时归因：**只读这个 handler 自己的函数体** ──
+    # 第一版从 handler 起始行往后扫 200 行 ⇒ 扫到了同文件别的函数，
+    # 加上关键词里有 `http` 这种到处都有的词 ⇒ 49/71 都被标成「等云模型」。
+    # 现在：从 def 行吃到「下一个同缩进的 def/装饰器」，并且用更具体的关键词。
+    kws = [
+        ("等云模型", ("llm", "answer", "_sse", "stream", "deepseek", "vlm",
+                     "chat_completions", "OpenAI")),
+        ("联网", ("urlopen", "httpx", "requests.", "fetch(", "urllib",
+                 "download", "http_get", "apiGet", "apiPost")),
+        ("重入库/解析", ("ingest", "parse_pdf", "mineru", "ocr", "_split",
+                       "build_clause", "run_full_ingest")),
+        ("查数据库", ("conn.execute", "get_db_connection", "write_transaction",
+                     "read_transaction")),
+    ]
+
+    def handler_body(f: str, lineno: int) -> str:
+        path = ROOT / f
+        if not path.exists():
+            return ""
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        if lineno <= 0 or lineno > len(lines):
+            return ""
+        # 找到 handler 的 def 行（路由装饰器附近）
+        start = None
+        for i in range(max(0, lineno - 1), min(len(lines), lineno + 10)):
+            if re.match(r"\s*(?:async\s+)?def\s", lines[i]):
+                start = i
+                break
+        if start is None:
+            return ""
+        base = len(lines[start]) - len(lines[start].lstrip())
+        out_lines = [lines[start]]
+        for ln in lines[start + 1:]:
+            s = ln.strip()
+            if s and (len(ln) - len(ln.lstrip())) <= base and (
+                    re.match(r"(?:async\s+)?def\s", s) or s.startswith("@")
+                    or re.match(r"def\s", s)):
+                break
+            out_lines.append(ln)
+        return "\n".join(out_lines)
+
+    attrib: dict[str, list[str]] = {}
+    attribution_detail: list[dict] = []
+    for r in d["results"]:
+        if r.get("status") is not None or not r.get("timeout"):
+            continue
+        body = handler_body(r.get("file") or "", r.get("lineno") or 0)
+        low = body.lower()
+        tags = [name for name, words in kws if any(w.lower() in low for w in words)]
+        key = " + ".join(tags) if tags else "**handler 里看不出明确来源**"
+        attrib.setdefault(key, []).append(r["declared_path"])
+        attribution_detail.append({
+            "path": r["declared_path"], "handler": r.get("handler"),
+            "body_lines": body.count("\n") + 1 if body else 0,
+            "tags": tags,
+        })
+    out += ["", "### 超时的 71 条：按**这一个 handler 的函数体**粗分", "",
+            "| handler 里碰到什么 | 条数 |", "|---|---:|"]
+    for k, v in sorted(attrib.items(), key=lambda kv: -len(kv[1])):
+        out.append(f"| {k} | {len(v)} |")
+    out += ["",
+            "> ⚠ 这是**按关键词粗分**：只扫该 handler 自己的函数体（不含同文件其它函数），"
+            "看有没有模型/联网/入库/数据库字样。",
+            "> **不能证明超时就是因为那个**；要定因得在超时时抓线程栈。**本检查没做。**",
+            "",
+            "**⚠ 这一栏最重要的读数是第一行**：大多数超时的 handler **本身看不出会慢**",
+            "（没有模型、没有联网、没有重入库）。而它们在第 1 次跑里是**连续 70 条**",
+            "一起超时的（第 107–176 条）⇒ 更可能是**整体被卡住**，不是各自慢。",
+            "与 [`10-observed.md`](10-observed.md) §七 O-22 的间歇性卡死对应着看。",
+            "",
+            "**逐条明细**（前 30 条）：", "",
+            "| 端点 | handler | 函数体行数 | 命中 |", "|---|---|---:|---|"]
+    for x in attribution_detail[:30]:
+        out.append(f"| `{x['path']}` | `{x['handler']}` | {x['body_lines']} | "
+                   f"{cell('、'.join(x['tags']) or '—')} |")
     out += ["", "## 六、全部端点实测结果", "",
             "| 方法 | 路径 | 状态 | 耗时 | 处理函数 |", "|---|:---:|---:|---|"]
     for r in d["results"]:
@@ -876,6 +952,94 @@ def gen_runtime_probe() -> None:
         out.append(f"| {r['method']} | `{r['declared_path']}` | {st} | "
                    f"{r.get('ms', '—')} ms | `{r.get('handler')}` |")
     write("18-runtime-probe.md", "运行时探测（真启动引擎，176 条端点实测）", "\n".join(out))
+
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_requirements() -> None:
+    """需求编号 / 否决台账索引 + 种子库数据样例。"""
+    req = load("requirements")
+    nd = load("notdoing")
+    ds = load("data_samples")
+    rc, nc, dc = req["counts"], nd["counts"], ds["counts"]
+    out = [
+        "## 一、口径（这里有个坑，先看）", "",
+        "本仓的 **`R` 前缀有两种含义**：",
+        "",
+        "| 形态 | 含义 | 例子 |",
+        "|---|---|---|",
+        "| `R24` / `R6c` / `R4b` | **需求编号 / 巡检轮次编号** | 代码注释里引它来说明「为什么这么写」 |",
+        "| `R00/09` / `R80/89` | **中标分类号 CCS**（中国标准文献分类法） | "
+        "`R00/09` = 公路水路运输综合，`R80/89` = 交通管理 |",
+        "",
+        "第一版正则把 3 个 CCS 号误报成「文档里找不到」——**那是我的误报**。",
+        "现在三种排除：跟 `/数字` 的、前导零的、整行含 CCS/分类法/category 的。",
+        "",
+        "## 二、编号**没有单一权威文档**", "",
+        "实测分布：", "",
+        "| 文档 | 定义了多少个编号 |", "|---|---:|",
+    ]
+    for k, v in rc["definition_by_source"].items():
+        out.append(f"| `{k}` | {v} |")
+    out += [
+        "",
+        "⇒ 找编号含义**要跨文档搜**。`R6c` 不在需求文档里，它是 "
+        "`CHANNEL-R6C-DESIGN.md` 的一级标题；`R6a/R6b` 只在渠道方案正文里内联出现。",
+        "",
+        "## 三、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 编号定义（扫全部 `docs/**/*.md`，标题级） | **{rc['level1_heading']}** |",
+        f"| 行首加粗级定义 | {rc['level2_bold']} |",
+        f"| 代码里引用到的编号 | **{rc['referenced_in_code']}** |",
+        f"| 定义了但**代码从未引用** | {rc['defined_but_never_referenced']} |",
+        f"| 代码引用了、**任何文档都找不到** | **{rc['level4_nowhere']}** |",
+        "",
+        "### 代码引用了、文档里找不到的（**附原文行，自己判断**）", "",
+    ]
+    for x in req["referenced_but_defined_nowhere"]:
+        out.append(f"- **`{x['id']}`** —— 代码引用于 "
+                   + "、".join(f"`{f['file']}`({f['n']})" for f in x["code_ref_files"]))
+        out.append(f"  - 原文：`{cell(x['first_source_line'])}`")
+        out.append(f"  - 提示：{cell(x['hint'])}")
+    out += ["", "## 四、需求编号全表（按编号排序）", "",
+            "| 编号 | 定义在哪 | 行 | 代码引用 | 标题 |", "|---|---|---:|---:|---|"]
+    for r in req["requirements"]:
+        if r["level"].startswith("④"):
+            continue
+        out.append(f"| `{r['id']}` | `{r['source']}` | {r['lineno']} | "
+                   f"{r['code_ref_total']} | {cell(r['title'][:70])} |")
+    out += ["", "## 五、否决台账（`NOT-DOING.md`）", "",
+            "| 项 | 数 |", "|---|---:|",
+            f"| 台账条目 | **{nc['items']}** |",
+            f"| 代码里引用到的 | {nc['items_referenced_in_code']} |",
+            f"| 代码引用了但台账没记 | {nc['ids_referenced_but_not_in_ledger']} |",
+            "",
+            "| # | 事项 | 裁决 | 代码引用 |", "|---:|---|---|---:|"]
+    for it in nd["items"]:
+        out.append(f"| {it['id']} | {cell(it['what'][:70])} | "
+                   f"{cell(it['verdict'])} | {it['code_ref_total']} |")
+    out += ["", "## 六、种子库数据样例", "",
+            f"{ds['caliber']}", "",
+            "| 项 | 数 |", "|---|---:|",
+            f"| 表 | {dc['tables']} |",
+            f"| **有数据的表** | {dc['tables_with_samples']} |",
+            "", "### 每张表抽 2 行", ""]
+    for tb in ds["tables"]:
+        rows = tb.get("rows") or []
+        if not rows:
+            continue
+        out.append(f"#### `{tb['table']}`（{len(tb['columns'])} 列）")
+        out.append("")
+        cols = tb["columns"]
+        out.append("| " + " | ".join(f"`{c}`" for c in cols[:8]) + " |")
+        out.append("|" + "---|" * min(len(cols), 8))
+        for row in rows:
+            out.append("| " + " | ".join(
+                cell(str(row.get(c) if row.get(c) is not None else "—")[:40])
+                for c in cols[:8]) + " |")
+        out.append("")
+    write("19-requirements.md", "需求编号 / 否决台账 / 数据样例",
+          "\\n".join(out))
 
 
 def main() -> int:
@@ -896,6 +1060,7 @@ def main() -> int:
     gen_frontend()
     gen_function_index()
     gen_runtime_probe()
+    gen_requirements()
     print("\n全部生成完毕")
     return 0
 

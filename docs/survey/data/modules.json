@@ -2,8 +2,8 @@
  "generated_by": "scripts/survey/05-deep.py::step_modules",
  "caliber": "`purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空** —— 这是记录，不是评价。",
  "counts": {
-  "modules": 1271,
-  "with_docstring": 1255,
+  "modules": 1274,
+  "with_docstring": 1258,
   "without_docstring": 16
  },
  "modules": [
@@ -6419,10 +6419,12 @@
     "gen_doc_index_content",
     "gen_frontend",
     "gen_function_index",
+    "gen_runtime_probe",
+    "gen_requirements",
     "main"
    ],
-   "n_public": 21,
-   "lines": 847
+   "n_public": 23,
+   "lines": 1070
   },
   {
    "module": "scripts/survey/04-reconcile.py",
@@ -6433,7 +6435,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 303
+   "lines": 337
   },
   {
    "module": "scripts/survey/05-deep.py",
@@ -6464,6 +6466,48 @@
    "lines": 212
   },
   {
+   "module": "scripts/survey/07-runtime-probe.py",
+   "purpose": "检查第 7 步（运行时层）：**真启动引擎，把每条端点都调一遍**。",
+   "has_docstring": true,
+   "public_symbols": [
+    "free_port",
+    "wait_port",
+    "call",
+    "main"
+   ],
+   "n_public": 4,
+   "lines": 349
+  },
+  {
+   "module": "scripts/survey/08-repro-resume-hang.py",
+   "purpose": "定向复现：`POST /api/v1/ingest/bulk/{batch_id}/resume` 会不会把整个引擎卡死。",
+   "has_docstring": true,
+   "public_symbols": [
+    "call",
+    "prepare",
+    "main"
+   ],
+   "n_public": 3,
+   "lines": 225
+  },
+  {
+   "module": "scripts/survey/09-requirements.py",
+   "purpose": "检查第 9 步（派生层）：需求编号索引 / 否决台账索引 / 种子库数据样例。",
+   "has_docstring": true,
+   "public_symbols": [
+    "dump",
+    "iter_py",
+    "first_body_para",
+    "collect_definitions",
+    "step_requirements",
+    "step_notdoing",
+    "step_data_samples",
+    "main"
+   ],
+   "n_public": 8,
+   "lines": 428
+  },
+  {
    "module": "scripts/survey/_common.py",
    "purpose": "检查器的共用小工具。",
    "has_docstring": true,
@@ -6483,7 +6527,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 100
+   "lines": 104
   },
   {
    "module": "scripts/uniformity-ast-dupes.py",

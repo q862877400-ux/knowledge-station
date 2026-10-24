@@ -11,8 +11,8 @@
 
 | 项 | 数 |
 |---|---:|
-| 文档 | **248** |
-| 有首段摘要 | 242 |
+| 文档 | **250** |
+| 有首段摘要 | 244 |
 | 没有（开头是列表/表格） | 6 |
 
 ## 三、每份文档讲什么
@@ -28,7 +28,7 @@
 | `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 336 | 本地资料检索工具：下一步路线征询（v4） | （以下读数用的是旧题库中的 120 道题，即"headline 120"。） | 9 |
 | `docs/GOVQA-UNWIRED-CHANNELS.md` | 465 | 未接线渠道清单（**给接线的对话用**） | 台账里每条渠道有两个**互相独立**的字段（这条纪律写在 `src/core/storage/channel_repo.py`）： | 6 |
 | `docs/HANDOVER-2026-10-09.md` | 246 | 交接文档（2026-10-09 · KnowledgeStation 主体项目） | 你若同时手动开发，**先读它的交接单**（`archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md`）再动手， | 13 |
-| `docs/INDEX.md` | 294 | docs/ 总索引（机械生成，勿手改） | 生成命令（机械、可重跑）：`python scripts/docs/gen-doc-index.py` | 8 |
+| `docs/INDEX.md` | 296 | docs/ 总索引（机械生成，勿手改） | 生成命令（机械、可重跑）：`python scripts/docs/gen-doc-index.py` | 8 |
 | `docs/INTERACTION-DESIGN.md` | 738 | 交互设计：向 WeKnora 学什么、我们怎么重做 | 本文后面几节写的是**方案**。方案与代码会对不上，所以这里单列"现在真跑着的是什么"： | 12 |
 | `docs/INTRODUCTION.md` | 162 | KnowledgeStation 产品介绍 —— 让你自己机器上的资料，随问随查、点到原文 | 一篇论文 30 页，找「它用的学习率是多少」要从头读；一个开源项目的文档散在几十个文件里， | 8 |
 | `docs/KB-FOLDER-PLAN.md` | 1,630 | 知识库多级目录 —— 施工单（业主 2026-09-21 定案） | 删除=**从这一处拿掉**，只有从所有目录都拿掉才真删。 | 34 |
@@ -192,23 +192,25 @@
 | `docs/research/wikiskill-integration-assessment.md` | 371 | WikiSkill（arXiv 2608.27454）融合评估 | ⚠ **这一节本身就是"HTTP 200 ≠ 抓对了"的实例**：Jina Reader 那次返回 HTTP 200、正文长度看着正常， | 13 |
 | `docs/survey/00-method.md` | 175 | 检查计划：怎么把整个项目「检一遍」并保证没有漏 | 含糊的「全面了解」不可验证。这里把「所有内容」拆成**九个可枚举的面**， | 7 |
 | `docs/survey/01-inventory.md` | 83 | 全仓清单（四本账） | — | 5 |
-| `docs/survey/02-code-map.md` | 210 | 代码地图（AST 级符号清单） | — | 5 |
+| `docs/survey/02-code-map.md` | 214 | 代码地图（AST 级符号清单） | — | 5 |
 | `docs/survey/03-cross-ref.md` | 42 | 引用关系 | `text_hits` = 该符号名在扫描面内全部 `.py` 文本里出现的次数（**含定义行本身**）。 | 3 |
 | `docs/survey/04-data-shape.md` | 879 | 数据形状（表 / 列 / 索引） | 外键：`clause_revision_id` → `clause_revision.clause_revision_id` | 4 |
 | `docs/survey/05-api-surface.md` | 253 | 接口面（后端 + 前端路由） | 后端 = `src/core/api/*.py` 里的 `@app.verb("path")` 装饰器，**逐条列出，不抽样**。前端 = `plugin/client/*.ts( | 5 |
 | `docs/survey/06-test-surface.md` | 209 | 测试面 | 测试文件数 == tests/ 下 test_*.py + *_test.py 的实际数量。「引用了哪些源码模块」靠文件内出现的 `src.core.x.y` 字符串判定 —— * | 3 |
-| `docs/survey/07-doc-surface.md` | 392 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `t` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
+| `docs/survey/07-doc-surface.md` | 395 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `t` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
 | `docs/survey/08-gate-surface.md` | 111 | 门禁面 | 1. `selftest（必失败）` | 4 |
 | `docs/survey/09-runtime.md` | 105 | 运行时：引擎怎么起、端口令牌在哪、数据放哪 | 门禁里那一步实测过三态： | 7 |
-| `docs/survey/10-observed.md` | 246 | 观察记录（中性，不下结论） | 那 31 个里，复核时能看到至少两类**不是没被用**： | 6 |
-| `docs/survey/11-module-index.md` | 1,346 | 模块职责索引 | `purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空* | 3 |
+| `docs/survey/10-observed.md` | 359 | 观察记录（中性，不下结论） | 那 31 个里，复核时能看到至少两类**不是没被用**： | 7 |
+| `docs/survey/11-module-index.md` | 1,349 | 模块职责索引 | `purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空* | 3 |
 | `docs/survey/12-config-surface.md` | 89 | 配置面（环境变量 + 配置键） | 环境变量 = `os.environ.get/getenv/env\[...\]` 与 `process.env.X` 的字面量；配置键 = `_read_json_key` / `_ | 4 |
 | `docs/survey/13-table-io.md` | 333 | 表读写关系 | 扫描 `src/**/*.py` 里的 SQL 字面量：写 = INSERT/REPLACE/UPDATE/DELETE 后面的表名；读 = FROM/JOIN 后面的表名。**只 | 4 |
 | `docs/survey/14-test-index.md` | 3,651 | 测试索引（每个测试钉住了什么） | `tests` = 每个 `def test*` 的名字、所在类、行号，以及它的 **docstring 第一句**（很多测试没 docstring，那就空着）。**名字本身就是本 | 3 |
-| `docs/survey/15-doc-index-content.md` | 603 | 文档内容索引（每份讲什么） | `summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前  | 4 |
+| `docs/survey/15-doc-index-content.md` | 605 | 文档内容索引（每份讲什么） | `summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前  | 4 |
 | `docs/survey/16-frontend.md` | 274 | 前端清单（文件 / 导出 / 说明） | `exports` / `declarations` 用**正则**抽取（没有 TS AST 工具链），**这是近似，不是完整符号表**。`header_note` 取文件开头 4 | 4 |
-| `docs/survey/17-function-index.md` | 15,743 | 函数索引（每个符号的职责与引用计数） | `purpose` = 该函数的 **docstring 第一句**（跳过 `#` 标题行，按 `。`/`；`/换行切，上限 140 字）。**没有 docstring 的函数 p | 3 |
-| `docs/survey/COVERAGE.md` | 51 | 覆盖对账（九个面） | 重跑四个生成器（合计约 30 秒），**不要手改 md**： | 4 |
+| `docs/survey/17-function-index.md` | 15,781 | 函数索引（每个符号的职责与引用计数） | `purpose` = 该函数的 **docstring 第一句**（跳过 `#` 标题行，按 `。`/`；`/换行切，上限 140 字）。**没有 docstring 的函数 p | 3 |
+| `docs/survey/18-runtime-probe.md` | 312 | 运行时探测（真启动引擎，176 条端点实测） | 前面 17 份文档全是**静态**的：看代码写了什么。 | 6 |
+| `docs/survey/19-requirements.md` | 15 | 需求编号 / 否决台账 / 数据样例 | 本文件规定了危险化学品企业动火作业、受限空间作业、盲板抽堵作业、高处作 \| — \|\n\| clrev_01M2FY0CQWJVS0TP39PSP2G6PE \| doc_01M2FY | 1 |
+| `docs/survey/COVERAGE.md` | 55 | 覆盖对账（九个面） | 重跑四个生成器（合计约 30 秒），**不要手改 md**： | 4 |
 | `docs/survey/README.md` | 65 | 项目现状地图 | 查表就知道东西在哪、长什么样、谁引用谁、验过没有。 | 6 |
 | `docs/tool-catalog.md` | 59 | ks-dsh-plugin 工具目录（生成物——**手改必红**，改说明书后跑 `node plug | Forensic (取证) compliance Q&A against the local KnowledgeStation engine; returns three-part | 6 |
 | `docs/uniformity/00-review-of-surveys.md` | 141 | 摸底报告的主对话复核记录 | 调查员原话（`04-tests-tools-gates.md` §6.4 口子 C）： | 4 |

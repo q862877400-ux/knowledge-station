@@ -198,6 +198,7 @@ def main() -> int:
         "16-frontend.md",
         "17-function-index.md",
         "18-runtime-probe.md",
+        "19-requirements.md",
     ]
     miss = [n for n in need if not (SURVEY / n).exists()]
     rows.append(
@@ -214,7 +215,8 @@ def main() -> int:
     # 8.5 深化面齐备
     deep_need = ["modules", "endpoints_deep", "config", "tables_io",
                  "test_content", "doc_content", "web_content",
-                 "runtime_probe", "repro_resume_hang"]
+                 "runtime_probe", "repro_resume_hang",
+                 "requirements", "notdoing", "data_samples"]
     deep_miss = [n for n in deep_need if not (DATA / f"{n}.json").exists()]
     rows.append(("深化面 JSON", f"{len(deep_need) - len(deep_miss)}/{len(deep_need)} 份存在",
                  "✅" if not deep_miss else f"❌ 缺 {', '.join(deep_miss)}",
@@ -276,11 +278,12 @@ def main() -> int:
         "|---|---|",
         "| **运行时真实行为（最大缺口）** | **从未真正启动引擎、从未调过任何端点** —— "
         "静态检查只能看到代码写了什么，验不了跑起来会怎样 |",
-        "| **需求编号体系** | 代码注释里到处引 `R24` / `F-xx` / `NOT-DOING #16`，"
-        "但 `REQUIREMENTS-v4.3.md`（208 KB）**没有通读** ⇒ 编号指什么、哪条被撤了，"
-        "本检查**答不上来** |",
-        "| **业务规则的语义** | 抓到了正则/判据的**符号与行号**，"
-        "但「什么算条款头」这类规则的**含义**要读正文才知道 |",
+        "| ~~需求编号体系~~ | ✅ **已收口**：扫全部 `docs/**/*.md`，"
+        "97 条编号定义（61 在需求文档 / 35 在渠道方案 / 2 在归档）+ 代码引用点 + "
+        "24 条否决台账，见 `19-requirements.md` |",
+        "| **业务规则的语义** | 抓到了正则/判据的**符号与行号与 docstring 首句**，"
+        "但「什么算条款头」这类规则的**完整判定逻辑**要逐行读正文 ⇒ "
+        "本检查只到「规则在哪个函数的哪一行」，**没到「规则是怎么算的」** |",
         "| **数据样例** | 记了每张表在种子库的行数，"
         "**没抽样看行内容**（隐私敏感的表更没看） |",
         "| 测试运行期覆盖率 | 要 coverage 数据，本检查没取 |",
@@ -289,6 +292,9 @@ def main() -> int:
         "构与归属；隐私是**抽样** 3/594 个文件 |",
         "| 浏览器像素效果 | 需要真浏览器 |",
         "| 除旧工作区之外的绝对路径 | 通用扫描器误报率 >90%，已弃用 |",
+        "| **71 条超时的确切原因** | 已按 handler 函数体关键词粗分，但 41/71 "
+        "「handler 里看不出明确来源」⇒ 要定因得在超时时抓线程栈，**本检查没做** |",
+        "| **把 500 与卡死修掉** | 明确不属于本检查（业主令：只检查不治病） |",
         "| `var/data` 74 GB 逐部核 | 只做了统计 |",
         "",
         "## 三、怎么复核这份对账",

@@ -13,12 +13,12 @@
 
 | 项 | 数 |
 |---|---:|
-| 模块 | 1,271 |
-| 符号 | **7,025** |
+| 模块 | 1,274 |
+| 符号 | **7,042** |
 | 类 | 386 |
-| 函数（含方法） | 6,639 |
-| 有 docstring | 3,712 |
-| 没有 docstring | 3,313 |
+| 函数（含方法） | 6,656 |
+| 有 docstring | 3,719 |
+| 没有 docstring | 3,323 |
 
 ## 三、按模块列全部符号
 
@@ -28,10 +28,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `call` 函数 | 76 | 17 | — |
-| `verdict` 函数 | 95 | 343 | — |
+| `call` 函数 | 76 | 27 | — |
+| `verdict` 函数 | 95 | 348 | — |
 | `one` 函数 | 104 | 57 | — |
-| `main` 函数 | 119 | 1131 | — |
+| `main` 函数 | 119 | 1140 | — |
 
 ### `eval/golden/build_golden.py`（3 个符号）
 
@@ -41,7 +41,7 @@
 |---|---:|---:|---|
 | `_load_real_clauses` 函数 | 21 | 2 | — |
 | `build` 函数 | 33 | 80 | — |
-| `main` 函数 | 109 | 1131 | — |
+| `main` 函数 | 109 | 1140 | — |
 
 ### `eval/govqa-label-review/build-review.py`（1 个符号）
 
@@ -49,7 +49,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 55 | 1131 | — |
+| `main` 函数 | 55 | 1140 | — |
 
 ### `eval/lay-phrasing/analyze-gen.py`（5 个符号）
 
@@ -57,11 +57,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 45 | 103 | — |
+| `load` 函数 | 45 | 107 | — |
 | `texts_of` 函数 | 60 | 9 | 兼容两种格式：老格式 lay=\["说法"\]。 |
 | `has_qmark` 函数 | 71 | 2 | — |
 | `subs2` 函数 | 75 | 11 | — |
-| `main` 函数 | 79 | 1131 | — |
+| `main` 函数 | 79 | 1140 | — |
 
 ### `eval/lay-phrasing/bridge-ceiling.py`（2 个符号）
 
@@ -69,8 +69,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 36 | 90 | — |
-| `main` 函数 | 40 | 1131 | — |
+| `words` 函数 | 36 | 92 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `eval/lay-phrasing/check-lay-50.py`（2 个符号）
 
@@ -79,7 +79,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `substrings` 函数 | 37 | 2 | — |
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `eval/lay-phrasing/cooccur-bridge.py`（2 个符号）
 
@@ -87,8 +87,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 41 | 90 | — |
-| `main` 函数 | 45 | 1131 | — |
+| `words` 函数 | 41 | 92 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/lay-phrasing/decompose-lay.py`（2 个符号）
 
@@ -97,7 +97,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `subs2` 函数 | 31 | 11 | — |
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `eval/lay-phrasing/gen-lay.py`（5 个符号）
 
@@ -106,10 +106,10 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `extract_prompt` 函数 | 40 | 2 | 从 md 的 ``` 代码块里取出提示词全文（整段复制，末尾接术语清单）。 |
-| `call` 函数 | 53 | 17 | — |
+| `call` 函数 | 53 | 27 | — |
 | `parse` 函数 | 69 | 119 | 每行一个 JSON 对象。 |
 | `one` 函数 | 85 | 57 | — |
-| `main` 函数 | 100 | 1131 | — |
+| `main` 函数 | 100 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-end-to-end.py`（2 个符号）
 
@@ -117,8 +117,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 38 | 90 | — |
-| `main` 函数 | 42 | 1131 | — |
+| `words` 函数 | 38 | 92 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-fanout-curve.py`（3 个符号）
 
@@ -126,9 +126,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 40 | 90 | — |
+| `words` 函数 | 40 | 92 | — |
 | `interleave` 函数 | 44 | 6 | 轮转交错合并 + 去重。 |
-| `main` 函数 | 55 | 1131 | — |
+| `main` 函数 | 55 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-literal-baseline.py`（3 个符号）
 
@@ -136,9 +136,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 26 | 90 | — |
+| `words` 函数 | 26 | 92 | — |
 | `subs2` 函数 | 30 | 11 | — |
-| `main` 函数 | 34 | 1131 | — |
+| `main` 函数 | 34 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-selection-strategies.py`（2 个符号）
 
@@ -146,8 +146,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 39 | 90 | — |
-| `main` 函数 | 43 | 1131 | — |
+| `words` 函数 | 39 | 92 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-semantic-baseline.py`（2 个符号）
 
@@ -155,8 +155,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 27 | 90 | — |
-| `main` 函数 | 31 | 1131 | — |
+| `words` 函数 | 27 | 92 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/lay-phrasing/p1-semantic-select.py`（3 个符号）
 
@@ -164,9 +164,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 39 | 90 | — |
+| `words` 函数 | 39 | 92 | — |
 | `cos` 函数 | 43 | 29 | — |
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-hier-select.py`（2 个符号）
 
@@ -174,8 +174,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 40 | 90 | — |
-| `main` 函数 | 44 | 1131 | — |
+| `words` 函数 | 40 | 92 | — |
+| `main` 函数 | 44 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-nonA-criterion.py`（2 个符号）
 
@@ -183,8 +183,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 30 | 90 | — |
-| `main` 函数 | 34 | 1131 | — |
+| `words` 函数 | 30 | 92 | — |
+| `main` 函数 | 34 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-query-instruction.py`（2 个符号）
 
@@ -192,8 +192,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 40 | 90 | — |
-| `main` 函数 | 44 | 1131 | — |
+| `words` 函数 | 40 | 92 | — |
+| `main` 函数 | 44 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-rerank-control.py`（2 个符号）
 
@@ -201,8 +201,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 50 | 90 | — |
-| `main` 函数 | 54 | 1131 | — |
+| `words` 函数 | 50 | 92 | — |
+| `main` 函数 | 54 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-rerank-two-stage.py`（2 个符号）
 
@@ -210,8 +210,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 51 | 90 | — |
-| `main` 函数 | 55 | 1131 | — |
+| `words` 函数 | 51 | 92 | — |
+| `main` 函数 | 55 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-select-rank.py`（2 个符号）
 
@@ -219,8 +219,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 41 | 90 | — |
-| `main` 函数 | 45 | 1131 | — |
+| `words` 函数 | 41 | 92 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/lay-phrasing/probe-topk-equivalence.py`（1 个符号）
 
@@ -228,7 +228,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `eval/lay-phrasing/repro-endtoend.py`（3 个符号）
 
@@ -236,9 +236,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 41 | 90 | — |
+| `words` 函数 | 41 | 92 | — |
 | `cos` 函数 | 45 | 29 | — |
-| `main` 函数 | 52 | 1131 | — |
+| `main` 函数 | 52 | 1140 | — |
 
 ### `eval/lay-phrasing/repro-fanout.py`（3 个符号）
 
@@ -246,9 +246,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 38 | 90 | — |
+| `words` 函数 | 38 | 92 | — |
 | `cos` 函数 | 42 | 29 | — |
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `eval/lay-phrasing/two-stage-lean.py`（1 个符号）
 
@@ -256,7 +256,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 42 | 1131 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `eval/lay-phrasing/two-stage.py`（1 个符号）
 
@@ -264,13 +264,13 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 36 | 1131 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `eval/lay-phrasing/validate-gen.py`（1 个符号）
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 4 | 103 | — |
+| `load` 函数 | 4 | 107 | — |
 
 ### `eval/real-question-ruler/build.py`（7 个符号）
 
@@ -284,7 +284,7 @@
 | `load_doc_ids` 函数 | 92 | 2 | 标准名（norm 后）→ doc_id，供尺子记录 gold_doc_id。 |
 | `doc_text_index` 函数 | 103 | 2 | doc_id → 该文档全部条款正文（拼接，用于"零重合"判据）。 |
 | `_bigrams` 函数 | 124 | 4 | 字符二元组（"≥2 字公共子串"的可算近似：有公共二元组 ⇔ 有长度 ≥2 的公共子串）。 |
-| `main` 函数 | 130 | 1131 | — |
+| `main` 函数 | 130 | 1140 | — |
 
 ### `eval/real-question-ruler/verify.py`（2 个符号）
 
@@ -293,7 +293,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_load_official` 函数 | 51 | 4 | — |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `eval/recall-funnel/baseline-v0/build-baseline.py`（5 个符号）
 
@@ -305,7 +305,7 @@
 | `build_config` 函数 | 88 | 2 | — |
 | `build_metrics` 函数 | 111 | 2 | — |
 | `build_results` 函数 | 165 | 2 | — |
-| `main` 函数 | 200 | 1131 | — |
+| `main` 函数 | 200 | 1140 | — |
 
 ### `eval/recall-funnel/build-v2.py`（4 个符号）
 
@@ -316,7 +316,7 @@
 | `ro_conn` 函数 | 39 | 19 | — |
 | `_like_escape` 函数 | 47 | 3 | — |
 | `head_term` 函数 | 51 | 2 | 定义形态条文的**术语名**：条文正文第二行「术语名 英文名 定义…」的第一个词。 |
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/01-build-input.py`（1 个符号）
 
@@ -324,7 +324,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/02-build-bucket-input.py`（1 个符号）
 
@@ -332,7 +332,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/03-merge-tiers.py`（1 个符号）
 
@@ -340,7 +340,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/04-rescore-by-stratum.py`（1 个符号）
 
@@ -348,7 +348,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/05-merge-buckets.py`（1 个符号）
 
@@ -356,7 +356,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/06-build-second-pass.py`（1 个符号）
 
@@ -364,7 +364,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/07-build-ai-review.py`（1 个符号）
 
@@ -372,7 +372,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/clean-v3/08-apply-ai-review.py`（2 个符号）
 
@@ -381,7 +381,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_load` 函数 | 150 | 125 | — |
-| `main` 函数 | 154 | 1131 | — |
+| `main` 函数 | 154 | 1140 | — |
 
 ### `eval/recall-funnel/determinism.py`（1 个符号）
 
@@ -389,7 +389,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/01-copy-db.py`（1 个符号）
 
@@ -397,7 +397,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/02-build-text.py`（3 个符号）
 
@@ -407,7 +407,7 @@
 |---|---:|---:|---|
 | `table_of` 函数 | 39 | 2 | — |
 | `build_text` 函数 | 43 | 2 | 按变体把四个字段拼成实验臂的输入文本。 |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/02b-align-arms.py`（1 个符号）
 
@@ -415,7 +415,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/03-embed.py`（2 个符号）
 
@@ -424,7 +424,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `tables_of` 函数 | 36 | 2 | → (文本表, 向量表)。 |
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/04-ab-eval.py`（5 个符号）
 
@@ -436,7 +436,7 @@
 | `knn` 函数 | 37 | 15 | — |
 | `rank_of` 函数 | 45 | 33 | — |
 | `rate` 函数 | 52 | 76 | — |
-| `main` 函数 | 56 | 1131 | — |
+| `main` 函数 | 56 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/04a-control-check.py`（1 个符号）
 
@@ -444,7 +444,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/05-human-check.py`（1 个符号）
 
@@ -452,7 +452,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/06-verdict.py`（4 个符号）
 
@@ -463,7 +463,7 @@
 | `set_check` 函数 | 33 | 2 | **真集合比较**（独立复核 F5）：两臂的 `clause_revision_id` 集合是否完全一致。 |
 | `binom_two_sided` 函数 | 64 | 14 | 精确二项检验（p=0.5）双侧 p 值 —— 配对比较就该用它，不该只看百分点。 |
 | `min_detectable` 函数 | 73 | 6 | n 对不一致时，达到双侧 p<0.05 所需的净差条数。 |
-| `main` 函数 | 87 | 1131 | — |
+| `main` 函数 | 87 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/07-wait-and-run.py`（3 个符号）
 
@@ -471,9 +471,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `count` 函数 | 27 | 280 | 读一次行数。 |
+| `count` 函数 | 27 | 281 | 读一次行数。 |
 | `_target` 函数 | 40 | 2 | — |
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/08-mechanism-diagnostic.py`（1 个符号）
 
@@ -481,7 +481,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/09-analyze-ab.py`（2 个符号）
 
@@ -490,7 +490,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `rate` 函数 | 23 | 76 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/10-significance.py`（3 个符号）
 
@@ -500,7 +500,7 @@
 |---|---:|---:|---|
 | `binom_two_sided` 函数 | 23 | 14 | 精确二项检验（p=0.5）双侧 p 值。 |
 | `min_detectable` 函数 | 33 | 6 | n 对不一致时，达到双侧 p<0.05 所需的**净差**。 |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/11-boilerplate-share.py`（1 个符号）
 
@@ -508,7 +508,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/12-split-diagnostic.py`（1 个符号）
 
@@ -516,7 +516,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/13-cluster-significance.py`（1 个符号）
 
@@ -524,7 +524,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 29 | 1131 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `eval/recall-funnel/exp-1-contextual/14-power-factcheck.py`（3 个符号）
 
@@ -534,7 +534,7 @@
 |---|---:|---:|---|
 | `phi` 函数 | 30 | 3 | — |
 | `power` 函数 | 34 | 9 | 真实效应 delta、差值标准误 se 时，双尾 α 检验的把握度（正态近似）。 |
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `eval/recall-funnel/exp-10-p4-feasibility/probe-jev-region.py`（1 个符号）
 
@@ -542,7 +542,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `rec` 函数 | 53 | 775 | — |
+| `rec` 函数 | 53 | 819 | — |
 
 ### `eval/recall-funnel/exp-11-rerank-fix/measure-rerank-ab.py`（5 个符号）
 
@@ -554,7 +554,7 @@
 | `load_items` 函数 | 67 | 2 | — |
 | `is_headline` 函数 | 71 | 2 | — |
 | `mcnemar` 函数 | 76 | 2 | 配对 McNemar 精确检验（双侧）—— b = 翻进（A 不中 B 中）、c = 翻出。 |
-| `main` 函数 | 88 | 1131 | — |
+| `main` 函数 | 88 | 1140 | — |
 
 ### `eval/recall-funnel/exp-12-long-clause-tail/cos-verify.py`（2 个符号）
 
@@ -563,7 +563,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `cos` 函数 | 41 | 29 | — |
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `eval/recall-funnel/exp-12-long-clause-tail/measure.py`（6 个符号）
 
@@ -576,7 +576,7 @@
 | `split_head_tail` 函数 | 85 | 5 | 按**字符**切 head/tail —— 与 `clause_repo.py` 的 `content_text\[:512\]` 同口径。 |
 | `tail_only_words` 函数 | 90 | 4 | tail 里"head+title 完全没出现过"的词集（= 向量路看不到、FTS 看得到的那批）。 |
 | `token_drop_partition` 函数 | 97 | 9 | 把"被丢掉的 token"拆成两段：`(gain, residual)`。 |
-| `main` 函数 | 111 | 1131 | — |
+| `main` 函数 | 111 | 1140 | — |
 
 ### `eval/recall-funnel/exp-12-long-clause-tail/probe-tail-blindspot.py`（2 个符号）
 
@@ -585,7 +585,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `pick_phrase` 函数 | 48 | 3 | 从 region 里挑一段 take 字中文串，要求它在 other 里**不出现**。 |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `eval/recall-funnel/exp-13-query-rewrite/run.py`（13 个符号）
 
@@ -605,7 +605,7 @@
 | `flip_counts` 函数 | 157 | 11 | (翻进, 翻出)：base=False→arm=True 的条数 / base=True→arm=False 的条数。 |
 | `_headline` 函数 | 166 | 11 | — |
 | `_fts_rank` 函数 | 174 | 2 | — |
-| `main` 函数 | 196 | 1131 | — |
+| `main` 函数 | 196 | 1140 | — |
 
 ### `eval/recall-funnel/exp-14-fused-rewrite/determinism.py`（2 个符号）
 
@@ -614,7 +614,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_load` 函数 | 38 | 125 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `eval/recall-funnel/exp-14-fused-rewrite/run.py`（8 个符号）
 
@@ -629,7 +629,7 @@
 | `_run` 函数 | 97 | 73 | — |
 | `aggregate_runs` 函数 | 184 | 22 | ★ 纯函数（单测直接喂合成台账）：从逐 `(i, arm)` 台账算聚合。 |
 | `_aggregate` 函数 | 239 | 8 | — |
-| `main` 函数 | 291 | 1131 | — |
+| `main` 函数 | 291 | 1140 | — |
 
 ### `eval/recall-funnel/exp-15-pool-depth-fusion/probe-knn-cost.py`（1 个符号）
 
@@ -637,7 +637,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `eval/recall-funnel/exp-15-pool-depth-fusion/run.py`（13 个符号）
 
@@ -657,7 +657,7 @@
 | `aggregate_runs` 函数 | 202 | 22 | ★ 纯函数（单测直接喂合成台账）：从逐条台账算聚合。 |
 | `_run` 函数 | 291 | 73 | — |
 | `_aggregate` 函数 | 401 | 8 | — |
-| `main` 函数 | 441 | 1131 | — |
+| `main` 函数 | 441 | 1140 | — |
 
 ### `eval/recall-funnel/exp-16-edge-expansion/run.py`（2 个符号）
 
@@ -666,7 +666,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `gold_ids` 函数 | 43 | 5 | 把考卷的 (standard_no, clause_number) 解析成 clause_revision_id。 |
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `eval/recall-funnel/exp-16-edge-expansion/targeted-2hop.py`（2 个符号）
 
@@ -675,7 +675,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_id_of` 函数 | 44 | 4 | 先精确匹配 standard_name，再回退 LIKE（文档名可能带后缀/写法差异）。 |
-| `main` 函数 | 57 | 1131 | — |
+| `main` 函数 | 57 | 1140 | — |
 
 ### `eval/recall-funnel/exp-16-edge-expansion/targeted.py`（1 个符号）
 
@@ -683,7 +683,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-17-embedding-production-plan/rebuild-shadow.py`（12 个符号）
 
@@ -702,7 +702,7 @@
 | `_write_ckpt` 函数 | 200 | 4 | — |
 | `_source_counts` 函数 | 205 | 2 | 返回 (非空正文条数, 全表条数)。 |
 | `run` 函数 | 214 | 282 | 执行（或续跑）重建。 |
-| `main` 函数 | 306 | 1131 | — |
+| `main` 函数 | 306 | 1140 | — |
 
 ### `eval/recall-funnel/exp-17-embedding-production-plan/verify-resume.py`（11 个符号）
 
@@ -720,7 +720,7 @@
 | `t3_idempotent` 函数 | 163 | 2 | — |
 | `t4_real_model_bytes` 函数 | 175 | 2 | 用本脚本的嵌入函数重算 N_REAL 条，与 E4 冻结的 `clause_vec_qwen` 比对。 |
 | `_fake` 函数 | 251 | 52 | — |
-| `main` 函数 | 257 | 1131 | — |
+| `main` 函数 | 257 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3-query-side/01-build-term-index.py`（1 个符号）
 
@@ -728,7 +728,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3-query-side/02-copy-db.py`（1 个符号）
 
@@ -736,7 +736,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3-query-side/03-run-e3.py`（1 个符号）
 
@@ -744,7 +744,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3-query-side/04-verdict-e3.py`（3 个符号）
 
@@ -754,7 +754,7 @@
 |---|---:|---:|---|
 | `binom_two_sided` 函数 | 34 | 14 | — |
 | `min_detectable` 函数 | 42 | 6 | — |
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3b-query-side-loo/01-run-e3b.py`（1 个符号）
 
@@ -762,7 +762,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3b-query-side-loo/02-verdict-e3b.py`（3 个符号）
 
@@ -772,7 +772,7 @@
 |---|---:|---:|---|
 | `binom_two_sided` 函数 | 34 | 14 | — |
 | `min_detectable` 函数 | 42 | 6 | — |
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `eval/recall-funnel/exp-3b-query-side-loo/03-extra-endpoints.py`（2 个符号）
 
@@ -781,7 +781,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `binom_two_sided` 函数 | 28 | 14 | — |
-| `main` 函数 | 36 | 1131 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/00-measure-throughput.py`（2 个符号）
 
@@ -789,7 +789,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 29 | 1131 | — |
+| `main` 函数 | 29 | 1140 | — |
 | `_has_table` 函数 | 121 | 2 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/01-embed-qwen.py`（3 个符号）
@@ -800,7 +800,7 @@
 |---|---:|---:|---|
 | `ensure_copy` 函数 | 35 | 2 | — |
 | `display_text` 函数 | 52 | 23 | **现役同款公式**（`clause_repo.insert_clauses_in_txn` 实测口径），一字不改。 |
-| `main` 函数 | 57 | 1131 | — |
+| `main` 函数 | 57 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/01b-align-arms.py`（1 个符号）
 
@@ -808,7 +808,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/01c-control-check.py`（1 个符号）
 
@@ -816,7 +816,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/02-ab-eval.py`（1 个符号）
 
@@ -824,7 +824,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/03-verdict-e4.py`（2 个符号）
 
@@ -833,7 +833,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `binom_two_sided` 函数 | 45 | 14 | — |
-| `main` 函数 | 53 | 1131 | — |
+| `main` 函数 | 53 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/04-rescued.py`（1 个符号）
 
@@ -841,7 +841,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/04-wait-and-run.py`（2 个符号）
 
@@ -849,8 +849,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `count` 函数 | 31 | 280 | ⚠ 读 `vec0` 表**必须**加载 sqlite-vec 扩展（本会话已踩过四次）。 |
-| `main` 函数 | 43 | 1131 | — |
+| `count` 函数 | 31 | 281 | ⚠ 读 `vec0` 表**必须**加载 sqlite-vec 扩展（本会话已踩过四次）。 |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4-embedding-shadow/05-fidelity-probe.py`（2 个符号）
 
@@ -859,7 +859,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `display_text` 函数 | 34 | 23 | **必须与 `01-embed-qwen.py` 里那一份逐字相同**（这里是它的独立副本，。 |
-| `main` 函数 | 40 | 1131 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4b-embedding-round2/10-latency.py`（3 个符号）
 
@@ -868,8 +868,8 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `pct` 函数 | 45 | 24 | — |
-| `stat` 函数 | 53 | 139 | — |
-| `main` 函数 | 64 | 1131 | — |
+| `stat` 函数 | 53 | 140 | — |
+| `main` 函数 | 64 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4b-embedding-round2/11-prefix-ab.py`（1 个符号）
 
@@ -877,7 +877,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4b-embedding-round2/12-verdict.py`（3 个符号）
 
@@ -887,7 +887,7 @@
 |---|---:|---:|---|
 | `_num_of_key` 函数 | 21 | 2 | 从判据键（如 `<= 100 ms` / `>= 10pt`）里抽出数字边界。 |
 | `_boundary` 函数 | 29 | 5 | 在一条 decision_rule 里找以 `prefix` 开头的档，抽它的数字边界。 |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4b-embedding-round2/13-cluster-ci.py`（1 个符号）
 
@@ -895,7 +895,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4b-embedding-round2/14-real-db-scan.py`（2 个符号）
 
@@ -904,7 +904,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `scan` 函数 | 38 | 180 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4c-embedding-1024/19-probe-throughput-1024.py`（2 个符号）
 
@@ -913,7 +913,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `display_text` 函数 | 27 | 23 | — |
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4c-embedding-1024/20-embed-qwen-1024.py`（3 个符号）
 
@@ -923,7 +923,7 @@
 |---|---:|---:|---|
 | `pick_batch` 函数 | 31 | 2 | — |
 | `display_text` 函数 | 41 | 23 | **现役同款公式**（与 exp-4 一字不差）。 |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4c-embedding-1024/21-ab-1024.py`（1 个符号）
 
@@ -931,7 +931,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 42 | 1131 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4c-embedding-1024/22-cluster-ci.py`（1 个符号）
 
@@ -939,7 +939,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `eval/recall-funnel/exp-4c-embedding-1024/23-verdict.py`（2 个符号）
 
@@ -948,7 +948,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_nums` 函数 | 21 | 4 | — |
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/01-probe-real-questions.py`（5 个符号）
 
@@ -956,7 +956,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 65 | 1131 | — |
+| `main` 函数 | 65 | 1140 | — |
 | `_rows` 函数 | 120 | 33 | — |
 | `_knn` 函数 | 124 | 2 | — |
 | `_knn_shadow` 函数 | 131 | 2 | 影子库里用 **Qwen3** 嵌入查询（与 E4 同口径：不加指令前缀）。 |
@@ -968,7 +968,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/03-own-question-pool.py`（1 个符号）
 
@@ -976,7 +976,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/04-trial-scrape.py`（1 个符号）
 
@@ -984,7 +984,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/05-probe-ministries.py`（1 个符号）
 
@@ -992,7 +992,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 58 | 1131 | — |
+| `main` 函数 | 58 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/06-build-real-bench.py`（2 个符号）
 
@@ -1001,7 +1001,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `cn2int` 函数 | 49 | 4 | 把「十」「二十」「三十五」「一百零二」这类中文数字转成 int。 |
-| `main` 函数 | 71 | 1131 | — |
+| `main` 函数 | 71 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/07-hollow-clauses.py`（1 个符号）
 
@@ -1009,7 +1009,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/08-ocr-precheck.py`（1 个符号）
 
@@ -1017,7 +1017,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 34 | 1131 | — |
+| `main` 函数 | 34 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/09-verify-law-repos.py`（1 个符号）
 
@@ -1025,7 +1025,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/10-where-is-data.py`（1 个符号）
 
@@ -1033,7 +1033,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/11-popular-law-repos.py`（1 个符号）
 
@@ -1041,7 +1041,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 34 | 1131 | — |
+| `main` 函数 | 34 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/12-check-popular.py`（1 个符号）
 
@@ -1049,7 +1049,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/13-chase-two.py`（1 个符号）
 
@@ -1057,7 +1057,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/14-fetch-lawrefbook.py`（1 个符号）
 
@@ -1065,7 +1065,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/15-fetch-zip-retry.py`（1 个符号）
 
@@ -1073,7 +1073,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 40 | 1131 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/16-compare-lawrefbook.py`（3 个符号）
 
@@ -1083,7 +1083,7 @@
 |---|---:|---:|---|
 | `fix` 函数 | 39 | 41 | zip 内文件名被 Python 按 CP437 解出来 ⇒ 还原成原始编码。 |
 | `norm` 函数 | 59 | 84 | — |
-| `main` 函数 | 67 | 1131 | — |
+| `main` 函数 | 67 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/17-compare-strict.py`（3 个符号）
 
@@ -1093,7 +1093,7 @@
 |---|---:|---:|---|
 | `fix` 函数 | 42 | 41 | zip 内文件名被按 CP437 解出 ⇒ 还原（原编码是 UTF-8。 |
 | `norm` 函数 | 56 | 84 | — |
-| `main` 函数 | 65 | 1131 | — |
+| `main` 函数 | 65 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/18-extract-to-standards.py`（2 个符号）
 
@@ -1102,7 +1102,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `fix` 函数 | 38 | 41 | zip 内文件名按 CP437 解的 ⇒ 还原（原编码 UTF-8）。 |
-| `main` 函数 | 52 | 1131 | — |
+| `main` 函数 | 52 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/19-ocr-quality-check.py`（1 个符号）
 
@@ -1110,7 +1110,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/20-scan-all-markdown.py`（1 个符号）
 
@@ -1118,7 +1118,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 36 | 1131 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/21-scan-clauses-fixed.py`（1 个符号）
 
@@ -1126,7 +1126,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/22-table-and-number-check.py`（1 个符号）
 
@@ -1134,7 +1134,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/23-setup-trial-copy.py`（1 个符号）
 
@@ -1142,7 +1142,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/24-ingest-sample.py`（1 个符号）
 
@@ -1150,7 +1150,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/25-diagnose-split.py`（1 个符号）
 
@@ -1158,7 +1158,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/26-split-damage-scale.py`（1 个符号）
 
@@ -1166,7 +1166,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/27-real-splitter-on-40.py`（1 个符号）
 
@@ -1174,7 +1174,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/28-mineru40-structure.py`（2 个符号）
 
@@ -1183,7 +1183,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `keytree` 函数 | 27 | 4 | 缩略打印结构：键 → 类型 / 列表长度。 |
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/29-mineru40-blocks.py`（1 个符号）
 
@@ -1191,7 +1191,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/30-adapter-prototype.py`（5 个符号）
 
@@ -1203,7 +1203,7 @@
 | `_spans_of` 函数 | 61 | 4 | 4.0 的 content 列表 → 3.4 的 `lines\[\].spans\[\]`。 |
 | `_text_block` 函数 | 81 | 2 | — |
 | `convert` 函数 | 86 | 17 | — |
-| `main` 函数 | 162 | 1131 | — |
+| `main` 函数 | 162 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/31-verify-adapter-quality.py`（1 个符号）
 
@@ -1211,7 +1211,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/32-regression-after-fix.py`（1 个符号）
 
@@ -1219,7 +1219,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/33-precount-ingest.py`（1 个符号）
 
@@ -1227,7 +1227,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/34-ingest-full.py`（6 个符号）
 
@@ -1240,7 +1240,7 @@
 | `_guard` 函数 | 72 | 2 | — |
 | `collect_gb` 函数 | 82 | 2 | — |
 | `collect_law` 函数 | 105 | 2 | — |
-| `main` 函数 | 123 | 1131 | — |
+| `main` 函数 | 123 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/35-retest-11-questions.py`（1 个符号）
 
@@ -1248,7 +1248,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/36-verify-gb-phase.py`（2 个符号）
 
@@ -1257,7 +1257,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `stats` 函数 | 25 | 194 | — |
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/37-measure-law-split.py`（1 个符号）
 
@@ -1265,7 +1265,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/38-compare-split-variants.py`（1 个符号）
 
@@ -1273,7 +1273,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 36 | 1131 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/39-prep-reingest-laws.py`（1 个符号）
 
@@ -1281,7 +1281,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/40-promote-to-prod.py`（3 个符号）
 
@@ -1289,9 +1289,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `counts` 函数 | 38 | 300 | — |
+| `counts` 函数 | 38 | 309 | — |
 | `exclusive_ok` 函数 | 54 | 2 | — |
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/41-verify-law-counts.py`（1 个符号）
 
@@ -1299,7 +1299,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/42-reingest-fallback-laws.py`（1 个符号）
 
@@ -1307,7 +1307,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/43-verify-prod-after-push.py`（2 个符号）
 
@@ -1315,8 +1315,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `probe` 函数 | 32 | 301 | — |
-| `main` 函数 | 54 | 1131 | — |
+| `probe` 函数 | 32 | 311 | — |
+| `main` 函数 | 54 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/44-probe-qa-apis.py`（1 个符号）
 
@@ -1324,7 +1324,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/45-mine-qa-js.py`（1 个符号）
 
@@ -1332,7 +1332,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 40 | 1131 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/46-extract-inline-ajax.py`（1 个符号）
 
@@ -1340,7 +1340,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 40 | 1131 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/47-try-was5.py`（1 个符号）
 
@@ -1348,7 +1348,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/48-was5-capacity.py`（1 个符号）
 
@@ -1356,7 +1356,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/49-harvest-mee.py`（2 个符号）
 
@@ -1365,7 +1365,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `norm` 函数 | 42 | 84 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/50-probe-mohurd-samr.py`（1 个符号）
 
@@ -1373,7 +1373,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `eval/recall-funnel/exp-5-real-questions/51-try-was5-elsewhere.py`（1 个符号）
 
@@ -1381,7 +1381,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `eval/recall-funnel/exp-6-cap/freeze.py`（3 个符号）
 
@@ -1390,7 +1390,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `sha` 函数 | 31 | 4 | — |
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 | `_write` 函数 | 53 | 36 | — |
 
 ### `eval/recall-funnel/exp-6-cap/verdict.py`（4 个符号）
@@ -1399,10 +1399,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 30 | 103 | — |
+| `load` 函数 | 30 | 107 | — |
 | `per_query` 函数 | 37 | 53 | — |
 | `tier` 函数 | 47 | 265 | — |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `eval/recall-funnel/exp-7-rrm/run.py`（7 个符号）
 
@@ -1416,7 +1416,7 @@
 | `rank_of` 函数 | 116 | 33 | — |
 | `mcnemar_exact` 函数 | 123 | 14 | 精确 McNemar（双侧）：b/c 是不一致对的两种方向。 |
 | `boot_ci` 函数 | 134 | 3 | cluster bootstrap（cluster = gold 文档）。 |
-| `main` 函数 | 152 | 1131 | — |
+| `main` 函数 | 152 | 1140 | — |
 
 ### `eval/recall-funnel/exp-8-fullrank/run.py`（1 个符号）
 
@@ -1424,7 +1424,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 52 | 1131 | — |
+| `main` 函数 | 52 | 1140 | — |
 
 ### `eval/recall-funnel/exp-9-col-prior/measure.py`（3 个符号）
 
@@ -1434,7 +1434,7 @@
 |---|---:|---:|---|
 | `clause_shape` 函数 | 73 | 3 | 把条款号归成形态桶（不看具体数字，避免变成身份列）。 |
 | `len_bucket` 函数 | 91 | 3 | — |
-| `main` 函数 | 107 | 1131 | — |
+| `main` 函数 | 107 | 1140 | — |
 
 ### `eval/recall-funnel/failure-samples.py`（1 个符号）
 
@@ -1442,7 +1442,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/funnel.py`（9 个符号）
 
@@ -1458,7 +1458,7 @@
 | `channel_modality` 函数 | 142 | 14 | — |
 | `rank_of` 函数 | 155 | 33 | — |
 | `_prod_kept` 函数 | 162 | 2 | 照生产的结果循环裁前 n 个：`fetch_full_clause` 取不到就跳过，已废止/被替代也跳过。 |
-| `main` 函数 | 178 | 1131 | — |
+| `main` 函数 | 178 | 1140 | — |
 
 ### `eval/recall-funnel/lexical-overlap.py`（1 个符号）
 
@@ -1466,7 +1466,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/preprocess-diff.py`（1 个符号）
 
@@ -1474,7 +1474,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `eval/recall-funnel/regression-ingest/run-funnel-on.py`（1 个符号）
 
@@ -1482,7 +1482,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `eval/recall-funnel/regression-ingest/run-summarize-on.py`（1 个符号）
 
@@ -1490,7 +1490,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/recall-funnel/regression-ingest/verdict.py`（3 个符号）
 
@@ -1498,9 +1498,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 30 | 103 | — |
+| `load` 函数 | 30 | 107 | — |
 | `per_query` 函数 | 37 | 53 | — |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `eval/recall-funnel/rerun-consistency.py`（1 个符号）
 
@@ -1508,7 +1508,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `eval/recall-funnel/summarize.py`（2 个符号）
 
@@ -1517,7 +1517,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_pct` 函数 | 37 | 9 | — |
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `eval/reverse-benchmark/generate.py`（5 个符号）
 
@@ -1525,11 +1525,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `call` 函数 | 77 | 17 | — |
+| `call` 函数 | 77 | 27 | — |
 | `parse` 函数 | 91 | 119 | — |
 | `one` 函数 | 104 | 57 | — |
 | `overlap` 函数 | 119 | 17 | — |
-| `main` 函数 | 130 | 1131 | — |
+| `main` 函数 | 130 | 1140 | — |
 
 ### `eval/reverse-benchmark/verify.py`（1 个符号）
 
@@ -1537,7 +1537,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `eval/run_benchmark.py`（4 个符号）
 
@@ -1548,7 +1548,7 @@
 | `_hit` 函数 | 34 | 25 | 命中 = 返回里出现了期望的 **(标准号, 条款号)** 对。 |
 | `run_benchmark` 函数 | 58 | 7 | — |
 | `_run` 函数 | 70 | 73 | — |
-| `main` 函数 | 128 | 1131 | — |
+| `main` 函数 | 128 | 1140 | — |
 
 ### `scripts/_measure_common.py`（2 个符号）
 
@@ -1573,7 +1573,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `scripts/apply-folder-filing.py`（36 个符号）
 
@@ -1616,7 +1616,7 @@
 | `_print_read_back` 函数 | 1089 | 2 | — |
 | `_main` 函数 | 1145 | 2 | — |
 | `_write_report` 函数 | 1333 | 3 | 机器可读报告。 |
-| `main` 函数 | 1362 | 1131 | — |
+| `main` 函数 | 1362 | 1140 | — |
 
 ### `scripts/audit-async-endpoints.py`（18 个符号）
 
@@ -1641,7 +1641,7 @@
 | `effective_real_await` 函数 | 351 | 11 | 这条 async 端点**执行路径上**真的会让出控制权吗？（§10.88：名单第二关的判据）。 |
 | `_is_local` 函数 | 396 | 3 | 名字是不是这个函数的**局部/闭包变量**（`body.get`、`project_id.strip` 这类）。 |
 | `audit_endpoint` 函数 | 408 | 2 | — |
-| `main` 函数 | 469 | 1131 | — |
+| `main` 函数 | 469 | 1140 | — |
 
 ### `scripts/backfill-bbox-units.py`（8 个符号）
 
@@ -1656,7 +1656,7 @@
 | `_find_middle_for` 函数 | 171 | 2 | 按 `doc_meta.file_path` 找它的 MinerU 产物（不瞎找：只认同目录同前缀）。 |
 | `collect_targets` 函数 | 186 | 2 | 列出**含坏 bbox 的文档**。 |
 | `build_updates` 函数 | 209 | 2 | 算一篇文档的更新（不写库）。 |
-| `main` 函数 | 281 | 1131 | — |
+| `main` 函数 | 281 | 1140 | — |
 
 ### `scripts/chain-snapshot.py`（3 个符号）
 
@@ -1664,7 +1664,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 | `_segments_payload` 函数 | 129 | 4 | 号段报告（`segments_json`，R7）—— **文本段与 `--json` 共用这一个**（别各算一份）。 |
 | `_segments_section` 函数 | 147 | 5 | 号段那一段的**人读**打印（数据来自 `_segments_payload`，这里只排版）。 |
 
@@ -1675,7 +1675,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `anchor_from_html` 函数 | 40 | 2 | 从**原样正文**里取锚点候选：`<title>` 中最长的不含空白片段（≥6 字）。 |
-| `main` 函数 | 58 | 1131 | — |
+| `main` 函数 | 58 | 1140 | — |
 
 ### `scripts/channel-status-report.py`（1 个符号）
 
@@ -1683,7 +1683,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `scripts/check-fixture-leak.py`（1 个符号）
 
@@ -1691,7 +1691,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 51 | 1131 | — |
+| `main` 函数 | 51 | 1140 | — |
 
 ### `scripts/check-repo-uniformity.py`（19 个符号）
 
@@ -1717,7 +1717,7 @@
 | `compare` 函数 | 364 | 20 | 棘轮：读数 ≤ 天花板。 |
 | `print_table` 函数 | 384 | 3 | — |
 | `_selftest` 函数 | 415 | 4 | 验判据真的会拦：拿一份坏样本，确认 ③④⑤ 都能抓到。 |
-| `main` 函数 | 457 | 1131 | — |
+| `main` 函数 | 457 | 1140 | — |
 
 ### `scripts/convert-library-to-text.py`（3 个符号）
 
@@ -1726,7 +1726,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_clean` 函数 | 39 | 172 | 去连字垃圾、压缩空行、去掉页眉页脚式的孤立短行。 |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 | `doc_page_count` 函数 | 107 | 6 | — |
 
 ### `scripts/docs/check-links.py`（4 个符号）
@@ -1737,8 +1737,8 @@
 |---|---:|---:|---|
 | `is_probably_not_a_link` 函数 | 57 | 2 | 判断一个"链接目标"其实是正文里的示例/正则/占位符。 |
 | `iter_markdown` 函数 | 71 | 2 | 仓库里所有受检查的 markdown 文件（遍历时剪枝，不进入依赖与缓存目录）。 |
-| `resolve` 函数 | 82 | 671 | 返回 (是否存在, 是按哪种基准找到的)。 |
-| `main` 函数 | 97 | 1131 | — |
+| `resolve` 函数 | 82 | 674 | 返回 (是否存在, 是按哪种基准找到的)。 |
+| `main` 函数 | 97 | 1140 | — |
 
 ### `scripts/docs/gen-doc-index.py`（2 个符号）
 
@@ -1760,7 +1760,7 @@
 | `doc_filename_violation` 函数 | 84 | 7 | R1：文档文件名用 `-`，不用 `_`。 |
 | `dir_name_violation` 函数 | 102 | 5 | R2：目录名全小写 kebab-case。 |
 | `scan` 函数 | 121 | 180 | — |
-| `main` 函数 | 146 | 1131 | — |
+| `main` 函数 | 146 | 1140 | — |
 
 ### `scripts/fetch_law.py`（9 个符号）
 
@@ -1776,7 +1776,7 @@
 | `cmd_govcn_ingest` 函数 | 81 | 2 | — |
 | `cmd_updates` 函数 | 88 | 2 | 法规更新检查（只读）：库内官方源文档 vs 官方源现状。 |
 | `_tags` 函数 | 102 | 4 | — |
-| `main` 函数 | 106 | 1131 | — |
+| `main` 函数 | 106 | 1140 | — |
 
 ### `scripts/five-class-order-diff.py`（2 个符号）
 
@@ -1785,7 +1785,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_sample` 函数 | 39 | 4 | 真库抽样（只读）：按 rowid 等距取，尽量覆盖不同号段。 |
-| `main` 函数 | 53 | 1131 | — |
+| `main` 函数 | 53 | 1140 | — |
 
 ### `scripts/fix-standard-no-ocr-suffix.py`（6 个符号）
 
@@ -1798,7 +1798,7 @@
 | `check_source_consistency` 函数 | 105 | 2 | 核实这批候选**确实**都来自 LawRefBook（防止把别的来源一起改了）。 |
 | `count_fts_rows` 函数 | 119 | 3 | `clause_fts` 里带后缀的行数（**另一份副本**）。 |
 | `source_distribution` 函数 | 125 | 3 | — |
-| `main` 函数 | 131 | 1131 | — |
+| `main` 函数 | 131 | 1140 | — |
 
 ### `scripts/fix_standard_name_suffix.py`（2 个符号）
 
@@ -1807,7 +1807,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `find_candidates` 函数 | 42 | 6 | 返回 \[(doc_id, old_name, new_name)\]，只有 new != old 的才算候选。 |
-| `main` 函数 | 60 | 1131 | — |
+| `main` 函数 | 60 | 1140 | — |
 
 ### `scripts/gates-tracked-total.py`（4 个符号）
 
@@ -1818,7 +1818,7 @@
 | `_candidate_files` 函数 | 41 | 2 | 点分名 → 候选文件路径，**由长到短**（junit 把类名塞进 classname）。 |
 | `_tracked_set` 函数 | 51 | 2 | `git ls-files` 的**仓库相对路径**集合（正斜杠、小写盘符无关，统一成 posix）。 |
 | `compute` 函数 | 58 | 8 | — |
-| `main` 函数 | 98 | 1131 | — |
+| `main` 函数 | 98 | 1140 | — |
 
 ### `scripts/ingest-library-text.py`（1 个符号）
 
@@ -1826,7 +1826,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `scripts/ingest-rag-study-materials.py`（2 个符号）
 
@@ -1835,7 +1835,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_find_or_create_project` 函数 | 52 | 2 | — |
-| `main` 函数 | 65 | 1131 | — |
+| `main` 函数 | 65 | 1140 | — |
 
 ### `scripts/ks-credential-readers-scan.py`（6 个符号）
 
@@ -1848,7 +1848,7 @@
 | `scan_credential_files` 函数 | 84 | 4 | — |
 | `scan_live_processes` 函数 | 111 | 2 | 活进程的环境块里谁带着旧名（只记 pid/进程名，绝记值）。 |
 | `scan_shell_configs` 函数 | 151 | 3 | — |
-| `main` 函数 | 189 | 1131 | — |
+| `main` 函数 | 189 | 1140 | — |
 
 ### `scripts/ks-credential-reconcile.py`（4 个符号）
 
@@ -1859,7 +1859,7 @@
 | `_sha` 函数 | 41 | 3 | — |
 | `engine_side` 函数 | 45 | 2 | 引擎加密存储里的 {名字: 指纹}（内存解密后哈希，不打印值）。 |
 | `dsh_side` 函数 | 57 | 2 | ~/.dsh/.credentials.yaml 里 {名字: 指纹}。 |
-| `main` 函数 | 74 | 1131 | — |
+| `main` 函数 | 74 | 1140 | — |
 
 ### `scripts/ks-credentials-migrate.py`（2 个符号）
 
@@ -1868,7 +1868,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_plan` 函数 | 46 | 15 | — |
-| `main` 函数 | 67 | 1131 | — |
+| `main` 函数 | 67 | 1140 | — |
 
 ### `scripts/loop2/driver_v2.py`（21 个符号）
 
@@ -1894,9 +1894,9 @@
 | `record_issue` 函数 | 282 | 7 | Three-strike by ROOT-CAUSE class. At 3 it arms an architecture reflection。 |
 | `solve_issue` 函数 | 307 | 3 | Clear a root-cause class after a generalised fix (count resets; class solved).。 |
 | `is_converged` 函数 | 323 | 6 | — |
-| `status` 函数 | 338 | 1664 | — |
+| `status` 函数 | 338 | 1686 | — |
 | `report` 函数 | 356 | 294 | — |
-| `main` 函数 | 371 | 1131 | — |
+| `main` 函数 | 371 | 1140 | — |
 
 ### `scripts/loop2/oracle_score.py`（9 个符号）
 
@@ -1912,7 +1912,7 @@
 | `score_pagmap` 函数 | 130 | 5 | — |
 | `score_objects` 函数 | 149 | 5 | — |
 | `score` 函数 | 185 | 85 | — |
-| `main` 函数 | 226 | 1131 | — |
+| `main` 函数 | 226 | 1140 | — |
 
 ### `scripts/loop2/oracle_snapshot.py`（12 个符号）
 
@@ -1931,7 +1931,7 @@
 | `_count_objects_clause` 函数 | 158 | 4 | Best-effort deterministic object counts from stored columns.。 |
 | `_pdf_orig` 函数 | 171 | 2 | Per-page original text layer + embedded image count, via PyMuPDF.。 |
 | `build_snapshot` 函数 | 194 | 4 | — |
-| `main` 函数 | 311 | 1131 | — |
+| `main` 函数 | 311 | 1140 | — |
 
 ### `scripts/loop2/vlm_check.py`（7 个符号）
 
@@ -1945,7 +1945,7 @@
 | `_parse_json` 函数 | 82 | 5 | Parse VLM JSON content, tolerating code fences / leading prose.。 |
 | `build_payload` 函数 | 98 | 5 | Both images (the fix) + fixed prompt. Returns JSON-serializable payload.。 |
 | `vision_check` 函数 | 112 | 5 | Return structured candidate-difference hints for an (orig, prev) pair.。 |
-| `main` 函数 | 150 | 1131 | — |
+| `main` 函数 | 150 | 1140 | — |
 
 ### `scripts/make-seed-db.py`（4 个符号）
 
@@ -1956,7 +1956,7 @@
 | `pick_docs` 函数 | 76 | 2 | 挑样本文档：**先保证缺陷可复现，再保证类型覆盖，最后才按大小补**。 |
 | `copy_table` 函数 | 123 | 5 | — |
 | `copy_by_temp_table` 函数 | 140 | 6 | 按一列 keys 过滤拷贝 —— 用**临时表 join**，不用 `IN (?,?,…)`。 |
-| `main` 函数 | 187 | 1131 | — |
+| `main` 函数 | 187 | 1140 | — |
 
 ### `scripts/make_handoff_zip.py`（2 个符号）
 
@@ -1965,7 +1965,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `add_tree` 函数 | 29 | 2 | — |
-| `main` 函数 | 42 | 1131 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `scripts/measure-classical-chinese-segmentation.py`（13 个符号）
 
@@ -1985,7 +1985,7 @@
 | `char_or_expr` 函数 | 191 | 3 | B 口径的松变体（任一字命中即可），只为对照，不采纳。 |
 | `no_drop_expr` 函数 | 196 | 5 | A+ 口径：**索引一个字不动**，只把查询侧"丢弃单字符词"那条规则关掉。 |
 | `evaluate` 函数 | 207 | 3 | — |
-| `main` 函数 | 236 | 1131 | — |
+| `main` 函数 | 236 | 1140 | — |
 
 ### `scripts/measure-cross-language-fts.py`（9 个符号）
 
@@ -1997,11 +1997,11 @@
 | `load_corpus` 函数 | 91 | 3 | — |
 | `build` 函数 | 104 | 80 | — |
 | `vocab` 函数 | 115 | 11 | — |
-| `search` 函数 | 121 | 782 | — |
-| `exists` 函数 | 136 | 338 | 这个段落**能不能**被 q 匹配上（不看排名）。 |
+| `search` 函数 | 121 | 784 | — |
+| `exists` 函数 | 136 | 350 | 这个段落**能不能**被 q 匹配上（不看排名）。 |
 | `variants` 函数 | 148 | 12 | 词尾变化规则。 |
 | `has_cjk` 函数 | 162 | 14 | — |
-| `main` 函数 | 166 | 1131 | — |
+| `main` 函数 | 166 | 1140 | — |
 
 ### `scripts/measure-endpoint-blocking.py`（16 个符号）
 
@@ -2016,7 +2016,7 @@
 | `case` 函数 | 128 | 68 | — |
 | `ingest_preview` 函数 | 134 | 3 | `POST /ingest/preview`：单文件体检（sha256 + 真解析，文件里自述"负载下可达 135s"）。 |
 | `ingest_preview_inbox` 函数 | 141 | 2 | `GET /ingest/preview/inbox`：列目录（`os.walk`，轻但也是同步 I/O）。 |
-| `health` 函数 | 148 | 111 | `GET /api/v1/health`。 |
+| `health` 函数 | 148 | 133 | `GET /api/v1/health`。 |
 | `health_board` 函数 | 158 | 3 | `GET /api/v1/diagnostics/health-board`：七条 `COUNT(*)` + `mineru_available()`。 |
 | `document_figure` 函数 | 169 | 1 | `GET /api/v1/documents/{doc_id}/figure/1`：**真渲染**（PyMuPDF 按题注定位 + 截图）。 |
 | `_seed_figure_doc` 函数 | 181 | 3 | 造一份"题注在最后一页"的 PDF + 库内 doc_meta 行（只碰临时库）。 |
@@ -2024,7 +2024,7 @@
 | `_seed_egress_audit` 函数 | 234 | 2 | 把 `debug_dump` 的审计行铺 **1000 行**（历史口径，便于与旧数字对比），只碰临时库。 |
 | `snapshot_create` 函数 | 254 | 1 | `POST /api/v1/snapshots`：造快照 = 读整个库 + sha256 + 落盘（§10.79）。 |
 | `_seed_bulk_clauses` 函数 | 264 | 2 | 往临时库塞一批条款（把"读库+哈希"的代价撑起来。 |
-| `main` 函数 | 286 | 1131 | — |
+| `main` 函数 | 286 | 1140 | — |
 
 ### `scripts/measure-material-bridge.py`（3 个符号）
 
@@ -2034,7 +2034,7 @@
 |---|---:|---:|---|
 | `clean_terms` 函数 | 57 | 4 | 逐级清洗（level 越大越严）。 |
 | `extract_terms` 函数 | 83 | 2 | 从一份笔记里机械抽候选术语 → {术语: 它第一次出现的那一行（当"定义正文"）}。 |
-| `main` 函数 | 112 | 1131 | — |
+| `main` 函数 | 112 | 1140 | — |
 
 ### `scripts/measure-material-recall.py`（3 个符号）
 
@@ -2044,7 +2044,7 @@
 |---|---:|---:|---|
 | `_chunk_containing` 函数 | 58 | 3 | — |
 | `_headings` 函数 | 65 | 2 | 取 `## ` / `### ` 小节标题（去掉序号与强调标记），当"术语式"查询。 |
-| `main` 函数 | 85 | 1131 | — |
+| `main` 函数 | 85 | 1140 | — |
 
 ### `scripts/measure-prefix-multiword.py`（2 个符号）
 
@@ -2053,7 +2053,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `content_words` 函数 | 62 | 2 | 拉丁内容词：≥4 字母、全小写、不含中文。 |
-| `main` 函数 | 72 | 1131 | — |
+| `main` 函数 | 72 | 1140 | — |
 
 ### `scripts/measure-term-aggregation.py`（5 个符号）
 
@@ -2061,11 +2061,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 58 | 90 | — |
+| `words` 函数 | 58 | 92 | — |
 | `_segment_max` 函数 | 62 | 2 | — |
 | `_segment_mean` 函数 | 66 | 2 | — |
 | `_segment_top2` 函数 | 71 | 2 | 名前两条的均值。 |
-| `main` 函数 | 90 | 1131 | — |
+| `main` 函数 | 90 | 1140 | — |
 
 ### `scripts/measure-term-bridge.py`（2 个符号）
 
@@ -2073,8 +2073,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 57 | 90 | — |
-| `main` 函数 | 61 | 1131 | — |
+| `words` 函数 | 57 | 92 | — |
+| `main` 函数 | 61 | 1140 | — |
 
 ### `scripts/measure-term-selection.py`（4 个符号）
 
@@ -2082,8 +2082,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `words` 函数 | 52 | 90 | — |
-| `main` 函数 | 56 | 1131 | — |
+| `words` 函数 | 52 | 92 | — |
+| `main` 函数 | 56 | 1140 | — |
 | `_keep_all_candidates` 函数 | 170 | 2 | 同名定义全留的候选：返回 `(术语名列表, 逐条目矩阵, 排序后的条目下标, 各名起点, 名数)`。 |
 | `_name_level_scores` 函数 | 204 | 2 | 按名取最大相似度。 |
 
@@ -2093,7 +2093,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 69 | 1131 | — |
+| `main` 函数 | 69 | 1140 | — |
 
 ### `scripts/measure-term-window-coverage.py`（2 个符号）
 
@@ -2101,7 +2101,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 | `_ro_conn` 函数 | 102 | 2 | — |
 
 ### `scripts/migrate-clause-vec-doc-id.py`（6 个符号）
@@ -2114,7 +2114,7 @@
 | `_conn` 函数 | 84 | 22 | — |
 | `_has_doc_id` 函数 | 95 | 2 | — |
 | `_count` 函数 | 103 | 17 | — |
-| `main` 函数 | 107 | 1131 | — |
+| `main` 函数 | 107 | 1140 | — |
 | `_print_rollback` 函数 | 237 | 8 | — |
 
 ### `scripts/normalize-standard-no-slash.py`（2 个符号）
@@ -2124,7 +2124,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_plan` 函数 | 69 | 15 | 算出变更清单。 |
-| `main` 函数 | 125 | 1131 | — |
+| `main` 函数 | 125 | 1140 | — |
 
 ### `scripts/pick-domain-terms.py`（2 个符号）
 
@@ -2133,7 +2133,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 75 | 197 | — |
-| `main` 函数 | 88 | 1131 | — |
+| `main` 函数 | 88 | 1140 | — |
 
 ### `scripts/preview-folder-filing.py`（6 个符号）
 
@@ -2146,7 +2146,7 @@
 | `_copy_db_readonly` 函数 | 73 | 2 | 只读副本：``mode=ro`` 打开源库（SQLite 保证不写源），backup 到副本。 |
 | `_read_docs` 函数 | 89 | 2 | — |
 | `_verify_applied` 函数 | 99 | 2 | 落库后**读回来**核对（不靠写函数的返回值自说自话）。 |
-| `main` 函数 | 125 | 1131 | — |
+| `main` 函数 | 125 | 1140 | — |
 
 ### `scripts/probe-recall-latency.py`（2 个符号）
 
@@ -2155,7 +2155,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_med` 函数 | 39 | 6 | — |
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `scripts/question-route.py`（2 个符号）
 
@@ -2164,7 +2164,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_sample` 函数 | 33 | 4 | 从真库取最近入库的 n 个非空标准号（只读。 |
-| `main` 函数 | 51 | 1131 | — |
+| `main` 函数 | 51 | 1140 | — |
 
 ### `scripts/rebuild-reference-edges.py`（4 个符号）
 
@@ -2175,7 +2175,7 @@
 | `_plan` 函数 | 86 | 15 | 只读：算出「现有边 / 重算边 / 不一致文档」。 |
 | `analyze` 函数 | 120 | 7 | — |
 | `apply` 函数 | 145 | 156 | — |
-| `main` 函数 | 212 | 1131 | — |
+| `main` 函数 | 212 | 1140 | — |
 
 ### `scripts/repair-missing-standard-no.py`（3 个符号）
 
@@ -2185,7 +2185,7 @@
 |---|---:|---:|---|
 | `derive_from_path` 函数 | 64 | 2 | 文件名 → (真号 或 None, 说明)。 |
 | `_plan` 函数 | 80 | 15 | — |
-| `main` 函数 | 114 | 1131 | — |
+| `main` 函数 | 114 | 1140 | — |
 
 ### `scripts/repair_patch_watermarks.py`（1 个符号）
 
@@ -2193,7 +2193,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `scripts/restore_package.py`（4 个符号）
 
@@ -2204,7 +2204,7 @@
 | `_sha256` 函数 | 34 | 2 | — |
 | `_registry` 函数 | 42 | 16 | — |
 | `validate` 函数 | 53 | 7 | 校验包：返回 {db_path, checksum, manifest}。 |
-| `main` 函数 | 71 | 1131 | — |
+| `main` 函数 | 71 | 1140 | — |
 
 ### `scripts/std_bulk_import.py`（7 个符号）
 
@@ -2218,7 +2218,7 @@
 | `write_ccs_seed` 函数 | 140 | 4 | 把体检已抓到的 CCS 写成种子文件（fetch_ccs 离线优先命中，免逐本打网络）。 |
 | `scan_matching` 函数 | 153 | 2 | 扫目录 PDF，提取标准号并命中 CSSN 已识别集合。 |
 | `_classify_text_layer` 函数 | 183 | 3 | 快速文本层判定：与 parse_pdf_with_mineru 用同一个提取函数，口径一致。 |
-| `main` 函数 | 201 | 1131 | — |
+| `main` 函数 | 201 | 1140 | — |
 
 ### `scripts/std_status_check.py`（6 个符号）
 
@@ -2231,7 +2231,7 @@
 | `_evidence_url` 函数 | 84 | 2 | openstd 行证据链 showInfo:<hcno> → 真实详情页 URL（无则原样返回）。 |
 | `probe_one` 函数 | 91 | 2 | 查单号（含被限换 IP 重试）：验证码命中且旋转器可用 → 换 IP + 新 session。 |
 | `probe_with_retry` 函数 | 113 | 3 | 查单号状态（退避重试 + 验证码检测），返回可落 jsonl 的结果 dict。 |
-| `main` 函数 | 165 | 1131 | — |
+| `main` 函数 | 165 | 1140 | — |
 
 ### `scripts/std_status_import.py`（2 个符号）
 
@@ -2240,7 +2240,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_norm` 函数 | 28 | 21 | — |
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `scripts/std_status_report.py`（1 个符号）
 
@@ -2248,7 +2248,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 29 | 1131 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `scripts/survey/00-inventory.py`（7 个符号）
 
@@ -2262,7 +2262,7 @@
 | `git_ignored` 函数 | 159 | 2 | 账本丁：被 `.gitignore` 排除、但**确实存在于磁盘上**的路径。 |
 | `summarize_ignored` 函数 | 197 | 2 | 把被忽略的路径按「前两级目录」汇总成计数与体积。 |
 | `file_record` 函数 | 215 | 2 | — |
-| `main` 函数 | 247 | 1131 | — |
+| `main` 函数 | 247 | 1140 | — |
 
 ### `scripts/survey/01-symbols.py`（8 个符号）
 
@@ -2270,14 +2270,14 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `iter_py` 函数 | 55 | 6 | — |
+| `iter_py` 函数 | 55 | 9 | — |
 | `_first_sentence` 函数 | 68 | 3 | 取 docstring 第一句（跳过 `#` 标题行，按 。 |
 | `_sig` 函数 | 83 | 2 | 拼一个人能读的签名（不求完美，求可搜索）。 |
 | `_decorators` 函数 | 105 | 3 | — |
 | `record_function` 函数 | 115 | 3 | — |
 | `scan_file` 函数 | 135 | 2 | — |
 | `count_references` 函数 | 201 | 2 | 每个符号名在**扫描面内全部 .py 文本**里出现几次（含定义行本身）。 |
-| `main` 函数 | 236 | 1131 | — |
+| `main` 函数 | 236 | 1140 | — |
 
 ### `scripts/survey/02-surface.py`（7 个符号）
 
@@ -2285,41 +2285,43 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `dump` 函数 | 30 | 51 | — |
+| `dump` 函数 | 30 | 55 | — |
 | `step3_schema` 函数 | 40 | 3 | — |
 | `step4_endpoints` 函数 | 132 | 3 | — |
 | `step5_tests` 函数 | 223 | 3 | — |
 | `step6_docs` 函数 | 370 | 3 | — |
 | `step7_gates` 函数 | 463 | 3 | — |
-| `main` 函数 | 509 | 1131 | — |
+| `main` 函数 | 509 | 1140 | — |
 
-### `scripts/survey/03-render.py`（21 个符号）
+### `scripts/survey/03-render.py`（23 个符号）
 
 > 检查第 9 步：由 JSON **生成**人可读文档（不手抄）。
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 44 | 103 | — |
-| `cell` 函数 | 51 | 87 | 把任意文本安全放进 markdown 表格单元格。 |
-| `mb` 函数 | 71 | 22 | — |
-| `write` 函数 | 75 | 406 | — |
-| `gen_inventory` 函数 | 82 | 2 | — |
-| `gen_code_map` 函数 | 140 | 2 | — |
-| `gen_cross_ref` 函数 | 224 | 2 | — |
-| `gen_data_shape` 函数 | 284 | 2 | — |
-| `gen_api` 函数 | 343 | 2 | — |
-| `gen_tests` 函数 | 395 | 2 | — |
-| `gen_docs` 函数 | 433 | 2 | — |
-| `gen_gates` 函数 | 474 | 2 | — |
-| `gen_readme` 函数 | 503 | 2 | — |
-| `gen_module_index` 函数 | 574 | 2 | — |
-| `gen_config` 函数 | 609 | 2 | — |
-| `gen_table_io` 函数 | 641 | 2 | — |
-| `gen_test_index` 函数 | 680 | 2 | — |
-| `gen_doc_index_content` 函数 | 718 | 2 | — |
-| `gen_frontend` 函数 | 747 | 2 | — |
-| `gen_function_index` 函数 | 779 | 2 | — |
-| `main` 函数 | 824 | 1131 | — |
+| `load` 函数 | 45 | 107 | — |
+| `cell` 函数 | 52 | 94 | 把任意文本安全放进 markdown 表格单元格。 |
+| `mb` 函数 | 72 | 22 | — |
+| `write` 函数 | 76 | 408 | — |
+| `gen_inventory` 函数 | 83 | 2 | — |
+| `gen_code_map` 函数 | 141 | 2 | — |
+| `gen_cross_ref` 函数 | 225 | 2 | — |
+| `gen_data_shape` 函数 | 285 | 2 | — |
+| `gen_api` 函数 | 344 | 2 | — |
+| `gen_tests` 函数 | 396 | 2 | — |
+| `gen_docs` 函数 | 434 | 2 | — |
+| `gen_gates` 函数 | 475 | 2 | — |
+| `gen_readme` 函数 | 504 | 2 | — |
+| `gen_module_index` 函数 | 575 | 2 | — |
+| `gen_config` 函数 | 610 | 2 | — |
+| `gen_table_io` 函数 | 642 | 2 | — |
+| `gen_test_index` 函数 | 681 | 2 | — |
+| `gen_doc_index_content` 函数 | 719 | 2 | — |
+| `gen_frontend` 函数 | 748 | 2 | — |
+| `gen_function_index` 函数 | 780 | 2 | — |
+| `gen_runtime_probe` 函数 | 826 | 2 | — |
+| `gen_requirements` 函数 | 959 | 2 | 需求编号 / 否决台账索引 + 种子库数据样例。 |
+| `main` 函数 | 1045 | 1140 | — |
 
 ### `scripts/survey/04-reconcile.py`（2 个符号）
 
@@ -2327,8 +2329,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 34 | 103 | — |
-| `main` 函数 | 41 | 1131 | — |
+| `load` 函数 | 34 | 107 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `scripts/survey/05-deep.py`（6 个符号）
 
@@ -2336,12 +2338,12 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `iter_py` 函数 | 34 | 6 | — |
+| `iter_py` 函数 | 34 | 9 | — |
 | `step_modules` 函数 | 48 | 3 | — |
 | `step_endpoints_deep` 函数 | 96 | 3 | — |
 | `step_config` 函数 | 179 | 3 | — |
 | `step_tables_io` 函数 | 262 | 3 | — |
-| `main` 函数 | 296 | 1131 | — |
+| `main` 函数 | 296 | 1140 | — |
 
 ### `scripts/survey/06-content.py`（4 个符号）
 
@@ -2352,7 +2354,43 @@
 | `step_test_content` 函数 | 38 | 3 | — |
 | `step_doc_content` 函数 | 85 | 3 | — |
 | `step_web_content` 函数 | 145 | 3 | — |
-| `main` 函数 | 202 | 1131 | — |
+| `main` 函数 | 202 | 1140 | — |
+
+### `scripts/survey/07-runtime-probe.py`（4 个符号）
+
+> 检查第 7 步（运行时层）：**真启动引擎，把每条端点都调一遍**。
+
+| 符号 | 行 | 引用 | 职责 |
+|---|---:|---:|---|
+| `free_port` 函数 | 62 | 1 | 要一个空闲端口（只为探活，引擎自己会绑随机端口）。 |
+| `wait_port` 函数 | 71 | 2 | 等端口能连上（进程还活着为前提）。 |
+| `call` 函数 | 85 | 27 | 发一条请求，返回记录（不抛异常，失败也记）。 |
+| `main` 函数 | 158 | 1140 | — |
+
+### `scripts/survey/08-repro-resume-hang.py`（3 个符号）
+
+> 定向复现：`POST /api/v1/ingest/bulk/{batch_id}/resume` 会不会把整个引擎卡死。
+
+| 符号 | 行 | 引用 | 职责 |
+|---|---:|---:|---|
+| `call` 函数 | 44 | 27 | — |
+| `prepare` 函数 | 72 | 2 | 临时数据目录 + 种子库副本 + 清掉孤儿影子表（否则 init_schema 撞名）。 |
+| `main` 函数 | 105 | 1140 | — |
+
+### `scripts/survey/09-requirements.py`（8 个符号）
+
+> 检查第 9 步（派生层）：需求编号索引 / 否决台账索引 / 种子库数据样例。
+
+| 符号 | 行 | 引用 | 职责 |
+|---|---:|---:|---|
+| `dump` 函数 | 65 | 55 | — |
+| `iter_py` 函数 | 72 | 9 | — |
+| `first_body_para` 函数 | 86 | 2 | 取标题之后的第一个正文段（跳过空行、表格、代码块、引用）。 |
+| `collect_definitions` 函数 | 111 | 2 | 扫全部 docs，返回 (定义表, 仅正文提及表)。 |
+| `step_requirements` 函数 | 157 | 3 | — |
+| `step_notdoing` 函数 | 292 | 3 | — |
+| `step_data_samples` 函数 | 366 | 3 | — |
+| `main` 函数 | 418 | 1140 | — |
 
 ### `scripts/survey/_common.py`（2 个符号）
 
@@ -2361,7 +2399,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `first_sentence` 函数 | 23 | 7 | 取 docstring / 说明文字的第一句。 |
-| `dump` 函数 | 53 | 51 | 把一份机器可读数据写进 `docs/survey/data/<name>.json`。 |
+| `dump` 函数 | 53 | 55 | 把一份机器可读数据写进 `docs/survey/data/<name>.json`。 |
 
 ### `scripts/survey/run-all.py`（2 个符号）
 
@@ -2369,8 +2407,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `run` 函数 | 51 | 282 | — |
-| `main` 函数 | 73 | 1131 | — |
+| `run` 函数 | 55 | 282 | — |
+| `main` 函数 | 77 | 1140 | — |
 
 ### `scripts/uniformity-ast-dupes.py`（16 个符号）
 
@@ -2393,7 +2431,7 @@
 | `scan` 函数 | 152 | 180 | 返回 (指纹 -> 出现处列表, 语法错文件列表)。 |
 | `cross_file_groups` 函数 | 186 | 3 | 只保留**跨文件**出现的组（同文件多处不算重复实现）。 |
 | `_selftest` 函数 | 244 | 4 | — |
-| `main` 函数 | 271 | 1131 | — |
+| `main` 函数 | 271 | 1140 | — |
 
 ### `scripts/verify-answer-citations.py`（2 个符号）
 
@@ -2402,7 +2440,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_cited` 函数 | 53 | 2 | 该 evidence/note 是否引用过这个行号：`file:N` 或覆盖 N 的 `file:A-B`。 |
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `scripts/verify-engine-uvicorn.py`（4 个符号）
 
@@ -2413,7 +2451,7 @@
 | `_req` 函数 | 78 | 7 | — |
 | `_wait_ready` 函数 | 89 | 2 | — |
 | `_make_pdf` 函数 | 101 | 38 | — |
-| `main` 函数 | 117 | 1131 | — |
+| `main` 函数 | 117 | 1140 | — |
 
 ### `scripts/verify-seeds/b1-reingest-e2e.py`（3 个符号）
 
@@ -2423,7 +2461,7 @@
 |---|---:|---:|---|
 | `ro_query` 函数 | 25 | 7 | 只读查询。 |
 | `pick_doc` 函数 | 37 | 2 | — |
-| `main` 函数 | 62 | 1131 | — |
+| `main` 函数 | 62 | 1140 | — |
 
 ### `scripts/verify-seeds/b6-faceswitch.patch.py`（1 个符号）
 
@@ -2439,7 +2477,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `src/core/api/routes_channels.py`（3 个符号）
 
@@ -2565,7 +2603,7 @@
 | `_read_mineru_model_version` 函数 | 247 | 7 | 读 MinerU 云模式。 |
 | `Settings` 类 | 264 | 14 | — |
 | `db_path` 函数 | 297 | 227 | — |
-| `models_dir` 函数 | 301 | 16 | 模型权重缓存目录（默认 `<data_dir>/models`）。 |
+| `models_dir` 函数 | 301 | 19 | 模型权重缓存目录（默认 `<data_dir>/models`）。 |
 | `ensure_dirs` 函数 | 321 | 4 | — |
 | `get_settings` 函数 | 329 | 188 | — |
 | `reset_settings` 函数 | 337 | 111 | 测试用：清理缓存使环境变量生效。 |
@@ -2595,7 +2633,7 @@
 | `__init__` 函数 | 8 | 135 | — |
 | `ConfigError` 类 | 13 | 1 | — |
 | `__init__` 函数 | 14 | 135 | — |
-| `StorageError` 类 | 18 | 5 | — |
+| `StorageError` 类 | 18 | 6 | — |
 | `__init__` 函数 | 19 | 135 | — |
 | `DuplicateDocumentError` 类 | 23 | 1 | — |
 | `__init__` 函数 | 24 | 135 | — |
@@ -2817,7 +2855,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `run_docx_ingest` 函数 | 22 | 13 | docx 入库：优先 COM 转 PDF → run_full_ingest。 |
-| `main` 函数 | 77 | 1131 | — |
+| `main` 函数 | 77 | 1140 | — |
 
 ### `src/core/ingestion/dry_run.py`（10 个符号）
 
@@ -2847,7 +2885,7 @@
 | `split_law_text` 函数 | 100 | 30 | 按'第X条'切分法规文本。 |
 | `split_law_enum_text` 函数 | 132 | 11 | 按「一、二、三、」切分法规文本（**部分司法解释/规定不用「第X条」**）。 |
 | `ingest_law_text` 函数 | 167 | 55 | 法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。 |
-| `main` 函数 | 375 | 1131 | — |
+| `main` 函数 | 375 | 1140 | — |
 
 ### `src/core/ingestion/material_ingest.py`（15 个符号）
 
@@ -2990,8 +3028,8 @@
 | `_cached_parse_result` 函数 | 1919 | 2 | 从既有解析产物重建 run_parser_isolated 的等价 result（**零 OCR**）。 |
 | `_filing_confidence` 函数 | 1968 | 5 | 入库时算**识别率**（= ``doc_filing_state.confidence``）。 |
 | `_write_filing_state` 函数 | 1999 | 16 | 把处理状态写进 ``doc_filing_state``（**入库侧的唯一出口**）。 |
-| `run_full_ingest` 函数 | 2021 | 86 | — |
-| `main` 函数 | 2420 | 1131 | — |
+| `run_full_ingest` 函数 | 2021 | 87 | — |
+| `main` 函数 | 2420 | 1140 | — |
 
 ### `src/core/ingestion/preview_jobs.py`（9 个符号）
 
@@ -3045,7 +3083,7 @@
 | `split_into_clauses` 函数 | 35 | 2 | 极简条款切分: 以条款号开头的文本块开启新条款，其余并入当前条款。 |
 | `_classify` 函数 | 54 | 13 | 冒烟分型：值域与 ClauseRevisionModel Literal 对齐（modality 词表 = MODALITY_STRENGTH 键）。 |
 | `ingest_pdf` 函数 | 65 | 4 | — |
-| `main` 函数 | 150 | 1131 | — |
+| `main` 函数 | 150 | 1140 | — |
 
 ### `src/core/ingestion/span_calibration.py`（14 个符号）
 
@@ -3077,7 +3115,7 @@
 | `_db` 函数 | 31 | 11 | — |
 | `verify_doc` 函数 | 38 | 5 | 抽样验证单文档 span 坐标系。 |
 | `verify_library` 函数 | 80 | 3 | 全库体检：返回每个有 span 文档的验证结果（含 top_suspect 标记）。 |
-| `main` 函数 | 101 | 1131 | — |
+| `main` 函数 | 101 | 1140 | — |
 
 ### `src/core/knowledge/alias_extract.py`（6 个符号）
 
@@ -3342,15 +3380,15 @@
 |---|---:|---:|---|
 | `_headers` 函数 | 24 | 35 | — |
 | `enum_data` 函数 | 33 | 15 | 全部分类/机关/时效字典（flfgCodeId / zdjgCodeId / sxx 叶子 code 表）。 |
-| `search` 函数 | 42 | 782 | 搜索（searchRange 1=标题 2=正文。 |
+| `search` 函数 | 42 | 784 | 搜索（searchRange 1=标题 2=正文。 |
 | `parse_rows` 函数 | 69 | 16 | 搜索结果 rows → 精简列表（title / bbbs / flxz / zdjgName / gbrq / sxrq / sxx）。 |
 | `FlkDetail` 类 | 90 | 5 | — |
 | `oss_word_path` 函数 | 102 | 1 | — |
 | `oss_pdf_path` 函数 | 106 | 1 | — |
-| `detail` 函数 | 110 | 406 | — |
+| `detail` 函数 | 110 | 408 | — |
 | `history` 函数 | 120 | 66 | 一部法规的**历次版本链**（详情接口的 `lsyg` = 历史沿革）。 |
 | `download_url` 函数 | 162 | 2 | 返回签名 OSS URL。 |
-| `download` 函数 | 172 | 20 | 下载官方 Word/PDF 到 dest。 |
+| `download` 函数 | 172 | 21 | 下载官方 Word/PDF 到 dest。 |
 
 ### `src/core/knowledge/law_source/govcn_client.py`（5 个符号）
 
@@ -3358,11 +3396,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `search` 函数 | 33 | 782 | 搜索政策文件库。 |
+| `search` 函数 | 33 | 784 | 搜索政策文件库。 |
 | `parse_rows` 函数 | 54 | 16 | 搜索响应 → 精简列表（title / pcode 文号 / source 机关 / pubtime / url 详情页）。 |
 | `GovDetail` 类 | 77 | 5 | — |
 | `fetch_detail` 函数 | 86 | 8 | 抓取政策详情页：标题/正文/日期/来源 + 官方下载链接。 |
-| `download` 函数 | 139 | 20 | 下载官方文件（docx/ofd），魔数校验 ZIP。 |
+| `download` 函数 | 139 | 21 | 下载官方文件（docx/ofd），魔数校验 ZIP。 |
 
 ### `src/core/knowledge/law_source/http.py`（9 个符号）
 
@@ -3539,7 +3577,7 @@
 | `_upcoming_notes` 函数 | 709 | 2 | 对 evidence 中各标准（取其基准确则无年份部分），查 doc_meta 是否存在即将生效(upcoming)。 |
 | `KbScopeNotFound` 类 | 745 | 10 | 知识库**目录范围**里有不存在的目录（第 6 步）。 |
 | `_resolve_kb_scope` 函数 | 754 | 3 | 解析**知识库目录范围**（第 6 步）⇒ `(doc_ids, scope_info)`。 |
-| `answer` 函数 | 810 | 667 | 同步取证答案主体。 |
+| `answer` 函数 | 810 | 668 | 同步取证答案主体。 |
 | `_expand_title_clauses` 函数 | 1167 | 8 | 命中纯数字标题条款（内容 <80 字）自动附带其子条款（如 8.1 → 8.1.1~8.1.3），。 |
 
 ### `src/core/main.py`（2 个符号）
@@ -3643,7 +3681,7 @@
 | `__init__` 函数 | 38 | 135 | — |
 | `page` 函数 | 42 | 1275 | — |
 | `size` 函数 | 45 | 180 | — |
-| `tables` 函数 | 48 | 121 | — |
+| `tables` 函数 | 48 | 135 | — |
 | `images` 函数 | 52 | 74 | — |
 | `eqs` 函数 | 56 | 16 | — |
 | `eq_blocks` 函数 | 60 | 3 | 独立公式块（interline_equation）：bbox px + LaTeX 行（含   ag 编号）。 |
@@ -3658,7 +3696,7 @@
 | `frac` 函数 | 178 | 36 | bbox 像素 → (frac_x0, frac_w, frac_h)（页宽/页高比例）。 |
 | `_inter_area` 函数 | 189 | 2 | — |
 | `_find_middle_jsons` 函数 | 197 | 2 | 定位全部 middle 产物（任意深度，防穿越）。 |
-| `load` 函数 | 216 | 103 | 读取并缓存 parse_root 的几何索引。 |
+| `load` 函数 | 216 | 107 | 读取并缓存 parse_root 的几何索引。 |
 
 ### `src/core/quality/clause_health.py`（3 个符号）
 
@@ -3742,7 +3780,7 @@
 | `embed_query` 函数 | 87 | 65 | — |
 | `embed_batch` 函数 | 92 | 31 | — |
 | `is_available` 函数 | 97 | 53 | **会加载**（首次可能几秒并外发一次下载）——只给"真要拿模型"的路径用。 |
-| `health` 函数 | 110 | 111 | **廉价**三态：`ok` / `offline` / `unknown`（**不加载模型**，只读已有证据）。 |
+| `health` 函数 | 110 | 133 | **廉价**三态：`ok` / `offline` / `unknown`（**不加载模型**，只读已有证据）。 |
 | `offline_reason` 函数 | 128 | 8 | — |
 
 ### `src/core/retrieval/hybrid_engine.py`（15 个符号）
@@ -3790,7 +3828,7 @@
 | `_matrix` 函数 | 94 | 22 | 把向量堆成**已归一化**的矩阵（懒建，按条数失效）。 |
 | `build` 函数 | 126 | 80 | — |
 | `save` 函数 | 136 | 57 | — |
-| `load` 函数 | 147 | 103 | — |
+| `load` 函数 | 147 | 107 | — |
 | `select` 函数 | 155 | 17 | 语义选出最像的 k 个术语（有界选择）。 |
 | `topk_by_cos` 函数 | 165 | 24 | 按余弦相似度取前 `k` 个**下标**（**分数降序。 |
 | `extract_term_entries` 函数 | 204 | 11 | 从库里扫出所有术语条款。 |
@@ -3881,7 +3919,7 @@
 | `record_probe` 函数 | 343 | 12 | 运行期探针结果落库（R3 调用）。 |
 | `set_enabled` 函数 | 376 | 5 | 人工启停一个渠道（停用的**不删**：历史健康度是要留的证据）。 |
 | `delete_channel` 函数 | 398 | 4 | 删除一条渠道。 |
-| `summary` 函数 | 416 | 181 | 面板头部用的小结：**能力数**（wiring=wired）与**注册数**分开报。 |
+| `summary` 函数 | 416 | 183 | 面板头部用的小结：**能力数**（wiring=wired）与**注册数**分开报。 |
 | `load_seed` 函数 | 433 | 18 | 读渠道种子（引擎自有 JSON）。 |
 | `seed_channels` 函数 | 443 | 19 | 把种子灌进台账（幂等。 |
 
@@ -3981,9 +4019,9 @@
 | `_register` 函数 | 30 | 4 | — |
 | `load_vec_extension` 函数 | 37 | 143 | 加载 sqlite-vec 扩展。 |
 | `_configure` 函数 | 49 | 2 | — |
-| `get_db_connection` 函数 | 59 | 448 | 线程局部连接。 |
-| `write_transaction` 函数 | 74 | 248 | 短事务上下文：由单写者队列调用，普通代码不应直接绕过队列写库。 |
-| `init_schema` 函数 | 96 | 68 | — |
+| `get_db_connection` 函数 | 59 | 449 | 线程局部连接。 |
+| `write_transaction` 函数 | 74 | 249 | 短事务上下文：由单写者队列调用，普通代码不应直接绕过队列写库。 |
+| `init_schema` 函数 | 96 | 74 | — |
 | `_ensure_doc_meta_columns` 函数 | 127 | 2 | 给既有知识库 doc_meta 补新增列（CREATE IF NOT EXISTS 不会改已有表）。 |
 | `_rename_table_in_ddl` 函数 | 151 | 2 | `CREATE TABLE old (` → `CREATE TABLE new (` —— 只换**表名**那一处，别动列名/约束里的字串。 |
 | `_ensure_legal_status_reference` 函数 | 159 | 5 | 幂等：把效力枚举补上 `reference`（返回**重建了几张表**。 |
@@ -4053,7 +4091,7 @@
 |---|---:|---:|---|
 | `WriteWorker` 类 | 14 | 9 | 后台单写者线程，串行消费 write_queue 表。 |
 | `__init__` 函数 | 17 | 135 | — |
-| `start` 函数 | 28 | 323 | — |
+| `start` 函数 | 28 | 334 | — |
 | `_recover_stale_processing` 函数 | 37 | 2 | 崩溃恢复：上次运行卡在 processing 的任务重置为 pending（启动时无并发写者，安全）。 |
 | `stop` 函数 | 48 | 132 | — |
 | `_run` 函数 | 57 | 73 | — |
@@ -4082,9 +4120,9 @@
 |---|---:|---:|---|
 | `ChildHandle` 类 | 25 | 4 | supervisor 对子进程的最小依赖面（测试注入 FakeChild）。 |
 | `exitcode` 函数 | 32 | 9 | — |
-| `pid` 函数 | 34 | 622 | — |
-| `start` 函数 | 36 | 323 | — |
-| `join` 函数 | 37 | 732 | — |
+| `pid` 函数 | 34 | 626 | — |
+| `start` 函数 | 36 | 334 | — |
+| `join` 函数 | 37 | 746 | — |
 | `is_alive` 函数 | 38 | 17 | — |
 | `_engine_entry` 函数 | 41 | 2 | — |
 | `_mp_child_factory` 函数 | 46 | 3 | — |
@@ -4093,7 +4131,7 @@
 | `_heartbeat_ok` 函数 | 66 | 2 | P8 心跳：读 session 文件里的 port，探测 /health。 |
 | `run` 函数 | 82 | 282 | 阻塞运行。 |
 | `_emit` 函数 | 121 | 7 | — |
-| `main` 函数 | 127 | 1131 | — |
+| `main` 函数 | 127 | 1140 | — |
 
 ### `src/core/text_utils.py`（61 个符号）
 
@@ -4280,18 +4318,18 @@
 | `recordable` 函数 | 233 | 9 | 结果是否允许落变更表：captcha 只返回标记，绝不写库（04a INS-C-01）。 |
 | `CurlCffiTransport` 类 | 242 | 19 | 浏览器指纹默认传输（ANOM-002 canonical 修复）：curl_cffi impersonate chrome。 |
 | `__init__` 函数 | 259 | 135 | — |
-| `fetch` 函数 | 263 | 1027 | — |
+| `fetch` 函数 | 263 | 1028 | — |
 | `fetch_bytes` 函数 | 280 | 9 | 原始字节下载（公告 PDF 存档用）：返回 (status, content)，不解析。 |
 | `fetch_page` 函数 | 288 | 23 | 取回一个**页面**，把同一个响应的四样东西一起给出：。 |
 | `HttpxTransport` 类 | 310 | 19 | 回退真实传输（curl_cffi 不可导入时兜底。 |
-| `fetch` 函数 | 317 | 1027 | — |
+| `fetch` 函数 | 317 | 1028 | — |
 | `fetch_bytes` 函数 | 335 | 9 | 原始字节下载（公告 PDF 存档用）。 |
 | `fetch_page` 函数 | 344 | 23 | 同 `CurlCffiTransport.fetch_page`（契约一致：`(status, headers, text, raw)`）。 |
 | `httpx_usable` 函数 | 355 | 8 | httpx 在这台机器上**构造**得起来吗？（返回 `(可用, 原因)`）。 |
 | `default_transport` 函数 | 378 | 25 | 默认 transport 工厂：curl_cffi 可导入则优先（TLS 指纹模拟），。 |
 | `ChannelAdapter` 类 | 401 | 39 | 渠道适配器抽象：probe(standard_no) -> ChannelResult（接口冻结）。 |
 | `__init__` 函数 | 408 | 135 | — |
-| `probe` 函数 | 412 | 301 | 探测单个标准号的最新官方状态。 |
+| `probe` 函数 | 412 | 311 | 探测单个标准号的最新官方状态。 |
 | `_fetch` 函数 | 416 | 19 | transport 归一调用：超时/异常统一翻成 UpdateError（UPD-1xxx），HTTP 状态不抛。 |
 | `_ua` 函数 | 436 | 2 | 抓页面用的 User-Agent 串。 |
 | `_fetch_text` 函数 | 440 | 6 | GET 一个页面返回 HTML 文本。 |
@@ -4316,11 +4354,11 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `CssnAdapter` 类 | 66 | 18 | cssn：标准号级状态探测（全覆盖、无验证码、确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 75 | 301 | — |
+| `probe` 函数 | 75 | 311 | — |
 | `_search_row` 函数 | 86 | 3 | 带空格完整号单次搜索（契约：每渠道恰一次请求）。 |
 | `_hit` 函数 | 96 | 25 | 单次搜索后精确挑选匹配行（禁验证码硬闯。 |
 | `_pace` 函数 | 121 | 17 | 调用间限速（Jiasule/商业站礼貌速率）。 |
-| `_split` 函数 | 127 | 8 | 归一号 → (数字主体, 年份)。 |
+| `_split` 函数 | 127 | 9 | 归一号 → (数字主体, 年份)。 |
 | `_pick` 函数 | 136 | 24 | 跨前缀同主体挑选（GB/GB/T/GB/Z 视为同一标准的不同属性/版本）。 |
 | `_state_of` 函数 | 175 | 5 | cssn 状态串 → legal_status。 |
 | `_from_row` 函数 | 183 | 6 | — |
@@ -4342,7 +4380,7 @@
 | `_clean_version` 函数 | 32 | 5 | 版本号排版归一：贴着 - / 的空白收敛、多空白合一（比较仍走 norm_no）。 |
 | `GovcnAnnounceAdapter` 类 | 45 | 18 | 公告渠道：发布/废止公告即证据。 |
 | `__init__` 函数 | 57 | 135 | — |
-| `probe` 函数 | 62 | 301 | — |
+| `probe` 函数 | 62 | 311 | — |
 | `_pick` 函数 | 120 | 24 | 命中规则：**标题或摘要**归一后含标准号。 |
 | `archive_pdf` 函数 | 140 | 29 | 归档最近一次命中的公告 PDF 到 <data_dir>/announcements/，返回绝对路径。 |
 
@@ -4355,7 +4393,7 @@
 | `_epoch_ms_to_date` 函数 | 50 | 4 | epoch 毫秒 → YYYY-MM-DD（CST）。 |
 | `_sacinfo_state` 函数 | 61 | 2 | sacinfo 状态串 → legal_status 枚举。 |
 | `_SacinfoQueryAdapter` 类 | 69 | 5 | sacinfo 行业/地方标准查询平台共享实现（hbba/dbba 同构）。 |
-| `probe` 函数 | 79 | 301 | — |
+| `probe` 函数 | 79 | 311 | — |
 | `_pick_row` 函数 | 140 | 15 | 行挑选：精确归一号匹配优先。 |
 | `HbbaAdapter` 类 | 145 | 4 | hbba：行业标准信息服务平台（标准号级状态探测，确定性、离线可测、异常归一）。 |
 
@@ -4367,7 +4405,7 @@
 |---|---:|---:|---|
 | `LawsDbAdapter` 类 | 28 | 4 | 法律法规渠道（F-22）：标题精确/模糊检索 → 状态映射 → ChannelResult。 |
 | `_search` 函数 | 35 | 3 | — |
-| `probe` 函数 | 49 | 301 | — |
+| `probe` 函数 | 49 | 311 | — |
 
 ### `src/core/update/channels/ledger_chain.py`（14 个符号）
 
@@ -4401,7 +4439,7 @@
 | `spaced_candidate` 函数 | 91 | 2 | 压缩输入 → 官方空格形态候选（引擎空格敏感）：HJ819-2017 → HJ 819-2017。 |
 | `parse_report_page` 函数 | 103 | 3 | 解析报告页 HTML → 记录行列表（标准号/名称/实施时间/摘要/pdf_url）。 |
 | `MeeAdapter` 类 | 124 | 2 | mee：标准号级状态探测（确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 129 | 301 | — |
+| `probe` 函数 | 129 | 311 | — |
 | `_pick_row` 函数 | 173 | 15 | 行挑选：精确归一号匹配优先。 |
 
 ### `src/core/update/channels/mem_gov.py`（4 个符号）
@@ -4411,7 +4449,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `MemGovAdapter` 类 | 34 | 3 | mem_gov：应急管理部 AQ 行业标准（标准号级状态探测，确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 39 | 301 | — |
+| `probe` 函数 | 39 | 311 | — |
 | `_search_announcement` 函数 | 70 | 4 | 在公告列表+详情里找目标标准号，返回 (公告URL, kind\|None)。 |
 | `_parse_list_links` 函数 | 105 | 5 | 解析公告列表页 -> \[(href, 标题)\], 仅保留含 废止/批准/发布/标准 的公告项。 |
 
@@ -4422,7 +4460,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `MohurdAdapter` 类 | 29 | 2 | mohurd：住建部工程建设标准（标准号级状态探测，确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 34 | 301 | — |
+| `probe` 函数 | 34 | 311 | — |
 | `_search_announcement` 函数 | 56 | 4 | — |
 | `_parse_list_links` 函数 | 84 | 5 | — |
 
@@ -4433,7 +4471,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `NdlsAdapter` 类 | 67 | 18 | ndls：标准号级状态探测（确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 78 | 301 | 探测单号状态。 |
+| `probe` 函数 | 78 | 311 | 探测单号状态。 |
 | `_headers` 函数 | 142 | 35 | — |
 | `_search_body` 函数 | 153 | 2 | 与站点前端 getSearchData(paramsType=1) 同款 JSON 体（2026-08 实测）。 |
 | `_pace` 函数 | 167 | 17 | 真实网络调用间限速（Jiasule WAF 观察模式）。 |
@@ -4454,7 +4492,7 @@
 | `_impl_date` 函数 | 36 | 13 | 结果表一行里的日期格 → **实施日期**（`ChannelResult.effective_date` 的语义）。 |
 | `_pub_date` 函数 | 60 | 11 | 同一行的日期格 → **发布日期**（第 1 格，`ChannelResult.published_date`）。 |
 | `OfficialGbAdapter` 类 | 71 | 9 | 主渠道：命中即止（降级链 official_gb→web→govcn 由 inspector 编排）。 |
-| `probe` 函数 | 81 | 301 | — |
+| `probe` 函数 | 81 | 311 | — |
 | `_pick_row` 函数 | 154 | 15 | 行挑选：精确归一号匹配优先。 |
 | `_pace` 函数 | 158 | 17 | 调用间限速（政府站礼貌速率）。 |
 
@@ -4478,7 +4516,7 @@
 | `__len__` 函数 | 209 | 3 | — |
 | `ProxyCurlTransport` 类 | 214 | 6 | 带代理的 curl_cffi transport（新实例 = 新 session = 新 cookie）。 |
 | `__init__` 函数 | 220 | 135 | — |
-| `fetch` 函数 | 224 | 1027 | — |
+| `fetch` 函数 | 224 | 1028 | — |
 | `fetch_bytes` 函数 | 237 | 9 | — |
 | `fetch_page` 函数 | 242 | 23 | 与 `base.CurlCffiTransport.fetch_page` 同契约（采集侧要 Content-Type 与真实字节）。 |
 | `build_rotator` 函数 | 253 | 3 | 按配置构建旋转器：--proxies 文件优先，否则尝试 Clash。 |
@@ -4518,7 +4556,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `StdSamrHbAdapter` 类 | 47 | 2 | std_samr_hb：行业标准目录标准号级状态探测（确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 56 | 301 | — |
+| `probe` 函数 | 56 | 311 | — |
 | `_pick_row` 函数 | 108 | 15 | 行挑选：精确归一号匹配优先。 |
 | `_pace` 函数 | 112 | 17 | 调用间限速（政府站礼貌速率）。 |
 
@@ -4532,7 +4570,7 @@
 | `_canon` 函数 | 105 | 7 | 归一号 + 破折号归一：平台用长横 U+2014，用户常写 -，两者等价比较。 |
 | `_core` 函数 | 110 | 3 | 去年代（兼容 - 与 —）：TZSA328-2026 → TZSA328，供同主体候选比较。 |
 | `TtzbAdapter` 类 | 115 | 3 | ttbz：标准号级状态探测（确定性、离线可测、异常归一）。 |
-| `probe` 函数 | 120 | 301 | — |
+| `probe` 函数 | 120 | 311 | — |
 | `_rows_of` 函数 | 142 | 14 | 检索应答 → 行表。 |
 | `_pick_row` 函数 | 151 | 15 | 行挑选：精确归一号匹配优先。 |
 | `_resolve_detail` 函数 | 166 | 2 | — |
@@ -4549,7 +4587,7 @@
 |---|---:|---:|---|
 | `_clean_version` 函数 | 35 | 5 | 版本号排版归一：贴着 - / 的空白收敛、多空白合一（比较仍走 norm_no）。 |
 | `WebFallbackAdapter` 类 | 42 | 8 | 逐号补漏：标题含完整标准号即视为命中，证据链接随结果返回。 |
-| `probe` 函数 | 48 | 301 | — |
+| `probe` 函数 | 48 | 311 | — |
 
 ### `src/core/update/data_package.py`（9 个符号）
 
@@ -4585,7 +4623,7 @@
 | `_llm_classify` 函数 | 331 | 7 | LLM 按需分类（规则 miss 时调用）。 |
 | `classify` 函数 | 384 | 45 | 口语描述 → CCS 路径或一轮追问（协议见模块头注。 |
 | `_ask` 函数 | 464 | 5 | 追问出口：单轮 ≤3 问一次问完。 |
-| `search` 函数 | 471 | 782 | 按分类路径查网络渠道，返回结果卡片列表（字段见模块头注，F-17）。 |
+| `search` 函数 | 471 | 784 | 按分类路径查网络渠道，返回结果卡片列表（字段见模块头注，F-17）。 |
 | `_to_card` 函数 | 541 | 2 | 渠道原始结果行 → 结果卡片。 |
 | `_now_iso` 函数 | 571 | 7 | — |
 | `_parse_items` 函数 | 575 | 8 | app_config 原始串 → 清单条目。 |
@@ -4672,7 +4710,7 @@
 | `schedule_tiers` 函数 | 55 | 5 | 自动建批的层清单。 |
 | `UpdateScheduler` 类 | 70 | 26 | 定时巡检轮询线程：start() 后台运行，tick() 可独立注入时钟测试。 |
 | `__init__` 函数 | 73 | 135 | — |
-| `start` 函数 | 82 | 323 | — |
+| `start` 函数 | 82 | 334 | — |
 | `stop` 函数 | 90 | 132 | — |
 | `_run` 函数 | 98 | 73 | — |
 | `_last_scheduled_created_at` 函数 | 112 | 2 | — |
@@ -4774,9 +4812,9 @@
 | `tops` 函数 | 52 | 36 | 四个顶层目录（业主手定 sort 10/20/30/90）——**按名字复用**，用例间共用。 |
 | `ensure_folder_path` 函数 | 74 | 6 | 按名字路径**复用或新建**一串目录，返回 ``{名字: folder_id}``（幂等）。 |
 | `std_tree` 函数 | 86 | 10 | 真形状的标准树（CCS P16 那一支）——共用，用例间幂等复用。 |
-| `api` 函数 | 91 | 1718 | 带 token 的请求（``json`` / ``params`` 透传）。 |
+| `api` 函数 | 91 | 1730 | 带 token 的请求（``json`` / ``params`` 透传）。 |
 | `data_of` 函数 | 97 | 84 | — |
-| `error_code` 函数 | 104 | 92 | — |
+| `error_code` 函数 | 104 | 96 | — |
 
 ### `tests/conftest.py`（5 个符号）
 
@@ -4785,9 +4823,9 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_isolate_data_dir` 函数 | 31 | 27 | 全量测试的会话级临时数据目录。 |
-| `db` 函数 | 79 | 1641 | 初始化好 schema 的库连接（会话级临时库。 |
+| `db` 函数 | 79 | 1651 | 初始化好 schema 的库连接（会话级临时库。 |
 | `seed_data_dir` 函数 | 110 | 11 | 把**本测试独占**的数据目录灌成种子库（有真实语料的库）。 |
-| `client` 函数 | 172 | 566 | 带 token 的 FastAPI TestClient。 |
+| `client` 函数 | 172 | 568 | 带 token 的 FastAPI TestClient。 |
 | `_rerank_offline_for_tests` 函数 | 183 | 2 | 全量测试默认禁用 reranker（模型推理极慢），走 R30 降级路径保持检索快速。 |
 
 ### `tests/fixtures/make_law_pdf.py`（1 个符号）
@@ -4807,7 +4845,7 @@
 | `_clean_observed` 函数 | 24 | 1 | 每个用例只看见自己造的公告。 |
 | `_FakeTransport` 类 | 46 | 13 | — |
 | `__init__` 函数 | 47 | 135 | — |
-| `fetch` 函数 | 51 | 1027 | — |
+| `fetch` 函数 | 51 | 1028 | — |
 | `_t` 函数 | 81 | 119 | — |
 | `_mk_observed` 函数 | 85 | 15 | 塞一条"已发现的公告"（真表。 |
 | `test_scope_rules_strong_cue_wins_deny_otherwise` 函数 | 99 | 1 | 范围判定：**强规范性线索压过排除词**。 |
@@ -5033,7 +5071,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `data_dir` 函数 | 23 | 165 | — |
+| `data_dir` 函数 | 23 | 175 | — |
 | `test_crash_mid_write_keeps_previous_state` 函数 | 33 | 1 | 写入中途崩溃（os.replace 之前死掉）→ 主文件保持上一次完整内容。 |
 | `test_crash_after_replace_keeps_new_state` 函数 | 62 | 1 | rename 落地后崩溃 → 新状态完整可见（原子写的另一半保证）。 |
 | `test_no_partial_tmp_left_after_crash` 函数 | 72 | 1 | 崩溃后残留 tmp 必须是'可识别的半成品'（.tmp 前缀），主文件无恙。 |
@@ -5127,7 +5165,7 @@
 | `_no_real_network` 函数 | 118 | 1 | **默认断网**：真 transport 一旦被用上就当场报错，而不是悄悄去打 cssn。 |
 | `FakeTransport` 类 | 134 | 31 | 按 **URL 分派**的假传输（契约同 `channels.base`：`fetch(url, **kw) -> (status, body)`）。 |
 | `__init__` 函数 | 141 | 135 | — |
-| `fetch` 函数 | 150 | 1027 | — |
+| `fetch` 函数 | 150 | 1028 | — |
 | `_api_rows` 函数 | 168 | 17 | 官方 JSON 应答（形状照 `channels/cssn.py` 的 docstring）。 |
 | `_row` 函数 | 173 | 112 | — |
 | `_html` 函数 | 177 | 97 | HTML 列表页（每条 = (标准号, 标题, CCS 原文)）。 |
@@ -5249,7 +5287,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_clean_channel_table` 函数 | 27 | 3 | — |
-| `table` 函数 | 34 | 488 | — |
+| `table` 函数 | 34 | 496 | — |
 | `Test覆盖与词表` 类 | 38 | 0 | — |
 | `test_台账每一条都有声明` 函数 | 39 | 0 | — |
 | `test_只许出现五类词` 函数 | 45 | 0 | — |
@@ -5275,7 +5313,7 @@
 |---|---:|---:|---|
 | `FakeTransport` 类 | 22 | 31 | 假传输：记录调用并回放预设的 `(status, body)` 或抛预设异常。 |
 | `__init__` 函数 | 25 | 135 | — |
-| `fetch` 函数 | 30 | 1027 | — |
+| `fetch` 函数 | 30 | 1028 | — |
 | `_clean` 函数 | 38 | 172 | — |
 | `TestClassify` 类 | 44 | 1 | 判据表：这一组就是"有效性"三个字的定义。 |
 | `test_判据表` 函数 | 64 | 0 | — |
@@ -6443,7 +6481,7 @@
 |---|---:|---:|---|
 | `MockBytesTransport` 类 | 14 | 4 | — |
 | `__init__` 函数 | 15 | 135 | — |
-| `fetch` 函数 | 22 | 1027 | — |
+| `fetch` 函数 | 22 | 1028 | — |
 | `fetch_bytes` 函数 | 25 | 9 | — |
 | `announce` 函数 | 31 | 186 | — |
 | `_hit` 函数 | 38 | 25 | — |
@@ -6457,7 +6495,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `summary` 函数 | 43 | 181 | — |
+| `summary` 函数 | 43 | 183 | — |
 | `fact_rows` 函数 | 49 | 13 | — |
 | `lang_rows` 函数 | 54 | 9 | — |
 | `Test产物存在且规模对` 类 | 58 | 0 | — |
@@ -6721,10 +6759,10 @@
 | `_FakeRow` 类 | 25 | 2 | sqlite3.Row 支持按列名取值。 |
 | `_FakeCursor` 类 | 29 | 2 | — |
 | `__init__` 函数 | 30 | 135 | — |
-| `fetchall` 函数 | 33 | 291 | — |
+| `fetchall` 函数 | 33 | 292 | — |
 | `_FakeConn` 类 | 37 | 2 | — |
 | `__init__` 函数 | 38 | 135 | — |
-| `execute` 函数 | 42 | 1645 | — |
+| `execute` 函数 | 42 | 1655 | — |
 | `fake_db` 函数 | 48 | 37 | 把 get_db_connection 换成受控连接。 |
 | `_row` 函数 | 60 | 112 | — |
 | `test_attach_bboxes_fills_bbox_and_page` 函数 | 67 | 1 | — |
@@ -6963,7 +7001,7 @@
 | `_Resp` 类 | 23 | 20 | 最小响应替身：只要 status_code / headers / text / json()。 |
 | `__init__` 函数 | 26 | 135 | — |
 | `raise_for_status` 函数 | 31 | 24 | — |
-| `json` 函数 | 35 | 3581 | — |
+| `json` 函数 | 35 | 3611 | — |
 | `test_looks_like_antibot_detects_challenge` 函数 | 40 | 1 | — |
 | `test_looks_like_antibot_ignores_json` 函数 | 44 | 1 | Content-Type 是 json 就不该被当挑战（即使正文里恰好含那串字）。 |
 | `test_looks_like_antibot_ignores_normal_html` 函数 | 50 | 1 | 非 JSON 声明的响应一律视为被挡（站点有时返回别的 HTML 页，无特征串）。 |
@@ -8351,7 +8389,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `table` 函数 | 31 | 488 | — |
+| `table` 函数 | 31 | 496 | — |
 | `_rows` 函数 | 35 | 33 | — |
 | `Test规则` 类 | 39 | 0 | — |
 | `test_缺省就是五类_顺序按词表` 函数 | 40 | 0 | — |
@@ -8681,7 +8719,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `data_dir` 函数 | 23 | 165 | 把存储重定向到临时目录（KS_DATA_DIR 是 config 与 secret_store 共用的开关）。 |
+| `data_dir` 函数 | 23 | 175 | 把存储重定向到临时目录（KS_DATA_DIR 是 config 与 secret_store 共用的开关）。 |
 | `ExplodingWinreg` 类 | 32 | 3 | 任何属性访问都抛错：证明某条代码路径**一行 winreg 都没碰**。 |
 | `__getattr__` 函数 | 35 | 2 | — |
 | `test_store_path_matches_config_data_dir` 函数 | 40 | 2 | 存储路径规则必须与 config._default_data_dir 一致（两份规则，一条断言钉住）。 |
@@ -8763,7 +8801,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `body` 函数 | 24 | 1611 | — |
+| `body` 函数 | 24 | 1628 | — |
 | `hits` 函数 | 30 | 338 | — |
 | `test_extracts_standard_body_not_year` 函数 | 65 | 1 | — |
 | `test_returns_none_when_no_body` 函数 | 77 | 1 | — |
@@ -8854,8 +8892,8 @@
 |---|---:|---:|---|
 | `FakeChild` 类 | 7 | 5 | 按脚本依次决定退出码的假引擎进程。 |
 | `__init__` 函数 | 10 | 135 | — |
-| `start` 函数 | 16 | 323 | — |
-| `join` 函数 | 19 | 732 | — |
+| `start` 函数 | 16 | 334 | — |
+| `join` 函数 | 19 | 746 | — |
 | `is_alive` 函数 | 24 | 17 | — |
 | `test_supervisor_restarts_then_clean_exit` 函数 | 28 | 1 | — |
 | `test_supervisor_circuit_break` 函数 | 40 | 1 | — |
@@ -9080,7 +9118,7 @@
 | `_clean_announce_state` 函数 | 22 | 1 | 同文件用例共享库：每用例前后清空源配置/扫描状态/已见公告，防串扰。 |
 | `_FakeTransport` 类 | 36 | 13 | 按 URL 返回固定页面。 |
 | `__init__` 函数 | 39 | 135 | — |
-| `fetch` 函数 | 43 | 1027 | — |
+| `fetch` 函数 | 43 | 1028 | — |
 | `_page` 函数 | 48 | 29 | 拼一个最小列表页：<a href>text</a> 序列。 |
 | `_wait_done` 函数 | 54 | 40 | 轮询等待 daemon 扫描线程到终态（done/failed），返回最终 state。 |
 | `test_ann_n01_normalize_url_variants` 函数 | 66 | 1 | 尾斜杠/默认端口/大写 host/追踪参数/fragment 归一为同串 → 同 hash。 |
@@ -9136,7 +9174,7 @@
 | `MockChannelTransport` 类 | 46 | 4 | 表驱动 mock 传输（零联网）：respond 按 seq 弹出、耗尽复用末条。 |
 | `__init__` 函数 | 49 | 135 | — |
 | `_next` 函数 | 55 | 2 | — |
-| `fetch` 函数 | 62 | 1027 | — |
+| `fetch` 函数 | 62 | 1028 | — |
 | `ProbeOutcome` 类 | 78 | 17 | 单轮探测结果：ChannelResult 或归一异常（UPD-1xxx），附上游调用数。 |
 | `_probe_once` 函数 | 87 | 6 | 用该 case 的 mock 矩阵独立构建适配器并探测一次（每轮全新实例）。 |
 | `_bucket_of` 函数 | 99 | 4 | 结果 → 四色桶（04a §4 映射）。 |
@@ -9150,7 +9188,7 @@
 | `_govcn_body` 函数 | 235 | 3 | 真接口响应形状（`searchVO.catMap.*.listVO`）——与 `law_source.govcn_client.parse_rows`。 |
 | `_StubTransport` 类 | 244 | 4 | — |
 | `__init__` 函数 | 245 | 135 | — |
-| `fetch` 函数 | 250 | 1027 | — |
+| `fetch` 函数 | 250 | 1028 | — |
 | `test_govcn_真接口命中_按摘要里的标准号` 函数 | 255 | 0 | **换棒的实证**（R1 的 G6：旧实现只解 mock dict ⇒ 真实网络恒 miss）。 |
 | `test_govcn_真接口空结果算_miss_不算命中` 函数 | 280 | 0 | — |
 | `test_govcn_旧的_mock_契约仍然可用` 函数 | 288 | 0 | 离线 fixture 走的是 mock 分支（`{"announcements": \[...\]}`）——换棒**不许**把它弄坏。 |
@@ -9200,7 +9238,7 @@
 | `_load_fixture` 函数 | 46 | 5 | — |
 | `DiscoverMockTransport` 类 | 50 | 5 | 表驱动 mock 传输（零联网）：按 params.q 包含 case.key 匹配应答。 |
 | `__init__` 函数 | 53 | 135 | — |
-| `fetch` 函数 | 57 | 1027 | — |
+| `fetch` 函数 | 57 | 1028 | — |
 | `test_seed_tree_shape` 函数 | 67 | 1 | 24 大类齐全，每类 3~8 个二级子类，全部节点 source=seed 待扩充。 |
 | `test_classify_broad_safety_asks_questions` 函数 | 83 | 1 | 「我要下载安全的国标」→ 一轮追问 ≤3 问，绝不硬选大类。 |
 | `test_classify_fire_hits_unique_path` 函数 | 95 | 1 | 「消防」→ 唯一命中路径 C/C80 消防。 |
@@ -9231,7 +9269,7 @@
 | `_route` 函数 | 57 | 3 | — |
 | `_parse_no` 函数 | 65 | 2 | — |
 | `starts` 函数 | 72 | 55 | — |
-| `fetch` 函数 | 78 | 1027 | — |
+| `fetch` 函数 | 78 | 1028 | — |
 | `bump_year` 函数 | 114 | 4 | 仅换尾部年代（同主体新版）：GB/T X 0001-2020 → GB/T X 0001-2025。 |
 | `r_eff` 函数 | 120 | 23 | — |
 | `r_new` 函数 | 126 | 1 | — |
@@ -9243,7 +9281,7 @@
 | `cfg_all` 函数 | 187 | 7 | — |
 | `event_rows` 函数 | 194 | 8 | — |
 | `change_events` 函数 | 211 | 20 | — |
-| `t` 函数 | 217 | 3019 | — |
+| `t` 函数 | 217 | 3024 | — |
 | `test_ins_a_01_smoke_five_effective_done` 函数 | 222 | 1 | /INS-A-01 5 号全现行：pending→running→done，checked=total=5，green=5 余 0。 |
 | `test_ins_a_02_concurrency_two_pairwise` 函数 | 250 | 1 | /INS-A-02 峰值并发恒=2，按清单序两两成组推进。 |
 | `test_ins_a_03_pause_resume_monotonic` 函数 | 277 | 1 | /INS-A-03 running 中 pause → paused → resume 续跑，checked 单调不回退。 |
@@ -9388,7 +9426,7 @@
 |---|---:|---:|---|
 | `_FakeTransport` 类 | 10 | 13 | — |
 | `__init__` 函数 | 11 | 135 | — |
-| `fetch` 函数 | 15 | 1027 | — |
+| `fetch` 函数 | 15 | 1028 | — |
 | `test_web_i01_classify_status_priority` 函数 | 42 | 1 | 效力档判定：**先认"征求意见稿"**（标题里同时出现"办法"也要判成仅参考），。 |
 | `test_web_i02_extract_body_text_drops_chrome` 函数 | 65 | 1 | 正文抽取：**去掉导航/脚本/页脚**，只留正文，且段落之间保留换行。 |
 | `test_web_i03_ingest_writes_document_with_source_url` 函数 | 76 | 1 | 真入库：**令/规章**那种有"第X条"的正文走 `law_text` 通道，。 |
@@ -9411,7 +9449,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 524 | 103 | 按 key 载入适配器模块（延迟导入，免得没装的依赖拦住别的站）。 |
+| `load` 函数 | 524 | 107 | 按 key 载入适配器模块（延迟导入，免得没装的依赖拦住别的站）。 |
 
 ### `tools/gov-qa/adapters/_gd_hdjlpt_common.py`（6 个符号）
 
@@ -9444,7 +9482,7 @@
 | `existing_ids` 函数 | 38 | 100 | 读 `data/<site_key>-*.jsonl` 已有 id（供适配器做**续采**用，可选）。 |
 | `_real` 函数 | 59 | 123 | 清洗后**只保留真实内容** —— 把 `null` / `None` / 空串一律当"没有"。 |
 | `clean` 函数 | 73 | 197 | 去标签 + **还原 HTML 实体** + 压空白（答复正文是 HTML 片段）。 |
-| `ts` 函数 | 93 | 61 | 毫秒时间戳 → `YYYY-MM-DD HH:MM:SS`。 |
+| `ts` 函数 | 93 | 62 | 毫秒时间戳 → `YYYY-MM-DD HH:MM:SS`。 |
 | `harvest_igi` 函数 | 102 | 232 | 翻页取列表（仅已答复），逐条取明细拿答复正文，返回统一记录。 |
 
 ### `tools/gov-qa/adapters/_igi_multi.py`（2 个符号）
@@ -12693,7 +12731,7 @@
 | `_missing_cities_detail` 函数 | 44 | 7 | 算「334 市全名单里，数据口径下零记录的有哪些」。 |
 | `_missing_city_count` 函数 | 72 | 2 | 只要总数（给 `--quiet` 用）。 |
 | `_scope_filter` 函数 | 80 | 2 | 口径过滤器（FR-034）。 |
-| `main` 函数 | 96 | 1131 | — |
+| `main` 函数 | 96 | 1140 | — |
 
 ### `tools/gov-qa/coverage.py`（16 个符号）
 
@@ -12726,7 +12764,7 @@
 |---|---:|---:|---|
 | `_load_done` 函数 | 50 | 6 | — |
 | `_safe` 函数 | 73 | 11 | 把字符串转成当前控制台能打印的形式（非 GBK 字符替换掉，绝不抛异常）。 |
-| `main` 函数 | 85 | 1131 | — |
+| `main` 函数 | 85 | 1140 | — |
 
 ### `tools/gov-qa/health.py`（7 个符号）
 
@@ -12740,7 +12778,7 @@
 | `count_duplicate_ids` 函数 | 106 | 5 | 全库重复 id 行数 —— **按 `(source, id)` 全局计数**。 |
 | `collect` 函数 | 138 | 73 | 一次遍历收集全部判据（**一次运行检出全部故障**，SC-009）。 |
 | `build_checks` 函数 | 180 | 9 | 把实测值判成 `(名称, 是否通过, 详情)` 列表。 |
-| `main` 函数 | 200 | 1131 | — |
+| `main` 函数 | 200 | 1140 | — |
 
 ### `tools/gov-qa/measure-locate-rate.py`（4 个符号）
 
@@ -12751,7 +12789,7 @@
 | `norm` 函数 | 65 | 84 | — |
 | `load_lib` 函数 | 69 | 8 | — |
 | `find_std` 函数 | 79 | 11 | — |
-| `main` 函数 | 89 | 1131 | — |
+| `main` 函数 | 89 | 1140 | — |
 
 ### `tools/gov-qa/poll.py`（8 个符号）
 
@@ -12765,7 +12803,7 @@
 | `_should_stop` 函数 | 243 | 3 | 判断是否可以停止翻页（R1 的「翻到已知位置就停」）。 |
 | `_next_value` 函数 | 261 | 3 | 算新水位值。 |
 | `_make_fetch` 函数 | 286 | 2 | 构造 fetch 函数（复用 harvest.py 的会话策略）。 |
-| `main` 函数 | 303 | 1131 | — |
+| `main` 函数 | 303 | 1140 | — |
 | `_run` 函数 | 327 | 73 | — |
 
 ### `tools/gov-qa/probe-ministries.py`（2 个符号）
@@ -12775,7 +12813,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `classify` 函数 | 104 | 45 | — |
-| `main` 函数 | 130 | 1131 | — |
+| `main` 函数 | 130 | 1140 | — |
 
 ### `tools/gov-qa/query.py`（4 个符号）
 
@@ -12786,7 +12824,7 @@
 | `province_of` 函数 | 62 | 9 | 判省 —— **直接复用 `recon/coverage-matrix.py` 的 `province_of(rec)`**，别自己重写。 |
 | `iter_records` 函数 | 75 | 13 | 遍历全部 jsonl。 |
 | `show_stats` 函数 | 87 | 2 | — |
-| `main` 函数 | 118 | 1131 | — |
+| `main` 函数 | 118 | 1140 | — |
 
 ### `tools/gov-qa/recon/ah-column-raw.py`（1 个符号）
 
@@ -12794,7 +12832,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/ah-detail-debug.py`（2 个符号）
 
@@ -12803,7 +12841,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 19 | 197 | — |
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/ah-gap-diagnose.py`（1 个符号）
 
@@ -12811,7 +12849,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/ah-ln-probe.py`（2 个符号）
 
@@ -12820,7 +12858,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 26 | 197 | — |
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/ah-page-diagnose.py`（1 个符号）
 
@@ -12828,7 +12866,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/anhui-column-probe.py`（1 个符号）
 
@@ -12836,7 +12874,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/answer-authenticity-review.py`（1 个符号）
 
@@ -12844,7 +12882,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/answer-pollution-scan.py`（1 个符号）
 
@@ -12852,7 +12890,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 21 | 1131 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/audit-coverage.py`（8 个符号）
 
@@ -12867,7 +12905,7 @@
 | `show_dups` 函数 | 220 | 4 | 重复 id 检测 —— 用来发现「并发写导致重复落盘」。 |
 | `show_targets` 函数 | 278 | 2 | 对比「枚举/接口自报总量」vs「实际落盘量」—— 发现「采了但远未达目标」。 |
 | `show_gate` 函数 | 331 | 9 | 给 `check.sh` 用的**纯 ASCII 机器可读输出**。 |
-| `main` 函数 | 410 | 1131 | — |
+| `main` 函数 | 410 | 1140 | — |
 
 ### `tools/gov-qa/recon/audit-igi-new.py`（1 个符号）
 
@@ -12875,7 +12913,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/audit-igi-prov.py`（1 个符号）
 
@@ -12883,7 +12921,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/audit-prov-fid.py`（1 个符号）
 
@@ -12891,7 +12929,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/build-city-domains.py`（4 个符号）
 
@@ -12901,8 +12939,8 @@
 |---|---:|---:|---|
 | `core_name` 函数 | 66 | 3 | 取「专名」：`昌吉回族自治州` → `昌吉`。 |
 | `candidates` 函数 | 84 | 52 | 返回 `\[(候选域名, via)\]`。 |
-| `probe` 函数 | 102 | 301 | 实测域名是否可达。 |
-| `main` 函数 | 115 | 1131 | — |
+| `probe` 函数 | 102 | 311 | 实测域名是否可达。 |
+| `main` 函数 | 115 | 1140 | — |
 
 ### `tools/gov-qa/recon/build-fid-map.py`（1 个符号）
 
@@ -12910,7 +12948,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/build-netizen-asset.py`（1 个符号）
 
@@ -12918,7 +12956,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/bw-review-export.py`（1 个符号）
 
@@ -12926,7 +12964,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 12 | 1131 | — |
+| `main` 函数 | 12 | 1140 | — |
 
 ### `tools/gov-qa/recon/check-locate-rate-caliber.py`（4 个符号）
 
@@ -12937,7 +12975,7 @@
 | `norm` 函数 | 35 | 84 | — |
 | `load_lib` 函数 | 39 | 8 | — |
 | `find_std2` 函数 | 49 | 2 | 返回 (命中号, 哪一级)：exact / loose / miss。 |
-| `main` 函数 | 60 | 1131 | — |
+| `main` 函数 | 60 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-coverage-from-data.py`（2 个符号）
 
@@ -12946,7 +12984,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_norm` 函数 | 40 | 21 | 归一化市名：去空白、去「地区/自治州/盟」后缀差异尽量保留，缺「市」则补。 |
-| `main` 函数 | 53 | 1131 | — |
+| `main` 函数 | 53 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-hunt.py`（2 个符号）
 
@@ -12955,7 +12993,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `links` 函数 | 42 | 142 | — |
-| `main` 函数 | 53 | 1131 | — |
+| `main` 函数 | 53 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-jact-scan.py`（1 个符号）
 
@@ -12963,7 +13001,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe10.py`（1 个符号）
 
@@ -12971,7 +13009,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe11.py`（1 个符号）
 
@@ -12979,7 +13017,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe12.py`（1 个符号）
 
@@ -12987,7 +13025,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe13.py`（2 个符号）
 
@@ -12995,8 +13033,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe14.py`（2 个符号）
 
@@ -13004,8 +13042,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe15.py`（2 个符号）
 
@@ -13013,8 +13051,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe16.py`（2 个符号）
 
@@ -13022,8 +13060,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe17.py`（2 个符号）
 
@@ -13031,8 +13069,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe18.py`（2 个符号）
 
@@ -13040,8 +13078,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe19.py`（2 个符号）
 
@@ -13049,8 +13087,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe2.py`（1 个符号）
 
@@ -13058,7 +13096,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 44 | 1131 | — |
+| `main` 函数 | 44 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe20.py`（2 个符号）
 
@@ -13066,8 +13104,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe21.py`（2 个符号）
 
@@ -13075,8 +13113,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe22.py`（2 个符号）
 
@@ -13084,8 +13122,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe23.py`（2 个符号）
 
@@ -13093,8 +13131,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe24.py`（2 个符号）
 
@@ -13102,8 +13140,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe25.py`（2 个符号）
 
@@ -13111,8 +13149,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `main` 函数 | 20 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe26.py`（2 个符号）
 
@@ -13120,8 +13158,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 14 | 1460 | — |
-| `main` 函数 | 21 | 1131 | — |
+| `w` 函数 | 14 | 1464 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe27.py`（2 个符号）
 
@@ -13129,8 +13167,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe28.py`（2 个符号）
 
@@ -13138,8 +13176,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe29.py`（2 个符号）
 
@@ -13147,8 +13185,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe3.py`（1 个符号）
 
@@ -13156,7 +13194,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe4.py`（2 个符号）
 
@@ -13165,7 +13203,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `dig` 函数 | 25 | 42 | — |
-| `main` 函数 | 72 | 1131 | — |
+| `main` 函数 | 72 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe5.py`（2 个符号）
 
@@ -13174,7 +13212,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `show` 函数 | 20 | 75 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe6.py`（1 个符号）
 
@@ -13182,7 +13220,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 16 | 1131 | — |
+| `main` 函数 | 16 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe7.py`（1 个符号）
 
@@ -13190,7 +13228,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe8.py`（1 个符号）
 
@@ -13198,7 +13236,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-probe9.py`（1 个符号）
 
@@ -13206,7 +13244,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-js-zj-zjmhww-probe.py`（1 个符号）
 
@@ -13214,7 +13252,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe1.py`（3 个符号）
 
@@ -13222,9 +13260,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 25 | 1460 | — |
-| `fetch` 函数 | 32 | 1027 | — |
-| `main` 函数 | 42 | 1131 | — |
+| `w` 函数 | 25 | 1464 | — |
+| `fetch` 函数 | 32 | 1028 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe10.py`（3 个符号）
 
@@ -13232,9 +13270,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe11.py`（3 个符号）
 
@@ -13242,9 +13280,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
-| `main` 函数 | 31 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe12.py`（3 个符号）
 
@@ -13252,9 +13290,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe13.py`（3 个符号）
 
@@ -13262,9 +13300,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe14.py`（2 个符号）
 
@@ -13272,8 +13310,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 19 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe15.py`（3 个符号）
 
@@ -13281,9 +13319,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe16.py`（2 个符号）
 
@@ -13291,8 +13329,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe17.py`（3 个符号）
 
@@ -13300,9 +13338,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 32 | 1460 | — |
-| `fetch` 函数 | 39 | 1027 | — |
-| `main` 函数 | 50 | 1131 | — |
+| `w` 函数 | 32 | 1464 | — |
+| `fetch` 函数 | 39 | 1028 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe18.py`（3 个符号）
 
@@ -13310,9 +13348,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 56 | 1460 | — |
-| `get` 函数 | 63 | 6333 | — |
-| `main` 函数 | 71 | 1131 | — |
+| `w` 函数 | 56 | 1464 | — |
+| `get` 函数 | 63 | 6394 | — |
+| `main` 函数 | 71 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe19.py`（3 个符号）
 
@@ -13320,9 +13358,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 32 | 1460 | — |
-| `get` 函数 | 39 | 6333 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `w` 函数 | 32 | 1464 | — |
+| `get` 函数 | 39 | 6394 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe2.py`（3 个符号）
 
@@ -13330,9 +13368,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe20.py`（3 个符号）
 
@@ -13340,9 +13378,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 33 | 1460 | — |
-| `get` 函数 | 40 | 6333 | — |
-| `main` 函数 | 47 | 1131 | — |
+| `w` 函数 | 33 | 1464 | — |
+| `get` 函数 | 40 | 6394 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe21.py`（3 个符号）
 
@@ -13350,9 +13388,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 33 | 1460 | — |
-| `get` 函数 | 40 | 6333 | — |
-| `main` 函数 | 47 | 1131 | — |
+| `w` 函数 | 33 | 1464 | — |
+| `get` 函数 | 40 | 6394 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe22.py`（5 个符号）
 
@@ -13360,11 +13398,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 15 | 1460 | — |
-| `get` 函数 | 22 | 6333 | — |
+| `w` 函数 | 15 | 1464 | — |
+| `get` 函数 | 22 | 6394 | — |
 | `scan_href` 函数 | 29 | 2 | — |
 | `raw_scan` 函数 | 49 | 9 | — |
-| `main` 函数 | 68 | 1131 | — |
+| `main` 函数 | 68 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe23.py`（5 个符号）
 
@@ -13372,11 +13410,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dump_js` 函数 | 27 | 5 | — |
 | `dump_html_hrefs` 函数 | 44 | 3 | — |
-| `main` 函数 | 64 | 1131 | — |
+| `main` 函数 | 64 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe24.py`（5 个符号）
 
@@ -13384,11 +13422,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `igi_enum` 函数 | 27 | 4 | — |
 | `hrefs` 函数 | 45 | 17 | — |
-| `main` 函数 | 70 | 1131 | — |
+| `main` 函数 | 70 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe25.py`（5 个符号）
 
@@ -13396,11 +13434,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 14 | 1460 | — |
-| `get` 函数 | 21 | 6333 | — |
+| `w` 函数 | 14 | 1464 | — |
+| `get` 函数 | 21 | 6394 | — |
 | `igi_enum` 函数 | 31 | 4 | — |
 | `inspect` 函数 | 49 | 108 | — |
-| `main` 函数 | 78 | 1131 | — |
+| `main` 函数 | 78 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe26.py`（3 个符号）
 
@@ -13408,9 +13446,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe27.py`（4 个符号）
 
@@ -13418,10 +13456,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
-| `probe` 函数 | 30 | 301 | — |
-| `main` 函数 | 56 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
+| `probe` 函数 | 30 | 311 | — |
+| `main` 函数 | 56 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe28.py`（3 个符号）
 
@@ -13429,9 +13467,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe29.py`（4 个符号）
 
@@ -13439,10 +13477,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `text_of` 函数 | 30 | 5 | — |
-| `main` 函数 | 36 | 1131 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe3.py`（3 个符号）
 
@@ -13450,9 +13488,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 29 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe30.py`（3 个符号）
 
@@ -13460,9 +13498,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe31.py`（5 个符号）
 
@@ -13470,11 +13508,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dec` 函数 | 30 | 86 | — |
-| `strip` 函数 | 37 | 1470 | — |
-| `main` 函数 | 41 | 1131 | — |
+| `strip` 函数 | 37 | 1483 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe32.py`（4 个符号）
 
@@ -13482,10 +13520,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dec` 函数 | 30 | 86 | — |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe33.py`（5 个符号）
 
@@ -13493,11 +13531,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dec` 函数 | 30 | 86 | — |
 | `links` 函数 | 37 | 142 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe34.py`（4 个符号）
 
@@ -13505,10 +13543,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dec` 函数 | 30 | 86 | — |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe35.py`（4 个符号）
 
@@ -13516,10 +13554,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 14 | 1460 | — |
-| `get` 函数 | 21 | 6333 | — |
+| `w` 函数 | 14 | 1464 | — |
+| `get` 函数 | 21 | 6394 | — |
 | `dec` 函数 | 31 | 86 | — |
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe36.py`（4 个符号）
 
@@ -13527,10 +13565,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `dec` 函数 | 30 | 86 | — |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe37.py`（5 个符号）
 
@@ -13538,11 +13576,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `post` 函数 | 30 | 506 | — |
 | `dec` 函数 | 40 | 86 | — |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe38.py`（5 个符号）
 
@@ -13550,11 +13588,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `post` 函数 | 30 | 506 | — |
 | `dec` 函数 | 40 | 86 | — |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe39.py`（3 个符号）
 
@@ -13562,9 +13600,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
+| `w` 函数 | 13 | 1464 | — |
 | `dec` 函数 | 20 | 86 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe4.py`（3 个符号）
 
@@ -13572,9 +13610,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe40.py`（3 个符号）
 
@@ -13582,9 +13620,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
+| `w` 函数 | 13 | 1464 | — |
 | `dec` 函数 | 20 | 86 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe41.py`（3 个符号）
 
@@ -13592,9 +13630,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
+| `w` 函数 | 13 | 1464 | — |
 | `dec` 函数 | 20 | 86 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe42.py`（5 个符号）
 
@@ -13602,11 +13640,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 15 | 1460 | — |
-| `get` 函数 | 22 | 6333 | — |
+| `w` 函数 | 15 | 1464 | — |
+| `get` 函数 | 22 | 6394 | — |
 | `dec` 函数 | 33 | 86 | — |
-| `probe` 函数 | 40 | 301 | — |
-| `main` 函数 | 57 | 1131 | — |
+| `probe` 函数 | 40 | 311 | — |
+| `main` 函数 | 57 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe43.py`（3 个符号）
 
@@ -13614,9 +13652,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 15 | 1460 | — |
+| `w` 函数 | 15 | 1464 | — |
 | `dec` 函数 | 22 | 86 | — |
-| `main` 函数 | 29 | 1131 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe44.py`（3 个符号）
 
@@ -13624,9 +13662,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 16 | 1460 | — |
+| `w` 函数 | 16 | 1464 | — |
 | `dec` 函数 | 23 | 86 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe45.py`（2 个符号）
 
@@ -13634,8 +13672,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 24 | 1460 | — |
-| `main` 函数 | 31 | 1131 | — |
+| `w` 函数 | 24 | 1464 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe5.py`（3 个符号）
 
@@ -13643,9 +13681,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe6.py`（3 个符号）
 
@@ -13653,9 +13691,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe7.py`（4 个符号）
 
@@ -13663,10 +13701,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 13 | 1460 | — |
-| `get` 函数 | 20 | 6333 | — |
+| `w` 函数 | 13 | 1464 | — |
+| `get` 函数 | 20 | 6394 | — |
 | `links` 函数 | 31 | 142 | — |
-| `main` 函数 | 40 | 1131 | — |
+| `main` 函数 | 40 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe8.py`（3 个符号）
 
@@ -13674,9 +13712,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/city-sc-probe9.py`（3 个符号）
 
@@ -13684,9 +13722,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `w` 函数 | 12 | 1460 | — |
-| `get` 函数 | 19 | 6333 | — |
-| `main` 函数 | 30 | 1131 | — |
+| `w` 函数 | 12 | 1464 | — |
+| `get` 函数 | 19 | 6394 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/coverage-by-level.py`（3 个符号）
 
@@ -13696,7 +13734,7 @@
 |---|---:|---:|---|
 | `_is_province` 函数 | 23 | 7 | — |
 | `level_of` 函数 | 27 | 2 | — |
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `tools/gov-qa/recon/coverage-matrix.py`（3 个符号）
 
@@ -13706,7 +13744,7 @@
 |---|---:|---:|---|
 | `_is_province` 函数 | 68 | 7 | — |
 | `province_of` 函数 | 76 | 9 | — |
-| `main` 函数 | 95 | 1131 | — |
+| `main` 函数 | 95 | 1140 | — |
 
 ### `tools/gov-qa/recon/dedup-data.py`（1 个符号）
 
@@ -13714,7 +13752,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `tools/gov-qa/recon/dept-hd-dig.py`（2 个符号）
 
@@ -13723,7 +13761,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `dig` 函数 | 40 | 42 | — |
-| `main` 函数 | 73 | 1131 | — |
+| `main` 函数 | 73 | 1140 | — |
 
 ### `tools/gov-qa/recon/dept-hd-links.py`（1 个符号）
 
@@ -13731,7 +13769,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 12 | 1131 | — |
+| `main` 函数 | 12 | 1140 | — |
 
 ### `tools/gov-qa/recon/df-datatype-diagnose.py`（6 个符号）
 
@@ -13743,8 +13781,8 @@
 | `__init__` 函数 | 27 | 135 | — |
 | `post` 函数 | 30 | 506 | — |
 | `fetch_detail` 函数 | 34 | 8 | — |
-| `dump` 函数 | 44 | 51 | — |
-| `main` 函数 | 52 | 1131 | — |
+| `dump` 函数 | 44 | 55 | — |
+| `main` 函数 | 52 | 1140 | — |
 
 ### `tools/gov-qa/recon/df-fid-target-test.py`（1 个符号）
 
@@ -13752,7 +13790,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 21 | 1131 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/df-loop.py`（2 个符号）
 
@@ -13761,7 +13799,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `log` 函数 | 30 | 94 | — |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/df-verify-fixed.py`（1 个符号）
 
@@ -13769,7 +13807,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 13 | 1131 | — |
+| `main` 函数 | 13 | 1140 | — |
 
 ### `tools/gov-qa/recon/dig-hd-pages.py`（2 个符号）
 
@@ -13778,7 +13816,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `dig_page` 函数 | 33 | 2 | 从一个页面里挖出全部接口线索。 |
-| `main` 函数 | 47 | 1131 | — |
+| `main` 函数 | 47 | 1140 | — |
 
 ### `tools/gov-qa/recon/dig2-js.py`（1 个符号）
 
@@ -13786,7 +13824,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/field-audit.py`（1 个符号）
 
@@ -13794,7 +13832,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `tools/gov-qa/recon/fix-mohurd-ids.py`（1 个符号）
 
@@ -13802,7 +13840,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/fix-rd-reg.py`（1 个符号）
 
@@ -13810,7 +13848,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/fujian-detail-link.py`（1 个符号）
 
@@ -13818,7 +13856,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/fujian-html-grep.py`（1 个符号）
 
@@ -13826,7 +13864,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 14 | 1131 | — |
+| `main` 函数 | 14 | 1140 | — |
 
 ### `tools/gov-qa/recon/fujian-list-module.py`（1 个符号）
 
@@ -13834,7 +13872,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/fujian-tzxx-dig.py`（1 个符号）
 
@@ -13842,7 +13880,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `tools/gov-qa/recon/gate-quality.py`（11 个符号）
 
@@ -13860,7 +13898,7 @@
 | `_per_source_rates` 函数 | 416 | 2 | `{source: {total, dup_rate}}` —— 棘轮的比较单位。 |
 | `_load_baseline` 函数 | 421 | 12 | — |
 | `_save_baseline` 函数 | 428 | 6 | 记基线。 |
-| `main` 函数 | 465 | 1131 | — |
+| `main` 函数 | 465 | 1140 | — |
 
 ### `tools/gov-qa/recon/gd-dept-probe.py`（1 个符号）
 
@@ -13868,7 +13906,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/gd-dir-page.py`（1 个符号）
 
@@ -13876,7 +13914,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `tools/gov-qa/recon/gd-domain-harvest.py`（5 个符号）
 
@@ -13888,7 +13926,7 @@
 | `__init__` 函数 | 38 | 135 | — |
 | `post` 函数 | 41 | 506 | — |
 | `collect_domains` 函数 | 45 | 2 | 域名 → 部门名（从门户页面链接锚文本取）。 |
-| `main` 函数 | 70 | 1131 | — |
+| `main` 函数 | 70 | 1140 | — |
 
 ### `tools/gov-qa/recon/gd-portal-nav.py`（1 个符号）
 
@@ -13896,7 +13934,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-channel-table.py`（6 个符号）
 
@@ -13908,7 +13946,7 @@
 | `render` 函数 | 72 | 24 | — |
 | `_stable_part` 函数 | 107 | 7 | 把「已落盘」一列抹掉后的表 —— `--check` 的比对基准。 |
 | `splice` 函数 | 126 | 4 | 把受管区块换掉，**区块之外一个字不动**。 |
-| `main` 函数 | 135 | 1131 | — |
+| `main` 函数 | 135 | 1140 | — |
 | `_block_of` 函数 | 160 | 5 | 取出受管区块的内容（不含标记行）。 |
 
 ### `tools/gov-qa/recon/gen-gd-adapters.py`（1 个符号）
@@ -13917,7 +13955,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 54 | 1131 | — |
+| `main` 函数 | 54 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-gd-city-adapters.py`（1 个符号）
 
@@ -13925,7 +13963,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 82 | 1131 | — |
+| `main` 函数 | 82 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-gz-igi-adapters.py`（1 个符号）
 
@@ -13933,7 +13971,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 125 | 1131 | — |
+| `main` 函数 | 125 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-jl-igi-adapters.py`（1 个符号）
 
@@ -13941,7 +13979,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 110 | 1131 | — |
+| `main` 函数 | 110 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-sc-zwfw-city-adapters.py`（1 个符号）
 
@@ -13949,7 +13987,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 77 | 1131 | — |
+| `main` 函数 | 77 | 1140 | — |
 
 ### `tools/gov-qa/recon/gen-zj-mhww-city-adapters.py`（1 个符号）
 
@@ -13957,7 +13995,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 76 | 1131 | — |
+| `main` 函数 | 76 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs-hb-hub-probe.py`（1 个符号）
 
@@ -13965,13 +14003,13 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs-lx-direct.py`（4 个符号）
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `F` 类 | 13 | 200 | — |
+| `F` 类 | 13 | 201 | — |
 | `__init__` 函数 | 14 | 135 | — |
 | `__call__` 函数 | 17 | 12 | — |
 | `post` 函数 | 20 | 506 | — |
@@ -13982,8 +14020,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 15 | 6333 | — |
-| `main` 函数 | 29 | 1131 | — |
+| `get` 函数 | 15 | 6394 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-baiyin-deep.py`（2 个符号）
 
@@ -13991,8 +14029,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `dump` 函数 | 16 | 51 | — |
-| `main` 函数 | 39 | 1131 | — |
+| `dump` 函数 | 16 | 55 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-baiyin-detail.py`（1 个符号）
 
@@ -14000,7 +14038,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 16 | 1131 | — |
+| `main` 函数 | 16 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-dingxi-zhangye.py`（3 个符号）
 
@@ -14010,7 +14048,7 @@
 |---|---:|---:|---|
 | `dingxi` 函数 | 14 | 11 | — |
 | `zhangye` 函数 | 33 | 32 | — |
-| `main` 函数 | 48 | 1131 | — |
+| `main` 函数 | 48 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-longnan-cmp.py`（3 个符号）
 
@@ -14020,7 +14058,7 @@
 |---|---:|---:|---|
 | `clean` 函数 | 15 | 197 | — |
 | `list_url` 函数 | 19 | 20 | — |
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-longnan-deep.py`（1 个符号）
 
@@ -14028,7 +14066,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/gs4-probe.py`（4 个符号）
 
@@ -14039,7 +14077,7 @@
 | `show` 函数 | 15 | 75 | — |
 | `probe_baiyin` 函数 | 21 | 2 | — |
 | `probe_longnan` 函数 | 36 | 2 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/gz-xjgs.py`（2 个符号）
 
@@ -14048,7 +14086,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 22 | 197 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/haiyun-spread-probe.py`（1 个符号）
 
@@ -14056,7 +14094,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/handover-inventory.py`（1 个符号）
 
@@ -14064,7 +14102,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 13 | 1131 | — |
+| `main` 函数 | 13 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-adapters-probe.py`（4 个符号）
 
@@ -14075,7 +14113,7 @@
 | `clean` 函数 | 28 | 197 | — |
 | `probe_szj` 函数 | 32 | 2 | — |
 | `probe_czt` 函数 | 76 | 2 | — |
-| `main` 函数 | 130 | 1131 | — |
+| `main` 函数 | 130 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-adapters-selftest.py`（6 个符号）
 
@@ -14088,7 +14126,7 @@
 | `__call__` 函数 | 28 | 12 | — |
 | `post` 函数 | 31 | 506 | — |
 | `_safe` 函数 | 35 | 11 | — |
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-hi-probe.py`（2 个符号）
 
@@ -14097,7 +14135,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `save` 函数 | 31 | 57 | — |
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-probe2.py`（1 个符号）
 
@@ -14105,7 +14143,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-probe3.py`（1 个符号）
 
@@ -14113,7 +14151,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-probe4.py`（1 个符号）
 
@@ -14121,7 +14159,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-probe5.py`（1 个符号）
 
@@ -14129,7 +14167,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/heb-probe6.py`（1 个符号）
 
@@ -14137,7 +14175,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/hi-probe2.py`（1 个符号）
 
@@ -14145,7 +14183,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/hi-probe3.py`（1 个符号）
 
@@ -14153,7 +14191,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/hi-probe4.py`（1 个符号）
 
@@ -14161,7 +14199,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/hunan-verify.py`（2 个符号）
 
@@ -14170,7 +14208,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `mail_list` 函数 | 34 | 7 | — |
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-chunked-harvest.py`（6 个符号）
 
@@ -14183,7 +14221,7 @@
 | `__call__` 函数 | 53 | 12 | — |
 | `post` 函数 | 56 | 506 | — |
 | `load_done` 函数 | 60 | 2 | — |
-| `main` 函数 | 71 | 1131 | — |
+| `main` 函数 | 71 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-chunked.py`（10 个符号）
 
@@ -14195,7 +14233,7 @@
 | `__init__` 函数 | 55 | 135 | — |
 | `__call__` 函数 | 58 | 12 | — |
 | `post` 函数 | 61 | 506 | — |
-| `main` 函数 | 65 | 1131 | — |
+| `main` 函数 | 65 | 1140 | — |
 | `_abs_pages` 函数 | 231 | 2 | 该 siteId 的**绝对页数上界**。 |
 | `_page_windows` 函数 | 243 | 2 | 把 `1..abs_pages` 切成页窗口。 |
 | `_load_progress` 函数 | 256 | 2 | 读跨轮页进度。 |
@@ -14209,7 +14247,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_existing` 函数 | 53 | 2 | — |
-| `main` 函数 | 65 | 1131 | — |
+| `main` 函数 | 65 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-dig-2.py`（2 个符号）
 
@@ -14218,7 +14256,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `find_params` 函数 | 35 | 7 | — |
-| `main` 函数 | 42 | 1131 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-dig.py`（3 个符号）
 
@@ -14228,7 +14266,7 @@
 |---|---:|---:|---|
 | `find_params` 函数 | 45 | 7 | — |
 | `try_api` 函数 | 52 | 4 | — |
-| `main` 函数 | 72 | 1131 | — |
+| `main` 函数 | 72 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-geo-sample.py`（1 个符号）
 
@@ -14236,7 +14274,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-hunt.py`（3 个符号）
 
@@ -14246,7 +14284,7 @@
 |---|---:|---:|---|
 | `scan_js` 函数 | 56 | 2 | 抓指纹页链出的同域 .js（至多 3 个），把其中的 IGI 参数并入。 |
 | `try_api` 函数 | 84 | 4 | 对该参数组合试各个候选 base，返回第一个 200 且含 datas 的结果。 |
-| `main` 函数 | 104 | 1131 | — |
+| `main` 函数 | 104 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-other-depts.py`（1 个符号）
 
@@ -14254,7 +14292,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-portal-sweep.py`（1 个符号）
 
@@ -14262,7 +14300,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 107 | 1131 | — |
+| `main` 函数 | 107 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-siteid-scan.py`（2 个符号）
 
@@ -14270,8 +14308,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `probe` 函数 | 68 | 301 | — |
-| `main` 函数 | 84 | 1131 | — |
+| `probe` 函数 | 68 | 311 | — |
+| `main` 函数 | 84 | 1140 | — |
 
 ### `tools/gov-qa/recon/igi-spread-scan.py`（1 个符号）
 
@@ -14279,7 +14317,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-ajax-full.py`（1 个符号）
 
@@ -14287,7 +14325,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-api-call.py`（1 个符号）
 
@@ -14295,7 +14333,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 19 | 1131 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-groupid-roster.py`（2 个符号）
 
@@ -14303,8 +14341,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `url` 函数 | 46 | 1553 | — |
-| `main` 函数 | 54 | 1131 | — |
+| `url` 函数 | 46 | 1557 | — |
+| `main` 函数 | 54 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-lyxd-api-call.py`（1 个符号）
 
@@ -14312,7 +14350,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-lyxd-api.py`（2 个符号）
 
@@ -14321,7 +14359,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 21 | 197 | — |
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-lyxd.py`（2 个符号）
 
@@ -14330,7 +14368,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 22 | 197 | — |
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/jl-nx-probe.py`（2 个符号）
 
@@ -14339,7 +14377,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 30 | 197 | — |
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `tools/gov-qa/recon/jx-dept-probe.py`（3 个符号）
 
@@ -14349,7 +14387,7 @@
 |---|---:|---:|---|
 | `load_depts` 函数 | 37 | 4 | — |
 | `query` 函数 | 46 | 621 | — |
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `tools/gov-qa/recon/jx-dept-sample.py`（2 个符号）
 
@@ -14358,7 +14396,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `page` 函数 | 49 | 1275 | — |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `tools/gov-qa/recon/jx-hygz-diag.py`（3 个符号）
 
@@ -14368,7 +14406,7 @@
 |---|---:|---:|---|
 | `fetch_page` 函数 | 31 | 23 | — |
 | `why` 函数 | 40 | 238 | 复算 jx_zf._one 的每一步，返回 (原因, 详情)。 |
-| `main` 函数 | 74 | 1131 | — |
+| `main` 函数 | 74 | 1140 | — |
 
 ### `tools/gov-qa/recon/jx-hygz-probe.py`（2 个符号）
 
@@ -14377,7 +14415,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `query` 函数 | 38 | 621 | — |
-| `main` 函数 | 54 | 1131 | — |
+| `main` 函数 | 54 | 1140 | — |
 
 ### `tools/gov-qa/recon/jx-mailbox-probe.py`（4 个符号）
 
@@ -14388,7 +14426,7 @@
 | `load_depts` 函数 | 46 | 4 | — |
 | `get_form` 函数 | 55 | 2 | — |
 | `try_list` 函数 | 71 | 2 | — |
-| `main` 函数 | 100 | 1131 | — |
+| `main` 函数 | 100 | 1140 | — |
 
 ### `tools/gov-qa/recon/label-accuracy.py`（5 个符号）
 
@@ -14400,7 +14438,7 @@
 | `_source` 函数 | 65 | 2 | — |
 | `cmd_sample` 函数 | 69 | 2 | 分层抽样：按 (标签, 标签来源) 分层，保证每层都有样本。 |
 | `cmd_score` 函数 | 119 | 2 | 读人工核对结果，算真实准确率。 |
-| `main` 函数 | 179 | 1131 | — |
+| `main` 函数 | 179 | 1140 | — |
 
 ### `tools/gov-qa/recon/label-classify.py`（10 个符号）
 
@@ -14417,7 +14455,7 @@
 | `do_validate` 函数 | 161 | 2 | — |
 | `load_or_train` 函数 | 199 | 2 | 返回已拟合的 pipeline。 |
 | `do_apply` 函数 | 230 | 2 | — |
-| `main` 函数 | 300 | 1131 | — |
+| `main` 函数 | 300 | 1140 | — |
 
 ### `tools/gov-qa/recon/label-coverage.py`（3 个符号）
 
@@ -14427,7 +14465,7 @@
 |---|---:|---:|---|
 | `read_all` 函数 | 49 | 4 | — |
 | `msg_type` 函数 | 61 | 49 | — |
-| `main` 函数 | 72 | 1131 | — |
+| `main` 函数 | 72 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-band-read.py`（1 个符号）
 
@@ -14435,7 +14473,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 12 | 1131 | — |
+| `main` 函数 | 12 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-chunk-map.py`（1 个符号）
 
@@ -14443,7 +14481,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 14 | 1131 | — |
+| `main` 函数 | 14 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-city-band-scan.py`（1 个符号）
 
@@ -14451,7 +14489,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-cursor-probe.py`（1 个符号）
 
@@ -14459,7 +14497,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-fid-band-scan.py`（1 个符号）
 
@@ -14467,7 +14505,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-fid-dense-scan.py`（2 个符号）
 
@@ -14475,8 +14513,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `probe` 函数 | 64 | 301 | 探一个 fid。 |
-| `main` 函数 | 98 | 1131 | — |
+| `probe` 函数 | 64 | 311 | 探一个 fid。 |
+| `main` 函数 | 98 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-fid-inventory.py`（1 个符号）
 
@@ -14484,7 +14522,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 15 | 1131 | — |
+| `main` 函数 | 15 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-fid-map-build.py`（1 个符号）
 
@@ -14492,7 +14530,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-js-fetch.py`（1 个符号）
 
@@ -14500,7 +14538,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-js-fetch2.py`（1 个符号）
 
@@ -14508,7 +14546,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-province-fid-map.py`（2 个符号）
 
@@ -14517,7 +14555,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `fetch_one` 函数 | 27 | 2 | — |
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-province-fid-scan.py`（1 个符号）
 
@@ -14525,7 +14563,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-province-fid.py`（1 个符号）
 
@@ -14533,7 +14571,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 22 | 1131 | — |
+| `main` 函数 | 22 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-province-fids-build.py`（1 个符号）
 
@@ -14541,7 +14579,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-province-filter-probe.py`（1 个符号）
 
@@ -14549,7 +14587,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 30 | 1131 | — |
+| `main` 函数 | 30 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-substation-probe.py`（1 个符号）
 
@@ -14557,7 +14595,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/liuyan-substation-probe2.py`（1 个符号）
 
@@ -14565,7 +14603,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `tools/gov-qa/recon/ln-lsxfw-raw.py`（2 个符号）
 
@@ -14574,7 +14612,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 20 | 197 | — |
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/mem-detail-inspect.py`（1 个符号）
 
@@ -14582,7 +14620,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 21 | 1131 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/mem-structure-locate.py`（2 个符号）
 
@@ -14591,7 +14629,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `strip_scripts` 函数 | 11 | 2 | — |
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/mem-verify-fix.py`（1 个符号）
 
@@ -14599,7 +14637,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 15 | 1131 | — |
+| `main` 函数 | 15 | 1140 | — |
 
 ### `tools/gov-qa/recon/migrate-mohurd-q.py`（3 个符号）
 
@@ -14609,7 +14647,7 @@
 |---|---:|---:|---|
 | `_key` 函数 | 42 | 6 | 匹配键：**不含 question**（那正是要修的字段）。 |
 | `_new_id` 函数 | 49 | 5 | 与 adapter 一致的新 id 算法（含 question）。 |
-| `main` 函数 | 59 | 1131 | — |
+| `main` 函数 | 59 | 1140 | — |
 
 ### `tools/gov-qa/recon/missing-cities.py`（1 个符号）
 
@@ -14617,7 +14655,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/mw-summary.py`（1 个符号）
 
@@ -14625,7 +14663,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/nat-cnipa-probe.py`（2 个符号）
 
@@ -14634,7 +14672,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `txt` 函数 | 26 | 964 | — |
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/nat-smoke.py`（5 个符号）
 
@@ -14642,11 +14680,11 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `F` 类 | 26 | 200 | — |
+| `F` 类 | 26 | 201 | — |
 | `__init__` 函数 | 27 | 135 | — |
 | `__call__` 函数 | 30 | 12 | — |
 | `post` 函数 | 33 | 506 | — |
-| `main` 函数 | 37 | 1131 | — |
+| `main` 函数 | 37 | 1140 | — |
 
 ### `tools/gov-qa/recon/other-province-hdjlpt-probe.py`（1 个符号）
 
@@ -14654,14 +14692,14 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 42 | 1131 | — |
+| `main` 函数 | 42 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-ah-wuhu.py`（3 个符号）
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 21 | 6333 | — |
-| `dump` 函数 | 32 | 51 | — |
+| `get` 函数 | 21 | 6394 | — |
+| `dump` 函数 | 32 | 55 | — |
 | `show_home` 函数 | 57 | 3 | — |
 
 ### `tools/gov-qa/recon/probe-city-api2.py`（2 个符号）
@@ -14671,7 +14709,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_head` 函数 | 40 | 3 | — |
-| `main` 函数 | 44 | 1131 | — |
+| `main` 函数 | 44 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-city-hd-api.py`（3 个符号）
 
@@ -14681,7 +14719,7 @@
 |---|---:|---:|---|
 | `_t` 函数 | 44 | 119 | — |
 | `dump_one` 函数 | 48 | 2 | — |
-| `main` 函数 | 93 | 1131 | — |
+| `main` 函数 | 93 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-city-interact.py`（1 个符号）
 
@@ -14689,7 +14727,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 61 | 1131 | — |
+| `main` 函数 | 61 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-city-middleware.py`（5 个符号）
 
@@ -14701,7 +14739,7 @@
 | `classify` 函数 | 88 | 45 | — |
 | `find_hd_link` 函数 | 96 | 2 | 从页面里抽「互动类」栏目入口（绝对化）。 |
 | `work` 函数 | 112 | 121 | — |
-| `main` 函数 | 145 | 1131 | — |
+| `main` 函数 | 145 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-endpoint.py`（3 个符号）
 
@@ -14711,7 +14749,7 @@
 |---|---:|---:|---|
 | `_clean` 函数 | 44 | 172 | — |
 | `one` 函数 | 48 | 57 | — |
-| `main` 函数 | 91 | 1131 | — |
+| `main` 函数 | 91 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gansu-waf.py`（1 个符号）
 
@@ -14719,7 +14757,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-12345.py`（2 个符号）
 
@@ -14728,7 +14766,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_probe` 函数 | 74 | 11 | — |
-| `main` 函数 | 111 | 1131 | — |
+| `main` 函数 | 111 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-city-hdjlpt.py`（4 个符号）
 
@@ -14739,7 +14777,7 @@
 | `_text` 函数 | 50 | 144 | — |
 | `_token` 函数 | 54 | 7 | — |
 | `probe_city` 函数 | 62 | 2 | — |
-| `main` 函数 | 111 | 1131 | — |
+| `main` 函数 | 111 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-hd-403.py`（2 个符号）
 
@@ -14748,7 +14786,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_hd_links` 函数 | 58 | 2 | 从首页 HTML 里挑出「疑似互动栏目」的链接。 |
-| `main` 函数 | 81 | 1131 | — |
+| `main` 函数 | 81 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-hd-entries.py`（2 个符号）
 
@@ -14757,7 +14795,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_links` 函数 | 57 | 2 | 返回 (href, 锚文本)。 |
-| `main` 函数 | 80 | 1131 | — |
+| `main` 函数 | 80 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-hd-params.py`（3 个符号）
 
@@ -14767,7 +14805,7 @@
 |---|---:|---:|---|
 | `_token` 函数 | 72 | 7 | — |
 | `_try` 函数 | 86 | 2 | — |
-| `main` 函数 | 128 | 1131 | — |
+| `main` 函数 | 128 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-gd-hd-publist.py`（3 个符号）
 
@@ -14777,7 +14815,7 @@
 |---|---:|---:|---|
 | `_token_from` 函数 | 53 | 2 | — |
 | `_post_list` 函数 | 66 | 13 | — |
-| `main` 函数 | 111 | 1131 | — |
+| `main` 函数 | 111 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-igi-cities.py`（1 个符号）
 
@@ -14785,7 +14823,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 49 | 1131 | — |
+| `main` 函数 | 49 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-igi-context.py`（2 个符号）
 
@@ -14794,7 +14832,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_ctx` 函数 | 61 | 2 | — |
-| `main` 函数 | 67 | 1131 | — |
+| `main` 函数 | 67 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-api.py`（1 个符号）
 
@@ -14802,7 +14840,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 29 | 1131 | — |
+| `main` 函数 | 29 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-api2.py`（1 个符号）
 
@@ -14810,7 +14848,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 15 | 1131 | — |
+| `main` 函数 | 15 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-api3.py`（1 个符号）
 
@@ -14818,7 +14856,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 19 | 1131 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-js.py`（1 个符号）
 
@@ -14826,7 +14864,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 17 | 1131 | — |
+| `main` 函数 | 17 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-js2.py`（1 个符号）
 
@@ -14834,7 +14872,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 21 | 1131 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-lasa-lxxd.py`（1 个符号）
 
@@ -14842,7 +14880,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 25 | 1131 | — |
+| `main` 函数 | 25 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-longxun-cities.py`（5 个符号）
 
@@ -14853,8 +14891,8 @@
 | `_num` 函数 | 59 | 13 | — |
 | `_strv` 函数 | 64 | 3 | — |
 | `_text` 函数 | 69 | 144 | — |
-| `probe` 函数 | 73 | 301 | — |
-| `main` 函数 | 143 | 1131 | — |
+| `probe` 函数 | 73 | 311 | — |
+| `main` 函数 | 143 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-missing-cities.py`（1 个符号）
 
@@ -14862,7 +14900,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 63 | 1131 | — |
+| `main` 函数 | 63 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-mohurd-q.py`（2 个符号）
 
@@ -14871,7 +14909,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `fetch_page` 函数 | 28 | 23 | — |
-| `main` 函数 | 41 | 1131 | — |
+| `main` 函数 | 41 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-npc.py`（1 个符号）
 
@@ -14879,7 +14917,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 31 | 1131 | — |
+| `main` 函数 | 31 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-npc2.py`（1 个符号）
 
@@ -14887,7 +14925,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-post-list.py`（2 个符号）
 
@@ -14896,7 +14934,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_t` 函数 | 67 | 119 | — |
-| `main` 函数 | 71 | 1131 | — |
+| `main` 函数 | 71 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-province-city-links.py`（3 个符号）
 
@@ -14906,7 +14944,7 @@
 |---|---:|---:|---|
 | `_text` 函数 | 68 | 144 | — |
 | `_host` 函数 | 72 | 4 | — |
-| `main` 函数 | 77 | 1131 | — |
+| `main` 函数 | 77 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-provinces.py`（4 个符号）
 
@@ -14917,7 +14955,7 @@
 | `_get` 函数 | 104 | 16 | GET 一个 URL。 |
 | `_status` 函数 | 113 | 6 | — |
 | `mine_channelid` 函数 | 117 | 2 | — |
-| `main` 函数 | 126 | 1131 | — |
+| `main` 函数 | 126 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-thin-provinces.py`（1 个符号）
 
@@ -14925,7 +14963,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-tianshui-page.py`（1 个符号）
 
@@ -14933,7 +14971,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 27 | 1131 | — |
+| `main` 函数 | 27 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-tianshui.py`（1 个符号）
 
@@ -14941,7 +14979,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 35 | 1131 | — |
+| `main` 函数 | 35 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-tianshui2.py`（2 个符号）
 
@@ -14950,7 +14988,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `_plain` 函数 | 23 | 4 | — |
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-tianshui3.py`（1 个符号）
 
@@ -14958,7 +14996,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-ts-lasa.py`（1 个符号）
 
@@ -14966,7 +15004,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 32 | 1131 | — |
+| `main` 函数 | 32 | 1140 | — |
 
 ### `tools/gov-qa/recon/probe-xizang-xf.py`（1 个符号）
 
@@ -14974,7 +15012,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 22 | 1131 | — |
+| `main` 函数 | 22 | 1140 | — |
 
 ### `tools/gov-qa/recon/prov-platform-probe.py`（3 个符号）
 
@@ -14982,9 +15020,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `fetch` 函数 | 89 | 1027 | — |
+| `fetch` 函数 | 89 | 1028 | — |
 | `scan` 函数 | 98 | 180 | — |
-| `main` 函数 | 113 | 1131 | — |
+| `main` 函数 | 113 | 1140 | — |
 
 ### `tools/gov-qa/recon/province-platform-hunt-dig.py`（5 个符号）
 
@@ -14996,7 +15034,7 @@
 | `fp_of` 函数 | 64 | 3 | — |
 | `links_of` 函数 | 75 | 2 | — |
 | `dig` 函数 | 87 | 42 | — |
-| `main` 函数 | 131 | 1131 | — |
+| `main` 函数 | 131 | 1140 | — |
 
 ### `tools/gov-qa/recon/province-platform-hunt-raw.py`（1 个符号）
 
@@ -15004,7 +15042,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/province-platform-hunt-test.py`（2 个符号）
 
@@ -15013,7 +15051,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `show` 函数 | 21 | 75 | — |
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `tools/gov-qa/recon/province-platform-hunt.py`（6 个符号）
 
@@ -15026,7 +15064,7 @@
 | `_text` 函数 | 99 | 144 | — |
 | `find_links` 函数 | 103 | 3 | — |
 | `fingerprint` 函数 | 118 | 11 | — |
-| `main` 函数 | 127 | 1131 | — |
+| `main` 函数 | 127 | 1140 | — |
 
 ### `tools/gov-qa/recon/reg-gansu.py`（1 个符号）
 
@@ -15034,7 +15072,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 21 | 1131 | — |
+| `main` 函数 | 21 | 1140 | — |
 
 ### `tools/gov-qa/recon/reg-lasa.py`（1 个符号）
 
@@ -15042,7 +15080,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 19 | 1131 | — |
+| `main` 函数 | 19 | 1140 | — |
 
 ### `tools/gov-qa/recon/reg-rd-adapters.py`（1 个符号）
 
@@ -15050,7 +15088,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 24 | 1131 | — |
+| `main` 函数 | 24 | 1140 | — |
 
 ### `tools/gov-qa/recon/repair-empty-questions.py`（3 个符号）
 
@@ -15060,7 +15098,7 @@
 |---|---:|---:|---|
 | `_clean` 函数 | 65 | 172 | — |
 | `extract` 函数 | 70 | 18 | 从明细页里抠问题正文。 |
-| `main` 函数 | 80 | 1131 | — |
+| `main` 函数 | 80 | 1140 | — |
 
 ### `tools/gov-qa/recon/sc-detail-debug.py`（2 个符号）
 
@@ -15069,7 +15107,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `clean` 函数 | 22 | 197 | — |
-| `main` 函数 | 26 | 1131 | — |
+| `main` 函数 | 26 | 1140 | — |
 
 ### `tools/gov-qa/recon/sc-knowledge-detail.py`（1 个符号）
 
@@ -15077,7 +15115,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 20 | 1131 | — |
+| `main` 函数 | 20 | 1140 | — |
 
 ### `tools/gov-qa/recon/sc-mailbox-probe.py`（1 个符号）
 
@@ -15085,7 +15123,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 23 | 1131 | — |
+| `main` 函数 | 23 | 1140 | — |
 
 ### `tools/gov-qa/recon/sc-two-lists.py`（1 个符号）
 
@@ -15093,7 +15131,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 28 | 1131 | — |
+| `main` 函数 | 28 | 1140 | — |
 
 ### `tools/gov-qa/recon/sc-wenzheng-probe.py`（1 个符号）
 
@@ -15101,7 +15139,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 33 | 1131 | — |
+| `main` 函数 | 33 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city-hunt.py`（2 个符号）
 
@@ -15110,7 +15148,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `links` 函数 | 35 | 142 | — |
-| `main` 函数 | 46 | 1131 | — |
+| `main` 函数 | 46 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city-probe2.py`（3 个符号）
 
@@ -15118,9 +15156,9 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 24 | 6333 | — |
+| `get` 函数 | 24 | 6394 | — |
 | `post` 函数 | 34 | 506 | — |
-| `main` 函数 | 45 | 1131 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city-probe3.py`（2 个符号）
 
@@ -15129,7 +15167,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `jact_list` 函数 | 23 | 3 | — |
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city-probe4.py`（2 个符号）
 
@@ -15138,7 +15176,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `grab` 函数 | 21 | 22 | — |
-| `main` 函数 | 39 | 1131 | — |
+| `main` 函数 | 39 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city2-hunt.py`（2 个符号）
 
@@ -15147,7 +15185,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `links` 函数 | 39 | 142 | — |
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city2-probe.py`（2 个符号）
 
@@ -15156,7 +15194,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `jact_total` 函数 | 47 | 2 | — |
-| `main` 函数 | 66 | 1131 | — |
+| `main` 函数 | 66 | 1140 | — |
 
 ### `tools/gov-qa/recon/sd-city3-probe.py`（2 个符号）
 
@@ -15165,7 +15203,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `find_items` 函数 | 38 | 2 | 返回 (绝对链接, 锚文本) 列表。 |
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `tools/gov-qa/recon/sh-zj-probe.py`（2 个符号）
 
@@ -15173,8 +15211,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `probe` 函数 | 53 | 301 | — |
-| `main` 函数 | 70 | 1131 | — |
+| `probe` 函数 | 53 | 311 | — |
+| `main` 函数 | 70 | 1140 | — |
 
 ### `tools/gov-qa/recon/sh-zj-verify.py`（6 个符号）
 
@@ -15182,12 +15220,12 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `load` 函数 | 20 | 103 | — |
+| `load` 函数 | 20 | 107 | — |
 | `_Fetcher` 类 | 27 | 29 | — |
 | `__init__` 函数 | 28 | 135 | — |
 | `__call__` 函数 | 31 | 12 | — |
 | `post` 函数 | 34 | 506 | — |
-| `main` 函数 | 38 | 1131 | — |
+| `main` 函数 | 38 | 1140 | — |
 
 ### `tools/gov-qa/recon/verify-idempotent.py`（11 个符号）
 
@@ -15205,7 +15243,7 @@
 | `records_for` 函数 | 91 | 2 | 读某个通道已落盘的记录（按文件名前缀匹配）。 |
 | `verify_one` 函数 | 111 | 2 | 验一个通道：跑两遍 `poll_one`，第二遍必须 0 新增。 |
 | `_count_dups` 函数 | 142 | 2 | 落盘文件里重复 (source, id) 的条数。 |
-| `main` 函数 | 162 | 1131 | — |
+| `main` 函数 | 162 | 1140 | — |
 
 ### `tools/gov-qa/recon/waf-igi-probe.py`（3 个符号）
 
@@ -15213,8 +15251,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `probe` 函数 | 67 | 301 | — |
-| `main` 函数 | 85 | 1131 | — |
+| `probe` 函数 | 67 | 311 | — |
+| `main` 函数 | 85 | 1140 | — |
 | `deep_probe` 函数 | 146 | 2 | 对 IGI 放行的站点枚举 siteId，记录哪些有数据。 |
 
 ### `tools/gov-qa/recon/waf-igi-sites.py`（3 个符号）
@@ -15225,7 +15263,7 @@
 |---|---:|---:|---|
 | `total` 函数 | 40 | 1316 | — |
 | `enumerate_sites` 函数 | 57 | 2 | — |
-| `main` 函数 | 69 | 1131 | — |
+| `main` 函数 | 69 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-adapt-test.py`（5 个符号）
 
@@ -15245,8 +15283,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 39 | 6333 | — |
-| `main` 函数 | 45 | 1131 | — |
+| `get` 函数 | 39 | 6394 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-fetch.py`（4 个符号）
 
@@ -15254,10 +15292,10 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 26 | 6333 | — |
+| `get` 函数 | 26 | 6394 | — |
 | `save` 函数 | 32 | 57 | — |
 | `scan_links` 函数 | 45 | 6 | — |
-| `main` 函数 | 57 | 1131 | — |
+| `main` 函数 | 57 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-js.py`（2 个符号）
 
@@ -15265,8 +15303,8 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `get` 函数 | 30 | 6333 | — |
-| `main` 函数 | 36 | 1131 | — |
+| `get` 函数 | 30 | 6394 | — |
+| `main` 函数 | 36 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-probe.py`（3 个符号）
 
@@ -15275,8 +15313,8 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `dns` 函数 | 23 | 4 | — |
-| `probe` 函数 | 30 | 301 | — |
-| `main` 函数 | 45 | 1131 | — |
+| `probe` 函数 | 30 | 311 | — |
+| `main` 函数 | 45 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-test.py`（2 个符号）
 
@@ -15285,7 +15323,7 @@
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
 | `show` 函数 | 16 | 75 | — |
-| `main` 函数 | 22 | 1131 | — |
+| `main` 函数 | 22 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-test2.py`（1 个符号）
 
@@ -15293,7 +15331,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/xj-xz-sd-gx-qh-test3.py`（1 个符号）
 
@@ -15301,7 +15339,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/recon/zj-dept-probe.py`（4 个符号）
 
@@ -15312,7 +15350,7 @@
 | `_W` 类 | 35 | 8 | — |
 | `__init__` 函数 | 36 | 135 | — |
 | `post` 函数 | 39 | 506 | — |
-| `main` 函数 | 43 | 1131 | — |
+| `main` 函数 | 43 | 1140 | — |
 
 ### `tools/gov-qa/recon/zj-dir-inspect.py`（1 个符号）
 
@@ -15320,7 +15358,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 18 | 1131 | — |
+| `main` 函数 | 18 | 1140 | — |
 
 ### `tools/gov-qa/regions.py`（2 个符号）
 
@@ -15337,7 +15375,7 @@
 
 | 符号 | 行 | 引用 | 职责 |
 |---|---:|---:|---|
-| `main` 函数 | 50 | 1131 | — |
+| `main` 函数 | 50 | 1140 | — |
 
 ### `tools/gov-qa/state.py`（17 个符号）
 
@@ -15354,7 +15392,7 @@
 | `__init__` 函数 | 102 | 135 | — |
 | `_load` 函数 | 108 | 125 | — |
 | `save` 函数 | 127 | 57 | — |
-| `get` 函数 | 132 | 6333 | — |
+| `get` 函数 | 132 | 6394 | — |
 | `needs_full` 函数 | 135 | 4 | 该通道是否必须全量采（无水位 / 文件损坏）。 |
 | `__contains__` 函数 | 139 | 1 | — |
 | `__len__` 函数 | 142 | 3 | — |

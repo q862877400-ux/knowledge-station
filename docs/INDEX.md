@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **248 份** / **9585 KB**。
+> 共 **249 份** / **9620 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -128,11 +128,11 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（107 份 / 3675 KB）
+## 根文档与其他（108 份 / 3710 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/survey/17-function-index.md` | 893 | 2026-10-24 | 一、口径 |
+| `docs/survey/17-function-index.md` | 895 | 2026-10-24 | 一、口径 |
 | `docs/DEVELOPMENT-HISTORY.md` | 331 | 2026-10-18 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/survey/14-test-index.md` | 251 | 2026-10-24 | 一、口径 |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
@@ -151,13 +151,14 @@
 | `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
 | `docs/uniformity/10-api-server.md` | 40 | 2026-10-24 | 0. 先更正任务书里的两个数字（实测，不是估算） |
-| `docs/survey/07-doc-surface.md` | 38 | 2026-10-24 | 一、口径 |
+| `docs/survey/07-doc-surface.md` | 39 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
 | `docs/research/ks-fixes/02-modality-residual.md` | 29 | 2026-10-23 | 一句话结论 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/survey/04-data-shape.md` | 28 | 2026-10-24 | 一、来源与口径 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
+| `docs/survey/19-requirements.md` | 26 | 未提交 | 一、口径（这里有个坑，先看）\n\n本仓的 **`R` 前缀有两种含义**：\n\n| 形态 | 含义 | 例子 |\n |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
 | `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 2026-10-23 | 0. 先读这一页 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
@@ -166,6 +167,7 @@
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
 | `docs/research/HANDOFF-external-solutions.md` | 21 | 2026-09-28 | 0. 一句话任务 |
 | `docs/survey/05-api-surface.md` | 21 | 2026-10-24 | 一、口径 |
+| `docs/survey/18-runtime-probe.md` | 21 | 2026-10-24 | 一、这是唯一真正跑起来的一层 |
 | `docs/research/cross-plane-jump-assessment.md` | 20 | 2026-09-24 | 一、问题与已定的范围 |
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
@@ -173,7 +175,6 @@
 | `docs/survey/10-observed.md` | 17 | 2026-10-24 | 一、代码里观察到的事 |
 | `docs/README.md` | 16 | 2026-10-24 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/archify/03-借鉴结论.md` | 16 | 2026-10-23 | 一句话结论 |
-| `docs/survey/18-runtime-probe.md` | 16 | 未提交 | 一、这是唯一真正跑起来的一层 |
 | `docs/uniformity/08-why-contracts-rot.md` | 16 | 2026-10-24 | 一、本仓确实有契约（不是没有） |
 | `docs/wiki/architecture.md` | 16 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
@@ -219,6 +220,7 @@
 | `docs/research/ARROW-ROOT-CAUSES-2026-10-12.md` | 4 | 2026-10-12 | 业主令：「你先把所有根因都查清楚，然后一次性修复，设置好目标自动进行」 |
 | `docs/survey/01-inventory.md` | 4 | 2026-10-24 | 一、四本账（覆盖证明） |
 | `docs/survey/08-gate-surface.md` | 4 | 2026-10-24 | 一、总账 |
+| `docs/survey/COVERAGE.md` | 4 | 2026-10-24 | 一、九个面各自覆盖到什么程度 |
 | `docs/wiki/components/api.md` | 4 | 2026-10-24 | **位置**：`src/core/api/` |
 | `docs/wiki/components/compliance.md` | 4 | 2026-10-23 | **位置**：`src/core/compliance/` |
 | `docs/wiki/components/domain.md` | 4 | 2026-10-23 | **位置**：`src/core/domain/` |
@@ -228,7 +230,6 @@
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
-| `docs/survey/COVERAGE.md` | 3 | 2026-10-24 | 一、九个面各自覆盖到什么程度 |
 | `docs/survey/README.md` | 3 | 2026-10-24 | 这是什么 |
 | `docs/wiki/components/ingestion.md` | 3 | 2026-10-23 | **位置**：`src/core/ingestion/` |
 | `docs/wiki/components/query.md` | 3 | 2026-10-23 | **位置**：`src/core/query/` |
