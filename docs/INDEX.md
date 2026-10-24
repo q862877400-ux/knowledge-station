@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **227 份** / **7941 KB**。
+> 共 **228 份** / **8001 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -127,7 +127,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（87 份 / 2047 KB）
+## 根文档与其他（88 份 / 2107 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -140,11 +140,12 @@
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/README.md` | 55 | 2026-10-24 | 1. 项目是什么 |
+| `docs/uniformity/09-big-files.md` | 52 | 未提交 | 行数口径更正（先更正任务书里的数字） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
 | `docs/uniformity/07-other-dirs.md` | 44 | 2026-10-24 | 一、`eval/`（最详细） |
 | `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
-| `docs/uniformity/10-api-server.md` | 40 | 未提交 | 0. 先更正任务书里的两个数字（实测，不是估算） |
+| `docs/uniformity/10-api-server.md` | 40 | 2026-10-24 | 0. 先更正任务书里的两个数字（实测，不是估算） |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
 | `docs/research/ks-fixes/02-modality-residual.md` | 29 | 2026-10-23 | 一句话结论 |
@@ -163,6 +164,7 @@
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
 | `docs/README.md` | 16 | 2026-10-24 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/archify/03-借鉴结论.md` | 16 | 2026-10-23 | 一句话结论 |
+| `docs/uniformity/08-why-contracts-rot.md` | 16 | 2026-10-24 | 一、本仓确实有契约（不是没有） |
 | `docs/wiki/architecture.md` | 16 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 | 2026-10-07 | 第一部分：[7] 王芳 等（2023）**全文精读** |
@@ -179,7 +181,7 @@
 | `docs/research/SURVEY-学术调研-第3轮-还债与收敛.md` | 11 | 2026-10-07 | ★★★★★ 本轮颠覆性的发现：**中文法条检索基准是存在的，而且完全公开、MIT 许可** |
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
-| `docs/uniformity/08-why-contracts-rot.md` | 10 | 2026-10-24 | 一、本仓确实有契约（不是没有） |
+| `docs/uniformity/COVERAGE.md` | 10 | 2026-10-24 | 一、总账 |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
@@ -187,7 +189,6 @@
 | `docs/PORTABILITY.md` | 8 | 2026-10-18 | 一、运行时靠什么做到便携（已实现） |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
-| `docs/uniformity/COVERAGE.md` | 8 | 2026-10-24 | 一、总账 |
 | `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 2026-10-23 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
@@ -201,7 +202,7 @@
 | `docs/BROKEN-LINKS.md` | 4 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
 | `docs/research/ARROW-ROOT-CAUSES-2026-10-12.md` | 4 | 2026-10-12 | 业主令：「你先把所有根因都查清楚，然后一次性修复，设置好目标自动进行」 |
-| `docs/wiki/components/api.md` | 4 | 2026-10-23 | **位置**：`src/core/api/` |
+| `docs/wiki/components/api.md` | 4 | 2026-10-24 | **位置**：`src/core/api/` |
 | `docs/wiki/components/compliance.md` | 4 | 2026-10-23 | **位置**：`src/core/compliance/` |
 | `docs/wiki/components/domain.md` | 4 | 2026-10-23 | **位置**：`src/core/domain/` |
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |

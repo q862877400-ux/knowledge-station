@@ -12,7 +12,7 @@
 | 面 | 总量 | 摸到什么程度 | 依据 |
 |---|---|---|---|
 | `src/core` 代码 | 155 文件 / 45,542 行 | **结构与关键路径**，约 20% 的行被真正读过 | `01-core.md` |
-| `src/core` 最大 10 个文件 | `server.py` **3,341** / `pipeline.py` 2,254 / `text_utils.py` 1,844 … | `server.py` **已摸清**（2026-10-24 补，见 `10-api-server.md`）；另两个**正在摸** | `10-api-server.md` |
+| `src/core` 最大 10 个文件 | `server.py` **3,341** / `pipeline.py` **2,443** / `text_utils.py` **2,162** / `inspector.py` **937** … | **四个最大的全部已摸清**（2026-10-24）：`10-api-server.md` + `09-big-files.md` | `09` / `10` |
 | `plugin/src` 宿主侧 | 19 js / 9,974 行 | **结构 + 关键路径** | `02-plugin.md` |
 | `plugin/client` 前端 | 31 文件 / 1,167 KB（`api.ts` 5,011 行） | **已逐文件摸清职责**（2026-10-24 补） | `06-frontend.md` |
 | `tests` | 184 py / 3,117 条用例 | **结构 + 覆盖率缺口 + 恒真断言** | `04-tests-tools-gates.md` |
@@ -73,6 +73,7 @@
 | 该目录含**政府工作人员姓名 + 工作手机号** | 抽样 3/594 个 jsonl / 663 条（**0.17%，是抽样不是全部**）：答复原文「工作人员手机号：18811686625」。**无身份证/住址/群众手机号** | 未决 |
 | 🔴 **`GET /api/v1/diagnostics/debug-dumps` 能读光历史问答** | 实测 SELECT 是 `dump_id, trigger_type, query, created_at, llm_output, logs` ⇒ 返回**全部历史提问原文 + 完整模型输出 + 证据/槽位**；**产品侧 0 个调用方**，而 token 明文存在 `engine.session.json` ⇒ 谁拿到 token 谁就能读。⚠ **更正（我第一版写错）**：原写「还返回 `prompt`（最近 4 轮对话）」，**不准确** —— `prompt` / `retrieval_result` **确实写进表了**（`_write_debug_dump` 的 INSERT 带它们），但**这个端点的 SELECT 没带这两列** ⇒ 不走这条路漏出去。**错话原文保留于此。** | **未修** |
 | 🔴 **`dump=false` 能让一次云模型调用在审计里彻底消失**（已自查，成立） | `server.py:1783` `dump_enabled = bool(body.get("dump", True))`，而 `if dump_enabled:` 是 **3 处写 debug_dump 的唯一开关**（L1980 / L2015 / L2082）⇒ 传 `dump=false` 则该次云调用**一行都不落库**。同时 `deepseek_client.py` **全文 0 处 `record_egress`**（只有 `jev_client.py` 那类非 chat 调用才登记）⇒ **没有兜底审计**。`/ks/answer` 那条路没有这个开关 ⇒ 两条路审计强度不同。与「每次云调用完整 payload 落库」的承诺冲突 | **未修** |
+| 🟠 **重新入库会丢数据**（静态推断，**未验证**） | `reingest` **先删旧文档（独立事务）再写新文档** ⇒ 新事务失败或进程被杀就是「旧已删、新没进」，而**目录归属快照只在内存里**。另 `total_clauses` 报的是 `n_normal - n_pre`，实际入库是 `n_normal + n_pre + n_附录` ⇒ **算术可疑** | 未验证 |
 | 🟠 **`_expand_title_clauses` 仍有两份实现**（和已修的 `_answer_confidence` 同型） | `api/server.py:2525` 与 `llm/ks_answer.py:1167`；差异是硬编码 `80` vs 常量、无/有 try-except；注释里明写「与另一处同步放宽」⇒ **改一处不会红**。唯一那条测试在测试文件里重写了一遍正则，**两份实现都不执行** | **未修** |
 | 🟠 **11 条端点全仓零调用方** | annotations×3 / projects×4 / `documents/{id}/versions` / `/compare` / `documents/impact` / `DELETE doc-bookmarks/{id}`；另 20 条只有测试没有产品调用方（含那条 328 行的 SSE） | 未决 |
 | **`ks_answer` 能不能用不知道** | 上一轮实测每次 `Connection error`；本轮未复测（要先配 LLM key） | **未复测** |

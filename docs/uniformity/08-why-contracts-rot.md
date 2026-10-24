@@ -188,3 +188,76 @@ const guideSrc = readFileSync('D:/AI/work space/zcode/plugin/client/KsKnowledgeG
 
 ⇒ 这条本身就是「原因 5」的又一个例证：**写契约容易，写守契约的判据难；
 判据写歪了比没有更糟。**
+
+---
+
+## 十、补：`src/core` 三个最大文件读完后的**直接证据**（2026-10-24）
+
+`09-big-files.md` 把 `pipeline.py`（2,443 行）、`text_utils.py`（2,162 行）、
+`inspector.py`（937 行）逐行读完，找到 **8 组「同一件事两个实现」**。
+**其中第 1 条是代码注释自己承认的** —— 这比任何推测都硬。
+
+| # | 同一件事 | 两份实现 | 后果 |
+|---|---|---|---|
+| **1** | **「页码 + 标准号」页眉判据** | `pipeline._STD_CODE_FRAG/_frag_key/_strip_foreign_frag`<br>`text_utils._RE_WM_HEADER/_match_key/strip_watermark_lines` | **`pipeline.py` 的注释原话：`⚠ 这两个判据是「页码 + 标准号」的**第二份实现**（第一份在 text_utils 的水印族）`**。两边口径已不同：pipeline 允许 `\d{1,6}` 号与任意 1–4 大写字母前缀，text_utils 要求 `\d{3,5}` 号 + 前缀白名单 ⇒ **一边认得的页眉另一边会漏** |
+| 2 | 图例判据 | `_is_figure_legend`（块级，条目只认数字） | `strip_figure_legend_segment`（文本级，含字母型、要求两个破折号）⇒ 单破折号/字母型条目两边判定不一致 |
+| 3 | HTML → 纯文本 | `text_utils.html_to_text`（声明为规范实现） | 另有 `server._html_to_text`、`ks_answer._html_to_text_compact`、`clause_health_html_to_text`。**`text_utils` 的 docstring 原话：`此前同一算法在**三处**各有一份…**没有**顺手改那三处的调用点…登记为待办`** —— 登记了，没人做 |
+| 4 | 标准号归一/比较键 | `text_utils` 4 个 | 另有 `channels/base.norm_no`、`ccs_fetcher._seed_key`、`clause_repo._standard_body`、`pipeline._hier_from_no`、`_frag_key`。各 docstring 都写「口径不同」，但**没有任何判据能证明它们在同一输入上不矛盾**。`norm_no` 注释记着一次真失配：`GB/T－17098` 与 `GB/T-17098` 归一出永不相等 |
+| 5 | **完整入库流程** | `pipeline.run_full_ingest`（12 步） | `law_text.ingest_law_text`（自建 model / 自建边 / 自写 doc 行 / 自查 CCS）。**`law_text.py` 注释原话：`pipeline.py 的 resolve_edges 一直有这道闸，这里漏了 ⇒ 两条入库路径行为不一致`** |
+| 6 | app_config 读写 | `inspector.get_config` / `set_config` | `announce.py`、`discover.py`、`subscriptions.py` **各自直接写 SQL**（工具函数存在，3 个兄弟模块绕过它） |
+| 7 | 同文件近重复 | `text_utils._match_key`（有人用） | `text_utils._match_std`（**全仓 0 调用**） |
+| 8 | ✅ **做对了的那一例** | `clause_repo._seg` | → `from src.core.text_utils import segment_for_fts`，注释写「保留这个私有名只是为了不动既有调用点；**实现只有一份**」 |
+
+### 顺带查出的死代码与不可达代码（实测 `grep`）
+
+| 类别 | 位置 | 证据 |
+|---|---|---|
+| 真死 | `inspector._utcnow` | `grep '_utcnow'` 全仓 **1 处，就是 def 行本身** |
+| 真死 | `text_utils._match_std` | `grep '_match_std'` 全仓 **1 处，就是 def 行本身** |
+| **不可达** | `inspector._probe_number` L444–454 | 前面 L435–443 是**无条件 return**，后面永远执行不到 |
+| **不可达** | `pipeline._extract_vector_table_items` L1820–1821 | `is_ocr` 恒为 `False`（`mineru_adapter` 里硬编码后原样带出） |
+| 未使用 import | `inspector.py` 3 个 | `UPD_CAPTCHA_BLOCKED`、`CHANGE_TYPES`、`LEGAL_STATUSES`（AST 剥 docstring 后 0 引用） |
+| 过时注释 | 7 处 | 注释里写的行号已漂移 |
+
+### **6 个**超过 100 行的函数（我第一版写「5 个」，漏了 `_cell_html`）
+
+| 文件 | 函数 | 行数 |
+|---|---|---|
+| `pipeline.py` | `run_full_ingest` | **397** |
+| `pipeline.py` | `split_items_into_clauses` | **367** |
+| `pipeline.py` | `build_clause_models` | **201** |
+| `inspector.py` | `run_batch` | **172** |
+| `inspector.py` | `_probe_number` | **121** |
+| `pipeline.py` | `_cell_html` | **116** |
+
+（`load_middle_items` 刚好 100 行，计入则 7 个。）
+
+**⚠ `text_utils.py` 一个超长函数都没有**（最长 91 行）—— 它的问题是**职责过多**
+（前一半 OCR 清洗、后一半塞了标准号比较键 + FTS 分词 + 采集侧 HTML→文本 + 二进制嗅探），
+**不是函数过长**。⇒ 「拆函数」对这个文件是错的药，该拆的是**模块**。
+
+### 会丢数据的隐患（静态推断，未跑真入库对账）
+
+`reingest` **先删旧文档（独立事务）再写新文档** ⇒ 新事务失败 / 进程被杀
+就是「旧已删、新没进」，而**目录归属快照只在内存里**。
+
+另：`total_clauses` 报的是 `n_normal - n_pre`，而实际入库是
+`n_normal + n_pre + n_附录` ⇒ **算术可疑**。⚠ 这两条都是**静态结论，未验证**。
+
+### 过时注释 7 处（全部带 git 年龄，最长 42 天）
+
+`pipeline.py` 有 **3 处行号已漂移的自引用**（注释写 `:658-661`，实际在 **709-712**；
+注释写 `2021/2037/2096`，实际在 **2244/2260/2401**）；
+`inspector.py` 的模块 docstring 还写着链是 `official_gb→govcn`，
+而**同一文件 L523 自己写着**实际是 `official_gb→ndls→govcn`（36 天）；
+`text_utils.html_to_text` 的「三处待办」**37 天未动，仍 4 份实现并存**。
+
+⇒ 这 7 处本身就是「契约腐烂」的微观证据：**注释写了"以后改"，然后没人改，注释还留在那儿骗下一个人。**
+
+### 这节对「契约为什么会烂」的意义
+
+上面 8 组里，**有 3 组的代码注释自己写着「这是第二份实现」/「三处各有一份」/「这里漏了」**。
+
+⇒ **写代码的人知道有重复，甚至写下来提醒后人，但没有任何机器检查会因此变红。**
+这就是「原因 1 + 原因 2」的活标本：契约不管重复，门禁不看重复，
+于是「知道」和「修掉」之间那条路**从来没被打通**。
