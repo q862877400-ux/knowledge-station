@@ -2,10 +2,10 @@
  "generated_by": "scripts/survey/02-surface.py::step6_docs",
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
-  "docs_files": 242,
-  "docs_tracked_md": 214,
-  "orphans_no_inbound": 111,
-  "total_links": 568
+  "docs_files": 244,
+  "docs_tracked_md": 227,
+  "orphans_no_inbound": 113,
+  "total_links": 569
  },
  "orphans": [
   "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
@@ -112,7 +112,9 @@
   "docs/research/substitute-scan.md",
   "docs/research/vision-coverage-map.md",
   "docs/survey/01-inventory.md",
-  "docs/survey/COVERAGE.md",
+  "docs/survey/11-module-index.md",
+  "docs/survey/12-config-surface.md",
+  "docs/survey/13-table-io.md",
   "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
   "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
   "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
@@ -174,10 +176,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/archive/history/rounds-10.1-10.203.md",
@@ -319,10 +322,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
@@ -569,10 +573,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/archive/review-briefs/VERIFY-REPORT-ingest.md",
@@ -716,10 +721,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/BROKEN-LINKS.md",
@@ -1116,7 +1122,7 @@
   },
   {
    "path": "docs/README.md",
-   "bytes": 16329,
+   "bytes": 16416,
    "lines": 170,
    "title": "KnowledgeStation 文件地图",
    "out_links": [
@@ -1127,8 +1133,8 @@
     "archive/README.md",
     "archive/impl-reports/",
     "archive/workbuddy-memory/README.md",
-    "uniformity/COVERAGE.md",
-    "uniformity/README.md",
+    "survey/COVERAGE.md",
+    "survey/README.md",
     "uniformity/START-HERE.md",
     "wiki/architecture.md",
     "wiki/components/"
@@ -1146,10 +1152,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 13
+   "inbound_count": 14
   },
   {
    "path": "docs/REQUIREMENTS-v4.3.md",
@@ -1624,10 +1631,11 @@
     "docs/research/STEP6-WORKORDER.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 13
+   "inbound_count": 14
   },
   {
    "path": "docs/research/dsh-official/REALIGN.md",
@@ -1758,10 +1766,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/research/jev-mem-assessment.md",
@@ -1938,10 +1947,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/research/plan-vs-reality.md",
@@ -2491,8 +2501,8 @@
   },
   {
    "path": "docs/survey/01-inventory.md",
-   "bytes": 3619,
-   "lines": 82,
+   "bytes": 3715,
+   "lines": 83,
    "title": "全仓清单（四本账）",
    "out_links": [],
    "n_links": 0,
@@ -2501,7 +2511,7 @@
   },
   {
    "path": "docs/survey/02-code-map.md",
-   "bytes": 12096,
+   "bytes": 12087,
    "lines": 210,
    "title": "代码地图（AST 级符号清单）",
    "out_links": [],
@@ -2562,8 +2572,8 @@
   },
   {
    "path": "docs/survey/07-doc-surface.md",
-   "bytes": 38441,
-   "lines": 380,
+   "bytes": 38655,
+   "lines": 384,
    "title": "文档面",
    "out_links": [
     "p"
@@ -2613,14 +2623,47 @@
    "inbound_count": 1
   },
   {
-   "path": "docs/survey/COVERAGE.md",
-   "bytes": 2596,
-   "lines": 50,
-   "title": "覆盖对账（九个面）",
+   "path": "docs/survey/11-module-index.md",
+   "bytes": 169315,
+   "lines": 1344,
+   "title": "模块职责索引",
    "out_links": [],
    "n_links": 0,
    "inbound": [],
    "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/12-config-surface.md",
+   "bytes": 5252,
+   "lines": 89,
+   "title": "配置面（环境变量 + 配置键）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/13-table-io.md",
+   "bytes": 12775,
+   "lines": 333,
+   "title": "表读写关系",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/COVERAGE.md",
+   "bytes": 2672,
+   "lines": 51,
+   "title": "覆盖对账（九个面）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/README.md",
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 2
   },
   {
    "path": "docs/survey/README.md",
@@ -2651,10 +2694,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/TEST-FLAKES.md",
@@ -2867,24 +2911,13 @@
    "inbound_count": 2
   },
   {
-   "path": "docs/uniformity/COVERAGE.md",
-   "bytes": 10720,
-   "lines": 123,
-   "title": "摸底完成度：哪些透了、哪些没透（滚动更新）",
-   "out_links": [],
-   "n_links": 0,
-   "inbound": [
-    "docs/README.md",
-    "docs/uniformity/README.md"
-   ],
-   "inbound_count": 2
-  },
-  {
    "path": "docs/uniformity/README.md",
-   "bytes": 56568,
-   "lines": 884,
+   "bytes": 57136,
+   "lines": 889,
    "title": "KnowledgeStation 摸底：证据与过程",
    "out_links": [
+    "../survey/COVERAGE.md",
+    "../survey/README.md",
     "../wiki/architecture.md",
     "00-review-of-surveys.md",
     "01-core.md",
@@ -2897,11 +2930,10 @@
     "08-why-contracts-rot.md",
     "09-big-files.md",
     "10-api-server.md",
-    "COVERAGE.md",
     "START-HERE.md",
     "report.md"
    ],
-   "n_links": 18,
+   "n_links": 19,
    "inbound": [
     "docs/archive/history/rounds-10.1-10.203.md",
     "docs/archive/README.md",
@@ -2913,10 +2945,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/uniformity/report.md",
@@ -3443,10 +3476,11 @@
     "docs/README.md",
     "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
     "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
     "docs/uniformity/START-HERE.md",
     "docs/wiki/architecture.md"
    ],
-   "inbound_count": 12
+   "inbound_count": 13
   },
   {
    "path": "docs/wiki/components/retrieval.md",

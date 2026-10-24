@@ -17,7 +17,7 @@
 >
 > | 顺序 | 读什么 | 读完能回答 |
 > |---|---|---|
-> | **第 1 步** | [uniformity/COVERAGE.md](uniformity/COVERAGE.md)（摸底到什么程度）→ [uniformity/START-HERE.md](uniformity/START-HERE.md) → [uniformity/README.md](uniformity/README.md) | **怎么从零跑起来**（228 行，先读）/ 再按需查证据层（772 行） |
+> | **第 1 步** | **[survey/README.md](survey/README.md)（项目现状地图：九面机械枚举，查表即可，不用从零读）** → [survey/COVERAGE.md](survey/COVERAGE.md)（九面覆盖对账）→ [uniformity/START-HERE.md](uniformity/START-HERE.md)（统一化那条线） | **怎么从零跑起来**（228 行，先读）/ 再按需查证据层（772 行） |
 > | **第 2 步** | [wiki/architecture.md](wiki/architecture.md) | 项目**目标**、当前规模、主要部件一览、已知缺陷（**比 uniformity 精简**，是长期维护的那份） |
 > | **第 3 步** | [wiki/components/](wiki/components/) | 要改的那个子系统，**文件级**的职责/接口/依赖/不做什么 |
 >

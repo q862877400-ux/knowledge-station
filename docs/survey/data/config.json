@@ -1,0 +1,433 @@
+{
+ "generated_by": "scripts/survey/05-deep.py::step_config",
+ "caliber": "环境变量 = `os.environ.get/getenv/env[...]` 与 `process.env.X` 的字面量；配置键 = `_read_json_key` / `_write_json_key` / `get_config` / `set_config` 的实参，**并解析模块级常量**（本仓大量写成 `SOURCES_KEY = \"announce.sources\"` 再传常量）。**拼接出来的键名看不到**。`used_by` 只列前 12 个引用点。",
+ "counts": {
+  "env_vars": 47,
+  "config_keys_in_code": 11,
+  "config_keys_in_seed_db": 7,
+  "config_keys_union": 13
+ },
+ "config_keys_in_seed_db": {
+  "announce.scan_soft_cap_s": {
+   "value_bytes": 4,
+   "is_encrypted": false,
+   "updated_at": "2026-10-08 10:12:50"
+  },
+  "announce.scan_state": {
+   "value_bytes": 2822,
+   "is_encrypted": false,
+   "updated_at": "2026-10-08 17:09:21"
+  },
+  "announce.sources": {
+   "value_bytes": 25305,
+   "is_encrypted": false,
+   "updated_at": "2026-10-08 17:09:21"
+  },
+  "inspect.budget_date": {
+   "value_bytes": 10,
+   "is_encrypted": false,
+   "updated_at": "2026-09-12 00:25:15"
+  },
+  "inspect.budget_used": {
+   "value_bytes": 1,
+   "is_encrypted": false,
+   "updated_at": "2026-09-12 00:25:15"
+  },
+  "law.catalog_last_refresh_at": {
+   "value_bytes": 25,
+   "is_encrypted": false,
+   "updated_at": "2026-10-23 10:09:18"
+  },
+  "update.domain_subscriptions": {
+   "value_bytes": 54,
+   "is_encrypted": false,
+   "updated_at": "2026-08-24 11:15:58"
+  }
+ },
+ "config_db_note": "`app_config` 表有 `is_encrypted` 列（实测 7 行全是 0）。这里只记键名与值的字节长度，**不记值本身**（有的键存的是源清单/状态，抄进来会让人误以为那是当前配置）。",
+ "env": {
+  "APPDATA": {
+   "used_by": [
+    "scripts/apply-folder-filing.py",
+    "scripts/check-fixture-leak.py",
+    "scripts/make_handoff_zip.py",
+    "scripts/loop2/oracle_score.py",
+    "scripts/verify-seeds/b1-reingest-e2e.py"
+   ],
+   "n_refs": 5
+  },
+  "B1_CAP_S": {
+   "used_by": [
+    "scripts/verify-seeds/b1-reingest-e2e.py"
+   ],
+   "n_refs": 1
+  },
+  "DEEPSEEK_API_KEY": {
+   "used_by": [
+    "tests/test_credentials_namespace.py"
+   ],
+   "n_refs": 1
+  },
+  "HTTPS_PROXY": {
+   "used_by": [
+    "scripts/channel-anchor-measure.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_BACKUP_DIR": {
+   "used_by": [
+    "src/core/storage/backup.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_CCS_SEED_FILE": {
+   "used_by": [
+    "scripts/std_bulk_import.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_CHATMODE_DIR": {
+   "used_by": [
+    "plugin/src/chatmode.js"
+   ],
+   "n_refs": 1
+  },
+  "KS_DATA_DIR": {
+   "used_by": [
+    "src/core/config.py",
+    "scripts/apply-folder-filing.py",
+    "scripts/audit-async-endpoints.py",
+    "scripts/measure-endpoint-blocking.py",
+    "scripts/verify-seeds/b1-reingest-e2e.py",
+    "scripts/verify-seeds/repro-ccs-high1.py",
+    "tests/conftest.py",
+    "tests/test_ccs_chain.py",
+    "tests/test_filing_state_pipeline.py",
+    "tests/test_kb_scope_retrieval.py",
+    "tests/test_ks_answer.py",
+    "tests/test_reingest_keeps_filing.py"
+   ],
+   "n_refs": 13
+  },
+  "KS_DEEP_BATCH_MAX": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_DEEP_BATCH_MIN": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_DEEP_BATCH_WAIT": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_DEEP_SERVER": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py",
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 2
+  },
+  "KS_DEEP_WORKERS": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_ENGINE_ROOT": {
+   "used_by": [
+    "plugin/src/engine.js"
+   ],
+   "n_refs": 1
+  },
+  "KS_GPU_LOCK": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_GPU_LOCK_PATH": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_GPU_LOCK_TIMEOUT": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py",
+    "tests/test_mineru_gpu_lock.py"
+   ],
+   "n_refs": 2
+  },
+  "KS_MINERU_CLOUD": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_MINERU_DEEP": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_MINERU_LOCAL": {
+   "used_by": [
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_MINERU_LOCAL_BACKEND": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py",
+    "src/core/ingestion/mineru_adapter.py"
+   ],
+   "n_refs": 2
+  },
+  "KS_MODELS_DIR": {
+   "used_by": [
+    "src/core/config.py",
+    "tests/test_long_clause_tail_ruler.py",
+    "tests/test_reranker.py",
+    "plugin/src/engine.js"
+   ],
+   "n_refs": 4
+  },
+  "KS_PYTHON": {
+   "used_by": [
+    "plugin/src/engine.js"
+   ],
+   "n_refs": 1
+  },
+  "KS_REAL_DB": {
+   "used_by": [
+    "tests/test_catalog_hidden_retrieval.py",
+    "tests/test_change_signal.py",
+    "tests/test_label_gap_not_jev.py"
+   ],
+   "n_refs": 3
+  },
+  "KS_SCNET_OCR_API_KEY": {
+   "used_by": [
+    "tests/test_scnet_readchain.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_SOFFICE": {
+   "used_by": [
+    "src/core/knowledge/law_source/convert.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_VERIFY_CACHE_OFF": {
+   "used_by": [
+    "src/core/knowledge/law_source/verify.py"
+   ],
+   "n_refs": 1
+  },
+  "KS_VLM_ONLY": {
+   "used_by": [
+    "src/core/ingestion/deep_server.py",
+    "src/core/ingestion/mineru_adapter.py",
+    "src/core/ingestion/mineru_cloud.py"
+   ],
+   "n_refs": 3
+  },
+  "LOOP2_MAX_BLOCKED": {
+   "used_by": [
+    "scripts/loop2/driver_v2.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_MAX_ROUNDS": {
+   "used_by": [
+    "scripts/loop2/driver_v2.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_M_SILENCE": {
+   "used_by": [
+    "scripts/loop2/driver_v2.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_ROOT": {
+   "used_by": [
+    "scripts/loop2/driver_v2.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_STOP_CONSECUTIVE": {
+   "used_by": [
+    "scripts/loop2/driver_v2.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_VLM_ENDPOINT": {
+   "used_by": [
+    "scripts/loop2/vlm_check.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_VLM_MODEL": {
+   "used_by": [
+    "scripts/loop2/vlm_check.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_VLM_RETRIES": {
+   "used_by": [
+    "scripts/loop2/vlm_check.py"
+   ],
+   "n_refs": 1
+  },
+  "LOOP2_VLM_TIMEOUT": {
+   "used_by": [
+    "scripts/loop2/vlm_check.py"
+   ],
+   "n_refs": 1
+  },
+  "MINERU_MODEL_SOURCE": {
+   "used_by": [
+    "plugin/src/engine.js"
+   ],
+   "n_refs": 1
+  },
+  "MINERU_TOOLS_CONFIG_JSON": {
+   "used_by": [
+    "plugin/src/engine.js"
+   ],
+   "n_refs": 1
+  },
+  "MOONSHOT_API_KEY": {
+   "used_by": [
+    "scripts/loop2/vlm_check.py"
+   ],
+   "n_refs": 1
+  },
+  "NO_PROXY": {
+   "used_by": [
+    "src/core/main.py"
+   ],
+   "n_refs": 1
+  },
+  "RUN_LIVE": {
+   "used_by": [
+    "tests/test_update_channels.py"
+   ],
+   "n_refs": 1
+  },
+  "SCNET_OCR_API_KEY": {
+   "used_by": [
+    "scripts/std_bulk_import.py",
+    "tests/test_scnet_readchain.py"
+   ],
+   "n_refs": 2
+  },
+  "TEMP": {
+   "used_by": [
+    "scripts/preview-folder-filing.py",
+    "scripts/verify-seeds/b1-reingest-e2e.py"
+   ],
+   "n_refs": 2
+  },
+  "TMP": {
+   "used_by": [
+    "scripts/preview-folder-filing.py"
+   ],
+   "n_refs": 1
+  },
+  "USERPROFILE": {
+   "used_by": [
+    "scripts/make_handoff_zip.py"
+   ],
+   "n_refs": 1
+  },
+  "X": {
+   "used_by": [
+    "scripts/survey/05-deep.py"
+   ],
+   "n_refs": 1
+  }
+ },
+ "config_keys": {
+  "announce.min_interval_hours": {
+   "used_by": [
+    "src/core/update/announce.py",
+    "scripts/survey/05-deep.py"
+   ],
+   "n_refs": 2
+  },
+  "announce.scan_soft_cap_s": {
+   "used_by": [
+    "src/core/update/announce.py"
+   ],
+   "n_refs": 1
+  },
+  "announce.scan_state": {
+   "used_by": [
+    "src/core/update/announce.py"
+   ],
+   "n_refs": 1
+  },
+  "announce.sources": {
+   "used_by": [
+    "src/core/update/announce.py",
+    "scripts/survey/05-deep.py"
+   ],
+   "n_refs": 2
+  },
+  "data_package.imported": {
+   "used_by": [
+    "src/core/update/data_package.py"
+   ],
+   "n_refs": 1
+  },
+  "discover.download_later": {
+   "used_by": [
+    "src/core/update/discover.py"
+   ],
+   "n_refs": 1
+  },
+  "inspect.budget_date": {
+   "used_by": [
+    "src/core/update/inspector.py",
+    "tests/test_update_inspector.py"
+   ],
+   "n_refs": 2
+  },
+  "inspect.budget_used": {
+   "used_by": [
+    "src/core/update/inspector.py",
+    "tests/test_update_inspector.py"
+   ],
+   "n_refs": 2
+  },
+  "inspect.daily_full_sweep_budget": {
+   "used_by": [
+    "src/core/update/inspector.py",
+    "tests/test_update_inspector.py"
+   ],
+   "n_refs": 2
+  },
+  "update.schedule_days": {
+   "used_by": [
+    "src/core/update/scheduler.py",
+    "tests/test_update_inspector.py"
+   ],
+   "n_refs": 2
+  },
+  "update.schedule_tiers": {
+   "used_by": [
+    "src/core/update/scheduler.py"
+   ],
+   "n_refs": 1
+  }
+ }
+}

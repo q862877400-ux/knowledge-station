@@ -11,10 +11,10 @@
 
 | 项 | 数 |
 |---|---:|
-| `docs/` 下 `.md` | **242** |
-| 其中受版本控制 | 214 |
-| 链接总数 | 568 |
-| **没有任何入链（孤儿）** | **111** |
+| `docs/` 下 `.md` | **244** |
+| 其中受版本控制 | 227 |
+| 链接总数 | 569 |
+| **没有任何入链（孤儿）** | **113** |
 
 ## 三、孤儿文档（没有任何别的文档链到它）
 
@@ -124,7 +124,9 @@
 - `docs/research/substitute-scan.md`
 - `docs/research/vision-coverage-map.md`
 - `docs/survey/01-inventory.md`
-- `docs/survey/COVERAGE.md`
+- `docs/survey/11-module-index.md`
+- `docs/survey/12-config-surface.md`
+- `docs/survey/13-table-io.md`
 - `docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md`
@@ -145,6 +147,7 @@
 | `docs/REQUIREMENTS-v4.3.md` | 208 KB | 3,053 | 3 | 0 | 《通用国标与法律法规本地 AI 知识工作站 (Win11)》开发主计划 (v4. |
 | `docs/archive/workbuddy-memory/memory/2026-10-09.md` | 178 KB | 2,110 | 0 | 0 | 2026-10-09 工作日志（workspace: zcode） |
 | `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 168 KB | 1,500 | 13 | 51 | 检索与通用化：长周期计划 |
+| `docs/survey/11-module-index.md` | 165 KB | 1,344 | 0 | 0 | 模块职责索引 |
 | `docs/MATERIALS-PLANE-PLAN.md` | 154 KB | 1,394 | 2 | 6 | 材料平面与通用研究改造方案（v1 草案，待业主批准） |
 | `docs/KB-FOLDER-PLAN.md` | 154 KB | 1,630 | 2 | 9 | 知识库多级目录 —— 施工单（业主 2026-09-21 定案） |
 | `docs/research/channels/oss-decomposition.md` | 126 KB | 1,267 | 0 | 0 | 法规/标准获取与监控 · 开源项目**代码级**拆解 |
@@ -166,7 +169,7 @@
 | `docs/research/FINDINGS-INBOX-2026-09-28.md` | 66 KB | 764 | 0 | 0 | 收件箱：调研线回传的"可借鉴结果"（我逐条读过并挑出来的） |
 | `docs/INTERACTION-DESIGN.md` | 63 KB | 738 | 6 | 4 | 交互设计：向 WeKnora 学什么、我们怎么重做 |
 | `docs/research/archify/01-archify-逆向.md` | 58 KB | 738 | 0 | 2 | archify 逆向：它靠什么产出「结构 + 证据指向」 |
-| `docs/uniformity/README.md` | 55 KB | 884 | 12 | 18 | KnowledgeStation 摸底：证据与过程 |
+| `docs/uniformity/README.md` | 56 KB | 889 | 13 | 19 | KnowledgeStation 摸底：证据与过程 |
 | `docs/research/lay-gap-decomposition.md` | 55 KB | 757 | 1 | 2 | 大白话那道缺口怎么拆、哪条路能走：四条实测 |
 | `docs/research/agent-memory-systems.md` | 53 KB | 544 | 2 | 1 | Agent 记忆系统：技术路径、实测效果、以及"RAG ↔ 记忆"的中间形态 |
 | `docs/uniformity/09-big-files.md` | 52 KB | 609 | 1 | 0 | src/core 三个大文件事实地图 |
@@ -184,8 +187,8 @@
 | `docs/uniformity/04-tests-tools-gates.md` | 41 KB | 621 | 1 | 0 | tests / tools / 门禁 事实地图 |
 | `docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md` | 40 KB | 477 | 0 | 0 | 自动化执行记忆：gov-qa 推进到全国省市全覆盖 |
 | `docs/uniformity/10-api-server.md` | 40 KB | 452 | 2 | 0 | api/server.py 事实地图 |
+| `docs/survey/07-doc-surface.md` | 38 KB | 384 | 1 | 1 | 文档面 |
 | `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md` | 38 KB | 619 | 0 | 0 | 独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层 |
-| `docs/survey/07-doc-surface.md` | 38 KB | 380 | 1 | 1 | 文档面 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 KB | 644 | 0 | 0 | Hindsight 部署：对一份外部 AI 分析报告的事实核查（2026-09- |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 KB | 428 | 0 | 0 | 法规/标准发布源路径总表（2026-10-08 实测） |
 | `docs/research/vision-coverage-map.md` | 36 KB | 341 | 0 | 2 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** |
@@ -254,7 +257,7 @@
 | `docs/wiki/architecture.md` | 16 KB | 248 | 5 | 13 | KnowledgeStation：项目目标与现状 |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 KB | 202 | 0 | 1 | 通用召回链路：8 方案评审与合并（目标链路 v1） |
 | `docs/VISION-TREE.md` | 16 KB | 184 | 1 | 5 | KnowledgeStation 功能愿景（客户视角版） |
-| `docs/README.md` | 16 KB | 170 | 13 | 16 | KnowledgeStation 文件地图 |
+| `docs/README.md` | 16 KB | 170 | 14 | 16 | KnowledgeStation 文件地图 |
 | `docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md` | 16 KB | 231 | 0 | 0 | 独立复核报告 · spec 003「向量通道范围下推修复」 |
 | `docs/uniformity/08-why-contracts-rot.md` | 16 KB | 263 | 1 | 0 | 为什么"约定了契约"还是会变乱 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 KB | 293 | 0 | 2 | 用真人问答造新评测尺子 —— 方案（草案 v1） |
@@ -274,6 +277,7 @@
 | `docs/TEST-FLAKES.md` | 13 KB | 38 | 0 | 0 | 测试 flake 清单（已知偶发/竞态型，非回归勿背锅） |
 | `docs/verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md` | 13 KB | 230 | 3 | 0 | 独立复核报告 · exp-14-fused-rewrite |
 | `docs/archive/old-plans/AUTORUN-PLAN-2026-09-24.md` | 13 KB | 103 | 2 | 1 | 自动执行清单（2026-09-24 全仓复盘后，业主授权全自动执行） |
+| `docs/survey/13-table-io.md` | 12 KB | 333 | 0 | 0 | 表读写关系 |
 | `docs/archive/review-briefs/d508773-report.md` | 12 KB | 172 | 0 | 0 | 独立复核报告 — `d508773`（"③假绿补硬：复核点名三处验收牙加硬"） |
 | `docs/research/dsh-official/dshdocs-A.md` | 12 KB | 87 | 0 | 0 | DSH 客户端插件（右栏 UI）开发摘要 |
 | `docs/verify-briefs/VERIFY-REPORT-e4c-1024.md` | 12 KB | 137 | 3 | 0 | 独立复核报告 · E4c「同模型升维 512→1024」 |
@@ -293,9 +297,8 @@
 | `docs/survey/10-observed.md` | 11 KB | 246 | 1 | 1 | 观察记录（中性，不下结论） |
 | `docs/research/SURVEY-学术调研-第3轮-还债与收敛.md` | 11 KB | 157 | 2 | 0 | 学术调研 · 第 3 轮：**还债 + 四条主线收敛** |
 | `docs/survey/06-test-surface.md` | 11 KB | 209 | 1 | 0 | 测试面 |
-| `docs/research/dsh-official/README.md` | 11 KB | 111 | 13 | 3 | DSH 官方文档精读（8 份分片） |
+| `docs/research/dsh-official/README.md` | 11 KB | 111 | 14 | 3 | DSH 官方文档精读（8 份分片） |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 KB | 120 | 1 | 7 | 路线图（客户视角）—— 短期 / 长期 / 效果 / 边界 |
-| `docs/uniformity/COVERAGE.md` | 10 KB | 123 | 2 | 0 | 摸底完成度：哪些透了、哪些没透（滚动更新） |
 | `docs/archive/workbuddy-memory/memory/2026-10-10.md` | 10 KB | 135 | 0 | 0 | 2026-10-10 工作日志 |
 | `docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md` | 10 KB | 207 | 3 | 3 | 基础层诊断记录（2026-10-06） |
 | `docs/survey/00-method.md` | 10 KB | 175 | 1 | 0 | 检查计划：怎么把整个项目「检一遍」并保证没有漏 |
@@ -305,7 +308,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec010-turn-tab-fixes.md` | 9 KB | 164 | 0 | 0 | VERIFY-REPORT · spec 010（「本轮」页三处修正）—— ** |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 KB | 138 | 0 | 0 | 评审任务书 A：事实核查（交给能力一般的 AI） |
 | `docs/archive/research-process/CHANNEL-PROBE-REPORT.md` | 9 KB | 80 | 0 | 0 | 标准官方渠道时效巡检选型实测报告 |
-| `docs/archive/review-briefs/README.md` | 9 KB | 104 | 12 | 0 | 复核任务书（VERIFY-BRIEF）与复核结论的归属层 |
+| `docs/archive/review-briefs/README.md` | 9 KB | 104 | 13 | 0 | 复核任务书（VERIFY-BRIEF）与复核结论的归属层 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 KB | 110 | 1 | 0 | 学术界的政务问答是怎么设计的（沿《可信政务问答技术》36 条参考文献调研） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 KB | 88 | 0 | 0 | Hindsight 官方能力核实 —— 「我们是不是在造轮子」 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 KB | 115 | 1 | 7 | ★ 学术调研 · 总清单（四轮汇总，**要落地看这一页**） |
@@ -335,6 +338,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 KB | 93 | 2 | 0 | 独立复核报告 · 批次 `e9-col-prior`（P2 诊断·第 1 刀） |
 | `docs/archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md` | 6 KB | 82 | 0 | 0 | AUTO-CHAIN 交接单（每轮覆盖写） |
 | `docs/research/dsh-official/INGEST-LEDGER-skills.md` | 5 KB | 45 | 0 | 0 | DSH 官方文档原文入库账本 |
+| `docs/survey/12-config-surface.md` | 5 KB | 89 | 0 | 0 | 配置面（环境变量 + 配置键） |
 | `docs/archive/workbuddy-memory/memory/HANDOFF-CHECKLIST.md` | 5 KB | 94 | 0 | 0 | 交接清单 · KnowledgeStation（`D:\AI\work spac |
 | `docs/naming-convention.md` | 5 KB | 115 | 1 | 2 | 命名与分类规范（正式件） |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 KB | 73 | 0 | 0 | 调度记录：免费模型逐个真调（2026-09-28） |
@@ -349,27 +353,27 @@
 | `docs/wiki/components/update-channels.md` | 4 KB | 54 | 1 | 1 | update-channels（渠道适配器） |
 | `docs/wiki/components/law-source.md` | 4 KB | 60 | 1 | 0 | law-source（官方法规来源管线） |
 | `docs/wiki/components/settings.md` | 4 KB | 68 | 1 | 0 | settings（设置与凭据） |
+| `docs/survey/01-inventory.md` | 4 KB | 83 | 0 | 0 | 全仓清单（四本账） |
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-docs.md` | 4 KB | 29 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/wiki/components/compliance.md` | 4 KB | 67 | 1 | 0 | compliance（合规差距分析） |
-| `docs/survey/01-inventory.md` | 4 KB | 82 | 0 | 0 | 全仓清单（四本账） |
 | `docs/wiki/components/domain.md` | 4 KB | 67 | 1 | 0 | domain（域模型契约） |
 | `docs/survey/08-gate-surface.md` | 4 KB | 111 | 1 | 0 | 门禁面 |
-| `docs/wiki/components/README.md` | 3 KB | 53 | 12 | 20 | 组件契约索引 |
+| `docs/wiki/components/README.md` | 3 KB | 53 | 13 | 20 | 组件契约索引 |
 | `docs/wiki/components/verification.md` | 3 KB | 63 | 1 | 0 | verification（核验与纠错守卫） |
 | `docs/wiki/components/vision.md` | 3 KB | 67 | 1 | 0 | vision（本地视觉反查） |
 | `docs/wiki/components/query.md` | 3 KB | 65 | 1 | 0 | query（查询理解） |
-| `docs/archive/workbuddy-memory/README.md` | 3 KB | 59 | 12 | 0 | 归档：项目内 `.workbuddy-ai/`（WorkBuddy 自动链的记忆 |
+| `docs/archive/workbuddy-memory/README.md` | 3 KB | 59 | 13 | 0 | 归档：项目内 `.workbuddy-ai/`（WorkBuddy 自动链的记忆 |
 | `docs/research/dsh-official/INGEST-LEDGER-notes-client-ui.md` | 3 KB | 27 | 0 | 0 | DSH 官方文档原文入库账本 |
-| `docs/archive/history/README.md` | 3 KB | 80 | 12 | 1 | 开发史明细归档（§10.1 – §10.203） |
-| `docs/research/papers/README.md` | 3 KB | 54 | 12 | 0 | 外部原件存放处（检索文献调研） |
+| `docs/archive/history/README.md` | 3 KB | 80 | 13 | 1 | 开发史明细归档（§10.1 – §10.203） |
+| `docs/research/papers/README.md` | 3 KB | 54 | 13 | 0 | 外部原件存放处（检索文献调研） |
 | `docs/wiki/components/retrieval.md` | 3 KB | 71 | 2 | 0 | retrieval（检索） |
-| `docs/archive/README.md` | 3 KB | 68 | 12 | 2 | 归档区：这里放什么、怎么查 |
+| `docs/archive/README.md` | 3 KB | 68 | 13 | 2 | 归档区：这里放什么、怎么查 |
 | `docs/wiki/components/update.md` | 3 KB | 59 | 2 | 0 | update（渠道巡检与变更） |
-| `docs/research/hindsight-official/README.md` | 3 KB | 54 | 12 | 3 | Hindsight 官方文档本地副本 |
-| `docs/survey/README.md` | 3 KB | 65 | 12 | 10 | 项目现状地图 |
+| `docs/research/hindsight-official/README.md` | 3 KB | 54 | 13 | 3 | Hindsight 官方文档本地副本 |
+| `docs/survey/README.md` | 3 KB | 65 | 13 | 10 | 项目现状地图 |
 | `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 3 KB | 48 | 0 | 0 | 真库清理留档：22 条"栏目导航"型误发现（2026-09-24） |
 | `docs/wiki/components/ingestion.md` | 3 KB | 62 | 1 | 0 | ingestion（解析与入库） |
-| `docs/survey/COVERAGE.md` | 3 KB | 50 | 0 | 0 | 覆盖对账（九个面） |
+| `docs/survey/COVERAGE.md` | 3 KB | 51 | 2 | 0 | 覆盖对账（九个面） |
 | `docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` | 2 KB | 47 | 0 | 0 | 决策记录：WSL2 解锁 vlm/hybrid 本地后端 —— 否决（2026- |
 | `docs/wiki/components/materials.md` | 2 KB | 51 | 1 | 0 | materials（材料平面） |
 | `docs/wiki/components/knowledge.md` | 2 KB | 51 | 1 | 0 | knowledge（法规知识本体与分类） |

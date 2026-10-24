@@ -190,6 +190,9 @@ def main() -> int:
         "08-gate-surface.md",
         "09-runtime.md",
         "10-observed.md",
+        "11-module-index.md",
+        "12-config-surface.md",
+        "13-table-io.md",
     ]
     miss = [n for n in need if not (SURVEY / n).exists()]
     rows.append(
@@ -202,6 +205,15 @@ def main() -> int:
     )
     if miss:
         fails.append("生成的 md 不全")
+
+    # 8.5 深化面齐备
+    deep_need = ["modules", "endpoints_deep", "config", "tables_io"]
+    deep_miss = [n for n in deep_need if not (DATA / f"{n}.json").exists()]
+    rows.append(("深化面 JSON", f"{len(deep_need) - len(deep_miss)}/{len(deep_need)} 份存在",
+                 "✅" if not deep_miss else f"❌ 缺 {', '.join(deep_miss)}",
+                 "模块/接口/配置/表读写"))
+    if deep_miss:
+        fails.append("深化面 JSON 不全")
 
     # 9 运行时面：手写，标注未验证比例
     rows.append(

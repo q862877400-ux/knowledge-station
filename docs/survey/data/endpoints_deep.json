@@ -1,0 +1,3293 @@
+{
+ "generated_by": "scripts/survey/05-deep.py::step_endpoints_deep",
+ "caliber": "`body_keys_read` = 函数体里 `body.get(\"k\")` / `body[\"k\"]` 出现的键；`query_params` = 形如 `    x: int =` 的函数参数；`response_keys` = 函数体里 `\"k\":` 形态的键（**近似，不是完整响应模型**）。**这是静态抽取，不是运行时 schema**。",
+ "auth_note": "**令牌不是每个 handler 自己查的**：`server.py` 有 `async def auth_middleware`，统一校验 `Authorization: Bearer <token>`，只放行 `/health` 与 `OPTIONS`。所以「handler 里没写令牌代码」是**设计如此**，不是缺鉴权。`mentions_token` 只记「这个 handler 的函数体里正好提到令牌」这一事实。",
+ "counts": {
+  "routes": 176,
+  "handlers_mentioning_token": 0
+ },
+ "routes": [
+  {
+   "method": "GET",
+   "path": "/api/v1/channels",
+   "handler": "list_channels",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 69,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "category",
+    "code",
+    "data",
+    "items",
+    "state",
+    "status",
+    "summary",
+    "verification",
+    "wiring"
+   ],
+   "lines": 43,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/channels/{channel_id}",
+   "handler": "get_channel",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 112,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels",
+   "handler": "create_channel",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 122,
+   "body_keys_read": [
+    "enabled",
+    "name"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 32,
+   "mentions_token": false
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/v1/channels/{channel_id}",
+   "handler": "update_channel",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 154,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/enabled",
+   "handler": "set_channel_enabled",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 178,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "enabled",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/channels/{channel_id}",
+   "handler": "remove_channel",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 190,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "channel_id",
+    "code",
+    "data",
+    "deleted",
+    "status"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/test-case",
+   "handler": "set_channel_test_case",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 203,
+   "body_keys_read": [
+    "expect_no",
+    "note",
+    "sample_url"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status",
+    "test_case"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/channels/{channel_id}/test-case",
+   "handler": "get_channel_test_case",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 221,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status",
+    "test_case"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/test",
+   "handler": "run_channel_test",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 228,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "detail",
+    "result",
+    "status"
+   ],
+   "lines": 9,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/probe",
+   "handler": "probe_channels",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 237,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview",
+   "handler": "ingest_preview",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 59,
+   "body_keys_read": [
+    "error_code",
+    "error_message",
+    "status"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status",
+    "unsupported_type"
+   ],
+   "lines": 32,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/batch",
+   "handler": "ingest_preview_batch",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 91,
+   "body_keys_read": [
+    "dir",
+    "doc_type",
+    "limit_files",
+    "paths",
+    "recursive",
+    "sample"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 47,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/preview/inbox",
+   "handler": "ingest_preview_inbox",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 138,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "count",
+    "data",
+    "dir",
+    "file_name",
+    "files",
+    "mtime",
+    "path",
+    "size",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/jobs",
+   "handler": "ingest_preview_job_start",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 162,
+   "body_keys_read": [
+    "batch_size",
+    "dir",
+    "doc_type",
+    "paths",
+    "recursive"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 43,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/preview/jobs/{job_id}",
+   "handler": "ingest_preview_job_status",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 205,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/jobs/{job_id}/abort",
+   "handler": "ingest_preview_job_abort",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 219,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders",
+   "handler": "kb_list_folders",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 117,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "breadcrumb",
+    "code",
+    "data",
+    "folder",
+    "has_more",
+    "limit",
+    "offset",
+    "status",
+    "subfolders",
+    "total"
+   ],
+   "lines": 29,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/flat",
+   "handler": "kb_flat_folders",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 146,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/{folder_id}/items",
+   "handler": "kb_folder_items",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 170,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "breadcrumb",
+    "code",
+    "data",
+    "folder",
+    "has_more",
+    "items",
+    "limit",
+    "offset",
+    "status",
+    "total"
+   ],
+   "lines": 29,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders",
+   "handler": "kb_create_folder",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 199,
+   "body_keys_read": [
+    "name",
+    "parent_id",
+    "sort"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 19,
+   "mentions_token": false
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/kb/folders/{folder_id}",
+   "handler": "kb_rename_folder",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 218,
+   "body_keys_read": [
+    "name"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders/{folder_id}/move",
+   "handler": "kb_move_folder",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 228,
+   "body_keys_read": [
+    "from_parent_id",
+    "to_parent_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders/{folder_id}/copy",
+   "handler": "kb_copy_folder",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 252,
+   "body_keys_read": [
+    "name",
+    "to_parent_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 15,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/{folder_id}/delete-preview",
+   "handler": "kb_describe_delete",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 267,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/kb/folders/{folder_id}",
+   "handler": "kb_delete_folder",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 279,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 19,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members",
+   "handler": "kb_add_members",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 298,
+   "body_keys_read": [
+    "folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "added",
+    "code",
+    "data",
+    "folder_id",
+    "skipped",
+    "status",
+    "total"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/remove",
+   "handler": "kb_remove_members",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 322,
+   "body_keys_read": [
+    "folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "folder_id",
+    "removed",
+    "status",
+    "total"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/move",
+   "handler": "kb_move_members",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 340,
+   "body_keys_read": [
+    "from_folder_id",
+    "to_folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "from_folder_id",
+    "moved",
+    "status",
+    "to_folder_id",
+    "total"
+   ],
+   "lines": 21,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/copy",
+   "handler": "kb_copy_members",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 361,
+   "body_keys_read": [
+    "to_folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "added",
+    "code",
+    "data",
+    "skipped",
+    "status",
+    "to_folder_id",
+    "total"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/inbox",
+   "handler": "kb_inbox",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 384,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "catalog_hidden",
+    "ccs_checked_at",
+    "ccs_outcome",
+    "ccs_outcome_label",
+    "ccs_reason",
+    "ccs_source",
+    "ccs_tag",
+    "code",
+    "confidence",
+    "data",
+    "doc_id",
+    "failure_kind",
+    "has_more",
+    "items",
+    "limit",
+    "offset",
+    "stage",
+    "stage_label",
+    "standard_name",
+    "standard_no"
+   ],
+   "lines": 72,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/stage-labels",
+   "handler": "kb_stage_labels",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 456,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "labels",
+    "stages",
+    "status",
+    "unfiled"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/inbox/reingest",
+   "handler": "kb_inbox_reingest",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 468,
+   "body_keys_read": [
+    "doc_ids"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 33,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/inbox/reingest/status",
+   "handler": "kb_inbox_reingest_status",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 501,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/summary",
+   "handler": "kb_ccs_summary",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 514,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "backfill",
+    "by_outcome",
+    "code",
+    "data",
+    "default_batch",
+    "max_all",
+    "max_batch",
+    "missing",
+    "missing_split",
+    "outcome_labels",
+    "source_labels",
+    "sources",
+    "status",
+    "stop_reason_labels"
+   ],
+   "lines": 30,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/plan",
+   "handler": "kb_ccs_plan",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 544,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/ccs/backfill",
+   "handler": "kb_ccs_backfill",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 562,
+   "body_keys_read": [
+    "all",
+    "doc_ids",
+    "force",
+    "limit"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 54,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/backfill/status",
+   "handler": "kb_ccs_backfill_status",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 616,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/ccs/backfill/cancel",
+   "handler": "kb_ccs_backfill_cancel",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 630,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/inbox/confirm",
+   "handler": "kb_inbox_confirm",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 640,
+   "body_keys_read": [
+    "decisions"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 22,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/scope/resolve",
+   "handler": "kb_scope_resolve",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 662,
+   "body_keys_read": [
+    "folder_ids"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "doc_count",
+    "doc_ids",
+    "folder_count",
+    "folder_ids",
+    "roots",
+    "status"
+   ],
+   "lines": 25,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/sources",
+   "handler": "law_sources",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 32,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "detail",
+    "home",
+    "name",
+    "source",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/search",
+   "handler": "law_search",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 44,
+   "body_keys_read": [
+    "childtype",
+    "department",
+    "effective",
+    "field",
+    "page",
+    "query",
+    "size",
+    "source",
+    "total",
+    "year"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "flk",
+    "govcn",
+    "status",
+    "total"
+   ],
+   "lines": 38,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/ingest",
+   "handler": "law_ingest",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 82,
+   "body_keys_read": [
+    "bbbs",
+    "domain_tags",
+    "reingest",
+    "source",
+    "standard_name",
+    "url"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "flk",
+    "govcn",
+    "status"
+   ],
+   "lines": 40,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/check-updates",
+   "handler": "law_check_updates",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 122,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 9,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/catalog",
+   "handler": "law_catalog",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 131,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 19,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/catalog/refresh",
+   "handler": "law_catalog_refresh",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 150,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/verify",
+   "handler": "law_verify",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 161,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/history",
+   "handler": "law_history",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 173,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "bbbs",
+    "code",
+    "count",
+    "data",
+    "status",
+    "versions"
+   ],
+   "lines": 26,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/change-signals",
+   "handler": "law_change_signals",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 199,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "by_signal",
+    "code",
+    "count",
+    "data",
+    "items",
+    "status"
+   ],
+   "lines": 32,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/compliance-guard",
+   "handler": "compliance_guard",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 231,
+   "body_keys_read": [
+    "text"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "available",
+    "code",
+    "data",
+    "status",
+    "verdict"
+   ],
+   "lines": 21,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects",
+   "handler": "materials_create_project",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 67,
+   "body_keys_read": [
+    "authority_policy",
+    "name",
+    "note"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects",
+   "handler": "materials_list_projects",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 85,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 4,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/inbox",
+   "handler": "materials_inbox",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 89,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "dir",
+    "file_name",
+    "files",
+    "path",
+    "size",
+    "status"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects/{project_id}/scan",
+   "handler": "materials_scan",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 105,
+   "body_keys_read": [
+    "origin"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "registered",
+    "rows",
+    "scanned",
+    "status"
+   ],
+   "lines": 35,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects/{project_id}/collect",
+   "handler": "materials_collect",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 140,
+   "body_keys_read": [
+    "note",
+    "published_at",
+    "title",
+    "url"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 51,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/materials",
+   "handler": "materials_list",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 191,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/search",
+   "handler": "materials_search",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 205,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "count",
+    "data",
+    "hits",
+    "query",
+    "status"
+   ],
+   "lines": 17,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/tiers",
+   "handler": "materials_tiers",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 222,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "label",
+    "status",
+    "tier"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}",
+   "handler": "materials_get",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 229,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}/chunks",
+   "handler": "materials_chunks",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 239,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "chunks",
+    "code",
+    "data",
+    "offset",
+    "status",
+    "total"
+   ],
+   "lines": 15,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/review",
+   "handler": "materials_review",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 254,
+   "body_keys_read": [
+    "note",
+    "status"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "approved",
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 35,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/tier",
+   "handler": "materials_set_tier",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 289,
+   "body_keys_read": [
+    "reason",
+    "source",
+    "tier"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/role",
+   "handler": "materials_set_role",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 305,
+   "body_keys_read": [
+    "role"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/lifecycle",
+   "handler": "materials_set_lifecycle",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 318,
+   "body_keys_read": [
+    "lifecycle"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/materials/{material_id}",
+   "handler": "materials_delete",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 330,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "deleted",
+    "status"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/locators",
+   "handler": "materials_locator_summary",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 337,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 20,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}/locators",
+   "handler": "materials_locator_health",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 357,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/reverify",
+   "handler": "materials_reverify_locators",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 370,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect",
+   "handler": "effect_report",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 36,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect/docs",
+   "handler": "effect_report_docs",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 54,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 21,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect/color",
+   "handler": "effect_report_by_color",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 75,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 19,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/effect/export",
+   "handler": "effect_report_export",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 94,
+   "body_keys_read": [
+    "color",
+    "window"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "name",
+    "path",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/research",
+   "handler": "research_report",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 118,
+   "body_keys_read": [
+    "conclusion_md",
+    "dry_run",
+    "limit",
+    "project_id",
+    "query",
+    "title"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 53,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/research/draft",
+   "handler": "research_report_draft",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 171,
+   "body_keys_read": [
+    "limit",
+    "project_id",
+    "query"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 43,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/settings/api-config",
+   "handler": "api_config_get",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 18,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "ok"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/settings/api-config",
+   "handler": "api_config_put",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 32,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "ok"
+   ],
+   "lines": 34,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/settings/api-config/test",
+   "handler": "api_config_test",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 66,
+   "body_keys_read": [
+    "channel"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "detail",
+    "ok",
+    "result"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/check",
+   "handler": "update_check",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 38,
+   "body_keys_read": [
+    "tier"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "batch_id",
+    "code",
+    "data",
+    "status",
+    "total"
+   ],
+   "lines": 51,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/batch/{batch_id}",
+   "handler": "update_batch_progress",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 89,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/batch/{batch_id}/pause",
+   "handler": "update_batch_pause",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 107,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/batch/{batch_id}/resume",
+   "handler": "update_batch_resume",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 118,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "paused",
+    "status"
+   ],
+   "lines": 24,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/batches",
+   "handler": "update_batches",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 142,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/changes",
+   "handler": "update_changes",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 149,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status",
+    "total"
+   ],
+   "lines": 22,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/changes/{change_id}/ack",
+   "handler": "update_change_ack",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 171,
+   "body_keys_read": [
+    "ack"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "ack",
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 15,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/changes/{change_id}/manual",
+   "handler": "update_change_manual",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 186,
+   "body_keys_read": [
+    "legal_status",
+    "note"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/report-xlsx/{batch_id}",
+   "handler": "update_report_xlsx",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 209,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "name",
+    "path",
+    "status"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-scan",
+   "handler": "announce_scan",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 232,
+   "body_keys_read": [
+    "force"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-scan/last",
+   "handler": "announce_scan_last",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 255,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 6,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-sources",
+   "handler": "announce_sources_list",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 261,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "enabled_count",
+    "sources",
+    "status",
+    "total"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-sources",
+   "handler": "announce_sources_add",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 274,
+   "body_keys_read": [
+    "name",
+    "note",
+    "url"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "source",
+    "status"
+   ],
+   "lines": 21,
+   "mentions_token": false
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/update/announce-sources/{source_id}",
+   "handler": "announce_sources_update",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 295,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "source",
+    "status"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/update/announce-sources/{source_id}",
+   "handler": "announce_sources_remove",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 308,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "sources",
+    "status",
+    "total"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-items",
+   "handler": "announce_items",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 320,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-export",
+   "handler": "announce_export",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 327,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "name",
+    "path",
+    "status"
+   ],
+   "lines": 20,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-ingest/pending",
+   "handler": "announce_ingest_pending",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 347,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-ingest",
+   "handler": "announce_ingest",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 357,
+   "body_keys_read": [
+    "force",
+    "limit",
+    "source_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 30,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-ingest/triage",
+   "handler": "announce_ingest_triage",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 387,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 15,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/classify",
+   "handler": "discover_classify",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 402,
+   "body_keys_read": [
+    "description"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 8,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/search",
+   "handler": "discover_search",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 410,
+   "body_keys_read": [
+    "category_path",
+    "drill_level"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 26,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/discover/watchlist",
+   "handler": "watchlist_get",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 436,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/watchlist",
+   "handler": "watchlist_post",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 443,
+   "body_keys_read": [
+    "action",
+    "name",
+    "standard_no"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "add",
+    "code",
+    "data",
+    "items",
+    "status",
+    "total"
+   ],
+   "lines": 30,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/subscriptions",
+   "handler": "subscriptions_get",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 473,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "domains",
+    "enabled",
+    "status",
+    "tag",
+    "vocab"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/update/subscriptions",
+   "handler": "subscriptions_put",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 483,
+   "body_keys_read": [
+    "tags"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "domains",
+    "enabled",
+    "status",
+    "tag"
+   ],
+   "lines": 21,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk",
+   "handler": "bulk_ingest_start",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 504,
+   "body_keys_read": [
+    "batch_size",
+    "force",
+    "reingest",
+    "src_dir"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "batch_id",
+    "code",
+    "data",
+    "running",
+    "status",
+    "total"
+   ],
+   "lines": 40,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/bulk/{batch_id}",
+   "handler": "bulk_ingest_status",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 544,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "batch_id",
+    "code",
+    "data",
+    "errors",
+    "filing_state_missing",
+    "filing_state_missing_sample",
+    "parsed",
+    "pause_reason",
+    "pending",
+    "reingest",
+    "scanned",
+    "status",
+    "total"
+   ],
+   "lines": 32,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk/{batch_id}/resume",
+   "handler": "bulk_ingest_resume",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 576,
+   "body_keys_read": [
+    "daily_budget"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "batch_id",
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 25,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk/{batch_id}/abort",
+   "handler": "bulk_ingest_abort",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 601,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "batch_id",
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/data/package/export",
+   "handler": "data_package_export",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 613,
+   "body_keys_read": [
+    "dest_dir"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "manifest",
+    "name",
+    "path",
+    "status"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/data/package/import",
+   "handler": "data_package_import",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 629,
+   "body_keys_read": [
+    "mode",
+    "src_path"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/health",
+   "handler": "health",
+   "file": "src/core/api/server.py",
+   "lineno": 338,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "db_status",
+    "parser_worker",
+    "status",
+    "uptime_seconds",
+    "vector_engine"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/patches",
+   "handler": "create_patch",
+   "file": "src/core/api/server.py",
+   "lineno": 361,
+   "body_keys_read": [
+    "clause_revision_id",
+    "field_name",
+    "force",
+    "patch_reason",
+    "patched_value"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "message",
+    "similarity",
+    "status",
+    "warnings"
+   ],
+   "lines": 53,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/resolve",
+   "handler": "resolve_clause",
+   "file": "src/core/api/server.py",
+   "lineno": 414,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "effective",
+    "reference",
+    "superseded",
+    "upcoming",
+    "withdrawn"
+   ],
+   "lines": 60,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/data/quality-issues",
+   "handler": "data_quality_issues",
+   "file": "src/core/api/server.py",
+   "lineno": 474,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "clause_number",
+    "clause_revision_id",
+    "code",
+    "content_text",
+    "data",
+    "is_suspicious",
+    "issues",
+    "patched_fields",
+    "standard_no",
+    "status",
+    "table_md",
+    "total"
+   ],
+   "lines": 44,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/patches",
+   "handler": "get_patches",
+   "file": "src/core/api/server.py",
+   "lineno": 518,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "status"
+   ],
+   "lines": 6,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/clauses/patches/{patch_id}",
+   "handler": "remove_patch",
+   "file": "src/core/api/server.py",
+   "lineno": 524,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "patch_id",
+    "rolled_back",
+    "status"
+   ],
+   "lines": 17,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/file",
+   "handler": "get_document_file",
+   "file": "src/core/api/server.py",
+   "lineno": 541,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/figure/{fig_no}",
+   "handler": "get_document_figure",
+   "file": "src/core/api/server.py",
+   "lineno": 564,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 154,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/formula/{fno}",
+   "handler": "get_document_formula",
+   "file": "src/core/api/server.py",
+   "lineno": 718,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 62,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}",
+   "handler": "get_document_table_image",
+   "file": "src/core/api/server.py",
+   "lineno": 780,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 61,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents",
+   "handler": "doc_list",
+   "file": "src/core/api/server.py",
+   "lineno": 841,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 17,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/categories",
+   "handler": "doc_categories",
+   "file": "src/core/api/server.py",
+   "lineno": 858,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "docs",
+    "items",
+    "levels",
+    "name",
+    "order"
+   ],
+   "lines": 46,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/batch-delete",
+   "handler": "documents_batch_delete",
+   "file": "src/core/api/server.py",
+   "lineno": 904,
+   "body_keys_read": [
+    "confirm",
+    "doc_ids"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "confirm",
+    "data",
+    "doc_ids",
+    "status"
+   ],
+   "lines": 23,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/tree",
+   "handler": "document_tree",
+   "file": "src/core/api/server.py",
+   "lineno": 927,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "clause_number",
+    "code",
+    "data",
+    "level",
+    "page_start",
+    "source",
+    "text",
+    "title"
+   ],
+   "lines": 257,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmarks",
+   "handler": "get_bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1184,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmarks",
+   "handler": "add_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1189,
+   "body_keys_read": [
+    "clause_key",
+    "folder_id",
+    "remark"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmarks/by-clause/{clause_key}",
+   "handler": "del_bookmark_by_clause",
+   "file": "src/core/api/server.py",
+   "lineno": 1201,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "removed"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmarks/{bookmark_id}",
+   "handler": "del_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1208,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "removed"
+   ],
+   "lines": 9,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/doc-bookmarks",
+   "handler": "get_doc_bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1217,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/doc-bookmarks",
+   "handler": "add_doc_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1222,
+   "body_keys_read": [
+    "doc_id",
+    "folder_id",
+    "remark"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/doc-bookmarks/by-doc/{doc_id}",
+   "handler": "del_doc_bookmark_by_doc",
+   "file": "src/core/api/server.py",
+   "lineno": 1234,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "removed"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/doc-bookmarks/{doc_bookmark_id}",
+   "handler": "del_doc_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1241,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "removed"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmark-folders",
+   "handler": "get_bookmark_folders",
+   "file": "src/core/api/server.py",
+   "lineno": 1251,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders",
+   "handler": "create_bookmark_folder",
+   "file": "src/core/api/server.py",
+   "lineno": 1256,
+   "body_keys_read": [
+    "folder_name"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/bookmark-folders/{folder_id}",
+   "handler": "rename_bookmark_folder",
+   "file": "src/core/api/server.py",
+   "lineno": 1268,
+   "body_keys_read": [
+    "folder_name"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmark-folders/{folder_id}",
+   "handler": "delete_bookmark_folder",
+   "file": "src/core/api/server.py",
+   "lineno": 1280,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders/move-clause",
+   "handler": "move_clause_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1290,
+   "body_keys_read": [
+    "clause_key",
+    "folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "moved"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders/move-doc",
+   "handler": "move_doc_bookmark",
+   "file": "src/core/api/server.py",
+   "lineno": 1304,
+   "body_keys_read": [
+    "doc_id",
+    "folder_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "moved"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmark-folders/tree",
+   "handler": "bookmark_folders_tree",
+   "file": "src/core/api/server.py",
+   "lineno": 1318,
+   "body_keys_read": [
+    "docs"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "bookmark_id",
+    "clause_bookmarks",
+    "clause_count",
+    "clause_key",
+    "clause_number",
+    "clause_revision_id",
+    "code",
+    "data",
+    "doc_bookmark_id",
+    "doc_bookmarked",
+    "doc_count",
+    "doc_id",
+    "docs",
+    "domain_tags",
+    "folder_id",
+    "folder_name",
+    "l1",
+    "l2",
+    "l3",
+    "l4"
+   ],
+   "lines": 116,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/annotations",
+   "handler": "get_annotations",
+   "file": "src/core/api/server.py",
+   "lineno": 1434,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/annotations",
+   "handler": "add_annotation",
+   "file": "src/core/api/server.py",
+   "lineno": 1439,
+   "body_keys_read": [
+    "annotation_type",
+    "clause_key",
+    "content"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/annotations/{annotation_id}",
+   "handler": "del_annotation",
+   "file": "src/core/api/server.py",
+   "lineno": 1451,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "removed"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/projects",
+   "handler": "get_projects",
+   "file": "src/core/api/server.py",
+   "lineno": 1458,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/projects",
+   "handler": "create_project",
+   "file": "src/core/api/server.py",
+   "lineno": 1463,
+   "body_keys_read": [
+    "project_name",
+    "project_type"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/projects/{project_id}/clauses",
+   "handler": "project_add_clause",
+   "file": "src/core/api/server.py",
+   "lineno": 1470,
+   "body_keys_read": [
+    "clause_revision_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/projects/{project_id}/clauses/{clause_revision_id}",
+   "handler": "project_remove_clause",
+   "file": "src/core/api/server.py",
+   "lineno": 1481,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compliance/policies",
+   "handler": "import_policy",
+   "file": "src/core/api/server.py",
+   "lineno": 1491,
+   "body_keys_read": [
+    "policy_name",
+    "policy_text"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/compliance/policies",
+   "handler": "list_policies",
+   "file": "src/core/api/server.py",
+   "lineno": 1498,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 8,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compliance/gap-analysis",
+   "handler": "run_gap",
+   "file": "src/core/api/server.py",
+   "lineno": 1506,
+   "body_keys_read": [
+    "policy_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/versions",
+   "handler": "doc_versions",
+   "file": "src/core/api/server.py",
+   "lineno": 1516,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "chain",
+    "code",
+    "data",
+    "has_versions"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/clauses-by-prefix",
+   "handler": "clauses_by_prefix",
+   "file": "src/core/api/server.py",
+   "lineno": 1526,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/clauses",
+   "handler": "doc_full_clauses",
+   "file": "src/core/api/server.py",
+   "lineno": 1544,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "clause_number",
+    "clause_revision_id",
+    "clauses",
+    "code",
+    "content_html",
+    "content_text",
+    "data",
+    "doc_id",
+    "page_start",
+    "title"
+   ],
+   "lines": 74,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/assets/{fname}",
+   "handler": "doc_asset",
+   "file": "src/core/api/server.py",
+   "lineno": 1618,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 43,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compare",
+   "handler": "compare_docs_endpoint",
+   "file": "src/core/api/server.py",
+   "lineno": 1661,
+   "body_keys_read": [
+    "doc_a",
+    "doc_b"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 18,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/operation-log",
+   "handler": "operation_log",
+   "file": "src/core/api/server.py",
+   "lineno": 1679,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 14,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/aliases/extract",
+   "handler": "aliases_extract",
+   "file": "src/core/api/server.py",
+   "lineno": 1693,
+   "body_keys_read": [
+    "doc_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "alias_total",
+    "code",
+    "data",
+    "extracted"
+   ],
+   "lines": 28,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/export/citations",
+   "handler": "export_citations",
+   "file": "src/core/api/server.py",
+   "lineno": 1721,
+   "body_keys_read": [
+    "clause_revision_ids"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "citation_text",
+    "code",
+    "data"
+   ],
+   "lines": 31,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/export/download",
+   "handler": "download_export",
+   "file": "src/core/api/server.py",
+   "lineno": 1752,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/chat/completions",
+   "handler": "chat_completions",
+   "file": "src/core/api/server.py",
+   "lineno": 1764,
+   "body_keys_read": [
+    "_meta",
+    "answer_scope",
+    "channels",
+    "conclusion",
+    "derivation",
+    "dump",
+    "evidence",
+    "history",
+    "include_superseded",
+    "query",
+    "query_mode",
+    "tier",
+    "top_k",
+    "verification"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "answer_confidence",
+    "answer_scope",
+    "ask",
+    "behavior",
+    "building",
+    "building_type",
+    "cite_warnings",
+    "clarify",
+    "clause_number",
+    "clause_revision_id",
+    "clean_query",
+    "confidence_reasons",
+    "consent",
+    "content",
+    "content_text",
+    "correction",
+    "declared_slots",
+    "edge_type",
+    "elapsed_ms",
+    "evidence_total"
+   ],
+   "lines": 438,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ks/answer",
+   "handler": "ks_answer_endpoint",
+   "file": "src/core/api/server.py",
+   "lineno": 2202,
+   "body_keys_read": [
+    "params",
+    "query",
+    "query_mode"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "params",
+    "query",
+    "query_mode",
+    "status"
+   ],
+   "lines": 33,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/egress/audit",
+   "handler": "egress_audit",
+   "file": "src/core/api/server.py",
+   "lineno": 2235,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/egress/audit/export",
+   "handler": "egress_audit_export",
+   "file": "src/core/api/server.py",
+   "lineno": 2242,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data",
+    "name",
+    "path"
+   ],
+   "lines": 10,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/{old_doc_id}/migrate-patches",
+   "handler": "migrate_patches_api",
+   "file": "src/core/api/server.py",
+   "lineno": 2252,
+   "body_keys_read": [
+    "to"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 13,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/{clause_revision_id}/office-edit",
+   "handler": "office_edit_start",
+   "file": "src/core/api/server.py",
+   "lineno": 2265,
+   "body_keys_read": [
+    "rect"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/office-edit/poll",
+   "handler": "office_edit_poll",
+   "file": "src/core/api/server.py",
+   "lineno": 2281,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/office-edit/commit",
+   "handler": "office_edit_commit",
+   "file": "src/core/api/server.py",
+   "lineno": 2292,
+   "body_keys_read": [
+    "session_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/clauses/office-edit/{session_id}",
+   "handler": "office_edit_cancel",
+   "file": "src/core/api/server.py",
+   "lineno": 2303,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "cancelled",
+    "code",
+    "data"
+   ],
+   "lines": 9,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/backlinks",
+   "handler": "clause_backlinks",
+   "file": "src/core/api/server.py",
+   "lineno": 2312,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 12,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/spans",
+   "handler": "clause_spans",
+   "file": "src/core/api/server.py",
+   "lineno": 2324,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "bbox",
+    "clause_revision_id",
+    "code",
+    "data",
+    "page_number",
+    "span_type",
+    "spans"
+   ],
+   "lines": 41,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/meta",
+   "handler": "clause_meta",
+   "file": "src/core/api/server.py",
+   "lineno": 2365,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "clause_bookmark_id",
+    "clause_bookmarked",
+    "clause_key",
+    "clause_number",
+    "clause_revision_id",
+    "code",
+    "data",
+    "doc_bookmarked",
+    "doc_id",
+    "page_start",
+    "standard_no",
+    "title"
+   ],
+   "lines": 43,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/vision/locate",
+   "handler": "vision_locate",
+   "file": "src/core/api/server.py",
+   "lineno": 2408,
+   "body_keys_read": [
+    "image_path"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/snapshots",
+   "handler": "create_snapshot",
+   "file": "src/core/api/server.py",
+   "lineno": 2424,
+   "body_keys_read": [
+    "type"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 7,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/snapshots",
+   "handler": "list_snapshots",
+   "file": "src/core/api/server.py",
+   "lineno": 2431,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 5,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/snapshots/{snapshot_id}/restore",
+   "handler": "restore_snapshot",
+   "file": "src/core/api/server.py",
+   "lineno": 2436,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 11,
+   "mentions_token": false
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/impact",
+   "handler": "impact_analysis",
+   "file": "src/core/api/server.py",
+   "lineno": 2447,
+   "body_keys_read": [
+    "new_doc_id",
+    "old_doc_id"
+   ],
+   "query_params": [],
+   "response_keys": [
+    "code",
+    "data"
+   ],
+   "lines": 16,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/diagnostics/health-board",
+   "handler": "health_board",
+   "file": "src/core/api/server.py",
+   "lineno": 2463,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "alias",
+    "aliases",
+    "clauses",
+    "code",
+    "data",
+    "db",
+    "debug_dumps",
+    "documents",
+    "engines",
+    "fts",
+    "llm",
+    "parser",
+    "patches",
+    "reviews",
+    "stats",
+    "status",
+    "vector",
+    "vectors"
+   ],
+   "lines": 49,
+   "mentions_token": false
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/diagnostics/debug-dumps",
+   "handler": "debug_dumps",
+   "file": "src/core/api/server.py",
+   "lineno": 2512,
+   "body_keys_read": [],
+   "query_params": [],
+   "response_keys": [
+    "annotation_id",
+    "annotation_type",
+    "annotations",
+    "bbox",
+    "bookmarked",
+    "chart",
+    "clause_key",
+    "clause_number",
+    "clause_revision_id",
+    "code",
+    "content",
+    "content_html",
+    "content_text",
+    "data",
+    "doc_id",
+    "expanded_from",
+    "hierarchy_label",
+    "is_suspicious",
+    "knowledge_type",
+    "legal_status"
+   ],
+   "lines": 830,
+   "mentions_token": false
+  }
+ ]
+}

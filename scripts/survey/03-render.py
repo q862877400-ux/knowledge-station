@@ -549,6 +549,111 @@ def gen_readme() -> None:
     write("README.md", "项目现状地图", "\n".join(out))
 
 
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_module_index() -> None:
+    d = load("modules")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 模块 | **{cnt['modules']:,}** |",
+        f"| 有 docstring | {cnt['with_docstring']:,} |",
+        f"| 没有 docstring | {cnt['without_docstring']} |",
+        "",
+        "> **`purpose` 取的是模块 docstring 的第一句**，不是我的概括。",
+        "> 所以这一栏的质量等于原 docstring 的质量 —— 我只搬运，不评价。",
+        "",
+        "## 三、按目录分组（**找东西先看这张表**）", "",
+    ]
+    groups: dict[str, list[dict]] = {}
+    for m in d["modules"]:
+        parts = m["module"].split("/")
+        key = "/".join(parts[:2]) if len(parts) > 2 else "/".join(parts[:-1]) or "."
+        groups.setdefault(key, []).append(m)
+    for k in sorted(groups, key=lambda x: -len(groups[x])):
+        ms = groups[k]
+        out.append(f"### `{k}/`（{len(ms)} 个模块）")
+        out.append("")
+        for m in sorted(ms, key=lambda x: x["module"]):
+            name = m["module"].split("/")[-1]
+            purpose = m.get("purpose") or "**（模块无 docstring）**"
+            out.append(f"- **`{name}`**（{m.get('lines', 0)} 行）— {purpose}")
+        out.append("")
+    write("11-module-index.md", "模块职责索引", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_config() -> None:
+    d = load("config")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 环境变量 | **{cnt['env_vars']}** |",
+        f"| 代码里的配置键 | {cnt['config_keys_in_code']} |",
+        f"| 种子库里的配置键 | {cnt['config_keys_in_seed_db']} |",
+        f"| 两者并集 | **{cnt['config_keys_union']}** |",
+        "",
+        d["config_db_note"], "",
+        "## 三、环境变量", "",
+        "| 变量 | 引用文件数 | 引用点（前 12） |", "|---|---:|---|",
+    ]
+    for k, v in d["env"].items():
+        refs = "、".join(f"`{x}`" for x in v["used_by"][:4])
+        more = f" …共 {v['n_refs']}" if v["n_refs"] > 4 else ""
+        out.append(f"| `{k}` | {v['n_refs']} | {refs}{more} |")
+    out += ["", "## 四、配置键（`app_config` 表 + 代码里出现的）", "",
+            "| 键 | 库里值的字节 | 加密 | 代码引用数 |", "|---|---:|:--:|---:|"]
+    dbs = d.get("config_keys_in_seed_db", {})
+    for k in sorted(set(dbs) | set(d["config_keys"])):
+        dbv = dbs.get(k, {})
+        cv = d["config_keys"].get(k, {})
+        out.append(f"| `{k}` | {dbv.get('value_bytes', '—')} | "
+                   f"{'✓' if dbv.get('is_encrypted') else ''} | {cv.get('n_refs', 0)} |")
+    write("12-config-surface.md", "配置面（环境变量 + 配置键）", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_table_io() -> None:
+    d = load("tables_io")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 表 | **{cnt['tables']}** |",
+        f"| 静态查不到写入方的表 | **{cnt['tables_with_no_writer_found']}** |",
+        f"| 静态查不到读取方的表 | **{cnt['tables_with_no_reader_found']}** |",
+        "",
+        "> ⚠ 这两行是**计数，不是判断**。「查不到」有三种可能：① 真的没人动；",
+        "> ② 表名用 f-string 拼的（本仓实测 7 处）"
+        "；③ 由 SQLite 自己维护（如 FTS 影子表）。",
+        "",
+        "## 三、每张表的读写方", "",
+        "| 表 | 写入方 | 读取方 |", "|---|:--:|:--:|",
+    ]
+    for k, v in sorted(d["tables"].items()):
+        w = len(v["write"])
+        r = len(v["read"])
+        out.append(f"| `{k}` | {w if w else '**0**'} | {r if r else '**0**'} |")
+    out += ["", "## 四、详细（谁写谁读）", ""]
+    for k, v in sorted(d["tables"].items()):
+        if not v["write"] and not v["read"]:
+            continue
+        out.append(f"### `{k}`")
+        out.append("")
+        if v["write"]:
+            out.append("写入：" + "、".join(f"`{x}`" for x in v["write"]))
+        if v["read"]:
+            out.append("")
+            out.append("读取：" + "、".join(f"`{x}`" for x in v["read"]))
+        out.append("")
+    write("13-table-io.md", "表读写关系", "\n".join(out))
+
+
 def main() -> int:
     gen_readme()
     gen_inventory()
@@ -559,6 +664,9 @@ def main() -> int:
     gen_tests()
     gen_docs()
     gen_gates()
+    gen_module_index()
+    gen_config()
+    gen_table_io()
     print("\n全部生成完毕")
     return 0
 
