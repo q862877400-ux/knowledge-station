@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **243 份** / **8326 KB**。
+> 共 **246 份** / **8670 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -62,7 +62,7 @@
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
 | `docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md` | 6 | 2026-10-12 | 业主问：「我不是做了一套自动嗅探各个网站的法规和标准的更新动态，然后根据更新动态去下载 |
 
-## 界面与交互（6 份 / 399 KB）
+## 界面与交互（7 份 / 415 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -70,6 +70,7 @@
 | `docs/INTERACTION-DESIGN.md` | 63 | 2026-10-11 | 〇、落地状态（**以代码为准**，2026-09-19 §10.130 更新） |
 | `docs/uniformity/06-frontend.md` | 48 | 2026-10-24 | 调查对象：`D:\Agent-Studio\Deepseek-Harness\DSH-Data\workspace\zc |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 | 2026-10-05 | 零、一句话结论 |
+| `docs/survey/16-frontend.md` | 16 | 未提交 | 一、口径 |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 | 2026-09-25 | 〇、总目标（一句话） |
 | `docs/UI-ICON-SYSTEM.md` | 6 | 2026-10-10 | 一、图标从哪来（契约，逐字取自宿主实现） |
 
@@ -127,14 +128,16 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（103 份 / 2432 KB）
+## 根文档与其他（105 份 / 2760 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/DEVELOPMENT-HISTORY.md` | 331 | 2026-10-18 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
+| `docs/survey/14-test-index.md` | 251 | 未提交 | 一、口径 |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
-| `docs/survey/11-module-index.md` | 165 | 未提交 | 一、口径 |
+| `docs/survey/11-module-index.md` | 166 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
+| `docs/survey/15-doc-index-content.md` | 76 | 未提交 | 一、口径 |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 | 2026-10-23 | **先纠正任务书里的两个数字**（都实测过，不是我猜）： |
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
@@ -180,7 +183,7 @@
 | `docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md` | 12 | 2026-10-11 | 一、先认错：我上一轮**报的是"增益"，没报"绝对水平"，也没核口径** |
 | `docs/research/SURVEY-学术调研-第1轮-排序与评测集.md` | 12 | 2026-10-07 | ★★★ 主线① 最重要的一条：**有人做过和我们一模一样的诊断，并给出了解法** |
 | `docs/survey/02-code-map.md` | 12 | 2026-10-24 | 一、总账 |
-| `docs/survey/13-table-io.md` | 12 | 未提交 | 一、口径 |
+| `docs/survey/13-table-io.md` | 12 | 2026-10-24 | 一、口径 |
 | `docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md` | 11 | 2026-10-10 | 0. 一句话 |
 | `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 11 | 2026-10-14 | **日期**：2026-10-14 |
 | `docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md` | 11 | 2026-10-07 | ★★★ 主线③ 最重要的一条：`GuRE` —— **"法条检索的生成式查询改写器"，和我们判据①是同一件事** |
@@ -206,7 +209,7 @@
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/survey/09-runtime.md` | 5 | 2026-10-24 | 一、引擎怎么起 |
-| `docs/survey/12-config-surface.md` | 5 | 未提交 | 一、口径 |
+| `docs/survey/12-config-surface.md` | 5 | 2026-10-24 | 一、口径 |
 | `docs/wiki/components/exports.md` | 5 | 2026-10-23 | **位置**：`src/core/exports/` |
 | `docs/wiki/components/llm.md` | 5 | 2026-10-23 | **位置**：`src/core/llm/` |
 | `docs/BROKEN-LINKS.md` | 4 | 2026-10-10 | **检查命令**（唯一真源，不许手抄计数）： |

@@ -2,8 +2,8 @@
  "generated_by": "scripts/survey/05-deep.py::step_modules",
  "caliber": "`purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空** —— 这是记录，不是评价。",
  "counts": {
-  "modules": 1269,
-  "with_docstring": 1253,
+  "modules": 1271,
+  "with_docstring": 1255,
   "without_docstring": 16
  },
  "modules": [
@@ -6414,10 +6414,13 @@
     "gen_module_index",
     "gen_config",
     "gen_table_io",
+    "gen_test_index",
+    "gen_doc_index_content",
+    "gen_frontend",
     "main"
    ],
-   "n_public": 16,
-   "lines": 676
+   "n_public": 19,
+   "lines": 778
   },
   {
    "module": "scripts/survey/04-reconcile.py",
@@ -6428,24 +6431,46 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 298
+   "lines": 302
   },
   {
    "module": "scripts/survey/05-deep.py",
    "purpose": "检查第 5 步（深化）：模块职责 / 接口明细 / 配置面 / 表读写关系。",
    "has_docstring": true,
    "public_symbols": [
-    "dump",
     "iter_py",
-    "first_sentence",
     "step_modules",
     "step_endpoints_deep",
     "step_config",
     "step_tables_io",
     "main"
    ],
-   "n_public": 8,
-   "lines": 327
+   "n_public": 6,
+   "lines": 307
+  },
+  {
+   "module": "scripts/survey/06-content.py",
+   "purpose": "检查第 6 步（内容层）：测试说了什么 / 文档说了什么 / 前端有什么。",
+   "has_docstring": true,
+   "public_symbols": [
+    "step_test_content",
+    "step_doc_content",
+    "step_web_content",
+    "main"
+   ],
+   "n_public": 4,
+   "lines": 211
+  },
+  {
+   "module": "scripts/survey/_common.py",
+   "purpose": "检查器的共用小工具。",
+   "has_docstring": true,
+   "public_symbols": [
+    "first_sentence",
+    "dump"
+   ],
+   "n_public": 2,
+   "lines": 71
   },
   {
    "module": "scripts/survey/run-all.py",
@@ -6456,7 +6481,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 99
+   "lines": 100
   },
   {
    "module": "scripts/uniformity-ast-dupes.py",

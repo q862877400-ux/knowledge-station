@@ -19,15 +19,13 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _common import dump, first_sentence  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "docs" / "survey" / "data"
 
-
-def dump(name: str, payload: dict) -> None:
-    DATA.mkdir(parents=True, exist_ok=True)
-    p = DATA / f"{name}.json"
-    p.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"  → {p.relative_to(ROOT)}  ({len(json.dumps(payload)) // 1024} KB)")
 
 
 ALL_ROOTS = ("src", "tests", "scripts", "tools/gov-qa", "eval")
@@ -47,24 +45,6 @@ def iter_py(roots=ALL_ROOTS):
 # ══════════════════════════════════════════════════════════════════════
 # A. 模块职责索引
 # ══════════════════════════════════════════════════════════════════════
-def first_sentence(doc: str) -> str:
-    """取 docstring 的第一句（按中文句号/换行/英文句点切）。"""
-    if not doc:
-        return ""
-    d = doc.strip()
-    # 跳过标题行（`# xxx`）
-    lines = [ln for ln in d.splitlines() if ln.strip() and not ln.strip().startswith("#")]
-    if not lines:
-        return ""
-    text = lines[0].strip()
-    for sep in ("。", "；", "\n"):
-        if sep in text:
-            text = text.split(sep)[0]
-    if not text.endswith("。"):
-        text += "。"
-    return text[:160]
-
-
 def step_modules() -> None:
     print("\n[A] 模块职责索引")
     mods = []

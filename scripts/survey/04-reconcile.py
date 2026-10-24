@@ -193,6 +193,9 @@ def main() -> int:
         "11-module-index.md",
         "12-config-surface.md",
         "13-table-io.md",
+        "14-test-index.md",
+        "15-doc-index-content.md",
+        "16-frontend.md",
     ]
     miss = [n for n in need if not (SURVEY / n).exists()]
     rows.append(
@@ -207,7 +210,8 @@ def main() -> int:
         fails.append("生成的 md 不全")
 
     # 8.5 深化面齐备
-    deep_need = ["modules", "endpoints_deep", "config", "tables_io"]
+    deep_need = ["modules", "endpoints_deep", "config", "tables_io",
+                 "test_content", "doc_content", "web_content"]
     deep_miss = [n for n in deep_need if not (DATA / f"{n}.json").exists()]
     rows.append(("深化面 JSON", f"{len(deep_need) - len(deep_miss)}/{len(deep_need)} 份存在",
                  "✅" if not deep_miss else f"❌ 缺 {', '.join(deep_miss)}",

@@ -654,6 +654,105 @@ def gen_table_io() -> None:
     write("13-table-io.md", "表读写关系", "\n".join(out))
 
 
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_test_index() -> None:
+    d = load("test_content")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 测试文件 | **{cnt['files']}** |",
+        f"| 测试函数 | **{cnt['test_functions']:,}** |",
+        f"| 有 docstring | {cnt['with_docstring']:,} |",
+        f"| 没有 docstring | {cnt['without_docstring']:,} |",
+        "",
+        "> **这一份的用途**：想确认「某功能有没有被测试钉住」，按关键词在本文件里搜，",
+        "> 不用读测试体。测试名本身就是描述。",
+        "",
+        "## 三、每个文件的测试清单", "",
+    ]
+    for f in sorted(d["files"], key=lambda x: -x.get("n_tests", 0)):
+        if not f.get("n_tests"):
+            out.append(f"### `{f['file']}`（0 个测试函数）")
+            out.append("")
+            continue
+        out.append(f"### `{f['file']}`（{f['n_tests']} 个）")
+        out.append("")
+        cur = None
+        for t in f["tests"]:
+            if t["group"] != cur:
+                cur = t["group"]
+                if cur:
+                    out.append(f"**{cur}**")
+                    out.append("")
+            note = f" — {t['purpose']}" if t["purpose"] else ""
+            out.append(f"- `{t['name']}`{note}")
+        out.append("")
+    write("14-test-index.md", "测试索引（每个测试钉住了什么）", "\n".join(out))
+
+
+def gen_doc_index_content() -> None:
+    d = load("doc_content")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 文档 | **{cnt['docs']}** |",
+        f"| 有首段摘要 | {cnt['with_summary']} |",
+        f"| 没有（开头是列表/表格） | {cnt['without_summary']} |",
+        "",
+        "## 三、每份文档讲什么", "",
+        "| 文件 | 行数 | 标题 | 首段 | 二级小节数 |",
+        "|---|---:|---|---|---:|",
+    ]
+    for x in sorted(d["docs"], key=lambda y: y["path"]):
+        ttl = (x["title"] or "").replace("|", "\\|")[:50]
+        summ = (x["summary"] or "—").replace("|", "\\|")[:90]
+        out.append(f"| `{x['path']}` | {x['lines']:,} | {ttl} | {summ} | {x['n_h2']} |")
+    out += ["", "## 四、二级小节最多的 15 份（结构最复杂的文档）", ""]
+    for x in sorted(d["docs"], key=lambda y: -y["n_h2"])[:15]:
+        out.append(f"### `{x['path']}`（{x['n_h2']} 个二级小节）")
+        out.append("")
+        for h in x["h2_headings"]:
+            out.append(f"- {h}")
+        out.append("")
+    write("15-doc-index-content.md", "文档内容索引（每份讲什么）", "\n".join(out))
+
+
+def gen_frontend() -> None:
+    d = load("web_content")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 文件 | **{cnt['files']}** |",
+        f"| 导出 | {cnt['total_exports']} |",
+        f"| 声明 | {cnt['total_declarations']} |",
+        f"| 含 JSX 的 | {cnt['with_jsx']} |",
+        "",
+        "## 三、每个文件", "",
+        "| 文件 | 行数 | 导出 | 声明 | 开头说明 |",
+        "|---|---:|---:|---:|---|",
+    ]
+    for f in sorted(d["files"], key=lambda x: -x["lines"]):
+        note = (f["header_note"] or "—").replace("|", "\\|")[:70]
+        out.append(f"| `{f['file']}` | {f['lines']:,} | {f['n_exports']} | "
+                   f"{f['n_declarations']} | {note} |")
+    out += ["", "## 四、每个文件导出了什么（逐个列）", ""]
+    for f in sorted(d["files"], key=lambda x: x["file"]):
+        if not f["exports"]:
+            continue
+        out.append(f"### `{f['file']}`")
+        out.append("")
+        out.append("、".join(f"`{e}`" for e in f["exports"]))
+        out.append("")
+    write("16-frontend.md", "前端清单（文件 / 导出 / 说明）", "\n".join(out))
+
+
 def main() -> int:
     gen_readme()
     gen_inventory()
@@ -667,6 +766,9 @@ def main() -> int:
     gen_module_index()
     gen_config()
     gen_table_io()
+    gen_test_index()
+    gen_doc_index_content()
+    gen_frontend()
     print("\n全部生成完毕")
     return 0
 

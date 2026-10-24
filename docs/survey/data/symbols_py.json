@@ -9,13 +9,13 @@
  ],
  "reference_caliber": "text_hits = 该名字在扫描面内全部 .py 文本里出现的次数（含定义行本身）。**这是下界，不是精确调用图** —— Python 的 getattr/importlib/装饰器注册/字符串派发会让精确图漏掉真实调用。用 count 判断「有没有人提到」够用，判断「是不是死代码」不够。",
  "summary": {
-  "files_found": 1269,
-  "modules": 1269,
+  "files_found": 1271,
+  "modules": 1271,
   "parse_errors": 0,
-  "symbols": 7015,
+  "symbols": 7022,
   "classes": 386,
-  "functions": 6629,
-  "no_docstring": 3306,
+  "functions": 6636,
+  "no_docstring": 3312,
   "text_hits_1": 2342,
   "text_hits_1_breakdown": {
    "其他（**待下一棒自己核**，本检查不判断）": 22,
@@ -139,7 +139,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -232,7 +232,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -290,7 +290,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -381,7 +381,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "eval/lay-phrasing/analyze-gen.py",
@@ -441,7 +441,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -531,7 +531,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -621,7 +621,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -710,7 +710,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -794,7 +794,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -891,7 +891,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 118
+     "text_hits": 119
     },
     {
      "module": "eval/lay-phrasing/gen-lay.py",
@@ -921,7 +921,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1021,7 +1021,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1141,7 +1141,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1229,7 +1229,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1329,7 +1329,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1418,7 +1418,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1522,7 +1522,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1623,7 +1623,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1707,7 +1707,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1802,7 +1802,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -1926,7 +1926,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2050,7 +2050,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2156,7 +2156,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2221,7 +2221,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2337,7 +2337,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2453,7 +2453,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2537,7 +2537,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2611,7 +2611,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2647,7 +2647,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     }
    ]
   },
@@ -2826,7 +2826,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -2914,7 +2914,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3025,7 +3025,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3163,7 +3163,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3237,7 +3237,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3289,7 +3289,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3342,7 +3342,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3394,7 +3394,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3447,7 +3447,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3515,7 +3515,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3567,7 +3567,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3628,7 +3628,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3703,7 +3703,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3771,7 +3771,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3858,7 +3858,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -3911,7 +3911,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4000,7 +4000,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4150,7 +4150,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4224,7 +4224,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4292,7 +4292,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4400,7 +4400,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4463,7 +4463,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 278
+     "text_hits": 280
     },
     {
      "module": "eval/recall-funnel/exp-1-contextual/07-wait-and-run.py",
@@ -4493,7 +4493,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4571,7 +4571,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4638,7 +4638,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4720,7 +4720,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4777,7 +4777,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4851,7 +4851,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4914,7 +4914,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -4996,7 +4996,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5233,7 +5233,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5327,7 +5327,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5493,7 +5493,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5593,7 +5593,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5886,7 +5886,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -5980,7 +5980,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6169,7 +6169,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6242,7 +6242,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6518,7 +6518,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6618,7 +6618,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6703,7 +6703,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -6778,7 +6778,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7044,7 +7044,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 281
+     "text_hits": 282
     },
     {
      "module": "eval/recall-funnel/exp-17-embedding-production-plan/rebuild-shadow.py",
@@ -7059,7 +7059,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7320,7 +7320,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7389,7 +7389,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7452,7 +7452,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7537,7 +7537,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7629,7 +7629,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7721,7 +7721,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7813,7 +7813,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7885,7 +7885,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -7981,7 +7981,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "eval/recall-funnel/exp-4-embedding-shadow/00-measure-throughput.py",
@@ -8127,7 +8127,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8185,7 +8185,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8254,7 +8254,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8361,7 +8361,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8449,7 +8449,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8496,7 +8496,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8559,7 +8559,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 278
+     "text_hits": 280
     },
     {
      "module": "eval/recall-funnel/exp-4-embedding-shadow/04-wait-and-run.py",
@@ -8574,7 +8574,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8663,7 +8663,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8793,7 +8793,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8900,7 +8900,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -8982,7 +8982,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9034,7 +9034,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9133,7 +9133,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9233,7 +9233,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9353,7 +9353,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9460,7 +9460,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9512,7 +9512,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9579,7 +9579,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9670,7 +9670,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/01-probe-real-questions.py",
@@ -9787,7 +9787,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9862,7 +9862,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -9951,7 +9951,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10018,7 +10018,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10122,7 +10122,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10184,7 +10184,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10257,7 +10257,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10314,7 +10314,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10371,7 +10371,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10433,7 +10433,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10495,7 +10495,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10557,7 +10557,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10624,7 +10624,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10696,7 +10696,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10793,7 +10793,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10890,7 +10890,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -10978,7 +10978,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11051,7 +11051,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11114,7 +11114,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11177,7 +11177,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11240,7 +11240,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11307,7 +11307,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11391,7 +11391,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11465,7 +11465,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11534,7 +11534,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11603,7 +11603,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11665,7 +11665,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11718,7 +11718,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11857,7 +11857,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -11948,7 +11948,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12012,7 +12012,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12074,7 +12074,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12256,7 +12256,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12336,7 +12336,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12425,7 +12425,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12482,7 +12482,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12534,7 +12534,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12619,7 +12619,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12692,7 +12692,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 294
+     "text_hits": 300
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/40-promote-to-prod.py",
@@ -12722,7 +12722,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12785,7 +12785,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12859,7 +12859,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -12943,7 +12943,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13010,7 +13010,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13077,7 +13077,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13144,7 +13144,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13206,7 +13206,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13268,7 +13268,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13355,7 +13355,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13422,7 +13422,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13484,7 +13484,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -13561,7 +13561,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/freeze.py",
@@ -13628,7 +13628,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/verdict.py",
@@ -13673,7 +13673,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14011,7 +14011,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14106,7 +14106,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14211,7 +14211,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14274,7 +14274,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14580,7 +14580,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14648,7 +14648,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14713,7 +14713,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14770,7 +14770,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14827,7 +14827,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14874,7 +14874,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "eval/recall-funnel/regression-ingest/verdict.py",
@@ -14904,7 +14904,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -14956,7 +14956,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -15029,7 +15029,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -15111,7 +15111,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 118
+     "text_hits": 119
     },
     {
      "module": "eval/reverse-benchmark/generate.py",
@@ -15156,7 +15156,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -15228,7 +15228,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -15361,7 +15361,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -15537,7 +15537,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -16198,7 +16198,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -16552,7 +16552,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -16769,7 +16769,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -16840,7 +16840,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "scripts/chain-snapshot.py",
@@ -16966,7 +16966,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -17032,7 +17032,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -17094,7 +17094,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -17451,7 +17451,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -17528,7 +17528,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "scripts/convert-library-to-text.py",
@@ -17641,7 +17641,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 667
+     "text_hits": 671
     },
     {
      "module": "scripts/docs/check-links.py",
@@ -17656,7 +17656,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -17853,7 +17853,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18054,7 +18054,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18163,7 +18163,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18339,7 +18339,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18430,7 +18430,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18537,7 +18537,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18596,7 +18596,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18670,7 +18670,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18822,7 +18822,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -18930,7 +18930,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -19017,7 +19017,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -19426,7 +19426,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -19614,7 +19614,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -19892,7 +19892,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -20070,7 +20070,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -20178,7 +20178,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -20240,7 +20240,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -20345,7 +20345,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 312
+     "text_hits": 315
     },
     {
      "module": "scripts/measure-classical-chinese-segmentation.py",
@@ -20525,7 +20525,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -20605,7 +20605,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 312
+     "text_hits": 315
     },
     {
      "module": "scripts/measure-cross-language-fts.py",
@@ -20680,7 +20680,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 337
+     "text_hits": 338
     },
     {
      "module": "scripts/measure-cross-language-fts.py",
@@ -20725,7 +20725,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21086,7 +21086,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21197,7 +21197,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21291,7 +21291,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21370,7 +21370,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21526,7 +21526,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21645,7 +21645,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21763,7 +21763,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "scripts/measure-term-selection.py",
@@ -21862,7 +21862,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -21930,7 +21930,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "scripts/measure-term-window-coverage.py",
@@ -22072,7 +22072,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "scripts/migrate-clause-vec-doc-id.py",
@@ -22184,7 +22184,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22274,7 +22274,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22456,7 +22456,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22551,7 +22551,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22648,7 +22648,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22771,7 +22771,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22900,7 +22900,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -22965,7 +22965,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23089,7 +23089,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23327,7 +23327,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23512,7 +23512,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23603,7 +23603,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23666,7 +23666,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23818,7 +23818,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -23976,7 +23976,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -24043,7 +24043,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 46
+     "text_hits": 51
     },
     {
      "module": "scripts/survey/02-surface.py",
@@ -24133,7 +24133,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -24186,7 +24186,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24216,7 +24216,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 402
+     "text_hits": 405
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24400,18 +24400,63 @@
     },
     {
      "module": "scripts/survey/03-render.py",
-     "qualname": "main",
-     "name": "main",
+     "qualname": "gen_test_index",
+     "name": "gen_test_index",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 657,
-     "end_lineno": 671,
-     "lines": 15,
+     "lineno": 659,
+     "end_lineno": 693,
+     "lines": 35,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "gen_doc_index_content",
+     "name": "gen_doc_index_content",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 696,
+     "end_lineno": 722,
+     "lines": 27,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "gen_frontend",
+     "name": "gen_frontend",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 725,
+     "end_lineno": 753,
+     "lines": 29,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 756,
+     "end_lineno": 773,
+     "lines": 18,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 1131
     }
    ]
   },
@@ -24468,7 +24513,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "scripts/survey/04-reconcile.py",
@@ -24477,13 +24522,13 @@
      "kind": "function",
      "file": "scripts/survey/04-reconcile.py",
      "lineno": 41,
-     "end_lineno": 293,
-     "lines": 253,
+     "end_lineno": 297,
+     "lines": 257,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -24525,6 +24570,18 @@
      "as": null
     },
     {
+     "kind": "from",
+     "module": "_common",
+     "name": "dump",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "_common",
+     "name": "first_sentence",
+     "as": null
+    },
+    {
      "kind": "import",
      "module": "sqlite3",
      "as": null
@@ -24534,27 +24591,12 @@
    "symbols": [
     {
      "module": "scripts/survey/05-deep.py",
-     "qualname": "dump",
-     "name": "dump",
-     "kind": "function",
-     "file": "scripts/survey/05-deep.py",
-     "lineno": 26,
-     "end_lineno": 30,
-     "lines": 5,
-     "signature": "(name, payload)",
-     "decorators": [],
-     "has_docstring": false,
-     "private": false,
-     "text_hits": 46
-    },
-    {
-     "module": "scripts/survey/05-deep.py",
      "qualname": "iter_py",
      "name": "iter_py",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 36,
-     "end_lineno": 44,
+     "lineno": 34,
+     "end_lineno": 42,
      "lines": 9,
      "signature": "(roots)",
      "decorators": [],
@@ -24564,27 +24606,12 @@
     },
     {
      "module": "scripts/survey/05-deep.py",
-     "qualname": "first_sentence",
-     "name": "first_sentence",
-     "kind": "function",
-     "file": "scripts/survey/05-deep.py",
-     "lineno": 50,
-     "end_lineno": 65,
-     "lines": 16,
-     "signature": "(doc)",
-     "decorators": [],
-     "has_docstring": true,
-     "private": false,
-     "text_hits": 2
-    },
-    {
-     "module": "scripts/survey/05-deep.py",
      "qualname": "step_modules",
      "name": "step_modules",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 68,
-     "end_lineno": 103,
+     "lineno": 48,
+     "end_lineno": 83,
      "lines": 36,
      "signature": "()",
      "decorators": [],
@@ -24598,8 +24625,8 @@
      "name": "step_endpoints_deep",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 116,
-     "end_lineno": 176,
+     "lineno": 96,
+     "end_lineno": 156,
      "lines": 61,
      "signature": "()",
      "decorators": [],
@@ -24613,8 +24640,8 @@
      "name": "step_config",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 199,
-     "end_lineno": 268,
+     "lineno": 179,
+     "end_lineno": 248,
      "lines": 70,
      "signature": "()",
      "decorators": [],
@@ -24628,8 +24655,8 @@
      "name": "step_tables_io",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 282,
-     "end_lineno": 313,
+     "lineno": 262,
+     "end_lineno": 293,
      "lines": 32,
      "signature": "()",
      "decorators": [],
@@ -24643,14 +24670,180 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/05-deep.py",
-     "lineno": 316,
-     "end_lineno": 322,
+     "lineno": 296,
+     "end_lineno": 302,
      "lines": 7,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/06-content.py",
+   "docstring": "检查第 6 步（内容层）：测试说了什么 / 文档说了什么 / 前端有什么。\n\n前面几步到「有什么、在哪、谁引谁」。「彻底摸透」还要一层：\n**每个测试断言什么、每份文档讲什么、每个前端组件干什么。**\n\n## 为什么这一步值得单独做\n\n- **测试函数名就是本仓的覆盖说明书**：本仓测试名是中文描述\n  （`test_跨标准误命中必须返回_None_而不是别的标准`），\n  把「文件名 → 它的测试名清单」列出来，等于给了下一棒一张\n  「哪个功能已经被钉住」的索引，不用读测试体。\n- **文档首段就是它的用途**：244 份文档，只有标题不够。\n- **前端 33 个文件**：前面只抓到路由注册，组件职责没进地图。\n\n**只记录，不判断。**",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "ast",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "re",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sys",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "_common",
+     "name": "dump",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "_common",
+     "name": "first_sentence",
+     "as": null
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/06-content.py",
+     "qualname": "step_test_content",
+     "name": "step_test_content",
+     "kind": "function",
+     "file": "scripts/survey/06-content.py",
+     "lineno": 38,
+     "end_lineno": 79,
+     "lines": 42,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/06-content.py",
+     "qualname": "step_doc_content",
+     "name": "step_doc_content",
+     "kind": "function",
+     "file": "scripts/survey/06-content.py",
+     "lineno": 85,
+     "end_lineno": 132,
+     "lines": 48,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/06-content.py",
+     "qualname": "step_web_content",
+     "name": "step_web_content",
+     "kind": "function",
+     "file": "scripts/survey/06-content.py",
+     "lineno": 144,
+     "end_lineno": 198,
+     "lines": 55,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 3
+    },
+    {
+     "module": "scripts/survey/06-content.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/06-content.py",
+     "lineno": 201,
+     "end_lineno": 206,
+     "lines": 6,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "private": false,
+     "text_hits": 1131
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/_common.py",
+   "docstring": "检查器的共用小工具。\n\n## 为什么有这个文件（2026-10-24 尺子抓到我自己）\n\n把「检查」拆成 `05-deep.py` 与 `06-content.py` 时，我把 `first_sentence`\n**各写了一份**。尺子当场判红（跨文件同函数体 8 → **9** 组）——\n正是我在别处反复指出的那个毛病，这次犯在自己身上。\n\n⇒ 合并到这里，两个脚本都 `from _common import first_sentence`。\n\n## 注意 import 路径\n\n`scripts/survey/` 不是包（没有 `__init__.py`）。`run-all.py` 用\n`python scripts/survey/xx.py` 启动，那时 `sys.path[0]` 就是 `scripts/survey/`，\n所以 `from _common import ...` 能",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "json",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/_common.py",
+     "qualname": "first_sentence",
+     "name": "first_sentence",
+     "kind": "function",
+     "file": "scripts/survey/_common.py",
+     "lineno": 23,
+     "end_lineno": 50,
+     "lines": 28,
+     "signature": "(doc, limit)",
+     "decorators": [],
+     "has_docstring": true,
+     "private": false,
+     "text_hits": 7
+    },
+    {
+     "module": "scripts/survey/_common.py",
+     "qualname": "dump",
+     "name": "dump",
+     "kind": "function",
+     "file": "scripts/survey/_common.py",
+     "lineno": 53,
+     "end_lineno": 70,
+     "lines": 18,
+     "signature": "(name, payload, data_dir)",
+     "decorators": [],
+     "has_docstring": true,
+     "private": false,
+     "text_hits": 51
     }
    ]
   },
@@ -24695,14 +24888,14 @@
      "name": "run",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 50,
-     "end_lineno": 69,
+     "lineno": 51,
+     "end_lineno": 70,
      "lines": 20,
      "signature": "(script, label)",
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 281
+     "text_hits": 282
     },
     {
      "module": "scripts/survey/run-all.py",
@@ -24710,14 +24903,14 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 72,
-     "end_lineno": 94,
+     "lineno": 73,
+     "end_lineno": 95,
      "lines": 23,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -24820,7 +25013,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "scripts/uniformity-ast-dupes.py",
@@ -25015,7 +25208,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -25081,7 +25274,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -25332,7 +25525,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -25442,7 +25635,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -25621,7 +25814,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -27958,7 +28151,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/api/server.py",
@@ -28033,7 +28226,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 281
+     "text_hits": 282
     }
    ]
   },
@@ -28798,7 +28991,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28828,7 +29021,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28858,7 +29051,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28888,7 +29081,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28918,7 +29111,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28948,7 +29141,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -28978,7 +29171,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -29008,7 +29201,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -29038,7 +29231,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/exceptions.py",
@@ -29068,7 +29261,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     }
    ]
   },
@@ -31791,7 +31984,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -32341,7 +32534,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -34684,7 +34877,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -35393,7 +35586,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -35796,7 +35989,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -36566,7 +36759,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/knowledge/ccs_fetcher.py",
@@ -43045,7 +43238,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/middle_geo.py",
@@ -43315,7 +43508,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     }
    ]
   },
@@ -45067,7 +45260,7 @@
      ],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "src/core/retrieval/term_bridge.py",
@@ -45640,7 +45833,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/settings/secret_store.py",
@@ -45745,7 +45938,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/settings/secret_store.py",
@@ -46298,7 +46491,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 171
+     "text_hits": 180
     },
     {
      "module": "src/core/storage/channel_repo.py",
@@ -48496,7 +48689,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/storage/write_queue.py",
@@ -48910,7 +49103,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 727
+     "text_hits": 731
     },
     {
      "module": "src/core/supervisor.py",
@@ -48985,7 +49178,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/supervisor.py",
@@ -49015,7 +49208,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 281
+     "text_hits": 282
     },
     {
      "module": "src/core/supervisor.py",
@@ -49045,7 +49238,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -51721,7 +51914,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -51903,7 +52096,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -52068,7 +52261,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -52669,7 +52862,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/govcn_announce.py",
@@ -54322,7 +54515,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/proxy_rotate.py",
@@ -54397,7 +54590,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/proxy_rotate.py",
@@ -54457,7 +54650,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/channels/proxy_rotate.py",
@@ -56695,7 +56888,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/inspector.py",
@@ -57112,7 +57305,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "src/core/update/scheduler.py",
@@ -58549,7 +58742,7 @@
      ],
      "has_docstring": true,
      "private": false,
-     "text_hits": 565
+     "text_hits": 566
     },
     {
      "module": "tests/conftest.py",
@@ -58699,7 +58892,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_announce_ingest.py",
@@ -60125,7 +60318,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_api_config.py",
@@ -60215,7 +60408,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_api_config.py",
@@ -61797,7 +61990,7 @@
      ],
      "has_docstring": false,
      "private": false,
-     "text_hits": 162
+     "text_hits": 165
     },
     {
      "module": "tests/test_batch7_security_hardening.py",
@@ -62577,7 +62770,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_bulk_import.py",
@@ -63426,7 +63619,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_ccs_chain.py",
@@ -65413,7 +65606,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_channel_probe.py",
@@ -68633,7 +68826,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_clause_head_gates.py",
@@ -70505,7 +70698,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_credentials_migrate_script.py",
@@ -70595,7 +70788,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_credentials_migrate_script.py",
@@ -71261,7 +71454,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_credentials_namespace.py",
@@ -71351,7 +71544,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_credentials_namespace.py",
@@ -73653,7 +73846,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_dry_run_concurrency.py",
@@ -78041,7 +78234,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 659
+     "text_hits": 662
     },
     {
      "module": "tests/test_folder_filing_plan.py",
@@ -81590,7 +81783,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_govcn_archive.py",
@@ -81745,7 +81938,7 @@
      ],
      "has_docstring": false,
      "private": false,
-     "text_hits": 171
+     "text_hits": 180
     },
     {
      "module": "tests/test_govqa_label_review.py",
@@ -82494,7 +82687,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_index_guard.py",
@@ -85616,7 +85809,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_ks_answer_bbox.py",
@@ -85661,7 +85854,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_ks_answer_bbox.py",
@@ -88774,7 +88967,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_law_source_http_antibot.py",
@@ -88804,7 +88997,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 3578
+     "text_hits": 3581
     },
     {
      "module": "tests/test_law_source_http_antibot.py",
@@ -89442,7 +89635,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_law_verify.py",
@@ -110045,7 +110238,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_reranker.py",
@@ -112500,7 +112693,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_scnet_readchain.py",
@@ -112575,7 +112768,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_scnet_readchain.py",
@@ -112794,7 +112987,7 @@
      ],
      "has_docstring": true,
      "private": false,
-     "text_hits": 162
+     "text_hits": 165
     },
     {
      "module": "tests/test_secret_store.py",
@@ -113740,7 +113933,7 @@
      ],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1609
+     "text_hits": 1611
     },
     {
      "module": "tests/test_standard_body.py",
@@ -114901,7 +115094,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_supervisor.py",
@@ -114931,7 +115124,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 727
+     "text_hits": 731
     },
     {
      "module": "tests/test_supervisor.py",
@@ -118302,7 +118495,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_update_announce.py",
@@ -119264,7 +119457,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_update_channels.py",
@@ -119491,7 +119684,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_update_channels.py",
@@ -120291,7 +120484,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_update_discover.py",
@@ -120910,7 +121103,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_update_inspector.py",
@@ -121171,7 +121364,7 @@
      ],
      "has_docstring": false,
      "private": false,
-     "text_hits": 3009
+     "text_hits": 3019
     },
     {
      "module": "tests/test_update_inspector.py",
@@ -123184,7 +123377,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tests/test_web_ingest.py",
@@ -123401,7 +123594,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     }
    ]
   },
@@ -123703,7 +123896,7 @@
      "decorators": [],
      "has_docstring": true,
      "private": false,
-     "text_hits": 60
+     "text_hits": 61
     },
     {
      "module": "tools/gov-qa/adapters/_igi_common.py",
@@ -142832,7 +143025,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/channel.py",
@@ -143363,7 +143556,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -143438,7 +143631,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/coverage.py",
@@ -143750,7 +143943,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -143936,7 +144129,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144048,7 +144241,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144254,7 +144447,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "tools/gov-qa/poll.py",
@@ -144368,7 +144561,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144481,7 +144674,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144549,7 +144742,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144627,7 +144820,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144720,7 +144913,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144803,7 +144996,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144884,7 +145077,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144947,7 +145140,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -144989,7 +145182,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145036,7 +145229,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145230,7 +145423,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145283,7 +145476,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145346,7 +145539,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145399,7 +145592,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145553,7 +145746,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145601,7 +145794,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145649,7 +145842,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145691,7 +145884,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145798,7 +145991,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145882,7 +146075,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -145965,7 +146158,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146021,7 +146214,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146082,7 +146275,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146143,7 +146336,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146204,7 +146397,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146250,7 +146443,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe13.py",
@@ -146265,7 +146458,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146311,7 +146504,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe14.py",
@@ -146326,7 +146519,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146372,7 +146565,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe15.py",
@@ -146387,7 +146580,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146438,7 +146631,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe16.py",
@@ -146453,7 +146646,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146504,7 +146697,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe17.py",
@@ -146519,7 +146712,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146570,7 +146763,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe18.py",
@@ -146585,7 +146778,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146636,7 +146829,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe19.py",
@@ -146651,7 +146844,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146719,7 +146912,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146770,7 +146963,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe20.py",
@@ -146785,7 +146978,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146831,7 +147024,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe21.py",
@@ -146846,7 +147039,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146892,7 +147085,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe22.py",
@@ -146907,7 +147100,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -146953,7 +147146,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe23.py",
@@ -146968,7 +147161,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147014,7 +147207,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe24.py",
@@ -147029,7 +147222,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147075,7 +147268,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe25.py",
@@ -147090,7 +147283,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147141,7 +147334,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe26.py",
@@ -147156,7 +147349,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147202,7 +147395,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe27.py",
@@ -147217,7 +147410,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147263,7 +147456,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe28.py",
@@ -147278,7 +147471,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147324,7 +147517,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-js-probe29.py",
@@ -147339,7 +147532,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147407,7 +147600,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147490,7 +147683,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147561,7 +147754,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147622,7 +147815,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147683,7 +147876,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147744,7 +147937,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147805,7 +147998,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147862,7 +148055,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147908,7 +148101,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe1.py",
@@ -147938,7 +148131,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -147984,7 +148177,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe10.py",
@@ -147999,7 +148192,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe10.py",
@@ -148014,7 +148207,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148065,7 +148258,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe11.py",
@@ -148080,7 +148273,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe11.py",
@@ -148095,7 +148288,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148141,7 +148334,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe12.py",
@@ -148156,7 +148349,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe12.py",
@@ -148171,7 +148364,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148217,7 +148410,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe13.py",
@@ -148232,7 +148425,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe13.py",
@@ -148247,7 +148440,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148293,7 +148486,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe14.py",
@@ -148308,7 +148501,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148354,7 +148547,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe15.py",
@@ -148369,7 +148562,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe15.py",
@@ -148384,7 +148577,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148430,7 +148623,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe16.py",
@@ -148445,7 +148638,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148491,7 +148684,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe17.py",
@@ -148521,7 +148714,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148567,7 +148760,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe18.py",
@@ -148582,7 +148775,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe18.py",
@@ -148597,7 +148790,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148643,7 +148836,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe19.py",
@@ -148658,7 +148851,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe19.py",
@@ -148673,7 +148866,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148719,7 +148912,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe2.py",
@@ -148734,7 +148927,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe2.py",
@@ -148749,7 +148942,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148795,7 +148988,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe20.py",
@@ -148810,7 +149003,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe20.py",
@@ -148825,7 +149018,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148871,7 +149064,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe21.py",
@@ -148886,7 +149079,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe21.py",
@@ -148901,7 +149094,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -148947,7 +149140,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe22.py",
@@ -148962,7 +149155,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe22.py",
@@ -149007,7 +149200,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149053,7 +149246,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe23.py",
@@ -149068,7 +149261,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe23.py",
@@ -149113,7 +149306,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149159,7 +149352,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe24.py",
@@ -149174,7 +149367,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe24.py",
@@ -149219,7 +149412,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149265,7 +149458,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe25.py",
@@ -149280,7 +149473,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe25.py",
@@ -149325,7 +149518,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149371,7 +149564,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe26.py",
@@ -149386,7 +149579,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe26.py",
@@ -149401,7 +149594,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149447,7 +149640,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -149462,7 +149655,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -149492,7 +149685,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149538,7 +149731,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe28.py",
@@ -149553,7 +149746,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe28.py",
@@ -149568,7 +149761,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149614,7 +149807,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe29.py",
@@ -149629,7 +149822,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe29.py",
@@ -149659,7 +149852,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149705,7 +149898,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe3.py",
@@ -149720,7 +149913,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe3.py",
@@ -149735,7 +149928,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149781,7 +149974,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe30.py",
@@ -149796,7 +149989,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe30.py",
@@ -149811,7 +150004,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149857,7 +150050,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -149872,7 +150065,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -149902,7 +150095,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1460
+     "text_hits": 1465
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -149917,7 +150110,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -149963,7 +150156,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe32.py",
@@ -149978,7 +150171,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe32.py",
@@ -150008,7 +150201,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150054,7 +150247,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe33.py",
@@ -150069,7 +150262,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe33.py",
@@ -150114,7 +150307,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150160,7 +150353,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe34.py",
@@ -150175,7 +150368,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe34.py",
@@ -150205,7 +150398,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150256,7 +150449,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe35.py",
@@ -150271,7 +150464,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe35.py",
@@ -150301,7 +150494,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150347,7 +150540,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe36.py",
@@ -150362,7 +150555,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe36.py",
@@ -150392,7 +150585,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150438,7 +150631,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe37.py",
@@ -150453,7 +150646,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe37.py",
@@ -150498,7 +150691,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150544,7 +150737,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe38.py",
@@ -150559,7 +150752,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe38.py",
@@ -150604,7 +150797,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150650,7 +150843,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe39.py",
@@ -150680,7 +150873,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150726,7 +150919,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe4.py",
@@ -150741,7 +150934,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe4.py",
@@ -150756,7 +150949,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150802,7 +150995,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe40.py",
@@ -150832,7 +151025,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150878,7 +151071,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe41.py",
@@ -150908,7 +151101,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -150954,7 +151147,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -150969,7 +151162,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -151014,7 +151207,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151065,7 +151258,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe43.py",
@@ -151095,7 +151288,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151146,7 +151339,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe44.py",
@@ -151176,7 +151369,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151222,7 +151415,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe45.py",
@@ -151237,7 +151430,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151283,7 +151476,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe5.py",
@@ -151298,7 +151491,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe5.py",
@@ -151313,7 +151506,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151359,7 +151552,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe6.py",
@@ -151374,7 +151567,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe6.py",
@@ -151389,7 +151582,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151435,7 +151628,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe7.py",
@@ -151450,7 +151643,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe7.py",
@@ -151480,7 +151673,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151526,7 +151719,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe8.py",
@@ -151541,7 +151734,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe8.py",
@@ -151556,7 +151749,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151602,7 +151795,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1458
+     "text_hits": 1460
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe9.py",
@@ -151617,7 +151810,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe9.py",
@@ -151632,7 +151825,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151716,7 +151909,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151794,7 +151987,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151856,7 +152049,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151950,7 +152143,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -151992,7 +152185,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152093,7 +152286,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/df-datatype-diagnose.py",
@@ -152138,7 +152331,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 46
+     "text_hits": 51
     },
     {
      "module": "tools/gov-qa/recon/df-datatype-diagnose.py",
@@ -152153,7 +152346,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152228,7 +152421,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152300,7 +152493,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152348,7 +152541,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152451,7 +152644,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152513,7 +152706,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152590,7 +152783,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152642,7 +152835,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152688,7 +152881,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152751,7 +152944,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152798,7 +152991,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152861,7 +153054,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -152940,7 +153133,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153181,7 +153374,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153284,7 +153477,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153357,7 +153550,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153481,7 +153674,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/gd-domain-harvest.py",
@@ -153526,7 +153719,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153600,7 +153793,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153746,7 +153939,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "tools/gov-qa/recon/gen-channel-table.py",
@@ -153818,7 +154011,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153860,7 +154053,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153897,7 +154090,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -153934,7 +154127,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154002,7 +154195,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154039,7 +154232,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154090,7 +154283,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154156,7 +154349,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/gs-lx-direct.py",
@@ -154237,7 +154430,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/gs-more-probe.py",
@@ -154252,7 +154445,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154298,7 +154491,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 46
+     "text_hits": 51
     },
     {
      "module": "tools/gov-qa/recon/gs4-baiyin-deep.py",
@@ -154313,7 +154506,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154359,7 +154552,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154435,7 +154628,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154511,7 +154704,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154562,7 +154755,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154658,7 +154851,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154736,7 +154929,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154804,7 +154997,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154851,7 +155044,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -154957,7 +155150,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155041,7 +155234,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/heb-adapters-selftest.py",
@@ -155101,7 +155294,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155178,7 +155371,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155240,7 +155433,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155302,7 +155495,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155364,7 +155557,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155426,7 +155619,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155488,7 +155681,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155550,7 +155743,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155612,7 +155805,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155674,7 +155867,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155751,7 +155944,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155839,7 +156032,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/igi-chunked-harvest.py",
@@ -155899,7 +156092,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -155999,7 +156192,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/igi-chunked.py",
@@ -156044,7 +156237,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "tools/gov-qa/recon/igi-chunked.py",
@@ -156191,7 +156384,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156274,7 +156467,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156384,7 +156577,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156442,7 +156635,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156557,7 +156750,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156625,7 +156818,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156687,7 +156880,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156753,7 +156946,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156821,7 +157014,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156884,7 +157077,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -156947,7 +157140,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157025,7 +157218,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157088,7 +157281,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157166,7 +157359,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157255,7 +157448,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157338,7 +157531,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157435,7 +157628,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157517,7 +157710,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157625,7 +157818,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157702,7 +157895,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157814,7 +158007,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -157961,7 +158154,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158238,7 +158431,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158354,7 +158547,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158396,7 +158589,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158443,7 +158636,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158523,7 +158716,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158603,7 +158796,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158683,7 +158876,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158778,7 +158971,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158820,7 +159013,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158868,7 +159061,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158920,7 +159113,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -158972,7 +159165,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159072,7 +159265,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159152,7 +159345,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159215,7 +159408,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159257,7 +159450,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159337,7 +159530,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159412,7 +159605,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159492,7 +159685,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159570,7 +159763,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159638,7 +159831,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159695,7 +159888,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159753,7 +159946,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159878,7 +160071,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159926,7 +160119,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -159990,7 +160183,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160067,7 +160260,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160139,7 +160332,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/nat-smoke.py",
@@ -160184,7 +160377,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160252,7 +160445,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160298,7 +160491,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -160313,7 +160506,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 46
+     "text_hits": 51
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -160410,7 +160603,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160507,7 +160700,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160569,7 +160762,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160708,7 +160901,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160805,7 +160998,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160845,7 +161038,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -160934,7 +161127,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161057,7 +161250,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161134,7 +161327,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161223,7 +161416,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161331,7 +161524,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161439,7 +161632,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161484,7 +161677,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161561,7 +161754,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161606,7 +161799,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161651,7 +161844,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161701,7 +161894,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161746,7 +161939,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161791,7 +161984,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161836,7 +162029,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -161963,7 +162156,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162008,7 +162201,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162073,7 +162266,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162118,7 +162311,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162169,7 +162362,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162246,7 +162439,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162344,7 +162537,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162462,7 +162655,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162507,7 +162700,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162552,7 +162745,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162597,7 +162790,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162657,7 +162850,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162702,7 +162895,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162747,7 +162940,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162792,7 +162985,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -162890,7 +163083,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163023,7 +163216,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163080,7 +163273,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163152,7 +163345,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163300,7 +163493,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163346,7 +163539,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163392,7 +163585,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163438,7 +163631,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163556,7 +163749,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163634,7 +163827,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163697,7 +163890,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163760,7 +163953,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163823,7 +164016,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163902,7 +164095,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -163997,7 +164190,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164071,7 +164264,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/sd-city-probe2.py",
@@ -164101,7 +164294,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164190,7 +164383,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164273,7 +164466,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164362,7 +164555,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164451,7 +164644,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164540,7 +164733,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164617,7 +164810,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164679,7 +164872,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 99
+     "text_hits": 102
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-verify.py",
@@ -164709,7 +164902,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-verify.py",
@@ -164754,7 +164947,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -164861,7 +165054,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/verify-idempotent.py",
@@ -164921,7 +165114,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/verify-idempotent.py",
@@ -164996,7 +165189,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165067,7 +165260,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-probe.py",
@@ -165133,7 +165326,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1311
+     "text_hits": 1316
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-sites.py",
@@ -165163,7 +165356,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165235,7 +165428,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-adapt-test.py",
@@ -165280,7 +165473,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 281
+     "text_hits": 282
     }
    ]
   },
@@ -165336,7 +165529,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-dig.py",
@@ -165351,7 +165544,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165407,7 +165600,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-fetch.py",
@@ -165452,7 +165645,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165508,7 +165701,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-js.py",
@@ -165523,7 +165716,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165609,7 +165802,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165675,7 +165868,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165731,7 +165924,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165787,7 +165980,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165881,7 +166074,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/recon/zj-dept-probe.py",
@@ -165911,7 +166104,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -165974,7 +166167,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -166111,7 +166304,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 1129
+     "text_hits": 1131
     }
    ]
   },
@@ -166181,7 +166374,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/state.py",
@@ -166258,7 +166451,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/state.py",
@@ -166303,7 +166496,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 6327
+     "text_hits": 6330
     },
     {
      "module": "tools/gov-qa/state.py",
@@ -168358,7 +168551,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/tests/test_gate_quality.py",
@@ -169909,7 +170102,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/tests/test_poll.py",
@@ -169984,7 +170177,7 @@
      "decorators": [],
      "has_docstring": false,
      "private": false,
-     "text_hits": 134
+     "text_hits": 135
     },
     {
      "module": "tools/gov-qa/tests/test_poll.py",

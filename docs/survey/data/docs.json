@@ -2,10 +2,10 @@
  "generated_by": "scripts/survey/02-surface.py::step6_docs",
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
-  "docs_files": 244,
-  "docs_tracked_md": 227,
-  "orphans_no_inbound": 113,
-  "total_links": 569
+  "docs_files": 247,
+  "docs_tracked_md": 230,
+  "orphans_no_inbound": 116,
+  "total_links": 572
  },
  "orphans": [
   "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
@@ -115,6 +115,9 @@
   "docs/survey/11-module-index.md",
   "docs/survey/12-config-surface.md",
   "docs/survey/13-table-io.md",
+  "docs/survey/14-test-index.md",
+  "docs/survey/15-doc-index-content.md",
+  "docs/survey/16-frontend.md",
   "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
   "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
   "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
@@ -896,8 +899,8 @@
   },
   {
    "path": "docs/INDEX.md",
-   "bytes": 30233,
-   "lines": 276,
+   "bytes": 31471,
+   "lines": 291,
    "title": "docs/ 总索引（机械生成，勿手改）",
    "out_links": [],
    "n_links": 0,
@@ -2270,9 +2273,10 @@
    "inbound": [
     "docs/NOT-DOING.md",
     "docs/research/weknora-kb-ui/01-pages-and-flows.md",
-    "docs/research/weknora-ui/00-index-and-proposal.md"
+    "docs/research/weknora-ui/00-index-and-proposal.md",
+    "docs/survey/15-doc-index-content.md"
    ],
-   "inbound_count": 3
+   "inbound_count": 4
   },
   {
    "path": "docs/research/weknora-kb-ui/01-pages-and-flows.md",
@@ -2501,7 +2505,7 @@
   },
   {
    "path": "docs/survey/01-inventory.md",
-   "bytes": 3715,
+   "bytes": 3714,
    "lines": 83,
    "title": "全仓清单（四本账）",
    "out_links": [],
@@ -2572,8 +2576,8 @@
   },
   {
    "path": "docs/survey/07-doc-surface.md",
-   "bytes": 38655,
-   "lines": 384,
+   "bytes": 39079,
+   "lines": 390,
    "title": "文档面",
    "out_links": [
     "p"
@@ -2624,8 +2628,8 @@
   },
   {
    "path": "docs/survey/11-module-index.md",
-   "bytes": 169315,
-   "lines": 1344,
+   "bytes": 169515,
+   "lines": 1346,
    "title": "模块职责索引",
    "out_links": [],
    "n_links": 0,
@@ -2647,6 +2651,40 @@
    "bytes": 12775,
    "lines": 333,
    "title": "表读写关系",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/14-test-index.md",
+   "bytes": 257266,
+   "lines": 3651,
+   "title": "测试索引（每个测试钉住了什么）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/15-doc-index-content.md",
+   "bytes": 77444,
+   "lines": 602,
+   "title": "文档内容索引（每份讲什么）",
+   "out_links": [
+    "../weknora-assessment.md",
+    "p",
+    "referenced-files.txt"
+   ],
+   "n_links": 3,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/16-frontend.md",
+   "bytes": 16645,
+   "lines": 274,
+   "title": "前端清单（文件 / 导出 / 说明）",
    "out_links": [],
    "n_links": 0,
    "inbound": [],

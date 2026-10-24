@@ -8,13 +8,13 @@
 | 项 | 数 |
 |---|---:|
 | 扫描面 | `src`, `tests`, `scripts`, `tools/gov-qa`, `eval` |
-| `.py` 文件 | **1,269** |
-| 解析成功模块 | **1,269** |
+| `.py` 文件 | **1,271** |
+| 解析成功模块 | **1,271** |
 | 解析失败 | **0**（判据：成功 + 失败 == 总数）|
-| 符号总数 | **7,015** |
+| 符号总数 | **7,022** |
 | 类 | 386 |
-| 函数（含方法） | 6,629 |
-| 无 docstring 的符号 | 3,306 |
+| 函数（含方法） | 6,636 |
+| 无 docstring 的符号 | 3,312 |
 
 ## 二、按目录看规模
 
@@ -30,11 +30,11 @@
 | `tests/test_channel_repo.py` | 1 | 62 | 53 | 9 | 39 |
 | `tests/test_ledger_chain.py` | 1 | 58 | 50 | 8 | 25 |
 | `tests/test_update_channels.py` | 1 | 57 | 47 | 10 | 23 |
+| `scripts/survey` | 9 | 56 | 56 | 0 | 50 |
 | `tests/test_dryrun_report.py` | 1 | 56 | 56 | 0 | 14 |
 | `eval/lay-phrasing` | 24 | 55 | 55 | 0 | 51 |
 | `tests/test_credentials_namespace.py` | 1 | 51 | 49 | 2 | 38 |
 | `scripts/loop2` | 4 | 49 | 48 | 1 | 29 |
-| `scripts/survey` | 7 | 49 | 49 | 0 | 44 |
 | `tests/test_material_track_l.py` | 1 | 49 | 42 | 7 | 22 |
 | `tests/test_material_repo.py` | 1 | 46 | 37 | 9 | 30 |
 | `tests/test_material_collect.py` | 1 | 43 | 35 | 8 | 17 |
@@ -53,9 +53,9 @@
 | `answer` | `src/core/llm/ks_answer.py:810` | **351** |
 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` | **343** |
 | `register` | `src/core/api/routes_materials.py:63` | **325** |
+| `main` | `scripts/survey/04-reconcile.py:41` | **257** |
 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` | **256** |
 | `main` | `eval/recall-funnel/build-v2.py:63` | **255** |
-| `main` | `scripts/survey/04-reconcile.py:41` | **253** |
 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` | **246** |
 | `main` | `scripts/measure-cross-language-fts.py:166` | **242** |
 | `register` | `src/core/api/routes_law.py:29` | **223** |
@@ -78,9 +78,9 @@
 | 351 | `answer` | `src/core/llm/ks_answer.py:810` |
 | 343 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` |
 | 325 | `register` | `src/core/api/routes_materials.py:63` |
+| 257 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 256 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` |
 | 255 | `main` | `eval/recall-funnel/build-v2.py:63` |
-| 253 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 246 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` |
 | 242 | `main` | `scripts/measure-cross-language-fts.py:166` |
 | 223 | `register` | `src/core/api/routes_law.py:29` |
@@ -190,7 +190,7 @@
 
 ## 五、模块 docstring 覆盖
 
-**16 / 1269 个模块没有模块级 docstring。**
+**16 / 1271 个模块没有模块级 docstring。**
 
 - `eval/lay-phrasing/validate-gen.py`
 - `src/__init__.py`

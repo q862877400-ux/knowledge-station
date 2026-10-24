@@ -2,16 +2,17 @@
  "generated_by": "scripts/survey/00-inventory.py",
  "repo_root": "D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode",
  "ledger": {
-  "tracked": 3568,
+  "tracked": 3576,
   "untracked": 761,
-  "merged": 4329,
-  "overlap": 11,
-  "generated_excluded": 11,
-  "counted": 4318,
-  "ignored_entries": 467
+  "merged": 4337,
+  "overlap": 14,
+  "generated_excluded": 14,
+  "counted": 4323,
+  "ignored_entries": 468
  },
  "generated_paths": [
   "docs/survey/data/config.json",
+  "docs/survey/data/doc_content.json",
   "docs/survey/data/docs.json",
   "docs/survey/data/endpoints.json",
   "docs/survey/data/endpoints_deep.json",
@@ -21,7 +22,9 @@
   "docs/survey/data/schema.json",
   "docs/survey/data/symbols_py.json",
   "docs/survey/data/tables_io.json",
-  "docs/survey/data/tests.json"
+  "docs/survey/data/test_content.json",
+  "docs/survey/data/tests.json",
+  "docs/survey/data/web_content.json"
  ],
  "by_category": {
   "另一条线-政务问答采集": {
@@ -41,8 +44,8 @@
   },
   "文档": {
    "files": 192,
-   "bytes": 7280345,
-   "lines": 90206
+   "bytes": 7281583,
+   "lines": 90221
   },
   "产品代码-引擎": {
    "files": 162,
@@ -50,9 +53,9 @@
    "lines": 51002
   },
   "脚本-工具/门禁": {
-   "files": 91,
-   "bytes": 948780,
-   "lines": 19550
+   "files": 93,
+   "bytes": 965373,
+   "lines": 19917
   },
   "规格-spec-kit": {
    "files": 88,
@@ -75,9 +78,9 @@
    "lines": 23314
   },
   "文档-项目现状地图": {
-   "files": 34,
-   "bytes": 1033782,
-   "lines": 14154
+   "files": 37,
+   "bytes": 1385760,
+   "lines": 18689
   },
   "产品代码-界面": {
    "files": 33,
@@ -233,6 +236,10 @@
    "entries": 1,
    "bytes": 0
   },
+  "scripts/survey": {
+   "entries": 1,
+   "bytes": 0
+  },
   "specs/006-law-catalog-refresh": {
    "entries": 1,
    "bytes": 4065726
@@ -344,6 +351,7 @@
   "scripts/__pycache__/",
   "scripts/docs/__pycache__/",
   "scripts/loop2/__pycache__/",
+  "scripts/survey/__pycache__/",
   "specs/006-law-catalog-refresh/rollback-law_catalog.csv",
   "src/__pycache__/",
   "src/core/__pycache__/",
@@ -1134,12 +1142,12 @@
    "path": "docs/INDEX.md",
    "exists": true,
    "state": "present",
-   "bytes": 30233,
+   "bytes": 31471,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档",
-   "lines": 276,
-   "sha256": "f5f42e47d742a94b"
+   "lines": 291,
+   "sha256": "c45d9a6021bef5cd"
   },
   {
    "path": "docs/INTERACTION-DESIGN.md",
@@ -3222,12 +3230,12 @@
    "path": "docs/survey/01-inventory.md",
    "exists": true,
    "state": "present",
-   "bytes": 3715,
+   "bytes": 3714,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 83,
-   "sha256": "fba044c0504616b7"
+   "sha256": "b02f40d44374a43f"
   },
   {
    "path": "docs/survey/02-code-map.md",
@@ -3238,7 +3246,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 210,
-   "sha256": "cb1fc0f677de18c2"
+   "sha256": "29cf2d20b85850d2"
   },
   {
    "path": "docs/survey/03-cross-ref.md",
@@ -3288,12 +3296,12 @@
    "path": "docs/survey/07-doc-surface.md",
    "exists": true,
    "state": "present",
-   "bytes": 38655,
+   "bytes": 39079,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档-项目现状地图",
-   "lines": 384,
-   "sha256": "7b159d9370afaf0c"
+   "lines": 390,
+   "sha256": "a0ec8b6ab4f93997"
   },
   {
    "path": "docs/survey/08-gate-surface.md",
@@ -3332,12 +3340,12 @@
    "path": "docs/survey/11-module-index.md",
    "exists": true,
    "state": "present",
-   "bytes": 169315,
+   "bytes": 169515,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档-项目现状地图",
-   "lines": 1344,
-   "sha256": "44164ab6192167e3"
+   "lines": 1346,
+   "sha256": "fdbbb4b060a9e59a"
   },
   {
    "path": "docs/survey/12-config-surface.md",
@@ -3362,6 +3370,39 @@
    "sha256": "9ce0fb55ea9b113a"
   },
   {
+   "path": "docs/survey/14-test-index.md",
+   "exists": true,
+   "state": "present",
+   "bytes": 257266,
+   "ext": ".md",
+   "lang": "Markdown",
+   "category": "文档-项目现状地图",
+   "lines": 3651,
+   "sha256": "500cedf436af630f"
+  },
+  {
+   "path": "docs/survey/15-doc-index-content.md",
+   "exists": true,
+   "state": "present",
+   "bytes": 77444,
+   "ext": ".md",
+   "lang": "Markdown",
+   "category": "文档-项目现状地图",
+   "lines": 602,
+   "sha256": "a99e0eb9c9d342eb"
+  },
+  {
+   "path": "docs/survey/16-frontend.md",
+   "exists": true,
+   "state": "present",
+   "bytes": 16645,
+   "ext": ".md",
+   "lang": "Markdown",
+   "category": "文档-项目现状地图",
+   "lines": 274,
+   "sha256": "918d14ae23332b67"
+  },
+  {
    "path": "docs/survey/COVERAGE.md",
    "exists": true,
    "state": "present",
@@ -3370,7 +3411,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 51,
-   "sha256": "132fec9718519c3e"
+   "sha256": "2a013e5cba894782"
   },
   {
    "path": "docs/survey/README.md",
@@ -11025,45 +11066,67 @@
    "path": "scripts/survey/03-render.py",
    "exists": true,
    "state": "present",
-   "bytes": 28753,
+   "bytes": 33124,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 675,
-   "sha256": "80c93b542b5f9363"
+   "lines": 777,
+   "sha256": "811667be71e194cb"
   },
   {
    "path": "scripts/survey/04-reconcile.py",
    "exists": true,
    "state": "present",
-   "bytes": 10573,
+   "bytes": 10729,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 297,
-   "sha256": "17bd54c689aff719"
+   "lines": 301,
+   "sha256": "e41a47b4d0c6d53a"
   },
   {
    "path": "scripts/survey/05-deep.py",
    "exists": true,
    "state": "present",
-   "bytes": 16317,
+   "bytes": 15580,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 326,
-   "sha256": "f32d3cd7795efff5"
+   "lines": 306,
+   "sha256": "5e2cf48a47456220"
+  },
+  {
+   "path": "scripts/survey/06-content.py",
+   "exists": true,
+   "state": "present",
+   "bytes": 10086,
+   "ext": ".py",
+   "lang": "Python",
+   "category": "脚本-工具/门禁",
+   "lines": 210,
+   "sha256": "7cdf5f3c8c072425"
+  },
+  {
+   "path": "scripts/survey/_common.py",
+   "exists": true,
+   "state": "present",
+   "bytes": 2651,
+   "ext": ".py",
+   "lang": "Python",
+   "category": "脚本-工具/门禁",
+   "lines": 70,
+   "sha256": "7ae415ccdfd4ce53"
   },
   {
    "path": "scripts/survey/run-all.py",
    "exists": true,
    "state": "present",
-   "bytes": 3095,
+   "bytes": 3161,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 98,
-   "sha256": "e86f49e241564baf"
+   "lines": 99,
+   "sha256": "1da2c35bb57e8977"
   },
   {
    "path": "scripts/uniformity-ast-dupes.py",
