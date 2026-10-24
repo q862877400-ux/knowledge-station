@@ -821,6 +821,63 @@ def gen_function_index() -> None:
     write("17-function-index.md", "函数索引（每个符号的职责与引用计数）", "\n".join(out))
 
 
+
+def gen_runtime_probe() -> None:
+    d = load("runtime_probe")
+    cnt = d["counts"]
+    iso = d["isolation"]
+    out = [
+        "## 一、这是唯一真正跑起来的一层", "",
+        "前面 17 份文档全是**静态**的：看代码写了什么。",
+        "这一份是**真启动引擎、把每条端点都调了一遍** —— 静态检查验不了「跑起来会怎样」。", "",
+        "## 二、隔离边界（保证没碰生产数据）", "",
+        "| 项 | 值 |", "|---|---|",
+        f"| 数据目录 | {iso['KS_DATA_DIR']} |",
+        f"| 模型目录 | {iso['KS_MODELS_DIR']} |",
+        f"| 说明 | {iso['note']} |",
+        "", d["caliber"], "",
+        "## 三、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 探测端点 | **{cnt['routes_probed']}** |",
+    ]
+    for k, v in sorted(cnt["by_status"].items(), key=lambda kv: -kv[1]):
+        label = {"200": "200 正常", "404": "404 占位 id 不存在（合理）",
+                 "422": "422 缺必填字段（正常）", "400": "400",
+                 "timeout": "超时（12 秒）", "409": "409 冲突",
+                 "500": "**500 未捕获异常**"}.get(k, k)
+        out.append(f"| {label} | {v} |")
+    out += ["", "> ⚠ `422` 与 `404` 是**空 body + 占位 id** 的正常结果，不是缺陷。",
+            "> 真正的异常是 `500` 与 `timeout` —— 见 §五。", "",
+            "## 四、`/api/v1/health` 的真实响应", ""]
+    h = d["health"]
+    out.append(f"- HTTP **{h.get('status')}**，**{h.get('ms')} ms**，{h.get('bytes')} 字节")
+    out.append(f"- 顶层键：{', '.join('`' + x + '`' for x in (h.get('top_keys') or []))}")
+    out += ["", "## 五、异常项逐条（**只记录，不判断**）", "",
+            "### 500（未捕获异常）", ""]
+    for r in d["results"]:
+        if str(r.get("status")) == "500":
+            out.append(f"- `{r['method']} {r['declared_path']}` "
+                       f"—— `{r.get('handler')}` @ `{r.get('file')}:{r.get('lineno')}`")
+    out += ["", "### 超时的端点（按路径前缀归组）", ""]
+    from collections import Counter
+    pref = Counter()
+    for r in d["results"]:
+        if str(r.get("status")) is None and r.get("timeout"):
+            parts = r["declared_path"].split("/")
+            pref["/".join(parts[:4])] += 1
+    out += ["| 前缀 | 超时条数 |", "|---|---:|"]
+    for k, v in pref.most_common():
+        out.append(f"| `{k}` | {v} |")
+    out += ["", "## 六、全部端点实测结果", "",
+            "| 方法 | 路径 | 状态 | 耗时 | 处理函数 |", "|---|:---:|---:|---|"]
+    for r in d["results"]:
+        st = r.get("status") if r.get("status") is not None else (
+            "超时" if r.get("timeout") else "无响应")
+        out.append(f"| {r['method']} | `{r['declared_path']}` | {st} | "
+                   f"{r.get('ms', '—')} ms | `{r.get('handler')}` |")
+    write("18-runtime-probe.md", "运行时探测（真启动引擎，176 条端点实测）", "\n".join(out))
+
+
 def main() -> int:
     gen_readme()
     gen_inventory()
@@ -838,6 +895,7 @@ def main() -> int:
     gen_doc_index_content()
     gen_frontend()
     gen_function_index()
+    gen_runtime_probe()
     print("\n全部生成完毕")
     return 0
 

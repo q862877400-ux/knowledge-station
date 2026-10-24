@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **247 份** / **9563 KB**。
+> 共 **248 份** / **9585 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -128,7 +128,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（106 份 / 3653 KB）
+## 根文档与其他（107 份 / 3675 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -170,8 +170,10 @@
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
+| `docs/survey/10-observed.md` | 17 | 2026-10-24 | 一、代码里观察到的事 |
 | `docs/README.md` | 16 | 2026-10-24 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/archify/03-借鉴结论.md` | 16 | 2026-10-23 | 一句话结论 |
+| `docs/survey/18-runtime-probe.md` | 16 | 未提交 | 一、这是唯一真正跑起来的一层 |
 | `docs/uniformity/08-why-contracts-rot.md` | 16 | 2026-10-24 | 一、本仓确实有契约（不是没有） |
 | `docs/wiki/architecture.md` | 16 | 2026-10-23 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/PLAN-REAL-QUESTION-RULER.md` | 15 | 2026-10-12 | 一、先说结论 |
@@ -192,7 +194,6 @@
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
 | `docs/survey/06-test-surface.md` | 11 | 2026-10-24 | 一、口径 |
-| `docs/survey/10-observed.md` | 11 | 2026-10-24 | 一、代码里观察到的事 |
 | `docs/survey/00-method.md` | 10 | 2026-10-24 | 一、「所有内容」到底指什么（九个面，逐面机械枚举） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |

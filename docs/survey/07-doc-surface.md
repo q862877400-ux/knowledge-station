@@ -11,9 +11,9 @@
 
 | 项 | 数 |
 |---|---:|
-| `docs/` 下 `.md` | **248** |
-| 其中受版本控制 | 233 |
-| 链接总数 | 569 |
+| `docs/` 下 `.md` | **249** |
+| 其中受版本控制 | 234 |
+| 链接总数 | 570 |
 | **没有任何入链（孤儿）** | **117** |
 
 ## 三、孤儿文档（没有任何别的文档链到它）
@@ -194,14 +194,14 @@
 | `docs/uniformity/04-tests-tools-gates.md` | 41 KB | 621 | 1 | 0 | tests / tools / 门禁 事实地图 |
 | `docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md` | 40 KB | 477 | 0 | 0 | 自动化执行记忆：gov-qa 推进到全国省市全覆盖 |
 | `docs/uniformity/10-api-server.md` | 40 KB | 452 | 2 | 0 | api/server.py 事实地图 |
-| `docs/survey/07-doc-surface.md` | 38 KB | 392 | 1 | 1 | 文档面 |
+| `docs/survey/07-doc-surface.md` | 38 KB | 393 | 1 | 1 | 文档面 |
 | `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md` | 38 KB | 619 | 0 | 0 | 独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 KB | 644 | 0 | 0 | Hindsight 部署：对一份外部 AI 分析报告的事实核查（2026-09- |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 KB | 428 | 0 | 0 | 法规/标准发布源路径总表（2026-10-08 实测） |
 | `docs/research/vision-coverage-map.md` | 36 KB | 341 | 0 | 2 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 KB | 378 | 0 | 0 | 渠道台账状态快照（自动生成，勿手改） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 KB | 322 | 0 | 0 | 等待期前台提示：现状盘点 + 外部借鉴（只分析，未改代码） |
-| `docs/INDEX.md` | 31 KB | 294 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
+| `docs/INDEX.md` | 31 KB | 295 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
 | `docs/research/dsh-official/INGEST-LEDGER-repo-docs.md` | 30 KB | 190 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md` | 30 KB | 314 | 0 | 6 | 自动推进链「忽略 / 没收口」审计（2026-10-09 人工轮） |
 | `docs/verify-briefs/VERIFY-REPORT-govqa-conformance.md` | 30 KB | 660 | 1 | 0 | 独立复核报告 —— `verify-freeze-govqa-conforman |
@@ -260,6 +260,8 @@
 | `docs/archive/old-plans/AUTO-DRAFT-PLAN.md` | 17 KB | 210 | 0 | 1 | 自动成文（系统起草结论）——立项论证与设计（2026-09-18） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 KB | 136 | 0 | 0 | 对策表：抄哪一处 / 不抄哪一处 / 我们独有的那一条 |
 | `docs/research/dsh-official/dshdocs-D.md` | 17 KB | 123 | 0 | 0 | DSH 官方文档消化：工具 / LLM / 会话 / 子代理 |
+| `docs/survey/10-observed.md` | 17 KB | 359 | 1 | 2 | 观察记录（中性，不下结论） |
+| `docs/survey/18-runtime-probe.md` | 16 KB | 232 | 1 | 0 | 运行时探测（真启动引擎，176 条端点实测） |
 | `docs/research/archify/03-借鉴结论.md` | 16 KB | 207 | 0 | 1 | archify 对比与借鉴结论 |
 | `docs/wiki/architecture.md` | 16 KB | 248 | 5 | 13 | KnowledgeStation：项目目标与现状 |
 | `docs/survey/16-frontend.md` | 16 KB | 274 | 0 | 0 | 前端清单（文件 / 导出 / 说明） |
@@ -302,7 +304,6 @@
 | `docs/archive/old-plans/BASELINE-PLAN-2026-10-06.md` | 11 KB | 225 | 2 | 1 | 基础层实验路线（2026-10-06 定） |
 | `docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md` | 11 KB | 153 | 2 | 0 | 学术调研 · 第 2 轮：**LLM 查询改写**与**同类系统/官方评测标准* |
 | `docs/verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md` | 11 KB | 135 | 4 | 0 | VERIFY-REPORT — `exp-15-pool-depth-fusio |
-| `docs/survey/10-observed.md` | 11 KB | 246 | 1 | 1 | 观察记录（中性，不下结论） |
 | `docs/research/SURVEY-学术调研-第3轮-还债与收敛.md` | 11 KB | 157 | 2 | 0 | 学术调研 · 第 3 轮：**还债 + 四条主线收敛** |
 | `docs/survey/06-test-surface.md` | 11 KB | 209 | 1 | 0 | 测试面 |
 | `docs/research/dsh-official/README.md` | 11 KB | 111 | 14 | 3 | DSH 官方文档精读（8 份分片） |
@@ -373,6 +374,7 @@
 | `docs/archive/workbuddy-memory/README.md` | 3 KB | 59 | 13 | 0 | 归档：项目内 `.workbuddy-ai/`（WorkBuddy 自动链的记忆 |
 | `docs/research/dsh-official/INGEST-LEDGER-notes-client-ui.md` | 3 KB | 27 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/history/README.md` | 3 KB | 80 | 13 | 1 | 开发史明细归档（§10.1 – §10.203） |
+| `docs/survey/COVERAGE.md` | 3 KB | 54 | 2 | 0 | 覆盖对账（九个面） |
 | `docs/research/papers/README.md` | 3 KB | 54 | 13 | 0 | 外部原件存放处（检索文献调研） |
 | `docs/wiki/components/retrieval.md` | 3 KB | 71 | 2 | 0 | retrieval（检索） |
 | `docs/archive/README.md` | 3 KB | 68 | 13 | 2 | 归档区：这里放什么、怎么查 |
@@ -381,7 +383,6 @@
 | `docs/survey/README.md` | 3 KB | 65 | 13 | 10 | 项目现状地图 |
 | `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 3 KB | 48 | 0 | 0 | 真库清理留档：22 条"栏目导航"型误发现（2026-09-24） |
 | `docs/wiki/components/ingestion.md` | 3 KB | 62 | 1 | 0 | ingestion（解析与入库） |
-| `docs/survey/COVERAGE.md` | 3 KB | 51 | 2 | 0 | 覆盖对账（九个面） |
 | `docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` | 2 KB | 47 | 0 | 0 | 决策记录：WSL2 解锁 vlm/hybrid 本地后端 —— 否决（2026- |
 | `docs/wiki/components/materials.md` | 2 KB | 51 | 1 | 0 | materials（材料平面） |
 | `docs/wiki/components/knowledge.md` | 2 KB | 51 | 1 | 0 | knowledge（法规知识本体与分类） |

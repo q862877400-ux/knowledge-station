@@ -1,0 +1,56 @@
+{
+ "generated_by": "scripts/survey/08-repro-resume-hang.py",
+ "question": "`POST /api/v1/ingest/bulk/{batch_id}/resume` 用不存在的批次号调用后，引擎是否还响应？",
+ "isolation": "临时数据目录 + 种子库副本；绝不碰 var/data",
+ "verdict": "引擎仍响应",
+ "steps": [
+  {
+   "label": "基线 /health",
+   "method": "GET",
+   "path": "/api/v1/health",
+   "status": 200,
+   "ms": 21.4,
+   "bytes": 103
+  },
+  {
+   "label": "基线 无关接口",
+   "method": "GET",
+   "path": "/api/v1/update/subscriptions",
+   "status": 200,
+   "ms": 2.0,
+   "bytes": 431
+  },
+  {
+   "label": "resume 不存在的批次",
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk/probe-nonexistent/resume",
+   "status": 500,
+   "ms": 60.0
+  },
+  {
+   "label": "之后 /health（10 秒超时）",
+   "method": "GET",
+   "path": "/api/v1/health",
+   "status": 200,
+   "ms": 1.0,
+   "bytes": 103
+  },
+  {
+   "label": "之后 无关接口（10 秒超时）",
+   "method": "GET",
+   "path": "/api/v1/update/subscriptions",
+   "status": 200,
+   "ms": 19.2,
+   "bytes": 431
+  },
+  {
+   "label": "再等 20 秒后 /health",
+   "method": "GET",
+   "path": "/api/v1/health",
+   "status": 200,
+   "ms": 17.9,
+   "bytes": 104
+  }
+ ],
+ "engine_stderr_tail": " app\n    await route.handle(scope, receive, send)\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\fastapi\\routing.py\", line 1281, in handle\n    await super().handle(scope, receive, send)\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\starlette\\routing.py\", line 280, in handle\n    await self.app(scope, receive, send)\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\fastapi\\routing.py\", line 158, in app\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\starlette\\_exception_handler.py\", line 53, in wrapped_app\n    raise exc\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\starlette\\_exception_handler.py\", line 42, in wrapped_app\n    await app(scope, receive, sender)\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\fastapi\\routing.py\", line 144, in app\n    response = await f(request)\n               ^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\fastapi\\routing.py\", line 706, in app\n    raw_response = await run_endpoint_function(\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\fastapi\\routing.py\", line 354, in run_endpoint_function\n    return await run_in_threadpool(dependant.call, **values)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\starlette\\concurrency.py\", line 34, in run_in_threadpool\n    return await anyio.to_thread.run_sync(func)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\anyio\\to_thread.py\", line 65, in run_sync\n    return await get_async_backend().run_sync_in_worker_thread(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\anyio\\_backends\\_asyncio.py\", line 2641, in run_sync_in_worker_thread\n    return await future\n           ^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\.venv\\Lib\\site-packages\\anyio\\_backends\\_asyncio.py\", line 1033, in run\n    result = context.run(func, *args)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\src\\core\\api\\routes_update.py\", line 583, in bulk_ingest_resume\n    bulk_ingest.pause_batch(batch_id)  # 幂等：把 pending/running 统一为可控点\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode\\src\\core\\ingestion\\bulk.py\", line 466, in pause_batch\n    raise ValueError(f\"批次不存在: {batch_id}\")\nValueError: 批次不存在: probe-nonexistent\n"
+}

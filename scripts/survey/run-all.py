@@ -44,6 +44,9 @@ STEPS = [
     ("02-surface.py", "数据/接口/测试/文档/门禁"),
     ("05-deep.py", "模块职责/接口明细/配置面/表读写"),
     ("06-content.py", "测试内容/文档内容/前端清单"),
+    # ⚠ 07-runtime-probe.py **不进默认循环**：它要真启动引擎、跑 3–5 分钟。
+    #   单独跑：`.venv\Scripts\python.exe scripts/survey/07-runtime-probe.py`
+
     ("03-render.py", "渲染人可读文档"),
 ]
 

@@ -244,3 +244,116 @@ Select-String -Path src\*.py,src\core\**\*.py,scripts\*.py,plugin\src\*.js,plugi
 | `var/data` 74 GB 真实数据逐部核 | 只做统计 |
 | `ks_answer` 端到端 | 需模型密钥，未复测 |
 | 外部调用方是否用那些"零调用"接口 | 只查了前端 |
+
+---
+
+## 七、运行时观察到的事（2026-10-24 真启动引擎探测）
+
+> 这一节**不是静态推断**，是把引擎真起来、176 条端点全调一遍得到的。
+> 隔离边界：临时数据目录 + 种子库副本；模型目录为空 ⇒ 模型不可用就降级。**没碰 `var/data`**。
+> 明细见 [`18-runtime-probe.md`](18-runtime-probe.md)，原始数据 `data/runtime_probe.json`。
+
+### O-19 引擎能起来，`/health` 是**毫秒级**
+
+| 项 | 实测 |
+|---|---|
+| 启动 | 成功（绑随机端口，令牌走 stdout） |
+| `GET /api/v1/health` | **200 / 19–27 ms / 103 字节** |
+| 顶层键 | `db_status` / `parser_worker` / `status` / `uptime_seconds` / `vector_engine` |
+
+### O-20 176 条端点的状态码分布
+
+| 状态 | 条数 | 说明 |
+|---|---:|---|
+| 200 | 37 | 真返回数据 |
+| 422 | 36 | **空 body ⇒ 缺必填字段，正常** |
+| 404 | 29 | **占位 id 不存在，正常** |
+| 超时（12 秒） | 71 | 见 O-22 |
+| 409 | 1 | `POST /api/v1/update/check`（另一处在跑，合理） |
+| **500** | **1** | 见 O-21 |
+
+### O-21 `POST /api/v1/ingest/bulk/{批次号}/resume` 用一个不存在的批次号会 **500**（3/3 复现）
+
+**这是本检查里唯一一条 500。** 链路是确定的：
+
+```
+routes_update.py:583  bulk_ingest_resume
+    → bulk_ingest.pause_batch(batch_id)            bulk.py:466
+        → load_batch() 返回 None
+        → raise ValueError(f"批次不存在: {batch_id}")   ← **未被捕获**
+```
+
+引擎 stderr 的原始异常：
+
+```
+File "src\core\api\routes_update.py", line 583, in bulk_ingest_resume
+    bulk_ingest.pause_batch(batch_id)
+File "src\core\ingestion\bulk.py", line 466, in pause_batch
+    raise ValueError(f"批次不存在: {batch_id}")
+ValueError: 批次不存在: probe-nonexistent
+```
+
+**两个可记录的事实**：
+1. 这个 500 **不是**项目自己的错误信封（`{ok:false, error:{code,message}}`），
+   而是 FastAPI 的裸 500 + 完整 traceback 打到 stderr。
+2. 同一个文件里的 `abort_batch` 对「批次不存在」也是同样 `raise ValueError`。
+   复核：`grep -n "批次不存在" src/core/ingestion/bulk.py`
+
+### O-22 ⚠ **间歇性**：那一次 500 之后，引擎有时会整体不响应（**机理未查明，不下结论**）
+
+同一做法跑 **3 次**，结果不一样：
+
+| 跑次 | `resume` 返回 | 之后 `/health` | 之后无关接口 |
+|---|---|---|---|
+| 第 1 次（全量探针） | 500（12 s 才回） | — | **连续 70 条全部超时**（第 107–176 条） |
+| 第 2 次（定向） | 500（82 ms） | **超时** | **超时**；再等 20 秒仍超时 |
+| 第 3 次（定向） | 500（60 ms） | **200 / 1 ms** | **200 / 19 ms** |
+
+⇒ **3 次里 2 次卡死、1 次正常。是间歇的。**
+
+**已排除的候选**（不要当作原因）：
+- `pause_batch` 在抛异常**之前没有开事务**（先 `load_batch` 只读，然后直接 raise）
+  ⇒ 「留下了未提交的写事务 ⇒ 锁住整库」这个最顺的解释**不成立**。
+- `/health` 虽然不查重数据，但它要报 `db_status` ⇒ 它**会碰数据库**；
+  所以「数据库被锁 ⇒ /health 也超时」在**现象上**是自洽的，但**没有证据**。
+
+**可能的候选（未取证，不作结论）**：
+1. 启动时 `start_law_refresh()` 与 `start_update_scheduler()` 两个后台线程
+   （`server.py` 各包在 `try/except: pass` 里）在跑网络/写库，偶发长时间持锁；
+2. 第 1 次跑里 `POST /api/v1/laws/catalog/refresh` **先超时了 12 秒**，
+   它可能触发了长时间的法规目录刷新；
+3. `get_db_connection()` 是**按线程缓存**的（`conftest.py` 有明确记录），
+   某个 worker 线程的连接出问题会连带它后续处理的请求。
+
+**要钉死它需要**：带线程栈的采样（卡住时抓 `faulthandler`）或多线程压测。
+**本检查没做 ⇒ 明确未验证。**
+
+### O-23 `POST /api/v1/laws/catalog/refresh` 会超 12 秒
+
+第 1 次跑里它单独吃了 **12,020 ms** 后被放弃。它显然要联网抓法规目录。
+**没有证据说它一定失败**（我没等它跑完），只是**超过 12 秒**。
+
+### O-24 种子库**不能用来启动引擎**（实测撞名，这条对下一棒很重要）
+
+现象：
+```
+StorageError: 初始化 schema 失败: Could not create '_info' shadow table:
+table "clause_vec_info" already exists
+→ 删掉那 6 张后：fts5: error creating shadow table material_fts_data:
+table 'material_fts_data' already exists
+```
+
+原因（读 `sqlite_master` 确认）：
+- 种子库里有 **vec0 的 6 张影子表**（`clause_vec_chunks/_info/_rowids/_vector_chunks00/
+  _metadatachunks00/_metadatatext00`，**都是普通表、0 行**），
+  但**没有 `clause_vec` 虚拟表本身**；
+- `material_fts` 的情况一样：影子表在、虚拟表不在；
+- `clause_fts` 是**正常**的（虚拟表在，`IF NOT EXISTS` 会跳过）。
+
+⇒ `init_schema()` 执行 `CREATE VIRTUAL TABLE` 时撞上遗留影子表 ⇒ **启动失败**。
+⇒ **种子库只能像测试那样直接读 SQLite，不能拿来起引擎。**
+（`make-seed-db.py` 的注释 L25/L209 本意是「vec/FTS 影子表不建」，但影子表还是被带进来了 ——
+这是记录，不是判断。）
+
+我的探针因此在**临时副本**上按两道守卫删掉孤儿影子表：
+① 基虚拟表不存在 ② 该影子表 0 行（`app_config` 有 7 行 ⇒ 第②条把它挡住，不会误删）。

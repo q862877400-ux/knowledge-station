@@ -197,6 +197,7 @@ def main() -> int:
         "15-doc-index-content.md",
         "16-frontend.md",
         "17-function-index.md",
+        "18-runtime-probe.md",
     ]
     miss = [n for n in need if not (SURVEY / n).exists()]
     rows.append(
@@ -212,7 +213,8 @@ def main() -> int:
 
     # 8.5 深化面齐备
     deep_need = ["modules", "endpoints_deep", "config", "tables_io",
-                 "test_content", "doc_content", "web_content"]
+                 "test_content", "doc_content", "web_content",
+                 "runtime_probe", "repro_resume_hang"]
     deep_miss = [n for n in deep_need if not (DATA / f"{n}.json").exists()]
     rows.append(("深化面 JSON", f"{len(deep_need) - len(deep_miss)}/{len(deep_need)} 份存在",
                  "✅" if not deep_miss else f"❌ 缺 {', '.join(deep_miss)}",
@@ -220,13 +222,35 @@ def main() -> int:
     if deep_miss:
         fails.append("深化面 JSON 不全")
 
-    # 9 运行时面：手写，标注未验证比例
+    # 9 运行时面：**实测**（真起引擎）+ 手写说明两份
+    rt = DATA / "runtime_probe.json"
+    if rt.exists():
+        rd = json.loads(rt.read_text(encoding="utf-8"))
+        rc = rd["counts"]
+        dist = ", ".join(f"{k}:{v}" for k, v in sorted(rc["by_status"].items()))
+        rows.append(
+            (
+                "I 运行时面（实测）",
+                f"真启动引擎，探 {rc['routes_probed']} 条端点；状态分布 {dist}",
+                "✅ 已实测",
+                "起引擎 + 逐条调用（隔离数据目录）",
+            )
+        )
+    else:
+        rows.append(
+            (
+                "I 运行时面（实测）",
+                "**未跑**（`07-runtime-probe.py`）",
+                "❌ 缺",
+                "需要真启动引擎",
+            )
+        )
     rows.append(
         (
-            "I 运行时面",
+            "I' 运行时面（说明）",
             "手写（`09-runtime.md`），每条标已验证/未验证",
             "⚠ 部分未验证",
-            "运行时行为静态查不到",
+            "启动/端口/令牌/数据目录的说明",
         )
     )
 
@@ -257,7 +281,8 @@ def main() -> int:
         "本检查**答不上来** |",
         "| **业务规则的语义** | 抓到了正则/判据的**符号与行号**，"
         "但「什么算条款头」这类规则的**含义**要读正文才知道 |",
-        "| **数据样例** | 记了每张表在种子库的行数，**没抽样看行内容**（隐私敏感的表更没看） |",
+        "| **数据样例** | 记了每张表在种子库的行数，"
+        "**没抽样看行内容**（隐私敏感的表更没看） |",
         "| 测试运行期覆盖率 | 要 coverage 数据，本检查没取 |",
         "| 前端符号的 AST 级清单 | 没有现成 TS AST 工具链，用正则，**近似** |",
         "| `tools/gov-qa` 948 MB 内容细节 | 只查结"
