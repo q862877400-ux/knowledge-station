@@ -23,7 +23,7 @@ import json
 import logging
 import math
 import re
-from typing import Any, Dict, Iterator, List, Optional
+from typing import Any, Dict, Iterator, List, Optional, cast
 
 from src.core.config import get_settings
 from src.core.domain.models import ClauseRevisionModel
@@ -95,7 +95,16 @@ FORENSIC_SYSTEM_PROMPT = (
     "3. 证据含例外（但书/除外/另有规定）时必须在该处一并说明；\n"
     "4. 证据不足时明确回答\"依据不足\"，不得编造；\n"
     "5. 分级表述等价：罗马数字（Ⅰ/Ⅱ/Ⅲ/Ⅳ级）即阿拉伯数字（1/2/3/4级）；\n"
-    "6. 只输出一个 JSON 对象，恰好两个字段："
+    # 规则 7 的由来（2026-10-19 真机实测，不是凭空的"写作建议"）：
+    #   同一批证据里 GB 30871-2014 §5.3 有 a)~e) 五个子项，「不应/应/可」混用；
+    #   模型把整段压成一句「应」，把「在生产不稳定的情况下不应进行带压不置换动火作业」
+    #   这个**否定**抹掉了。核验器当场抓出 modality_weakened（不应 → 应）。
+    #   另一头：受限空间那类题 8 条证据共 71 个模态词，逐条精确对应的负荷极高，
+    #   不明确要求就更容易合并。
+    "6. 证据条款含 a)/b)/c) 等多子项、或多个分句时，**必须逐项分行保留**，"
+    "禁止合并成一句概括；每个子项的模态词（应/宜/可/不应/不得/严禁/必须）"
+    "必须随其子项一起保留，**否定（不应/不得/严禁）绝不可省略或改写成肯定**；\n"
+    "7. 只输出一个 JSON 对象，恰好两个字段："
     '{"derivation":"推导正文","conclusion":"一句话结论"}。'
     "derivation 内在引用证据处用 [[c:i]] 标记；不要输出 JSON 之外的任何内容（不要 markdown 代码块）。"
 )
@@ -426,9 +435,12 @@ def build_messages(query: str, evidence: List[Dict[str, Any]],
 # ---------------------------------------------------------------------------
 
 def _stream_llm(messages: List[Dict[str, str]],
-                max_tokens: int = 1200,
+                max_tokens: Optional[int] = None,
                 temperature: float = 0.1) -> Iterator[str]:
     """流式生成文本片段。未配置 Key / 失败抛 LLMError（由 answer() 降级）。
+
+    `max_tokens` 缺省取 `settings.llm_max_tokens`（可配，理由见 `config._read_llm_max_tokens`）：
+    这条通道的思考开销随模型变，写死一个数字会让长答案被截断成半截 JSON。
 
     测试用 monkeypatch 本函数（或 deepseek_client.stream_chat_completion）为假生成器即可，
     零真实 LLM 消耗。
@@ -436,14 +448,31 @@ def _stream_llm(messages: List[Dict[str, str]],
     settings = get_settings()
     if not settings.llm_api_key:
         raise LLMError("DEEPSEEK_API_KEY 未配置")
+    if max_tokens is None:
+        max_tokens = settings.llm_max_tokens
     try:
         from openai import OpenAI
+        from openai.types.shared_params import ReasoningEffort
         client = OpenAI(api_key=settings.llm_api_key,
                         base_url=settings.llm_base_url)
-        stream = client.chat.completions.create(
-            model=settings.llm_model,
-            messages=messages,  # type: ignore[arg-type]  # openai SDK messages TypedDict 形参窄于 list[dict]（运行时结构等价）
-            max_tokens=max_tokens, temperature=temperature, stream=True)
+        # 思考强度只在配置里显式给了才传：空串 ⇒ 不传该参数 ⇒ 走上游默认，
+        # 换回付费官方模型时语义不变（该参数对 deepseek-chat 无意义）。
+        #
+        # ⚠ 不写成 `**extra` 展开：那会让 mypy 把 create() 的每个形参都当成
+        # `dict[str, Any]` 的候选目标，一次报 22 条 arg-type（实测）。两条分支各写
+        # 一次 create 更啰嗦，但类型是精确的。
+        effort = settings.llm_reasoning_effort or ""
+        if effort:
+            stream = client.chat.completions.create(
+                model=settings.llm_model,
+                messages=messages,  # type: ignore[arg-type]  # openai SDK messages TypedDict 形参窄于 list[dict]（运行时结构等价）
+                max_tokens=max_tokens, temperature=temperature, stream=True,
+                reasoning_effort=cast(ReasoningEffort, effort))
+        else:
+            stream = client.chat.completions.create(
+                model=settings.llm_model,
+                messages=messages,  # type: ignore[arg-type]
+                max_tokens=max_tokens, temperature=temperature, stream=True)
         for chunk in stream:
             delta = chunk.choices[0].delta if chunk.choices else None  # type: ignore[union-attr]  # SDK 重载联合含 tuple，stream=True 恒 ChatCompletionChunk
             if delta and delta.content:
@@ -569,11 +598,41 @@ def _full_evidence_for_verify(evidence: List[Dict[str, Any]]) -> List[Dict[str, 
     } for ev in evidence]
 
 
-def _answer_confidence(verification, evidence: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """R24 答案层置信度分级（high/mid/low），镜像 server._answer_confidence 语义。
+def answer_confidence(verification, evidence: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """答案层置信度分级（high/mid/low）—— **全仓唯一实现**。
 
-    无有效现行证据（tier=reference）→ 一律 low，与「取证答案需明示置信不足」呼应；
-    核验未通过 → low；证据含存疑/低可信 → mid；否则 high。
+    ## 为什么只有一处（2026-10-24 统一化第五批）
+
+    同一判据原来在两个文件里各写一份**且已经分叉**：
+
+    | | `api/server.py`（闭包内） | 本文件（旧） |
+    |---|---|---|
+    | 空证据 | **不特判** → 落到 `high` | 特判 → `low` |
+    | 字段名 | `is_suspicious` / `type_confidence` | `_is_suspicious` / `_type_confidence` |
+
+    **实测后果**：把 server 形态的数据喂给本文件那份，低可信证据被读成
+    `{'level': 'high', 'reasons': ['核验通过且证据高可信']}` —— **静默漏判**。
+    而两份都在闭包里 / 被闭包调用，**没有单测能发现分叉**。
+
+    ## 现在的判据（两处已对齐，取更保守的那一支）
+
+    1. **空证据 ⇒ `low`**（"没有依据"不等于"高可信"；旧 server 那份给 `high`，那是错的）；
+    2. 核验未通过 ⇒ `low`；
+    3. 有存疑 / 低可信证据（`type_confidence < 0.85`）⇒ `mid`；
+    4. 其余 ⇒ `high`。
+
+    ## 字段名同时接受两种写法
+
+    调用方传进来的证据字典**两套命名都在用**。本函数两种都认，
+    **不用调用方先改名** —— 那正是上次分叉的来源。
+
+    Args:
+        verification: 核验结果对象，需要 `.is_valid` 属性。
+        evidence: 证据字典列表（`clause_number` 必须有；
+            `is_suspicious` / `_is_suspicious` 任一即可）。
+
+    Returns:
+        `{"level": "high"|"mid"|"low", "reasons": [str, ...]}`。
     """
     reasons: List[str] = []
     if not evidence:
@@ -582,13 +641,37 @@ def _answer_confidence(verification, evidence: List[Dict[str, Any]]) -> Dict[str
     if not verification.is_valid:
         reasons.append("核验拦截项未清零")
         return {"level": "low", "reasons": reasons}
-    low_conf = [ev.get("clause_number") for ev in evidence
-                if ev.get("_is_suspicious") or (ev.get("_type_confidence") or 1) < 0.85]
+    low_conf: List[Any] = []
+    for ev in evidence:
+        suspicious = bool(_ev_field(ev, "is_suspicious"))
+        conf = _ev_field(ev, "type_confidence")
+        if suspicious or (conf if conf is not None else 1) < 0.85:
+            low_conf.append(ev.get("clause_number"))
     if low_conf:
         reasons.append(f"证据存疑/低可信: {'、'.join(str(x) for x in low_conf[:4])}")
         return {"level": "mid", "reasons": reasons}
     reasons.append("核验通过且证据高可信")
     return {"level": "high", "reasons": reasons}
+
+
+def _ev_field(ev: Dict[str, Any], name: str) -> Any:
+    """从证据字典里取字段，**两种命名都认**（`name` 与 `_name`）。
+
+    理由见 `answer_confidence` 的 docstring：两套命名是历史分叉的产物，
+    在这里一次性兼容掉，比让每个调用方各自改名安全。
+    """
+    if name in ev:
+        return ev[name]
+    return ev.get("_" + name)
+
+
+def _answer_confidence(verification, evidence: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """**转发别名**（2026-10-24 起）。新代码请直接用 `answer_confidence`。
+
+    这个名字在 2026-10-24 之前是第二份独立实现（与 `server.py` 那份分叉）。
+    现在两份都指向 `answer_confidence`，本名字只做转发，保留只为不打断既有调用点。
+    """
+    return answer_confidence(verification, evidence)
 
 
 def _assemble_verification(derivation: str, conclusion: str,
@@ -930,13 +1013,34 @@ def answer(query: str,
     messages = build_messages(query, evidence, mode, materials_text)
     llm_error: Optional[str] = None
     raw_text = ""
-    try:
-        gen = _stream_llm(messages)
-        raw_text = _collect_stream(gen)
-    except LLMError as e:
-        llm_error = str(e)
-    except Exception as e:  # noqa: BLE001
-        llm_error = f"LLM 调用异常: {e}"
+    llm_attempts = 0
+    # 空返回自动重试（2026-10-19 真机实测驱动）：
+    #   免费 router 车道偶发「流式一个正文字符都不给」（finish_reason=stop、
+    #   reasoning 正常输出、content 恒空）。实测同一道题重跑即成功 —— 那是上游抖动，
+    #   不是我们的 bug。原实现一次空就降级成「大模型不可用」占位，用户看到的
+    #   失败率远高于真实故障率。
+    #   ⇒ 空返回重试 `settings.llm_empty_retries` 次（默认 1，即最多试 2 遍）。
+    #   ⚠ 只对「空返回」重试，**不对 LLMError 重试**：Key 错/模型名错这类错误
+    #   重试一百次也一样，白等。
+    max_attempts = 1 + max(0, get_settings().llm_empty_retries)
+    for attempt in range(1, max_attempts + 1):
+        llm_attempts = attempt
+        raw_text = ""
+        llm_error = None
+        try:
+            gen = _stream_llm(messages)
+            raw_text = _collect_stream(gen)
+        except LLMError as e:
+            llm_error = str(e)
+            break          # 配置类错误，重试无意义
+        except Exception as e:  # noqa: BLE001
+            llm_error = f"LLM 调用异常: {e}"
+            break
+        if raw_text.strip():
+            break
+        if attempt < max_attempts:
+            logger.warning("ks_answer: 第 %d 次调用返回空正文，重试（上游抖动，非配置错误）", attempt)
+
 
     if raw_text.strip():
         parsed = parse_llm_answer(raw_text, len(evidence), material_count)
@@ -952,6 +1056,11 @@ def answer(query: str,
         )
         conclusion = "取证推导因大模型不可用未生成，请仅参考证据区列示的现行条款。"
         cite_warnings = ["llm_unavailable"]
+        if llm_attempts > 1:
+            # 让「重试过还是失败」与「一次就失败」在证据里可区分：
+            # 前者更像上游抖动（值得再试），后者更像配置/额度问题。
+            derivation += f"（已重试 {llm_attempts - 1} 次仍为空）"
+
 
     # ---- 核验（全量条款文本）+ 置信度 ----
     verification = _assemble_verification(derivation, conclusion, evidence, cite_warnings)

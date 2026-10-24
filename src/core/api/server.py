@@ -2557,23 +2557,24 @@ def create_app(token: str) -> FastAPI:
         return fetch_full_clause(conn, cid)
 
     def _answer_confidence(verification, ev_dicts: list) -> dict:
-        """R24 答案层置信度分级（三档）。
+        """答案层置信度分级 —— **转发到 `llm.ks_answer.answer_confidence`（唯一实现）**。
 
-        high: 核验通过 且 全部证据高可信（type_confidence>=0.85 且非存疑）
-        mid : 核验通过，但存在中/低可信或存疑证据
-        low : 核验未通过（存在被拦截项）
+        2026-10-24 统一化第五批之前，这里是**第二份独立实现**，而且已经和
+        `llm/ks_answer.py` 那份分叉：
+
+        | | 本函数（旧） | ks_answer（旧） |
+        |---|---|---|
+        | 空证据 | **不特判** → `high` | 特判 → `low` |
+        | 字段名 | `is_suspicious` / `type_confidence` | `_is_suspicious` / `_type_confidence` |
+
+        ⇒ 把本函数的证据形态喂给那份，**低可信证据会被静默判成 `high`**。
+        两份都在 `create_app` 闭包里 / 被闭包调用，**没有单测能发现分叉**。
+
+        现在两处都走 `answer_confidence`，它同时认两套字段名；
+        空证据取更保守的那一支（`low`）。**判据只有一处，改那里就是改全部。**
         """
-        reasons = []
-        if not verification.is_valid:
-            reasons.append("核验拦截项未清零")
-            return {"level": "low", "reasons": reasons}
-        low_conf = [e["clause_number"] for e in ev_dicts
-                    if e.get("is_suspicious") or (e.get("type_confidence") or 1) < 0.85]
-        if low_conf:
-            reasons.append(f"证据存疑/低可信: {'、'.join(low_conf[:4])}")
-            return {"level": "mid", "reasons": reasons}
-        reasons.append("核验通过且证据高可信")
-        return {"level": "high", "reasons": reasons}
+        from src.core.llm.ks_answer import answer_confidence
+        return answer_confidence(verification, ev_dicts)
 
     def _html_to_text(html: str | None, limit: int = 400) -> str:
         """表格 html → 紧凑纯文本（证据 prompt / table_md 用）。解码 HTML 实体 + <eq> 公式转可读。
