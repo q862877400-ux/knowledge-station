@@ -6400,6 +6400,7 @@
    "has_docstring": true,
    "public_symbols": [
     "load",
+    "cell",
     "mb",
     "write",
     "gen_inventory",
@@ -6419,8 +6420,8 @@
     "gen_frontend",
     "main"
    ],
-   "n_public": 19,
-   "lines": 778
+   "n_public": 20,
+   "lines": 800
   },
   {
    "module": "scripts/survey/04-reconcile.py",

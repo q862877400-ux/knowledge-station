@@ -28,7 +28,7 @@
 | `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 336 | 本地资料检索工具：下一步路线征询（v4） | （以下读数用的是旧题库中的 120 道题，即"headline 120"。） | 9 |
 | `docs/GOVQA-UNWIRED-CHANNELS.md` | 465 | 未接线渠道清单（**给接线的对话用**） | 台账里每条渠道有两个**互相独立**的字段（这条纪律写在 `src/core/storage/channel_repo.py`）： | 6 |
 | `docs/HANDOVER-2026-10-09.md` | 246 | 交接文档（2026-10-09 · KnowledgeStation 主体项目） | 你若同时手动开发，**先读它的交接单**（`archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md`）再动手， | 13 |
-| `docs/INDEX.md` | 291 | docs/ 总索引（机械生成，勿手改） | 生成命令（机械、可重跑）：`python scripts/docs/gen-doc-index.py` | 8 |
+| `docs/INDEX.md` | 294 | docs/ 总索引（机械生成，勿手改） | 生成命令（机械、可重跑）：`python scripts/docs/gen-doc-index.py` | 8 |
 | `docs/INTERACTION-DESIGN.md` | 738 | 交互设计：向 WeKnora 学什么、我们怎么重做 | 本文后面几节写的是**方案**。方案与代码会对不上，所以这里单列"现在真跑着的是什么"： | 12 |
 | `docs/INTRODUCTION.md` | 162 | KnowledgeStation 产品介绍 —— 让你自己机器上的资料，随问随查、点到原文 | 一篇论文 30 页，找「它用的学习率是多少」要从头读；一个开源项目的文档散在几十个文件里， | 8 |
 | `docs/KB-FOLDER-PLAN.md` | 1,630 | 知识库多级目录 —— 施工单（业主 2026-09-21 定案） | 删除=**从这一处拿掉**，只有从所有目录都拿掉才真删。 | 34 |
@@ -61,20 +61,20 @@
 | `docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md` | 207 | 基础层诊断记录（2026-10-06） | 1. **规模是千万级，这是事实，不是假设。** | 9 |
 | `docs/archive/research-process/CHANNEL-PROBE-REPORT.md` | 80 | 标准官方渠道时效巡检选型实测报告 | 测试方式：python requests 3.14 + curl.exe 8.21（Schannel），浏览器 UA（Chrome/126 Win64），每渠道 ≤3 次请求。 | 4 |
 | `docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md` | 160 | DSH 适配审计与整改清单（2026-09-19） | 「客户端半边 / 宿主半边 / 工程与流程」，每条都要**两侧 `file:line` + 官方原文引用**， | 3 |
-| `docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md` | 233 | gov-qa 模块全面诊断（2026-10-10） | 1. **它完全在门禁之外。** 本仓门禁（`scripts/run-gates.ps1`）**一步都不跑它**；根 pytest 的 `testpaths=["tests"]`  | 7 |
+| `docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md` | 233 | gov-qa 模块全面诊断（2026-10-10） | 1. **它完全在门禁之外。** 本仓门禁（`scripts/run-gates.ps1`）**一步都不跑它**；根 pytest 的 `testpaths=\["tests"\]`  | 7 |
 | `docs/archive/research-process/PROJECT-CONSOLIDATION-2026-10-05.md` | 146 | 项目盘整（2026-10-05）：第一性原理看文档与进度 | 113 份文档、5.3 MB，其中 **37 份只被引用过 1 次**，**13 份零引用**， | 7 |
 | `docs/archive/research-process/PROJECT-STATUS-2026-10-05.md` | 120 | 项目状态与卡点（2026-10-05） | 它是三条总判据里前两条（**换词可对**、**排得上去**）的执行层。 | 6 |
 | `docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md` | 381 | 法规/国标效力「打开即核验」实施细节报告 | 1. **显式效力状态只有三类源有**： | 6 |
 | `docs/archive/research-process/STD-STATUS-CHANNELS.md` | 80 | 国标有效性查询源分类与多渠道备份矩阵（2026-08-27 实测定型） | （4/5/6 类）openstd 全部查无——此前 270 条 miss（53%）的根因。**cssn 一渠道覆盖 1-6 类**。 | 5 |
 | `docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md` | 47 | 决策记录：WSL2 解锁 vlm/hybrid 本地后端 —— 否决（2026-09-14） | 评审 R6 指出：「无 WSL」被当作恒真约束，但「安装 WSL2 解锁 MinerU vlm/hybrid 本地后端」 | 4 |
-| `docs/archive/review-briefs/README.md` | 104 | 复核任务书（VERIFY-BRIEF）与复核结论的归属层 | 此前任务书写在 `var/tmp/VERIFY-BRIEF-bNN.md`，而 `var/tmp/` 被 [.gitignore(../../../.gitignore) 整体忽略 | 3 |
+| `docs/archive/review-briefs/README.md` | 104 | 复核任务书（VERIFY-BRIEF）与复核结论的归属层 | 此前任务书写在 `var/tmp/VERIFY-BRIEF-bNN.md`，而 `var/tmp/` 被 \[.gitignore(../../../.gitignore) 整体忽略 | 3 |
 | `docs/archive/review-briefs/VERIFY-REPORT-ingest.md` | 635 | 独立复核报告 — `verify-freeze-ingest`（批次：`reference` 效力档 | 复核者：独立复核代理（证伪导向）。复核对象：冻结提交 `1da33f8`（tag `verify-freeze-ingest`）， | 5 |
 | `docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md` | 568 | VERIFY-REPORT-jev-b1 | 冻结区间的主要新增判据不是恒真：本轮要求的 **9/9 必测变异全部变红**，额外“更宽词表”也变红；11 条 Python 用例真实执行、没有 skip；Jev/引擎不可用时宿主 | 12 |
 | `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 48 | 真库清理留档：22 条"栏目导航"型误发现（2026-09-24） | 而当时的日志写在 `var/tmp/real-cleanup.log` —— 那个目录被 `.gitignore` 挡着，收尾清树会连证据一起没 | 4 |
 | `docs/archive/review-briefs/b1b2-brief.md` | 85 | 复核任务书 —— B1（重导丢归属）+ B2（叠字检查两个假绿洞） | `<<WORKTREE>>`（父代理用 `git worktree add --detach` 建好，冻结 tag `<<TAG>>` = `<<HEAD>>`）。 | 6 |
 | `docs/archive/review-briefs/b1b2-report.md` | 345 | 独立复核报告 —— B1（重新解析丢目录归属）+ B2（叠字检查两个假绿洞） | 复核树：`D:\AI\work space\zcode-verify-b1b2`（冻结 tag `verify-freeze-b1b2`） | 6 |
 | `docs/archive/review-briefs/b3a-engine-report.md` | 458 | 独立复核报告 —— KnowledgeStation「补全分类号」引擎半边（B3a）两笔提交 | 探针前后对 `knowledge.db` 与 `knowledge.db-wal` 各做一次 sha256：**两者都一字未变**（原始输出见 §A.3） | 21 |
-| `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 101 | 独立复核任务书 —— B3b「补全分类号」的**界面半边** | `[Environment]::CurrentDirectory` ⇒ 用相对路径会写到主仓去）。 | 6 |
+| `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 101 | 独立复核任务书 —— B3b「补全分类号」的**界面半边** | `\[Environment\]::CurrentDirectory` ⇒ 用相对路径会写到主仓去）。 | 6 |
 | `docs/archive/review-briefs/b3b-ccs-ui-report.md` | 467 | 独立复核报告 —— B3b「补全分类号」的**界面半边** | 实跑核过；`git merge-base --is-ancestor 12cb6b0 aaad270` ⇒ exit 0） | 11 |
 | `docs/archive/review-briefs/b5-gate-brief.md` | 80 | 复核任务书 —— B5：门禁「环境白名单只增不减」的修法（含门禁临时目录自清） | `<<WORKTREE>>`（冻结 tag `<<TAG>>` = `<<HEAD>>`，`git worktree add --detach` 建的）。 | 6 |
 | `docs/archive/review-briefs/b5-gate-report.md` | 332 | B5 门禁复核报告 —— 「环境白名单只增不减」的修法（含门禁临时目录自清） | 复核代理（独立，非本批作者）。冻结树 `D:\AI\work space\zcode-verify-b5`，tag `verify-freeze-b5-gate`。 | 10 |
@@ -107,7 +107,7 @@
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 73 | 调度记录：免费模型逐个真调（2026-09-28） | `stealth/space-bunny-alpha` 的错误逐字： | 5 |
 | `docs/research/P0-4B-EVIDENCE-2026-10-14.md` | 233 | P0.4b 取证报告：通道 A/D/E 的排序键**到底有没有用** | P0.4b 那一行同时写着两组数（原话保留、更正在后）： | 6 |
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 126 | 论文精读：《大语言模型驱动的可信政务问答技术》（软件学报 2026） | · 用**上下文学习**（指令里带任务相关案例）；**服务场景更新时由领域专家加典型案例**即可适应。 | 5 |
-| `docs/research/RETRIEVAL-LITERATURE-SCAN-2026-09-30.md` | 344 | 检索文献调研（2026-09-30）：我们这个问题在学界叫什么、已经做到哪一步 | 总览：[arXiv 2601.20671](https://arxiv.org/abs/2601.20671)（作者含 UNC / CMU / Jena）。 | 6 |
+| `docs/research/RETRIEVAL-LITERATURE-SCAN-2026-09-30.md` | 344 | 检索文献调研（2026-09-30）：我们这个问题在学界叫什么、已经做到哪一步 | 总览：arXiv 2601.20671（作者含 UNC / CMU / Jena）。 | 6 |
 | `docs/research/RETRIEVAL-RESEARCH-LEDGER-2026-09-30.md` | 147 | 调研台账（防失忆）—— 2026-09-30 会话 | 当前停在「文献调研第二轮读完，等着决定要不要读剩下的页，以及要不要把'路由信号'那条登记进总纲 P4」。 | 8 |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 138 | 评审任务书 A：事实核查（交给能力一般的 AI） | 一个叫 KnowledgeStation 的中文法规/国标知识库（仓库 `D:\AI\work space\zcode`）， | 6 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 160 | 评审任务书 B：路线级独立评审与超越（交给最强的 AI） | `docs/RETRIEVAL-LONG-RANGE-PLAN.md` 是这一条线的施工总纲（740 行，含全部历史实测与判据）；先读它的 §1.2 与 §1.4。 | 8 |
@@ -126,13 +126,13 @@
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 198 | 扩大到"标准问答 / 法规问答"的调研（不限于政务问答） | doi `10.13366/j.dik.2023.06.098`。**PDF 已下载并抽全文**（14 页 / 40,524 字， | 7 |
 | `docs/research/TECH-PATH-2026-09-28.md` | 213 | 技术路径：通用资料检索 + 派生记忆（2026-09-28 定稿） | 两块要裁决；**最便宜、已被本机证明的下一刀是 B3 修 rerank 恒等置换**（恢复 fastembed 契约）， | 7 |
 | `docs/research/agent-memory-systems.md` | 544 | Agent 记忆系统：技术路径、实测效果、以及"RAG ↔ 记忆"的中间形态 | 这次调研给出的答案分三句：** | 7 |
-| `docs/research/archify/01-archify-逆向.md` | 738 | archify 逆向：它靠什么产出「结构 + 证据指向」 | archify 的「证据聪明」不在画得好看，而在于它把**每一句论断、每一个图节点都编译成一条可机器复核的引用**：正文用 `[](source:id)` 挂上标编号，图节点用行尾 | 10 |
+| `docs/research/archify/01-archify-逆向.md` | 738 | archify 逆向：它靠什么产出「结构 + 证据指向」 | archify 的「证据聪明」不在画得好看，而在于它把**每一句论断、每一个图节点都编译成一条可机器复核的引用**：正文用 `` 挂上标编号，图节点用行尾 | 10 |
 | `docs/research/archify/02-ks-现状.md` | 1,063 | 02 · KS 现状：问答 → 答案呈现 → 证据跳转（事实清单） | KS 的问答链路是「**引擎产出结构化 JSON（证据 + 两段自由文本 + 核验块）→ 模型自己按提示词写成 Markdown 三段式 → 宿主按 Markdown 渲染 → 证 | 9 |
 | `docs/research/archify/03-借鉴结论.md` | 207 | archify 对比与借鉴结论 | 它把证据做得像证据，是因为它把编号、上标、页脚列表、结论先行、一屏一问都做成了可执行的编译期规则；而在「这条证据到底支不支持这句话」上，它只校验了**位置存在**（DOM 里有没有 | 8 |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 428 | 法规/标准发布源路径总表（2026-10-08 实测） | 代码改动：`src/core/update/announce.py`（删 `SOURCES_MAX` + 新增 `_scan_soft_cap_s()` 可配置）、 | 8 |
 | `docs/research/channels/REGISTRY-STATUS.md` | 378 | 渠道台账状态快照（自动生成，勿手改） | 它们不是「没轮到」，而是「这个对象没有独立可探的页面/接口」； | 3 |
 | `docs/research/channels/internal-inventory.md` | 827 | 内部渠道拆解（internal inventory） | 1. **降级链不是写死在 inspector 里的**。`inspector.CHAIN`（`inspector.py:62`）是遗留常量； | 8 |
-| `docs/research/channels/law-cn.md` | 1,354 | 中国法规类渠道调研报告（一手官方发布与查询渠道） | 1. [国家法律法规数据库（flk.npc.gov.cn）](#1-国家法律法规数据库flknpcgovcn) | 11 |
+| `docs/research/channels/law-cn.md` | 1,354 | 中国法规类渠道调研报告（一手官方发布与查询渠道） | 1. 国家法律法规数据库（flk.npc.gov.cn） | 11 |
 | `docs/research/channels/oss-decomposition.md` | 1,267 | 法规/标准获取与监控 · 开源项目**代码级**拆解 | 1. **`viewGb?hcno=` 直出真 PDF，但要用 `%PDF-` magic 验收**：`_download_direct()` 同时查 `Content-Type` | 22 |
 | `docs/research/channels/std-cn.md` | 1,145 | 中国标准类官方渠道实测调研 | 1. **`std.samr.gov.cn` 与 `*.sacinfo.org.cn` 暴露了免登录、免验证码的 JSON 接口** | 9 |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 246 | 古籍/文言资料上的切分口径证据（P3.2） | 1. **计划里 P3.2 的那两个判据，只有后半截能定案。**「中文单字占比」是**机制代理量**： | 11 |
@@ -163,7 +163,7 @@
 | `docs/research/dsh-official/dshdocs-H.md` | 92 | DSH 官方技能与门禁摘要（H） | 源仓库根 `D:\AI\DSH\deepseek-harness`；下文所有 `file:line` 均相对该根。 | 5 |
 | `docs/research/four-layer-pipeline-evidence.md` | 261 | 四层检索链路：别人怎么做 / 我们缺什么（对账单） | （最早的三层粗分、八份设计各自的 L0–L8、本文的四步、以及第 3 步内部的"第一层"）， | 8 |
 | `docs/research/golden-instrument-audit.md` | 370 | 评价尺子审计：金标门禁测的不是产品所在的世界 | 命中判据**只比条款号**（不比是哪本标准的条款号）。**该缺陷已于同日修复**（见 §九）。 | 13 |
-| `docs/research/hindsight-official/README.md` | 54 | Hindsight 官方文档本地副本 | 外加接口说明（OpenAPI）。共 42 篇，见 [`referenced-files.txt`](referenced-files.txt)。 | 3 |
+| `docs/research/hindsight-official/README.md` | 54 | Hindsight 官方文档本地副本 | 外加接口说明（OpenAPI）。共 42 篇，见 `referenced-files.txt`。 | 3 |
 | `docs/research/jev-mem-assessment.md` | 160 | Jev-Mem 影响评估（2026-09-24） | 把高频、输出有界的判断从大模型手里拿走。我们已用它做合规哨兵；这篇论文把它扩展到**检索路径**上 | 7 |
 | `docs/research/ks-fixes/01-d2-rootcause.md` | 320 | D2 冒烟失败根因分析（只读分析，未改任何代码） | 1. **定性：既有缺陷，与 2026-10-19 超时/重试改动无关。** 本轮改动只碰 `plugin/src/index.js`（两处 `timeoutMs` 120s→30 | 7 |
 | `docs/research/ks-fixes/02-modality-residual.md` | 555 | 模态核验残留误报：根因与修复方案（2026-10-19 真机实测） | 1. **「不应」被定得比「应」高，但这不是方向写反**：`MODALITY_STRENGTH` 里 `'应': 3`、`'不应': 4`。按表算 `应 -> 不应` 就是 `st | 22 |
@@ -182,7 +182,7 @@
 | `docs/research/substitute-scan.md` | 273 | 替代品扫描（substitute scan）——"谁已经交付了同样的用户价值" | 我们靠渠道巡检拼出来的时效数据，**在覆盖面与权威性上很难超过 B 类**。 | 9 |
 | `docs/research/vision-coverage-map.md` | 341 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** | 1. **最小可用组装方案已经存在**： | 9 |
 | `docs/research/weknora-assessment.md` | 155 | WeKnora（腾讯开源知识库）对我们的影响评估 | Postgres(ParadeDB)/Redis，可选 qdrant / milvus / weaviate / doris / neo4j / minio / searxng。 | 7 |
-| `docs/research/weknora-kb-ui/01-pages-and-flows.md` | 840 | WeKnora「知识库管理」界面与流程记录 | 决策与影响评估在 [weknora-assessment.md](../weknora-assessment.md)（那里基于官方文档；本文件基于源码，两者互补）。 | 5 |
+| `docs/research/weknora-kb-ui/01-pages-and-flows.md` | 840 | WeKnora「知识库管理」界面与流程记录 | 决策与影响评估在 weknora-assessment.md（那里基于官方文档；本文件基于源码，两者互补）。 | 5 |
 | `docs/research/weknora-kb-ui/02-components-and-visual-language.md` | 645 | WeKnora 知识库管理界面 —— 组件构成与视觉语言 | 1. 页面底：`--td-bg-color-page`（#eee / #181818）—— `theme.css:1`、深色 `:61` | 6 |
 | `docs/research/weknora-ui-vs-ours.md` | 581 | 我们 vs WeKnora：知识库管理 UI 差距清单（**只诊断，不改代码**） | 逐页并排对照 → 最丑的 5 处（现象/根因/改法）→ 别乱改的地方 → 截图判不了的 → 优先级表。 | 8 |
 | `docs/research/weknora-ui/00-index-and-proposal.md` | 191 | WeKnora 界面「抄 / 改着抄 / 不抄」清单（草稿 —— 等业主确认） | 逐块给出**抄 / 改着抄 / 不抄**的建议 + 理由 + 代价，交给业主点头。 | 5 |
@@ -197,12 +197,12 @@
 | `docs/survey/04-data-shape.md` | 879 | 数据形状（表 / 列 / 索引） | 外键：`clause_revision_id` → `clause_revision.clause_revision_id` | 4 |
 | `docs/survey/05-api-surface.md` | 253 | 接口面（后端 + 前端路由） | 后端 = `src/core/api/*.py` 里的 `@app.verb("path")` 装饰器，**逐条列出，不抽样**。前端 = `plugin/client/*.ts( | 5 |
 | `docs/survey/06-test-surface.md` | 209 | 测试面 | 测试文件数 == tests/ 下 test_*.py + *_test.py 的实际数量。「引用了哪些源码模块」靠文件内出现的 `src.core.x.y` 字符串判定 —— * | 3 |
-| `docs/survey/07-doc-surface.md` | 390 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
+| `docs/survey/07-doc-surface.md` | 390 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `t` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
 | `docs/survey/08-gate-surface.md` | 111 | 门禁面 | 1. `selftest（必失败）` | 4 |
 | `docs/survey/09-runtime.md` | 105 | 运行时：引擎怎么起、端口令牌在哪、数据放哪 | 门禁里那一步实测过三态： | 7 |
 | `docs/survey/10-observed.md` | 246 | 观察记录（中性，不下结论） | 那 31 个里，复核时能看到至少两类**不是没被用**： | 6 |
 | `docs/survey/11-module-index.md` | 1,346 | 模块职责索引 | `purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空* | 3 |
-| `docs/survey/12-config-surface.md` | 89 | 配置面（环境变量 + 配置键） | 环境变量 = `os.environ.get/getenv/env[...]` 与 `process.env.X` 的字面量；配置键 = `_read_json_key` / `_ | 4 |
+| `docs/survey/12-config-surface.md` | 89 | 配置面（环境变量 + 配置键） | 环境变量 = `os.environ.get/getenv/env\[...\]` 与 `process.env.X` 的字面量；配置键 = `_read_json_key` / `_ | 4 |
 | `docs/survey/13-table-io.md` | 333 | 表读写关系 | 扫描 `src/**/*.py` 里的 SQL 字面量：写 = INSERT/REPLACE/UPDATE/DELETE 后面的表名；读 = FROM/JOIN 后面的表名。**只 | 4 |
 | `docs/survey/14-test-index.md` | 3,651 | 测试索引（每个测试钉住了什么） | `tests` = 每个 `def test*` 的名字、所在类、行号，以及它的 **docstring 第一句**（很多测试没 docstring，那就空着）。**名字本身就是本 | 3 |
 | `docs/survey/15-doc-index-content.md` | 602 | 文档内容索引（每份讲什么） | `summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前  | 4 |
@@ -219,7 +219,7 @@
 | `docs/uniformity/06-frontend.md` | 523 | plugin/client 事实地图 | 调查对象：`D:\Agent-Studio\Deepseek-Harness\DSH-Data\workspace\zcode\plugin\client\`。 | 9 |
 | `docs/uniformity/07-other-dirs.md` | 432 | 其他目录事实地图 | 命令与数字： | 6 |
 | `docs/uniformity/08-why-contracts-rot.md` | 263 | 为什么"约定了契约"还是会变乱 | 基线缺失 = 硬失败）。 | 8 |
-| `docs/uniformity/09-big-files.md` | 609 | src/core 三个大文件事实地图 | 任务书给的 2,254 / 1,844 / 845 是**非空行**，不是文件行数。实测（`[IO.File]::ReadAllText` 按 `\n` 切分）： | 6 |
+| `docs/uniformity/09-big-files.md` | 609 | src/core 三个大文件事实地图 | 任务书给的 2,254 / 1,844 / 845 是**非空行**，不是文件行数。实测（`\[IO.File\]::ReadAllText` 按 `\n` 切分）： | 6 |
 | `docs/uniformity/10-api-server.md` | 452 | api/server.py 事实地图 | `docs/uniformity/01-core.md` 与 `docs/DEVELOPMENT-HISTORY.md` 里出现过的「127 个端点」是**另一次口径** | 7 |
 | `docs/uniformity/README.md` | 889 | KnowledgeStation 摸底：证据与过程 | 用户问一句合规问题（例：「甲醇作业要不要做职业健康检查」），它做三件事： | 13 |
 | `docs/uniformity/START-HERE.md` | 249 | KnowledgeStation 上手（新人第一份读这个） | `var/data/`（72.32 GB）、`var/models/`（6.87 GB）、`.venv/`（5.06 GB）**都被 `.gitignore` 盖住**。 | 2 |

@@ -3,9 +3,9 @@
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
   "docs_files": 247,
-  "docs_tracked_md": 230,
+  "docs_tracked_md": 233,
   "orphans_no_inbound": 116,
-  "total_links": 572
+  "total_links": 569
  },
  "orphans": [
   "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
@@ -899,8 +899,8 @@
   },
   {
    "path": "docs/INDEX.md",
-   "bytes": 31471,
-   "lines": 291,
+   "bytes": 31684,
+   "lines": 294,
    "title": "docs/ 总索引（机械生成，勿手改）",
    "out_links": [],
    "n_links": 0,
@@ -2273,10 +2273,9 @@
    "inbound": [
     "docs/NOT-DOING.md",
     "docs/research/weknora-kb-ui/01-pages-and-flows.md",
-    "docs/research/weknora-ui/00-index-and-proposal.md",
-    "docs/survey/15-doc-index-content.md"
+    "docs/research/weknora-ui/00-index-and-proposal.md"
    ],
-   "inbound_count": 4
+   "inbound_count": 3
   },
   {
    "path": "docs/research/weknora-kb-ui/01-pages-and-flows.md",
@@ -2658,7 +2657,7 @@
   },
   {
    "path": "docs/survey/14-test-index.md",
-   "bytes": 257266,
+   "bytes": 257340,
    "lines": 3651,
    "title": "测试索引（每个测试钉住了什么）",
    "out_links": [],
@@ -2668,15 +2667,11 @@
   },
   {
    "path": "docs/survey/15-doc-index-content.md",
-   "bytes": 77444,
+   "bytes": 77302,
    "lines": 602,
    "title": "文档内容索引（每份讲什么）",
-   "out_links": [
-    "../weknora-assessment.md",
-    "p",
-    "referenced-files.txt"
-   ],
-   "n_links": 3,
+   "out_links": [],
+   "n_links": 0,
    "inbound": [],
    "inbound_count": 0
   },

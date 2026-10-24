@@ -12,8 +12,8 @@
 | 项 | 数 |
 |---|---:|
 | `docs/` 下 `.md` | **247** |
-| 其中受版本控制 | 230 |
-| 链接总数 | 572 |
+| 其中受版本控制 | 233 |
+| 链接总数 | 569 |
 | **没有任何入链（孤儿）** | **116** |
 
 ## 三、孤儿文档（没有任何别的文档链到它）
@@ -164,7 +164,7 @@
 | `docs/research/weknora-ui-vs-ours.md` | 83 KB | 581 | 1 | 26 | 我们 vs WeKnora：知识库管理 UI 差距清单（**只诊断，不改代码** |
 | `docs/research/STEP6-WORKORDER.md` | 82 KB | 1,043 | 1 | 4 | 第 6 步施工单 —— 插件侧借鉴 WeKnora 自带 DSH 插件的 6 条 |
 | `docs/ENCYCLOPEDIA.md` | 78 KB | 926 | 0 | 9 | KnowledgeStation 技术百科全书（ENCYCLOPEDIA） |
-| `docs/survey/15-doc-index-content.md` | 76 KB | 602 | 0 | 3 | 文档内容索引（每份讲什么） |
+| `docs/survey/15-doc-index-content.md` | 75 KB | 602 | 0 | 0 | 文档内容索引（每份讲什么） |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 KB | 641 | 1 | 6 | docs / specs / scripts 事实地图 |
 | `docs/research/channels/std-cn.md` | 73 KB | 1,145 | 0 | 0 | 中国标准类官方渠道实测调研 |
 | `docs/uniformity/01-core.md` | 70 KB | 1,064 | 1 | 0 | src/core 事实地图 |
@@ -199,7 +199,7 @@
 | `docs/research/vision-coverage-map.md` | 36 KB | 341 | 0 | 2 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 KB | 378 | 0 | 0 | 渠道台账状态快照（自动生成，勿手改） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 KB | 322 | 0 | 0 | 等待期前台提示：现状盘点 + 外部借鉴（只分析，未改代码） |
-| `docs/INDEX.md` | 31 KB | 291 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
+| `docs/INDEX.md` | 31 KB | 294 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
 | `docs/research/dsh-official/INGEST-LEDGER-repo-docs.md` | 30 KB | 190 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md` | 30 KB | 314 | 0 | 6 | 自动推进链「忽略 / 没收口」审计（2026-10-09 人工轮） |
 | `docs/verify-briefs/VERIFY-REPORT-govqa-conformance.md` | 30 KB | 660 | 1 | 0 | 独立复核报告 —— `verify-freeze-govqa-conforman |
@@ -272,7 +272,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md` | 15 KB | 201 | 3 | 0 | 独立复核报告 · exp-13 查询侧改写（A/B/C/D） |
 | `docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md` | 15 KB | 233 | 0 | 0 | gov-qa 模块全面诊断（2026-10-10） |
 | `docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md` | 14 KB | 198 | 1 | 0 | 扩大到"标准问答 / 法规问答"的调研（不限于政务问答） |
-| `docs/research/weknora-assessment.md` | 14 KB | 155 | 4 | 2 | WeKnora（腾讯开源知识库）对我们的影响评估 |
+| `docs/research/weknora-assessment.md` | 14 KB | 155 | 3 | 2 | WeKnora（腾讯开源知识库）对我们的影响评估 |
 | `docs/verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md` | 14 KB | 199 | 2 | 0 | 独立复核报告 — T016/T017 P1 修复批次（`doc_stds` 未定 |
 | `docs/research/jev-mem-assessment.md` | 14 KB | 160 | 1 | 0 | Jev-Mem 影响评估（2026-09-24） |
 | `docs/archive/handovers/HANDOVER-2026-10-06.md` | 14 KB | 210 | 0 | 0 | 交接文档（2026-10-06 召回诊断） |

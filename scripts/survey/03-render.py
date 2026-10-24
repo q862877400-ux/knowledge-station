@@ -48,6 +48,26 @@ def load(name: str) -> dict:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+def cell(s: str) -> str:
+    """把任意文本安全放进 markdown 表格单元格。
+
+    需要转义三种：
+    - `|` 会把单元格切断；
+    - `[` / `]` 会被链接检查器当成 markdown 链接（生成的表格里带着
+      **原文档的链接语法**，一旦不转义，`docs/survey/` 下就会出现一堆
+      指向别处的"断链" —— 实测踩过，`15-doc-index-content.md` 报了 2 条）。
+    """
+    import re as _re
+
+    s = str(s)
+    # ① 先把 markdown 链接**拍平成纯文本**：`[文字](地址)` → `文字`。
+    #    只转义方括号不够 —— 链接检查器的正则是 `\[([^\]]+)\]\(([^)]+)\)`，
+    #    `\[` 里仍然含 `[`，照样匹配（第一版就是只转义，实测仍报 2 条断链）。
+    s = _re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", s)
+    # ② 再把剩下的方括号转义掉（防止残留的 `[...]` 被当成链接）
+    return s.replace("|", "\\|").replace("[", "\\[").replace("]", "\\]")
+
+
 def mb(n: int) -> str:
     return f"{n / 1048576:.1f} MB" if n >= 1048576 else f"{n / 1024:.0f} KB"
 
@@ -579,7 +599,8 @@ def gen_module_index() -> None:
         for m in sorted(ms, key=lambda x: x["module"]):
             name = m["module"].split("/")[-1]
             purpose = m.get("purpose") or "**（模块无 docstring）**"
-            out.append(f"- **`{name}`**（{m.get('lines', 0)} 行）— {purpose}")
+            safe = str(purpose).replace("[", "\\[").replace("]", "\\]")
+            out.append(f"- **`{name}`**（{m.get('lines', 0)} 行）— {safe}")
         out.append("")
     write("11-module-index.md", "模块职责索引", "\n".join(out))
 
@@ -687,7 +708,8 @@ def gen_test_index() -> None:
                 if cur:
                     out.append(f"**{cur}**")
                     out.append("")
-            note = f" — {t['purpose']}" if t["purpose"] else ""
+            note = (" — " + str(t["purpose"]).replace("[", "\\[")
+                    .replace("]", "\\]")) if t["purpose"] else ""
             out.append(f"- `{t['name']}`{note}")
         out.append("")
     write("14-test-index.md", "测试索引（每个测试钉住了什么）", "\n".join(out))
@@ -709,8 +731,8 @@ def gen_doc_index_content() -> None:
         "|---|---:|---|---|---:|",
     ]
     for x in sorted(d["docs"], key=lambda y: y["path"]):
-        ttl = (x["title"] or "").replace("|", "\\|")[:50]
-        summ = (x["summary"] or "—").replace("|", "\\|")[:90]
+        ttl = cell((x["title"] or "")[:50])
+        summ = cell((x["summary"] or "—")[:90])
         out.append(f"| `{x['path']}` | {x['lines']:,} | {ttl} | {summ} | {x['n_h2']} |")
     out += ["", "## 四、二级小节最多的 15 份（结构最复杂的文档）", ""]
     for x in sorted(d["docs"], key=lambda y: -y["n_h2"])[:15]:
@@ -739,7 +761,7 @@ def gen_frontend() -> None:
         "|---|---:|---:|---:|---|",
     ]
     for f in sorted(d["files"], key=lambda x: -x["lines"]):
-        note = (f["header_note"] or "—").replace("|", "\\|")[:70]
+        note = cell((f["header_note"] or "—")[:70])
         out.append(f"| `{f['file']}` | {f['lines']:,} | {f['n_exports']} | "
                    f"{f['n_declarations']} | {note} |")
     out += ["", "## 四、每个文件导出了什么（逐个列）", ""]

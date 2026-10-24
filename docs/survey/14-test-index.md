@@ -191,7 +191,7 @@
 - `test_suspicious_也算失败` — R1 的 G14：应急部标准页 465B、bzw 列表页"共0条" —— **200 不等于有数据**。
 - `test_unknown_只记尝试`
 - `test_非法状态与不存在的渠道都要抛`
-- `test_summary_把注册数与能力数分开报` — 本模块最重要的一条口径：total 是台账条数，by_wiring['wired'] 才是能干活条数。
+- `test_summary_把注册数与能力数分开报` — 本模块最重要的一条口径：total 是台账条数，by_wiring\['wired'\] 才是能干活条数。
 **TestSeed**
 
 - `test_导入幂等且不覆盖健康度`
@@ -404,7 +404,7 @@
 **Test号段报告**
 
 - `test_死号段被点名` — 写了 `T/` 而真库里一个 T/ 号都没有 ⇒ 必须报出来（否则"渠道永不进链"没人知道）。
-- `test_没给号表就说判不准_不假装没欠账` — **不给号表**（`[]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。
+- `test_没给号表就说判不准_不假装没欠账` — **不给号表**（`\[\]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。
 - `test_有适配器却到不了也没号段要列成待办` — 这就是 R6g 那 10 条的形状：有适配器、今天任何号都到不了、也没声明号段。
 - `test_号段带来的号数按号去重` — 多个号段命中同一个号只算一次（否则"带来多少号"虚高）。
 - `test_被排除的行不计入带来多少号` — 人工停用的渠道不该在"带来多少号"里贡献数字（那是虚高）。
@@ -625,7 +625,7 @@
 - `test_httpx_可用时只打_WARN`
 - `test_govcn_真接口命中_按摘要里的标准号` — **换棒的实证**（R1 的 G6：旧实现只解 mock dict ⇒ 真实网络恒 miss）。
 - `test_govcn_真接口空结果算_miss_不算命中`
-- `test_govcn_旧的_mock_契约仍然可用` — 离线 fixture 走的是 mock 分支（`{"announcements": [...]}`）——换棒**不许**把它弄坏。
+- `test_govcn_旧的_mock_契约仍然可用` — 离线 fixture 走的是 mock 分支（`{"announcements": \[...\]}`）——换棒**不许**把它弄坏。
 - `test_fixture_matrix_contract` — fixture 自检：≥12 行组合（INS-B-07 口径）、key 唯一、渠道与必填段齐全。
 - `test_channel_matrix_deterministic_and_idempotent` — INS-B-07：逐组合断言字段唯一确定 + 两轮重跑逐位一致。
 - `test_combo_tuple_stable_across_rounds` — 全矩阵遍历：(channel, change_type, 色) 元组两轮恒等，无不确定场景。
@@ -637,7 +637,7 @@
 - `test_两个日期格取第二个`
 - `test_只有一个日期格时不猜` — ⚠ 一格时发布/实施**不可区分** ⇒ 两个槽都留空（§11.0 R6c-3f）。
 - `test_没有日期格`
-- `test_多出第三格时仍取实施日期而不是最后一个` — 为什么取 `[1]` 而不是 `[-1]`：列**追加**比**重排**常见。
+- `test_多出第三格时仍取实施日期而不是最后一个` — 为什么取 `\[1\]` 而不是 `\[-1\]`：列**追加**比**重排**常见。
 **Test发布日期槽**
 
 - `test_official_gb_发布取第1格`
@@ -835,7 +835,7 @@
 
 **TestChunking**
 
-- `test_offsets_round_trip_exactly` — **保真不变量（最强口径）**：全文[块.start:块.end] **逐字**等于块文本。
+- `test_offsets_round_trip_exactly` — **保真不变量（最强口径）**：全文\[块.start:块.end\] **逐字**等于块文本。
 - `test_chunk_spanning_blank_line_keeps_original_separators` — 跨空行/跨页的块必须**原样保留**原文分隔符（2026-09-17 被验收测试抓到的 bug：。
 - `test_short_lines_pack_into_one_chunk`
 - `test_max_chars_splits`
@@ -1001,7 +1001,7 @@
 
 - `test_load_middle_items_consumes_40`
 - `test_load_middle_items_splits_40_into_clauses`
-- `test_load_middle_items_raises_not_silent` — 未知结构必须**抛**，不许像修复前那样 `mj.get("pdf_info", [])` 静默给空。
+- `test_load_middle_items_raises_not_silent` — 未知结构必须**抛**，不许像修复前那样 `mj.get("pdf_info", \[\])` 静默给空。
 - `test_cloud_guard_accepts_40`
 - `test_cloud_guard_rejects_unknown`
 - `test_cloud_guard_rejects_empty_pdf_info`
@@ -1020,9 +1020,9 @@
 
 - `test_unknown_index_is_warned`
 - `test_valid_index_is_not_warned`
-- `test_law_refs_are_counted_but_not_pretended_verified` — `[[c:i]]` 本次**无法校验** ⇒ 如实计数（不假装查过）。
+- `test_law_refs_are_counted_but_not_pretended_verified` — `\[\[c:i\]\]` 本次**无法校验** ⇒ 如实计数（不假装查过）。
 - `test_conclusion_without_query_is_declared_unchecked` — 不给 `query` 就没有依据集可比 ⇒ **必须**说出来（不许默默放过引用）。
-- `test_negative_index_is_caught` — 负数编号也要被抓（历史缺陷：提示词侧曾漏掉 `[[m:-1]]`）。
+- `test_negative_index_is_caught` — 负数编号也要被抓（历史缺陷：提示词侧曾漏掉 `\[\[m:-1\]\]`）。
 **TestAnchorVisibility**
 
 - `test_fresh_material_has_no_anchor_noise` — 刚入库的材料锚点 `ok` ⇒ **不许**加标记（标记得只在有问题时出现，否则人人无视）。
@@ -1356,7 +1356,7 @@
 - `test_addendum_carries_criterion_precedence_and_tier_rules` — 规则文本必须真的说了那四件事（**提示词就是产物**，直接断言文字）。
 **TestCitationMarkers**
 
-- `test_material_marker_does_not_trip_law_index_check` — `[[m:0]]` 不能被法条越界校验误判（两个平面各有各的编号空间）。
+- `test_material_marker_does_not_trip_law_index_check` — `\[\[m:0\]\]` 不能被法条越界校验误判（两个平面各有各的编号空间）。
 - `test_out_of_range_material_marker_is_flagged`
 - `test_imagined_material_marker_is_flagged_when_no_materials` — **没给材料却引材料** = 凭想象引用，必须报出来（默认参数下同样成立）。
 - `test_law_marker_still_checked`
@@ -1727,7 +1727,7 @@
 - `test_attach_bboxes_fills_bbox_and_page`
 - `test_attach_bboxes_prefers_page_start`
 - `test_attach_bboxes_falls_back_to_first_when_page_start_missing`
-- `test_attach_bboxes_skips_when_no_span_on_page_start` — `page_start=5` 但该条款的 span 只在第 9 页 ⇒ **留空**，不许退化到 spans[0]。
+- `test_attach_bboxes_skips_when_no_span_on_page_start` — `page_start=5` 但该条款的 span 只在第 9 页 ⇒ **留空**，不许退化到 spans\[0\]。
 - `test_attach_bboxes_uses_page_start_span_when_cross_page` — 跨页条款：只要 `page_start` 那一页**有** span，就取它（不取 sort_order 第一个）。
 - `test_attach_bboxes_leaves_absent_when_no_span`
 - `test_attach_bboxes_never_writes_zero_placeholder` — **假证据**防线：0 兜底会让前端在页面左上角画一个错箭头。
@@ -1754,13 +1754,13 @@
 - `test_take_doc_diverse_caps_per_doc_and_budget` — ★ 每篇文档最多 `per_doc` 条、总数不超过 `budget`，且**保序**。
 - `test_take_doc_diverse_skips_unknown_docs` — ★ 查不到文档的 id 必须跳过（与生产 `fetch_full_clause` 取不到就跳过同向）。
 - `test_doc3_arm_uses_doc_diverse_not_plain_truncation` — ★ `P1000_doc3` 的 fts/vec 必须走**文档去重**（预算 20），不是简单取前 20。
-- `test_oracle_pool_is_union_then_truncate_per_channel` — ★ oracle 池 = `exact ∪ modality ∪ fts[:d] ∪ vec[:d]`（**逐路截断**再并集）。
+- `test_oracle_pool_is_union_then_truncate_per_channel` — ★ oracle 池 = `exact ∪ modality ∪ fts\[:d\] ∪ vec\[:d\]`（**逐路截断**再并集）。
 - `test_hit_rate_is_inclusive_at_boundary` — ★ 名次恰等于 20 算命中。
 - `test_flip_and_delta_direction` — ★ 非对称样本上 `(翻进 b, 翻出 c)` 与 Δ 的方向：净改善必须读成正 Δ。
 - `test_missing_item_raises` — ★ 缺一条必须抛错，不许静默补 0（补 0 会让 @20 的分母错而读数看不出来）。
 - `test_oracle_aggregation_counts_booleans` — ★ oracle 聚合必须数 `True` 的比例（写成数非空会让它恒 100%）。
 - `test_instrument_check_counts_identical` — ★ 仪器对照读数必须数 `check_identical`（它不是装饰，是整批作废的开关）。
-- `test_pool_median_definition_is_pinned` — ★ `pool_median` 取**上中位** `sorted[n//2]`：排序后 [10,20,30,1000] ⇒ 30（≠ 下中位 20）。
+- `test_pool_median_definition_is_pinned` — ★ `pool_median` 取**上中位** `sorted\[n//2\]`：排序后 \[10,20,30,1000\] ⇒ 30（≠ 下中位 20）。
 - `test_fused_hit_n_and_median_are_defined_on_top20` — ★ `fused_hit_n` / `fused_median_rank` **定义在 @20 上**（与冻结版逐位一致）。
 - `test_arm_rank_reads_both_ledger_shapes` — ★ `arm_rank()` 必须同时吃**新台账**（`rank20/100/1000`）与**旧台账**（`rank` + `hit@100`）。
 - `test_top100_and_top1000_are_not_copies_of_top20` — ★ **第 15 轮复核 P1-1 的回归判据**：`@100`/`@1000` 必须用**对应深度的名次**算。
@@ -1922,7 +1922,7 @@
 ### `tests/test_embedding_rebuild_resume.py`（17 个）
 
 - `test_display_text_matches_production_formula`
-- `test_production_source_still_has_the_same_formula` — 静态锚点：生产源码里必须仍有 `title or ''` + `content_text[:512]` 的 f-string。
+- `test_production_source_still_has_the_same_formula` — 静态锚点：生产源码里必须仍有 `title or ''` + `content_text\[:512\]` 的 f-string。
 - `test_text_formula_sha_is_stable_and_sensitive`
 - `test_ckpt_guard_allows_matching`
 - `test_ckpt_guard_rejects_each_mismatch`
@@ -2033,7 +2033,7 @@
 **TestHappyPath**
 
 - `test_草稿带未批准标记且引用校验与报告同源`
-- `test_提示词里材料另起一节且编号与校验同一套` — **同源不变量**：提示词里的 `[[m:i]]` 编号必须与校验用的 assembled 是同一个。
+- `test_提示词里材料另起一节且编号与校验同一套` — **同源不变量**：提示词里的 `\[\[m:i\]\]` 编号必须与校验用的 assembled 是同一个。
 **TestCitationWarnings**
 
 - `test_不存在的编号_草稿原样保留且两层都报警`
@@ -2053,7 +2053,7 @@
 - `test_slot_extraction_and_declared`
 - `test_v1_slot_table_removed` — Task 13.1 死代码清除：v1 槽位表函数已删除（追问 v2 由 LLM 自判）。
 - `test_clarify_event_when_missing` — R9 v2：不再用规则槽位表预先追问——统一先检索，由 LLM 单次自判（问还是答）。
-- `test_no_clarify_when_slots_full` — R9 免追问：带前置声明 [甲类/高层] → 直接出答案。
+- `test_no_clarify_when_slots_full` — R9 免追问：带前置声明 \[甲类/高层\] → 直接出答案。
 - `test_condition_filter_and_rank`
 - `test_rank_with_hierarchy_gbt_is_a_national_standard` — **`GB/T` 必须与国家标准的位阶相符**（2026-09-17 实测补漏，§10.51）。
 - `test_standard_type_is_a_real_sort_term_not_a_dead_one` — `standard_type` 那一项**曾经是死项**（2026-09-17 独立复核 b7 的 MEDIUM-4）。
@@ -2083,7 +2083,7 @@
 - `test_search_rejects_drill_level_over_limit` — drill_level=4 拒绝：UpdateError 且错误码 UPD-3002（校验层）。
 - `test_search_mock_three_cards_fields_complete` — mock 三条结果：卡片字段完整且与 fixture expect 逐位一致。
 - `test_search_dedupes_and_skips_unparseable_rows` — 同号重复行去重保序。
-- `test_search_http_miss_returns_empty_not_raise` — HTTP 非 200 不抛错返回 []（与 channels._miss 同语义）。
+- `test_search_http_miss_returns_empty_not_raise` — HTTP 非 200 不抛错返回 \[\]（与 channels._miss 同语义）。
 - `test_search_transport_failure_normalized_to_upd1xxx` — 传输层异常归一：超时→UPD-1001，其余→UPD-1004。
 - `test_download_later_add_idempotent_then_remove` — 加两次只一条（幂等）。
 
@@ -2359,8 +2359,8 @@
 - `test_every_channel_is_restricted` — 六条召回通道**逐条**验证：范围外的那篇在任何一条通道上都进不来。
 - `test_vec_channel_is_restricted_without_the_model` — **向量通道**也要被堵住 —— 直接塞假向量，模型离线也能验。
 - `test_vec_scope_holds_with_more_than_one_document` — **范围里有 ≥2 篇文档**时，向量通道也必须整体下推（spec 003 · FR-003）。
-- `test_empty_scope_returns_nothing_never_the_whole_kb` — `doc_ids=[]` = "范围内一篇都没有" ⇒ **一条都不返回**（绝不退化成全库）。
-- `test_answer_scope_is_echoed_and_restricts_retrieval` — `ks_answer.answer(kb_folder_ids=[甲])`：检索被限定（范围外那篇的证据进不来）+ 范围如实回显。
+- `test_empty_scope_returns_nothing_never_the_whole_kb` — `doc_ids=\[\]` = "范围内一篇都没有" ⇒ **一条都不返回**（绝不退化成全库）。
+- `test_answer_scope_is_echoed_and_restricts_retrieval` — `ks_answer.answer(kb_folder_ids=\[甲\])`：检索被限定（范围外那篇的证据进不来）+ 范围如实回显。
 - `test_answer_still_answers_when_out_of_scope_hits_saturate_topk` — **"在取回后筛"必红的那一条**（`top_k` 被范围外命中吃光的情形）。
 - `test_answer_rejects_unknown_folder_instead_of_falling_back` — 目录不存在 ⇒ **报错**（`KbScopeNotFound`），绝不静默当成"没给范围"全库检索。
 - `test_answer_with_empty_doc_scope_does_not_search` — 空范围（目录存在但里面一篇没有）⇒ **不检索**、如实说"范围内没有"，且**不调 LLM 拿全库编答案**。
@@ -2389,11 +2389,11 @@
 
 - `test_load_middle_items_line_boxes_aligned` — B5 底座：MidItem.line_boxes 与 text 行序列一一对齐（行界=line）。
 - `test_split_rows_page_attribution` — B3 采集：SplitClause.rows 逐行携带 0-based 页号（跨页拼接行页号正确）。
-- `test_build_page_breaks_run_start` — B3 页界编码：run-start [[行号, PDF页], ...]，行号 = content_text 0-based。
+- `test_build_page_breaks_run_start` — B3 页界编码：run-start \[\[行号, PDF页\], ...\]，行号 = content_text 0-based。
 - `test_build_row_pipeline_furniture_strip` — 家具剥离在 rows 上做：整行标准号丢弃后行号收缩，页界编码仍与。
-- `test_build_line_spans_full_no_cap` — B5：行级 span 全量入库（退役 [:8] 封顶），bbox=折行行框、sort_order。
+- `test_build_line_spans_full_no_cap` — B5：行级 span 全量入库（退役 \[:8\] 封顶），bbox=折行行框、sort_order。
 - `test_build_spans_fallback_when_line_boxes_missing` — 行框整体缺失（旧 middle.json 无 line.bbox）→ 回退块级 span（宁粗不高灭），。
-- `test_build_truncation_rowwise` — [:4000] 截断在 rows 上做：整行入账、末行可截半，截断后行号/页界不漂移。
+- `test_build_truncation_rowwise` — \[:4000\] 截断在 rows 上做：整行入账、末行可截半，截断后行号/页界不漂移。
 - `test_build_uncaptioned_table_identity` — B4：无题注表格条款（绑定全失配落单）不被 <4 守卫整表丢弃，。
 - `test_storage_roundtrip_page_breaks` — 存储面：insert_clauses 写 page_breaks JSON → fetch_full_clause 读回一致。
 - `test_api_page_break_divider` — 渲染面：page_breaks 非空 → 页号切换处插 <div class="page-break"。
@@ -2469,7 +2469,7 @@
 - `test_五类就是设计稿那五个`
 **Test口径**
 
-- `test_mock才供数的字段不算能力` — R6c-1 口径①：`discover.py` 卡片契约读 `item["status"]`，但只有 mock 会填。
+- `test_mock才供数的字段不算能力` — R6c-1 口径①：`discover.py` 卡片契约读 `item\["status"\]`，但只有 mock 会填。
 - `test_工具类一律不参与五类` — 口径②：代码仓库/工具不是采集通路——它们是**规则判空**或**逐条判空**，不是"我们没查"。
 - `test_r1_那批是调研期声明_标_medium`
 **Test查询**
@@ -2509,7 +2509,7 @@
 - `test_missing_cell_raises_instead_of_silently_filling` — ★ 缺一格必须抛错，不许静默补 0（补 0 会让 @20 的分母错而读数看不出来）。
 - `test_by_subset_top20_partitions_by_label_and_is_inclusive` — ★ 副终点 `by_subset_top20` 必须**按 subset label 分组**、且组内阈值同样闭区间（`r<=20`）。
 - `test_fused_hit_n_counts_non_none_ranks` — ★ 副终点 `fused_hit_n`（池内召回条数）必须数"名次非 None"，且与 `@20` 口径可分。
-- `test_pool_median_definition_is_pinned` — ★ 上报的 `pool_median` 定义（偶数条取**上中位** `sorted[n//2]`）必须钉住 ——。
+- `test_pool_median_definition_is_pinned` — ★ 上报的 `pool_median` 定义（偶数条取**上中位** `sorted\[n//2\]`）必须钉住 ——。
 - `test_production_hook_points_still_exist` — ★ 三个钩子（只读连接注入 + 两个改写调用点）必须仍在生产代码里。
 - `test_stop_loss_preregistered_contract` — ★ 预注册文件必须在，且主终点是 `fused@20`（不是向量路）。
 
@@ -2546,7 +2546,7 @@
 - `test_detector_is_not_always_true` — 反向自验：无关改动（改注释、改无关标识符）必须**零报** —— 防「扫描器恒真」。
 - `test_comment_occurrence_is_excluded_from_the_count` — 文档化那第 9 次出现（注释）**不算**判定点 —— 防止有人把注释删掉就以为少了一处。
 - `test_base_total_primary_source_exists` — 原样件里 `$baseTotal` 的首选来源**恰有一处**（判据 5 的地基）。
-- `test_deleting_base_total_source_is_caught` — **C2 的核心**：删掉 `$baseTotal = [int]$base.pytest_total` 那一行 ⇒ **必须报违规**。
+- `test_deleting_base_total_source_is_caught` — **C2 的核心**：删掉 `$baseTotal = \[int\]$base.pytest_total` 那一行 ⇒ **必须报违规**。
 - `test_base_total_source_swap_is_caught` — 把首选来源**换成别的字段**（语义变了但行还在）⇒ 也必须报。
 
 ### `tests/test_t06.py`（13 个）
@@ -2734,7 +2734,7 @@
 - `test_history_empty_when_no_lsyg` — 没有 lsyg ⇒ 空列表（这是"确实没有历次版本"，不是失败）。
 - `test_history_tolerates_non_list` — lsyg 不是 list（接口结构变了）⇒ 返空，不炸。
 - `test_history_skips_non_dict_items` — 链上混进非 dict 项 ⇒ 跳过该项，其余照常。
-- `test_history_raises_on_network_failure` — ★ 网络失败 MUST 抛异常 —— 绝不用 [] 冒充"无版本"（spec FR-007）。
+- `test_history_raises_on_network_failure` — ★ 网络失败 MUST 抛异常 —— 绝不用 \[\] 冒充"无版本"（spec FR-007）。
 - `test_history_endpoint_missing_bbbs`
 - `test_history_endpoint_ok`
 - `test_history_endpoint_502_on_failure` — ★ 官方不可达 ⇒ 502，**不是** 200 + 空链（否则前端无法区分）。
@@ -3003,13 +3003,13 @@
 
 **Test归一化bbox换算成点**
 
-- `test_比例bbox被换算成页尺寸量级` — 喂 `[0.116, 0.138, 0.937, 0.176]`（比例）⇒ 出 `[285, 477, 2301, 608]`（点）。
+- `test_比例bbox被换算成页尺寸量级` — 喂 `\[0.116, 0.138, 0.937, 0.176\]`（比例）⇒ 出 `\[285, 477, 2301, 608\]`（点）。
 - `test_换算后通过退化闸门` — ★ 这是**用户可见的效果**：换算后箭头才画得出来（不再被当碎片丢掉）。
 - `test_坐标落在页尺寸内` — 换算后 x 必须 ≤ 页宽、y ≤ 页高（不越界）。
 - `test_页尺寸不同则换算结果不同` — 防"写死 595/841"：同一比例在 600×800 与 2456×3456 上结果必须不同。
 **Test已是点的bbox不被重复缩放**
 
-- `test_绝对值bbox原样保留` — 喂 `[285, 477, 2301, 608]`（已经是点）⇒ 不许再乘。
+- `test_绝对值bbox原样保留` — 喂 `\[285, 477, 2301, 608\]`（已经是点）⇒ 不许再乘。
 - `test_混合值不被缩放` — 只要有一个值 >1，整条**原样返回**（不猜、不部分缩）。
 - `test_空bbox不炸`
 **Test行级bbox也换算**
@@ -3373,7 +3373,7 @@
 - `test_only_untracked_tests_are_excluded` — **正向**：tracked 的照算、untracked 的那 2 条被扣掉。
 - `test_the_reverse_the_naive_total_would_count_them` — **反向**：不扣减的口径（= 旧行为）会把 untracked 的算进去 ⇒ 两个数必须不同。
 - `test_unmappable_names_are_not_subtracted` — **保守**：认不出文件的条目**不许扣**（宁可少扣，不可多扣）。
-- `test_class_based_and_parametrised_names_map_to_the_file` — 类里的用例（junit 把类名塞进 classname）与参数化（`name[param]`）都要认得出。
+- `test_class_based_and_parametrised_names_map_to_the_file` — 类里的用例（junit 把类名塞进 classname）与参数化（`name\[param\]`）都要认得出。
 - `test_helper_raises_instead_of_guessing_when_git_is_unavailable` — **调用方的安全网**：没有 git（如 `git archive` 提取树没有 `.git`）时**必须抛**，。
 
 ### `tests/test_models_dir_override.py`（5 个）

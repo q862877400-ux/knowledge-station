@@ -11,9 +11,9 @@
 | `.py` 文件 | **1,271** |
 | 解析成功模块 | **1,271** |
 | 解析失败 | **0**（判据：成功 + 失败 == 总数）|
-| 符号总数 | **7,022** |
+| 符号总数 | **7,023** |
 | 类 | 386 |
-| 函数（含方法） | 6,636 |
+| 函数（含方法） | 6,637 |
 | 无 docstring 的符号 | 3,312 |
 
 ## 二、按目录看规模
@@ -29,8 +29,8 @@
 | `tests/test_material_api.py` | 1 | 66 | 58 | 8 | 28 |
 | `tests/test_channel_repo.py` | 1 | 62 | 53 | 9 | 39 |
 | `tests/test_ledger_chain.py` | 1 | 58 | 50 | 8 | 25 |
+| `scripts/survey` | 9 | 57 | 57 | 0 | 50 |
 | `tests/test_update_channels.py` | 1 | 57 | 47 | 10 | 23 |
-| `scripts/survey` | 9 | 56 | 56 | 0 | 50 |
 | `tests/test_dryrun_report.py` | 1 | 56 | 56 | 0 | 14 |
 | `eval/lay-phrasing` | 24 | 55 | 55 | 0 | 51 |
 | `tests/test_credentials_namespace.py` | 1 | 51 | 49 | 2 | 38 |
