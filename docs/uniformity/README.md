@@ -203,7 +203,7 @@ zcode/                                     HEAD 64f37707
 **完整 176 条清单**在 `.tmp/routes-full.txt`（`python .tmp/routes3.py` 可重生成）。
 ⚠ `.tmp/` 不入库，要长期留就抄进这里。
 
-**路由分布本身是个问题**：`server.py` 一个文件 194 KB 装了 **107 条**端点，
+**路由分布本身是个问题**：`server.py` 一个文件 194 KB / 3,341 行装了 **67 条**端点（旧文写 107 是错的），
 其余 8 个 `routes_*.py` 分装 69 条。
 
 ### 3.3 包级依赖矩阵（实测）
@@ -732,6 +732,7 @@ $skipNodeIds = @($jx.SelectNodes('//testcase') |
 | [`05-verifier-findings.md`](05-verifier-findings.md) | **两路独立 verifier 抽查 18 条的结果**：我说对 14 / 我说错 3 / verifier 说错 1（含不采纳的理由） | ★★★ 先看这个再引用任何数字 |
 | [`06-frontend.md`](06-frontend.md) | **`plugin/client/` 31 个前端文件逐个职责**（此前全仓唯一没被细读过的一块）：`api.ts` 5,011 行的组织、页壳手写 8 处、229 处内联字号、死件 `KsPdfGuideIcon` | ★★ 前端改动前必读 |
 | [`07-other-dirs.md`](07-other-dirs.md) | **`eval/` / `tools/gov-qa/` / `wenjianmulu/` / `output/` / `pipeline/` / `.specify/` 等 9 个此前没打开过的目录**：各自是什么、能不能删、隐私抽样 | ★★★ 删任何目录前必读 |
+| [`10-api-server.md`](10-api-server.md) | **`api/server.py` 3,341 行 / 67 条端点的完整地图**：`create_app` 闭包 2,997 行 / 103 个嵌套函数 / **35 个本该可单测却测不了的**；5 个超 100 行函数；**2 条数据泄漏面**；11 条零调用端点 | ★★★ 改后端端点前必读 |
 | [`08-why-contracts-rot.md`](08-why-contracts-rot.md) | **回答「约定了契约为什么还会变乱」**：6 个可实测的原因 + 我做了什么 + 还差什么（含 12 处写死旧路径造成的假绿） | ★★★ 理解为什么要造尺子 |
 | [`report.md`](report.md) | **统一化逐轮留档**：读数演进 / 两条判据校准 / 五批改动的守恒证据 / **我自己制造的 6 个回归** / 判「不统一」的否定裁决 | ★★★ 做统一化前必读 |
 
