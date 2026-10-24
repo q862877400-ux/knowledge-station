@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **249 份** / **9620 KB**。
+> 共 **250 份** / **9679 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -128,7 +128,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（108 份 / 3710 KB）
+## 根文档与其他（109 份 / 3769 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -143,6 +143,7 @@
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
+| `docs/survey/20-rules.md` | 59 | 未提交 | 一、口径\n\n从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` /  |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/README.md` | 56 | 2026-10-24 | KnowledgeStation 摸底：证据与过程 |
 | `docs/uniformity/09-big-files.md` | 52 | 2026-10-24 | 行数口径更正（先更正任务书里的数字） |
@@ -158,7 +159,7 @@
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
 | `docs/survey/04-data-shape.md` | 28 | 2026-10-24 | 一、来源与口径 |
 | `docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md` | 26 | 2026-10-07 | 一、这个产品是什么 |
-| `docs/survey/19-requirements.md` | 26 | 未提交 | 一、口径（这里有个坑，先看）\n\n本仓的 **`R` 前缀有两种含义**：\n\n| 形态 | 含义 | 例子 |\n |
+| `docs/survey/19-requirements.md` | 26 | 2026-10-24 | 一、口径（这里有个坑，先看）\n\n本仓的 **`R` 前缀有两种含义**：\n\n| 形态 | 含义 | 例子 |\n |
 | `docs/research/wikiskill-integration-assessment.md` | 25 | 2026-09-28 | §0 一页结论 |
 | `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 2026-10-23 | 0. 先读这一页 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |

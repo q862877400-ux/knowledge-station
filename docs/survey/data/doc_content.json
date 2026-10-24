@@ -2,9 +2,9 @@
  "generated_by": "scripts/survey/06-content.py::step_doc_content",
  "caliber": "`summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前 25 个）。**`summary` 为空说明该文档开头就是列表或表格**（比如索引类），不是它没内容。",
  "counts": {
-  "docs": 250,
+  "docs": 251,
   "with_summary": 244,
-  "without_summary": 6
+  "without_summary": 7
  },
  "docs": [
   {
@@ -950,11 +950,11 @@
     "界面与交互（7 份 / 415 KB）",
     "DSH 研究与对齐（23 份 / 870 KB）",
     "复核任务书（21 份 / 352 KB）",
-    "根文档与其他（107 份 / 3675 KB）",
+    "根文档与其他（108 份 / 3710 KB）",
     "归档（46 份 / 1854 KB）"
    ],
    "n_h2": 8,
-   "lines": 296
+   "lines": 297
   },
   {
    "path": "docs/INTERACTION-DESIGN.md",
@@ -2868,7 +2868,7 @@
     "四、全部文档（按体积降序）"
    ],
    "n_h2": 4,
-   "lines": 395
+   "lines": 397
   },
   {
    "path": "docs/survey/08-gate-surface.md",
@@ -2925,7 +2925,7 @@
     "三、按目录分组（**找东西先看这张表**）"
    ],
    "n_h2": 3,
-   "lines": 1349
+   "lines": 1350
   },
   {
    "path": "docs/survey/12-config-surface.md",
@@ -2976,7 +2976,7 @@
     "四、二级小节最多的 15 份（结构最复杂的文档）"
    ],
    "n_h2": 4,
-   "lines": 605
+   "lines": 606
   },
   {
    "path": "docs/survey/16-frontend.md",
@@ -3001,7 +3001,7 @@
     "三、按模块列全部符号"
    ],
    "n_h2": 3,
-   "lines": 15781
+   "lines": 15790
   },
   {
    "path": "docs/survey/18-runtime-probe.md",
@@ -3029,6 +3029,16 @@
    "lines": 15
   },
   {
+   "path": "docs/survey/20-rules.md",
+   "title": "判定规则总表（正则 / 阈值 / 理由）",
+   "summary": "",
+   "h2_headings": [
+    "一、口径\\n\\n从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` / "
+   ],
+   "n_h2": 1,
+   "lines": 6
+  },
+  {
    "path": "docs/survey/COVERAGE.md",
    "title": "覆盖对账（九个面）",
    "summary": "重跑四个生成器（合计约 30 秒），**不要手改 md**：",
@@ -3039,7 +3049,7 @@
     "四、数字过期了怎么办"
    ],
    "n_h2": 4,
-   "lines": 55
+   "lines": 57
   },
   {
    "path": "docs/survey/README.md",

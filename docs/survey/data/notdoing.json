@@ -183,13 +183,9 @@
     {
      "file": "tests/test_phase12.py",
      "n": 1
-    },
-    {
-     "file": "scripts/survey/04-reconcile.py",
-     "n": 1
     }
    ],
-   "code_ref_total": 5
+   "code_ref_total": 4
   },
   {
    "id": 17,

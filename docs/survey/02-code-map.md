@@ -8,13 +8,13 @@
 | 项 | 数 |
 |---|---:|
 | 扫描面 | `src`, `tests`, `scripts`, `tools/gov-qa`, `eval` |
-| `.py` 文件 | **1,274** |
-| 解析成功模块 | **1,274** |
+| `.py` 文件 | **1,275** |
+| 解析成功模块 | **1,275** |
 | 解析失败 | **0**（判据：成功 + 失败 == 总数）|
-| 符号总数 | **7,042** |
+| 符号总数 | **7,044** |
 | 类 | 386 |
-| 函数（含方法） | 6,656 |
-| 无 docstring 的符号 | 3,323 |
+| 函数（含方法） | 6,658 |
+| 无 docstring 的符号 | 3,324 |
 
 ## 二、按目录看规模
 
@@ -23,8 +23,8 @@
 | `tools/gov-qa` | 682 | 1,581 | 1,561 | 20 | 848 |
 | `src/core` | 157 | 1,341 | 1,265 | 76 | 333 |
 | `eval/recall-funnel` | 135 | 293 | 293 | 0 | 225 |
+| `scripts/survey` | 13 | 78 | 78 | 0 | 62 |
 | `tests/test_ccs_chain.py` | 1 | 77 | 76 | 1 | 5 |
-| `scripts/survey` | 12 | 76 | 76 | 0 | 61 |
 | `tests/test_material_harvest.py` | 1 | 72 | 61 | 11 | 27 |
 | `tests/test_update_inspector.py` | 1 | 69 | 68 | 1 | 17 |
 | `tests/test_material_api.py` | 1 | 66 | 58 | 8 | 28 |
@@ -53,7 +53,7 @@
 | `answer` | `src/core/llm/ks_answer.py:810` | **351** |
 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` | **343** |
 | `register` | `src/core/api/routes_materials.py:63` | **325** |
-| `main` | `scripts/survey/04-reconcile.py:41` | **292** |
+| `main` | `scripts/survey/04-reconcile.py:41` | **297** |
 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` | **256** |
 | `main` | `eval/recall-funnel/build-v2.py:63` | **255** |
 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` | **246** |
@@ -78,7 +78,7 @@
 | 351 | `answer` | `src/core/llm/ks_answer.py:810` |
 | 343 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` |
 | 325 | `register` | `src/core/api/routes_materials.py:63` |
-| 292 | `main` | `scripts/survey/04-reconcile.py:41` |
+| 297 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 256 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` |
 | 255 | `main` | `eval/recall-funnel/build-v2.py:63` |
 | 246 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` |
@@ -124,7 +124,7 @@
 | 131 | `main` | `eval/recall-funnel/exp-4-embedding-shadow/03-verdict-e4.py:53` |
 | 131 | `main` | `scripts/pick-domain-terms.py:88` |
 | 130 | `main` | `eval/recall-funnel/exp-3-query-side/03-run-e3.py:35` |
-| 130 | `step_requirements` | `scripts/survey/09-requirements.py:157` |
+| 130 | `step_requirements` | `scripts/survey/09-requirements.py:154` |
 | 130 | `assemble_evidence` | `src/core/materials/authority.py:116` |
 | 129 | `main` | `scripts/measure-material-bridge.py:112` |
 | 129 | `gen_runtime_probe` | `scripts/survey/03-render.py:826` |
@@ -194,7 +194,7 @@
 
 ## 五、模块 docstring 覆盖
 
-**16 / 1274 个模块没有模块级 docstring。**
+**16 / 1275 个模块没有模块级 docstring。**
 
 - `eval/lay-phrasing/validate-gen.py`
 - `src/__init__.py`

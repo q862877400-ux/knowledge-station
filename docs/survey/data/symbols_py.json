@@ -9,13 +9,13 @@
  ],
  "reference_caliber": "text_hits = 该名字在扫描面内全部 .py 文本里出现的次数（含定义行本身）。**这是下界，不是精确调用图** —— Python 的 getattr/importlib/装饰器注册/字符串派发会让精确图漏掉真实调用。用 count 判断「有没有人提到」够用，判断「是不是死代码」不够。",
  "summary": {
-  "files_found": 1274,
-  "modules": 1274,
+  "files_found": 1275,
+  "modules": 1275,
   "parse_errors": 0,
-  "symbols": 7042,
+  "symbols": 7044,
   "classes": 386,
-  "functions": 6656,
-  "no_docstring": 3323,
+  "functions": 6658,
+  "no_docstring": 3324,
   "text_hits_1": 2343,
   "text_hits_1_breakdown": {
    "其他（**待下一棒自己核**，本检查不判断）": 23,
@@ -143,7 +143,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -239,7 +239,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -298,7 +298,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -390,7 +390,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "eval/lay-phrasing/analyze-gen.py",
@@ -454,7 +454,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -546,7 +546,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -638,7 +638,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -729,7 +729,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -815,7 +815,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -915,7 +915,7 @@
      "has_docstring": true,
      "purpose": "每行一个 JSON 对象。",
      "private": false,
-     "text_hits": 119
+     "text_hits": 120
     },
     {
      "module": "eval/lay-phrasing/gen-lay.py",
@@ -947,7 +947,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1049,7 +1049,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1172,7 +1172,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1263,7 +1263,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1365,7 +1365,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1456,7 +1456,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1563,7 +1563,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1666,7 +1666,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1752,7 +1752,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1849,7 +1849,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -1975,7 +1975,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2101,7 +2101,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2209,7 +2209,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2275,7 +2275,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2394,7 +2394,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2513,7 +2513,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2598,7 +2598,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2673,7 +2673,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2710,7 +2710,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     }
    ]
   },
@@ -2896,7 +2896,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -2986,7 +2986,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3102,7 +3102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3244,7 +3244,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3319,7 +3319,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3372,7 +3372,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3426,7 +3426,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3479,7 +3479,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3533,7 +3533,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3602,7 +3602,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3655,7 +3655,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3718,7 +3718,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3794,7 +3794,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3863,7 +3863,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -3953,7 +3953,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4007,7 +4007,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4098,7 +4098,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4253,7 +4253,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4328,7 +4328,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4397,7 +4397,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4509,7 +4509,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4605,7 +4605,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4684,7 +4684,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4753,7 +4753,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4838,7 +4838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4896,7 +4896,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -4971,7 +4971,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5035,7 +5035,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5120,7 +5120,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5363,7 +5363,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5459,7 +5459,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5631,7 +5631,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -5733,7 +5733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6039,7 +6039,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6135,7 +6135,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6332,7 +6332,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6406,7 +6406,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6695,7 +6695,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6797,7 +6797,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6884,7 +6884,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -6960,7 +6960,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7253,7 +7253,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7525,7 +7525,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7595,7 +7595,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7659,7 +7659,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7745,7 +7745,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7840,7 +7840,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -7933,7 +7933,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8028,7 +8028,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8102,7 +8102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8199,7 +8199,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "eval/recall-funnel/exp-4-embedding-shadow/00-measure-throughput.py",
@@ -8349,7 +8349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8408,7 +8408,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8478,7 +8478,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8586,7 +8586,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8676,7 +8676,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8724,7 +8724,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8804,7 +8804,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -8895,7 +8895,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9028,7 +9028,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9136,7 +9136,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9221,7 +9221,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9274,7 +9274,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9375,7 +9375,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9477,7 +9477,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9600,7 +9600,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9708,7 +9708,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9761,7 +9761,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9830,7 +9830,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -9922,7 +9922,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/01-probe-real-questions.py",
@@ -10044,7 +10044,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10120,7 +10120,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10210,7 +10210,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10278,7 +10278,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10384,7 +10384,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10447,7 +10447,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10521,7 +10521,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10579,7 +10579,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10637,7 +10637,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10700,7 +10700,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10763,7 +10763,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10826,7 +10826,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10894,7 +10894,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -10967,7 +10967,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11067,7 +11067,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11167,7 +11167,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11257,7 +11257,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11331,7 +11331,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11395,7 +11395,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11459,7 +11459,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11523,7 +11523,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11591,7 +11591,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11676,7 +11676,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11751,7 +11751,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11821,7 +11821,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11891,7 +11891,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -11955,7 +11955,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12009,7 +12009,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12153,7 +12153,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12245,7 +12245,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12310,7 +12310,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12373,7 +12373,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12561,7 +12561,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12642,7 +12642,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12733,7 +12733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12791,7 +12791,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12844,7 +12844,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -12930,7 +12930,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13004,7 +13004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 309
+     "text_hits": 311
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/40-promote-to-prod.py",
@@ -13036,7 +13036,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13100,7 +13100,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13175,7 +13175,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13261,7 +13261,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13329,7 +13329,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13397,7 +13397,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13465,7 +13465,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13528,7 +13528,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13591,7 +13591,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13680,7 +13680,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13748,7 +13748,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13811,7 +13811,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -13890,7 +13890,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/freeze.py",
@@ -13959,7 +13959,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "eval/recall-funnel/exp-6-cap/verdict.py",
@@ -14007,7 +14007,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -14352,7 +14352,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -14448,7 +14448,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -14556,7 +14556,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -14620,7 +14620,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -14935,7 +14935,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15004,7 +15004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15070,7 +15070,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15128,7 +15128,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15186,7 +15186,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15234,7 +15234,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "eval/recall-funnel/regression-ingest/verdict.py",
@@ -15266,7 +15266,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15319,7 +15319,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15394,7 +15394,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15478,7 +15478,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 119
+     "text_hits": 120
     },
     {
      "module": "eval/reverse-benchmark/generate.py",
@@ -15526,7 +15526,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15599,7 +15599,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15736,7 +15736,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -15916,7 +15916,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -16613,7 +16613,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -16985,7 +16985,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17210,7 +17210,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17282,7 +17282,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "scripts/chain-snapshot.py",
@@ -17412,7 +17412,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17479,7 +17479,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17542,7 +17542,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17918,7 +17918,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -17997,7 +17997,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "scripts/convert-library-to-text.py",
@@ -18114,7 +18114,7 @@
      "has_docstring": true,
      "purpose": "返回 (是否存在, 是按哪种基准找到的)。",
      "private": false,
-     "text_hits": 674
+     "text_hits": 677
     },
     {
      "module": "scripts/docs/check-links.py",
@@ -18130,7 +18130,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -18335,7 +18335,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -18545,7 +18545,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -18656,7 +18656,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -18838,7 +18838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -18931,7 +18931,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19042,7 +19042,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19102,7 +19102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19178,7 +19178,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19336,7 +19336,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19448,7 +19448,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19537,7 +19537,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -19967,7 +19967,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -20164,7 +20164,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -20454,7 +20454,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -20639,7 +20639,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -20751,7 +20751,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -20815,7 +20815,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21113,7 +21113,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21322,7 +21322,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21699,7 +21699,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21813,7 +21813,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21910,7 +21910,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -21991,7 +21991,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -22152,7 +22152,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -22273,7 +22273,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -22393,7 +22393,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "scripts/measure-term-selection.py",
@@ -22495,7 +22495,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -22564,7 +22564,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "scripts/measure-term-window-coverage.py",
@@ -22712,7 +22712,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "scripts/migrate-clause-vec-doc-id.py",
@@ -22827,7 +22827,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -22919,7 +22919,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23107,7 +23107,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23204,7 +23204,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23303,7 +23303,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23430,7 +23430,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23562,7 +23562,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23628,7 +23628,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -23756,7 +23756,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24001,7 +24001,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24192,7 +24192,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24285,7 +24285,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24349,7 +24349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24508,7 +24508,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24689,7 +24689,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24757,7 +24757,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 55
+     "text_hits": 57
     },
     {
      "module": "scripts/survey/02-surface.py",
@@ -24853,7 +24853,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -24923,7 +24923,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24939,7 +24939,7 @@
      "has_docstring": true,
      "purpose": "把任意文本安全放进 markdown 表格单元格。",
      "private": false,
-     "text_hits": 94
+     "text_hits": 96
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -24971,7 +24971,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 408
+     "text_hits": 409
     },
     {
      "module": "scripts/survey/03-render.py",
@@ -25263,19 +25263,35 @@
     },
     {
      "module": "scripts/survey/03-render.py",
-     "qualname": "main",
-     "name": "main",
+     "qualname": "gen_rules",
+     "name": "gen_rules",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 1045,
-     "end_lineno": 1065,
-     "lines": 21,
+     "lineno": 1046,
+     "end_lineno": 1079,
+     "lines": 34,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/03-render.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/03-render.py",
+     "lineno": 1082,
+     "end_lineno": 1103,
+     "lines": 22,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1142
     }
    ]
   },
@@ -25333,7 +25349,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "scripts/survey/04-reconcile.py",
@@ -25342,14 +25358,14 @@
      "kind": "function",
      "file": "scripts/survey/04-reconcile.py",
      "lineno": 41,
-     "end_lineno": 332,
-     "lines": 292,
+     "end_lineno": 337,
+     "lines": 297,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -25504,7 +25520,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -25617,7 +25633,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -25763,7 +25779,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -25893,7 +25909,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -25906,11 +25922,6 @@
      "kind": "from",
      "module": "__future__",
      "name": "annotations",
-     "as": null
-    },
-    {
-     "kind": "import",
-     "module": "json",
      "as": null
     },
     {
@@ -25933,34 +25944,24 @@
      "module": "pathlib",
      "name": "Path",
      "as": null
+    },
+    {
+     "kind": "from",
+     "module": "_common",
+     "name": "dump",
+     "as": null
     }
    ],
    "stars": [],
    "symbols": [
     {
      "module": "scripts/survey/09-requirements.py",
-     "qualname": "dump",
-     "name": "dump",
-     "kind": "function",
-     "file": "scripts/survey/09-requirements.py",
-     "lineno": 65,
-     "end_lineno": 69,
-     "lines": 5,
-     "signature": "(name, payload)",
-     "decorators": [],
-     "has_docstring": false,
-     "purpose": "",
-     "private": false,
-     "text_hits": 55
-    },
-    {
-     "module": "scripts/survey/09-requirements.py",
      "qualname": "iter_py",
      "name": "iter_py",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 72,
-     "end_lineno": 80,
+     "lineno": 69,
+     "end_lineno": 77,
      "lines": 9,
      "signature": "()",
      "decorators": [],
@@ -25975,8 +25976,8 @@
      "name": "first_body_para",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 86,
-     "end_lineno": 108,
+     "lineno": 83,
+     "end_lineno": 105,
      "lines": 23,
      "signature": "(lines, start, limit)",
      "decorators": [],
@@ -25991,8 +25992,8 @@
      "name": "collect_definitions",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 111,
-     "end_lineno": 154,
+     "lineno": 108,
+     "end_lineno": 151,
      "lines": 44,
      "signature": "()",
      "decorators": [],
@@ -26007,8 +26008,8 @@
      "name": "step_requirements",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 157,
-     "end_lineno": 286,
+     "lineno": 154,
+     "end_lineno": 283,
      "lines": 130,
      "signature": "()",
      "decorators": [],
@@ -26023,8 +26024,8 @@
      "name": "step_notdoing",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 292,
-     "end_lineno": 354,
+     "lineno": 289,
+     "end_lineno": 351,
      "lines": 63,
      "signature": "()",
      "decorators": [],
@@ -26039,8 +26040,8 @@
      "name": "step_data_samples",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 366,
-     "end_lineno": 415,
+     "lineno": 363,
+     "end_lineno": 412,
      "lines": 50,
      "signature": "()",
      "decorators": [],
@@ -26055,15 +26056,90 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/09-requirements.py",
-     "lineno": 418,
-     "end_lineno": 423,
+     "lineno": 415,
+     "end_lineno": 420,
      "lines": 6,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
+    }
+   ]
+  },
+  {
+   "module": "scripts/survey/10-rules.py",
+   "docstring": "检查第 10 步（规则层）：把「判定规则」抽成表。\n\n## 补的是哪个缺口\n\n`COVERAGE.md` 里「业务规则的语义」一直标着未做：抓到了正则和行号，\n但「什么算条款头」这类规则**怎么算的**没进地图。\n\n完全复述算法不现实（那是重写一遍代码）。本脚本做**可机械做的那部分**：\n\n| 抽什么 | 为什么有用 |\n|---|---|\n| 模块级正则常量（`_RE_*` / `*_RE`） | 规则的字面判据 |\n| 数值阈值常量（`_MIN_*` / `*_MAX` / `RRF_K` …） | 规则的门槛 |\n| 它们**上方紧邻的注释** | 规则的**理由**（本仓注释就是说明书） |\n| 所在函数（如果是函数内常量） | 规则挂在哪一步 |\n\n⇒ 下一棒看这张表就知道「条款头判据是哪条正则、阈值是多少、当初为什么这么定」。\n\n**只记录，不判断阈值合不合理。**",
+   "has_docstring": true,
+   "imports": [
+    {
+     "kind": "from",
+     "module": "__future__",
+     "name": "annotations",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "ast",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "re",
+     "as": null
+    },
+    {
+     "kind": "import",
+     "module": "sys",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "pathlib",
+     "name": "Path",
+     "as": null
+    },
+    {
+     "kind": "from",
+     "module": "_common",
+     "name": "dump",
+     "as": null
+    }
+   ],
+   "stars": [],
+   "symbols": [
+    {
+     "module": "scripts/survey/10-rules.py",
+     "qualname": "comment_above",
+     "name": "comment_above",
+     "kind": "function",
+     "file": "scripts/survey/10-rules.py",
+     "lineno": 43,
+     "end_lineno": 53,
+     "lines": 11,
+     "signature": "(lines, lineno, max_lines)",
+     "decorators": [],
+     "has_docstring": true,
+     "purpose": "取某行上方紧邻的注释块（连续 `#` 行），**保留原文**。",
+     "private": false,
+     "text_hits": 2
+    },
+    {
+     "module": "scripts/survey/10-rules.py",
+     "qualname": "main",
+     "name": "main",
+     "kind": "function",
+     "file": "scripts/survey/10-rules.py",
+     "lineno": 56,
+     "end_lineno": 143,
+     "lines": 88,
+     "signature": "()",
+     "decorators": [],
+     "has_docstring": false,
+     "purpose": "",
+     "private": false,
+     "text_hits": 1142
     }
    ]
   },
@@ -26122,7 +26198,7 @@
      "has_docstring": true,
      "purpose": "把一份机器可读数据写进 `docs/survey/data/<name>.json`。",
      "private": false,
-     "text_hits": 55
+     "text_hits": 57
     }
    ]
   },
@@ -26167,8 +26243,8 @@
      "name": "run",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 55,
-     "end_lineno": 74,
+     "lineno": 56,
+     "end_lineno": 75,
      "lines": 20,
      "signature": "(script, label)",
      "decorators": [],
@@ -26183,15 +26259,15 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 77,
-     "end_lineno": 99,
+     "lineno": 78,
+     "end_lineno": 100,
      "lines": 23,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -26505,7 +26581,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -26573,7 +26649,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -26828,7 +26904,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -26941,7 +27017,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -27122,7 +27198,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -33474,7 +33550,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -34040,7 +34116,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -36478,7 +36554,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -37213,7 +37289,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -37634,7 +37710,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -45496,7 +45572,7 @@
      "has_docstring": true,
      "purpose": "读取并缓存 parse_root 的几何索引。",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     }
    ]
   },
@@ -47317,7 +47393,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "src/core/retrieval/term_bridge.py",
@@ -51349,7 +51425,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 746
+     "text_hits": 748
     },
     {
      "module": "src/core/supervisor.py",
@@ -51493,7 +51569,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -93212,7 +93288,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 3611
+     "text_hits": 3607
     },
     {
      "module": "tests/test_law_source_http_antibot.py",
@@ -119451,7 +119527,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1628
+     "text_hits": 1631
     },
     {
      "module": "tests/test_standard_body.py",
@@ -120706,7 +120782,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 746
+     "text_hits": 748
     },
     {
      "module": "tests/test_supervisor.py",
@@ -129578,7 +129654,7 @@
      "has_docstring": true,
      "purpose": "按 key 载入适配器模块（延迟导入，免得没装的依赖拦住别的站）。",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     }
    ]
   },
@@ -150211,7 +150287,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -150617,7 +150693,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -150810,7 +150886,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -150926,7 +151002,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151139,7 +151215,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "tools/gov-qa/poll.py",
@@ -151256,7 +151332,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151373,7 +151449,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151442,7 +151518,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151522,7 +151598,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151616,7 +151692,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151701,7 +151777,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151783,7 +151859,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151847,7 +151923,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151890,7 +151966,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -151938,7 +152014,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152140,7 +152216,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152194,7 +152270,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152258,7 +152334,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152312,7 +152388,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152470,7 +152546,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152519,7 +152595,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152568,7 +152644,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152611,7 +152687,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152722,7 +152798,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152808,7 +152884,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152893,7 +152969,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -152950,7 +153026,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153012,7 +153088,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153074,7 +153150,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153136,7 +153212,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153199,7 +153275,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153262,7 +153338,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153325,7 +153401,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153393,7 +153469,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153461,7 +153537,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153529,7 +153605,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153597,7 +153673,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153666,7 +153742,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153734,7 +153810,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153797,7 +153873,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153860,7 +153936,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153923,7 +153999,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -153986,7 +154062,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154049,7 +154125,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154117,7 +154193,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154180,7 +154256,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154243,7 +154319,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154306,7 +154382,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154375,7 +154451,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154460,7 +154536,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154533,7 +154609,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154595,7 +154671,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154657,7 +154733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154719,7 +154795,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154781,7 +154857,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154839,7 +154915,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154918,7 +154994,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -154981,7 +155057,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe10.py",
@@ -154997,7 +155073,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155065,7 +155141,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe11.py",
@@ -155081,7 +155157,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155144,7 +155220,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe12.py",
@@ -155160,7 +155236,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155223,7 +155299,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe13.py",
@@ -155239,7 +155315,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155302,7 +155378,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155365,7 +155441,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe15.py",
@@ -155381,7 +155457,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155444,7 +155520,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155523,7 +155599,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155586,7 +155662,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe18.py",
@@ -155602,7 +155678,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155665,7 +155741,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe19.py",
@@ -155681,7 +155757,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155744,7 +155820,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe2.py",
@@ -155760,7 +155836,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155823,7 +155899,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe20.py",
@@ -155839,7 +155915,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155902,7 +155978,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe21.py",
@@ -155918,7 +155994,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -155981,7 +156057,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe22.py",
@@ -156029,7 +156105,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156092,7 +156168,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe23.py",
@@ -156140,7 +156216,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156203,7 +156279,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe24.py",
@@ -156251,7 +156327,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156314,7 +156390,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe25.py",
@@ -156362,7 +156438,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156425,7 +156501,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe26.py",
@@ -156441,7 +156517,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156504,7 +156580,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -156536,7 +156612,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156599,7 +156675,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe28.py",
@@ -156615,7 +156691,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156678,7 +156754,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe29.py",
@@ -156710,7 +156786,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156773,7 +156849,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe3.py",
@@ -156789,7 +156865,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156852,7 +156928,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe30.py",
@@ -156868,7 +156944,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -156931,7 +157007,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -156963,7 +157039,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1483
+     "text_hits": 1485
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -156979,7 +157055,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157042,7 +157118,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe32.py",
@@ -157074,7 +157150,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157137,7 +157213,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe33.py",
@@ -157185,7 +157261,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157248,7 +157324,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe34.py",
@@ -157280,7 +157356,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157348,7 +157424,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe35.py",
@@ -157380,7 +157456,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157443,7 +157519,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe36.py",
@@ -157475,7 +157551,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157538,7 +157614,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe37.py",
@@ -157586,7 +157662,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157649,7 +157725,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe38.py",
@@ -157697,7 +157773,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157776,7 +157852,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157839,7 +157915,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe4.py",
@@ -157855,7 +157931,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -157934,7 +158010,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158013,7 +158089,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158076,7 +158152,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -158124,7 +158200,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158208,7 +158284,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158292,7 +158368,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158355,7 +158431,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158418,7 +158494,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe5.py",
@@ -158434,7 +158510,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158497,7 +158573,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe6.py",
@@ -158513,7 +158589,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158576,7 +158652,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe7.py",
@@ -158608,7 +158684,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158671,7 +158747,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe8.py",
@@ -158687,7 +158763,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158750,7 +158826,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe9.py",
@@ -158766,7 +158842,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158853,7 +158929,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158934,7 +159010,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -158997,7 +159073,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159093,7 +159169,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159136,7 +159212,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159287,7 +159363,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 55
+     "text_hits": 57
     },
     {
      "module": "tools/gov-qa/recon/df-datatype-diagnose.py",
@@ -159303,7 +159379,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159379,7 +159455,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159453,7 +159529,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159502,7 +159578,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159607,7 +159683,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159670,7 +159746,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159748,7 +159824,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159801,7 +159877,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159848,7 +159924,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159912,7 +159988,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -159960,7 +160036,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160024,7 +160100,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160104,7 +160180,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160356,7 +160432,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160460,7 +160536,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160534,7 +160610,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160708,7 +160784,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160783,7 +160859,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -160934,7 +161010,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "tools/gov-qa/recon/gen-channel-table.py",
@@ -161008,7 +161084,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161051,7 +161127,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161089,7 +161165,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161127,7 +161203,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161196,7 +161272,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161234,7 +161310,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161286,7 +161362,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161338,7 +161414,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 201
+     "text_hits": 200
     },
     {
      "module": "tools/gov-qa/recon/gs-lx-direct.py",
@@ -161438,7 +161514,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/gs-more-probe.py",
@@ -161454,7 +161530,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161501,7 +161577,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 55
+     "text_hits": 57
     },
     {
      "module": "tools/gov-qa/recon/gs4-baiyin-deep.py",
@@ -161517,7 +161593,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161564,7 +161640,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161643,7 +161719,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161722,7 +161798,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161774,7 +161850,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161874,7 +161950,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -161954,7 +162030,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162023,7 +162099,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162071,7 +162147,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162181,7 +162257,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162331,7 +162407,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162410,7 +162486,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162473,7 +162549,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162536,7 +162612,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162599,7 +162675,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162662,7 +162738,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162725,7 +162801,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162788,7 +162864,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162851,7 +162927,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162914,7 +162990,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -162993,7 +163069,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163147,7 +163223,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163297,7 +163373,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "tools/gov-qa/recon/igi-chunked.py",
@@ -163451,7 +163527,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163536,7 +163612,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163649,7 +163725,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163708,7 +163784,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163826,7 +163902,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163895,7 +163971,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -163958,7 +164034,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164026,7 +164102,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164095,7 +164171,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164159,7 +164235,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164223,7 +164299,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164303,7 +164379,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164367,7 +164443,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164447,7 +164523,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164538,7 +164614,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164623,7 +164699,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164723,7 +164799,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164807,7 +164883,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164918,7 +164994,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -164997,7 +165073,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165113,7 +165189,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165265,7 +165341,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165552,7 +165628,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165671,7 +165747,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165714,7 +165790,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165762,7 +165838,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165843,7 +165919,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -165924,7 +166000,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166005,7 +166081,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166102,7 +166178,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166145,7 +166221,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166194,7 +166270,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166247,7 +166323,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166300,7 +166376,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166402,7 +166478,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166483,7 +166559,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166547,7 +166623,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166590,7 +166666,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166671,7 +166747,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166747,7 +166823,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166828,7 +166904,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166908,7 +166984,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -166977,7 +167053,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167036,7 +167112,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167095,7 +167171,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167223,7 +167299,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167272,7 +167348,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167337,7 +167413,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167416,7 +167492,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167474,7 +167550,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 201
+     "text_hits": 200
     },
     {
      "module": "tools/gov-qa/recon/nat-smoke.py",
@@ -167538,7 +167614,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167607,7 +167683,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167654,7 +167730,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -167670,7 +167746,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 55
+     "text_hits": 57
     },
     {
      "module": "tools/gov-qa/recon/probe-ah-wuhu.py",
@@ -167770,7 +167846,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167870,7 +167946,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -167933,7 +168009,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168077,7 +168153,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168177,7 +168253,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168218,7 +168294,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168309,7 +168385,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168436,7 +168512,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168515,7 +168591,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168606,7 +168682,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168717,7 +168793,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168828,7 +168904,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168874,7 +168950,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168953,7 +169029,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -168999,7 +169075,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169045,7 +169121,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169096,7 +169172,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169142,7 +169218,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169188,7 +169264,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169234,7 +169310,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169366,7 +169442,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169412,7 +169488,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169479,7 +169555,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169525,7 +169601,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169577,7 +169653,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169656,7 +169732,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169757,7 +169833,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169879,7 +169955,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169925,7 +170001,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -169971,7 +170047,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170017,7 +170093,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170079,7 +170155,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170125,7 +170201,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170171,7 +170247,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170217,7 +170293,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170318,7 +170394,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170456,7 +170532,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170514,7 +170590,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170588,7 +170664,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170742,7 +170818,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170789,7 +170865,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170836,7 +170912,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -170883,7 +170959,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171004,7 +171080,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171084,7 +171160,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171148,7 +171224,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171212,7 +171288,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171276,7 +171352,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171356,7 +171432,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171453,7 +171529,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171528,7 +171604,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/sd-city-probe2.py",
@@ -171560,7 +171636,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171651,7 +171727,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171736,7 +171812,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171827,7 +171903,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -171918,7 +171994,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172009,7 +172085,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172088,7 +172164,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172151,7 +172227,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 107
+     "text_hits": 108
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-verify.py",
@@ -172231,7 +172307,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172484,7 +172560,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172557,7 +172633,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-probe.py",
@@ -172657,7 +172733,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172836,7 +172912,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-dig.py",
@@ -172852,7 +172928,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -172909,7 +172985,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-fetch.py",
@@ -172957,7 +173033,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173014,7 +173090,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-js.py",
@@ -173030,7 +173106,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173119,7 +173195,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173187,7 +173263,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173244,7 +173320,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173301,7 +173377,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173429,7 +173505,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173493,7 +173569,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173633,7 +173709,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1140
+     "text_hits": 1142
     }
    ]
   },
@@ -173835,7 +173911,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 6394
+     "text_hits": 6400
     },
     {
      "module": "tools/gov-qa/state.py",

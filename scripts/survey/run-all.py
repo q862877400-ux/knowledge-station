@@ -45,6 +45,7 @@ STEPS = [
     ("05-deep.py", "模块职责/接口明细/配置面/表读写"),
     ("06-content.py", "测试内容/文档内容/前端清单"),
     ("09-requirements.py", "需求编号/否决台账/数据样例"),
+    ("10-rules.py", "判定规则（正则/阈值/理由）"),
     # ⚠ 07-runtime-probe.py **不进默认循环**：它要真启动引擎、跑 3–5 分钟。
     #   单独跑：`.venv\Scripts\python.exe scripts/survey/07-runtime-probe.py`
 

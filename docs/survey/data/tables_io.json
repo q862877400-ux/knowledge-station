@@ -7,118 +7,106 @@
   "tables_with_no_reader_found": 18
  },
  "tables": {
-  "material_fts_config": {
+  "clause_fts_config": {
    "write": [],
    "read": []
   },
-  "clause_vec_info": {
-   "write": [],
-   "read": []
-  },
-  "update_change_event": {
+  "material": {
    "write": [
-    "src/core/storage/doc_delete.py",
-    "src/core/update/change_repo.py",
+    "src/core/storage/material_repo.py"
+   ],
+   "read": [
+    "src/core/api/routes_materials.py",
+    "src/core/storage/material_repo.py"
+   ]
+  },
+  "clause_vec_metadatachunks00": {
+   "write": [],
+   "read": []
+  },
+  "project_list": {
+   "write": [
+    "src/core/storage/user_data.py"
+   ],
+   "read": [
+    "src/core/exports/backlinks.py",
+    "src/core/storage/impact.py",
+    "src/core/storage/user_data.py",
+    "src/core/update/data_package.py"
+   ]
+  },
+  "material_fts_content": {
+   "write": [],
+   "read": []
+  },
+  "material_fts_data": {
+   "write": [],
+   "read": []
+  },
+  "material_fts_docsize": {
+   "write": [],
+   "read": []
+  },
+  "doc_page_geometry": {
+   "write": [
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ],
+   "read": [
+    "src/core/storage/doc_delete.py"
+   ]
+  },
+  "alias_store": {
+   "write": [
+    "src/core/knowledge/alias_extract.py"
+   ],
+   "read": [
+    "src/core/api/server.py",
+    "src/core/knowledge/alias_extract.py"
+   ]
+  },
+  "bulk_import_batch": {
+   "write": [
+    "src/core/ingestion/bulk.py",
     "src/core/update/inspector.py"
    ],
    "read": [
     "src/core/api/routes_update.py",
-    "src/core/storage/doc_delete.py",
-    "src/core/update/change_repo.py",
-    "src/core/update/data_package.py",
+    "src/core/ingestion/bulk.py",
     "src/core/update/inspector.py",
-    "src/core/update/report.py"
+    "src/core/update/report.py",
+    "src/core/update/scheduler.py"
    ]
   },
-  "debug_dump": {
+  "material_chunk": {
    "write": [
-    "src/core/api/server.py",
-    "src/core/llm/egress_audit.py",
-    "src/core/storage/debug_dump_retention.py"
+    "src/core/storage/material_repo.py"
    ],
    "read": [
-    "src/core/api/server.py",
-    "src/core/exports/backlinks.py",
-    "src/core/llm/egress_audit.py",
-    "src/core/storage/debug_dump_retention.py"
+    "src/core/storage/material_repo.py"
    ]
   },
-  "clause_revision": {
-   "write": [
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/compliance/gap_analysis.py",
-    "src/core/exports/backlinks.py",
-    "src/core/ingestion/pypdf_backfill.py",
-    "src/core/ingestion/span_calibration.py",
-    "src/core/ingestion/span_verify.py",
-    "src/core/llm/ks_answer.py",
-    "src/core/retrieval/hybrid_engine.py",
-    "src/core/retrieval/term_bridge.py",
-    "src/core/storage/backup.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py",
-    "src/core/storage/impact.py",
-    "src/core/storage/user_data.py",
-    "src/core/storage/versioning.py",
-    "src/core/update/data_package.py"
-   ]
-  },
-  "app_config": {
-   "write": [
-    "src/core/update/announce.py",
-    "src/core/update/discover.py",
-    "src/core/update/inspector.py",
-    "src/core/update/subscriptions.py"
-   ],
-   "read": [
-    "src/core/update/announce.py",
-    "src/core/update/discover.py",
-    "src/core/update/inspector.py",
-    "src/core/update/subscriptions.py"
-   ]
-  },
-  "write_queue": {
-   "write": [
-    "src/core/storage/write_queue.py"
-   ],
-   "read": [
-    "src/core/storage/write_queue.py"
-   ]
-  },
-  "review_point": {
-   "write": [],
-   "read": [
-    "src/core/exports/backlinks.py"
-   ]
-  },
-  "clause_patch": {
-   "write": [
-    "src/core/ingestion/pypdf_backfill.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/ingestion/pypdf_backfill.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ]
-  },
-  "folder": {
-   "write": [
-    "src/core/knowledge/folder_store.py"
-   ],
-   "read": [
-    "src/core/knowledge/folder_store.py"
-   ]
-  },
-  "audit_log": {
+  "clause_vec_chunks": {
    "write": [],
    "read": []
+  },
+  "snapshot_meta": {
+   "write": [
+    "src/core/storage/backup.py"
+   ],
+   "read": [
+    "src/core/storage/backup.py"
+   ]
+  },
+  "user_annotation": {
+   "write": [
+    "src/core/storage/user_data.py"
+   ],
+   "read": [
+    "src/core/storage/impact.py",
+    "src/core/storage/user_data.py",
+    "src/core/update/data_package.py"
+   ]
   },
   "doc_meta": {
    "write": [
@@ -167,37 +155,6 @@
     "src/core/update/web_ingest.py"
    ]
   },
-  "user_bookmark_folder": {
-   "write": [
-    "src/core/storage/user_data.py"
-   ],
-   "read": [
-    "src/core/storage/user_data.py"
-   ]
-  },
-  "watch_list": {
-   "write": [
-    "src/core/storage/doc_delete.py"
-   ],
-   "read": [
-    "src/core/storage/doc_delete.py",
-    "src/core/update/data_package.py",
-    "src/core/update/inspector.py"
-   ]
-  },
-  "internal_policy": {
-   "write": [
-    "src/core/compliance/gap_analysis.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/compliance/gap_analysis.py"
-   ]
-  },
-  "clause_vec_vector_chunks00": {
-   "write": [],
-   "read": []
-  },
   "doc_ccs_state": {
    "write": [
     "src/core/knowledge/ccs_store.py",
@@ -209,52 +166,28 @@
     "src/core/knowledge/ccs_undo.py"
    ]
   },
-  "clause_fts_config": {
-   "write": [],
-   "read": []
-  },
-  "update_check_batch": {
+  "clause_revision": {
    "write": [
-    "src/core/update/change_repo.py",
-    "src/core/update/inspector.py"
-   ],
-   "read": [
-    "src/core/update/change_repo.py",
-    "src/core/update/report.py"
-   ]
-  },
-  "material_fts_idx": {
-   "write": [],
-   "read": []
-  },
-  "folder_member": {
-   "write": [
-    "src/core/knowledge/folder_store.py",
     "src/core/storage/clause_repo.py",
     "src/core/storage/doc_delete.py"
    ],
    "read": [
-    "src/core/knowledge/folder_store.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ]
-  },
-  "material": {
-   "write": [
-    "src/core/storage/material_repo.py"
-   ],
-   "read": [
-    "src/core/api/routes_materials.py",
-    "src/core/storage/material_repo.py"
-   ]
-  },
-  "obligation_list": {
-   "write": [
-    "src/core/storage/user_data.py"
-   ],
-   "read": [
+    "src/core/api/server.py",
+    "src/core/compliance/gap_analysis.py",
     "src/core/exports/backlinks.py",
-    "src/core/storage/user_data.py"
+    "src/core/ingestion/pypdf_backfill.py",
+    "src/core/ingestion/span_calibration.py",
+    "src/core/ingestion/span_verify.py",
+    "src/core/llm/ks_answer.py",
+    "src/core/retrieval/hybrid_engine.py",
+    "src/core/retrieval/term_bridge.py",
+    "src/core/storage/backup.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py",
+    "src/core/storage/impact.py",
+    "src/core/storage/user_data.py",
+    "src/core/storage/versioning.py",
+    "src/core/update/data_package.py"
    ]
   },
   "remapping_queue": {
@@ -265,82 +198,36 @@
     "src/core/storage/clause_repo.py"
    ]
   },
-  "announcement_observed": {
+  "law_catalog": {
    "write": [
-    "src/core/update/announce.py"
+    "src/core/knowledge/law_source/catalog.py"
    ],
    "read": [
-    "src/core/update/announce.py",
-    "src/core/update/web_ingest.py"
+    "src/core/knowledge/law_source/catalog.py"
    ]
   },
-  "alias_store": {
+  "debug_dump": {
    "write": [
-    "src/core/knowledge/alias_extract.py"
+    "src/core/api/server.py",
+    "src/core/llm/egress_audit.py",
+    "src/core/storage/debug_dump_retention.py"
    ],
    "read": [
     "src/core/api/server.py",
-    "src/core/knowledge/alias_extract.py"
+    "src/core/exports/backlinks.py",
+    "src/core/llm/egress_audit.py",
+    "src/core/storage/debug_dump_retention.py"
    ]
   },
-  "clause_fts_data": {
+  "material_fts_config": {
    "write": [],
    "read": []
   },
-  "user_doc_bookmark": {
-   "write": [
-    "src/core/storage/doc_delete.py",
-    "src/core/storage/user_data.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/storage/doc_delete.py",
-    "src/core/storage/user_data.py",
-    "src/core/update/inspector.py"
-   ]
-  },
-  "material_chunk": {
-   "write": [
-    "src/core/storage/material_repo.py"
-   ],
-   "read": [
-    "src/core/storage/material_repo.py"
-   ]
-  },
-  "feedback_log": {
+  "review_point": {
    "write": [],
    "read": [
-    "src/core/llm/fewshot.py"
+    "src/core/exports/backlinks.py"
    ]
-  },
-  "material_fts_data": {
-   "write": [],
-   "read": []
-  },
-  "channel_test_case": {
-   "write": [
-    "src/core/update/channel_test.py"
-   ],
-   "read": [
-    "src/core/update/channel_test.py"
-   ]
-  },
-  "clause_vec_rowids": {
-   "write": [],
-   "read": []
-  },
-  "doc_page_geometry": {
-   "write": [
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ],
-   "read": [
-    "src/core/storage/doc_delete.py"
-   ]
-  },
-  "material_fts_content": {
-   "write": [],
-   "read": []
   },
   "source_span": {
    "write": [
@@ -357,83 +244,14 @@
     "src/core/storage/doc_delete.py"
    ]
   },
-  "law_catalog": {
+  "announcement_observed": {
    "write": [
-    "src/core/knowledge/law_source/catalog.py"
+    "src/core/update/announce.py"
    ],
    "read": [
-    "src/core/knowledge/law_source/catalog.py"
+    "src/core/update/announce.py",
+    "src/core/update/web_ingest.py"
    ]
-  },
-  "review_task": {
-   "write": [
-    "src/core/compliance/gap_analysis.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/update/data_package.py"
-   ]
-  },
-  "clause_fts_content": {
-   "write": [],
-   "read": []
-  },
-  "doc_filing_state": {
-   "write": [
-    "src/core/knowledge/folder_store.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ],
-   "read": [
-    "src/core/knowledge/folder_store.py",
-    "src/core/storage/clause_repo.py",
-    "src/core/storage/doc_delete.py"
-   ]
-  },
-  "bulk_import_batch": {
-   "write": [
-    "src/core/ingestion/bulk.py",
-    "src/core/update/inspector.py"
-   ],
-   "read": [
-    "src/core/api/routes_update.py",
-    "src/core/ingestion/bulk.py",
-    "src/core/update/inspector.py",
-    "src/core/update/report.py",
-    "src/core/update/scheduler.py"
-   ]
-  },
-  "material_project": {
-   "write": [
-    "src/core/storage/material_repo.py"
-   ],
-   "read": [
-    "src/core/storage/material_repo.py"
-   ]
-  },
-  "user_bookmark": {
-   "write": [
-    "src/core/storage/user_data.py"
-   ],
-   "read": [
-    "src/core/api/server.py",
-    "src/core/exports/backlinks.py",
-    "src/core/storage/impact.py",
-    "src/core/storage/user_data.py",
-    "src/core/update/data_package.py"
-   ]
-  },
-  "material_fts_docsize": {
-   "write": [],
-   "read": []
-  },
-  "clause_fts_docsize": {
-   "write": [],
-   "read": []
-  },
-  "clause_fts_idx": {
-   "write": [],
-   "read": []
   },
   "evidence_edge": {
    "write": [
@@ -445,53 +263,25 @@
     "src/core/storage/doc_delete.py"
    ]
   },
-  "gap_analysis": {
+  "clause_patch": {
+   "write": [
+    "src/core/ingestion/pypdf_backfill.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ],
+   "read": [
+    "src/core/api/server.py",
+    "src/core/ingestion/pypdf_backfill.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ]
+  },
+  "review_task": {
    "write": [
     "src/core/compliance/gap_analysis.py"
    ],
-   "read": []
-  },
-  "update_channel": {
-   "write": [
-    "src/core/storage/channel_repo.py"
-   ],
    "read": [
-    "src/core/storage/channel_repo.py",
-    "src/core/update/channel_test.py"
-   ]
-  },
-  "operation_log": {
-   "write": [
-    "src/core/ingestion/law_text.py",
-    "src/core/ingestion/pipeline.py"
-   ],
-   "read": [
-    "src/core/api/server.py"
-   ]
-  },
-  "clause_vec_chunks": {
-   "write": [],
-   "read": []
-  },
-  "clause_vec_metadatatext00": {
-   "write": [],
-   "read": []
-  },
-  "snapshot_meta": {
-   "write": [
-    "src/core/storage/backup.py"
-   ],
-   "read": [
-    "src/core/storage/backup.py"
-   ]
-  },
-  "user_annotation": {
-   "write": [
-    "src/core/storage/user_data.py"
-   ],
-   "read": [
-    "src/core/storage/impact.py",
-    "src/core/storage/user_data.py",
+    "src/core/api/server.py",
     "src/core/update/data_package.py"
    ]
   },
@@ -506,6 +296,20 @@
     "src/core/retrieval/term_bridge.py",
     "src/core/storage/clause_repo.py",
     "src/core/storage/doc_delete.py"
+   ]
+  },
+  "app_config": {
+   "write": [
+    "src/core/update/announce.py",
+    "src/core/update/discover.py",
+    "src/core/update/inspector.py",
+    "src/core/update/subscriptions.py"
+   ],
+   "read": [
+    "src/core/update/announce.py",
+    "src/core/update/discover.py",
+    "src/core/update/inspector.py",
+    "src/core/update/subscriptions.py"
    ]
   },
   "event_log": {
@@ -525,20 +329,99 @@
     "src/core/update/inspector.py"
    ]
   },
-  "project_list": {
+  "feedback_log": {
+   "write": [],
+   "read": [
+    "src/core/llm/fewshot.py"
+   ]
+  },
+  "user_bookmark_folder": {
    "write": [
     "src/core/storage/user_data.py"
    ],
    "read": [
-    "src/core/exports/backlinks.py",
-    "src/core/storage/impact.py",
-    "src/core/storage/user_data.py",
-    "src/core/update/data_package.py"
+    "src/core/storage/user_data.py"
    ]
   },
-  "clause_vec_metadatachunks00": {
+  "folder": {
+   "write": [
+    "src/core/knowledge/folder_store.py"
+   ],
+   "read": [
+    "src/core/knowledge/folder_store.py"
+   ]
+  },
+  "material_project": {
+   "write": [
+    "src/core/storage/material_repo.py"
+   ],
+   "read": [
+    "src/core/storage/material_repo.py"
+   ]
+  },
+  "clause_fts_docsize": {
    "write": [],
    "read": []
+  },
+  "clause_fts_content": {
+   "write": [],
+   "read": []
+  },
+  "gap_analysis": {
+   "write": [
+    "src/core/compliance/gap_analysis.py"
+   ],
+   "read": []
+  },
+  "internal_policy": {
+   "write": [
+    "src/core/compliance/gap_analysis.py"
+   ],
+   "read": [
+    "src/core/api/server.py",
+    "src/core/compliance/gap_analysis.py"
+   ]
+  },
+  "update_change_event": {
+   "write": [
+    "src/core/storage/doc_delete.py",
+    "src/core/update/change_repo.py",
+    "src/core/update/inspector.py"
+   ],
+   "read": [
+    "src/core/api/routes_update.py",
+    "src/core/storage/doc_delete.py",
+    "src/core/update/change_repo.py",
+    "src/core/update/data_package.py",
+    "src/core/update/inspector.py",
+    "src/core/update/report.py"
+   ]
+  },
+  "watch_list": {
+   "write": [
+    "src/core/storage/doc_delete.py"
+   ],
+   "read": [
+    "src/core/storage/doc_delete.py",
+    "src/core/update/data_package.py",
+    "src/core/update/inspector.py"
+   ]
+  },
+  "clause_vec_rowids": {
+   "write": [],
+   "read": []
+  },
+  "folder_member": {
+   "write": [
+    "src/core/knowledge/folder_store.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ],
+   "read": [
+    "src/core/knowledge/folder_store.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ]
   },
   "legal_obligation": {
    "write": [
@@ -549,6 +432,123 @@
     "src/core/compliance/gap_analysis.py",
     "src/core/storage/doc_delete.py",
     "src/core/update/data_package.py"
+   ]
+  },
+  "update_channel": {
+   "write": [
+    "src/core/storage/channel_repo.py"
+   ],
+   "read": [
+    "src/core/storage/channel_repo.py",
+    "src/core/update/channel_test.py"
+   ]
+  },
+  "user_doc_bookmark": {
+   "write": [
+    "src/core/storage/doc_delete.py",
+    "src/core/storage/user_data.py"
+   ],
+   "read": [
+    "src/core/api/server.py",
+    "src/core/storage/doc_delete.py",
+    "src/core/storage/user_data.py",
+    "src/core/update/inspector.py"
+   ]
+  },
+  "user_bookmark": {
+   "write": [
+    "src/core/storage/user_data.py"
+   ],
+   "read": [
+    "src/core/api/server.py",
+    "src/core/exports/backlinks.py",
+    "src/core/storage/impact.py",
+    "src/core/storage/user_data.py",
+    "src/core/update/data_package.py"
+   ]
+  },
+  "operation_log": {
+   "write": [
+    "src/core/ingestion/law_text.py",
+    "src/core/ingestion/pipeline.py"
+   ],
+   "read": [
+    "src/core/api/server.py"
+   ]
+  },
+  "clause_fts_idx": {
+   "write": [],
+   "read": []
+  },
+  "write_queue": {
+   "write": [
+    "src/core/storage/write_queue.py"
+   ],
+   "read": [
+    "src/core/storage/write_queue.py"
+   ]
+  },
+  "material_fts_idx": {
+   "write": [],
+   "read": []
+  },
+  "clause_vec_metadatatext00": {
+   "write": [],
+   "read": []
+  },
+  "channel_test_case": {
+   "write": [
+    "src/core/update/channel_test.py"
+   ],
+   "read": [
+    "src/core/update/channel_test.py"
+   ]
+  },
+  "audit_log": {
+   "write": [],
+   "read": []
+  },
+  "clause_fts_data": {
+   "write": [],
+   "read": []
+  },
+  "clause_vec_info": {
+   "write": [],
+   "read": []
+  },
+  "obligation_list": {
+   "write": [
+    "src/core/storage/user_data.py"
+   ],
+   "read": [
+    "src/core/exports/backlinks.py",
+    "src/core/storage/user_data.py"
+   ]
+  },
+  "clause_vec_vector_chunks00": {
+   "write": [],
+   "read": []
+  },
+  "doc_filing_state": {
+   "write": [
+    "src/core/knowledge/folder_store.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ],
+   "read": [
+    "src/core/knowledge/folder_store.py",
+    "src/core/storage/clause_repo.py",
+    "src/core/storage/doc_delete.py"
+   ]
+  },
+  "update_check_batch": {
+   "write": [
+    "src/core/update/change_repo.py",
+    "src/core/update/inspector.py"
+   ],
+   "read": [
+    "src/core/update/change_repo.py",
+    "src/core/update/report.py"
    ]
   }
  }

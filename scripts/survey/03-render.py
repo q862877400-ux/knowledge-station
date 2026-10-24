@@ -1042,6 +1042,43 @@ def gen_requirements() -> None:
           "\\n".join(out))
 
 
+
+def gen_rules() -> None:
+    d = load("rules")
+    c = d["counts"]
+    out = [
+        "## 一、口径", "", d["caliber"], "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 扫描 `src/**/*.py` | {c['py_files_scanned']} |",
+        f"| 抽出规则常量 | **{c['rules']}** |",
+        f"| 正则类 | {c['by_kind'].get('regex', 0)} |",
+        f"| 数值阈值类 | {c['by_kind'].get('threshold', 0)} |",
+        f"| **带注释（有理由）** | {c['with_comment']} |",
+        f"| 没注释 | {c['without_comment']} |",
+        "",
+        "## 三、规则集中在哪", "",
+        "| 文件 | 规则数 |", "|---|---:|",
+    ]
+    for k, v in d["by_file_top"].items():
+        out.append(f"| `{k}` | {v} |")
+    out += ["", "## 四、按文件列全部规则", ""]
+    cur = None
+    for r in sorted(d["rules"], key=lambda x: (x["file"], x["lineno"])):
+        if r["file"] != cur:
+            cur = r["file"]
+            out.append(f"### `{cur}`")
+            out.append("")
+            out.append("| 行 | 名字 | 类型 | 值 | 挂在哪 | 注释（原文） |")
+            out.append("|---:|---|---|---|---|---|")
+        val = cell(r["value"][:70])
+        out.append(f"| {r['lineno']} | `{r['name']}` | {r['kind']} | `{val}` | "
+                   f"`{r['scope']}` | {cell(r['comment'][:80]) or '—'} |")
+        if r is d["rules"][-1]:
+            out.append("")
+    write("20-rules.md", "判定规则总表（正则 / 阈值 / 理由）", "\\n".join(out))
+
+
 def main() -> int:
     gen_readme()
     gen_inventory()
@@ -1061,6 +1098,7 @@ def main() -> int:
     gen_function_index()
     gen_runtime_probe()
     gen_requirements()
+    gen_rules()
     print("\n全部生成完毕")
     return 0
 

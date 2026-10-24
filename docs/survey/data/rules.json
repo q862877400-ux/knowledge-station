@@ -1,0 +1,2658 @@
+{
+ "generated_by": "scripts/survey/10-rules.py",
+ "caliber": "从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` / `_RE_*`）；② 数值阈值类（全大写名字 + 数字字面量）。`comment` = 该行**上方紧邻的连续注释**（最多 6 行，保留原文、不概括）。`scope` = 所在函数/类；模块级记 `(模块级)`。**这是「规则的字面判据 + 当初的理由」，不是「算法的完整复述」** —— 要把算法讲清得逐行读函数体。",
+ "counts": {
+  "py_files_scanned": 158,
+  "rules": 291,
+  "by_kind": {
+   "threshold": 131,
+   "regex": 160
+  },
+  "with_comment": 169,
+  "without_comment": 122,
+  "files_with_rules": 74
+ },
+ "by_file_top": {
+  "src/core/text_utils.py": 56,
+  "src/core/update/announce.py": 24,
+  "src/core/ingestion/pipeline.py": 17,
+  "src/core/update/web_ingest.py": 13,
+  "src/core/knowledge/classifier.py": 9,
+  "src/core/ingestion/bulk.py": 7,
+  "src/core/ingestion/dry_run.py": 7,
+  "src/core/llm/ks_answer.py": 7,
+  "src/core/update/channels/mee.py": 7,
+  "src/core/verification/patch_guard.py": 7,
+  "src/core/knowledge/law_source/verify.py": 6,
+  "src/core/materials/collect.py": 5,
+  "src/core/retrieval/hybrid_engine.py": 5,
+  "src/core/settings/secret_store.py": 5,
+  "src/core/update/discover.py": 5,
+  "src/core/ingestion/mineru_adapter.py": 4,
+  "src/core/knowledge/auto_tag.py": 4,
+  "src/core/knowledge/ccs_backfill.py": 4,
+  "src/core/knowledge/law_source/catalog.py": 4,
+  "src/core/exports/research_report.py": 3
+ },
+ "rules": [
+  {
+   "name": "_BATCH_LIMIT",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 38,
+   "scope": "(模块级)",
+   "comment": ": 批量同步接口的硬上限。**注意它不是超时保护**（单本预览在负载下实测可达 135s， : 200 本远超任何 HTTP 超时）——它防的是单请求的内存/payload 膨胀。真正的节流靠 : `sample` 默认 5（决策 2「新语料源先抽样 3~5 本」）；全量万级需要异步版本（见台账）。"
+  },
+  {
+   "name": "MAX_FOLDER_PAGE",
+   "kind": "threshold",
+   "value": "500",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 44,
+   "scope": "(模块级)",
+   "comment": ": 一页最多几个目录（真库最宽的一层 206 个 ⇒ 500 有充裕余量）"
+  },
+  {
+   "name": "MAX_FILE_PAGE",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 46,
+   "scope": "(模块级)",
+   "comment": ": 一页最多几篇文件"
+  },
+  {
+   "name": "THREADPOOL_TOKENS",
+   "kind": "threshold",
+   "value": "16",
+   "file": "src/core/api/server.py",
+   "lineno": 49,
+   "scope": "(模块级)",
+   "comment": ": ⚠ `asyncio.to_thread(...)` 走的是 **asyncio 的默认执行器**（`min(32, cpu+4)` 个 worker）， : **不是**这口 anyio 池 ⇒ **不受**本常量约束、也不吃重活闸门的令牌。 : §10.93 之前 `/laws/*` 那 5 条正是这么写的（\"看着已经让出事件循环，其实换了一口无界的池\"）； : 现在那 5 条已改回 `def`，**全库 `asyncio.to_thread` 零使用**，并由 : `tests/test_material_api.py::test_端点上不许用_asyncio_to_thread` "
+  },
+  {
+   "name": "HEAVY_TOKENS",
+   "kind": "threshold",
+   "value": "4",
+   "file": "src/core/api/server.py",
+   "lineno": 89,
+   "scope": "(模块级)",
+   "comment": ": **长活**与**文件流式读取**（`FileResponse`，也吃同一口池子）放在一个队里—— : 16 条长解析在飞时，加载一份 PDF 就得排队（最长可等到一条 135s 的预览跑完）。 : 这一层把两类活分开：**重活最多 4 条**，其余 12 个线程留给文件流与廉价 DB 操作； : 排队发生在**中间件里 `await`**（异步等，**不占线程**），所以\"等\"本身不消耗任何池子额度。 : 4 的取法：单用户桌面场景同时发起的重活通常 1–2 条；4 足够容纳\"批量预览 + 顺手看一眼图\"， : 又把最坏情况的子进程数压到 4。"
+  },
+  {
+   "name": "GREEN_RATIO",
+   "kind": "threshold",
+   "value": "0.5",
+   "file": "src/core/compliance/gap_analysis.py",
+   "lineno": 29,
+   "scope": "(模块级)",
+   "comment": "三色判定阈值（GREEN：命中关键词语义占比或绝对命中数任一达标）"
+  },
+  {
+   "name": "GREEN_ABS_HIT",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/compliance/gap_analysis.py",
+   "lineno": 30,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DATE_STRICT_LEN",
+   "kind": "threshold",
+   "value": "10",
+   "file": "src/core/exports/effect_report.py",
+   "lineno": 81,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_MATERIAL_REF",
+   "kind": "regex",
+   "value": "re.compile('\\\\[\\\\[m:\\\\s*(-?\\\\d+)\\\\s*\\\\]\\\\]')",
+   "file": "src/core/exports/research_report.py",
+   "lineno": 46,
+   "scope": "(模块级)",
+   "comment": ": 引用标记：`[[m:0]]` 是材料、`[[c:2]]` 是法条（与提示词里的两套编号一致）。"
+  },
+  {
+   "name": "_RE_CLAUSE_REF",
+   "kind": "regex",
+   "value": "re.compile('\\\\[\\\\[c:\\\\s*(-?\\\\d+)\\\\s*\\\\]\\\\]')",
+   "file": "src/core/exports/research_report.py",
+   "lineno": 47,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "LIST_CAP",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/exports/research_report.py",
+   "lineno": 50,
+   "scope": "(模块级)",
+   "comment": ": 报告中\"只列前 N 条\"的上限（避免一份报告把整库抄进去）。"
+  },
+  {
+   "name": "_RE_FIG_CAPTION",
+   "kind": "regex",
+   "value": "re.compile('^图\\\\s*[0-9A-Z]+(?:\\\\.[0-9A-Z]+)?\\\\s*\\\\S')",
+   "file": "src/core/figure_locator.py",
+   "lineno": 26,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "CHUNK_SIZE",
+   "kind": "threshold",
+   "value": "65536",
+   "file": "src/core/file_digest.py",
+   "lineno": 31,
+   "scope": "(模块级)",
+   "comment": ": 读文件的分块大小。**历史指纹依赖这个值，改它等于让旧指纹全部对不上。**"
+  },
+  {
+   "name": "DEFAULT_BATCH_SIZE",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 33,
+   "scope": "(模块级)",
+   "comment": "---------------------------------------------------------------- 常量（pipeline/06 §2）"
+  },
+  {
+   "name": "DEFAULT_SCAN_CONCURRENCY",
+   "kind": "threshold",
+   "value": "2",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 34,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "DEFAULT_PARSE_DAILY_BUDGET",
+   "kind": "threshold",
+   "value": "2000",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 35,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "SNAPSHOT_EVERY_BATCHES",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_NO_RE",
+   "kind": "regex",
+   "value": "re.compile('(GB/T|GB|DB\\\\d{2}|JGJ|CJ|AQ|HJ|WS|YY|JB|HG|DL|SY|GA|QB|FZ|TSG|JT/T|TB|MT|NB)[\\\\s/]?T?[\\\\s-]?\\\\d{3,5}(?:\\\\.\\\\d+)?[\\\\s-]?\\\\d{4}')",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 43,
+   "scope": "(模块级)",
+   "comment": ": 标准号/名称/年代 首页提取正则（快扫级，容忍 OCR 残字）"
+  },
+  {
+   "name": "_YEAR_RE",
+   "kind": "regex",
+   "value": "re.compile('(19|20)\\\\d{2}')",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 44,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_NAME_RE",
+   "kind": "regex",
+   "value": "re.compile('^[\\\\u4e00-\\\\u9fa5A-Za-z0-9（）()·、—\\\\- ]{2,60}$')",
+   "file": "src/core/ingestion/bulk.py",
+   "lineno": 45,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "JOB_POLL_S",
+   "kind": "threshold",
+   "value": "0.5",
+   "file": "src/core/ingestion/deep_server.py",
+   "lineno": 34,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "HEARTBEAT_STALE_S",
+   "kind": "threshold",
+   "value": "120.0",
+   "file": "src/core/ingestion/deep_server.py",
+   "lineno": 35,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SPAWN_LOCK_OPEN_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "2.0",
+   "file": "src/core/ingestion/deep_server.py",
+   "lineno": 40,
+   "scope": "(模块级)",
+   "comment": ": `.spawn.lock` 的 `open()` 撞车重试上限（秒）。见 `_ensure_server` 里那段说明： : Windows 上并发 `CreateFile(OPEN_ALWAYS)` 同一个不存在的路径会拿到 ERROR_ACCESS_DENIED。 : 有界 ⇒ 真·权限问题（目录只读等）仍然照原样抛出来，不被吞。"
+  },
+  {
+   "name": "_HEADING_RE",
+   "kind": "regex",
+   "value": "re.compile('^#{1,6}\\\\s+(.+)$', re.M)",
+   "file": "src/core/ingestion/docx_adapter.py",
+   "lineno": 67,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "PREVIEW_SCHEMA_VERSION",
+   "kind": "threshold",
+   "value": "1",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 63,
+   "scope": "(模块级)",
+   "comment": ": 报告结构版本（UI 前向兼容用）"
+  },
+  {
+   "name": "BATCH_MAX_FILES",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 67,
+   "scope": "(模块级)",
+   "comment": ": 批量预览的硬上限（同步接口，防单请求内存/payload 膨胀——**不是超时保护**： : 单本预览在负载下实测可达 135s。真正的节流是 `sample` 默认 5；全量万级需异步版本）"
+  },
+  {
+   "name": "BATCH_DEFAULT_SAMPLE",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 68,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "SAMPLE_N",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 70,
+   "scope": "(模块级)",
+   "comment": ": 逐条抽样预览条数（前 N / 后 N）"
+  },
+  {
+   "name": "MAX_SUSPECTS",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 72,
+   "scope": "(模块级)",
+   "comment": ": 可疑条款清单上限（防 payload 爆炸）"
+  },
+  {
+   "name": "HEAD_CHARS",
+   "kind": "threshold",
+   "value": "80",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 74,
+   "scope": "(模块级)",
+   "comment": ": head 展示截断（仅展示，绝不入库）"
+  },
+  {
+   "name": "_PARSE_LOCK_STRIPES",
+   "kind": "threshold",
+   "value": "64",
+   "file": "src/core/ingestion/dry_run.py",
+   "lineno": 81,
+   "scope": "(模块级)",
+   "comment": ": 同一份源文件的解析锁——按哈希**分片**（§10.77）。 : 为什么是分片而不是\"每个目录一把\"：后者要为进程见过的**每个文件**留一个锁对象， : 万级批量预览就是万级条目（虽然小，但无界）；分片表**内存有界**，且不同文件几乎不撞。 : 为什么不是\"全局一把\"：那会把**不同文件**的预览也串起来（批量预览与手动预览互相等）， : 属于\"为了安全把吞吐也一起牺牲\"——而这里的风险是**同一目录**的并发写，不是全局状态。"
+  },
+  {
+   "name": "DEFAULT_MAX_CHARS",
+   "kind": "threshold",
+   "value": "900",
+   "file": "src/core/ingestion/material_ingest.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": ": 单块目标字数（超长段落会被硬切）。材料检索不像法条那样逐条取证，块大一点上下文更完整。"
+  },
+  {
+   "name": "_RE_PAGENO",
+   "kind": "regex",
+   "value": "re.compile('[IVXivx\\\\d]{1,4}')",
+   "file": "src/core/ingestion/mineru_adapter.py",
+   "lineno": 96,
+   "scope": "(模块级)",
+   "comment": "2026-08-29 块级噪声剔除（语料级，GB/T 34406-2017 实测）：盗版标准站每页页眉 水印块（\"www.bzfxw.com\" 独立块，切分压平后粘进条款尾）与页眉/页脚页码块 （全角页码 '３' NFKC 归一化后为半角数字，罗马页码 'Ⅰ'→'I'）。"
+  },
+  {
+   "name": "_MIN_LETTER_RATIO",
+   "kind": "threshold",
+   "value": "0.7",
+   "file": "src/core/ingestion/mineru_adapter.py",
+   "lineno": 166,
+   "scope": "(模块级)",
+   "comment": ":   ——**只有\"改严\"那一半是真的**。复核实测：把字母/标点阈值单独放到 **0.0**、或把它 :   放到 **0.381**、或两个都放到 0.60，**测试全都全绿**；只有\"两个一起放宽\"才会被 :   `TestLatinProseThresholdIsAnchored` 的**行为不变量**（乱码夹具必须仍判中）杀掉。 :   原因：判据是 `s1 < T1 or s2 < T2` 的**或**关系，而仓里**没有一条乱码夹具是\"只有 s1 :   才抓得住\"**（它们的 s2 都被 T2 单独兜住）⇒ **s1 的下界在本仓钉不住**，它只是 s2 的 :   旁证。这"
+  },
+  {
+   "name": "_MIN_WORDY_RATIO",
+   "kind": "threshold",
+   "value": "0.7",
+   "file": "src/core/ingestion/mineru_adapter.py",
+   "lineno": 167,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_GPU_LOCK_DEFAULT_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "3600.0",
+   "file": "src/core/ingestion/mineru_adapter.py",
+   "lineno": 325,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "POLL_INTERVAL_S",
+   "kind": "threshold",
+   "value": "5.0",
+   "file": "src/core/ingestion/mineru_cloud.py",
+   "lineno": 34,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_ASSET_FNAME_RE",
+   "kind": "regex",
+   "value": "re.compile('[0-9a-f]{64}\\\\.(?:jpg|jpeg|png)')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 67,
+   "scope": "(模块级)",
+   "comment": "2026-09-01 C2：插图文件名白名单（与 /assets 端点同款——图名不合规不渲染， 双闸一致防注入）。"
+  },
+  {
+   "name": "_DIR_ENTRY_RE",
+   "kind": "regex",
+   "value": "re.compile('附\\\\s*录\\\\s*[A-Z一二三四五六七八九十]?\\\\s*[（(]\\\\s*(规范性|资料性|推荐性|引导性)\\\\s*附录')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 153,
+   "scope": "(模块级)",
+   "comment": "2026-09-02 目录条目排除（GB/T 1000-2016 实测）：文件目录页写 \"附录A (规范性附录) 绝缘子螺套…\"，与真附录头\"附 录 A\"同形，误设 in_appendix → 后续正文章级条款(1/2/3/4)被 `m_chap and not in_appendix` 跳过而全丢。 目录条目特征：附录号后紧跟 \" (规范性/资料性/推荐性/引导性附录)\" 说明。"
+  },
+  {
+   "name": "_RE_TOC_CL_NO_DOTS",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*\\\\d+(?:\\\\.\\\\d+)*\\\\s+\\\\S.*?\\\\s\\\\d{1,3}\\\\s*$', re.M)",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 207,
+   "scope": "(模块级)",
+   "comment": ": 产出条款号序列断裂：['前置1','10.2.3','14.5','1','2','3',…] : ——'14.5' 抢占正文 14.5 的座位（正文 14.5 内容实为目录尾部）。 : 判据：**≥2 行**形如「条款号 + 标题 + 1–3 位数字（页码）」。两条约束缺一不可： :   - 数字尾是目录行与正文行的分水岭：正文块行尾**不会**带裸页码； :     少了它会把普通多行正文块吃进目录态（'3.1 原则\\n3.2 方法' 即误判）。 :   - ≥2 行是防单行误判：正文里一句\"见 4.2 条 5\"也可能单行成立。"
+  },
+  {
+   "name": "_RE_INDEX_ENTRY",
+   "kind": "regex",
+   "value": "re.compile('(?:…{2,}|[.．]{3,})\\\\s*\\\\d{1,3}\\\\.\\\\d{1,3}\\\\s*$', re.M)",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 219,
+   "scope": "(模块级)",
+   "comment": ": 为什么前两条签名都够不着：`_TOC_ENTRY` 要求点线后是 `\\d{1,3}\\s*$`（无小数点）， : `_RE_TOC_CL_NO_DOTS` 要求行首是**条款号** + 整数页码尾——索引条目行首是**词条**。 : 现状靠 `_INDEX_HEAD` 置索引起止态侥幸绕过（实测该部 416 条正文、索引未倒灌）， : 但**若某文档的索引没有标题块**，这些条目就会倒进正文——这是本次要堵的洞。 : 判据收紧点：① 必须有**点线**（正文里几乎没有连续的 `……`）； :   ② 页码必须是 `数字.数字`（小数）；③ ≥2 行（单行可能是正文里的\"见 3.2 …… 4."
+  },
+  {
+   "name": "_CHAPTER_MAX",
+   "kind": "threshold",
+   "value": "60",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 253,
+   "scope": "(模块级)",
+   "comment": "E8 表格数值防误判（2026-08-28 生产实测）：化学分析类标准的大表被 MinerU 切成 文本行后，行首单元格值（\"0.10 0.030 0.002\"）满足 _CLAUSE_GB 的 len≥3/含点门槛 → 每行被切成 0.x 假条款（审计：41% 新产出文档中招，单文档最多数百假条款）。 闸门 1：真实 GB 标准章号首段 ∈ 1..60（GB 50xxx 的 \"4.0.1\" 首段也是 4， 从无 0 开头的章；\"1103.11\" 这类千位数值全是表格数据）。 闸门 2：真实条款头号码后极少紧跟 ≥2 个独立数字（表格行特征：\"4.2 1.5 3.0\"）。"
+  },
+  {
+   "name": "_TABULAR_REST",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*\\\\d+(?:\\\\.\\\\d+)?(?:\\\\s+\\\\d+(?:\\\\.\\\\d+)?)')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 254,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_HEAD_UNIT",
+   "kind": "regex",
+   "value": "'mm|cm|dm|km|nm|µm|μm|kg|mg|µg|μg|mL|µL|μL|dL|ms|ns|min|mol|mmol|ppm|kPa|MPa|GHz|kHz|kN|mA|mV|kV|kW|kJ|Pa|Hz|m|g|t|s|h|d|l'",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 260,
+   "scope": "(模块级)",
+   "comment": ": 闸门 5 的单位词表（**多字符单位 + 小写单字母单位**）。 : 大写单字母（A/V/W/N/J/L）故意不收：`A类评定`/`A 型结构` 这类\"型号标签\" : 标题会被误拒（实测反向对照，见 tests/test_head_unit_fragment_gate.py）。"
+  },
+  {
+   "name": "_RE_HEAD_UNIT_FRAG",
+   "kind": "regex",
+   "value": "re.compile(f'^\\\\s*(?:{_RE_HEAD_UNIT})(?!\\\\s*[A-Za-z])')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 272,
+   "scope": "(模块级)",
+   "comment": ": 判据两条同时成立： :   ① rest 以单位 token 起头； :   ② 该单位后面**不是另一个拉丁词**（`\\s*[A-Za-z]` 为否）——\"ppm parts per :      million\" 是合法术语条（英文缩写作标题），必须放行；而 \"mmol/L氯化镁\"、 :      \"mL，用40%\"、\"m/s<v≤2.0\"、\"kg/m³。\"、\"m×全幅\"、\"mm 模数直齿轮\" 都是 :      数值片段的后续（斜杠/乘号/中文标点/中文），即假条款头。"
+  },
+  {
+   "name": "_RE_CONT_REST",
+   "kind": "regex",
+   "value": "re.compile('^[\\\\s\\\\)）\\\\]】》~～。，、；：,.;:·—–\\\\-]+|^\\\\s*(?:或|和|及|与|即|则|其中|式中|以及|见|按|如)\\\\s*(?:\\\\d|[A-Z]{2,6}\\\\s*[/\\\\s]?\\\\s*[A-Z]?\\\\s*\\\\d)|^\\\\s*[\\\\d.]')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 324,
+   "scope": "(模块级)",
+   "comment": ": 旧正则深度不足时的 '.1 概述'（点起头）。 : : **2026-09-15 修正（GB/T 12706.4-2020 '7.8 如果在较低U₀值电缆…' 被误拒）**： : 初版连接词分支只认词本身（或/见/按/如…）→ **合法条款标题以「如」起头也被拒** : （\"7.8 如果…\" 整条并进上一条）。真续行的连接词后面**必然紧跟一个引用对象** : （条款号或标准号），故连接词分支补这个必要条件：后面接数字或标准号前缀。"
+  },
+  {
+   "name": "_RE_LEADER_RUN",
+   "kind": "regex",
+   "value": "re.compile('^[0.·\\\\u2024\\\\s]{6,}$')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 390,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_LEGEND_HEAD",
+   "kind": "regex",
+   "value": "re.compile('^标.{0,3}序.{0,4}[：:]?\\\\s*$|^标.{0,3}序.{0,12}[：:]\\\\s*$|^标.{0,3}序.{0,4}说?明?[：:]|^标.{0,3}序.{0,12}说?明?[：:]')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 557,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_FIG_CAPTION_LINE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*图\\\\s*[A-Z]?\\\\.?\\\\s*\\\\d')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 563,
+   "scope": "(模块级)",
+   "comment": ": 图注行（图例段的结束边界）：'图 B.4' / '图 12' / '图A.1'"
+  },
+  {
+   "name": "_RE_LEGEND_ITEM",
+   "kind": "regex",
+   "value": "re.compile('(?<![\\\\dA-Za-z])\\\\d{1,2}\\\\s*[—\\\\-–~]{1,3}\\\\s*[^\\\\d\\\\s]')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 567,
+   "scope": "(模块级)",
+   "comment": "图例清单项：'N——标签'（同一行可多项：'1——托架：5——辐射锥：9——控制盒：'）。 前界用「非数字/字母」负向环视而非 \\s ——实测多项同行时分隔符是 '：'/'；'， 初版 (?:^|\\s) 只匹配到第一项、整块漏判。"
+  },
+  {
+   "name": "_RE_LEGEND_HEAD_ANY",
+   "kind": "regex",
+   "value": "re.compile('标.{0,3}序.{0,12}[：:]|说\\\\s*明\\\\s*[：:]|图\\\\s*中\\\\s*[：:]')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 1128,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_LEGEND_ITEM_ANY",
+   "kind": "regex",
+   "value": "re.compile('(?<![\\\\w])(?:[0-9A-Za-zΑ-Ωα-ω₀-₉ᵢₙₜₑ]{1,4})\\\\s*[—–]{2,}\\\\s*\\\\S')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 1134,
+   "scope": "(模块级)",
+   "comment": ": 图例条目（放宽到**任意符号/编号 + ——**）：'1——径向综合总公差'、'X ——温度 t'、 : '4——接触销'。原先只认数字型 `\\d{1,2}[—\\-–~]{1,3}`，符号型条目（X/Y/H/dₙ₁）数不到。"
+  },
+  {
+   "name": "_RE_WM_SPAN_URL",
+   "kind": "regex",
+   "value": "re.compile('www\\\\.[A-Za-z0-9\\\\-]+\\\\.(?:com|cn|net|org)', re.I)",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 1744,
+   "scope": "(模块级)",
+   "comment": ": 水印 URL / 页边页码形态（_cell_html 抽取侧 span 过滤用）。 : 注意不能用 fitz redact 做「抽取前页面清理」：apply_redactions 按矩形区域 : 删文本，斜铺大字水印（GB/T 34406 实测 bbox y219-619 横穿页面中央）的 : 矩形覆盖表 A.1，cells 正文会整格陪葬——表格整个丢失、数据泄漏成 : '36.92' 假条款。span 级过滤精确到文本对象，零陪葬。"
+  },
+  {
+   "name": "_RE_WM_SPAN_PAGENO",
+   "kind": "regex",
+   "value": "re.compile('[IVXivx\\\\dⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]{1,4}')",
+   "file": "src/core/ingestion/pipeline.py",
+   "lineno": 1745,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_JOBS_KEEP",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/ingestion/preview_jobs.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": "任务保留上限（防内存膨胀：一个万级行表 ~ 几 MB；历史任务保留最近 5 个）"
+  },
+  {
+   "name": "_ABORT_CHECK_EVERY",
+   "kind": "threshold",
+   "value": "16",
+   "file": "src/core/ingestion/preview_jobs.py",
+   "lineno": 38,
+   "scope": "(模块级)",
+   "comment": "worker 每处理多少件检查一次中断标志（万级下 abort 延迟 ≤ 16 件）"
+  },
+  {
+   "name": "MAX_REINGEST_DOCS",
+   "kind": "regex",
+   "value": "50",
+   "file": "src/core/ingestion/reingest.py",
+   "lineno": 40,
+   "scope": "(模块级)",
+   "comment": ": 一次最多接几篇（后台线程串行解析；防\"手一抖选 379 篇\"把机器占死一整天）。"
+  },
+  {
+   "name": "_STD_NO_RE",
+   "kind": "regex",
+   "value": "re.compile('(GB|GB/T|JGJ|JG|CJJ|DB\\\\d{2}|DBJ|SH|HG|AQ|TSG)[/\\\\s]*T?\\\\s*\\\\d{4,6}(?:[-—]\\\\d{4})?')",
+   "file": "src/core/knowledge/auto_tag.py",
+   "lineno": 14,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_YEAR_RE",
+   "kind": "regex",
+   "value": "re.compile('(19|20)\\\\d{2}')",
+   "file": "src/core/knowledge/auto_tag.py",
+   "lineno": 16,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SUPERSEDE_RE",
+   "kind": "regex",
+   "value": "re.compile('代替\\\\s*((?:GB|JGJ|GB/T|CJJ|DB)[/\\\\s]*T?\\\\s*\\\\d{4,6}(?:[-—]\\\\d{4})?)')",
+   "file": "src/core/knowledge/auto_tag.py",
+   "lineno": 17,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_EFFECTIVE_RE",
+   "kind": "regex",
+   "value": "re.compile('自\\\\s*((?:19|20)\\\\d{2}\\\\s*年\\\\s*\\\\d{1,2}\\\\s*月\\\\s*\\\\d{1,2}\\\\s*日)\\\\s*起\\\\s*施行')",
+   "file": "src/core/knowledge/auto_tag.py",
+   "lineno": 18,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MAX_BACKFILL_DOCS",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/knowledge/ccs_backfill.py",
+   "lineno": 64,
+   "scope": "(模块级)",
+   "comment": ": 一次最多补几篇（后台串行 + 限速；防\"手一抖把 380 篇全打出去\"）"
+  },
+  {
+   "name": "DEFAULT_BACKFILL_DOCS",
+   "kind": "threshold",
+   "value": "50",
+   "file": "src/core/knowledge/ccs_backfill.py",
+   "lineno": 66,
+   "scope": "(模块级)",
+   "comment": ": 不指定时一次补几篇（按一下按钮的合理批量；剩下的再按一次）"
+  },
+  {
+   "name": "DOC_PAUSE_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/knowledge/ccs_backfill.py",
+   "lineno": 68,
+   "scope": "(模块级)",
+   "comment": ": 每篇之间的间隔（秒）—— 与 ``resolve_ccs`` 内部的请求间隔叠加，别调成 0"
+  },
+  {
+   "name": "MAX_BACKFILL_ALL",
+   "kind": "threshold",
+   "value": "2000",
+   "file": "src/core/knowledge/ccs_backfill.py",
+   "lineno": 73,
+   "scope": "(模块级)",
+   "comment": ": **「全部补完」一次的硬上限**（业主点名第③条）：到这儿就停、**如实说停在硬上限、 : 还剩多少**，绝不假装补完。为什么要有它：真库 6417 篇标准、380 篇缺号，一篇一到几秒 : 再加每篇 1 秒间隔 ⇒ 2000 篇 ≈ 3~5 小时。没有上限，\"一次补完\"就变成一个关不掉的 : 几小时后台进程、中途出问题的损失面也大。到上限停（``hard_cap``），剩下的下次再点。"
+  },
+  {
+   "name": "_NO_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*([A-Za-z]{1,6})?\\\\s*[/／]?\\\\s*([A-Za-z]{0,4})?\\\\s*(\\\\d+(?:\\\\.\\\\d+)*)\\\\s*[-－—–‐]?\\\\s*(\\\\d{2,4})?\\\\s*$')",
+   "file": "src/core/knowledge/ccs_fetcher.py",
+   "lineno": 239,
+   "scope": "(模块级)",
+   "comment": ": 标准号拆解：可选的字母前缀 + 数字主体（可带分部号）+ 可选年代。 : ⚠ 年代收 **2~4 位**：真库有 ``GB 228-87`` 这种老写法（2026-09-22 真机 380 篇实测里 : 就有一条），只认 4 位会让它连\"数字主体\"这一形式都试不出来（`$` 锚定失败 ⇒ 返回 []）。"
+  },
+  {
+   "name": "_CLEAN_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*([A-Za-z]{1,6})\\\\s*[/／]?\\\\s*([A-Za-z]{0,4})\\\\s*(\\\\d+(?:\\\\.\\\\d+)*)(?:\\\\s*[-－—–‐]\\\\s*(\\\\d{2,4}))?')",
+   "file": "src/core/knowledge/ccs_fetcher.py",
+   "lineno": 246,
+   "scope": "(模块级)",
+   "comment": ": 从**开头**抠出\"标准号那一段\"（允许后面跟着杂字）。 : ⚠ 为什么需要它（2026-09-22 真机 380 篇实测）：真库的标准号字段混进了尾部杂字 —— : ``GB 5009.12-2023食品安全国家标准``、``GB/T 27668-2023显微镜光学显微术术语(1)`` : （各 1~3 篇）。拿**整串**（含中文）去搜当然搜不到，而拿抠出来的号一搜就中。"
+  },
+  {
+   "name": "JOURNAL_VERSION",
+   "kind": "threshold",
+   "value": "1",
+   "file": "src/core/knowledge/ccs_undo.py",
+   "lineno": 50,
+   "scope": "(模块级)",
+   "comment": ": 落盘格式的版本（将来形状变了，回退函数要能认出\"这不是我认识的格式\"而不是瞎恢复）"
+  },
+  {
+   "name": "_MODAL_RE",
+   "kind": "regex",
+   "value": "re.compile('|'.join(sorted(MODALITY_STRENGTH.keys(), key=len, reverse=True)))",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 24,
+   "scope": "(模块级)",
+   "comment": "模态词，长词优先"
+  },
+  {
+   "name": "_SUBJECT_ANCHORED_RE",
+   "kind": "regex",
+   "value": "re.compile('([\\\\u4e00-\\\\u9fff]{2,12}(?:者|人|单位|部门|企业|机构|机关|政府|法院))(?:应当|不得|严禁|禁止|必须|可以|有权)')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 61,
+   "scope": "(模块级)",
+   "comment": "后缀锚定优先：xxx者/人/单位 + 义务动词（避免 lazy 捕获吞动词尾巴）"
+  },
+  {
+   "name": "_SUBJECT_RE",
+   "kind": "regex",
+   "value": "re.compile('([\\\\u4e00-\\\\u9fff]{2,14}?)(?:应当|不得|严禁|禁止|必须|可以|有权)')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 64,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_EXCEPTION_RE",
+   "kind": "regex",
+   "value": "re.compile('(但[^。；]{4,120}|除[^。；]{2,80}外|另有规定[^。；]{0,60})')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 68,
+   "scope": "(模块级)",
+   "comment": "但书/例外（R-L 例外抽取）"
+  },
+  {
+   "name": "_REF_INTERNAL",
+   "kind": "regex",
+   "value": "re.compile('(?:本规范|本法|本条例|本标准)?\\\\s*第?[一二三四五六七八九十百千\\\\d]+条')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 71,
+   "scope": "(模块级)",
+   "comment": "引用：内部条款（本规范/本法 第X条 或 裸条款号）与外部标准号"
+  },
+  {
+   "name": "_REF_INTERNAL_NUM",
+   "kind": "regex",
+   "value": "re.compile('(?:本规范|本法|本条例|本标准|本规程)?\\\\s*(?:第\\\\s*(\\\\d+(?:\\\\.\\\\d+){1,4})\\\\s*条|(?:按|依|遵|按照|依照|符合|执行)\\\\s*第?\\\\s*(\\\\d+(?:\\\\.\\\\d+){1,4})\\\\s*条?)')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 73,
+   "scope": "(模块级)",
+   "comment": "阶段3 放宽：覆盖\"按 5.2.1 执行\"\"应符合 6.4.2\"等无\"本规范\"前缀的内部引用"
+  },
+  {
+   "name": "_REF_INTERNAL_CN",
+   "kind": "regex",
+   "value": "re.compile('(?:依照|按照|依据|根据|适用|参照)?\\\\s*(?:本法|本条例|本规范)?\\\\s*第([一二三四五六七八九十百千]+)条')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 78,
+   "scope": "(模块级)",
+   "comment": "法律文风的内部引用：依照本法第五条 / 按照本法第三条（中文条号，保留原样以匹配条款号）"
+  },
+  {
+   "name": "_REF_EXTERNAL",
+   "kind": "regex",
+   "value": "re.compile('(?:GB|JGJ|GB/T|JG|CJJ|DB)?/?\\\\s*T?\\\\s*\\\\d{4,6}(?:[-—]\\\\d{4})?')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 81,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_REV_MARK",
+   "kind": "regex",
+   "value": "re.compile('^(※|＊|\\\\*)\\\\s*')",
+   "file": "src/core/knowledge/classifier.py",
+   "lineno": 86,
+   "scope": "(模块级)",
+   "comment": "E7 修订标记：条款号后的年份角标 / ※ / ＊"
+  },
+  {
+   "name": "MAX_NAME_LEN",
+   "kind": "threshold",
+   "value": "60",
+   "file": "src/core/knowledge/folder_store.py",
+   "lineno": 61,
+   "scope": "(模块级)",
+   "comment": ": 目录名长度上限（实测真库最长分类名 28 字符 ⇒ 60 有充裕余量）"
+  },
+  {
+   "name": "MAX_DEPTH",
+   "kind": "threshold",
+   "value": "12",
+   "file": "src/core/knowledge/folder_store.py",
+   "lineno": 63,
+   "scope": "(模块级)",
+   "comment": ": 层数上限（方案要求\"无限层级\"，但\"不限\"= 可以构造任意深的路径 ⇒ 给一个远大于实用值的上限）"
+  },
+  {
+   "name": "MAX_PATH_LEN",
+   "kind": "threshold",
+   "value": "240",
+   "file": "src/core/knowledge/folder_store.py",
+   "lineno": 65,
+   "scope": "(模块级)",
+   "comment": ": 完整路径（各级名字用 `/` 连起来）长度上限"
+  },
+  {
+   "name": "PAGE_SIZE",
+   "kind": "threshold",
+   "value": "100",
+   "file": "src/core/knowledge/law_source/catalog.py",
+   "lineno": 43,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_BATCH_WRITE",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/knowledge/law_source/catalog.py",
+   "lineno": 44,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "LAST_REFRESH_KEY",
+   "kind": "regex",
+   "value": "'law.catalog_last_refresh_at'",
+   "file": "src/core/knowledge/law_source/catalog.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ": 上次刷新完成时间（UTC ISO）；失败 MUST NOT 更新它。"
+  },
+  {
+   "name": "DEFAULT_REFRESH_DAYS",
+   "kind": "regex",
+   "value": "1",
+   "file": "src/core/knowledge/law_source/catalog.py",
+   "lineno": 52,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DOWNLOAD_RE",
+   "kind": "regex",
+   "value": "re.compile('href=[\"\\\\\\']([^\"\\\\\\']+\\\\.(?:docx?|ofd|wps))[\"\\\\\\']', re.I)",
+   "file": "src/core/knowledge/law_source/govcn_client.py",
+   "lineno": 23,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MIN_INTERVAL",
+   "kind": "threshold",
+   "value": "0.6",
+   "file": "src/core/knowledge/law_source/http.py",
+   "lineno": 34,
+   "scope": "(模块级)",
+   "comment": "请求间隔（秒），遵守官方公开接口使用节奏，避免影响服务"
+  },
+  {
+   "name": "_ANTIBOT_TRIES",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/knowledge/law_source/http.py",
+   "lineno": 89,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CRUMB_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*(首页\\\\s*[>›»]\\\\s*.*|字号[:：]\\\\s*.*|默认.*超大\\\\s*[|｜].*|打印.*分享.*|收藏.*打印.*)\\\\s*$')",
+   "file": "src/core/knowledge/law_source/ingest.py",
+   "lineno": 149,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CLAUSE_RE",
+   "kind": "regex",
+   "value": "re.compile('^第[一二三四五六七八九十百千零]+[条款条目]\\\\s*')",
+   "file": "src/core/knowledge/law_source/ingest.py",
+   "lineno": 150,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CHAPTER_RE",
+   "kind": "regex",
+   "value": "re.compile('^第[一二三四五六七八九十百千零]+[章节编]\\\\s*')",
+   "file": "src/core/knowledge/law_source/ingest.py",
+   "lineno": 151,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_POLL_INTERVAL_S",
+   "kind": "threshold",
+   "value": "3600.0",
+   "file": "src/core/knowledge/law_source/law_refresh.py",
+   "lineno": 39,
+   "scope": "(模块级)",
+   "comment": ": 线程唤醒间隔（秒）。⚠ 与\"刷新周期\"是两个概念：这是轮询心跳， : 刷新周期是 `law.catalog_refresh_days`（天级）。取 1 小时—— : 刷新粒度是天，小时级心跳足够且几乎无开销（未到期时不碰网络）。"
+  },
+  {
+   "name": "REQUEST_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "5.0",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 79,
+   "scope": "(模块级)",
+   "comment": "---------------------------------------------------------------- 超时预算"
+  },
+  {
+   "name": "TOTAL_BUDGET_S",
+   "kind": "threshold",
+   "value": "8.0",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 80,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "TTL_HOUR",
+   "kind": "threshold",
+   "value": "3600",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 83,
+   "scope": "(模块级)",
+   "comment": "---------------------------------------------------------------- 分级 TTL（秒）"
+  },
+  {
+   "name": "_MAX_PERSIST_ENTRIES",
+   "kind": "threshold",
+   "value": "2000",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 97,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DISK_LOADED",
+   "kind": "threshold",
+   "value": "False",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 103,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DISK_LOADED",
+   "kind": "threshold",
+   "value": "True",
+   "file": "src/core/knowledge/law_source/verify.py",
+   "lineno": 175,
+   "scope": "_load_disk_locked",
+   "comment": ""
+  },
+  {
+   "name": "_DATE_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\d{4}-\\\\d{2}-\\\\d{2}$')",
+   "file": "src/core/knowledge/legal_status.py",
+   "lineno": 21,
+   "scope": "(模块级)",
+   "comment": ": 严格实施日期格式（cssn a205 / ndls a206 均为 YYYY-MM-DD；其他格式不翻转）"
+  },
+  {
+   "name": "HISTORY_MAX_TURNS",
+   "kind": "threshold",
+   "value": "4",
+   "file": "src/core/llm/deepseek_client.py",
+   "lineno": 67,
+   "scope": "(模块级)",
+   "comment": "R60 多轮对话：历史截断参数（防 Prompt 膨胀与重复计费）"
+  },
+  {
+   "name": "HISTORY_CONTENT_MAX",
+   "kind": "threshold",
+   "value": "300",
+   "file": "src/core/llm/deepseek_client.py",
+   "lineno": 68,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MAX_EXAMPLES",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/llm/fewshot.py",
+   "lineno": 17,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MAX_CHARS",
+   "kind": "threshold",
+   "value": "100",
+   "file": "src/core/llm/fewshot.py",
+   "lineno": 18,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "JEV_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "2.0",
+   "file": "src/core/llm/jev_client.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ": 单次调用超时（秒）。实测 p50 约 0.25~0.5s；留足余量但**必须有上限**—— : 这是每条用户消息都可能走一次的路径，不能让外部服务拖住输入。"
+  },
+  {
+   "name": "JEV_BREAKER_FAILS",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/llm/jev_client.py",
+   "lineno": 53,
+   "scope": "(模块级)",
+   "comment": ": 连续失败多少次后短路（熔断），避免\"每条消息都等一次超时\"。冷却 60s 后自动恢复。"
+  },
+  {
+   "name": "JEV_BREAKER_COOLDOWN_S",
+   "kind": "threshold",
+   "value": "60.0",
+   "file": "src/core/llm/jev_client.py",
+   "lineno": 54,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "VERDICT_REVIEW",
+   "kind": "regex",
+   "value": "'review'",
+   "file": "src/core/llm/jev_guard.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "EVIDENCE_SNIPPET_MAX",
+   "kind": "threshold",
+   "value": "800",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 38,
+   "scope": "(模块级)",
+   "comment": "--------------------------------------------------------------------------- 常量 ---------------------------------------------------------------------------"
+  },
+  {
+   "name": "DEGENERATE_BBOX_MIN_W",
+   "kind": "threshold",
+   "value": "5.0",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 47,
+   "scope": "(模块级)",
+   "comment": "尺寸分布是**双峰**的 —— 「0–1pt 碎片」占 13.6%，「≥10pt 正常行」占 86%， 而中间的 **1–5pt 区间几乎为空**（20 万里只有 7 条） ⇒ 阈值 5/3pt 落在**两个峰之间的空隙**里 ⇒ **不会误伤正常行**。 ⚠ 更正留痕：我第一版写\"误伤率 0.02%\"——那是**抽样偏差**造成的错数 （用 LIMIT 200000 按行序取，集中在前面的正常文档；改 ORDER BY RANDOM() 后是 13.6%）。 13.6% 是\"**退化率**\"（多少 span 是碎片），不是\"误伤率\"—— 两者被我混为一谈，已更正。"
+  },
+  {
+   "name": "DEGENERATE_BBOX_MIN_H",
+   "kind": "threshold",
+   "value": "3.0",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 48,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "EVIDENCE_TABLE_MAX",
+   "kind": "threshold",
+   "value": "300",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 49,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "EVIDENCE_CAP",
+   "kind": "threshold",
+   "value": "8",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 50,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "BOOKMARKS_MIN_TOP_K",
+   "kind": "threshold",
+   "value": "50",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 55,
+   "scope": "(模块级)",
+   "comment": "「仅收藏」时的最小检索候选池（verifier 六轮 P1）：检索是全库 top-k，而收藏集只是 其中的交集；k 太小时收藏的条款根本进不了候选。放大到 50（与 host 侧 params.top_k 白名单上限一致），最终证据仍由 max_evidence 封顶。"
+  },
+  {
+   "name": "TITLE_CLAUSE_MAXLEN",
+   "kind": "threshold",
+   "value": "80",
+   "file": "src/core/llm/ks_answer.py",
+   "lineno": 56,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "NEAR_DUP_WINDOW",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/materials/collect.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ": 一次采集最多拿多少条做近似比对（避免在大项目上 O(k²) 失控）。"
+  },
+  {
+   "name": "LAW_MIN_CLAUSES",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/materials/collect.py",
+   "lineno": 57,
+   "scope": "(模块级)",
+   "comment": ": 认法规的**条数门槛**（两个信号各一个门槛，见 `looks_like_law`）。"
+  },
+  {
+   "name": "LAW_STRONG_CLAUSES",
+   "kind": "threshold",
+   "value": "10",
+   "file": "src/core/materials/collect.py",
+   "lineno": 58,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_LEGISLATIVE",
+   "kind": "regex",
+   "value": "re.compile('本(?:法|条例|规定|办法|规则|细则|决定)')",
+   "file": "src/core/materials/collect.py",
+   "lineno": 79,
+   "scope": "(模块级)",
+   "comment": ": 立法句式：法规正文几乎一定会自称（\"本法\"/\"本条例\"/\"本规定\"…）。这是**必要证据之一**， : 用来把\"引用了法条的新闻/合同/判决书\"挡在外面。"
+  },
+  {
+   "name": "_RE_LAW_TITLE",
+   "kind": "regex",
+   "value": "re.compile('《[^》]{2,60}》')",
+   "file": "src/core/materials/collect.py",
+   "lineno": 80,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "DEFAULT_NGRAM",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/materials/dedup.py",
+   "lineno": 31,
+   "scope": "(模块级)",
+   "comment": ": 字符 n-gram 的 n。5 在中文短句上仍有一定区分度，又不至于因个别改字而崩塌。"
+  },
+  {
+   "name": "DEFAULT_THRESHOLD",
+   "kind": "threshold",
+   "value": "0.8",
+   "file": "src/core/materials/dedup.py",
+   "lineno": 34,
+   "scope": "(模块级)",
+   "comment": ": 判\"同一篇稿子\"的相似度阈值。⚠ 见模块头的诚实边界。"
+  },
+  {
+   "name": "_PUNCT_RE",
+   "kind": "regex",
+   "value": "re.compile('[\\\\s\\\\W_]+', re.UNICODE)",
+   "file": "src/core/materials/dedup.py",
+   "lineno": 40,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "PAGE_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "15.0",
+   "file": "src/core/materials/harvest.py",
+   "lineno": 64,
+   "scope": "(模块级)",
+   "comment": ": 单页超时（与公告扫描同量级；采集是一次性动作，不必更宽）。"
+  },
+  {
+   "name": "MAX_TEXT_CHARS",
+   "kind": "threshold",
+   "value": "200000",
+   "file": "src/core/materials/harvest.py",
+   "lineno": 68,
+   "scope": "(模块级)",
+   "comment": ": 正文上限（字符）。**为什么要有**：把整站塞进材料会让切片与提示词都失控； : 截断是**显式**的（返回值里带 `truncated`），不静默丢。"
+  },
+  {
+   "name": "_TITLE_RE",
+   "kind": "regex",
+   "value": "re.compile('<title[^>]*>(.*?)</title>', re.IGNORECASE | re.DOTALL)",
+   "file": "src/core/materials/harvest.py",
+   "lineno": 70,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "TABLE_MD_LIMIT",
+   "kind": "threshold",
+   "value": "400",
+   "file": "src/core/quality/clause_health.py",
+   "lineno": 31,
+   "scope": "(模块级)",
+   "comment": ": 表格 html → 文本的截断长度（旧实现硬编码 400；判表格类标签时也用这个长度， : 这会让超长表格漏检——**已知缺陷，本期刻意不修**（修它会改变既有端点输出）， : 见 docs/DSH_REINCARNATION.md 的入库预览台账条目。"
+  },
+  {
+   "name": "DISAGREE_RATIO",
+   "kind": "threshold",
+   "value": "0.35",
+   "file": "src/core/quality/disagreement.py",
+   "lineno": 26,
+   "scope": "(模块级)",
+   "comment": ": 分歧判定阈值（相对差异比例）：> 此值 = 分歧（进报告）"
+  },
+  {
+   "name": "SCORE_COLLAPSE_HIGH_SHARE",
+   "kind": "threshold",
+   "value": "0.95",
+   "file": "src/core/quality/disagreement.py",
+   "lineno": 28,
+   "scope": "(模块级)",
+   "comment": ": O2 fallback 触发线：高分 span 占比超过此值 = 分布坍缩"
+  },
+  {
+   "name": "HEIGHT_RE",
+   "kind": "regex",
+   "value": "re.compile('([0-9]+(?:[.][0-9]+)?)[ ]*(?:米|m)(?:以上|以下|左右)?')",
+   "file": "src/core/query/understanding.py",
+   "lineno": 86,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "DECLARED_RE",
+   "kind": "regex",
+   "value": "re.compile('^[ ]*[\\\\[【]([^\\\\]】]+)[\\\\]】][ ]*(.*)$')",
+   "file": "src/core/query/understanding.py",
+   "lineno": 112,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "CORRECTION_RE",
+   "kind": "regex",
+   "value": "re.compile('不是[ ]*([\\\\u4e00-\\\\u9fffA-Za-z0-9]{2,12})(?:[，,]|$)(?:是[ ]*([\\\\u4e00-\\\\u9fffA-Za-z0-9]{2,12}))?')",
+   "file": "src/core/query/understanding.py",
+   "lineno": 243,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "EMBEDDING_DIM",
+   "kind": "threshold",
+   "value": "512",
+   "file": "src/core/retrieval/embedder.py",
+   "lineno": 30,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "RETRY_COOLDOWN_S",
+   "kind": "threshold",
+   "value": "60.0",
+   "file": "src/core/retrieval/embedder.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": ": 加载失败后的**冷却窗口**（秒）：窗口内**不再重试**（直接复用上次失败的结论）。 : 取 60s 的理由：一次失败尝试的代价是**秒级到十秒级**（网络下载 / import 重包）， : 而健康检查与检索都很频繁 ⇒ 60s 把\"每次调用都付一次\"压成\"每分钟最多一次\"， : 同时保证网络恢复后**一分钟内**自愈。"
+  },
+  {
+   "name": "RRF_K",
+   "kind": "threshold",
+   "value": "60",
+   "file": "src/core/retrieval/hybrid_engine.py",
+   "lineno": 17,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CLAUSE_NO_RE",
+   "kind": "regex",
+   "value": "re.compile('(\\\\d+\\\\.[\\\\d\\\\.]+|第[一二三四五六七八九十百千]+条)')",
+   "file": "src/core/retrieval/hybrid_engine.py",
+   "lineno": 61,
+   "scope": "(模块级)",
+   "comment": "2026-09-13 附录细分配套修复：附录字母章号前置——\"E.5.2\" 先被截出 \"5.2\" 返回 **错标准**的正文条款（GB 30871 5.2 等，看起来对实则错——比查不到更危险）。 字母章号形态（A-Z 单字母 + 点分段）优先尝试；命不中再回落数字/法条旧正则。 边界（?!\\\\b——Python \\\\b 不认中文，\"表E.4\" 的 E 与中文之间无 \\\\b）：前侧 只需排除字母数字（防 \"TABLE.4\" 之类英文词内误截），后侧数字点结尾天然截断。"
+  },
+  {
+   "name": "_CLAUSE_NO_APPENDIX_RE",
+   "kind": "regex",
+   "value": "re.compile('(?<![A-Za-z0-9])([A-Z]\\\\.\\\\d+(?:\\\\.\\\\d+)*)(?![A-Za-z0-9])')",
+   "file": "src/core/retrieval/hybrid_engine.py",
+   "lineno": 62,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MODALTITY_RE",
+   "kind": "regex",
+   "value": "re.compile('严禁|禁止|不得|不应|不能|应当|必须|宜|可以|有权|鼓励|提倡|支持')",
+   "file": "src/core/retrieval/hybrid_engine.py",
+   "lineno": 64,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_STD_IN_QUERY_RE",
+   "kind": "regex",
+   "value": "re.compile('[A-Z]{1,6}(?:\\\\s*/\\\\s*[A-Z]{1,3})?\\\\s*\\\\d{3,5}(?:\\\\.\\\\d+)?\\\\s*[\\\\u2014\\\\-\\\\u2013]\\\\s*\\\\d{2,4}', re.I)",
+   "file": "src/core/retrieval/hybrid_engine.py",
+   "lineno": 79,
+   "scope": "(模块级)",
+   "comment": ": 误吃条款标题（`5.2.3 试验方法`）；本处输入是**提问**，且要求\"号-年\"形态，不存在那个风险。 : ⚠ **2026-09-25 复核打回后的两处收紧**（原版会把不是标准号的记号当标准号，把通道清空）： :   ① 数字位下限 **1 → 3**（`\\d{3,5}`）：原版把 `A1-2020`、`GB 5-2022` 也认成标准号； :   ② 抽出候选后**必须先在 `doc_meta` 里验证它真的存在**（见通道 A 里的 `want_keys`）—— :      这条是关键：`FY2021-2022`、`ABC123-4567`、`T/CCSAS 001-2022`"
+  },
+  {
+   "name": "TERM_ENTRY_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*(?:\\\\d+(?:\\\\.\\\\d+)*)?\\\\s*([\\\\u4e00-\\\\u9fff][\\\\u4e00-\\\\u9fff（）()·、\\\\-]{2,15}?)\\\\s*([A-Za-z][A-Za-z \\\\-/(),]{2,60}?)\\\\s*(?=[\\\\u4e00-\\\\u9fff（])')",
+   "file": "src/core/retrieval/term_bridge.py",
+   "lineno": 54,
+   "scope": "(模块级)",
+   "comment": ": 「编号 中文名 英文名 中文定义」——术语条款的形态。 : ⚠ **口径唯一**：本会话的探针脚本各自抄过一份，这里收拢成一份，别再抄第二份。"
+  },
+  {
+   "name": "_CRYPTPROTECT_UI_FORBIDDEN",
+   "kind": "threshold",
+   "value": "1",
+   "file": "src/core/settings/secret_store.py",
+   "lineno": 49,
+   "scope": "(模块级)",
+   "comment": ": CRYPTPROTECT_UI_FORBIDDEN —— 后台进程绝不弹交互 UI"
+  },
+  {
+   "name": "_LOCK_STALE_S",
+   "kind": "threshold",
+   "value": "10.0",
+   "file": "src/core/settings/secret_store.py",
+   "lineno": 50,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_LOCK_RETRY_S",
+   "kind": "regex",
+   "value": "3.0",
+   "file": "src/core/settings/secret_store.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_LOCK_POLL_S",
+   "kind": "threshold",
+   "value": "0.05",
+   "file": "src/core/settings/secret_store.py",
+   "lineno": 52,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MAX_VALUE_LEN",
+   "kind": "threshold",
+   "value": "8192",
+   "file": "src/core/settings/secret_store.py",
+   "lineno": 53,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "AUTO_KEEP",
+   "kind": "threshold",
+   "value": "7",
+   "file": "src/core/storage/backup.py",
+   "lineno": 25,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_STD_BODY_RE",
+   "kind": "regex",
+   "value": "__import__('re').compile('(?:[A-Z]+\\\\d*/?\\\\s*[A-Z]*(?:\\\\s+\\\\d+/\\\\s*[A-Z]*)?|[A-Z]*)\\\\s*(\\\\d{1,5}(?:\\\\.\\\\d+)*)')",
+   "file": "src/core/storage/clause_repo.py",
+   "lineno": 28,
+   "scope": "(模块级)",
+   "comment": ": 例：`GB 30871-2022` → 30871；`GB/T 150.4-2024` → 150.4；`GBZ 188-2025` → 188 : : ⚠ 前缀里**允许夹数字**（`DB11/T 1322.1-2017` → 1322.1）。 : 第一版写 `[A-Z]*\\s*/?\\s*[A-Z]*`（前缀不许有数字）⇒ 对 `DB11/T` 会抽到 `11` : （前缀里的地方代码），**抽错**。真库实测这种写法 0 部，但抽错是静默的， : 将来进一部地方标准就会串号 —— 所以按「前缀可含数字」写死。"
+  },
+  {
+   "name": "KEEP_EGRESS",
+   "kind": "threshold",
+   "value": "1000",
+   "file": "src/core/storage/debug_dump_retention.py",
+   "lineno": 58,
+   "scope": "(模块级)",
+   "comment": ": 外发审计保留条数（与历史行为同量级）。"
+  },
+  {
+   "name": "KEEP_QUESTION_EVIDENCE",
+   "kind": "threshold",
+   "value": "5000",
+   "file": "src/core/storage/debug_dump_retention.py",
+   "lineno": 60,
+   "scope": "(模块级)",
+   "comment": ": 提问证据保留条数。**故意比审计大**：它不可再生，且 P1/P5 都要用。"
+  },
+  {
+   "name": "MAX_BATCH",
+   "kind": "threshold",
+   "value": "500",
+   "file": "src/core/storage/doc_delete.py",
+   "lineno": 31,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "LEGAL_STATUS_REFERENCE",
+   "kind": "regex",
+   "value": "'reference'",
+   "file": "src/core/storage/sqlite_db.py",
+   "lineno": 140,
+   "scope": "(模块级)",
+   "comment": ": 效力档新增值（2026-09-24；业主：\"**征求意见稿也要入库**，只是效力层级是参考资料， : 不是强制执行的那种\"）—— `reference` = **参考资料（仅参考）**：可以入库、可以检索， : 但**永远不是现行依据**（回答里引用要显式说明，见 compliance-qa 那条纪律）。"
+  },
+  {
+   "name": "_PARA_START_RE",
+   "kind": "regex",
+   "value": "re.compile('^(\\\\d{1,2}(\\\\.\\\\d+)*\\\\s*[、．.]?|（[一二三四五六七八九十]+）|[一二三四五六七八九十]+、|表\\\\d+|附录|注[:：]?|第[一二三四五六七八九十]+[章条节]|图\\\\d+)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 21,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SENT_END_RE",
+   "kind": "regex",
+   "value": "re.compile('[。！？；：]$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 25,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_ASCII_RE",
+   "kind": "regex",
+   "value": "re.compile('[A-Za-z0-9]')",
+   "file": "src/core/text_utils.py",
+   "lineno": 26,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SYM_RE",
+   "kind": "regex",
+   "value": "re.compile('|'.join((re.escape(k) + '(?![A-Za-z])' for k in sorted((k for k in _LATEX_SYMBOLS if k.startswith('\\\\')), key=len, reverse=True))))",
+   "file": "src/core/text_utils.py",
+   "lineno": 57,
+   "scope": "(模块级)",
+   "comment": "词边界单遍符号替换：长键优先 + (?![A-Za-z]) 防前缀误吃（\\pm 不吃 \\pmb）"
+  },
+  {
+   "name": "_RE_WM_URL",
+   "kind": "regex",
+   "value": "re.compile('www\\\\.[A-Za-z0-9\\\\-]+\\\\.(?:com|cn|net|org)', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 91,
+   "scope": "(模块级)",
+   "comment": ": 盗版标准站页眉水印 URL token（GB/T 34406 每页页眉 \"www.bzfxw.com\" 实测）。 : 仅在「剥后空/行首行尾」语义下使用，行中 URL 不动，正文合法引用不受影响。"
+  },
+  {
+   "name": "_RE_WM_PAGENO",
+   "kind": "regex",
+   "value": "re.compile('[IVXivx\\\\dⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]{1,4}')",
+   "file": "src/core/text_utils.py",
+   "lineno": 93,
+   "scope": "(模块级)",
+   "comment": ": 水印行剥 URL 后允许残留的页码形态（≤4 位数字/罗马，NFKC 前后两种罗马形态都收）"
+  },
+  {
+   "name": "_RE_FORMULA_DOTS",
+   "kind": "regex",
+   "value": "re.compile('\\\\.{7,}')",
+   "file": "src/core/text_utils.py",
+   "lineno": 97,
+   "scope": "(模块级)",
+   "comment": ": 公式编号引导点线：'…………（1）' NFKC 后连排 ASCII 点。 : 阈值 7：strip_block_noise 在归一化（NFKC）之后调用，正文 2 字省略号 : '……' → NFKC = 6 个点，必须存活；引导线 ≥3 个 '…' = ≥9 点才剥。"
+  },
+  {
+   "name": "_RE_FORMULA_LEADER",
+   "kind": "regex",
+   "value": "re.compile('(?:\\\\.{2,}|…+)\\\\s*[（(]\\\\s*([A-Za-z]?\\\\.?\\\\s?\\\\d{1,3}(?:\\\\s?\\\\.\\\\s?\\\\d{1,3})?)\\\\s*[)）]?')",
+   "file": "src/core/text_utils.py",
+   "lineno": 117,
+   "scope": "(模块级)",
+   "comment": ": : 2026-09-15（第二轮复测，**标签内部空格**）：VLM 会把 'C.3' 识别成 'C. 3'， : 而编号捕获是紧排的 `[A-Za-z]?\\.?\\d{1,3}` → 空格一处即整条不匹配，点线原样 : 落库（GB/T 1094.6-2011 '……(C. 3'、GB/T 15543-2008 '……(A. 1'、GB/T 12326-2008 : '………( A. 2' 实测）。故各 token 之间允许可选空格：'C. 3' / 'A. 2' / 'D . 7' 均收。 : **只放宽空格，不放宽字符类**——避免把正文括号内容误当编号。"
+  },
+  {
+   "name": "_RE_FORMULA_LEADER_BARE",
+   "kind": "regex",
+   "value": "re.compile('(?:\\\\.{6,}|[…]{3,})')",
+   "file": "src/core/text_utils.py",
+   "lineno": 122,
+   "scope": "(模块级)",
+   "comment": ": 裸点线阈值：与检测器 `audit_text.CHECKS['dot-leader']` 的 `\\.{6,}` 对齐 : （原为 `\\.{7,}`——检测器 6 点即报、所有者 7 点才剥，差一处就是漏网； : 实测 GB/T 12326-2008 '………( A. 2' 剥后残留 6 个 ASCII 点正好卡在缝里）。"
+  },
+  {
+   "name": "_RE_SPLIT_VALUE",
+   "kind": "regex",
+   "value": "re.compile('(?<![\\\\d.])(\\\\d{1,2})\\\\s+(\\\\d{1,4})(\\\\s*)(?=(?:µ|μ|mm|cm|kg|mg|g|ms|min|mL|mol|mmol|kV|kHz|kPa|MPa|kW|kJ|m|s|h|L|V|A|N|Pa|Hz|W|J|℃|°C|%|Ω|r/min)(?![A-Za-z]))')",
+   "file": "src/core/text_utils.py",
+   "lineno": 336,
+   "scope": "(模块级)",
+   "comment": ": '数字被劈开 + 单位'（单位锚定）。第二组 1-4 位；合并条件（防误合并， : 见 _glue_split_values）：首组为单个数字，或次组以 0 开头（'10 00 µ'→1000 µ）。 : 实测反例保护：'图 23 60 Hz'（图号 23 + 频率 60 Hz）首组两位、次组不以 0 开头 → 不合并。"
+  },
+  {
+   "name": "_RE_GLUE_DOT_SPLIT",
+   "kind": "regex",
+   "value": "re.compile('(?<=\\\\d)[ \\\\t]+[.][ \\\\t]+(?=\\\\d)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 357,
+   "scope": "(模块级)",
+   "comment": ": 公式内两类**行级**劈开（收敛循环第 7 轮，spaced-run 39 部实测）： :  ① `1 . 0`（数字-点-数字，点因紧贴 CJK 未与数字同段：'尺寸应测量1 . 0 mm'） :  ② `0.5U N` / `P 1 E`（下标字母/数字被空格拆开：'0.5U N'、'P 1 E'） : 都是**无歧义**形态（前后必有数字锚定或混合字母数字），故可在行级先粘； : 反向保护：'F = m a'（纯字母乘积）与 '2 m'（合法数值+单位间隔）不在此列。"
+  },
+  {
+   "name": "_RE_GLUE_DOT_ONE_SIDE",
+   "kind": "regex",
+   "value": "re.compile('(?<=\\\\d)[.][ \\\\t]+(?=\\\\d)|(?<=\\\\d)[ \\\\t]+[.](?=\\\\d)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 360,
+   "scope": "(模块级)",
+   "comment": ": 点号**单侧**带空格的劈开：'0. 3484'（点后空格）/'0 .3484'（点前空格）。 : 实测 GB/T 13277.3-2015 5.1.2 'ρ = 0. 3484 × ( p b - 0. 378 p v )/T'。"
+  },
+  {
+   "name": "_RE_GLUE_ATTACHED_DIGIT_PAIR",
+   "kind": "regex",
+   "value": "re.compile('(?<=[^\\\\sA-Za-z0-9])(\\\\d)[ \\\\t]+(\\\\d)(?![\\\\dA-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 366,
+   "scope": "(模块级)",
+   "comment": ": 紧贴标点/括号/运算元的数字对被空格拆开：'(1 8 - γ)'、'过5 0 p C'、'2 3 ° C'。 : 关键限定：数字对**前面必须紧贴一个非空白非字母数字字符**（括号/中文/运算符）， : 这样 '表 5 0'（空格分隔的独立数字）不会被误粘。实测 GB/T 15371-2023 6.4 : '16 n c /(1 8 - γ)'、GB/T 1094.3-2017 11.3.5 '超过5 0 p C'、 : GB/T 14048.10-2016 9.2.1 '2 3 ° C ± 5 ° C'。"
+  },
+  {
+   "name": "_RE_GLUE_MIXED_RUN",
+   "kind": "regex",
+   "value": "re.compile('([A-Za-z])[ \\\\t]+(\\\\d)[ \\\\t]+([A-Za-z])(?![A-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 369,
+   "scope": "(模块级)",
+   "comment": ": 字母-数字-字母（下标数字被拆）：'P 1 E' → 'P1E'，'T E , 0' 不在此列"
+  },
+  {
+   "name": "_RE_GLUE_UPPER_PAIR",
+   "kind": "regex",
+   "value": "re.compile('(?<=\\\\d)[ \\\\t]+([A-Z])[ \\\\t]+([A-Z])(?![A-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 373,
+   "scope": "(模块级)",
+   "comment": ": 数字后**两个连续单大写字母**（下标/缩写的字母对被拆）：'1.0 U N' → '1.0 UN'。 : 要求**成对**：单个大写字母不粘（防把表格相邻单元 '2 B' 粘成 '2B'）。"
+  },
+  {
+   "name": "_RE_TWO_LETTER_SPLIT",
+   "kind": "regex",
+   "value": "re.compile('(?<![A-Za-z])([A-Za-zµμ])\\\\s+([A-Za-z])(?![A-Za-z])(\\\\s?)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 430,
+   "scope": "(模块级)",
+   "comment": ": 两个单字母之间的空格 + 其后紧跟词边界（拼接后查白名单决定是否合并）"
+  },
+  {
+   "name": "_RE_OCR_SUBSUP",
+   "kind": "regex",
+   "value": "re.compile('^[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 527,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_OCR_GREEK",
+   "kind": "regex",
+   "value": "re.compile('^[\\\\u0391-\\\\u03c9\\\\u00b5]$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 528,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_OCR_SINGLE",
+   "kind": "regex",
+   "value": "re.compile('^(?:[A-Za-z0-9]|[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]|[\\\\u0391-\\\\u03c9\\\\u00b5])$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 529,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_MEAN_ENTRY",
+   "kind": "regex",
+   "value": "re.compile('(?<![A-Za-z\\\\u7283-\\\\u72ee\\\\u0304])(?P<sym>\\\\^?[A-Za-z\\\\u7283-\\\\u72ee][A-Za-z0-9\\\\u7283-\\\\u72ee]{0,2})(?P<dash>———|───|——|──|—)(?P<desc>[^；;\\\\n。]{0,60})')",
+   "file": "src/core/text_utils.py",
+   "lineno": 597,
+   "scope": "(模块级)",
+   "comment": ": 「式中」说明条目：量符号（拉丁 / fitz 罗马斜体伪字区 犃-犫）+ 破折号 + 描述。 : 负向环视排除前随字母/伪字/已织入的 U+0304 —— RMSEP 的尾段 'EP'、'C̄i' 的 'i'（前邻 U+0304）都不会被误当符号主体，幂等。"
+  },
+  {
+   "name": "_RE_TEX_ENV",
+   "kind": "regex",
+   "value": "re.compile('\\\\\\\\(?:begin|end)\\\\s*\\\\{[A-Za-z*]+\\\\}\\\\s*(?:\\\\{[^{}]*\\\\})*')",
+   "file": "src/core/text_utils.py",
+   "lineno": 745,
+   "scope": "(模块级)",
+   "comment": ": LaTeX 环境包装（`\\begin{array}{rl}` / `\\end{array}`，含可选列格式组）"
+  },
+  {
+   "name": "_RE_TEX_ARRAY_SPEC",
+   "kind": "regex",
+   "value": "re.compile('\\\\barray\\\\s+[lrc]\\\\b(?:\\\\s+[a-z]{1,2}\\\\b){0,2}')",
+   "file": "src/core/text_utils.py",
+   "lineno": 749,
+   "scope": "(模块级)",
+   "comment": ": 裸露的 array 列格式残留：`array r l` / `array l z`（环境标记被上游或本函数 : 的命令剥离器吃掉后，只剩 `array` + 列格式）。**首 token 限定 l/r/c**（LaTeX : 列格式符），防把 `array x y z = 5` 里的真变量吃掉（内容丢失比残留更糟）。"
+  },
+  {
+   "name": "_RE_TEX_ROWBRK",
+   "kind": "regex",
+   "value": "re.compile('\\\\\\\\{1,2}\\\\s*(?=&|$)', re.M)",
+   "file": "src/core/text_utils.py",
+   "lineno": 751,
+   "scope": "(模块级)",
+   "comment": ": 行分隔：`\\\\`、`\\&`、`\\\\ &`（array 的行结束符被截断成单反斜杠）都还原为换行"
+  },
+  {
+   "name": "_RE_TEX_THINSP",
+   "kind": "regex",
+   "value": "re.compile('\\\\\\\\[,;!:>]')",
+   "file": "src/core/text_utils.py",
+   "lineno": 753,
+   "scope": "(模块级)",
+   "comment": ": 零宽/细空格命令（`\\,` `\\;` `\\!` `\\:`）→ 空格"
+  },
+  {
+   "name": "_RE_LABEL_COMMA_PAREN",
+   "kind": "regex",
+   "value": "re.compile('([（(]\\\\s*[A-Z])\\\\s*,\\\\s*(?=\\\\d)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 791,
+   "scope": "(模块级)",
+   "comment": ": 标签里的**逗号代点**（2026-09-15 收敛循环第 19/20 轮，punctuation-substitution）。 : OCR 把标签中的点识别成逗号：公式号 '(D,8)'、表号 '表B,4'、图号 '图A,1'。 : 实测 GB/T 16411-2023 D.1.2.3.3：正文引用 '(D.7)' 正常，而公式编号处出现 'D,8'。 : 归一是**无歧义**的：`(大写字母 , 数字)` 与 `表/图 + 大写字母 , 数字` 都不是合法排版。"
+  },
+  {
+   "name": "_RE_LABEL_COMMA_PREFIX",
+   "kind": "regex",
+   "value": "re.compile('([表图附录]\\\\s*[A-Z])\\\\s*,\\\\s*(?=\\\\d)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 792,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_LATEX_DIGIT_RUN",
+   "kind": "regex",
+   "value": "re.compile('(?<![\\\\d.])(\\\\d(?: \\\\d){2,})(?![\\\\d.])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 867,
+   "scope": "(模块级)",
+   "comment": ": 逐字符空格：≥3 个单数字（'6 1 0'→'610'）——MinerU 对宽距数字逐字符输出"
+  },
+  {
+   "name": "_RE_LATEX_LETTER_RUN",
+   "kind": "regex",
+   "value": "re.compile('(?<![A-Za-z\\\\u0391-\\\\u03c9])([A-Za-z\\\\u0391-\\\\u03c9](?: [A-Za-z\\\\u0391-\\\\u03c9]){2,})(?![A-Za-z\\\\u0391-\\\\u03c9])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 871,
+   "scope": "(模块级)",
+   "comment": ": 逐字符空格：≥3 个单字母（'m i n'→'min'/'k P a'→'kPa'）。 : 门限定 ≥3 而非 ≥2 —— 2 字母段是「变量乘积」（'F = m a'）与单位（'m m'）的 : 同形歧义，误合并会把公式变量粘成一个词，故保守不合并 2 字母段。"
+  },
+  {
+   "name": "_RE_LATEX_SLASH",
+   "kind": "regex",
+   "value": "re.compile('(?<=[A-Za-z\\\\u0391-\\\\u03c9²³])\\\\s*/\\\\s*(?=[A-Za-z\\\\u0391-\\\\u03c9])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 873,
+   "scope": "(模块级)",
+   "comment": ": 单位斜杠两侧空格：'g / m'→'g/m'、'r / min'→'r/min'、'm / s'→'m/s'"
+  },
+  {
+   "name": "_RE_LATEX_SCRIPT",
+   "kind": "regex",
+   "value": "re.compile('(?<=[A-Za-z\\\\u0391-\\\\u03c9])\\\\s+(?=[\\\\u00b2\\\\u00b3\\\\u2070-\\\\u209c])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 875,
+   "scope": "(模块级)",
+   "comment": ": 字母后紧跟的上下标去空格：'m ²'→'m²'（上下标永远贴前字，无歧义）"
+  },
+  {
+   "name": "_RE_LATEX_MICRO",
+   "kind": "regex",
+   "value": "re.compile('(?<=[\\\\u00b5\\\\u03bc])\\\\s+(?=[A-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 877,
+   "scope": "(模块级)",
+   "comment": ": 微符号前缀去空格：'µ m'→'µm'（µ 后必接单位字母）"
+  },
+  {
+   "name": "_RE_LATEX_SUBTAIL",
+   "kind": "regex",
+   "value": "re.compile('(?<=[\\\\u2080-\\\\u209c])\\\\s+(?=[A-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 879,
+   "scope": "(模块级)",
+   "comment": ": 下标后紧跟字母去空格：'K ₘ b'→'Kₘb'（GB 量符号记法下标贴前后字）"
+  },
+  {
+   "name": "_RE_LATEX_SUBRUN",
+   "kind": "regex",
+   "value": "re.compile('(?<=[\\\\u2080-\\\\u209c])\\\\s+(?=[\\\\u2080-\\\\u209c])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 881,
+   "scope": "(模块级)",
+   "comment": ": 连续下标之间去空格：'T Lₘ ₐ ₓ'→'T Lₘₐₓ'（多字符下标是一体）"
+  },
+  {
+   "name": "_RE_TEX_HAT",
+   "kind": "regex",
+   "value": "re.compile('\\\\^([A-Za-z\\\\u7283-\\\\u72ee])([A-Za-z\\\\u7283-\\\\u72ee])?')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1016,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_TEX_BAR",
+   "kind": "regex",
+   "value": "re.compile('([A-Za-z\\\\u7283-\\\\u72ee])\\\\u0304([A-Za-z\\\\u7283-\\\\u72ee])?')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1017,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_MEAN_PARA",
+   "kind": "regex",
+   "value": "re.compile('<p>(?:(?!</p>).)*———(?:(?!</p>).)*</p>', re.S)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1019,
+   "scope": "(模块级)",
+   "comment": "说明条目段（含破折号 ——— 的 <p>）——正文段不动（e^x 等数学记号零误伤）"
+  },
+  {
+   "name": "_RE_PUA_BOND",
+   "kind": "regex",
+   "value": "re.compile('(?<=[\\\\u4e00-\\\\u9fff\\\\u3001\\\\u3002\\\\uff0c\\\\uff1b\\\\uff1a\\\\uff5e\\\\u3000\\\\s])[\\\\ue000-\\\\uf8ff](?=[A-Z][A-Z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1081,
+   "scope": "(模块级)",
+   "comment": "化学基团记法，横线在前）编码到 PUA 私用区（34406 §4 实测 U+E5C6，形态 '中\\ue5c6CH、\\ue5c6NH、\\ue5c6OH 等'），浏览器无字形 → 豆腐块（用户读作 \"扣\"）。语义双闸（全库扫描 286 处 PUA+字母 定型）：前一位须是汉字/中文 标点/空白（排除乱码行 'F\\ue011F()' 的字母夹心形态），后两位须是连续 大写字母（排除单字母 '犖\\ue011K'、Symbol 串 '\\uf03dH W'）；其余 PUA 语境一律不动，保守留白待报告。"
+  },
+  {
+   "name": "_RE_UNIT_EXP",
+   "kind": "regex",
+   "value": "re.compile('(?<=\\\\d)(nm|µm|μm|mm|cm|km|mol|min|kPa|MPa|Pa|kJ|kWh|kW|kHz|kg|mg|mL|dB|Hz|MJ|J|W|g|t|s|h|m|L|d)-(\\\\d+)(?![0-9A-Za-z])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1098,
+   "scope": "(模块级)",
+   "comment": "② 单位负指数上标：PDF 文本层把 cm⁻¹ 拍平成 cm-1（字号/基线偏移在提取时 丢失，34406 §4 实测 '4000cm-1~10000cm-1,分辨率优于8cm-1'）。规则：数值 后紧跟物理单位白名单 + '-' + 正整数 → <sup>-n</sup>（波数/频率量纲记 法）；'图A-1'/'表B-2' 编号连字符不命中（单位前必须是数字）零误伤； 白名单外单位与 '-abc' 非数字指数一律不动。"
+  },
+  {
+   "name": "_RE_CLAUSE_NO_GAP",
+   "kind": "regex",
+   "value": "re.compile('(<(?:p|h[1-6])(?:\\\\s[^>]*)?>)(\\\\d{1,2}(?:\\\\.\\\\d{1,2}){0,3})(?=[\\\\u4e00-\\\\u9fff])')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1116,
+   "scope": "(模块级)",
+   "comment": "③ 条款编号排版：国标原文编号与标题间空一格（'5　仪器与设备'），文本层 提取后拍平成 '5仪器与设备'/'4原理'（34406 §4/§5 实测）。规则：块级 段落起始的 ≤3 段点分编号紧跟汉字 → 补一个空格。'2026年'（\\d{1,2} 限长 后回溯失败）、'0.5mol'（编号后非汉字）天然不命中；已空格幂等（数字后 是空格不再满足汉字前顾）。"
+  },
+  {
+   "name": "_RE_CLAUSE_NO_TEXT",
+   "kind": "regex",
+   "value": "re.compile('^(\\\\d{1,2}(?:\\\\.\\\\d{1,2}){0,3})(?=[\\\\u4e00-\\\\u9fff])', re.M)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1144,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_AREA_SUB",
+   "kind": "regex",
+   "value": "re.compile('([Aa])\\\\s*°(?![⁰0-9\\\\.])(?=\\\\s*[>＞]\\\\s*\\\\d|[\\\\u4e00-\\\\u9fff]{0,6}面积)')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1202,
+   "scope": "(模块级)",
+   "comment": ": 面积下标误识别（2026-09-02 C5 上下标）：MinerU 把下标 Aₑ（e）识别成 : 度符号 A°——当 A° 后接面积量纲（> / 数字 + m²/cm²）判据时，° 必为下标 e : （GB 面积符号 Aₑ），非角度。保守：仅'有效散热面积/散热面积'上下文或 : 后接 面积单位 才转，防误伤角度 A°。"
+  },
+  {
+   "name": "_RE_WM_URL2",
+   "kind": "regex",
+   "value": "re.compile('(?:https?://)?(?:www\\\\.)[A-Za-z0-9\\\\-]+(?:\\\\.[A-Za-z0-9\\\\-]+)+(?:/[^\\\\s，。；]*)?', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1220,
+   "scope": "(模块级)",
+   "comment": ": 水印行判据：**必须有 `www.` 或 `scheme://`**。 : 不可放宽为裸域名（`[A-Za-z0-9\\-]+(\\.[A-Za-z0-9\\-]+)+`）——实测会把普通文本 : `'2.1 较大婴儿'`、`'3.1 婴幼儿谷物辅助食品'` 当成域名（误判 **10025 处**！）。 : 这是\"先做反向对照再放宽\"救回来的一次：判据一宽，正常条款被整行删掉。"
+  },
+  {
+   "name": "_WM_RESIDUE_MAX",
+   "kind": "regex",
+   "value": "12",
+   "file": "src/core/text_utils.py",
+   "lineno": 1224,
+   "scope": "(模块级)",
+   "comment": ": 剥掉 URL 后残留多少算\"短装饰\"——'网址'/'网址:'/'下载'/'出版' 等标签都很短； : 参考文献（`[1] SOAP Version 1.2 …, http://…`）残留很长，据此区分。"
+  },
+  {
+   "name": "_RE_WM_TOOL",
+   "kind": "regex",
+   "value": "re.compile('(?:Evaluation\\\\s+Only\\\\.?\\\\s*)?(?:Created\\\\s+with\\\\s+)?Aspose(?:\\\\.PDF)?(?:\\\\.\\\\s*Copyright\\\\s+\\\\d{4}\\\\s*-\\\\s*\\\\d{4}\\\\s+Aspose\\\\s+Pty\\\\s+Ltd\\\\.?)?', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1237,
+   "scope": "(模块级)",
+   "comment": ": 直接 return）使整个函数原样返回 → 水印存活。实测库内 **12,614 条**补丁正文含它， : 而**原文 0 条**（即由回填越界引入，非 OCR 原产）。 : : 判据收紧到**厂商专名**，不放宽到\"含 Copyright/Evaluation\"这类通用词—— : 后者会误删合法正文（如引用他人文档的版权声明）。 : `Aspose` 是本项目语料的工具专名，作为整体 token 具备足够特异性。"
+  },
+  {
+   "name": "_RE_WM_HEADER",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*\\\\d{1,4}\\\\s+' + _WM_STD_CORE + '\\\\s*$', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1257,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_WM_HEADER_TAIL",
+   "kind": "regex",
+   "value": "re.compile('\\\\s+\\\\d{1,4}\\\\s+' + _WM_STD_CORE + '\\\\s*$', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1273,
+   "scope": "(模块级)",
+   "comment": ": : ⚠⚠ **但\"有页码\"还不够**（2026-09-17 复核实测）：**表格末格**同样是 : `<裸数字> <标准号>`（`'…牵条 优质碳素结构钢 20 GB/T699—2015'`），于是被误删。 : 消歧要靠**上下文**：调用方把该文档**自己的标准号**传进来（`own_standard_no`）， : 判据就只吃\"标准号 == 本文档标准号\"的尾巴 —— 页眉永远是**自家**标准号， : 而表格里引用的通常是**别的**标准。不传时保持历史行为（见诚实边界注释）。"
+  },
+  {
+   "name": "_RE_STD_KEY",
+   "kind": "regex",
+   "value": "re.compile('(\\\\d{3,5}(?:\\\\.\\\\d+)?)\\\\s*-?\\\\s*(\\\\d{2,4})\\\\s*$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1355,
+   "scope": "(模块级)",
+   "comment": ": : ⚠ 为什么不能整串比较（2026-09-17 实测踩到）：同一份标准的**页眉**常把 `GB/T` 印成 : `GB`（`own='GB／T 12041.1-2010'` vs 页眉 `'1 GB 12041.1—2010'`）—— OCR/排版去掉 : 了 `/T`。整串比较会把这些**真页眉**判成\"别人的标准号\"而留下：实测**226 行**会因此 : 漏删。只比\"号 + 年\"既能容纳这种写法差异，又仍能把表格里引用的**别的**标准 : （`GB/T699—2015` vs own `GB/T 12041.1-2010` → 号不同）正确保住。"
+  },
+  {
+   "name": "_LATIN_WORD_RE",
+   "kind": "regex",
+   "value": "re.compile('^[A-Za-z]{4,}$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1386,
+   "scope": "(模块级)",
+   "comment": ": 判据逐条都有实测理由（见 `_latin_prefix_token`）： :   · 纯字母 ⇒ 标准号/哈希（`30871`、`GB/T`、`sha256`）天然被排除； :   · 长度 ≥4 ⇒ 放过 `the`/`and`/`to` 这类虚词； :   · **无内部大写** ⇒ 放过 `GB`/`ISO` 这类缩写，也挡住 `RoHS`/`camelCase`/`backgroundColor`。 : ⚠ **长度判词面，词干长度另判**（见 `_MIN_STEM`）——复核 2026-09-25 打回时实测： :   只判词面会放过 `uses`→`\"us\"*`、`being`"
+  },
+  {
+   "name": "_MIN_STEM",
+   "kind": "threshold",
+   "value": "4",
+   "file": "src/core/text_utils.py",
+   "lineno": 1395,
+   "scope": "(模块级)",
+   "comment": ": 语料＝DSH 官方文档 5,412 段，**294 组**有效试验）： :   词干≥3 → 覆盖率 96.3%（与 ≥4 **完全相同** ⇒ 没有任何理由放到 3）； :   词干≥4 → **96.3%**（取它）； :   词干≥5 → **76.5%**（掉 19.8 个百分点，太多）。 : ⚠ 上一版这里写的是\"97.9% / 97.6% / 89.3%\"——那三条取自**另一把旧尺子** :   （词面对下限还是 6 字母、只有 291 组），在改好的尺子上不成立（复核 2026-09-25 打回）。"
+  },
+  {
+   "name": "_RE_SCRIPT_STYLE_OPEN",
+   "kind": "regex",
+   "value": "re.compile(f\"\"\"(?<![\\\\\"'])<({_CONTENT_HIDDEN_TAGS})\\\\b(?P<attrs>[^>]*)>\"\"\", re.IGNORECASE)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1601,
+   "scope": "(模块级)",
+   "comment": ": 开标签。⚠ `(?<![\"'])` 挡的是\"**属性值里**的字面 `<script>`\"（`title='<script>'`）： : 那不是标签，当成标签会把其后正文整段吞掉（复核 D② 的第 5 组边角，实测丢\"可见\"）。"
+  },
+  {
+   "name": "_RE_SCRIPT_STYLE_CLOSE_ANY",
+   "kind": "regex",
+   "value": "re.compile(f'</({_CONTENT_HIDDEN_TAGS})\\\\b[^>]*>', re.IGNORECASE)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1605,
+   "scope": "(模块级)",
+   "comment": ": 结束标签：`</script>` / `</script >` / `</script foo>`（浏览器都接受这种写法）。"
+  },
+  {
+   "name": "_RE_HTML_COMMENT",
+   "kind": "regex",
+   "value": "re.compile('<!--.*?-->', re.DOTALL)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1609,
+   "scope": "(模块级)",
+   "comment": ": HTML 注释：**必须先剥**（注释里的 `<script>` 不是标签；不剥会吞掉其后正文）。"
+  },
+  {
+   "name": "_RE_TAG_START",
+   "kind": "regex",
+   "value": "re.compile('<[A-Za-z/]')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1612,
+   "scope": "(模块级)",
+   "comment": ": 标签开头：`<` 后面紧跟字母或 `/`（HTML5：`<` 后面是空白/数字/`=` 等**不是**标签开头）。"
+  },
+  {
+   "name": "_RE_RAW_TEXT_BOUNDARY",
+   "kind": "regex",
+   "value": "re.compile('<(/?)(xmp|plaintext|textarea|title)\\\\b[^>]*>', re.I)",
+   "file": "src/core/text_utils.py",
+   "lineno": 1631,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_RE_DUP_SUFFIX",
+   "kind": "regex",
+   "value": "re.compile('\\\\s*[（(]\\\\s*\\\\d{1,3}\\\\s*[)）]\\\\s*$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1885,
+   "scope": "(模块级)",
+   "comment": ": 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。 : : ⚠ **只吃结尾**的 `(数字)`（半角/全角括号都算），**不吃中间的**——库内大量**合法** : 括号名（`聚丙烯(PP)树脂`、`湿式(非金属)摩擦材料`、`额定电压1kV(Um=1.2kV)…`） : 必须原样保留。实测（2026-09-17 生产库）`:264` 行 `standard_name` 含括号， : 其中**结尾是 `(数字)`** 的 :139 行才是副本后缀（数字随灌库在涨）。"
+  },
+  {
+   "name": "_RE_OCR_SOURCE_SUFFIX",
+   "kind": "regex",
+   "value": "re.compile('\\\\s*[（(]\\\\s*OCR采集\\\\s*[)）]\\\\s*$')",
+   "file": "src/core/text_utils.py",
+   "lineno": 1912,
+   "scope": "(模块级)",
+   "comment": ": ⚠ **只此一种，字面匹配** —— 不放宽成\"任意尾部括号\"。库内大量**合法**括号名 : （`聚丙烯(PP)树脂`、`GB/T 27668-2023显微镜光学显微术术语(1)`）必须原样保留。 : : 为什么单开一个判据、不复用 `_RE_DUP_SUFFIX`（spec 009 T001）： : 那个判据吃的是**结尾的 `(数字)`**（副本后缀 `(1)`），与\"来源后缀 `(OCR采集)`\" : **不是同一件事**。混用会把合法括号名误伤，也违反本仓\"一个判据一个所有者\"。"
+  },
+  {
+   "name": "ITEMS_PER_PAGE_MAX",
+   "kind": "threshold",
+   "value": "50",
+   "file": "src/core/update/announce.py",
+   "lineno": 69,
+   "scope": "(模块级)",
+   "comment": "⚠ 2026-10-08 业主拍板：**取消源数量上限**（原 `SOURCES_MAX = 50` 已删）。 理由：要覆盖「法律法规 / 国标 / 行标 / 团标 / 地标」全量官方入口，50 条根本不够 （实测有效入口已 100+）。源数量不再设闸；真正的成本闸是**扫描全程软上限** `SCAN_SOFT_CAP_S`（超时的源如实标 `skipped_timeout`，绝不假装扫过）。"
+  },
+  {
+   "name": "PAGE_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "15.0",
+   "file": "src/core/update/announce.py",
+   "lineno": 70,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "SOURCE_GAP_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/update/announce.py",
+   "lineno": 72,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "SCAN_SOFT_CAP_S",
+   "kind": "threshold",
+   "value": "300",
+   "file": "src/core/update/announce.py",
+   "lineno": 73,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MIN_INTERVAL_HOURS_DEFAULT",
+   "kind": "threshold",
+   "value": "6.0",
+   "file": "src/core/update/announce.py",
+   "lineno": 74,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "PAGES_PER_SOURCE_MAX",
+   "kind": "threshold",
+   "value": "50",
+   "file": "src/core/update/announce.py",
+   "lineno": 79,
+   "scope": "(模块级)",
+   "comment": "── 翻页（2026-09-24，业主报\"应该入库的没入库\"引出；见开发史 §10.189）────────────── : 单源最多翻几页。改前**只取第 1 页**（每页 20 条）⇒ 业主看的那个列表 857 条 / 58 页， : 我们永远只看见 20 条 —— 这就是\"大量应该入库的放过了\"的直接原因。50 页 × 20 条 = 1000 条， : 盖得住部委站的常见列表；真要更深的回溯再调这个数（或走 §10.189 的入库通道做全量回填）。"
+  },
+  {
+   "name": "PAGE_GAP_S",
+   "kind": "threshold",
+   "value": "0.4",
+   "file": "src/core/update/announce.py",
+   "lineno": 81,
+   "scope": "(模块级)",
+   "comment": ": 逐页礼貌间隔（同一站连翻 50 页不留间隔不礼貌，也容易被 WAF 记上）。"
+  },
+  {
+   "name": "SOURCE_TIME_BUDGET_S",
+   "kind": "threshold",
+   "value": "90.0",
+   "file": "src/core/update/announce.py",
+   "lineno": 83,
+   "scope": "(模块级)",
+   "comment": ": 单源翻页的总时间预算；超了就停在拿到的页数并如实标 truncated（不给单源拖垮整轮扫描）。"
+  },
+  {
+   "name": "STOP_AFTER_BARREN_PAGES",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/update/announce.py",
+   "lineno": 85,
+   "scope": "(模块级)",
+   "comment": ": 连续这么多页**一条\"没见过\"的都没有** ⇒ 判定已追上历史，提前停（第 2 次起扫描就便宜了）。"
+  },
+  {
+   "name": "_NOISE_RE",
+   "kind": "regex",
+   "value": "re.compile('下一页|上一页|首页|末页|更多|返回|关闭|登录|注册|English|无障碍|浏览次数|首页|尾页|跳转|收起|展开|全文|下载|阅读|次浏览|版权所有|备案号|京公网安备|ICP备|网站地图|联系我们|意见反馈|站内搜索|政务服务投诉|社会救援服务|科普场馆')",
+   "file": "src/core/update/announce.py",
+   "lineno": 90,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_JS_NOISE_RE",
+   "kind": "regex",
+   "value": "re.compile('[{}]|\\\\\";\\\\s*$|function\\\\s*\\\\(|document\\\\.|else\\\\s+if|\\\\+\\\\s*i\\\\s*\\\\+')",
+   "file": "src/core/update/announce.py",
+   "lineno": 96,
+   "scope": "(模块级)",
+   "comment": ": JS 拼接/模板代码片段特征（document.write 产出的 <a> 内层文本是源码不是标题）"
+  },
+  {
+   "name": "_TAIL_STAMP_RE",
+   "kind": "regex",
+   "value": "re.compile('\\\\s*\\\\d{4}[-./年]\\\\d{1,2}[-./月]\\\\d{1,2}日?(?:\\\\s+\\\\d{1,2}:\\\\d{2}(?::\\\\d{2})?)?\\\\s*$')",
+   "file": "src/core/update/announce.py",
+   "lineno": 98,
+   "scope": "(模块级)",
+   "comment": ": 标题尾部日期时间戳剥离（\"…通知 2022-01-17 17:33\" → \"…通知\"）"
+  },
+  {
+   "name": "_TRACKING_PARAM_RE",
+   "kind": "regex",
+   "value": "re.compile('(?i)^(utm_\\\\w+|spm|from|share_token|fr|vd|scene)$')",
+   "file": "src/core/update/announce.py",
+   "lineno": 100,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DATE_RE",
+   "kind": "regex",
+   "value": "re.compile('(\\\\d{4})[年./\\\\-](\\\\d{1,2})[月./\\\\-](\\\\d{1,2})日?')",
+   "file": "src/core/update/announce.py",
+   "lineno": 101,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_A_TAG_RE",
+   "kind": "regex",
+   "value": "re.compile('<a\\\\b[^>]*href\\\\s*=\\\\s*[\\\\\"\\']([^\\\\\"\\']+)[\\\\\"\\'][^>]*>(.*?)</a>', re.IGNORECASE | re.DOTALL)",
+   "file": "src/core/update/announce.py",
+   "lineno": 102,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_TAG_STRIP_RE",
+   "kind": "regex",
+   "value": "re.compile('<[^>]+>')",
+   "file": "src/core/update/announce.py",
+   "lineno": 104,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_STATIC_EXT_RE",
+   "kind": "regex",
+   "value": "re.compile('(?i)\\\\.(css|js|png|jpe?g|gif|svg|ico|woff2?)($|\\\\?)')",
+   "file": "src/core/update/announce.py",
+   "lineno": 105,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SCHEME_BAD_RE",
+   "kind": "regex",
+   "value": "re.compile('(?i)^(javascript:|mailto:|tel:|#)')",
+   "file": "src/core/update/announce.py",
+   "lineno": 106,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_ARTICLE_EXT_RE",
+   "kind": "regex",
+   "value": "re.compile('\\\\.(?:s?html?|jsp|asp|aspx|php)(?:$|[?#])', re.I)",
+   "file": "src/core/update/announce.py",
+   "lineno": 304,
+   "scope": "(模块级)",
+   "comment": ": 所以判据就取那一条：**路径以 `/` 结尾 = 目录/栏目，不是文章**。 : : ⚠ **刻意没加更严的那条**（\"必须有 `.html/.shtml` 后缀或 `t20260923_717384` 这种文章名\"）： :   加上它当场打红 7 条既有用例（fixture 里的文章 URL 是 `https://gov.cn/news/a1` 这种 :   **无后缀**形态）—— 那是\"把真公告也一起吃掉\"的典型信号。业主要的正是\"别再放过\"， :   所以这里只收**证据齐**的那一条（22/22 命中），余下的等有真机反例再说。"
+  },
+  {
+   "name": "_ARTICLE_STAMP_RE",
+   "kind": "regex",
+   "value": "re.compile('/t20\\\\d{6}_\\\\d+\\\\.', re.I)",
+   "file": "src/core/update/announce.py",
+   "lineno": 305,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_PAGER_HREF_RE",
+   "kind": "regex",
+   "value": "re.compile('(?i)(^|/)(index|list|page|p)[_-]?\\\\d+\\\\.s?html?$|[?&]page=\\\\d+')",
+   "file": "src/core/update/announce.py",
+   "lineno": 520,
+   "scope": "(模块级)",
+   "comment": ": 真 `<a>` 翻页：href 像\"第 N 页\"（`index_2.shtml` / `?page=2` / `list_2.html`）"
+  },
+  {
+   "name": "_PAGER_JS_HINT_RE",
+   "kind": "regex",
+   "value": "re.compile('index_(\\\\d+)\\\\.s?html', re.I)",
+   "file": "src/core/update/announce.py",
+   "lineno": 522,
+   "scope": "(模块级)",
+   "comment": ": JS 拼的翻页（部委站最常见）：原始 HTML 里没有真 `<a>`，只有 `index_\" + i + \".shtml`"
+  },
+  {
+   "name": "_PAGER_JS_COUNT_RE",
+   "kind": "regex",
+   "value": "re.compile('countPage\\\\s*=\\\\s*(\\\\d+)', re.I)",
+   "file": "src/core/update/announce.py",
+   "lineno": 523,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_PAGER_NEXT_TEXT_RE",
+   "kind": "regex",
+   "value": "re.compile('^\\\\s*(下一页|下页|next|more|更多|»)\\\\s*$', re.I)",
+   "file": "src/core/update/announce.py",
+   "lineno": 524,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "PROBE_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "20.0",
+   "file": "src/core/update/channel_probe.py",
+   "lineno": 48,
+   "scope": "(模块级)",
+   "comment": ": 单次探测超时（渠道台账是\"体检\"，不是取数：宁可快失败，也别拖住面板）"
+  },
+  {
+   "name": "BODY_HEAD",
+   "kind": "threshold",
+   "value": "400",
+   "file": "src/core/update/channel_probe.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ": 响应体截断长度（落进证据里给人看；不存整页）"
+  },
+  {
+   "name": "_LINK_RE",
+   "kind": "regex",
+   "value": "re.compile('<a[\\\\s>]', re.I)",
+   "file": "src/core/update/channel_probe.py",
+   "lineno": 54,
+   "scope": "(模块级)",
+   "comment": ": 链接计数（§11.0 R6 的 `min_links` 判据用）。大小写不敏感、容忍 `<a\\n` 这种换行写法。"
+  },
+  {
+   "name": "STANDARD_NO_RE",
+   "kind": "regex",
+   "value": "re.compile('(?:GB/T|GBZ/T|GBZ|GBT|GB|JGJ|JG/T|JG|CJJ|CJ|DL/T|DL|HG/T|HG|SH/T|SH|HJ|SY/T|SY|JT/T|JT|JTG|YD|SJ|QB/T|QB|NY/T|NY|SL|TB|MT|LD|EJ|FZ/T|FZ|GA/T|GA|JJG|JJF|DB\\\\d*/T|DB\\\\d*|T/CECS|CECS)[\\\\s]*\\\\",
+   "file": "src/core/update/channel_test.py",
+   "lineno": 26,
+   "scope": "(模块级)",
+   "comment": ": 标准号形状（识别口径）：常见前缀 + 数字 + 可选年号。命中第一个即认。"
+  },
+  {
+   "name": "DEFAULT_TIMEOUT_S",
+   "kind": "threshold",
+   "value": "30.0",
+   "file": "src/core/update/channels/base.py",
+   "lineno": 239,
+   "scope": "(模块级)",
+   "comment": "---------------------------------------------------------------- 传输层"
+  },
+  {
+   "name": "_CORE_RE",
+   "kind": "regex",
+   "value": "re.compile('^(?:GB[ZT]?)?(\\\\d+(?:\\\\.\\\\d+)*)(?:-(\\\\d{4}))?$')",
+   "file": "src/core/update/channels/cssn.py",
+   "lineno": 59,
+   "scope": "(模块级)",
+   "comment": ": 标准号拆分：去掉 GB/GBT/GBZ 前缀 + 年份，得数字主体（跨前缀同主体匹配用）"
+  },
+  {
+   "name": "PAUSE_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/update/channels/cssn.py",
+   "lineno": 73,
+   "scope": "CssnAdapter",
+   "comment": ": 无 Jiasule，但保持调用间限速（政府/商业站点礼貌速率；mock 不睡眠保测试速度）"
+  },
+  {
+   "name": "_STD_TOKEN_RE",
+   "kind": "regex",
+   "value": "re.compile('[A-Z]{1,4}(?:/[A-Z]{1,4})?\\\\s*\\\\d{4,5}\\\\s*-\\\\s*\\\\d{4}')",
+   "file": "src/core/update/channels/govcn_announce.py",
+   "lineno": 29,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "COL_NO",
+   "kind": "threshold",
+   "value": "1",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 48,
+   "scope": "(模块级)",
+   "comment": "报告页表格列号（MEE 站点改版即失效，集中命名便于维护）"
+  },
+  {
+   "name": "COL_NAME",
+   "kind": "threshold",
+   "value": "2",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 49,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "COL_EFF",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 50,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "COL_ABSTRACT",
+   "kind": "threshold",
+   "value": "6",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "COL_PDF",
+   "kind": "threshold",
+   "value": "7",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 52,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_ROW_RE",
+   "kind": "regex",
+   "value": "re.compile('<tr\\\\b[^>]*>(.*?)</tr>', re.S)",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 54,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DATE_RE",
+   "kind": "regex",
+   "value": "re.compile('20\\\\d{2}-\\\\d{2}-\\\\d{2}')",
+   "file": "src/core/update/channels/mee.py",
+   "lineno": 55,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MAX_LIST_PAGES",
+   "kind": "threshold",
+   "value": "2",
+   "file": "src/core/update/channels/mem_gov.py",
+   "lineno": 25,
+   "scope": "(模块级)",
+   "comment": ": 公告列表遍历页数上限（每页 ~10 条，避免无限）"
+  },
+  {
+   "name": "_MAX_DETAILS",
+   "kind": "threshold",
+   "value": "8",
+   "file": "src/core/update/channels/mem_gov.py",
+   "lineno": 27,
+   "scope": "(模块级)",
+   "comment": ": 单号详情抓取上限（预算受控）"
+  },
+  {
+   "name": "_MAX_PAGES",
+   "kind": "threshold",
+   "value": "2",
+   "file": "src/core/update/channels/mohurd.py",
+   "lineno": 22,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MAX_DETAILS",
+   "kind": "threshold",
+   "value": "8",
+   "file": "src/core/update/channels/mohurd.py",
+   "lineno": 23,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "PAUSE_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/update/channels/ndls.py",
+   "lineno": 76,
+   "scope": "NdlsAdapter",
+   "comment": ": Jiasule WAF 观察模式：真实网络调用间限速（mock 不睡眠）"
+  },
+  {
+   "name": "PAUSE_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/update/channels/official_gb.py",
+   "lineno": 79,
+   "scope": "OfficialGbAdapter",
+   "comment": ": 调用间礼貌限速（防风控；mock transport 不睡眠保测试速度）"
+  },
+  {
+   "name": "DEFAULT_PROXY_PORT",
+   "kind": "threshold",
+   "value": "7897",
+   "file": "src/core/update/channels/proxy_rotate.py",
+   "lineno": 36,
+   "scope": "(模块级)",
+   "comment": ": Clash mixed-port 出口（config.yaml 实测）"
+  },
+  {
+   "name": "PAUSE_S",
+   "kind": "threshold",
+   "value": "1.0",
+   "file": "src/core/update/channels/std_samr_hb.py",
+   "lineno": 54,
+   "scope": "StdSamrHbAdapter",
+   "comment": ""
+  },
+  {
+   "name": "_JSON_LD_RE",
+   "kind": "regex",
+   "value": "re.compile('<script type=\"application/ld\\\\+json\">(.*?)</script>', re.S)",
+   "file": "src/core/update/channels/ttzb.py",
+   "lineno": 65,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_PORTAL_RE",
+   "kind": "regex",
+   "value": "re.compile('<script type=\"application/json\" id=\"portal-standard-detail-json\">(.*?)</script>', re.S)",
+   "file": "src/core/update/channels/ttzb.py",
+   "lineno": 66,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_STATUS_LINE_RE",
+   "kind": "regex",
+   "value": "re.compile('<span class=\"el-tag[^\"]*\">\\\\s*(现行|即将实施|被代替|废止)\\\\s*</span>')",
+   "file": "src/core/update/channels/ttzb.py",
+   "lineno": 70,
+   "scope": "(模块级)",
+   "comment": ": 状态行：详情页全页唯一 el-tag span"
+  },
+  {
+   "name": "_STD_TOKEN_RE",
+   "kind": "regex",
+   "value": "re.compile('[A-Z]{1,4}(?:/[A-Z]{1,4})?\\\\s*\\\\d{4,5}\\\\s*-\\\\s*\\\\d{4}')",
+   "file": "src/core/update/channels/web_fallback.py",
+   "lineno": 31,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DATE_RE",
+   "kind": "regex",
+   "value": "re.compile('\\\\d{4}-\\\\d{2}-\\\\d{2}')",
+   "file": "src/core/update/channels/web_fallback.py",
+   "lineno": 32,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "BROAD_CHILD_LIMIT",
+   "kind": "threshold",
+   "value": "5",
+   "file": "src/core/update/discover.py",
+   "lineno": 51,
+   "scope": "(模块级)",
+   "comment": ": 过泛阈值：仅映射到大类且子类数 >5 时必须追问收窄（批次3指令口径）"
+  },
+  {
+   "name": "MAX_DRILL_LEVEL",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/update/discover.py",
+   "lineno": 53,
+   "scope": "(模块级)",
+   "comment": ": 下钻深度上限（pipeline/02 §3 drill_level≤3）"
+  },
+  {
+   "name": "MAX_QUESTIONS",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/update/discover.py",
+   "lineno": 58,
+   "scope": "(模块级)",
+   "comment": ": 追问单轮最多问题数（对齐追问 v2：一次问完 ≤3 问，绝不连环）"
+  },
+  {
+   "name": "_STD_TOKEN_RE",
+   "kind": "regex",
+   "value": "re.compile('[A-Z]{1,4}(?:/[TZ])?\\\\s*\\\\d{3,5}(?:\\\\.\\\\d+)?\\\\s*[-—–]\\\\s*\\\\d{4}')",
+   "file": "src/core/update/discover.py",
+   "lineno": 62,
+   "scope": "(模块级)",
+   "comment": ": 标准号识别（GB/T 3608-2008、GB 50348-2019、GB/T 1.1—2020 等）"
+  },
+  {
+   "name": "_LLM_CACHE_MAX",
+   "kind": "threshold",
+   "value": "200",
+   "file": "src/core/update/discover.py",
+   "lineno": 279,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "MAX_ATTEMPTS",
+   "kind": "threshold",
+   "value": "3",
+   "file": "src/core/update/inspector.py",
+   "lineno": 63,
+   "scope": "(模块级)",
+   "comment": "---------------------------------------------------------------- 编排常量 : 单号探测尝试预算（含首次；INS-A-05「按重试=3 次后记 failed」）"
+  },
+  {
+   "name": "CONCURRENCY",
+   "kind": "threshold",
+   "value": "2",
+   "file": "src/core/update/inspector.py",
+   "lineno": 65,
+   "scope": "(模块级)",
+   "comment": ": 巡检并发（pipeline/06 §3 inspect.concurrency=2）"
+  },
+  {
+   "name": "DEFAULT_DAILY_BUDGET",
+   "kind": "threshold",
+   "value": "500",
+   "file": "src/core/update/inspector.py",
+   "lineno": 67,
+   "scope": "(模块级)",
+   "comment": ": 万级全库滚动日预算默认值（35k ÷ 500 ≈ 70 天一轮）"
+  },
+  {
+   "name": "CLEAR_CONFIDENCE",
+   "kind": "threshold",
+   "value": "0.9",
+   "file": "src/core/update/jev_ingest.py",
+   "lineno": 45,
+   "scope": "(模块级)",
+   "comment": ": 两道门（可改：见 config.Settings 的 jev_* 字段；此处是默认值常量）"
+  },
+  {
+   "name": "REVIEW_CONFIDENCE",
+   "kind": "threshold",
+   "value": "0.7",
+   "file": "src/core/update/jev_ingest.py",
+   "lineno": 46,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "POLL_INTERVAL_S",
+   "kind": "threshold",
+   "value": "2.0",
+   "file": "src/core/update/scheduler.py",
+   "lineno": 27,
+   "scope": "(模块级)",
+   "comment": ": 轮询周期（秒），与 watcher 的 2s 模式一致"
+  },
+  {
+   "name": "DEFAULT_SCHEDULE_DAYS",
+   "kind": "threshold",
+   "value": "7",
+   "file": "src/core/update/scheduler.py",
+   "lineno": 28,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DRAFT_RE",
+   "kind": "regex",
+   "value": "re.compile('征求意见|草案|公开征求')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 30,
+   "scope": "(模块级)",
+   "comment": ": 征求意见稿（**仅参考**，见模块 docstring 与 §10.189 切片③）"
+  },
+  {
+   "name": "_WITHDRAWN_RE",
+   "kind": "regex",
+   "value": "re.compile('废止|失效|作废')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 32,
+   "scope": "(模块级)",
+   "comment": ": 废止类"
+  },
+  {
+   "name": "_DIV_TAG_RE",
+   "kind": "regex",
+   "value": "re.compile('</?div\\\\b', re.I)",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 40,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_SCRIPT_RE",
+   "kind": "regex",
+   "value": "re.compile('<(script|style|noscript)\\\\b.*?</\\\\1>', re.S | re.I)",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 41,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_COMMENT_RE",
+   "kind": "regex",
+   "value": "re.compile('<!--.*?-->', re.S)",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 42,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_BLOCK_END_RE",
+   "kind": "regex",
+   "value": "re.compile('(?i)</(p|div|h[1-6]|li|tr|section|article)>|<br\\\\s*/?>')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 43,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_TAG_RE",
+   "kind": "regex",
+   "value": "re.compile('<[^>]+>')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 44,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_WS_RE",
+   "kind": "regex",
+   "value": "re.compile('[ \\\\t\\\\u3000]+')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 45,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MULTI_NL_RE",
+   "kind": "regex",
+   "value": "re.compile('\\\\n{3,}')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 46,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_TITLE_RE",
+   "kind": "regex",
+   "value": "re.compile('<title[^>]*>(.*?)</title>', re.S | re.I)",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 47,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CHANGE_SIGNAL_NOT_REVISION",
+   "kind": "regex",
+   "value": "re.compile('(修订|修改|修正|变更|替代)\\\\s*(统筹|管理|工作|计划|程序|流程|职责|要求|办法|细则)')",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 92,
+   "scope": "(模块级)",
+   "comment": ": 「制修订」「修订统筹」这类**流程词**：它们出现在**被引文件自己的标题**里 : （讲\"标准怎么制定与修订\"的统筹细则），并不是\"某部法规/标准被修订了\"。 : ⚠ 判据不能只看\"整条标题有没有 `修订`\"——要看**动词后面紧跟的成分**： :   · 「印发《…标准**制修订**统筹协调工作细则》的通知」⇒ 动词+4 字内是\"统筹/管理/办法\"⇒ 流程词； :   · 「学习宣传贯彻新**修订**的《中华人民共和…法》」⇒ 动词+2 字内是\"的《\"⇒ 真的被修订。"
+  },
+  {
+   "name": "INGEST_BUDGET_S",
+   "kind": "threshold",
+   "value": "45.0",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 368,
+   "scope": "(模块级)",
+   "comment": ": 单次批量入库的**时间预算**（秒）：到点停下、把\"还没做完\"如实报回去，绝不把请求挂死。 : （前端可以再点一次；每次调用都报 `pending_left`，所以进度是看得见的。）"
+  },
+  {
+   "name": "INGEST_BATCH_MAX",
+   "kind": "threshold",
+   "value": "20",
+   "file": "src/core/update/web_ingest.py",
+   "lineno": 370,
+   "scope": "(模块级)",
+   "comment": ": 单次批量条数上限（防一次点下去抓几百页）。"
+  },
+  {
+   "name": "REJECT_SIMILARITY",
+   "kind": "threshold",
+   "value": "0.15",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 24,
+   "scope": "(模块级)",
+   "comment": "阈值（可按线上误报情况微调）"
+  },
+  {
+   "name": "WARN_LENGTH_GROW",
+   "kind": "threshold",
+   "value": "3.0",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 25,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "WARN_CJK_DROP",
+   "kind": "threshold",
+   "value": "0.3",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 27,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "REJECT_NONPRINT",
+   "kind": "threshold",
+   "value": "0.3",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 28,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_MIN_LEN_FOR_CHECK",
+   "kind": "threshold",
+   "value": "12",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 30,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CTRL_RE",
+   "kind": "regex",
+   "value": "re.compile('[^\\\\S\\\\n]|[\\\\x00-\\\\x08\\\\x0b\\\\x0c\\\\x0e-\\\\x1f\\\\x7f]')",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 32,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_CJK_RE",
+   "kind": "regex",
+   "value": "re.compile('[\\\\u4e00-\\\\u9fff]')",
+   "file": "src/core/verification/patch_guard.py",
+   "lineno": 33,
+   "scope": "(模块级)",
+   "comment": ""
+  },
+  {
+   "name": "_DIGIT_GAP_RE",
+   "kind": "regex",
+   "value": "re.compile('(?<=\\\\d)\\\\s+(?=\\\\d)')",
+   "file": "src/core/verification/typed_verifier.py",
+   "lineno": 33,
+   "scope": "(模块级)",
+   "comment": ": PDF 提取伪影归一（2026-09-06 真机回归）：宽字距数字被提取器切开 （GB 30871-2022 §9.1 实测 \"4 0 t ≤ m ≤ 1 0 0 t\"）——数字之间的空格剥离， 否则 _NUM_UNIT 只匹配到最后一个数字（\"0t\"），与 LLM 正确输出 \"40t\" 对不上 → number_tampered 误报。只合并 digit-digit 间空格；对称作用于证据与输出， 真篡改仍被抓（门禁宁误报不漏报的原则不受影响）。"
+  },
+  {
+   "name": "_MENTION_ONLY_RE",
+   "kind": "regex",
+   "value": "re.compile('无关|不涉及|不属于|区别于|不同于|并非|不属于.*范围|不适用')",
+   "file": "src/core/verification/typed_verifier.py",
+   "lineno": 62,
+   "scope": "(模块级)",
+   "comment": ": 对比/否定提及标记（2026-09-06 真机回归「吊装作业怎么分级」第二轮）：条款号 : 出现在\"与…无关/不涉及/区别于\"等语境时，LLM 只是拿它做**区分**而非转述其 : 规范要求——窗口无模态词不应计 modality_missing（GB 30871 §9.1 吊装答案 : 引用 §5.1.1 动火分级仅作排除说明被误拦的教训）。若 LLM 真转述了要求， : 拼接窗口含模态词仍走正常校验，逃逸面极小。"
+  }
+ ]
+}

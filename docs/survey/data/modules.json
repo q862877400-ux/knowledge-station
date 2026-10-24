@@ -2,8 +2,8 @@
  "generated_by": "scripts/survey/05-deep.py::step_modules",
  "caliber": "`purpose` = 模块 docstring 的第一句（跳过标题行，按 `。`/`；`/换行切，上限 160 字）。**没有 docstring 的模块 purpose 为空** —— 这是记录，不是评价。",
  "counts": {
-  "modules": 1274,
-  "with_docstring": 1258,
+  "modules": 1275,
+  "with_docstring": 1259,
   "without_docstring": 16
  },
  "modules": [
@@ -6421,10 +6421,11 @@
     "gen_function_index",
     "gen_runtime_probe",
     "gen_requirements",
+    "gen_rules",
     "main"
    ],
-   "n_public": 23,
-   "lines": 1070
+   "n_public": 24,
+   "lines": 1108
   },
   {
    "module": "scripts/survey/04-reconcile.py",
@@ -6435,7 +6436,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 337
+   "lines": 342
   },
   {
    "module": "scripts/survey/05-deep.py",
@@ -6495,7 +6496,6 @@
    "purpose": "检查第 9 步（派生层）：需求编号索引 / 否决台账索引 / 种子库数据样例。",
    "has_docstring": true,
    "public_symbols": [
-    "dump",
     "iter_py",
     "first_body_para",
     "collect_definitions",
@@ -6504,8 +6504,19 @@
     "step_data_samples",
     "main"
    ],
-   "n_public": 8,
-   "lines": 428
+   "n_public": 7,
+   "lines": 425
+  },
+  {
+   "module": "scripts/survey/10-rules.py",
+   "purpose": "检查第 10 步（规则层）：把「判定规则」抽成表。",
+   "has_docstring": true,
+   "public_symbols": [
+    "comment_above",
+    "main"
+   ],
+   "n_public": 2,
+   "lines": 148
   },
   {
    "module": "scripts/survey/_common.py",
@@ -6527,7 +6538,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 104
+   "lines": 105
   },
   {
    "module": "scripts/uniformity-ast-dupes.py",

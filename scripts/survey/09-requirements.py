@@ -20,11 +20,14 @@
 """
 from __future__ import annotations
 
-import json
 import re
 import sqlite3
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _common import dump  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "docs" / "survey" / "data"
@@ -61,12 +64,6 @@ CCS_LINE_RE = re.compile(r"CCS|分类法|category", re.I)
 #: 代码里引用否决台账：`NOT-DOING #16`
 ND_REF_RE = re.compile(r"NOT-DOING\s*#\s*(\d+)")
 
-
-def dump(name: str, payload: dict) -> None:
-    DATA.mkdir(parents=True, exist_ok=True)
-    p = DATA / f"{name}.json"
-    p.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"  → {p.relative_to(ROOT)}  ({len(json.dumps(payload)) // 1024} KB)")
 
 
 def iter_py():
