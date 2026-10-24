@@ -765,6 +765,43 @@ def gen_frontend() -> None:
         note = cell((f["header_note"] or "—")[:70])
         out.append(f"| `{f['file']}` | {f['lines']:,} | {f['n_exports']} | "
                    f"{f['n_declarations']} | {note} |")
+    # ── 与「真 AST」对照（两份各有盲区，如实并列）──
+    astp = DATA / "web_ast.json"
+    if astp.exists():
+        a = json.loads(astp.read_text(encoding="utf-8"))
+        ac, rc = a["counts"], d["counts"]
+        ast_by = {f["file"]: f for f in a["files"]}
+        rex_by = {f["file"]: f for f in d["files"]}
+        gaps = []
+        for f in sorted(set(ast_by) & set(rex_by)):
+            x, y = ast_by[f]["n_exports"], rex_by[f]["n_exports"]
+            if abs(x - y) >= 3:
+                gaps.append((x, y, f))
+        out += [
+            "## 三之二、与「真 AST」对照（**两份各有盲区，不选边**）", "",
+            f"仓库根已有 `typescript@{a['typescript_version']}`，"
+            "用它建真 AST 抽了一遍（`scripts/survey/09-web-ast.cjs`）。", "",
+            "| 口径 | 文件 | 导出 | 声明 |", "|---|---:|---:|---:|",
+            f"| **AST**（`ts.createSourceFile`） | {ac['files']} | **{ac['total_exports']}** | "
+            f"**{ac['total_declarations']}** |",
+            f"| 正则（本节上表） | {rc['files']} | {rc['total_exports']} | "
+            f"{rc['total_declarations']} |",
+            "",
+            "**差异说明（不判断谁对）**：",
+            "",
+            "| 现象 | 原因 |",
+            "|---|---|",
+            "| AST 导出数**少** 37 | AST 只走**顶层语句**；"
+            "`declare module '…' { export … }` 里的导出不在顶层 ⇒ 没进去 |",
+            "| AST 声明数**多** 385 | 正则只认 `function/const/class` 三种，"
+            "**漏掉 `interface` / `type` / `enum`** |",
+            "",
+        ]
+        if gaps:
+            out += ["导出数差 ≥3 的文件（AST / 正则 / 文件）：", ""]
+            for x, y, f in sorted(gaps, key=lambda z: -abs(z[0] - z[1]))[:8]:
+                out.append(f"- {x} / {y} / `{f}`")
+            out += [""]
     out += ["", "## 四、每个文件导出了什么（逐个列）", ""]
     for f in sorted(d["files"], key=lambda x: x["file"]):
         if not f["exports"]:

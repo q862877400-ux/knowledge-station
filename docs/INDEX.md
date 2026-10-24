@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **250 份** / **9679 KB**。
+> 共 **250 份** / **9680 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -62,15 +62,15 @@
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
 | `docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md` | 6 | 2026-10-12 | 业主问：「我不是做了一套自动嗅探各个网站的法规和标准的更新动态，然后根据更新动态去下载 |
 
-## 界面与交互（7 份 / 415 KB）
+## 界面与交互（7 份 / 416 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/UI-BASELINE.md` | 256 | 2026-10-12 | **这份文件干什么**：把"照抄 WeKnora"从口号变成**可施工的规格**：① 参照物清单位置；② 一套**尺度系 |
 | `docs/INTERACTION-DESIGN.md` | 63 | 2026-10-11 | 〇、落地状态（**以代码为准**，2026-09-19 §10.130 更新） |
 | `docs/uniformity/06-frontend.md` | 48 | 2026-10-24 | 调查对象：`D:\Agent-Studio\Deepseek-Harness\DSH-Data\workspace\zc |
+| `docs/survey/16-frontend.md` | 17 | 2026-10-24 | 一、口径 |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 | 2026-10-05 | 零、一句话结论 |
-| `docs/survey/16-frontend.md` | 16 | 2026-10-24 | 一、口径 |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 | 2026-09-25 | 〇、总目标（一句话） |
 | `docs/UI-ICON-SYSTEM.md` | 6 | 2026-10-10 | 一、图标从哪来（契约，逐字取自宿主实现） |
 
@@ -143,7 +143,7 @@
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
-| `docs/survey/20-rules.md` | 59 | 未提交 | 一、口径\n\n从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` /  |
+| `docs/survey/20-rules.md` | 59 | 2026-10-24 | 一、口径\n\n从 `src/**/*.py` 的**赋值语句**里抽两类常量：① 正则类（名字匹配 `*_RE` /  |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/README.md` | 56 | 2026-10-24 | KnowledgeStation 摸底：证据与过程 |
 | `docs/uniformity/09-big-files.md` | 52 | 2026-10-24 | 行数口径更正（先更正任务书里的数字） |

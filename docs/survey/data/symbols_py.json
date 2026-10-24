@@ -7237,7 +7237,7 @@
      "has_docstring": true,
      "purpose": "执行（或续跑）重建。",
      "private": false,
-     "text_hits": 282
+     "text_hits": 283
     },
     {
      "module": "eval/recall-funnel/exp-17-embedding-production-plan/rebuild-shadow.py",
@@ -13004,7 +13004,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 313
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/40-promote-to-prod.py",
@@ -13245,7 +13245,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "eval/recall-funnel/exp-5-real-questions/43-verify-prod-after-push.py",
@@ -21274,7 +21274,7 @@
      "has_docstring": true,
      "purpose": "这个段落**能不能**被 q 匹配上（不看排名）。",
      "private": false,
-     "text_hits": 350
+     "text_hits": 351
     },
     {
      "module": "scripts/measure-cross-language-fts.py",
@@ -25204,8 +25204,8 @@
      "kind": "function",
      "file": "scripts/survey/03-render.py",
      "lineno": 748,
-     "end_lineno": 776,
-     "lines": 29,
+     "end_lineno": 813,
+     "lines": 66,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
@@ -25219,8 +25219,8 @@
      "name": "gen_function_index",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 780,
-     "end_lineno": 822,
+     "lineno": 817,
+     "end_lineno": 859,
      "lines": 43,
      "signature": "()",
      "decorators": [],
@@ -25235,8 +25235,8 @@
      "name": "gen_runtime_probe",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 826,
-     "end_lineno": 954,
+     "lineno": 863,
+     "end_lineno": 991,
      "lines": 129,
      "signature": "()",
      "decorators": [],
@@ -25251,8 +25251,8 @@
      "name": "gen_requirements",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 959,
-     "end_lineno": 1042,
+     "lineno": 996,
+     "end_lineno": 1079,
      "lines": 84,
      "signature": "()",
      "decorators": [],
@@ -25267,8 +25267,8 @@
      "name": "gen_rules",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 1046,
-     "end_lineno": 1079,
+     "lineno": 1083,
+     "end_lineno": 1116,
      "lines": 34,
      "signature": "()",
      "decorators": [],
@@ -25283,8 +25283,8 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/03-render.py",
-     "lineno": 1082,
-     "end_lineno": 1103,
+     "lineno": 1119,
+     "end_lineno": 1140,
      "lines": 22,
      "signature": "()",
      "decorators": [],
@@ -25358,8 +25358,8 @@
      "kind": "function",
      "file": "scripts/survey/04-reconcile.py",
      "lineno": 41,
-     "end_lineno": 337,
-     "lines": 297,
+     "end_lineno": 342,
+     "lines": 302,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
@@ -26243,15 +26243,15 @@
      "name": "run",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 56,
-     "end_lineno": 75,
+     "lineno": 57,
+     "end_lineno": 76,
      "lines": 20,
      "signature": "(script, label)",
      "decorators": [],
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 282
+     "text_hits": 283
     },
     {
      "module": "scripts/survey/run-all.py",
@@ -26259,9 +26259,9 @@
      "name": "main",
      "kind": "function",
      "file": "scripts/survey/run-all.py",
-     "lineno": 78,
-     "end_lineno": 100,
-     "lines": 23,
+     "lineno": 79,
+     "end_lineno": 114,
+     "lines": 36,
      "signature": "()",
      "decorators": [],
      "has_docstring": false,
@@ -29634,7 +29634,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 282
+     "text_hits": 283
     }
    ]
   },
@@ -51537,7 +51537,7 @@
      "has_docstring": true,
      "purpose": "阻塞运行。",
      "private": false,
-     "text_hits": 282
+     "text_hits": 283
     },
     {
      "module": "src/core/supervisor.py",
@@ -54751,7 +54751,7 @@
      "has_docstring": true,
      "purpose": "探测单个标准号的最新官方状态。",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/base.py",
@@ -55054,7 +55054,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/cssn.py",
@@ -55373,7 +55373,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/govcn_announce.py",
@@ -55569,7 +55569,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/hbba.py",
@@ -55700,7 +55700,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     }
    ]
   },
@@ -56164,7 +56164,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/mee.py",
@@ -56275,7 +56275,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/mem_gov.py",
@@ -56398,7 +56398,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/mohurd.py",
@@ -56574,7 +56574,7 @@
      "has_docstring": true,
      "purpose": "探测单号状态。",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/ndls.py",
@@ -56908,7 +56908,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/official_gb.py",
@@ -57710,7 +57710,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/std_samr_hb.py",
@@ -57914,7 +57914,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "src/core/update/channels/ttzb.py",
@@ -58149,7 +58149,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     }
    ]
   },
@@ -93288,7 +93288,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 3607
+     "text_hits": 3609
     },
     {
      "module": "tests/test_law_source_http_antibot.py",
@@ -129968,7 +129968,7 @@
      "has_docstring": true,
      "purpose": "毫秒时间戳 → `YYYY-MM-DD HH:MM:SS`。",
      "private": false,
-     "text_hits": 62
+     "text_hits": 63
     },
     {
      "module": "tools/gov-qa/adapters/_igi_common.py",
@@ -152530,7 +152530,7 @@
      "has_docstring": true,
      "purpose": "实测域名是否可达。",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/build-city-domains.py",
@@ -156596,7 +156596,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe27.py",
@@ -157039,7 +157039,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 1485
+     "text_hits": 1486
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe31.py",
@@ -158184,7 +158184,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/city-sc-probe42.py",
@@ -164086,7 +164086,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/igi-siteid-scan.py",
@@ -166162,7 +166162,7 @@
      "has_docstring": true,
      "purpose": "探一个 fid。",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/liuyan-fid-dense-scan.py",
@@ -169426,7 +169426,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/probe-longxun-cities.py",
@@ -172148,7 +172148,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/sh-zj-probe.py",
@@ -172617,7 +172617,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/waf-igi-probe.py",
@@ -172855,7 +172855,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 282
+     "text_hits": 283
     }
    ]
   },
@@ -173179,7 +173179,7 @@
      "has_docstring": false,
      "purpose": "",
      "private": false,
-     "text_hits": 311
+     "text_hits": 312
     },
     {
      "module": "tools/gov-qa/recon/xj-xz-sd-gx-qh-probe.py",

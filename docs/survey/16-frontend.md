@@ -70,6 +70,26 @@
 | `plugin/client/KsPdfGuideIcon.tsx` | 50 | 1 | 1 | ks-dsh-plugin — client/KsPdfGuideIcon.tsx |
 | `plugin/client/KsKnowledgeGuideIcon.tsx` | 45 | 1 | 1 | ks-dsh-plugin — client/KsKnowledgeGuideIcon.tsx |
 | `plugin/client/KsAnchorWarn.tsx` | 44 | 3 | 3 | ks-dsh-plugin — client/KsAnchorWarn.tsx |
+## 三之二、与「真 AST」对照（**两份各有盲区，不选边**）
+
+仓库根已有 `typescript@5.9.3`，用它建真 AST 抽了一遍（`scripts/survey/09-web-ast.cjs`）。
+
+| 口径 | 文件 | 导出 | 声明 |
+|---|---:|---:|---:|
+| **AST**（`ts.createSourceFile`） | 50 | **592** | **1139** |
+| 正则（本节上表） | 50 | 629 | 754 |
+
+**差异说明（不判断谁对）**：
+
+| 现象 | 原因 |
+|---|---|
+| AST 导出数**少** 37 | AST 只走**顶层语句**；`declare module '…' { export … }` 里的导出不在顶层 ⇒ 没进去 |
+| AST 声明数**多** 385 | 正则只认 `function/const/class` 三种，**漏掉 `interface` / `type` / `enum`** |
+
+导出数差 ≥3 的文件（AST / 正则 / 文件）：
+
+- 0 / 36 / `plugin/client/ksHostPrimitives.d.ts`
+
 
 ## 四、每个文件导出了什么（逐个列）
 

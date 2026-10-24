@@ -1,0 +1,8491 @@
+{
+ "generated_by": "scripts/survey/09-web-ast.cjs（用仓库根部已有的 typescript）",
+ "typescript_version": "5.9.3",
+ "caliber": "用 **TypeScript 编译器 API**（`ts.createSourceFile`）建真 AST，抽 `import` / `function` / `class` / `interface` / `type` / `enum` / `const` / `export {}` / `export *`。**这是 AST 级，不是正则近似**；与 `data/web_content.json`（正则版）并存，两份差异本身就是「正则漏了什么」的读数。",
+ "roots": [
+  "plugin/client",
+  "plugin/src"
+ ],
+ "counts": {
+  "files": 50,
+  "total_exports": 592,
+  "total_declarations": 1139,
+  "tsx_files": 19,
+  "ts_files": 12,
+  "js_files": 19
+ },
+ "files": [
+  {
+   "file": "plugin/client/KsAnchorWarn.tsx",
+   "lines": 44,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KS_WARN_STYLE",
+     "kind": "const",
+     "line": 18,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksWarnCssText",
+     "kind": "function",
+     "line": 25,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnchorWarn",
+     "kind": "function",
+     "line": 29,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 3,
+   "imports": 1
+  },
+  {
+   "file": "plugin/client/KsArrowOverlay.tsx",
+   "lines": 70,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KS_ARROW_SVG",
+     "kind": "const",
+     "line": 17,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SIBLING_OPACITY",
+     "kind": "const",
+     "line": 28,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ARROW_SVG_SIBLING",
+     "kind": "const",
+     "line": 31,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "arrowBackground",
+     "kind": "function",
+     "line": 34,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "overlayStyle",
+     "kind": "function",
+     "line": 39,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsArrowOverlay",
+     "kind": "const",
+     "line": 50,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsSiblingArrowsOverlay",
+     "kind": "const",
+     "line": 65,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 6,
+   "n_declarations": 7,
+   "imports": 1
+  },
+  {
+   "file": "plugin/client/KsBookmarksTab.tsx",
+   "lines": 688,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsBookmarkJump",
+     "kind": "interface",
+     "line": 48,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsBookmarksViewProps",
+     "kind": "interface",
+     "line": 55,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "LoadState",
+     "kind": "type",
+     "line": 66,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "FolderPhase",
+     "kind": "type",
+     "line": 72,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DocGroupNode",
+     "kind": "interface",
+     "line": 75,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsBookmarksView",
+     "kind": "function",
+     "line": 83,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FolderBody",
+     "kind": "function",
+     "line": 439,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "GroupList",
+     "kind": "function",
+     "line": 456,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "GroupRow",
+     "kind": "function",
+     "line": 471,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DocLeaf",
+     "kind": "function",
+     "line": 500,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "buildGroupTree",
+     "kind": "function",
+     "line": 553,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$center",
+     "kind": "const",
+     "line": 582,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$btn",
+     "kind": "const",
+     "line": 590,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$miniBtn",
+     "kind": "const",
+     "line": 600,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$askBtn",
+     "kind": "const",
+     "line": 609,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$askBtnOn",
+     "kind": "const",
+     "line": 620,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$input",
+     "kind": "const",
+     "line": 629,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$confirmBar",
+     "kind": "const",
+     "line": 642,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$row",
+     "kind": "const",
+     "line": 653,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$caret",
+     "kind": "const",
+     "line": 665,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leaf",
+     "kind": "const",
+     "line": 679,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 21,
+   "imports": 4
+  },
+  {
+   "file": "plugin/client/KsCapabilityPage.tsx",
+   "lines": 465,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "OfficeItem",
+     "kind": "interface",
+     "line": 33,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "OFFICE_ITEMS",
+     "kind": "const",
+     "line": 48,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsOfficeRow",
+     "kind": "function",
+     "line": 55,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "OfficePage",
+     "kind": "function",
+     "line": 109,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsEgressPage",
+     "kind": "function",
+     "line": 137,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "VERDICT_WORD",
+     "kind": "const",
+     "line": 232,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsGapPage",
+     "kind": "function",
+     "line": 239,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsFixPage",
+     "kind": "function",
+     "line": 312,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsCapabilityPage",
+     "kind": "function",
+     "line": 422,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 7,
+   "n_declarations": 9,
+   "imports": 4
+  },
+  {
+   "file": "plugin/client/KsChannelsPanel.tsx",
+   "lines": 906,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "LINE",
+     "kind": "const",
+     "line": 53,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsChannelsPanelProps",
+     "kind": "interface",
+     "line": 55,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "CATEGORY_LABEL",
+     "kind": "const",
+     "line": 60,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "WIRING_LABEL",
+     "kind": "const",
+     "line": 65,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "STATE_LABEL",
+     "kind": "const",
+     "line": 69,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "GRAY",
+     "kind": "const",
+     "line": 73,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "FAINT",
+     "kind": "const",
+     "line": 74,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "describeWhen",
+     "kind": "function",
+     "line": 83,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "needsAttention",
+     "kind": "function",
+     "line": 98,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "sortChannels",
+     "kind": "function",
+     "line": 104,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseSegments",
+     "kind": "function",
+     "line": 118,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "filterChannels",
+     "kind": "function",
+     "line": 130,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "generateNewsLine",
+     "kind": "function",
+     "line": 147,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DIR_COLS",
+     "kind": "const",
+     "line": 173,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "CH_COLS",
+     "kind": "const",
+     "line": 178,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "groupRowsBySite",
+     "kind": "function",
+     "line": 187,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ORG_KIND_LABEL",
+     "kind": "const",
+     "line": 213,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "groupRowsByOrgKind",
+     "kind": "function",
+     "line": 221,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "buildChannelFixPrompt",
+     "kind": "function",
+     "line": 243,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "copyTextToClipboard",
+     "kind": "function",
+     "line": 284,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelsPanel",
+     "kind": "function",
+     "line": 307,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "$mini",
+     "kind": "const",
+     "line": 878,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$th",
+     "kind": "const",
+     "line": 891,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$td",
+     "kind": "const",
+     "line": 896,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$trWarn",
+     "kind": "const",
+     "line": 901,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 13,
+   "n_declarations": 25,
+   "imports": 7
+  },
+  {
+   "file": "plugin/client/KsDocTextView.tsx",
+   "lines": 394,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "ALLOWED_TAGS",
+     "kind": "const",
+     "line": 44,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ALLOWED_ATTRS",
+     "kind": "const",
+     "line": 52,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeDocHtml",
+     "kind": "function",
+     "line": 79,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "imageParamsOf",
+     "kind": "function",
+     "line": 143,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "wirePlaceholders",
+     "kind": "function",
+     "line": 175,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsDocTextViewProps",
+     "kind": "interface",
+     "line": 241,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "TextLoad",
+     "kind": "type",
+     "line": 250,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsDocTextView",
+     "kind": "function",
+     "line": 255,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 8,
+   "imports": 3
+  },
+  {
+   "file": "plugin/client/KsEvidenceHost.tsx",
+   "lines": 144,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsEvidenceHostRuntime",
+     "kind": "interface",
+     "line": 56,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceHostInjected",
+     "kind": "interface",
+     "line": 61,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceHostProps",
+     "kind": "type",
+     "line": 67,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceHost",
+     "kind": "function",
+     "line": 79,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceBody",
+     "kind": "function",
+     "line": 101,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 4,
+   "n_declarations": 5,
+   "imports": 5
+  },
+  {
+   "file": "plugin/client/KsEvidenceTab.tsx",
+   "lines": 2835,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "siblingArrowBg",
+     "kind": "const",
+     "line": 71,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "LoadState",
+     "kind": "type",
+     "line": 78,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "HistoryEntry",
+     "kind": "interface",
+     "line": 85,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "EMPTY_EVIDENCE",
+     "kind": "const",
+     "line": 92,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "HISTORY_CAP",
+     "kind": "const",
+     "line": 94,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "SCALE_EPSILON",
+     "kind": "const",
+     "line": 99,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "SCROLLBAR_NOISE_PX",
+     "kind": "const",
+     "line": 101,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DEFAULT_SETTLE_MS",
+     "kind": "const",
+     "line": 107,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "RESIZE_SETTLE_MS",
+     "kind": "const",
+     "line": 109,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "CONTINUOUS_MARGIN_PX",
+     "kind": "const",
+     "line": 114,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readSlowTransitionMs",
+     "kind": "function",
+     "line": 117,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "paneLeftEdge",
+     "kind": "function",
+     "line": 141,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceTab",
+     "kind": "function",
+     "line": 152,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "tocNoClause",
+     "kind": "function",
+     "line": 2503,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "escDupNoLocal",
+     "kind": "function",
+     "line": 2509,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "dupNoMatchesLocal",
+     "kind": "function",
+     "line": 2517,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "tocTitleSplitClause",
+     "kind": "function",
+     "line": 2524,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$center",
+     "kind": "const",
+     "line": 2534,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$btnStyle",
+     "kind": "const",
+     "line": 2542,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$inputStyle",
+     "kind": "const",
+     "line": 2551,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$bottomBar",
+     "kind": "const",
+     "line": 2561,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$segGroup",
+     "kind": "const",
+     "line": 2572,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$segBtn",
+     "kind": "const",
+     "line": 2579,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$segBtnOn",
+     "kind": "const",
+     "line": 2590,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$zoomSlider",
+     "kind": "const",
+     "line": 2597,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$zoomMenuItem",
+     "kind": "const",
+     "line": 2606,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$zoomMenuItemOn",
+     "kind": "const",
+     "line": 2619,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$folderOpt",
+     "kind": "const",
+     "line": 2626,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$btnPrimary",
+     "kind": "const",
+     "line": 2641,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$bmFloatWidth",
+     "kind": "const",
+     "line": 2651,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$bmFloatHeight",
+     "kind": "const",
+     "line": 2652,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$bmFloatStyle",
+     "kind": "const",
+     "line": 2653,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$bmDoneStyle",
+     "kind": "const",
+     "line": 2673,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocSlideTransition",
+     "kind": "const",
+     "line": 2685,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocColumnInner",
+     "kind": "const",
+     "line": 2687,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocColumnHeader",
+     "kind": "const",
+     "line": 2696,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocCollapseBtn",
+     "kind": "const",
+     "line": 2707,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocList",
+     "kind": "const",
+     "line": 2719,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocHint",
+     "kind": "const",
+     "line": 2725,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocItem",
+     "kind": "const",
+     "line": 2731,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocItemL1",
+     "kind": "const",
+     "line": 2743,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocItemL2",
+     "kind": "const",
+     "line": 2749,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocNo",
+     "kind": "const",
+     "line": 2754,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocTitle",
+     "kind": "const",
+     "line": 2762,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocPage",
+     "kind": "const",
+     "line": 2771,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$tocBtnStyle",
+     "kind": "const",
+     "line": 2778,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$modeBtn",
+     "kind": "const",
+     "line": 2784,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$modeBtnOn",
+     "kind": "const",
+     "line": 2797,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$dirSearchRow",
+     "kind": "const",
+     "line": 2804,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$dirSearchInput",
+     "kind": "const",
+     "line": 2809,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$dirSearchClear",
+     "kind": "const",
+     "line": 2821,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 1,
+   "n_declarations": 51,
+   "imports": 16
+  },
+  {
+   "file": "plugin/client/KsFilesTab.tsx",
+   "lines": 806,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "LoadState",
+     "kind": "type",
+     "line": 31,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DelPhase",
+     "kind": "type",
+     "line": 37,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "countDocs",
+     "kind": "function",
+     "line": 46,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsFilesViewProps",
+     "kind": "interface",
+     "line": 53,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsFilesView",
+     "kind": "function",
+     "line": 63,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "$center",
+     "kind": "const",
+     "line": 522,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$btnPrimary",
+     "kind": "const",
+     "line": 530,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$multiTool",
+     "kind": "const",
+     "line": 542,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$toolBtn",
+     "kind": "const",
+     "line": 549,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$dangerBtn",
+     "kind": "const",
+     "line": 560,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$delBar",
+     "kind": "const",
+     "line": 565,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$delBtns",
+     "kind": "const",
+     "line": 576,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$row",
+     "kind": "const",
+     "line": 587,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL1",
+     "kind": "const",
+     "line": 599,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL1Name",
+     "kind": "const",
+     "line": 607,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL2",
+     "kind": "const",
+     "line": 614,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL2Name",
+     "kind": "const",
+     "line": 620,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL3",
+     "kind": "const",
+     "line": 627,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$rowL3Name",
+     "kind": "const",
+     "line": 635,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$countChip",
+     "kind": "const",
+     "line": 642,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$caretMinor",
+     "kind": "const",
+     "line": 654,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$caret",
+     "kind": "const",
+     "line": 658,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$children",
+     "kind": "const",
+     "line": 672,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafGroup",
+     "kind": "const",
+     "line": 677,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$fileSub",
+     "kind": "const",
+     "line": 681,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$fileSubRow",
+     "kind": "const",
+     "line": 686,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$fileSubPill",
+     "kind": "const",
+     "line": 693,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$countChipL4",
+     "kind": "const",
+     "line": 709,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leaf",
+     "kind": "const",
+     "line": 719,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafStruck",
+     "kind": "const",
+     "line": 734,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafNo",
+     "kind": "const",
+     "line": 741,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafLawName",
+     "kind": "const",
+     "line": 754,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafName",
+     "kind": "const",
+     "line": 761,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$leafMeta",
+     "kind": "const",
+     "line": 770,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$supBadge",
+     "kind": "const",
+     "line": 778,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$docCheck",
+     "kind": "const",
+     "line": 785,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "$docCheckOn",
+     "kind": "const",
+     "line": 802,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 37,
+   "imports": 3
+  },
+  {
+   "file": "plugin/client/KsIngestPanel.tsx",
+   "lines": 572,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsIngestPanelProps",
+     "kind": "interface",
+     "line": 74,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "LoadState",
+     "kind": "type",
+     "line": 82,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "VERDICT_META",
+     "kind": "const",
+     "line": 92,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "verdictMeta",
+     "kind": "function",
+     "line": 98,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fmtSize",
+     "kind": "function",
+     "line": 102,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BucketBar",
+     "kind": "function",
+     "line": 110,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ReportDetail",
+     "kind": "function",
+     "line": 134,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsIngestPanel",
+     "kind": "function",
+     "line": 218,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 8,
+   "imports": 5
+  },
+  {
+   "file": "plugin/client/KsKnowledgeGuide.tsx",
+   "lines": 63,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsKnowledgeGuide",
+     "kind": "function",
+     "line": 37,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 1,
+   "n_declarations": 1,
+   "imports": 5
+  },
+  {
+   "file": "plugin/client/KsKnowledgeGuideIcon.tsx",
+   "lines": 45,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsKnowledgeGuideIcon",
+     "kind": "function",
+     "line": 25,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 1,
+   "n_declarations": 1,
+   "imports": 2
+  },
+  {
+   "file": "plugin/client/KsKnowledgePage.tsx",
+   "lines": 3869,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KB_PAGE_SEARCH",
+     "kind": "const",
+     "line": 145,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FILE_PAGE_SIZE",
+     "kind": "const",
+     "line": 148,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "Status",
+     "kind": "type",
+     "line": 157,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "STATUS",
+     "kind": "const",
+     "line": 159,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "statusOf",
+     "kind": "function",
+     "line": 168,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "STAGE_LABELS",
+     "kind": "const",
+     "line": 187,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "stageText",
+     "kind": "function",
+     "line": 195,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "confidenceText",
+     "kind": "function",
+     "line": 201,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsTopTabs",
+     "kind": "function",
+     "line": 219,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "INBOX_COLUMNS",
+     "kind": "const",
+     "line": 249,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "InboxColKey",
+     "kind": "type",
+     "line": 257,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "INBOX_PAGE_SIZE",
+     "kind": "const",
+     "line": 260,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "COLUMNS",
+     "kind": "const",
+     "line": 268,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ColKey",
+     "kind": "type",
+     "line": 278,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DIR_COLUMNS",
+     "kind": "const",
+     "line": 295,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "DirColKey",
+     "kind": "type",
+     "line": 302,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "Field",
+     "kind": "function",
+     "line": 320,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "errorText",
+     "kind": "function",
+     "line": 329,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "const",
+     "line": 333,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PICK_FILE",
+     "kind": "const",
+     "line": 344,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PICK_DIR",
+     "kind": "const",
+     "line": 345,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pickFileKey",
+     "kind": "const",
+     "line": 346,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pickDirKey",
+     "kind": "const",
+     "line": 347,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "idsOfKind",
+     "kind": "const",
+     "line": 348,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "docIdsOf",
+     "kind": "const",
+     "line": 351,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "folderIdsOf",
+     "kind": "const",
+     "line": 353,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "memberItemsOf",
+     "kind": "const",
+     "line": 355,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pathOfFolder",
+     "kind": "const",
+     "line": 360,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "OpOutcome",
+     "kind": "interface",
+     "line": 368,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "outcomeText",
+     "kind": "function",
+     "line": 371,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "AskScope",
+     "kind": "interface",
+     "line": 385,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "askScopeOf",
+     "kind": "function",
+     "line": 400,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "askWhereText",
+     "kind": "function",
+     "line": 419,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "LoadPhase",
+     "kind": "type",
+     "line": 431,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "UpPhase",
+     "kind": "type",
+     "line": 434,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "TreeNode",
+     "kind": "interface",
+     "line": 437,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsKnowledgePage",
+     "kind": "function",
+     "line": 449,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 37,
+   "imports": 11
+  },
+  {
+   "file": "plugin/client/KsMaterialsPanel.tsx",
+   "lines": 1410,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsMaterialsPanelProps",
+     "kind": "interface",
+     "line": 56,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "GREEN",
+     "kind": "const",
+     "line": 77,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "RED",
+     "kind": "const",
+     "line": 78,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "GRAY",
+     "kind": "const",
+     "line": 79,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "REVIEW_LABEL",
+     "kind": "const",
+     "line": 82,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ROLE_OPTIONS",
+     "kind": "const",
+     "line": 88,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "reviewLabel",
+     "kind": "function",
+     "line": 94,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "btnStyle",
+     "kind": "function",
+     "line": 99,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "assertNever",
+     "kind": "function",
+     "line": 124,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "AnchorMark",
+     "kind": "function",
+     "line": 139,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "statusDisablesReverify",
+     "kind": "function",
+     "line": 193,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "canApplyDraft",
+     "kind": "function",
+     "line": 218,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DraftFlow",
+     "kind": "interface",
+     "line": 245,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "emptyDraftFlow",
+     "kind": "const",
+     "line": 254,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "draftArrived",
+     "kind": "function",
+     "line": 257,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "requestApplyDraft",
+     "kind": "function",
+     "line": 262,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "confirmApplyDraft",
+     "kind": "function",
+     "line": 271,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "cancelApplyDraft",
+     "kind": "function",
+     "line": 277,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "userTypedConclusion",
+     "kind": "function",
+     "line": 282,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DraftAction",
+     "kind": "type",
+     "line": 287,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "draftReducer",
+     "kind": "function",
+     "line": 295,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "AnchorNoteLine",
+     "kind": "function",
+     "line": 325,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterialsPanel",
+     "kind": "function",
+     "line": 331,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deliverableKind",
+     "kind": "function",
+     "line": 1261,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "folderOf",
+     "kind": "function",
+     "line": 1266,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "downloadBlob",
+     "kind": "function",
+     "line": 1271,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "Deliverables",
+     "kind": "function",
+     "line": 1298,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 17,
+   "n_declarations": 27,
+   "imports": 3
+  },
+  {
+   "file": "plugin/client/KsPdfGuideIcon.tsx",
+   "lines": 50,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsPdfGuideIcon",
+     "kind": "function",
+     "line": 25,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 1,
+   "n_declarations": 1,
+   "imports": 2
+  },
+  {
+   "file": "plugin/client/KsScopeChip.tsx",
+   "lines": 155,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsScopeChipProps",
+     "kind": "interface",
+     "line": 23,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsScopeChip",
+     "kind": "function",
+     "line": 31,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 2,
+   "imports": 3
+  },
+  {
+   "file": "plugin/client/KsSettingsSection.tsx",
+   "lines": 1637,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsEvidenceNavPort",
+     "kind": "interface",
+     "line": 95,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsSettingsSectionInjected",
+     "kind": "interface",
+     "line": 101,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SETTINGS_PREFS_KEY",
+     "kind": "const",
+     "line": 109,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SHOW_ARROW_KEY",
+     "kind": "const",
+     "line": 110,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "SUMMARY_HINT",
+     "kind": "const",
+     "line": 122,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "AnnounceTriageSection",
+     "kind": "function",
+     "line": 137,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ChangeSignalsSection",
+     "kind": "function",
+     "line": 214,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsCategory",
+     "kind": "function",
+     "line": 308,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsSettingsSection",
+     "kind": "function",
+     "line": 337,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COUNT_COLORS",
+     "kind": "const",
+     "line": 433,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "COUNT_LABELS",
+     "kind": "const",
+     "line": 441,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "REASON_TEXT",
+     "kind": "const",
+     "line": 452,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fmtTs",
+     "kind": "function",
+     "line": 463,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "statusText",
+     "kind": "function",
+     "line": 477,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsInspectionPanel",
+     "kind": "function",
+     "line": 503,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "REASON_LABELS",
+     "kind": "const",
+     "line": 829,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sourceStatusText",
+     "kind": "function",
+     "line": 837,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceSourcesSection",
+     "kind": "function",
+     "line": 853,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "btnStyle",
+     "kind": "function",
+     "line": 1384,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsApiConfigSection",
+     "kind": "function",
+     "line": 1394,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 7,
+   "n_declarations": 20,
+   "imports": 4
+  },
+  {
+   "file": "plugin/client/KsTurnTab.tsx",
+   "lines": 594,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KsTurnTabRuntime",
+     "kind": "interface",
+     "line": 22,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnInjected",
+     "kind": "interface",
+     "line": 35,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnTabProps",
+     "kind": "type",
+     "line": 44,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnEvidenceItem",
+     "kind": "interface",
+     "line": 47,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnRecord",
+     "kind": "interface",
+     "line": 68,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "str",
+     "kind": "const",
+     "line": 78,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "siblingEvidenceOf",
+     "kind": "function",
+     "line": 97,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "turnEvidenceHref",
+     "kind": "function",
+     "line": 126,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "clauseOrderKey",
+     "kind": "function",
+     "line": 171,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "compareClauseOrder",
+     "kind": "function",
+     "line": 185,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "snippetCarriesClauseNo",
+     "kind": "function",
+     "line": 219,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnEvidenceGroup",
+     "kind": "interface",
+     "line": 235,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "groupTurnEvidence",
+     "kind": "function",
+     "line": 255,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "statusBadge",
+     "kind": "function",
+     "line": 281,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsTurnModeChip",
+     "kind": "function",
+     "line": 297,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnEmptyState",
+     "kind": "function",
+     "line": 334,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnEvidenceRow",
+     "kind": "function",
+     "line": 353,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTurnTab",
+     "kind": "function",
+     "line": 436,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 16,
+   "n_declarations": 18,
+   "imports": 2
+  },
+  {
+   "file": "plugin/client/api.ts",
+   "lines": 5012,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "memory",
+     "kind": "const",
+     "line": 24,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "clearSession",
+     "kind": "function",
+     "line": 32,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "EngineSession",
+     "kind": "interface",
+     "line": 37,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchSession",
+     "kind": "function",
+     "line": 52,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchPdf",
+     "kind": "function",
+     "line": 99,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchExportBlob",
+     "kind": "function",
+     "line": 152,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelRecord",
+     "kind": "interface",
+     "line": 183,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelSummary",
+     "kind": "interface",
+     "line": 226,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelList",
+     "kind": "interface",
+     "line": 233,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchChannels",
+     "kind": "function",
+     "line": 239,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "createChannel",
+     "kind": "function",
+     "line": 269,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "updateChannel",
+     "kind": "function",
+     "line": 282,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setChannelEnabled",
+     "kind": "function",
+     "line": 294,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deleteChannel",
+     "kind": "function",
+     "line": 306,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelTestCase",
+     "kind": "interface",
+     "line": 316,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "getChannelTestCase",
+     "kind": "function",
+     "line": 326,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setChannelTestCase",
+     "kind": "function",
+     "line": 334,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "runChannelTest",
+     "kind": "function",
+     "line": 348,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChannelProbeResult",
+     "kind": "interface",
+     "line": 360,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "runChannelProbe",
+     "kind": "function",
+     "line": 377,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "BboxSpan",
+     "kind": "interface",
+     "line": 389,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FetchBboxResult",
+     "kind": "interface",
+     "line": 394,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchBbox",
+     "kind": "function",
+     "line": 407,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "EngineAuthError",
+     "kind": "class",
+     "line": 441,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsDocClause",
+     "kind": "interface",
+     "line": 460,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeDocClause",
+     "kind": "function",
+     "line": 470,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchDocClauses",
+     "kind": "function",
+     "line": 490,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DocImageResult",
+     "kind": "interface",
+     "line": 527,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DOC_IMAGE_NOT_FOUND",
+     "kind": "const",
+     "line": 537,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FetchDocImageOutcome",
+     "kind": "type",
+     "line": 538,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchDocImage",
+     "kind": "function",
+     "line": 540,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsBookmark",
+     "kind": "interface",
+     "line": 589,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "str",
+     "kind": "function",
+     "line": 604,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "num",
+     "kind": "function",
+     "line": 608,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "unwrapList",
+     "kind": "function",
+     "line": 613,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeBookmark",
+     "kind": "function",
+     "line": 626,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchBookmarks",
+     "kind": "function",
+     "line": 654,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deleteBookmark",
+     "kind": "function",
+     "line": 686,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ClauseMeta",
+     "kind": "interface",
+     "line": 710,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchClauseMeta",
+     "kind": "function",
+     "line": 730,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "addBookmark",
+     "kind": "function",
+     "line": 790,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DocBookmark",
+     "kind": "interface",
+     "line": 827,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeDocBookmark",
+     "kind": "function",
+     "line": 838,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "addDocBookmark",
+     "kind": "function",
+     "line": 857,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "removeDocBookmarkByDoc",
+     "kind": "function",
+     "line": 891,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "removeBookmarkByClauseKey",
+     "kind": "function",
+     "line": 915,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsBookmarkFolder",
+     "kind": "interface",
+     "line": 944,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsFolderDocNode",
+     "kind": "interface",
+     "line": 953,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsFolderTreeFolder",
+     "kind": "interface",
+     "line": 972,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeFolder",
+     "kind": "function",
+     "line": 981,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeFolderTreeFolder",
+     "kind": "function",
+     "line": 996,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchBookmarkFolders",
+     "kind": "function",
+     "line": 1052,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchBookmarkFolderTree",
+     "kind": "function",
+     "line": 1075,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "createBookmarkFolder",
+     "kind": "function",
+     "line": 1098,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "renameBookmarkFolder",
+     "kind": "function",
+     "line": 1129,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deleteBookmarkFolder",
+     "kind": "function",
+     "line": 1159,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "moveClauseBookmark",
+     "kind": "function",
+     "line": 1178,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "moveDocBookmark",
+     "kind": "function",
+     "line": 1199,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChatMode",
+     "kind": "interface",
+     "line": 1225,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchChatMode",
+     "kind": "function",
+     "line": 1233,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "patchChatMode",
+     "kind": "function",
+     "line": 1256,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsDoc",
+     "kind": "interface",
+     "line": 1307,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsCategoryNode",
+     "kind": "interface",
+     "line": 1327,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsClause",
+     "kind": "interface",
+     "line": 1334,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "BatchDeleteResult",
+     "kind": "interface",
+     "line": 1344,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeDoc",
+     "kind": "function",
+     "line": 1350,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeCategory",
+     "kind": "function",
+     "line": 1372,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeClause",
+     "kind": "function",
+     "line": 1386,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchCategories",
+     "kind": "function",
+     "line": 1399,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchDocTree",
+     "kind": "function",
+     "line": 1424,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "batchDeleteDocs",
+     "kind": "function",
+     "line": 1454,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchDocsFlat",
+     "kind": "function",
+     "line": 1497,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionSettings",
+     "kind": "interface",
+     "line": 1527,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionByType",
+     "kind": "interface",
+     "line": 1538,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionClassStat",
+     "kind": "interface",
+     "line": 1550,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionByClass",
+     "kind": "interface",
+     "line": 1556,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionCounts",
+     "kind": "interface",
+     "line": 1564,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionLast",
+     "kind": "interface",
+     "line": 1571,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsInspectionSummary",
+     "kind": "interface",
+     "line": 1591,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestInboxFile",
+     "kind": "interface",
+     "line": 1610,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestInbox",
+     "kind": "interface",
+     "line": 1617,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestClauseSample",
+     "kind": "interface",
+     "line": 1625,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestReport",
+     "kind": "interface",
+     "line": 1641,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestBatchRow",
+     "kind": "interface",
+     "line": 1700,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestBatch",
+     "kind": "interface",
+     "line": 1714,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestHttpError",
+     "kind": "class",
+     "line": 1733,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "parseIngestError",
+     "kind": "function",
+     "line": 1748,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchIngestInboxDefault",
+     "kind": "function",
+     "line": 1762,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchIngestInbox",
+     "kind": "function",
+     "line": 1776,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchIngestPreview",
+     "kind": "function",
+     "line": 1796,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchIngestBatch",
+     "kind": "function",
+     "line": 1820,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIngestJobView",
+     "kind": "interface",
+     "line": 1843,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "startIngestJob",
+     "kind": "function",
+     "line": 1859,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchIngestJob",
+     "kind": "function",
+     "line": 1882,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "abortIngestJob",
+     "kind": "function",
+     "line": 1901,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "InspectionHttpError",
+     "kind": "class",
+     "line": 1916,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseInspectionError",
+     "kind": "function",
+     "line": 1927,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchInspectionSummary",
+     "kind": "function",
+     "line": 1941,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "runInspection",
+     "kind": "function",
+     "line": 1960,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "updateInspectionSettings",
+     "kind": "function",
+     "line": 1975,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "filenameFromDisposition",
+     "kind": "function",
+     "line": 1994,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "exportInspectionResult",
+     "kind": "function",
+     "line": 2011,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceSource",
+     "kind": "interface",
+     "line": 2040,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceRecentItem",
+     "kind": "interface",
+     "line": 2051,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnouncePerSource",
+     "kind": "interface",
+     "line": 2059,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceLastIngest",
+     "kind": "interface",
+     "line": 2069,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceLast",
+     "kind": "interface",
+     "line": 2080,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceSummary",
+     "kind": "interface",
+     "line": 2099,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchAnnounceSummary",
+     "kind": "function",
+     "line": 2109,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setAnnounceAutoIngest",
+     "kind": "function",
+     "line": 2129,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "scanAnnounceSources",
+     "kind": "function",
+     "line": 2147,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchAnnounceSources",
+     "kind": "function",
+     "line": 2162,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "addAnnounceSource",
+     "kind": "function",
+     "line": 2179,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "updateAnnounceSource",
+     "kind": "function",
+     "line": 2193,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "exportAnnounceDiscovery",
+     "kind": "function",
+     "line": 2208,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "removeAnnounceSource",
+     "kind": "function",
+     "line": 2230,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceIngestPending",
+     "kind": "interface",
+     "line": 2246,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceIngestItem",
+     "kind": "interface",
+     "line": 2255,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnnounceIngestResult",
+     "kind": "interface",
+     "line": 2264,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeAnnounceIngestPending",
+     "kind": "function",
+     "line": 2277,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchAnnounceIngestPending",
+     "kind": "function",
+     "line": 2294,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTriageItem",
+     "kind": "interface",
+     "line": 2312,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTriageResult",
+     "kind": "interface",
+     "line": 2322,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchAnnounceTriage",
+     "kind": "function",
+     "line": 2329,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChangeSignalItem",
+     "kind": "interface",
+     "line": 2365,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsChangeSignalsResult",
+     "kind": "interface",
+     "line": 2376,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchChangeSignals",
+     "kind": "function",
+     "line": 2383,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ingestAnnouncements",
+     "kind": "function",
+     "line": 2422,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectColors",
+     "kind": "interface",
+     "line": 2480,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectTreeNode",
+     "kind": "interface",
+     "line": 2487,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectReport",
+     "kind": "interface",
+     "line": 2495,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectDoc",
+     "kind": "interface",
+     "line": 2505,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectDocs",
+     "kind": "interface",
+     "line": 2517,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEffectWindow",
+     "kind": "type",
+     "line": 2524,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "qsOf",
+     "kind": "function",
+     "line": 2526,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchEffectReport",
+     "kind": "function",
+     "line": 2537,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEgressAuditRecord",
+     "kind": "interface",
+     "line": 2554,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEgressAudit",
+     "kind": "interface",
+     "line": 2565,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchEgressAudit",
+     "kind": "function",
+     "line": 2576,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "buildEgressMarkdown",
+     "kind": "function",
+     "line": 2604,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsGapResult",
+     "kind": "interface",
+     "line": 2638,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "compliancePost",
+     "kind": "function",
+     "line": 2645,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "importInternalPolicy",
+     "kind": "function",
+     "line": 2660,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "runGapAnalysis",
+     "kind": "function",
+     "line": 2668,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsClausePatch",
+     "kind": "interface",
+     "line": 2681,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "listClausePatches",
+     "kind": "function",
+     "line": 2691,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "createClausePatch",
+     "kind": "function",
+     "line": 2715,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deleteClausePatch",
+     "kind": "function",
+     "line": 2735,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchEffectDocs",
+     "kind": "function",
+     "line": 2746,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "exportEffectReport",
+     "kind": "function",
+     "line": 2762,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsApiChannelStatus",
+     "kind": "interface",
+     "line": 2794,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsApiConfigStatus",
+     "kind": "interface",
+     "line": 2803,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsApiChannel",
+     "kind": "type",
+     "line": 2808,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchApiConfig",
+     "kind": "function",
+     "line": 2811,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "saveApiConfig",
+     "kind": "function",
+     "line": 2828,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "testApiChannel",
+     "kind": "function",
+     "line": 2851,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterialProject",
+     "kind": "interface",
+     "line": 2878,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterial",
+     "kind": "interface",
+     "line": 2886,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterialChunk",
+     "kind": "interface",
+     "line": 2924,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterialChunks",
+     "kind": "interface",
+     "line": 2932,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsMaterialTierDef",
+     "kind": "interface",
+     "line": 2938,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksJson",
+     "kind": "function",
+     "line": 2944,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchMaterialProjects",
+     "kind": "function",
+     "line": 2954,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "createMaterialProject",
+     "kind": "function",
+     "line": 2963,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchMaterials",
+     "kind": "function",
+     "line": 2982,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchMaterialInbox",
+     "kind": "function",
+     "line": 2997,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "scanMaterialProject",
+     "kind": "function",
+     "line": 3011,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsCollectOutcome",
+     "kind": "interface",
+     "line": 3033,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "collectMaterialUrl",
+     "kind": "function",
+     "line": 3064,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "reviewMaterial",
+     "kind": "function",
+     "line": 3093,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setMaterialTier",
+     "kind": "function",
+     "line": 3115,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setMaterialRole",
+     "kind": "function",
+     "line": 3136,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchMaterialChunks",
+     "kind": "function",
+     "line": 3152,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchMaterialTiers",
+     "kind": "function",
+     "line": 3169,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsLocatorHealth",
+     "kind": "interface",
+     "line": 3187,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsLocatorSummary",
+     "kind": "interface",
+     "line": 3203,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsReverifyResult",
+     "kind": "interface",
+     "line": 3213,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchMaterialLocators",
+     "kind": "function",
+     "line": 3222,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchProjectLocators",
+     "kind": "function",
+     "line": 3233,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "reverifyMaterialLocators",
+     "kind": "function",
+     "line": 3250,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsReportCounts",
+     "kind": "interface",
+     "line": 3272,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsResearchReport",
+     "kind": "interface",
+     "line": 3279,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsResearchDraft",
+     "kind": "interface",
+     "line": 3307,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsReportInput",
+     "kind": "interface",
+     "line": 3330,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "reportBody",
+     "kind": "function",
+     "line": 3340,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "postReport",
+     "kind": "function",
+     "line": 3351,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "exportResearchReport",
+     "kind": "function",
+     "line": 3374,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "exportResearchDraft",
+     "kind": "function",
+     "line": 3389,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbFolder",
+     "kind": "interface",
+     "line": 3413,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbFile",
+     "kind": "interface",
+     "line": 3438,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbPageInfo",
+     "kind": "interface",
+     "line": 3458,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbLevel",
+     "kind": "interface",
+     "line": 3465,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbLevelFiles",
+     "kind": "interface",
+     "line": 3473,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "objOf",
+     "kind": "function",
+     "line": 3479,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "dataOf",
+     "kind": "function",
+     "line": 3484,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "intOf",
+     "kind": "function",
+     "line": 3489,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeKbFolder",
+     "kind": "function",
+     "line": 3493,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeKbFile",
+     "kind": "function",
+     "line": 3518,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineErrorMessage",
+     "kind": "function",
+     "line": 3543,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchKbFolders",
+     "kind": "function",
+     "line": 3558,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbFolderItems",
+     "kind": "function",
+     "line": 3600,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbAddMembersResult",
+     "kind": "interface",
+     "line": 3639,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "addKbMembers",
+     "kind": "function",
+     "line": 3653,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCreatedFolder",
+     "kind": "interface",
+     "line": 3705,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbRenamedFolder",
+     "kind": "interface",
+     "line": 3712,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbMovedFolder",
+     "kind": "interface",
+     "line": 3719,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCopiedFolder",
+     "kind": "interface",
+     "line": 3732,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbDeletePreview",
+     "kind": "interface",
+     "line": 3739,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbFolderDeleteResult",
+     "kind": "interface",
+     "line": 3755,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbMemberResult",
+     "kind": "interface",
+     "line": 3768,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbMemberItem",
+     "kind": "interface",
+     "line": 3780,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "kbWrite",
+     "kind": "function",
+     "line": 3786,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "createKbFolder",
+     "kind": "function",
+     "line": 3809,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "renameKbFolder",
+     "kind": "function",
+     "line": 3823,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "moveKbFolder",
+     "kind": "function",
+     "line": 3837,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "copyKbFolder",
+     "kind": "function",
+     "line": 3857,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbFolderDeletePreview",
+     "kind": "function",
+     "line": 3875,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "deleteKbFolder",
+     "kind": "function",
+     "line": 3913,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "removeKbMembers",
+     "kind": "function",
+     "line": 3935,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "moveKbMembers",
+     "kind": "function",
+     "line": 3944,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "copyKbMembers",
+     "kind": "function",
+     "line": 3956,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "memberResult",
+     "kind": "function",
+     "line": 3965,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsKbInboxItem",
+     "kind": "interface",
+     "line": 3996,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbInbox",
+     "kind": "interface",
+     "line": 4038,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeKbInboxItem",
+     "kind": "function",
+     "line": 4042,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchKbInbox",
+     "kind": "function",
+     "line": 4069,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbInboxDecision",
+     "kind": "interface",
+     "line": 4101,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "confirmKbInbox",
+     "kind": "function",
+     "line": 4111,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbReingestStart",
+     "kind": "interface",
+     "line": 4140,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "reingestKbDocs",
+     "kind": "function",
+     "line": 4147,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbReingestStatus",
+     "kind": "interface",
+     "line": 4184,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbReingestStatus",
+     "kind": "function",
+     "line": 4193,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsMissingSplit",
+     "kind": "interface",
+     "line": 4246,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsSummary",
+     "kind": "interface",
+     "line": 4262,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsPlanRow",
+     "kind": "interface",
+     "line": 4282,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsPlan",
+     "kind": "interface",
+     "line": 4288,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsResultRow",
+     "kind": "interface",
+     "line": 4297,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsBackfillStatus",
+     "kind": "interface",
+     "line": 4314,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeCcsResultRows",
+     "kind": "function",
+     "line": 4368,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeCcsMissingSplit",
+     "kind": "function",
+     "line": 4390,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeCcsBackfillStatus",
+     "kind": "function",
+     "line": 4403,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchKbCcsSummary",
+     "kind": "function",
+     "line": 4442,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbCcsPlan",
+     "kind": "function",
+     "line": 4487,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbCcsBackfillStart",
+     "kind": "interface",
+     "line": 4522,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "startKbCcsBackfill",
+     "kind": "function",
+     "line": 4535,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbCcsBackfillStatus",
+     "kind": "function",
+     "line": 4598,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "cancelKbCcsBackfill",
+     "kind": "function",
+     "line": 4617,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbFlatFolder",
+     "kind": "interface",
+     "line": 4642,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbFoldersFlat",
+     "kind": "function",
+     "line": 4656,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchKbStageLabels",
+     "kind": "function",
+     "line": 4696,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fileDocsIntoFolder",
+     "kind": "function",
+     "line": 4732,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnswerScope",
+     "kind": "interface",
+     "line": 4777,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsAnswerResult",
+     "kind": "interface",
+     "line": 4785,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalizeAnswerScope",
+     "kind": "function",
+     "line": 4796,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "askKsAnswer",
+     "kind": "function",
+     "line": 4813,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbScope",
+     "kind": "interface",
+     "line": 4864,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "resolveKbScope",
+     "kind": "function",
+     "line": 4878,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsBulkIngestStatus",
+     "kind": "interface",
+     "line": 4907,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "startBulkIngest",
+     "kind": "function",
+     "line": 4932,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "resumeBulkIngest",
+     "kind": "function",
+     "line": 4956,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fetchBulkIngest",
+     "kind": "function",
+     "line": 4976,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 225,
+   "n_declarations": 261,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/entry.ts",
+   "lines": 510,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "evidenceHrefOf",
+     "kind": "function",
+     "line": 54,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "notifyEvidenceUnavailable",
+     "kind": "function",
+     "line": 70,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "SidebarRightService",
+     "kind": "type",
+     "line": 92,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "Ctx",
+     "kind": "interface",
+     "line": 94,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "inject",
+     "kind": "const",
+     "line": 123,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SETTINGS_TAB_ID",
+     "kind": "const",
+     "line": 126,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsSettingsSection",
+     "kind": "function",
+     "line": 141,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "evidenceTitle",
+     "kind": "function",
+     "line": 167,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "apply",
+     "kind": "function",
+     "line": 180,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "readService",
+     "kind": "function",
+     "line": 319,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerSidebarSurfaces",
+     "kind": "function",
+     "line": 336,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 11,
+   "imports": 11
+  },
+  {
+   "file": "plugin/client/kbListUi.tsx",
+   "lines": 56,
+   "kind": "tsx",
+   "exports": [
+    {
+     "name": "KbListCol",
+     "kind": "interface",
+     "line": 14,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsCrumb",
+     "kind": "function",
+     "line": 20,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsListHead",
+     "kind": "function",
+     "line": 45,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 3,
+   "imports": 1
+  },
+  {
+   "file": "plugin/client/ks-evidence-props.ts",
+   "lines": 87,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "KsSessionScope",
+     "kind": "interface",
+     "line": 16,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceTabRecord",
+     "kind": "interface",
+     "line": 23,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidencePrefs",
+     "kind": "interface",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsPanelWidthPort",
+     "kind": "interface",
+     "line": 61,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceProps",
+     "kind": "interface",
+     "line": 69,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceComponent",
+     "kind": "type",
+     "line": 86,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 6,
+   "n_declarations": 6,
+   "imports": 1
+  },
+  {
+   "file": "plugin/client/ksEvidence.ts",
+   "lines": 230,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "KsEvidence",
+     "kind": "interface",
+     "line": 23,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceSibling",
+     "kind": "interface",
+     "line": 54,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "EVIDENCE_PATH",
+     "kind": "const",
+     "line": 61,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isKsEvidenceUrl",
+     "kind": "function",
+     "line": 74,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseEvidence",
+     "kind": "function",
+     "line": 89,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isBbox",
+     "kind": "function",
+     "line": 145,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseSibling",
+     "kind": "function",
+     "line": 154,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "EVIDENCE_ORIGIN",
+     "kind": "const",
+     "line": 167,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "evidenceUrlOf",
+     "kind": "function",
+     "line": 177,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseBbox",
+     "kind": "function",
+     "line": 220,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 8,
+   "n_declarations": 10,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/ksGuideStyles.ts",
+   "lines": 1136,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "STYLE_ID",
+     "kind": "const",
+     "line": 24,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KS_STYLES",
+     "kind": "const",
+     "line": 27,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "PLUGIN_NAME",
+     "kind": "const",
+     "line": 1110,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "STYLE_OWNER",
+     "kind": "const",
+     "line": 1111,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ensureKsStyles",
+     "kind": "function",
+     "line": 1120,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 5,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/ksHostPrimitives.d.ts",
+   "lines": 287,
+   "kind": "ts",
+   "exports": [],
+   "n_exports": 0,
+   "n_declarations": 0,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/ksPrefs.ts",
+   "lines": 111,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "KS_SETTINGS_PREFS_KEY",
+     "kind": "const",
+     "line": 31,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SHOW_ARROW_KEY",
+     "kind": "const",
+     "line": 32,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "LS_KEY",
+     "kind": "const",
+     "line": 35,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "KsPrefs",
+     "kind": "interface",
+     "line": 38,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_PREFS_DEFAULT",
+     "kind": "const",
+     "line": 44,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "listeners",
+     "kind": "const",
+     "line": 46,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readRaw",
+     "kind": "function",
+     "line": 49,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "snapshot",
+     "kind": "const",
+     "line": 64,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "emit",
+     "kind": "function",
+     "line": 66,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "subscribePrefs",
+     "kind": "function",
+     "line": 77,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "getPrefsSnapshot",
+     "kind": "function",
+     "line": 86,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "updatePrefs",
+     "kind": "function",
+     "line": 94,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 7,
+   "n_declarations": 12,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/ksSearchSyntax.ts",
+   "lines": 108,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "KsQuery",
+     "kind": "interface",
+     "line": 28,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "normalize",
+     "kind": "function",
+     "line": 38,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pushUnique",
+     "kind": "function",
+     "line": 47,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "parseKsQuery",
+     "kind": "function",
+     "line": 60,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "describeKsQuery",
+     "kind": "function",
+     "line": 102,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 5,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/ksSidebar.ts",
+   "lines": 420,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "KS_EVIDENCE_IMPL_ID",
+     "kind": "const",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_EVIDENCE_KIND",
+     "kind": "const",
+     "line": 41,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_EVIDENCE_RESOURCE_PREFIX",
+     "kind": "const",
+     "line": 64,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_EVIDENCE_ADDRESS",
+     "kind": "const",
+     "line": 67,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbPage",
+     "kind": "type",
+     "line": 81,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_KB_IMPL_ID",
+     "kind": "const",
+     "line": 84,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_KB_KIND",
+     "kind": "const",
+     "line": 85,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_KB_RESOURCE_PREFIX",
+     "kind": "const",
+     "line": 88,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_KB_ADDRESS",
+     "kind": "const",
+     "line": 89,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbNavParams",
+     "kind": "interface",
+     "line": 92,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsEvidenceNavParams",
+     "kind": "interface",
+     "line": 101,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "UseKsTabInfo",
+     "kind": "interface",
+     "line": 107,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTabDefinition",
+     "kind": "interface",
+     "line": 141,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsIconProps",
+     "kind": "interface",
+     "line": 161,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsGuideEntry",
+     "kind": "interface",
+     "line": 167,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsTabRegistry",
+     "kind": "interface",
+     "line": 178,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsSidebarRight",
+     "kind": "interface",
+     "line": 183,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "toNavParams",
+     "kind": "function",
+     "line": 201,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isKsEvidenceResource",
+     "kind": "function",
+     "line": 209,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "evidenceTabTitle",
+     "kind": "function",
+     "line": 225,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_GUIDE_ORDER_PDF",
+     "kind": "const",
+     "line": 248,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksGuideEntryTitle",
+     "kind": "function",
+     "line": 259,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksGuideEntryDescription",
+     "kind": "function",
+     "line": 266,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksEvidenceDefinition",
+     "kind": "function",
+     "line": 279,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksKbTabTitle",
+     "kind": "function",
+     "line": 301,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isKsKbResource",
+     "kind": "function",
+     "line": 306,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksKbDefinition",
+     "kind": "function",
+     "line": 318,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_TURN_IMPL_ID",
+     "kind": "const",
+     "line": 340,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_TURN_KIND",
+     "kind": "const",
+     "line": 341,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_TURN_RESOURCE_PREFIX",
+     "kind": "const",
+     "line": 344,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_TURN_ADDRESS",
+     "kind": "const",
+     "line": 345,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksTurnTabTitle",
+     "kind": "function",
+     "line": 348,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isKsTurnResource",
+     "kind": "function",
+     "line": 353,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ksTurnDefinition",
+     "kind": "function",
+     "line": 363,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsGuideCardProps",
+     "kind": "interface",
+     "line": 380,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsPaneBodyProps",
+     "kind": "interface",
+     "line": 391,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KsKbInjected",
+     "kind": "interface",
+     "line": 407,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 37,
+   "n_declarations": 37,
+   "imports": 2
+  },
+  {
+   "file": "plugin/client/pdf-configure.ts",
+   "lines": 71,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "PDF_WORKER_PATH",
+     "kind": "const",
+     "line": 37,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "PDF_WASM_DIR",
+     "kind": "const",
+     "line": 41,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "configured",
+     "kind": "const",
+     "line": 43,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "configurePdfWorker",
+     "kind": "function",
+     "line": 62,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 4,
+   "imports": 1
+  },
+  {
+   "file": "plugin/client/pdfFit.ts",
+   "lines": 260,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "PAGE_PADDING",
+     "kind": "const",
+     "line": 34,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MIN_SCALE",
+     "kind": "const",
+     "line": 36,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MAX_SCALE",
+     "kind": "const",
+     "line": 38,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MAX_BACKING_PIXELS",
+     "kind": "const",
+     "line": 43,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FitInput",
+     "kind": "interface",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FitResult",
+     "kind": "interface",
+     "line": 58,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "fitPageScale",
+     "kind": "function",
+     "line": 103,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZoomSource",
+     "kind": "type",
+     "line": 129,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZoomState",
+     "kind": "type",
+     "line": 132,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZOOM_AUTO",
+     "kind": "const",
+     "line": 137,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MANUAL_MIN_PERCENT",
+     "kind": "const",
+     "line": 150,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MANUAL_MAX_PERCENT",
+     "kind": "const",
+     "line": 152,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZOOM_SLIDER_STEP",
+     "kind": "const",
+     "line": 164,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isOnSliderGrid",
+     "kind": "function",
+     "line": 167,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZOOM_PRESET_PERCENTS",
+     "kind": "const",
+     "line": 172,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "clampManualPercent",
+     "kind": "function",
+     "line": 175,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "zoomForManual",
+     "kind": "function",
+     "line": 181,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "zoomForAutoFit",
+     "kind": "function",
+     "line": 186,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ZoomView",
+     "kind": "interface",
+     "line": 191,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "zoomScale",
+     "kind": "function",
+     "line": 216,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "backingStoreDpr",
+     "kind": "function",
+     "line": 253,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 21,
+   "n_declarations": 21,
+   "imports": 0
+  },
+  {
+   "file": "plugin/client/pdfPanel.ts",
+   "lines": 189,
+   "kind": "ts",
+   "exports": [
+    {
+     "name": "PANEL_MAX_WIDTH",
+     "kind": "const",
+     "line": 20,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "PANEL_MIN_WIDTH",
+     "kind": "const",
+     "line": 22,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "PANEL_WIDEN_RATIO",
+     "kind": "const",
+     "line": 24,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "savedWidths",
+     "kind": "const",
+     "line": 27,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sessionKey",
+     "kind": "function",
+     "line": 29,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PanelWidthPort",
+     "kind": "interface",
+     "line": 42,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "readWidth",
+     "kind": "function",
+     "line": 50,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "writeWidth",
+     "kind": "function",
+     "line": 60,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pdfPanelTargetWidth",
+     "kind": "function",
+     "line": 69,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "widenPanelForPdf",
+     "kind": "function",
+     "line": 78,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "restorePanelAfterPdf",
+     "kind": "function",
+     "line": 95,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "hasPendingPanelRestore",
+     "kind": "function",
+     "line": 108,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "TOC_COLUMN_WIDTH",
+     "kind": "const",
+     "line": 118,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "TOC_PUSH_MAX_WIDTH",
+     "kind": "const",
+     "line": 129,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MIN_CONVERSATION_WIDTH",
+     "kind": "const",
+     "line": 131,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "tocRestore",
+     "kind": "const",
+     "line": 134,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "growPanelForToc",
+     "kind": "function",
+     "line": 144,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "shrinkPanelAfterToc",
+     "kind": "function",
+     "line": 173,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 13,
+   "n_declarations": 18,
+   "imports": 0
+  },
+  {
+   "file": "plugin/src/announce.js",
+   "lines": 928,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_ANNOUNCE_SUMMARY_PATH",
+     "kind": "const",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_SCAN_PATH",
+     "kind": "const",
+     "line": 46,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_SOURCES_PATH",
+     "kind": "const",
+     "line": 47,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_EXPORT_PATH",
+     "kind": "const",
+     "line": 48,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_INGEST_PATH",
+     "kind": "const",
+     "line": 50,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_INGEST_PENDING_PATH",
+     "kind": "const",
+     "line": 51,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_AUTO_INGEST_PATH",
+     "kind": "const",
+     "line": 53,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_TRIAGE_PATH",
+     "kind": "const",
+     "line": 57,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANNOUNCE_CHANGE_SIGNALS_PATH",
+     "kind": "const",
+     "line": 58,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_TRIAGE_PATH",
+     "kind": "const",
+     "line": 60,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_CHANGE_SIGNALS_PATH",
+     "kind": "const",
+     "line": 61,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "AUTO_INGEST_LIMIT",
+     "kind": "const",
+     "line": 66,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_SCAN_PATH",
+     "kind": "const",
+     "line": 68,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_SCAN_LAST_PATH",
+     "kind": "const",
+     "line": 69,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_SOURCES_PATH",
+     "kind": "const",
+     "line": 70,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_EXPORT_PATH",
+     "kind": "const",
+     "line": 71,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_INGEST_PATH",
+     "kind": "const",
+     "line": 72,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_INGEST_PENDING_PATH",
+     "kind": "const",
+     "line": 73,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_DOWNLOAD_PATH",
+     "kind": "const",
+     "line": 74,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "XLSX_MIME",
+     "kind": "const",
+     "line": 76,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "announceFilePath",
+     "kind": "function",
+     "line": 79,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "POLL_INTERVAL_MS",
+     "kind": "const",
+     "line": 83,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BODY_CAP",
+     "kind": "const",
+     "line": 84,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_state",
+     "kind": "const",
+     "line": 90,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_stateLoaded",
+     "kind": "const",
+     "line": 100,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_persistChain",
+     "kind": "const",
+     "line": 101,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_announceEpoch",
+     "kind": "const",
+     "line": 103,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "defaultState",
+     "kind": "function",
+     "line": 105,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "loadStateFile",
+     "kind": "function",
+     "line": 116,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeLast",
+     "kind": "function",
+     "line": 133,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeIngest",
+     "kind": "function",
+     "line": 175,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "getState",
+     "kind": "function",
+     "line": 191,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "schedulePersist",
+     "kind": "function",
+     "line": 196,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "initAnnounceState",
+     "kind": "function",
+     "line": 203,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "update",
+     "kind": "function",
+     "line": 211,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_poll",
+     "kind": "const",
+     "line": 222,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "stopPoll",
+     "kind": "function",
+     "line": 224,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "function",
+     "line": 229,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "adoptScanPoll",
+     "kind": "function",
+     "line": 234,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "runScanPoll",
+     "kind": "function",
+     "line": 241,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "autoIngestTail",
+     "kind": "function",
+     "line": 332,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "triggerAfterInspection",
+     "kind": "function",
+     "line": 370,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "announceStartupCheck",
+     "kind": "function",
+     "line": 421,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 457,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "errorBody",
+     "kind": "function",
+     "line": 462,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 466,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineRequest",
+     "kind": "function",
+     "line": 502,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchBinary",
+     "kind": "function",
+     "line": 531,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerSummaryRoute",
+     "kind": "function",
+     "line": 556,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerScanRoute",
+     "kind": "function",
+     "line": 578,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerSourcesRoutes",
+     "kind": "function",
+     "line": 619,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerExportRoute",
+     "kind": "function",
+     "line": 710,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerIngestRoutes",
+     "kind": "function",
+     "line": 769,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerAutoIngestRoute",
+     "kind": "function",
+     "line": 885,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsAnnounceRoutes",
+     "kind": "function",
+     "line": 910,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 13,
+   "n_declarations": 55,
+   "imports": 3
+  },
+  {
+   "file": "plugin/src/channels.js",
+   "lines": 339,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_CHANNELS_PATH",
+     "kind": "const",
+     "line": 31,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_CHANNELS_PROBE_PATH",
+     "kind": "const",
+     "line": 32,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_CHANNELS_ITEM_PREFIX",
+     "kind": "const",
+     "line": 41,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_CHANNELS_PATH",
+     "kind": "const",
+     "line": 43,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_PROBE_PATH",
+     "kind": "const",
+     "line": 44,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "LIST_KEYS",
+     "kind": "const",
+     "line": 47,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PROBE_TIMEOUT_MS",
+     "kind": "const",
+     "line": 62,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineRequest",
+     "kind": "function",
+     "line": 73,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "proxyWrite",
+     "kind": "function",
+     "line": 101,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pickWriteBody",
+     "kind": "function",
+     "line": 128,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readBodyOr400",
+     "kind": "function",
+     "line": 136,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerChannelsCollectionRoute",
+     "kind": "function",
+     "line": 159,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "handleCreate",
+     "kind": "function",
+     "line": 193,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerChannelsProbeRoute",
+     "kind": "function",
+     "line": 208,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerChannelsWriteRoutes",
+     "kind": "function",
+     "line": 264,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsChannelsRoutes",
+     "kind": "function",
+     "line": 332,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 4,
+   "n_declarations": 16,
+   "imports": 2
+  },
+  {
+   "file": "plugin/src/chatmode.js",
+   "lines": 1392,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_CHAT_MODE_PATH",
+     "kind": "const",
+     "line": 80,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "chatModeFilePath",
+     "kind": "function",
+     "line": 90,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_SECTION_NAME",
+     "kind": "const",
+     "line": 97,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_SECTION_ORDER",
+     "kind": "const",
+     "line": 103,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MAX_SESSION_ID_LENGTH",
+     "kind": "const",
+     "line": 111,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MAX_SESSIONS",
+     "kind": "const",
+     "line": 113,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ARTIFACT_MAX_AGE_MS",
+     "kind": "const",
+     "line": 115,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PERSIST_ATTEMPTS",
+     "kind": "const",
+     "line": 118,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "LOCK_WAIT_MS",
+     "kind": "const",
+     "line": 120,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "LOCK_STALE_MS",
+     "kind": "const",
+     "line": 121,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "RENAME_TRANSIENT",
+     "kind": "const",
+     "line": 123,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "const",
+     "line": 125,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "renameWithRetry",
+     "kind": "function",
+     "line": 131,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_PROMPT",
+     "kind": "const",
+     "line": 150,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_BOOKMARKS_PROMPT",
+     "kind": "const",
+     "line": 165,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_FOLDER_PROMPT",
+     "kind": "const",
+     "line": 177,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "renderFolderPrompt",
+     "kind": "function",
+     "line": 183,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_MATERIALS_PROMPT",
+     "kind": "const",
+     "line": 198,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "renderMaterialsPrompt",
+     "kind": "function",
+     "line": 206,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MODE_OFF",
+     "kind": "const",
+     "line": 229,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "SOURCE_NONE",
+     "kind": "const",
+     "line": 234,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeFolderId",
+     "kind": "function",
+     "line": 237,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeFolderName",
+     "kind": "function",
+     "line": 246,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeMaterialProjectId",
+     "kind": "function",
+     "line": 261,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeMaterialProjectName",
+     "kind": "function",
+     "line": 270,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_modes",
+     "kind": "const",
+     "line": 278,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_touched",
+     "kind": "const",
+     "line": 280,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_cleared",
+     "kind": "const",
+     "line": 289,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_loaded",
+     "kind": "const",
+     "line": 290,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_persistChain",
+     "kind": "const",
+     "line": 291,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_tmpSeq",
+     "kind": "const",
+     "line": 292,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_degraded",
+     "kind": "const",
+     "line": 294,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_writesBlocked",
+     "kind": "const",
+     "line": 296,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_blockedReason",
+     "kind": "const",
+     "line": 308,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_logger",
+     "kind": "const",
+     "line": 309,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "setChatModeLogger",
+     "kind": "function",
+     "line": 312,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "warn",
+     "kind": "function",
+     "line": 316,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "blockWarn",
+     "kind": "function",
+     "line": 326,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeMode",
+     "kind": "function",
+     "line": 333,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeSessionId",
+     "kind": "function",
+     "line": 353,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseState",
+     "kind": "function",
+     "line": 363,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readStateFile",
+     "kind": "function",
+     "line": 389,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ensureLoaded",
+     "kind": "function",
+     "line": 441,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "sweepStaleArtifacts",
+     "kind": "function",
+     "line": 479,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "hasActiveForensicSessions",
+     "kind": "function",
+     "line": 506,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "allowStateReload",
+     "kind": "function",
+     "line": 518,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "stateStatus",
+     "kind": "function",
+     "line": 528,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "tmpPathFor",
+     "kind": "function",
+     "line": 541,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "unlinkWithRetry",
+     "kind": "function",
+     "line": 551,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "withStateLock",
+     "kind": "function",
+     "line": 582,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "persistAttempt",
+     "kind": "function",
+     "line": 665,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "persistRound",
+     "kind": "function",
+     "line": 736,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "persist",
+     "kind": "function",
+     "line": 759,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "getMode",
+     "kind": "function",
+     "line": 809,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "setMode",
+     "kind": "function",
+     "line": 833,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "effectiveChatMode",
+     "kind": "function",
+     "line": 912,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "forensicPromptFor",
+     "kind": "function",
+     "line": 949,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "makeChatModeSection",
+     "kind": "function",
+     "line": 972,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "__sweepArtifactsForTests",
+     "kind": "function",
+     "line": 990,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORENSIC_COMMAND",
+     "kind": "const",
+     "line": 1005,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "BOOKMARKS_COMMAND",
+     "kind": "const",
+     "line": 1007,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "MATERIALS_COMMAND",
+     "kind": "const",
+     "line": 1009,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COMMAND_USAGE",
+     "kind": "const",
+     "line": 1011,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MATERIALS_USAGE",
+     "kind": "const",
+     "line": 1012,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "modeSummary",
+     "kind": "function",
+     "line": 1015,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "parseToggle",
+     "kind": "function",
+     "line": 1036,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "applyAndReport",
+     "kind": "function",
+     "line": 1044,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "makeChatModeCommands",
+     "kind": "function",
+     "line": 1058,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsChatModeCommands",
+     "kind": "function",
+     "line": 1199,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "__resetChatModeForTests",
+     "kind": "function",
+     "line": 1218,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "__writeStateFileAsPeerForTests",
+     "kind": "function",
+     "line": 1240,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "BODY_CAP",
+     "kind": "const",
+     "line": 1254,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BodyTooLargeError",
+     "kind": "class",
+     "line": 1260,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 1262,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 1271,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsChatModeRoutes",
+     "kind": "function",
+     "line": 1310,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 29,
+   "n_declarations": 76,
+   "imports": 4
+  },
+  {
+   "file": "plugin/src/collect.js",
+   "lines": 301,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "MAX_COLLECT_PER_SESSION",
+     "kind": "const",
+     "line": 42,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "_collectedBySession",
+     "kind": "const",
+     "line": 45,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "trimCollected",
+     "kind": "function",
+     "line": 48,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_STRING",
+     "kind": "const",
+     "line": 70,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "COLLECTED_MATERIAL",
+     "kind": "const",
+     "line": 73,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "makeCollectTool",
+     "kind": "function",
+     "line": 97,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 6,
+   "imports": 1
+  },
+  {
+   "file": "plugin/src/compliance-sentry.js",
+   "lines": 274,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_COMPLIANCE_SENTRY",
+     "kind": "const",
+     "line": 20,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "TRIGGER_WORDS",
+     "kind": "const",
+     "line": 39,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "STD_NO_PREFIXES",
+     "kind": "const",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "STD_NO_RE",
+     "kind": "const",
+     "line": 49,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "matchComplianceSentry",
+     "kind": "function",
+     "line": 52,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COMPLIANCE_SECTION_NAME",
+     "kind": "const",
+     "line": 58,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COMPLIANCE_SECTION_ORDER",
+     "kind": "const",
+     "line": 66,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COMPLIANCE_SKILL_BODY",
+     "kind": "const",
+     "line": 69,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "extractL1",
+     "kind": "function",
+     "line": 118,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "buildComplianceSection",
+     "kind": "function",
+     "line": 130,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "COMPLIANCE_TTL_MS",
+     "kind": "const",
+     "line": 147,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "triggeredUntil",
+     "kind": "const",
+     "line": 149,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "keyOf",
+     "kind": "const",
+     "line": 151,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "markComplianceTriggered",
+     "kind": "function",
+     "line": 154,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "isComplianceTriggered",
+     "kind": "function",
+     "line": 161,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsComplianceRoutes",
+     "kind": "function",
+     "line": 175,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "askEngineGuard",
+     "kind": "function",
+     "line": 205,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "collectAskReason",
+     "kind": "function",
+     "line": 228,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerComplianceAskGate",
+     "kind": "function",
+     "line": 236,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "buildComplianceNextStep",
+     "kind": "function",
+     "line": 255,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "nextStepSeq",
+     "kind": "const",
+     "line": 260,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "complianceNextStepMessage",
+     "kind": "function",
+     "line": 265,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 16,
+   "n_declarations": 22,
+   "imports": 1
+  },
+  {
+   "file": "plugin/src/docimage.js",
+   "lines": 172,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_DOC_IMAGE_PATH",
+     "kind": "const",
+     "line": 25,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "FORWARD_HEADERS",
+     "kind": "const",
+     "line": 29,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "clampDpi",
+     "kind": "function",
+     "line": 36,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "parseDocImagePath",
+     "kind": "function",
+     "line": 51,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsDocImageRoutes",
+     "kind": "function",
+     "line": 83,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 5,
+   "imports": 1
+  },
+  {
+   "file": "plugin/src/engine.js",
+   "lines": 941,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "MODULE_ARG",
+     "kind": "const",
+     "line": 26,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "HERE",
+     "kind": "const",
+     "line": 29,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "findEngineRoot",
+     "kind": "function",
+     "line": 56,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_ROOT",
+     "kind": "const",
+     "line": 67,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DEFAULT_PYTHON",
+     "kind": "const",
+     "line": 68,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "HEALTH_PATH",
+     "kind": "const",
+     "line": 69,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_ANSWER_PATH",
+     "kind": "const",
+     "line": 71,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "dataRoot",
+     "kind": "function",
+     "line": 93,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "sessionFilePath",
+     "kind": "function",
+     "line": 100,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "findBaseInterpreter",
+     "kind": "function",
+     "line": 123,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "healVenvHome",
+     "kind": "function",
+     "line": 171,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "resolvePythonPath",
+     "kind": "function",
+     "line": 200,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "modelsRoot",
+     "kind": "function",
+     "line": 222,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ensureMineruConfig",
+     "kind": "function",
+     "line": 248,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "modelEnv",
+     "kind": "function",
+     "line": 277,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseSession",
+     "kind": "function",
+     "line": 296,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "readSessionFile",
+     "kind": "function",
+     "line": 318,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "function",
+     "line": 328,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "isProcessAlive",
+     "kind": "function",
+     "line": 332,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "killPid",
+     "kind": "function",
+     "line": 351,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "combineSignals",
+     "kind": "function",
+     "line": 386,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "describeTransportFailure",
+     "kind": "function",
+     "line": 428,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "armTransportCall",
+     "kind": "function",
+     "line": 441,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "awaitOwn",
+     "kind": "function",
+     "line": 489,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "callerCancelError",
+     "kind": "function",
+     "line": 508,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "apiGet",
+     "kind": "function",
+     "line": 516,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "apiGetBytes",
+     "kind": "function",
+     "line": 554,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "apiPost",
+     "kind": "function",
+     "line": 591,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "originUrl",
+     "kind": "function",
+     "line": 625,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "EngineManager",
+     "kind": "class",
+     "line": 633,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 24,
+   "n_declarations": 30,
+   "imports": 5
+  },
+  {
+   "file": "plugin/src/index.js",
+   "lines": 1892,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "name",
+     "kind": "const",
+     "line": 62,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "inject",
+     "kind": "const",
+     "line": 75,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "Config",
+     "kind": "const",
+     "line": 115,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "CONFIG_KEYS",
+     "kind": "const",
+     "line": 131,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_SESSION_PATH",
+     "kind": "const",
+     "line": 134,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_PDF_WORKER_PATH",
+     "kind": "const",
+     "line": 135,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_PDF_WASM_PATH",
+     "kind": "const",
+     "line": 136,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_BBOX_PATH",
+     "kind": "const",
+     "line": 137,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_EVIDENCE_PATH",
+     "kind": "const",
+     "line": 146,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_EVIDENCE_ORIGIN",
+     "kind": "const",
+     "line": 147,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "evidenceAnchor",
+     "kind": "function",
+     "line": 169,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "CONFIG_DEFAULTS",
+     "kind": "const",
+     "line": 201,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "QUERY_MODES",
+     "kind": "const",
+     "line": 208,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "EVIDENCE_CAP",
+     "kind": "const",
+     "line": 211,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "normalizeQueryMode",
+     "kind": "function",
+     "line": 214,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeParams",
+     "kind": "function",
+     "line": 225,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "trimEvidence",
+     "kind": "function",
+     "line": 300,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "metaSummary",
+     "kind": "function",
+     "line": 324,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "trimAnswer",
+     "kind": "function",
+     "line": 352,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "validationError",
+     "kind": "function",
+     "line": 380,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_STRING",
+     "kind": "const",
+     "line": 418,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_NUMBER",
+     "kind": "const",
+     "line": 419,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_BOOLEAN",
+     "kind": "const",
+     "line": 420,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_OBJECT",
+     "kind": "const",
+     "line": 422,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "EFFECT_COLOR_LIST",
+     "kind": "const",
+     "line": 425,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_EVIDENCE",
+     "kind": "const",
+     "line": 454,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_VERIFY_LIST",
+     "kind": "const",
+     "line": 475,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_VERIFICATION",
+     "kind": "const",
+     "line": 479,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_SCOPE",
+     "kind": "const",
+     "line": 512,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_KB_SCOPE",
+     "kind": "const",
+     "line": 548,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ANSWER_MATERIAL_USAGE",
+     "kind": "const",
+     "line": 601,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "makeEffectReportTool",
+     "kind": "function",
+     "line": 628,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "makePingTool",
+     "kind": "function",
+     "line": 844,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "makeResolveTool",
+     "kind": "function",
+     "line": 932,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "makeAnswerTool",
+     "kind": "function",
+     "line": 1099,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsSessionRoute",
+     "kind": "function",
+     "line": 1463,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsBboxRoute",
+     "kind": "function",
+     "line": 1503,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerPdfWasmRoute",
+     "kind": "function",
+     "line": 1592,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerPdfWorkerRoute",
+     "kind": "function",
+     "line": 1658,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "apply",
+     "kind": "function",
+     "line": 1692,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 17,
+   "n_declarations": 40,
+   "imports": 21
+  },
+  {
+   "file": "plugin/src/ingest.js",
+   "lines": 762,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_INGEST_INBOX_PATH",
+     "kind": "const",
+     "line": 39,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_INBOX_DEFAULT_PATH",
+     "kind": "const",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_PREVIEW_PATH",
+     "kind": "const",
+     "line": 41,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_BATCH_PATH",
+     "kind": "const",
+     "line": 42,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_JOB_START_PATH",
+     "kind": "const",
+     "line": 43,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_JOB_STATUS_PREFIX",
+     "kind": "const",
+     "line": 44,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INGEST_JOB_ABORT_PREFIX",
+     "kind": "const",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_INBOX_PATH",
+     "kind": "const",
+     "line": 47,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_PREVIEW_PATH",
+     "kind": "const",
+     "line": 48,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_BATCH_PATH",
+     "kind": "const",
+     "line": 49,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_JOB_PATH",
+     "kind": "const",
+     "line": 50,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "PREVIEW_TIMEOUT_MS",
+     "kind": "const",
+     "line": 53,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BATCH_TIMEOUT_MS",
+     "kind": "const",
+     "line": 55,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BODY_CAP",
+     "kind": "const",
+     "line": 56,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 62,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "errorBody",
+     "kind": "function",
+     "line": 67,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 71,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineGetWithRetry",
+     "kind": "function",
+     "line": 95,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "enginePostWithRetry",
+     "kind": "function",
+     "line": 106,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "mapEngine",
+     "kind": "function",
+     "line": 119,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "pickQuery",
+     "kind": "function",
+     "line": 133,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "defaultInboxDir",
+     "kind": "function",
+     "line": 144,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ensureInboxDir",
+     "kind": "function",
+     "line": 149,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "listPdfs",
+     "kind": "function",
+     "line": 156,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerInboxDefaultRoute",
+     "kind": "function",
+     "line": 175,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerInboxRoute",
+     "kind": "function",
+     "line": 195,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerPreviewRoute",
+     "kind": "function",
+     "line": 235,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerBatchRoute",
+     "kind": "function",
+     "line": 278,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "JOB_POLL_INTERVAL_MS",
+     "kind": "const",
+     "line": 353,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "JOB_MAX_STALL_TICKS",
+     "kind": "const",
+     "line": 354,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "JOB_RUNNING_CAP_MS",
+     "kind": "const",
+     "line": 355,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "JOB_TERMINAL",
+     "kind": "const",
+     "line": 356,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "JOB_ROWS_PAGE",
+     "kind": "const",
+     "line": 357,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ingestJobFilePath",
+     "kind": "function",
+     "line": 360,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "_jobState",
+     "kind": "const",
+     "line": 364,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_jobPersistChain",
+     "kind": "const",
+     "line": 365,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_jobPoll",
+     "kind": "const",
+     "line": 366,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_jobEpoch",
+     "kind": "const",
+     "line": 369,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "defaultJobState",
+     "kind": "function",
+     "line": 371,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeJobLast",
+     "kind": "function",
+     "line": 375,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "loadJobStateFile",
+     "kind": "function",
+     "line": 391,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "initJobState",
+     "kind": "function",
+     "line": 405,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jobState",
+     "kind": "function",
+     "line": 410,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "persistJobState",
+     "kind": "function",
+     "line": 415,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "updateJobState",
+     "kind": "function",
+     "line": 422,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "stopJobPoll",
+     "kind": "function",
+     "line": 429,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "adoptJob",
+     "kind": "function",
+     "line": 434,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jobTick",
+     "kind": "function",
+     "line": 450,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "function",
+     "line": 454,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "runJobPollLoop",
+     "kind": "function",
+     "line": 458,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "refreshJobFinal",
+     "kind": "function",
+     "line": 540,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "markJobFailed",
+     "kind": "function",
+     "line": 565,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ingestJobStartupCheck",
+     "kind": "function",
+     "line": 577,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "handleJobStart",
+     "kind": "function",
+     "line": 587,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "handleJobStatus",
+     "kind": "function",
+     "line": 655,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerJobStatusRoute",
+     "kind": "function",
+     "line": 691,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerJobAbortRoute",
+     "kind": "function",
+     "line": 692,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerJobDispatcher",
+     "kind": "function",
+     "line": 696,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsIngestRoutes",
+     "kind": "function",
+     "line": 739,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 12,
+   "n_declarations": 59,
+   "imports": 5
+  },
+  {
+   "file": "plugin/src/inspection.js",
+   "lines": 1078,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_INSPECTION_RUN_PATH",
+     "kind": "const",
+     "line": 52,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INSPECTION_SUMMARY_PATH",
+     "kind": "const",
+     "line": 53,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INSPECTION_SETTINGS_PATH",
+     "kind": "const",
+     "line": 54,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_INSPECTION_EXPORT_PATH",
+     "kind": "const",
+     "line": 55,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "inspectionFilePath",
+     "kind": "function",
+     "line": 58,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DEFAULT_SETTINGS",
+     "kind": "const",
+     "line": 64,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "POLL_INTERVAL_MS",
+     "kind": "const",
+     "line": 70,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "CHANGE_FETCH_LIMIT",
+     "kind": "const",
+     "line": 74,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MAX_STALL_TICKS",
+     "kind": "const",
+     "line": 75,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "RUNNING_CAP_MS",
+     "kind": "const",
+     "line": 76,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BODY_CAP",
+     "kind": "const",
+     "line": 77,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "XLSX_MIME",
+     "kind": "const",
+     "line": 78,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "TERMINAL",
+     "kind": "const",
+     "line": 80,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "CHANGE_TYPES",
+     "kind": "const",
+     "line": 82,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "QUESTION_CLASSES",
+     "kind": "const",
+     "line": 91,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "REASON_LABELS",
+     "kind": "const",
+     "line": 95,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "emptyByType",
+     "kind": "function",
+     "line": 105,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "emptyByClass",
+     "kind": "function",
+     "line": 110,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "reasonTotals",
+     "kind": "function",
+     "line": 117,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_state",
+     "kind": "const",
+     "line": 131,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_persistChain",
+     "kind": "const",
+     "line": 132,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "defaultState",
+     "kind": "function",
+     "line": 134,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "loadStateFile",
+     "kind": "function",
+     "line": 144,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeLast",
+     "kind": "function",
+     "line": 165,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "getState",
+     "kind": "function",
+     "line": 211,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "schedulePersist",
+     "kind": "function",
+     "line": 217,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "initInspectionState",
+     "kind": "function",
+     "line": 225,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "update",
+     "kind": "function",
+     "line": 231,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_poll",
+     "kind": "const",
+     "line": 243,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "stopPoll",
+     "kind": "function",
+     "line": 245,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "adoptBatch",
+     "kind": "function",
+     "line": 251,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sleep",
+     "kind": "function",
+     "line": 258,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "isoNow",
+     "kind": "function",
+     "line": 262,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "runPollLoop",
+     "kind": "function",
+     "line": 266,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchChangeSummaries",
+     "kind": "function",
+     "line": 377,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "reduceOneClassRow",
+     "kind": "function",
+     "line": 411,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "bumpReason",
+     "kind": "function",
+     "line": 446,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "byTypeAllZero",
+     "kind": "function",
+     "line": 451,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "byClassEmpty",
+     "kind": "function",
+     "line": 457,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "finalizeBatch",
+     "kind": "function",
+     "line": 471,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "markFailed",
+     "kind": "function",
+     "line": 532,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 548,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "errorBody",
+     "kind": "function",
+     "line": 553,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 558,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "SETTINGS_KEYS",
+     "kind": "const",
+     "line": 592,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "sanitizeSettingsPatch",
+     "kind": "function",
+     "line": 599,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "overdueDaysOf",
+     "kind": "function",
+     "line": 611,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "startInspectionRun",
+     "kind": "function",
+     "line": 636,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerRunRoute",
+     "kind": "function",
+     "line": 694,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerSummaryRoute",
+     "kind": "function",
+     "line": 713,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchBinary",
+     "kind": "function",
+     "line": 738,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerExportRoute",
+     "kind": "function",
+     "line": 773,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerSettingsRoutes",
+     "kind": "function",
+     "line": 840,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_autoTimer",
+     "kind": "const",
+     "line": 893,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_autoFiring",
+     "kind": "const",
+     "line": 894,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_autoEpoch",
+     "kind": "const",
+     "line": 896,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "_autoLastAttempt",
+     "kind": "const",
+     "line": 897,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "todayAtTime",
+     "kind": "function",
+     "line": 900,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ranTodaySince",
+     "kind": "function",
+     "line": 909,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "autoInspectionTick",
+     "kind": "function",
+     "line": 918,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "startAutoInspectionTimer",
+     "kind": "function",
+     "line": 946,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "stopAutoInspectionTimer",
+     "kind": "function",
+     "line": 954,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "__resetInspectionForTests",
+     "kind": "function",
+     "line": 965,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "inspectionStartupCheck",
+     "kind": "function",
+     "line": 992,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsInspectionRoutes",
+     "kind": "function",
+     "line": 1060,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 12,
+   "n_declarations": 65,
+   "imports": 4
+  },
+  {
+   "file": "plugin/src/materials.js",
+   "lines": 328,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "trimMaterialRow",
+     "kind": "function",
+     "line": 26,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "NULLABLE_STRING",
+     "kind": "const",
+     "line": 53,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MATERIAL_ROW",
+     "kind": "const",
+     "line": 56,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "makeMaterialsTool",
+     "kind": "function",
+     "line": 83,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "apiGetData",
+     "kind": "function",
+     "line": 283,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "expectArray",
+     "kind": "function",
+     "line": 313,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "expectObject",
+     "kind": "function",
+     "line": 321,
+     "exported": false,
+     "default": false
+    }
+   ],
+   "n_exports": 1,
+   "n_declarations": 7,
+   "imports": 1
+  },
+  {
+   "file": "plugin/src/materials_routes.js",
+   "lines": 471,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_MATERIALS_PATH",
+     "kind": "const",
+     "line": 34,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_MATERIALS",
+     "kind": "const",
+     "line": 37,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "REVIEW_DECISIONS",
+     "kind": "const",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "engineCall",
+     "kind": "function",
+     "line": 48,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "guard",
+     "kind": "function",
+     "line": 65,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "methodOnly",
+     "kind": "function",
+     "line": 77,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readBodyOr400",
+     "kind": "function",
+     "line": 86,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerListProjects",
+     "kind": "function",
+     "line": 98,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerListMaterials",
+     "kind": "function",
+     "line": 125,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerInbox",
+     "kind": "function",
+     "line": 144,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerScan",
+     "kind": "function",
+     "line": 162,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerCollect",
+     "kind": "function",
+     "line": 195,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerReview",
+     "kind": "function",
+     "line": 245,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerTier",
+     "kind": "function",
+     "line": 277,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerRole",
+     "kind": "function",
+     "line": 312,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerChunks",
+     "kind": "function",
+     "line": 348,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerTiers",
+     "kind": "function",
+     "line": 367,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerLocators",
+     "kind": "function",
+     "line": 385,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerReverify",
+     "kind": "function",
+     "line": 413,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsMaterialsRoutes",
+     "kind": "function",
+     "line": 436,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_MATERIALS_PATHS",
+     "kind": "const",
+     "line": 457,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 4,
+   "n_declarations": 21,
+   "imports": 2
+  },
+  {
+   "file": "plugin/src/report.js",
+   "lines": 350,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_REPORT_EFFECT_PATH",
+     "kind": "const",
+     "line": 34,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_REPORT_DOCS_PATH",
+     "kind": "const",
+     "line": 35,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_REPORT_EXPORT_PATH",
+     "kind": "const",
+     "line": 36,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_REPORT_RESEARCH_PATH",
+     "kind": "const",
+     "line": 38,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_REPORT_DRAFT_PATH",
+     "kind": "const",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_EFFECT_PATH",
+     "kind": "const",
+     "line": 41,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_DOCS_PATH",
+     "kind": "const",
+     "line": 42,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_EXPORT_PATH",
+     "kind": "const",
+     "line": 43,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_RESEARCH_PATH",
+     "kind": "const",
+     "line": 44,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_DRAFT_PATH",
+     "kind": "const",
+     "line": 45,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "ENGINE_DOWNLOAD_PATH",
+     "kind": "const",
+     "line": 46,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "XLSX_MIME",
+     "kind": "const",
+     "line": 48,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 59,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineGetWithRetry",
+     "kind": "function",
+     "line": 64,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "fetchBinary",
+     "kind": "function",
+     "line": 77,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerEffectRoute",
+     "kind": "function",
+     "line": 102,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerDocsRoute",
+     "kind": "function",
+     "line": 125,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerExportRoute",
+     "kind": "function",
+     "line": 149,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerResearchRoute",
+     "kind": "function",
+     "line": 232,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerDraftRoute",
+     "kind": "function",
+     "line": 289,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsReportRoutes",
+     "kind": "function",
+     "line": 338,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 6,
+   "n_declarations": 21,
+   "imports": 2
+  },
+  {
+   "file": "plugin/src/route_util.js",
+   "lines": 154,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "ROUTE_BODY_CAP",
+     "kind": "const",
+     "line": 31,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 34,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "errorBody",
+     "kind": "function",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 55,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "pickQuery",
+     "kind": "function",
+     "line": 102,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "mapProbe",
+     "kind": "function",
+     "line": 132,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 6,
+   "n_declarations": 6,
+   "imports": 0
+  },
+  {
+   "file": "plugin/src/settings.js",
+   "lines": 236,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_API_CONFIG_PATH",
+     "kind": "const",
+     "line": 29,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "KS_API_CONFIG_TEST_PATH",
+     "kind": "const",
+     "line": 30,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "ENGINE_API_CONFIG_PATH",
+     "kind": "const",
+     "line": 32,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "BODY_CAP",
+     "kind": "const",
+     "line": 33,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 35,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "errorBody",
+     "kind": "function",
+     "line": 40,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "readJsonBody",
+     "kind": "function",
+     "line": 50,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "engineRequest",
+     "kind": "function",
+     "line": 85,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "mapProbe",
+     "kind": "function",
+     "line": 113,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "registerKsSettingsRoutes",
+     "kind": "function",
+     "line": 138,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 10,
+   "imports": 2
+  },
+  {
+   "file": "plugin/src/tool-details.js",
+   "lines": 71,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_ANSWER_DETAIL",
+     "kind": "const",
+     "line": 14,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "DETAIL_BY_TOOL",
+     "kind": "const",
+     "line": 41,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "seen",
+     "kind": "const",
+     "line": 45,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "detailSeq",
+     "kind": "const",
+     "line": 46,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "firstUseReceipt",
+     "kind": "function",
+     "line": 54,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 2,
+   "n_declarations": 5,
+   "imports": 0
+  },
+  {
+   "file": "plugin/src/trim.js",
+   "lines": 104,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "VERIFY_LIST_CAP",
+     "kind": "const",
+     "line": 18,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "REASON_CAP",
+     "kind": "const",
+     "line": 27,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "compact",
+     "kind": "function",
+     "line": 30,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "shortList",
+     "kind": "function",
+     "line": 45,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "boundedText",
+     "kind": "function",
+     "line": 51,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "trimUnsupportedContext",
+     "kind": "function",
+     "line": 68,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "trimVerification",
+     "kind": "function",
+     "line": 87,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 5,
+   "n_declarations": 7,
+   "imports": 0
+  },
+  {
+   "file": "plugin/src/trust.js",
+   "lines": 135,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "LOOPBACK_HOSTS",
+     "kind": "const",
+     "line": 27,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "parseAuthority",
+     "kind": "function",
+     "line": 30,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "trustedNames",
+     "kind": "function",
+     "line": 40,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "jsonResponse",
+     "kind": "function",
+     "line": 51,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "requireJsonBody",
+     "kind": "function",
+     "line": 60,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "guardRequest",
+     "kind": "function",
+     "line": 76,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "guardRoute",
+     "kind": "function",
+     "line": 114,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "guardWebServer",
+     "kind": "function",
+     "line": 130,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 7,
+   "n_declarations": 8,
+   "imports": 0
+  },
+  {
+   "file": "plugin/src/turn.js",
+   "lines": 65,
+   "kind": "js",
+   "exports": [
+    {
+     "name": "KS_TURN_LAST_PATH",
+     "kind": "const",
+     "line": 21,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "turns",
+     "kind": "const",
+     "line": 23,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "MAX_SESSIONS",
+     "kind": "const",
+     "line": 24,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "seqCounter",
+     "kind": "const",
+     "line": 26,
+     "exported": false,
+     "default": false
+    },
+    {
+     "name": "recordKsTurn",
+     "kind": "function",
+     "line": 29,
+     "exported": true,
+     "default": false
+    },
+    {
+     "name": "registerKsTurnRoutes",
+     "kind": "function",
+     "line": 41,
+     "exported": true,
+     "default": false
+    }
+   ],
+   "n_exports": 3,
+   "n_declarations": 6,
+   "imports": 1
+  }
+ ]
+}

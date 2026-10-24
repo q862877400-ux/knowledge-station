@@ -217,7 +217,8 @@ def main() -> int:
     deep_need = ["modules", "endpoints_deep", "config", "tables_io",
                  "test_content", "doc_content", "web_content",
                  "runtime_probe", "repro_resume_hang",
-                 "requirements", "notdoing", "data_samples", "rules"]
+                 "requirements", "notdoing", "data_samples", "rules",
+                 "web_ast"]
     deep_miss = [n for n in deep_need if not (DATA / f"{n}.json").exists()]
     rows.append(("深化面 JSON", f"{len(deep_need) - len(deep_miss)}/{len(deep_need)} 份存在",
                  "✅" if not deep_miss else f"❌ 缺 {', '.join(deep_miss)}",
@@ -277,8 +278,8 @@ def main() -> int:
         "",
         "| 项 | 为什么 |",
         "|---|---|",
-        "| **运行时真实行为（最大缺口）** | **从未真正启动引擎、从未调过任何端点** —— "
-        "静态检查只能看到代码写了什么，验不了跑起来会怎样 |",
+        "| ~~运行时真实行为~~ | ✅ **已收口**：真启动引擎、探 176 条端点，"
+        "见 `18-runtime-probe.md`（上面 `I 运行时面（实测）` 那一行）|",
         "| ~~需求编号体系~~ | ✅ **已收口**：扫全部 `docs/**/*.md`，"
         "97 条编号定义（61 在需求文档 / 35 在渠道方案 / 2 在归档）+ 代码引用点 + "
         "24 条否决台账，见 `19-requirements.md` |",
@@ -289,7 +290,10 @@ def main() -> int:
         "| **数据样例** | 记了每张表在种子库的行数，"
         "**没抽样看行内容**（隐私敏感的表更没看） |",
         "| 测试运行期覆盖率 | 要 coverage 数据，本检查没取 |",
-        "| 前端符号的 AST 级清单 | 没有现成 TS AST 工具链，用正则，**近似** |",
+        "| ~~前端符号的 AST 级清单~~ | ✅ **已补**：用仓库根已有的 "
+        "`typescript@5.9.3` 建真 AST（`09-web-ast.cjs`），与正则版并列，"
+        "**两份各有盲区**（AST 漏 `declare module` 内的导出、正则漏 "
+        "`interface/type/enum`），见 `16-frontend.md` §三之二 |",
         "| `tools/gov-qa` 948 MB 内容细节 | 只查结"
         "构与归属；隐私是**抽样** 3/594 个文件 |",
         "| 浏览器像素效果 | 需要真浏览器 |",

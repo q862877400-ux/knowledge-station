@@ -53,7 +53,7 @@
 | `answer` | `src/core/llm/ks_answer.py:810` | **351** |
 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` | **343** |
 | `register` | `src/core/api/routes_materials.py:63` | **325** |
-| `main` | `scripts/survey/04-reconcile.py:41` | **297** |
+| `main` | `scripts/survey/04-reconcile.py:41` | **302** |
 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` | **256** |
 | `main` | `eval/recall-funnel/build-v2.py:63` | **255** |
 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` | **246** |
@@ -78,7 +78,7 @@
 | 351 | `answer` | `src/core/llm/ks_answer.py:810` |
 | 343 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` |
 | 325 | `register` | `src/core/api/routes_materials.py:63` |
-| 297 | `main` | `scripts/survey/04-reconcile.py:41` |
+| 302 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 256 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` |
 | 255 | `main` | `eval/recall-funnel/build-v2.py:63` |
 | 246 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` |
@@ -127,7 +127,7 @@
 | 130 | `step_requirements` | `scripts/survey/09-requirements.py:154` |
 | 130 | `assemble_evidence` | `src/core/materials/authority.py:116` |
 | 129 | `main` | `scripts/measure-material-bridge.py:112` |
-| 129 | `gen_runtime_probe` | `scripts/survey/03-render.py:826` |
+| 129 | `gen_runtime_probe` | `scripts/survey/03-render.py:863` |
 | 128 | `main` | `scripts/migrate-clause-vec-doc-id.py:107` |
 | 128 | `_scan_one_source` | `src/core/update/announce.py:605` |
 | 127 | `main` | `eval/recall-funnel/exp-5-real-questions/34-ingest-full.py:123` |

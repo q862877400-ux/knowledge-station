@@ -45,6 +45,7 @@ STEPS = [
     ("05-deep.py", "模块职责/接口明细/配置面/表读写"),
     ("06-content.py", "测试内容/文档内容/前端清单"),
     ("09-requirements.py", "需求编号/否决台账/数据样例"),
+
     ("10-rules.py", "判定规则（正则/阈值/理由）"),
     # ⚠ 07-runtime-probe.py **不进默认循环**：它要真启动引擎、跑 3–5 分钟。
     #   单独跑：`.venv\Scripts\python.exe scripts/survey/07-runtime-probe.py`
@@ -85,6 +86,19 @@ def main() -> int:
         for script, label in STEPS:
             if not run(script, label):
                 return 1
+
+    # 前端真 AST 用 node 跑（仓根已有 typescript），不属于 python 生成器
+    print("\n── 09-web-ast.cjs（前端真 AST，node）")
+    nj = subprocess.run(["node", str(ROOT / "scripts" / "survey" / "09-web-ast.cjs")],
+                        cwd=ROOT, capture_output=True, text=True,
+                        encoding="utf-8", errors="replace")
+    for ln in [x for x in (nj.stdout or "").splitlines() if x.strip()][-2:]:
+        print(f"   {ln}")
+    if nj.returncode != 0:
+        print(f"   ⛔ exit={nj.returncode}")
+        for ln in (nj.stderr or "").splitlines()[-6:]:
+            print(f"   {ln}")
+        return 1
 
     print(f"\n{'=' * 62}\n对账\n{'=' * 62}")
     p = ROOT / "scripts" / "survey" / "04-reconcile.py"

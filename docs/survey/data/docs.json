@@ -3,7 +3,7 @@
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
   "docs_files": 251,
-  "docs_tracked_md": 236,
+  "docs_tracked_md": 237,
   "orphans_no_inbound": 119,
   "total_links": 572
  },
@@ -902,8 +902,8 @@
   },
   {
    "path": "docs/INDEX.md",
-   "bytes": 32043,
-   "lines": 297,
+   "bytes": 32207,
+   "lines": 298,
    "title": "docs/ 总索引（机械生成，勿手改）",
    "out_links": [],
    "n_links": 0,
@@ -2682,8 +2682,8 @@
   },
   {
    "path": "docs/survey/16-frontend.md",
-   "bytes": 16645,
-   "lines": 274,
+   "bytes": 17458,
+   "lines": 294,
    "title": "前端清单（文件 / 导出 / 说明）",
    "out_links": [],
    "n_links": 0,
@@ -2738,7 +2738,7 @@
   },
   {
    "path": "docs/survey/COVERAGE.md",
-   "bytes": 3916,
+   "bytes": 3920,
    "lines": 57,
    "title": "覆盖对账（九个面）",
    "out_links": [],

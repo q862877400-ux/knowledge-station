@@ -12,7 +12,7 @@
 | 项 | 数 |
 |---|---:|
 | `docs/` 下 `.md` | **251** |
-| 其中受版本控制 | 236 |
+| 其中受版本控制 | 237 |
 | 链接总数 | 572 |
 | **没有任何入链（孤儿）** | **119** |
 
@@ -203,7 +203,7 @@
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 KB | 428 | 0 | 0 | 法规/标准发布源路径总表（2026-10-08 实测） |
 | `docs/research/vision-coverage-map.md` | 36 KB | 341 | 0 | 2 | 愿景对照矩阵：**我们的每一块愿景，谁已经实现了** |
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 KB | 378 | 0 | 0 | 渠道台账状态快照（自动生成，勿手改） |
-| `docs/INDEX.md` | 31 KB | 297 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
+| `docs/INDEX.md` | 31 KB | 298 | 0 | 0 | docs/ 总索引（机械生成，勿手改） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 KB | 322 | 0 | 0 | 等待期前台提示：现状盘点 + 外部借鉴（只分析，未改代码） |
 | `docs/research/dsh-official/INGEST-LEDGER-repo-docs.md` | 30 KB | 190 | 0 | 0 | DSH 官方文档原文入库账本 |
 | `docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md` | 30 KB | 314 | 0 | 6 | 自动推进链「忽略 / 没收口」审计（2026-10-09 人工轮） |
@@ -263,12 +263,12 @@
 | `docs/research/plan-vs-reality.md` | 18 KB | 185 | 0 | 2 | 计划特性 × 谁做到了（逐条对照） |
 | `docs/verify-briefs/VERIFY-REPORT-p32-classical-seg.md` | 18 KB | 258 | 4 | 0 | 独立复核报告：P3.2 古籍/文言切分评估（批次 `p32-classical- |
 | `docs/archive/old-plans/AUTO-DRAFT-PLAN.md` | 17 KB | 210 | 0 | 1 | 自动成文（系统起草结论）——立项论证与设计（2026-09-18） |
+| `docs/survey/16-frontend.md` | 17 KB | 294 | 0 | 0 | 前端清单（文件 / 导出 / 说明） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 KB | 136 | 0 | 0 | 对策表：抄哪一处 / 不抄哪一处 / 我们独有的那一条 |
 | `docs/research/dsh-official/dshdocs-D.md` | 17 KB | 123 | 0 | 0 | DSH 官方文档消化：工具 / LLM / 会话 / 子代理 |
 | `docs/survey/10-observed.md` | 17 KB | 359 | 2 | 2 | 观察记录（中性，不下结论） |
 | `docs/research/archify/03-借鉴结论.md` | 16 KB | 207 | 0 | 1 | archify 对比与借鉴结论 |
 | `docs/wiki/architecture.md` | 16 KB | 248 | 5 | 13 | KnowledgeStation：项目目标与现状 |
-| `docs/survey/16-frontend.md` | 16 KB | 274 | 0 | 0 | 前端清单（文件 / 导出 / 说明） |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 KB | 202 | 0 | 1 | 通用召回链路：8 方案评审与合并（目标链路 v1） |
 | `docs/VISION-TREE.md` | 16 KB | 184 | 1 | 5 | KnowledgeStation 功能愿景（客户视角版） |
 | `docs/README.md` | 16 KB | 170 | 14 | 16 | KnowledgeStation 文件地图 |

@@ -6425,7 +6425,7 @@
     "main"
    ],
    "n_public": 24,
-   "lines": 1108
+   "lines": 1145
   },
   {
    "module": "scripts/survey/04-reconcile.py",
@@ -6436,7 +6436,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 342
+   "lines": 347
   },
   {
    "module": "scripts/survey/05-deep.py",
@@ -6538,7 +6538,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 105
+   "lines": 119
   },
   {
    "module": "scripts/uniformity-ast-dupes.py",
