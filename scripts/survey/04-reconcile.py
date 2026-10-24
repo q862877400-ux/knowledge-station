@@ -196,6 +196,7 @@ def main() -> int:
         "14-test-index.md",
         "15-doc-index-content.md",
         "16-frontend.md",
+        "17-function-index.md",
     ]
     miss = [n for n in need if not (SURVEY / n).exists()]
     rows.append(

@@ -6376,7 +6376,7 @@
     "main"
    ],
    "n_public": 5,
-   "lines": 347
+   "lines": 364
   },
   {
    "module": "scripts/survey/02-surface.py",
@@ -6418,10 +6418,11 @@
     "gen_test_index",
     "gen_doc_index_content",
     "gen_frontend",
+    "gen_function_index",
     "main"
    ],
-   "n_public": 20,
-   "lines": 800
+   "n_public": 21,
+   "lines": 847
   },
   {
    "module": "scripts/survey/04-reconcile.py",
@@ -6432,7 +6433,7 @@
     "main"
    ],
    "n_public": 2,
-   "lines": 302
+   "lines": 303
   },
   {
    "module": "scripts/survey/05-deep.py",
@@ -6460,7 +6461,7 @@
     "main"
    ],
    "n_public": 4,
-   "lines": 211
+   "lines": 212
   },
   {
    "module": "scripts/survey/_common.py",

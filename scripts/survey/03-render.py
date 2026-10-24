@@ -775,6 +775,52 @@ def gen_frontend() -> None:
     write("16-frontend.md", "前端清单（文件 / 导出 / 说明）", "\n".join(out))
 
 
+
+def gen_function_index() -> None:
+    d = load("symbols_py")
+    summ = d["summary"]
+    out = [
+        "## 一、口径", "",
+        "`purpose` = 该函数的 **docstring 第一句*"
+        "*（跳过 `#` 标题行，按 `。`/`；`/换行切，"
+        "上限 140 字）。**没有 docstring 的函数 purpose 为空** —— 这是记录，不是评价。",
+        "",
+        "`text_hits` = 该名字在扫描面内**全部 `.py` 文本**里出现几次（含定义行）。"
+        "**这是下界，不是调用图**（getattr / 装饰器注册 / 字符串派发 / "
+        "pytest 按名收集都看不见）。",
+        "",
+        "## 二、总账", "",
+        "| 项 | 数 |", "|---|---:|",
+        f"| 模块 | {summ['modules']:,} |",
+        f"| 符号 | **{summ['symbols']:,}** |",
+        f"| 类 | {summ['classes']:,} |",
+        f"| 函数（含方法） | {summ['functions']:,} |",
+        f"| 有 docstring | {summ['symbols'] - summ['no_docstring']:,} |",
+        f"| 没有 docstring | {summ['no_docstring']:,} |",
+        "",
+        "## 三、按模块列全部符号", "",
+    ]
+    for m in sorted(d["modules"], key=lambda x: x["module"]):
+        syms = m["symbols"]
+        if not syms:
+            continue
+        out.append(f"### `{m['module']}`（{len(syms)} 个符号）")
+        out.append("")
+        if m.get("docstring"):
+            head = m["docstring"].splitlines()[0] if m["docstring"].strip() else ""
+            if head:
+                out.append(f"> {cell(head[:160])}")
+                out.append("")
+        out.append("| 符号 | 行 | 引用 | 职责 |")
+        out.append("|---|---:|---:|---|")
+        for s in sorted(syms, key=lambda x: x["lineno"]):
+            kind = "类" if s["kind"] == "class" else "函数"
+            out.append(f"| `{s['name']}` {kind} | {s['lineno']} | "
+                       f"{s.get('text_hits', 0)} | {cell(s.get('purpose') or '—')} |")
+        out.append("")
+    write("17-function-index.md", "函数索引（每个符号的职责与引用计数）", "\n".join(out))
+
+
 def main() -> int:
     gen_readme()
     gen_inventory()
@@ -791,6 +837,7 @@ def main() -> int:
     gen_test_index()
     gen_doc_index_content()
     gen_frontend()
+    gen_function_index()
     print("\n全部生成完毕")
     return 0
 

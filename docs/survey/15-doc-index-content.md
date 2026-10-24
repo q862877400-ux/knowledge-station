@@ -11,8 +11,8 @@
 
 | 项 | 数 |
 |---|---:|
-| 文档 | **247** |
-| 有首段摘要 | 241 |
+| 文档 | **248** |
+| 有首段摘要 | 242 |
 | 没有（开头是列表/表格） | 6 |
 
 ## 三、每份文档讲什么
@@ -197,7 +197,7 @@
 | `docs/survey/04-data-shape.md` | 879 | 数据形状（表 / 列 / 索引） | 外键：`clause_revision_id` → `clause_revision.clause_revision_id` | 4 |
 | `docs/survey/05-api-surface.md` | 253 | 接口面（后端 + 前端路由） | 后端 = `src/core/api/*.py` 里的 `@app.verb("path")` 装饰器，**逐条列出，不抽样**。前端 = `plugin/client/*.ts( | 5 |
 | `docs/survey/06-test-surface.md` | 209 | 测试面 | 测试文件数 == tests/ 下 test_*.py + *_test.py 的实际数量。「引用了哪些源码模块」靠文件内出现的 `src.core.x.y` 字符串判定 —— * | 3 |
-| `docs/survey/07-doc-surface.md` | 390 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `t` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
+| `docs/survey/07-doc-surface.md` | 392 | 文档面 | 扫描 `docs/**/*.md`（含 archive）。链接用 markdown `t` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯 | 4 |
 | `docs/survey/08-gate-surface.md` | 111 | 门禁面 | 1. `selftest（必失败）` | 4 |
 | `docs/survey/09-runtime.md` | 105 | 运行时：引擎怎么起、端口令牌在哪、数据放哪 | 门禁里那一步实测过三态： | 7 |
 | `docs/survey/10-observed.md` | 246 | 观察记录（中性，不下结论） | 那 31 个里，复核时能看到至少两类**不是没被用**： | 6 |
@@ -205,8 +205,9 @@
 | `docs/survey/12-config-surface.md` | 89 | 配置面（环境变量 + 配置键） | 环境变量 = `os.environ.get/getenv/env\[...\]` 与 `process.env.X` 的字面量；配置键 = `_read_json_key` / `_ | 4 |
 | `docs/survey/13-table-io.md` | 333 | 表读写关系 | 扫描 `src/**/*.py` 里的 SQL 字面量：写 = INSERT/REPLACE/UPDATE/DELETE 后面的表名；读 = FROM/JOIN 后面的表名。**只 | 4 |
 | `docs/survey/14-test-index.md` | 3,651 | 测试索引（每个测试钉住了什么） | `tests` = 每个 `def test*` 的名字、所在类、行号，以及它的 **docstring 第一句**（很多测试没 docstring，那就空着）。**名字本身就是本 | 3 |
-| `docs/survey/15-doc-index-content.md` | 602 | 文档内容索引（每份讲什么） | `summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前  | 4 |
+| `docs/survey/15-doc-index-content.md` | 603 | 文档内容索引（每份讲什么） | `summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前  | 4 |
 | `docs/survey/16-frontend.md` | 274 | 前端清单（文件 / 导出 / 说明） | `exports` / `declarations` 用**正则**抽取（没有 TS AST 工具链），**这是近似，不是完整符号表**。`header_note` 取文件开头 4 | 4 |
+| `docs/survey/17-function-index.md` | 15,743 | 函数索引（每个符号的职责与引用计数） | `purpose` = 该函数的 **docstring 第一句**（跳过 `#` 标题行，按 `。`/`；`/换行切，上限 140 字）。**没有 docstring 的函数 p | 3 |
 | `docs/survey/COVERAGE.md` | 51 | 覆盖对账（九个面） | 重跑四个生成器（合计约 30 秒），**不要手改 md**： | 4 |
 | `docs/survey/README.md` | 65 | 项目现状地图 | 查表就知道东西在哪、长什么样、谁引用谁、验过没有。 | 6 |
 | `docs/tool-catalog.md` | 59 | ks-dsh-plugin 工具目录（生成物——**手改必红**，改说明书后跑 `node plug | Forensic (取证) compliance Q&A against the local KnowledgeStation engine; returns three-part | 6 |

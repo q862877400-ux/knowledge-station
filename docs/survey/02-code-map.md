@@ -11,10 +11,10 @@
 | `.py` 文件 | **1,271** |
 | 解析成功模块 | **1,271** |
 | 解析失败 | **0**（判据：成功 + 失败 == 总数）|
-| 符号总数 | **7,023** |
+| 符号总数 | **7,025** |
 | 类 | 386 |
-| 函数（含方法） | 6,637 |
-| 无 docstring 的符号 | 3,312 |
+| 函数（含方法） | 6,639 |
+| 无 docstring 的符号 | 3,313 |
 
 ## 二、按目录看规模
 
@@ -28,8 +28,8 @@
 | `tests/test_update_inspector.py` | 1 | 69 | 68 | 1 | 17 |
 | `tests/test_material_api.py` | 1 | 66 | 58 | 8 | 28 |
 | `tests/test_channel_repo.py` | 1 | 62 | 53 | 9 | 39 |
+| `scripts/survey` | 9 | 59 | 59 | 0 | 51 |
 | `tests/test_ledger_chain.py` | 1 | 58 | 50 | 8 | 25 |
-| `scripts/survey` | 9 | 57 | 57 | 0 | 50 |
 | `tests/test_update_channels.py` | 1 | 57 | 47 | 10 | 23 |
 | `tests/test_dryrun_report.py` | 1 | 56 | 56 | 0 | 14 |
 | `eval/lay-phrasing` | 24 | 55 | 55 | 0 | 51 |
@@ -53,7 +53,7 @@
 | `answer` | `src/core/llm/ks_answer.py:810` | **351** |
 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` | **343** |
 | `register` | `src/core/api/routes_materials.py:63` | **325** |
-| `main` | `scripts/survey/04-reconcile.py:41` | **257** |
+| `main` | `scripts/survey/04-reconcile.py:41` | **258** |
 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` | **256** |
 | `main` | `eval/recall-funnel/build-v2.py:63` | **255** |
 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` | **246** |
@@ -78,7 +78,7 @@
 | 351 | `answer` | `src/core/llm/ks_answer.py:810` |
 | 343 | `perform_hybrid_search` | `src/core/retrieval/hybrid_engine.py:213` |
 | 325 | `register` | `src/core/api/routes_materials.py:63` |
-| 257 | `main` | `scripts/survey/04-reconcile.py:41` |
+| 258 | `main` | `scripts/survey/04-reconcile.py:41` |
 | 256 | `main` | `eval/recall-funnel/exp-12-long-clause-tail/measure.py:111` |
 | 255 | `main` | `eval/recall-funnel/build-v2.py:63` |
 | 246 | `analyze_preview_report` | `src/core/ingestion/dry_run.py:163` |
@@ -132,7 +132,7 @@
 | 127 | `delete_folder` | `src/core/knowledge/folder_store.py:576` |
 | 125 | `main` | `eval/recall-funnel/exp-1-contextual/06-verdict.py:87` |
 | 124 | `main` | `eval/recall-funnel/exp-5-real-questions/04-trial-scrape.py:59` |
-| 124 | `main` | `scripts/survey/01-symbols.py:219` |
+| 124 | `main` | `scripts/survey/01-symbols.py:236` |
 | 123 | `attach_bboxes` | `src/core/llm/ks_answer.py:151` |
 | 121 | `_probe_number` | `src/core/update/inspector.py:334` |
 | 120 | `main` | `eval/recall-funnel/exp-1-contextual/08-mechanism-diagnostic.py:45` |

@@ -2,9 +2,9 @@
  "generated_by": "scripts/survey/02-surface.py::step6_docs",
  "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
  "counts": {
-  "docs_files": 247,
+  "docs_files": 248,
   "docs_tracked_md": 233,
-  "orphans_no_inbound": 116,
+  "orphans_no_inbound": 117,
   "total_links": 569
  },
  "orphans": [
@@ -118,6 +118,7 @@
   "docs/survey/14-test-index.md",
   "docs/survey/15-doc-index-content.md",
   "docs/survey/16-frontend.md",
+  "docs/survey/17-function-index.md",
   "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
   "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
   "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
@@ -2575,8 +2576,8 @@
   },
   {
    "path": "docs/survey/07-doc-surface.md",
-   "bytes": 39079,
-   "lines": 390,
+   "bytes": 39240,
+   "lines": 392,
    "title": "文档面",
    "out_links": [
     "p"
@@ -2667,8 +2668,8 @@
   },
   {
    "path": "docs/survey/15-doc-index-content.md",
-   "bytes": 77302,
-   "lines": 602,
+   "bytes": 77567,
+   "lines": 603,
    "title": "文档内容索引（每份讲什么）",
    "out_links": [],
    "n_links": 0,
@@ -2680,6 +2681,16 @@
    "bytes": 16645,
    "lines": 274,
    "title": "前端清单（文件 / 导出 / 说明）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/17-function-index.md",
+   "bytes": 914473,
+   "lines": 15743,
+   "title": "函数索引（每个符号的职责与引用计数）",
    "out_links": [],
    "n_links": 0,
    "inbound": [],

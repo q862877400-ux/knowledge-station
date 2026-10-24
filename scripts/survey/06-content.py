@@ -121,7 +121,8 @@ def step_doc_content() -> None:
     dump("doc_content", {
         "generated_by": "scripts/survey/06-content.py::step_doc_content",
         "caliber": ("`summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/"
-                    "代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前 25 个）。"
+                    "代码/图片 的行，上限 160 字。`h2_he"
+                    "adings` 是全部二级标题（前 25 个）。"
                     "**`summary` 为空说明该文档开头就是列表或表格**（比如索引类），"
                     "不是它没内容。"),
         "counts": {"docs": len(docs), "with_summary": len(docs) - len(no_summary),

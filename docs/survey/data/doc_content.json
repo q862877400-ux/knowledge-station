@@ -2,8 +2,8 @@
  "generated_by": "scripts/survey/06-content.py::step_doc_content",
  "caliber": "`summary` = 第一个 `# 标题` 之后、第一个非空且**不是** 引用/表格/列表/代码/图片 的行，上限 160 字。`h2_headings` 是全部二级标题（前 25 个）。**`summary` 为空说明该文档开头就是列表或表格**（比如索引类），不是它没内容。",
  "counts": {
-  "docs": 247,
-  "with_summary": 241,
+  "docs": 248,
+  "with_summary": 242,
   "without_summary": 6
  },
  "docs": [
@@ -2868,7 +2868,7 @@
     "四、全部文档（按体积降序）"
    ],
    "n_h2": 4,
-   "lines": 390
+   "lines": 392
   },
   {
    "path": "docs/survey/08-gate-surface.md",
@@ -2975,7 +2975,7 @@
     "四、二级小节最多的 15 份（结构最复杂的文档）"
    ],
    "n_h2": 4,
-   "lines": 602
+   "lines": 603
   },
   {
    "path": "docs/survey/16-frontend.md",
@@ -2989,6 +2989,18 @@
    ],
    "n_h2": 4,
    "lines": 274
+  },
+  {
+   "path": "docs/survey/17-function-index.md",
+   "title": "函数索引（每个符号的职责与引用计数）",
+   "summary": "`purpose` = 该函数的 **docstring 第一句**（跳过 `#` 标题行，按 `。`/`；`/换行切，上限 140 字）。**没有 docstring 的函数 purpose 为空** —— 这是记录，不是评价。",
+   "h2_headings": [
+    "一、口径",
+    "二、总账",
+    "三、按模块列全部符号"
+   ],
+   "n_h2": 3,
+   "lines": 15743
   },
   {
    "path": "docs/survey/COVERAGE.md",

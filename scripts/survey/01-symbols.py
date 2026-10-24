@@ -65,6 +65,21 @@ def iter_py() -> list[Path]:
     return sorted(out)
 
 
+def _first_sentence(doc: str, limit: int = 140) -> str:
+    """取 docstring 第一句（跳过 `#` 标题行，按 。；换行切）。"""
+    if not doc:
+        return ""
+    lines = [ln for ln in doc.strip().splitlines()
+             if ln.strip() and not ln.strip().startswith("#")]
+    if not lines:
+        return ""
+    s = lines[0].strip()
+    for sep in ("。", "；", "\n"):
+        if sep in s:
+            s = s.split(sep)[0]
+    return (s + ("。" if s and not s.endswith("。") else ""))[:limit]
+
+
 def _sig(fn: ast.FunctionDef | ast.AsyncFunctionDef) -> str:
     """拼一个人能读的签名（不求完美，求可搜索）。"""
     a = fn.args
@@ -112,6 +127,7 @@ def record_function(fn, rel: str, parent: str) -> dict:
         "signature": _sig(fn),
         "decorators": _decorators(fn),
         "has_docstring": ast.get_docstring(fn) is not None,
+        "purpose": _first_sentence(ast.get_docstring(fn) or ""),
         "private": fn.name.startswith("_") and not fn.name.startswith("__"),
     }
 
@@ -172,6 +188,7 @@ def scan_file(p: Path) -> tuple[dict | None, str | None]:
                     "signature": "",
                     "decorators": _decorators(node),
                     "has_docstring": ast.get_docstring(node) is not None,
+                "purpose": _first_sentence(ast.get_docstring(node) or ""),
                     "private": node.name.startswith("_"),
                 }
             )

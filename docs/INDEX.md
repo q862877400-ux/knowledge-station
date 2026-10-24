@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **246 份** / **8670 KB**。
+> 共 **247 份** / **9563 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -70,7 +70,7 @@
 | `docs/INTERACTION-DESIGN.md` | 63 | 2026-10-11 | 〇、落地状态（**以代码为准**，2026-09-19 §10.130 更新） |
 | `docs/uniformity/06-frontend.md` | 48 | 2026-10-24 | 调查对象：`D:\Agent-Studio\Deepseek-Harness\DSH-Data\workspace\zc |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 | 2026-10-05 | 零、一句话结论 |
-| `docs/survey/16-frontend.md` | 16 | 未提交 | 一、口径 |
+| `docs/survey/16-frontend.md` | 16 | 2026-10-24 | 一、口径 |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 | 2026-09-25 | 〇、总目标（一句话） |
 | `docs/UI-ICON-SYSTEM.md` | 6 | 2026-10-10 | 一、图标从哪来（契约，逐字取自宿主实现） |
 
@@ -128,16 +128,17 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（105 份 / 2760 KB）
+## 根文档与其他（106 份 / 3653 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
+| `docs/survey/17-function-index.md` | 893 | 未提交 | 一、口径 |
 | `docs/DEVELOPMENT-HISTORY.md` | 331 | 2026-10-18 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
-| `docs/survey/14-test-index.md` | 251 | 未提交 | 一、口径 |
+| `docs/survey/14-test-index.md` | 251 | 2026-10-24 | 一、口径 |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/survey/11-module-index.md` | 166 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
-| `docs/survey/15-doc-index-content.md` | 76 | 未提交 | 一、口径 |
+| `docs/survey/15-doc-index-content.md` | 76 | 2026-10-24 | 一、口径 |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 | 2026-10-23 | **先纠正任务书里的两个数字**（都实测过，不是我猜）： |
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |

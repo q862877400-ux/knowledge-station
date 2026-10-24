@@ -3,11 +3,11 @@
  "repo_root": "D:\\Agent-Studio\\Deepseek-Harness\\DSH-Data\\workspace\\zcode",
  "ledger": {
   "tracked": 3584,
-  "untracked": 753,
-  "merged": 4337,
+  "untracked": 754,
+  "merged": 4338,
   "overlap": 14,
   "generated_excluded": 14,
-  "counted": 4323,
+  "counted": 4324,
   "ignored_entries": 468
  },
  "generated_paths": [
@@ -54,8 +54,8 @@
   },
   "脚本-工具/门禁": {
    "files": 93,
-   "bytes": 966473,
-   "lines": 19939
+   "bytes": 969340,
+   "lines": 20005
   },
   "规格-spec-kit": {
    "files": 88,
@@ -78,9 +78,9 @@
    "lines": 23314
   },
   "文档-项目现状地图": {
-   "files": 37,
-   "bytes": 1385692,
-   "lines": 18689
+   "files": 38,
+   "bytes": 2300591,
+   "lines": 34435
   },
   "产品代码-界面": {
    "files": 33,
@@ -3235,7 +3235,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 83,
-   "sha256": "015f67a1fbbbbe24"
+   "sha256": "304dcb3fb7f9eceb"
   },
   {
    "path": "docs/survey/02-code-map.md",
@@ -3246,7 +3246,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 210,
-   "sha256": "54cd700cd872196b"
+   "sha256": "fb8c3a3095d78214"
   },
   {
    "path": "docs/survey/03-cross-ref.md",
@@ -3296,12 +3296,12 @@
    "path": "docs/survey/07-doc-surface.md",
    "exists": true,
    "state": "present",
-   "bytes": 39079,
+   "bytes": 39240,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档-项目现状地图",
-   "lines": 390,
-   "sha256": "a6c15ae6c52ec489"
+   "lines": 392,
+   "sha256": "da25d1ed1e5f37de"
   },
   {
    "path": "docs/survey/08-gate-surface.md",
@@ -3345,7 +3345,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 1346,
-   "sha256": "96e828c6e5394f07"
+   "sha256": "c0de4df202fb90e9"
   },
   {
    "path": "docs/survey/12-config-surface.md",
@@ -3384,12 +3384,12 @@
    "path": "docs/survey/15-doc-index-content.md",
    "exists": true,
    "state": "present",
-   "bytes": 77302,
+   "bytes": 77567,
    "ext": ".md",
    "lang": "Markdown",
    "category": "文档-项目现状地图",
-   "lines": 602,
-   "sha256": "b052abdccbfcadaf"
+   "lines": 603,
+   "sha256": "69fe3e10b33ecd8a"
   },
   {
    "path": "docs/survey/16-frontend.md",
@@ -3403,6 +3403,17 @@
    "sha256": "918d14ae23332b67"
   },
   {
+   "path": "docs/survey/17-function-index.md",
+   "exists": true,
+   "state": "present",
+   "bytes": 914473,
+   "ext": ".md",
+   "lang": "Markdown",
+   "category": "文档-项目现状地图",
+   "lines": 15743,
+   "sha256": "e54eaed6c7626e0b"
+  },
+  {
    "path": "docs/survey/COVERAGE.md",
    "exists": true,
    "state": "present",
@@ -3411,7 +3422,7 @@
    "lang": "Markdown",
    "category": "文档-项目现状地图",
    "lines": 51,
-   "sha256": "916cb2d03acfe157"
+   "sha256": "f63f13622cd45ebe"
   },
   {
    "path": "docs/survey/README.md",
@@ -11044,12 +11055,12 @@
    "path": "scripts/survey/01-symbols.py",
    "exists": true,
    "state": "present",
-   "bytes": 13100,
+   "bytes": 13771,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 346,
-   "sha256": "8da3eb16babc2b1f"
+   "lines": 363,
+   "sha256": "89c87d479368d69b"
   },
   {
    "path": "scripts/survey/02-surface.py",
@@ -11066,23 +11077,23 @@
    "path": "scripts/survey/03-render.py",
    "exists": true,
    "state": "present",
-   "bytes": 34224,
+   "bytes": 36363,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 799,
-   "sha256": "3e65062146a41220"
+   "lines": 846,
+   "sha256": "157bf60aef10767c"
   },
   {
    "path": "scripts/survey/04-reconcile.py",
    "exists": true,
    "state": "present",
-   "bytes": 10729,
+   "bytes": 10762,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 301,
-   "sha256": "e41a47b4d0c6d53a"
+   "lines": 302,
+   "sha256": "64045ad7f94148f2"
   },
   {
    "path": "scripts/survey/05-deep.py",
@@ -11099,12 +11110,12 @@
    "path": "scripts/survey/06-content.py",
    "exists": true,
    "state": "present",
-   "bytes": 10086,
+   "bytes": 10110,
    "ext": ".py",
    "lang": "Python",
    "category": "脚本-工具/门禁",
-   "lines": 210,
-   "sha256": "7cdf5f3c8c072425"
+   "lines": 211,
+   "sha256": "75f2ce92ae5bd975"
   },
   {
    "path": "scripts/survey/_common.py",

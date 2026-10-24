@@ -11,10 +11,10 @@
 
 | 项 | 数 |
 |---|---:|
-| `docs/` 下 `.md` | **247** |
+| `docs/` 下 `.md` | **248** |
 | 其中受版本控制 | 233 |
 | 链接总数 | 569 |
-| **没有任何入链（孤儿）** | **116** |
+| **没有任何入链（孤儿）** | **117** |
 
 ## 三、孤儿文档（没有任何别的文档链到它）
 
@@ -130,6 +130,7 @@
 - `docs/survey/14-test-index.md`
 - `docs/survey/15-doc-index-content.md`
 - `docs/survey/16-frontend.md`
+- `docs/survey/17-function-index.md`
 - `docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md`
 - `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md`
@@ -142,6 +143,7 @@
 | 文件 | 体积 | 行数 | 入链 | 出链 | 标题 |
 |---|---:|---:|---:|---:|---|
 | `docs/archive/history/rounds-10.1-10.203.md` | 999 KB | 11,670 | 1 | 11 | 端点里嵌套的 async def 生成器（体内含 yield）若整段没有 Awa |
+| `docs/survey/17-function-index.md` | 893 KB | 15,743 | 0 | 0 | 函数索引（每个符号的职责与引用计数） |
 | `docs/DEVELOPMENT-HISTORY.md` | 331 KB | 524 | 12 | 46 | KnowledgeStation 开发历程简史 |
 | `docs/UI-BASELINE.md` | 256 KB | 2,460 | 8 | 27 | UI 视觉基线（照 WeKnora 知识库管理复刻）—— 第 5 步的施工依据 |
 | `docs/survey/14-test-index.md` | 251 KB | 3,651 | 0 | 0 | 测试索引（每个测试钉住了什么） |
@@ -164,7 +166,7 @@
 | `docs/research/weknora-ui-vs-ours.md` | 83 KB | 581 | 1 | 26 | 我们 vs WeKnora：知识库管理 UI 差距清单（**只诊断，不改代码** |
 | `docs/research/STEP6-WORKORDER.md` | 82 KB | 1,043 | 1 | 4 | 第 6 步施工单 —— 插件侧借鉴 WeKnora 自带 DSH 插件的 6 条 |
 | `docs/ENCYCLOPEDIA.md` | 78 KB | 926 | 0 | 9 | KnowledgeStation 技术百科全书（ENCYCLOPEDIA） |
-| `docs/survey/15-doc-index-content.md` | 75 KB | 602 | 0 | 0 | 文档内容索引（每份讲什么） |
+| `docs/survey/15-doc-index-content.md` | 76 KB | 603 | 0 | 0 | 文档内容索引（每份讲什么） |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 KB | 641 | 1 | 6 | docs / specs / scripts 事实地图 |
 | `docs/research/channels/std-cn.md` | 73 KB | 1,145 | 0 | 0 | 中国标准类官方渠道实测调研 |
 | `docs/uniformity/01-core.md` | 70 KB | 1,064 | 1 | 0 | src/core 事实地图 |
@@ -192,7 +194,7 @@
 | `docs/uniformity/04-tests-tools-gates.md` | 41 KB | 621 | 1 | 0 | tests / tools / 门禁 事实地图 |
 | `docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md` | 40 KB | 477 | 0 | 0 | 自动化执行记忆：gov-qa 推进到全国省市全覆盖 |
 | `docs/uniformity/10-api-server.md` | 40 KB | 452 | 2 | 0 | api/server.py 事实地图 |
-| `docs/survey/07-doc-surface.md` | 38 KB | 390 | 1 | 1 | 文档面 |
+| `docs/survey/07-doc-surface.md` | 38 KB | 392 | 1 | 1 | 文档面 |
 | `docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md` | 38 KB | 619 | 0 | 0 | 独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 KB | 644 | 0 | 0 | Hindsight 部署：对一份外部 AI 分析报告的事实核查（2026-09- |
 | `docs/research/channels/PATH-REGISTRY-2026-10-08.md` | 37 KB | 428 | 0 | 0 | 法规/标准发布源路径总表（2026-10-08 实测） |
