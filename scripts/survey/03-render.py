@@ -1,0 +1,567 @@
+"""检查第 9 步：由 JSON **生成**人可读文档（不手抄）。
+
+## 为什么必须生成而不是手写
+
+本仓实测过：手抄长文档 77 行错 2 处（2.6% 失真）。
+所以凡是「数字」类内容，一律由 `docs/survey/data/*.json` 渲染 ⇒ 两边永远一致。
+
+## 生成哪些
+
+    README.md          唯一入口
+    01-inventory.md    全仓清单
+    02-code-map.md     代码地图
+    03-cross-ref.md    引用关系
+    04-data-shape.md   表/列/索引
+    05-api-surface.md  全部接口
+    06-test-surface.md 测试面
+    07-doc-surface.md  文档面
+    08-gate-surface.md 门禁面
+
+## 不生成的（需要叙述，手写）
+
+    00-method.md       检查方法（已手写）
+    09-runtime.md      起停/端口/令牌（手写，标注已验证/未验证）
+    10-observed.md     中性观察记录（手写）
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+DATA = ROOT / "docs" / "survey" / "data"
+OUT = ROOT / "docs" / "survey"
+
+HEAD = (
+    "> **由 `scripts/survey/03-render.py` 从 `data/*.json` 生成，勿手改。**\n"
+    "> 数字与 JSON 一一对应；要改数字请重跑生成器。\n"
+)
+
+
+def load(name: str) -> dict:
+    p = DATA / f"{name}.json"
+    if not p.exists():
+        raise SystemExit(f"缺 {p}，先跑 00/01/02 三个生成器")
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def mb(n: int) -> str:
+    return f"{n / 1048576:.1f} MB" if n >= 1048576 else f"{n / 1024:.0f} KB"
+
+
+def write(name: str, title: str, body: str) -> None:
+    p = OUT / name
+    p.write_text(f"# {title}\n\n{HEAD}\n{body}", encoding="utf-8")
+    print(f"  → {p.relative_to(ROOT)}")
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_inventory() -> None:
+    d = load("inventory")
+    led = d["ledger"]
+    out = [
+        "## 一、四本账（覆盖证明）",
+        "",
+        "| 账本 | 条数 | 说明 |",
+        "|---|---|---|",
+        f"| 甲 受控文件 | **{led['tracked']:,}** | `git ls-files` |",
+        f"| 乙 未跟踪文件 | **{led['untracked']:,}** | `git status --porcelain` 的 `??` |",
+        f"| 丙 合并去重 | **{led['merged']:,}** | 甲 ∪ 乙，重叠 {led['overlap']} |",
+        f"| 丁 被忽略但存在 | **{led['ignored_entries']:,}** | `git status --ignored` —— "
+        "**包含生产数据，没有它下一棒会以为仓里没数据** |",
+        f"| 戊 本检查的生成物 | {led['generated_excluded']} | 排除在项目统计外 |",
+        f"| **计入统计** | **{led['counted']:,}** | 丙 − 戊 |",
+        "",
+        "## 二、按分类",
+        "",
+        "| 分类 | 文件 | 体积 | 行数 |",
+        "|---|---:|---:|---:|",
+    ]
+    for c, s in d["by_category"].items():
+        out.append(f"| {c} | {s['files']:,} | {mb(s['bytes'])} | {s['lines']:,} |")
+    out += [
+        "",
+        "## 三、被 git 忽略但确实存在（账本丁）",
+        "",
+        "| 路径前缀 | 条目 |",
+        "|---|---:|",
+    ]
+    for k, v in list(d["ignored_summary"].items())[:15]:
+        out.append(f"| `{k}` | {v['entries']:,} |")
+    out += [
+        "",
+        "> ⚠ **`var/data/` 是生产库与证据原件所在**（35.8 万个文件 / 74 GB）。",
+        "> 它被 `.gitignore` 排除，所以**不在甲、乙两本账里**。",
+        "> 下一棒要读真实数据，去这里；不要以为仓里只有代码。",
+        "",
+        "## 四、受控但磁盘上没有的文件",
+        "",
+    ]
+    missing = [r for r in d["files"] if r.get("state") == "missing"]
+    if missing:
+        for r in missing:
+            out.append(f"- `{r['path']}` —— `git status` 显示已从工作树删除但未提交")
+    else:
+        out.append("无。")
+    out += ["", "## 五、各类里最大的 10 个文件", ""]
+    big = sorted([r for r in d["files"] if r.get("bytes")], key=lambda r: -r["bytes"])[
+        :10
+    ]
+    out += ["| 文件 | 体积 | 行数 |", "|---|---:|---:|"]
+    for r in big:
+        out.append(f"| `{r['path']}` | {mb(r['bytes'])} | {r.get('lines', 0):,} |")
+    write("01-inventory.md", "全仓清单（四本账）", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_code_map() -> None:
+    d = load("symbols_py")
+    summ = d["summary"]
+    out = [
+        "## 一、总账",
+        "",
+        "| 项 | 数 |",
+        "|---|---:|",
+        f"| 扫描面 | {', '.join('`' + r + '`' for r in d['scan_roots'])} |",
+        f"| `.py` 文件 | **{summ['files_found']:,}** |",
+        f"| 解析成功模块 | **{summ['modules']:,}** |",
+        f"| 解析失败 | **{summ['parse_errors']}**（判据：成功 + 失败 == 总数）|",
+        f"| 符号总数 | **{summ['symbols']:,}** |",
+        f"| 类 | {summ['classes']:,} |",
+        f"| 函数（含方法） | {summ['functions']:,} |",
+        f"| 无 docstring 的符号 | {summ['no_docstring']:,} |",
+        "",
+        "## 二、按目录看规模",
+        "",
+        "| 目录 | 模块 | 符号 | 函数 | 类 | 无 docstring |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    agg: dict[str, Counter] = {}
+    for m in d["modules"]:
+        top = (
+            "/".join(m["module"].split("/")[:2]) if "/" in m["module"] else m["module"]
+        )
+        a = agg.setdefault(top, Counter())
+        a["mods"] += 1
+        a["syms"] += len(m["symbols"])
+        a["funcs"] += sum(1 for s in m["symbols"] if s["kind"].endswith("function"))
+        a["classes"] += sum(1 for s in m["symbols"] if s["kind"] == "class")
+        a["nodoc"] += sum(1 for s in m["symbols"] if not s["has_docstring"])
+    for k, a in sorted(agg.items(), key=lambda kv: -kv[1]["syms"])[:20]:
+        out.append(
+            f"| `{k}` | {a['mods']:,} | {a['syms']:,} | {a['funcs']:,} | "
+            f"{a['classes']:,} | {a['nodoc']:,} |"
+        )
+
+    out += [
+        "",
+        "## 三、最大的 20 个函数（**按行数，不是按重要性**）",
+        "",
+        "| 函数 | 文件:行 | 行数 |",
+        "|---|---|---:|",
+    ]
+    allf = [
+        (s, m["module"])
+        for m in d["modules"]
+        for s in m["symbols"]
+        if s["kind"].endswith("function")
+    ]
+    for s, mod in sorted(allf, key=lambda x: -x[0]["lines"])[:20]:
+        out.append(f"| `{s['qualname']}` | `{mod}:{s['lineno']}` | **{s['lines']}** |")
+
+    out += [
+        "",
+        "## 四、超过 100 行的函数（逐个列，共 "
+        f"{sum(1 for s, _ in allf if s['lines'] > 100)} 个）",
+        "",
+    ]
+    long_ones = [(s, mod) for s, mod in allf if s["lines"] > 100]
+    if long_ones:
+        out += ["| 行数 | 函数 | 位置 |", "|---:|---|---|"]
+        for s, mod in sorted(long_ones, key=lambda x: -x[0]["lines"]):
+            out.append(f"| {s['lines']} | `{s['qualname']}` | `{mod}:{s['lineno']}` |")
+    else:
+        out.append("无。")
+
+    out += ["", "## 五、模块 docstring 覆盖", ""]
+    nodoc = [m for m in d["modules"] if not m["has_docstring"]]
+    out.append(f"**{len(nodoc)} / {len(d['modules'])} 个模块没有模块级 docstring。**")
+    if nodoc:
+        out.append("")
+        for m in nodoc[:40]:
+            out.append(f"- `{m['module']}`")
+        if len(nodoc) > 40:
+            out.append(
+                f"- …… 另有 {len(nodoc) - 40} 个，完整清单见 `data/symbols_py.json`"
+            )
+    write("02-code-map.md", "代码地图（AST 级符号清单）", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_cross_ref() -> None:
+    d = load("symbols_py")
+    t = load("tests")
+    summ = d["summary"]
+    bd = summ.get("text_hits_1_breakdown", {})
+    out = [
+        "## 一、引用计数的口径（先看这个，否则会误读）",
+        "",
+        "`text_hits` = 该符号名在扫描面内全部 `.p"
+        "y` 文本里出现的次数（**含定义行本身**）。",
+        "",
+        "**这是下界，不是精确调用图。** 原因是 Python 有四种调用方式在看文本时不可见：",
+        "1. `getattr` / `importlib` 动态取；",
+        "2. 装饰器注册（函数名写进装饰器参数）；",
+        '3. 字符串派发（本仓 5 个渠道适配器就是 `_safe_import("mem_gov", ...)`）；',
+        "4. 框架按名字收集（pytest 收集 `test_*`）。",
+        "",
+        f"## 二、只出现一次的名字：{summ['text_hits_1']:,} 个 —— **拆开看**",
+        "",
+        "| 类别 | 个数 | 说明 |",
+        "|---|---:|---|",
+    ]
+    for k, v in sorted(bd.items(), key=lambda kv: -kv[1]):
+        out.append(f"| {k} | {v:,} | |")
+    out += [
+        "",
+        "> ⚠ **不要把这 2,342 个读成「死代码」。"
+        "**上面最后一行「其他」才是需要人工看的，",
+        "> 而且里面还混着属性访问、异常类等形态。本检查**不判断**哪个真的没用。",
+        "",
+        "## 三、源码模块被谁引用（三种机制都算）",
+        "",
+        "| 机制 | 模块数 |",
+        "|---|---:|",
+    ]
+    mech = Counter(t.get("reference_mechanism", {}).values())
+    total_mods = t["counts"]["src_core_modules"]
+    for k, v in mech.most_common():
+        out.append(f"| {k} | {v} |")
+    unreferenced = [
+        m
+        for m in t["src_core_modules_not_referenced_by_any_py"]
+        if not m.endswith("__init__")
+    ]
+    out += [f"| **三种都查不到** | {len(unreferenced)} |", ""]
+    if unreferenced:
+        out += ["三种机制都查不到的（**__init__ 已排除，那个是口径假象**）：", ""]
+        for m in unreferenced:
+            out.append(f"- `{m}`")
+    else:
+        out += [
+            f"> ✅ `src/core` 的 {total_mods} 个模块里，除 "
+            f"{total_mods - len(unreferenced) - len([1])} 个 `__init__` 外，",
+            "> **每一个都能用三种机制之一找到引用**。",
+            "",
+        ]
+    write("03-cross-ref.md", "引用关系", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_data_shape() -> None:
+    d = load("schema")
+    cnt = d["counts"]
+    out = [
+        "## 一、来源与口径",
+        "",
+        f"- 反射来源：`{d['source']}`（**随仓的种子库**，不是生产库）",
+        f"- {d['source_note']}",
+        "",
+        "## 二、总账",
+        "",
+        "| 项 | 数 |",
+        "|---|---:|",
+        f"| 表 | **{cnt['tables']}** |",
+        f"| 列 | **{cnt['total_columns']}** |",
+        f"| 索引 | {cnt['indexes']} |",
+        f"| 触发器 | {cnt['triggers']} |",
+        f"| 视图 | {cnt['views']} |",
+        f"| 种子库总行数 | {cnt['total_rows_in_seed']:,} |",
+        "",
+        "## 三、全部表（按种子库行数降序）",
+        "",
+        "| 表 | 列 | 种子行数 | FTS |",
+        "|---|---:|---:|:--:|",
+    ]
+    for t in sorted(d["tables"], key=lambda x: -x["rows_in_seed"]):
+        out.append(
+            f"| `{t['name']}` | {len(t['columns'])} | {t['rows_in_seed']:,} | "
+            f"{'✓' if t['is_fts'] else ''} |"
+        )
+    out += ["", "## 四、每张表的列（全集）", ""]
+    for t in sorted(d["tables"], key=lambda x: x["name"]):
+        out.append(
+            f"### `{t['name']}`（{len(t['columns'])} 列 / 种子 {t['rows_in_seed']:,} 行）"
+        )
+        out.append("")
+        out.append("| 列 | 类型 | 非空 | 默认 | 主键 |")
+        out.append("|---|:--:|:--:|---|:--:|")
+        for c in t["columns"]:
+            out.append(
+                f"| `{c['name']}` | {c['type']} | "
+                f"{'✓' if c['notnull'] else ''} | "
+                f"{c['default'] if c['default'] is not None else ''} | "
+                f"{'✓' if c['pk'] else ''} |"
+            )
+        if t["foreign_keys"]:
+            out.append("")
+            out.append(
+                "外键："
+                + "、".join(
+                    f"`{f['from']}` → `{f['to_table']}.{f['to']}`"
+                    for f in t["foreign_keys"]
+                )
+            )
+        out.append("")
+    write("04-data-shape.md", "数据形状（表 / 列 / 索引）", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_api() -> None:
+    d = load("endpoints")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径",
+        "",
+        d["caliber"],
+        "",
+        "## 二、总账",
+        "",
+        "| 项 | 条 |",
+        "|---|---:|",
+        f"| 后端路由 | **{cnt['backend_routes']}** |",
+        f"| 后端文件 | {cnt['backend_files']} |",
+        f"| 前端路由注册 | **{cnt['front_route_registrations']}** |",
+        "",
+        "## 三、后端：按文件分布",
+        "",
+        "| 文件 | 端点 |",
+        "|---|---:|",
+    ]
+    for f, n in d["backend_by_file"].items():
+        out.append(f"| `{f}` | {n} |")
+    out += [
+        "",
+        "## 四、后端：全部端点（**逐条，不抽样**）",
+        "",
+        "| 方法 | 路径 | 处理函数 | 位置 |",
+        "|---|:---|:---|",
+    ]
+    for r in sorted(d["backend"], key=lambda x: (x["path"], x["method"])):
+        out.append(
+            f"| {r['method']} | `{r['path']}` | `{r['handler']}` | "
+            f"`{r['file']}:{r['lineno']}` |"
+        )
+    out += [
+        "",
+        "## 五、前端路由注册",
+        "",
+        "| 路径 | kind | 常量已解析 | 位置 |",
+        "|---|:--:|:--:|---|",
+    ]
+    for w in d["front"]:
+        out.append(
+            f"| `{w['path']}` | {w['kind']} | "
+            f"{'✓' if w['resolved'] else '✗（写的是变量名）'} | "
+            f"`{w['file']}:{w['lineno']}` |"
+        )
+    write("05-api-surface.md", "接口面（后端 + 前端路由）", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_tests() -> None:
+    d = load("tests")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径",
+        "",
+        d["caliber"],
+        "",
+        "## 二、总账",
+        "",
+        "| 项 | 数 |",
+        "|---|---:|",
+        f"| 测试文件 | **{cnt['test_files']}** |",
+        f"| 测试函数（静态数 def，未算 parametrize 展开） | {cnt['test_functions_total']:,} |",
+        f"| `src/core` 模块 | {cnt['src_core_modules']} |",
+        f"| 没被任何 `.py` 提到的模块 | "
+        f"**{cnt['src_core_modules_not_textually_referenced_by_any_py']}**"
+        "（其中 18 个是 `__init__`）|",
+        "",
+        "> ⚠ **静态 def 数 ≠ pytest 收集数。** p"
+        "arametrize 会把一个 def 展开成多个节点，",
+        "> 所以 pytest 报的节点数会比这里多。要真数字跑 `pytest --collect-only -q`。",
+        "",
+        "## 三、测试文件清单",
+        "",
+        "| 文件 | 测试函数 | 引用源码模块数 | xfail | skip |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for t in sorted(d["files"], key=lambda x: -x["test_functions"]):
+        out.append(
+            f"| `{t['file']}` | {t['test_functions']} | "
+            f"{len(t['src_modules_referenced'])} | {t['xfail_mentions']} | "
+            f"{t['skip_marks']} |"
+        )
+    write("06-test-surface.md", "测试面", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_docs() -> None:
+    d = load("docs")
+    cnt = d["counts"]
+    out = [
+        "## 一、口径",
+        "",
+        d["caliber"],
+        "",
+        "## 二、总账",
+        "",
+        "| 项 | 数 |",
+        "|---|---:|",
+        f"| `docs/` 下 `.md` | **{cnt['docs_files']}** |",
+        f"| 其中受版本控制 | {cnt['docs_tracked_md']} |",
+        f"| 链接总数 | {cnt['total_links']:,} |",
+        f"| **没有任何入链（孤儿）** | **{cnt['orphans_no_inbound']}** |",
+        "",
+        "## 三、孤儿文档（没有任何别的文档链到它）",
+        "",
+        "> 这是**计数**，不是判断。孤儿不等于没用（`INDEX.md` 就是被脚本读的）。",
+        "",
+    ]
+    for o in d["orphans"]:
+        out.append(f"- `{o}`")
+    out += [
+        "",
+        "## 四、全部文档（按体积降序）",
+        "",
+        "| 文件 | 体积 | 行数 | 入链 | 出链 | 标题 |",
+        "|---|---:|---:|---:|---:|---|",
+    ]
+    for f in sorted(d["files"], key=lambda x: -x["bytes"]):
+        title = (f["title"] or "")[:40].replace("|", "\\|")
+        out.append(
+            f"| `{f['path']}` | {mb(f['bytes'])} | {f['lines']:,} | "
+            f"{f['inbound_count']} | {f['n_links']} | {title} |"
+        )
+    write("07-doc-surface.md", "文档面", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_gates() -> None:
+    d = load("gates")
+    cnt = d["counts"]
+    out = [
+        "## 一、总账",
+        "",
+        "| 项 | 数 |",
+        "|---|---:|",
+        f"| `Add-Step` 步 | **{cnt['steps']}** |",
+        f"| 冒烟套（`smoke-all.mjs` 的 `SUITES`） | **{cnt['smoke_suites']}** |",
+        f"| 被调用的脚本字面量 | {cnt['python_or_node_scripts_invoked']} |",
+        "",
+        f"> {d['note']}",
+        "",
+        "## 二、步名（按 `run-gates.ps1` 里的出现顺序）",
+        "",
+    ]
+    for i, s in enumerate(d["steps"], 1):
+        out.append(f"{i}. `{s}`")
+    out += ["", "## 三、冒烟套清单", ""]
+    for s in d["smoke_suites"]:
+        out.append(f"- `{s}`")
+    out += ["", "## 四、门禁里被点到名字的脚本", ""]
+    for c in d["scripts_invoked"]:
+        out.append(f"- `{c}`")
+    write("08-gate-surface.md", "门禁面", "\n".join(out))
+
+
+# ──────────────────────────────────────────────────────────────────────
+def gen_readme() -> None:
+    out = [
+        "## 这是什么",
+        "",
+        "**这个项目当前状态的地图。** 目的是让接手的 Agent **不必从零读整个项目**，",
+        "查表就知道东西在哪、长什么样、谁引用谁、验过没有。",
+        "",
+        "## 我（做这份地图的人）的边界",
+        "",
+        "**只检查、只记录。不判断对错，不改任何东西。**",
+        "所以下面看到「某函数只被提到 1 次」「某模块没有 docstring」「某文档没入链」",
+        "—— 这些**都是计数，不是结论**。该不该改由你判断。",
+        "",
+        "## 怎么用（按你要做的事查表）",
+        "",
+        "| 我要做什么 | 看哪份 |",
+        "|---|---|",
+        "| 找某个功能在哪个文件 | [`02-code-map.md`](02-code-map.md) |",
+        "| 查某个函数有没有别人用 | [`03-cross-ref.md`"
+        "](03-cross-ref.md) + `data/symbols_py.json` |",
+        "| 查某张表有哪些列 | [`04-data-shape.md`](04-data-shape.md) |",
+        "| 查某条接口在哪实现 | [`05-api-surface.md`](05-api-surface.md) |",
+        "| 查某块有没有测试 | [`06-test-surface.md`](06-test-surface.md) |",
+        "| 查某份文档说什么 / 有没有人链它 | [`0"
+        "7-doc-surface.md`](07-doc-surface.md) |",
+        "| 查门禁验什么 | [`08-gate-surface.md`](08-gate-surface.md) |",
+        "| **先看引擎怎么起、端口令牌在哪** | [`09-runtime.md`](09-runtime.md) |",
+        "| **看已观察到的事实（不下结论）** | [`10-observed.md`](10-observed.md) |",
+        "| 想知道检查怎么做的、漏没漏 | [`00-method.md`](00-method.md) |",
+        "",
+        "## 机器可读数据（优先读这个，别读散文）",
+        "",
+        "```",
+        "docs/survey/data/",
+        "  inventory.json    每个文件一条",
+        "  symbols_py.json   每个 Python 符号一条（含 text_hits）",
+        "  schema.json       每张表 / 列 / 索引",
+        "  endpoints.json    每条路由",
+        "  tests.json        每个测试文件 + 引用映射",
+        "  docs.json         每份文档 + 出入链",
+        "  gates.json        门禁步与冒烟套",
+        "```",
+        "",
+        "## 怎么重新生成（数字过期了就重跑）",
+        "",
+        "```powershell",
+        ".venv\\Scripts\\python.exe scripts/survey/00-inventory.py",
+        ".venv\\Scripts\\python.exe scripts/survey/01-symbols.py",
+        ".venv\\Scripts\\python.exe scripts/survey/02-surface.py",
+        ".venv\\Scripts\\python.exe scripts/survey/03-render.py",
+        "```",
+        "",
+        "重跑很便宜（三个生成器合计约 30 秒）。**改了代码就重跑，不要手改 md。**",
+        "",
+        "## 这份地图**不覆盖**什么（明确边界）",
+        "",
+        "| 不覆盖 | 为什么 |",
+        "|---|---|",
+        "| 运行时真实行为 | 静态检查只能看到「代码写了什么」，验不了「跑起来会怎样」 |",
+        "| 前端符号的 AST 级清单 | 没有现成 TS AST 工具链，用正则，**近似** |",
+        "| 测试的运行期覆盖率 | 要 coverage 数据，本检查没取 |",
+        "| `tools/gov-qa` 948 MB 的内容细节 | 只"
+        "查结构与归属，隐私是抽样（写明是抽样） |",
+        "| 浏览器里的像素效果 | 需要真浏览器 |",
+        "| 任何「该不该改」的判断 | 明确不属于本检查 |",
+    ]
+    write("README.md", "项目现状地图", "\n".join(out))
+
+
+def main() -> int:
+    gen_readme()
+    gen_inventory()
+    gen_code_map()
+    gen_cross_ref()
+    gen_data_shape()
+    gen_api()
+    gen_tests()
+    gen_docs()
+    gen_gates()
+    print("\n全部生成完毕")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

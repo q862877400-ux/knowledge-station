@@ -1,0 +1,4097 @@
+{
+ "generated_by": "scripts/survey/02-surface.py::step3_schema",
+ "source": "tests\\fixtures\\seed\\knowledge-seed.db",
+ "source_note": "口径说明：本仓的 schema 定义在 `schema.sql`（冻结），但**行数与真实形态**以随仓的种子库为准 —— 种子库是生产库的真子集（含全部表结构）。用种子库反射而不是读 `.sql`，是因为 `.sql` 可能与实际库漂移。",
+ "counts": {
+  "tables": 59,
+  "indexes": 42,
+  "triggers": 0,
+  "views": 0,
+  "total_columns": 470,
+  "total_rows_in_seed": 38925
+ },
+ "tables": [
+  {
+   "name": "alias_store",
+   "rows_in_seed": 32,
+   "columns": [
+    {
+     "name": "alias_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "term",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "alias",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'auto_extract'",
+     "pk": false
+    },
+    {
+     "name": "source_doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": "1.0",
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'active'",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE alias_store ("
+  },
+  {
+   "name": "announcement_observed",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "observed_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "source_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_name",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "title",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "url",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "url_hash",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "standard_no",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "published_date",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "first_seen",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "last_seen",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "scan_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "user_ack",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE announcement_observed ("
+  },
+  {
+   "name": "app_config",
+   "rows_in_seed": 7,
+   "columns": [
+    {
+     "name": "config_key",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "config_value",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "is_encrypted",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE app_config ("
+  },
+  {
+   "name": "audit_log",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "log_id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "event_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "user_action",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "detail",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE audit_log ("
+  },
+  {
+   "name": "bulk_import_batch",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "batch_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "batch_kind",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "trigger_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "total",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "checked",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "red_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "yellow_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "green_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "gray_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "tier",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'tier1'",
+     "pk": false
+    },
+    {
+     "name": "checkpoint_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "started_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "finished_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE bulk_import_batch ("
+  },
+  {
+   "name": "channel_test_case",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "channel_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "sample_url",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "expect_no",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "note",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_result",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_detail",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_run_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE channel_test_case ("
+  },
+  {
+   "name": "clause_fts",
+   "rows_in_seed": 4809,
+   "columns": [
+    {
+     "name": "clause_revision_id",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "clause_number",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "standard_no",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "title",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "content_segmented",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "modality",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "subject",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "behavior_scope_segmented",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE VIRTUAL TABLE clause_fts USING fts5("
+  },
+  {
+   "name": "clause_fts_config",
+   "rows_in_seed": 1,
+   "columns": [
+    {
+     "name": "k",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "v",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'clause_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+  },
+  {
+   "name": "clause_fts_content",
+   "rows_in_seed": 4809,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "c0",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c1",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c2",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c3",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c4",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c5",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c6",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c7",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'clause_fts_content'(id INTEGER PRIMARY KEY, c0, c1, c2, c3, c4, c5, c6, c7)"
+  },
+  {
+   "name": "clause_fts_data",
+   "rows_in_seed": 354,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "block",
+     "type": "BLOB",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'clause_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+  },
+  {
+   "name": "clause_fts_docsize",
+   "rows_in_seed": 4809,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "sz",
+     "type": "BLOB",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'clause_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+  },
+  {
+   "name": "clause_fts_idx",
+   "rows_in_seed": 334,
+   "columns": [
+    {
+     "name": "segid",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "term",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "pgno",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'clause_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+  },
+  {
+   "name": "clause_patch",
+   "rows_in_seed": 152,
+   "columns": [
+    {
+     "name": "patch_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_revision_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "field_name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "patched_value",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "patch_reason",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_by",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'local-user'",
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "clause_revision_id",
+     "to_table": "clause_revision",
+     "to": "clause_revision_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE clause_patch ("
+  },
+  {
+   "name": "clause_revision",
+   "rows_in_seed": 4809,
+   "columns": [
+    {
+     "name": "clause_revision_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "doc_revision_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "clause_key",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "clause_number",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "title",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "content_text",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "content_markdown",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "table_summary",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "formula_number",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "formula_desc",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "image_text",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "hierarchy_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "knowledge_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'rule'",
+     "pk": false
+    },
+    {
+     "name": "type_confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": "1.0",
+     "pk": false
+    },
+    {
+     "name": "modality",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "modality_strength",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "modality_confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "behavior_scope",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "subject",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "object",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "behavior",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "applicability_condition",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "restriction",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "exception",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "legal_refs",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "is_mandatory",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "is_suspicious",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "ocr_confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": "1.0",
+     "pk": false
+    },
+    {
+     "name": "content_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'normal'",
+     "pk": false
+    },
+    {
+     "name": "page_start",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "page_end",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "cross_refs",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "explanation_ref",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "content_hash",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "page_breaks",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "figure_html",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "doc_id",
+     "to_table": "doc_meta",
+     "to": "doc_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE clause_revision ("
+  },
+  {
+   "name": "clause_vec_chunks",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "chunk_id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "size",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "validity",
+     "type": "BLOB",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "rowids",
+     "type": "BLOB",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_chunks\"(chunk_id INTEGER PRIMARY KEY AUTOINCREMENT,size INTEGER NOT NULL,validity BLOB NOT NULL"
+  },
+  {
+   "name": "clause_vec_info",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "key",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "value",
+     "type": "ANY",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_info\" (key text primary key, value any)"
+  },
+  {
+   "name": "clause_vec_metadatachunks00",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "rowid",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "data",
+     "type": "BLOB",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_metadatachunks00\"(rowid PRIMARY KEY, data BLOB NOT NULL)"
+  },
+  {
+   "name": "clause_vec_metadatatext00",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "rowid",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "data",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_metadatatext00\"(rowid PRIMARY KEY, data TEXT)"
+  },
+  {
+   "name": "clause_vec_rowids",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "rowid",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "chunk_id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "chunk_offset",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_rowids\"(rowid INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE NOT NULL,chunk_id INTEGER,chunk_"
+  },
+  {
+   "name": "clause_vec_vector_chunks00",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "rowid",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "vectors",
+     "type": "BLOB",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"clause_vec_vector_chunks00\"(rowid PRIMARY KEY,vectors BLOB NOT NULL)"
+  },
+  {
+   "name": "debug_dump",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "dump_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "trigger_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "query",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "retrieval_result",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "prompt",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "llm_output",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "claim_parsed",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "verification_result",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "logs",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE debug_dump ("
+  },
+  {
+   "name": "doc_ccs_state",
+   "rows_in_seed": 3,
+   "columns": [
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "outcome",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "keyword_form",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "matched_no",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ccs_code",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ccs_name",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "reason",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "attempts_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "checked_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "applied_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE doc_ccs_state ("
+  },
+  {
+   "name": "doc_filing_state",
+   "rows_in_seed": 21,
+   "columns": [
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "stage",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'queued'",
+     "pk": false
+    },
+    {
+     "name": "confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "failure_kind",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "suggested_folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "suggest_new_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "placed_folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "placed_by",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "placed_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_error",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE doc_filing_state ("
+  },
+  {
+   "name": "doc_meta",
+   "rows_in_seed": 82,
+   "columns": [
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "standard_no",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "standard_name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "short_code",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "current_revision_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "legal_status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "legal_hierarchy",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'GB'",
+     "pk": false
+    },
+    {
+     "name": "standard_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'mandatory'",
+     "pk": false
+    },
+    {
+     "name": "doc_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'standard'",
+     "pk": false
+    },
+    {
+     "name": "quality_grade",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'A'",
+     "pk": false
+    },
+    {
+     "name": "domain_tags",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "effective_from",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "superseded_by",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "normative_refs",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "file_path",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "file_hash",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "source",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_url",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "downloaded_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "published_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ccs_code",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ccs_name",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ics",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "withdrawn_date",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "catalog_hidden",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "change_signal",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE \"doc_meta\" ("
+  },
+  {
+   "name": "doc_page_geometry",
+   "rows_in_seed": 892,
+   "columns": [
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "page_number",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "width",
+     "type": "REAL",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "height",
+     "type": "REAL",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "rotation",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "crop_box",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "media_box",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "doc_id",
+     "to_table": "doc_meta",
+     "to": "doc_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE doc_page_geometry ("
+  },
+  {
+   "name": "event_log",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "event_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "event_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "actor",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "before_state",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "after_state",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "metadata",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE event_log ("
+  },
+  {
+   "name": "evidence_edge",
+   "rows_in_seed": 286,
+   "columns": [
+    {
+     "name": "edge_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "edge_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_clause_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_clause_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "confidence",
+     "type": "REAL",
+     "notnull": false,
+     "default": "1.0",
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'active'",
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "target_clause_id",
+     "to_table": "clause_revision",
+     "to": "clause_revision_id"
+    },
+    {
+     "from": "source_clause_id",
+     "to_table": "clause_revision",
+     "to": "clause_revision_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE evidence_edge ("
+  },
+  {
+   "name": "feedback_log",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "feedback_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_revision_ids",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "feedback_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "feedback_content",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "rating",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE feedback_log ("
+  },
+  {
+   "name": "folder",
+   "rows_in_seed": 1127,
+   "columns": [
+    {
+     "name": "folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "parent_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "sort",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE folder ("
+  },
+  {
+   "name": "folder_member",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "folder_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "item_kind",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "item_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "added_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE folder_member ("
+  },
+  {
+   "name": "gap_analysis",
+   "rows_in_seed": 77,
+   "columns": [
+    {
+     "name": "gap_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "task_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "legal_obligation_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "legal_obligation_text",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "internal_policy_section",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "verdict",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "gap_description",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "remediation_suggestion",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "task_id",
+     "to_table": "review_task",
+     "to": "task_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE gap_analysis ("
+  },
+  {
+   "name": "internal_policy",
+   "rows_in_seed": 1,
+   "columns": [
+    {
+     "name": "policy_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "policy_name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "file_path",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "sections",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE internal_policy ("
+  },
+  {
+   "name": "law_catalog",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "title",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "bbbs",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "flxz",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "sxx",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "category",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "gbrq",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "sxrq",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE law_catalog ("
+  },
+  {
+   "name": "legal_obligation",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "obligation_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_revision_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "obligation_text",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "domain_tag",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "clause_revision_id",
+     "to_table": "clause_revision",
+     "to": "clause_revision_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE legal_obligation ("
+  },
+  {
+   "name": "material",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "material_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "project_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "origin",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "kind",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'other'",
+     "pk": false
+    },
+    {
+     "name": "title",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "url",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "domain",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "fetched_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "published_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "content_hash",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "raw_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "mime",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_tier",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'T1'",
+     "pk": false
+    },
+    {
+     "name": "tier_source",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'system'",
+     "pk": false
+    },
+    {
+     "name": "tier_reason",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "tier_evidence",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "task_role",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "review_status",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "review_note",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "reviewed_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "lifecycle",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'ephemeral'",
+     "pk": false
+    },
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "derived_text_hash",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "parser_fingerprint",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "project_id",
+     "to_table": "material_project",
+     "to": "project_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE material ("
+  },
+  {
+   "name": "material_chunk",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "chunk_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "material_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "ord",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "text",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "char_start",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "char_end",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "page",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "material_id",
+     "to_table": "material",
+     "to": "material_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE material_chunk ("
+  },
+  {
+   "name": "material_fts_config",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "k",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "v",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'material_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+  },
+  {
+   "name": "material_fts_content",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "c0",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c1",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c2",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "c3",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'material_fts_content'(id INTEGER PRIMARY KEY, c0, c1, c2, c3)"
+  },
+  {
+   "name": "material_fts_data",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "block",
+     "type": "BLOB",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'material_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+  },
+  {
+   "name": "material_fts_docsize",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "sz",
+     "type": "BLOB",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'material_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+  },
+  {
+   "name": "material_fts_idx",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "segid",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "term",
+     "type": "",
+     "notnull": true,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "pgno",
+     "type": "",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE 'material_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+  },
+  {
+   "name": "material_project",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "project_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "authority_policy",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "note",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE material_project ("
+  },
+  {
+   "name": "obligation_list",
+   "rows_in_seed": 12,
+   "columns": [
+    {
+     "name": "list_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "business_description",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "mode",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'list'",
+     "pk": false
+    },
+    {
+     "name": "items",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE obligation_list ("
+  },
+  {
+   "name": "operation_log",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "log_id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "operation",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "target_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "detail",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE operation_log ("
+  },
+  {
+   "name": "project_list",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "project_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "project_name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "project_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'engineering'",
+     "pk": false
+    },
+    {
+     "name": "clause_revision_ids",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE project_list ("
+  },
+  {
+   "name": "remapping_queue",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "queue_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "old_clause_key",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "new_clause_key",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "old_doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "new_doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "user_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE remapping_queue ("
+  },
+  {
+   "name": "review_point",
+   "rows_in_seed": 79,
+   "columns": [
+    {
+     "name": "point_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "task_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "point_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "point_content",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "matched_clause_ids",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "match_scores",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "verdict",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "verdict_reason",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "modality_comparison",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "suggestion",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "task_id",
+     "to_table": "review_task",
+     "to": "task_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE review_point ("
+  },
+  {
+   "name": "review_task",
+   "rows_in_seed": 22,
+   "columns": [
+    {
+     "name": "task_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "project_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "review_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "object_name",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "object_content",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "object_file_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "total_points",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "red_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "yellow_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "green_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "report_data",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "report_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "completed_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "project_id",
+     "to_table": "project_list",
+     "to": "project_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE review_task ("
+  },
+  {
+   "name": "snapshot_meta",
+   "rows_in_seed": 8,
+   "columns": [
+    {
+     "name": "snapshot_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "snapshot_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "db_checksum",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "file_count",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "clause_count",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE snapshot_meta ("
+  },
+  {
+   "name": "source_span",
+   "rows_in_seed": 16198,
+   "columns": [
+    {
+     "name": "span_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_revision_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "page_number",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "bbox_json",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "span_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'text'",
+     "pk": false
+    },
+    {
+     "name": "sort_order",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "clause_revision_id",
+     "to_table": "clause_revision",
+     "to": "clause_revision_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE source_span ("
+  },
+  {
+   "name": "update_change_event",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "change_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "batch_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "standard_no",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "standard_name",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "change_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "current_legal_status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "latest_info_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_channel",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "evidence_url",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "archived_pdf_path",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "user_ack",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "detected_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "batch_id",
+     "to_table": "update_check_batch",
+     "to": "batch_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE update_change_event ("
+  },
+  {
+   "name": "update_channel",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "channel_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "category",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "category_raw",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "url",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "fetch_kind",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "list_endpoint",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "params_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "answers_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "covers",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "gaps",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "wiring",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'seed_only'",
+     "pk": false
+    },
+    {
+     "name": "verification",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'unverified'",
+     "pk": false
+    },
+    {
+     "name": "state",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "'unknown'",
+     "pk": false
+    },
+    {
+     "name": "probe_url",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "probe_expect",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "enabled",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": "1",
+     "pk": false
+    },
+    {
+     "name": "last_try_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_ok_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_error",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "last_error_code",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "consecutive_failures",
+     "type": "INTEGER",
+     "notnull": true,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "latency_ms",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "source_file",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "note",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": true,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "segments_json",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "org_kind",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE update_channel ("
+  },
+  {
+   "name": "update_check_batch",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "batch_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "trigger_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "total",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "checked",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "red_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "yellow_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "green_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "gray_count",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": "0",
+     "pk": false
+    },
+    {
+     "name": "started_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "finished_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE update_check_batch ("
+  },
+  {
+   "name": "user_annotation",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "annotation_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_key",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "content",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "annotation_type",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'personal'",
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "updated_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE user_annotation ("
+  },
+  {
+   "name": "user_bookmark",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "bookmark_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "clause_key",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "fixed_revision_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "remark",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "tags",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE user_bookmark ("
+  },
+  {
+   "name": "user_bookmark_folder",
+   "rows_in_seed": 1,
+   "columns": [
+    {
+     "name": "folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "folder_name",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE user_bookmark_folder ("
+  },
+  {
+   "name": "user_doc_bookmark",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "doc_bookmark_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "remark",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "folder_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "doc_id",
+     "to_table": "doc_meta",
+     "to": "doc_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE user_doc_bookmark ("
+  },
+  {
+   "name": "watch_list",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "watch_id",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "doc_id",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    }
+   ],
+   "foreign_keys": [
+    {
+     "from": "doc_id",
+     "to_table": "doc_meta",
+     "to": "doc_id"
+    }
+   ],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE watch_list ("
+  },
+  {
+   "name": "write_queue",
+   "rows_in_seed": 0,
+   "columns": [
+    {
+     "name": "queue_id",
+     "type": "INTEGER",
+     "notnull": false,
+     "default": null,
+     "pk": true
+    },
+    {
+     "name": "operation_type",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "payload",
+     "type": "TEXT",
+     "notnull": true,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "status",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "'pending'",
+     "pk": false
+    },
+    {
+     "name": "result",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": "datetime('now')",
+     "pk": false
+    },
+    {
+     "name": "processed_at",
+     "type": "TEXT",
+     "notnull": false,
+     "default": null,
+     "pk": false
+    }
+   ],
+   "foreign_keys": [],
+   "is_fts": false,
+   "sql_head": "CREATE TABLE write_queue ("
+  }
+ ],
+ "indexes": [
+  {
+   "name": "idx_alias_lookup",
+   "table": "alias_store"
+  },
+  {
+   "name": "idx_announce_dedup",
+   "table": "announcement_observed"
+  },
+  {
+   "name": "idx_announce_first_seen",
+   "table": "announcement_observed"
+  },
+  {
+   "name": "idx_announce_scan",
+   "table": "announcement_observed"
+  },
+  {
+   "name": "idx_ccs_state_outcome",
+   "table": "doc_ccs_state"
+  },
+  {
+   "name": "idx_change_batch",
+   "table": "update_change_event"
+  },
+  {
+   "name": "idx_change_doc",
+   "table": "update_change_event"
+  },
+  {
+   "name": "idx_channel_cat",
+   "table": "update_channel"
+  },
+  {
+   "name": "idx_channel_wiring",
+   "table": "update_channel"
+  },
+  {
+   "name": "idx_clause_key",
+   "table": "clause_revision"
+  },
+  {
+   "name": "idx_clause_lookup",
+   "table": "clause_revision"
+  },
+  {
+   "name": "idx_clause_modality",
+   "table": "clause_revision"
+  },
+  {
+   "name": "idx_clause_subject",
+   "table": "clause_revision"
+  },
+  {
+   "name": "idx_clause_type",
+   "table": "clause_revision"
+  },
+  {
+   "name": "idx_debug_dump_type_created",
+   "table": "debug_dump"
+  },
+  {
+   "name": "idx_doc_file_hash",
+   "table": "doc_meta"
+  },
+  {
+   "name": "idx_doc_hierarchy",
+   "table": "doc_meta"
+  },
+  {
+   "name": "idx_doc_short_code",
+   "table": "doc_meta"
+  },
+  {
+   "name": "idx_edge_source",
+   "table": "evidence_edge"
+  },
+  {
+   "name": "idx_edge_target",
+   "table": "evidence_edge"
+  },
+  {
+   "name": "idx_event_log_created",
+   "table": "event_log"
+  },
+  {
+   "name": "idx_event_log_target",
+   "table": "event_log"
+  },
+  {
+   "name": "idx_filing_placed_folder",
+   "table": "doc_filing_state"
+  },
+  {
+   "name": "idx_filing_stage",
+   "table": "doc_filing_state"
+  },
+  {
+   "name": "idx_folder_child_name",
+   "table": "folder"
+  },
+  {
+   "name": "idx_folder_member_item",
+   "table": "folder_member"
+  },
+  {
+   "name": "idx_folder_parent",
+   "table": "folder"
+  },
+  {
+   "name": "idx_folder_root_name",
+   "table": "folder"
+  },
+  {
+   "name": "idx_law_catalog_cat",
+   "table": "law_catalog"
+  },
+  {
+   "name": "idx_law_catalog_sxx",
+   "table": "law_catalog"
+  },
+  {
+   "name": "idx_law_catalog_title",
+   "table": "law_catalog"
+  },
+  {
+   "name": "idx_legal_obligation_clause",
+   "table": "legal_obligation"
+  },
+  {
+   "name": "idx_material_chunk_mat",
+   "table": "material_chunk"
+  },
+  {
+   "name": "idx_material_hash",
+   "table": "material"
+  },
+  {
+   "name": "idx_material_project",
+   "table": "material"
+  },
+  {
+   "name": "idx_material_review",
+   "table": "material"
+  },
+  {
+   "name": "idx_operation_log_created",
+   "table": "operation_log"
+  },
+  {
+   "name": "idx_patch_lookup",
+   "table": "clause_patch"
+  },
+  {
+   "name": "idx_review_point_task",
+   "table": "review_point"
+  },
+  {
+   "name": "idx_review_task_project",
+   "table": "review_task"
+  },
+  {
+   "name": "idx_span_clause",
+   "table": "source_span"
+  },
+  {
+   "name": "idx_write_queue_status",
+   "table": "write_queue"
+  }
+ ],
+ "triggers": [],
+ "views": []
+}

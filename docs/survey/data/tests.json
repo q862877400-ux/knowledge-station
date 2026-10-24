@@ -1,0 +1,3021 @@
+{
+ "generated_by": "scripts/survey/02-surface.py::step5_tests",
+ "caliber": "测试文件数 == tests/ 下 test_*.py + *_test.py 的实际数量。「引用了哪些源码模块」靠文件内出现的 `src.core.x.y` 字符串判定 —— **是文本引用，不是运行期覆盖**。运行期真覆盖要 coverage 数据，本检查没取。`src_modules_referenced` 为空的测试文件不代表它没用源码（可能靠 fixture 间接用）。",
+ "counts": {
+  "test_files": 184,
+  "test_functions_total": 2567,
+  "files_with_zero_test_functions": 0,
+  "src_core_modules": 157,
+  "src_core_modules_not_textually_referenced_by_tests": 88,
+  "src_core_modules_not_textually_referenced_by_any_py": 0
+ },
+ "caliber_on_unreferenced": "**三种引用机制都算「被用到」**：①完整点号路径 ②import 语句里的名字 ③**名字作为字符串出现**（本仓 5 个渠道适配器靠 `_safe_import(\"mem_gov\", ...)` 字符串动态导入挂上，纯 import 语法永远看不到）。`reference_mechanism` 字段记下每个模块是靠哪一条被认出来的。两个口径都要看：① `..._by_tests` = 测试文件文本里没出现它的点号路径；② `..._by_any_py` = src/scripts/tests/gov-qa/eval 全部 .py 里既没有点号路径、也没有 `from/import <末段名>`。**只有②接近「没人用」；①会把被 server.py import 的 routes_*.py 误列。** 两者都**不等于**「死代码」——动态 import、字符串派发、插件注册都可能用到它。",
+ "reference_mechanism": {
+  "src.core.__init__": "③字符串动态导入",
+  "src.core.api.__init__": "③字符串动态导入",
+  "src.core.api.routes_channels": "②import 语句",
+  "src.core.api.routes_ingest_preview": "①点号路径",
+  "src.core.api.routes_kb_folders": "②import 语句",
+  "src.core.api.routes_law": "②import 语句",
+  "src.core.api.routes_materials": "②import 语句",
+  "src.core.api.routes_report": "①点号路径",
+  "src.core.api.routes_settings": "②import 语句",
+  "src.core.api.routes_update": "②import 语句",
+  "src.core.api.server": "①点号路径",
+  "src.core.compliance.__init__": "③字符串动态导入",
+  "src.core.compliance.gap_analysis": "①点号路径",
+  "src.core.config": "①点号路径",
+  "src.core.domain.__init__": "③字符串动态导入",
+  "src.core.domain.models": "①点号路径",
+  "src.core.exceptions": "①点号路径",
+  "src.core.exports.__init__": "③字符串动态导入",
+  "src.core.exports.backlinks": "①点号路径",
+  "src.core.exports.effect_report": "①点号路径",
+  "src.core.exports.office_roundtrip": "①点号路径",
+  "src.core.exports.report_export": "①点号路径",
+  "src.core.exports.research_draft": "②import 语句",
+  "src.core.exports.research_report": "①点号路径",
+  "src.core.exports.xlsx_common": "①点号路径",
+  "src.core.figure_locator": "①点号路径",
+  "src.core.figure_redraw": "①点号路径",
+  "src.core.file_digest": "①点号路径",
+  "src.core.formula_locator": "①点号路径",
+  "src.core.ingestion.__init__": "③字符串动态导入",
+  "src.core.ingestion.bulk": "①点号路径",
+  "src.core.ingestion.deep_server": "①点号路径",
+  "src.core.ingestion.docx_adapter": "①点号路径",
+  "src.core.ingestion.docx_ingest": "①点号路径",
+  "src.core.ingestion.dry_run": "①点号路径",
+  "src.core.ingestion.law_text": "①点号路径",
+  "src.core.ingestion.material_ingest": "①点号路径",
+  "src.core.ingestion.middle_locator": "①点号路径",
+  "src.core.ingestion.middle_schema": "①点号路径",
+  "src.core.ingestion.mineru_adapter": "①点号路径",
+  "src.core.ingestion.mineru_cloud": "①点号路径",
+  "src.core.ingestion.parser_worker": "①点号路径",
+  "src.core.ingestion.pipeline": "①点号路径",
+  "src.core.ingestion.preview_jobs": "②import 语句",
+  "src.core.ingestion.pypdf_backfill": "①点号路径",
+  "src.core.ingestion.reingest": "①点号路径",
+  "src.core.ingestion.smoke_ingest": "①点号路径",
+  "src.core.ingestion.span_calibration": "①点号路径",
+  "src.core.ingestion.span_verify": "①点号路径",
+  "src.core.knowledge.__init__": "③字符串动态导入",
+  "src.core.knowledge.alias_extract": "①点号路径",
+  "src.core.knowledge.auto_tag": "①点号路径",
+  "src.core.knowledge.ccs_backfill": "②import 语句",
+  "src.core.knowledge.ccs_fetcher": "①点号路径",
+  "src.core.knowledge.ccs_store": "②import 语句",
+  "src.core.knowledge.ccs_undo": "②import 语句",
+  "src.core.knowledge.classifier": "①点号路径",
+  "src.core.knowledge.doc_catalog": "①点号路径",
+  "src.core.knowledge.folder_filing_plan": "①点号路径",
+  "src.core.knowledge.folder_store": "①点号路径",
+  "src.core.knowledge.law_source.__init__": "③字符串动态导入",
+  "src.core.knowledge.law_source.catalog": "①点号路径",
+  "src.core.knowledge.law_source.convert": "①点号路径",
+  "src.core.knowledge.law_source.flk_client": "①点号路径",
+  "src.core.knowledge.law_source.govcn_client": "①点号路径",
+  "src.core.knowledge.law_source.http": "①点号路径",
+  "src.core.knowledge.law_source.ingest": "①点号路径",
+  "src.core.knowledge.law_source.law_refresh": "①点号路径",
+  "src.core.knowledge.law_source.update": "①点号路径",
+  "src.core.knowledge.law_source.verify": "①点号路径",
+  "src.core.knowledge.legal_status": "①点号路径",
+  "src.core.llm.__init__": "③字符串动态导入",
+  "src.core.llm.deepseek_client": "①点号路径",
+  "src.core.llm.egress_audit": "①点号路径",
+  "src.core.llm.fewshot": "①点号路径",
+  "src.core.llm.jev_client": "①点号路径",
+  "src.core.llm.jev_guard": "②import 语句",
+  "src.core.llm.ks_answer": "①点号路径",
+  "src.core.main": "①点号路径",
+  "src.core.materials.__init__": "③字符串动态导入",
+  "src.core.materials.authority": "②import 语句",
+  "src.core.materials.collect": "②import 语句",
+  "src.core.materials.dedup": "②import 语句",
+  "src.core.materials.harvest": "②import 语句",
+  "src.core.materials.locator": "①点号路径",
+  "src.core.materials.track_l": "②import 语句",
+  "src.core.middle_geo": "①点号路径",
+  "src.core.quality.__init__": "③字符串动态导入",
+  "src.core.quality.clause_health": "①点号路径",
+  "src.core.quality.disagreement": "①点号路径",
+  "src.core.quality.grading": "①点号路径",
+  "src.core.quality.recognition": "①点号路径",
+  "src.core.query.understanding": "①点号路径",
+  "src.core.retrieval.__init__": "③字符串动态导入",
+  "src.core.retrieval.embedder": "①点号路径",
+  "src.core.retrieval.hybrid_engine": "①点号路径",
+  "src.core.retrieval.reranker": "②import 语句",
+  "src.core.retrieval.term_bridge": "①点号路径",
+  "src.core.settings.__init__": "③字符串动态导入",
+  "src.core.settings.api_credentials": "①点号路径",
+  "src.core.settings.secret_store": "①点号路径",
+  "src.core.storage.__init__": "③字符串动态导入",
+  "src.core.storage.backup": "①点号路径",
+  "src.core.storage.channel_repo": "①点号路径",
+  "src.core.storage.clause_repo": "①点号路径",
+  "src.core.storage.debug_dump_retention": "①点号路径",
+  "src.core.storage.doc_delete": "①点号路径",
+  "src.core.storage.impact": "①点号路径",
+  "src.core.storage.material_repo": "①点号路径",
+  "src.core.storage.sqlite_db": "①点号路径",
+  "src.core.storage.user_data": "①点号路径",
+  "src.core.storage.versioning": "①点号路径",
+  "src.core.storage.write_queue": "①点号路径",
+  "src.core.storage.write_queue_bootstrap": "①点号路径",
+  "src.core.supervisor": "①点号路径",
+  "src.core.text_utils": "①点号路径",
+  "src.core.update.__init__": "③字符串动态导入",
+  "src.core.update.announce": "②import 语句",
+  "src.core.update.change_repo": "①点号路径",
+  "src.core.update.channel_answers": "②import 语句",
+  "src.core.update.channel_probe": "②import 语句",
+  "src.core.update.channel_test": "①点号路径",
+  "src.core.update.channels.__init__": "③字符串动态导入",
+  "src.core.update.channels.base": "①点号路径",
+  "src.core.update.channels.class_outcomes": "②import 语句",
+  "src.core.update.channels.cssn": "①点号路径",
+  "src.core.update.channels.dbba": "③字符串动态导入",
+  "src.core.update.channels.govcn_announce": "①点号路径",
+  "src.core.update.channels.hbba": "①点号路径",
+  "src.core.update.channels.laws_db": "①点号路径",
+  "src.core.update.channels.ledger_chain": "①点号路径",
+  "src.core.update.channels.mee": "③字符串动态导入",
+  "src.core.update.channels.mem_gov": "③字符串动态导入",
+  "src.core.update.channels.mohurd": "③字符串动态导入",
+  "src.core.update.channels.ndls": "①点号路径",
+  "src.core.update.channels.official_gb": "①点号路径",
+  "src.core.update.channels.proxy_rotate": "①点号路径",
+  "src.core.update.channels.question_router": "②import 语句",
+  "src.core.update.channels.routing": "①点号路径",
+  "src.core.update.channels.std_samr_hb": "③字符串动态导入",
+  "src.core.update.channels.ttzb": "①点号路径",
+  "src.core.update.channels.web_fallback": "①点号路径",
+  "src.core.update.data_package": "①点号路径",
+  "src.core.update.discover": "①点号路径",
+  "src.core.update.download_gate": "②import 语句",
+  "src.core.update.inspector": "①点号路径",
+  "src.core.update.jev_ingest": "①点号路径",
+  "src.core.update.report": "①点号路径",
+  "src.core.update.scheduler": "①点号路径",
+  "src.core.update.scheduler_runner": "①点号路径",
+  "src.core.update.subscriptions": "①点号路径",
+  "src.core.update.web_ingest": "①点号路径",
+  "src.core.verification.__init__": "③字符串动态导入",
+  "src.core.verification.patch_guard": "①点号路径",
+  "src.core.verification.typed_verifier": "①点号路径",
+  "src.core.vision.__init__": "③字符串动态导入",
+  "src.core.vision.local_vision": "①点号路径"
+ },
+ "src_core_modules_not_referenced_by_tests": [
+  "src.core.__init__",
+  "src.core.api.__init__",
+  "src.core.api.routes_channels",
+  "src.core.api.routes_kb_folders",
+  "src.core.api.routes_law",
+  "src.core.api.routes_materials",
+  "src.core.api.routes_settings",
+  "src.core.api.routes_update",
+  "src.core.compliance.__init__",
+  "src.core.domain.__init__",
+  "src.core.exports.__init__",
+  "src.core.exports.office_roundtrip",
+  "src.core.exports.research_draft",
+  "src.core.exports.research_report",
+  "src.core.exports.xlsx_common",
+  "src.core.figure_redraw",
+  "src.core.formula_locator",
+  "src.core.ingestion.__init__",
+  "src.core.ingestion.bulk",
+  "src.core.ingestion.preview_jobs",
+  "src.core.ingestion.pypdf_backfill",
+  "src.core.ingestion.smoke_ingest",
+  "src.core.ingestion.span_verify",
+  "src.core.knowledge.__init__",
+  "src.core.knowledge.ccs_backfill",
+  "src.core.knowledge.ccs_store",
+  "src.core.knowledge.ccs_undo",
+  "src.core.knowledge.folder_filing_plan",
+  "src.core.knowledge.folder_store",
+  "src.core.knowledge.law_source.__init__",
+  "src.core.knowledge.law_source.catalog",
+  "src.core.knowledge.law_source.convert",
+  "src.core.knowledge.law_source.flk_client",
+  "src.core.knowledge.law_source.govcn_client",
+  "src.core.knowledge.law_source.http",
+  "src.core.knowledge.law_source.ingest",
+  "src.core.knowledge.law_source.law_refresh",
+  "src.core.knowledge.law_source.update",
+  "src.core.knowledge.law_source.verify",
+  "src.core.llm.__init__",
+  "src.core.llm.fewshot",
+  "src.core.llm.jev_guard",
+  "src.core.main",
+  "src.core.materials.__init__",
+  "src.core.materials.authority",
+  "src.core.materials.collect",
+  "src.core.materials.dedup",
+  "src.core.materials.harvest",
+  "src.core.materials.locator",
+  "src.core.materials.track_l",
+  "src.core.middle_geo",
+  "src.core.quality.__init__",
+  "src.core.retrieval.__init__",
+  "src.core.retrieval.embedder",
+  "src.core.retrieval.reranker",
+  "src.core.settings.__init__",
+  "src.core.storage.__init__",
+  "src.core.storage.impact",
+  "src.core.storage.user_data",
+  "src.core.update.__init__",
+  "src.core.update.announce",
+  "src.core.update.channel_answers",
+  "src.core.update.channel_probe",
+  "src.core.update.channels.__init__",
+  "src.core.update.channels.base",
+  "src.core.update.channels.class_outcomes",
+  "src.core.update.channels.cssn",
+  "src.core.update.channels.dbba",
+  "src.core.update.channels.govcn_announce",
+  "src.core.update.channels.hbba",
+  "src.core.update.channels.laws_db",
+  "src.core.update.channels.ledger_chain",
+  "src.core.update.channels.mee",
+  "src.core.update.channels.mem_gov",
+  "src.core.update.channels.mohurd",
+  "src.core.update.channels.ndls",
+  "src.core.update.channels.official_gb",
+  "src.core.update.channels.proxy_rotate",
+  "src.core.update.channels.question_router",
+  "src.core.update.channels.routing",
+  "src.core.update.channels.std_samr_hb",
+  "src.core.update.channels.ttzb",
+  "src.core.update.channels.web_fallback",
+  "src.core.update.download_gate",
+  "src.core.update.scheduler_runner",
+  "src.core.update.subscriptions",
+  "src.core.verification.__init__",
+  "src.core.vision.__init__"
+ ],
+ "src_core_modules_not_referenced_by_any_py": [],
+ "inverse_reference": {
+  "src.core.api": [
+   "tests/test_channel_system_wiring.py",
+   "tests/test_jev_guard.py",
+   "tests/test_law_catalog_refresh.py",
+   "tests/test_material_api.py",
+   "tests/test_threadpool_bound.py"
+  ],
+  "src.core.api.routes_ingest_preview": [
+   "tests/test_material_api.py"
+  ],
+  "src.core.api.routes_report": [
+   "tests/test_material_api.py"
+  ],
+  "src.core.api.server": [
+   "tests/test_api.py",
+   "tests/test_api_cold_start.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_law_source_api.py",
+   "tests/test_phase4.py",
+   "tests/test_phase8.py",
+   "tests/test_understanding.py"
+  ],
+  "src.core.compliance.gap_analysis": [
+   "tests/test_phase7.py"
+  ],
+  "src.core.config": [
+   "tests/test_api_config.py",
+   "tests/test_assets_endpoint.py",
+   "tests/test_batch7_security_hardening.py",
+   "tests/test_credential_reconcile.py",
+   "tests/test_credentials_migrate_script.py",
+   "tests/test_credentials_namespace.py",
+   "tests/test_doc_render_api.py",
+   "tests/test_dry_run_concurrency.py",
+   "tests/test_dryrun_report.py",
+   "tests/test_jev_guard.py",
+   "tests/test_law_verify.py",
+   "tests/test_material_api.py",
+   "tests/test_mineru_cloud.py",
+   "tests/test_models_dir_override.py",
+   "tests/test_phase5.py",
+   "tests/test_phase8.py",
+   "tests/test_secret_store.py",
+   "tests/test_update_package.py"
+  ],
+  "src.core.domain.models": [
+   "tests/test_api.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_contract.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_ks_answer.py",
+   "tests/test_layout_fidelity.py",
+   "tests/test_patch_migration.py",
+   "tests/test_phase10_blindspots.py",
+   "tests/test_phase13_blindspots.py",
+   "tests/test_phase4.py",
+   "tests/test_phase6.py",
+   "tests/test_phase7.py",
+   "tests/test_pipeline.py",
+   "tests/test_reranker.py",
+   "tests/test_retrieval.py",
+   "tests/test_span_calibration.py",
+   "tests/test_understanding.py",
+   "tests/test_vision.py"
+  ],
+  "src.core.exceptions": [
+   "tests/test_backup.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_folder_store.py",
+   "tests/test_ks_answer.py",
+   "tests/test_llm_empty_retry.py",
+   "tests/test_patches.py",
+   "tests/test_phase4.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_research_draft.py",
+   "tests/test_research_report.py",
+   "tests/test_vision.py"
+  ],
+  "src.core.exports": [
+   "tests/test_effect_report.py",
+   "tests/test_phase12.py",
+   "tests/test_research_draft.py",
+   "tests/test_research_report.py"
+  ],
+  "src.core.exports.backlinks": [
+   "tests/test_phase12.py"
+  ],
+  "src.core.exports.effect_report": [
+   "tests/test_material_track_l.py"
+  ],
+  "src.core.exports.report_export": [
+   "tests/test_effect_report.py",
+   "tests/test_phase4.py",
+   "tests/test_update_announce.py",
+   "tests/test_update_report.py"
+  ],
+  "src.core.figure_locator": [
+   "tests/test_layout_fidelity.py"
+  ],
+  "src.core.file_digest": [
+   "tests/test_file_digest.py"
+  ],
+  "src.core.ingestion": [
+   "tests/test_batch7_security_hardening.py",
+   "tests/test_bulk_import.py",
+   "tests/test_catalog_hidden_retrieval.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_channel_system_wiring.py",
+   "tests/test_deep_server.py",
+   "tests/test_dry_run_concurrency.py",
+   "tests/test_dryrun_batch.py",
+   "tests/test_dryrun_report.py",
+   "tests/test_filing_state_pipeline.py",
+   "tests/test_material_ingest.py",
+   "tests/test_material_locator.py",
+   "tests/test_mineru_channel.py",
+   "tests/test_mineru_cloud.py",
+   "tests/test_mineru_cloud_mode.py",
+   "tests/test_preview_jobs.py",
+   "tests/test_pypdf_backfill.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_selfcheck_fixes.py",
+   "tests/test_store_standard_no.py",
+   "tests/test_threadpool_bound.py"
+  ],
+  "src.core.ingestion.deep_server": [
+   "tests/test_mineru_channel.py",
+   "tests/test_mineru_cloud.py"
+  ],
+  "src.core.ingestion.docx_adapter": [
+   "tests/test_docx_ingest.py"
+  ],
+  "src.core.ingestion.docx_ingest": [
+   "tests/test_docx_ingest.py"
+  ],
+  "src.core.ingestion.dry_run": [
+   "tests/test_store_standard_no.py"
+  ],
+  "src.core.ingestion.law_text": [
+   "tests/test_change_signal.py",
+   "tests/test_law_enum_split.py",
+   "tests/test_law_split_quality.py",
+   "tests/test_law_text_edges.py",
+   "tests/test_phase6.py"
+  ],
+  "src.core.ingestion.material_ingest": [
+   "tests/test_material_collect.py"
+  ],
+  "src.core.ingestion.middle_locator": [
+   "tests/test_middle_locator.py"
+  ],
+  "src.core.ingestion.middle_schema": [
+   "tests/test_middle_bbox_units.py",
+   "tests/test_middle_schema.py"
+  ],
+  "src.core.ingestion.mineru_adapter": [
+   "tests/test_material_ingest.py",
+   "tests/test_mineru_gpu_lock.py",
+   "tests/test_ocr_regression_fixtures.py",
+   "tests/test_pipeline.py"
+  ],
+  "src.core.ingestion.mineru_cloud": [
+   "tests/test_middle_schema.py",
+   "tests/test_mineru_channel.py",
+   "tests/test_mineru_cloud.py",
+   "tests/test_mineru_cloud_mode.py"
+  ],
+  "src.core.ingestion.parser_worker": [
+   "tests/test_dry_run_concurrency.py",
+   "tests/test_dryrun_report.py",
+   "tests/test_filing_state_pipeline.py"
+  ],
+  "src.core.ingestion.pipeline": [
+   "tests/test_appendix_split.py",
+   "tests/test_bulk_import.py",
+   "tests/test_clause_head_gates.py",
+   "tests/test_cover_dates.py",
+   "tests/test_dryrun.py",
+   "tests/test_dryrun_report.py",
+   "tests/test_figure_legend.py",
+   "tests/test_figure_legend_strip.py",
+   "tests/test_head_unit_fragment_gate.py",
+   "tests/test_index_guard.py",
+   "tests/test_layout_fidelity.py",
+   "tests/test_middle_schema.py",
+   "tests/test_phase10_blindspots.py",
+   "tests/test_pipeline.py",
+   "tests/test_table_binding.py",
+   "tests/test_text_utils.py",
+   "tests/test_toc_ingest.py",
+   "tests/test_watermark_own_standard.py"
+  ],
+  "src.core.ingestion.reingest": [
+   "tests/test_filing_state_pipeline.py"
+  ],
+  "src.core.ingestion.span_calibration": [
+   "tests/test_span_calibration.py"
+  ],
+  "src.core.knowledge": [
+   "tests/test_apply_folder_filing.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_doc_catalog_std_no.py",
+   "tests/test_filing_state_pipeline.py",
+   "tests/test_folder_filing_plan.py",
+   "tests/test_folder_store.py",
+   "tests/test_kb_folder_api.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_phase6.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_store_standard_no.py"
+  ],
+  "src.core.knowledge.alias_extract": [
+   "tests/test_phase6.py"
+  ],
+  "src.core.knowledge.auto_tag": [
+   "tests/test_auto_tag.py"
+  ],
+  "src.core.knowledge.ccs_fetcher": [
+   "tests/test_ccs_fetcher.py",
+   "tests/test_channel_system_wiring.py"
+  ],
+  "src.core.knowledge.classifier": [
+   "tests/test_appendix_split.py",
+   "tests/test_pipeline.py",
+   "tests/test_r5a.py"
+  ],
+  "src.core.knowledge.doc_catalog": [
+   "tests/test_apply_folder_filing.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_ccs_fetcher.py",
+   "tests/test_doc_catalog_std_no.py",
+   "tests/test_folder_filing_plan.py",
+   "tests/test_material_track_l.py"
+  ],
+  "src.core.knowledge.law_source": [
+   "tests/test_law_catalog.py",
+   "tests/test_law_catalog_refresh.py",
+   "tests/test_law_history.py",
+   "tests/test_law_source.py",
+   "tests/test_law_source_api.py",
+   "tests/test_law_source_http_antibot.py",
+   "tests/test_law_verify.py"
+  ],
+  "src.core.knowledge.legal_status": [
+   "tests/test_legal_status.py"
+  ],
+  "src.core.llm": [
+   "tests/test_answer_materials.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_contract.py",
+   "tests/test_debug_dump_retention.py",
+   "tests/test_fewshot.py",
+   "tests/test_jev_guard.py",
+   "tests/test_jev_ingest.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_ks_answer.py",
+   "tests/test_llm_empty_retry.py",
+   "tests/test_material_track_l.py",
+   "tests/test_research_draft.py"
+  ],
+  "src.core.llm.deepseek_client": [
+   "tests/test_material_api.py",
+   "tests/test_phase5.py",
+   "tests/test_t06.py",
+   "tests/test_update_discover.py"
+  ],
+  "src.core.llm.egress_audit": [
+   "tests/test_batch7_security_hardening.py",
+   "tests/test_egress.py",
+   "tests/test_mineru_cloud.py",
+   "tests/test_update_discover.py"
+  ],
+  "src.core.llm.jev_client": [
+   "tests/test_jev_ingest.py"
+  ],
+  "src.core.llm.ks_answer": [
+   "tests/test_answer_confidence.py",
+   "tests/test_ks_answer.py",
+   "tests/test_ks_answer_bbox.py",
+   "tests/test_llm_empty_retry.py"
+  ],
+  "src.core.materials": [
+   "tests/test_answer_materials.py",
+   "tests/test_material_api.py",
+   "tests/test_material_authority.py",
+   "tests/test_material_collect.py",
+   "tests/test_material_dedup.py",
+   "tests/test_material_harvest.py",
+   "tests/test_material_locator.py",
+   "tests/test_material_track_l.py",
+   "tests/test_research_draft.py",
+   "tests/test_research_report.py"
+  ],
+  "src.core.quality": [
+   "tests/test_dryrun_report.py",
+   "tests/test_filing_state_pipeline.py",
+   "tests/test_quality_rules.py"
+  ],
+  "src.core.quality.clause_health": [
+   "tests/test_material_harvest.py"
+  ],
+  "src.core.quality.disagreement": [
+   "tests/test_disagreement.py"
+  ],
+  "src.core.quality.grading": [
+   "tests/test_filing_state_pipeline.py"
+  ],
+  "src.core.quality.recognition": [
+   "tests/test_dryrun_report.py"
+  ],
+  "src.core.query.understanding": [
+   "tests/test_understanding.py"
+  ],
+  "src.core.retrieval": [
+   "tests/test_answer_materials.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_catalog_hidden_retrieval.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_contract.py",
+   "tests/test_embedder_health.py",
+   "tests/test_filing_state_pipeline.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_ks_answer.py",
+   "tests/test_material_api.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_reranker.py",
+   "tests/test_retrieval.py"
+  ],
+  "src.core.retrieval.hybrid_engine": [
+   "tests/test_answer_materials.py",
+   "tests/test_appendix_split.py",
+   "tests/test_catalog_hidden_retrieval.py",
+   "tests/test_golden_criterion.py",
+   "tests/test_golden_gate.py",
+   "tests/test_golden_set.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_patches.py",
+   "tests/test_phase13_blindspots.py",
+   "tests/test_phase4.py",
+   "tests/test_phase5.py",
+   "tests/test_r5a.py",
+   "tests/test_real_corpus_retrieval.py",
+   "tests/test_reranker.py",
+   "tests/test_retrieval.py",
+   "tests/test_selfcheck_fixes.py"
+  ],
+  "src.core.retrieval.term_bridge": [
+   "tests/test_term_bridge.py"
+  ],
+  "src.core.settings": [
+   "tests/test_api_config.py",
+   "tests/test_backup.py",
+   "tests/test_batch7_security_hardening.py",
+   "tests/test_credential_reconcile.py",
+   "tests/test_credentials_migrate_script.py",
+   "tests/test_credentials_namespace.py",
+   "tests/test_mineru_cloud_mode.py",
+   "tests/test_scnet_readchain.py",
+   "tests/test_secret_store.py"
+  ],
+  "src.core.settings.api_credentials": [
+   "tests/test_api_config.py",
+   "tests/test_credentials_migrate_script.py",
+   "tests/test_credentials_namespace.py",
+   "tests/test_secret_store.py"
+  ],
+  "src.core.settings.secret_store": [
+   "tests/test_backup.py"
+  ],
+  "src.core.storage": [
+   "tests/test_answer_materials.py",
+   "tests/test_api.py",
+   "tests/test_auto_tag.py",
+   "tests/test_backup.py",
+   "tests/test_batch7_security_hardening.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_channel_answers.py",
+   "tests/test_channel_probe.py",
+   "tests/test_channel_repo.py",
+   "tests/test_channels_write_api.py",
+   "tests/test_contract.py",
+   "tests/test_effect_report.py",
+   "tests/test_egress.py",
+   "tests/test_file_digest.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_ks_answer.py",
+   "tests/test_law_source.py",
+   "tests/test_layout_fidelity.py",
+   "tests/test_ledger_chain.py",
+   "tests/test_legal_status_reference.py",
+   "tests/test_material_api.py",
+   "tests/test_material_authority.py",
+   "tests/test_material_collect.py",
+   "tests/test_material_harvest.py",
+   "tests/test_material_ingest.py",
+   "tests/test_material_locator.py",
+   "tests/test_material_repo.py",
+   "tests/test_material_track_l.py",
+   "tests/test_patch_migration.py",
+   "tests/test_patches.py",
+   "tests/test_phase10_blindspots.py",
+   "tests/test_phase12.py",
+   "tests/test_phase13_blindspots.py",
+   "tests/test_phase4.py",
+   "tests/test_phase6.py",
+   "tests/test_phase7.py",
+   "tests/test_pipeline.py",
+   "tests/test_quality_rules.py",
+   "tests/test_question_router.py",
+   "tests/test_r5a.py",
+   "tests/test_real_corpus_retrieval.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_research_draft.py",
+   "tests/test_research_report.py",
+   "tests/test_resolve_clause_normalization.py",
+   "tests/test_retrieval.py",
+   "tests/test_seed_db_guard.py",
+   "tests/test_selfcheck_fixes.py",
+   "tests/test_sqlite_conn_registry.py",
+   "tests/test_storage.py",
+   "tests/test_store_standard_no.py",
+   "tests/test_table_position_render.py",
+   "tests/test_understanding.py",
+   "tests/test_update_inspector.py",
+   "tests/test_vision.py"
+  ],
+  "src.core.storage.backup": [
+   "tests/test_bulk_import.py"
+  ],
+  "src.core.storage.channel_repo": [
+   "tests/test_channel_repo.py"
+  ],
+  "src.core.storage.clause_repo": [
+   "tests/test_api_cold_start.py",
+   "tests/test_change_signal.py",
+   "tests/test_contract.py",
+   "tests/test_material_locator.py",
+   "tests/test_pypdf_backfill.py",
+   "tests/test_quality_rules.py",
+   "tests/test_r5a.py",
+   "tests/test_standard_body.py"
+  ],
+  "src.core.storage.debug_dump_retention": [
+   "tests/test_debug_dump_retention.py"
+  ],
+  "src.core.storage.doc_delete": [
+   "tests/test_reingest_keeps_filing.py"
+  ],
+  "src.core.storage.material_repo": [
+   "tests/test_material_locator.py"
+  ],
+  "src.core.storage.sqlite_db": [
+   "tests/test_announce_ingest.py",
+   "tests/test_api.py",
+   "tests/test_api_cold_start.py",
+   "tests/test_apply_folder_filing.py",
+   "tests/test_auto_tag.py",
+   "tests/test_backup.py",
+   "tests/test_bookmark_folders.py",
+   "tests/test_ccs_chain.py",
+   "tests/test_change_ack.py",
+   "tests/test_change_signal.py",
+   "tests/test_channel_repo.py",
+   "tests/test_contract.py",
+   "tests/test_debug_dump_retention.py",
+   "tests/test_doc_batch_delete.py",
+   "tests/test_doc_render_api.py",
+   "tests/test_docx_ingest.py",
+   "tests/test_dry_run_concurrency.py",
+   "tests/test_dryrun.py",
+   "tests/test_dryrun_batch.py",
+   "tests/test_dryrun_report.py",
+   "tests/test_effect_report.py",
+   "tests/test_egress.py",
+   "tests/test_embedding_rebuild_resume.py",
+   "tests/test_filing_state_pipeline.py",
+   "tests/test_folder_store.py",
+   "tests/test_golden_criterion.py",
+   "tests/test_golden_set.py",
+   "tests/test_jev_ingest.py",
+   "tests/test_kb_scope_retrieval.py",
+   "tests/test_ks_answer.py",
+   "tests/test_ks_answer_bbox.py",
+   "tests/test_law_catalog.py",
+   "tests/test_law_catalog_refresh.py",
+   "tests/test_law_source.py",
+   "tests/test_law_source_api.py",
+   "tests/test_law_split_quality.py",
+   "tests/test_law_text_edges.py",
+   "tests/test_layout_fidelity.py",
+   "tests/test_material_collect.py",
+   "tests/test_material_locator.py",
+   "tests/test_material_repo.py",
+   "tests/test_material_track_l.py",
+   "tests/test_normalize_std_slash.py",
+   "tests/test_patch_migration.py",
+   "tests/test_patches.py",
+   "tests/test_phase10_blindspots.py",
+   "tests/test_phase12.py",
+   "tests/test_phase13_blindspots.py",
+   "tests/test_phase4.py",
+   "tests/test_phase6.py",
+   "tests/test_phase7.py",
+   "tests/test_pipeline.py",
+   "tests/test_quality_rules.py",
+   "tests/test_r5a.py",
+   "tests/test_reingest_keeps_filing.py",
+   "tests/test_resolve_clause_normalization.py",
+   "tests/test_retrieval.py",
+   "tests/test_seed_db_guard.py",
+   "tests/test_storage.py",
+   "tests/test_table_position_render.py",
+   "tests/test_understanding.py",
+   "tests/test_update_announce.py",
+   "tests/test_update_api.py",
+   "tests/test_update_discover.py",
+   "tests/test_update_package.py",
+   "tests/test_vision.py",
+   "tests/test_web_ingest.py",
+   "tests/test_write_queue_bootstrap.py"
+  ],
+  "src.core.storage.versioning": [
+   "tests/test_phase6.py"
+  ],
+  "src.core.storage.write_queue": [
+   "tests/test_write_queue_bootstrap.py"
+  ],
+  "src.core.storage.write_queue_bootstrap": [
+   "tests/test_write_queue_bootstrap.py"
+  ],
+  "src.core.supervisor": [
+   "tests/test_supervisor.py"
+  ],
+  "src.core.text_utils": [
+   "tests/test_announce_ingest.py",
+   "tests/test_answer_materials.py",
+   "tests/test_classical_segmentation_ruler.py",
+   "tests/test_formula_fragment_glue.py",
+   "tests/test_formula_leader.py",
+   "tests/test_formula_leader_appendix.py",
+   "tests/test_fts_latin_prefix.py",
+   "tests/test_glue_ocr_units.py",
+   "tests/test_golden_criterion.py",
+   "tests/test_latex_array.py",
+   "tests/test_latex_frac_tag.py",
+   "tests/test_latex_spacing.py",
+   "tests/test_layout_fidelity.py",
+   "tests/test_material_harvest.py",
+   "tests/test_material_track_l.py",
+   "tests/test_ocr_regression_fixtures.py",
+   "tests/test_pua_separators.py",
+   "tests/test_quality_rules.py",
+   "tests/test_standard_no_ocr_suffix.py",
+   "tests/test_store_standard_no.py",
+   "tests/test_text_utils.py",
+   "tests/test_update_channels.py",
+   "tests/test_watermark_own_standard.py"
+  ],
+  "src.core.update": [
+   "tests/test_announce_ingest.py",
+   "tests/test_change_signal.py",
+   "tests/test_channel_answers.py",
+   "tests/test_channel_probe.py",
+   "tests/test_channel_repo.py",
+   "tests/test_channel_system_wiring.py",
+   "tests/test_class_outcomes.py",
+   "tests/test_file_digest.py",
+   "tests/test_jev_ingest.py",
+   "tests/test_question_router.py",
+   "tests/test_update_announce.py",
+   "tests/test_update_channels.py",
+   "tests/test_update_inspector.py",
+   "tests/test_update_package.py",
+   "tests/test_update_report.py",
+   "tests/test_update_routing.py",
+   "tests/test_web_ingest.py"
+  ],
+  "src.core.update.change_repo": [
+   "tests/test_change_ack.py"
+  ],
+  "src.core.update.channel_test": [
+   "tests/test_channel_repo.py"
+  ],
+  "src.core.update.channels": [
+   "tests/test_bulk_import.py",
+   "tests/test_channel_repo.py",
+   "tests/test_channel_system_wiring.py",
+   "tests/test_class_outcomes.py",
+   "tests/test_govcn_archive.py",
+   "tests/test_ledger_chain.py",
+   "tests/test_material_harvest.py",
+   "tests/test_question_router.py",
+   "tests/test_store_standard_no.py",
+   "tests/test_update_announce.py",
+   "tests/test_update_channels.py",
+   "tests/test_update_discover.py",
+   "tests/test_update_inspector.py",
+   "tests/test_update_package.py",
+   "tests/test_update_report.py",
+   "tests/test_update_routing.py"
+  ],
+  "src.core.update.data_package": [
+   "tests/test_update_package.py"
+  ],
+  "src.core.update.discover": [
+   "tests/test_update_discover.py"
+  ],
+  "src.core.update.inspector": [
+   "tests/test_update_channels.py",
+   "tests/test_update_discover.py",
+   "tests/test_update_package.py"
+  ],
+  "src.core.update.jev_ingest": [
+   "tests/test_jev_ingest.py"
+  ],
+  "src.core.update.report": [
+   "tests/test_update_report.py"
+  ],
+  "src.core.update.scheduler": [
+   "tests/test_update_inspector.py"
+  ],
+  "src.core.update.web_ingest": [
+   "tests/test_jev_ingest.py"
+  ],
+  "src.core.verification": [
+   "tests/test_patches.py"
+  ],
+  "src.core.verification.patch_guard": [
+   "tests/test_patch_guard.py"
+  ],
+  "src.core.verification.typed_verifier": [
+   "tests/test_modality_window_false_positive.py",
+   "tests/test_phase5.py",
+   "tests/test_t06.py",
+   "tests/test_unsupported_context.py"
+  ],
+  "src.core.vision.local_vision": [
+   "tests/test_vision.py"
+  ]
+ },
+ "files": [
+  {
+   "file": "tests/test_announce_ingest.py",
+   "bytes": 21766,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db",
+    "src.core.text_utils",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_answer_confidence.py",
+   "bytes": 6865,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.llm.ks_answer"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_answer_materials.py",
+   "bytes": 17633,
+   "test_functions": 25,
+   "src_modules_referenced": [
+    "src.core.llm",
+    "src.core.materials",
+    "src.core.retrieval",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_api.py",
+   "bytes": 7179,
+   "test_functions": 6,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.domain.models",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_api_cold_start.py",
+   "bytes": 5214,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.storage.clause_repo",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_api_config.py",
+   "bytes": 5646,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.settings",
+    "src.core.settings.api_credentials"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_appendix_split.py",
+   "bytes": 11514,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline",
+    "src.core.knowledge.classifier",
+    "src.core.retrieval.hybrid_engine"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_apply_folder_filing.py",
+   "bytes": 31757,
+   "test_functions": 22,
+   "src_modules_referenced": [
+    "src.core.knowledge",
+    "src.core.knowledge.doc_catalog",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_assets_endpoint.py",
+   "bytes": 1785,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.config"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_auto_tag.py",
+   "bytes": 2298,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.knowledge.auto_tag",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_backup.py",
+   "bytes": 5814,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.settings",
+    "src.core.settings.secret_store",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_batch7_security_hardening.py",
+   "bytes": 7869,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.ingestion",
+    "src.core.llm.egress_audit",
+    "src.core.settings",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_bookmark_folders.py",
+   "bytes": 14012,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.domain.models",
+    "src.core.exceptions",
+    "src.core.llm",
+    "src.core.retrieval",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_bulk_import.py",
+   "bytes": 12806,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.pipeline",
+    "src.core.storage.backup",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_catalog_hidden_retrieval.py",
+   "bytes": 16567,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.retrieval",
+    "src.core.retrieval.hybrid_engine"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ccs_chain.py",
+   "bytes": 92744,
+   "test_functions": 58,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.ingestion",
+    "src.core.knowledge",
+    "src.core.knowledge.doc_catalog",
+    "src.core.retrieval",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ccs_fetcher.py",
+   "bytes": 2472,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.knowledge.ccs_fetcher",
+    "src.core.knowledge.doc_catalog"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_change_ack.py",
+   "bytes": 3521,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db",
+    "src.core.update.change_repo"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_change_signal.py",
+   "bytes": 15824,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.ingestion.law_text",
+    "src.core.storage.clause_repo",
+    "src.core.storage.sqlite_db",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_channel_answers.py",
+   "bytes": 5744,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_channel_probe.py",
+   "bytes": 16938,
+   "test_functions": 27,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_channel_repo.py",
+   "bytes": 33875,
+   "test_functions": 49,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.channel_repo",
+    "src.core.storage.sqlite_db",
+    "src.core.update",
+    "src.core.update.channel_test",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_channel_system_wiring.py",
+   "bytes": 20912,
+   "test_functions": 25,
+   "src_modules_referenced": [
+    "src.core.api",
+    "src.core.ingestion",
+    "src.core.knowledge.ccs_fetcher",
+    "src.core.update",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_channels_write_api.py",
+   "bytes": 10043,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_class_outcomes.py",
+   "bytes": 13393,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.update",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_classical_segmentation_ruler.py",
+   "bytes": 6121,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_clause_head_gates.py",
+   "bytes": 10322,
+   "test_functions": 28,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_contract.py",
+   "bytes": 28338,
+   "test_functions": 34,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.llm",
+    "src.core.retrieval",
+    "src.core.storage",
+    "src.core.storage.clause_repo",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_cover_dates.py",
+   "bytes": 4883,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_credential_readers_scan.py",
+   "bytes": 2161,
+   "test_functions": 6,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_credential_reconcile.py",
+   "bytes": 2984,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.settings"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_credentials_migrate_script.py",
+   "bytes": 9805,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.settings",
+    "src.core.settings.api_credentials"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_credentials_namespace.py",
+   "bytes": 24011,
+   "test_functions": 34,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.settings",
+    "src.core.settings.api_credentials"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_debug_dump_retention.py",
+   "bytes": 10736,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.llm",
+    "src.core.storage.debug_dump_retention",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_deep_server.py",
+   "bytes": 10510,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.ingestion"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_disagreement.py",
+   "bytes": 4492,
+   "test_functions": 18,
+   "src_modules_referenced": [
+    "src.core.quality.disagreement"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_doc_batch_delete.py",
+   "bytes": 7974,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_doc_catalog_std_no.py",
+   "bytes": 3400,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.knowledge",
+    "src.core.knowledge.doc_catalog"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_doc_render_api.py",
+   "bytes": 7462,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_docx_ingest.py",
+   "bytes": 2677,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.ingestion.docx_adapter",
+    "src.core.ingestion.docx_ingest",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_dry_run_concurrency.py",
+   "bytes": 5839,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.ingestion",
+    "src.core.ingestion.parser_worker",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_dryrun.py",
+   "bytes": 1374,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_dryrun_batch.py",
+   "bytes": 18529,
+   "test_functions": 21,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_dryrun_report.py",
+   "bytes": 34430,
+   "test_functions": 43,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.ingestion",
+    "src.core.ingestion.parser_worker",
+    "src.core.ingestion.pipeline",
+    "src.core.quality",
+    "src.core.quality.recognition",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_effect_report.py",
+   "bytes": 18852,
+   "test_functions": 16,
+   "src_modules_referenced": [
+    "src.core.exports",
+    "src.core.exports.report_export",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_egress.py",
+   "bytes": 8751,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.llm.egress_audit",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_embedder_health.py",
+   "bytes": 6061,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.retrieval"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_embedding_rebuild_resume.py",
+   "bytes": 20871,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_fewshot.py",
+   "bytes": 1553,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.llm"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_figure_legend.py",
+   "bytes": 5260,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_figure_legend_strip.py",
+   "bytes": 3248,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_file_digest.py",
+   "bytes": 3514,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.file_digest",
+    "src.core.storage",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_filing_state_pipeline.py",
+   "bytes": 45715,
+   "test_functions": 26,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.parser_worker",
+    "src.core.ingestion.reingest",
+    "src.core.knowledge",
+    "src.core.quality",
+    "src.core.quality.grading",
+    "src.core.retrieval",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_folder_filing_plan.py",
+   "bytes": 10153,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.knowledge",
+    "src.core.knowledge.doc_catalog"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_folder_store.py",
+   "bytes": 35507,
+   "test_functions": 32,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.knowledge",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_formula_fragment_glue.py",
+   "bytes": 3959,
+   "test_functions": 16,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_formula_leader.py",
+   "bytes": 2315,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_formula_leader_appendix.py",
+   "bytes": 1654,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_fts_latin_prefix.py",
+   "bytes": 15045,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 5,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_fused_rewrite_ruler.py",
+   "bytes": 12529,
+   "test_functions": 13,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_gate_baseline_whitelist.py",
+   "bytes": 8138,
+   "test_functions": 2,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_gates_tracked_total.py",
+   "bytes": 6423,
+   "test_functions": 5,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_glue_ocr_units.py",
+   "bytes": 5482,
+   "test_functions": 27,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_golden_criterion.py",
+   "bytes": 13322,
+   "test_functions": 16,
+   "src_modules_referenced": [
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage.sqlite_db",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_golden_gate.py",
+   "bytes": 5356,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.retrieval.hybrid_engine"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_golden_set.py",
+   "bytes": 2237,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 1
+  },
+  {
+   "file": "tests/test_govcn_archive.py",
+   "bytes": 2414,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_govqa_label_review.py",
+   "bytes": 7326,
+   "test_functions": 21,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_head_unit_fragment_gate.py",
+   "bytes": 2814,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_index_guard.py",
+   "bytes": 5491,
+   "test_functions": 14,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_jev_cn_baseline.py",
+   "bytes": 5621,
+   "test_functions": 4,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_jev_guard.py",
+   "bytes": 27187,
+   "test_functions": 21,
+   "src_modules_referenced": [
+    "src.core.api",
+    "src.core.config",
+    "src.core.llm"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_jev_ingest.py",
+   "bytes": 14810,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.llm",
+    "src.core.llm.jev_client",
+    "src.core.storage.sqlite_db",
+    "src.core.update",
+    "src.core.update.jev_ingest",
+    "src.core.update.web_ingest"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_kb_folder_api.py",
+   "bytes": 36918,
+   "test_functions": 34,
+   "src_modules_referenced": [
+    "src.core.knowledge"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_kb_scope_retrieval.py",
+   "bytes": 39472,
+   "test_functions": 14,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.knowledge",
+    "src.core.llm",
+    "src.core.retrieval",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ks_answer.py",
+   "bytes": 30400,
+   "test_functions": 28,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.exceptions",
+    "src.core.llm",
+    "src.core.llm.ks_answer",
+    "src.core.retrieval",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ks_answer_bbox.py",
+   "bytes": 13748,
+   "test_functions": 21,
+   "src_modules_referenced": [
+    "src.core.llm.ks_answer",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_label_gap_not_jev.py",
+   "bytes": 9129,
+   "test_functions": 3,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_latex_array.py",
+   "bytes": 3321,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_latex_frac_tag.py",
+   "bytes": 2934,
+   "test_functions": 12,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_latex_spacing.py",
+   "bytes": 3207,
+   "test_functions": 16,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_catalog.py",
+   "bytes": 21821,
+   "test_functions": 12,
+   "src_modules_referenced": [
+    "src.core.knowledge.law_source",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_catalog_refresh.py",
+   "bytes": 11522,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.api",
+    "src.core.knowledge.law_source",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_enum_split.py",
+   "bytes": 6049,
+   "test_functions": 12,
+   "src_modules_referenced": [
+    "src.core.ingestion.law_text"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_history.py",
+   "bytes": 5247,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.knowledge.law_source"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_source.py",
+   "bytes": 13818,
+   "test_functions": 14,
+   "src_modules_referenced": [
+    "src.core.knowledge.law_source",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_source_api.py",
+   "bytes": 6733,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.knowledge.law_source",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_source_http_antibot.py",
+   "bytes": 6715,
+   "test_functions": 12,
+   "src_modules_referenced": [
+    "src.core.knowledge.law_source"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_split_quality.py",
+   "bytes": 6575,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.ingestion.law_text",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_text_edges.py",
+   "bytes": 3975,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.ingestion.law_text",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_law_verify.py",
+   "bytes": 11877,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.knowledge.law_source"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_layout_fidelity.py",
+   "bytes": 23381,
+   "test_functions": 14,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.figure_locator",
+    "src.core.ingestion.pipeline",
+    "src.core.storage",
+    "src.core.storage.sqlite_db",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ledger_chain.py",
+   "bytes": 24165,
+   "test_functions": 46,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_legal_status.py",
+   "bytes": 2813,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.knowledge.legal_status"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_legal_status_reference.py",
+   "bytes": 7961,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_llm_empty_retry.py",
+   "bytes": 4916,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.llm",
+    "src.core.llm.ks_answer"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_long_clause_tail_ruler.py",
+   "bytes": 6480,
+   "test_functions": 7,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_loop2_driver.py",
+   "bytes": 3891,
+   "test_functions": 6,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_loop2_oracle.py",
+   "bytes": 7313,
+   "test_functions": 11,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_loop2_vlm.py",
+   "bytes": 2839,
+   "test_functions": 4,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_api.py",
+   "bytes": 99117,
+   "test_functions": 48,
+   "src_modules_referenced": [
+    "src.core.api",
+    "src.core.api.routes_ingest_preview",
+    "src.core.api.routes_report",
+    "src.core.config",
+    "src.core.llm.deepseek_client",
+    "src.core.materials",
+    "src.core.retrieval",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_authority.py",
+   "bytes": 22477,
+   "test_functions": 32,
+   "src_modules_referenced": [
+    "src.core.materials",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_collect.py",
+   "bytes": 25387,
+   "test_functions": 33,
+   "src_modules_referenced": [
+    "src.core.ingestion.material_ingest",
+    "src.core.materials",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_dedup.py",
+   "bytes": 9484,
+   "test_functions": 27,
+   "src_modules_referenced": [
+    "src.core.materials"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_harvest.py",
+   "bytes": 46988,
+   "test_functions": 57,
+   "src_modules_referenced": [
+    "src.core.materials",
+    "src.core.quality.clause_health",
+    "src.core.storage",
+    "src.core.text_utils",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_ingest.py",
+   "bytes": 23478,
+   "test_functions": 33,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.mineru_adapter",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_locator.py",
+   "bytes": 18159,
+   "test_functions": 23,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.materials",
+    "src.core.storage",
+    "src.core.storage.clause_repo",
+    "src.core.storage.material_repo",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_repo.py",
+   "bytes": 20606,
+   "test_functions": 35,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_material_track_l.py",
+   "bytes": 36583,
+   "test_functions": 37,
+   "src_modules_referenced": [
+    "src.core.exports.effect_report",
+    "src.core.knowledge.doc_catalog",
+    "src.core.llm",
+    "src.core.materials",
+    "src.core.storage",
+    "src.core.storage.sqlite_db",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_measure_harness.py",
+   "bytes": 3210,
+   "test_functions": 3,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_middle_bbox_units.py",
+   "bytes": 7669,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.ingestion.middle_schema"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_middle_locator.py",
+   "bytes": 3903,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.ingestion.middle_locator"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_middle_schema.py",
+   "bytes": 12746,
+   "test_functions": 30,
+   "src_modules_referenced": [
+    "src.core.ingestion.middle_schema",
+    "src.core.ingestion.mineru_cloud",
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_mineru_channel.py",
+   "bytes": 5964,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.deep_server",
+    "src.core.ingestion.mineru_cloud"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_mineru_cloud.py",
+   "bytes": 24568,
+   "test_functions": 26,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.ingestion",
+    "src.core.ingestion.deep_server",
+    "src.core.ingestion.mineru_cloud",
+    "src.core.llm.egress_audit"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_mineru_cloud_mode.py",
+   "bytes": 5144,
+   "test_functions": 12,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.mineru_cloud",
+    "src.core.settings"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_mineru_gpu_lock.py",
+   "bytes": 1425,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.ingestion.mineru_adapter"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_modality_window_false_positive.py",
+   "bytes": 5821,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.verification.typed_verifier"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_models_dir_override.py",
+   "bytes": 3479,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.config"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_naming_convention_scanner.py",
+   "bytes": 7492,
+   "test_functions": 9,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_normalize_std_slash.py",
+   "bytes": 6874,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_ocr_regression_fixtures.py",
+   "bytes": 11301,
+   "test_functions": 23,
+   "src_modules_referenced": [
+    "src.core.ingestion.mineru_adapter",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_patch_guard.py",
+   "bytes": 2095,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.verification.patch_guard"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_patch_migration.py",
+   "bytes": 7206,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_patches.py",
+   "bytes": 13125,
+   "test_functions": 11,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.sqlite_db",
+    "src.core.verification"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase10_blindspots.py",
+   "bytes": 7955,
+   "test_functions": 6,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.ingestion.pipeline",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase12.py",
+   "bytes": 5157,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.exports",
+    "src.core.exports.backlinks",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase13_blindspots.py",
+   "bytes": 4553,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase4.py",
+   "bytes": 10414,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.domain.models",
+    "src.core.exceptions",
+    "src.core.exports.report_export",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase5.py",
+   "bytes": 6505,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.llm.deepseek_client",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.verification.typed_verifier"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase6.py",
+   "bytes": 21876,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.ingestion.law_text",
+    "src.core.knowledge",
+    "src.core.knowledge.alias_extract",
+    "src.core.storage",
+    "src.core.storage.sqlite_db",
+    "src.core.storage.versioning"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase7.py",
+   "bytes": 7559,
+   "test_functions": 6,
+   "src_modules_referenced": [
+    "src.core.compliance.gap_analysis",
+    "src.core.domain.models",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_phase8.py",
+   "bytes": 3075,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.config"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_pipeline.py",
+   "bytes": 31464,
+   "test_functions": 18,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.ingestion.mineru_adapter",
+    "src.core.ingestion.pipeline",
+    "src.core.knowledge.classifier",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 1
+  },
+  {
+   "file": "tests/test_pool_depth_ruler.py",
+   "bytes": 20768,
+   "test_functions": 21,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_preview_jobs.py",
+   "bytes": 14060,
+   "test_functions": 14,
+   "src_modules_referenced": [
+    "src.core.ingestion"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_pua_separators.py",
+   "bytes": 1983,
+   "test_functions": 8,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_pypdf_backfill.py",
+   "bytes": 11905,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.storage.clause_repo"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_quality_rules.py",
+   "bytes": 16278,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.quality",
+    "src.core.storage",
+    "src.core.storage.clause_repo",
+    "src.core.storage.sqlite_db",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_query_rewrite_ruler.py",
+   "bytes": 11207,
+   "test_functions": 17,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_question_router.py",
+   "bytes": 16813,
+   "test_functions": 26,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.update",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_r5a.py",
+   "bytes": 4044,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.knowledge.classifier",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.clause_repo",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_rag_gate_not_adopted.py",
+   "bytes": 6481,
+   "test_functions": 2,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_real_corpus_retrieval.py",
+   "bytes": 6883,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_real_question_ruler.py",
+   "bytes": 9263,
+   "test_functions": 25,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_reingest_keeps_filing.py",
+   "bytes": 24367,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.ingestion",
+    "src.core.knowledge",
+    "src.core.retrieval",
+    "src.core.storage",
+    "src.core.storage.doc_delete",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_reranker.py",
+   "bytes": 9723,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.retrieval",
+    "src.core.retrieval.hybrid_engine"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_research_draft.py",
+   "bytes": 15914,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.exports",
+    "src.core.llm",
+    "src.core.materials",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_research_report.py",
+   "bytes": 23299,
+   "test_functions": 30,
+   "src_modules_referenced": [
+    "src.core.exceptions",
+    "src.core.exports",
+    "src.core.materials",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_resolve_clause_normalization.py",
+   "bytes": 9768,
+   "test_functions": 10,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_retrieval.py",
+   "bytes": 18718,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.retrieval",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_run_gates_ratchet_wiring.py",
+   "bytes": 18634,
+   "test_functions": 13,
+   "src_modules_referenced": [],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_scnet_readchain.py",
+   "bytes": 4665,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.settings"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_secret_store.py",
+   "bytes": 8697,
+   "test_functions": 18,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.settings",
+    "src.core.settings.api_credentials"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_seed_db_guard.py",
+   "bytes": 7295,
+   "test_functions": 6,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_selfcheck_fixes.py",
+   "bytes": 2144,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.retrieval.hybrid_engine",
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_span_calibration.py",
+   "bytes": 14834,
+   "test_functions": 9,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.ingestion.span_calibration"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_sqlite_conn_registry.py",
+   "bytes": 4870,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.storage"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_standard_body.py",
+   "bytes": 4285,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.storage.clause_repo"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_standard_no_ocr_suffix.py",
+   "bytes": 7804,
+   "test_functions": 23,
+   "src_modules_referenced": [
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_storage.py",
+   "bytes": 4598,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_store_standard_no.py",
+   "bytes": 13158,
+   "test_functions": 16,
+   "src_modules_referenced": [
+    "src.core.ingestion",
+    "src.core.ingestion.dry_run",
+    "src.core.knowledge",
+    "src.core.storage",
+    "src.core.text_utils",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_supervisor.py",
+   "bytes": 1864,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.supervisor"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_t06.py",
+   "bytes": 11783,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.llm.deepseek_client",
+    "src.core.verification.typed_verifier"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_table_binding.py",
+   "bytes": 5564,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_table_position_render.py",
+   "bytes": 3612,
+   "test_functions": 3,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_term_bridge.py",
+   "bytes": 14786,
+   "test_functions": 24,
+   "src_modules_referenced": [
+    "src.core.retrieval.term_bridge"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_text_utils.py",
+   "bytes": 31613,
+   "test_functions": 41,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_threadpool_bound.py",
+   "bytes": 22098,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.api",
+    "src.core.ingestion"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_toc_ingest.py",
+   "bytes": 17766,
+   "test_functions": 15,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_understanding.py",
+   "bytes": 14950,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.api.server",
+    "src.core.domain.models",
+    "src.core.query.understanding",
+    "src.core.storage",
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_unsupported_context.py",
+   "bytes": 5185,
+   "test_functions": 6,
+   "src_modules_referenced": [
+    "src.core.verification.typed_verifier"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_announce.py",
+   "bytes": 29786,
+   "test_functions": 21,
+   "src_modules_referenced": [
+    "src.core.exports.report_export",
+    "src.core.storage.sqlite_db",
+    "src.core.update",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_api.py",
+   "bytes": 12525,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_channels.py",
+   "bytes": 37447,
+   "test_functions": 35,
+   "src_modules_referenced": [
+    "src.core.text_utils",
+    "src.core.update",
+    "src.core.update.channels",
+    "src.core.update.inspector"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 1
+  },
+  {
+   "file": "tests/test_update_discover.py",
+   "bytes": 12924,
+   "test_functions": 17,
+   "src_modules_referenced": [
+    "src.core.llm.deepseek_client",
+    "src.core.llm.egress_audit",
+    "src.core.storage.sqlite_db",
+    "src.core.update.channels",
+    "src.core.update.discover",
+    "src.core.update.inspector"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_inspector.py",
+   "bytes": 68253,
+   "test_functions": 47,
+   "src_modules_referenced": [
+    "src.core.storage",
+    "src.core.update",
+    "src.core.update.channels",
+    "src.core.update.scheduler"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_package.py",
+   "bytes": 10185,
+   "test_functions": 7,
+   "src_modules_referenced": [
+    "src.core.config",
+    "src.core.storage.sqlite_db",
+    "src.core.update",
+    "src.core.update.channels",
+    "src.core.update.data_package",
+    "src.core.update.inspector"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_report.py",
+   "bytes": 8418,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.exports.report_export",
+    "src.core.update",
+    "src.core.update.channels",
+    "src.core.update.report"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_update_routing.py",
+   "bytes": 7371,
+   "test_functions": 13,
+   "src_modules_referenced": [
+    "src.core.update",
+    "src.core.update.channels"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_vision.py",
+   "bytes": 2973,
+   "test_functions": 4,
+   "src_modules_referenced": [
+    "src.core.domain.models",
+    "src.core.exceptions",
+    "src.core.storage",
+    "src.core.storage.sqlite_db",
+    "src.core.vision.local_vision"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_watermark_own_standard.py",
+   "bytes": 16846,
+   "test_functions": 19,
+   "src_modules_referenced": [
+    "src.core.ingestion.pipeline",
+    "src.core.text_utils"
+   ],
+   "xfail_mentions": 1,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_web_ingest.py",
+   "bytes": 10283,
+   "test_functions": 5,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db",
+    "src.core.update"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  },
+  {
+   "file": "tests/test_write_queue_bootstrap.py",
+   "bytes": 2508,
+   "test_functions": 2,
+   "src_modules_referenced": [
+    "src.core.storage.sqlite_db",
+    "src.core.storage.write_queue",
+    "src.core.storage.write_queue_bootstrap"
+   ],
+   "xfail_mentions": 0,
+   "skip_marks": 0
+  }
+ ]
+}

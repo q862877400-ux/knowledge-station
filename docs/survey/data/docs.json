@@ -1,0 +1,3540 @@
+{
+ "generated_by": "scripts/survey/02-surface.py::step6_docs",
+ "caliber": "扫描 `docs/**/*.md`（含 archive）。链接用 markdown `[t](p)` 正则抽取；入链按「相对路径命中」或「文件名唯一命中」判定 —— **文件名不唯一时可能记到多个目标，这是近似，不是精确图**。",
+ "counts": {
+  "docs_files": 242,
+  "docs_tracked_md": 214,
+  "orphans_no_inbound": 111,
+  "total_links": 568
+ },
+ "orphans": [
+  "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
+  "docs/BROKEN-LINKS.md",
+  "docs/CODE-REVIEW-CHECKLIST.md",
+  "docs/ENCYCLOPEDIA.md",
+  "docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md",
+  "docs/GOVQA-UNWIRED-CHANNELS.md",
+  "docs/HANDOVER-2026-10-09.md",
+  "docs/INDEX.md",
+  "docs/INTRODUCTION.md",
+  "docs/PLAN-REAL-QUESTION-RULER.md",
+  "docs/TEST-FLAKES.md",
+  "docs/archive/handovers/HANDOVER-2026-09-23.md",
+  "docs/archive/handovers/HANDOVER-2026-10-06.md",
+  "docs/archive/impl-reports/B3A-REPORT.md",
+  "docs/archive/impl-reports/B3B-REPORT.md",
+  "docs/archive/old-plans/AUTO-DRAFT-PLAN.md",
+  "docs/archive/old-plans/CHANNEL-R6C-DESIGN.md",
+  "docs/archive/research-process/CHANNEL-PROBE-REPORT.md",
+  "docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md",
+  "docs/archive/research-process/PROJECT-CONSOLIDATION-2026-10-05.md",
+  "docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md",
+  "docs/archive/research-process/STD-STATUS-CHANNELS.md",
+  "docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md",
+  "docs/archive/review-briefs/VERIFY-REPORT-ingest.md",
+  "docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md",
+  "docs/archive/review-briefs/announce-nav-cleanup-20260924.md",
+  "docs/archive/review-briefs/b1b2-brief.md",
+  "docs/archive/review-briefs/b1b2-report.md",
+  "docs/archive/review-briefs/b3a-engine-report.md",
+  "docs/archive/review-briefs/b3b-ccs-ui-brief.md",
+  "docs/archive/review-briefs/b3b-ccs-ui-report.md",
+  "docs/archive/review-briefs/b5-gate-brief.md",
+  "docs/archive/review-briefs/b5-gate-report.md",
+  "docs/archive/review-briefs/b6-p0-report.md",
+  "docs/archive/review-briefs/ccs-chain-report.md",
+  "docs/archive/review-briefs/d508773-report.md",
+  "docs/archive/workbuddy-memory/memory/2026-10-08.md",
+  "docs/archive/workbuddy-memory/memory/2026-10-09.md",
+  "docs/archive/workbuddy-memory/memory/2026-10-10.md",
+  "docs/archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md",
+  "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+  "docs/archive/workbuddy-memory/memory/HANDOFF-CHECKLIST.md",
+  "docs/archive/workbuddy-memory/memory/MEMORY.md",
+  "docs/archive/workbuddy-memory/memory/automations/1b206fd3-357f-47a1-bf5b-e17ec5c419a3/memory.md",
+  "docs/archive/workbuddy-memory/memory/automations/3b1225b1-e2f4-4504-ad29-581309175fdb/memory.md",
+  "docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md",
+  "docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md",
+  "docs/research/ARROW-ROOT-CAUSES-2026-10-12.md",
+  "docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md",
+  "docs/research/DECISION-TABLE-2026-09-28.md",
+  "docs/research/FINDINGS-INBOX-2026-09-28.md",
+  "docs/research/HANDOFF-external-solutions.md",
+  "docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md",
+  "docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md",
+  "docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md",
+  "docs/research/MEMPALACE-REVIEW-2026-09-30.md",
+  "docs/research/MODEL-AVAILABILITY-2026-09-28.md",
+  "docs/research/PAPER-可信政务问答技术-软件学报2026.md",
+  "docs/research/RETRIEVAL-LITERATURE-SCAN-2026-09-30.md",
+  "docs/research/RETRIEVAL-RESEARCH-LEDGER-2026-09-30.md",
+  "docs/research/REVIEW-PLAN-A-verification.md",
+  "docs/research/REVIEW-PLAN-B-innovation.md",
+  "docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md",
+  "docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-10-05.md",
+  "docs/research/TECH-PATH-2026-09-28.md",
+  "docs/research/archify/01-archify-逆向.md",
+  "docs/research/archify/02-ks-现状.md",
+  "docs/research/archify/03-借鉴结论.md",
+  "docs/research/channels/PATH-REGISTRY-2026-10-08.md",
+  "docs/research/channels/REGISTRY-STATUS.md",
+  "docs/research/channels/internal-inventory.md",
+  "docs/research/channels/law-cn.md",
+  "docs/research/channels/oss-decomposition.md",
+  "docs/research/channels/std-cn.md",
+  "docs/research/dsh-official/INGEST-LEDGER-docs-zh.md",
+  "docs/research/dsh-official/INGEST-LEDGER-notes-client-ui.md",
+  "docs/research/dsh-official/INGEST-LEDGER-notes-zh.md",
+  "docs/research/dsh-official/INGEST-LEDGER-notes.md",
+  "docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md",
+  "docs/research/dsh-official/INGEST-LEDGER-pkg-docs.md",
+  "docs/research/dsh-official/INGEST-LEDGER-pkg-readme-zh.md",
+  "docs/research/dsh-official/INGEST-LEDGER-pkg-readme.md",
+  "docs/research/dsh-official/INGEST-LEDGER-repo-docs.md",
+  "docs/research/dsh-official/INGEST-LEDGER-root.md",
+  "docs/research/dsh-official/INGEST-LEDGER-skills.md",
+  "docs/research/dsh-official/dshdocs-A.md",
+  "docs/research/dsh-official/dshdocs-B.md",
+  "docs/research/dsh-official/dshdocs-C.md",
+  "docs/research/dsh-official/dshdocs-D.md",
+  "docs/research/dsh-official/dshdocs-E.md",
+  "docs/research/dsh-official/dshdocs-F.md",
+  "docs/research/dsh-official/dshdocs-G.md",
+  "docs/research/dsh-official/dshdocs-H.md",
+  "docs/research/ks-fixes/01-d2-rootcause.md",
+  "docs/research/ks-fixes/02-modality-residual.md",
+  "docs/research/ks-fixes/03-waiting-feedback.md",
+  "docs/research/lay-language-retrieval-evidence.md",
+  "docs/research/plan-vs-reality.md",
+  "docs/research/rag-encyclopedia-study.md",
+  "docs/research/retrieval-pipeline-design-merge.md",
+  "docs/research/solutions-for-open-problems.md",
+  "docs/research/substitute-scan.md",
+  "docs/research/vision-coverage-map.md",
+  "docs/survey/01-inventory.md",
+  "docs/survey/COVERAGE.md",
+  "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
+  "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
+  "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
+  "docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md",
+  "docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md",
+  "docs/verify-briefs/VERIFY-REPORT-spec010-turn-tab-fixes.md"
+ ],
+ "files": [
+  {
+   "path": "docs/ANNOUNCE-MODULE-STATUS-2026-10-08.md",
+   "bytes": 11432,
+   "lines": 164,
+   "title": "部委公告监控 / 法规标准动态抓取 —— 模块现状（2026-10-08 代码通读）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/handovers/HANDOVER-2026-09-23.md",
+   "bytes": 6781,
+   "lines": 57,
+   "title": "KnowledgeStation 交接文档（2026-09-23 晚）",
+   "out_links": [
+    "../../NOT-DOING.md",
+    "../old-plans/AUTORUN-PLAN-2026-09-24.md"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/handovers/HANDOVER-2026-10-06.md",
+   "bytes": 13975,
+   "lines": 210,
+   "title": "交接文档（2026-10-06 召回诊断）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/history/README.md",
+   "bytes": 3294,
+   "lines": 80,
+   "title": "开发史明细归档（§10.1 – §10.203）",
+   "out_links": [
+    "../../DEVELOPMENT-HISTORY.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/archive/history/rounds-10.1-10.203.md",
+   "bytes": 1023296,
+   "lines": 11670,
+   "title": "端点里嵌套的 async def 生成器（体内含 yield）若整段没有 Await ⇒ 红",
+   "out_links": [
+    "../../CHANNEL-COVERAGE-PLAN.md",
+    "../../INTERACTION-DESIGN.md",
+    "../../UI-BASELINE.md",
+    "../../research/STEP6-WORKORDER.md",
+    "../old-plans/EXECUTION-PLAN.md",
+    "../research-process/DSH-ALIGNMENT-AUDIT.md",
+    "../review-briefs/README.md"
+   ],
+   "n_links": 11,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/archive/impl-reports/B3A-REPORT.md",
+   "bytes": 27966,
+   "lines": 377,
+   "title": "B3a 实施报告 —— 「补全分类号」引擎侧第二轮（CCS 自愈）",
+   "out_links": [
+    "src/core/knowledge/ccs_backfill.py",
+    "src/core/knowledge/ccs_store.py",
+    "src/core/knowledge/ccs_undo.py"
+   ],
+   "n_links": 3,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/impl-reports/B3B-REPORT.md",
+   "bytes": 15472,
+   "lines": 188,
+   "title": "B3B-REPORT —— 「补全分类号」的**界面**半边（B3b）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/old-plans/AUTO-DRAFT-PLAN.md",
+   "bytes": 17659,
+   "lines": 210,
+   "title": "自动成文（系统起草结论）——立项论证与设计（2026-09-18）",
+   "out_links": [
+    "../../INTERACTION-DESIGN.md"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/old-plans/AUTORUN-PLAN-2026-09-24.md",
+   "bytes": 12929,
+   "lines": 103,
+   "title": "自动执行清单（2026-09-24 全仓复盘后，业主授权全自动执行）",
+   "out_links": [
+    "../../DEVELOPMENT-HISTORY.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/archive/handovers/HANDOVER-2026-09-23.md",
+    "docs/KB-FOLDER-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/archive/old-plans/BASELINE-PLAN-2026-10-06.md",
+   "bytes": 11410,
+   "lines": 225,
+   "title": "基础层实验路线（2026-10-06 定）",
+   "out_links": [
+    "../research-process/BASELINE-DIAGNOSIS-2026-10-06.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/archive/old-plans/CHANNEL-R6C-DESIGN.md",
+   "bytes": 19698,
+   "lines": 228,
+   "title": "R6c 设计：五类监控打通 + 巡检降级链来自台账（只出设计，不动代码）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/old-plans/EXECUTION-PLAN.md",
+   "bytes": 18986,
+   "lines": 78,
+   "title": "执行计划（自主执行台账）—— 业主 2026-09-19 全权授权",
+   "out_links": [
+    "../../CHANNEL-COVERAGE-PLAN.md",
+    "../../DEVELOPMENT-HISTORY.md",
+    "../../NOT-DOING.md",
+    "../../UI-BASELINE.md"
+   ],
+   "n_links": 7,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/ENCYCLOPEDIA.md",
+    "docs/INTERACTION-DESIGN.md",
+    "docs/MATERIALS-PLANE-PLAN.md",
+    "docs/NOT-DOING.md",
+    "docs/research/STEP6-WORKORDER.md"
+   ],
+   "inbound_count": 7
+  },
+  {
+   "path": "docs/archive/README.md",
+   "bytes": 3140,
+   "lines": 68,
+   "title": "归档区：这里放什么、怎么查",
+   "out_links": [
+    "../README.md",
+    "../wiki/"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
+   "bytes": 10139,
+   "lines": 207,
+   "title": "基础层诊断记录（2026-10-06）",
+   "out_links": [
+    "../../RETRIEVAL-LONG-RANGE-PLAN.md",
+    "../old-plans/BASELINE-PLAN-2026-10-06.md",
+    "PROJECT-STATUS-2026-10-05.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/archive/old-plans/BASELINE-PLAN-2026-10-06.md",
+    "docs/archive/research-process/PROJECT-STATUS-2026-10-05.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/archive/research-process/CHANNEL-PROBE-REPORT.md",
+   "bytes": 9147,
+   "lines": 80,
+   "title": "标准官方渠道时效巡检选型实测报告",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+   "bytes": 21768,
+   "lines": 160,
+   "title": "DSH 适配审计与整改清单（2026-09-19）",
+   "out_links": [
+    "../../../AGENTS.md",
+    "../../../scripts/run-gates.ps1",
+    "../../DEVELOPMENT-HISTORY.md",
+    "../../INTERACTION-DESIGN.md",
+    "../../NOT-DOING.md",
+    "../old-plans/EXECUTION-PLAN.md",
+    "../review-briefs/README.md"
+   ],
+   "n_links": 11,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/KB-FOLDER-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/archive/research-process/GOVQA-DIAGNOSIS-2026-10-10.md",
+   "bytes": 15116,
+   "lines": 233,
+   "title": "gov-qa 模块全面诊断（2026-10-10）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/research-process/PROJECT-CONSOLIDATION-2026-10-05.md",
+   "bytes": 6637,
+   "lines": 146,
+   "title": "项目盘整（2026-10-05）：第一性原理看文档与进度",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/research-process/PROJECT-STATUS-2026-10-05.md",
+   "bytes": 6475,
+   "lines": 120,
+   "title": "项目状态与卡点（2026-10-05）",
+   "out_links": [
+    "../../RETRIEVAL-LONG-RANGE-PLAN.md",
+    "BASELINE-DIAGNOSIS-2026-10-06.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/archive/research-process/REALTIME-VALIDITY-VERIFY-RESEARCH.md",
+   "bytes": 28916,
+   "lines": 381,
+   "title": "法规/国标效力「打开即核验」实施细节报告",
+   "out_links": [
+    "[^\"']+"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/research-process/STD-STATUS-CHANNELS.md",
+   "bytes": 6169,
+   "lines": 80,
+   "title": "国标有效性查询源分类与多渠道备份矩阵（2026-08-27 实测定型）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/research-process/WSL2-VLM-BACKEND-DECISION.md",
+   "bytes": 2540,
+   "lines": 47,
+   "title": "决策记录：WSL2 解锁 vlm/hybrid 本地后端 —— 否决（2026-09-14）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/announce-nav-cleanup-20260924.md",
+   "bytes": 2974,
+   "lines": 48,
+   "title": "真库清理留档：22 条\"栏目导航\"型误发现（2026-09-24）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b1b2-brief.md",
+   "bytes": 7559,
+   "lines": 85,
+   "title": "复核任务书 —— B1（重导丢归属）+ B2（叠字检查两个假绿洞）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b1b2-report.md",
+   "bytes": 23391,
+   "lines": 345,
+   "title": "独立复核报告 —— B1（重新解析丢目录归属）+ B2（叠字检查两个假绿洞）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b3a-engine-report.md",
+   "bytes": 29774,
+   "lines": 458,
+   "title": "独立复核报告 —— KnowledgeStation「补全分类号」引擎半边（B3a）两笔提交",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b3b-ccs-ui-brief.md",
+   "bytes": 8244,
+   "lines": 101,
+   "title": "独立复核任务书 —— B3b「补全分类号」的**界面半边**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b3b-ccs-ui-report.md",
+   "bytes": 30196,
+   "lines": 467,
+   "title": "独立复核报告 —— B3b「补全分类号」的**界面半边**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b5-gate-brief.md",
+   "bytes": 6991,
+   "lines": 80,
+   "title": "复核任务书 —— B5：门禁「环境白名单只增不减」的修法（含门禁临时目录自清）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b5-gate-report.md",
+   "bytes": 22634,
+   "lines": 332,
+   "title": "B5 门禁复核报告 —— 「环境白名单只增不减」的修法（含门禁临时目录自清）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/b6-p0-report.md",
+   "bytes": 29369,
+   "lines": 466,
+   "title": "B6 定向独立复核 — 09-23 两提交（P0 黑屏修 / 棘轮基线记新）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/ccs-chain-report.md",
+   "bytes": 29031,
+   "lines": 478,
+   "title": "独立复核报告 —— 「分类号（CCS）三层查询链 + 补全自愈」",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/d508773-report.md",
+   "bytes": 12656,
+   "lines": 172,
+   "title": "独立复核报告 — `d508773`（\"③假绿补硬：复核点名三处验收牙加硬\"）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/README.md",
+   "bytes": 8848,
+   "lines": 104,
+   "title": "复核任务书（VERIFY-BRIEF）与复核结论的归属层",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/archive/review-briefs/VERIFY-REPORT-ingest.md",
+   "bytes": 43097,
+   "lines": 635,
+   "title": "独立复核报告 — `verify-freeze-ingest`（批次：`reference` 效力档 + 公告正文批量入库）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md",
+   "bytes": 22504,
+   "lines": 568,
+   "title": "VERIFY-REPORT-jev-b1",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/2026-10-08.md",
+   "bytes": 1772,
+   "lines": 26,
+   "title": "2026-10-08 工作日志（workspace: zcode）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/2026-10-09.md",
+   "bytes": 181901,
+   "lines": 2110,
+   "title": "2026-10-09 工作日志（workspace: zcode）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/2026-10-10.md",
+   "bytes": 10668,
+   "lines": 135,
+   "title": "2026-10-10 工作日志",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/AUTO-CHAIN-HANDOFF.md",
+   "bytes": 5665,
+   "lines": 82,
+   "title": "AUTO-CHAIN 交接单（每轮覆盖写）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/automations/1b206fd3-357f-47a1-bf5b-e17ec5c419a3/memory.md",
+   "bytes": 45756,
+   "lines": 457,
+   "title": "自动续接链执行记忆（1b206fd3-357f-47a1-bf5b-e17ec5c419a3）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/automations/3b1225b1-e2f4-4504-ad29-581309175fdb/memory.md",
+   "bytes": 376,
+   "lines": 3,
+   "title": "看门狗执行记录（KS 自动续接）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/automations/7d23d426-8743-431f-a95e-62a3e2a6af36/memory.md",
+   "bytes": 41095,
+   "lines": 477,
+   "title": "自动化执行记忆：gov-qa 推进到全国省市全覆盖",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+   "bytes": 30437,
+   "lines": 314,
+   "title": "自动推进链「忽略 / 没收口」审计（2026-10-09 人工轮）",
+   "out_links": [
+    "../../../../eval/recall-funnel/exp-12-long-clause-tail/README.md",
+    "../../../DEVELOPMENT-HISTORY.md",
+    "../../../RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "n_links": 6,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/HANDOFF-CHECKLIST.md",
+   "bytes": 5155,
+   "lines": 94,
+   "title": "交接清单 · KnowledgeStation（`D:\\AI\\work space\\zcode`）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/memory/MEMORY.md",
+   "bytes": 15476,
+   "lines": 66,
+   "title": "项目长期记忆（KnowledgeStation / D:\\AI\\work space\\zcode）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/archive/workbuddy-memory/README.md",
+   "bytes": 3371,
+   "lines": 59,
+   "title": "归档：项目内 `.workbuddy-ai/`（WorkBuddy 自动链的记忆与交接）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/BROKEN-LINKS.md",
+   "bytes": 3992,
+   "lines": 66,
+   "title": "已知断链台账（**不许静默忽略**）",
+   "out_links": [
+    "../research.md"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/CHANNEL-COVERAGE-PLAN.md",
+   "bytes": 250081,
+   "lines": 2781,
+   "title": "法规/标准「渠道覆盖 + 巡检」改造方案（长周期 · 多轮次）",
+   "out_links": [
+    "../AGENTS.md",
+    "../eval/recall-funnel/exp-15-pool-depth-fusion/README.md",
+    "DEVELOPMENT-HISTORY.md",
+    "NEXT-DEV-PLAN-2026-09-28.md",
+    "NOT-DOING.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "eval/recall-funnel/README.md",
+    "eval/recall-funnel/REPORT.md",
+    "eval/recall-funnel/exp-11-rerank-fix/README.md",
+    "eval/recall-funnel/exp-12-long-clause-tail/README.md",
+    "eval/recall-funnel/exp-13-query-rewrite/README.md",
+    "eval/recall-funnel/exp-14-fused-rewrite/README.md",
+    "eval/recall-funnel/exp-4b-embedding-round2/README.md",
+    "eval/recall-funnel/exp-4c-embedding-1024/README.md",
+    "eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没有收益.md",
+    "research/classical-chinese-segmentation-evidence.md",
+    "research/dsh-official/ERRATA-alpha.2.md",
+    "specs/002-recall-funnel/tasks.md",
+    "verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md"
+   ],
+   "n_links": 53,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/old-plans/EXECUTION-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/ROADMAP-CLIENT-VIEW.md",
+    "docs/uniformity/03-docs-specs-scripts.md"
+   ],
+   "inbound_count": 6
+  },
+  {
+   "path": "docs/CODE-REVIEW-CHECKLIST.md",
+   "bytes": 4008,
+   "lines": 49,
+   "title": "代码评审七条清单（含必验五种并入版）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/DEVELOPMENT-HISTORY.md",
+   "bytes": 338532,
+   "lines": 524,
+   "title": "KnowledgeStation 开发历程简史",
+   "out_links": [
+    "../AGENTS.md",
+    "../scripts/gates-baseline.json",
+    "CHANNEL-COVERAGE-PLAN.md",
+    "NEXT-DEV-PLAN-2026-09-28.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "UI-BASELINE.md",
+    "UI-ICON-SYSTEM.md",
+    "archive/history/rounds-10.1-10.203.md",
+    "eval/recall-funnel/README.md",
+    "eval/recall-funnel/exp-10-p4-feasibility/README.md",
+    "eval/recall-funnel/exp-13-query-rewrite/README.md",
+    "eval/recall-funnel/exp-14-fused-rewrite/README.md",
+    "eval/recall-funnel/exp-15-pool-depth-fusion/README.md",
+    "eval/recall-funnel/exp-16-edge-expansion/README.md",
+    "eval/recall-funnel/exp-17-embedding-production-plan/README.md",
+    "eval/recall-funnel/exp-4b-embedding-round2/README.md",
+    "eval/recall-funnel/exp-4c-embedding-1024/README.md",
+    "eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没有收益.md",
+    "research/classical-chinese-segmentation-evidence.md",
+    "research/jev-mem-assessment.md",
+    "verify-briefs/VERIFY-REPORT-e4b-round2.md",
+    "verify-briefs/VERIFY-REPORT-e4c-1024.md",
+    "verify-briefs/VERIFY-REPORT-e9-col-prior.md",
+    "verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md",
+    "verify-briefs/VERIFY-REPORT-exp17-prod-plan.md",
+    "verify-briefs/VERIFY-REPORT-govqa-conformance.md",
+    "verify-briefs/VERIFY-REPORT-p010-long-tail.md",
+    "verify-briefs/VERIFY-REPORT-p32-classical-seg.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-1.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-2.md",
+    "verify-briefs/VERIFY-REPORT-rerank-fix.md",
+    "verify-briefs/VERIFY-REPORT-spec007-ui-polish.md",
+    "verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md"
+   ],
+   "n_links": 46,
+   "inbound": [
+    "docs/archive/history/README.md",
+    "docs/archive/old-plans/AUTORUN-PLAN-2026-09-24.md",
+    "docs/archive/old-plans/EXECUTION-PLAN.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/KB-FOLDER-PLAN.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/NOT-DOING.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/UI-BASELINE.md",
+    "docs/UI-ICON-SYSTEM.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/ENCYCLOPEDIA.md",
+   "bytes": 80064,
+   "lines": 926,
+   "title": "KnowledgeStation 技术百科全书（ENCYCLOPEDIA）",
+   "out_links": [
+    "LAW-SOURCE-PLAN.md",
+    "NOT-DOING.md",
+    "README.md",
+    "REQUIREMENTS-v4.3.md",
+    "archive/old-plans/EXECUTION-PLAN.md",
+    "wiki/architecture.md",
+    "wiki/components/"
+   ],
+   "n_links": 9,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md",
+   "bytes": 23156,
+   "lines": 336,
+   "title": "本地资料检索工具：下一步路线征询（v4）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/GOVQA-UNWIRED-CHANNELS.md",
+   "bytes": 49499,
+   "lines": 465,
+   "title": "未接线渠道清单（**给接线的对话用**）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/HANDOVER-2026-10-09.md",
+   "bytes": 19163,
+   "lines": 246,
+   "title": "交接文档（2026-10-09 · KnowledgeStation 主体项目）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/INDEX.md",
+   "bytes": 30233,
+   "lines": 276,
+   "title": "docs/ 总索引（机械生成，勿手改）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/INTERACTION-DESIGN.md",
+   "bytes": 64634,
+   "lines": 738,
+   "title": "交互设计：向 WeKnora 学什么、我们怎么重做",
+   "out_links": [
+    "KB-FOLDER-PLAN.md",
+    "NOT-DOING.md",
+    "archive/old-plans/EXECUTION-PLAN.md",
+    "research/weknora-ui/00-index-and-proposal.md"
+   ],
+   "n_links": 4,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/old-plans/AUTO-DRAFT-PLAN.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/KB-FOLDER-PLAN.md",
+    "docs/NOT-DOING.md",
+    "docs/research/weknora-ui/00-index-and-proposal.md"
+   ],
+   "inbound_count": 6
+  },
+  {
+   "path": "docs/INTRODUCTION.md",
+   "bytes": 11596,
+   "lines": 162,
+   "title": "KnowledgeStation 产品介绍 —— 让你自己机器上的资料，随问随查、点到原文",
+   "out_links": [
+    "NOT-DOING.md"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/KB-FOLDER-PLAN.md",
+   "bytes": 157365,
+   "lines": 1630,
+   "title": "知识库多级目录 —— 施工单（业主 2026-09-21 定案）",
+   "out_links": [
+    "../AGENTS.md",
+    "DEVELOPMENT-HISTORY.md",
+    "INTERACTION-DESIGN.md",
+    "NOT-DOING.md",
+    "UI-BASELINE.md",
+    "archive/old-plans/AUTORUN-PLAN-2026-09-24.md",
+    "archive/research-process/DSH-ALIGNMENT-AUDIT.md"
+   ],
+   "n_links": 9,
+   "inbound": [
+    "docs/INTERACTION-DESIGN.md",
+    "docs/ROADMAP-CLIENT-VIEW.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/LAW-SOURCE-PLAN.md",
+   "bytes": 21867,
+   "lines": 307,
+   "title": "法律法规官方来源获取方案（flk.npc.gov.cn + gov.cn）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/ENCYCLOPEDIA.md",
+    "docs/NOT-DOING.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/MATERIALS-PLANE-PLAN.md",
+   "bytes": 157404,
+   "lines": 1394,
+   "title": "材料平面与通用研究改造方案（v1 草案，待业主批准）",
+   "out_links": [
+    "NOT-DOING.md",
+    "REQUIREMENTS-v4.3.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "archive/old-plans/EXECUTION-PLAN.md"
+   ],
+   "n_links": 6,
+   "inbound": [
+    "docs/NOT-DOING.md",
+    "docs/ROADMAP-CLIENT-VIEW.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/naming-convention.md",
+   "bytes": 4992,
+   "lines": 115,
+   "title": "命名与分类规范（正式件）",
+   "out_links": [
+    "../specs/001-project-consolidation/contracts/naming-convention.md",
+    "../specs/001-project-consolidation/rename-map.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/naming-convention.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/NEXT-DEV-PLAN-2026-09-28.md",
+   "bytes": 68381,
+   "lines": 657,
+   "title": "后续开发计划（2026-09-28 会话收尾时制定）",
+   "out_links": [
+    "CHANNEL-COVERAGE-PLAN.md",
+    "DEVELOPMENT-HISTORY.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "eval/recall-funnel/README.md",
+    "eval/recall-funnel/exp-12-long-clause-tail/README.md",
+    "eval/recall-funnel/exp-13-query-rewrite/README.md",
+    "eval/recall-funnel/exp-14-fused-rewrite/README.md",
+    "eval/recall-funnel/exp-15-pool-depth-fusion/README.md",
+    "eval/recall-funnel/exp-17-embedding-production-plan/README.md",
+    "eval/recall-funnel/exp-4b-embedding-round2/README.md",
+    "eval/recall-funnel/exp-4c-embedding-1024/README.md",
+    "eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没有收益.md",
+    "research/classical-chinese-segmentation-evidence.md",
+    "research/cross-language-retrieval-evidence.md",
+    "research/skill-knowledge-three-layer-reference.md",
+    "verify-briefs/VERIFY-REPORT-e4b-round2.md",
+    "verify-briefs/VERIFY-REPORT-e4c-1024.md",
+    "verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md",
+    "verify-briefs/VERIFY-REPORT-p010-long-tail.md",
+    "verify-briefs/VERIFY-REPORT-p32-classical-seg.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-1.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-2.md",
+    "verify-briefs/VERIFY-REPORT-rerank-fix.md",
+    "verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md"
+   ],
+   "n_links": 46,
+   "inbound": [
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/NOT-DOING.md",
+   "bytes": 24039,
+   "lines": 126,
+   "title": "已否决 / 已作废台账（**提任何新待办、计划、设计之前先对一遍这份**）",
+   "out_links": [
+    "../AGENTS.md",
+    "../plugin/client/KsKnowledgePage.tsx",
+    "DEVELOPMENT-HISTORY.md",
+    "INTERACTION-DESIGN.md",
+    "LAW-SOURCE-PLAN.md",
+    "MATERIALS-PLANE-PLAN.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "UI-BASELINE.md",
+    "archive/old-plans/EXECUTION-PLAN.md",
+    "research/cross-plane-jump-assessment.md",
+    "research/dsh-official/ERRATA-alpha.2.md",
+    "research/dsh-official/REALIGN.md",
+    "research/weknora-assessment.md",
+    "research/weknora-ui/00-index-and-proposal.md"
+   ],
+   "n_links": 23,
+   "inbound": [
+    "docs/archive/handovers/HANDOVER-2026-09-23.md",
+    "docs/archive/old-plans/EXECUTION-PLAN.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/ENCYCLOPEDIA.md",
+    "docs/INTERACTION-DESIGN.md",
+    "docs/INTRODUCTION.md",
+    "docs/KB-FOLDER-PLAN.md",
+    "docs/MATERIALS-PLANE-PLAN.md",
+    "docs/research/classical-chinese-segmentation-evidence.md",
+    "docs/research/cross-language-retrieval-evidence.md",
+    "docs/research/cross-plane-jump-assessment.md",
+    "docs/research/STEP6-WORKORDER.md",
+    "docs/research/vision-coverage-map.md",
+    "docs/research/weknora-assessment.md",
+    "docs/research/weknora-ui-vs-ours.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/ROADMAP-CLIENT-VIEW.md",
+    "docs/UI-BASELINE.md",
+    "docs/VISION-TREE.md",
+    "docs/wiki/components/exports.md"
+   ],
+   "inbound_count": 21
+  },
+  {
+   "path": "docs/PLAN-REAL-QUESTION-RULER.md",
+   "bytes": 15727,
+   "lines": 293,
+   "title": "用真人问答造新评测尺子 —— 方案（草案 v1）",
+   "out_links": [
+    "../specs/009-standard-no-ocr-suffix/spec.md",
+    "../specs/010-real-question-ruler/spec.md"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/PORTABILITY.md",
+   "bytes": 8423,
+   "lines": 128,
+   "title": "便携与路径纪律",
+   "out_links": [
+    "../AGENTS.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/README.md",
+    "docs/uniformity/START-HERE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/README.md",
+   "bytes": 16329,
+   "lines": 170,
+   "title": "KnowledgeStation 文件地图",
+   "out_links": [
+    "../specs/001-project-consolidation/top-level-inventory.md",
+    "../tools/gov-qa/README.md",
+    "../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md",
+    "PORTABILITY.md",
+    "archive/README.md",
+    "archive/impl-reports/",
+    "archive/workbuddy-memory/README.md",
+    "uniformity/COVERAGE.md",
+    "uniformity/README.md",
+    "uniformity/START-HERE.md",
+    "wiki/architecture.md",
+    "wiki/components/"
+   ],
+   "n_links": 16,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/ENCYCLOPEDIA.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 13
+  },
+  {
+   "path": "docs/REQUIREMENTS-v4.3.md",
+   "bytes": 213211,
+   "lines": 3053,
+   "title": "《通用国标与法律法规本地 AI 知识工作站 (Win11)》开发主计划 (v4.3)",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/ENCYCLOPEDIA.md",
+    "docs/MATERIALS-PLANE-PLAN.md",
+    "docs/research/plan-vs-reality.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/research/agent-memory-systems.md",
+   "bytes": 53872,
+   "lines": 544,
+   "title": "Agent 记忆系统：技术路径、实测效果、以及\"RAG ↔ 记忆\"的中间形态",
+   "out_links": [
+    "wikiskill-integration-assessment.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/research/skill-knowledge-three-layer-reference.md",
+    "docs/research/wikiskill-integration-assessment.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/archify/01-archify-逆向.md",
+   "bytes": 58880,
+   "lines": 738,
+   "title": "archify 逆向：它靠什么产出「结构 + 证据指向」",
+   "out_links": [
+    "source:docs",
+    "source:id"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/archify/02-ks-现状.md",
+   "bytes": 44178,
+   "lines": 1063,
+   "title": "02 · KS 现状：问答 → 答案呈现 → 证据跳转（事实清单）",
+   "out_links": [
+    "<evidence_url>"
+   ],
+   "n_links": 4,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/archify/03-借鉴结论.md",
+   "bytes": 16696,
+   "lines": 207,
+   "title": "archify 对比与借鉴结论",
+   "out_links": [
+    "source:docs"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md",
+   "bytes": 6738,
+   "lines": 146,
+   "title": "红箭头为什么\"还是没生效\"—— 旧代码与现状的对照核查（2026-10-12）",
+   "out_links": [
+    "evidence_url"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/ARROW-ROOT-CAUSES-2026-10-12.md",
+   "bytes": 4247,
+   "lines": 124,
+   "title": "红箭头画不出 —— 全部根因（2026-10-12，逐条实测）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md",
+   "bytes": 6513,
+   "lines": 143,
+   "title": "采集/更新通道系统核实报告（2026-10-12，纯读代码 + 读库）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/internal-inventory.md",
+   "bytes": 68543,
+   "lines": 827,
+   "title": "内部渠道拆解（internal inventory）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/law-cn.md",
+   "bytes": 114338,
+   "lines": 1354,
+   "title": "中国法规类渠道调研报告（一手官方发布与查询渠道）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/oss-decomposition.md",
+   "bytes": 129193,
+   "lines": 1267,
+   "title": "法规/标准获取与监控 · 开源项目**代码级**拆解",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/PATH-REGISTRY-2026-10-08.md",
+   "bytes": 38092,
+   "lines": 428,
+   "title": "法规/标准发布源路径总表（2026-10-08 实测）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/REGISTRY-STATUS.md",
+   "bytes": 36520,
+   "lines": 378,
+   "title": "渠道台账状态快照（自动生成，勿手改）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/channels/std-cn.md",
+   "bytes": 74529,
+   "lines": 1145,
+   "title": "中国标准类官方渠道实测调研",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/classical-chinese-segmentation-evidence.md",
+   "bytes": 18711,
+   "lines": 246,
+   "title": "古籍/文言资料上的切分口径证据（P3.2）",
+   "out_links": [
+    "../../scripts/measure-classical-chinese-segmentation.py",
+    "../NOT-DOING.md",
+    "../verify-briefs/VERIFY-REPORT-p32-classical-seg.md",
+    "cross-language-retrieval-evidence.md"
+   ],
+   "n_links": 5,
+   "inbound": [
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/research/cross-language-retrieval-evidence.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 5
+  },
+  {
+   "path": "docs/research/cross-language-retrieval-evidence.md",
+   "bytes": 26030,
+   "lines": 305,
+   "title": "非中文资料上的检索口径证据（英文开发文档 / 技术文档）",
+   "out_links": [
+    "../../scripts/measure-cross-language-fts.py",
+    "../NOT-DOING.md",
+    "classical-chinese-segmentation-evidence.md",
+    "four-layer-pipeline-evidence.md"
+   ],
+   "n_links": 5,
+   "inbound": [
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/research/classical-chinese-segmentation-evidence.md",
+    "docs/research/four-layer-pipeline-evidence.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 4
+  },
+  {
+   "path": "docs/research/cross-plane-jump-assessment.md",
+   "bytes": 20224,
+   "lines": 283,
+   "title": "跨平面交叉引用（法条 ↔ 你自己的文档）：评估与待决方案",
+   "out_links": [
+    "../../src/core/knowledge/law_source/flk_client.py",
+    "../../src/core/update/channels/std_samr_hb.py",
+    "../NOT-DOING.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/NOT-DOING.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/DECISION-TABLE-2026-09-28.md",
+   "bytes": 17319,
+   "lines": 136,
+   "title": "对策表：抄哪一处 / 不抄哪一处 / 我们独有的那一条",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-A.md",
+   "bytes": 12410,
+   "lines": 87,
+   "title": "DSH 客户端插件（右栏 UI）开发摘要",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-B.md",
+   "bytes": 19103,
+   "lines": 137,
+   "title": "DSH 插件作者摘要（Host + Client 两半）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-C.md",
+   "bytes": 28369,
+   "lines": 173,
+   "title": "DSH 文档消化 · 面向「在 DSH 内做功能」的插件作者",
+   "out_links": [
+    "ERRATA-alpha.2.md"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-D.md",
+   "bytes": 17299,
+   "lines": 123,
+   "title": "DSH 官方文档消化：工具 / LLM / 会话 / 子代理",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-E.md",
+   "bytes": 22031,
+   "lines": 149,
+   "title": "DSH 官方设施速查（插件作者版）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-F.md",
+   "bytes": 22007,
+   "lines": 81,
+   "title": "DSH 文档消化：插件作者防重复踩坑（F）",
+   "out_links": [
+    "foo.md",
+    "foo.zh.md"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-G.md",
+   "bytes": 23462,
+   "lines": 140,
+   "title": "DSH decision-record digest — third-party external client+host sidebar plugin",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/dshdocs-H.md",
+   "bytes": 21270,
+   "lines": 92,
+   "title": "DSH 官方技能与门禁摘要（H）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/ERRATA-alpha.2.md",
+   "bytes": 30143,
+   "lines": 322,
+   "title": "勘误：`alpha.1 → alpha.2` 对 8 份分片与记忆条目的影响",
+   "out_links": [
+    "…2026-09-17-thinking-markdown.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/NOT-DOING.md",
+    "docs/research/dsh-official/dshdocs-C.md",
+    "docs/research/dsh-official/README.md",
+    "docs/research/dsh-official/REALIGN.md"
+   ],
+   "inbound_count": 5
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-docs-zh.md",
+   "bytes": 24128,
+   "lines": 183,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-notes-client-ui.md",
+   "bytes": 3336,
+   "lines": 27,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-notes-zh.md",
+   "bytes": 236723,
+   "lines": 1118,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-notes.md",
+   "bytes": 230800,
+   "lines": 1122,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md",
+   "bytes": 1689,
+   "lines": 22,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-pkg-docs.md",
+   "bytes": 3643,
+   "lines": 29,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-pkg-readme-zh.md",
+   "bytes": 51530,
+   "lines": 363,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-pkg-readme.md",
+   "bytes": 49572,
+   "lines": 363,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-repo-docs.md",
+   "bytes": 30974,
+   "lines": 190,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-root.md",
+   "bytes": 2257,
+   "lines": 29,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER-skills.md",
+   "bytes": 5399,
+   "lines": 45,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/dsh-official/INGEST-LEDGER.md",
+   "bytes": 23780,
+   "lines": 188,
+   "title": "DSH 官方文档原文入库账本",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/dsh-official/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/dsh-official/README.md",
+   "bytes": 10885,
+   "lines": 111,
+   "title": "DSH 官方文档精读（8 份分片）",
+   "out_links": [
+    "ERRATA-alpha.2.md",
+    "INGEST-LEDGER.md",
+    "REALIGN.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/research/STEP6-WORKORDER.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 13
+  },
+  {
+   "path": "docs/research/dsh-official/REALIGN.md",
+   "bytes": 20040,
+   "lines": 284,
+   "title": "DSH 升级后：文档与记忆的重对齐手册",
+   "out_links": [
+    "ERRATA-alpha.2.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/NOT-DOING.md",
+    "docs/research/dsh-official/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/FINDINGS-INBOX-2026-09-28.md",
+   "bytes": 67267,
+   "lines": 764,
+   "title": "收件箱：调研线回传的\"可借鉴结果\"（我逐条读过并挑出来的）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/four-layer-pipeline-evidence.md",
+   "bytes": 19410,
+   "lines": 261,
+   "title": "四层检索链路：别人怎么做 / 我们缺什么（对账单）",
+   "out_links": [
+    "../../src/core/query/understanding.py",
+    "cross-language-retrieval-evidence.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/research/cross-language-retrieval-evidence.md",
+    "docs/research/golden-instrument-audit.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/golden-instrument-audit.md",
+   "bytes": 25456,
+   "lines": 370,
+   "title": "评价尺子审计：金标门禁测的不是产品所在的世界",
+   "out_links": [
+    "../RETRIEVAL-LONG-RANGE-PLAN.md",
+    "four-layer-pipeline-evidence.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/HANDOFF-external-solutions.md",
+   "bytes": 21395,
+   "lines": 276,
+   "title": "交接任务书：把「我们当前未解的问题」的外部解法找齐",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md",
+   "bytes": 8708,
+   "lines": 88,
+   "title": "Hindsight 官方能力核实 —— 「我们是不是在造轮子」",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md",
+   "bytes": 13243,
+   "lines": 213,
+   "title": "Hindsight 本机部署现状交接说明",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md",
+   "bytes": 85804,
+   "lines": 996,
+   "title": "Hindsight 官方文档 · 通读纪要（一手件，已核到行号）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/hindsight-official/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md",
+   "bytes": 38279,
+   "lines": 644,
+   "title": "Hindsight 部署：对一份外部 AI 分析报告的事实核查（2026-09-30）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/hindsight-official/README.md",
+   "bytes": 3028,
+   "lines": 54,
+   "title": "Hindsight 官方文档本地副本",
+   "out_links": [
+    "../HINDSIGHT-DOCS-READING-2026-09-28.md",
+    "referenced-files.txt"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/research/jev-mem-assessment.md",
+   "bytes": 14168,
+   "lines": 160,
+   "title": "Jev-Mem 影响评估（2026-09-24）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/ks-fixes/01-d2-rootcause.md",
+   "bytes": 23144,
+   "lines": 320,
+   "title": "D2 冒烟失败根因分析（只读分析，未改任何代码）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/ks-fixes/02-modality-residual.md",
+   "bytes": 30108,
+   "lines": 555,
+   "title": "模态核验残留误报：根因与修复方案（2026-10-19 真机实测）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/ks-fixes/03-waiting-feedback.md",
+   "bytes": 31904,
+   "lines": 322,
+   "title": "等待期前台提示：现状盘点 + 外部借鉴（只分析，未改代码）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/lay-gap-decomposition.md",
+   "bytes": 56417,
+   "lines": 757,
+   "title": "大白话那道缺口怎么拆、哪条路能走：四条实测",
+   "out_links": [
+    "../RETRIEVAL-LONG-RANGE-PLAN.md",
+    "lay-phrasing-scaleup-test.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/lay-language-retrieval-evidence.md",
+   "bytes": 13280,
+   "lines": 175,
+   "title": "用户用大白话提问时，检索怎么接住——外部证据 + 本库实测",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/lay-phrasing-prompt.md",
+   "bytes": 6739,
+   "lines": 91,
+   "title": "「大白话 ↔ 行话」生成提示词（A 组：给术语写外行说法）",
+   "out_links": [
+    "../../scripts/pick-domain-terms.py",
+    "lay-phrasing-retrieval-test.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/research/lay-phrasing-retrieval-test.md",
+    "docs/research/lay-phrasing-scaleup-test.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/lay-phrasing-retrieval-test.md",
+   "bytes": 7097,
+   "lines": 98,
+   "title": "拿\"大白话\"真搜一遍：50 个术语 × 100 条外行说法",
+   "out_links": [
+    "../../scripts/pick-domain-terms.py",
+    "lay-phrasing-prompt.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/research/lay-phrasing-prompt.md",
+    "docs/research/lay-phrasing-scaleup-test.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/lay-phrasing-scaleup-test.md",
+   "bytes": 9870,
+   "lines": 154,
+   "title": "放大到 2000 条之后：50 术语那轮的结论哪些站住了、哪些变了",
+   "out_links": [
+    "lay-phrasing-prompt.md",
+    "lay-phrasing-retrieval-test.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/research/lay-gap-decomposition.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/MEMPALACE-REVIEW-2026-09-30.md",
+   "bytes": 47383,
+   "lines": 785,
+   "title": "MemPalace 调研 + B站介绍视频评论区核查",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/MODEL-AVAILABILITY-2026-09-28.md",
+   "bytes": 4984,
+   "lines": 73,
+   "title": "调度记录：免费模型逐个真调（2026-09-28）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/P0-4B-EVIDENCE-2026-10-14.md",
+   "bytes": 11718,
+   "lines": 233,
+   "title": "P0.4b 取证报告：通道 A/D/E 的排序键**到底有没有用**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/PAPER-可信政务问答技术-软件学报2026.md",
+   "bytes": 7796,
+   "lines": 126,
+   "title": "论文精读：《大语言模型驱动的可信政务问答技术》（软件学报 2026）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/papers/README.md",
+   "bytes": 3247,
+   "lines": 54,
+   "title": "外部原件存放处（检索文献调研）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/research/plan-vs-reality.md",
+   "bytes": 18182,
+   "lines": 185,
+   "title": "计划特性 × 谁做到了（逐条对照）",
+   "out_links": [
+    "../REQUIREMENTS-v4.3.md",
+    "../VISION-TREE.md"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/rag-encyclopedia-study.md",
+   "bytes": 21581,
+   "lines": 220,
+   "title": "RAG 全景资料学习笔记：哪些能借、哪些是我们自己走出来的",
+   "out_links": [
+    "../RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/RETRIEVAL-LITERATURE-SCAN-2026-09-30.md",
+   "bytes": 22801,
+   "lines": 344,
+   "title": "检索文献调研（2026-09-30）：我们这个问题在学界叫什么、已经做到哪一步",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/retrieval-pipeline-design-merge.md",
+   "bytes": 16584,
+   "lines": 202,
+   "title": "通用召回链路：8 方案评审与合并（目标链路 v1）",
+   "out_links": [
+    "../../src/core/storage/schema.sql"
+   ],
+   "n_links": 1,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/RETRIEVAL-RESEARCH-LEDGER-2026-09-30.md",
+   "bytes": 9398,
+   "lines": 147,
+   "title": "调研台账（防失忆）—— 2026-09-30 会话",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/REVIEW-PLAN-A-verification.md",
+   "bytes": 9171,
+   "lines": 138,
+   "title": "评审任务书 A：事实核查（交给能力一般的 AI）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/REVIEW-PLAN-B-innovation.md",
+   "bytes": 12227,
+   "lines": 160,
+   "title": "评审任务书 B：路线级独立评审与超越（交给最强的 AI）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/SELF-CONTAINED-求助外部AI-检索召回上不去.md",
+   "bytes": 26723,
+   "lines": 424,
+   "title": "一份自包含的求助文档：**我们的检索召回上不去，接下来该走哪条路？**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/skill-knowledge-three-layer-reference.md",
+   "bytes": 29303,
+   "lines": 416,
+   "title": "Agent「技能 / 知识」三层结构 —— 四路调研参考材料",
+   "out_links": [
+    "agent-memory-systems.md",
+    "wikiskill-integration-assessment.md"
+   ],
+   "n_links": 3,
+   "inbound": [
+    "docs/NEXT-DEV-PLAN-2026-09-28.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/solutions-for-open-problems.md",
+   "bytes": 29362,
+   "lines": 306,
+   "title": "我们当前未解的问题：外部解法调研",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-10-05.md",
+   "bytes": 7748,
+   "lines": 126,
+   "title": "外部标准与检索方向调研（2026-10-05）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/STEP6-WORKORDER.md",
+   "bytes": 83582,
+   "lines": 1043,
+   "title": "第 6 步施工单 —— 插件侧借鉴 WeKnora 自带 DSH 插件的 6 条",
+   "out_links": [
+    "../NOT-DOING.md",
+    "../archive/old-plans/EXECUTION-PLAN.md",
+    "dsh-official/README.md",
+    "weknora-ui/03-dsh-plugin-reference.md"
+   ],
+   "n_links": 4,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/substitute-scan.md",
+   "bytes": 22193,
+   "lines": 273,
+   "title": "替代品扫描（substitute scan）——\"谁已经交付了同样的用户价值\"",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md",
+   "bytes": 7579,
+   "lines": 133,
+   "title": "两条待核实的**核查结果**（GuRE 的语料性质 / RefWalk 的表义）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/SURVEY-口径核查与多跳（回应业主两条批评）.md",
+   "bytes": 12282,
+   "lines": 179,
+   "title": "他们的\"有效\"到底拿什么量的？（口径核查）+ **多跳这件事**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md",
+   "bytes": 8790,
+   "lines": 110,
+   "title": "学术界的政务问答是怎么设计的（沿《可信政务问答技术》36 条参考文献调研）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+   "bytes": 8583,
+   "lines": 115,
+   "title": "★ 学术调研 · 总清单（四轮汇总，**要落地看这一页**）",
+   "out_links": [
+    "PAPER-GuRE-法条检索生成式查询改写-NLLP2025-全文抽取.txt",
+    "STARD-在库率-条文级.json",
+    "STARD-在库率.json",
+    "SURVEY-学术调研-第1轮-排序与评测集.md",
+    "SURVEY-学术调研-第2轮-查询改写与官方标准.md",
+    "SURVEY-学术调研-第3轮-还债与收敛.md",
+    "SURVEY-学术调研-第4轮-STARD可用率与总结论.md"
+   ],
+   "n_links": 7,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/SURVEY-学术调研-第1轮-排序与评测集.md",
+   "bytes": 12142,
+   "lines": 164,
+   "title": "学术调研 · 第 1 轮：**排序/重排**与**评测集**（对应我们的判据①②）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/SURVEY-学术调研-第2轮-查询改写与官方标准.md",
+   "bytes": 11283,
+   "lines": 153,
+   "title": "学术调研 · 第 2 轮：**LLM 查询改写**与**同类系统/官方评测标准**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/SURVEY-学术调研-第3轮-还债与收敛.md",
+   "bytes": 10983,
+   "lines": 157,
+   "title": "学术调研 · 第 3 轮：**还债 + 四条主线收敛**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md",
+   "bytes": 11562,
+   "lines": 189,
+   "title": "学术调研 · 第 4 轮：★ **把 STARD 量成了我们现成的考卷**",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md",
+   "bytes": 11661,
+   "lines": 172,
+   "title": "学界做法**到底值不值得抄**：效果、工作量、能不能纯写代码",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md",
+   "bytes": 14841,
+   "lines": 198,
+   "title": "扩大到\"标准问答 / 法规问答\"的调研（不限于政务问答）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/TECH-PATH-2026-09-28.md",
+   "bytes": 19990,
+   "lines": 213,
+   "title": "技术路径：通用资料检索 + 派生记忆（2026-09-28 定稿）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/vision-coverage-map.md",
+   "bytes": 37146,
+   "lines": 341,
+   "title": "愿景对照矩阵：**我们的每一块愿景，谁已经实现了**",
+   "out_links": [
+    "../../src/core/update/channels/std_samr_hb.py",
+    "../NOT-DOING.md"
+   ],
+   "n_links": 2,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/research/weknora-assessment.md",
+   "bytes": 14638,
+   "lines": 155,
+   "title": "WeKnora（腾讯开源知识库）对我们的影响评估",
+   "out_links": [
+    "../NOT-DOING.md",
+    "weknora-ui/01-chat-and-citations.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/NOT-DOING.md",
+    "docs/research/weknora-kb-ui/01-pages-and-flows.md",
+    "docs/research/weknora-ui/00-index-and-proposal.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/research/weknora-kb-ui/01-pages-and-flows.md",
+   "bytes": 88303,
+   "lines": 840,
+   "title": "WeKnora「知识库管理」界面与流程记录",
+   "out_links": [
+    "../weknora-assessment.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/research/weknora-ui/00-index-and-proposal.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/weknora-kb-ui/02-components-and-visual-language.md",
+   "bytes": 89364,
+   "lines": 645,
+   "title": "WeKnora 知识库管理界面 —— 组件构成与视觉语言",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/weknora-ui-vs-ours.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/weknora-ui/00-index-and-proposal.md",
+   "bytes": 29380,
+   "lines": 191,
+   "title": "WeKnora 界面「抄 / 改着抄 / 不抄」清单（草稿 —— 等业主确认）",
+   "out_links": [
+    "../../INTERACTION-DESIGN.md",
+    "../weknora-assessment.md",
+    "../weknora-kb-ui/01-pages-and-flows.md"
+   ],
+   "n_links": 4,
+   "inbound": [
+    "docs/INTERACTION-DESIGN.md",
+    "docs/NOT-DOING.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/research/weknora-ui/01-chat-and-citations.md",
+   "bytes": 87867,
+   "lines": 731,
+   "title": "WeKnora 前端「问答 / 对话」整块精读",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/research/weknora-assessment.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/weknora-ui/02-shell-and-other-pages.md",
+   "bytes": 117868,
+   "lines": 1474,
+   "title": "WeKnora 前端精读 02 — 外壳与\"知识库/问答之外\"的全部界面",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/weknora-ui/03-dsh-plugin-reference.md",
+   "bytes": 49560,
+   "lines": 575,
+   "title": "dsh-weknora 精读：同宿主现成插件参考实现",
+   "out_links": [
+    "../../../plugin/client/",
+    "../../../plugin/cordis.patch.yml",
+    "../../../plugin/scripts/run-verify-commands.mjs",
+    "../../../plugin/scripts/smoke-lifecycle.mjs",
+    "../../../plugin/src/",
+    "../../../plugin/src/engine.js",
+    "../../../plugin/src/index.js",
+    "../../../plugin/src/inspection.js",
+    "../../../plugin/src/report.js",
+    "…"
+   ],
+   "n_links": 24,
+   "inbound": [
+    "docs/research/STEP6-WORKORDER.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/research/weknora-ui-vs-ours.md",
+   "bytes": 84847,
+   "lines": 581,
+   "title": "我们 vs WeKnora：知识库管理 UI 差距清单（**只诊断，不改代码**）",
+   "out_links": [
+    "../NOT-DOING.md",
+    "../UI-BASELINE.md",
+    "weknora-kb-ui/02-components-and-visual-language.md"
+   ],
+   "n_links": 26,
+   "inbound": [
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/research/wikiskill-integration-assessment.md",
+   "bytes": 25948,
+   "lines": 371,
+   "title": "WikiSkill（arXiv 2608.27454）融合评估",
+   "out_links": [
+    "agent-memory-systems.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/research/agent-memory-systems.md",
+    "docs/research/skill-knowledge-three-layer-reference.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+   "bytes": 171980,
+   "lines": 1500,
+   "title": "检索与通用化：长周期计划",
+   "out_links": [
+    "../eval/recall-funnel/exp-17-embedding-production-plan/README.md",
+    "../eval/recall-funnel/exp-4-embedding-shadow/README.md",
+    "../eval/recall-funnel/exp-4b-embedding-round2/README.md",
+    "../eval/recall-funnel/exp-4c-embedding-1024/README.md",
+    "../scripts/pick-domain-terms.py",
+    "DEVELOPMENT-HISTORY.md",
+    "NOT-DOING.md",
+    "archive/old-plans/BASELINE-PLAN-2026-10-06.md",
+    "archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
+    "archive/research-process/PROJECT-STATUS-2026-10-05.md",
+    "eval/recall-funnel/exp-12-long-clause-tail/README.md",
+    "eval/recall-funnel/exp-13-query-rewrite/README.md",
+    "eval/recall-funnel/exp-14-fused-rewrite/README.md",
+    "eval/recall-funnel/exp-15-pool-depth-fusion/README.md",
+    "eval/recall-funnel/exp-16-edge-expansion/README.md",
+    "eval/recall-funnel/exp-9-col-prior/VERDICT-候选列当筛子没有收益.md",
+    "research/P0-4B-EVIDENCE-2026-10-14.md",
+    "research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md",
+    "research/SURVEY-口径核查与多跳（回应业主两条批评）.md",
+    "research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md",
+    "research/SURVEY-学术调研-总清单（要落地看这一页）.md",
+    "research/SURVEY-学术调研-第1轮-排序与评测集.md",
+    "research/SURVEY-学术调研-第2轮-查询改写与官方标准.md",
+    "research/SURVEY-学术调研-第3轮-还债与收敛.md",
+    "research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md",
+    "research/SURVEY-学界做法值不值得抄-效果与工作量评估.md",
+    "research/SURVEY-标准与法规问答调研（含王芳2023全文精读）.md",
+    "research/classical-chinese-segmentation-evidence.md",
+    "research/cross-language-retrieval-evidence.md",
+    "research/golden-instrument-audit.md",
+    "research/lay-gap-decomposition.md",
+    "research/lay-phrasing-scaleup-test.md",
+    "verify-briefs/VERIFY-REPORT-e4b-round2.md",
+    "verify-briefs/VERIFY-REPORT-e4c-1024.md",
+    "verify-briefs/VERIFY-REPORT-e9-col-prior.md",
+    "verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md",
+    "verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md",
+    "verify-briefs/VERIFY-REPORT-p010-long-tail.md",
+    "verify-briefs/VERIFY-REPORT-p32-classical-seg.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-1.md",
+    "verify-briefs/VERIFY-REPORT-ratchet-2.md",
+    "verify-briefs/VERIFY-REPORT-rerank-fix.md"
+   ],
+   "n_links": 51,
+   "inbound": [
+    "docs/archive/research-process/BASELINE-DIAGNOSIS-2026-10-06.md",
+    "docs/archive/research-process/PROJECT-STATUS-2026-10-05.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/MATERIALS-PLANE-PLAN.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/NOT-DOING.md",
+    "docs/research/golden-instrument-audit.md",
+    "docs/research/lay-gap-decomposition.md",
+    "docs/research/rag-encyclopedia-study.md",
+    "docs/ROADMAP-CLIENT-VIEW.md",
+    "docs/VISION-TREE.md"
+   ],
+   "inbound_count": 13
+  },
+  {
+   "path": "docs/ROADMAP-CLIENT-VIEW.md",
+   "bytes": 10750,
+   "lines": 120,
+   "title": "路线图（客户视角）—— 短期 / 长期 / 效果 / 边界",
+   "out_links": [
+    "../AGENTS.md",
+    "CHANNEL-COVERAGE-PLAN.md",
+    "KB-FOLDER-PLAN.md",
+    "MATERIALS-PLANE-PLAN.md",
+    "NOT-DOING.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "UI-BASELINE.md"
+   ],
+   "n_links": 7,
+   "inbound": [
+    "docs/VISION-TREE.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/00-method.md",
+   "bytes": 10067,
+   "lines": 175,
+   "title": "检查计划：怎么把整个项目「检一遍」并保证没有漏",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/01-inventory.md",
+   "bytes": 3619,
+   "lines": 82,
+   "title": "全仓清单（四本账）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/02-code-map.md",
+   "bytes": 12096,
+   "lines": 210,
+   "title": "代码地图（AST 级符号清单）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/10-observed.md",
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/survey/03-cross-ref.md",
+   "bytes": 1952,
+   "lines": 42,
+   "title": "引用关系",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/04-data-shape.md",
+   "bytes": 28508,
+   "lines": 879,
+   "title": "数据形状（表 / 列 / 索引）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/05-api-surface.md",
+   "bytes": 21957,
+   "lines": 253,
+   "title": "接口面（后端 + 前端路由）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/06-test-surface.md",
+   "bytes": 10931,
+   "lines": 209,
+   "title": "测试面",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/07-doc-surface.md",
+   "bytes": 38441,
+   "lines": 380,
+   "title": "文档面",
+   "out_links": [
+    "p"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/08-gate-surface.md",
+   "bytes": 3597,
+   "lines": 111,
+   "title": "门禁面",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/09-runtime.md",
+   "bytes": 4679,
+   "lines": 105,
+   "title": "运行时：引擎怎么起、端口令牌在哪、数据放哪",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/10-observed.md",
+   "bytes": 11189,
+   "lines": 246,
+   "title": "观察记录（中性，不下结论）",
+   "out_links": [
+    "02-code-map.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/survey/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/survey/COVERAGE.md",
+   "bytes": 2596,
+   "lines": 50,
+   "title": "覆盖对账（九个面）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/survey/README.md",
+   "bytes": 3008,
+   "lines": 65,
+   "title": "项目现状地图",
+   "out_links": [
+    "00-method.md",
+    "02-code-map.md",
+    "03-cross-ref.md",
+    "04-data-shape.md",
+    "05-api-surface.md",
+    "06-test-surface.md",
+    "07-doc-surface.md",
+    "08-gate-surface.md",
+    "09-runtime.md",
+    "10-observed.md"
+   ],
+   "n_links": 10,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/TEST-FLAKES.md",
+   "bytes": 13171,
+   "lines": 38,
+   "title": "测试 flake 清单（已知偶发/竞态型，非回归勿背锅）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/tool-catalog.md",
+   "bytes": 6493,
+   "lines": 59,
+   "title": "ks-dsh-plugin 工具目录（生成物——**手改必红**，改说明书后跑 `node plugin/scripts/smoke-tool-catalog.mjs --write`）",
+   "out_links": [
+    "<evidence_url>"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/UI-BASELINE.md",
+   "bytes": 262210,
+   "lines": 2460,
+   "title": "UI 视觉基线（照 WeKnora 知识库管理复刻）—— 第 5 步的施工依据",
+   "out_links": [
+    "../plugin/scripts/lib/ks-primitives-stub.mjs",
+    "DEVELOPMENT-HISTORY.md",
+    "NOT-DOING.md",
+    "UI-ICON-SYSTEM.md",
+    "research/weknora-kb-ui/01-pages-and-flows.md",
+    "research/weknora-kb-ui/02-components-and-visual-language.md",
+    "research/weknora-ui-vs-ours.md",
+    "research/weknora-ui/00-index-and-proposal.md",
+    "research/weknora-ui/01-chat-and-citations.md",
+    "research/weknora-ui/02-shell-and-other-pages.md",
+    "research/weknora-ui/03-dsh-plugin-reference.md"
+   ],
+   "n_links": 27,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/old-plans/EXECUTION-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/KB-FOLDER-PLAN.md",
+    "docs/NOT-DOING.md",
+    "docs/research/weknora-ui-vs-ours.md",
+    "docs/ROADMAP-CLIENT-VIEW.md",
+    "docs/UI-ICON-SYSTEM.md"
+   ],
+   "inbound_count": 8
+  },
+  {
+   "path": "docs/UI-ICON-SYSTEM.md",
+   "bytes": 6628,
+   "lines": 130,
+   "title": "UI 图标体系（KnowledgeStation 插件）",
+   "out_links": [
+    "DEVELOPMENT-HISTORY.md",
+    "UI-BASELINE.md"
+   ],
+   "n_links": 2,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/UI-BASELINE.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/uniformity/00-review-of-surveys.md",
+   "bytes": 9376,
+   "lines": 141,
+   "title": "摸底报告的主对话复核记录",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/01-core.md",
+   "bytes": 71173,
+   "lines": 1064,
+   "title": "src/core 事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/02-plugin.md",
+   "bytes": 67539,
+   "lines": 586,
+   "title": "plugin/ 事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/03-docs-specs-scripts.md",
+   "bytes": 75878,
+   "lines": 641,
+   "title": "docs / specs / scripts 事实地图",
+   "out_links": [
+    "../CHANNEL-COVERAGE-PLAN.md",
+    "../README.md",
+    "../wiki/",
+    "../wiki/architecture.md",
+    "docs/wiki/architecture.md"
+   ],
+   "n_links": 6,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/04-tests-tools-gates.md",
+   "bytes": 42413,
+   "lines": 621,
+   "title": "tests / tools / 门禁 事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/05-verifier-findings.md",
+   "bytes": 6156,
+   "lines": 101,
+   "title": "verifier 抽查记录（2026-10-23）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/06-frontend.md",
+   "bytes": 49603,
+   "lines": 523,
+   "title": "plugin/client 事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/07-other-dirs.md",
+   "bytes": 45247,
+   "lines": 432,
+   "title": "其他目录事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/08-why-contracts-rot.md",
+   "bytes": 16121,
+   "lines": 263,
+   "title": "为什么\"约定了契约\"还是会变乱",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/09-big-files.md",
+   "bytes": 52754,
+   "lines": 609,
+   "title": "src/core 三个大文件事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/10-api-server.md",
+   "bytes": 40972,
+   "lines": 452,
+   "title": "api/server.py 事实地图",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md",
+    "docs/wiki/components/api.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/uniformity/COVERAGE.md",
+   "bytes": 10720,
+   "lines": 123,
+   "title": "摸底完成度：哪些透了、哪些没透（滚动更新）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/README.md",
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/uniformity/README.md",
+   "bytes": 56568,
+   "lines": 884,
+   "title": "KnowledgeStation 摸底：证据与过程",
+   "out_links": [
+    "../wiki/architecture.md",
+    "00-review-of-surveys.md",
+    "01-core.md",
+    "02-plugin.md",
+    "03-docs-specs-scripts.md",
+    "04-tests-tools-gates.md",
+    "05-verifier-findings.md",
+    "06-frontend.md",
+    "07-other-dirs.md",
+    "08-why-contracts-rot.md",
+    "09-big-files.md",
+    "10-api-server.md",
+    "COVERAGE.md",
+    "START-HERE.md",
+    "report.md"
+   ],
+   "n_links": 18,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/uniformity/report.md",
+   "bytes": 13822,
+   "lines": 241,
+   "title": "统一化报告（repo-uniformity-ratchet 留档）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/uniformity/START-HERE.md",
+   "bytes": 13790,
+   "lines": 249,
+   "title": "KnowledgeStation 上手（新人第一份读这个）",
+   "out_links": [
+    "../PORTABILITY.md",
+    "../README.md",
+    "../wiki/architecture.md",
+    "../wiki/components/",
+    "README.md"
+   ],
+   "n_links": 5,
+   "inbound": [
+    "docs/README.md",
+    "docs/uniformity/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-e4b-round2.md",
+   "bytes": 20062,
+   "lines": 308,
+   "title": "独立复核报告：E4 第二轮验证（批次 `e4b-round2`）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-e4c-1024.md",
+   "bytes": 12401,
+   "lines": 137,
+   "title": "独立复核报告 · E4c「同模型升维 512→1024」",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md",
+   "bytes": 5941,
+   "lines": 93,
+   "title": "独立复核报告 · 批次 `e9-col-prior`（P2 诊断·第 1 刀）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-exp13-query-rewrite.md",
+   "bytes": 15404,
+   "lines": 201,
+   "title": "独立复核报告 · exp-13 查询侧改写（A/B/C/D）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-exp14-fused-rewrite.md",
+   "bytes": 13108,
+   "lines": 230,
+   "title": "独立复核报告 · exp-14-fused-rewrite",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-exp15-pool-depth-fusion.md",
+   "bytes": 11207,
+   "lines": 135,
+   "title": "VERIFY-REPORT — `exp-15-pool-depth-fusion` 独立复核（第 15 轮）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 4
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-exp17-prod-plan.md",
+   "bytes": 20484,
+   "lines": 263,
+   "title": "独立复核报告 · exp-17-embedding-production-plan（必验类别）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-govqa-conformance.md",
+   "bytes": 30265,
+   "lines": 660,
+   "title": "独立复核报告 —— `verify-freeze-govqa-conformance`",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-govqa-data-forensics.md",
+   "bytes": 44070,
+   "lines": 915,
+   "title": "独立数据质量取证报告 —— `tools/gov-qa/` 政务问答语料",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-p010-long-tail.md",
+   "bytes": 18771,
+   "lines": 202,
+   "title": "独立复核报告 · 批次 `p010-long-tail`",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-p32-classical-seg.md",
+   "bytes": 18070,
+   "lines": 258,
+   "title": "独立复核报告：P3.2 古籍/文言切分评估（批次 `p32-classical-seg`）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/research/classical-chinese-segmentation-evidence.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 4
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-ratchet-1.md",
+   "bytes": 6822,
+   "lines": 94,
+   "title": "独立复核报告 —— ratchet-1 批次（复核员 general-purpose-1）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-ratchet-2.md",
+   "bytes": 11703,
+   "lines": 137,
+   "title": "独立复核报告 —— ratchet-2 批次（复核员 general-purpose-1）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-rerank-fix.md",
+   "bytes": 19286,
+   "lines": 252,
+   "title": "独立复核报告 · 批次 `rerank-fix`（施工总纲 P0·0.7 修复）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md"
+   ],
+   "inbound_count": 3
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec003-vecscope.md",
+   "bytes": 16171,
+   "lines": 231,
+   "title": "独立复核报告 · spec 003「向量通道范围下推修复」",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec004-operationalization.md",
+   "bytes": 38634,
+   "lines": 619,
+   "title": "独立复核报告 —— `tools/gov-qa/` spec 004 可运维化层",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec007-ui-polish.md",
+   "bytes": 18191,
+   "lines": 140,
+   "title": "VERIFY-REPORT · spec 007（UI 精修）第二轮独立复核",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec008-icon-system.md",
+   "bytes": 6834,
+   "lines": 122,
+   "title": "VERIFY-REPORT · spec 008（图标体系）—— **自查**（非独立第三方）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md",
+   "bytes": 7491,
+   "lines": 125,
+   "title": "VERIFY-REPORT · spec 009（「本轮依据」三处改动）—— **自查**（非独立第三方）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-spec010-turn-tab-fixes.md",
+   "bytes": 9202,
+   "lines": 164,
+   "title": "VERIFY-REPORT · spec 010（「本轮」页三处修正）—— **自查**（非独立第三方）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [],
+   "inbound_count": 0
+  },
+  {
+   "path": "docs/verify-briefs/VERIFY-REPORT-t016-t017-p1fix.md",
+   "bytes": 14359,
+   "lines": 199,
+   "title": "独立复核报告 — T016/T017 P1 修复批次（`doc_stds` 未定义）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/VISION-TREE.md",
+   "bytes": 16437,
+   "lines": 184,
+   "title": "KnowledgeStation 功能愿景（客户视角版）",
+   "out_links": [
+    "NOT-DOING.md",
+    "RETRIEVAL-LONG-RANGE-PLAN.md",
+    "ROADMAP-CLIENT-VIEW.md"
+   ],
+   "n_links": 5,
+   "inbound": [
+    "docs/research/plan-vs-reality.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/architecture.md",
+   "bytes": 16675,
+   "lines": 248,
+   "title": "KnowledgeStation：项目目标与现状",
+   "out_links": [
+    "../../tools/gov-qa/README.md",
+    "../../tools/gov-qa/REUSE-FOR-ANNOUNCEMENTS.md",
+    "../README.md",
+    "../tool-catalog.md",
+    "../uniformity/README.md",
+    "components/",
+    "components/retrieval.md"
+   ],
+   "n_links": 13,
+   "inbound": [
+    "docs/ENCYCLOPEDIA.md",
+    "docs/README.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/README.md",
+    "docs/uniformity/START-HERE.md"
+   ],
+   "inbound_count": 5
+  },
+  {
+   "path": "docs/wiki/components/api.md",
+   "bytes": 4485,
+   "lines": 88,
+   "title": "api（HTTP 端点）",
+   "out_links": [
+    "../../uniformity/10-api-server.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/compliance.md",
+   "bytes": 3625,
+   "lines": 67,
+   "title": "compliance（合规差距分析）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/domain.md",
+   "bytes": 3612,
+   "lines": 67,
+   "title": "domain（域模型契约）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/exports.md",
+   "bytes": 4624,
+   "lines": 70,
+   "title": "exports（产出物组装与导出）",
+   "out_links": [
+    "../../NOT-DOING.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/wiki/components/plugin-tools.md",
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/wiki/components/ingestion.md",
+   "bytes": 2950,
+   "lines": 62,
+   "title": "ingestion（解析与入库）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/knowledge.md",
+   "bytes": 2277,
+   "lines": 51,
+   "title": "knowledge（法规知识本体与分类）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/law-source.md",
+   "bytes": 3783,
+   "lines": 60,
+   "title": "law-source（官方法规来源管线）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/llm.md",
+   "bytes": 4646,
+   "lines": 76,
+   "title": "llm（模型调用与取证答案）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/materials.md",
+   "bytes": 2477,
+   "lines": 51,
+   "title": "materials（材料平面）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/plugin-tools.md",
+   "bytes": 6036,
+   "lines": 62,
+   "title": "plugin-tools（插件对 agent 暴露的工具）",
+   "out_links": [
+    "exports.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/quality.md",
+   "bytes": 4129,
+   "lines": 67,
+   "title": "quality（质量判定）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/query.md",
+   "bytes": 3477,
+   "lines": 65,
+   "title": "query（查询理解）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/README.md",
+   "bytes": 3553,
+   "lines": 53,
+   "title": "组件契约索引",
+   "out_links": [
+    "../../../specs/001-project-consolidation/contracts/component-contract.md",
+    "api.md",
+    "compliance.md",
+    "domain.md",
+    "exports.md",
+    "ingestion.md",
+    "knowledge.md",
+    "law-source.md",
+    "llm.md",
+    "materials.md",
+    "plugin-tools.md",
+    "quality.md",
+    "query.md",
+    "retrieval.md",
+    "settings.md",
+    "storage.md",
+    "update-channels.md",
+    "update.md",
+    "verification.md",
+    "vision.md"
+   ],
+   "n_links": 20,
+   "inbound": [
+    "docs/archive/history/rounds-10.1-10.203.md",
+    "docs/archive/README.md",
+    "docs/archive/research-process/DSH-ALIGNMENT-AUDIT.md",
+    "docs/archive/workbuddy-memory/memory/CHAIN-UNCLOSED-AUDIT.md",
+    "docs/CHANNEL-COVERAGE-PLAN.md",
+    "docs/DEVELOPMENT-HISTORY.md",
+    "docs/NEXT-DEV-PLAN-2026-09-28.md",
+    "docs/README.md",
+    "docs/RETRIEVAL-LONG-RANGE-PLAN.md",
+    "docs/uniformity/03-docs-specs-scripts.md",
+    "docs/uniformity/START-HERE.md",
+    "docs/wiki/architecture.md"
+   ],
+   "inbound_count": 12
+  },
+  {
+   "path": "docs/wiki/components/retrieval.md",
+   "bytes": 3162,
+   "lines": 71,
+   "title": "retrieval（检索）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/architecture.md",
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/wiki/components/settings.md",
+   "bytes": 3772,
+   "lines": 68,
+   "title": "settings（设置与凭据）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/storage.md",
+   "bytes": 6051,
+   "lines": 115,
+   "title": "storage（存取与 schema）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/update-channels.md",
+   "bytes": 3971,
+   "lines": 54,
+   "title": "update-channels（渠道适配器）",
+   "out_links": [
+    "update.md"
+   ],
+   "n_links": 1,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/update.md",
+   "bytes": 3051,
+   "lines": 59,
+   "title": "update（渠道巡检与变更）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md",
+    "docs/wiki/components/update-channels.md"
+   ],
+   "inbound_count": 2
+  },
+  {
+   "path": "docs/wiki/components/verification.md",
+   "bytes": 3510,
+   "lines": 63,
+   "title": "verification（核验与纠错守卫）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  },
+  {
+   "path": "docs/wiki/components/vision.md",
+   "bytes": 3494,
+   "lines": 67,
+   "title": "vision（本地视觉反查）",
+   "out_links": [],
+   "n_links": 0,
+   "inbound": [
+    "docs/wiki/components/README.md"
+   ],
+   "inbound_count": 1
+  }
+ ]
+}

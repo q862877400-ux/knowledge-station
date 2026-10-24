@@ -1,0 +1,1552 @@
+{
+ "generated_by": "scripts/survey/02-surface.py::step4_endpoints",
+ "caliber": "后端 = `src/core/api/*.py` 里的 `@app.verb(\"path\")` 装饰器，**逐条列出，不抽样**。前端 = `plugin/client/*.ts(x)` 里 `register({...path...})` 的路由注册。",
+ "counts": {
+  "backend_routes": 176,
+  "backend_files": 9,
+  "front_route_registrations": 37
+ },
+ "backend_by_file": {
+  "src/core/api/server.py": 67,
+  "src/core/api/routes_update.py": 32,
+  "src/core/api/routes_kb_folders.py": 24,
+  "src/core/api/routes_materials.py": 18,
+  "src/core/api/routes_channels.py": 10,
+  "src/core/api/routes_law.py": 10,
+  "src/core/api/routes_ingest_preview.py": 6,
+  "src/core/api/routes_report.py": 6,
+  "src/core/api/routes_settings.py": 3
+ },
+ "backend": [
+  {
+   "method": "GET",
+   "path": "/api/v1/channels",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 69,
+   "handler": "list_channels"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/channels/{channel_id}",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 112,
+   "handler": "get_channel"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 122,
+   "handler": "create_channel"
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/v1/channels/{channel_id}",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 154,
+   "handler": "update_channel"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/enabled",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 178,
+   "handler": "set_channel_enabled"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/channels/{channel_id}",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 190,
+   "handler": "remove_channel"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/test-case",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 203,
+   "handler": "set_channel_test_case"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/channels/{channel_id}/test-case",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 221,
+   "handler": "get_channel_test_case"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/{channel_id}/test",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 228,
+   "handler": "run_channel_test"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/channels/probe",
+   "file": "src/core/api/routes_channels.py",
+   "lineno": 237,
+   "handler": "probe_channels"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 59,
+   "handler": "ingest_preview"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/batch",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 91,
+   "handler": "ingest_preview_batch"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/preview/inbox",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 138,
+   "handler": "ingest_preview_inbox"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/jobs",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 162,
+   "handler": "ingest_preview_job_start"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/preview/jobs/{job_id}",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 205,
+   "handler": "ingest_preview_job_status"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/preview/jobs/{job_id}/abort",
+   "file": "src/core/api/routes_ingest_preview.py",
+   "lineno": 219,
+   "handler": "ingest_preview_job_abort"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 117,
+   "handler": "kb_list_folders"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/flat",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 146,
+   "handler": "kb_flat_folders"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/{folder_id}/items",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 170,
+   "handler": "kb_folder_items"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 199,
+   "handler": "kb_create_folder"
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/kb/folders/{folder_id}",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 218,
+   "handler": "kb_rename_folder"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders/{folder_id}/move",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 228,
+   "handler": "kb_move_folder"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/folders/{folder_id}/copy",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 252,
+   "handler": "kb_copy_folder"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/folders/{folder_id}/delete-preview",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 267,
+   "handler": "kb_describe_delete"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/kb/folders/{folder_id}",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 279,
+   "handler": "kb_delete_folder"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 298,
+   "handler": "kb_add_members"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/remove",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 322,
+   "handler": "kb_remove_members"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/move",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 340,
+   "handler": "kb_move_members"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/members/copy",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 361,
+   "handler": "kb_copy_members"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/inbox",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 384,
+   "handler": "kb_inbox"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/stage-labels",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 456,
+   "handler": "kb_stage_labels"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/inbox/reingest",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 468,
+   "handler": "kb_inbox_reingest"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/inbox/reingest/status",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 501,
+   "handler": "kb_inbox_reingest_status"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/summary",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 514,
+   "handler": "kb_ccs_summary"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/plan",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 544,
+   "handler": "kb_ccs_plan"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/ccs/backfill",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 562,
+   "handler": "kb_ccs_backfill"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/kb/ccs/backfill/status",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 616,
+   "handler": "kb_ccs_backfill_status"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/ccs/backfill/cancel",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 630,
+   "handler": "kb_ccs_backfill_cancel"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/inbox/confirm",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 640,
+   "handler": "kb_inbox_confirm"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/kb/scope/resolve",
+   "file": "src/core/api/routes_kb_folders.py",
+   "lineno": 662,
+   "handler": "kb_scope_resolve"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/sources",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 32,
+   "handler": "law_sources"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/search",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 44,
+   "handler": "law_search"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/ingest",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 82,
+   "handler": "law_ingest"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/check-updates",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 122,
+   "handler": "law_check_updates"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/catalog",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 131,
+   "handler": "law_catalog"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/catalog/refresh",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 150,
+   "handler": "law_catalog_refresh"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/verify",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 161,
+   "handler": "law_verify"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/history",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 173,
+   "handler": "law_history"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/laws/change-signals",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 199,
+   "handler": "law_change_signals"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/laws/compliance-guard",
+   "file": "src/core/api/routes_law.py",
+   "lineno": 231,
+   "handler": "compliance_guard"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 67,
+   "handler": "materials_create_project"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 85,
+   "handler": "materials_list_projects"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/inbox",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 89,
+   "handler": "materials_inbox"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects/{project_id}/scan",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 105,
+   "handler": "materials_scan"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/projects/{project_id}/collect",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 140,
+   "handler": "materials_collect"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/materials",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 191,
+   "handler": "materials_list"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/search",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 205,
+   "handler": "materials_search"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/tiers",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 222,
+   "handler": "materials_tiers"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 229,
+   "handler": "materials_get"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}/chunks",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 239,
+   "handler": "materials_chunks"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/review",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 254,
+   "handler": "materials_review"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/tier",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 289,
+   "handler": "materials_set_tier"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/role",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 305,
+   "handler": "materials_set_role"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/lifecycle",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 318,
+   "handler": "materials_set_lifecycle"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/materials/{material_id}",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 330,
+   "handler": "materials_delete"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/projects/{project_id}/locators",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 337,
+   "handler": "materials_locator_summary"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/materials/{material_id}/locators",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 357,
+   "handler": "materials_locator_health"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/materials/{material_id}/reverify",
+   "file": "src/core/api/routes_materials.py",
+   "lineno": 370,
+   "handler": "materials_reverify_locators"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 36,
+   "handler": "effect_report"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect/docs",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 54,
+   "handler": "effect_report_docs"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/report/effect/color",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 75,
+   "handler": "effect_report_by_color"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/effect/export",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 94,
+   "handler": "effect_report_export"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/research",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 118,
+   "handler": "research_report"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/report/research/draft",
+   "file": "src/core/api/routes_report.py",
+   "lineno": 171,
+   "handler": "research_report_draft"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/settings/api-config",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 18,
+   "handler": "api_config_get"
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/settings/api-config",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 32,
+   "handler": "api_config_put"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/settings/api-config/test",
+   "file": "src/core/api/routes_settings.py",
+   "lineno": 66,
+   "handler": "api_config_test"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/check",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 38,
+   "handler": "update_check"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/batch/{batch_id}",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 89,
+   "handler": "update_batch_progress"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/batch/{batch_id}/pause",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 107,
+   "handler": "update_batch_pause"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/batch/{batch_id}/resume",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 118,
+   "handler": "update_batch_resume"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/batches",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 142,
+   "handler": "update_batches"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/changes",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 149,
+   "handler": "update_changes"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/changes/{change_id}/ack",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 171,
+   "handler": "update_change_ack"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/changes/{change_id}/manual",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 186,
+   "handler": "update_change_manual"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/report-xlsx/{batch_id}",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 209,
+   "handler": "update_report_xlsx"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-scan",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 232,
+   "handler": "announce_scan"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-scan/last",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 255,
+   "handler": "announce_scan_last"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-sources",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 261,
+   "handler": "announce_sources_list"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-sources",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 274,
+   "handler": "announce_sources_add"
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/update/announce-sources/{source_id}",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 295,
+   "handler": "announce_sources_update"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/update/announce-sources/{source_id}",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 308,
+   "handler": "announce_sources_remove"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-items",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 320,
+   "handler": "announce_items"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-export",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 327,
+   "handler": "announce_export"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-ingest/pending",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 347,
+   "handler": "announce_ingest_pending"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/update/announce-ingest",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 357,
+   "handler": "announce_ingest"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/announce-ingest/triage",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 387,
+   "handler": "announce_ingest_triage"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/classify",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 402,
+   "handler": "discover_classify"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/search",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 410,
+   "handler": "discover_search"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/discover/watchlist",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 436,
+   "handler": "watchlist_get"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/discover/watchlist",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 443,
+   "handler": "watchlist_post"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/update/subscriptions",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 473,
+   "handler": "subscriptions_get"
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/update/subscriptions",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 483,
+   "handler": "subscriptions_put"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 504,
+   "handler": "bulk_ingest_start"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/ingest/bulk/{batch_id}",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 544,
+   "handler": "bulk_ingest_status"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk/{batch_id}/resume",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 576,
+   "handler": "bulk_ingest_resume"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ingest/bulk/{batch_id}/abort",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 601,
+   "handler": "bulk_ingest_abort"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/data/package/export",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 613,
+   "handler": "data_package_export"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/data/package/import",
+   "file": "src/core/api/routes_update.py",
+   "lineno": 629,
+   "handler": "data_package_import"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/health",
+   "file": "src/core/api/server.py",
+   "lineno": 338,
+   "handler": "health"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/patches",
+   "file": "src/core/api/server.py",
+   "lineno": 361,
+   "handler": "create_patch"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/resolve",
+   "file": "src/core/api/server.py",
+   "lineno": 414,
+   "handler": "resolve_clause"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/data/quality-issues",
+   "file": "src/core/api/server.py",
+   "lineno": 474,
+   "handler": "data_quality_issues"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/patches",
+   "file": "src/core/api/server.py",
+   "lineno": 518,
+   "handler": "get_patches"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/clauses/patches/{patch_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 524,
+   "handler": "remove_patch"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/file",
+   "file": "src/core/api/server.py",
+   "lineno": 541,
+   "handler": "get_document_file"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/figure/{fig_no}",
+   "file": "src/core/api/server.py",
+   "lineno": 564,
+   "handler": "get_document_figure"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/formula/{fno}",
+   "file": "src/core/api/server.py",
+   "lineno": 718,
+   "handler": "get_document_formula"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}",
+   "file": "src/core/api/server.py",
+   "lineno": 780,
+   "handler": "get_document_table_image"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents",
+   "file": "src/core/api/server.py",
+   "lineno": 841,
+   "handler": "doc_list"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/categories",
+   "file": "src/core/api/server.py",
+   "lineno": 858,
+   "handler": "doc_categories"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/batch-delete",
+   "file": "src/core/api/server.py",
+   "lineno": 904,
+   "handler": "documents_batch_delete"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/tree",
+   "file": "src/core/api/server.py",
+   "lineno": 927,
+   "handler": "document_tree"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1184,
+   "handler": "get_bookmarks"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1189,
+   "handler": "add_bookmark"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmarks/by-clause/{clause_key}",
+   "file": "src/core/api/server.py",
+   "lineno": 1201,
+   "handler": "del_bookmark_by_clause"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmarks/{bookmark_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1208,
+   "handler": "del_bookmark"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/doc-bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1217,
+   "handler": "get_doc_bookmarks"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/doc-bookmarks",
+   "file": "src/core/api/server.py",
+   "lineno": 1222,
+   "handler": "add_doc_bookmark"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/doc-bookmarks/by-doc/{doc_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1234,
+   "handler": "del_doc_bookmark_by_doc"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/doc-bookmarks/{doc_bookmark_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1241,
+   "handler": "del_doc_bookmark"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmark-folders",
+   "file": "src/core/api/server.py",
+   "lineno": 1251,
+   "handler": "get_bookmark_folders"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders",
+   "file": "src/core/api/server.py",
+   "lineno": 1256,
+   "handler": "create_bookmark_folder"
+  },
+  {
+   "method": "PUT",
+   "path": "/api/v1/bookmark-folders/{folder_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1268,
+   "handler": "rename_bookmark_folder"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/bookmark-folders/{folder_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1280,
+   "handler": "delete_bookmark_folder"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders/move-clause",
+   "file": "src/core/api/server.py",
+   "lineno": 1290,
+   "handler": "move_clause_bookmark"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/bookmark-folders/move-doc",
+   "file": "src/core/api/server.py",
+   "lineno": 1304,
+   "handler": "move_doc_bookmark"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/bookmark-folders/tree",
+   "file": "src/core/api/server.py",
+   "lineno": 1318,
+   "handler": "bookmark_folders_tree"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/annotations",
+   "file": "src/core/api/server.py",
+   "lineno": 1434,
+   "handler": "get_annotations"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/annotations",
+   "file": "src/core/api/server.py",
+   "lineno": 1439,
+   "handler": "add_annotation"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/annotations/{annotation_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1451,
+   "handler": "del_annotation"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/projects",
+   "file": "src/core/api/server.py",
+   "lineno": 1458,
+   "handler": "get_projects"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/projects",
+   "file": "src/core/api/server.py",
+   "lineno": 1463,
+   "handler": "create_project"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/projects/{project_id}/clauses",
+   "file": "src/core/api/server.py",
+   "lineno": 1470,
+   "handler": "project_add_clause"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/projects/{project_id}/clauses/{clause_revision_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 1481,
+   "handler": "project_remove_clause"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compliance/policies",
+   "file": "src/core/api/server.py",
+   "lineno": 1491,
+   "handler": "import_policy"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/compliance/policies",
+   "file": "src/core/api/server.py",
+   "lineno": 1498,
+   "handler": "list_policies"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compliance/gap-analysis",
+   "file": "src/core/api/server.py",
+   "lineno": 1506,
+   "handler": "run_gap"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/versions",
+   "file": "src/core/api/server.py",
+   "lineno": 1516,
+   "handler": "doc_versions"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/clauses-by-prefix",
+   "file": "src/core/api/server.py",
+   "lineno": 1526,
+   "handler": "clauses_by_prefix"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/clauses",
+   "file": "src/core/api/server.py",
+   "lineno": 1544,
+   "handler": "doc_full_clauses"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/documents/{doc_id}/assets/{fname}",
+   "file": "src/core/api/server.py",
+   "lineno": 1618,
+   "handler": "doc_asset"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/compare",
+   "file": "src/core/api/server.py",
+   "lineno": 1661,
+   "handler": "compare_docs_endpoint"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/operation-log",
+   "file": "src/core/api/server.py",
+   "lineno": 1679,
+   "handler": "operation_log"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/aliases/extract",
+   "file": "src/core/api/server.py",
+   "lineno": 1693,
+   "handler": "aliases_extract"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/export/citations",
+   "file": "src/core/api/server.py",
+   "lineno": 1721,
+   "handler": "export_citations"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/export/download",
+   "file": "src/core/api/server.py",
+   "lineno": 1752,
+   "handler": "download_export"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/chat/completions",
+   "file": "src/core/api/server.py",
+   "lineno": 1764,
+   "handler": "chat_completions"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/ks/answer",
+   "file": "src/core/api/server.py",
+   "lineno": 2202,
+   "handler": "ks_answer_endpoint"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/egress/audit",
+   "file": "src/core/api/server.py",
+   "lineno": 2235,
+   "handler": "egress_audit"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/egress/audit/export",
+   "file": "src/core/api/server.py",
+   "lineno": 2242,
+   "handler": "egress_audit_export"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/{old_doc_id}/migrate-patches",
+   "file": "src/core/api/server.py",
+   "lineno": 2252,
+   "handler": "migrate_patches_api"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/{clause_revision_id}/office-edit",
+   "file": "src/core/api/server.py",
+   "lineno": 2265,
+   "handler": "office_edit_start"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/office-edit/poll",
+   "file": "src/core/api/server.py",
+   "lineno": 2281,
+   "handler": "office_edit_poll"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/clauses/office-edit/commit",
+   "file": "src/core/api/server.py",
+   "lineno": 2292,
+   "handler": "office_edit_commit"
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/v1/clauses/office-edit/{session_id}",
+   "file": "src/core/api/server.py",
+   "lineno": 2303,
+   "handler": "office_edit_cancel"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/backlinks",
+   "file": "src/core/api/server.py",
+   "lineno": 2312,
+   "handler": "clause_backlinks"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/spans",
+   "file": "src/core/api/server.py",
+   "lineno": 2324,
+   "handler": "clause_spans"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/clauses/{clause_revision_id}/meta",
+   "file": "src/core/api/server.py",
+   "lineno": 2365,
+   "handler": "clause_meta"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/vision/locate",
+   "file": "src/core/api/server.py",
+   "lineno": 2408,
+   "handler": "vision_locate"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/snapshots",
+   "file": "src/core/api/server.py",
+   "lineno": 2424,
+   "handler": "create_snapshot"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/snapshots",
+   "file": "src/core/api/server.py",
+   "lineno": 2431,
+   "handler": "list_snapshots"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/snapshots/{snapshot_id}/restore",
+   "file": "src/core/api/server.py",
+   "lineno": 2436,
+   "handler": "restore_snapshot"
+  },
+  {
+   "method": "POST",
+   "path": "/api/v1/documents/impact",
+   "file": "src/core/api/server.py",
+   "lineno": 2447,
+   "handler": "impact_analysis"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/diagnostics/health-board",
+   "file": "src/core/api/server.py",
+   "lineno": 2463,
+   "handler": "health_board"
+  },
+  {
+   "method": "GET",
+   "path": "/api/v1/diagnostics/debug-dumps",
+   "file": "src/core/api/server.py",
+   "lineno": 2512,
+   "handler": "debug_dumps"
+  }
+ ],
+ "front": [
+  {
+   "path": "/ks/announce/summary",
+   "path_raw": "KS_ANNOUNCE_SUMMARY_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 557
+  },
+  {
+   "path": "/ks/announce/scan",
+   "path_raw": "KS_ANNOUNCE_SCAN_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 579
+  },
+  {
+   "path": "/ks/announce/sources",
+   "path_raw": "KS_ANNOUNCE_SOURCES_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 646
+  },
+  {
+   "path": "/ks/announce/sources",
+   "path_raw": "KS_ANNOUNCE_SOURCES_PATH",
+   "resolved": true,
+   "kind": "prefix",
+   "file": "plugin/src/announce.js",
+   "lineno": 668
+  },
+  {
+   "path": "/ks/announce/export",
+   "path_raw": "KS_ANNOUNCE_EXPORT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 711
+  },
+  {
+   "path": "/ks/announce/ingest/pending",
+   "path_raw": "KS_ANNOUNCE_INGEST_PENDING_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 821
+  },
+  {
+   "path": "/ks/announce/ingest",
+   "path_raw": "KS_ANNOUNCE_INGEST_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 832
+  },
+  {
+   "path": "/ks/announce/ingest/triage",
+   "path_raw": "KS_ANNOUNCE_TRIAGE_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 853
+  },
+  {
+   "path": "/ks/announce/change-signals",
+   "path_raw": "KS_ANNOUNCE_CHANGE_SIGNALS_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 864
+  },
+  {
+   "path": "/ks/announce/auto-ingest",
+   "path_raw": "KS_ANNOUNCE_AUTO_INGEST_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/announce.js",
+   "lineno": 886
+  },
+  {
+   "path": "/ks/channels",
+   "path_raw": "KS_CHANNELS_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/channels.js",
+   "lineno": 160
+  },
+  {
+   "path": "/ks/channels/probe",
+   "path_raw": "KS_CHANNELS_PROBE_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/channels.js",
+   "lineno": 209
+  },
+  {
+   "path": "/ks/channels",
+   "path_raw": "KS_CHANNELS_ITEM_PREFIX",
+   "resolved": true,
+   "kind": "prefix",
+   "file": "plugin/src/channels.js",
+   "lineno": 267
+  },
+  {
+   "path": "/ks/chat-mode",
+   "path_raw": "KS_CHAT_MODE_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/chatmode.js",
+   "lineno": 1312
+  },
+  {
+   "path": "/ks/compliance/ping",
+   "path_raw": "/ks/compliance/ping",
+   "resolved": false,
+   "kind": "exact",
+   "file": "plugin/src/compliance-sentry.js",
+   "lineno": 176
+  },
+  {
+   "path": "/ks/doc-image",
+   "path_raw": "KS_DOC_IMAGE_PATH",
+   "resolved": true,
+   "kind": "prefix",
+   "file": "plugin/src/docimage.js",
+   "lineno": 84
+  },
+  {
+   "path": "/ks/session",
+   "path_raw": "KS_SESSION_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/index.js",
+   "lineno": 1464
+  },
+  {
+   "path": "/ks/bbox",
+   "path_raw": "KS_BBOX_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/index.js",
+   "lineno": 1504
+  },
+  {
+   "path": "/ks/assets/pdf-wasm",
+   "path_raw": "KS_PDF_WASM_PATH",
+   "resolved": true,
+   "kind": "prefix",
+   "file": "plugin/src/index.js",
+   "lineno": 1603
+  },
+  {
+   "path": "/ks/assets/pdf.worker.min.mjs",
+   "path_raw": "KS_PDF_WORKER_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/index.js",
+   "lineno": 1666
+  },
+  {
+   "path": "/ks/ingest/inbox-default",
+   "path_raw": "KS_INGEST_INBOX_DEFAULT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/ingest.js",
+   "lineno": 176
+  },
+  {
+   "path": "/ks/ingest/inbox",
+   "path_raw": "KS_INGEST_INBOX_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/ingest.js",
+   "lineno": 196
+  },
+  {
+   "path": "/ks/ingest/preview",
+   "path_raw": "KS_INGEST_PREVIEW_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/ingest.js",
+   "lineno": 236
+  },
+  {
+   "path": "/ks/ingest/preview/batch",
+   "path_raw": "KS_INGEST_BATCH_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/ingest.js",
+   "lineno": 279
+  },
+  {
+   "path": "/ks/ingest/preview/jobs",
+   "path_raw": "KS_INGEST_JOB_START_PATH",
+   "resolved": true,
+   "kind": "prefix",
+   "file": "plugin/src/ingest.js",
+   "lineno": 697
+  },
+  {
+   "path": "/ks/inspection/run",
+   "path_raw": "KS_INSPECTION_RUN_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/inspection.js",
+   "lineno": 695
+  },
+  {
+   "path": "/ks/inspection/summary",
+   "path_raw": "KS_INSPECTION_SUMMARY_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/inspection.js",
+   "lineno": 714
+  },
+  {
+   "path": "/ks/inspection/export",
+   "path_raw": "KS_INSPECTION_EXPORT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/inspection.js",
+   "lineno": 774
+  },
+  {
+   "path": "/ks/inspection/settings",
+   "path_raw": "KS_INSPECTION_SETTINGS_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/inspection.js",
+   "lineno": 842
+  },
+  {
+   "path": "/ks/report/effect",
+   "path_raw": "KS_REPORT_EFFECT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/report.js",
+   "lineno": 103
+  },
+  {
+   "path": "/ks/report/effect/docs",
+   "path_raw": "KS_REPORT_DOCS_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/report.js",
+   "lineno": 126
+  },
+  {
+   "path": "/ks/report/export",
+   "path_raw": "KS_REPORT_EXPORT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/report.js",
+   "lineno": 150
+  },
+  {
+   "path": "/ks/report/research",
+   "path_raw": "KS_REPORT_RESEARCH_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/report.js",
+   "lineno": 233
+  },
+  {
+   "path": "/ks/report/research/draft",
+   "path_raw": "KS_REPORT_DRAFT_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/report.js",
+   "lineno": 290
+  },
+  {
+   "path": "/ks/settings/api-config",
+   "path_raw": "KS_API_CONFIG_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/settings.js",
+   "lineno": 152
+  },
+  {
+   "path": "/ks/settings/api-config/test",
+   "path_raw": "KS_API_CONFIG_TEST_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/settings.js",
+   "lineno": 202
+  },
+  {
+   "path": "/ks/turn/last",
+   "path_raw": "KS_TURN_LAST_PATH",
+   "resolved": true,
+   "kind": "exact",
+   "file": "plugin/src/turn.js",
+   "lineno": 42
+  }
+ ]
+}
