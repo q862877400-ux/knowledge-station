@@ -132,7 +132,7 @@
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/survey/17-function-index.md` | 893 | 未提交 | 一、口径 |
+| `docs/survey/17-function-index.md` | 893 | 2026-10-24 | 一、口径 |
 | `docs/DEVELOPMENT-HISTORY.md` | 331 | 2026-10-18 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/survey/14-test-index.md` | 251 | 2026-10-24 | 一、口径 |
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
