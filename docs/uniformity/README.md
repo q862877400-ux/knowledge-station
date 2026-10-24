@@ -9,7 +9,10 @@
 > 而 §0+§1 只有 212 行，新人为了拿那 212 行要拖 987 行进来。
 > 拆开后：上手 210 行、证据 760 行，各读各的。
 >
-> **最后更新**：2026-10-23 ｜ **基准提交**：`64f37707`
+> **最后更新**：2026-10-24 ｜ **基准提交**：`f3eee72f`
+>
+> **⚠ 先看 [`COVERAGE.md`](COVERAGE.md)**：逐面列出「摸到什么程度 / 哪些没读 / 哪些不能删 / 哪些是风险」。
+> **上下文被压缩之后，照那张表说话，不许凭印象说「摸透了」。**
 >
 > **⚠ 数字口径（2026-10-23 verifier 抽查后补）**：本文的行数/文件数/用例数都是
 > **工作树实测**，不是某个提交的。工作树与 HEAD 有差异：① `src/core` 有 **5 个文件**
@@ -720,12 +723,16 @@ $skipNodeIds = @($jx.SelectNodes('//testcase') |
 
 | 文件 | 内容 | 可信度 |
 |---|---|---|
+| [`COVERAGE.md`](COVERAGE.md) | **摸底完成度总账**：每面摸到什么程度 / 明确没读的 / 不能删的 / 风险 | ★★★ **压缩后先看这个** |
 | [`00-review-of-surveys.md`](00-review-of-surveys.md) | **主对话复核记录**：10 条已核实 / 2 条推翻 / 2 条更正 | ★★★ 先看这个 |
 | [`01-core.md`](01-core.md) | `src/core` 16 子系统 + 10 根文件逐文件职责、入口、依赖、写什么 | ★★ 骨架可信，具体结论抽查过 |
 | [`02-plugin.md`](02-plugin.md) | `plugin/` 宿主 19 js + 客户端 31 tsx + 56 mjs；40 条重复；端点清单 | ★★ 同上 |
 | [`03-docs-specs-scripts.md`](03-docs-specs-scripts.md) | 29 顶层文档 + 9 组冲突 + specs 15 个 + scripts 68 个 | ★★ 同上 |
 | [`04-tests-tools-gates.md`](04-tests-tools-gates.md) | tests 结构 + 覆盖率缺口 + 门禁 12 步 + 棘轮绕过分析 | ★★★ 唯一被推翻的是 xfail 那条（见 §4.5） |
 | [`05-verifier-findings.md`](05-verifier-findings.md) | **两路独立 verifier 抽查 18 条的结果**：我说对 14 / 我说错 3 / verifier 说错 1（含不采纳的理由） | ★★★ 先看这个再引用任何数字 |
+| [`06-frontend.md`](06-frontend.md) | **`plugin/client/` 31 个前端文件逐个职责**（此前全仓唯一没被细读过的一块）：`api.ts` 5,011 行的组织、页壳手写 8 处、229 处内联字号、死件 `KsPdfGuideIcon` | ★★ 前端改动前必读 |
+| [`07-other-dirs.md`](07-other-dirs.md) | **`eval/` / `tools/gov-qa/` / `wenjianmulu/` / `output/` / `pipeline/` / `.specify/` 等 9 个此前没打开过的目录**：各自是什么、能不能删、隐私抽样 | ★★★ 删任何目录前必读 |
+| [`08-why-contracts-rot.md`](08-why-contracts-rot.md) | **回答「约定了契约为什么还会变乱」**：6 个可实测的原因 + 我做了什么 + 还差什么（含 12 处写死旧路径造成的假绿） | ★★★ 理解为什么要造尺子 |
 | [`report.md`](report.md) | **统一化逐轮留档**：读数演进 / 两条判据校准 / 五批改动的守恒证据 / **我自己制造的 6 个回归** / 判「不统一」的否定裁决 | ★★★ 做统一化前必读 |
 
 **⚠ 引用子代理报告时先看 `00-review-of-surveys.md`**：

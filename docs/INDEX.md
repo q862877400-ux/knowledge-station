@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **222 份** / **7789 KB**。
+> 共 **226 份** / **7899 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -62,12 +62,13 @@
 | `docs/research/channels/REGISTRY-STATUS.md` | 36 | 2026-10-11 | 一、我方通路（适配器与采集链路） |
 | `docs/research/CHANNEL-SYSTEM-AUDIT-2026-10-12.md` | 6 | 2026-10-12 | 业主问：「我不是做了一套自动嗅探各个网站的法规和标准的更新动态，然后根据更新动态去下载 |
 
-## 界面与交互（5 份 / 351 KB）
+## 界面与交互（6 份 / 399 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/UI-BASELINE.md` | 256 | 2026-10-12 | **这份文件干什么**：把"照抄 WeKnora"从口号变成**可施工的规格**：① 参照物清单位置；② 一套**尺度系 |
 | `docs/INTERACTION-DESIGN.md` | 63 | 2026-10-11 | 〇、落地状态（**以代码为准**，2026-09-19 §10.130 更新） |
+| `docs/uniformity/06-frontend.md` | 48 | 未提交 | 调查对象：`D:\Agent-Studio\Deepseek-Harness\DSH-Data\workspace\zc |
 | `docs/research/retrieval-pipeline-design-merge.md` | 16 | 2026-10-05 | 零、一句话结论 |
 | `docs/ROADMAP-CLIENT-VIEW.md` | 10 | 2026-09-25 | 〇、总目标（一句话） |
 | `docs/UI-ICON-SYSTEM.md` | 6 | 2026-10-10 | 一、图标从哪来（契约，逐字取自宿主实现） |
@@ -126,7 +127,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（83 份 / 1943 KB）
+## 根文档与其他（86 份 / 2005 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -138,8 +139,9 @@
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 67 | 2026-10-11 | 一、我们现在进行到哪里（一页） |
 | `docs/uniformity/02-plugin.md` | 66 | 2026-10-23 | 调查对象：`plugin/`（DSH 插件，宿主侧 + 浏览器侧 + 验证脚本）。本文件只陈述读过源码后能指回具体文字的 |
 | `docs/research/archify/01-archify-逆向.md` | 58 | 2026-10-23 | 一句话结论 |
-| `docs/uniformity/README.md` | 53 | 2026-10-24 | 1. 项目是什么 |
+| `docs/uniformity/README.md` | 55 | 2026-10-24 | 1. 项目是什么 |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
+| `docs/uniformity/07-other-dirs.md` | 44 | 未提交 | 一、`eval/`（最详细） |
 | `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
@@ -176,6 +178,7 @@
 | `docs/research/SURVEY-学术调研-第3轮-还债与收敛.md` | 11 | 2026-10-07 | ★★★★★ 本轮颠覆性的发现：**中文法条检索基准是存在的，而且完全公开、MIT 许可** |
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
+| `docs/uniformity/08-why-contracts-rot.md` | 10 | 未提交 | 一、本仓确实有契约（不是没有） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/research/SURVEY-学术界怎么设计政务问答（沿36条参考文献）.md` | 9 | 2026-10-07 | 一、★ 最重要的一条：**他们已经把"尺子"做出来了**（我们最缺的东西） |
@@ -187,6 +190,7 @@
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/uniformity/05-verifier-findings.md` | 6 | 2026-10-23 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
+| `docs/uniformity/COVERAGE.md` | 6 | 未提交 | 一、总账 |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/wiki/components/storage.md` | 6 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
