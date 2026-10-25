@@ -187,6 +187,8 @@
 | H 工业实践 | `75-industry-practice.md` + `data/75-industry-practice.jsonl` | ✅ 已落盘（272 行 / 35 行） | **35 个案例**；瓶颈顺序 内存→过滤→索引构建→解析；引用上限"段落+页/URL"；单机 10⁷ 可撑、10⁹ 必须集群 |
 | I 社区信号 | `78-community-signals.md` + `data/78-community-signals.jsonl` | ✅ 已落盘（278+ 行 / 45 行） | **两条否证**（SQLite→Postgres 的 100 万 PDF 实践、中文国标非无人区）+ 三条验证；中文社区零信号（Reddit 403 / 知乎反爬），如实记 |
 | J 学术扩面 | `80-academic-frontier.md` + `data/80-academic-frontier.jsonl` | ✅ 已落盘（311 行 / 24 行） | 24 篇；**两条我们没考虑过的范式**（doc2query 文档侧扩展、GAR 重排期图扩展）；德国民法典实测"按条/按款切最好" |
+| 增量（skill 工具矩阵） | `85-incremental-skill-tools.md` | ✅ 已落盘（2026-10-25 第三轮） | 用 `research-protocol` 里我前十条线没用过的四件工具补做：**下载量**（docling 290 万/月 vs mineru 10.9 万；sqlite-vec 554 万/月但零提交）、`gh search code`、OpenAlex 引用链（实证"按被引排序不可用"）、Wayback |
+| 复核 2/3 | `data/audit2-*.md`、`data/audit3-*.md` | 🔄 进行中 | 用户指示「继续」后追加：G/H 一队、B/D/F/I/J 一队，独立复核前十条线的外部事实 |
 
 **复核口径（本轮由独立复核线执行，结论写 `data/audit-2026-10-25.md`）**：只核**能被外部来源判真假的**条目（引用的 issue 号/原话/配额数字/许可证），不核【推断】类判断；每条给「确认 / 错误 / 无法核实」三态之一，**错的地方由 Lead 就地更正并留痕，不许悄悄删**。
 

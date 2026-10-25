@@ -36,7 +36,7 @@
 
 ### 1.1 TREC 2023（TREC 32）· 电影域 · 23.16 万维基页 · 11 队 33 个 run
 
-- **冠军：CMU-LTI，run `dpr-1000-rerank-robin`**。NDCG@10 **0.5169**、NDCG@1000 **0.5554**、MRR@1000 **0.5016**、Recall@1000 **0.7933**【一手，`Overview_tot_trec32.pdf` p.5 Table 2】。
+- **冠军：CMU-LTI，run `dpr-1000-rerank-robin`**。NDCG@10 **0.5169**、NDCG@1000 **0.5554**、MRR@1000 **0.5016**、Recall@1000 **0.7933**【一手，`Overview_tot.pdf（trec32 目录）` p.5 Table 2】。
 - 亚军同队 `dpr-100-rerank` NDCG@1000 0.5070；第三名 snuldilab `pre_aug_vat_max4` 只有 **0.3301** ⇒ 前两名与第三名之间有 **0.18 的断崖**，总览原文称其为「the two outlying runs」【一手，p.4 §4.3】。
 - **官方基线**：BM25 `baseline_bm25` **0.1388**、稠密 `baseline_distilbert` **0.1426**、GPT-4 基线 `baseline_gpt4_db` **0.2624**（同表 p.5）⇒ 冠军对最好基线是 **0.5554 / 0.1426 = 3.89×**，对 BM25 是 **4.00×**。
 - **检索路线**：run 名里的 `dpr-` = 稠密双塔检索，`rerank` = 重排，`robin` = 轮转（round-robin）式 listwise 重排——后者在 YaleNLP 2024 论文里被明确记为「Borges et al. 在 TREC ToT 2023 的做法」【一手，YaleNLP p.2 §2.3】。总览另给一条**关键归因**：「前两名使用了 TOMT-KIS，它比 TREC-ToT 数据集大得多。这似乎是其高性能的关键」【一手，p.5】。TOMT-KIS 规模 **128 万条**英文电影 ToT 查询【一手，DS@GT 综述转引 Fröbe et al. 2023】。
@@ -45,7 +45,7 @@
 
 ### 1.2 TREC 2024（TREC 33）· 电影+名人+地标 · 318.5 万维基页 · 6 队 18 个 run
 
-- **冠军：h2oloo（组名；TREC 33 附录的 Org 字段只写 `h2oloo`，未给机构名，网上旧记录指向滑铁卢但本轮没在官方材料里核到），run `rg4o_t100_test`**。NDCG@10 **0.8042**、NDCG@1000 **0.8159**、MRR@1000 **0.7910**、Recall@1000 **0.9250**【一手，`Overview_tot_trec33.pdf` p.6 Table 1】。亚军、季军也是 h2oloo（0.7003 / 0.6204）。
+- **冠军：h2oloo（组名；TREC 33 附录的 Org 字段只写 `h2oloo`，未给机构名，网上旧记录指向滑铁卢但本轮没在官方材料里核到），run `rg4o_t100_test`**。NDCG@10 **0.8042**、NDCG@1000 **0.8159**、MRR@1000 **0.7910**、Recall@1000 **0.9250**【一手，`Overview_tot.pdf（trec33 目录）` p.6 Table 1】。亚军、季军也是 h2oloo（0.7003 / 0.6204）。
 - **官方基线**：`baseline-dense` **0.2377**、`baseline-bm25` **0.1484**（同表 p.6）⇒ 冠军对最好基线 **0.8159 / 0.2377 = 3.43×**。
 - **检索路线（一手来源是官方提交表单，不是论文）**：TREC 2024 ToT 附录里 h2oloo 三个 run 的自我描述字段写着 `gpt4o-1 - https://github.com/TREC-ToT/bench/blob/main/GPT4.md like baseline (generalized to more types)`，并列明「用了官方基线 run」【一手，`trec33/appendices/trec2024-tot-main.html`】。⇒ **2024 冠军事质上是「让 GPT-4o 直接吐出候选实体名，再映射回语料」**，即组织者自己的 GPT-4 基线（2023 年该基线只有 0.2624）被**扩到更多实体类型后做到 0.8159**。
 - **这条比看起来重要**：它说明在「答案是唯一命名实体」的任务里，**把生成式 LLM 当召回器**能压过全套稠密检索管线，代价是每次查询一次前沿模型调用。
@@ -53,7 +53,7 @@
 
 ### 1.3 TREC 2025（TREC 34）· 通用域 · 640.8 万维基页 · 9 队 32 个 run
 
-- **冠军：SRCB（理光软件研究所北京），run `scrb-tot-04`**。NDCG@10 **0.6576**、RR **0.6258**、Recall@1000 **0.9051**、NDCG@1000 **0.6824**【一手，`Overview_tot_trec34.pdf` p.6 Table 1；同值见 `SRCB.mllm.tot.pdf` p.8 Table 7】。
+- **冠军：SRCB（理光软件研究所北京），run `scrb-tot-04`**。NDCG@10 **0.6576**、RR **0.6258**、Recall@1000 **0.9051**、NDCG@1000 **0.6824**【一手，`Overview_tot.pdf（trec34 目录）` p.6 Table 1；同值见 `SRCB.mllm.tot.pdf` p.8 Table 7】。
 - **官方基线**：`pyterrier-bm25` **0.1700**（三个基线里最好）、`anserini-bm25` 0.1032、`lightning-ir-dense` **0.0514**（p.6 Table 1）⇒ 冠军对最好基线 **0.6824 / 0.1700 = 4.01×**；对稠密基线 **13.3×**。
 - **检索路线（一手，SRCB 论文 §3，p.3–p.7）**，六步：
   1. **查询预处理**：DeepSeek-V3 把原始 ToT 查询改写成**线索清单（cue list）**，去掉冗余噪声、修错字；「本文所有模块的输入都是 cue list 而不是原始查询」（p.4）。

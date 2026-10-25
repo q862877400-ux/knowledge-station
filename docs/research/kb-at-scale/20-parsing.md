@@ -15,6 +15,7 @@
 3. **表格做到"结构级"的只有 4 家**：MinerU、Docling、Paddle、Marker（且 Marker 只在 JSON 里保结构）。其余是"能出文字/能出图"，不是保结构【一手】。
 4. MinerU 把"合并单元格"显式化到类型系统里：`table_type` 由 HTML 里有 `colspan`/`rowspan` 或嵌套表数 > 1 判为 `complex_table`，否则 `simple_table`；表格本体是 HTML 字符串【一手，`docs/next/middle-json/structured-content-current.md`】。
 5. **Marker 的 Markdown 是 pipe 表**：官方示例输出 58 处 Markdown 表分隔线、0 个 `<table`，合并单元格在 Markdown 路径上丢失；只有 JSON 的 `Table` block 里有完整 HTML【一手，仓库 `data/examples`】。
+   - ⚠ **2026-10-25 复核实测更正**：按当前仓库三个官方示例（multicolcnn / switch_trans / thinkpython）实测合计 **28 处**表分隔线（4 / 14 / 10），**不是 58**（58 可能取自更早快照）。**「0 个 `<table`」这个关键事实是对的**，结论「Markdown 落 pipe 表、合并单元格必丢」**不受影响**。
 6. **Docling 的 Markdown 序列化器会把嵌套表拍平**（源码注释自述），要结构只能用 HTML 导出或 DoclingDocument JSON【一手，docling-core `serializer/markdown.py`】。
 7. Paddle 是唯一**给无框线表格单独训模型**的：表结构识别分 `SLANeXt_wired` / `SLANeXt_wireless` 两套权重【一手，PaddleX `configs/.../SLANeXt_wireless.yaml`】。
 8. **上下标**：只有 MinerU 4.0 有显式表达（`superscript`/`subscript` 行内样式，PDF 原生文本按字符几何检测，带单测用真实中文 PDF 做夹具）与 Marker 输出 `<sup>` 标签；其余压平或未取证【一手】。
@@ -151,6 +152,12 @@
 ---
 
 ## 对我们（结论落点：改哪儿、抄哪一段、代价、明确不抄）
+
+> ⚠ **2026-10-25 增量补充（用 `research-protocol` 工具矩阵的下载量口径做的，详见 `85-incremental-skill-tools.md` §一）**：
+> PyPI 月下载实测（`pypistats.org`，2026-10-25）：**docling 2,909,751 / unstructured 2,462,836 / marker-pdf 116,251 / mineru 109,382 / magic-pdf 14,341**。
+> ⇒ ① 「magic-pdf 是旧包名」**加强为**「依赖已基本没人用」（1.4 万 vs mineru 10.9 万，差 7.6 倍）；
+> ② 「Docling 当第二解析器」**加强**——它的生态采用度是 MinerU 的 **26.6 倍**，遇到问题有地方查，正好补 MinerU issue 区冷清的短板；
+> ③ 但**下载量 ≠ 能力验证**：docling 的 290 万里有大量"顺手装的"。**主结论不变**：合并单元格/上下标/LaTeX 仍是 MinerU 唯一做全的。
 
 ### 0. 必须立刻登记的事实冲突（先于任何方案）
 
