@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **263 份** / **10245 KB**。
+> 共 **263 份** / **10248 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -128,7 +128,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（122 份 / 4334 KB）
+## 根文档与其他（122 份 / 4337 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -158,11 +158,11 @@
 | `docs/research/archify/02-ks-现状.md` | 43 | 2026-10-23 | 一句话结论 |
 | `docs/research/kb-at-scale/40-papers.md` | 41 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
+| `docs/research/kb-at-scale/20-parsing.md` | 40 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/uniformity/10-api-server.md` | 40 | 2026-10-24 | 0. 先更正任务书里的两个数字（实测，不是估算） |
 | `docs/research/kb-at-scale/90-synthesis.md` | 39 | 2026-10-25 | 一、结论先行（每条一句话，带档位） |
 | `docs/survey/07-doc-surface.md` | 39 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
-| `docs/research/kb-at-scale/20-parsing.md` | 37 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/research/kb-at-scale/30-indexing.md` | 35 | 2026-10-25 | 结论先行 |
 | `docs/research/kb-at-scale/50-commercial.md` | 34 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
