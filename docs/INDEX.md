@@ -138,7 +138,7 @@
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/survey/11-module-index.md` | 166 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
-| `docs/research/kb-at-scale/AUDIT-2026-10-25.md` | 81 | 未提交 | 〇、总账（先看这一张） |
+| `docs/research/kb-at-scale/AUDIT-2026-10-25.md` | 81 | 2026-10-25 | 〇、总账（先看这一张） |
 | `docs/survey/15-doc-index-content.md` | 76 | 2026-10-24 | 一、口径 |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 | 2026-10-23 | **先纠正任务书里的两个数字**（都实测过，不是我猜）： |
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
@@ -225,7 +225,7 @@
 | `docs/wiki/components/storage.md` | 6 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
-| `docs/research/papers/README.md` | 5 | 2026-09-30 | 一、目录结构（2026-10-25 分类整理） |
+| `docs/research/papers/README.md` | 5 | 2026-10-25 | 一、目录结构（2026-10-25 分类整理） |
 | `docs/survey/09-runtime.md` | 5 | 2026-10-24 | 一、引擎怎么起 |
 | `docs/survey/12-config-surface.md` | 5 | 2026-10-24 | 一、口径 |
 | `docs/wiki/components/exports.md` | 5 | 2026-10-23 | **位置**：`src/core/exports/` |
