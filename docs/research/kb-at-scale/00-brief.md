@@ -162,8 +162,11 @@
 | D | `40-papers.md` | 论文前沿：Contextual Retrieval(Anthropic)、Late Chunking(Jina)、RAPTOR、GraphRAG/LightRAG/HippoRAG、Sufficient Context、表格检索(OTT-QA/FeTaQA)、公式检索、法律检索(COLIEE/LeCaRD)、中文法条检索、RAG 综述；**外加各年度检索/知识库竞赛冠军**（TREC ToT **2023–2025** 各年冠军与论文——⚠ **2022 年没有 ToT 赛道**，2026-10-25 已核：TREC 31 议程页无该总览、ToT 官网 Previous editions 只列 2023/2024/2025；另有 CCKS、CCF BDCI、KDD Cup CRAG、COLIEE、NeurIPS 相关挑战赛） |
 | E | `50-commercial.md` | 商业产品技术路径：Azure AI Search / Vertex AI Search / AWS Bedrock KB+Kendra / Elastic / Glean / Cohere / Pinecone / Harvey / LexisNexis Protégé / CoCounsel / Spellbook / 北大法宝 / 威科先行 / 工标库 / 秘塔 / 得理法搜 / 云厂商 KB |
 | F | `60-cn-legal-kg.md` | 中文/法律/图谱专用工程：KAG(OpenSPG)、QAnything、BISHENG、ChatLaw/LaWGPT 等法律开源、COLIEE/LeCaRD/CAIL 数据集与做法、条款级知识图谱。**只写 A~E 没评过的**；GraphRAG/LightRAG 的方法论文归 D 线 |
+| G | `70-competitions.md` | **竞赛与评测赛道全景**（业主 2026-10-25 追加：「既然还有其他的比赛，那你完全可以多参考参考」）。TREC 系（Deep Learning / NeuCLIR / CAsT / ToT / FTS / Clinical Trials / Interactive-KB）、NTCIR 系、CLEF 系（CLEF-IP、JURISIN 相关）、SemEval、KDD Cup、NeurIPS/ICLR 挑战赛、MS MARCO、**BEIR / BRIGHT / MTEB / C-MTEB 排行榜**、CRAG、RAGTruth、**文档解析榜 OmniDocBench / olmOCR-Bench**、法律赛道 **COLIEE / LeCaRD / CAIL / 中国法研杯 / LegalBench / LEXTREME**、中文系 CCKS / CCIR / NLPCC / CCF BDCI / 天池 / DataFountain / 讯飞 A.I. 开发者大赛。**每条写：赛道问的是什么、冠军/榜首用什么路线、指标多少、能不能迁到"条款级中文法规"** |
+| H | `75-industry-practice.md` | **工业界生产实践**（公司工程博客与生产案例）：谁真做过千万级检索/知识库、怎么分片、怎么控成本、怎么保证引用可回溯、踩过什么坑。候选：Pinterest / Notion / Slack / GitHub / Atlassian / Microsoft / Google / Meta / Airbnb / Shopify / Stripe / 字节 / 阿里 / 腾讯 / 小红书 的搜索与 RAG 工程博客；Elastic/Vespa/Qdrant/Milvus 官方案例；法律科技公司（Harvey、Robin AI、Luminance）的技术分享 |
+| I | `78-community-signals.md` | **社区与社交媒体实战信号**（业主：「社交媒体上面啥的也可以参考，百无禁忌」）：HN / Reddit(r/LocalLLaMA, r/MachineLearning, r/RAG) / Lobsters / V2EX / 知乎 / 公众号 / GitHub Discussions 与 issue 区 / 独立评测博文。**主题**：各国开源知识库在真实语料上的失败模式、百万级实测反馈、表格/公式解析的真实吐槽、各家许可证陷阱、以及"厂商宣传 vs 用户实测"的差距清单。**一律标【转述】，不许当一手** |
 
-**交叉规则**：同一条事实只在一条线里写细，其它线写"见 X 线"。**不许两条线重复评同一个项目**（WeKnora 只在 A 线补规模面，其它线不写）。
+**交叉规则**：同一条事实只在一条线里写细，其它线写"见 X 线"。**不许两条线重复评同一个项目**（WeKnora 只在 A 线补规模面，其它线不写）。G/H/I 三条线是 2026-10-25 追加的扩面，**不与 A~F 重复评同一对象**：G 只写比赛与榜单，H 只写公司生产实践，I 只写社区信号。
 
 ---
 
@@ -179,6 +182,20 @@
 | E | `50-commercial.md` + `data/50-commercial.jsonl` | ✅ 已落盘，**复核后已更正 2 处** | 20 家商业产品；E-3（Azure 1,000 是通配符限制）、E-8（Kendra 已生效）已改 |
 | F | `60-cn-legal-kg.md` + `data/60-cn-legal-kg.jsonl` | ✅ 已落盘（238 行 / 16 行 jsonl） | 总判断："投，但只投薄的那一半"；英国 effects 字段可整段照抄；GB/T 46686.1 库内没有，未入库前不得当依据 |
 | 复核 | `data/audit-2026-10-25.md` + `.jsonl` | ✅ 已落盘 | 核 37 条：确认 30 / **错误 6** / 无法核实 1 / 引证指错页 2；6 条错误已由 Lead 就地更正并留痕 |
-| 综合 | `90-synthesis.md` | ✅ 已落盘 | **业主真正要的东西**：10 条结论 + 代码级现状 + P0/P1/P2/P3 改动形状（**调研结论，不是待办**；业主 2026-10-25 明确"你只是调研员，不要讨论实施"） |
+| 综合 | `90-synthesis.md` | ✅ 已落盘（扩面后 197→242 行） | **业主真正要的东西**：20 条结论 + 代码级现状 + P0/P1/P2/P3 改动形状（**调研结论，不是待办**；业主 2026-10-25 明确"你只是调研员，不要讨论实施"） |
+| G 竞赛/榜单 | `70-competitions.md` + `data/70-competitions.jsonl` | ✅ 已落盘（307 行 / 44 行） | **42 个对象**；两处任务书前提错（无 FTS 赛道、DL 是 2019–2023）；补上被漏掉的 **TREC Legal**；中文国标条款级检索"无比赛、只有数据集" |
+| H 工业实践 | `75-industry-practice.md` + `data/75-industry-practice.jsonl` | ✅ 已落盘（272 行 / 35 行） | **35 个案例**；瓶颈顺序 内存→过滤→索引构建→解析；引用上限"段落+页/URL"；单机 10⁷ 可撑、10⁹ 必须集群 |
+| I 社区信号 | `78-community-signals.md` + `data/78-community-signals.jsonl` | ✅ 已落盘（278+ 行 / 45 行） | **两条否证**（SQLite→Postgres 的 100 万 PDF 实践、中文国标非无人区）+ 三条验证；中文社区零信号（Reddit 403 / 知乎反爬），如实记 |
+| J 学术扩面 | `80-academic-frontier.md` + `data/80-academic-frontier.jsonl` | ✅ 已落盘（311 行 / 24 行） | 24 篇；**两条我们没考虑过的范式**（doc2query 文档侧扩展、GAR 重排期图扩展）；德国民法典实测"按条/按款切最好" |
 
 **复核口径（本轮由独立复核线执行，结论写 `data/audit-2026-10-25.md`）**：只核**能被外部来源判真假的**条目（引用的 issue 号/原话/配额数字/许可证），不核【推断】类判断；每条给「确认 / 错误 / 无法核实」三态之一，**错的地方由 Lead 就地更正并留痕，不许悄悄删**。
+
+---
+
+## 九、给所有调研子代理的工具纪律（2026-10-25 Lead 定，踩过坑）
+
+1. **联网只用 `web_fetch` / `web_search` 这两个工具**，它们已经配好 DeepSeek 官方的 Tools key（进程环境里的 `DEEPSEEK_TOOLS_API_KEY`，与模型 provider 是**两套凭据**）。
+2. **不要自己拼 HTTP 请求去打 DeepSeek 官方接口**（`api.deepseek.com` 之类），也不要把当前会话模型 provider 的 key 拿去发请求 —— 那条路上游不认，会白跑。
+3. 抓页面用 `web_fetch`；要 markdown 全文可试 `https://r.jina.ai/<url>`（第三方，免 key）；GitHub 元数据用 `gh api`（已登录）。
+4. 工具报错就**如实写 `fetch_failed` 并换源**，不许自己另找 key、也不许把失败说成"查过了没有"。
+5. **子代理只写自己那两个文件**（md + jsonl），不 commit、不动别人的写盘范围。
