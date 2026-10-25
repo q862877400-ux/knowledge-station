@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **267 份** / **10252 KB**。
+> 共 **263 份** / **10245 KB**。
 
 ## 方案与台账（6 份 / 432 KB）
 
@@ -128,7 +128,7 @@
 | `docs/verify-briefs/VERIFY-REPORT-spec009-turn-evidence-ui.md` | 7 | 2026-10-12 | 0. 冻结与现场 |
 | `docs/verify-briefs/VERIFY-REPORT-e9-col-prior.md` | 6 | 2026-10-09 | 1. 首尾 HEAD / status |
 
-## 根文档与其他（126 份 / 4341 KB）
+## 根文档与其他（122 份 / 4334 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -138,6 +138,7 @@
 | `docs/REQUIREMENTS-v4.3.md` | 208 | 2026-10-10 | 本套文档特点（v4.3 修订版）： |
 | `docs/survey/11-module-index.md` | 166 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
+| `docs/research/kb-at-scale/AUDIT-2026-10-25.md` | 81 | 未提交 | 〇、总账（先看这一张） |
 | `docs/survey/15-doc-index-content.md` | 76 | 2026-10-24 | 一、口径 |
 | `docs/uniformity/03-docs-specs-scripts.md` | 74 | 2026-10-23 | **先纠正任务书里的两个数字**（都实测过，不是我猜）： |
 | `docs/uniformity/01-core.md` | 70 | 2026-10-23 | 调查日期：2026-10-20。范围：`src/core/` 全部 155 个 `.py` 文件（45,439 行 /  |
@@ -158,13 +159,12 @@
 | `docs/research/kb-at-scale/40-papers.md` | 41 | 2026-10-25 | 结论先行（≤15 行） |
 | `docs/uniformity/04-tests-tools-gates.md` | 41 | 2026-10-23 | 一、tests 结构分组 |
 | `docs/uniformity/10-api-server.md` | 40 | 2026-10-24 | 0. 先更正任务书里的两个数字（实测，不是估算） |
+| `docs/research/kb-at-scale/90-synthesis.md` | 39 | 2026-10-25 | 一、结论先行（每条一句话，带档位） |
 | `docs/survey/07-doc-surface.md` | 39 | 2026-10-24 | 一、口径 |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 2026-10-10 | 零、核查用到的取证入口（可复现） |
 | `docs/research/kb-at-scale/20-parsing.md` | 37 | 2026-10-25 | 结论先行（≤15 行） |
-| `docs/research/kb-at-scale/data/audit-2026-10-25.md` | 37 | 2026-10-25 | 一、逐条核对表 |
 | `docs/research/kb-at-scale/30-indexing.md` | 35 | 2026-10-25 | 结论先行 |
 | `docs/research/kb-at-scale/50-commercial.md` | 34 | 2026-10-25 | 结论先行（≤15 行） |
-| `docs/research/kb-at-scale/90-synthesis.md` | 34 | 2026-10-25 | 一、结论先行（每条一句话，带档位） |
 | `docs/research/ks-fixes/03-waiting-feedback.md` | 31 | 2026-10-23 | 一句话结论 |
 | `docs/research/ks-fixes/02-modality-residual.md` | 29 | 2026-10-23 | 一句话结论 |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
@@ -176,16 +176,14 @@
 | `docs/EXTERNAL-REVIEW-ARCHITECTURE-v4.md` | 23 | 2026-10-23 | 0. 先读这一页 |
 | `docs/NOT-DOING.md` | 23 | 2026-10-11 | **为什么要这份文件**：2026-09-19 我连续两次把**业主早就否掉**的东西重新端上来当待办 —— |
 | `docs/research/ks-fixes/01-d2-rootcause.md` | 23 | 2026-10-23 | 一句话结论 |
-| `docs/research/kb-at-scale/data/audit2-2026-10-25.md` | 22 | 未提交 | 一、逐条核对表 |
 | `docs/research/substitute-scan.md` | 22 | 2026-09-19 | 一、扫描结果：四类替代品（+ 一类交付形态替代） |
 | `docs/LAW-SOURCE-PLAN.md` | 21 | 2026-10-10 | 0. 目标与原则 |
 | `docs/research/HANDOFF-external-solutions.md` | 21 | 2026-09-28 | 0. 一句话任务 |
 | `docs/survey/05-api-surface.md` | 21 | 2026-10-24 | 一、口径 |
 | `docs/survey/18-runtime-probe.md` | 21 | 2026-10-24 | 一、这是唯一真正跑起来的一层 |
 | `docs/research/cross-plane-jump-assessment.md` | 20 | 2026-09-24 | 一、问题与已定的范围 |
-| `docs/research/kb-at-scale/data/audit3-2026-10-25.md` | 20 | 未提交 | 一、逐条核对表 |
+| `docs/research/kb-at-scale/00-brief.md` | 20 | 2026-10-25 | 一、我们要回答的问题（不是"市面上有什么"，是"我们改不改、改哪儿"） |
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
-| `docs/research/kb-at-scale/00-brief.md` | 19 | 2026-10-25 | 一、我们要回答的问题（不是"市面上有什么"，是"我们改不改、改哪儿"） |
 | `docs/research/classical-chinese-segmentation-evidence.md` | 18 | 2026-10-09 | 一、结论（三句话） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
 | `docs/survey/10-observed.md` | 17 | 2026-10-24 | 一、代码里观察到的事 |
@@ -211,7 +209,6 @@
 | `docs/research/SURVEY-学术调研-第4轮-STARD可用率与总结论.md` | 11 | 2026-10-07 | 一、还债：`LegalBench`（拖欠三轮） |
 | `docs/research/SURVEY-学界做法值不值得抄-效果与工作量评估.md` | 11 | 2026-10-07 | 一、你说对了一半：**有些花活确实不值得抄，而且论文自己承认** |
 | `docs/survey/06-test-surface.md` | 11 | 2026-10-24 | 一、口径 |
-| `docs/research/kb-at-scale/85-incremental-skill-tools.md` | 10 | 未提交 | 一、把「星数」换成「下载量」：**两个结论被加强，一个结论要改口径** |
 | `docs/survey/00-method.md` | 10 | 2026-10-24 | 一、「所有内容」到底指什么（九个面，逐面机械枚举） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 2026-10-10 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
@@ -221,7 +218,6 @@
 | `docs/research/PAPER-可信政务问答技术-软件学报2026.md` | 8 | 2026-10-07 | 一、它和我们做的是同一件事 |
 | `docs/research/SURVEY-学术调研-总清单（要落地看这一页）.md` | 8 | 2026-10-07 | 一、一句话结论 |
 | `docs/research/ARROW-CONFLICT-AUDIT-2026-10-12.md` | 7 | 2026-10-23 | 业主令：「你先阅读那个最开始的代码，因为这个功能你刚开始是有的，最原始的设计， |
-| `docs/research/kb-at-scale/data/AUDIT-SUMMARY-2026-10-25.md` | 7 | 未提交 | 一、总账 |
 | `docs/research/SURVEY-两条核实-GuRE语料性质与RefWalk表义.md` | 7 | 2026-10-07 | 一、★ GuRE 的语料 = **美国联邦判例的段落**，**不是法条** —— 我的采信要下调 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/uniformity/05-verifier-findings.md` | 6 | 2026-10-23 | 一、verifier-A（抽查 `src/core` 事实地图，10 条） |
@@ -229,6 +225,7 @@
 | `docs/wiki/components/storage.md` | 6 | 2026-10-23 | **位置**：`src/core/storage/` |
 | `docs/naming-convention.md` | 5 | 2026-10-10 | **生效日**：2026-10-05（v2 定案）｜**执行记录**：[rename-map.md](../specs/ |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
+| `docs/research/papers/README.md` | 5 | 2026-09-30 | 一、目录结构（2026-10-25 分类整理） |
 | `docs/survey/09-runtime.md` | 5 | 2026-10-24 | 一、引擎怎么起 |
 | `docs/survey/12-config-surface.md` | 5 | 2026-10-24 | 一、口径 |
 | `docs/wiki/components/exports.md` | 5 | 2026-10-23 | **位置**：`src/core/exports/` |
@@ -247,7 +244,6 @@
 | `docs/wiki/components/settings.md` | 4 | 2026-10-23 | **位置**：`src/core/settings/` |
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
-| `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
 | `docs/survey/README.md` | 3 | 2026-10-24 | 这是什么 |
 | `docs/wiki/components/ingestion.md` | 3 | 2026-10-23 | **位置**：`src/core/ingestion/` |
 | `docs/wiki/components/query.md` | 3 | 2026-10-23 | **位置**：`src/core/query/` |

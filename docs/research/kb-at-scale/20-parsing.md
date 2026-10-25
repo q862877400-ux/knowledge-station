@@ -153,7 +153,7 @@
 
 ## 对我们（结论落点：改哪儿、抄哪一段、代价、明确不抄）
 
-> ⚠ **2026-10-25 增量补充（用 `research-protocol` 工具矩阵的下载量口径做的，详见 `85-incremental-skill-tools.md` §一）**：
+> ⚠ **2026-10-25 增量补充（用 `research-protocol` 工具矩阵的下载量口径做的，详见 `90-synthesis.md` §十一.1）**：
 > PyPI 月下载实测（`pypistats.org`，2026-10-25）：**docling 2,909,751 / unstructured 2,462,836 / marker-pdf 116,251 / mineru 109,382 / magic-pdf 14,341**。
 > ⇒ ① 「magic-pdf 是旧包名」**加强为**「依赖已基本没人用」（1.4 万 vs mineru 10.9 万，差 7.6 倍）；
 > ② 「Docling 当第二解析器」**加强**——它的生态采用度是 MinerU 的 **26.6 倍**，遇到问题有地方查，正好补 MinerU issue 区冷清的短板；
