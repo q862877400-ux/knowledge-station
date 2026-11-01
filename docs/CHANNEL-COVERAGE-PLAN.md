@@ -2779,3 +2779,74 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
   `docs/research/channels/registry.seed.json`、`scripts/chain-snapshot.py` 全未触碰；
   本轮**零网络**、真库只读（`mode=ro`，跑前跑后 mtime 未变）。
 - **R8 之后两处已登记缺口仍在**（**不是**"本轮做完了"）：① 红/黄号的「补探」；② 宿主插件代理。
+
+---
+
+### R7（2026-11-02）：公告扫描并行化 + 155 条渠道补探针并实测
+
+**两个交付物，都有实测数字。**
+
+#### 1. 公告栏扫描改并行（`src/core/update/announce.py`）
+
+原来是一个 `for` 循环：110 个公告源排在 **76 个不同主机**上却一个接一个跑。
+改成「**不同主机并发、同一主机仍串行 + 1 秒间隔**」：
+
+| 口径 | 耗时 | 成功/失败 |
+|---|---:|---|
+| 串行（改前） | **6.8 分钟** | 100 / 10 |
+| **并发 8（默认）** | **55.1–60.1 秒** | 98–101 / 9–12 |
+| 并发 2（对照） | 140.2 秒 | 100 / 10 |
+
+⇒ 约 **7 倍**。并发 2 与 8 的失败集几乎相同（药监局 412、铁路局 403 两种并发都失败）
+⇒ 那些是站点反爬，不是并发惹的。判据见 `tests/test_announce_parallel.py`（5 条，
+含「同一主机并发恒为 1」与「`first_scan_done` 不丢」）。
+
+配置键（写入真库）：`announce.scan_concurrency=8`、`announce.scan_soft_cap_s` 1800 → 7200。
+
+#### 2. 155 条从未被检测的渠道：补探针 + 实测
+
+台账 286 条，探针目标表原本只有 **102** 条 ⇒ **184 条从没被自动检测过**。
+本轮机械派生 **155** 条（行标 70 / 法规 33 / 地标 32 / 国标 16 / 团标 4），
+**只写 URL 不写锚点**（无锚点如实记 `unknown/no_anchor_configured`，不发明判据）。
+
+全量 257 目标实测（2.9 分钟）：
+
+| state | 条数 |
+|---|---:|
+| `ok` | 76 |
+| `suspicious`（`probe_too_few_links`） | 12 |
+| `down` | 74 |
+| `unknown`（通了但无锚点） | 95 |
+
+错误码：`no_anchor_configured` 95 / `transport_error` 41 / `endpoint_gone` 18 /
+`probe_too_few_links` 12 / `blocked_by_waf` 10 / `server_error` 2 / 其他 3。
+
+**实测覆盖率：102 → 257 / 286**（`last_try_at` 非空才算）。
+剩 29 条 = 24 条工具仓库（故意不探）+ 5 条占位符 URL（需人工锚点）。
+
+#### 3. ⚠ 一条推翻前提的发现（独立调查，改变后续排期）
+
+**262 条 `seed_only` 即使把 `wiring` 改成 `wired`，行为也是零变化。**
+
+`ledger_chain._name_candidates` 只认 `channel_id = "ch:<适配器名>"`；
+而 262 条的 id 是 `ch:<类别>:<ULID>`(149) / `seed:<文件>:<中文名>`(95) / `tool:<名>`(18)
+—— **0 条取得出适配器名**。⇒ 接线的正确形态是「接一批的同时把 id 改写成 `ch:<新名>`」。
+
+同源：13 条已 `wired` 里 **6 条** id 也是 `ch:law:<ULID>` 形状，按同一条判据会被
+`missing_in_code` 点名（**巡检永不问这 6 条**）。
+
+另两条影响决策的实测：
+- `probe_url` / `probe_expect` 两列**没有任何代码在读**（只在字段白名单里）。
+- 台账 `state` 本轮之前只有 102 行是探针写的，**另 184 行是导入值**（79 条标 `ok` 无实测支撑）。
+
+#### 4. 下一步（按价值排序，未做）
+
+| 批次 | 内容 | 规模 |
+|---|---|---|
+| 0 | **修 id 形状**（`ch:<类别>:<ULID>` → `ch:<适配器名>`），纯数据 | 262 条 |
+| 1 | A 组 19 条去重（有现成 KS 适配器，与已 wired 重复登记） | 19 |
+| 2 | `std.samr.gov.cn` 参数化适配器（1 个适配器覆盖 14 条） | 14 |
+| 3 | C 组站点族（`col/colNNN` CMS 8 / `*.sacinfo` 6 / `www.gov.cn` 5 / `flk.npc` 5…） | 35 |
+| 4 | D 组逐站新写适配器（**不要先做**：36 条地方标准遗留系统互不相同，台账里 26 条已标 broken） | 184 |
+
+分组明细与单条验证路径见 [`docs/channels/WIRING-PLAN.md`](channels/WIRING-PLAN.md)。
