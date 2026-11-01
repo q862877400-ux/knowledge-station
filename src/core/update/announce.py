@@ -34,6 +34,7 @@ import re
 import socket
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -69,7 +70,9 @@ STATE_KEY = "announce.scan_state"
 ITEMS_PER_PAGE_MAX = 50             # 每页条目上限（防导航页误判）
 PAGE_TIMEOUT_S = 15.0               # 单页超时（比渠道探测 30s 收紧一倍）
 PAGE_BYTES_MAX = 2 * 1024 * 1024    # 单页字节上限（截断标记）
-SOURCE_GAP_S = 1.0                  # 源间礼貌间隔
+SOURCE_GAP_S = 1.0                  # **同一主机**内的源间礼貌间隔（并行后不再跨主机等）
+#: 不同主机之间的并发数（2026-11-02）。同一主机永远串行。
+SCAN_CONCURRENCY_DEFAULT = 8
 SCAN_SOFT_CAP_S = 300               # 扫描全程软上限（超时剩余源标 skipped_timeout）
 MIN_INTERVAL_HOURS_DEFAULT = 6.0    # force=false 时间闸（app_config announce.min_interval_hours 可覆盖）
 # ── 翻页（2026-09-24，业主报"应该入库的没入库"引出；见开发史 §10.189）──────────────
@@ -388,6 +391,59 @@ def _scan_soft_cap_s() -> float:
         return float(SCAN_SOFT_CAP_S)
 
 
+def _scan_concurrency() -> int:
+    """**不同主机之间**的并发数。默认 `SCAN_CONCURRENCY_DEFAULT`(8)。
+
+    2026-11-02 加：原来整轮扫描是一个 `for` 循环，110 个源排在 76 个不同主机上
+    却**一个接一个**跑（实测串行 ~10 分钟）。不同主机互不相干，可以同时抓；
+    只有**同一主机**才需要串行 + 礼貌间隔。
+
+    可用 app_config ``announce.scan_concurrency`` 覆盖；**同一主机永远串行**
+    （见 `_scan_guarded` 的 per-host 锁），所以并发数调大不会把某一个站点打爆。
+    """
+    raw = _read_json_key("announce.scan_concurrency", SCAN_CONCURRENCY_DEFAULT)
+    try:
+        v = int(raw)
+    except (TypeError, ValueError):
+        return SCAN_CONCURRENCY_DEFAULT
+    return v if v > 0 else SCAN_CONCURRENCY_DEFAULT
+
+
+def _host_lock(host: str, locks: dict[str, threading.Lock],
+               guard: threading.Lock) -> threading.Lock:
+    """取（或建）某个主机的锁。同名主机共用一个锁 ⇒ **同主机请求永远串行**。"""
+    with guard:
+        lock = locks.get(host)
+        if lock is None:
+            lock = threading.Lock()
+            locks[host] = lock
+        return lock
+
+
+def _scan_guarded(transport: Any, src: dict, scan_id: str, t0: float,
+                  soft_cap: float, host_locks: dict[str, threading.Lock],
+                  locks_guard: threading.Lock) -> dict:
+    """并行扫描的工作单元：软上限检查 → 按主机加锁 → 真正扫一个源。
+
+    为什么按主机加锁而不是简单限并发：
+      · 110 个源里有 23 个主机挂了 2~5 个渠道（如 `std.samr.gov.cn` 5 个、
+        `www.mem.gov.cn` 4 个）。同一主机并发请求 = 自己把自己打成 WAF 目标。
+      · 不同主机并发才是我们要的那部分收益。
+    """
+    if time.monotonic() - t0 > soft_cap:
+        return {"id": src.get("id"), "name": src.get("name", ""),
+                "status": "failed", "reason": "skipped_timeout",
+                "items": 0, "new_items": 0, "baseline_items": 0}
+    host = urlsplit(str(src.get("url") or "")).netloc
+    with _host_lock(host, host_locks, locks_guard):
+        result = _scan_one_source(transport, src, scan_id)
+        # 礼貌间隔只针对真实抓取（测试注入 transport 时跳过，别拖慢用例）。
+        # 并行化后这条**只在同一主机内**生效 —— 不同主机之间不再互相等。
+        if transport is None and SOURCE_GAP_S > 0:
+            time.sleep(SOURCE_GAP_S)
+    return result
+
+
 def get_scan_state() -> dict:
     """最近一次扫描快照（从未扫过 → status=never，恒可读）。"""
     state = _get_state()
@@ -455,48 +511,101 @@ def _run_scan_thread(scan_id: str, trigger: str, transport: Any = None) -> None:
             _announce_runs.discard(scan_id)
 
 
+def _mark_first_scan_done(source_id: str | None) -> None:
+    """把某个源标记为「首扫已做」。**只由扫描主线程调用**。
+
+    为什么单独抽出来（2026-11-02 并行化）：原先是工作线程里
+    `get_sources() → 改 → _write_json_key()` 的**读改写**，两个源同时首扫时
+    后写的会把先写的覆盖掉（丢一个 `first_scan_done`，下一轮那个源又当首扫
+    重算一遍基线）。现在只在主线程串行调用，读改写之间不再有并发。
+
+    失败也不抛：最坏后果是该源下轮把已见条目当"已见"而非基线（无害）。
+    """
+    if not source_id:
+        return
+    try:
+        sources = get_sources()
+        changed = False
+        for s in sources:
+            if s.get("id") == source_id and s.get("first_scan_done") is not True:
+                s["first_scan_done"] = True
+                changed = True
+        if changed:
+            _write_json_key(SOURCES_KEY, sources)
+    except Exception:                       # noqa: BLE001 — 见 docstring：无害
+        pass
+
+
 def run_announce_scan(scan_id: str, trigger: str, transport: Any = None) -> dict:
-    """逐源串行扫描：fetch → parse → 去重落库（每源一个短事务）→ 状态逐源写回。
-    transport 仅测试注入用。"""
+    """扫描全部公告源：fetch → parse → 去重落库（每源一个短事务）→ 状态逐源写回。
+
+    **2026-11-02 起并行**（原来是一个 `for` 循环串行跑，110 个源实测约 10 分钟）：
+      · **不同主机**同时抓（并发数 `announce.scan_concurrency`，默认 8）；
+      · **同一主机**仍然串行 + 礼貌间隔 `SOURCE_GAP_S`（该主机挂了多个渠道时不许并发）；
+      · 状态写回与 `first_scan_done` 标记**只在主线程做**（都是读改写，多线程会互相覆盖）。
+
+    `transport` 仅测试注入用。返回最终 state（与 `get_scan_state()` 同形）。
+    """
     t0 = time.monotonic()
     soft_cap = _scan_soft_cap_s()
+    sources = [s for s in get_sources() if s.get("enabled") is not False]
+    concurrency = _scan_concurrency()
     upd_log(scan_id, "announce", "INFO", "scan_started", trigger=trigger,
-            sources=len([s for s in get_sources() if s.get("enabled") is not False]),
-            soft_cap_s=soft_cap)
+            sources=len(sources), soft_cap_s=soft_cap, concurrency=concurrency)
     transport = transport if transport is not None else default_transport()
     state = _get_state()
-    per_source: list[dict] = []
+    #: 按**原始顺序**占位收集：per_source 的顺序必须跟源顺序一致（界面与测试都按它读），
+    #: 不能让并行完成的先后把顺序打乱。
+    slots: list[dict | None] = [None] * len(sources)
     total_seen = 0
     total_new = 0
     total_baseline = 0
     recent: list[dict] = []
+    host_locks: dict[str, threading.Lock] = {}
+    locks_guard = threading.Lock()
 
-    for src in [s for s in get_sources() if s.get("enabled") is not False]:
-        if time.monotonic() - t0 > soft_cap:
-            per_source.append({"id": src["id"], "name": src.get("name", ""),
-                               "status": "failed", "reason": "skipped_timeout",
-                               "items": 0, "new_items": 0})
-            continue
-        result = _scan_one_source(transport, src, scan_id)
-        per_source.append(result)
-        total_seen += result.get("items", 0)
-        total_new += result.get("new_items", 0)
-        total_baseline += result.get("baseline_items", 0)
-        recent.extend(result.pop("_recent", []) or [])
-        # 状态逐源写回（1s 进度轮询可见）
-        state = _get_state()
-        if state.get("scan_id") != scan_id:
-            return state  # 已被新扫描接管（理论上不可能——409 闸在）
-        state["per_source"] = per_source
-        state["sources_done"] = len([p for p in per_source if p.get("status") != "skipped_timeout"])
-        state["items_seen"] = total_seen
-        state["new_count"] = total_new
-        state["baseline_count"] = total_baseline
-        _set_state(state)
-        # 礼貌间隔只针对真实抓取（测试注入 transport 时跳过，别拖慢用例）
-        if transport is None and SOURCE_GAP_S > 0:
-            time.sleep(SOURCE_GAP_S)
+    def completed() -> list[dict]:
+        return [r for r in slots if r is not None]
 
+    with ThreadPoolExecutor(max_workers=max(1, min(concurrency, len(sources) or 1)),
+                            thread_name_prefix="ks-announce-src") as pool:
+        futures = {pool.submit(_scan_guarded, transport, src, scan_id, t0,
+                               soft_cap, host_locks, locks_guard): idx
+                   for idx, src in enumerate(sources)}
+        for fut in as_completed(futures):
+            idx = futures[fut]
+            try:
+                result = fut.result()
+            except Exception as exc:              # noqa: BLE001 — 单源崩了不拖垮整轮
+                src = sources[idx]
+                result = {"id": src.get("id"), "name": src.get("name", ""),
+                          "status": "failed",
+                          "reason": f"worker_error: {type(exc).__name__}: {str(exc)[:100]}",
+                          "items": 0, "new_items": 0, "baseline_items": 0}
+                upd_log(scan_id, "announce", "WARN", "source_failed",
+                        source=src.get("name"), reason=result["reason"])
+            slots[idx] = result
+            total_seen += result.get("items", 0)
+            total_new += result.get("new_items", 0)
+            total_baseline += result.get("baseline_items", 0)
+            recent.extend(result.pop("_recent", []) or [])
+            # 首扫基线标记：**只有主线程读改写**（并行后必须收在这里，否则丢更新）
+            if result.pop("_mark_first_scan", False):
+                _mark_first_scan_done(result.get("id"))
+            # 状态逐源写回（界面 1s 轮询可见）
+            state = _get_state()
+            if state.get("scan_id") != scan_id:
+                return state  # 已被新扫描接管（理论上不可能——409 闸在）
+            done = completed()
+            state["per_source"] = done
+            state["sources_done"] = len([p for p in done
+                                         if p.get("status") != "skipped_timeout"])
+            state["items_seen"] = total_seen
+            state["new_count"] = total_new
+            state["baseline_count"] = total_baseline
+            _set_state(state)
+
+    per_source = completed()
     recent.sort(key=lambda r: r.get("first_seen") or "", reverse=True)
     state = _get_state()
     if state.get("scan_id") == scan_id:
@@ -705,13 +814,11 @@ def _scan_one_source(transport: Any, src: dict, scan_id: str) -> dict:
                                       "first_seen": datetime.utcnow().strftime(
                                           "%Y-%m-%d %H:%M:%S")})
         if first_scan:
-            # 首扫基线标记：必须在写事务外（write_queue 不可重入——嵌套事务会死锁）。
-            # 若此步失败，最坏后果 = 该源下轮把已见条目算作"已见"而非基线（无害）。
-            sources = get_sources()
-            for s in sources:
-                if s.get("id") == src["id"]:
-                    s["first_scan_done"] = True
-            _write_json_key(SOURCES_KEY, sources)
+            # 首扫基线标记**交给扫描主循环**（2026-11-02 并行化）：
+            # 这里原来是 `get_sources() → 改 → _write_json_key()` 的**读改写**，
+            # 多线程下两个源同时首扫会互相覆盖（丢一次标记）。
+            # 改成把意图带回主循环，由单线程统一写。
+            result["_mark_first_scan"] = True
         result["_recent"] = new_items
         upd_log(scan_id, "announce", "INFO", "source_scanned",
                 source=src.get("name"), items=result["items"],
