@@ -228,6 +228,24 @@ def js_page_template(html: str, base: str) -> str | None:
     return None
 
 
+def tpl_candidates(tpl: str, board: str) -> list[str]:
+    """由 JS 模板 + 原栏目参数，生成可试的翻页模板。
+
+    为什么需要（2026-11-02 R6→R7）：三门峡模板是 `…?pageNum=%d`，但真实请求还要带
+    原栏目的 `lmid=8200&searchType=1`；只用模板本身会拿到空页，
+    于是一直判「规则不成立」。
+    """
+    out = [tpl]
+    q = urlsplit(board).query
+    if q:
+        # 模板里已带该参数就不重复拼
+        extra = "&".join(pair for pair in q.split("&")
+                         if pair.split("=")[0] not in tpl)
+        if extra:
+            out.append(tpl + "&" + extra)
+    return list(dict.fromkeys(out))
+
+
 def calibrate_pagination(transport, board: str, first_urls: set[str],
                          html: str | None = None) -> dict:
     """标定该站的翻页规则：找到能**真正换页**的那一种。
@@ -239,19 +257,21 @@ def calibrate_pagination(transport, board: str, first_urls: set[str],
     """
     # ① 页面 JS 里提取的模板优先
     if html:
-        tpl = js_page_template(html, board)
-        if tpl:
+        tpl0 = js_page_template(html, board)
+        for tpl in (tpl_candidates(tpl0, board) if tpl0 else []):
+            u2 = tpl % 2
             try:
-                st, body = transport.fetch(tpl % 2, timeout=TIMEOUT_S)
-                got = ({x["url"] for x in parse_items(body, tpl % 2)}
-                       if st == 200 and isinstance(body, str) else set())
-                new = got - first_urls
-                if new and len(got & first_urls) < len(got):
-                    return {"rule": ["jstpl", tpl], "page2_url": tpl % 2,
-                            "overlap": len(got & first_urls), "new": len(new),
-                            "ok": True}
+                st, body = transport.fetch(u2, timeout=TIMEOUT_S)
             except Exception:                   # noqa: BLE001
-                pass
+                continue
+            if st != 200 or not isinstance(body, str):
+                continue
+            got = {x["url"] for x in parse_items(body, u2)}
+            new = got - first_urls
+            if new and len(got & first_urls) < len(got):
+                return {"rule": ["jstpl", tpl], "page2_url": u2,
+                        "overlap": len(got & first_urls), "new": len(new),
+                        "ok": True}
     # ② 退回猜参数
     for rule in PAGE_RULES:
         u2 = _page_url(board, rule, 2)
