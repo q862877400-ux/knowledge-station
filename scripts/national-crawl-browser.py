@@ -239,19 +239,29 @@ class CDPPage:
         with urllib.request.urlopen(req, timeout=20) as r:
             info = json.loads(r.read().decode())
         self.ws = websocket.create_connection(
-            info["webSocketDebuggerUrl"], timeout=self.timeout_s)
+            info["webSocketDebuggerUrl"], timeout=60)
         self._send("Page.enable")
         # 实测：/json/new?url= 建出来的标签页不一定导航（读到 39 字节空壳）
         self._send("Page.navigate", url=url)
 
     def _send(self, method: str, **params):
-        self._id += 1
-        self.ws.send(json.dumps({"id": self._id, "method": method,
-                                 "params": params}))
-        while True:
-            msg = json.loads(self.ws.recv())
-            if msg.get("id") == self._id:
-                return msg.get("result", {})
+        """发一条 CDP 命令。
+
+        ⚠ 实测（2026-11-02）：某些站会让 WebSocket 卡住 120 秒然后
+        `WebSocketTimeoutException` —— 以前这个异常会**打崩整批抓取**。
+        现在一律吞掉并返回 `{}`，由调用方当成"这一页没拿到"处理。
+        """
+        try:
+            self._id += 1
+            self.ws.send(json.dumps({"id": self._id, "method": method,
+                                     "params": params}))
+            while True:
+                msg = json.loads(self.ws.recv())
+                if msg.get("id") == self._id:
+                    return msg.get("result", {})
+        except Exception as exc:                 # noqa: BLE001
+            print(f"  [warn] CDP {method} 失败：{type(exc).__name__}")
+            return {}
 
     def eval(self, expr: str):
         r = self._send("Runtime.evaluate", expression=expr,

@@ -2,15 +2,15 @@
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
   "sites_crawled": 192,
-  "items": 13205,
-  "texts": 13179,
-  "text_chars": 48832815,
-  "attachment_refs": 550,
-  "attachment_files": 545,
+  "items": 21004,
+  "texts": 19844,
+  "text_chars": 70320635,
+  "attachment_refs": 596,
+  "attachment_files": 591,
   "sites_with_items": 166,
-  "sites_multi_page": 55,
-  "attachment_bytes": 457318949,
-  "attachment_mb": 436.1
+  "sites_multi_page": 84,
+  "attachment_bytes": 501448151,
+  "attachment_mb": 478.2
  },
  "by_level": {
   "city": {
@@ -32,14 +32,50 @@
   }
  },
  "site_rules": {
-  "sites": 195,
-  "with_rule": 34
+  "sites": 192,
+  "with_rule": 19
  },
  "province_portals": {
   "total": 26,
   "verified": 20
  },
  "sites": [
+  {
+   "site": "国家药品监督管理局",
+   "dir": "var\\data\\national\\中央\\国家药品监督管理局",
+   "status": "ok",
+   "board": "https://www.nmpa.gov.cn/xxgk/fgwj/index.html",
+   "pagination": null,
+   "pages_this_run": 164,
+   "items": 2490,
+   "texts": 1356,
+   "text_chars": 2276784,
+   "attachments": 14,
+   "attachment_files": 16,
+   "items_new_this_run": 1928,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2000-01-03",
+   "run_at": "2026-11-02 21:32:38",
+   "engine": "cdp"
+  },
+  {
+   "site": "南阳市",
+   "dir": "var\\data\\national\\河南省\\南阳市",
+   "status": "ok",
+   "board": "https://www.nanyang.gov.cn/zwxxgk/qtfdxx/zfwj/",
+   "pagination": null,
+   "pages_this_run": 109,
+   "items": 1612,
+   "texts": 1612,
+   "text_chars": 3732332,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 1601,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2006-07-08",
+   "run_at": "2026-11-02 22:09:48",
+   "engine": "cdp"
+  },
   {
    "site": "蚌埠市",
    "dir": "var\\data\\national\\安徽省\\蚌埠市",
@@ -66,14 +102,32 @@
    "pagination": null,
    "pages_this_run": 151,
    "items": 1395,
-   "texts": 1394,
-   "text_chars": 5069364,
+   "texts": 1395,
+   "text_chars": 5069494,
    "attachments": 6,
    "attachment_files": 6,
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2004-04-08",
-   "run_at": "2026-11-02 20:57:56",
+   "run_at": "2026-11-02 22:30:03",
+   "engine": "cdp"
+  },
+  {
+   "site": "自贡市",
+   "dir": "var\\data\\national\\四川省\\自贡市",
+   "status": "ok",
+   "board": "https://www.zg.gov.cn/zgsrmzf/zc101/pc/list.html",
+   "pagination": null,
+   "pages_this_run": 150,
+   "items": 1222,
+   "texts": 1222,
+   "text_chars": 3382455,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 1209,
+   "newest_date": "2026-10-26",
+   "oldest_date": "2007-07-16",
+   "run_at": "2026-11-02 22:23:13",
    "engine": "cdp"
   },
   {
@@ -116,10 +170,10 @@
    "text_chars": 2036448,
    "attachments": 8,
    "attachment_files": 8,
-   "items_new_this_run": 1,
+   "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2012-07-10",
-   "run_at": "2026-11-02 20:58:32",
+   "run_at": "2026-11-02 22:30:06",
    "engine": "cdp"
   },
   {
@@ -128,7 +182,7 @@
    "status": "ok",
    "board": "http://www.ezhou.gov.cn/gk/zc/gfxwj/",
    "pagination": null,
-   "pages_this_run": 3,
+   "pages_this_run": 1,
    "items": 565,
    "texts": 565,
    "text_chars": 2351777,
@@ -137,25 +191,25 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-16",
    "oldest_date": "2007-01-28",
-   "run_at": "2026-11-02 20:58:36",
+   "run_at": "2026-11-02 22:37:13",
    "engine": "cdp"
   },
   {
-   "site": "国家药品监督管理局",
-   "dir": "var\\data\\national\\中央\\国家药品监督管理局",
+   "site": "泸州市",
+   "dir": "var\\data\\national\\四川省\\泸州市",
    "status": "ok",
-   "board": "https://www.nmpa.gov.cn/xxgk/fgwj/index.html",
+   "board": "https://www.luzhou.gov.cn/zw/zcwjs/szfwj",
    "pagination": null,
-   "pages_this_run": 21,
-   "items": 562,
-   "texts": 560,
-   "text_chars": 1109952,
-   "attachments": 14,
-   "attachment_files": 14,
-   "items_new_this_run": 15,
-   "newest_date": "2026-10-30",
-   "oldest_date": "2015-11-05",
-   "run_at": "2026-11-02 21:00:30",
+   "pages_this_run": 57,
+   "items": 544,
+   "texts": 544,
+   "text_chars": 377030,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 528,
+   "newest_date": "2026-09-03",
+   "oldest_date": "2019-06-14",
+   "run_at": "2026-11-02 21:36:52",
    "engine": "cdp"
   },
   {
@@ -191,7 +245,25 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-11",
    "oldest_date": "2011-11-14",
-   "run_at": "2026-11-02 21:01:39",
+   "run_at": "2026-11-02 21:35:23",
+   "engine": "cdp"
+  },
+  {
+   "site": "平凉市",
+   "dir": "var\\data\\national\\甘肃省\\平凉市",
+   "status": "ok",
+   "board": "http://www.pingliang.gov.cn/zfxxgk/fdzdgknr/lzyj/zcwj/index.html",
+   "pagination": null,
+   "pages_this_run": 31,
+   "items": 505,
+   "texts": 505,
+   "text_chars": 4511671,
+   "attachments": 5,
+   "attachment_files": 2,
+   "items_new_this_run": 498,
+   "newest_date": "2026-10-27",
+   "oldest_date": "2011-04-14",
+   "run_at": "2026-11-02 22:41:15",
    "engine": "cdp"
   },
   {
@@ -278,10 +350,28 @@
    "text_chars": 207560,
    "attachments": 5,
    "attachment_files": 5,
-   "items_new_this_run": 1,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-29",
    "oldest_date": "2000-01-11",
-   "run_at": "2026-11-02 21:03:54",
+   "run_at": "2026-11-02 21:26:50",
+   "engine": "cdp"
+  },
+  {
+   "site": "黄冈市",
+   "dir": "var\\data\\national\\湖北省\\黄冈市",
+   "status": "ok",
+   "board": "https://www.hg.gov.cn/zwgk/public/column/6636765?type=4&catId=7025201&action=list&nav=3",
+   "pagination": null,
+   "pages_this_run": 18,
+   "items": 327,
+   "texts": 327,
+   "text_chars": 1294559,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 310,
+   "newest_date": "2026-10-12",
+   "oldest_date": "2006-12-29",
+   "run_at": "2026-11-02 22:38:04",
    "engine": "cdp"
   },
   {
@@ -321,6 +411,60 @@
    "engine": "cdp"
   },
   {
+   "site": "济源市",
+   "dir": "var\\data\\national\\河南省\\济源市",
+   "status": "ok",
+   "board": "http://www.jiyuan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj/",
+   "pagination": null,
+   "pages_this_run": 19,
+   "items": 270,
+   "texts": 270,
+   "text_chars": 1170444,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 255,
+   "newest_date": "2026-07-23",
+   "oldest_date": "2013-02-23",
+   "run_at": "2026-11-02 22:35:01",
+   "engine": "cdp"
+  },
+  {
+   "site": "长沙市",
+   "dir": "var\\data\\national\\湖南省\\长沙市",
+   "status": "ok",
+   "board": "http://www.changsha.gov.cn/zfxxgk/zfwjk/srmzf/",
+   "pagination": null,
+   "pages_this_run": 33,
+   "items": 250,
+   "texts": 250,
+   "text_chars": 998933,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 242,
+   "newest_date": "2030-07-31",
+   "oldest_date": "2000-07-20",
+   "run_at": "2026-11-02 22:40:34",
+   "engine": "cdp"
+  },
+  {
+   "site": "焦作市",
+   "dir": "var\\data\\national\\河南省\\焦作市",
+   "status": "ok",
+   "board": "https://www.jiaozuo.gov.cn/zwgk/szfxxgk/zfwk/szfwj",
+   "pagination": null,
+   "pages_this_run": 15,
+   "items": 248,
+   "texts": 248,
+   "text_chars": 1264263,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 226,
+   "newest_date": "2026-07-22",
+   "oldest_date": "2005-02-25",
+   "run_at": "2026-11-02 22:35:19",
+   "engine": "cdp"
+  },
+  {
    "site": "汕尾市",
    "dir": "var\\data\\national\\广东省\\汕尾市",
    "status": "ok",
@@ -339,6 +483,24 @@
    "engine": "cdp"
   },
   {
+   "site": "辽宁省",
+   "dir": "var\\data\\national\\辽宁省\\辽宁省",
+   "status": "ok",
+   "board": "https://www.ln.gov.cn/web/zwgkx/zfwj/index.shtml",
+   "pagination": null,
+   "pages_this_run": 14,
+   "items": 198,
+   "texts": 198,
+   "text_chars": 391220,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 179,
+   "newest_date": "2026-09-30",
+   "oldest_date": "2017-01-11",
+   "run_at": "2026-11-02 22:45:56",
+   "engine": "cdp"
+  },
+  {
    "site": "乌海市",
    "dir": "var\\data\\national\\内蒙古自治区\\乌海市",
    "status": "ok",
@@ -353,7 +515,25 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-28",
    "oldest_date": "2003-07-11",
-   "run_at": "2026-11-02 21:07:52",
+   "run_at": "2026-11-02 21:33:18",
+   "engine": "cdp"
+  },
+  {
+   "site": "钦州市",
+   "dir": "var\\data\\national\\广西壮族自治区\\钦州市",
+   "status": "ok",
+   "board": "http://www.qinzhou.gov.cn/zfxxgk/zcwj/xzgfxwj/",
+   "pagination": null,
+   "pages_this_run": 8,
+   "items": 137,
+   "texts": 137,
+   "text_chars": 628535,
+   "attachments": 5,
+   "attachment_files": 7,
+   "items_new_this_run": 118,
+   "newest_date": "2026-09-20",
+   "oldest_date": "2016-12-09",
+   "run_at": "2026-11-02 21:51:53",
    "engine": "cdp"
   },
   {
@@ -393,6 +573,24 @@
    "engine": "cdp"
   },
   {
+   "site": "工业和信息化部",
+   "dir": "var\\data\\national\\中央\\工业和信息化部",
+   "status": "ok",
+   "board": "https://www.miit.gov.cn/zc/wjxzfl/flfg/index.html",
+   "pagination": null,
+   "pages_this_run": 13,
+   "items": 127,
+   "texts": 127,
+   "text_chars": 582474,
+   "attachments": 8,
+   "attachment_files": 8,
+   "items_new_this_run": 95,
+   "newest_date": "2022-01-29",
+   "oldest_date": "2009-01-16",
+   "run_at": "2026-11-02 21:32:53",
+   "engine": "cdp"
+  },
+  {
    "site": "苏州市",
    "dir": "var\\data\\national\\江苏省\\苏州市",
    "status": "ok",
@@ -408,6 +606,42 @@
    "newest_date": "2026-11-30",
    "oldest_date": "2023-01-19",
    "run_at": "2026-11-02 21:08:10",
+   "engine": "cdp"
+  },
+  {
+   "site": "信阳市",
+   "dir": "var\\data\\national\\河南省\\信阳市",
+   "status": "ok",
+   "board": "https://www.xinyang.gov.cn/xxgkp/zfwj/xz/",
+   "pagination": null,
+   "pages_this_run": 7,
+   "items": 97,
+   "texts": 97,
+   "text_chars": 367185,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 76,
+   "newest_date": "2026-05-06",
+   "oldest_date": "2014-05-14",
+   "run_at": "2026-11-02 22:07:56",
+   "engine": "cdp"
+  },
+  {
+   "site": "随州市",
+   "dir": "var\\data\\national\\湖北省\\随州市",
+   "status": "ok",
+   "board": "http://www.suizhou.gov.cn/zwgk/zfwj/qt_5744/szfwj/",
+   "pagination": null,
+   "pages_this_run": 28,
+   "items": 92,
+   "texts": 92,
+   "text_chars": 233346,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 89,
+   "newest_date": "2026-06-30",
+   "oldest_date": "2012-07-10",
+   "run_at": "2026-11-02 22:37:45",
    "engine": "cdp"
   },
   {
@@ -429,6 +663,24 @@
    "engine": "cdp"
   },
   {
+   "site": "国家移民管理局",
+   "dir": "var\\data\\national\\中央\\国家移民管理局",
+   "status": "ok",
+   "board": "https://www.nia.gov.cn/n741440/n741547/index.html",
+   "pagination": null,
+   "pages_this_run": 6,
+   "items": 88,
+   "texts": 88,
+   "text_chars": 448033,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 70,
+   "newest_date": "2026-07-31",
+   "oldest_date": "2019-04-08",
+   "run_at": "2026-11-02 21:27:04",
+   "engine": "cdp"
+  },
+  {
    "site": "生态环境部",
    "dir": "var\\data\\national\\中央\\生态环境部",
    "status": "ok",
@@ -443,7 +695,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2024-04-08",
-   "run_at": "2026-11-02 21:08:23",
+   "run_at": "2026-11-02 21:32:57",
    "engine": "cdp"
   },
   {
@@ -490,14 +742,32 @@
    "pagination": null,
    "pages_this_run": 1,
    "items": 85,
-   "texts": 84,
-   "text_chars": 296352,
+   "texts": 85,
+   "text_chars": 296855,
    "attachments": 3,
    "attachment_files": 3,
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2023-11-29",
    "run_at": "2026-11-02 21:08:30",
+   "engine": "cdp"
+  },
+  {
+   "site": "河池市",
+   "dir": "var\\data\\national\\广西壮族自治区\\河池市",
+   "status": "ok",
+   "board": "http://www.hechi.gov.cn/zfxxgk/zfwj/xzgfxwjk/",
+   "pagination": null,
+   "pages_this_run": 7,
+   "items": 84,
+   "texts": 84,
+   "text_chars": 474723,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 65,
+   "newest_date": "2026-00",
+   "oldest_date": "2016-20",
+   "run_at": "2026-11-02 21:51:44",
    "engine": "cdp"
   },
   {
@@ -515,7 +785,7 @@
    "items_new_this_run": 0,
    "newest_date": "2021-01-01",
    "oldest_date": "2017-11-02",
-   "run_at": "2026-11-02 19:36:01",
+   "run_at": "2026-11-02 21:27:10",
    "engine": "cdp"
   },
   {
@@ -530,29 +800,37 @@
    "text_chars": 355743,
    "attachments": 1,
    "attachment_files": 0,
-   "items_new_this_run": 1,
-   "newest_date": "2026-08-26",
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-12",
    "oldest_date": "2023-03-22",
-   "run_at": "2026-11-02 20:06:01",
+   "run_at": "2026-11-02 22:31:14",
+   "engine": "cdp"
+  },
+  {
+   "site": "乌兰察布市",
+   "dir": "var\\data\\national\\内蒙古自治区\\乌兰察布市",
+   "status": "ok",
+   "board": "https://www.wulanchabu.gov.cn/zcfg/index.html",
+   "pagination": null,
+   "pages_this_run": 8,
+   "items": 75,
+   "texts": 75,
+   "text_chars": 476510,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 61,
+   "newest_date": "2026-10-29",
+   "oldest_date": "2018-11-26",
+   "run_at": "2026-11-02 21:33:17",
    "engine": "cdp"
   },
   {
    "site": "赣州市",
    "dir": "var\\data\\national\\江西省\\赣州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.ganzhou.gov.cn/zfxxgk/c145213/xxgk_zcwjlist.shtml",
-   "pagination": {
-    "rule": [
-     "suffix",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.ganzhou.gov.cn/zfxxgk/c145213/xxgk_zcwjlist_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 12,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 70,
    "texts": 70,
    "text_chars": 347600,
@@ -561,26 +839,34 @@
    "items_new_this_run": 0,
    "newest_date": "2026-03-20",
    "oldest_date": "2013-11-20",
-   "run_at": "2026-11-02 12:05:13",
-   "engine": "static"
+   "run_at": "2026-11-02 21:54:56",
+   "engine": "cdp"
+  },
+  {
+   "site": "内蒙古自治区",
+   "dir": "var\\data\\national\\内蒙古自治区\\内蒙古自治区",
+   "status": "ok",
+   "board": "https://www.nmg.gov.cn/zwgk/gzk/index.html",
+   "pagination": null,
+   "pages_this_run": 7,
+   "items": 67,
+   "texts": 67,
+   "text_chars": 274197,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 13,
+   "newest_date": "2025-10-24",
+   "oldest_date": "2000-01-06",
+   "run_at": "2026-11-02 21:33:26",
+   "engine": "cdp"
   },
   {
    "site": "无锡市",
    "dir": "var\\data\\national\\江苏省\\无锡市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.wuxi.gov.cn/zfxxgk/szfxxgkml/fgwjjjd/zfwj/zfgz/index.shtml",
-   "pagination": {
-    "rule": [
-     "index",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.wuxi.gov.cn/zfxxgk/szfxxgkml/fgwjjjd/zfwj/zfgz/index_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 64,
    "texts": 64,
    "text_chars": 278895,
@@ -589,8 +875,8 @@
    "items_new_this_run": 0,
    "newest_date": "2025-11-26",
    "oldest_date": "2002-02-01",
-   "run_at": "2026-11-02 12:04:10",
-   "engine": "static"
+   "run_at": "2026-11-02 21:53:49",
+   "engine": "cdp"
   },
   {
    "site": "国家核安全局",
@@ -607,7 +893,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-04-10",
-   "run_at": "2026-11-02 19:36:02",
+   "run_at": "2026-11-02 21:26:55",
    "engine": "cdp"
   },
   {
@@ -631,76 +917,82 @@
   {
    "site": "哈密市",
    "dir": "var\\data\\national\\新疆维吾尔自治区\\哈密市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.hami.gov.cn/hami/c124048/zfxxgk_gknrz.shtml",
-   "pagination": {
-    "rule": [
-     "suffix",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.hami.gov.cn/hami/c124048/zfxxgk_gknrz_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 5,
-   "items": 55,
-   "texts": 53,
-   "text_chars": 204264,
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 60,
+   "texts": 58,
+   "text_chars": 204851,
    "attachments": 5,
    "attachment_files": 5,
-   "items_new_this_run": 0,
+   "items_new_this_run": 5,
    "newest_date": "2026-10-20",
    "oldest_date": "2020-01-15",
-   "run_at": "2026-11-02 12:03:57",
-   "engine": "static"
+   "run_at": "2026-11-02 21:52:00",
+   "engine": "cdp"
   },
   {
-   "site": "内蒙古自治区",
-   "dir": "var\\data\\national\\内蒙古自治区\\内蒙古自治区",
-   "status": "list_only_ok",
-   "board": "https://www.nmg.gov.cn/zwgk/gzk/index.html",
-   "pagination": {
-    "rule": [
-     "index",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.nmg.gov.cn/zwgk/gzk/index_2.html",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 6,
-   "items": 54,
-   "texts": 54,
-   "text_chars": 218484,
+   "site": "威海市",
+   "dir": "var\\data\\national\\山东省\\威海市",
+   "status": "ok",
+   "board": "https://www.weihai.gov.cn/col/col102604/index.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 58,
+   "texts": 58,
+   "text_chars": 132779,
+   "attachments": 8,
+   "attachment_files": 8,
+   "items_new_this_run": 25,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2017-10-24",
+   "run_at": "2026-11-02 21:49:38",
+   "engine": "cdp"
+  },
+  {
+   "site": "张家界市",
+   "dir": "var\\data\\national\\湖南省\\张家界市",
+   "status": "ok",
+   "board": "http://www.zjj.gov.cn/c2283/index.html",
+   "pagination": null,
+   "pages_this_run": 9,
+   "items": 57,
+   "texts": 57,
+   "text_chars": 374930,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 50,
+   "newest_date": "2026-08-28",
+   "oldest_date": "2015-11-17",
+   "run_at": "2026-11-02 22:38:18",
+   "engine": "cdp"
+  },
+  {
+   "site": "四平市",
+   "dir": "var\\data\\national\\吉林省\\四平市",
+   "status": "ok",
+   "board": "http://www.siping.gov.cn/zw/gz/gjzcfg/",
+   "pagination": null,
+   "pages_this_run": 9,
+   "items": 52,
+   "texts": 52,
+   "text_chars": 326945,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 0,
-   "newest_date": "2025-10-24",
-   "oldest_date": "2000-01-06",
-   "run_at": "2026-11-02 12:05:24",
-   "engine": "static"
+   "items_new_this_run": 49,
+   "newest_date": "2026-03-09",
+   "oldest_date": "2018-10-19",
+   "run_at": "2026-11-02 21:35:09",
+   "engine": "cdp"
   },
   {
    "site": "烟台市",
    "dir": "var\\data\\national\\山东省\\烟台市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.yantai.gov.cn/col/col99957/index.html",
-   "pagination": {
-    "rule": [
-     "index",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.yantai.gov.cn/col/col99957/index_2.html",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 49,
    "texts": 49,
    "text_chars": 195847,
@@ -709,26 +1001,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-17",
    "oldest_date": "2025-11-28",
-   "run_at": "2026-11-02 12:04:41",
-   "engine": "static"
+   "run_at": "2026-11-02 21:50:07",
+   "engine": "cdp"
   },
   {
    "site": "遂宁市",
    "dir": "var\\data\\national\\四川省\\遂宁市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.suining.gov.cn/zfxxgk/gfxwj.html",
-   "pagination": {
-    "rule": [
-     "query",
-     "page"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.suining.gov.cn/zfxxgk/gfxwj.html?page=2",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 5,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 49,
    "texts": 49,
    "text_chars": 181595,
@@ -737,25 +1019,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-13",
    "oldest_date": "2020-02-06",
-   "run_at": "2026-11-02 12:05:12",
-   "engine": "static"
+   "run_at": "2026-11-02 21:43:40",
+   "engine": "cdp"
   },
   {
    "site": "西安市",
    "dir": "var\\data\\national\\陕西省\\西安市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.xa.gov.cn/gk/zcfg/gfxwj/zfgfxwj/1.html",
-   "pagination": {
-    "rule": [
-     "path",
-     ""
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.xa.gov.cn/gk/zcfg/gfxwj/zfgfxwj/2.html",
-    "overlap": null,
-    "new": null
-   },
+   "pagination": null,
    "pages_this_run": 3,
    "items": 45,
    "texts": 45,
@@ -765,8 +1037,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-02",
    "oldest_date": "2016-04-25",
-   "run_at": "2026-11-02 12:05:02",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:12",
+   "engine": "cdp"
   },
   {
    "site": "国家广播电视总局",
@@ -783,7 +1055,25 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2015-05-21",
-   "run_at": "2026-11-02 19:36:08",
+   "run_at": "2026-11-02 21:26:52",
+   "engine": "cdp"
+  },
+  {
+   "site": "张掖市",
+   "dir": "var\\data\\national\\甘肃省\\张掖市",
+   "status": "ok",
+   "board": "https://www.zhangye.gov.cn/zyszfxxgk/zfwj_5652/gfxwj_5655/",
+   "pagination": null,
+   "pages_this_run": 5,
+   "items": 44,
+   "texts": 44,
+   "text_chars": 202427,
+   "attachments": 4,
+   "attachment_files": 4,
+   "items_new_this_run": 24,
+   "newest_date": "2025-09-02",
+   "oldest_date": "2011-08-10",
+   "run_at": "2026-11-02 22:41:51",
    "engine": "cdp"
   },
   {
@@ -801,7 +1091,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2022-01-28",
-   "run_at": "2026-11-02 19:36:10",
+   "run_at": "2026-11-02 22:31:29",
    "engine": "cdp"
   },
   {
@@ -816,10 +1106,10 @@
    "text_chars": 164588,
    "attachments": 5,
    "attachment_files": 2,
-   "items_new_this_run": 1,
+   "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2022-07-01",
-   "run_at": "2026-11-02 19:36:12",
+   "run_at": "2026-11-02 22:36:38",
    "engine": "cdp"
   },
   {
@@ -828,7 +1118,7 @@
    "status": "ok",
    "board": "https://www.mohrss.gov.cn/xxgk2020/gzk/",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 6,
    "items": 40,
    "texts": 40,
    "text_chars": 156603,
@@ -837,7 +1127,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-05-10",
    "oldest_date": "2000-10-26",
-   "run_at": "2026-11-02 19:04:58",
+   "run_at": "2026-11-02 21:25:16",
    "engine": "cdp"
   },
   {
@@ -852,10 +1142,28 @@
    "text_chars": 82489,
    "attachments": 5,
    "attachment_files": 5,
-   "items_new_this_run": 11,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-24",
    "oldest_date": "2013-11-27",
-   "run_at": "2026-11-02 19:38:43",
+   "run_at": "2026-11-02 22:32:36",
+   "engine": "cdp"
+  },
+  {
+   "site": "北海市",
+   "dir": "var\\data\\national\\广西壮族自治区\\北海市",
+   "status": "ok",
+   "board": "http://www.beihai.gov.cn/zfxxgk/zc/xzgfxwj/",
+   "pagination": null,
+   "pages_this_run": 2,
+   "items": 38,
+   "texts": 38,
+   "text_chars": 169376,
+   "attachments": 5,
+   "attachment_files": 7,
+   "items_new_this_run": 19,
+   "newest_date": "2026-09-03",
+   "oldest_date": "2018-07-19",
+   "run_at": "2026-11-02 21:50:30",
    "engine": "cdp"
   },
   {
@@ -864,16 +1172,16 @@
    "status": "ok",
    "board": "https://www.ziyang.gov.cn/zysrmzf/c00002/pc/list.html",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 3,
    "items": 38,
    "texts": 38,
    "text_chars": 150274,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 23,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-16",
    "oldest_date": "2018-06-13",
-   "run_at": "2026-11-02 19:05:16",
+   "run_at": "2026-11-02 22:23:16",
    "engine": "cdp"
   },
   {
@@ -891,7 +1199,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-29",
    "oldest_date": "2017-01-06",
-   "run_at": "2026-11-02 19:36:14",
+   "run_at": "2026-11-02 21:32:54",
    "engine": "cdp"
   },
   {
@@ -925,34 +1233,28 @@
    "attachments": 3,
    "attachment_files": 3,
    "items_new_this_run": 0,
-   "newest_date": "2026-02-00",
+   "newest_date": "2026-09-15",
    "oldest_date": "2025-02-00",
-   "run_at": "2026-11-02 19:36:31",
+   "run_at": "2026-11-02 21:25:22",
    "engine": "cdp"
   },
   {
    "site": "抚州市",
    "dir": "var\\data\\national\\江西省\\抚州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.jxfz.gov.cn/col/col79/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 35,
    "texts": 35,
    "text_chars": 229566,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 35,
+   "items_new_this_run": 0,
    "newest_date": "2026-06-03",
    "oldest_date": "2020-12-21",
-   "run_at": "2026-11-02 20:46:15",
-   "engine": "static"
+   "run_at": "2026-11-02 21:54:52",
+   "engine": "cdp"
   },
   {
    "site": "石家庄市",
@@ -969,49 +1271,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-11-05",
    "oldest_date": "2021-08-12",
-   "run_at": "2026-11-02 19:36:32",
-   "engine": "cdp"
-  },
-  {
-   "site": "威海市",
-   "dir": "var\\data\\national\\山东省\\威海市",
-   "status": "list_only_ok",
-   "board": "https://www.weihai.gov.cn/col/col102604/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 3,
-   "items": 33,
-   "texts": 33,
-   "text_chars": 86397,
-   "attachments": 6,
-   "attachment_files": 6,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-30",
-   "oldest_date": "2017-10-24",
-   "run_at": "2026-11-02 12:03:56",
-   "engine": "static"
-  },
-  {
-   "site": "工业和信息化部",
-   "dir": "var\\data\\national\\中央\\工业和信息化部",
-   "status": "ok",
-   "board": "https://www.miit.gov.cn/zc/wjxzfl/flfg/index.html",
-   "pagination": null,
-   "pages_this_run": null,
-   "items": 32,
-   "texts": 32,
-   "text_chars": 147517,
-   "attachments": 6,
-   "attachment_files": 6,
-   "items_new_this_run": 27,
-   "newest_date": "2022-01-29",
-   "oldest_date": "2016-06-20",
-   "run_at": "2026-11-02 19:05:02",
+   "run_at": "2026-11-02 22:32:40",
    "engine": "cdp"
   },
   {
@@ -1041,16 +1301,10 @@
   {
    "site": "保山市",
    "dir": "var\\data\\national\\云南省\\保山市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.baoshan.gov.cn/zfxxgk/zfxxgkpt/zcwj/xzgfxwj.htm",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 30,
    "texts": 30,
    "text_chars": 208802,
@@ -1059,22 +1313,16 @@
    "items_new_this_run": 0,
    "newest_date": "2025-09-16",
    "oldest_date": "2011-12-31",
-   "run_at": "2026-11-02 12:03:49",
-   "engine": "static"
+   "run_at": "2026-11-02 21:33:08",
+   "engine": "cdp"
   },
   {
    "site": "南通市",
    "dir": "var\\data\\national\\江苏省\\南通市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.nantong.gov.cn/ntsrmzf/szfwj/szfwj.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 30,
    "texts": 30,
    "text_chars": 13379,
@@ -1083,8 +1331,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-24",
    "oldest_date": "2026-09-11",
-   "run_at": "2026-11-02 12:03:51",
-   "engine": "static"
+   "run_at": "2026-11-02 22:05:02",
+   "engine": "cdp"
   },
   {
    "site": "内江市",
@@ -1092,16 +1340,16 @@
    "status": "ok",
    "board": "https://www.neijiang.gov.cn/njs/zfgfxwj/zfxxgk_gfxwjk.shtml",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 5,
    "items": 29,
    "texts": 29,
    "text_chars": 245341,
    "attachments": 2,
    "attachment_files": 2,
-   "items_new_this_run": 34,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-22",
-   "oldest_date": "2019-12-20",
-   "run_at": "2026-11-02 19:05:09",
+   "oldest_date": "2021-06-15",
+   "run_at": "2026-11-02 21:35:16",
    "engine": "cdp"
   },
   {
@@ -1119,7 +1367,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-08-25",
-   "run_at": "2026-11-02 20:38:57",
+   "run_at": "2026-11-02 22:43:56",
    "engine": "cdp"
   },
   {
@@ -1137,7 +1385,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-14",
    "oldest_date": "2022-10-25",
-   "run_at": "2026-11-02 19:38:50",
+   "run_at": "2026-11-02 22:40:43",
    "engine": "cdp"
   },
   {
@@ -1155,21 +1403,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2024-09-30",
-   "run_at": "2026-11-02 19:38:51",
+   "run_at": "2026-11-02 21:33:00",
    "engine": "cdp"
   },
   {
    "site": "三亚市",
    "dir": "var\\data\\national\\海南省\\三亚市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.sanya.gov.cn/sanyasite/zcwjxx/zcwj.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 25,
    "texts": 25,
@@ -1179,21 +1421,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-06-13",
-   "run_at": "2026-11-02 12:03:41",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:33",
+   "engine": "cdp"
   },
   {
    "site": "海东市",
    "dir": "var\\data\\national\\青海省\\海东市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.haidong.gov.cn/html/488/list.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 2,
    "items": 25,
    "texts": 24,
@@ -1203,26 +1439,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-04-01",
    "oldest_date": "2021-01-28",
-   "run_at": "2026-11-02 12:04:34",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:16",
+   "engine": "cdp"
   },
   {
    "site": "乌鲁木齐市",
    "dir": "var\\data\\national\\新疆维吾尔自治区\\乌鲁木齐市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.wlmq.gov.cn/wlmqs/c119064/zfxxgk_list.shtml",
-   "pagination": {
-    "rule": [
-     "suffix",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.wlmq.gov.cn/wlmqs/c119064/zfxxgk_list_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 2,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 24,
    "texts": 24,
    "text_chars": 126606,
@@ -1231,8 +1457,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-04-30",
    "oldest_date": "2022-08-26",
-   "run_at": "2026-11-02 12:03:43",
-   "engine": "static"
+   "run_at": "2026-11-02 21:51:57",
+   "engine": "cdp"
   },
   {
    "site": "岳阳市",
@@ -1259,17 +1485,65 @@
    "engine": "static"
   },
   {
+   "site": "中国气象局",
+   "dir": "var\\data\\national\\中央\\中国气象局",
+   "status": "ok",
+   "board": "http://www.cma.gov.cn/zfxxgk/gknr/wjgk/gfxwj/",
+   "pagination": null,
+   "pages_this_run": 2,
+   "items": 23,
+   "texts": 23,
+   "text_chars": 67924,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 7,
+   "newest_date": "2026-01-09",
+   "oldest_date": "2011-07-11",
+   "run_at": "2026-11-02 21:24:40",
+   "engine": "cdp"
+  },
+  {
+   "site": "临沂市",
+   "dir": "var\\data\\national\\山东省\\临沂市",
+   "status": "ok",
+   "board": "https://www.linyi.gov.cn/bmgk/fgwj/zcwj/szfwj.htm",
+   "pagination": null,
+   "pages_this_run": 11,
+   "items": 23,
+   "texts": 23,
+   "text_chars": 58852,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 22,
+   "newest_date": "2026-20",
+   "oldest_date": "2021-20",
+   "run_at": "2026-11-02 21:49:35",
+   "engine": "cdp"
+  },
+  {
+   "site": "濮阳市",
+   "dir": "var\\data\\national\\河南省\\濮阳市",
+   "status": "ok",
+   "board": "https://www.puyang.gov.cn/zwxx/zwxx_list.thtml?cid=294",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 23,
+   "texts": 23,
+   "text_chars": 7682,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 1,
+   "newest_date": "2026-10-13",
+   "oldest_date": "2022-06-28",
+   "run_at": "2026-11-02 22:35:03",
+   "engine": "cdp"
+  },
+  {
    "site": "海口市",
    "dir": "var\\data\\national\\海南省\\海口市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.haikou.gov.cn/xxgk/szfbjxxgk/zcfg/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 22,
    "texts": 22,
@@ -1279,69 +1553,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2023-07-05",
-   "run_at": "2026-11-02 12:04:33",
-   "engine": "static"
-  },
-  {
-   "site": "濮阳市",
-   "dir": "var\\data\\national\\河南省\\濮阳市",
-   "status": "list_only_ok",
-   "board": "https://www.puyang.gov.cn/zwxx/zwxx_list.thtml?cid=294",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 22,
-   "texts": 22,
-   "text_chars": 7188,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-18",
-   "oldest_date": "2022-06-28",
-   "run_at": "2026-11-02 12:04:38",
-   "engine": "static"
-  },
-  {
-   "site": "焦作市",
-   "dir": "var\\data\\national\\河南省\\焦作市",
-   "status": "list_only_ok",
-   "board": "https://www.jiaozuo.gov.cn/zwgk/szfxxgk/zfwk/szfwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 22,
-   "texts": 22,
-   "text_chars": 152950,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-07-22",
-   "oldest_date": "2022-07-25",
-   "run_at": "2026-11-02 12:04:40",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:40",
+   "engine": "cdp"
   },
   {
    "site": "舟山市",
    "dir": "var\\data\\national\\浙江省\\舟山市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.zhoushan.gov.cn/col/col1229028957/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 22,
    "texts": 22,
@@ -1351,21 +1571,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-12-20",
-   "run_at": "2026-11-02 12:04:45",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:32",
+   "engine": "cdp"
   },
   {
    "site": "葫芦岛市",
    "dir": "var\\data\\national\\辽宁省\\葫芦岛市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.hld.gov.cn/zwgk/fdzdgknr/lzyj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 22,
    "texts": 22,
@@ -1374,47 +1588,35 @@
    "attachment_files": 5,
    "items_new_this_run": 0,
    "newest_date": "2026-08-26",
-   "oldest_date": "2017-06-16",
-   "run_at": "2026-11-02 12:04:56",
-   "engine": "static"
+   "oldest_date": "2018-07-17",
+   "run_at": "2026-11-02 22:44:40",
+   "engine": "cdp"
   },
   {
-   "site": "信阳市",
-   "dir": "var\\data\\national\\河南省\\信阳市",
-   "status": "list_only_ok",
-   "board": "https://www.xinyang.gov.cn/xxgkp/zfwj/xz/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "site": "咸阳市",
+   "dir": "var\\data\\national\\陕西省\\咸阳市",
+   "status": "ok",
+   "board": "https://www.xianyang.gov.cn/zfxxgk/zcwj/",
+   "pagination": null,
    "pages_this_run": 1,
    "items": 21,
    "texts": 21,
-   "text_chars": 120027,
+   "text_chars": 88991,
    "attachments": 5,
    "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-05-06",
-   "oldest_date": "2024-01-09",
-   "run_at": "2026-11-02 12:03:45",
-   "engine": "static"
+   "items_new_this_run": 2,
+   "newest_date": "2026-11-02",
+   "oldest_date": "2022-01-02",
+   "run_at": "2026-11-02 22:46:00",
+   "engine": "cdp"
   },
   {
    "site": "云南省",
    "dir": "var\\data\\national\\云南省\\云南省",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.yn.gov.cn/zwgk/zfxxgkpt/gkptzcwj/gz/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 20,
    "texts": 20,
    "text_chars": 98138,
@@ -1423,45 +1625,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2019-04-24",
-   "run_at": "2026-11-02 12:05:18",
-   "engine": "static"
-  },
-  {
-   "site": "张掖市",
-   "dir": "var\\data\\national\\甘肃省\\张掖市",
-   "status": "list_only_ok",
-   "board": "https://www.zhangye.gov.cn/zyszfxxgk/zfwj_5652/gfxwj_5655/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 20,
-   "texts": 20,
-   "text_chars": 84242,
-   "attachments": 4,
-   "attachment_files": 4,
-   "items_new_this_run": 0,
-   "newest_date": "2025-09-02",
-   "oldest_date": "2023-01-09",
-   "run_at": "2026-11-02 12:04:01",
-   "engine": "static"
+   "run_at": "2026-11-02 21:33:03",
+   "engine": "cdp"
   },
   {
    "site": "盘锦市",
    "dir": "var\\data\\national\\辽宁省\\盘锦市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.panjin.gov.cn/html/1872/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 20,
    "texts": 20,
@@ -1471,21 +1643,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2017-07-26",
-   "run_at": "2026-11-02 12:04:42",
-   "engine": "static"
+   "run_at": "2026-11-02 22:44:33",
+   "engine": "cdp"
   },
   {
    "site": "绍兴市",
    "dir": "var\\data\\national\\浙江省\\绍兴市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.sx.gov.cn/col/col1229562854/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 20,
    "texts": 20,
@@ -1495,22 +1661,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2020-12-01",
-   "run_at": "2026-11-02 12:04:45",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:30",
+   "engine": "cdp"
   },
   {
    "site": "西藏自治区",
    "dir": "var\\data\\national\\西藏自治区\\西藏自治区",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.xizang.gov.cn/zwgk/zfxxgk/fdzdgknr/zc/gz/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 20,
    "texts": 20,
    "text_chars": 101374,
@@ -1519,70 +1679,16 @@
    "items_new_this_run": 0,
    "newest_date": "2025-11-14",
    "oldest_date": "2021-02-02",
-   "run_at": "2026-11-02 12:05:19",
-   "engine": "static"
-  },
-  {
-   "site": "北海市",
-   "dir": "var\\data\\national\\广西壮族自治区\\北海市",
-   "status": "list_only_ok",
-   "board": "http://www.beihai.gov.cn/zfxxgk/zc/xzgfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 19,
-   "texts": 19,
-   "text_chars": 83361,
-   "attachments": 3,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-03",
-   "oldest_date": "2022-04-15",
-   "run_at": "2026-11-02 12:03:48",
-   "engine": "static"
-  },
-  {
-   "site": "咸阳市",
-   "dir": "var\\data\\national\\陕西省\\咸阳市",
-   "status": "list_only_ok",
-   "board": "https://www.xianyang.gov.cn/zfxxgk/zcwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 19,
-   "texts": 19,
-   "text_chars": 88020,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-10",
-   "oldest_date": "2022-01-02",
-   "run_at": "2026-11-02 12:03:52",
-   "engine": "static"
+   "run_at": "2026-11-02 22:42:43",
+   "engine": "cdp"
   },
   {
    "site": "安徽省",
    "dir": "var\\data\\national\\安徽省\\安徽省",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.ah.gov.cn/public/column/1681?type=4&catId=6708431&action=list",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 19,
    "texts": 19,
    "text_chars": 73911,
@@ -1591,32 +1697,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-14",
    "oldest_date": "2022-11-22",
-   "run_at": "2026-11-02 12:05:26",
-   "engine": "static"
-  },
-  {
-   "site": "河池市",
-   "dir": "var\\data\\national\\广西壮族自治区\\河池市",
-   "status": "list_only_ok",
-   "board": "http://www.hechi.gov.cn/zfxxgk/zfwj/xzgfxwjk/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 19,
-   "texts": 19,
-   "text_chars": 127118,
-   "attachments": 3,
-   "attachment_files": 3,
-   "items_new_this_run": 0,
-   "newest_date": "2026-00",
-   "oldest_date": "2023-00",
-   "run_at": "2026-11-02 12:04:29",
-   "engine": "static"
+   "run_at": "2026-11-02 21:45:18",
+   "engine": "cdp"
   },
   {
    "site": "洛阳市",
@@ -1672,7 +1754,7 @@
    "status": "ok",
    "board": "https://www.xuchang.gov.cn/GovInfoListPage.html",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 3,
    "items": 19,
    "texts": 19,
    "text_chars": 87108,
@@ -1681,93 +1763,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-28",
    "oldest_date": "2026-01-30",
-   "run_at": "2026-11-02 19:07:22",
+   "run_at": "2026-11-02 22:35:23",
    "engine": "cdp"
-  },
-  {
-   "site": "辽宁省",
-   "dir": "var\\data\\national\\辽宁省\\辽宁省",
-   "status": "list_only_ok",
-   "board": "https://www.ln.gov.cn/web/zwgkx/zfwj/index.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 19,
-   "texts": 19,
-   "text_chars": 22467,
-   "attachments": 3,
-   "attachment_files": 3,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-30",
-   "oldest_date": "2025-02-11",
-   "run_at": "2026-11-02 12:05:19",
-   "engine": "static"
-  },
-  {
-   "site": "钦州市",
-   "dir": "var\\data\\national\\广西壮族自治区\\钦州市",
-   "status": "list_only_ok",
-   "board": "http://www.qinzhou.gov.cn/zfxxgk/zcwj/xzgfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 19,
-   "texts": 19,
-   "text_chars": 98521,
-   "attachments": 3,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-20",
-   "oldest_date": "2024-12-30",
-   "run_at": "2026-11-02 12:05:12",
-   "engine": "static"
-  },
-  {
-   "site": "国家移民管理局",
-   "dir": "var\\data\\national\\中央\\国家移民管理局",
-   "status": "list_only_ok",
-   "board": "https://www.nia.gov.cn/n741440/n741547/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 18,
-   "texts": 18,
-   "text_chars": 82625,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-07-31",
-   "oldest_date": "2025-07-21",
-   "run_at": "2026-11-02 12:05:28",
-   "engine": "static"
   },
   {
    "site": "宿迁市",
    "dir": "var\\data\\national\\江苏省\\宿迁市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.suqian.gov.cn/cnsq/zfwjjd/xxgk_list2.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 18,
    "texts": 18,
@@ -1777,21 +1781,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-22",
    "oldest_date": "2026-07-28",
-   "run_at": "2026-11-02 12:03:57",
-   "engine": "static"
+   "run_at": "2026-11-02 21:53:34",
+   "engine": "cdp"
   },
   {
    "site": "枣庄市",
    "dir": "var\\data\\national\\山东省\\枣庄市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.zaozhuang.gov.cn/zcwjk/gfxwjgk/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 18,
    "texts": 18,
@@ -1801,21 +1799,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2024-12-25",
-   "run_at": "2026-11-02 12:04:12",
-   "engine": "static"
+   "run_at": "2026-11-02 21:49:41",
+   "engine": "cdp"
   },
   {
    "site": "儋州市",
    "dir": "var\\data\\national\\海南省\\儋州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.danzhou.gov.cn/danzhou/xxgk/zfwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 17,
    "texts": 17,
@@ -1825,8 +1817,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2024-04-11",
-   "run_at": "2026-11-02 12:03:47",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:35",
+   "engine": "cdp"
   },
   {
    "site": "南昌市",
@@ -1857,17 +1849,29 @@
    "engine": "static"
   },
   {
+   "site": "嘉兴市",
+   "dir": "var\\data\\national\\浙江省\\嘉兴市",
+   "status": "ok",
+   "board": "https://www.jiaxing.gov.cn/col/col1229663805/index.html",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 17,
+   "texts": 17,
+   "text_chars": 105976,
+   "attachments": 7,
+   "attachment_files": 7,
+   "items_new_this_run": 6,
+   "newest_date": "2026-10-26",
+   "oldest_date": "2012-03-14",
+   "run_at": "2026-11-02 22:35:24",
+   "engine": "cdp"
+  },
+  {
    "site": "淄博市",
    "dir": "var\\data\\national\\山东省\\淄博市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.zibo.gov.cn/gongkai/channel_c_5f3a4f3c43aa933a482b9195_n_1605679675.5445/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 17,
    "texts": 17,
@@ -1877,8 +1881,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-25",
    "oldest_date": "2021-06-16",
-   "run_at": "2026-11-02 12:04:34",
-   "engine": "static"
+   "run_at": "2026-11-02 21:50:06",
+   "engine": "cdp"
   },
   {
    "site": "遵义市",
@@ -1886,7 +1890,7 @@
    "status": "ok",
    "board": "https://www.zunyi.gov.cn/zwgk/zfwj/",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 3,
    "items": 17,
    "texts": 17,
    "text_chars": 128126,
@@ -1895,93 +1899,33 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2016-02-14",
-   "run_at": "2026-11-02 19:09:28",
+   "run_at": "2026-11-02 22:43:51",
    "engine": "cdp"
   },
   {
    "site": "阜阳市",
    "dir": "var\\data\\national\\安徽省\\阜阳市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.fy.gov.cn/PolicyContent/?keyword=&branchId=2&policyType=2",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 17,
    "texts": 17,
    "text_chars": 105837,
    "attachments": 2,
    "attachment_files": 2,
-   "items_new_this_run": 17,
+   "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2017-12-29",
-   "run_at": "2026-11-02 20:51:19",
-   "engine": "static"
-  },
-  {
-   "site": "黄冈市",
-   "dir": "var\\data\\national\\湖北省\\黄冈市",
-   "status": "list_only_ok",
-   "board": "https://www.hg.gov.cn/zwgk/public/column/6636765?type=4&catId=7025201&action=list&nav=3",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 17,
-   "texts": 17,
-   "text_chars": 80534,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-12",
-   "oldest_date": "2025-09-08",
-   "run_at": "2026-11-02 12:05:16",
-   "engine": "static"
-  },
-  {
-   "site": "中国气象局",
-   "dir": "var\\data\\national\\中央\\中国气象局",
-   "status": "list_only_ok",
-   "board": "http://www.cma.gov.cn/zfxxgk/gknr/wjgk/gfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 16,
-   "texts": 16,
-   "text_chars": 43778,
-   "attachments": 3,
-   "attachment_files": 3,
-   "items_new_this_run": 0,
-   "newest_date": "2026-01-09",
-   "oldest_date": "2016-12-23",
-   "run_at": "2026-11-02 12:05:26",
-   "engine": "static"
+   "run_at": "2026-11-02 21:46:51",
+   "engine": "cdp"
   },
   {
    "site": "国家信访局",
    "dir": "var\\data\\national\\中央\\国家信访局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj.htm",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 16,
    "texts": 16,
@@ -1991,32 +1935,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-25",
    "oldest_date": "2016-11-23",
-   "run_at": "2026-11-02 12:05:26",
-   "engine": "static"
-  },
-  {
-   "site": "泸州市",
-   "dir": "var\\data\\national\\四川省\\泸州市",
-   "status": "list_only_ok",
-   "board": "https://www.luzhou.gov.cn/zw/zcwjs/szfwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 5,
-   "items": 16,
-   "texts": 16,
-   "text_chars": 17403,
-   "attachments": 1,
-   "attachment_files": 1,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-03",
-   "oldest_date": "2026-04-26",
-   "run_at": "2026-11-02 12:04:37",
-   "engine": "static"
+   "run_at": "2026-11-02 21:25:21",
+   "engine": "cdp"
   },
   {
    "site": "营口市",
@@ -2024,7 +1944,7 @@
    "status": "ok",
    "board": "https://www.yingkou.gov.cn/dynamic/zw/openlist.html?categorynum=001001003",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 16,
    "texts": 16,
    "text_chars": 39725,
@@ -2033,21 +1953,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2023-01-11",
-   "run_at": "2026-11-02 19:09:39",
+   "run_at": "2026-11-02 22:44:39",
    "engine": "cdp"
   },
   {
    "site": "陕西省",
    "dir": "var\\data\\national\\陕西省\\陕西省",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 16,
    "texts": 16,
@@ -2057,8 +1971,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2025-12-23",
-   "run_at": "2026-11-02 12:05:18",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:13",
+   "engine": "cdp"
   },
   {
    "site": "固原市",
@@ -2113,41 +2027,11 @@
    "engine": "static"
   },
   {
-   "site": "济源市",
-   "dir": "var\\data\\national\\河南省\\济源市",
-   "status": "list_only_ok",
-   "board": "http://www.jiyuan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 15,
-   "texts": 15,
-   "text_chars": 48124,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-07-23",
-   "oldest_date": "2025-07-11",
-   "run_at": "2026-11-02 12:04:33",
-   "engine": "static"
-  },
-  {
    "site": "肇庆市",
    "dir": "var\\data\\national\\广东省\\肇庆市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.zhaoqing.gov.cn/xxgk/zcfg/gfxwj/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 15,
    "texts": 15,
@@ -2157,8 +2041,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-16",
    "oldest_date": "2025-05-07",
-   "run_at": "2026-11-02 12:04:44",
-   "engine": "static"
+   "run_at": "2026-11-02 21:50:25",
+   "engine": "cdp"
   },
   {
    "site": "辽阳市",
@@ -2166,35 +2050,43 @@
    "status": "ok",
    "board": "http://www.liaoyang.gov.cn/column_list.html?categorynum=019004&amp;deptcode=033",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 15,
-   "texts": 14,
-   "text_chars": 9088,
+   "texts": 15,
+   "text_chars": 9218,
    "attachments": 3,
    "attachment_files": 3,
    "items_new_this_run": 0,
    "newest_date": "2025-10-23",
    "oldest_date": "2022-09-21",
-   "run_at": "2026-11-02 19:09:42",
+   "run_at": "2026-11-02 22:45:59",
+   "engine": "cdp"
+  },
+  {
+   "site": "邯郸市",
+   "dir": "var\\data\\national\\河北省\\邯郸市",
+   "status": "ok",
+   "board": "https://www.hd.gov.cn/hdzfxxgk/zfwj/",
+   "pagination": null,
+   "pages_this_run": 11,
+   "items": 15,
+   "texts": 15,
+   "text_chars": 50238,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 11,
+   "newest_date": "2026-10-22",
+   "oldest_date": "2025-06-07",
+   "run_at": "2026-11-02 22:07:47",
    "engine": "cdp"
   },
   {
    "site": "黑龙江省",
    "dir": "var\\data\\national\\黑龙江省\\黑龙江省",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://hlj.gov.cn/hlj/c108390/zfxxgk.shtml",
-   "pagination": {
-    "rule": [
-     "suffix",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://hlj.gov.cn/hlj/c108390/zfxxgk_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 15,
    "texts": 15,
    "text_chars": 48891,
@@ -2203,54 +2095,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-24",
    "oldest_date": "2017-11-02",
-   "run_at": "2026-11-02 12:05:21",
-   "engine": "static"
-  },
-  {
-   "site": "乌兰察布市",
-   "dir": "var\\data\\national\\内蒙古自治区\\乌兰察布市",
-   "status": "list_only_ok",
-   "board": "https://www.wulanchabu.gov.cn/zcfg/index.html",
-   "pagination": {
-    "rule": [
-     "index",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.wulanchabu.gov.cn/zcfg/index_2.html",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
-   "items": 14,
-   "texts": 14,
-   "text_chars": 97976,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-29",
-   "oldest_date": "2025-05-19",
-   "run_at": "2026-11-02 12:03:44",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:51",
+   "engine": "cdp"
   },
   {
    "site": "国家粮食和物资储备局",
    "dir": "var\\data\\national\\中央\\国家粮食和物资储备局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.lswz.gov.cn/html/ywpd/fgtg/index.shtml",
-   "pagination": {
-    "rule": [
-     "index",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.lswz.gov.cn/html/ywpd/fgtg/index_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 14,
    "texts": 14,
    "text_chars": 56953,
@@ -2259,21 +2113,15 @@
    "items_new_this_run": 0,
    "newest_date": "2022-05-25",
    "oldest_date": "2020-03-17",
-   "run_at": "2026-11-02 12:05:29",
-   "engine": "static"
+   "run_at": "2026-11-02 21:27:08",
+   "engine": "cdp"
   },
   {
    "site": "西宁市",
    "dir": "var\\data\\national\\青海省\\西宁市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.xining.gov.cn/zwgk/zc/xzgfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 14,
    "texts": 14,
@@ -2283,21 +2131,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-29",
    "oldest_date": "2023-05-23",
-   "run_at": "2026-11-02 12:04:58",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:17",
+   "engine": "cdp"
   },
   {
    "site": "双鸭山市",
    "dir": "var\\data\\national\\黑龙江省\\双鸭山市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.shuangyashan.gov.cn/sys/szfxzgfxwj/xxgk_list.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 13,
    "texts": 13,
@@ -2307,21 +2149,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-09",
    "oldest_date": "2021-01-19",
-   "run_at": "2026-11-02 12:03:52",
-   "engine": "static"
+   "run_at": "2026-11-02 22:49:19",
+   "engine": "cdp"
   },
   {
    "site": "国家密码管理局",
    "dir": "var\\data\\national\\中央\\国家密码管理局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.oscca.gov.cn/sca/xxgk/zcfg.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 13,
    "texts": 13,
@@ -2331,8 +2167,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-03",
    "oldest_date": "2016-03-28",
-   "run_at": "2026-11-02 12:05:29",
-   "engine": "static"
+   "run_at": "2026-11-02 21:26:51",
+   "engine": "cdp"
   },
   {
    "site": "廊坊市",
@@ -2340,7 +2176,7 @@
    "status": "ok",
    "board": "https://www.lf.gov.cn/Category_956/Index.aspx",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 13,
    "texts": 13,
    "text_chars": 767,
@@ -2349,7 +2185,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-05-29",
    "oldest_date": "2023-08-22",
-   "run_at": "2026-11-02 19:07:18",
+   "run_at": "2026-11-02 22:32:39",
    "engine": "cdp"
   },
   {
@@ -2358,7 +2194,7 @@
    "status": "ok",
    "board": "https://www.jinan.gov.cn/col/col85285/index.html",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 13,
    "texts": 13,
    "text_chars": 48121,
@@ -2367,21 +2203,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-19",
    "oldest_date": "2002-10-11",
-   "run_at": "2026-11-02 19:06:15",
+   "run_at": "2026-11-02 22:26:21",
    "engine": "cdp"
   },
   {
    "site": "漳州市",
    "dir": "var\\data\\national\\福建省\\漳州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.zhangzhou.gov.cn/cms/html/zzsrmzf/zfwj/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 13,
    "texts": 0,
@@ -2391,63 +2221,33 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-23",
    "oldest_date": "2025-07-02",
-   "run_at": "2026-11-02 12:04:35",
-   "engine": "static"
+   "run_at": "2026-11-02 22:42:04",
+   "engine": "cdp"
   },
   {
    "site": "科学技术部",
    "dir": "var\\data\\national\\中央\\科学技术部",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 13,
    "texts": 13,
    "text_chars": 58011,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 14,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-21",
    "oldest_date": "2017-11-13",
-   "run_at": "2026-11-02 17:53:53",
-   "engine": "static"
-  },
-  {
-   "site": "自贡市",
-   "dir": "var\\data\\national\\四川省\\自贡市",
-   "status": "ok",
-   "board": "https://www.zg.gov.cn/zgsrmzf/zc101/pc/list.html",
-   "pagination": null,
-   "pages_this_run": null,
-   "items": 13,
-   "texts": 13,
-   "text_chars": 50903,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-26",
-   "oldest_date": "2026-09-10",
-   "run_at": "2026-11-02 19:05:13",
+   "run_at": "2026-11-02 21:32:58",
    "engine": "cdp"
   },
   {
    "site": "株洲市",
    "dir": "var\\data\\national\\湖南省\\株洲市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.zhuzhou.gov.cn/c22729/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 4,
    "items": 12,
    "texts": 12,
@@ -2457,22 +2257,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-25",
    "oldest_date": "2016-03-25",
-   "run_at": "2026-11-02 12:04:18",
-   "engine": "static"
+   "run_at": "2026-11-02 22:39:30",
+   "engine": "cdp"
   },
   {
    "site": "河北省",
    "dir": "var\\data\\national\\河北省\\河北省",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.hebei.gov.cn/columns/49f13cc2-db03-4d0c-b4fe-2f3f659d3b6e/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 12,
    "texts": 12,
    "text_chars": 80973,
@@ -2481,8 +2275,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-19",
    "oldest_date": "2026-06-29",
-   "run_at": "2026-11-02 12:05:18",
-   "engine": "static"
+   "run_at": "2026-11-02 21:55:01",
+   "engine": "cdp"
   },
   {
    "site": "聊城市",
@@ -2496,10 +2290,10 @@
    "text_chars": 55577,
    "attachments": 2,
    "attachment_files": 2,
-   "items_new_this_run": 7,
+   "items_new_this_run": 0,
    "newest_date": "2023-10-31",
    "oldest_date": "2017-11-23",
-   "run_at": "2026-11-02 20:40:06",
+   "run_at": "2026-11-02 22:27:28",
    "engine": "cdp"
   },
   {
@@ -2529,15 +2323,9 @@
   {
    "site": "住房和城乡建设部",
    "dir": "var\\data\\national\\中央\\住房和城乡建设部",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/zfhcxjsbwj/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 11,
    "texts": 11,
@@ -2547,69 +2335,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2023-01-30",
-   "run_at": "2026-11-02 12:05:23",
-   "engine": "static"
-  },
-  {
-   "site": "南阳市",
-   "dir": "var\\data\\national\\河南省\\南阳市",
-   "status": "list_only_ok",
-   "board": "https://www.nanyang.gov.cn/zwxxgk/qtfdxx/zfwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 11,
-   "texts": 11,
-   "text_chars": 6327,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-30",
-   "oldest_date": "2026-09-20",
-   "run_at": "2026-11-02 12:03:51",
-   "engine": "static"
-  },
-  {
-   "site": "嘉兴市",
-   "dir": "var\\data\\national\\浙江省\\嘉兴市",
-   "status": "list_only_ok",
-   "board": "https://www.jiaxing.gov.cn/col/col1229663805/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 11,
-   "texts": 11,
-   "text_chars": 56145,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-07-02",
-   "oldest_date": "2012-03-14",
-   "run_at": "2026-11-02 12:03:53",
-   "engine": "static"
+   "run_at": "2026-11-02 21:25:18",
+   "engine": "cdp"
   },
   {
    "site": "国家矿山安全监察局",
    "dir": "var\\data\\national\\中央\\国家矿山安全监察局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/zcfg/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 11,
    "texts": 11,
@@ -2619,22 +2353,52 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-11",
    "oldest_date": "2011-05-04",
-   "run_at": "2026-11-02 12:05:28",
-   "engine": "static"
+   "run_at": "2026-11-02 21:26:57",
+   "engine": "cdp"
+  },
+  {
+   "site": "淮安市",
+   "dir": "var\\data\\national\\江苏省\\淮安市",
+   "status": "ok",
+   "board": "https://www.huaian.gov.cn/cmsweb/zwgk/zcwj/s.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 11,
+   "texts": 11,
+   "text_chars": 14692,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 1,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2026-01-23",
+   "run_at": "2026-11-02 22:31:28",
+   "engine": "cdp"
+  },
+  {
+   "site": "三门峡市",
+   "dir": "var\\data\\national\\河南省\\三门峡市",
+   "status": "ok",
+   "board": "https://www.smx.gov.cn/pageView/zcwjList.html?lmid=8200&searchType=1",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 10,
+   "texts": 5,
+   "text_chars": 24866,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 5,
+   "newest_date": "2025-12-15",
+   "oldest_date": "2021-08-30",
+   "run_at": "2026-11-02 22:07:49",
+   "engine": "cdp"
   },
   {
    "site": "中国地震局",
    "dir": "var\\data\\national\\中央\\中国地震局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.cea.gov.cn/cea/zwgk/5616193/5614278/5703595/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 10,
    "texts": 10,
    "text_chars": 29309,
@@ -2643,22 +2407,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-22",
    "oldest_date": "2022-12-27",
-   "run_at": "2026-11-02 12:05:30",
-   "engine": "static"
+   "run_at": "2026-11-02 21:24:37",
+   "engine": "cdp"
   },
   {
    "site": "农业农村部",
    "dir": "var\\data\\national\\中央\\农业农村部",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.moa.gov.cn/gk/zcfg/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 2,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 10,
    "texts": 10,
    "text_chars": 68834,
@@ -2667,21 +2425,33 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-08",
    "oldest_date": "2024-08-06",
-   "run_at": "2026-11-02 11:58:23",
-   "engine": "static"
+   "run_at": "2026-11-02 21:25:19",
+   "engine": "cdp"
+  },
+  {
+   "site": "吕梁市",
+   "dir": "var\\data\\national\\山西省\\吕梁市",
+   "status": "ok",
+   "board": "http://www.lvliang.gov.cn/llxxgk/zfxxgk/xxgkml/zcwj_21555/",
+   "pagination": null,
+   "pages_this_run": 5,
+   "items": 10,
+   "texts": 10,
+   "text_chars": 53885,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 2,
+   "newest_date": "2026-07-17",
+   "oldest_date": "2017-09-18",
+   "run_at": "2026-11-02 21:50:14",
+   "engine": "cdp"
   },
   {
    "site": "安阳市",
    "dir": "var\\data\\national\\河南省\\安阳市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.anyang.gov.cn/zwgk/fgwj/xzgfxwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 10,
    "texts": 10,
@@ -2691,8 +2461,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-20",
    "oldest_date": "2025-04-30",
-   "run_at": "2026-11-02 12:03:55",
-   "engine": "static"
+   "run_at": "2026-11-02 22:09:54",
+   "engine": "cdp"
   },
   {
    "site": "延安市",
@@ -2725,15 +2495,9 @@
   {
    "site": "扬州市",
    "dir": "var\\data\\national\\江苏省\\扬州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.yangzhou.gov.cn/zfxxgk/fdgkzdnr/zfwj/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 10,
    "texts": 10,
@@ -2743,25 +2507,25 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-23",
    "oldest_date": "2026-08-14",
-   "run_at": "2026-11-02 12:04:03",
-   "engine": "static"
+   "run_at": "2026-11-02 21:53:44",
+   "engine": "cdp"
   },
   {
-   "site": "淮安市",
-   "dir": "var\\data\\national\\江苏省\\淮安市",
+   "site": "柳州市",
+   "dir": "var\\data\\national\\广西壮族自治区\\柳州市",
    "status": "ok",
-   "board": "https://www.huaian.gov.cn/cmsweb/zwgk/zcwj/s.html",
+   "board": "http://www.liuzhou.gov.cn/#zcwj",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 10,
    "texts": 10,
-   "text_chars": 7410,
-   "attachments": 3,
-   "attachment_files": 3,
-   "items_new_this_run": 1,
-   "newest_date": "2026-10-30",
-   "oldest_date": "2026-01-23",
-   "run_at": "2026-11-02 19:07:14",
+   "text_chars": 35978,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 4,
+   "newest_date": "2026-10-26",
+   "oldest_date": "2021-20",
+   "run_at": "2026-11-02 21:50:35",
    "engine": "cdp"
   },
   {
@@ -2793,6 +2557,24 @@
    "engine": "static"
   },
   {
+   "site": "运城市",
+   "dir": "var\\data\\national\\山西省\\运城市",
+   "status": "ok",
+   "board": "https://www.yuncheng.gov.cn/zwgk_1/xxgkml/zfwj/index.shtml",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 9,
+   "texts": 9,
+   "text_chars": 18088,
+   "attachments": 9,
+   "attachment_files": 9,
+   "items_new_this_run": 1,
+   "newest_date": "2026-11-02",
+   "oldest_date": "2026-08-05",
+   "run_at": "2026-11-02 21:50:22",
+   "engine": "cdp"
+  },
+  {
    "site": "铜陵市",
    "dir": "var\\data\\national\\安徽省\\铜陵市",
    "status": "list_only_ok",
@@ -2817,41 +2599,11 @@
    "engine": "static"
   },
   {
-   "site": "吕梁市",
-   "dir": "var\\data\\national\\山西省\\吕梁市",
-   "status": "list_only_ok",
-   "board": "http://www.lvliang.gov.cn/llxxgk/zfxxgk/xxgkml/zcwj_21555/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 8,
-   "texts": 8,
-   "text_chars": 41275,
-   "attachments": 1,
-   "attachment_files": 1,
-   "items_new_this_run": 0,
-   "newest_date": "2026-07-17",
-   "oldest_date": "2023-09-17",
-   "run_at": "2026-11-02 12:03:52",
-   "engine": "static"
-  },
-  {
    "site": "宁德市",
    "dir": "var\\data\\national\\福建省\\宁德市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.ningde.gov.cn/zfxxgkzl/zfxxgkml/fggzhgf/gzk/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 8,
    "texts": 8,
@@ -2861,21 +2613,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-14",
    "oldest_date": "2016-07-28",
-   "run_at": "2026-11-02 12:03:56",
-   "engine": "static"
+   "run_at": "2026-11-02 22:41:59",
+   "engine": "cdp"
   },
   {
    "site": "张家口市",
    "dir": "var\\data\\national\\河北省\\张家口市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.zjk.gov.cn/xxgk/list/lm_zc.thtml?pid=74",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 8,
    "texts": 8,
@@ -2885,8 +2631,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-26",
    "oldest_date": "2021-12-08",
-   "run_at": "2026-11-02 12:04:00",
-   "engine": "static"
+   "run_at": "2026-11-02 21:54:57",
+   "engine": "cdp"
   },
   {
    "site": "泉州市",
@@ -2894,7 +2640,7 @@
    "status": "ok",
    "board": "https://www.quanzhou.gov.cn/so/zck/",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 8,
    "texts": 8,
    "text_chars": 30886,
@@ -2903,7 +2649,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2026-02-10",
-   "run_at": "2026-11-02 19:08:03",
+   "run_at": "2026-11-02 22:42:02",
    "engine": "cdp"
   },
   {
@@ -2925,65 +2671,11 @@
    "engine": "cdp"
   },
   {
-   "site": "运城市",
-   "dir": "var\\data\\national\\山西省\\运城市",
-   "status": "list_only_ok",
-   "board": "https://www.yuncheng.gov.cn/zwgk_1/xxgkml/zfwj/index.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 8,
-   "texts": 8,
-   "text_chars": 15184,
-   "attachments": 8,
-   "attachment_files": 8,
-   "items_new_this_run": 0,
-   "newest_date": "2026-11-02",
-   "oldest_date": "2026-04-16",
-   "run_at": "2026-11-02 12:05:07",
-   "engine": "static"
-  },
-  {
-   "site": "长沙市",
-   "dir": "var\\data\\national\\湖南省\\长沙市",
-   "status": "list_only_ok",
-   "board": "http://www.changsha.gov.cn/zfxxgk/zfwjk/srmzf/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 8,
-   "texts": 8,
-   "text_chars": 28130,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2031-02-01",
-   "oldest_date": "2025-12-24",
-   "run_at": "2026-11-02 12:05:14",
-   "engine": "static"
-  },
-  {
    "site": "青岛市",
    "dir": "var\\data\\national\\山东省\\青岛市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.qingdao.gov.cn/zwgk/zdgk/fgwj/zcwj/index.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 8,
    "texts": 8,
@@ -2993,21 +2685,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-16",
    "oldest_date": "2025-08-22",
-   "run_at": "2026-11-02 12:05:17",
-   "engine": "static"
+   "run_at": "2026-11-02 21:50:08",
+   "engine": "cdp"
   },
   {
    "site": "南平市",
    "dir": "var\\data\\national\\福建省\\南平市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.np.gov.cn/cms/html/npszf/zcfg/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 7,
    "texts": 7,
@@ -3017,8 +2703,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2026-07-24",
-   "run_at": "2026-11-02 12:03:50",
-   "engine": "static"
+   "run_at": "2026-11-02 22:41:55",
+   "engine": "cdp"
   },
   {
    "site": "厦门市",
@@ -3026,78 +2712,42 @@
    "status": "ok",
    "board": "https://www.xm.gov.cn/zwgk/flfg/sfwj/",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 3,
    "items": 7,
    "texts": 7,
    "text_chars": 10726,
    "attachments": 4,
    "attachment_files": 4,
-   "items_new_this_run": 1,
+   "items_new_this_run": 0,
    "newest_date": "2030-12-31",
    "oldest_date": "2026-09-19",
-   "run_at": "2026-11-02 19:08:01",
+   "run_at": "2026-11-02 22:41:58",
    "engine": "cdp"
   },
   {
-   "site": "平凉市",
-   "dir": "var\\data\\national\\甘肃省\\平凉市",
-   "status": "list_only_ok",
-   "board": "http://www.pingliang.gov.cn/zfxxgk/fdzdgknr/lzyj/zcwj/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "site": "河南省",
+   "dir": "var\\data\\national\\河南省\\河南省",
+   "status": "ok",
+   "board": "https://henan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj",
+   "pagination": null,
    "pages_this_run": 1,
    "items": 7,
    "texts": 7,
-   "text_chars": 70303,
-   "attachments": 3,
-   "attachment_files": 2,
-   "items_new_this_run": 7,
-   "newest_date": "2026-10-27",
-   "oldest_date": "2026-07-17",
-   "run_at": "2026-11-02 14:53:35",
-   "engine": "static"
-  },
-  {
-   "site": "张家界市",
-   "dir": "var\\data\\national\\湖南省\\张家界市",
-   "status": "list_only_ok",
-   "board": "http://www.zjj.gov.cn/c2283/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 7,
-   "texts": 7,
-   "text_chars": 69603,
+   "text_chars": 22096,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-08-28",
-   "oldest_date": "2024-06-17",
-   "run_at": "2026-11-02 12:04:02",
-   "engine": "static"
+   "items_new_this_run": 1,
+   "newest_date": "2026-11-02",
+   "oldest_date": "2026-07-04",
+   "run_at": "2026-11-02 22:09:56",
+   "engine": "cdp"
   },
   {
    "site": "温州市",
    "dir": "var\\data\\national\\浙江省\\温州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.wenzhou.gov.cn/col/col1229116913/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 7,
    "texts": 7,
@@ -3105,24 +2755,18 @@
    "attachments": 5,
    "attachment_files": 5,
    "items_new_this_run": 0,
-   "newest_date": "2026-10-30",
+   "newest_date": "2026-10-27",
    "oldest_date": "2025-10-20",
-   "run_at": "2026-11-02 12:04:35",
-   "engine": "static"
+   "run_at": "2026-11-02 22:36:28",
+   "engine": "cdp"
   },
   {
    "site": "达州市",
    "dir": "var\\data\\national\\四川省\\达州市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.dazhou.gov.cn/xxgk-list-shizhengfu.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 7,
    "texts": 7,
    "text_chars": 31599,
@@ -3131,26 +2775,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-17",
    "oldest_date": "2019-11-21",
-   "run_at": "2026-11-02 12:05:07",
-   "engine": "static"
+   "run_at": "2026-11-02 21:43:37",
+   "engine": "cdp"
   },
   {
    "site": "丹东市",
    "dir": "var\\data\\national\\辽宁省\\丹东市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct?siteCode=DDSZF&pageMax=20&govTextnumId=163859249782368&beginYear=2007",
-   "pagination": {
-    "rule": [
-     "query",
-     "pageNum"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct&pageNum=2",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 4,
+   "pagination": null,
+   "pages_this_run": 1,
    "items": 6,
    "texts": 6,
    "text_chars": 25639,
@@ -3159,22 +2793,16 @@
    "items_new_this_run": 0,
    "newest_date": "2026-20",
    "oldest_date": "2025-12-15",
-   "run_at": "2026-11-02 12:03:44",
-   "engine": "static"
+   "run_at": "2026-11-02 22:43:54",
+   "engine": "cdp"
   },
   {
    "site": "商丘市",
    "dir": "var\\data\\national\\河南省\\商丘市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.shangqiu.gov.cn/qsygk/zcwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 6,
    "texts": 6,
    "text_chars": 18540,
@@ -3183,8 +2811,8 @@
    "items_new_this_run": 0,
    "newest_date": "2023-11-05",
    "oldest_date": "2023-03-16",
-   "run_at": "2026-11-02 12:03:53",
-   "engine": "static"
+   "run_at": "2026-11-02 22:09:52",
+   "engine": "cdp"
   },
   {
    "site": "宣城市",
@@ -3235,60 +2863,12 @@
    "engine": "static"
   },
   {
-   "site": "柳州市",
-   "dir": "var\\data\\national\\广西壮族自治区\\柳州市",
-   "status": "list_only_ok",
-   "board": "http://www.liuzhou.gov.cn/#zcwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 6,
-   "texts": 6,
-   "text_chars": 18404,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-26",
-   "oldest_date": "2021-20",
-   "run_at": "2026-11-02 12:04:13",
-   "engine": "static"
-  },
-  {
-   "site": "河南省",
-   "dir": "var\\data\\national\\河南省\\河南省",
-   "status": "list_only_ok",
-   "board": "https://henan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 6,
-   "texts": 6,
-   "text_chars": 17671,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-21",
-   "oldest_date": "2026-07-04",
-   "run_at": "2026-11-02 12:05:18",
-   "engine": "static"
-  },
-  {
    "site": "绵阳市",
    "dir": "var\\data\\national\\四川省\\绵阳市",
    "status": "ok",
    "board": "https://www.my.gov.cn/mysrmzf/c100060/xxgk_gz.shtml",
    "pagination": null,
-   "pages_this_run": null,
+   "pages_this_run": 1,
    "items": 6,
    "texts": 6,
    "text_chars": 37179,
@@ -3297,32 +2877,8 @@
    "items_new_this_run": 0,
    "newest_date": "2025-12-13",
    "oldest_date": "2020-07-24",
-   "run_at": "2026-11-02 19:05:11",
+   "run_at": "2026-11-02 21:36:57",
    "engine": "cdp"
-  },
-  {
-   "site": "三门峡市",
-   "dir": "var\\data\\national\\河南省\\三门峡市",
-   "status": "list_only_ok",
-   "board": "https://www.smx.gov.cn/pageView/zcwjList.html?lmid=8200&searchType=1",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 5,
-   "texts": 5,
-   "text_chars": 24866,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2025-12-15",
-   "oldest_date": "2021-08-30",
-   "run_at": "2026-11-02 12:03:41",
-   "engine": "static"
   },
   {
    "site": "六盘水市",
@@ -3336,10 +2892,10 @@
    "text_chars": 18494,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 5,
+   "items_new_this_run": 0,
    "newest_date": "2025-04-23",
    "oldest_date": "2021-01-19",
-   "run_at": "2026-11-02 20:48:46",
+   "run_at": "2026-11-02 22:42:46",
    "engine": "cdp"
   },
   {
@@ -3369,39 +2925,27 @@
   {
    "site": "武威市",
    "dir": "var\\data\\national\\甘肃省\\武威市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.gswuwei.gov.cn/col/col1655/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 5,
    "texts": 5,
    "text_chars": 23116,
    "attachments": 2,
    "attachment_files": 2,
-   "items_new_this_run": 5,
+   "items_new_this_run": 0,
    "newest_date": "2024-04-04",
    "oldest_date": "2019-07-16",
-   "run_at": "2026-11-02 20:46:18",
-   "engine": "static"
+   "run_at": "2026-11-02 22:41:52",
+   "engine": "cdp"
   },
   {
    "site": "河源市",
    "dir": "var\\data\\national\\广东省\\河源市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.heyuan.gov.cn/zwgk/zcfg/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 5,
    "texts": 5,
@@ -3411,21 +2955,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-27",
    "oldest_date": "2026-04-21",
-   "run_at": "2026-11-02 12:04:28",
-   "engine": "static"
+   "run_at": "2026-11-02 21:50:24",
+   "engine": "cdp"
   },
   {
    "site": "泰安市",
    "dir": "var\\data\\national\\山东省\\泰安市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.taian.gov.cn/col/col242032/index.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 5,
    "texts": 5,
@@ -3435,8 +2973,8 @@
    "items_new_this_run": 0,
    "newest_date": "2026-01-20",
    "oldest_date": "2020-12-31",
-   "run_at": "2026-11-02 12:04:31",
-   "engine": "static"
+   "run_at": "2026-11-02 21:49:43",
+   "engine": "cdp"
   },
   {
    "site": "银川市",
@@ -3465,16 +3003,10 @@
   {
    "site": "德阳市",
    "dir": "var\\data\\national\\四川省\\德阳市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.deyang.gov.cn/info/iList.jsp?tm_id=1895",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 2,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 4,
    "texts": 4,
    "text_chars": 17903,
@@ -3483,22 +3015,16 @@
    "items_new_this_run": 0,
    "newest_date": "2021-04-12",
    "oldest_date": "2017-06-30",
-   "run_at": "2026-11-02 12:04:04",
-   "engine": "static"
+   "run_at": "2026-11-02 21:35:20",
+   "engine": "cdp"
   },
   {
    "site": "眉山市",
    "dir": "var\\data\\national\\四川省\\眉山市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.ms.gov.cn/zfxxgk/z__c/szfgz.htm",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
+   "pagination": null,
+   "pages_this_run": 3,
    "items": 4,
    "texts": 4,
    "text_chars": 17579,
@@ -3507,69 +3033,15 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-15",
    "oldest_date": "2016-06-08",
-   "run_at": "2026-11-02 12:04:43",
-   "engine": "static"
-  },
-  {
-   "site": "邯郸市",
-   "dir": "var\\data\\national\\河北省\\邯郸市",
-   "status": "list_only_ok",
-   "board": "https://www.hd.gov.cn/hdzfxxgk/zfwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 4,
-   "texts": 4,
-   "text_chars": 9315,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-22",
-   "oldest_date": "2026-09-03",
-   "run_at": "2026-11-02 12:05:10",
-   "engine": "static"
-  },
-  {
-   "site": "四平市",
-   "dir": "var\\data\\national\\吉林省\\四平市",
-   "status": "list_only_ok",
-   "board": "http://www.siping.gov.cn/zw/gz/gjzcfg/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 3,
-   "texts": 3,
-   "text_chars": 10177,
-   "attachments": 1,
-   "attachment_files": 1,
-   "items_new_this_run": 0,
-   "newest_date": "2026-03-09",
-   "oldest_date": "2020-09-08",
-   "run_at": "2026-11-02 12:04:35",
-   "engine": "static"
+   "run_at": "2026-11-02 21:36:55",
+   "engine": "cdp"
   },
   {
    "site": "国家机关事务管理局",
    "dir": "var\\data\\national\\中央\\国家机关事务管理局",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "https://www.ggj.gov.cn/zcfgs/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 3,
    "texts": 3,
@@ -3579,8 +3051,8 @@
    "items_new_this_run": 0,
    "newest_date": "2025-03-26",
    "oldest_date": "2023-12-18",
-   "run_at": "2026-11-02 12:05:27",
-   "engine": "static"
+   "run_at": "2026-11-02 21:26:54",
+   "engine": "cdp"
   },
   {
    "site": "怀化市",
@@ -3634,30 +3106,6 @@
    "engine": "static"
   },
   {
-   "site": "随州市",
-   "dir": "var\\data\\national\\湖北省\\随州市",
-   "status": "list_only_ok",
-   "board": "http://www.suizhou.gov.cn/zwgk/zfwj/qt_5744/szfwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 3,
-   "texts": 3,
-   "text_chars": 2693,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-06-30",
-   "oldest_date": "2024-11-30",
-   "run_at": "2026-11-02 12:05:15",
-   "engine": "static"
-  },
-  {
    "site": "南京市",
    "dir": "var\\data\\national\\江苏省\\南京市",
    "status": "list_only_ok",
@@ -3687,15 +3135,9 @@
   {
    "site": "玉林市",
    "dir": "var\\data\\national\\广西壮族自治区\\玉林市",
-   "status": "list_only_ok",
+   "status": "ok",
    "board": "http://www.yulin.gov.cn/guizhang1/index.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
+   "pagination": null,
    "pages_this_run": 1,
    "items": 2,
    "texts": 2,
@@ -3705,50 +3147,26 @@
    "items_new_this_run": 0,
    "newest_date": "2021-06-24",
    "oldest_date": "2017-01-11",
-   "run_at": "2026-11-02 12:04:42",
-   "engine": "static"
-  },
-  {
-   "site": "临沂市",
-   "dir": "var\\data\\national\\山东省\\临沂市",
-   "status": "list_only_ok",
-   "board": "https://www.linyi.gov.cn/bmgk/fgwj/zcwj/szfwj.htm",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 4,
-   "items": 1,
-   "texts": 1,
-   "text_chars": 9411,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-20",
-   "oldest_date": "2026-20",
-   "run_at": "2026-11-02 12:03:44",
-   "engine": "static"
+   "run_at": "2026-11-02 21:51:45",
+   "engine": "cdp"
   },
   {
    "site": "龙岩市",
    "dir": "var\\data\\national\\福建省\\龙岩市",
-   "status": "browser_ok",
+   "status": "ok",
    "board": "http://www.longyan.gov.cn/gk/zcwjk/",
    "pagination": null,
-   "pages_this_run": 1,
-   "items": 1,
-   "texts": 1,
-   "text_chars": 472,
-   "attachments": 1,
-   "attachment_files": 1,
+   "pages_this_run": 4,
+   "items": 2,
+   "texts": 2,
+   "text_chars": 1024,
+   "attachments": 2,
+   "attachment_files": 2,
    "items_new_this_run": 1,
    "newest_date": "2025-20",
    "oldest_date": "2025-20",
-   "run_at": "2026-11-02 10:41:53",
-   "engine": "headless-dom"
+   "run_at": "2026-11-02 22:42:40",
+   "engine": "cdp"
   },
   {
    "site": "临汾市",
