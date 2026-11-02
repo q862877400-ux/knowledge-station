@@ -82,7 +82,52 @@ def looks_like_entry(anchor: str, url: str) -> bool:
                                    "zcwj", "xzgfxwj", "gzk", "wjk", "gfwj"))
 
 
-def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True) -> dict:
+
+#: 展开式导航要点的词（JS 菜单常见：先点一级，二级链接才出现在 DOM 里）
+MENU_WORDS = ("政务公开", "信息公开", "政策", "法规", "文件", "规章", "标准")
+
+
+def cdp_expand_page(port: int, url: str, click_menus: int = 3,
+                    budget_s: float = 12.0) -> str:
+    """用 CDP 打开页面，**并点开菜单**，返回累计看到的 HTML。
+
+    为什么需要（2026-11-02 实测）：多数市级门户的一级导航是 JS 菜单，
+    只读一次渲染拿不到二级链接 —— 这正是 39 个市「找不到规范文件栏目」的一个原因。
+    做法：点一个菜单词 → 等 → 再读一次 DOM，把多次读到的 HTML 拼起来交给候选查找。
+    """
+    page = ncb.CDPPage(port)
+    out: list[str] = []
+    try:
+        page.open(url)
+        deadline = time.time() + budget_s
+        while time.time() < deadline:
+            h = page.html()
+            if h and len(h) > 2000:
+                break
+            time.sleep(0.5)
+        out.append(page.html())
+        clicks = 0
+        for word in MENU_WORDS:
+            if clicks >= click_menus:
+                break
+            js = ("(() => {const ns=[...document.querySelectorAll('a,li,span,div')];"
+                  "for (const el of ns) {const t=(el.innerText||'').trim();"
+                  f"if (t==='{word}' || t.startsWith('{word}')) {{el.click();"
+                  "return 'ok';}}} return 'no';})()")
+            if page.eval(js) != "ok":
+                continue
+            clicks += 1
+            time.sleep(1.2)
+            out.append(page.html())
+    except Exception as exc:                     # noqa: BLE001
+        print(f"  [warn] CDP 展开失败：{type(exc).__name__}")
+    finally:
+        page.close()
+    return "\n<!--SPLIT-->\n".join(h for h in out if h)
+
+
+def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True,
+             port: int | None = None) -> dict:
     """在一个门户里找规范性文件栏目。返回 {status, board_url, how, tried}。"""
     home = site.get("url") or site.get("home") or ""
     rec = {"site": site.get("site") or site.get("name"), "home": home,
@@ -92,7 +137,14 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True) -> dict:
         rec["status"] = "bad_home"
         return rec
 
-    ok, html, secs = ncb.render(home, exe, budget_ms)
+    def fetch(u: str):
+        """取一页 HTML：CDP 模式会点开菜单，DOM 模式只读一次渲染。"""
+        if port:
+            h = cdp_expand_page(port, u)
+            return bool(h), h, 0.0
+        return ncb.render(u, exe, budget_ms)
+
+    ok, html, secs = fetch(home)
     if not ok or not html:
         rec["status"] = "render_failed"
         rec["seconds"] = round(secs, 1)
@@ -105,7 +157,9 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True) -> dict:
 
     for url, sc, anchor in ranked[:5]:
         rec["tried"] += 1
-        ok2, html2, _ = ncb.render(url, exe, budget_ms)
+        ok2, html2, _ = ({"ok": True, "html": cdp_expand_page(port, url)}.get("ok"),
+                         cdp_expand_page(port, url), 0.0) if port else ncb.render(
+            url, exe, budget_ms)
         if not ok2 or not html2:
             continue
         lk = ncd.list_likeness(html2, url)
@@ -149,7 +203,9 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True) -> dict:
         for url, sc, anchor in [(u, s, a) for u, s, a in cands_h
                                 if looks_like_entry(a, u)][:5]:
             rec["tried"] += 1
-            ok2, html2, _ = ncb.render(url, exe, budget_ms)
+            ok2, html2, _ = ({"ok": True, "html": cdp_expand_page(port, url)}.get("ok"),
+                         cdp_expand_page(port, url), 0.0) if port else ncb.render(
+            url, exe, budget_ms)
             if not ok2 or not html2:
                 continue
             lk = ncd.list_likeness(html2, url)
@@ -174,6 +230,9 @@ def main() -> int:
                     help="忽略进度里的失败记录，重试那些站")
     ap.add_argument("--resume", action="store_true",
                     help="跳过 hunt-progress.json 里已处理过的站")
+    ap.add_argument("--engine", default="dom", choices=["dom", "cdp"],
+                    help="cdp=点开菜单后再找（JS 菜单门户）")
+    ap.add_argument("--port", type=int, default=9344)
     ap.add_argument("--no-depth2", action="store_true")
     args = ap.parse_args()
 
@@ -230,9 +289,18 @@ def main() -> int:
     print(f"待摸入口 {len(targets)} 站")
     PROGRESS.parent.mkdir(parents=True, exist_ok=True)
 
+    proc = None
+    port = None
+    if args.engine == "cdp":
+        proc = ncb.start_debug_browser(exe, args.port)
+        if not ncb.wait_debug_port(args.port):
+            print("调试端口没起来")
+            return 3
+        port = args.port
     ok_n = 0
     for i, site in enumerate(targets, 1):
-        r = hunt_one(exe, site, args.budget_ms, depth2=not args.no_depth2)
+        r = hunt_one(exe, site, args.budget_ms, depth2=not args.no_depth2,
+                     port=port)
         progress[r["site"]] = r
         PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1),
                             encoding="utf-8")
@@ -254,6 +322,12 @@ def main() -> int:
         print(f"  {mark} {i}/{len(targets)} {r['site'][:12]:14} {r['status']:16} "
               f"试{r.get('tried')}个 {str(r.get('board_url'))[:52]}")
 
+    if proc is not None:
+        proc.terminate()
+        try:
+            proc.wait(timeout=10)
+        except Exception:                        # noqa: BLE001
+            proc.kill()
     DISCOVER.write_text(json.dumps(data, ensure_ascii=False, indent=1),
                         encoding="utf-8")
     print(f"\n本轮摸到 {ok_n}/{len(targets)} 站；发现表已更新")
