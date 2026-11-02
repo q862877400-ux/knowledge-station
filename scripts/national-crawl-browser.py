@@ -41,7 +41,10 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
 from pathlib import Path
+
+import websocket
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -171,7 +174,8 @@ def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
         return stats
     res = cmn.merge_and_save(
         site, board, items, province=prov, engine=engine,
-        extra={"render_seconds": stats["seconds"]})
+        extra={"render_seconds": stats["seconds"],
+               "pages_this_run": stats["pages"]})
     stats["status"] = engine + "_ok"
     stats["items_total"] = res["items_total"]
     stats["items_new"] = res["items_new"]
@@ -188,6 +192,142 @@ def crawl_site(site: str, rec: dict, exe: str, pages: int,
         pages=pages, engine="headless-dom")
 
 
+
+# ---------------------------------------------------------------- CDP 引擎
+#: 在页面里点「下一页」（JS 按钮换页的站只能这样翻）
+CLICK_NEXT_JS = """
+(() => {
+  const words = ['下一页', '下页', '后一页', 'Next', 'next', '»'];
+  const nodes = Array.from(document.querySelectorAll('a,button,li,span,div'));
+  for (const w of words) {
+    for (const el of nodes) {
+      const tx = (el.innerText || '').trim();
+      if (tx === w || tx.startsWith(w)) {
+        const off = el.disabled || el.classList.contains('disabled')
+                  || el.getAttribute('aria-disabled') === 'true';
+        if (off) continue;
+        el.click();
+        return 'clicked:' + tx.slice(0, 8);
+      }
+    }
+  }
+  const byClass = document.querySelector('a.next, .next a, [class*=nextPage]');
+  if (byClass) { byClass.click(); return 'clicked:class'; }
+  return 'no_next';
+})()
+"""
+
+
+class CDPPage:
+    """极简 CDP 页面：导航、等条目、点下一页。用完必须 close()。"""
+
+    def __init__(self, port: int, timeout_s: float = 120.0):
+        self.port = port
+        self.timeout_s = timeout_s
+        self._id = 0
+        self.ws = None
+
+    def open(self, url: str) -> None:
+        req = urllib.request.Request(
+            f"http://127.0.0.1:{self.port}/json/new?{url}", method="PUT")
+        with urllib.request.urlopen(req, timeout=20) as r:
+            info = json.loads(r.read().decode())
+        self.ws = websocket.create_connection(
+            info["webSocketDebuggerUrl"], timeout=self.timeout_s)
+        self._send("Page.enable")
+        # 实测：/json/new?url= 建出来的标签页不一定导航（读到 39 字节空壳）
+        self._send("Page.navigate", url=url)
+
+    def _send(self, method: str, **params):
+        self._id += 1
+        self.ws.send(json.dumps({"id": self._id, "method": method,
+                                 "params": params}))
+        while True:
+            msg = json.loads(self.ws.recv())
+            if msg.get("id") == self._id:
+                return msg.get("result", {})
+
+    def eval(self, expr: str):
+        r = self._send("Runtime.evaluate", expression=expr,
+                       returnByValue=True, awaitPromise=True)
+        return r.get("result", {}).get("value")
+
+    def html(self) -> str:
+        return self.eval("document.documentElement.outerHTML") or ""
+
+    def wait_items(self, parse, timeout_s: float = 30.0) -> str:
+        """等到能抽出条目再返回（有站永远 readyState=loading，不能等 complete）。"""
+        deadline = time.time() + timeout_s
+        html = ""
+        while time.time() < deadline:
+            html = self.html()
+            if html and parse(html):
+                return html
+            time.sleep(1.0)
+        return html
+
+    def click_next(self) -> bool:
+        got = self.eval(CLICK_NEXT_JS)
+        return isinstance(got, str) and got.startswith("clicked")
+
+    def close(self) -> None:
+        if self.ws is not None:
+            try:
+                self.ws.close()
+            except Exception as exc:             # noqa: BLE001
+                print(f"  [warn] 关闭 WS 失败：{type(exc).__name__}")
+            self.ws = None
+
+
+def start_debug_browser(exe: str, port: int) -> subprocess.Popen:
+    """带调试端口的无头浏览器；调用方负责 terminate。"""
+    profile = TMP / "cdp-profile"
+    profile.mkdir(parents=True, exist_ok=True)
+    cmd = [exe, "--headless=new", "--disable-gpu", "--no-sandbox",
+           "--no-proxy-server", "--proxy-bypass-list=*",
+           f"--remote-debugging-port={port}", "--remote-allow-origins=*",
+           f"--user-data-dir={profile}", "about:blank"]
+    return subprocess.Popen(cmd, stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL)
+
+
+def wait_debug_port(port: int, timeout_s: float = 40.0) -> bool:
+    t0 = time.time()
+    while time.time() - t0 < timeout_s:
+        try:
+            with urllib.request.urlopen(
+                    f"http://127.0.0.1:{port}/json/version", timeout=2) as r:
+                if r.status == 200:
+                    return True
+        except Exception:                        # noqa: BLE001
+            time.sleep(0.5)
+    return False
+
+
+def crawl_site_cdp(site: str, rec: dict, port: int, pages: int) -> dict:
+    """CDP 引擎：点「下一页」抓取（JS 按钮换页的站用这个）。"""
+    board = rec.get("board_url") or ""
+    page = CDPPage(port)
+    state = {"opened": False}
+
+    def page_source(url: str):
+        t0 = time.monotonic()
+        if not state["opened"]:
+            page.open(url or board)
+            state["opened"] = True
+        html = page.wait_items(lambda h: ncf.parse_items(h, board or url))
+        return True, html, time.monotonic() - t0
+
+    def next_action(html: str, url: str):
+        return (board or url) if page.click_next() else None
+
+    try:
+        return crawl_generic(site, rec, page_source, next_action,
+                             pages, engine="cdp")
+    finally:
+        page.close()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--sites", nargs="*", default=[])
@@ -200,6 +340,8 @@ def main() -> int:
     ap.add_argument("--budget-ms", type=int, default=8000)
     ap.add_argument("--hub", action="store_true",
                     help="攻「政务公开大目录」站：先渲染找规范文件子栏目再抓")
+    ap.add_argument("--engine", default="dom", choices=["dom", "cdp"])
+    ap.add_argument("--port", type=int, default=9333)
     ap.add_argument("--dry", action="store_true")
     args = ap.parse_args()
 
@@ -236,6 +378,12 @@ def main() -> int:
 
     disc_updates: list[dict] = []
     print(f"待渲染 {len(targets)} 站：", [t[0] for t in targets])
+    proc = None
+    if args.engine == "cdp":
+        proc = start_debug_browser(exe, args.port)
+        if not wait_debug_port(args.port):
+            print("调试端口没起来")
+            return 3
     if args.dry:
         return 0
 
@@ -248,13 +396,19 @@ def main() -> int:
                 rec = dict(rec)
                 rec["board_url"] = col
                 disc_updates.append({"site": site, "board_url": col, **info})
-                r = crawl_site(site, rec, exe, args.pages, args.budget_ms)
+                r = (crawl_site_cdp(site, rec, args.port, args.pages)
+                 if args.engine == "cdp"
+                 else crawl_site(site, rec, exe, args.pages,
+                                 args.budget_ms))
                 r["hub_column"] = col
             else:
                 r = {"site": site, "status": "no_normative_column",
                      "items": 0, "info": info}
         else:
-            r = crawl_site(site, rec, exe, args.pages, args.budget_ms)
+            r = (crawl_site_cdp(site, rec, args.port, args.pages)
+                 if args.engine == "cdp"
+                 else crawl_site(site, rec, exe, args.pages,
+                                 args.budget_ms))
         results.append(r)
         print(f"  {i}/{len(targets)} {site[:10]:12} {r['status']:18} "
               f"页={r.get('pages')} 条目={r.get('items')} "
@@ -267,6 +421,12 @@ def main() -> int:
             json.dumps(disc_updates, ensure_ascii=False, indent=1),
             encoding="utf-8")
         print(f"  找到子栏目 {len(disc_updates)} 个 → var/tmp/hub-columns-found.json")
+    if proc is not None:
+        proc.terminate()
+        try:
+            proc.wait(timeout=10)
+        except Exception:                        # noqa: BLE001
+            proc.kill()
     ok = sum(1 for r in results
              if str(r.get("status", "")).endswith("_ok"))
     print(f"\n完成：{ok}/{len(results)} 站取到条目")

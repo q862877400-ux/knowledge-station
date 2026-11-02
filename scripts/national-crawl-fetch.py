@@ -914,8 +914,8 @@ def main() -> int:
             pgn = st.get("pagination") or {}
             rule = pgn.get("rule")
             ref = disc.get(name) or {}
-            engine = ("browser" if st.get("engine") == "headless-dom"
-                      else "static")
+            eng = st.get("engine") or "static"
+            engine = ("browser" if eng in ("headless-dom", "cdp") else "static")
             rows.append({
                 "site": name,
                 "level": ref.get("level") or "city",
@@ -933,6 +933,7 @@ def main() -> int:
                 "run_at": st.get("run_at"),
                 "render_seconds": st.get("render_seconds"),
                 "discovered_by": ref.get("discovered_by") or "discover",
+                "visit_engine": eng,
                 "note": ("脚本渲染站：必须用 national-crawl-browser.py"
                          if engine == "browser" else
                          "静态可抓：用 national-crawl-fetch.py"),
