@@ -651,6 +651,26 @@ newest_date / oldest_date / pages_this_run / pagination / run_at`。
 
 **本轮明确未做**：没有用浏览器批量抓任何站的存量（只做了 1 站可行性验证）。
 
+
+### R23（2026-11-02）：浏览器抓取的**具体阻塞点**定位（可修）
+
+**现象**：插件浏览器能渲染（中山市能看到条目），但我**没有便宜的办法把渲染后的整页 HTML
+拿回本地给我的解析器**——`bsk_inspect html` 会把内容打印进对话，几十 KB 的页面不现实。
+
+**另一条通道的确切故障**：`chrome-devtools` 的 MCP 报
+`Browser was not found at the configured executablePath
+(C:\Program Files(x86)\Microsoft\Edge\Application\msedge.exe)`。
+
+**实测本机**：Edge **存在**，但真实路径是 `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`
+—— 配置里 `Program Files(x86)` **少了一个空格**。这是**配置笔误，不是环境缺失**。
+
+**修好之后的用法**（这才是正路）：
+用 `evaluate_script` 把 `document.documentElement.outerHTML` 直接写到磁盘文件，
+再由我的 `parse_items()` 解析 —— 渲染结果落文件，不进对话上下文，整套解析器复用。
+
+**本轮明确未做**：没有加任何存量（只做了诊断）。中山市那条「本市规范性文件」子栏目
+地址是我猜的（404），也未确认。
+
 ## 八、进度表（每轮更新）
 
 | 轮 | 做了什么 | 结果 |
@@ -676,4 +696,5 @@ newest_date / oldest_date / pages_this_run / pagination / run_at`。
 | R19 | 加「同栏目」硬判据 + 重测 5 站 | **0 站翻页成功**；鞍山/河池解析不出 |
 | R20 | **增量判定链验证** | 连跑两遍：第1遍 +12 条，第2遍 **+0**；条目 **6,273** |
 | R21 | 试省级/部委清单 + 63 hub 再钻 | 清单未取得；**hub 转换 0/63** ⇒ 静态见底 |
-| R22 | 浏览器渲染验证（中山市） | 静态 0 条 → **渲染后有条目**，浏览器路可行；gov.cn 目录页 403，清单仍缺 |
+| R22 | 浏览器渲染验证（中山市） | 静态 0 条 → 渲染后有条目，路可行；gov.cn 403 |
+| R23 | 定位浏览器抓取的阻塞点 | 缺“渲染 HTML 落文件”通道；**chrome-devtools 配置路径少一个空格**（可修） |
