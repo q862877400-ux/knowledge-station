@@ -54,6 +54,8 @@ OUTDIR = ROOT / "var" / "data" / "national"
 LINK_RE = re.compile(r"<a\b[^>]*?href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
 DATE_RE = re.compile(r"(20\d{2})[-/年.](\d{1,2})[-/月.](\d{1,2})")
+#: 只有年月、没有日（实测中山市：日期被拆成「08」+「2026年10月」两段）
+DATE_YM_RE = re.compile(r"(20\d{2})[-/年.](\d{1,2})\s*月?")
 NAV_WORDS = ("首页", "上一页", "下一页", "尾页", "更多", "返回", "登录", "注册",
              "网站地图", "无障碍", "打印", "关闭", "分享", "搜索", "导航")
 #: 条目级过滤：**要**这些词（条例/办法/规定/规范/标准/细则/规则/制度/决定/通知/意见）
@@ -112,6 +114,12 @@ def parse_items(html: str, base: str) -> list[dict]:
         seen.add(url)
         win = html[max(0, m.start() - 160): m.end() + 160]
         dm = DATE_RE.search(text_of(win))
+        if not dm:
+            ym = DATE_YM_RE.search(text_of(win))
+            if ym:                              # 只有年月 → 记 YYYY-MM（不编造日）
+                date = f"{ym.group(1)}-{int(ym.group(2)):02d}"
+                items.append({"title": title, "url": url, "date": date})
+            continue
         if not dm:
             # ⚠ **没有日期的一律不当条目**（2026-11-02 实测临汾）：
             #   不加这条，导航链接（「山西省人民政府网」「办公室文件」）会被当成文件，
