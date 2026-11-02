@@ -1,0 +1,146 @@
+{
+ "云南省": {
+  "province": "云南省",
+  "portal": "https://yn.gov.cn/",
+  "via": "丽江市",
+  "anchor": "云南省人民政府网站",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "吉林省": {
+  "province": "吉林省",
+  "portal": "https://jl.gov.cn/",
+  "via": "四平市",
+  "anchor": "吉林省人民政府网",
+  "title": "吉林省人民政府",
+  "verified": true
+ },
+ "四川省": {
+  "province": "四川省",
+  "portal": "https://sc.gov.cn/",
+  "via": "乐山市",
+  "anchor": "四川省人民政府办公厅关于印发《四川省数据要素市场",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "宁夏回族自治区": {
+  "province": "宁夏回族自治区",
+  "portal": "https://nx.gov.cn/",
+  "via": "吴忠市",
+  "anchor": "宁夏回族自治区人民政府关于印发《宁夏加快农业农村",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "山东省": {
+  "province": "山东省",
+  "portal": "https://shandong.gov.cn/",
+  "via": "东营市",
+  "anchor": "山东省人民政府",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "山西省": {
+  "province": "山西省",
+  "portal": "https://shanxi.gov.cn/",
+  "via": "临汾市",
+  "anchor": "山西省人民政府网",
+  "verified": false,
+  "why": "http_404"
+ },
+ "广西壮族自治区": {
+  "province": "广西壮族自治区",
+  "portal": "https://gxzf.gov.cn/",
+  "via": "北海市",
+  "anchor": "广西壮族自治区人民政府门户网站",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "江苏省": {
+  "province": "江苏省",
+  "portal": "https://js.gov.cn/",
+  "via": "宿迁市",
+  "anchor": "江苏省人民政府网",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "江西省": {
+  "province": "江西省",
+  "portal": "https://jiangxi.gov.cn/",
+  "via": "九江市",
+  "anchor": "江西省人民政府",
+  "title": "江西省人民政府",
+  "verified": true
+ },
+ "河北省": {
+  "province": "河北省",
+  "portal": "https://hebei.gov.cn/",
+  "via": "保定市",
+  "anchor": "河北省人民政府",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "河南省": {
+  "province": "河南省",
+  "portal": "https://henan.gov.cn/",
+  "via": "南阳市",
+  "anchor": "河南省人民政府",
+  "title": "河南省人民政府门户网站",
+  "verified": true
+ },
+ "海南省": {
+  "province": "海南省",
+  "portal": "https://hainan.gov.cn/",
+  "via": "三亚市",
+  "anchor": "海南省人民政府办公厅",
+  "title": "海南省人民政府网",
+  "verified": true
+ },
+ "湖北省": {
+  "province": "湖北省",
+  "portal": "https://hubei.gov.cn/",
+  "via": "十堰市",
+  "anchor": "湖北省人民政府门户网站",
+  "verified": false,
+  "why": "http_412"
+ },
+ "西藏自治区": {
+  "province": "西藏自治区",
+  "portal": "https://xizang.gov.cn/",
+  "via": "拉萨市",
+  "anchor": "西藏自治区人民政府",
+  "verified": false,
+  "why": "http_404"
+ },
+ "贵州省": {
+  "province": "贵州省",
+  "portal": "https://guizhou.gov.cn/",
+  "via": "六盘水市",
+  "anchor": "贵州省人民政府",
+  "title": "贵州省人民政府",
+  "verified": true
+ },
+ "陕西省": {
+  "province": "陕西省",
+  "portal": "https://shaanxi.gov.cn/",
+  "via": "咸阳市",
+  "anchor": "陕西省人民政府",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "青海省": {
+  "province": "青海省",
+  "portal": "https://qinghai.gov.cn/",
+  "via": "西宁市",
+  "anchor": "青海省人民政府",
+  "verified": false,
+  "why": "SSLError"
+ },
+ "黑龙江省": {
+  "province": "黑龙江省",
+  "portal": "https://hlj.gov.cn/",
+  "via": "佳木斯市",
+  "anchor": "黑龙江省人民政府",
+  "title": "\r\n    黑龙江省人民政府\r\n  ",
+  "verified": true
+ }
+}

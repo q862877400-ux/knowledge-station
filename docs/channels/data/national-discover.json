@@ -20309,6 +20309,173 @@
      "error": null
     }
    ]
+  },
+  {
+   "site": "河南省",
+   "province": "河南省",
+   "home": "https://henan.gov.cn/",
+   "board_url": "https://henan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj",
+   "status": "ok",
+   "score": 8,
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 49,
+    "page_dates": 10,
+    "detail_ratio": 0.204,
+    "title_ratio": 0.286,
+    "med_len": 5
+   },
+   "candidates": [
+    {
+     "url": "https://henan.gov.cn/zwgk/fgwj/szfl/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 10,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/ysqgk/",
+     "anchor": "依申请公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 6,
+     "page_dates": 0,
+     "detail_ratio": 0.167,
+     "title_ratio": 0.333,
+     "med_len": 4.5
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/zfxxgk/fdzdgknr/jgjj/",
+     "anchor": "法定主动公开内容",
+     "score": 1,
+     "ok": false,
+     "n_links": 83,
+     "page_dates": 0,
+     "detail_ratio": 0.06,
+     "title_ratio": 0.398,
+     "med_len": 6
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/xxgkzn/",
+     "anchor": "政府信息公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 37,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.135,
+     "med_len": 5
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": true,
+     "n_links": 49,
+     "page_dates": 10,
+     "detail_ratio": 0.204,
+     "title_ratio": 0.286,
+     "med_len": 5
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/zfgz",
+     "anchor": "规章",
+     "score": 1,
+     "ok": true,
+     "n_links": 65,
+     "page_dates": 33,
+     "detail_ratio": 0.231,
+     "title_ratio": 0.262,
+     "med_len": 5
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/zfxxgk/zc/qtwj",
+     "anchor": "其他文件",
+     "score": 1,
+     "ok": true,
+     "n_links": 49,
+     "page_dates": 10,
+     "detail_ratio": 0.204,
+     "title_ratio": 0.265,
+     "med_len": 5
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [
+    {
+     "url": "https://henan.gov.cn/2008/04-24/275348.html",
+     "error": null
+    },
+    {
+     "url": "https://henan.gov.cn/zwgk/zfxxgk/fdzdgknr/jgjj/",
+     "error": null
+    }
+   ],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "黑龙江省",
+   "province": "黑龙江省",
+   "home": "https://hlj.gov.cn/",
+   "board_url": "https://hlj.gov.cn/hlj/c108390/zfxxgk.shtml",
+   "status": "ok",
+   "score": 4,
+   "keyword": "规章库|规章库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 156,
+    "page_dates": 35,
+    "detail_ratio": 0.276,
+    "title_ratio": 0.538,
+    "med_len": 8.0
+   },
+   "candidates": [
+    {
+     "url": "https://hlj.gov.cn/hlj/c108390/zfxxgk.shtml",
+     "anchor": "规章库|规章库",
+     "score": 4,
+     "ok": true,
+     "n_links": 156,
+     "page_dates": 35,
+     "detail_ratio": 0.276,
+     "title_ratio": 0.538,
+     "med_len": 8.0
+    },
+    {
+     "url": "https://hlj.gov.cn/hlj/c108370/zfxxgk_gzk.shtml",
+     "anchor": "规章库|规章库",
+     "score": 4,
+     "ok": false,
+     "n_links": 15,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.2,
+     "med_len": 4
+    },
+    {
+     "url": "https://hlj.gov.cn/hlj/c108368/zwgk.shtml",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 476,
+     "page_dates": 11,
+     "detail_ratio": 0.025,
+     "title_ratio": 0.218,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
   }
  ]
 }
