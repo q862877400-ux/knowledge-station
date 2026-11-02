@@ -20476,6 +20476,302 @@
    "hub_tried": [],
    "board_kind": "normative",
    "level": "province"
+  },
+  {
+   "site": "云南省",
+   "province": "云南省",
+   "home": "https://www.yn.gov.cn/",
+   "board_url": "https://www.yn.gov.cn/zwgk/zfxxgkpt/gkptzcwj/gz/",
+   "status": "ok",
+   "score": 10,
+   "keyword": "省政府规章库|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 123,
+    "page_dates": 40,
+    "detail_ratio": 0.537,
+    "title_ratio": 0.236,
+    "med_len": 5
+   },
+   "candidates": [
+    {
+     "url": "https://www.yn.gov.cn/zwgk/zfxxgkpt/gkptzcwj/xzgfxwj/",
+     "anchor": "规范性文件库|规范性文件",
+     "score": 11,
+     "ok": false,
+     "n_links": 164,
+     "page_dates": 0,
+     "detail_ratio": 0.409,
+     "title_ratio": 0.201,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.yn.gov.cn/searchfs/index_826.html?siteCode=ynzcwjk",
+     "anchor": "云南省政策文件库|政策文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.yn.gov.cn/zwgk/zcwj/zxwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 471,
+     "page_dates": 12,
+     "detail_ratio": 0.034,
+     "title_ratio": 0.34,
+     "med_len": 6
+    },
+    {
+     "url": "https://www.yn.gov.cn/zwgk/zfxxgkpt/gkptzcwj/xzgfxwj/",
+     "anchor": "规范性文件库|规范性文件",
+     "score": 11,
+     "ok": false,
+     "n_links": 164,
+     "page_dates": 0,
+     "detail_ratio": 0.409,
+     "title_ratio": 0.201,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.yn.gov.cn/zwgk/zfxxgkpt/gkptzcwj/gz/",
+     "anchor": "省政府规章库|政府规章",
+     "score": 10,
+     "ok": true,
+     "n_links": 123,
+     "page_dates": 40,
+     "detail_ratio": 0.537,
+     "title_ratio": 0.236,
+     "med_len": 5
+    },
+    {
+     "url": "https://www.yn.gov.cn/searchfs/index_826.html?siteCode=ynzcwjk",
+     "anchor": "云南省政策文件库|政策文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [
+    {
+     "url": "https://www.yn.gov.cn/zwgk/",
+     "error": null
+    }
+   ],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "河北省",
+   "province": "河北省",
+   "home": "https://www.hebei.gov.cn/",
+   "board_url": "https://www.hebei.gov.cn/columns/49f13cc2-db03-4d0c-b4fe-2f3f659d3b6e/index.html",
+   "status": "ok",
+   "score": 4,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 230,
+    "page_dates": 40,
+    "detail_ratio": 0.174,
+    "title_ratio": 0.396,
+    "med_len": 6.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.hebei.gov.cn/columns/49f13cc2-db03-4d0c-b4fe-2f3f659d3b6e/index.html",
+     "anchor": "政府文件|政府文件",
+     "score": 4,
+     "ok": true,
+     "n_links": 230,
+     "page_dates": 40,
+     "detail_ratio": 0.174,
+     "title_ratio": 0.396,
+     "med_len": 6.0
+    },
+    {
+     "url": "https://www.hebei.gov.cn/columns/e4a82431-5daf-4e1f-b7ff-80a68ad951b2/index.html",
+     "anchor": "政府规章|政府规章",
+     "score": 4,
+     "ok": true,
+     "n_links": 167,
+     "page_dates": 36,
+     "detail_ratio": 0.269,
+     "title_ratio": 0.24,
+     "med_len": 5
+    },
+    {
+     "url": "http://www.hebei.gov.cn/columns/e4a82431-5daf-4e1f-b7ff-80a68ad951b2/index.html",
+     "anchor": "政府规章|政府规章",
+     "score": 4,
+     "ok": true,
+     "n_links": 167,
+     "page_dates": 36,
+     "detail_ratio": 0.269,
+     "title_ratio": 0.24,
+     "med_len": 5
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "海南省",
+   "province": "海南省",
+   "home": "https://hainan.gov.cn/",
+   "board_url": "https://hainan.gov.cn/hainan/zfwj/szfzcwj.shtml",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 124,
+    "page_dates": 48,
+    "detail_ratio": 0.419,
+    "title_ratio": 0.597,
+    "med_len": 10.0
+   },
+   "candidates": [
+    {
+     "url": "https://hainan.gov.cn/hainan/zfwj/szfzcwj.shtml",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 124,
+     "page_dates": 48,
+     "detail_ratio": 0.419,
+     "title_ratio": 0.597,
+     "med_len": 10.0
+    },
+    {
+     "url": "https://hainan.gov.cn/hainan/zfwj/szfzcwj.shtml?ddtab=true",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 124,
+     "page_dates": 48,
+     "detail_ratio": 0.419,
+     "title_ratio": 0.597,
+     "med_len": 10.0
+    },
+    {
+     "url": "https://hainan.gov.cn/hainan/zfxxgk/newxxgk_index.shtml?ddtab=true",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 583,
+     "page_dates": 82,
+     "detail_ratio": 0.75,
+     "title_ratio": 0.537,
+     "med_len": 8
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "陕西省",
+   "province": "陕西省",
+   "home": "https://www.shaanxi.gov.cn/",
+   "board_url": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 72,
+    "page_dates": 25,
+    "detail_ratio": 0.347,
+    "title_ratio": 0.5,
+    "med_len": 7.5
+   },
+   "candidates": [
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/nszfwj/",
+     "anchor": "省政府文件|政府文件",
+     "score": 4,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/",
+     "anchor": "政策",
+     "score": 1,
+     "ok": true,
+     "n_links": 120,
+     "page_dates": 59,
+     "detail_ratio": 0.5,
+     "title_ratio": 0.6,
+     "med_len": 11.5
+    },
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/zfxxzn/",
+     "anchor": "公开 指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 38,
+     "page_dates": 0,
+     "detail_ratio": 0.026,
+     "title_ratio": 0.289,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/gfxwj/",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 23,
+     "page_dates": 10,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.217,
+     "med_len": 3
+    },
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 72,
+     "page_dates": 25,
+     "detail_ratio": 0.347,
+     "title_ratio": 0.5,
+     "med_len": 7.5
+    },
+    {
+     "url": "https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/nszfgz/gzksy.html",
+     "anchor": "省政府规章|政府规章",
+     "score": 4,
+     "ok": true,
+     "n_links": 66,
+     "page_dates": 30,
+     "detail_ratio": 0.682,
+     "title_ratio": 0.288,
+     "med_len": 5.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
   }
  ]
 }

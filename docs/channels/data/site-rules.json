@@ -10,6 +10,11 @@
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
+  "site": "云南省",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
   "site": "保山市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
@@ -493,7 +498,7 @@
   ],
   "pages": 8,
   "items_total": 132,
-  "measured_at": "2026-11-02 10:45:37",
+  "measured_at": "2026-11-02 10:45:58",
   "note": "实测标定得出（--export-rules）"
  },
  {
@@ -503,6 +508,11 @@
  },
  {
   "site": "张家口市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "河北省",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
@@ -548,6 +558,11 @@
  },
  {
   "site": "新乡市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "河南省",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
@@ -822,6 +837,11 @@
   "note": "实测标定得出（--export-rules）"
  },
  {
+  "site": "陕西省",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
   "site": "海东市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
@@ -840,5 +860,16 @@
   "site": "黑河市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "黑龙江省",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 3,
+  "items_total": 21,
+  "measured_at": "2026-11-02 10:56:06",
+  "note": "实测标定得出（--export-rules）"
  }
 ]
