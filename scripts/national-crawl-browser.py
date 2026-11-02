@@ -129,7 +129,8 @@ def find_normative_column(exe: str, hub_url: str, budget_ms: int) -> tuple[str, 
 
 
 def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
-                  engine: str = "headless-dom") -> dict:
+                  engine: str = "headless-dom",
+                  max_barren: int = 2) -> dict:
     """通用抓取循环：**取页**与**换页**都由外面传进来。
 
     `--dump-dom` 只能跟 `<a href>` 的下一页；JS 按钮换页要换成 CDP 点击。
@@ -150,6 +151,7 @@ def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
     seen: set[str] = set()
     items: list[dict] = []
     t_all = 0.0
+    barren = 0
     for i in range(pages):
         ok, html, secs = page_source(url)
         t_all += secs
@@ -162,8 +164,12 @@ def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
             seen.add(x["url"])
             items.append(x)
         stats["pages"] = i + 1
+        # ⚠ 空页容忍：有些站一页只有 4~10 条，偶尔出现"重复页"（点下一页后内容没变），
+        #   一遇空页就停会把后面还有的页全丢掉（佛山实测：一遇空页停在 150 页，
+        #   但手动连点 200 次仍能继续）。⇒ 连续 `max_barren` 页无新条目才停。
+        barren = barren + 1 if not fresh else 0
         nxt = next_action(html, url)
-        if not nxt or not fresh:
+        if not nxt or barren >= max_barren:
             break
         url = nxt
         time.sleep(1.0)
