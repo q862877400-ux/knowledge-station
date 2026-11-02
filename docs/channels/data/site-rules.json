@@ -1,294 +1,844 @@
 [
  {
   "site": "临沧市",
-  "board": "http://www.lc.gov.cn/lcxxgk/xxgkml/jbxxgk/zfwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "丽江市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "保山市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "乌兰察布市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 3,
+  "items_total": 16,
+  "measured_at": "2026-11-02 10:21:13",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "呼伦贝尔市",
-  "board": "https://www.hlbe.gov.cn/OpennessContent/showList/2/106/page_1.html",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "锡林郭勒盟",
-  "board": "https://www.xlgl.gov.cn/eportal/ui?pageId=8a1edf06a3914adfbc9707d92982e820",
-  "found": null,
   "rule": null,
-  "why": "revoked_2026-11-02: R17 那次'命中'是假的——测试时查询串被丢掉，抓到的是另一个页面，不是第 2 页",
-  "note": "已撤回，不再作配置使用"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "四平市",
-  "board": "http://www.siping.gov.cn/zw/gz/gjzcfg/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "乐山市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "南充市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "广元市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "德阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "攀枝花市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 536,
+  "measured_at": "2026-11-02 10:21:53",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "泸州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "眉山市",
-  "board": "https://www.ms.gov.cn/zfxxgk/z__c/szfgz.htm",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "资阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "达州市",
-  "board": "https://www.dazhou.gov.cn/xxgk-list-shizhengfu.html",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "遂宁市",
+  "rule": [
+   "query",
+   "page"
+  ],
+  "pages": 4,
+  "items_total": 49,
+  "measured_at": "2026-11-02 10:22:38",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "吴忠市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "固原市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "石嘴山市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "银川市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "亳州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "宣城市",
-  "board": "https://www.xuancheng.gov.cn/PolicyContent/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "宿州市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 10,
+  "items_total": 124,
+  "measured_at": "2026-11-02 10:21:37",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "池州市",
+  "rule": [
+   "query",
+   "page"
+  ],
+  "pages": 20,
+  "items_total": 1000,
+  "measured_at": "2026-11-02 10:22:15",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "铜陵市",
-  "board": "https://www.tl.gov.cn/openness/OpennessPolicy/showList/2/page_1.html?type=gz",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "阜阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "临沂市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "威海市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "枣庄市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "泰安市",
-  "board": "https://www.taian.gov.cn/col/col242032/index.html",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "济南市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "济宁市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "淄博市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "烟台市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 3,
+  "items_total": 55,
+  "measured_at": "2026-11-02 10:22:10",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "青岛市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "临汾市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "吕梁市",
-  "board": "http://www.lvliang.gov.cn/llxxgk/zfxxgk/xxgkml/zcwj_21555/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "大同市",
-  "board": "https://www.datong.gov.cn/zfxxgk/fdzdgknr/zcwj/zcfg/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "晋中市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "运城市",
-  "board": "https://www.yuncheng.gov.cn/zwgk_1/xxgkml/zfwj/index.shtml",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "云浮市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 7,
+  "items_total": 107,
+  "measured_at": "2026-11-02 10:21:16",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "惠州市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 319,
+  "measured_at": "2026-11-02 10:21:59",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "梅州市",
-  "board": "https://www.mz.gov.cn/info/iList.jsp?cat_id=16015",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "汕头市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 691,
+  "measured_at": "2026-11-02 10:22:03",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "汕尾市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 14,
+  "items_total": 229,
+  "measured_at": "2026-11-02 10:21:59",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "河源市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "湛江市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 354,
+  "measured_at": "2026-11-02 10:22:23",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "潮州市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 322,
+  "measured_at": "2026-11-02 10:23:05",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "肇庆市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "茂名市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 20,
+  "items_total": 384,
+  "measured_at": "2026-11-02 10:22:35",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "阳江市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 7,
+  "items_total": 132,
+  "measured_at": "2026-11-02 10:22:48",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "北海市",
-  "board": "http://www.beihai.gov.cn/zfxxgk/zc/xzgfxwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "柳州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "河池市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "玉林市",
-  "board": "http://www.yulin.gov.cn/guizhang1/index.shtml",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "钦州市",
-  "board": "http://www.qinzhou.gov.cn/zfxxgk/zcwj/xzgfxwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "乌鲁木齐市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 2,
+  "items_total": 24,
+  "measured_at": "2026-11-02 10:21:10",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "哈密市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 5,
+  "items_total": 55,
+  "measured_at": "2026-11-02 10:21:24",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "南通市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "宿迁市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "扬州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "无锡市",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 4,
+  "items_total": 63,
+  "measured_at": "2026-11-02 10:21:36",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "淮安市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "盐城市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "苏州市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 10,
+  "items_total": 124,
+  "measured_at": "2026-11-02 10:22:25",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "连云港市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "镇江市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 5,
+  "items_total": 87,
+  "measured_at": "2026-11-02 10:22:43",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "南昌市",
+  "rule": [
+   "suffixdash",
+   "-"
+  ],
+  "pages": 3,
+  "items_total": 22,
+  "measured_at": "2026-11-02 10:21:20",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "新余市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "赣州市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 11,
+  "items_total": 70,
+  "measured_at": "2026-11-02 10:22:38",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "鹰潭市",
-  "board": "http://www.yingtan.gov.cn/col/col19195/index.html?vc_xxgkarea=YT0001&number=A00003A00003",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "保定市",
+  "rule": [
+   "query",
+   "page"
+  ],
+  "pages": 8,
+  "items_total": 132,
+  "measured_at": "2026-11-02 10:45:37",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "廊坊市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "张家口市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "石家庄市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "邯郸市",
-  "board": "https://www.hd.gov.cn/hdzfxxgk/zfwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "三门峡市",
-  "board": "https://www.smx.gov.cn/pageView/zcwjList.html?lmid=8200&searchType=1",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "信阳市",
-  "board": "https://www.xinyang.gov.cn/xxgkp/zfwj/xz/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "南阳市",
-  "board": "https://www.nanyang.gov.cn/zwxxgk/qtfdxx/zfwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "商丘市",
-  "board": "https://www.shangqiu.gov.cn/qsygk/zcwj",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "安阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "开封市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "新乡市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "洛阳市",
-  "board": "https://www.ly.gov.cn/xzgfxwjk/szf/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "济源市",
-  "board": "http://www.jiyuan.gov.cn/zwgk/zfxxgk/zc/xzgfxwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "濮阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "焦作市",
-  "board": "https://www.jiaozuo.gov.cn/zwgk/szfxxgk/zfwk/szfwj",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "嘉兴市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "温州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "绍兴市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "舟山市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "三亚市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "儋州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "海口市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "随州市",
-  "board": "http://www.suizhou.gov.cn/zwgk/zfwj/qt_5744/szfwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "黄冈市",
-  "board": "https://www.hg.gov.cn/zwgk/public/column/6636765?type=4&catId=7025201&action=list&nav=3",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "张家界市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "怀化市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "株洲市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "衡阳市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "邵阳市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "长沙市",
-  "board": "http://www.changsha.gov.cn/zfxxgk/zfwjk/srmzf/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "定西市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "庆阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "张掖市",
-  "board": "https://www.zhangye.gov.cn/zyszfxxgk/zfwj_5652/gfxwj_5655/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "武威市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "陇南市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "南平市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "厦门市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "宁德市",
-  "board": "https://www.ningde.gov.cn/zfxxgkzl/zfxxgkml/fggzhgf/gzk/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "漳州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "龙岩市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "日喀则市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "六盘水市",
-  "board": "https://www.lp.gov.cn/zwgk/zcwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "贵阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "遵义市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "丹东市",
+  "rule": [
+   "query",
+   "pageNum"
+  ],
+  "pages": 3,
+  "items_total": 7,
+  "measured_at": "2026-11-02 10:21:19",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "大连市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "本溪市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "盘锦市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "葫芦岛市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "锦州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "鞍山市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "咸阳市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "商洛市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "宝鸡市",
   "rule": null,
-  "why": "page1_no_items"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "延安市",
+  "rule": [
+   "path",
+   ""
+  ],
+  "pages": 3,
+  "items_total": 9,
+  "measured_at": "2026-11-02 10:21:27",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "榆林市",
-  "board": "http://www.yulin.gov.cn/guizhang1/index.shtml",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "汉中市",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 8,
+  "items_total": 15,
+  "measured_at": "2026-11-02 10:21:50",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "渭南市",
+  "rule": [
+   "path",
+   ""
+  ],
+  "pages": 3,
+  "items_total": 9,
+  "measured_at": "2026-11-02 10:22:05",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "西安市",
+  "rule": [
+   "path",
+   ""
+  ],
+  "pages": 3,
+  "items_total": 45,
+  "measured_at": "2026-11-02 10:22:49",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "海东市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "西宁市",
-  "board": "https://www.xining.gov.cn/zwgk/zc/xzgfxwj/",
-  "found": null,
   "rule": null,
-  "why": "no_pattern_worked"
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "双鸭山市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "黑河市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  }
 ]

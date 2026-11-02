@@ -258,10 +258,13 @@ def load_site_rules() -> dict[str, tuple]:
     out: dict[str, tuple] = {}
     for r in rows if isinstance(rows, list) else []:
         rule = r.get("rule")
+        if isinstance(rule, list) and len(rule) == 2:
+            out[str(r.get("site"))] = (str(rule[0]), str(rule[1]))
+            continue
         if not isinstance(rule, str):
             continue
         for cand in PAGE_RULES:
-            if cand[0] == rule:
+            if cand[0] == rule:      # 兼容旧格式（只有 kind，参数名会丢）
                 out[str(r.get("site"))] = cand
                 break
     return out
@@ -888,10 +891,36 @@ def main() -> int:
                     help="只给已有 items.jsonl 补正文/附件，不重抓列表")
     ap.add_argument("--list-only", action="store_true",
                     help="只抓列表与翻页（不抓正文/附件），用于先量翻页成功率")
-    ap.add_argument("--site", default="", help="只抓指定站点名（用于单站验证）")
+    ap.add_argument("--site", default="", help="只抓指定站点名（单站验证）")
+    ap.add_argument("--export-rules", action="store_true",
+                    help="把实测标定出的翻页规则写回 site-rules.json")
     ap.add_argument("--kind", default="normative",
                     help="normative / hub / all")
     args = ap.parse_args()
+
+    if args.export_rules:
+        rows = []
+        for f in sorted(OUTDIR.rglob("site-state.json")):
+            st = json.loads(f.read_text(encoding="utf-8"))
+            pgn = st.get("pagination") or {}
+            rule = pgn.get("rule")
+            if isinstance(rule, list) and rule and pgn.get("ok"):
+                rows.append({"site": st.get("site") or f.parent.name,
+                             "rule": rule,          # 完整 [kind, 参数名]，别只存 kind
+                             "pages": st.get("pages_this_run"),
+                             "items_total": st.get("items_total"),
+                             "measured_at": st.get("run_at"),
+                             "note": "实测标定得出（--export-rules）"})
+            else:
+                rows.append({"site": st.get("site") or f.parent.name,
+                             "rule": None,
+                             "why": "标定未命中（单页或非 URL 规则可解）"})
+        SITE_RULES.write_text(json.dumps(rows, ensure_ascii=False, indent=1),
+                              encoding="utf-8")
+        got = sum(1 for r in rows if r.get("rule"))
+        print(f"已导出 {len(rows)} 站规则到 {SITE_RULES.relative_to(ROOT)}；"
+              f"其中有效规则 {got} 条")
+        return 0
 
     if args.text_only or args.att_only:
         dirs = sorted({f.parent for f in OUTDIR.rglob("items.jsonl")})
