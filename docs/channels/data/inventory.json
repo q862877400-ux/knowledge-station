@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 195,
-  "items": 12050,
-  "texts": 12025,
-  "text_chars": 44985093,
-  "attachment_refs": 554,
-  "attachment_files": 546,
-  "sites_with_items": 170,
+  "sites_crawled": 193,
+  "items": 12008,
+  "texts": 11983,
+  "text_chars": 44846300,
+  "attachment_refs": 544,
+  "attachment_files": 536,
+  "sites_with_items": 168,
   "sites_multi_page": 54,
-  "attachment_bytes": 469839109,
-  "attachment_mb": 448.1
+  "attachment_bytes": 457085757,
+  "attachment_mb": 435.9
  },
  "by_level": {
   "city": {
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 191,
+  "sites": 195,
   "with_rule": 34
  },
  "province_portals": {
@@ -964,30 +964,6 @@
    "oldest_date": "2022-01-28",
    "run_at": "2026-11-02 19:36:10",
    "engine": "cdp"
-  },
-  {
-   "site": "阜阳市",
-   "dir": "var\\data\\national\\安徽省\\阜阳市",
-   "status": "list_only_ok",
-   "board": "https://www.fy.gov.cn/PolicyContent/?keyword=&branchId=2&policyType=2",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 42,
-   "texts": 42,
-   "text_chars": 188302,
-   "attachments": 7,
-   "attachment_files": 7,
-   "items_new_this_run": 17,
-   "newest_date": "2026-11-02",
-   "oldest_date": "2017-12-29",
-   "run_at": "2026-11-02 20:38:52",
-   "engine": "static"
   },
   {
    "site": "海南省",
@@ -2102,6 +2078,30 @@
    "engine": "cdp"
   },
   {
+   "site": "阜阳市",
+   "dir": "var\\data\\national\\安徽省\\阜阳市",
+   "status": "list_only_ok",
+   "board": "https://www.fy.gov.cn/PolicyContent/?keyword=&branchId=2&policyType=2",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 17,
+   "texts": 17,
+   "text_chars": 105837,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 17,
+   "newest_date": "2026-11-02",
+   "oldest_date": "2017-12-29",
+   "run_at": "2026-11-02 20:51:19",
+   "engine": "static"
+  },
+  {
    "site": "黄冈市",
    "dir": "var\\data\\national\\湖北省\\黄冈市",
    "status": "list_only_ok",
@@ -2511,30 +2511,6 @@
    "newest_date": "2026-06-03",
    "oldest_date": "2016-03-28",
    "run_at": "2026-11-02 12:05:29",
-   "engine": "static"
-  },
-  {
-   "site": "大同市",
-   "dir": "var\\data\\national\\山西省\\大同市",
-   "status": "list_only_ok",
-   "board": "https://www.datong.gov.cn/zfxxgk/fdzdgknr/zcwj/zcfg/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 13,
-   "texts": 13,
-   "text_chars": 33643,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-06-09",
-   "oldest_date": "2021-09-30",
-   "run_at": "2026-11-02 12:03:54",
    "engine": "static"
   },
   {
@@ -3711,30 +3687,6 @@
    "newest_date": "2026-01-06",
    "oldest_date": "2025-10-14",
    "run_at": "2026-11-02 12:05:13",
-   "engine": "static"
-  },
-  {
-   "site": "临沧市",
-   "dir": "var\\data\\national\\云南省\\临沧市",
-   "status": "list_only_ok",
-   "board": "http://www.lc.gov.cn/lcxxgk/xxgkml/jbxxgk/zfwj/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 4,
-   "texts": 4,
-   "text_chars": 22685,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-04-28",
-   "oldest_date": "2025-01-20",
-   "run_at": "2026-11-02 12:03:42",
    "engine": "static"
   },
   {

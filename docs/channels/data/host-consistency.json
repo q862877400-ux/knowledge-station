@@ -1,0 +1,76 @@
+{
+ "generated_at": "2026-11-02",
+ "note": "登记域名与实抓条目主机不一致的站点，逐条给判定",
+ "rows": [
+  {
+   "site": "池州市",
+   "items": 1006,
+   "registered": "www.chizhou.gov.cn",
+   "actual": "www.ahgc.gov.cn",
+   "verdict": "同城区级站点（贵池区，池州市辖区）——保留，标注为区级来源"
+  },
+  {
+   "site": "咸宁市",
+   "items": 61,
+   "registered": "www.xianning.gov.cn",
+   "actual": "www.xianan.gov.cn",
+   "verdict": "同城区级站点（咸安区）——保留，标注"
+  },
+  {
+   "site": "宣城市",
+   "items": 6,
+   "registered": "www.xuancheng.gov.cn",
+   "actual": "www.guangde.gov.cn",
+   "verdict": "同城县级市（广德市，宣城代管）——保留，标注"
+  },
+  {
+   "site": "龙岩市",
+   "items": 1,
+   "registered": "www.longyan.gov.cn",
+   "actual": "www.yongding.gov.cn",
+   "verdict": "同城区级站点（永定区）——保留，标注"
+  },
+  {
+   "site": "淄博市",
+   "items": 17,
+   "registered": "www.zibo.gov.cn",
+   "actual": "sfj.zibo.gov.cn",
+   "verdict": "同城子域名（市司法局）——正常"
+  },
+  {
+   "site": "江苏省",
+   "items": 37,
+   "registered": "www.js.gov.cn",
+   "actual": "www.jiangsu.gov.cn",
+   "verdict": "同一省的域名别名——正常"
+  },
+  {
+   "site": "河南省",
+   "items": 6,
+   "registered": "henan.gov.cn",
+   "actual": "www.henan.gov.cn",
+   "verdict": "同一主机的带 www 写法——正常"
+  },
+  {
+   "site": "四平市",
+   "items": 9,
+   "registered": "www.siping.gov.cn",
+   "actual": "www.gov.cn",
+   "verdict": "条目指向中国政府网 —— 疑为转载，待人工判断"
+  },
+  {
+   "site": "济宁市",
+   "items": 8,
+   "registered": "www.jining.gov.cn",
+   "actual": "www.gov.cn",
+   "verdict": "同上"
+  },
+  {
+   "site": "连云港市",
+   "items": 48,
+   "registered": "www.lyg.gov.cn",
+   "actual": "www.jiangsu.gov.cn",
+   "verdict": "条目指向江苏省政府网 —— 疑为省级栏目被记到连云港，待人工判断"
+  }
+ ]
+}
