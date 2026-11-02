@@ -34,6 +34,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import subprocess
@@ -45,7 +46,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-import importlib.util  # noqa: E402
 
 _spec = importlib.util.spec_from_file_location(
     "ncf", ROOT / "scripts" / "national-crawl-fetch.py")
@@ -57,24 +57,17 @@ _spec2 = importlib.util.spec_from_file_location(
 ncd = importlib.util.module_from_spec(_spec2)
 _spec2.loader.exec_module(ncd)
 
+_spec3 = importlib.util.spec_from_file_location(
+    "ncc", ROOT / "scripts" / "national_crawl_common.py")
+cmn = importlib.util.module_from_spec(_spec3)
+_spec3.loader.exec_module(cmn)
+
 DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
 OUTDIR = ROOT / "var" / "data" / "national"
 TMP = ROOT / "var" / "tmp"
 
 #: 候选浏览器（按顺序找第一个存在的）
-BROWSERS = (
-    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-    r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
-    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-    r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
-)
-
-
-def find_browser() -> str | None:
-    for p in BROWSERS:
-        if Path(p).exists():
-            return p
-    return None
+find_browser = cmn.find_browser
 
 
 def render(url: str, exe: str, budget_ms: int = 8000,
@@ -89,7 +82,7 @@ def render(url: str, exe: str, budget_ms: int = 8000,
                f"--virtual-time-budget={budget_ms}", "--dump-dom", url]
         with open(tmp, "wb") as fh:                 # 直接写盘，不经过对话上下文
             subprocess.run(cmd, stdout=fh, stderr=subprocess.DEVNULL,
-                           timeout=timeout_s)
+                           timeout=timeout_s, check=False)
         html = Path(tmp).read_text(encoding="utf-8", errors="ignore")
         return True, html, time.monotonic() - t0
     except subprocess.TimeoutExpired:
@@ -173,40 +166,12 @@ def crawl_site(site: str, rec: dict, exe: str, pages: int,
         stats["status"] = "still_unparsable"
         return stats
 
-    # 合并历史 + 算新增（与 fetch 脚本同一口径）
-    f = sdir / "items.jsonl"
-    prev = []
-    if f.exists():
-        for ln in f.read_text(encoding="utf-8").splitlines():
-            if ln.strip():
-                try:
-                    prev.append(json.loads(ln))
-                except json.JSONDecodeError:
-                    pass
-    merged = {x["url"]: x for x in prev if x.get("url")}
-    now = time.strftime("%Y-%m-%d %H:%M:%S")
-    new_run = 0
-    for x in items:
-        if x["url"] not in merged:
-            x["first_seen"] = now
-            new_run += 1
-        merged[x["url"]] = x
-    allitems = sorted(merged.values(), key=lambda y: (y.get("date") or ""),
-                      reverse=True)
-    f.write_text("\n".join(json.dumps(x, ensure_ascii=False)
-                           for x in allitems) + "\n", encoding="utf-8")
-    dates = [x.get("date") for x in allitems if x.get("date")]
-    (sdir / "site-state.json").write_text(json.dumps({
-        "site": site, "board": board, "status": "browser_ok", "run_at": now,
-        "pages_this_run": stats["pages"], "items_total": len(allitems),
-        "items_new_this_run": new_run,
-        "newest_date": max(dates) if dates else None,
-        "oldest_date": min(dates) if dates else None,
-        "engine": "headless-dom", "render_seconds": stats["seconds"],
-    }, ensure_ascii=False, indent=1), encoding="utf-8")
+    res = cmn.merge_and_save(
+        site, board, items, province=prov, engine="headless-dom",
+        extra={"render_seconds": stats["seconds"]})
     stats["status"] = "browser_ok"
-    stats["items_total"] = len(allitems)
-    stats["items_new"] = new_run
+    stats["items_total"] = res["items_total"]
+    stats["items_new"] = res["items_new"]
     return stats
 
 
@@ -227,7 +192,7 @@ def main() -> int:
 
     exe = find_browser()
     if not exe:
-        print("找不到浏览器可执行文件：", BROWSERS)
+        print("找不到浏览器可执行文件（Edge/Chrome 均未找到）")
         return 2
     print("浏览器:", exe)
 
