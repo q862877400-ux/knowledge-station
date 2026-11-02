@@ -1,0 +1,235 @@
+{
+ "total": 91,
+ "has_pagination_signal": 45,
+ "no_signal": 46,
+ "needs_mechanism": [
+  {
+   "site": "临沧市",
+   "signal": "下一页,nextPage"
+  },
+  {
+   "site": "呼伦贝尔市",
+   "signal": "pageCount,totalPage"
+  },
+  {
+   "site": "锡林郭勒盟",
+   "signal": "下一页,totalPage"
+  },
+  {
+   "site": "四平市",
+   "signal": "下一页,nextPage,createPageHTML"
+  },
+  {
+   "site": "南充市",
+   "signal": "下一页,pageCount,共\\d+页"
+  },
+  {
+   "site": "广元市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "眉山市",
+   "signal": "下一页,共\\d+页"
+  },
+  {
+   "site": "达州市",
+   "signal": "下一页"
+  },
+  {
+   "site": "吴忠市",
+   "signal": "下一页,pageCount,createPageHTML"
+  },
+  {
+   "site": "固原市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "宣城市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "铜陵市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "泰安市",
+   "signal": "共\\d+页"
+  },
+  {
+   "site": "吕梁市",
+   "signal": "下一页,nextPage"
+  },
+  {
+   "site": "大同市",
+   "signal": "下一页,pageCount,createPageHTML"
+  },
+  {
+   "site": "运城市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "梅州市",
+   "signal": "下一页"
+  },
+  {
+   "site": "北海市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "河池市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "玉林市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "钦州市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "鹰潭市",
+   "signal": "pageNum"
+  },
+  {
+   "site": "邯郸市",
+   "signal": "下一页,nextPage"
+  },
+  {
+   "site": "三门峡市",
+   "signal": "下一页,pageCount,createPageHTML,pageNum"
+  },
+  {
+   "site": "信阳市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "南阳市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "商丘市",
+   "signal": "下一页,共\\d+条,共\\d+页"
+  },
+  {
+   "site": "洛阳市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "济源市",
+   "signal": "totalPage,createPageHTML,pageNum"
+  },
+  {
+   "site": "焦作市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "随州市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "黄冈市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "怀化市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "衡阳市",
+   "signal": "下一页,pageCount,createPageHTML"
+  },
+  {
+   "site": "邵阳市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "长沙市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "张掖市",
+   "signal": "下一页,nextPage"
+  },
+  {
+   "site": "武威市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "陇南市",
+   "signal": "pageCount"
+  },
+  {
+   "site": "宁德市",
+   "signal": "下一页,pageCount,共\\d+页"
+  },
+  {
+   "site": "六盘水市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "鞍山市",
+   "signal": "共\\d+条"
+  },
+  {
+   "site": "宝鸡市",
+   "signal": "下一页,pageCount"
+  },
+  {
+   "site": "榆林市",
+   "signal": "createPageHTML"
+  },
+  {
+   "site": "西宁市",
+   "signal": "下一页,pageCount"
+  }
+ ],
+ "likely_single_page": [
+  "丽江市",
+  "资阳市",
+  "石嘴山市",
+  "银川市",
+  "亳州市",
+  "阜阳市",
+  "枣庄市",
+  "济宁市",
+  "淄博市",
+  "青岛市",
+  "晋中市",
+  "河源市",
+  "肇庆市",
+  "柳州市",
+  "南通市",
+  "宿迁市",
+  "扬州市",
+  "盐城市",
+  "连云港市",
+  "新余市",
+  "张家口市",
+  "石家庄市",
+  "安阳市",
+  "开封市",
+  "新乡市",
+  "濮阳市",
+  "嘉兴市",
+  "温州市",
+  "绍兴市",
+  "舟山市",
+  "三亚市",
+  "儋州市",
+  "海口市",
+  "张家界市",
+  "定西市",
+  "庆阳市",
+  "南平市",
+  "漳州市",
+  "大连市",
+  "本溪市",
+  "盘锦市",
+  "葫芦岛市",
+  "锦州市",
+  "咸阳市",
+  "双鸭山市",
+  "黑河市"
+ ]
+}
