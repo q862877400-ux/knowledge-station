@@ -1,22 +1,22 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 169,
-  "items": 8584,
-  "texts": 8317,
-  "text_chars": 29054937,
-  "attachment_refs": 496,
-  "attachment_files": 491,
-  "sites_with_items": 148,
-  "sites_multi_page": 50,
-  "attachment_bytes": 436147677,
-  "attachment_mb": 415.9
+  "sites_crawled": 179,
+  "items": 8852,
+  "texts": 8704,
+  "text_chars": 30964541,
+  "attachment_refs": 516,
+  "attachment_files": 510,
+  "sites_with_items": 156,
+  "sites_multi_page": 52,
+  "attachment_bytes": 459442864,
+  "attachment_mb": 438.2
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 192,
-   "no_board_found": 62,
+   "ok": 202,
+   "no_board_found": 52,
    "unreachable": 7,
    "js_rendered": 13
   },
@@ -30,8 +30,8 @@
   }
  },
  "site_rules": {
-  "sites": 167,
-  "with_rule": 32
+  "sites": 179,
+  "with_rule": 35
  },
  "province_portals": {
   "total": 26,
@@ -111,10 +111,10 @@
    },
    "pages_this_run": 20,
    "items": 547,
-   "texts": 328,
-   "text_chars": 673974,
-   "attachments": 3,
-   "attachment_files": 3,
+   "texts": 448,
+   "text_chars": 903978,
+   "attachments": 6,
+   "attachment_files": 6,
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2015-11-05",
@@ -343,6 +343,30 @@
    "newest_date": "2026-10-29",
    "oldest_date": "2010-04-20",
    "run_at": "2026-11-02 12:04:32",
+   "engine": "static"
+  },
+  {
+   "site": "乌海市",
+   "dir": "var\\data\\national\\内蒙古自治区\\乌海市",
+   "status": "list_only_ok",
+   "board": "http://www.wuhai.gov.cn/wuhai/xxgk4/zfxxgkzl/805465/838638/whsrmzfxxyxgfxwjml45/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 137,
+   "texts": 137,
+   "text_chars": 1001662,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 137,
+   "newest_date": "2026-07-28",
+   "oldest_date": "2003-07-11",
+   "run_at": "2026-11-02 14:53:12",
    "engine": "static"
   },
   {
@@ -688,6 +712,24 @@
    "oldest_date": "2002-02-01",
    "run_at": "2026-11-02 12:04:10",
    "engine": "static"
+  },
+  {
+   "site": "咸宁市",
+   "dir": "var\\data\\national\\湖北省\\咸宁市",
+   "status": "browser_ok",
+   "board": "http://www.xianning.gov.cn/zcwjk/",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 61,
+   "texts": 61,
+   "text_chars": 340779,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 61,
+   "newest_date": "2026-20",
+   "oldest_date": "2017-20",
+   "run_at": "2026-11-02 14:55:10",
+   "engine": "headless-dom"
   },
   {
    "site": "哈密市",
@@ -1366,6 +1408,30 @@
    "engine": "static"
   },
   {
+   "site": "岳阳市",
+   "dir": "var\\data\\national\\湖南省\\岳阳市",
+   "status": "list_only_ok",
+   "board": "https://www.yueyang.gov.cn/zwgk/zcwj/default.htm",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 6,
+   "items": 24,
+   "texts": 24,
+   "text_chars": 112789,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 24,
+   "newest_date": "2022-12-30",
+   "oldest_date": "2003-06-24",
+   "run_at": "2026-11-02 14:53:32",
+   "engine": "static"
+  },
+  {
    "site": "宿迁市",
    "dir": "var\\data\\national\\江苏省\\宿迁市",
    "status": "list_only_ok",
@@ -2040,6 +2106,24 @@
    "engine": "static"
   },
   {
+   "site": "内江市",
+   "dir": "var\\data\\national\\四川省\\内江市",
+   "status": "browser_ok",
+   "board": "https://www.neijiang.gov.cn/njs/zfgfxwj/zfxxgk_gfxwjk.shtml",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 16,
+   "texts": 15,
+   "text_chars": 73838,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 16,
+   "newest_date": "2026-10-22",
+   "oldest_date": "2025-02-27",
+   "run_at": "2026-11-02 14:54:37",
+   "engine": "headless-dom"
+  },
+  {
    "site": "国家信访局",
    "dir": "var\\data\\national\\中央\\国家信访局",
    "status": "list_only_ok",
@@ -2158,6 +2242,24 @@
    "oldest_date": "2025-12-23",
    "run_at": "2026-11-02 12:05:18",
    "engine": "static"
+  },
+  {
+   "site": "唐山市",
+   "dir": "var\\data\\national\\河北省\\唐山市",
+   "status": "browser_ok",
+   "board": "https://www.ts.gov.cn/col/col1229886249/index.html",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 15,
+   "texts": 15,
+   "text_chars": 46273,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 15,
+   "newest_date": "2026-07-03",
+   "oldest_date": "2024-07-23",
+   "run_at": "2026-11-02 14:56:06",
+   "engine": "headless-dom"
   },
   {
    "site": "汉中市",
@@ -3086,6 +3188,30 @@
    "engine": "static"
   },
   {
+   "site": "平凉市",
+   "dir": "var\\data\\national\\甘肃省\\平凉市",
+   "status": "list_only_ok",
+   "board": "http://www.pingliang.gov.cn/zfxxgk/fdzdgknr/lzyj/zcwj/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 7,
+   "texts": 7,
+   "text_chars": 70303,
+   "attachments": 3,
+   "attachment_files": 2,
+   "items_new_this_run": 7,
+   "newest_date": "2026-10-27",
+   "oldest_date": "2026-07-17",
+   "run_at": "2026-11-02 14:53:35",
+   "engine": "static"
+  },
+  {
    "site": "张家界市",
    "dir": "var\\data\\national\\湖南省\\张家界市",
    "status": "list_only_ok",
@@ -3132,6 +3258,24 @@
    "oldest_date": "2019-11-21",
    "run_at": "2026-11-02 12:05:07",
    "engine": "static"
+  },
+  {
+   "site": "佛山市",
+   "dir": "var\\data\\national\\广东省\\佛山市",
+   "status": "browser_ok",
+   "board": "https://www.foshan.gov.cn/gfxwj/index.html",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 6,
+   "texts": 6,
+   "text_chars": 25900,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 6,
+   "newest_date": "2026-10-27",
+   "oldest_date": "2026-09-24",
+   "run_at": "2026-11-02 14:54:08",
+   "engine": "headless-dom"
   },
   {
    "site": "厦门市",
@@ -3587,6 +3731,33 @@
    "engine": "static"
   },
   {
+   "site": "南京市",
+   "dir": "var\\data\\national\\江苏省\\南京市",
+   "status": "list_only_ok",
+   "board": "https://www.nanjing.gov.cn/zdgk/214/394/396/index_17989.html",
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.nanjing.gov.cn/zdgk/214/394/396/index_17989_2.html",
+    "overlap": 0,
+    "new": 2,
+    "ok": true
+   },
+   "pages_this_run": 2,
+   "items": 2,
+   "texts": 2,
+   "text_chars": 8056,
+   "attachments": 1,
+   "attachment_files": 1,
+   "items_new_this_run": 2,
+   "newest_date": "2024-10-21",
+   "oldest_date": "2024-03-10",
+   "run_at": "2026-11-02 14:53:18",
+   "engine": "static"
+  },
+  {
    "site": "榆林市",
    "dir": "var\\data\\national\\陕西省\\榆林市",
    "status": "list_only_ok",
@@ -3869,6 +4040,30 @@
    "engine": "static"
   },
   {
+   "site": "安庆市",
+   "dir": "var\\data\\national\\安徽省\\安庆市",
+   "status": "js_unparsable",
+   "board": "https://www.anqing.gov.cn/zwgk/gzk/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-02 14:53:24",
+   "engine": "static"
+  },
+  {
    "site": "宝鸡市",
    "dir": "var\\data\\national\\陕西省\\宝鸡市",
    "status": "js_unparsable",
@@ -3962,6 +4157,30 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:04:00",
+   "engine": "static"
+  },
+  {
+   "site": "抚顺市",
+   "dir": "var\\data\\national\\辽宁省\\抚顺市",
+   "status": "js_unparsable",
+   "board": "https://www.fushun.gov.cn/dynamic/zwgk/jd_govInfoPub.html?categorynum=008002001",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-02 14:53:37",
    "engine": "static"
   },
   {

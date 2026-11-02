@@ -65,7 +65,7 @@ MAX_BLOCKED = int(os.environ.get("LOOP2_MAX_BLOCKED", "5"))
 M_SILENCE = int(os.environ.get("LOOP2_M_SILENCE", "5"))
 # data library root; env first, else a user data dir (not product code).
 DEFAULT_ROOT = os.environ.get(
-    "LOOP2_ROOT", r"D:\AI\work space\标准\🇨🇳《国家标准》(35000+ 141G)")
+    "LOOP2_ROOT", r"D:\Agent-Studio\Data\标准\🇨🇳《国家标准》(35000+ 141G)")
 
 # Root-CAUSE classes (not VLM symptom strings) seeded from visual-regression-log.md
 # C1~C5 architecture reflections. record_issue keys on these for three-strike.

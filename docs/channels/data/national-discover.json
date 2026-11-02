@@ -986,11 +986,18 @@
    "site": "乌海市",
    "province": "内蒙古自治区",
    "home": "http://www.wuhai.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.wuhai.gov.cn/wuhai/xxgk4/zfxxgkzl/805465/838638/whsrmzfxxyxgfxwjml45/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "乌海市人民政府现行有效规范性文件目录|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 372,
+    "page_dates": 141,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.478,
+    "med_len": 7.0
+   },
    "candidates": [
     {
      "url": "http://www.wuhai.gov.cn/wuhai/xxgk4/zfxxgkzl/805465/838638/index.html",
@@ -1104,7 +1111,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "乌鲁木齐市",
@@ -1746,11 +1755,18 @@
    "site": "佛山市",
    "province": "广东省",
    "home": "https://www.foshan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.foshan.gov.cn/gfxwj/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "规范性文件 GUIFANXINGWENJIAN|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 124,
+    "page_dates": 12,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.548,
+    "med_len": 8.0
+   },
    "candidates": [
     {
      "url": "https://www.foshan.gov.cn/zwgk/gggs/content/post_7314687.html",
@@ -1851,7 +1867,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "佳木斯市",
@@ -2593,11 +2611,18 @@
    "site": "内江市",
    "province": "四川省",
    "home": "https://www.neijiang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.neijiang.gov.cn/njs/zfgfxwj/zfxxgk_gfxwjk.shtml",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "市行政规范性文件库|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 220,
+    "page_dates": 10,
+    "detail_ratio": 0.2,
+    "title_ratio": 0.345,
+    "med_len": 6.0
+   },
    "candidates": [
     {
      "url": "https://www.neijiang.gov.cn/njs/zfgfxwj/zfxxgk_gfxwjk.shtml",
@@ -2711,7 +2736,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "包头市",
@@ -2947,16 +2974,25 @@
    "site": "南京市",
    "province": "江苏省",
    "home": "https://www.nanjing.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.nanjing.gov.cn/zdgk/214/394/396/index_17989.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 20,
+    "page_dates": 58,
+    "detail_ratio": 1.0,
+    "title_ratio": 1.0,
+    "med_len": 31.5
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "南充市",
@@ -4033,11 +4069,18 @@
    "site": "咸宁市",
    "province": "湖北省",
    "home": "http://www.xianning.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.xianning.gov.cn/zcwjk/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件库|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 5272,
+    "page_dates": 4997,
+    "detail_ratio": 0.949,
+    "title_ratio": 0.938,
+    "med_len": 26.0
+   },
    "candidates": [
     {
      "url": "http://www.xianning.gov.cn/zcwjk/",
@@ -4117,7 +4160,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "咸阳市",
@@ -4247,11 +4292,18 @@
    "site": "唐山市",
    "province": "河北省",
    "home": "https://www.ts.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.ts.gov.cn/col/col1229886249/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 57,
+    "page_dates": 15,
+    "detail_ratio": 0.333,
+    "title_ratio": 0.368,
+    "med_len": 6
+   },
    "candidates": [
     {
      "url": "https://www.ts.gov.cn/col/col1229886249/index.html",
@@ -4279,7 +4331,9 @@
    "error": "candidates_not_listlike",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "商丘市",
@@ -5447,11 +5501,18 @@
    "site": "安庆市",
    "province": "安徽省",
    "home": "https://www.anqing.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.anqing.gov.cn/zwgk/gzk/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "安庆市人民政府规章库|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 38,
+    "page_dates": 12,
+    "detail_ratio": 0.158,
+    "title_ratio": 0.237,
+    "med_len": 5.0
+   },
    "candidates": [
     {
      "url": "https://www.anqing.gov.cn/content/article/2007395783",
@@ -5495,7 +5556,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "安康市",
@@ -6325,16 +6388,25 @@
    "site": "岳阳市",
    "province": "湖南省",
    "home": "https://www.yueyang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yueyang.gov.cn/zwgk/zcwj/default.htm",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 55,
+    "page_dates": 29,
+    "detail_ratio": 0.309,
+    "title_ratio": 0.327,
+    "med_len": 4
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "崇左市",
@@ -6610,11 +6682,18 @@
    "site": "平凉市",
    "province": "甘肃省",
    "home": "https://www.pingliang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.pingliang.gov.cn/zfxxgk/fdzdgknr/lzyj/zcwj/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 235,
+    "page_dates": 50,
+    "detail_ratio": 0.128,
+    "title_ratio": 0.37,
+    "med_len": 6
+   },
    "candidates": [
     {
      "url": "http://www.pingliang.gov.cn/zfxxgk/fdzdgknr/lzyj/xzgfxwj/index.html",
@@ -6661,7 +6740,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "平顶山市",
@@ -8224,11 +8305,18 @@
    "site": "抚顺市",
    "province": "辽宁省",
    "home": "https://www.fushun.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.fushun.gov.cn/dynamic/zwgk/jd_govInfoPub.html?categorynum=008002001",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "市级行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 97,
+    "page_dates": 40,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.423,
+    "med_len": 5
+   },
    "candidates": [
     {
      "url": "https://www.fushun.gov.cn/dynamic/zwgk/govInfoPub.html?categorynum=003001007",
@@ -8320,7 +8408,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "拉萨市",

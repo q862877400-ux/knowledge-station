@@ -242,7 +242,8 @@ def step_requirements() -> None:
         "generated_by": "scripts/survey/09-requirements.py::step_requirements",
         "sources": DOCS_ROOTS,
         "caliber": (
-            "需求编号**没有单一权威文档**（实测）：`REQUIREMENTS-v4.3.md` 用 `### R24`；"
+            "需求编号**没有单一权威文档**（实测）："
+            "`REQUIREMENTS-v4.3.md` 用 `### R24`；"
             "`R6c` 是 `CHANNEL-R6C-DESIGN.md` 的 `# R6c 设计：…` 一级标题；"
             "`R6a/R6b` 只在 `CHANNEL-COVERAGE-PLAN.md` 正文内联出现。"
             "⇒ 扫**全部 `docs/**/*.md`**，三级认定：①标题 ②行首加粗 ③仅正文提及；"
