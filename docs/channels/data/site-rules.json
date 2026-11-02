@@ -16,14 +16,10 @@
  {
   "site": "锡林郭勒盟",
   "board": "https://www.xlgl.gov.cn/eportal/ui?pageId=8a1edf06a3914adfbc9707d92982e820",
-  "found": {
-   "rule": "index",
-   "page2_url": "https://www.xlgl.gov.cn/eportal/ui?pageId=... + index_2.html",
-   "new": 4,
-   "note": "2026-11-02 实测：index_N 路径型命中"
-  },
-  "rule": "index",
-  "why": "no_pattern_worked"
+  "found": null,
+  "rule": null,
+  "why": "revoked_2026-11-02: R17 那次'命中'是假的——测试时查询串被丢掉，抓到的是另一个页面，不是第 2 页",
+  "note": "已撤回，不再作配置使用"
  },
  {
   "site": "四平市",
