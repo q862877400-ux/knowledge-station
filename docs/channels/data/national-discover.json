@@ -139,7 +139,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "三亚市",
@@ -195,7 +196,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "三明市",
@@ -318,7 +320,8 @@
      "url": "http://www.sanming.gov.cn/smsrmzfbgs/smsrmzf/zfxxgkzn/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "三沙市",
@@ -396,7 +399,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "三门峡市",
@@ -452,7 +456,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "东莞市",
@@ -466,7 +471,8 @@
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL: no alternative certificate subject name matches target hostname '",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "东营市",
@@ -543,7 +549,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "中山市",
@@ -632,7 +639,8 @@
      "url": "https://www.zs.gov.cn/gkmlpt/guide",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "临汾市",
@@ -688,7 +696,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "临沂市",
@@ -744,7 +753,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "临沧市",
@@ -799,7 +809,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "丹东市",
@@ -855,7 +866,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "丽江市",
@@ -911,7 +923,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "乌兰察布市",
@@ -966,7 +979,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "乌海市",
@@ -1089,7 +1103,8 @@
      "url": "http://www.wuhai.gov.cn/wuhai/swdwgk/swwj/index.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "乌鲁木齐市",
@@ -1145,7 +1160,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "乐山市",
@@ -1201,7 +1217,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "九江市",
@@ -1291,7 +1308,8 @@
      "url": "https://www.jiujiang.gov.cn/fdzdxxgk/10/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "云浮市",
@@ -1422,7 +1440,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "亳州市",
@@ -1511,7 +1530,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "伊春市",
@@ -1597,7 +1617,8 @@
      "url": "https://www.yichun.gov.cn/ycsrmzf/zwgk/pc/list.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "伊犁哈萨克自治州",
@@ -1718,7 +1739,8 @@
      "url": "https://www.yl.gov.cn/zwgk/zfxxgkzn/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "佛山市",
@@ -1828,7 +1850,8 @@
      "url": "https://www.foshan.gov.cn/gkmlpt/guide",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "佳木斯市",
@@ -1917,7 +1940,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "保定市",
@@ -1973,7 +1997,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "保山市",
@@ -2062,7 +2087,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "信阳市",
@@ -2118,7 +2144,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "儋州市",
@@ -2174,7 +2201,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "克拉玛依市",
@@ -2297,7 +2325,8 @@
      "url": "https://www.klmy.gov.cn/klmys/zdlyxxgk/zfxxgk.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "六安市",
@@ -2387,7 +2416,8 @@
      "url": "https://www.luan.gov.cn/public/6608171/10752150.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "六盘水市",
@@ -2443,7 +2473,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "兴安盟",
@@ -2555,7 +2586,8 @@
      "url": "https://www.xingan.gov.cn/xxgk-list-xxgkzn.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "内江市",
@@ -2678,7 +2710,8 @@
      "url": "https://www.neijiang.gov.cn/njs/xxgkzn/zfxxgk_xxgkzn.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "包头市",
@@ -2767,7 +2800,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "北海市",
@@ -2861,7 +2895,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "十堰市",
@@ -2905,7 +2940,8 @@
      "url": "https://www.shiyan.gov.cn/xxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "南京市",
@@ -2919,7 +2955,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "南充市",
@@ -2975,7 +3012,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "南宁市",
@@ -3027,7 +3065,8 @@
      "url": "https://www.nanning.gov.cn/zwgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "南平市",
@@ -3083,7 +3122,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "南昌市",
@@ -3139,7 +3179,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "南通市",
@@ -3195,7 +3236,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "南阳市",
@@ -3251,7 +3293,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "厦门市",
@@ -3340,7 +3383,8 @@
      "url": "https://www.xm.gov.cn/zfxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "双鸭山市",
@@ -3429,7 +3473,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "台州市",
@@ -3517,7 +3562,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "吉安市",
@@ -3606,7 +3652,8 @@
      "url": "https://www.jian.gov.cn/xxgk-list-zfxxgkznja.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "吉林市",
@@ -3632,7 +3679,8 @@
    ],
    "error": "candidates_not_listlike",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "吐鲁番市",
@@ -3721,7 +3769,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "吕梁市",
@@ -3777,7 +3826,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "吴忠市",
@@ -3832,7 +3882,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "周口市",
@@ -3918,7 +3969,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "呼伦贝尔市",
@@ -3974,7 +4026,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "咸宁市",
@@ -4063,7 +4116,8 @@
      "url": "http://www.xianning.gov.cn/xxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "咸阳市",
@@ -4118,7 +4172,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "哈密市",
@@ -4185,7 +4240,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "唐山市",
@@ -4222,7 +4278,8 @@
    ],
    "error": "candidates_not_listlike",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "商丘市",
@@ -4311,7 +4368,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "商洛市",
@@ -4367,7 +4425,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "喀什地区",
@@ -4454,7 +4513,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "嘉兴市",
@@ -4488,7 +4548,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "嘉峪关市",
@@ -4574,7 +4635,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "四平市",
@@ -4663,7 +4725,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "固原市",
@@ -4719,7 +4782,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "大兴安岭地区",
@@ -4783,7 +4847,8 @@
      "url": "https://www.dxal.gov.cn/dxal/c100016/zwgk.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "大同市",
@@ -4838,7 +4903,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "大庆市",
@@ -4925,7 +4991,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "大连市",
@@ -4981,7 +5048,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "太原市",
@@ -5026,7 +5094,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "威海市",
@@ -5082,7 +5151,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "孝感市",
@@ -5171,7 +5241,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "宁德市",
@@ -5265,7 +5336,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "宁波市",
@@ -5368,7 +5440,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "安庆市",
@@ -5421,7 +5494,8 @@
      "url": "https://www.anqing.gov.cn/public/index.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "安康市",
@@ -5510,7 +5584,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "安阳市",
@@ -5566,7 +5641,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "安顺市",
@@ -5653,7 +5729,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "定西市",
@@ -5709,7 +5786,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "宜宾市",
@@ -5831,7 +5909,8 @@
      "url": "https://www.yibin.gov.cn/ztzl/zwxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "宜昌市",
@@ -5910,7 +5989,8 @@
      "url": "http://www.yichang.gov.cn/zfxxgk/list.html?depid=846&catid=4",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "宜春市",
@@ -5996,7 +6076,8 @@
      "url": "https://www.yichun.gov.cn/ycsrmzf/zwgk/pc/list.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "宝鸡市",
@@ -6051,7 +6132,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "宣城市",
@@ -6107,7 +6189,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "宿州市",
@@ -6163,7 +6246,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "宿迁市",
@@ -6219,7 +6303,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "山南市",
@@ -6233,7 +6318,8 @@
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: certificate has expired (10). S",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "岳阳市",
@@ -6247,7 +6333,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "崇左市",
@@ -6336,7 +6423,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "常州市",
@@ -6425,7 +6513,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "常德市",
@@ -6514,7 +6603,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "平凉市",
@@ -6570,7 +6660,8 @@
      "url": "https://www.pingliang.gov.cn/zfxxgk/zfxxgknb/index.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "平顶山市",
@@ -6659,7 +6750,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "广元市",
@@ -6715,7 +6807,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "广州市",
@@ -6729,7 +6822,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "庆阳市",
@@ -6818,7 +6912,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "廊坊市",
@@ -6907,7 +7002,8 @@
      "url": "https://www.lf.gov.cn/Category_33/Index.aspx",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "延安市",
@@ -6996,7 +7092,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "开封市",
@@ -7052,7 +7149,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "张家口市",
@@ -7108,7 +7206,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "张家界市",
@@ -7202,7 +7301,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "张掖市",
@@ -7294,7 +7394,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "徐州市",
@@ -7421,7 +7522,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "德州市",
@@ -7477,7 +7579,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "德阳市",
@@ -7571,7 +7674,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "忻州市",
@@ -7698,7 +7802,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "怀化市",
@@ -7754,7 +7859,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "惠州市",
@@ -7848,7 +7954,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "扬州市",
@@ -7903,7 +8010,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "承德市",
@@ -7981,7 +8089,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "抚州市",
@@ -8108,7 +8217,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "抚顺市",
@@ -8209,7 +8319,8 @@
      "url": "https://www.fushun.gov.cn/004/004005/004005001/online_consult_zwgk.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "拉萨市",
@@ -8257,7 +8368,8 @@
    ],
    "error": "candidates_not_listlike",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "揭阳市",
@@ -8346,7 +8458,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "攀枝花市",
@@ -8402,7 +8515,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "新乡市",
@@ -8485,7 +8599,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "新余市",
@@ -8541,7 +8656,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "无锡市",
@@ -8672,7 +8788,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "日喀则市",
@@ -8739,7 +8856,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "日照市",
@@ -8828,7 +8946,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "昆明市",
@@ -8951,7 +9070,8 @@
      "url": "https://www.km.gov.cn/zfxxgk/zfxxgkzn/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "昭通市",
@@ -9029,7 +9149,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "晋中市",
@@ -9085,7 +9206,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "景德镇市",
@@ -9171,7 +9293,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "曲靖市",
@@ -9261,7 +9384,8 @@
      "url": "https://www.qj.gov.cn/html/fdzdgknr/zdlyxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "朔州市",
@@ -9347,7 +9471,8 @@
      "url": "http://www.shuozhou.gov.cn/xxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "本溪市",
@@ -9436,7 +9561,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "来宾市",
@@ -9563,7 +9689,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "杭州市",
@@ -9687,7 +9814,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "林芝市",
@@ -9776,7 +9904,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "枣庄市",
@@ -9865,7 +9994,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "柳州市",
@@ -9921,7 +10051,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "株洲市",
@@ -9976,7 +10107,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "桂林市",
@@ -10062,7 +10194,8 @@
      "url": "https://www.guilin.gov.cn/zfxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "梅州市",
@@ -10118,7 +10251,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "梧州市",
@@ -10269,7 +10403,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "榆林市",
@@ -10363,7 +10498,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "武威市",
@@ -10430,7 +10566,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "武汉市",
@@ -10531,7 +10668,8 @@
      "url": "https://www.wuhan.gov.cn/zwgk/?channelid=26314",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "毕节市",
@@ -10617,7 +10755,8 @@
      "url": "https://www.bijie.gov.cn/zwgk/zfxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "永州市",
@@ -10695,7 +10834,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "汉中市",
@@ -10784,7 +10924,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "汕头市",
@@ -10840,7 +10981,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "汕尾市",
@@ -10896,7 +11038,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "江门市",
@@ -10984,7 +11127,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "池州市",
@@ -11040,7 +11184,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "沈阳市",
@@ -11118,7 +11263,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "沧州市",
@@ -11207,7 +11353,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "河池市",
@@ -11301,7 +11448,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "河源市",
@@ -11357,7 +11505,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "泉州市",
@@ -11447,7 +11596,8 @@
      "url": "https://www.quanzhou.gov.cn/zfb/xxgk/zfxxgkzl/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "泰安市",
@@ -11503,7 +11653,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "泰州市",
@@ -11591,7 +11742,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "泸州市",
@@ -11647,7 +11799,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "洛阳市",
@@ -11736,7 +11889,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "济南市",
@@ -11825,7 +11979,8 @@
      "url": "https://www.jinan.gov.cn/col/col55590/index.html?jh=261",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "济宁市",
@@ -11881,7 +12036,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "济源市",
@@ -11975,7 +12131,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "海东市",
@@ -12030,7 +12187,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "海口市",
@@ -12086,7 +12244,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "淄博市",
@@ -12175,7 +12334,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "淮北市",
@@ -12302,7 +12462,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "淮南市",
@@ -12403,7 +12564,8 @@
      "url": "https://www.huainan.gov.cn/public/column/6596035?type=4&action=rel&includeIds=1272,2660369,266082",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "淮安市",
@@ -12479,7 +12641,8 @@
      "url": "https://www.huaian.gov.cn/cmsweb/zwgk/sj/index.html?topic=216&orgid=5e38cfb865c0ee530165c767110a15b9",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "深圳市",
@@ -12493,7 +12656,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "清远市",
@@ -12507,7 +12671,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "温州市",
@@ -12563,7 +12728,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "渭南市",
@@ -12619,7 +12785,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "湖州市",
@@ -12664,7 +12831,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "湘潭市",
@@ -12678,7 +12846,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "湛江市",
@@ -12734,7 +12903,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "滁州市",
@@ -12809,7 +12979,8 @@
      "url": "https://www.chuzhou.gov.cn/public/column/152523227?type=4&action=rel&includeIds=151954071,2660369,2660824&excludeOrganIds=2681681,2681583,2681555,4784101,2681725&includeParentOrganIds=2815455,2815456,2660878&nav=7",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "滨州市",
@@ -12864,7 +13035,8 @@
      "url": "http://www.binzhou.gov.cn/zwgk/zfxxgk/fdzdgknr/class?vc_xxgkarea=11371600004371298K-1",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "漯河市",
@@ -12987,7 +13159,8 @@
      "url": "https://www.tahe.gov.cn/th/list.chtml?id=equaI3&p=1",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "漳州市",
@@ -13043,7 +13216,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "潍坊市",
@@ -13207,7 +13381,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "潮州市",
@@ -13294,7 +13469,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "濮阳市",
@@ -13339,7 +13515,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "烟台市",
@@ -13427,7 +13604,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "焦作市",
@@ -13516,7 +13694,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "牡丹江市",
@@ -13639,7 +13818,8 @@
      "url": "https://www.mdj.gov.cn/mdjsrmzf/gkzn/zfxxgk_list.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "玉林市",
@@ -13733,7 +13913,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "玉溪市",
@@ -13811,7 +13992,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "珠海市",
@@ -13898,7 +14080,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "白城市",
@@ -13953,7 +14136,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "白银市",
@@ -14042,7 +14226,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "百色市",
@@ -14165,7 +14350,8 @@
      "url": "http://www.baise.gov.cn/zwgk/zfxxgkzn/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "益阳市",
@@ -14179,7 +14365,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "盐城市",
@@ -14273,7 +14460,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "盘锦市",
@@ -14329,7 +14517,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "眉山市",
@@ -14423,7 +14612,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "石嘴山市",
@@ -14478,7 +14668,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "石家庄市",
@@ -14534,7 +14725,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "福州市",
@@ -14661,7 +14853,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "秦皇岛市",
@@ -14784,7 +14977,8 @@
      "url": "https://www.qinhuangdao.gov.cn/index/zwgk/zfxx_gknr",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "绍兴市",
@@ -14873,7 +15067,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "绥化市",
@@ -14939,7 +15134,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "绵阳市",
@@ -15062,7 +15258,8 @@
      "url": "https://www.my.gov.cn/mysrmzf/gkzn/zfxxgk_zn.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "聊城市",
@@ -15076,7 +15273,8 @@
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL: no alternative certificate subject name matches target hostname '",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "肇庆市",
@@ -15159,7 +15357,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "自贡市",
@@ -15271,7 +15470,8 @@
      "url": "https://www.zg.gov.cn/zgsrmzf/zfxxgkz/pc/list.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "舟山市",
@@ -15325,7 +15525,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "芜湖市",
@@ -15414,7 +15615,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "苏州市",
@@ -15470,7 +15672,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "茂名市",
@@ -15526,7 +15729,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "荆州市",
@@ -15552,7 +15756,8 @@
    ],
    "error": "candidates_not_listlike",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "荆门市",
@@ -15679,7 +15884,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "莆田市",
@@ -15769,7 +15975,8 @@
      "url": "https://www.putian.gov.cn/zfxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "菏泽市",
@@ -15933,7 +16140,8 @@
      "error": null
     }
    ],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "萍乡市",
@@ -15947,7 +16155,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "营口市",
@@ -16070,7 +16279,8 @@
      "url": "https://www.yingkou.gov.cn/govpub/govGuidePub.html?categorynum=001005003&lm=cate2",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "葫芦岛市",
@@ -16126,7 +16336,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "蚌埠市",
@@ -16168,7 +16379,8 @@
      "url": "https://www.bengbu.gov.cn/zfxxgk/public/column/21981?type=2&publicType=gkzn",
      "error": "http_521"
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "衡阳市",
@@ -16257,7 +16469,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "衢州市",
@@ -16324,7 +16537,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "襄阳市",
@@ -16410,7 +16624,8 @@
      "url": "http://www.xy.gov.cn/002/governmentAffairs.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "西宁市",
@@ -16466,7 +16681,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "西安市",
@@ -16522,7 +16738,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "许昌市",
@@ -16645,7 +16862,8 @@
      "url": "https://www.xuchang.gov.cn/govxxgk/11411000005747138B/openSubPage.html?specialurl=/govxxgk/11411000005747138B/category/001/001002/govlist.html&righttitle=信息公开目录",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "贵阳市",
@@ -16731,7 +16949,8 @@
      "url": "https://www.guiyang.gov.cn/zwgk/zfxxgks/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "资阳市",
@@ -16787,7 +17006,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "赣州市",
@@ -16918,7 +17138,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "赤峰市",
@@ -17007,7 +17228,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "辽源市",
@@ -17085,7 +17307,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "辽阳市",
@@ -17099,7 +17322,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "达州市",
@@ -17155,7 +17379,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "运城市",
@@ -17211,7 +17436,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "连云港市",
@@ -17267,7 +17493,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "通化市",
@@ -17334,7 +17561,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "通辽市",
@@ -17407,7 +17635,8 @@
      "url": "https://www.tongliao.gov.cn/zwgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "遂宁市",
@@ -17463,7 +17692,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "遵义市",
@@ -17582,7 +17812,8 @@
      "url": "https://www.zunyi.gov.cn/zwgk/zfxxgkzl/zfxxgkzn/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "邢台市",
@@ -17596,7 +17827,8 @@
    "candidates": [],
    "error": "SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; ",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "那曲市",
@@ -17719,7 +17951,8 @@
      "url": "http://www.naqu.gov.cn/nqsrmzf/c100016/zfxxgk_xxgkzn.shtml",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "邯郸市",
@@ -17775,7 +18008,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "邵阳市",
@@ -17831,7 +18065,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "郑州市",
@@ -17845,7 +18080,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "鄂州市",
@@ -17859,7 +18095,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "酒泉市",
@@ -17947,7 +18184,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "金华市",
@@ -18035,7 +18273,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "钦州市",
@@ -18091,7 +18330,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "铁岭市",
@@ -18177,7 +18417,8 @@
      "url": "https://www.tieling.gov.cn/tieling/zwgk/index.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "铜仁市",
@@ -18191,7 +18432,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "铜川市",
@@ -18246,7 +18488,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "铜陵市",
@@ -18377,7 +18620,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "银川市",
@@ -18433,7 +18677,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "锡林郭勒盟",
@@ -18531,7 +18776,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "锦州市",
@@ -18587,7 +18833,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "镇江市",
@@ -18643,7 +18890,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "长春市",
@@ -18657,7 +18905,8 @@
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "长沙市",
@@ -18713,7 +18962,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "阜新市",
@@ -18802,7 +19052,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "阜阳市",
@@ -18858,7 +19109,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "阳江市",
@@ -18950,7 +19202,8 @@
      "error": null
     }
    ],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "阳泉市",
@@ -18976,7 +19229,8 @@
    ],
    "error": "candidates_not_listlike",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "阿克苏地区",
@@ -19065,7 +19319,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "阿勒泰地区",
@@ -19118,7 +19373,8 @@
      "url": "https://www.alt.gov.cn/govxxgk/xxgk.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "阿拉善盟",
@@ -19132,7 +19388,8 @@
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer cert",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "阿里地区",
@@ -19221,7 +19478,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "陇南市",
@@ -19277,7 +19535,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "随州市",
@@ -19364,7 +19623,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "雅安市",
@@ -19454,7 +19714,8 @@
      "url": "https://www.yaan.gov.cn/yasrmzf/zfxxgk/zfxxgkzn/pc/list.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "青岛市",
@@ -19543,7 +19804,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "鞍山市",
@@ -19588,7 +19850,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "韶关市",
@@ -19687,7 +19950,8 @@
      "url": "https://www.sg.gov.cn/gkmlzl.html",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "马鞍山市",
@@ -19776,7 +20040,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "驻马店市",
@@ -19852,7 +20117,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "鸡西市",
@@ -19866,7 +20132,8 @@
    "candidates": [],
    "error": "SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; ",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "鹤壁市",
@@ -19880,7 +20147,8 @@
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer cert",
    "depth": null,
-   "hub_tried": []
+   "hub_tried": [],
+   "level": "city"
   },
   {
    "site": "鹤岗市",
@@ -19969,7 +20237,8 @@
    "error": null,
    "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub"
+   "board_kind": "hub",
+   "level": "city"
   },
   {
    "site": "鹰潭市",
@@ -20024,7 +20293,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "黄冈市",
@@ -20080,7 +20350,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "黄石市",
@@ -20132,7 +20403,8 @@
      "url": "https://www.huangshi.gov.cn/xxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "黑河市",
@@ -20188,7 +20460,8 @@
    "error": null,
    "depth": 1,
    "hub_tried": [],
-   "board_kind": "normative"
+   "board_kind": "normative",
+   "level": "city"
   },
   {
    "site": "龙岩市",
@@ -20308,7 +20581,8 @@
      "url": "https://www.longyan.gov.cn/gk/zdlyxxgk/",
      "error": null
     }
-   ]
+   ],
+   "level": "city"
   },
   {
    "site": "河南省",
