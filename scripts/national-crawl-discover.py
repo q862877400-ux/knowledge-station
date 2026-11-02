@@ -77,8 +77,25 @@ DETAIL_RE = re.compile(
     r"(/(?:19|20)\d{2}(?:0[1-9]|1[0-2])/)|(/art/\d{4}/)"
     r"|([?&](?:id|contentid|articleid)=\d+)|(/content_?\d+)"
     r"|(/\d{6,}\.(?:s?html?|jhtml))", re.I)
+#: 「政务公开 / 信息公开」枢纽页关键词（第二级发现用，R1 实测 192 站需要）
+HUB_WORDS = ("政务公开", "信息公开", "政务信息公开", "法定主动公开",
+             "公开目录", "信息公开目录", "政务公开专栏", "政府信息公开")
+#: 新闻/通知类路径（命中即**不当栏目**：业主明确不要新闻公告）
+NEWS_PATH = re.compile(
+    r"/(?:tzgg|gsgg|xwzx|zwzx|ywdt|gzdt|xw|news|zyzz|bmgg|mtbd)(?:/|$|\.)",
+    re.I)
+#: 强命中词（用来分档：真·规范性文件栏目 vs 政务公开大目录）
+NORMATIVE_WORDS = ("政策法规", "法规规章", "地方性法规", "政府规章", "规范性文件",
+                   "政策文件", "政府文件", "文件库", "法律法规", "规章库",
+                   "地方标准", "标准公告", "标准发布", "标准目录", "法规文件")
+
 BLOCK_HINT = ("captcha", "验证码", "安全认证", "请开启JavaScript", "访问过于频繁",
               "403 Forbidden", "Access Denied")
+
+#: 导航词（出现在锚文本里就不算「文件标题」）
+NAV_WORDS = ("首页", "上一页", "下一页", "尾页", "更多", "返回", "登录", "注册",
+             "网站地图", "无障碍", "简体", "繁体", "English", "打印", "关闭",
+             "分享", "搜索", "导航", "跳到", "查看全部")
 
 TIMEOUT_S = 20.0
 DEFAULT_CONCURRENCY = 10
@@ -132,21 +149,107 @@ def list_likeness(html: str, base: str) -> dict:
     detail_ratio = detail / n
     lens = [len(t) for _, t in anchors]
     med = statistics.median(lens) if lens else 0
-    # ⚠ 第一版用「或」：整页日期≥5 **或** 详情链接≥30%。实测三门峡时
-    #   一篇文章（`/4120/2025/12/2234839.html`）靠导航链接和 5 个日期蒙过去了。
-    #   改成**两条都要**：列表页既要有成排的详情链接，也要有成排的日期。
-    ok = n >= 8 and detail_ratio >= 0.25 and page_dates >= 3
+    # ── 标题式占比 ──
+    # ⚠ R2 实测（2026-11-02）：临汾 `/channels/37.html` 52 链接、48 个日期，
+    #   但 detail_ratio=0（详情 URL 不带日期段）；乌海同类。
+    #   只用 URL 形态判会把**真栏目**否掉 ⇒ 再加一条「锚文本像不像文件标题」。
+    titled = sum(1 for _u, t in anchors
+                 if 8 <= len(t) <= 80 and not any(w in t for w in NAV_WORDS))
+    title_ratio = titled / n
+    # 顺序：链接数 → 日期数（最强的判别）→（详情链接 或 标题式）二者其一
+    ok = (n >= 8 and page_dates >= 3
+          and (detail_ratio >= 0.15 or title_ratio >= 0.35))
     return {"ok": ok, "n_links": n, "page_dates": page_dates,
-            "detail_ratio": round(detail_ratio, 3), "med_len": med}
+            "detail_ratio": round(detail_ratio, 3),
+            "title_ratio": round(title_ratio, 3), "med_len": med}
+
+
+def find_candidates(html: str, base: str, host: str,
+                     top: int = 3) -> list[tuple[str, int, str]]:
+    """从一页里找「可能是规范性文件栏目」的候选。
+
+    返回 [(url, 分数, 锚文本|命中词)]。
+    """
+    cands: dict[str, tuple[int, str]] = {}
+    for href, inner in LINK_RE.findall(html):
+        url = urljoin(base, href.strip())
+        if not url.startswith("http") or urlsplit(url).netloc != host:
+            continue
+        a = text_of(inner).strip()
+        sc = score_link(a, url)
+        if sc <= 0:
+            continue
+        # ⚠ 详情页不可能是「栏目」（2026-11-02 R2 实测）：三明/七台河/三沙/三门峡
+        #   的前 3 个候选**全是单篇文章**（锚文本里带"公告/政府信息公开"），
+        #   把真正的栏目挤掉了，于是 161 站被记成 candidates_not_listlike。
+        u = urlsplit(url)
+        upath = u.path + (("?" + u.query) if u.query else "")
+        if DETAIL_RE.search(upath):
+            continue
+        if NEWS_PATH.search(upath):
+            continue          # 新闻/通知栏目：业主明确不要
+        if url not in cands or sc > cands[url][0]:
+            hit = next((w for w in STRONG if w in a), "")
+            cands[url] = (sc, a[:40] + ("|" + hit if hit else ""))
+    return [(u, v[0], v[1]) for u, v in
+            sorted(cands.items(), key=lambda kv: -kv[1][0])[:top]]
+
+
+def hub_links(html: str, base: str, host: str, top: int = 2) -> list[str]:
+    """找「政务公开 / 信息公开」这类**门户枢纽页**（第二级发现用）。
+
+    为什么需要（R1 实测）：192/274 站的首页没有直达规范性文件栏目的链接 ——
+    政策文件藏在「政务公开 → 政策文件」下一层。只扫首页永远找不到它们。
+    """
+    out: list[str] = []
+    seen: set[str] = set()
+    for href, inner in LINK_RE.findall(html):
+        url = urljoin(base, href.strip())
+        if not url.startswith("http") or urlsplit(url).netloc != host:
+            continue
+        a = text_of(inner).strip()
+        if not any(w in a for w in HUB_WORDS):
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+        out.append(url)
+        if len(out) >= top:
+            break
+    return out
+
+
+def validate(transport, ranked: list[tuple[str, int, str]], rec: dict) -> tuple | None:
+    """逐条抓取并验证候选；返回最强的那个 (url, score, anchor, likeness) 或 None。"""
+    best = None
+    for url, sc, a in ranked:
+        try:
+            st, body = transport.fetch(url, timeout=TIMEOUT_S)
+        except Exception:                          # noqa: BLE001 — 单候选失败不致命
+            continue
+        if st != 200 or not isinstance(body, str):
+            continue
+        lk = list_likeness(body, url)
+        rec["candidates"].append({"url": url, "anchor": a, "score": sc, **lk})
+        if lk["ok"] and (best is None or sc > best[1]):
+            best = (url, sc, a, lk)
+    return best
 
 
 def discover_one(transport, site: dict) -> dict:
-    """发现一个站点的规范性文件栏目。**不抛异常**，失败也要有状态。"""
+    """发现一个站点的规范性文件栏目。**不抛异常**，失败也要有状态。
+
+    两级：
+      1. **首页**直接找候选并验证（R1：274 站里 76 站能这样找到）；
+      2. 首页找不到 → 进「政务公开 / 信息公开」枢纽页（最多 2 个）再找一遍
+         （R1 实测 192 站属于这一类）。
+    """
     name = site.get("name") or site.get("host") or ""
     home = site.get("url") or ""
     rec = {"site": name, "province": site.get("province"), "home": home,
            "board_url": None, "status": None, "score": 0, "keyword": "",
-           "list_likeness": None, "candidates": [], "error": None}
+           "list_likeness": None, "candidates": [], "error": None,
+           "depth": None, "hub_tried": []}
     if not home.startswith("http"):
         rec["status"] = "bad_home"
         return rec
@@ -167,42 +270,68 @@ def discover_one(transport, site: dict) -> dict:
         return rec
 
     host = urlsplit(home).netloc
-    cands: dict[str, tuple[int, str]] = {}
-    for href, inner in LINK_RE.findall(body):
-        url = urljoin(home, href.strip())
-        if not url.startswith("http") or urlsplit(url).netloc != host:
-            continue
-        a = text_of(inner).strip()
-        sc = score_link(a, url)
-        if sc <= 0:
-            continue
-        if url not in cands or sc > cands[url][0]:
-            hit = next((w for w in STRONG if w in a), "")
-            cands[url] = (sc, a[:40] + ("|" + hit if hit else ""))
-    ranked = sorted(cands.items(), key=lambda kv: -kv[1][0])[:3]
-    if not ranked:
-        rec["status"] = "no_board_found"
-        rec["error"] = "no_keyword_link"
-        return rec
+    best = validate(transport, find_candidates(body, home, host), rec)
+    depth = 1 if best else None
 
-    best = None
-    for url, (sc, a) in ranked:
-        try:
-            st2, body2 = transport.fetch(url, timeout=TIMEOUT_S)
-        except Exception:                          # noqa: BLE001 — 单候选失败不致命
-            continue
-        if st2 != 200 or not isinstance(body2, str):
-            continue
-        lk = list_likeness(body2, url)
-        rec["candidates"].append({"url": url, "anchor": a, "score": sc, **lk})
-        if lk["ok"] and (best is None or sc > best[1]):
-            best = (url, sc, a, lk)
+    if best is None:
+        # ── 第二级：进「政务公开 / 信息公开」枢纽页再找 ──
+        for hub in hub_links(body, home, host, top=2):
+            try:
+                st2, b2 = transport.fetch(hub, timeout=TIMEOUT_S)
+            except Exception:                      # noqa: BLE001
+                rec["hub_tried"].append({"url": hub, "error": "fetch_failed"})
+                continue
+            if st2 != 200 or not isinstance(b2, str):
+                rec["hub_tried"].append({"url": hub, "error": f"http_{st2}"})
+                continue
+            rec["hub_tried"].append({"url": hub, "error": None})
+            best = validate(transport, find_candidates(b2, hub, host), rec)
+            if best:
+                depth = 2
+                break
+
     if best:
+        anchor = best[2] or ""
+        kind = ("normative"
+                if any(w in anchor for w in NORMATIVE_WORDS) else "hub")
+        # ── 三级：命中「政务公开」这类大目录时，**再钻一层**找它下面的
+        #    规范性文件子栏目（2026-11-02 R2：81 站属于这一类）。
+        if kind == "hub":
+            try:
+                st3, b3 = transport.fetch(best[0], timeout=TIMEOUT_S)
+            except Exception:                      # noqa: BLE001
+                st3, b3 = None, None
+            if st3 == 200 and isinstance(b3, str):
+                inner = validate(transport, find_candidates(b3, best[0], host), rec)
+                if inner:
+                    inner_anchor = inner[2] or ""
+                    best = inner
+                    anchor = inner_anchor
+                    # ⚠ **不能无条件标 normative**（2026-11-02 自查）：
+                    #   内层找到的也可能只是「政府信息公开指南」这类目录。
+                    #   仍按锚文本判，避免把数量刷高。
+                    kind = ("normative"
+                            if any(w in inner_anchor for w in NORMATIVE_WORDS)
+                            else "hub")
+                    depth = (depth or 2) + 1
         rec.update({"board_url": best[0], "status": "ok", "score": best[1],
-                    "keyword": best[2], "list_likeness": best[3]})
+                    "keyword": best[2], "list_likeness": best[3], "depth": depth,
+                    "board_kind": kind})
     else:
-        rec["status"] = "no_board_found"
-        rec["error"] = "candidates_not_listlike"
+        # ⚠ 「地址找对了、但静态抓不到内容」要跟「根本没找到」分开记
+        #   （2026-11-02 R2 实测中山市：`/zwgk/fggw/index.html` 锚文本就是「政策法规」，
+        #     但页面回 0 链接 0 日期 —— JS 渲染）。合并成 no_board_found 会丢线索。
+        shell = next((c for c in rec["candidates"]
+                      if c.get("n_links") == 0 and c.get("score", 0) >= 3), None)
+        if shell:
+            rec.update({"board_url": shell["url"], "status": "js_rendered",
+                        "score": shell.get("score", 0),
+                        "keyword": shell.get("anchor", ""),
+                        "error": "page_empty_or_js"})
+        else:
+            rec["status"] = "no_board_found"
+            rec["error"] = ("candidates_not_listlike" if rec["candidates"]
+                            else "no_keyword_link")
     return rec
 
 
@@ -253,10 +382,13 @@ def main() -> int:
                 "want": "规范性文件（法规/条例/办法/规章/标准）",
                 "dont_want": "新闻/事务/人事/采购类公告",
                 "strong": STRONG, "exclude": EXCLUDE,
-                "list_likeness": ("links>=8 且 详情链接占比>=0.25 且 "
-                                  "整页日期>=3（三条都要）"),
+                "list_likeness": ("links>=8 且 日期>=3 且 "
+                                  "（详情链接>=0.15 或 标题式>=0.35）"),
             },
-            "counts": {"sites": len(results), "by_status": dict(cnt)},
+            "counts": {"sites": len(results), "by_status": dict(cnt),
+                       "by_board_kind": dict(Counter(
+                           r.get("board_kind") for r in results
+                           if r.get("status") == "ok"))},
             "results": sorted(results, key=lambda x: x["site"]),
         }, ensure_ascii=False, indent=1), encoding="utf-8")
 
