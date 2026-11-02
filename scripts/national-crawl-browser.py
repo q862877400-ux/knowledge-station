@@ -52,6 +52,11 @@ _spec = importlib.util.spec_from_file_location(
 ncf = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ncf)
 
+_spec2 = importlib.util.spec_from_file_location(
+    "ncd", ROOT / "scripts" / "national-crawl-discover.py")
+ncd = importlib.util.module_from_spec(_spec2)
+_spec2.loader.exec_module(ncd)
+
 DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
 OUTDIR = ROOT / "var" / "data" / "national"
 TMP = ROOT / "var" / "tmp"
@@ -98,6 +103,33 @@ def render(url: str, exe: str, budget_ms: int = 8000,
             Path(tmp).unlink(missing_ok=True)
         except PermissionError:
             pass
+
+
+def find_normative_column(exe: str, hub_url: str, budget_ms: int) -> tuple[str, dict]:
+    """渲染「政务公开大目录」，在里面找**规范性文件**子栏目。
+
+    为什么必须渲染（2026-11-02 实测）：63 个大目录站用静态 HTTP 钻一层 0 转换，
+    它们的子栏目链接是脚本渲染出来的，静态 HTML 里没有。
+    """
+    ok, html, _ = render(hub_url, exe, budget_ms)
+    if not ok or not html:
+        return "", {"why": "render_failed"}
+    host = ncd.urlsplit(hub_url).netloc
+    cands = ncd.find_candidates(html, hub_url, host, top=6)
+    # ⚠ 单独的「规章」「法规」「规范性」也要算（2026-11-02 实测七台河：
+    #   子栏目锚文本就叫「规章」，用 ncd.NORMATIVE_WORDS 那种长词匹配不到，于是 0 转换）
+    hints = ("规章", "法规", "规范性", "政策文件", "政府文件", "文件库",
+             "标准", "条例", "办法", "规范性文件")
+    strong = [c for c in cands
+              if any(w in (c[2] or "") for w in HINTS)]
+    for url, sc, anchor in strong:
+        ok2, html2, _ = render(url, exe, budget_ms)
+        if not ok2 or not html2:
+            continue
+        lk = ncd.list_likeness(html2, url)
+        if lk.get("ok"):
+            return url, {"anchor": anchor, "score": sc, "likeness": lk}
+    return "", {"why": "no_normative_column", "tried": len(strong)}
 
 
 def crawl_site(site: str, rec: dict, exe: str, pages: int,
@@ -188,6 +220,8 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=3)
     ap.add_argument("--pages", type=int, default=3)
     ap.add_argument("--budget-ms", type=int, default=8000)
+    ap.add_argument("--hub", action="store_true",
+                    help="攻「政务公开大目录」站：先渲染找规范文件子栏目再抓")
     ap.add_argument("--dry", action="store_true")
     args = ap.parse_args()
 
@@ -201,7 +235,11 @@ def main() -> int:
             json.loads(DISCOVER.read_text(encoding="utf-8"))["results"]}
 
     targets: list[tuple[str, dict]] = []
-    if args.sites:
+    if args.hub:
+        targets = [(r["site"], r) for r in disc.values()
+                   if r.get("board_kind") == "hub" and r.get("status") == "ok"]
+        targets = targets[: args.limit]
+    elif args.sites:
         targets = [(s, disc.get(s) or {}) for s in args.sites]
     else:
         for f in sorted(OUTDIR.rglob("site-state.json")):
@@ -218,13 +256,27 @@ def main() -> int:
                     targets.append((r["site"], r))
         targets = list({t[0]: t for t in targets}.values())[: args.limit]
 
+    disc_updates: list[dict] = []
     print(f"待渲染 {len(targets)} 站：", [t[0] for t in targets])
     if args.dry:
         return 0
 
     results = []
     for i, (site, rec) in enumerate(targets, 1):
-        r = crawl_site(site, rec, exe, args.pages, args.budget_ms)
+        if args.hub:
+            col, info = find_normative_column(exe, rec.get("board_url") or "",
+                                              args.budget_ms)
+            if col:
+                rec = dict(rec)
+                rec["board_url"] = col
+                disc_updates.append({"site": site, "board_url": col, **info})
+                r = crawl_site(site, rec, exe, args.pages, args.budget_ms)
+                r["hub_column"] = col
+            else:
+                r = {"site": site, "status": "no_normative_column",
+                     "items": 0, "info": info}
+        else:
+            r = crawl_site(site, rec, exe, args.pages, args.budget_ms)
         results.append(r)
         print(f"  {i}/{len(targets)} {site[:10]:12} {r['status']:18} "
               f"页={r.get('pages')} 条目={r.get('items')} "
@@ -232,6 +284,11 @@ def main() -> int:
     TMP.mkdir(parents=True, exist_ok=True)
     (TMP / "browser-crawl-report.json").write_text(
         json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
+    if disc_updates:
+        (TMP / "hub-columns-found.json").write_text(
+            json.dumps(disc_updates, ensure_ascii=False, indent=1),
+            encoding="utf-8")
+        print(f"  找到子栏目 {len(disc_updates)} 个 → var/tmp/hub-columns-found.json")
     ok = sum(1 for r in results if r.get("status") == "browser_ok")
     print(f"\n完成：{ok}/{len(results)} 站取到条目")
     return 0
