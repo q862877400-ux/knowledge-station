@@ -1233,11 +1233,18 @@
    "site": "九江市",
    "province": "江西省",
    "home": "https://www.jiujiang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.jiujiang.gov.cn/fdzdxxgk/01/00/fggzk/szfgz/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "市政府规章|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 82,
+    "page_dates": 16,
+    "detail_ratio": 0.329,
+    "title_ratio": 0.39,
+    "med_len": 6.0
+   },
    "candidates": [
     {
      "url": "https://www.jiujiang.gov.cn/fdzdxxgk/01/00/guifanxinwenjian/",
@@ -1318,7 +1325,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "云浮市",
@@ -23705,6 +23714,497 @@
    "hub_tried": [],
    "board_kind": "hub",
    "level": "ministry"
+  },
+  {
+   "site": "外交部",
+   "province": "中央",
+   "url": "https://www.fmprc.gov.cn/",
+   "home": "https://www.fmprc.gov.cn/",
+   "level": "ministry",
+   "status": "ok",
+   "board_url": "https://www.fmprc.gov.cn/wjb_673085/xzgfxwj/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 376,
+    "page_dates": 16,
+    "detail_ratio": 0.364,
+    "title_ratio": 0.441,
+    "med_len": 7.0
+   },
+   "discovered_by": "hunt/via_hub"
+  },
+  {
+   "site": "国防部",
+   "province": "中央",
+   "url": "https://www.mod.gov.cn/",
+   "home": "https://www.mod.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "科学技术部",
+   "province": "中央",
+   "url": "https://www.most.gov.cn/",
+   "home": "https://www.most.gov.cn/",
+   "level": "ministry",
+   "status": "ok",
+   "board_url": "https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "法规政策",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 52,
+    "page_dates": 34,
+    "detail_ratio": 0.346,
+    "title_ratio": 0.462,
+    "med_len": 7.0
+   },
+   "discovered_by": "hunt/direct"
+  },
+  {
+   "site": "工业和信息化部",
+   "province": "中央",
+   "url": "https://www.miit.gov.cn/",
+   "home": "https://www.miit.gov.cn/",
+   "level": "ministry",
+   "status": "ok",
+   "board_url": "https://www.miit.gov.cn/zc/wjxzfl/flfg/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "法律法规|法律法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 69,
+    "page_dates": 15,
+    "detail_ratio": 0.232,
+    "title_ratio": 0.348,
+    "med_len": 4
+   },
+   "discovered_by": "hunt/depth2"
+  },
+  {
+   "site": "公安部",
+   "province": "中央",
+   "url": "https://www.mps.gov.cn/",
+   "home": "https://www.mps.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "民政部",
+   "province": "中央",
+   "url": "https://www.mca.gov.cn/",
+   "home": "https://www.mca.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "财政部",
+   "province": "中央",
+   "url": "https://www.mof.gov.cn/",
+   "home": "https://www.mof.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "人力资源和社会保障部",
+   "province": "中央",
+   "url": "https://www.mohrss.gov.cn/",
+   "home": "https://www.mohrss.gov.cn/",
+   "level": "ministry",
+   "status": "ok",
+   "board_url": "https://www.mohrss.gov.cn/xxgk2020/gzk/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "规章库|规章库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 60,
+    "page_dates": 39,
+    "detail_ratio": 0.75,
+    "title_ratio": 0.267,
+    "med_len": 5.0
+   },
+   "discovered_by": "hunt/depth2"
+  },
+  {
+   "site": "自然资源部",
+   "province": "中央",
+   "url": "https://www.mnr.gov.cn/",
+   "home": "https://www.mnr.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "交通运输部",
+   "province": "中央",
+   "url": "https://www.mot.gov.cn/",
+   "home": "https://www.mot.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "水利部",
+   "province": "中央",
+   "url": "https://www.mwr.gov.cn/",
+   "home": "https://www.mwr.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "文化和旅游部",
+   "province": "中央",
+   "url": "https://www.mct.gov.cn/",
+   "home": "https://www.mct.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "退役军人事务部",
+   "province": "中央",
+   "url": "https://www.mva.gov.cn/",
+   "home": "https://www.mva.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "审计署",
+   "province": "中央",
+   "url": "https://www.audit.gov.cn/",
+   "home": "https://www.audit.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "海关总署",
+   "province": "中央",
+   "url": "https://www.customs.gov.cn/",
+   "home": "https://www.customs.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家统计局",
+   "province": "中央",
+   "url": "https://www.stats.gov.cn/",
+   "home": "https://www.stats.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家国际发展合作署",
+   "province": "中央",
+   "url": "https://www.cidca.gov.cn/",
+   "home": "https://www.cidca.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家宗教事务局",
+   "province": "中央",
+   "url": "https://www.sara.gov.cn/",
+   "home": "https://www.sara.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家金融监督管理总局",
+   "province": "中央",
+   "url": "https://www.nfra.gov.cn/",
+   "home": "https://www.nfra.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家烟草专卖局",
+   "province": "中央",
+   "url": "https://www.tobacco.gov.cn/",
+   "home": "https://www.tobacco.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家林业和草原局",
+   "province": "中央",
+   "url": "https://www.forestry.gov.cn/",
+   "home": "https://www.forestry.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家铁路局",
+   "province": "中央",
+   "url": "https://www.nra.gov.cn/",
+   "home": "https://www.nra.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "中国民用航空局",
+   "province": "中央",
+   "url": "https://www.caac.gov.cn/",
+   "home": "https://www.caac.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家文物局",
+   "province": "中央",
+   "url": "https://www.ncha.gov.cn/",
+   "home": "https://www.ncha.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家中医药管理局",
+   "province": "中央",
+   "url": "https://www.natcm.gov.cn/",
+   "home": "https://www.natcm.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家公园管理局",
+   "province": "中央",
+   "url": "https://www.forestry.gov.cn/",
+   "home": "https://www.forestry.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家档案局",
+   "province": "中央",
+   "url": "https://www.saac.gov.cn/",
+   "home": "https://www.saac.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家保密局",
+   "province": "中央",
+   "url": "https://www.gjbmj.gov.cn/",
+   "home": "https://www.gjbmj.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家消防救援局",
+   "province": "中央",
+   "url": "https://www.119.gov.cn/",
+   "home": "https://www.119.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "中央政法委",
+   "province": "中央",
+   "url": "https://www.chinapeace.gov.cn/",
+   "home": "https://www.chinapeace.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家航天局",
+   "province": "中央",
+   "url": "https://www.cnsa.gov.cn/",
+   "home": "https://www.cnsa.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家乡村振兴局",
+   "province": "中央",
+   "url": "https://www.nrra.gov.cn/",
+   "home": "https://www.nrra.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家行政学院",
+   "province": "中央",
+   "url": "https://www.ccps.gov.cn/",
+   "home": "https://www.ccps.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家数据局",
+   "province": "中央",
+   "url": "https://www.nda.gov.cn/",
+   "home": "https://www.nda.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "国家国防科技工业局",
+   "province": "中央",
+   "url": "https://www.sastind.gov.cn/",
+   "home": "https://www.sastind.gov.cn/",
+   "level": "ministry",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "吉林省",
+   "province": "吉林省",
+   "url": "https://jl.gov.cn/",
+   "home": "https://jl.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "山西省",
+   "province": "山西省",
+   "url": "https://www.shanxi.gov.cn/",
+   "home": "https://www.shanxi.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "江苏省",
+   "province": "江苏省",
+   "url": "https://www.js.gov.cn/",
+   "home": "https://www.js.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "江西省",
+   "province": "江西省",
+   "url": "https://jiangxi.gov.cn/",
+   "home": "https://jiangxi.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "贵州省",
+   "province": "贵州省",
+   "url": "https://guizhou.gov.cn/",
+   "home": "https://guizhou.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
+  },
+  {
+   "site": "新疆维吾尔自治区",
+   "province": "新疆维吾尔自治区",
+   "url": "https://www.xinjiang.gov.cn/",
+   "home": "https://www.xinjiang.gov.cn/",
+   "level": "province",
+   "status": "no_board_found",
+   "board_url": null,
+   "board_kind": null,
+   "note": "待摸入口"
   }
  ]
 }

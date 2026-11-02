@@ -61,6 +61,10 @@ ENTRY_WORDS = ("政策文件", "法规规章", "规范性文件", "政府文件"
                "法律法规", "地方性法规", "政策法规", "规章", "法规", "条例",
                "办法", "标准", "规范性")
 
+#: 「政务公开」这类枢纽入口（首页找不到规范文件时，进这层再找）
+HUB_WORDS = ("政务公开", "信息公开", "政府信息公开", "法定主动公开", "公开目录",
+             "信息公开目录", "政务公开专栏", "政务五公开")
+
 #: 明确不要的（新闻/事务/人事）
 BAD_WORDS = ("新闻", "要闻", "动态", "巡视", "巡察", "干部", "任免", "人事",
              "招聘", "招标", "采购", "会议", "活动", "解读", "图解", "公示",
@@ -124,8 +128,38 @@ def hunt_one(exe: str, site: dict, budget_ms: int, depth2: bool = True) -> dict:
                     rec.update({"status": "ok", "board_url": u2, "how": "depth2",
                                 "anchor": a2, "likeness": lk3})
                     return rec
+    # ── 首页找不到 → 进「政务公开 / 信息公开」枢纽页再找（2026-11-02 增）──
+    hub_links = []
+    for m in ncd.LINK_RE.finditer(html):
+        href, inner = m.group(1), m.group(2)
+        txt = ncd.text_of(inner).strip()
+        if not any(w in txt for w in HUB_WORDS):
+            continue
+        u = ncd.urljoin(home, href.strip())
+        if u.startswith("http") and u not in hub_links:
+            hub_links.append(u)
+        if len(hub_links) >= 3:
+            break
+    rec["hubs"] = len(hub_links)
+    for hub in hub_links:
+        okh, htmlh, _ = ncb.render(hub, exe, budget_ms)
+        if not okh or not htmlh:
+            continue
+        cands_h = ncd.find_candidates(htmlh, hub, host, top=12)
+        for url, sc, anchor in [(u, s, a) for u, s, a in cands_h
+                                if looks_like_entry(a, u)][:5]:
+            rec["tried"] += 1
+            ok2, html2, _ = ncb.render(url, exe, budget_ms)
+            if not ok2 or not html2:
+                continue
+            lk = ncd.list_likeness(html2, url)
+            if lk.get("ok"):
+                rec.update({"status": "ok", "board_url": url, "how": "via_hub",
+                            "anchor": anchor, "likeness": lk})
+                return rec
+
     rec["status"] = "no_entry_found"
-    rec["reason"] = f"tried={rec['tried']}"
+    rec["reason"] = f"tried={rec['tried']},hubs={len(hub_links)}"
     return rec
 
 
@@ -136,6 +170,8 @@ def main() -> int:
     ap.add_argument("--level", default="", help="city / province / ministry")
     ap.add_argument("--limit", type=int, default=10)
     ap.add_argument("--budget-ms", type=int, default=8000)
+    ap.add_argument("--retry-failed", action="store_true",
+                    help="忽略进度里的失败记录，重试那些站")
     ap.add_argument("--resume", action="store_true",
                     help="跳过 hunt-progress.json 里已处理过的站")
     ap.add_argument("--no-depth2", action="store_true")
@@ -183,7 +219,10 @@ def main() -> int:
                             encoding="utf-8")
         print(f"  从进度文件回填 {healed} 站")
 
-    if args.resume:
+    if args.retry_failed:
+        targets = [t for t in targets
+                   if progress.get(t["site"], {}).get("status") != "ok"]
+    elif args.resume:
         targets = [t for t in targets if t["site"] not in progress]
 
     targets = targets[: args.limit]

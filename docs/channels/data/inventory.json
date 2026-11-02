@@ -1,32 +1,34 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 192,
-  "items": 9539,
-  "texts": 9485,
-  "text_chars": 33926299,
-  "attachment_refs": 539,
-  "attachment_files": 533,
-  "sites_with_items": 167,
-  "sites_multi_page": 53,
-  "attachment_bytes": 463240229,
-  "attachment_mb": 441.8
+  "sites_crawled": 196,
+  "items": 9583,
+  "texts": 9507,
+  "text_chars": 34016129,
+  "attachment_refs": 548,
+  "attachment_files": 541,
+  "sites_with_items": 170,
+  "sites_multi_page": 54,
+  "attachment_bytes": 463712074,
+  "attachment_mb": 442.2
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 215,
-   "no_board_found": 39,
+   "ok": 216,
+   "no_board_found": 38,
    "unreachable": 7,
    "js_rendered": 13
   },
   "province": {
-   "discovered": 14,
-   "ok": 14
+   "discovered": 20,
+   "ok": 14,
+   "no_board_found": 6
   },
   "ministry": {
-   "discovered": 26,
-   "ok": 26
+   "discovered": 61,
+   "ok": 30,
+   "no_board_found": 31
   }
  },
  "site_rules": {
@@ -135,10 +137,10 @@
    },
    "pages_this_run": 20,
    "items": 547,
-   "texts": 543,
-   "text_chars": 1084676,
-   "attachments": 9,
-   "attachment_files": 9,
+   "texts": 545,
+   "text_chars": 1086826,
+   "attachments": 11,
+   "attachment_files": 11,
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2015-11-05",
@@ -1005,9 +1007,9 @@
    },
    "pages_this_run": 1,
    "items": 40,
-   "texts": 39,
-   "text_chars": 152849,
-   "attachments": 3,
+   "texts": 40,
+   "text_chars": 158331,
+   "attachments": 4,
    "attachment_files": 2,
    "items_new_this_run": 0,
    "newest_date": "2026-10-26",
@@ -1374,6 +1376,24 @@
    "oldest_date": "2023-06-13",
    "run_at": "2026-11-02 12:03:41",
    "engine": "static"
+  },
+  {
+   "site": "人力资源和社会保障部",
+   "dir": "var\\data\\national\\中央\\人力资源和社会保障部",
+   "status": "browser_ok",
+   "board": "https://www.mohrss.gov.cn/xxgk2020/gzk/",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 25,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 25,
+   "newest_date": "2026-05-10",
+   "oldest_date": "2000-10-26",
+   "run_at": "2026-11-02 17:58:09",
+   "engine": "headless-dom"
   },
   {
    "site": "乌鲁木齐市",
@@ -2496,6 +2516,30 @@
    "oldest_date": "2026-02-10",
    "run_at": "2026-11-02 16:36:26",
    "engine": "headless-dom"
+  },
+  {
+   "site": "科学技术部",
+   "dir": "var\\data\\national\\中央\\科学技术部",
+   "status": "list_only_ok",
+   "board": "https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 14,
+   "texts": 14,
+   "text_chars": 61659,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 14,
+   "newest_date": "2026-10-21",
+   "oldest_date": "2017-11-13",
+   "run_at": "2026-11-02 17:53:53",
+   "engine": "static"
   },
   {
    "site": "西宁市",
@@ -3644,6 +3688,24 @@
    "engine": "static"
   },
   {
+   "site": "工业和信息化部",
+   "dir": "var\\data\\national\\中央\\工业和信息化部",
+   "status": "browser_ok",
+   "board": "https://www.miit.gov.cn/zc/wjxzfl/flfg/index.html",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 5,
+   "texts": 5,
+   "text_chars": 20539,
+   "attachments": 3,
+   "attachment_files": 3,
+   "items_new_this_run": 5,
+   "newest_date": "2022-01-29",
+   "oldest_date": "2020-07-30",
+   "run_at": "2026-11-02 17:55:36",
+   "engine": "headless-dom"
+  },
+  {
    "site": "河源市",
    "dir": "var\\data\\national\\广东省\\河源市",
    "status": "list_only_ok",
@@ -4241,6 +4303,30 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:05:31",
+   "engine": "static"
+  },
+  {
+   "site": "外交部",
+   "dir": "var\\data\\national\\中央\\外交部",
+   "status": "js_unparsable",
+   "board": "https://www.fmprc.gov.cn/wjb_673085/xzgfxwj/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-02 17:53:52",
    "engine": "static"
   },
   {
