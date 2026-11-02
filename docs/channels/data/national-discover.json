@@ -21332,6 +21332,1898 @@
    "hub_tried": [],
    "board_kind": "normative",
    "level": "province"
+  },
+  {
+   "site": "生态环境部",
+   "province": "中央",
+   "home": "https://www.mee.gov.cn/",
+   "board_url": "https://www.mee.gov.cn/zcwj/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 368,
+    "page_dates": 132,
+    "detail_ratio": 0.394,
+    "title_ratio": 0.649,
+    "med_len": 10.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.mee.gov.cn/zcwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 368,
+     "page_dates": 132,
+     "detail_ratio": 0.394,
+     "title_ratio": 0.649,
+     "med_len": 10.0
+    },
+    {
+     "url": "https://www.mee.gov.cn/wjk/",
+     "anchor": "文件库|文件库",
+     "score": 4,
+     "ok": false,
+     "n_links": 193,
+     "page_dates": 0,
+     "detail_ratio": 0.005,
+     "title_ratio": 0.523,
+     "med_len": 8
+    },
+    {
+     "url": "https://www.mee.gov.cn/gzk/",
+     "anchor": "规章库|规章库",
+     "score": 4,
+     "ok": true,
+     "n_links": 243,
+     "page_dates": 28,
+     "detail_ratio": 0.313,
+     "title_ratio": 0.473,
+     "med_len": 7
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "住房和城乡建设部",
+   "province": "中央",
+   "home": "https://www.mohurd.gov.cn/",
+   "board_url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/zfhcxjsbwj/index.html",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 28,
+    "page_dates": 15,
+    "detail_ratio": 0.464,
+    "title_ratio": 0.5,
+    "med_len": 8.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/zc/xzgfxwjk/index.html",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 1,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 3
+    },
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index.html",
+     "anchor": "标准公告|标准公告",
+     "score": 5,
+     "ok": false,
+     "n_links": 4,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.25,
+     "med_len": 3.0
+    },
+    {
+     "url": "https://www.mohurd.gov.cn/zhengcefabu/index.html",
+     "anchor": "政策发布",
+     "score": 1,
+     "ok": false,
+     "n_links": 2,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 3.0
+    },
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/zc/xzgfxwjk/index.html",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 1,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 3
+    },
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/zfhcxjsbwj/index.html",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 28,
+     "page_dates": 15,
+     "detail_ratio": 0.464,
+     "title_ratio": 0.5,
+     "med_len": 8.0
+    },
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index.html",
+     "anchor": "标准公告|标准公告",
+     "score": 5,
+     "ok": false,
+     "n_links": 4,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.25,
+     "med_len": 3.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [
+    {
+     "url": "https://www.mohurd.gov.cn/gongkai/gkzn/index.html",
+     "error": null
+    }
+   ],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "农业农村部",
+   "province": "中央",
+   "home": "https://www.moa.gov.cn/",
+   "board_url": "https://www.moa.gov.cn/gk/zcfg/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 246,
+    "page_dates": 26,
+    "detail_ratio": 0.118,
+    "title_ratio": 0.496,
+    "med_len": 8.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.moa.gov.cn/gk/zcfg/",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 246,
+     "page_dates": 26,
+     "detail_ratio": 0.118,
+     "title_ratio": 0.496,
+     "med_len": 8.0
+    },
+    {
+     "url": "https://www.moa.gov.cn/gk/",
+     "anchor": "公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 364,
+     "page_dates": 1,
+     "detail_ratio": 0.332,
+     "title_ratio": 0.591,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.moa.gov.cn/gk/cwgk_1/",
+     "anchor": "财务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 236,
+     "page_dates": 20,
+     "detail_ratio": 0.102,
+     "title_ratio": 0.5,
+     "med_len": 8.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "商务部",
+   "province": "中央",
+   "home": "https://www.mofcom.gov.cn/",
+   "board_url": "https://www.mofcom.gov.cn/zwgk/index.html",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政务公开",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 21,
+    "page_dates": 4,
+    "detail_ratio": 0.571,
+    "title_ratio": 0.571,
+    "med_len": 20
+   },
+   "candidates": [
+    {
+     "url": "https://www.mofcom.gov.cn/zqyj/zcfgzqyj/index.html",
+     "anchor": "政策法规征求意见|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 28,
+     "page_dates": 0,
+     "detail_ratio": 0.036,
+     "title_ratio": 0.571,
+     "med_len": 8.0
+    },
+    {
+     "url": "https://www.mofcom.gov.cn/zwgk/index.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 21,
+     "page_dates": 4,
+     "detail_ratio": 0.571,
+     "title_ratio": 0.571,
+     "med_len": 20
+    },
+    {
+     "url": "https://www.mofcom.gov.cn/zwgk/zcfb/index.html",
+     "anchor": "政策发布",
+     "score": 1,
+     "ok": false,
+     "n_links": 20,
+     "page_dates": 0,
+     "detail_ratio": 0.05,
+     "title_ratio": 0.8,
+     "med_len": 11.0
+    },
+    {
+     "url": "https://www.mofcom.gov.cn/zwgk/zcfb/index.html",
+     "anchor": "政策发布",
+     "score": 1,
+     "ok": false,
+     "n_links": 20,
+     "page_dates": 0,
+     "detail_ratio": 0.05,
+     "title_ratio": 0.8,
+     "med_len": 11.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家核安全局",
+   "province": "中央",
+   "home": "https://nnsa.mee.gov.cn/",
+   "board_url": "https://nnsa.mee.gov.cn/zcwj/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 180,
+    "page_dates": 105,
+    "detail_ratio": 0.583,
+    "title_ratio": 0.75,
+    "med_len": 25.0
+   },
+   "candidates": [
+    {
+     "url": "https://nnsa.mee.gov.cn/ztzl/fgbzwjk/",
+     "anchor": "法规标准文件库|文件库",
+     "score": 6,
+     "ok": false,
+     "n_links": 78,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.564,
+     "med_len": 8.0
+    },
+    {
+     "url": "https://nnsa.mee.gov.cn/zcwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 180,
+     "page_dates": 105,
+     "detail_ratio": 0.583,
+     "title_ratio": 0.75,
+     "med_len": 25.0
+    },
+    {
+     "url": "https://nnsa.mee.gov.cn/zcwj/zyygwj/",
+     "anchor": "中央有关文件",
+     "score": 1,
+     "ok": true,
+     "n_links": 76,
+     "page_dates": 15,
+     "detail_ratio": 0.197,
+     "title_ratio": 0.658,
+     "med_len": 10.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家税务总局",
+   "province": "中央",
+   "home": "https://www.chinatax.gov.cn/",
+   "board_url": "https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/zfxxgks.html?tab=zc",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政策",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 142,
+    "page_dates": 29,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.437,
+    "med_len": 5.5
+   },
+   "candidates": [
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/index.html",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 122,
+     "page_dates": 24,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.246,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/c102374/c102375d/c5249953/content.html",
+     "anchor": "国家税务总局关于公开选聘法律顾问单位的公告",
+     "score": 2,
+     "ok": false,
+     "n_links": 87,
+     "page_dates": 5,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.149,
+     "med_len": 3
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/index.html",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 122,
+     "page_dates": 24,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.246,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/n810641/c102061/zfxxgks.html?tab=zc",
+     "anchor": "政策",
+     "score": 1,
+     "ok": true,
+     "n_links": 142,
+     "page_dates": 29,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.437,
+     "med_len": 5.5
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/c102301/2019-12/31/5192405/files/fc4741cadcf84c659cc9e6701505cc9d.doc",
+     "anchor": "国家税务总局政府信息公开申请表",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/c102302/c4347891/content.html",
+     "anchor": "中华人民共和国政府信息公开条例",
+     "score": 1,
+     "ok": false,
+     "n_links": 86,
+     "page_dates": 4,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.151,
+     "med_len": 2.5
+    },
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/c102302/c5192407/content.html",
+     "anchor": "国务院办公厅关于印发《政府信息公开信息处理费管理办法》的通知",
+     "score": 1,
+     "ok": false,
+     "n_links": 86,
+     "page_dates": 3,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.151,
+     "med_len": 2.5
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [
+    {
+     "url": "https://www.chinatax.gov.cn/chinatax/n810214/index.html",
+     "error": null
+    }
+   ],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家广播电视总局",
+   "province": "中央",
+   "home": "https://www.nrta.gov.cn/",
+   "board_url": "https://www.nrta.gov.cn/col/col1588/index.html",
+   "status": "ok",
+   "score": 5,
+   "keyword": "法规规章|法规规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 55,
+    "page_dates": 45,
+    "detail_ratio": 0.818,
+    "title_ratio": 0.818,
+    "med_len": 30
+   },
+   "candidates": [
+    {
+     "url": "https://www.nrta.gov.cn/col/col1588/index.html",
+     "anchor": "法规规章|法规规章",
+     "score": 5,
+     "ok": true,
+     "n_links": 55,
+     "page_dates": 45,
+     "detail_ratio": 0.818,
+     "title_ratio": 0.818,
+     "med_len": 30
+    },
+    {
+     "url": "https://www.nrta.gov.cn/col/col2055/index.html?number=011",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 236,
+     "page_dates": 124,
+     "detail_ratio": 0.449,
+     "title_ratio": 0.449,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nrta.gov.cn/col/col2055/index.html",
+     "anchor": "政府信息公开指南",
+     "score": 1,
+     "ok": true,
+     "n_links": 236,
+     "page_dates": 124,
+     "detail_ratio": 0.449,
+     "title_ratio": 0.449,
+     "med_len": 5.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家体育总局",
+   "province": "中央",
+   "home": "https://www.sport.gov.cn/",
+   "board_url": "https://www.sport.gov.cn/n323/n10516/c29009915/content.html",
+   "status": "ok",
+   "score": 2,
+   "keyword": "关于公开征求《国民体质测定规范》等2项推荐性国家标准意见的通知",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 23,
+    "page_dates": 3,
+    "detail_ratio": 0.043,
+    "title_ratio": 0.478,
+    "med_len": 7
+   },
+   "candidates": [
+    {
+     "url": "https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 86,
+     "page_dates": 0,
+     "detail_ratio": 0.151,
+     "title_ratio": 0.023,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.sport.gov.cn/n323/n10516/c29009915/content.html",
+     "anchor": "关于公开征求《国民体质测定规范》等2项推荐性国家标准意见的通知",
+     "score": 2,
+     "ok": true,
+     "n_links": 23,
+     "page_dates": 3,
+     "detail_ratio": 0.043,
+     "title_ratio": 0.478,
+     "med_len": 7
+    },
+    {
+     "url": "https://www.sport.gov.cn/n323/n10516/c28827725/content.html",
+     "anchor": "关于对《城市体育消费活力提升指引》行业标准公开征求意见的通知",
+     "score": 2,
+     "ok": true,
+     "n_links": 24,
+     "page_dates": 3,
+     "detail_ratio": 0.042,
+     "title_ratio": 0.5,
+     "med_len": 7.5
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家医疗保障局",
+   "province": "中央",
+   "home": "https://www.nhsa.gov.cn/",
+   "board_url": "https://www.nhsa.gov.cn/col/col104/index.html",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 60,
+    "page_dates": 90,
+    "detail_ratio": 0.75,
+    "title_ratio": 0.767,
+    "med_len": 32.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.nhsa.gov.cn/col/col104/index.html",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 60,
+     "page_dates": 90,
+     "detail_ratio": 0.75,
+     "title_ratio": 0.767,
+     "med_len": 32.0
+    },
+    {
+     "url": "https://www.nhsa.gov.cn/col/col99/index.html",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.nhsa.gov.cn/col/col123/index.html",
+     "anchor": "政府信息公开年报",
+     "score": 1,
+     "ok": true,
+     "n_links": 30,
+     "page_dates": 30,
+     "detail_ratio": 0.5,
+     "title_ratio": 0.533,
+     "med_len": 15.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家机关事务管理局",
+   "province": "中央",
+   "home": "https://www.ggj.gov.cn/",
+   "board_url": "https://www.ggj.gov.cn/zcfgs/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "国管局政策法规司（房改办）|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 38,
+    "page_dates": 7,
+    "detail_ratio": 0.868,
+    "title_ratio": 0.789,
+    "med_len": 21.0
+   },
+   "candidates": [
+    {
+     "url": "http://www.ggj.gov.cn/zcfg/",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.ggj.gov.cn/zcfgs/",
+     "anchor": "国管局政策法规司（房改办）|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 38,
+     "page_dates": 7,
+     "detail_ratio": 0.868,
+     "title_ratio": 0.789,
+     "med_len": 21.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "中国气象局",
+   "province": "中央",
+   "home": "https://www.cma.gov.cn/",
+   "board_url": "http://www.cma.gov.cn/zfxxgk/gknr/wjgk/gfxwj/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 48,
+    "page_dates": 40,
+    "detail_ratio": 0.417,
+    "title_ratio": 0.5,
+    "med_len": 7.5
+   },
+   "candidates": [
+    {
+     "url": "http://www.cma.gov.cn/zfxxgk/gknr/wjgk/gfxwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 48,
+     "page_dates": 40,
+     "detail_ratio": 0.417,
+     "title_ratio": 0.5,
+     "med_len": 7.5
+    },
+    {
+     "url": "https://www.cma.gov.cn/zfxxgk/gknr/wjgk/gfxwj/",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 48,
+     "page_dates": 40,
+     "detail_ratio": 0.417,
+     "title_ratio": 0.5,
+     "med_len": 7.5
+    },
+    {
+     "url": "http://www.cma.gov.cn/gzk/index.html",
+     "anchor": "规章库|规章库",
+     "score": 4,
+     "ok": true,
+     "n_links": 45,
+     "page_dates": 38,
+     "detail_ratio": 1.0,
+     "title_ratio": 0.333,
+     "med_len": 5
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家信访局",
+   "province": "中央",
+   "home": "https://www.gjxfj.gov.cn/",
+   "board_url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj.htm",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 39,
+    "page_dates": 20,
+    "detail_ratio": 0.256,
+    "title_ratio": 0.59,
+    "med_len": 14
+   },
+   "candidates": [
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/fgwj/gfxwj.htm",
+     "anchor": "规范性文件|规范性文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 9,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/fgwj/flfg.htm",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 9,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/index.htm",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 19,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.316,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj.htm",
+     "anchor": "政策 文件",
+     "score": 2,
+     "ok": true,
+     "n_links": 39,
+     "page_dates": 20,
+     "detail_ratio": 0.256,
+     "title_ratio": 0.59,
+     "med_len": 14
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zfxxgkzn.htm",
+     "anchor": "政府信息 公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 19,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.316,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zfxxgkzd.htm",
+     "anchor": "政府信息 公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 34,
+     "page_dates": 15,
+     "detail_ratio": 0.353,
+     "title_ratio": 0.559,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj.htm",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 39,
+     "page_dates": 20,
+     "detail_ratio": 0.256,
+     "title_ratio": 0.59,
+     "med_len": 14
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zfxxgkzn.htm",
+     "anchor": "政府信息 公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 19,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.316,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zfxxgkzd.htm",
+     "anchor": "政府信息 公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 34,
+     "page_dates": 15,
+     "detail_ratio": 0.353,
+     "title_ratio": 0.559,
+     "med_len": 9.0
+    }
+   ],
+   "error": null,
+   "depth": 3,
+   "hub_tried": [
+    {
+     "url": "https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/index.htm",
+     "error": null
+    }
+   ],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家粮食和物资储备局",
+   "province": "中央",
+   "home": "https://www.lswz.gov.cn/",
+   "board_url": "https://www.lswz.gov.cn/html/ywpd/fgtg/index.shtml",
+   "status": "ok",
+   "score": 1,
+   "keyword": "法规体改",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 164,
+    "page_dates": 25,
+    "detail_ratio": 0.152,
+    "title_ratio": 0.232,
+    "med_len": 4.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.lswz.gov.cn/html/zcfb/fggz-fg.shtml",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 141,
+     "page_dates": 0,
+     "detail_ratio": 0.142,
+     "title_ratio": 0.248,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.lswz.gov.cn/html/zcfb/index.shtml",
+     "anchor": "政策发布",
+     "score": 1,
+     "ok": false,
+     "n_links": 136,
+     "page_dates": 0,
+     "detail_ratio": 0.11,
+     "title_ratio": 0.191,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.lswz.gov.cn/html/ywpd/fgtg/index.shtml",
+     "anchor": "法规体改",
+     "score": 1,
+     "ok": true,
+     "n_links": 164,
+     "page_dates": 25,
+     "detail_ratio": 0.152,
+     "title_ratio": 0.232,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.lswz.gov.cn/html/zcfb/fggz-fg.shtml",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 141,
+     "page_dates": 0,
+     "detail_ratio": 0.142,
+     "title_ratio": 0.248,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.lswz.gov.cn/html/zcfb/index.shtml",
+     "anchor": "政策发布",
+     "score": 1,
+     "ok": false,
+     "n_links": 136,
+     "page_dates": 0,
+     "detail_ratio": 0.11,
+     "title_ratio": 0.191,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.lswz.gov.cn/html/ywpd/fgtg/index.shtml",
+     "anchor": "法规体改",
+     "score": 1,
+     "ok": true,
+     "n_links": 164,
+     "page_dates": 25,
+     "detail_ratio": 0.152,
+     "title_ratio": 0.232,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家能源局",
+   "province": "中央",
+   "home": "https://www.nea.gov.cn/",
+   "board_url": "https://www.nea.gov.cn/nyflfg/index.htm",
+   "status": "ok",
+   "score": 4,
+   "keyword": "能源法律法规|法律法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 96,
+    "page_dates": 95,
+    "detail_ratio": 0.688,
+    "title_ratio": 0.969,
+    "med_len": 24.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.nea.gov.cn/nyflfg/index.htm",
+     "anchor": "能源法律法规|法律法规",
+     "score": 4,
+     "ok": true,
+     "n_links": 96,
+     "page_dates": 95,
+     "detail_ratio": 0.688,
+     "title_ratio": 0.969,
+     "med_len": 24.0
+    },
+    {
+     "url": "https://www.nea.gov.cn/20260717/ec48a28e7dee4c29abaaa28e7a79848f/c.html",
+     "anchor": "国家能源局综合司关于公开征求《GB26164.1-2010 电力安全工作规程 热",
+     "score": 2,
+     "ok": false,
+     "n_links": 5,
+     "page_dates": 2,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.8,
+     "med_len": 25
+    },
+    {
+     "url": "https://www.nea.gov.cn/politics/2015v/wj.htm",
+     "anchor": "文件",
+     "score": 1,
+     "ok": false,
+     "n_links": 1,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 2
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家移民管理局",
+   "province": "中央",
+   "home": "https://www.nia.gov.cn/",
+   "board_url": "https://www.nia.gov.cn/n741440/n741547/index.html",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 57,
+    "page_dates": 20,
+    "detail_ratio": 0.281,
+    "title_ratio": 0.439,
+    "med_len": 7
+   },
+   "candidates": [
+    {
+     "url": "https://www.nia.gov.cn/n741440/n741547/index.html",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 57,
+     "page_dates": 20,
+     "detail_ratio": 0.281,
+     "title_ratio": 0.439,
+     "med_len": 7
+    },
+    {
+     "url": "https://www.nia.gov.cn/n741440/index.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.nia.gov.cn/n741440/n741587/index.html",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家邮政局",
+   "province": "中央",
+   "home": "https://www.spb.gov.cn/",
+   "board_url": "https://www.spb.gov.cn/gjyzj/c100009/c100014/xxgk_index.shtml",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政务公开",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 1153,
+    "page_dates": 1005,
+    "detail_ratio": 0.873,
+    "title_ratio": 0.903,
+    "med_len": 18
+   },
+   "candidates": [
+    {
+     "url": "https://www.spb.gov.cn/gjyzj/c100009/c100012/common_list.shtml",
+     "anchor": "政策法规标准|政策法规",
+     "score": 6,
+     "ok": false,
+     "n_links": 154,
+     "page_dates": 10,
+     "detail_ratio": 0.091,
+     "title_ratio": 0.299,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.spb.gov.cn/gjyzj/c100009/c100014/xxgk_index.shtml",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 1153,
+     "page_dates": 1005,
+     "detail_ratio": 0.873,
+     "title_ratio": 0.903,
+     "med_len": 18
+    },
+    {
+     "url": "https://www.spb.gov.cn/gjyzj/c100009/c100014/xxgk_index.shtml?tab=gkzd",
+     "anchor": "政府信息公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 1153,
+     "page_dates": 1005,
+     "detail_ratio": 0.873,
+     "title_ratio": 0.903,
+     "med_len": 18
+    },
+    {
+     "url": "https://www.spb.gov.cn/default/xhtml/upload/sqb.zip",
+     "anchor": "《邮政管理部门政府信息公开申请表》下载",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家矿山安全监察局",
+   "province": "中央",
+   "home": "https://www.chinamine-safety.gov.cn/",
+   "board_url": "https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/zcfg/",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 64,
+    "page_dates": 24,
+    "detail_ratio": 0.375,
+    "title_ratio": 0.484,
+    "med_len": 6.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/",
+     "anchor": "公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/zfxxgkzn/",
+     "anchor": "政府信息公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 26,
+     "page_dates": 1,
+     "detail_ratio": 0.038,
+     "title_ratio": 0.308,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/zfxxgkzd/",
+     "anchor": "政府信息公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 46,
+     "page_dates": 21,
+     "detail_ratio": 0.457,
+     "title_ratio": 0.609,
+     "med_len": 14.0
+    },
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/zcfg/",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 64,
+     "page_dates": 24,
+     "detail_ratio": 0.375,
+     "title_ratio": 0.484,
+     "med_len": 6.0
+    },
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.chinamine-safety.gov.cn/zfxxgk/zfxxgkzd/",
+     "anchor": "政府信息公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 46,
+     "page_dates": 21,
+     "detail_ratio": 0.457,
+     "title_ratio": 0.609,
+     "med_len": 14.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家外汇管理局",
+   "province": "中央",
+   "home": "https://www.safe.gov.cn/",
+   "board_url": "https://www.safe.gov.cn/safe/zcfg/index.html",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 61,
+    "page_dates": 21,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.508,
+    "med_len": 8
+   },
+   "candidates": [
+    {
+     "url": "https://www.safe.gov.cn/safe/2025/1031/26751.html",
+     "anchor": "国家外汇管理局关于废止2件规范性文件的公告|规范性文件",
+     "score": 6,
+     "ok": false,
+     "n_links": 21,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.095,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.safe.gov.cn/safe/zcfg/index.html",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 61,
+     "page_dates": 21,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.508,
+     "med_len": 8
+    },
+    {
+     "url": "https://www.safe.gov.cn/safe/2025/0328/25916.html",
+     "anchor": "国家外汇管理局关于废止和宣布失效6件外汇管理规范性文件的...|规范性文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 24,
+     "page_dates": 2,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.208,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家药品监督管理局",
+   "province": "中央",
+   "home": "https://www.nmpa.gov.cn/",
+   "board_url": "https://www.nmpa.gov.cn/xxgk/fgwj/index.html",
+   "status": "ok",
+   "score": 2,
+   "keyword": "法规文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 93,
+    "page_dates": 20,
+    "detail_ratio": 0.204,
+    "title_ratio": 0.247,
+    "med_len": 4
+   },
+   "candidates": [
+    {
+     "url": "https://www.nmpa.gov.cn/xxgk/fgwj/index.html",
+     "anchor": "法规文件",
+     "score": 2,
+     "ok": true,
+     "n_links": 93,
+     "page_dates": 20,
+     "detail_ratio": 0.204,
+     "title_ratio": 0.247,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.nmpa.gov.cn/ylqx/ylqxfgwj/index.html",
+     "anchor": "法规文件",
+     "score": 2,
+     "ok": true,
+     "n_links": 88,
+     "page_dates": 20,
+     "detail_ratio": 0.227,
+     "title_ratio": 0.25,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家知识产权局",
+   "province": "中央",
+   "home": "https://www.cnipa.gov.cn/",
+   "board_url": "https://www.cnipa.gov.cn/col/col62/index.html",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政府信息公开",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 39,
+    "page_dates": 37,
+    "detail_ratio": 0.949,
+    "title_ratio": 0.949,
+    "med_len": 24
+   },
+   "candidates": [
+    {
+     "url": "https://www.cnipa.gov.cn/col/col62/index.html",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 39,
+     "page_dates": 37,
+     "detail_ratio": 0.949,
+     "title_ratio": 0.949,
+     "med_len": 24
+    },
+    {
+     "url": "https://www.cnipa.gov.cn/col/col74/index.html",
+     "anchor": "公告公报",
+     "score": 1,
+     "ok": true,
+     "n_links": 69,
+     "page_dates": 60,
+     "detail_ratio": 0.87,
+     "title_ratio": 0.841,
+     "med_len": 39
+    },
+    {
+     "url": "https://www.cnipa.gov.cn/col/col2089/index.html",
+     "anchor": "地理标志和 官方标志公告",
+     "score": 1,
+     "ok": true,
+     "n_links": 49,
+     "page_dates": 45,
+     "detail_ratio": 0.918,
+     "title_ratio": 0.878,
+     "med_len": 44
+    },
+    {
+     "url": "https://www.cnipa.gov.cn/col/col2790/index.html",
+     "anchor": "规章",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.cnipa.gov.cn/jact/front/mailwrite.do?sysid=2",
+     "anchor": "依申请公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 7,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.0,
+     "med_len": 4
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家密码管理局",
+   "province": "中央",
+   "home": "https://www.oscca.gov.cn/",
+   "board_url": "https://www.oscca.gov.cn/sca/xxgk/zcfg.shtml",
+   "status": "ok",
+   "score": 5,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 68,
+    "page_dates": 21,
+    "detail_ratio": 0.309,
+    "title_ratio": 0.456,
+    "med_len": 10.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.oscca.gov.cn/sca/xxgk/zcfg.shtml",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": true,
+     "n_links": 68,
+     "page_dates": 21,
+     "detail_ratio": 0.309,
+     "title_ratio": 0.456,
+     "med_len": 10.0
+    },
+    {
+     "url": "https://www.oscca.gov.cn/sca/xxgk/zcfg/gfxwj.shtml",
+     "anchor": "规范性文件|规范性文件",
+     "score": 5,
+     "ok": true,
+     "n_links": 35,
+     "page_dates": 8,
+     "detail_ratio": 0.2,
+     "title_ratio": 0.314,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.oscca.gov.cn/sca/xxgk/zcfg/flfg.shtml",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 35,
+     "page_dates": 8,
+     "detail_ratio": 0.143,
+     "title_ratio": 0.314,
+     "med_len": 4
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "中国地震局",
+   "province": "中央",
+   "home": "https://www.cea.gov.cn/",
+   "board_url": "https://www.cea.gov.cn/cea/zwgk/5616193/5614278/5703595/index.html",
+   "status": "ok",
+   "score": 8,
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 47,
+    "page_dates": 11,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.489,
+    "med_len": 7
+   },
+   "candidates": [
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/5739581/index.html",
+     "anchor": "法律法规标准|法律法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 65,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.169,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/index.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 116,
+     "page_dates": 42,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.414,
+     "med_len": 5.5
+    },
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/5500823/index.html",
+     "anchor": "重要文件",
+     "score": 1,
+     "ok": true,
+     "n_links": 81,
+     "page_dates": 20,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.383,
+     "med_len": 5
+    },
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/5616193/5614278/5703595/index.html",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": true,
+     "n_links": 47,
+     "page_dates": 11,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.489,
+     "med_len": 7
+    },
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/5739581/index.html",
+     "anchor": "法律法规标准|法律法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 65,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.169,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.cea.gov.cn/cea/zwgk/5739581/zcfg/index.html",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 64,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.172,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "最高人民法院",
+   "province": "中央",
+   "home": "https://www.court.gov.cn/",
+   "board_url": "https://www.court.gov.cn/fabu/gengduo/18.html",
+   "status": "ok",
+   "score": 1,
+   "keyword": "通知(司法文件)",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 54,
+    "page_dates": 20,
+    "detail_ratio": 0.37,
+    "title_ratio": 0.481,
+    "med_len": 7.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.court.gov.cn/fabu/gengduo/17.html",
+     "anchor": "司法文件",
+     "score": 1,
+     "ok": true,
+     "n_links": 52,
+     "page_dates": 18,
+     "detail_ratio": 0.346,
+     "title_ratio": 0.462,
+     "med_len": 6.5
+    },
+    {
+     "url": "https://www.court.gov.cn/fabu/gengduo/108.html",
+     "anchor": "标准化",
+     "score": 1,
+     "ok": true,
+     "n_links": 53,
+     "page_dates": 23,
+     "detail_ratio": 0.113,
+     "title_ratio": 0.453,
+     "med_len": 6
+    },
+    {
+     "url": "https://www.court.gov.cn/fabu/gengduo/18.html",
+     "anchor": "通知(司法文件)",
+     "score": 1,
+     "ok": true,
+     "n_links": 54,
+     "page_dates": 20,
+     "detail_ratio": 0.37,
+     "title_ratio": 0.481,
+     "med_len": 7.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "最高人民检察院",
+   "province": "中央",
+   "home": "https://www.spp.gov.cn/",
+   "board_url": "https://www.spp.gov.cn/spp/flfgk/index.shtml",
+   "status": "ok",
+   "score": 9,
+   "keyword": "法律法规规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 105,
+    "page_dates": 81,
+    "detail_ratio": 0.771,
+    "title_ratio": 0.8,
+    "med_len": 27
+   },
+   "candidates": [
+    {
+     "url": "https://www.spp.gov.cn/spp/flfgk/index.shtml",
+     "anchor": "法律法规规范性文件|规范性文件",
+     "score": 9,
+     "ok": true,
+     "n_links": 105,
+     "page_dates": 81,
+     "detail_ratio": 0.771,
+     "title_ratio": 0.8,
+     "med_len": 27
+    },
+    {
+     "url": "https://www.spp.gov.cn/spp/flzcyj/index.shtml",
+     "anchor": "法律政策研究",
+     "score": 1,
+     "ok": false,
+     "n_links": 137,
+     "page_dates": 16,
+     "detail_ratio": 0.117,
+     "title_ratio": 0.161,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.spp.gov.cn/spp/flfg/index.shtml",
+     "anchor": "法律规章",
+     "score": 1,
+     "ok": false,
+     "n_links": 126,
+     "page_dates": 18,
+     "detail_ratio": 0.143,
+     "title_ratio": 0.19,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "ministry"
+  },
+  {
+   "site": "国家疾病预防控制局",
+   "province": "中央",
+   "home": "https://www.ndcpa.gov.cn/",
+   "board_url": "https://www.ndcpa.gov.cn/jbkzzx/c100026/common/list.html",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政府信息 公开制度",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 13,
+    "page_dates": 7,
+    "detail_ratio": 0.077,
+    "title_ratio": 0.615,
+    "med_len": 9
+   },
+   "candidates": [
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100012/common/list.html",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 29,
+     "page_dates": 50,
+     "detail_ratio": 0.034,
+     "title_ratio": 0.138,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100011/common/list.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 34,
+     "page_dates": 327,
+     "detail_ratio": 0.029,
+     "title_ratio": 0.206,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100025/common/list.html",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 12,
+     "page_dates": 0,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100012/common/list.html",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 29,
+     "page_dates": 50,
+     "detail_ratio": 0.034,
+     "title_ratio": 0.138,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100011/common/list.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 34,
+     "page_dates": 327,
+     "detail_ratio": 0.029,
+     "title_ratio": 0.206,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100025/common/list.html",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 12,
+     "page_dates": 0,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100025/common/list.html",
+     "anchor": "政府信息 公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 12,
+     "page_dates": 0,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100026/common/list.html",
+     "anchor": "政府信息 公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 13,
+     "page_dates": 7,
+     "detail_ratio": 0.077,
+     "title_ratio": 0.615,
+     "med_len": 9
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100028/common/list.html",
+     "anchor": "法定主动 公开内容",
+     "score": 1,
+     "ok": true,
+     "n_links": 12,
+     "page_dates": 6,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100025/common/list.html",
+     "anchor": "政府信息 公开指南",
+     "score": 1,
+     "ok": false,
+     "n_links": 12,
+     "page_dates": 0,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100026/common/list.html",
+     "anchor": "政府信息 公开制度",
+     "score": 1,
+     "ok": true,
+     "n_links": 13,
+     "page_dates": 7,
+     "detail_ratio": 0.077,
+     "title_ratio": 0.615,
+     "med_len": 9
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100028/common/list.html",
+     "anchor": "法定主动 公开内容",
+     "score": 1,
+     "ok": true,
+     "n_links": 12,
+     "page_dates": 6,
+     "detail_ratio": 0.083,
+     "title_ratio": 0.583,
+     "med_len": 9.0
+    }
+   ],
+   "error": null,
+   "depth": 3,
+   "hub_tried": [
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100011/common/list.html",
+     "error": null
+    },
+    {
+     "url": "https://www.ndcpa.gov.cn/jbkzzx/c100025/common/list.html",
+     "error": null
+    }
+   ],
+   "board_kind": "hub",
+   "level": "ministry"
+  },
+  {
+   "site": "国家新闻出版署",
+   "province": "中央",
+   "home": "https://www.nppa.gov.cn/",
+   "board_url": "https://www.nppa.gov.cn/xxfb/tzgs/",
+   "status": "ok",
+   "score": 1,
+   "keyword": "通知公示",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 48,
+    "page_dates": 15,
+    "detail_ratio": 0.312,
+    "title_ratio": 0.146,
+    "med_len": 4.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 49,
+     "page_dates": 1,
+     "detail_ratio": 0.429,
+     "title_ratio": 0.612,
+     "med_len": 9
+    },
+    {
+     "url": "https://www.nppa.gov.cn/xxfb/tzgs/",
+     "anchor": "通知公示",
+     "score": 1,
+     "ok": true,
+     "n_links": 48,
+     "page_dates": 15,
+     "detail_ratio": 0.312,
+     "title_ratio": 0.146,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.nppa.gov.cn/bsfw/jggs/",
+     "anchor": "结果公示",
+     "score": 1,
+     "ok": false,
+     "n_links": 43,
+     "page_dates": 0,
+     "detail_ratio": 0.419,
+     "title_ratio": 0.581,
+     "med_len": 8
+    },
+    {
+     "url": "https://www.nppa.gov.cn/xxfb/tzgs/",
+     "anchor": "通知公示",
+     "score": 1,
+     "ok": true,
+     "n_links": 48,
+     "page_dates": 15,
+     "detail_ratio": 0.312,
+     "title_ratio": 0.146,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.nppa.gov.cn/bsfw/jggs/",
+     "anchor": "结果公示",
+     "score": 1,
+     "ok": false,
+     "n_links": 43,
+     "page_dates": 0,
+     "detail_ratio": 0.419,
+     "title_ratio": 0.581,
+     "med_len": 8
+    },
+    {
+     "url": "https://www.nppa.gov.cn/xxgk/",
+     "anchor": "信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "ministry"
   }
  ]
 }
