@@ -159,7 +159,12 @@ def clean_body(txt: str, title: str) -> str:
 
 #: 翻页规则候选（**每站要标定**：2026-11-02 实测三亚 `?page=2` 与第 1 页 30/30 重合）
 PAGE_RULES = (
+    # ⚠ 2026-11-02 R6 实测：三门峡用 `?pageNum=`，我前一轮的 10 种里**没有它**
+    #   （页面 JS 原文 `location.href = '/pageView/zcwjList.html?pageNum=' + n`）。
+    ("query", "pageNum"),
     ("query", "page"),
+    ("query", "curPage"),
+    ("query", "pageNo"),
     ("query", "p"),
     ("query", "pn"),
     ("query", "currentPage"),
@@ -199,12 +204,55 @@ def _page_url(board: str, rule: tuple, n: int) -> str:
     return ""
 
 
-def calibrate_pagination(transport, board: str, first_urls: set[str]) -> dict:
+#: 页面 JS 里常见的翻页写法：`location.href='...?pageNum='+n` / `xxx?page=' + i`
+JS_TPL_RE = re.compile(
+    r"""(?:location(?:\.href)?\s*=|window\.location\s*=|\.href\s*=)\s*"""
+    r"""["']([^"']+?)["']\s*\+""", re.I)
+
+
+def js_page_template(html: str, base: str) -> str | None:
+    """从页面 JS 里捞「翻页 URL 模板」。
+
+    返回一个可以用 `%d` 填页号的模板（已转成绝对 URL），捞不到返回 None。
+    实测样例：三门峡 `location.href = '/pageView/zcwjList.html?pageNum=' + n`
+    ⇒ 模板 `https://www.smx.gov.cn/pageView/zcwjList.html?pageNum=%d`。
+    """
+    for m in JS_TPL_RE.finditer(html):
+        frag = m.group(1).strip()
+        if not frag or frag.startswith(("#", "javascript")):
+            continue
+        absu = urljoin(base, frag)
+        # 模板必须以「=」或「/」结尾，页号才接得上
+        if absu.endswith(("=", "/")) and "?" in absu or absu.endswith("/"):
+            return absu + "%d"
+    return None
+
+
+def calibrate_pagination(transport, board: str, first_urls: set[str],
+                         html: str | None = None) -> dict:
     """标定该站的翻页规则：找到能**真正换页**的那一种。
+
+    先试**从页面 JS 提取的模板**（最可靠，是站点自己的写法），再退回猜参数。
 
     判据：第 2 页里**至少有一条**第 1 页没有的 URL，且不是同一批内容。
     返回 {rule, page2_url, overlap, ok}。
     """
+    # ① 页面 JS 里提取的模板优先
+    if html:
+        tpl = js_page_template(html, board)
+        if tpl:
+            try:
+                st, body = transport.fetch(tpl % 2, timeout=TIMEOUT_S)
+                got = ({x["url"] for x in parse_items(body, tpl % 2)}
+                       if st == 200 and isinstance(body, str) else set())
+                new = got - first_urls
+                if new and len(got & first_urls) < len(got):
+                    return {"rule": ["jstpl", tpl], "page2_url": tpl % 2,
+                            "overlap": len(got & first_urls), "new": len(new),
+                            "ok": True}
+            except Exception:                   # noqa: BLE001
+                pass
+    # ② 退回猜参数
     for rule in PAGE_RULES:
         u2 = _page_url(board, rule, 2)
         if not u2:
@@ -335,37 +383,68 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
         seen.add(x["url"])
         items.append(x)
     stats["pages"] = 1
-    # ── 跟着页面自己的「下一页」链接翻（2026-11-02：猜参数 10 种全落空）──
-    nxt = find_next(b0, board)
+    first_urls = {x["url"] for x in first_items}
+    cal = calibrate_pagination(transport, board, first_urls, html=b0)
+    stats["pagination"] = cal
+    # ── 翻页：先按标定出的规则翻，规则不可用再跟「下一页」链接 ──
     n_pages = 1
-    while nxt and n_pages < pages:
-        try:
-            st, body = transport.fetch(nxt, timeout=TIMEOUT_S)
-        except Exception:                        # noqa: BLE001
-            break
-        if st != 200 or not isinstance(body, str):
-            break
-        got = parse_items(body, nxt)
-        fresh = [x for x in got if x["url"] not in seen]
-        if not fresh:
-            barren += 1
-            if barren >= barren_stop:
-                stats["pagination"] = {"mode": "next-link", "pages": n_pages,
-                                       "reached_end": True}
+    fetched = 0
+    if cal.get("ok") and pages > 1:
+        kind = cal["rule"][0]
+        for n in range(2, pages + 1):
+            u = (cal["rule"][1] % n) if kind == "jstpl" else _page_url(
+                board, tuple(cal["rule"]), n)
+            if not u:
                 break
-        else:
-            barren = 0
-            for x in fresh:
-                seen.add(x["url"])
-                items.append(x)
-            if per_site_items and len(items) >= per_site_items:
+            fetched += 1
+            try:
+                st, body = transport.fetch(u, timeout=TIMEOUT_S)
+            except Exception:                    # noqa: BLE001
                 break
-        n_pages += 1
-        stats["pages"] = n_pages
-        time.sleep(1.0)
-        nxt = find_next(body, nxt)
-    stats.setdefault("pagination", {"mode": "next-link", "pages": n_pages,
-                                    "reached_end": not bool(nxt)})
+            if st != 200 or not isinstance(body, str):
+                break
+            fresh = [x for x in parse_items(body, u) if x["url"] not in seen]
+            if not fresh:
+                barren += 1
+                if barren >= barren_stop:
+                    break
+            else:
+                barren = 0
+                for x in fresh:
+                    seen.add(x["url"])
+                    items.append(x)
+                if per_site_items and len(items) >= per_site_items:
+                    break
+            n_pages = n
+            stats["pages"] = n_pages
+            time.sleep(1.0)
+    else:
+        nxt = find_next(b0, board)
+        while nxt and n_pages < pages:
+            try:
+                st, body = transport.fetch(nxt, timeout=TIMEOUT_S)
+            except Exception:                    # noqa: BLE001
+                break
+            if st != 200 or not isinstance(body, str):
+                break
+            fresh = [x for x in parse_items(body, nxt) if x["url"] not in seen]
+            if not fresh:
+                barren += 1
+                if barren >= barren_stop:
+                    break
+            else:
+                barren = 0
+                for x in fresh:
+                    seen.add(x["url"])
+                    items.append(x)
+                if per_site_items and len(items) >= per_site_items:
+                    break
+            n_pages += 1
+            stats["pages"] = n_pages
+            time.sleep(1.0)
+            nxt = find_next(body, nxt)
+    stats.setdefault("pagination", {"mode": "rule", "pages": n_pages,
+                                    "reached_end": n_pages < pages})
     items = items[:per_site_items]
     stats["items"] = len(items)
     if not items:
