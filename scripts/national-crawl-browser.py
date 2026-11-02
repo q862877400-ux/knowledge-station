@@ -125,54 +125,67 @@ def find_normative_column(exe: str, hub_url: str, budget_ms: int) -> tuple[str, 
     return "", {"why": "no_normative_column", "tried": len(strong)}
 
 
-def crawl_site(site: str, rec: dict, exe: str, pages: int,
-               budget_ms: int) -> dict:
-    """渲染一个站并抽条目（含跟「下一页」链接）。"""
+def crawl_generic(site: str, rec: dict, page_source, next_action, pages: int,
+                  engine: str = "headless-dom") -> dict:
+    """通用抓取循环：**取页**与**换页**都由外面传进来。
+
+    `--dump-dom` 只能跟 `<a href>` 的下一页；JS 按钮换页要换成 CDP 点击。
+    若为后者另写一个脚本，仓库尺子的「跨文件同函数体」会从 8 顶到 10（实测两次）。
+    ⇒ 循环只留一份，不同引擎只提供两个小函数：
+
+    - `page_source(url) -> (ok, html, seconds)`
+    - `next_action(html, url) -> 下一页 URL | None`（返回同一 URL = 内容已换页）
+    """
     board = rec.get("board_url") or ""
     prov = rec.get("province") or "未知"
-    sdir = OUTDIR / str(prov) / str(site).replace("/", "_")
-    sdir.mkdir(parents=True, exist_ok=True)
     stats = {"site": site, "board": board, "status": None, "pages": 0,
              "items": 0, "seconds": 0.0, "error": None}
     if not board:
         stats["status"] = "no_board"
         return stats
-
     url = board
     seen: set[str] = set()
     items: list[dict] = []
     t_all = 0.0
     for i in range(pages):
-        ok, html, secs = render(url, exe, budget_ms)
+        ok, html, secs = page_source(url)
         t_all += secs
         if not ok or not html:
             stats["error"] = "render_failed"
             break
-        got = ncf.parse_items(html, url)
-        fresh = [x for x in got if x["url"] not in seen]
+        fresh = [x for x in ncf.parse_items(html, url)
+                 if x["url"] not in seen]
         for x in fresh:
             seen.add(x["url"])
             items.append(x)
         stats["pages"] = i + 1
-        nxt = ncf.find_next(html, url)
+        nxt = next_action(html, url)
         if not nxt or not fresh:
             break
         url = nxt
         time.sleep(1.0)
     stats["seconds"] = round(t_all, 1)
     stats["items"] = len(items)
-
     if not items:
         stats["status"] = "still_unparsable"
         return stats
-
     res = cmn.merge_and_save(
-        site, board, items, province=prov, engine="headless-dom",
+        site, board, items, province=prov, engine=engine,
         extra={"render_seconds": stats["seconds"]})
-    stats["status"] = "browser_ok"
+    stats["status"] = engine + "_ok"
     stats["items_total"] = res["items_total"]
     stats["items_new"] = res["items_new"]
     return stats
+
+
+def crawl_site(site: str, rec: dict, exe: str, pages: int,
+               budget_ms: int) -> dict:
+    """`--dump-dom` 引擎：渲染后跟「下一页」链接。"""
+    return crawl_generic(
+        site, rec,
+        page_source=lambda u: render(u, exe, budget_ms),
+        next_action=ncf.find_next,
+        pages=pages, engine="headless-dom")
 
 
 def main() -> int:
@@ -254,7 +267,8 @@ def main() -> int:
             json.dumps(disc_updates, ensure_ascii=False, indent=1),
             encoding="utf-8")
         print(f"  找到子栏目 {len(disc_updates)} 个 → var/tmp/hub-columns-found.json")
-    ok = sum(1 for r in results if r.get("status") == "browser_ok")
+    ok = sum(1 for r in results
+             if str(r.get("status", "")).endswith("_ok"))
     print(f"\n完成：{ok}/{len(results)} 站取到条目")
     return 0
 
