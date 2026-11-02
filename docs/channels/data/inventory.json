@@ -1,14 +1,14 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 167,
-  "items": 7922,
+  "sites_crawled": 169,
+  "items": 8569,
   "texts": 7875,
   "text_chars": 27926489,
   "attachment_refs": 474,
   "attachment_files": 470,
-  "sites_with_items": 142,
-  "sites_multi_page": 48,
+  "sites_with_items": 147,
+  "sites_multi_page": 50,
   "attachment_bytes": 408165368,
   "attachment_mb": 389.3
  },
@@ -48,21 +48,22 @@
      "query",
      "page"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.chizhou.gov.cn/PolicyContent/?page=2",
-    "overlap": 0,
-    "new": 8,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 20,
-   "items": 1000,
+   "pages_this_run": 40,
+   "items": 1010,
    "texts": 996,
    "text_chars": 4440929,
    "attachments": 5,
    "attachment_files": 5,
    "items_new_this_run": 0,
-   "newest_date": "2026-10-28",
+   "newest_date": "2026-20",
    "oldest_date": "2020-03-25",
-   "run_at": "2026-11-02 10:22:15",
+   "run_at": "2026-11-02 12:05:13",
    "engine": "static"
   },
   {
@@ -75,12 +76,13 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.shantou.gov.cn/cnst/zwgk/jcxxgk/zfwj/index_2.html",
-    "overlap": 0,
-    "new": 14,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 20,
+   "pages_this_run": 40,
    "items": 691,
    "texts": 691,
    "text_chars": 2036729,
@@ -89,7 +91,34 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2012-07-10",
-   "run_at": "2026-11-02 10:22:03",
+   "run_at": "2026-11-02 12:04:59",
+   "engine": "static"
+  },
+  {
+   "site": "国家药品监督管理局",
+   "dir": "var\\data\\national\\中央\\国家药品监督管理局",
+   "status": "list_only_ok",
+   "board": "https://www.nmpa.gov.cn/xxgk/fgwj/index.html",
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.nmpa.gov.cn/xxgk/fgwj/index_2.html",
+    "overlap": 0,
+    "new": 15,
+    "ok": true
+   },
+   "pages_this_run": 20,
+   "items": 547,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-30",
+   "oldest_date": "2015-11-05",
+   "run_at": "2026-11-02 12:07:49",
    "engine": "static"
   },
   {
@@ -102,10 +131,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "http://www.panzhihua.gov.cn/zwgk/fggw/zfbwj/index_2.shtml",
-    "overlap": 0,
-    "new": 29,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 20,
    "items": 536,
@@ -116,7 +146,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-11",
    "oldest_date": "2011-11-14",
-   "run_at": "2026-11-02 10:21:53",
+   "run_at": "2026-11-02 12:04:26",
    "engine": "static"
   },
   {
@@ -141,10 +171,10 @@
    "text_chars": 1545094,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 42,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2009-08-24",
-   "run_at": "2026-11-02 11:25:22",
+   "run_at": "2026-11-02 12:05:53",
    "engine": "static"
   },
   {
@@ -157,12 +187,13 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "http://www.maoming.gov.cn/zwgk/szfwj/index_2.html",
-    "overlap": 0,
-    "new": 17,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 20,
+   "pages_this_run": 26,
    "items": 384,
    "texts": 384,
    "text_chars": 1392426,
@@ -171,7 +202,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-28",
    "oldest_date": "2008-10-16",
-   "run_at": "2026-11-02 10:22:35",
+   "run_at": "2026-11-02 12:05:13",
    "engine": "static"
   },
   {
@@ -184,10 +215,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.zhanjiang.gov.cn/zfwj/index_2.html",
-    "overlap": 0,
-    "new": 19,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 20,
    "items": 354,
@@ -198,7 +230,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2012-02-25",
-   "run_at": "2026-11-02 10:22:23",
+   "run_at": "2026-11-02 12:04:55",
    "engine": "static"
   },
   {
@@ -211,21 +243,22 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.safe.gov.cn/safe/zcfg/index_2.html",
-    "overlap": 0,
-    "new": 12,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 25,
+   "pages_this_run": 27,
    "items": 339,
    "texts": 339,
    "text_chars": 207040,
    "attachments": 4,
    "attachment_files": 4,
-   "items_new_this_run": 339,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-29",
    "oldest_date": "2000-01-11",
-   "run_at": "2026-11-02 11:31:31",
+   "run_at": "2026-11-02 12:05:56",
    "engine": "static"
   },
   {
@@ -238,10 +271,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.chaozhou.gov.cn/zwgk/zcfg/index_2.html",
-    "overlap": 0,
-    "new": 17,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 20,
    "items": 322,
@@ -252,7 +286,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-22",
    "oldest_date": "2005-10-27",
-   "run_at": "2026-11-02 10:23:05",
+   "run_at": "2026-11-02 12:05:09",
    "engine": "static"
   },
   {
@@ -265,10 +299,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "http://www.huizhou.gov.cn/zfxxgkml/hzsrmzf/gzwj/gfxwj/index_2.html",
-    "overlap": 0,
-    "new": 19,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 20,
    "items": 319,
@@ -279,7 +314,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-19",
    "oldest_date": "2007-11-07",
-   "run_at": "2026-11-02 10:21:59",
+   "run_at": "2026-11-02 12:04:26",
    "engine": "static"
   },
   {
@@ -292,10 +327,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.shanwei.gov.cn/shanwei/zwgk/jcxx/zcfg/index_2.html",
-    "overlap": 0,
-    "new": 19,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 14,
    "items": 229,
@@ -306,7 +342,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2010-04-20",
-   "run_at": "2026-11-02 10:21:59",
+   "run_at": "2026-11-02 12:04:32",
    "engine": "static"
   },
   {
@@ -334,7 +370,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-04",
    "oldest_date": "2017-08-10",
-   "run_at": "2026-11-02 10:45:58",
+   "run_at": "2026-11-02 12:03:53",
    "engine": "static"
   },
   {
@@ -347,10 +383,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.yangjiang.gov.cn/yj/zwgk/zcfg/index_2.html",
-    "overlap": 0,
-    "new": 20,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 7,
    "items": 132,
@@ -361,7 +398,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-09",
    "oldest_date": "2010-03-19",
-   "run_at": "2026-11-02 10:22:48",
+   "run_at": "2026-11-02 12:05:20",
    "engine": "static"
   },
   {
@@ -374,13 +411,14 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj_2.shtml",
-    "overlap": 0,
-    "new": 14,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 10,
-   "items": 124,
+   "pages_this_run": 11,
+   "items": 128,
    "texts": 124,
    "text_chars": 159446,
    "attachments": 8,
@@ -388,7 +426,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-30",
    "oldest_date": "2023-01-19",
-   "run_at": "2026-11-02 10:21:37",
+   "run_at": "2026-11-02 12:04:09",
    "engine": "static"
   },
   {
@@ -401,13 +439,14 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj_2.shtml",
-    "overlap": 0,
-    "new": 14,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 10,
-   "items": 124,
+   "pages_this_run": 11,
+   "items": 128,
    "texts": 124,
    "text_chars": 159446,
    "attachments": 8,
@@ -415,7 +454,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-30",
    "oldest_date": "2023-01-19",
-   "run_at": "2026-11-02 10:22:25",
+   "run_at": "2026-11-02 11:57:57",
    "engine": "static"
   },
   {
@@ -428,10 +467,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.yunfu.gov.cn/rsj/zwgk/zcfgyjd/index_2.html",
-    "overlap": 0,
-    "new": 18,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 7,
    "items": 107,
@@ -442,7 +482,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-28",
    "oldest_date": "2010-01-22",
-   "run_at": "2026-11-02 10:21:16",
+   "run_at": "2026-11-02 12:03:50",
    "engine": "static"
   },
   {
@@ -463,10 +503,10 @@
    "text_chars": 322073,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 91,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2024-04-08",
-   "run_at": "2026-11-02 11:30:36",
+   "run_at": "2026-11-02 12:05:22",
    "engine": "static"
   },
   {
@@ -490,7 +530,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-26",
    "oldest_date": "2020-11-18",
-   "run_at": "2026-11-02 10:21:39",
+   "run_at": "2026-11-02 12:04:16",
    "engine": "static"
   },
   {
@@ -503,10 +543,11 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.zhenjiang.gov.cn/zhenjiang/xzgfxwj/xxgk_xzfglist_2.shtml",
-    "overlap": 0,
-    "new": 20,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 5,
    "items": 87,
@@ -517,7 +558,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-17",
    "oldest_date": "2003-05-12",
-   "run_at": "2026-11-02 10:22:43",
+   "run_at": "2026-11-02 12:05:17",
    "engine": "static"
   },
   {
@@ -538,10 +579,10 @@
    "text_chars": 296352,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 85,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2023-11-29",
-   "run_at": "2026-11-02 11:15:18",
+   "run_at": "2026-11-02 12:05:19",
    "engine": "static"
   },
   {
@@ -562,10 +603,10 @@
    "text_chars": 207486,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 79,
+   "items_new_this_run": 0,
    "newest_date": "2021-01-01",
    "oldest_date": "2017-11-02",
-   "run_at": "2026-11-02 11:30:59",
+   "run_at": "2026-11-02 12:05:27",
    "engine": "static"
   },
   {
@@ -578,12 +619,13 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.ganzhou.gov.cn/zfxxgk/c145213/xxgk_zcwjlist_2.shtml",
-    "overlap": 0,
-    "new": 8,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 11,
+   "pages_this_run": 12,
    "items": 70,
    "texts": 70,
    "text_chars": 347600,
@@ -592,7 +634,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-03-20",
    "oldest_date": "2013-11-20",
-   "run_at": "2026-11-02 10:22:38",
+   "run_at": "2026-11-02 12:05:13",
    "engine": "static"
   },
   {
@@ -613,10 +655,10 @@
    "text_chars": 242884,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 64,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-04-10",
-   "run_at": "2026-11-02 11:30:45",
+   "run_at": "2026-11-02 12:05:23",
    "engine": "static"
   },
   {
@@ -629,13 +671,14 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.wuxi.gov.cn/zfxxgk/szfxxgkml/fgwjjjd/zfwj/zfgz/index_2.shtml",
-    "overlap": 0,
-    "new": 20,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 4,
-   "items": 63,
+   "items": 64,
    "texts": 63,
    "text_chars": 275238,
    "attachments": 7,
@@ -643,7 +686,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-11-26",
    "oldest_date": "2002-02-01",
-   "run_at": "2026-11-02 10:21:36",
+   "run_at": "2026-11-02 12:04:10",
    "engine": "static"
   },
   {
@@ -656,10 +699,11 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.hami.gov.cn/hami/c124048/zfxxgk_gknrz_2.shtml",
-    "overlap": 0,
-    "new": 8,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 5,
    "items": 55,
@@ -670,7 +714,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-20",
    "oldest_date": "2020-01-15",
-   "run_at": "2026-11-02 10:21:24",
+   "run_at": "2026-11-02 12:03:57",
    "engine": "static"
   },
   {
@@ -683,12 +727,13 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.yantai.gov.cn/col/col99957/index_2.html",
-    "overlap": 0,
-    "new": 23,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 3,
+   "pages_this_run": 4,
    "items": 55,
    "texts": 55,
    "text_chars": 209083,
@@ -697,7 +742,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-17",
    "oldest_date": "2025-11-28",
-   "run_at": "2026-11-02 10:22:10",
+   "run_at": "2026-11-02 12:04:41",
    "engine": "static"
   },
   {
@@ -710,10 +755,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.nmg.gov.cn/zwgk/gzk/index_2.html",
-    "overlap": 0,
-    "new": 15,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 6,
    "items": 54,
@@ -721,10 +767,10 @@
    "text_chars": 218484,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 54,
+   "items_new_this_run": 0,
    "newest_date": "2025-10-24",
    "oldest_date": "2000-01-06",
-   "run_at": "2026-11-02 11:15:27",
+   "run_at": "2026-11-02 12:05:24",
    "engine": "static"
   },
   {
@@ -737,12 +783,13 @@
      "query",
      "page"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.suining.gov.cn/zfxxgk/gfxwj.html?page=2",
-    "overlap": 0,
-    "new": 19,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 4,
+   "pages_this_run": 5,
    "items": 49,
    "texts": 49,
    "text_chars": 181595,
@@ -751,7 +798,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-13",
    "oldest_date": "2020-02-06",
-   "run_at": "2026-11-02 10:22:38",
+   "run_at": "2026-11-02 12:05:12",
    "engine": "static"
   },
   {
@@ -775,7 +822,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-12",
    "oldest_date": "2024-05-17",
-   "run_at": "2026-11-02 10:22:34",
+   "run_at": "2026-11-02 12:05:09",
    "engine": "static"
   },
   {
@@ -788,10 +835,11 @@
      "path",
      ""
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.xa.gov.cn/gk/zcfg/gfxwj/zfgfxwj/2.html",
-    "overlap": 10,
-    "new": 16,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 3,
    "items": 45,
@@ -802,7 +850,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-02",
    "oldest_date": "2016-04-25",
-   "run_at": "2026-11-02 10:22:49",
+   "run_at": "2026-11-02 12:05:02",
    "engine": "static"
   },
   {
@@ -823,10 +871,10 @@
    "text_chars": 183351,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 44,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2015-05-21",
-   "run_at": "2026-11-02 11:30:47",
+   "run_at": "2026-11-02 12:05:25",
    "engine": "static"
   },
   {
@@ -850,7 +898,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2022-01-28",
-   "run_at": "2026-11-02 10:22:08",
+   "run_at": "2026-11-02 12:04:42",
    "engine": "static"
   },
   {
@@ -874,7 +922,31 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2017-10-24",
-   "run_at": "2026-11-02 10:21:24",
+   "run_at": "2026-11-02 12:03:56",
+   "engine": "static"
+  },
+  {
+   "site": "海南省",
+   "dir": "var\\data\\national\\海南省\\海南省",
+   "status": "list_only_ok",
+   "board": "https://hainan.gov.cn/hainan/zfwj/szfzcwj.shtml",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 40,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-26",
+   "oldest_date": "2022-07-01",
+   "run_at": "2026-11-02 11:58:17",
    "engine": "static"
   },
   {
@@ -895,10 +967,10 @@
    "text_chars": 270219,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 37,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-29",
    "oldest_date": "2017-01-06",
-   "run_at": "2026-11-02 11:31:36",
+   "run_at": "2026-11-02 12:05:31",
    "engine": "static"
   },
   {
@@ -922,7 +994,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-20",
    "oldest_date": "2021-03-15",
-   "run_at": "2026-11-02 10:21:39",
+   "run_at": "2026-11-02 12:04:12",
    "engine": "static"
   },
   {
@@ -943,10 +1015,10 @@
    "text_chars": 37828,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 36,
+   "items_new_this_run": 0,
    "newest_date": "2026-02-00",
    "oldest_date": "2025-02-00",
-   "run_at": "2026-11-02 11:30:49",
+   "run_at": "2026-11-02 12:05:24",
    "engine": "static"
   },
   {
@@ -967,10 +1039,10 @@
    "text_chars": 192643,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 35,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-03-22",
-   "run_at": "2026-11-02 11:16:07",
+   "run_at": "2026-11-02 12:05:20",
    "engine": "static"
   },
   {
@@ -994,7 +1066,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-11-05",
    "oldest_date": "2021-08-12",
-   "run_at": "2026-11-02 10:22:10",
+   "run_at": "2026-11-02 12:04:43",
    "engine": "static"
   },
   {
@@ -1018,7 +1090,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-08-25",
-   "run_at": "2026-11-02 10:21:22",
+   "run_at": "2026-11-02 12:03:55",
    "engine": "static"
   },
   {
@@ -1033,7 +1105,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 3,
+   "pages_this_run": 4,
    "items": 30,
    "texts": 30,
    "text_chars": 208802,
@@ -1042,7 +1114,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-09-16",
    "oldest_date": "2011-12-31",
-   "run_at": "2026-11-02 10:21:14",
+   "run_at": "2026-11-02 12:03:49",
    "engine": "static"
   },
   {
@@ -1066,7 +1138,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-24",
    "oldest_date": "2026-09-11",
-   "run_at": "2026-11-02 10:21:18",
+   "run_at": "2026-11-02 12:03:51",
    "engine": "static"
   },
   {
@@ -1090,7 +1162,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2025-11-07",
-   "run_at": "2026-11-02 10:22:41",
+   "run_at": "2026-11-02 12:05:14",
    "engine": "static"
   },
   {
@@ -1114,7 +1186,7 @@
    "items_new_this_run": 0,
    "newest_date": "2023-06-15",
    "oldest_date": "2013-11-27",
-   "run_at": "2026-11-02 10:22:44",
+   "run_at": "2026-11-02 12:05:15",
    "engine": "static"
   },
   {
@@ -1138,7 +1210,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-14",
    "oldest_date": "2022-10-25",
-   "run_at": "2026-11-02 10:21:26",
+   "run_at": "2026-11-02 12:03:57",
    "engine": "static"
   },
   {
@@ -1162,7 +1234,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2024-09-30",
-   "run_at": "2026-11-02 10:21:08",
+   "run_at": "2026-11-02 12:03:41",
    "engine": "static"
   },
   {
@@ -1186,7 +1258,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-04-01",
    "oldest_date": "2021-01-28",
-   "run_at": "2026-11-02 10:22:02",
+   "run_at": "2026-11-02 12:04:34",
    "engine": "static"
   },
   {
@@ -1210,7 +1282,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-26",
    "oldest_date": "2017-06-16",
-   "run_at": "2026-11-02 10:22:17",
+   "run_at": "2026-11-02 12:04:56",
    "engine": "static"
   },
   {
@@ -1234,7 +1306,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-06-13",
-   "run_at": "2026-11-02 10:21:07",
+   "run_at": "2026-11-02 12:03:41",
    "engine": "static"
   },
   {
@@ -1247,10 +1319,11 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.wlmq.gov.cn/wlmqs/c119064/zfxxgk_list_2.shtml",
-    "overlap": 0,
-    "new": 12,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 2,
    "items": 24,
@@ -1261,7 +1334,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-04-30",
    "oldest_date": "2022-08-26",
-   "run_at": "2026-11-02 10:21:10",
+   "run_at": "2026-11-02 12:03:43",
    "engine": "static"
   },
   {
@@ -1274,13 +1347,14 @@
      "suffixdash",
      "-"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.nc.gov.cn/ncszf/gzk/gzk-2.shtml",
-    "overlap": 0,
-    "new": 22,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 3,
-   "items": 22,
+   "pages_this_run": 4,
+   "items": 24,
    "texts": 22,
    "text_chars": 97027,
    "attachments": 5,
@@ -1288,7 +1362,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2025-03-14",
-   "run_at": "2026-11-02 10:21:20",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -1312,7 +1386,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-22",
    "oldest_date": "2026-07-28",
-   "run_at": "2026-11-02 10:21:23",
+   "run_at": "2026-11-02 12:03:57",
    "engine": "static"
   },
   {
@@ -1336,7 +1410,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-27",
    "oldest_date": "2023-07-05",
-   "run_at": "2026-11-02 10:22:01",
+   "run_at": "2026-11-02 12:04:33",
    "engine": "static"
   },
   {
@@ -1360,7 +1434,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-18",
    "oldest_date": "2022-06-28",
-   "run_at": "2026-11-02 10:22:06",
+   "run_at": "2026-11-02 12:04:38",
    "engine": "static"
   },
   {
@@ -1384,7 +1458,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-22",
    "oldest_date": "2022-07-25",
-   "run_at": "2026-11-02 10:22:07",
+   "run_at": "2026-11-02 12:04:40",
    "engine": "static"
   },
   {
@@ -1408,7 +1482,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2023-12-20",
-   "run_at": "2026-11-02 10:22:12",
+   "run_at": "2026-11-02 12:04:45",
    "engine": "static"
   },
   {
@@ -1432,7 +1506,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-05-06",
    "oldest_date": "2024-01-09",
-   "run_at": "2026-11-02 10:21:13",
+   "run_at": "2026-11-02 12:03:45",
    "engine": "static"
   },
   {
@@ -1460,7 +1534,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-24",
    "oldest_date": "2017-11-02",
-   "run_at": "2026-11-02 11:12:08",
+   "run_at": "2026-11-02 12:05:21",
    "engine": "static"
   },
   {
@@ -1484,7 +1558,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2019-04-24",
-   "run_at": "2026-11-02 11:11:58",
+   "run_at": "2026-11-02 12:05:18",
    "engine": "static"
   },
   {
@@ -1508,7 +1582,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-09-02",
    "oldest_date": "2023-01-09",
-   "run_at": "2026-11-02 10:21:27",
+   "run_at": "2026-11-02 12:04:01",
    "engine": "static"
   },
   {
@@ -1532,7 +1606,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2017-07-26",
-   "run_at": "2026-11-02 10:22:08",
+   "run_at": "2026-11-02 12:04:42",
    "engine": "static"
   },
   {
@@ -1556,7 +1630,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2020-12-01",
-   "run_at": "2026-11-02 10:22:13",
+   "run_at": "2026-11-02 12:04:45",
    "engine": "static"
   },
   {
@@ -1577,10 +1651,10 @@
    "text_chars": 101374,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 20,
+   "items_new_this_run": 0,
    "newest_date": "2025-11-14",
    "oldest_date": "2021-02-02",
-   "run_at": "2026-11-02 11:15:17",
+   "run_at": "2026-11-02 12:05:19",
    "engine": "static"
   },
   {
@@ -1604,7 +1678,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2022-04-15",
-   "run_at": "2026-11-02 10:21:17",
+   "run_at": "2026-11-02 12:03:48",
    "engine": "static"
   },
   {
@@ -1628,7 +1702,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-10",
    "oldest_date": "2022-01-02",
-   "run_at": "2026-11-02 10:21:20",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -1649,10 +1723,58 @@
    "text_chars": 73911,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 19,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-14",
    "oldest_date": "2022-11-22",
-   "run_at": "2026-11-02 11:15:33",
+   "run_at": "2026-11-02 12:05:26",
+   "engine": "static"
+  },
+  {
+   "site": "河池市",
+   "dir": "var\\data\\national\\广西壮族自治区\\河池市",
+   "status": "list_only_ok",
+   "board": "http://www.hechi.gov.cn/zfxxgk/zfwj/xzgfxwjk/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 19,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-00",
+   "oldest_date": "2023-00",
+   "run_at": "2026-11-02 12:04:29",
+   "engine": "static"
+  },
+  {
+   "site": "洛阳市",
+   "dir": "var\\data\\national\\河南省\\洛阳市",
+   "status": "list_only_ok",
+   "board": "https://www.ly.gov.cn/xzgfxwjk/szf/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 19,
+   "texts": 17,
+   "text_chars": 83358,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-08-11",
+   "oldest_date": "2025-07-21",
+   "run_at": "2026-11-02 12:04:31",
    "engine": "static"
   },
   {
@@ -1676,7 +1798,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-09",
    "oldest_date": "2022-03-23",
-   "run_at": "2026-11-02 10:22:09",
+   "run_at": "2026-11-02 12:04:43",
    "engine": "static"
   },
   {
@@ -1697,10 +1819,10 @@
    "text_chars": 22467,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 19,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-30",
    "oldest_date": "2025-02-11",
-   "run_at": "2026-11-02 11:15:20",
+   "run_at": "2026-11-02 12:05:19",
    "engine": "static"
   },
   {
@@ -1724,7 +1846,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-20",
    "oldest_date": "2024-12-30",
-   "run_at": "2026-11-02 10:22:38",
+   "run_at": "2026-11-02 12:05:12",
    "engine": "static"
   },
   {
@@ -1745,10 +1867,10 @@
    "text_chars": 82625,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 18,
+   "items_new_this_run": 0,
    "newest_date": "2026-07-31",
    "oldest_date": "2025-07-21",
-   "run_at": "2026-11-02 11:31:01",
+   "run_at": "2026-11-02 12:05:28",
    "engine": "static"
   },
   {
@@ -1772,7 +1894,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2024-12-25",
-   "run_at": "2026-11-02 10:21:38",
+   "run_at": "2026-11-02 12:04:12",
    "engine": "static"
   },
   {
@@ -1796,31 +1918,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2024-04-11",
-   "run_at": "2026-11-02 10:21:14",
-   "engine": "static"
-  },
-  {
-   "site": "洛阳市",
-   "dir": "var\\data\\national\\河南省\\洛阳市",
-   "status": "list_only_ok",
-   "board": "https://www.ly.gov.cn/xzgfxwjk/szf/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 17,
-   "texts": 17,
-   "text_chars": 83358,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-08-11",
-   "oldest_date": "2025-07-21",
-   "run_at": "2026-11-02 10:21:59",
+   "run_at": "2026-11-02 12:03:47",
    "engine": "static"
   },
   {
@@ -1844,7 +1942,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-25",
    "oldest_date": "2021-06-16",
-   "run_at": "2026-11-02 10:22:02",
+   "run_at": "2026-11-02 12:04:34",
    "engine": "static"
   },
   {
@@ -1886,7 +1984,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-12",
    "oldest_date": "2025-09-08",
-   "run_at": "2026-11-02 10:22:45",
+   "run_at": "2026-11-02 12:05:16",
    "engine": "static"
   },
   {
@@ -1907,10 +2005,10 @@
    "text_chars": 43778,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 16,
+   "items_new_this_run": 0,
    "newest_date": "2026-01-09",
    "oldest_date": "2016-12-23",
-   "run_at": "2026-11-02 11:30:55",
+   "run_at": "2026-11-02 12:05:26",
    "engine": "static"
   },
   {
@@ -1923,12 +2021,13 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.wulanchabu.gov.cn/zcfg/index_2.html",
-    "overlap": 4,
-    "new": 4,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 3,
+   "pages_this_run": 4,
    "items": 16,
    "texts": 16,
    "text_chars": 101623,
@@ -1937,7 +2036,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-29",
    "oldest_date": "2025-05-19",
-   "run_at": "2026-11-02 10:21:13",
+   "run_at": "2026-11-02 12:03:44",
    "engine": "static"
   },
   {
@@ -1958,10 +2057,10 @@
    "text_chars": 41153,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 16,
+   "items_new_this_run": 0,
    "newest_date": "2026-06-25",
    "oldest_date": "2016-11-23",
-   "run_at": "2026-11-02 11:30:57",
+   "run_at": "2026-11-02 12:05:26",
    "engine": "static"
   },
   {
@@ -1982,10 +2081,10 @@
    "text_chars": 51482,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 16,
+   "items_new_this_run": 0,
    "newest_date": "2026-06-03",
    "oldest_date": "2016-03-28",
-   "run_at": "2026-11-02 11:31:32",
+   "run_at": "2026-11-02 12:05:29",
    "engine": "static"
   },
   {
@@ -2000,7 +2099,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 4,
+   "pages_this_run": 5,
    "items": 16,
    "texts": 16,
    "text_chars": 17403,
@@ -2009,7 +2108,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-03",
    "oldest_date": "2026-04-26",
-   "run_at": "2026-11-02 10:22:05",
+   "run_at": "2026-11-02 12:04:37",
    "engine": "static"
   },
   {
@@ -2033,7 +2132,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2025-10-20",
-   "run_at": "2026-11-02 10:22:02",
+   "run_at": "2026-11-02 12:04:35",
    "engine": "static"
   },
   {
@@ -2057,7 +2156,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-11-02",
    "oldest_date": "2025-12-23",
-   "run_at": "2026-11-02 11:11:59",
+   "run_at": "2026-11-02 12:05:18",
    "engine": "static"
   },
   {
@@ -2070,10 +2169,11 @@
      "suffix",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.hanzhong.gov.cn/hzszf/zwgk/zfwj/gfxwj/wjzlm_gfxwj_2.shtml",
-    "overlap": 0,
-    "new": 1,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 8,
    "items": 15,
@@ -2084,7 +2184,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-01",
    "oldest_date": "2014-08-11",
-   "run_at": "2026-11-02 10:21:50",
+   "run_at": "2026-11-02 12:04:25",
    "engine": "static"
   },
   {
@@ -2108,7 +2208,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-23",
    "oldest_date": "2025-07-11",
-   "run_at": "2026-11-02 10:22:00",
+   "run_at": "2026-11-02 12:04:33",
    "engine": "static"
   },
   {
@@ -2129,10 +2229,10 @@
    "text_chars": 27788,
    "attachments": 5,
    "attachment_files": 5,
-   "items_new_this_run": null,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": null,
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-16",
+   "oldest_date": "2025-05-07",
+   "run_at": "2026-11-02 12:04:44",
    "engine": "static"
   },
   {
@@ -2145,10 +2245,11 @@
      "index",
      "_"
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.lswz.gov.cn/html/ywpd/fgtg/index_2.shtml",
-    "overlap": 0,
-    "new": 3,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
    "pages_this_run": 4,
    "items": 14,
@@ -2156,10 +2257,10 @@
    "text_chars": 56953,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 14,
+   "items_new_this_run": 0,
    "newest_date": "2022-05-25",
    "oldest_date": "2020-03-17",
-   "run_at": "2026-11-02 11:44:21",
+   "run_at": "2026-11-02 12:05:29",
    "engine": "static"
   },
   {
@@ -2183,7 +2284,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-29",
    "oldest_date": "2023-05-23",
-   "run_at": "2026-11-02 10:22:20",
+   "run_at": "2026-11-02 12:04:58",
    "engine": "static"
   },
   {
@@ -2203,6 +2304,30 @@
    "oldest_date": "2025-05-23",
    "run_at": "2026-11-02 10:36:50",
    "engine": "headless-dom"
+  },
+  {
+   "site": "运城市",
+   "dir": "var\\data\\national\\山西省\\运城市",
+   "status": "list_only_ok",
+   "board": "https://www.yuncheng.gov.cn/zwgk_1/xxgkml/zfwj/index.shtml",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 14,
+   "texts": 11,
+   "text_chars": 14697,
+   "attachments": 5,
+   "attachment_files": 5,
+   "items_new_this_run": 0,
+   "newest_date": "2026-11-02",
+   "oldest_date": "2026-04-16",
+   "run_at": "2026-11-02 12:05:07",
+   "engine": "static"
   },
   {
    "site": "双鸭山市",
@@ -2225,7 +2350,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-09",
    "oldest_date": "2021-01-19",
-   "run_at": "2026-11-02 10:21:18",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -2249,7 +2374,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-09",
    "oldest_date": "2021-09-30",
-   "run_at": "2026-11-02 10:21:21",
+   "run_at": "2026-11-02 12:03:54",
    "engine": "static"
   },
   {
@@ -2309,7 +2434,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-23",
    "oldest_date": "2025-07-02",
-   "run_at": "2026-11-02 10:22:04",
+   "run_at": "2026-11-02 12:04:35",
    "engine": "static"
   },
   {
@@ -2333,7 +2458,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-09-11",
    "oldest_date": "2026-03-11",
-   "run_at": "2026-11-02 10:21:15",
+   "run_at": "2026-11-02 12:03:46",
    "engine": "static"
   },
   {
@@ -2348,7 +2473,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 3,
+   "pages_this_run": 4,
    "items": 12,
    "texts": 12,
    "text_chars": 52782,
@@ -2357,7 +2482,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-25",
    "oldest_date": "2016-03-25",
-   "run_at": "2026-11-02 10:21:43",
+   "run_at": "2026-11-02 12:04:18",
    "engine": "static"
   },
   {
@@ -2381,7 +2506,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-19",
    "oldest_date": "2026-06-29",
-   "run_at": "2026-11-02 11:12:00",
+   "run_at": "2026-11-02 12:05:18",
    "engine": "static"
   },
   {
@@ -2405,7 +2530,7 @@
    "items_new_this_run": 0,
    "newest_date": "2024-04-16",
    "oldest_date": "2019-02-11",
-   "run_at": "2026-11-02 10:22:45",
+   "run_at": "2026-11-02 12:05:17",
    "engine": "static"
   },
   {
@@ -2426,10 +2551,10 @@
    "text_chars": 45110,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 11,
+   "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2023-01-30",
-   "run_at": "2026-11-02 11:30:39",
+   "run_at": "2026-11-02 12:05:23",
    "engine": "static"
   },
   {
@@ -2453,7 +2578,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-30",
    "oldest_date": "2026-09-20",
-   "run_at": "2026-11-02 10:21:18",
+   "run_at": "2026-11-02 12:03:51",
    "engine": "static"
   },
   {
@@ -2477,7 +2602,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-02",
    "oldest_date": "2012-03-14",
-   "run_at": "2026-11-02 10:21:21",
+   "run_at": "2026-11-02 12:03:53",
    "engine": "static"
   },
   {
@@ -2498,17 +2623,17 @@
    "text_chars": 108376,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 11,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-11",
    "oldest_date": "2011-05-04",
-   "run_at": "2026-11-02 11:31:04",
+   "run_at": "2026-11-02 12:05:28",
    "engine": "static"
   },
   {
-   "site": "运城市",
-   "dir": "var\\data\\national\\山西省\\运城市",
+   "site": "铜陵市",
+   "dir": "var\\data\\national\\安徽省\\铜陵市",
    "status": "list_only_ok",
-   "board": "https://www.yuncheng.gov.cn/zwgk_1/xxgkml/zfwj/index.shtml",
+   "board": "https://www.tl.gov.cn/openness/OpennessPolicy/showList/2/page_1.html?type=gz",
    "pagination": {
     "rule": null,
     "page2_url": null,
@@ -2518,14 +2643,14 @@
    },
    "pages_this_run": 1,
    "items": 11,
-   "texts": 11,
-   "text_chars": 14697,
+   "texts": 7,
+   "text_chars": 30637,
    "attachments": 5,
    "attachment_files": 5,
    "items_new_this_run": 0,
-   "newest_date": "2026-10-20",
-   "oldest_date": "2026-04-16",
-   "run_at": "2026-11-02 10:22:32",
+   "newest_date": "2025-20",
+   "oldest_date": "2018-09-17",
+   "run_at": "2026-11-02 12:05:11",
    "engine": "static"
   },
   {
@@ -2546,10 +2671,10 @@
    "text_chars": 29309,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 10,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-22",
    "oldest_date": "2022-12-27",
-   "run_at": "2026-11-02 11:31:34",
+   "run_at": "2026-11-02 12:05:30",
    "engine": "static"
   },
   {
@@ -2570,10 +2695,10 @@
    "text_chars": 68834,
    "attachments": 2,
    "attachment_files": 2,
-   "items_new_this_run": 10,
+   "items_new_this_run": 0,
    "newest_date": "2026-09-08",
    "oldest_date": "2024-08-06",
-   "run_at": "2026-11-02 11:30:44",
+   "run_at": "2026-11-02 11:58:23",
    "engine": "static"
   },
   {
@@ -2597,7 +2722,35 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-20",
    "oldest_date": "2025-04-30",
-   "run_at": "2026-11-02 10:21:22",
+   "run_at": "2026-11-02 12:03:55",
+   "engine": "static"
+  },
+  {
+   "site": "延安市",
+   "dir": "var\\data\\national\\陕西省\\延安市",
+   "status": "list_only_ok",
+   "board": "https://www.yanan.gov.cn/gk/zc/xzgfxwjk/1.html",
+   "pagination": {
+    "rule": [
+     "path",
+     ""
+    ],
+    "ok": true,
+    "source": "site-rules.json",
+    "page2_url": "https://www.yanan.gov.cn/gk/zc/xzgfxwjk/2.html",
+    "overlap": null,
+    "new": null
+   },
+   "pages_this_run": 6,
+   "items": 10,
+   "texts": 9,
+   "text_chars": 25155,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-10-10",
+   "oldest_date": "2018-20",
+   "run_at": "2026-11-02 12:04:02",
    "engine": "static"
   },
   {
@@ -2621,7 +2774,35 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-23",
    "oldest_date": "2026-08-14",
-   "run_at": "2026-11-02 10:22:05",
+   "run_at": "2026-11-02 12:04:03",
+   "engine": "static"
+  },
+  {
+   "site": "丹东市",
+   "dir": "var\\data\\national\\辽宁省\\丹东市",
+   "status": "list_only_ok",
+   "board": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct?siteCode=DDSZF&pageMax=20&govTextnumId=163859249782368&beginYear=2007",
+   "pagination": {
+    "rule": [
+     "query",
+     "pageNum"
+    ],
+    "ok": true,
+    "source": "site-rules.json",
+    "page2_url": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct&pageNum=2",
+    "overlap": null,
+    "new": null
+   },
+   "pages_this_run": 4,
+   "items": 9,
+   "texts": 7,
+   "text_chars": 22017,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-20",
+   "oldest_date": "2025-12-15",
+   "run_at": "2026-11-02 12:03:44",
    "engine": "static"
   },
   {
@@ -2645,34 +2826,31 @@
    "items_new_this_run": 0,
    "newest_date": "2026-03-09",
    "oldest_date": "2020-09-08",
-   "run_at": "2026-11-02 10:21:22",
+   "run_at": "2026-11-02 12:04:35",
    "engine": "static"
   },
   {
-   "site": "延安市",
-   "dir": "var\\data\\national\\陕西省\\延安市",
+   "site": "柳州市",
+   "dir": "var\\data\\national\\广西壮族自治区\\柳州市",
    "status": "list_only_ok",
-   "board": "https://www.yanan.gov.cn/gk/zc/xzgfxwjk/1.html",
+   "board": "http://www.liuzhou.gov.cn/#zcwj",
    "pagination": {
-    "rule": [
-     "path",
-     ""
-    ],
-    "page2_url": "https://www.yanan.gov.cn/gk/zc/xzgfxwjk/2.html",
-    "overlap": 0,
-    "new": 9,
-    "ok": true
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
    },
-   "pages_this_run": 3,
+   "pages_this_run": 1,
    "items": 9,
-   "texts": 9,
-   "text_chars": 25155,
-   "attachments": 0,
-   "attachment_files": 0,
+   "texts": 5,
+   "text_chars": 18450,
+   "attachments": 5,
+   "attachment_files": 5,
    "items_new_this_run": 0,
-   "newest_date": "2026-10-10",
-   "oldest_date": "2025-08-14",
-   "run_at": "2026-11-02 10:21:27",
+   "newest_date": "2026-10-26",
+   "oldest_date": "2021-20",
+   "run_at": "2026-11-02 12:04:13",
    "engine": "static"
   },
   {
@@ -2703,12 +2881,13 @@
      "path",
      ""
     ],
+    "ok": true,
+    "source": "site-rules.json",
     "page2_url": "https://www.weinan.gov.cn/zfxxgk/zc/zcwj/szfwj/2.html",
-    "overlap": 0,
-    "new": 9,
-    "ok": true
+    "overlap": null,
+    "new": null
    },
-   "pages_this_run": 3,
+   "pages_this_run": 4,
    "items": 9,
    "texts": 9,
    "text_chars": 41711,
@@ -2717,7 +2896,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-06",
    "oldest_date": "2026-01-09",
-   "run_at": "2026-11-02 10:22:05",
+   "run_at": "2026-11-02 12:04:37",
    "engine": "static"
   },
   {
@@ -2741,7 +2920,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-17",
    "oldest_date": "2023-09-17",
-   "run_at": "2026-11-02 10:21:19",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -2765,7 +2944,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-14",
    "oldest_date": "2016-07-28",
-   "run_at": "2026-11-02 10:21:22",
+   "run_at": "2026-11-02 12:03:56",
    "engine": "static"
   },
   {
@@ -2789,7 +2968,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-26",
    "oldest_date": "2021-12-08",
-   "run_at": "2026-11-02 10:21:27",
+   "run_at": "2026-11-02 12:04:00",
    "engine": "static"
   },
   {
@@ -2813,7 +2992,7 @@
    "items_new_this_run": 0,
    "newest_date": "2021-09-29",
    "oldest_date": "2017-10-24",
-   "run_at": "2026-11-02 10:22:01",
+   "run_at": "2026-11-02 12:04:32",
    "engine": "static"
   },
   {
@@ -2837,7 +3016,7 @@
    "items_new_this_run": 0,
    "newest_date": "2031-02-01",
    "oldest_date": "2025-12-24",
-   "run_at": "2026-11-02 10:22:40",
+   "run_at": "2026-11-02 12:05:14",
    "engine": "static"
   },
   {
@@ -2861,34 +3040,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-16",
    "oldest_date": "2025-08-22",
-   "run_at": "2026-11-02 10:22:44",
-   "engine": "static"
-  },
-  {
-   "site": "丹东市",
-   "dir": "var\\data\\national\\辽宁省\\丹东市",
-   "status": "list_only_ok",
-   "board": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct?siteCode=DDSZF&pageMax=20&govTextnumId=163859249782368&beginYear=2007",
-   "pagination": {
-    "rule": [
-     "query",
-     "pageNum"
-    ],
-    "page2_url": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct&pageNum=2",
-    "overlap": 0,
-    "new": 7,
-    "ok": true
-   },
-   "pages_this_run": 3,
-   "items": 7,
-   "texts": 7,
-   "text_chars": 22017,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": "2026-09-21",
-   "oldest_date": "2025-12-15",
-   "run_at": "2026-11-02 10:21:19",
+   "run_at": "2026-11-02 12:05:17",
    "engine": "static"
   },
   {
@@ -2912,7 +3064,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2026-07-24",
-   "run_at": "2026-11-02 10:21:16",
+   "run_at": "2026-11-02 12:03:50",
    "engine": "static"
   },
   {
@@ -2936,7 +3088,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-28",
    "oldest_date": "2024-06-17",
-   "run_at": "2026-11-02 10:21:28",
+   "run_at": "2026-11-02 12:04:02",
    "engine": "static"
   },
   {
@@ -2960,31 +3112,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-17",
    "oldest_date": "2019-11-21",
-   "run_at": "2026-11-02 10:22:28",
-   "engine": "static"
-  },
-  {
-   "site": "铜陵市",
-   "dir": "var\\data\\national\\安徽省\\铜陵市",
-   "status": "list_only_ok",
-   "board": "https://www.tl.gov.cn/openness/OpennessPolicy/showList/2/page_1.html?type=gz",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 7,
-   "texts": 7,
-   "text_chars": 30637,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2025-07-22",
-   "oldest_date": "2018-09-17",
-   "run_at": "2026-11-02 10:22:37",
+   "run_at": "2026-11-02 12:05:07",
    "engine": "static"
   },
   {
@@ -3026,7 +3154,7 @@
    "items_new_this_run": 0,
    "newest_date": "2023-11-05",
    "oldest_date": "2023-03-16",
-   "run_at": "2026-11-02 10:21:20",
+   "run_at": "2026-11-02 12:03:53",
    "engine": "static"
   },
   {
@@ -3050,7 +3178,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-28",
    "oldest_date": "2026-10-21",
-   "run_at": "2026-11-02 10:21:28",
+   "run_at": "2026-11-02 12:04:02",
    "engine": "static"
   },
   {
@@ -3074,7 +3202,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-16",
    "oldest_date": "2026-04-23",
-   "run_at": "2026-11-02 10:21:41",
+   "run_at": "2026-11-02 12:04:16",
    "engine": "static"
   },
   {
@@ -3098,7 +3226,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-21",
    "oldest_date": "2026-07-04",
-   "run_at": "2026-11-02 11:12:03",
+   "run_at": "2026-11-02 12:05:18",
    "engine": "static"
   },
   {
@@ -3122,7 +3250,7 @@
    "items_new_this_run": 0,
    "newest_date": "2025-12-15",
    "oldest_date": "2021-08-30",
-   "run_at": "2026-11-02 10:21:08",
+   "run_at": "2026-11-02 12:03:41",
    "engine": "static"
   },
   {
@@ -3146,31 +3274,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-08",
    "oldest_date": "2025-03-28",
-   "run_at": "2026-11-02 10:21:19",
-   "engine": "static"
-  },
-  {
-   "site": "柳州市",
-   "dir": "var\\data\\national\\广西壮族自治区\\柳州市",
-   "status": "list_only_ok",
-   "board": "http://www.liuzhou.gov.cn/#zcwj",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 5,
-   "texts": 5,
-   "text_chars": 18450,
-   "attachments": 5,
-   "attachment_files": 5,
-   "items_new_this_run": 0,
-   "newest_date": "2026-10-26",
-   "oldest_date": "2026-10-08",
-   "run_at": "2026-11-02 10:21:40",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -3194,7 +3298,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-08-27",
    "oldest_date": "2026-04-21",
-   "run_at": "2026-11-02 10:21:58",
+   "run_at": "2026-11-02 12:04:28",
    "engine": "static"
   },
   {
@@ -3218,7 +3322,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-01-20",
    "oldest_date": "2020-12-31",
-   "run_at": "2026-11-02 10:21:59",
+   "run_at": "2026-11-02 12:04:31",
    "engine": "static"
   },
   {
@@ -3242,7 +3346,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-01-06",
    "oldest_date": "2025-10-14",
-   "run_at": "2026-11-02 10:22:39",
+   "run_at": "2026-11-02 12:05:13",
    "engine": "static"
   },
   {
@@ -3266,7 +3370,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-04-28",
    "oldest_date": "2025-01-20",
-   "run_at": "2026-11-02 10:21:09",
+   "run_at": "2026-11-02 12:03:42",
    "engine": "static"
   },
   {
@@ -3290,7 +3394,7 @@
    "items_new_this_run": 0,
    "newest_date": "2021-04-12",
    "oldest_date": "2017-06-30",
-   "run_at": "2026-11-02 10:21:30",
+   "run_at": "2026-11-02 12:04:04",
    "engine": "static"
   },
   {
@@ -3314,7 +3418,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-15",
    "oldest_date": "2016-06-08",
-   "run_at": "2026-11-02 10:22:09",
+   "run_at": "2026-11-02 12:04:43",
    "engine": "static"
   },
   {
@@ -3338,7 +3442,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-10-22",
    "oldest_date": "2026-09-03",
-   "run_at": "2026-11-02 10:22:35",
+   "run_at": "2026-11-02 12:05:10",
    "engine": "static"
   },
   {
@@ -3359,10 +3463,10 @@
    "text_chars": 3748,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 3,
+   "items_new_this_run": 0,
    "newest_date": "2026-10-10",
    "oldest_date": "2026-09-01",
-   "run_at": "2026-11-02 11:44:23",
+   "run_at": "2026-11-02 12:05:23",
    "engine": "static"
   },
   {
@@ -3383,10 +3487,37 @@
    "text_chars": 2767,
    "attachments": 3,
    "attachment_files": 3,
-   "items_new_this_run": 3,
+   "items_new_this_run": 0,
    "newest_date": "2025-03-26",
    "oldest_date": "2023-12-18",
-   "run_at": "2026-11-02 11:30:54",
+   "run_at": "2026-11-02 12:05:27",
+   "engine": "static"
+  },
+  {
+   "site": "怀化市",
+   "dir": "var\\data\\national\\湖南省\\怀化市",
+   "status": "list_only_ok",
+   "board": "https://www.huaihua.gov.cn/huaihua/c100247/wjk2020.shtml",
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.huaihua.gov.cn/huaihua/c100247/wjk2020_2.shtml",
+    "overlap": 0,
+    "new": 1,
+    "ok": true
+   },
+   "pages_this_run": 6,
+   "items": 3,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2020-20",
+   "oldest_date": "2016-20",
+   "run_at": "2026-11-02 12:04:10",
    "engine": "static"
   },
   {
@@ -3410,7 +3541,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-07-13",
    "oldest_date": "2025-12-02",
-   "run_at": "2026-11-02 10:22:40",
+   "run_at": "2026-11-02 12:05:14",
    "engine": "static"
   },
   {
@@ -3434,7 +3565,7 @@
    "items_new_this_run": 0,
    "newest_date": "2026-06-30",
    "oldest_date": "2024-11-30",
-   "run_at": "2026-11-02 10:22:43",
+   "run_at": "2026-11-02 12:05:15",
    "engine": "static"
   },
   {
@@ -3458,7 +3589,7 @@
    "items_new_this_run": 0,
    "newest_date": "2021-06-24",
    "oldest_date": "2017-01-11",
-   "run_at": "2026-11-02 10:21:42",
+   "run_at": "2026-11-02 12:04:18",
    "engine": "static"
   },
   {
@@ -3482,7 +3613,31 @@
    "items_new_this_run": 0,
    "newest_date": "2021-06-24",
    "oldest_date": "2017-01-11",
-   "run_at": "2026-11-02 10:22:08",
+   "run_at": "2026-11-02 12:04:42",
+   "engine": "static"
+  },
+  {
+   "site": "临沂市",
+   "dir": "var\\data\\national\\山东省\\临沂市",
+   "status": "list_only_ok",
+   "board": "https://www.linyi.gov.cn/bmgk/fgwj/zcwj/szfwj.htm",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 4,
+   "items": 1,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": "2026-20",
+   "oldest_date": "2026-20",
+   "run_at": "2026-11-02 12:03:44",
    "engine": "static"
   },
   {
@@ -3515,7 +3670,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 2,
+   "pages_this_run": 3,
    "items": 0,
    "texts": 0,
    "text_chars": 0,
@@ -3524,31 +3679,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:09",
-   "engine": "static"
-  },
-  {
-   "site": "临沂市",
-   "dir": "var\\data\\national\\山东省\\临沂市",
-   "status": "js_unparsable",
-   "board": "https://www.linyi.gov.cn/bmgk/fgwj/zcwj/szfwj.htm",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 2,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 10:21:08",
+   "run_at": "2026-11-02 12:03:44",
    "engine": "static"
   },
   {
@@ -3563,7 +3694,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 2,
+   "pages_this_run": 3,
    "items": 0,
    "texts": 0,
    "text_chars": 0,
@@ -3572,7 +3703,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:11",
+   "run_at": "2026-11-02 12:03:45",
    "engine": "static"
   },
   {
@@ -3596,7 +3727,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:15",
+   "run_at": "2026-11-02 12:03:49",
    "engine": "static"
   },
   {
@@ -3620,7 +3751,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:17",
+   "run_at": "2026-11-02 12:03:51",
    "engine": "static"
   },
   {
@@ -3644,7 +3775,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:19",
+   "run_at": "2026-11-02 12:03:52",
    "engine": "static"
   },
   {
@@ -3659,7 +3790,7 @@
     "new": 0,
     "ok": false
    },
-   "pages_this_run": 2,
+   "pages_this_run": 3,
    "items": 0,
    "texts": 0,
    "text_chars": 0,
@@ -3668,7 +3799,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:21",
+   "run_at": "2026-11-02 12:03:56",
    "engine": "static"
   },
   {
@@ -3692,7 +3823,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:23",
+   "run_at": "2026-11-02 12:03:55",
    "engine": "static"
   },
   {
@@ -3716,7 +3847,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 11:44:24",
+   "run_at": "2026-11-02 12:05:31",
    "engine": "static"
   },
   {
@@ -3740,7 +3871,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:23",
+   "run_at": "2026-11-02 12:03:56",
    "engine": "static"
   },
   {
@@ -3764,7 +3895,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:25",
+   "run_at": "2026-11-02 12:03:59",
    "engine": "static"
   },
   {
@@ -3788,7 +3919,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:26",
+   "run_at": "2026-11-02 12:03:59",
    "engine": "static"
   },
   {
@@ -3812,31 +3943,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:26",
-   "engine": "static"
-  },
-  {
-   "site": "怀化市",
-   "dir": "var\\data\\national\\湖南省\\怀化市",
-   "status": "js_unparsable",
-   "board": "https://www.huaihua.gov.cn/huaihua/c100247/wjk2020.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 10:21:30",
+   "run_at": "2026-11-02 12:04:00",
    "engine": "static"
   },
   {
@@ -3860,7 +3967,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:32",
+   "run_at": "2026-11-02 12:04:06",
    "engine": "static"
   },
   {
@@ -3884,7 +3991,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:31",
+   "run_at": "2026-11-02 12:04:06",
    "engine": "static"
   },
   {
@@ -3908,7 +4015,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:37",
+   "run_at": "2026-11-02 12:04:12",
    "engine": "static"
   },
   {
@@ -3932,31 +4039,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:21:42",
-   "engine": "static"
-  },
-  {
-   "site": "河池市",
-   "dir": "var\\data\\national\\广西壮族自治区\\河池市",
-   "status": "js_unparsable",
-   "board": "http://www.hechi.gov.cn/zfxxgk/zfwj/xzgfxwjk/",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 10:21:56",
+   "run_at": "2026-11-02 12:04:18",
    "engine": "static"
   },
   {
@@ -3980,7 +4063,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:18",
+   "run_at": "2026-11-02 12:04:58",
    "engine": "static"
   },
   {
@@ -4004,7 +4087,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:25",
+   "run_at": "2026-11-02 12:05:00",
    "engine": "static"
   },
   {
@@ -4028,7 +4111,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:35",
+   "run_at": "2026-11-02 12:05:10",
    "engine": "static"
   },
   {
@@ -4052,7 +4135,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:40",
+   "run_at": "2026-11-02 12:05:14",
    "engine": "static"
   },
   {
@@ -4076,7 +4159,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:41",
+   "run_at": "2026-11-02 12:05:15",
    "engine": "static"
   },
   {
@@ -4100,7 +4183,7 @@
    "items_new_this_run": 0,
    "newest_date": null,
    "oldest_date": null,
-   "run_at": "2026-11-02 10:22:45",
+   "run_at": "2026-11-02 12:05:17",
    "engine": "static"
   }
  ]
