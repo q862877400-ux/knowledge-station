@@ -401,10 +401,15 @@ def true_ext(data: bytes, ctype: str) -> str:
     if data[:4] == b"\xd0\xcf\x11\xe0":
         # OLE 复合文档：**必须看内部流名**，只看 content-type 会把 .doc 全判成 .xls
         # （2026-11-02 实测：一次清理把 83 个 Word 改名成了 Excel）
-        blob = data[:400000]
-        if b"WordDocument" in blob:
+        # ⚠ 两条实测教训（2026-11-02 R12→R13）：
+        #   ① OLE 目录项常在**文件尾部** ⇒ 只读前 400KB 会 0 命中；
+        #   ② 目录项名字是 **UTF-16LE** ⇒ 搜 `b"WordDocument"` 永远搜不到。
+        w = "WordDocument".encode("utf-16-le")
+        x = "Workbook".encode("utf-16-le")
+        bk = "Book".encode("utf-16-le")
+        if w in data:
             return ".doc"
-        if b"Workbook" in blob or b"Book" in blob:
+        if x in data or bk in data:
             return ".xls"
         return ".doc" if ("word" in low or "msword" in low) else ".xls"
     if data[:5] == b"{\\rtf":
