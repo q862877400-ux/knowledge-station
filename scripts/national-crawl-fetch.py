@@ -358,6 +358,48 @@ ATT_URL_RE = re.compile(
     re.I)
 
 
+# ---------------------------------------------------------------- 二进制下载
+#: ⚠ **教训（2026-11-02 R10→R11）**：`announce.default_transport().fetch()` 返回的是
+#: `resp.json()` 或 `resp.text` —— **永远不是字节**。所以附件（PDF/Word）拿到的是
+#: 乱码字符串，被 `isinstance(ab, bytes)` 一律跳过 ⇒ 全量跑 129 站"附件 0 成功"。
+#: 附件必须自己用 curl_cffi 取 `resp.content`。
+try:
+    from curl_cffi import requests as _creq
+    _BIN_SESSION = _creq.Session(impersonate="chrome")
+except Exception:                                # noqa: BLE001
+    _BIN_SESSION = None
+
+
+def fetch_bytes(url: str, referer: str | None = None,
+                timeout: float = TIMEOUT_S) -> tuple[int, bytes, str]:
+    """取二进制（附件用）。返回 (状态码, 字节, content-type)。
+
+    带 Referer：实测丽江 `…/files` 不带来源页直接 **403**。
+    """
+    if _BIN_SESSION is None:
+        return 0, b"", ""
+    headers = {"Referer": referer} if referer else {}
+    try:
+        r = _BIN_SESSION.get(url, timeout=timeout, headers=headers,
+                             allow_redirects=True)
+    except Exception:                            # noqa: BLE001
+        return 0, b"", ""
+    return r.status_code, r.content or b"", (r.headers or {}).get("content-type", "")
+
+
+def looks_like_file(data: bytes, ctype: str) -> bool:
+    """判断下载到的是不是真文件（而不是 HTML 错误页/预览页）。"""
+    low = (ctype or "").lower()
+    if "text/html" in low:
+        return False
+    head = data[:8]
+    if head.startswith((b"%PDF", b"PK\x03\x04", b"\xd0\xcf\x11\xe0", b"{\rtf")):
+        return True                              # PDF / zip(docx,xlsx) / OLE / rtf
+    if b"<html" in data[:400].lower() or b"<!doctype" in data[:400].lower():
+        return False
+    return len(data) > 1024 and "octet-stream" in low or len(data) > 4096
+
+
 def find_attachments(html: str, base: str) -> list[str]:
     """详情页里的附件链接。
 
@@ -648,19 +690,27 @@ def text_only_site(transport, sdir: Path, max_files: int,
         for a in find_attachments(body, it["url"]):
             if got_att >= max_files:
                 break
-            try:
-                ast, ab = transport.fetch(a, timeout=TIMEOUT_S)
-            except Exception:                    # noqa: BLE001
+            st2, data, ct = fetch_bytes(a, referer=it["url"])
+            if st2 != 200:
                 continue
-            if ast != 200 or not isinstance(ab, (bytes, bytearray)):
+            if not looks_like_file(data, ct):
+                # 预览页 → 页内再找一层真文件（实测呼伦贝尔/四平是这种）
+                inner = find_attachments(data.decode("utf-8", "ignore"), a)
+                if not inner:
+                    continue
+                st2, data, ct = fetch_bytes(inner[0], referer=a)
+                if st2 != 200 or not looks_like_file(data, ct):
+                    continue
+            if len(data) > max_mb * 1048576:
                 continue
-            if len(ab) > max_mb * 1048576:
-                continue
-            h = hashlib.sha256(ab).hexdigest()
+            h = hashlib.sha256(data).hexdigest()
             name = Path(urlsplit(a).path).name or "file"
+            if "." not in name:
+                name += {"application/pdf": ".pdf"}.get(ct.split(";")[0], ".bin")
             adir.mkdir(parents=True, exist_ok=True)
-            (adir / f"{h[:16]}_{name}").write_bytes(ab)
-            saved.append({"url": a, "bytes": len(ab), "sha256": h})
+            (adir / f"{h[:16]}_{name}").write_bytes(data)
+            saved.append({"url": a, "bytes": len(data), "sha256": h,
+                          "content_type": ct})
             got_att += 1
         if saved:
             it["attachments"] = saved
