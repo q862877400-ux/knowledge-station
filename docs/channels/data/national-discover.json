@@ -23904,10 +23904,20 @@
    "url": "https://www.audit.gov.cn/",
    "home": "https://www.audit.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.audit.gov.cn/gdnps/html/zhengce/list.jsp",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 26,
+    "page_dates": 10,
+    "detail_ratio": 0.192,
+    "title_ratio": 0.346,
+    "med_len": 5.0
+   },
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "海关总署",

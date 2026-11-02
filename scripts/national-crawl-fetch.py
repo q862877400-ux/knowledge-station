@@ -51,7 +51,8 @@ DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
 SITE_RULES = ROOT / "docs" / "channels" / "data" / "site-rules.json"
 OUTDIR = ROOT / "var" / "data" / "national"
 
-LINK_RE = re.compile(r"<a\b[^>]*?href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", re.S | re.I)
+LINK_RE = re.compile(
+    r"<a\b[^>]*?href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", re.DOTALL | re.IGNORECASE)
 TAG_RE = re.compile(r"<[^>]+>")
 DATE_RE = re.compile(r"(20\d{2})[-/年.](\d{1,2})[-/月.](\d{1,2})")
 #: 只有年月、没有日（实测中山市：日期被拆成「08」+「2026年10月」两段）
@@ -214,17 +215,16 @@ def _page_url(board: str, rule: tuple, n: int) -> str:
             g = re.sub(r"\.(s?html?)$", f"{key}{n}.\\1", path)
             return f"{u.scheme}://{u.netloc}{g}"
         return ""
-    if kind == "path":
-        if re.search(r"\.s?html?$", path):
-            g = re.sub(r"/([^/]+)\.(s?html?)$", rf"/{n}.\2", path)
-            return f"{u.scheme}://{u.netloc}{g}"
+    if kind == "path" and re.search(r"\.s?html?$", path):
+        g = re.sub(r"/([^/]+)\.(s?html?)$", rf"/{n}.\2", path)
+        return f"{u.scheme}://{u.netloc}{g}"
     return ""
 
 
 #: 页面 JS 里常见的翻页写法：`location.href='...?pageNum='+n` / `xxx?page=' + i`
 JS_TPL_RE = re.compile(
     r"""(?:location(?:\.href)?\s*=|window\.location\s*=|\.href\s*=)\s*"""
-    r"""["']([^"']+?)["']\s*\+""", re.I)
+    r"""["']([^"']+?)["']\s*\+""", re.IGNORECASE)
 
 
 def js_page_template(html: str, base: str) -> str | None:
@@ -333,7 +333,7 @@ def calibrate_pagination(transport, board: str, first_urls: set[str],
             u2 = tpl % 2
             try:
                 st, body = transport.fetch(u2, timeout=TIMEOUT_S)
-            except Exception:                   # noqa: BLE001
+            except Exception:  # noqa: BLE001, S112
                 continue
             if st != 200 or not isinstance(body, str):
                 continue
@@ -352,7 +352,7 @@ def calibrate_pagination(transport, board: str, first_urls: set[str],
             continue
         try:
             st, body = transport.fetch(u2, timeout=TIMEOUT_S)
-        except Exception:                       # noqa: BLE001
+        except Exception:  # noqa: BLE001, S112
             continue
         if st != 200 or not isinstance(body, str):
             continue
@@ -383,13 +383,13 @@ def find_next(html: str, base: str) -> str | None:
         txt = text_of(inner).strip()
         near = html[m.start(): m.start() + 300]
         if not (any(w in txt for w in NEXT_WORDS)
-                or re.search(r'class=["\'][^"\']*next', near, re.I)):
+                or re.search(r'class=["\'][^"\']*next', near, re.IGNORECASE)):
             continue
         href = href.strip()
         if href.lower().startswith("javascript"):
             # onclick/href 里可能塞了 URL
             mm = re.search(r"""(?:location(?:\.href)?\s*=|open\()\s*["']([^"']+)["']""",
-                           near, re.I)
+                           near, re.IGNORECASE)
             if not mm:
                 continue
             href = mm.group(1)
@@ -408,7 +408,7 @@ def page_variants(board: str, pages: int) -> list[str]:
     for n in range(2, pages + 1):
         if re.search(r"index(_\d+)?\.s?html?$", u.path):
             nxt = re.sub(r"index(_\d+)?\.(s?html?)$",
-                         lambda mm: f"index_{n}.{mm.group(2)}", board)
+                         lambda mm, _n=n: f"index_{_n}.{mm.group(2)}", board)
         else:
             sep = "&" if "?" in board else "?"
             nxt = f"{board}{sep}page={n}"
@@ -421,7 +421,7 @@ def page_variants(board: str, pages: int) -> list[str]:
 ATT_URL_RE = re.compile(
     r"(downfile\.jsp)|(/download(?:\.do|\.jsp|\.php)?\b)|(/attach(?:ment)?/)"
     r"|(getfile\.(?:jsp|do|php))|(fileDownload)|(downfile)",
-    re.I)
+    re.IGNORECASE)
 
 
 # ---------------------------------------------------------------- 二进制下载
@@ -512,9 +512,9 @@ def find_attachments(html: str, base: str) -> list[str]:
         if not url.startswith("http"):
             continue
         path = urlsplit(url).path.lower()
-        if path.endswith(ATT_EXT) or ATT_URL_RE.search(url):
-            if url not in out:
-                out.append(url)
+        if ((path.endswith(ATT_EXT) or ATT_URL_RE.search(url))
+                and url not in out):
+            out.append(url)
     return out
 
 
@@ -806,7 +806,7 @@ def text_only_site(transport, sdir: Path, max_files: int,
             continue
         try:
             st, body = transport.fetch(it["url"], timeout=TIMEOUT_S)
-        except Exception:                        # noqa: BLE001
+        except Exception:  # noqa: BLE001, S112
             continue
         if st != 200 or not isinstance(body, str):
             continue
@@ -845,7 +845,7 @@ def text_only_site(transport, sdir: Path, max_files: int,
             ext = true_ext(data, ct)
             # URL 名不可信（`.jsp`/`.do` 下载接口），按真实类型改名
             if ext and not name.lower().endswith(ext):
-                stem = re.sub(r"\.[a-z0-9]{1,5}$", "", name, flags=re.I)
+                stem = re.sub(r"\.[a-z0-9]{1,5}$", "", name, flags=re.IGNORECASE)
                 name = f"{stem}{ext}"
             adir.mkdir(parents=True, exist_ok=True)
             (adir / f"{h[:16]}_{name}").write_bytes(data)
@@ -899,27 +899,50 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.export_rules:
+        # 生成**完整接入配置**：不只是翻页规则，还包括「这站要用哪个引擎、入口在哪、
+        # 上次抓到多少、什么时候跑的」——这样别的流程只读这一个文件就能接手本站。
+        disc = {}
+        try:
+            for r in json.loads(DISCOVER.read_text(encoding="utf-8"))["results"]:
+                disc[r["site"]] = r
+        except Exception:                        # noqa: BLE001
+            disc = {}
         rows = []
         for f in sorted(OUTDIR.rglob("site-state.json")):
             st = json.loads(f.read_text(encoding="utf-8"))
+            name = st.get("site") or f.parent.name
             pgn = st.get("pagination") or {}
             rule = pgn.get("rule")
-            if isinstance(rule, list) and rule and pgn.get("ok"):
-                rows.append({"site": st.get("site") or f.parent.name,
-                             "rule": rule,          # 完整 [kind, 参数名]，别只存 kind
-                             "pages": st.get("pages_this_run"),
-                             "items_total": st.get("items_total"),
-                             "measured_at": st.get("run_at"),
-                             "note": "实测标定得出（--export-rules）"})
-            else:
-                rows.append({"site": st.get("site") or f.parent.name,
-                             "rule": None,
-                             "why": "标定未命中（单页或非 URL 规则可解）"})
+            ref = disc.get(name) or {}
+            engine = ("browser" if st.get("engine") == "headless-dom"
+                      else "static")
+            rows.append({
+                "site": name,
+                "level": ref.get("level") or "city",
+                "board_url": st.get("board") or ref.get("board_url"),
+                "engine": engine,
+                "status": st.get("status"),
+                "rule": rule if isinstance(rule, list) else None,
+                "rule_source": pgn.get("source") or (
+                    "measured" if isinstance(rule, list) else None),
+                "pages_this_run": st.get("pages_this_run"),
+                "items_total": st.get("items_total"),
+                "items_new_this_run": st.get("items_new_this_run"),
+                "newest_date": st.get("newest_date"),
+                "oldest_date": st.get("oldest_date"),
+                "run_at": st.get("run_at"),
+                "render_seconds": st.get("render_seconds"),
+                "discovered_by": ref.get("discovered_by") or "discover",
+                "note": ("脚本渲染站：必须用 national-crawl-browser.py"
+                         if engine == "browser" else
+                         "静态可抓：用 national-crawl-fetch.py"),
+            })
         SITE_RULES.write_text(json.dumps(rows, ensure_ascii=False, indent=1),
                               encoding="utf-8")
         got = sum(1 for r in rows if r.get("rule"))
-        print(f"已导出 {len(rows)} 站规则到 {SITE_RULES.relative_to(ROOT)}；"
-              f"其中有效规则 {got} 条")
+        br = sum(1 for r in rows if r.get("engine") == "browser")
+        print(f"已导出接入配置 {len(rows)} 站 → {SITE_RULES.relative_to(ROOT)}")
+        print(f"  其中静态 {len(rows) - br} 站 / 浏览器 {br} 站；有效翻页规则 {got} 条")
         return 0
 
     if args.text_only or args.att_only:
