@@ -121,7 +121,7 @@ def find_normative_column(exe: str, hub_url: str, budget_ms: int) -> tuple[str, 
     hints = ("规章", "法规", "规范性", "政策文件", "政府文件", "文件库",
              "标准", "条例", "办法", "规范性文件")
     strong = [c for c in cands
-              if any(w in (c[2] or "") for w in HINTS)]
+              if any(w in (c[2] or "") for w in hints)]
     for url, sc, anchor in strong:
         ok2, html2, _ = render(url, exe, budget_ms)
         if not ok2 or not html2:
