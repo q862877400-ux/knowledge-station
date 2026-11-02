@@ -226,6 +226,40 @@ def calibrate_pagination(transport, board: str, first_urls: set[str]) -> dict:
     return {"rule": None, "page2_url": None, "overlap": None, "new": 0, "ok": False}
 
 
+#: 「下一页」的锚文本
+NEXT_WORDS = ("下一页", "下页", "后一页", "Next", "next", "»")
+
+
+def find_next(html: str, base: str) -> str | None:
+    """从页面里找**下一页**的真实 URL。
+
+    为什么用这个而不是猜参数（2026-11-02 实测）：10 种参数规则在这批政府站上
+    **一种都没命中**（三亚 `?page=2` 与第 1 页 30/30 重合）。而页面自己一定有
+    「下一页」链接（要么是静态 href，要么在 onclick 里）—— 跟着它走就不用猜。
+    """
+    for m in LINK_RE.finditer(html):
+        href, inner = m.group(1), m.group(2)
+        txt = text_of(inner).strip()
+        near = html[m.start(): m.start() + 300]
+        if not (any(w in txt for w in NEXT_WORDS)
+                or re.search(r'class=["\'][^"\']*next', near, re.I)):
+            continue
+        href = href.strip()
+        if href.lower().startswith("javascript"):
+            # onclick/href 里可能塞了 URL
+            mm = re.search(r"""(?:location(?:\.href)?\s*=|open\()\s*["']([^"']+)["']""",
+                           near, re.I)
+            if not mm:
+                continue
+            href = mm.group(1)
+        if not href or href.startswith("#"):
+            continue
+        url = urljoin(base, href)
+        if url != base:
+            return url
+    return None
+
+
 def page_variants(board: str, pages: int) -> list[str]:
     """生成翻页 URL：`?page=N` 与 `index_N.html` 两种常见形态。"""
     out = [board]
@@ -286,7 +320,6 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
     items: list[dict] = []
     barren = 0
     # ── 第 1 页 + 翻页规则标定（**每站一条规则，记进 site-state 供复用**）──
-    page_urls = [board]
     try:
         st0, b0 = transport.fetch(board, timeout=TIMEOUT_S)
     except Exception as exc:                      # noqa: BLE001
@@ -297,51 +330,42 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
         stats.update({"status": "unreachable", "error": f"http_{st0}"})
         return stats
     first_items = parse_items(b0, board)
-    first_urls = {x["url"] for x in first_items}
-    cal = calibrate_pagination(transport, board, first_urls)
-    stats["pagination"] = cal
-    if cal["ok"] and pages > 1:
-        rule = tuple(cal["rule"])
-        for n in range(2, pages + 1):
-            u = _page_url(board, rule, n)
-            if u and u not in page_urls:
-                page_urls.append(u)
     # 第 1 页的内容直接入列（省一次请求）
     for x in first_items:
         seen.add(x["url"])
         items.append(x)
     stats["pages"] = 1
-    for i, url in enumerate(page_urls[1:], start=2):
+    # ── 跟着页面自己的「下一页」链接翻（2026-11-02：猜参数 10 种全落空）──
+    nxt = find_next(b0, board)
+    n_pages = 1
+    while nxt and n_pages < pages:
         try:
-            st, body = transport.fetch(url, timeout=TIMEOUT_S)
-        except Exception as exc:                  # noqa: BLE001
-            if i == 0:
-                stats.update({"status": "unreachable",
-                              "error": f"{type(exc).__name__}: {str(exc)[:80]}"})
-                return stats
+            st, body = transport.fetch(nxt, timeout=TIMEOUT_S)
+        except Exception:                        # noqa: BLE001
             break
         if st != 200 or not isinstance(body, str):
-            if i == 0:
-                stats.update({"status": "unreachable", "error": f"http_{st}"})
-                return stats
             break
-        got = parse_items(body, url)
+        got = parse_items(body, nxt)
         fresh = [x for x in got if x["url"] not in seen]
         if not fresh:
             barren += 1
             if barren >= barren_stop:
-                break                      # 翻到底了（连续几页都没有新条目）
-            time.sleep(1.0)
-            continue
-        barren = 0
-        for x in fresh:
-            seen.add(x["url"])
-            items.append(x)
-        stats["pages"] = i + 1
-        if per_site_items and len(items) >= per_site_items:
-            break
-        time.sleep(1.0)                            # 同站礼貌间隔
-
+                stats["pagination"] = {"mode": "next-link", "pages": n_pages,
+                                       "reached_end": True}
+                break
+        else:
+            barren = 0
+            for x in fresh:
+                seen.add(x["url"])
+                items.append(x)
+            if per_site_items and len(items) >= per_site_items:
+                break
+        n_pages += 1
+        stats["pages"] = n_pages
+        time.sleep(1.0)
+        nxt = find_next(body, nxt)
+    stats.setdefault("pagination", {"mode": "next-link", "pages": n_pages,
+                                    "reached_end": not bool(nxt)})
     items = items[:per_site_items]
     stats["items"] = len(items)
     if not items:
