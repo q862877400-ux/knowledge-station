@@ -351,14 +351,31 @@ def page_variants(board: str, pages: int) -> list[str]:
     return out
 
 
+#: 附件下载链接的**非扩展名**形态（政府站常见）
+ATT_URL_RE = re.compile(
+    r"(downfile\.jsp)|(/download(?:\.do|\.jsp|\.php)?\b)|(/attach(?:ment)?/)"
+    r"|(getfile\.(?:jsp|do|php))|(fileDownload)|(downfile)",
+    re.I)
+
+
 def find_attachments(html: str, base: str) -> list[str]:
-    """详情页里的附件链接（按扩展名）。"""
+    """详情页里的附件链接。
+
+    两种形态都认（2026-11-02 R10 补）：
+      1. **路径以扩展名结尾**：`.pdf .doc .xls .zip .ofd …`
+      2. **下载接口形态**：`downfile.jsp?…`、`/download.do?…`、`/attach/0/…`、
+         `getfile.jsp?…`、`fileDownload` —— 这些 URL 不以扩展名收尾，
+         第一版只认扩展名，所以附件数一直是 0。
+    """
     out: list[str] = []
     for href, _inner in LINK_RE.findall(html):
         url = urljoin(base, href.strip())
+        if not url.startswith("http"):
+            continue
         path = urlsplit(url).path.lower()
-        if path.endswith(ATT_EXT) and url not in out:
-            out.append(url)
+        if path.endswith(ATT_EXT) or ATT_URL_RE.search(url):
+            if url not in out:
+                out.append(url)
     return out
 
 
@@ -590,7 +607,7 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
 
 
 def text_only_site(transport, sdir: Path, max_files: int,
-                   max_mb: float) -> dict:
+                   max_mb: float, att_only: bool = False) -> dict:
     """给一个站已有条目补正文与附件（不重抓列表）。"""
     f = sdir / "items.jsonl"
     items = [json.loads(x) for x in
@@ -601,7 +618,10 @@ def text_only_site(transport, sdir: Path, max_files: int,
     got_att = 0
     chars = 0
     for it in items:
-        if it.get("text_file") and it.get("text_chars"):
+        if att_only:
+            if it.get("attachments"):
+                continue                       # 已有附件，跳过
+        elif it.get("text_file") and it.get("text_chars"):
             continue
         if not it.get("url"):
             continue
@@ -611,9 +631,12 @@ def text_only_site(transport, sdir: Path, max_files: int,
             continue
         if st != 200 or not isinstance(body, str):
             continue
-        txt = clean_body(main_text(body), it.get("title") or "")
-        it["text_chars"] = len(txt)
-        if len(txt) >= 40:
+        if att_only:
+            txt = ""
+        else:
+            txt = clean_body(main_text(body), it.get("title") or "")
+            it["text_chars"] = len(txt)
+        if not att_only and len(txt) >= 40:
             tdir.mkdir(parents=True, exist_ok=True)
             key = hashlib.sha256(it["url"].encode()).hexdigest()[:16]
             tf = tdir / (key + ".txt")
@@ -672,6 +695,8 @@ def main() -> int:
     ap.add_argument("--max-mb", type=float, default=30.0)
     ap.add_argument("--items", type=int, default=5000,
                     help="单站条目上限（存量默认 5000，0=不限）")
+    ap.add_argument("--att-only", action="store_true",
+                    help="只给已有条目补附件（不重抓列表、不重抓正文）")
     ap.add_argument("--text-only", action="store_true",
                     help="只给已有 items.jsonl 补正文/附件，不重抓列表")
     ap.add_argument("--list-only", action="store_true",
@@ -680,16 +705,18 @@ def main() -> int:
                     help="normative / hub / all")
     args = ap.parse_args()
 
-    if args.text_only:
+    if args.text_only or args.att_only:
         dirs = sorted({f.parent for f in OUTDIR.rglob("items.jsonl")})
-        print(f"只补正文：{len(dirs)} 站")
+        mode = "只补附件" if args.att_only else "只补正文"
+        print(f"{mode}：{len(dirs)} 站")
         transport = default_transport()
         t0 = time.monotonic()
         tot_t = tot_a = tot_c = 0
         with ThreadPoolExecutor(max_workers=args.concurrency,
                                 thread_name_prefix="nat-text") as pool:
             futs = [pool.submit(text_only_site, transport, dd,
-                                args.max_files, args.max_mb) for dd in dirs]
+                                args.max_files, args.max_mb,
+                                args.att_only) for dd in dirs]
             for i, fut in enumerate(as_completed(futs), 1):
                 r = fut.result()
                 tot_t += r["new_texts"]
