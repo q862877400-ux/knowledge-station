@@ -357,7 +357,7 @@ def find_attachments(html: str, base: str) -> list[str]:
 
 def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
                max_mb: float, per_site_items: int,
-               barren_stop: int = 3) -> dict:
+               barren_stop: int = 3, list_only: bool = False) -> dict:
     """抓一个站：列表 → 详情 → 附件。返回统计（不抛异常）。"""
     site = rec["site"]
     board = rec.get("board_url") or ""
@@ -467,6 +467,18 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
                                     "reached_end": n_pages < pages})
     items = items[:per_site_items]
     stats["items"] = len(items)
+    if list_only:
+        stats["status"] = "list_only_ok" if items else "js_unparsable"
+        sdir.mkdir(parents=True, exist_ok=True)
+        (sdir / "items.jsonl").write_text(
+            "\n".join(json.dumps(x, ensure_ascii=False) for x in items) + "\n",
+            encoding="utf-8")
+        (sdir / "site-state.json").write_text(json.dumps({
+            "site": site, "board": board, "status": stats["status"],
+            "pages_this_run": stats["pages"], "items_total": len(items),
+            "pagination": stats.get("pagination"),
+        }, ensure_ascii=False, indent=1), encoding="utf-8")
+        return stats
     if not items:
         # 抽不到**带日期**的条目 ⇒ 那个栏目多半是 JS 渲染（临汾就是这种）
         stats["status"] = "js_unparsable"
@@ -582,6 +594,8 @@ def main() -> int:
     ap.add_argument("--max-mb", type=float, default=30.0)
     ap.add_argument("--items", type=int, default=5000,
                     help="单站条目上限（存量默认 5000，0=不限）")
+    ap.add_argument("--list-only", action="store_true",
+                    help="只抓列表与翻页（不抓正文/附件），用于先量翻页成功率")
     ap.add_argument("--kind", default="normative",
                     help="normative / hub / all")
     args = ap.parse_args()
@@ -609,7 +623,8 @@ def main() -> int:
             return crawl_site(transport, rec, pages=args.pages,
                               max_files=args.max_files, max_mb=args.max_mb,
                               per_site_items=args.items,
-                              barren_stop=args.barren_stop)
+                              barren_stop=args.barren_stop,
+                              list_only=args.list_only)
 
     t0 = time.monotonic()
     results = []

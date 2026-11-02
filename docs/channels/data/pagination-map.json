@@ -1,0 +1,516 @@
+{
+ "sites": 129,
+ "parsable": 105,
+ "items": 6436,
+ "multi_page": 34,
+ "by_pages": {
+  "1": 71,
+  "2": 3,
+  "3": 10,
+  "4": 3,
+  "5": 3,
+  "7": 2,
+  "8": 2,
+  "10": 2,
+  "11": 1,
+  "14": 1,
+  "20": 4,
+  "26": 1,
+  "50": 1,
+  "120": 1
+ },
+ "detail": [
+  {
+   "site": "池州市",
+   "pages_this_run": 120,
+   "items_total": 1022,
+   "pagination": {
+    "rule": [
+     "query",
+     "page"
+    ],
+    "page2_url": "https://www.chizhou.gov.cn/PolicyContent/?page=2",
+    "overlap": 0,
+    "new": 8,
+    "ok": true
+   }
+  },
+  {
+   "site": "汕头市",
+   "pages_this_run": 50,
+   "items_total": 763,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.shantou.gov.cn/cnst/zwgk/jcxxgk/zfwj/index_2.html",
+    "overlap": 0,
+    "new": 16,
+    "ok": true
+   }
+  },
+  {
+   "site": "攀枝花市",
+   "pages_this_run": 20,
+   "items_total": 538,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "http://www.panzhihua.gov.cn/zwgk/fggw/zfbwj/index_2.shtml",
+    "overlap": 0,
+    "new": 29,
+    "ok": true
+   }
+  },
+  {
+   "site": "茂名市",
+   "pages_this_run": 26,
+   "items_total": 405,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "http://www.maoming.gov.cn/zwgk/szfwj/index_2.html",
+    "overlap": 0,
+    "new": 17,
+    "ok": true
+   }
+  },
+  {
+   "site": "湛江市",
+   "pages_this_run": 20,
+   "items_total": 358,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.zhanjiang.gov.cn/zfwj/index_2.html",
+    "overlap": 0,
+    "new": 19,
+    "ok": true
+   }
+  },
+  {
+   "site": "潮州市",
+   "pages_this_run": 20,
+   "items_total": 322,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.chaozhou.gov.cn/zwgk/zcfg/index_2.html",
+    "overlap": 0,
+    "new": 17,
+    "ok": true
+   }
+  },
+  {
+   "site": "惠州市",
+   "pages_this_run": 20,
+   "items_total": 319,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "http://www.huizhou.gov.cn/zfxxgkml/hzsrmzf/gzwj/gfxwj/index_2.html",
+    "overlap": 0,
+    "new": 19,
+    "ok": true
+   }
+  },
+  {
+   "site": "汕尾市",
+   "pages_this_run": 14,
+   "items_total": 232,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.shanwei.gov.cn/shanwei/zwgk/jcxx/zcfg/index_2.html",
+    "overlap": 0,
+    "new": 19,
+    "ok": true
+   }
+  },
+  {
+   "site": "阳江市",
+   "pages_this_run": 7,
+   "items_total": 132,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.yangjiang.gov.cn/yj/zwgk/zcfg/index_2.html",
+    "overlap": 0,
+    "new": 20,
+    "ok": true
+   }
+  },
+  {
+   "site": "保定市",
+   "pages_this_run": 8,
+   "items_total": 132,
+   "pagination": {
+    "rule": [
+     "query",
+     "page"
+    ],
+    "page2_url": "https://www.baoding.gov.cn/zwgkdoclist-888888717-888888001-list.html?page=2",
+    "overlap": 0,
+    "new": 20,
+    "ok": true
+   }
+  },
+  {
+   "site": "宿州市",
+   "pages_this_run": 10,
+   "items_total": 131,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj_2.shtml",
+    "overlap": 0,
+    "new": 15,
+    "ok": true
+   }
+  },
+  {
+   "site": "苏州市",
+   "pages_this_run": 10,
+   "items_total": 131,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj_2.shtml",
+    "overlap": 0,
+    "new": 15,
+    "ok": true
+   }
+  },
+  {
+   "site": "云浮市",
+   "pages_this_run": 7,
+   "items_total": 107,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.yunfu.gov.cn/rsj/zwgk/zcfgyjd/index_2.html",
+    "overlap": 0,
+    "new": 18,
+    "ok": true
+   }
+  },
+  {
+   "site": "日喀则市",
+   "pages_this_run": 5,
+   "items_total": 91,
+   "pagination": {
+    "rule": [
+     "jstpl",
+     "http://www.rikaze.gov.cn/public-policy.thtml?id=15355&pn=%d"
+    ],
+    "page2_url": "http://www.rikaze.gov.cn/public-policy.thtml?id=15355&pn=2",
+    "overlap": 0,
+    "new": 28,
+    "ok": true
+   }
+  },
+  {
+   "site": "镇江市",
+   "pages_this_run": 5,
+   "items_total": 87,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.zhenjiang.gov.cn/zhenjiang/xzgfxwj/xxgk_xzfglist_2.shtml",
+    "overlap": 0,
+    "new": 20,
+    "ok": true
+   }
+  },
+  {
+   "site": "赣州市",
+   "pages_this_run": 11,
+   "items_total": 70,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.ganzhou.gov.cn/zfxxgk/c145213/xxgk_zcwjlist_2.shtml",
+    "overlap": 0,
+    "new": 8,
+    "ok": true
+   }
+  },
+  {
+   "site": "无锡市",
+   "pages_this_run": 4,
+   "items_total": 64,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.wuxi.gov.cn/zfxxgk/szfxxgkml/fgwjjjd/zfwj/zfgz/index_2.shtml",
+    "overlap": 0,
+    "new": 20,
+    "ok": true
+   }
+  },
+  {
+   "site": "烟台市",
+   "pages_this_run": 3,
+   "items_total": 55,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.yantai.gov.cn/col/col99957/index_2.html",
+    "overlap": 0,
+    "new": 23,
+    "ok": true
+   }
+  },
+  {
+   "site": "哈密市",
+   "pages_this_run": 5,
+   "items_total": 55,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.hami.gov.cn/hami/c124048/zfxxgk_gknrz_2.shtml",
+    "overlap": 0,
+    "new": 8,
+    "ok": true
+   }
+  },
+  {
+   "site": "遂宁市",
+   "pages_this_run": 4,
+   "items_total": 49,
+   "pagination": {
+    "rule": [
+     "query",
+     "page"
+    ],
+    "page2_url": "https://www.suining.gov.cn/zfxxgk/gfxwj.html?page=2",
+    "overlap": 0,
+    "new": 19,
+    "ok": true
+   }
+  },
+  {
+   "site": "西安市",
+   "pages_this_run": 3,
+   "items_total": 47,
+   "pagination": {
+    "rule": [
+     "path",
+     ""
+    ],
+    "page2_url": "https://www.xa.gov.cn/gk/zcfg/gfxwj/zfgfxwj/2.html",
+    "overlap": 10,
+    "new": 17,
+    "ok": true
+   }
+  },
+  {
+   "site": "威海市",
+   "pages_this_run": 3,
+   "items_total": 41,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  },
+  {
+   "site": "保山市",
+   "pages_this_run": 3,
+   "items_total": 30,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  },
+  {
+   "site": "海东市",
+   "pages_this_run": 2,
+   "items_total": 26,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  },
+  {
+   "site": "乌鲁木齐市",
+   "pages_this_run": 2,
+   "items_total": 25,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.wlmq.gov.cn/wlmqs/c119064/zfxxgk_list_2.shtml",
+    "overlap": 0,
+    "new": 12,
+    "ok": true
+   }
+  },
+  {
+   "site": "南昌市",
+   "pages_this_run": 3,
+   "items_total": 23,
+   "pagination": {
+    "rule": [
+     "suffixdash",
+     "-"
+    ],
+    "page2_url": "https://www.nc.gov.cn/ncszf/gzk/gzk-2.shtml",
+    "overlap": 0,
+    "new": 23,
+    "ok": true
+   }
+  },
+  {
+   "site": "乌兰察布市",
+   "pages_this_run": 3,
+   "items_total": 16,
+   "pagination": {
+    "rule": [
+     "index",
+     "_"
+    ],
+    "page2_url": "https://www.wulanchabu.gov.cn/zcfg/index_2.html",
+    "overlap": 4,
+    "new": 4,
+    "ok": true
+   }
+  },
+  {
+   "site": "泸州市",
+   "pages_this_run": 4,
+   "items_total": 16,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  },
+  {
+   "site": "汉中市",
+   "pages_this_run": 8,
+   "items_total": 15,
+   "pagination": {
+    "rule": [
+     "suffix",
+     "_"
+    ],
+    "page2_url": "https://www.hanzhong.gov.cn/hzszf/zwgk/zfwj/gfxwj/wjzlm_gfxwj_2.shtml",
+    "overlap": 0,
+    "new": 1,
+    "ok": true
+   }
+  },
+  {
+   "site": "株洲市",
+   "pages_this_run": 3,
+   "items_total": 12,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  },
+  {
+   "site": "延安市",
+   "pages_this_run": 3,
+   "items_total": 9,
+   "pagination": {
+    "rule": [
+     "path",
+     ""
+    ],
+    "page2_url": "https://www.yanan.gov.cn/gk/zc/xzgfxwjk/2.html",
+    "overlap": 0,
+    "new": 9,
+    "ok": true
+   }
+  },
+  {
+   "site": "渭南市",
+   "pages_this_run": 3,
+   "items_total": 9,
+   "pagination": {
+    "rule": [
+     "path",
+     ""
+    ],
+    "page2_url": "https://www.weinan.gov.cn/zfxxgk/zc/zcwj/szfwj/2.html",
+    "overlap": 0,
+    "new": 9,
+    "ok": true
+   }
+  },
+  {
+   "site": "丹东市",
+   "pages_this_run": 3,
+   "items_total": 7,
+   "pagination": {
+    "rule": [
+     "query",
+     "pageNum"
+    ],
+    "page2_url": "https://www.dandong.gov.cn/articleweb/searchMessageOpenList.ct&pageNum=2",
+    "overlap": 0,
+    "new": 7,
+    "ok": true
+   }
+  },
+  {
+   "site": "德阳市",
+   "pages_this_run": 2,
+   "items_total": 4,
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   }
+  }
+ ]
+}
