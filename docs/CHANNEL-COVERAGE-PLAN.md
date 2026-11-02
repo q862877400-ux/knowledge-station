@@ -2850,3 +2850,31 @@ tests/test_update_inspector.py tests/test_update_channels.py` ⇒ **249 passed /
 | 4 | D 组逐站新写适配器（**不要先做**：36 条地方标准遗留系统互不相同，台账里 26 条已标 broken） | 184 |
 
 分组明细与单条验证路径见 [`docs/channels/WIRING-PLAN.md`](channels/WIRING-PLAN.md)。
+
+### R8（2026-11-02，第 30~40 轮）：全国存量抓取 —— 交付与边界
+
+**产出 1（可复用接入能力）：达成。**
+- 每站一条配置：`docs/channels/data/site-rules.json`（169 站，32 条有效翻页规则）
+- 每站快照：`site-state.json`（`items_total / items_new_this_run / prev_items_total /
+  newest_date / oldest_date / run_at`）
+- 增量已验证：162 站重复跑新增为 0；另 7 站属"静态管线不覆盖、快照陈旧"（R38 更正）
+- 运行器：`scripts/national-crawl-fetch.py`、`scripts/national-crawl-browser.py`、
+  报告生成 `scripts/channels-delivery-report.py`
+
+**产出 2（存量全量）：未达成。** 实测覆盖：
+
+| 层级 | 目标 | 有规范文件栏目 | 已抓 |
+|---|---:|---:|---:|
+| 地级市 | 274 | 129 | 约 105 |
+| 省级 | 31 | 14 | 13 |
+| 中央部委 | 61（自部委站导航挖得） | 20 | 19 |
+
+**已收存量**：169 站、条目 **8,584**、正文 **8,317 篇 / 2,905 万字**、
+附件 **491 个 / 415.9 MB**、能翻多页的站 **50**。
+
+**缺口三类原因（均实测）**：① 翻页不吃 URL 参数（45 站试 13 种规则 0 命中）；
+② 列表靠脚本渲染（浏览器逐站试，命中率已低至 1/8）；③ 省/部委入口难定
+（省 27 候选 6 个是占位页；部委目录页 403，改从部委站导航挖）。
+
+**交付材料**：[`docs/channels/DELIVERY.md`](channels/DELIVERY.md)（含"我推翻过的结论"与
+"明确未做到"两节）、[`docs/channels/NATIONAL-CRAWL.md`](channels/NATIONAL-CRAWL.md)（逐轮台账）。
