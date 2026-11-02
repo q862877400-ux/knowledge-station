@@ -21546,10 +21546,10 @@
    "site": "商务部",
    "province": "中央",
    "home": "https://www.mofcom.gov.cn/",
-   "board_url": "https://www.mofcom.gov.cn/zwgk/index.html",
+   "board_url": "https://www.mofcom.gov.cn/zcfb/gfxwj/index.html",
    "status": "ok",
    "score": 1,
-   "keyword": "政务公开",
+   "keyword": "规范性文件|规范性文件",
    "list_likeness": {
     "ok": true,
     "n_links": 21,
@@ -21605,9 +21605,9 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": 2,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
@@ -22257,9 +22257,9 @@
     }
    ],
    "error": null,
-   "depth": 2,
+   "depth": 3,
    "hub_tried": [],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
@@ -22975,10 +22975,10 @@
    "site": "国家疾病预防控制局",
    "province": "中央",
    "home": "https://www.ndcpa.gov.cn/",
-   "board_url": "https://www.ndcpa.gov.cn/jbkzzx/c100026/common/list.html",
+   "board_url": "https://www.ndcpa.gov.cn/jbkzzx/c100081/common/list.html",
    "status": "ok",
    "score": 1,
-   "keyword": "政府信息 公开制度",
+   "keyword": "规范性文件|规范性文件",
    "list_likeness": {
     "ok": true,
     "n_links": 13,
@@ -23122,7 +23122,7 @@
     }
    ],
    "error": null,
-   "depth": 3,
+   "depth": 4,
    "hub_tried": [
     {
      "url": "https://www.ndcpa.gov.cn/jbkzzx/c100011/common/list.html",
@@ -23133,7 +23133,7 @@
      "error": null
     }
    ],
-   "board_kind": "hub",
+   "board_kind": "normative",
    "level": "ministry"
   },
   {
