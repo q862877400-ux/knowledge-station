@@ -56,11 +56,18 @@ NAV_WORDS = ("首页", "上一页", "下一页", "尾页", "更多", "返回", "
              "网站地图", "无障碍", "打印", "关闭", "分享", "搜索", "导航")
 #: 条目级过滤：**要**这些词（条例/办法/规定/规范/标准/细则/规则/制度/决定/通知/意见）
 KEEP_WORDS = ("条例", "办法", "规定", "规范", "标准", "细则", "规则", "制度",
-              "决定", "通知", "意见", "公告", "命令", "方案", "规划")
+              "决定", "通知", "意见", "命令", "方案", "规划", "规章", "准则",
+              "指导意见", "实施细则", "暂行办法", "管理办法", "工作规程")
 #: **不要**这些（人事/事务类，业主明确不要新闻公告）
 DROP_WORDS = ("任免", "招聘", "招录", "表彰", "会议", "培训", "预算", "决算",
               "招标", "采购", "中标", "成交", "名单", "公示", "考察", "述职",
-              "民主生活会", "党建", "党史", "工会", "共青团", "妇联")
+              "民主生活会", "党建", "党史", "工会", "共青团", "妇联",
+              # 2026-11-02 抽检补：这些是**事务类/临时性**，不是规范性文件
+              "试鸣", "防空警报", "演练", "演习", "放假", "节假日", "作息",
+              "停水", "停电", "停气", "封路", "交通管制", "限行", "提示",
+              "提醒", "天气", "灾害预警", "应急响应", "值班", "走访", "慰问",
+              "座谈", "论坛", "展销", "促销", "消费券", "补贴发放", "摇号",
+              "抽签", "报名", "笔试", "面试", "体检", "公示名单", "结果公布")
 ATT_EXT = (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".rar", ".wps", ".ofd")
 BLOCK_HINT = ("captcha", "验证码", "安全认证", "访问过于频繁", "Access Denied")
 
@@ -582,6 +589,77 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
     return stats
 
 
+def text_only_site(transport, sdir: Path, max_files: int,
+                   max_mb: float) -> dict:
+    """给一个站已有条目补正文与附件（不重抓列表）。"""
+    f = sdir / "items.jsonl"
+    items = [json.loads(x) for x in
+             f.read_text(encoding="utf-8").splitlines() if x.strip()]
+    tdir = sdir / "text"
+    adir = sdir / "attachments"
+    got_text = 0
+    got_att = 0
+    chars = 0
+    for it in items:
+        if it.get("text_file") and it.get("text_chars"):
+            continue
+        if not it.get("url"):
+            continue
+        try:
+            st, body = transport.fetch(it["url"], timeout=TIMEOUT_S)
+        except Exception:                        # noqa: BLE001
+            continue
+        if st != 200 or not isinstance(body, str):
+            continue
+        txt = clean_body(main_text(body), it.get("title") or "")
+        it["text_chars"] = len(txt)
+        if len(txt) >= 40:
+            tdir.mkdir(parents=True, exist_ok=True)
+            key = hashlib.sha256(it["url"].encode()).hexdigest()[:16]
+            tf = tdir / (key + ".txt")
+            tf.write_text(txt, encoding="utf-8")
+            it["text_file"] = str(tf.relative_to(ROOT))
+            got_text += 1
+            chars += len(txt)
+        saved = []
+        for a in find_attachments(body, it["url"]):
+            if got_att >= max_files:
+                break
+            try:
+                ast, ab = transport.fetch(a, timeout=TIMEOUT_S)
+            except Exception:                    # noqa: BLE001
+                continue
+            if ast != 200 or not isinstance(ab, (bytes, bytearray)):
+                continue
+            if len(ab) > max_mb * 1048576:
+                continue
+            h = hashlib.sha256(ab).hexdigest()
+            name = Path(urlsplit(a).path).name or "file"
+            adir.mkdir(parents=True, exist_ok=True)
+            (adir / f"{h[:16]}_{name}").write_bytes(ab)
+            saved.append({"url": a, "bytes": len(ab), "sha256": h})
+            got_att += 1
+        if saved:
+            it["attachments"] = saved
+        time.sleep(0.4)
+    f.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in items) + "\n",
+                 encoding="utf-8")
+    st_path = sdir / "site-state.json"
+    snap = {}
+    if st_path.exists():
+        try:
+            snap = json.loads(st_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            snap = {}
+    snap.update({"site": sdir.name, "items_total": len(items),
+                 "texts": sum(1 for x in items if x.get("text_file")),
+                 "text_chars": sum(int(x.get("text_chars") or 0) for x in items),
+                 "attachments": sum(len(x.get("attachments") or []) for x in items)})
+    st_path.write_text(json.dumps(snap, ensure_ascii=False, indent=1), encoding="utf-8")
+    return {"site": sdir.name, "new_texts": got_text, "new_attachments": got_att,
+            "chars": chars}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
@@ -594,11 +672,34 @@ def main() -> int:
     ap.add_argument("--max-mb", type=float, default=30.0)
     ap.add_argument("--items", type=int, default=5000,
                     help="单站条目上限（存量默认 5000，0=不限）")
+    ap.add_argument("--text-only", action="store_true",
+                    help="只给已有 items.jsonl 补正文/附件，不重抓列表")
     ap.add_argument("--list-only", action="store_true",
                     help="只抓列表与翻页（不抓正文/附件），用于先量翻页成功率")
     ap.add_argument("--kind", default="normative",
                     help="normative / hub / all")
     args = ap.parse_args()
+
+    if args.text_only:
+        dirs = sorted({f.parent for f in OUTDIR.rglob("items.jsonl")})
+        print(f"只补正文：{len(dirs)} 站")
+        transport = default_transport()
+        t0 = time.monotonic()
+        tot_t = tot_a = tot_c = 0
+        with ThreadPoolExecutor(max_workers=args.concurrency,
+                                thread_name_prefix="nat-text") as pool:
+            futs = [pool.submit(text_only_site, transport, dd,
+                                args.max_files, args.max_mb) for dd in dirs]
+            for i, fut in enumerate(as_completed(futs), 1):
+                r = fut.result()
+                tot_t += r["new_texts"]
+                tot_a += r["new_attachments"]
+                tot_c += r["chars"]
+                if i % 10 == 0 or i == len(dirs):
+                    print(f"  {i}/{len(dirs)}  正文 {tot_t} 篇 / {tot_c} 字  "
+                          f"附件 {tot_a}  用时 {time.monotonic() - t0:.0f}s")
+        print(f"完成：正文 {tot_t} 篇 / {tot_c} 字，附件 {tot_a}")
+        return 0
 
     d = json.loads(DISCOVER.read_text(encoding="utf-8"))
     sites = [r for r in d["results"]
