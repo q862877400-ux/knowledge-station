@@ -629,14 +629,47 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
     if list_only:
         stats["status"] = "list_only_ok" if items else "js_unparsable"
         sdir.mkdir(parents=True, exist_ok=True)
+        # ⚠ 只抓列表**也要合并**（2026-11-02 R20 修）：原来直接覆盖 items.jsonl，
+        #   历史条目会被冲掉，也就永远算不出"本次新增"——增量监测就废了。
+        now = time.strftime("%Y-%m-%d %H:%M:%S")
+        merged: dict[str, dict] = {x["url"]: x for x in prev_items if x.get("url")}
+        new_run = 0
+        for x in items:
+            old_it = merged.get(x["url"])
+            if old_it is None:
+                x["first_seen"] = now
+                new_run += 1
+            else:
+                x.setdefault("first_seen", old_it.get("first_seen") or now)
+                x["text_file"] = old_it.get("text_file")
+                x["text_chars"] = old_it.get("text_chars")
+                x["attachments"] = old_it.get("attachments") or []
+            merged[x["url"]] = x
+        allitems = sorted(merged.values(), key=lambda y: (y.get("date") or ""),
+                          reverse=True)
         (sdir / "items.jsonl").write_text(
-            "\n".join(json.dumps(x, ensure_ascii=False) for x in items) + "\n",
+            "\n".join(json.dumps(x, ensure_ascii=False) for x in allitems) + "\n",
             encoding="utf-8")
-        (sdir / "site-state.json").write_text(json.dumps({
+        prev_snap = {}
+        sp = sdir / "site-state.json"
+        if sp.exists():
+            try:
+                prev_snap = json.loads(sp.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                prev_snap = {}
+        dates = [x.get("date") for x in allitems if x.get("date")]
+        sp.write_text(json.dumps({
             "site": site, "board": board, "status": stats["status"],
-            "pages_this_run": stats["pages"], "items_total": len(items),
+            "run_at": now, "pages_this_run": stats["pages"],
+            "items_seen_this_run": len(items),
+            "items_total": len(allitems), "items_new_this_run": new_run,
+            "prev_items_total": prev_snap.get("items_total"),
+            "newest_date": max(dates) if dates else None,
+            "oldest_date": min(dates) if dates else None,
             "pagination": stats.get("pagination"),
         }, ensure_ascii=False, indent=1), encoding="utf-8")
+        stats["items_total"] = len(allitems)
+        stats["items_new"] = new_run
         return stats
     if not items:
         # 抽不到**带日期**的条目 ⇒ 那个栏目多半是 JS 渲染（临汾就是这种）
