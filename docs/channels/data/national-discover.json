@@ -20772,6 +20772,566 @@
    "hub_tried": [],
    "board_kind": "normative",
    "level": "province"
+  },
+  {
+   "site": "西藏自治区",
+   "province": "西藏自治区",
+   "home": "https://www.xizang.gov.cn/",
+   "board_url": "https://www.xizang.gov.cn/zwgk/zfxxgk/fdzdgknr/zc/gz/",
+   "status": "ok",
+   "score": 10,
+   "keyword": "政府规章库|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 98,
+    "page_dates": 38,
+    "detail_ratio": 0.408,
+    "title_ratio": 0.469,
+    "med_len": 5.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.xizang.gov.cn/zwgk/zfxxgk/fdzdgknr/zc/gz/",
+     "anchor": "政府规章库|政府规章",
+     "score": 10,
+     "ok": true,
+     "n_links": 98,
+     "page_dates": 38,
+     "detail_ratio": 0.408,
+     "title_ratio": 0.469,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.xizang.gov.cn/zwgk/zfxxgk/xzgfxwj2026/index.html",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 157,
+     "page_dates": 0,
+     "detail_ratio": 0.006,
+     "title_ratio": 0.236,
+     "med_len": 5
+    },
+    {
+     "url": "https://www.xizang.gov.cn/zwgk/",
+     "anchor": "公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 181,
+     "page_dates": 25,
+     "detail_ratio": 0.138,
+     "title_ratio": 0.343,
+     "med_len": 6
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "福建省",
+   "province": "福建省",
+   "home": "https://www.fj.gov.cn/",
+   "board_url": "https://www.fj.gov.cn/zwgk/",
+   "status": "ok",
+   "score": 1,
+   "keyword": "政务公开",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 1613,
+    "page_dates": 5,
+    "detail_ratio": 0.355,
+    "title_ratio": 0.508,
+    "med_len": 8
+   },
+   "candidates": [
+    {
+     "url": "https://www.fj.gov.cn/zck/",
+     "anchor": "政策文件库|政策文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 15,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.2,
+     "med_len": 6
+    },
+    {
+     "url": "https://www.fj.gov.cn/zwgk/flfg/",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 800,
+     "page_dates": 29,
+     "detail_ratio": 0.037,
+     "title_ratio": 0.269,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.fj.gov.cn/zwgk/",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 1613,
+     "page_dates": 5,
+     "detail_ratio": 0.355,
+     "title_ratio": 0.508,
+     "med_len": 8
+    },
+    {
+     "url": "https://www.fj.gov.cn/zwgk/zdlyxxgk/ggty/zcfg/",
+     "anchor": "政策法规|政策法规",
+     "score": 5,
+     "ok": false,
+     "n_links": 799,
+     "page_dates": 41,
+     "detail_ratio": 0.051,
+     "title_ratio": 0.278,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.fj.gov.cn/zwgk/flfg/",
+     "anchor": "法律法规|法律法规",
+     "score": 4,
+     "ok": false,
+     "n_links": 800,
+     "page_dates": 29,
+     "detail_ratio": 0.037,
+     "title_ratio": 0.269,
+     "med_len": 4.0
+    },
+    {
+     "url": "https://www.fj.gov.cn/zwgk/",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 1613,
+     "page_dates": 5,
+     "detail_ratio": 0.355,
+     "title_ratio": 0.508,
+     "med_len": 8
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [],
+   "board_kind": "hub",
+   "level": "province"
+  },
+  {
+   "site": "广东省",
+   "province": "广东省",
+   "home": "https://www.gd.gov.cn/",
+   "board_url": "https://www.gd.gov.cn/zwgk/wjk/index.html",
+   "status": "ok",
+   "score": 4,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 148,
+    "page_dates": 120,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.824,
+    "med_len": 32.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.gd.gov.cn/hdjlpt/yjzj/answer/50962",
+     "anchor": "广东省商务厅关于公开征求广东省地方标准《诚信商圈建设与服务规范（送审稿）》意见的|地方标准",
+     "score": 6,
+     "ok": false,
+     "n_links": 7,
+     "page_dates": 15,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.286,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.gd.gov.cn/zwgk/wjk/index.html",
+     "anchor": "文件库|文件库",
+     "score": 4,
+     "ok": true,
+     "n_links": 148,
+     "page_dates": 120,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.824,
+     "med_len": 32.0
+    },
+    {
+     "url": "https://www.gd.gov.cn/zwgk/index.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 91,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.495,
+     "med_len": 7
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "辽宁省",
+   "province": "辽宁省",
+   "home": "https://www.ln.gov.cn/",
+   "board_url": "https://www.ln.gov.cn/web/zwgkx/zfwj/index.shtml",
+   "status": "ok",
+   "score": 4,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 53,
+    "page_dates": 40,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.434,
+    "med_len": 5
+   },
+   "candidates": [
+    {
+     "url": "https://www.ln.gov.cn/web/zwgkx/zfwj/szfwj/2026n/2026101021205617877/index.shtml",
+     "anchor": "辽宁省人民政府关于公布省政府行政规范性文件清理结果的决定|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 3,
+     "page_dates": 1,
+     "detail_ratio": 0.0,
+     "title_ratio": 1.0,
+     "med_len": 23
+    },
+    {
+     "url": "https://www.ln.gov.cn/web/lnszcwjk/index.shtml",
+     "anchor": "省政府政策文件库|政策文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 209,
+     "page_dates": 24,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.215,
+     "med_len": 4
+    },
+    {
+     "url": "https://www.ln.gov.cn/web/zwgkx/zfwj/index.shtml",
+     "anchor": "政府文件|政府文件",
+     "score": 4,
+     "ok": true,
+     "n_links": 53,
+     "page_dates": 40,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.434,
+     "med_len": 5
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "内蒙古自治区",
+   "province": "内蒙古自治区",
+   "home": "https://www.nmg.gov.cn/",
+   "board_url": "https://www.nmg.gov.cn/zwgk/gzk/index.html",
+   "status": "ok",
+   "score": 4,
+   "keyword": "自治区人民政府规章|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 250,
+    "page_dates": 30,
+    "detail_ratio": 0.188,
+    "title_ratio": 0.232,
+    "med_len": 5.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.nmg.gov.cn/nmg_zcwjk/",
+     "anchor": "全区政策文件库|政策文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696",
+     "anchor": "政策文件|政策文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 444,
+     "page_dates": 0,
+     "detail_ratio": 0.009,
+     "title_ratio": 0.23,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 426,
+     "page_dates": 28,
+     "detail_ratio": 0.082,
+     "title_ratio": 0.27,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/nmg_zcwjk/",
+     "anchor": "全区政策 文件库|文件库",
+     "score": 5,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696",
+     "anchor": "政府文件|政府文件",
+     "score": 4,
+     "ok": false,
+     "n_links": 444,
+     "page_dates": 0,
+     "detail_ratio": 0.009,
+     "title_ratio": 0.23,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 426,
+     "page_dates": 28,
+     "detail_ratio": 0.082,
+     "title_ratio": 0.27,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/xxgfxwjkk/",
+     "anchor": "现行有效行政规范性文件库|规范性文件",
+     "score": 14,
+     "ok": false,
+     "n_links": 230,
+     "page_dates": 0,
+     "detail_ratio": 0.009,
+     "title_ratio": 0.187,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3#iframe",
+     "anchor": "行政规范性文件|规范性文件",
+     "score": 8,
+     "ok": false,
+     "n_links": 444,
+     "page_dates": 0,
+     "detail_ratio": 0.009,
+     "title_ratio": 0.23,
+     "med_len": 5.0
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/gzk/index.html",
+     "anchor": "自治区人民政府规章|政府规章",
+     "score": 4,
+     "ok": true,
+     "n_links": 250,
+     "page_dates": 30,
+     "detail_ratio": 0.188,
+     "title_ratio": 0.232,
+     "med_len": 5.0
+    }
+   ],
+   "error": null,
+   "depth": 2,
+   "hub_tried": [
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/",
+     "error": null
+    },
+    {
+     "url": "https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3",
+     "error": null
+    }
+   ],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "安徽省",
+   "province": "安徽省",
+   "home": "https://www.ah.gov.cn/",
+   "board_url": "https://www.ah.gov.cn/public/column/1681?type=4&catId=6708431&action=list",
+   "status": "ok",
+   "score": 4,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 97,
+    "page_dates": 20,
+    "detail_ratio": 0.443,
+    "title_ratio": 0.32,
+    "med_len": 5
+   },
+   "candidates": [
+    {
+     "url": "https://www.ah.gov.cn/zwyw/ztzl/gfwjyjzj/index.html",
+     "anchor": "规范性文件意见征集|规范性文件",
+     "score": 5,
+     "ok": false,
+     "n_links": 11,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.273,
+     "med_len": 6
+    },
+    {
+     "url": "https://www.ah.gov.cn/public/column/1681?type=4&catId=6708431&action=list",
+     "anchor": "政府文件|政府文件",
+     "score": 4,
+     "ok": true,
+     "n_links": 97,
+     "page_dates": 20,
+     "detail_ratio": 0.443,
+     "title_ratio": 0.32,
+     "med_len": 5
+    },
+    {
+     "url": "https://www.ah.gov.cn/content/article/565459261",
+     "anchor": "关于玻璃工业大气污染物排放地方标准问题|地方标准",
+     "score": 4,
+     "ok": false,
+     "n_links": 32,
+     "page_dates": 3,
+     "detail_ratio": 0.0,
+     "title_ratio": 0.094,
+     "med_len": 4.0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "湖南省",
+   "province": "湖南省",
+   "home": "https://www.hunan.gov.cn/",
+   "board_url": "https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfwj/wjk_glrb.html",
+   "status": "ok",
+   "score": 4,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 58,
+    "page_dates": 29,
+    "detail_ratio": 0.259,
+    "title_ratio": 0.448,
+    "med_len": 7.0
+   },
+   "candidates": [
+    {
+     "url": "https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfwj/wjk_glrb.html",
+     "anchor": "文件库|文件库",
+     "score": 4,
+     "ok": true,
+     "n_links": 58,
+     "page_dates": 29,
+     "detail_ratio": 0.259,
+     "title_ratio": 0.448,
+     "med_len": 7.0
+    },
+    {
+     "url": "https://www.hunan.gov.cn/hnszf/xxgk/zfgz/index.html",
+     "anchor": "规章库|规章库",
+     "score": 4,
+     "ok": true,
+     "n_links": 75,
+     "page_dates": 45,
+     "detail_ratio": 0.6,
+     "title_ratio": 0.32,
+     "med_len": 5
+    },
+    {
+     "url": "https://www.hunan.gov.cn/hnszf/xxgk/xxgk.html",
+     "anchor": "政务公开",
+     "score": 1,
+     "ok": true,
+     "n_links": 123,
+     "page_dates": 12,
+     "detail_ratio": 0.187,
+     "title_ratio": 0.398,
+     "med_len": 6
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
+  },
+  {
+   "site": "浙江省",
+   "province": "浙江省",
+   "home": "https://www.zj.gov.cn/",
+   "board_url": "https://www.zj.gov.cn/col/col1544911/index.html",
+   "status": "ok",
+   "score": 2,
+   "keyword": "法规文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 86,
+    "page_dates": 41,
+    "detail_ratio": 0.477,
+    "title_ratio": 0.465,
+    "med_len": 6.5
+   },
+   "candidates": [
+    {
+     "url": "https://www.zj.gov.cn/col/col1544911/index.html",
+     "anchor": "法规文件",
+     "score": 2,
+     "ok": true,
+     "n_links": 86,
+     "page_dates": 41,
+     "detail_ratio": 0.477,
+     "title_ratio": 0.465,
+     "med_len": 6.5
+    },
+    {
+     "url": "https://www.zj.gov.cn/api-gateway/jpaas-jsurvey-web-server/front/dczj/showJsurveys.do?formId=XtCD0LZA4DsfS9MPFE76Z",
+     "anchor": "关于征集2027年省政府为民办实事项目致全省人民的公开信",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    },
+    {
+     "url": "https://www.zj.gov.cn/col/col1229697780/index.html",
+     "anchor": "政府信息公开",
+     "score": 1,
+     "ok": false,
+     "n_links": 0,
+     "page_dates": 0,
+     "detail_ratio": 0.0,
+     "med_len": 0
+    }
+   ],
+   "error": null,
+   "depth": 1,
+   "hub_tried": [],
+   "board_kind": "normative",
+   "level": "province"
   }
  ]
 }

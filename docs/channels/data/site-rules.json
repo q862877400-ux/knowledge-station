@@ -31,6 +31,17 @@
   "note": "实测标定得出（--export-rules）"
  },
  {
+  "site": "内蒙古自治区",
+  "rule": [
+   "index",
+   "_"
+  ],
+  "pages": 6,
+  "items_total": 54,
+  "measured_at": "2026-11-02 11:15:27",
+  "note": "实测标定得出（--export-rules）"
+ },
+ {
   "site": "呼伦贝尔市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
@@ -129,6 +140,11 @@
  },
  {
   "site": "亳州市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "安徽省",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
@@ -255,6 +271,11 @@
   "items_total": 107,
   "measured_at": "2026-11-02 10:21:16",
   "note": "实测标定得出（--export-rules）"
+ },
+ {
+  "site": "广东省",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
   "site": "惠州市",
@@ -592,6 +613,11 @@
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
+  "site": "浙江省",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
   "site": "温州市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
@@ -645,6 +671,17 @@
   "site": "株洲市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "湖南省",
+  "rule": [
+   "suffix",
+   "_"
+  ],
+  "pages": 30,
+  "items_total": 409,
+  "measured_at": "2026-11-02 11:16:05",
+  "note": "实测标定得出（--export-rules）"
  },
  {
   "site": "衡阳市",
@@ -717,6 +754,11 @@
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
  {
+  "site": "西藏自治区",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
   "site": "六盘水市",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
@@ -759,6 +801,11 @@
  },
  {
   "site": "葫芦岛市",
+  "rule": null,
+  "why": "标定未命中（单页或非 URL 规则可解）"
+ },
+ {
+  "site": "辽宁省",
   "rule": null,
   "why": "标定未命中（单页或非 URL 规则可解）"
  },
@@ -867,9 +914,9 @@
    "suffix",
    "_"
   ],
-  "pages": 3,
+  "pages": 4,
   "items_total": 21,
-  "measured_at": "2026-11-02 10:56:06",
+  "measured_at": "2026-11-02 11:12:08",
   "note": "实测标定得出（--export-rules）"
  }
 ]

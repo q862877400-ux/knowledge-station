@@ -165,5 +165,67 @@
   "anchor": "黑龙江省人民政府",
   "title": "\r\n    黑龙江省人民政府\r\n  ",
   "verified": true
+ },
+ "福建省": {
+  "province": "福建省",
+  "portal": "https://www.fj.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "福建健康码：科学防控，快速核验，出行便捷",
+  "title": "福建省人民政府门户网站",
+  "verified": true
+ },
+ "广东省": {
+  "province": "广东省",
+  "portal": "https://www.gd.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "广东省政府网",
+  "title": "广东省人民政府门户网站",
+  "verified": true
+ },
+ "辽宁省": {
+  "province": "辽宁省",
+  "portal": "https://www.ln.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "深入学习贯彻习近平总书记在辽宁考察时的重",
+  "title": "辽宁省人民政府",
+  "verified": true
+ },
+ "内蒙古自治区": {
+  "province": "内蒙古自治区",
+  "portal": "https://www.nmg.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "内蒙古",
+  "title": "内蒙古自治区人民政府",
+  "verified": true
+ },
+ "安徽省": {
+  "province": "安徽省",
+  "portal": "https://www.ah.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "安徽省",
+  "title": "安徽省人民政府",
+  "verified": true
+ },
+ "湖南省": {
+  "province": "湖南省",
+  "portal": "https://www.hunan.gov.cn/",
+  "via": "挖链(宽规则)",
+  "anchor": "湖南省人民政府",
+  "title": "欢迎光临湖南省人民政府门户网站",
+  "verified": true
+ },
+ "新疆维吾尔自治区": {
+  "province": "新疆维吾尔自治区",
+  "portal": "https://www.xinjiang.gov.cn/",
+  "via": "宽规则",
+  "title": "新疆维吾尔自治区人民政府网",
+  "verified": true
+ },
+ "浙江省": {
+  "province": "浙江省",
+  "portal": "https://www.zj.gov.cn/",
+  "via": "浏览器验证",
+  "title": "浙江省人民政府",
+  "verified": true
  }
 }
