@@ -387,6 +387,31 @@ def fetch_bytes(url: str, referer: str | None = None,
     return r.status_code, r.content or b"", (r.headers or {}).get("content-type", "")
 
 
+def true_ext(data: bytes, ctype: str) -> str:
+    """按文件头给正确扩展名（下载接口的 URL 常以 .jsp/.do 结尾，名字带不出类型）。"""
+    low = (ctype or "").lower()
+    if data[:5] == b"%PDF":
+        return ".pdf"
+    if data[:4] == b"PK\x03\x04":
+        if b"word/" in data[:4000]:
+            return ".docx"
+        if b"xl/" in data[:4000]:
+            return ".xlsx"
+        return ".zip"
+    if data[:4] == b"\xd0\xcf\x11\xe0":
+        # OLE 复合文档：**必须看内部流名**，只看 content-type 会把 .doc 全判成 .xls
+        # （2026-11-02 实测：一次清理把 83 个 Word 改名成了 Excel）
+        blob = data[:400000]
+        if b"WordDocument" in blob:
+            return ".doc"
+        if b"Workbook" in blob or b"Book" in blob:
+            return ".xls"
+        return ".doc" if ("word" in low or "msword" in low) else ".xls"
+    if data[:5] == b"{\\rtf":
+        return ".rtf"
+    return ""
+
+
 def looks_like_file(data: bytes, ctype: str) -> bool:
     """判断下载到的是不是真文件（而不是 HTML 错误页/预览页）。"""
     low = (ctype or "").lower()
@@ -395,7 +420,8 @@ def looks_like_file(data: bytes, ctype: str) -> bool:
     head = data[:8]
     if head.startswith((b"%PDF", b"PK\x03\x04", b"\xd0\xcf\x11\xe0", b"{\rtf")):
         return True                              # PDF / zip(docx,xlsx) / OLE / rtf
-    if b"<html" in data[:400].lower() or b"<!doctype" in data[:400].lower():
+    head2k = data[:2000].lower()
+    if any(m in head2k for m in (b"<html", b"<!doctype", b"<head", b"<body")):
         return False
     return len(data) > 1024 and "octet-stream" in low or len(data) > 4096
 
@@ -705,8 +731,11 @@ def text_only_site(transport, sdir: Path, max_files: int,
                 continue
             h = hashlib.sha256(data).hexdigest()
             name = Path(urlsplit(a).path).name or "file"
-            if "." not in name:
-                name += {"application/pdf": ".pdf"}.get(ct.split(";")[0], ".bin")
+            ext = true_ext(data, ct)
+            # URL 名不可信（`.jsp`/`.do` 下载接口），按真实类型改名
+            if ext and not name.lower().endswith(ext):
+                stem = re.sub(r"\.[a-z0-9]{1,5}$", "", name, flags=re.I)
+                name = f"{stem}{ext}"
             adir.mkdir(parents=True, exist_ok=True)
             (adir / f"{h[:16]}_{name}").write_bytes(data)
             saved.append({"url": a, "bytes": len(data), "sha256": h,
