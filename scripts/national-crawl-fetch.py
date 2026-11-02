@@ -47,6 +47,8 @@ sys.path.insert(0, str(ROOT))
 from src.core.update.announce import default_transport  # noqa: E402
 
 DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
+#: 站点接入配置（**可复用**：跑过标定的站把规则存这里，下次直接读，不再现场重猜）
+SITE_RULES = ROOT / "docs" / "channels" / "data" / "site-rules.json"
 OUTDIR = ROOT / "var" / "data" / "national"
 
 LINK_RE = re.compile(r"<a\b[^>]*?href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", re.S | re.I)
@@ -235,6 +237,28 @@ def js_page_template(html: str, base: str) -> str | None:
     return None
 
 
+def load_site_rules() -> dict[str, tuple]:
+    """读站点规则表 → {站点名: (规则名, 参数)}。
+
+    规则名对应 `PAGE_RULES` 里的 (kind, key)，例如 `("index", "_")`。
+    读不到/格式不对一律返回空表（fail-open：退回现场标定，不报错中断）。
+    """
+    try:
+        rows = json.loads(SITE_RULES.read_text(encoding="utf-8"))
+    except Exception:                            # noqa: BLE001
+        return {}
+    out: dict[str, tuple] = {}
+    for r in rows if isinstance(rows, list) else []:
+        rule = r.get("rule")
+        if not isinstance(rule, str):
+            continue
+        for cand in PAGE_RULES:
+            if cand[0] == rule:
+                out[str(r.get("site"))] = cand
+                break
+    return out
+
+
 def tpl_candidates(tpl: str, board: str) -> list[str]:
     """由 JS 模板 + 原栏目参数，生成可试的翻页模板。
 
@@ -251,6 +275,35 @@ def tpl_candidates(tpl: str, board: str) -> list[str]:
         if extra:
             out.append(tpl + "&" + extra)
     return list(dict.fromkeys(out))
+
+
+def is_same_column(orig: str, cand: str) -> bool:
+    """翻页候选**必须仍是同一栏目**，且不得丢掉原栏目的查询参数。
+
+    ⚠ 为什么必须有这条（2026-11-02 R17 假绿教训）：我拼候选地址时丢掉了
+    `?pageId=…`，抓到的是**另一个页面**（内容完全不同），却当成"翻到第 2 页"、
+    "新增 4 条"记进了结论。加这条判据后，那种情况会被直接拒掉。
+
+    判据：
+      1. 同主机；
+      2. 路径相同，或只在原文件名主干部位扩展（`index`→`index_2`、`x`→`x_2`）；
+      3. 原栏目的每个查询参数（同名同值）都必须还在候选里 —— **不许丢参数**。
+    """
+    o, c = urlsplit(orig), urlsplit(cand)
+    if o.netloc.lower() != c.netloc.lower():
+        return False
+    op, cp = o.path.rstrip("/"), c.path.rstrip("/")
+    if op != cp:
+        stem = op.rsplit(".", 1)[0]
+        if not (cp.startswith(stem) or cp == op):
+            return False
+    from urllib.parse import parse_qsl
+    oq = dict(parse_qsl(o.query, keep_blank_values=True))
+    cq = dict(parse_qsl(c.query, keep_blank_values=True))
+    for k, v in oq.items():
+        if cq.get(k) != v:
+            return False
+    return True
 
 
 def calibrate_pagination(transport, board: str, first_urls: set[str],
@@ -273,6 +326,8 @@ def calibrate_pagination(transport, board: str, first_urls: set[str],
                 continue
             if st != 200 or not isinstance(body, str):
                 continue
+            if not is_same_column(board, u2):
+                continue          # 换了栏目（丢参数/换页面）→ 不算翻页
             got = {x["url"] for x in parse_items(body, u2)}
             new = got - first_urls
             if new and len(got & first_urls) < len(got):
@@ -454,7 +509,8 @@ def find_attachments(html: str, base: str) -> list[str]:
 
 def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
                max_mb: float, per_site_items: int,
-               barren_stop: int = 3, list_only: bool = False) -> dict:
+               barren_stop: int = 3, list_only: bool = False,
+               preset_rule: tuple | None = None) -> dict:
     """抓一个站：列表 → 详情 → 附件。返回统计（不抛异常）。"""
     site = rec["site"]
     board = rec.get("board_url") or ""
@@ -501,7 +557,13 @@ def crawl_site(transport, rec: dict, *, pages: int, max_files: int,
         items.append(x)
     stats["pages"] = 1
     first_urls = {x["url"] for x in first_items}
-    cal = calibrate_pagination(transport, board, first_urls, html=b0)
+    if preset_rule:
+        # 读配置：不再现场标定（这就是"可复用接入能力"落到实处）
+        nxt_u = _page_url(board, preset_rule, 2)
+        cal = {"rule": list(preset_rule), "ok": True, "source": "site-rules.json",
+               "page2_url": nxt_u, "overlap": None, "new": None}
+    else:
+        cal = calibrate_pagination(transport, board, first_urls, html=b0)
     stats["pagination"] = cal
     # ── 翻页：先按标定出的规则翻，规则不可用再跟「下一页」链接 ──
     n_pages = 1
@@ -785,6 +847,7 @@ def main() -> int:
                     help="只给已有 items.jsonl 补正文/附件，不重抓列表")
     ap.add_argument("--list-only", action="store_true",
                     help="只抓列表与翻页（不抓正文/附件），用于先量翻页成功率")
+    ap.add_argument("--site", default="", help="只抓指定站点名（用于单站验证）")
     ap.add_argument("--kind", default="normative",
                     help="normative / hub / all")
     args = ap.parse_args()
@@ -816,12 +879,17 @@ def main() -> int:
     sites = [r for r in d["results"]
              if r.get("status") == "ok"
              and (args.kind == "all" or r.get("board_kind") == args.kind)]
+    if args.site:
+        sites = [s for s in sites if s.get("site") == args.site]
     if args.limit:
         sites = sites[: args.limit]
     print(f"待抓 {len(sites)} 站（kind={args.kind}，页≤{args.pages}，"
           f"附件≤{args.max_files}/站，单件≤{args.max_mb}MB）")
 
     transport = default_transport()
+    rules = load_site_rules()
+    if rules:
+        print(f"  读到站点规则配置 {len(rules)} 条")
     host_locks: dict[str, threading.Lock] = {}
     guard = threading.Lock()
 
@@ -836,7 +904,8 @@ def main() -> int:
                               max_files=args.max_files, max_mb=args.max_mb,
                               per_site_items=args.items,
                               barren_stop=args.barren_stop,
-                              list_only=args.list_only)
+                              list_only=args.list_only,
+                              preset_rule=rules.get(str(rec.get("site"))))
 
     t0 = time.monotonic()
     results = []
