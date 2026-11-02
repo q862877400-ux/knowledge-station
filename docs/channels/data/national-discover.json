@@ -11602,11 +11602,18 @@
    "site": "泉州市",
    "province": "福建省",
    "home": "https://www.quanzhou.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.quanzhou.gov.cn/so/zck/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件库|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 33,
+    "page_dates": 20,
+    "detail_ratio": 0.576,
+    "title_ratio": 0.606,
+    "med_len": 27
+   },
    "candidates": [
     {
      "url": "https://www.quanzhou.gov.cn/so/zck/",
@@ -11687,7 +11694,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "泰安市",
@@ -12559,11 +12568,18 @@
    "site": "淮南市",
    "province": "安徽省",
    "home": "https://www.huainan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.huainan.gov.cn/site/tpl/150848007",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "淮南市人民政府行政规范性文件库|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 185,
+    "page_dates": 30,
+    "detail_ratio": 0.524,
+    "title_ratio": 0.178,
+    "med_len": 5
+   },
    "candidates": [
     {
      "url": "https://www.huainan.gov.cn/public/column/6596035?type=4&catId=146621818&action=list&isParent=false",
@@ -12655,7 +12671,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "淮安市",
@@ -12753,16 +12771,25 @@
    "site": "清远市",
    "province": "广东省",
    "home": "http://www.qingyuan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.qingyuan.gov.cn/list_wj.asp?s=38",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 61,
+    "page_dates": 31,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.377,
+    "med_len": 4
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "温州市",
@@ -12928,16 +12955,25 @@
    "site": "湘潭市",
    "province": "湖南省",
    "home": "https://www.xiangtan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.xiangtan.gov.cn/109/202/26291/index.htm",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "文件库|文件库",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 55,
+    "page_dates": 11,
+    "detail_ratio": 0.218,
+    "title_ratio": 0.473,
+    "med_len": 7
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "湛江市",
@@ -13000,11 +13036,18 @@
    "site": "滁州市",
    "province": "安徽省",
    "home": "https://www.chuzhou.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.chuzhou.gov.cn/czzcwjk/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件库|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 45,
+    "page_dates": 10,
+    "detail_ratio": 0.333,
+    "title_ratio": 0.333,
+    "med_len": 5
+   },
    "candidates": [
     {
      "url": "https://www.chuzhou.gov.cn/public/column/152523227?type=4&catId=151959358&action=list&nav=3&isEnableTransferToFdf=1",
@@ -13070,7 +13113,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "滨州市",
@@ -15231,11 +15276,18 @@
    "site": "绵阳市",
    "province": "四川省",
    "home": "https://www.my.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.my.gov.cn/mysrmzf/c100060/xxgk_gz.shtml",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 28,
+    "page_dates": 12,
+    "detail_ratio": 0.643,
+    "title_ratio": 0.286,
+    "med_len": 5.0
+   },
    "candidates": [
     {
      "url": "https://www.my.gov.cn/mysrmzf/c100061/xxgk_list.shtml",
@@ -15349,7 +15401,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "聊城市",
@@ -15454,11 +15508,18 @@
    "site": "自贡市",
    "province": "四川省",
    "home": "https://www.zg.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.zg.gov.cn/zgsrmzf/zc101/pc/list.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件库|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 94,
+    "page_dates": 15,
+    "detail_ratio": 0.16,
+    "title_ratio": 0.468,
+    "med_len": 6.0
+   },
    "candidates": [
     {
      "url": "https://www.zg.gov.cn/zgsrmzf/zc101/pc/list.html",
@@ -15561,7 +15622,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "舟山市",
@@ -16252,11 +16315,18 @@
    "site": "营口市",
    "province": "辽宁省",
    "home": "https://www.yingkou.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yingkou.gov.cn/dynamic/zw/openlist.html?categorynum=001001003",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策文件|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 54,
+    "page_dates": 21,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.444,
+    "med_len": 6.0
+   },
    "candidates": [
     {
      "url": "https://www.yingkou.gov.cn/govxxgk/ykszf/2026-09-16/65f625b1-ad93-4f88-a220-dd313bd86446.html",
@@ -16370,7 +16440,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "葫芦岛市",
@@ -16433,11 +16505,18 @@
    "site": "蚌埠市",
    "province": "安徽省",
    "home": "https://www.bengbu.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.bengbu.gov.cn/zfxxgk/zwgk/zcwjkzs/index.html?columnId=21981",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政策法规|政策法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 473,
+    "page_dates": 15,
+    "detail_ratio": 0.078,
+    "title_ratio": 0.645,
+    "med_len": 9
+   },
    "candidates": [
     {
      "url": "https://www.bengbu.gov.cn/zfxxgk/zwgk/zcwjkzs/index.html?columnId=21981",
@@ -16470,7 +16549,9 @@
      "error": "http_521"
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "衡阳市",
@@ -16835,11 +16916,18 @@
    "site": "许昌市",
    "province": "河南省",
    "home": "https://www.xuchang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.xuchang.gov.cn/GovInfoListPage.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 64,
+    "page_dates": 21,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.406,
+    "med_len": 5.5
+   },
    "candidates": [
     {
      "url": "https://www.xuchang.gov.cn/hdjl/004007/20260811/16c32ca0-78c3-468e-8074-d3c7fd57f807.html",
@@ -16953,7 +17041,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "贵阳市",
@@ -17404,16 +17494,25 @@
    "site": "辽阳市",
    "province": "辽宁省",
    "home": "http://www.liaoyang.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.liaoyang.gov.cn/column_list.html?categorynum=019004&amp;deptcode=033",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "辽阳市地方性法规|地方性法规",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 36,
+    "page_dates": 15,
+    "detail_ratio": 0.028,
+    "title_ratio": 0.556,
+    "med_len": 14.5
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/depth2"
   },
   {
    "site": "达州市",
@@ -18177,16 +18276,25 @@
    "site": "鄂州市",
    "province": "湖北省",
    "home": "https://www.ezhou.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "http://www.ezhou.gov.cn/gk/zc/gfxwj/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 746,
+    "page_dates": 596,
+    "detail_ratio": 0.908,
+    "title_ratio": 0.804,
+    "med_len": 33.0
+   },
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "酒泉市",
@@ -19720,11 +19828,18 @@
    "site": "雅安市",
    "province": "四川省",
    "home": "https://www.yaan.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "board_url": "https://www.yaan.gov.cn/yasrmzf/zfxxgk/pc/zcwj.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "市政府政策文件库|政策文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 86,
+    "page_dates": 117,
+    "detail_ratio": 0.198,
+    "title_ratio": 0.291,
+    "med_len": 4.0
+   },
    "candidates": [
     {
      "url": "https://www.yaan.gov.cn/yasrmzf/zfxxgk/pc/zcwj.html",
@@ -19805,7 +19920,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "board_kind": "normative",
+   "discovered_by": "hunt/direct"
   },
   {
    "site": "青岛市",
