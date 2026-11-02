@@ -444,8 +444,9 @@
   "host": "gy",
   "province": "宁夏回族自治区",
   "status": 200,
-  "url": "https://www.gy.gov.cn/",
-  "via": "initials"
+  "url": "https://www.nxgy.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 核验原标题（原值指向别的市）"
  },
  "大兴安岭地区": {
   "host": "dxal",
@@ -584,8 +585,9 @@
   "host": "suzhou",
   "province": "安徽省",
   "status": 200,
-  "url": "https://www.suzhou.gov.cn/",
-  "via": "known"
+  "url": "https://www.ahsz.gov.cn/",
+  "via": "known",
+  "fixed": "2026-11-02 核验原标题（原值指向别的市）"
  },
  "宿迁市": {
   "host": "suqian",
@@ -850,8 +852,9 @@
   "host": "jz",
   "province": "山西省",
   "status": 200,
-  "url": "https://www.jz.gov.cn/",
-  "via": "initials"
+  "url": "https://www.sxjz.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 核验原标题（原值指向别的市）"
  },
  "景德镇市": {
   "host": "jdz",
@@ -948,8 +951,9 @@
   "host": "yulin",
   "province": "陕西省",
   "status": 200,
-  "url": "http://www.yulin.gov.cn/",
-  "via": "pinyin"
+  "url": "https://www.yl.gov.cn/",
+  "via": "pinyin",
+  "fixed": "2026-11-02 核验原标题（原值指向别的市）"
  },
  "武威市": {
   "host": "ww",

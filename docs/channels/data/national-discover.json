@@ -4794,18 +4794,18 @@
   {
    "site": "固原市",
    "province": "宁夏回族自治区",
-   "home": "https://www.gy.gov.cn/",
-   "board_url": "https://www.gy.gov.cn/XxgkPolicy/showList/772/page_1.html?column=4",
+   "home": "https://www.nxgy.gov.cn/",
+   "board_url": "https://www.nxgy.gov.cn/zwgk/zcwj/gfxwj_58562/",
    "status": "ok",
    "score": 4,
-   "keyword": "政府文件|政府文件",
+   "keyword": "规范性文件|规范性文件",
    "list_likeness": {
     "ok": true,
-    "n_links": 226,
+    "n_links": 111,
     "page_dates": 20,
-    "detail_ratio": 0.544,
-    "title_ratio": 0.42,
-    "med_len": 5.0
+    "detail_ratio": 0.297,
+    "title_ratio": 0.324,
+    "med_len": 5
    },
    "candidates": [
     {
@@ -4846,7 +4846,8 @@
    "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "https://www.nxgy.gov.cn/"
   },
   {
    "site": "大兴安岭地区",
@@ -6267,18 +6268,18 @@
   {
    "site": "宿州市",
    "province": "安徽省",
-   "home": "https://www.suzhou.gov.cn/",
-   "board_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj.shtml",
+   "home": "https://www.ahsz.gov.cn/",
+   "board_url": "https://www.ahsz.gov.cn/public/column/2655573?type=1&action=list&nav=2",
    "status": "ok",
    "score": 6,
-   "keyword": "重大决策预公开／政策文件意见征集|政策文件",
+   "keyword": "政府信息 公开制度",
    "list_likeness": {
     "ok": true,
-    "n_links": 166,
-    "page_dates": 30,
-    "detail_ratio": 0.09,
-    "title_ratio": 0.392,
-    "med_len": 6.0
+    "n_links": 110,
+    "page_dates": 24,
+    "detail_ratio": 0.218,
+    "title_ratio": 0.527,
+    "med_len": 8.0
    },
    "candidates": [
     {
@@ -6316,10 +6317,11 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": 3,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "https://www.ahsz.gov.cn/"
   },
   {
    "site": "宿迁市",
@@ -9254,19 +9256,12 @@
   {
    "site": "晋中市",
    "province": "山西省",
-   "home": "https://www.jz.gov.cn/",
-   "board_url": "https://www.jz.gov.cn/zwgk/fdzdgknr/lzyj1/szfwj.htm",
-   "status": "ok",
+   "home": "https://www.sxjz.gov.cn/",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 4,
-   "keyword": "政府文件|政府文件",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 78,
-    "page_dates": 78,
-    "detail_ratio": 0.41,
-    "title_ratio": 0.615,
-    "med_len": 12.0
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "https://www.jz.gov.cn/zwgk/fdzdgknr/lzyj1/szfwj.htm",
@@ -9303,10 +9298,11 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": null,
    "hub_tried": [],
-   "board_kind": "normative",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "https://www.sxjz.gov.cn/"
   },
   {
    "site": "景德镇市",
@@ -10508,19 +10504,12 @@
   {
    "site": "榆林市",
    "province": "陕西省",
-   "home": "http://www.yulin.gov.cn/",
-   "board_url": "http://www.yulin.gov.cn/guizhang1/index.shtml",
-   "status": "ok",
+   "home": "https://www.yl.gov.cn/",
+   "board_url": "https://www.yl.gov.cn/zwgk/zc/gfxwj/",
+   "status": "js_rendered",
    "score": 4,
-   "keyword": "规章库|规章库",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 11,
-    "page_dates": 4,
-    "detail_ratio": 0.0,
-    "title_ratio": 0.364,
-    "med_len": 5
-   },
+   "keyword": "规范性文件|规范性文件",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "http://www.yulin.gov.cn/zcwj/",
@@ -10590,15 +10579,16 @@
     }
    ],
    "error": null,
-   "depth": 2,
+   "depth": null,
    "hub_tried": [
     {
      "url": "http://www.yulin.gov.cn/gkzl/",
      "error": null
     }
    ],
-   "board_kind": "normative",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "https://www.yl.gov.cn/"
   },
   {
    "site": "武威市",

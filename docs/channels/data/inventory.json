@@ -1,24 +1,24 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 197,
-  "items": 12178,
-  "texts": 12152,
-  "text_chars": 44792562,
-  "attachment_refs": 565,
-  "attachment_files": 558,
-  "sites_with_items": 170,
-  "sites_multi_page": 53,
-  "attachment_bytes": 467059135,
-  "attachment_mb": 445.4
+  "sites_crawled": 194,
+  "items": 12070,
+  "texts": 12045,
+  "text_chars": 44689330,
+  "attachment_refs": 556,
+  "attachment_files": 548,
+  "sites_with_items": 169,
+  "sites_multi_page": 52,
+  "attachment_bytes": 466318137,
+  "attachment_mb": 444.7
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 216,
-   "no_board_found": 38,
+   "ok": 214,
+   "no_board_found": 39,
    "unreachable": 7,
-   "js_rendered": 13
+   "js_rendered": 14
   },
   "province": {
    "discovered": 20,
@@ -512,34 +512,6 @@
    "engine": "static"
   },
   {
-   "site": "宿州市",
-   "dir": "var\\data\\national\\安徽省\\宿州市",
-   "status": "list_only_ok",
-   "board": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj.shtml",
-   "pagination": {
-    "rule": [
-     "suffix",
-     "_"
-    ],
-    "ok": true,
-    "source": "site-rules.json",
-    "page2_url": "https://www.suzhou.gov.cn/szsrmzf/yjzj/nav_wztt_dczj_2.shtml",
-    "overlap": null,
-    "new": null
-   },
-   "pages_this_run": 11,
-   "items": 121,
-   "texts": 121,
-   "text_chars": 153577,
-   "attachments": 8,
-   "attachment_files": 8,
-   "items_new_this_run": 0,
-   "newest_date": "2026-11-30",
-   "oldest_date": "2023-01-19",
-   "run_at": "2026-11-02 12:04:09",
-   "engine": "static"
-  },
-  {
    "site": "苏州市",
    "dir": "var\\data\\national\\江苏省\\苏州市",
    "status": "list_only_ok",
@@ -1019,9 +991,9 @@
    "pagination": null,
    "pages_this_run": 1,
    "items": 41,
-   "texts": 40,
-   "text_chars": 158331,
-   "attachments": 4,
+   "texts": 41,
+   "text_chars": 164588,
+   "attachments": 5,
    "attachment_files": 2,
    "items_new_this_run": 1,
    "newest_date": "2026-11-02",
@@ -2278,6 +2250,30 @@
    "oldest_date": "2024-07-23",
    "run_at": "2026-11-02 19:07:16",
    "engine": "cdp"
+  },
+  {
+   "site": "固原市",
+   "dir": "var\\data\\national\\宁夏回族自治区\\固原市",
+   "status": "list_only_ok",
+   "board": "https://www.nxgy.gov.cn/zwgk/zcwj/gfxwj_58562/",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 15,
+   "texts": 15,
+   "text_chars": 52108,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 15,
+   "newest_date": "2026-10-27",
+   "oldest_date": "2024-01-05",
+   "run_at": "2026-11-02 20:29:18",
+   "engine": "static"
   },
   {
    "site": "汉中市",
@@ -3916,30 +3912,6 @@
    "engine": "static"
   },
   {
-   "site": "榆林市",
-   "dir": "var\\data\\national\\陕西省\\榆林市",
-   "status": "list_only_ok",
-   "board": "http://www.yulin.gov.cn/guizhang1/index.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 2,
-   "texts": 2,
-   "text_chars": 8020,
-   "attachments": 4,
-   "attachment_files": 4,
-   "items_new_this_run": 0,
-   "newest_date": "2021-06-24",
-   "oldest_date": "2017-01-11",
-   "run_at": "2026-11-02 12:04:18",
-   "engine": "static"
-  },
-  {
    "site": "玉林市",
    "dir": "var\\data\\national\\广西壮族自治区\\玉林市",
    "status": "list_only_ok",
@@ -4174,30 +4146,6 @@
    "engine": "static"
   },
   {
-   "site": "固原市",
-   "dir": "var\\data\\national\\宁夏回族自治区\\固原市",
-   "status": "js_unparsable",
-   "board": "https://www.gy.gov.cn/XxgkPolicy/showList/772/page_1.html?column=4",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:03:55",
-   "engine": "static"
-  },
-  {
    "site": "国家疾病预防控制局",
    "dir": "var\\data\\national\\中央\\国家疾病预防控制局",
    "status": "js_unparsable",
@@ -4291,30 +4239,6 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 12:03:56",
-   "engine": "static"
-  },
-  {
-   "site": "广元市",
-   "dir": "var\\data\\national\\四川省\\广元市",
-   "status": "js_unparsable",
-   "board": "https://www.gy.gov.cn/XxgkPolicy/showList/772/page_1.html?column=4",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:03:59",
    "engine": "static"
   },
   {
