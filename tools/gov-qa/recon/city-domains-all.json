@@ -153,8 +153,9 @@
   "host": "yl",
   "province": "新疆维吾尔自治区",
   "status": 200,
-  "url": "https://www.yl.gov.cn/",
-  "via": "initials"
+  "url": "https://www.xjyl.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "佛山市": {
   "host": "foshan",
@@ -216,16 +217,18 @@
   "host": "lp",
   "province": "贵州省",
   "status": 200,
-  "url": "https://www.lp.gov.cn/",
+  "url": "http://www.gzlps.gov.cn/",
   "via": "initials",
-  "url_wrong": "2026-11-02 核验：该地址实为黎平县，数据已删"
+  "url_wrong": "2026-11-02 核验：该地址实为黎平县，数据已删",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "兴安盟": {
   "host": "xingan",
   "province": "内蒙古自治区",
   "status": 200,
-  "url": "https://www.xingan.gov.cn/",
-  "via": "pinyin"
+  "url": "http://www.xam.gov.cn/",
+  "via": "pinyin",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "内江市": {
   "host": "neijiang",
@@ -322,8 +325,9 @@
   "host": "taizhou",
   "province": "浙江省",
   "status": 200,
-  "url": "https://www.taizhou.gov.cn/",
-  "via": "pinyin"
+  "url": "http://www.zjtz.gov.cn/",
+  "via": "pinyin",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "吉安市": {
   "host": "jian",
@@ -671,8 +675,9 @@
   "host": "qy",
   "province": "甘肃省",
   "status": 200,
-  "url": "https://www.qy.gov.cn/",
-  "via": "initials"
+  "url": "https://www.zgqingyang.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "廊坊市": {
   "host": "lf",
@@ -741,8 +746,9 @@
   "host": "xz",
   "province": "山西省",
   "status": 200,
-  "url": "https://www.xz.gov.cn/",
-  "via": "initials"
+  "url": "https://www.sxxz.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "怀化市": {
   "host": "huaihua",
@@ -776,8 +782,9 @@
   "host": "fuzhou",
   "province": "江西省",
   "status": 200,
-  "url": "https://www.fuzhou.gov.cn/",
-  "via": "known"
+  "url": "https://www.jxfz.gov.cn/",
+  "via": "known",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "抚顺市": {
   "host": "fushun",
@@ -968,8 +975,9 @@
   "host": "ww",
   "province": "甘肃省",
   "status": 200,
-  "url": "https://www.ww.gov.cn/",
-  "via": "initials"
+  "url": "http://www.gswuwei.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "武汉市": {
   "host": "wuhan",
@@ -989,8 +997,9 @@
   "host": "yz",
   "province": "湖南省",
   "status": 200,
-  "url": "https://www.yz.gov.cn/",
-  "via": "initials"
+  "url": "http://www.yzcity.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "汉中市": {
   "host": "hanzhong",
@@ -1222,8 +1231,9 @@
   "host": "tahe",
   "province": "河南省",
   "status": 200,
-  "url": "https://www.tahe.gov.cn/",
-  "via": "pinyin"
+  "url": "https://www.luohe.gov.cn/",
+  "via": "pinyin",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "漳州市": {
   "host": "zhangzhou",
@@ -1299,15 +1309,17 @@
   "host": "bc",
   "province": "吉林省",
   "status": 200,
-  "url": "https://www.bc.gov.cn/",
-  "via": "initials"
+  "url": "http://www.jlbc.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "白银市": {
   "host": "by",
   "province": "甘肃省",
   "status": 200,
-  "url": "https://www.by.gov.cn/",
-  "via": "initials"
+  "url": "http://www.baiyin.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "百色市": {
   "host": "baise",
@@ -1518,8 +1530,9 @@
   "host": "xy",
   "province": "湖北省",
   "status": 200,
-  "url": "http://www.xy.gov.cn/",
-  "via": "initials"
+  "url": "http://www.xiangyang.gov.cn/",
+  "via": "initials",
+  "fixed": "2026-11-02 搜索+标题核验"
  },
  "西宁市": {
   "host": "xining",

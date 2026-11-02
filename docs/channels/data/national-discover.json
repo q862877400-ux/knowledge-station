@@ -1639,12 +1639,19 @@
   {
    "site": "伊犁哈萨克自治州",
    "province": "新疆维吾尔自治区",
-   "home": "https://www.yl.gov.cn/",
-   "board_url": "https://www.yl.gov.cn/zwgk/zc/gfxwj/",
-   "status": "js_rendered",
+   "home": "https://www.xjyl.gov.cn/",
+   "board_url": "http://www.xjyl.gov.cn/xjylz/c112882/hngzk_search.shtml",
+   "status": "ok",
    "score": 5,
-   "keyword": "规范性文件|规范性文件",
-   "list_likeness": null,
+   "keyword": "政府规章库|政府规章",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 25,
+    "page_dates": 10,
+    "detail_ratio": 0.8,
+    "title_ratio": 0.52,
+    "med_len": 12
+   },
    "candidates": [
     {
      "url": "https://www.yl.gov.cn/zwgk/zc/qtwj/",
@@ -1745,7 +1752,7 @@
     }
    ],
    "error": "page_empty_or_js",
-   "depth": null,
+   "depth": 1,
    "hub_tried": [
     {
      "url": "https://www.yl.gov.cn/zwgk/",
@@ -1756,7 +1763,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "url": "https://www.xjyl.gov.cn/",
+   "board_kind": "normative"
   },
   {
    "site": "佛山市",
@@ -2447,19 +2456,12 @@
   {
    "site": "六盘水市",
    "province": "贵州省",
-   "home": "https://www.lp.gov.cn/",
-   "board_url": "https://www.lp.gov.cn/zwgk/zcwj/",
-   "status": "ok",
+   "home": "http://www.gzlps.gov.cn/",
+   "board_url": "https://www.gzlps.gov.cn/zwgk/zfxxgkzl/fdzdgknr/qtfdxx/ggsjk/",
+   "status": "js_rendered",
    "score": 5,
-   "keyword": "政策文件|政策文件",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 150,
-    "page_dates": 15,
-    "detail_ratio": 0.107,
-    "title_ratio": 0.433,
-    "med_len": 7.0
-   },
+   "keyword": "规章和规范性文件数据库|规范性文件",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "https://www.lp.gov.cn/zwgk/zcwj/",
@@ -2496,15 +2498,16 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": null,
    "hub_tried": [],
-   "board_kind": "normative",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "http://www.gzlps.gov.cn/"
   },
   {
    "site": "兴安盟",
    "province": "内蒙古自治区",
-   "home": "https://www.xingan.gov.cn/",
+   "home": "http://www.xam.gov.cn/",
    "board_url": null,
    "status": "no_board_found",
    "score": 0,
@@ -2612,7 +2615,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.xam.gov.cn/",
+   "board_kind": null
   },
   {
    "site": "内江市",
@@ -3522,19 +3527,12 @@
   {
    "site": "台州市",
    "province": "浙江省",
-   "home": "https://www.taizhou.gov.cn/",
-   "board_url": "http://www.taizhou.gov.cn/zfxxgk/zfxxgkzd/index.html",
-   "status": "ok",
+   "home": "http://www.zjtz.gov.cn/",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 1,
-   "keyword": "政府信息公开制度",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 49,
-    "page_dates": 11,
-    "detail_ratio": 0.224,
-    "title_ratio": 0.347,
-    "med_len": 5
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "http://www.taizhou.gov.cn/zfxxgk/zfxxgkzn/index.html",
@@ -3603,10 +3601,11 @@
     }
    ],
    "error": null,
-   "depth": 2,
+   "depth": null,
    "hub_tried": [],
-   "board_kind": "hub",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "http://www.zjtz.gov.cn/"
   },
   {
    "site": "吉安市",
@@ -6914,18 +6913,18 @@
   {
    "site": "庆阳市",
    "province": "甘肃省",
-   "home": "https://www.qy.gov.cn/",
-   "board_url": "http://www.qy.gov.cn/qy/zcwjk/zcwjk.shtml",
+   "home": "https://www.zgqingyang.gov.cn/",
+   "board_url": "https://www.zgqingyang.gov.cn/gk/zfxxgk/zcwjk",
    "status": "ok",
    "score": 8,
    "keyword": "政策文件库|政策文件",
    "list_likeness": {
     "ok": true,
-    "n_links": 17,
-    "page_dates": 98,
-    "detail_ratio": 0.176,
-    "title_ratio": 0.176,
-    "med_len": 4
+    "n_links": 98,
+    "page_dates": 25,
+    "detail_ratio": 0.276,
+    "title_ratio": 0.602,
+    "med_len": 8.0
    },
    "candidates": [
     {
@@ -6996,10 +6995,11 @@
     }
    ],
    "error": null,
-   "depth": 2,
+   "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "https://www.zgqingyang.gov.cn/"
   },
   {
    "site": "廊坊市",
@@ -7766,19 +7766,12 @@
   {
    "site": "忻州市",
    "province": "山西省",
-   "home": "https://www.xz.gov.cn/",
-   "board_url": "https://www.xz.gov.cn/002/governmentAffairs.html",
-   "status": "ok",
+   "home": "https://www.sxxz.gov.cn/",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 1,
-   "keyword": "政务公开",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 118,
-    "page_dates": 43,
-    "detail_ratio": 0.0,
-    "title_ratio": 0.458,
-    "med_len": 6.0
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "https://www.xz.gov.cn/dynamic/zwgk/govInfoPubright.html?categorynum=003001002",
@@ -7881,15 +7874,16 @@
     }
    ],
    "error": null,
-   "depth": 3,
+   "depth": null,
    "hub_tried": [
     {
      "url": "https://www.xz.gov.cn/002/governmentAffairs.html",
      "error": null
     }
    ],
-   "board_kind": "hub",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "https://www.sxxz.gov.cn/"
   },
   {
    "site": "怀化市",
@@ -8181,18 +8175,18 @@
   {
    "site": "抚州市",
    "province": "江西省",
-   "home": "https://www.fuzhou.gov.cn/",
-   "board_url": "https://www.fuzhou.gov.cn/zwgk/",
+   "home": "https://www.jxfz.gov.cn/",
+   "board_url": "https://www.jxfz.gov.cn/col/col79/index.html",
    "status": "ok",
    "score": 1,
-   "keyword": "政务公开",
+   "keyword": "政府规章和规范性文件|政府规章",
    "list_likeness": {
     "ok": true,
-    "n_links": 384,
-    "page_dates": 9,
-    "detail_ratio": 0.172,
-    "title_ratio": 0.346,
-    "med_len": 5.0
+    "n_links": 120,
+    "page_dates": 54,
+    "detail_ratio": 0.475,
+    "title_ratio": 0.575,
+    "med_len": 9.5
    },
    "candidates": [
     {
@@ -8296,15 +8290,16 @@
     }
    ],
    "error": null,
-   "depth": 3,
+   "depth": 2,
    "hub_tried": [
     {
      "url": "https://www.fuzhou.gov.cn/zwgk/",
      "error": null
     }
    ],
-   "board_kind": "hub",
-   "level": "city"
+   "board_kind": "normative",
+   "level": "city",
+   "url": "https://www.jxfz.gov.cn/"
   },
   {
    "site": "抚顺市",
@@ -10587,18 +10582,18 @@
   {
    "site": "武威市",
    "province": "甘肃省",
-   "home": "https://www.ww.gov.cn/",
-   "board_url": "https://www.ww.gov.cn/public/column/6603381?type=6&action=list&fileNum=&catIds=",
+   "home": "http://www.gswuwei.gov.cn/",
+   "board_url": "http://www.gswuwei.gov.cn/col/col1655/index.html",
    "status": "ok",
    "score": 5,
-   "keyword": "其他政策文件|政策文件",
+   "keyword": "市政府规章|政府规章",
    "list_likeness": {
     "ok": true,
-    "n_links": 120,
-    "page_dates": 31,
-    "detail_ratio": 0.108,
-    "title_ratio": 0.442,
-    "med_len": 6.0
+    "n_links": 21,
+    "page_dates": 10,
+    "detail_ratio": 0.476,
+    "title_ratio": 0.524,
+    "med_len": 13
    },
    "candidates": [
     {
@@ -10650,7 +10645,8 @@
    "depth": 2,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "http://www.gswuwei.gov.cn/"
   },
   {
    "site": "武汉市",
@@ -10844,17 +10840,17 @@
   {
    "site": "永州市",
    "province": "湖南省",
-   "home": "https://www.yz.gov.cn/",
-   "board_url": "https://www.yz.gov.cn/yangzhong/tjgg/list.shtml",
+   "home": "http://www.yzcity.gov.cn/",
+   "board_url": "http://www.yzcity.gov.cn/cnyz/zwgk/xbzwgk.shtml",
    "status": "ok",
    "score": 1,
-   "keyword": "推荐公告",
+   "keyword": "政务公开",
    "list_likeness": {
     "ok": true,
-    "n_links": 46,
-    "page_dates": 12,
-    "detail_ratio": 0.304,
-    "title_ratio": 0.348,
+    "n_links": 386,
+    "page_dates": 6,
+    "detail_ratio": 0.155,
+    "title_ratio": 0.347,
     "med_len": 5.0
    },
    "candidates": [
@@ -10918,7 +10914,8 @@
    "depth": 2,
    "hub_tried": [],
    "board_kind": "hub",
-   "level": "city"
+   "level": "city",
+   "url": "http://www.yzcity.gov.cn/"
   },
   {
    "site": "汉中市",
@@ -13163,12 +13160,19 @@
   {
    "site": "漯河市",
    "province": "河南省",
-   "home": "https://www.tahe.gov.cn/",
-   "board_url": null,
-   "status": "no_board_found",
+   "home": "https://www.luohe.gov.cn/",
+   "board_url": "https://www.luohe.gov.cn/zfxxgkpt/zc",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政府文件|政府文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 160,
+    "page_dates": 6,
+    "detail_ratio": 0.062,
+    "title_ratio": 0.394,
+    "med_len": 6.0
+   },
    "candidates": [
     {
      "url": "https://www.tahe.gov.cn/th/list.chtml?p=1&id=YB3Qvm",
@@ -13271,7 +13275,7 @@
     }
    ],
    "error": "candidates_not_listlike",
-   "depth": null,
+   "depth": 1,
    "hub_tried": [
     {
      "url": "https://www.tahe.gov.cn/th/list.chtml?p=1&id=equaI3",
@@ -13282,7 +13286,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "url": "https://www.luohe.gov.cn/",
+   "board_kind": "normative"
   },
   {
    "site": "漳州市",
@@ -14208,18 +14214,18 @@
   {
    "site": "白城市",
    "province": "吉林省",
-   "home": "https://www.bc.gov.cn/",
-   "board_url": "https://www.bc.gov.cn/bcxrmzf/c106590/pc/list.html",
+   "home": "http://www.jlbc.gov.cn/",
+   "board_url": "http://www.jlbc.gov.cn/xxgk_3148/",
    "status": "ok",
    "score": 1,
-   "keyword": "其他文件",
+   "keyword": "信息公开",
    "list_likeness": {
     "ok": true,
-    "n_links": 17,
-    "page_dates": 5700,
-    "detail_ratio": 0.0,
-    "title_ratio": 0.529,
-    "med_len": 8
+    "n_links": 583,
+    "page_dates": 138,
+    "detail_ratio": 0.295,
+    "title_ratio": 0.434,
+    "med_len": 6
    },
    "candidates": [
     {
@@ -14256,27 +14262,21 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": 2,
    "hub_tried": [],
    "board_kind": "hub",
-   "level": "city"
+   "level": "city",
+   "url": "http://www.jlbc.gov.cn/"
   },
   {
    "site": "白银市",
    "province": "甘肃省",
-   "home": "https://www.by.gov.cn/",
-   "board_url": "https://www.by.gov.cn/zwgk",
-   "status": "ok",
+   "home": "http://www.baiyin.gov.cn/",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 1,
-   "keyword": "政务公开",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 121,
-    "page_dates": 5,
-    "detail_ratio": 0.008,
-    "title_ratio": 0.405,
-    "med_len": 5
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "https://www.by.gov.cn/hdjlpt/yjzj/answer/52134",
@@ -14346,10 +14346,11 @@
     }
    ],
    "error": null,
-   "depth": 2,
+   "depth": null,
    "hub_tried": [],
-   "board_kind": "hub",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "http://www.baiyin.gov.cn/"
   },
   {
    "site": "百色市",
@@ -16712,7 +16713,7 @@
   {
    "site": "襄阳市",
    "province": "湖北省",
-   "home": "http://www.xy.gov.cn/",
+   "home": "http://www.xiangyang.gov.cn/",
    "board_url": null,
    "status": "no_board_found",
    "score": 0,
@@ -16794,7 +16795,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.xiangyang.gov.cn/",
+   "board_kind": null
   },
   {
    "site": "西宁市",

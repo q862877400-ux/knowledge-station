@@ -1,22 +1,22 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 191,
-  "items": 11999,
-  "texts": 11974,
-  "text_chars": 44672542,
-  "attachment_refs": 550,
-  "attachment_files": 542,
-  "sites_with_items": 166,
-  "sites_multi_page": 53,
-  "attachment_bytes": 469383247,
-  "attachment_mb": 447.6
+  "sites_crawled": 195,
+  "items": 12050,
+  "texts": 12025,
+  "text_chars": 44985093,
+  "attachment_refs": 554,
+  "attachment_files": 546,
+  "sites_with_items": 170,
+  "sites_multi_page": 54,
+  "attachment_bytes": 469839109,
+  "attachment_mb": 448.1
  },
  "by_level": {
   "city": {
    "discovered": 274,
-   "ok": 214,
-   "no_board_found": 43,
+   "ok": 212,
+   "no_board_found": 45,
    "js_rendered": 14,
    "unreachable": 3
   },
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 194,
+  "sites": 191,
   "with_rule": 34
  },
  "province_portals": {
@@ -1132,6 +1132,30 @@
    "oldest_date": "2025-02-00",
    "run_at": "2026-11-02 19:36:31",
    "engine": "cdp"
+  },
+  {
+   "site": "抚州市",
+   "dir": "var\\data\\national\\江西省\\抚州市",
+   "status": "list_only_ok",
+   "board": "https://www.jxfz.gov.cn/col/col79/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 35,
+   "texts": 35,
+   "text_chars": 229566,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 35,
+   "newest_date": "2026-06-03",
+   "oldest_date": "2020-12-21",
+   "run_at": "2026-11-02 20:46:15",
+   "engine": "static"
   },
   {
    "site": "石家庄市",
@@ -3438,6 +3462,30 @@
    "engine": "static"
   },
   {
+   "site": "庆阳市",
+   "dir": "var\\data\\national\\甘肃省\\庆阳市",
+   "status": "list_only_ok",
+   "board": "https://www.zgqingyang.gov.cn/gk/zfxxgk/zcwjk",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 6,
+   "texts": 6,
+   "text_chars": 41375,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 6,
+   "newest_date": "2026-08-28",
+   "oldest_date": "2026-05-12",
+   "run_at": "2026-11-02 20:46:49",
+   "engine": "static"
+  },
+  {
    "site": "柳州市",
    "dir": "var\\data\\national\\广西壮族自治区\\柳州市",
    "status": "list_only_ok",
@@ -3528,6 +3576,24 @@
    "engine": "static"
   },
   {
+   "site": "六盘水市",
+   "dir": "var\\data\\national\\贵州省\\六盘水市",
+   "status": "ok",
+   "board": "https://www.gzlps.gov.cn/zwgk/zfxxgkzl/fdzdgknr/qtfdxx/ggsjk/",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 5,
+   "texts": 5,
+   "text_chars": 18494,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 5,
+   "newest_date": "2025-04-23",
+   "oldest_date": "2021-01-19",
+   "run_at": "2026-11-02 20:48:46",
+   "engine": "cdp"
+  },
+  {
    "site": "呼伦贝尔市",
    "dir": "var\\data\\national\\内蒙古自治区\\呼伦贝尔市",
    "status": "list_only_ok",
@@ -3549,6 +3615,30 @@
    "newest_date": "2026-08-08",
    "oldest_date": "2025-03-28",
    "run_at": "2026-11-02 12:03:52",
+   "engine": "static"
+  },
+  {
+   "site": "武威市",
+   "dir": "var\\data\\national\\甘肃省\\武威市",
+   "status": "list_only_ok",
+   "board": "http://www.gswuwei.gov.cn/col/col1655/index.html",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 5,
+   "texts": 5,
+   "text_chars": 23116,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 5,
+   "newest_date": "2024-04-04",
+   "oldest_date": "2019-07-16",
+   "run_at": "2026-11-02 20:46:18",
    "engine": "static"
   },
   {
@@ -3984,6 +4074,30 @@
    "engine": "static"
   },
   {
+   "site": "伊犁哈萨克自治州",
+   "dir": "var\\data\\national\\新疆维吾尔自治区\\伊犁哈萨克自治州",
+   "status": "js_unparsable",
+   "board": "http://www.xjyl.gov.cn/xjylz/c112882/hngzk_search.shtml",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-02 20:46:53",
+   "engine": "static"
+  },
+  {
    "site": "南充市",
    "dir": "var\\data\\national\\四川省\\南充市",
    "status": "js_unparsable",
@@ -4176,30 +4290,6 @@
    "engine": "static"
   },
   {
-   "site": "庆阳市",
-   "dir": "var\\data\\national\\甘肃省\\庆阳市",
-   "status": "js_unparsable",
-   "board": "http://www.qy.gov.cn/qy/zcwjk/zcwjk.shtml",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:03:59",
-   "engine": "static"
-  },
-  {
    "site": "开封市",
    "dir": "var\\data\\national\\河南省\\开封市",
    "status": "js_unparsable",
@@ -4320,30 +4410,6 @@
    "engine": "static"
   },
   {
-   "site": "武威市",
-   "dir": "var\\data\\national\\甘肃省\\武威市",
-   "status": "js_unparsable",
-   "board": "https://www.ww.gov.cn/public/column/6603381?type=6&action=list&fileNum=&catIds=",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:04:18",
-   "engine": "static"
-  },
-  {
    "site": "淮南市",
    "dir": "var\\data\\national\\安徽省\\淮南市",
    "status": "js_unparsable",
@@ -4389,6 +4455,30 @@
    "newest_date": null,
    "oldest_date": null,
    "run_at": "2026-11-02 16:35:30",
+   "engine": "static"
+  },
+  {
+   "site": "漯河市",
+   "dir": "var\\data\\national\\河南省\\漯河市",
+   "status": "js_unparsable",
+   "board": "https://www.luohe.gov.cn/zfxxgkpt/zc",
+   "pagination": {
+    "rule": null,
+    "page2_url": null,
+    "overlap": null,
+    "new": 0,
+    "ok": false
+   },
+   "pages_this_run": 1,
+   "items": 0,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 0,
+   "newest_date": null,
+   "oldest_date": null,
+   "run_at": "2026-11-02 20:46:20",
    "engine": "static"
   },
   {
