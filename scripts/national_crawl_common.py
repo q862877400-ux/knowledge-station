@@ -48,7 +48,15 @@ def merge_and_save(site: str, board: str, items: list[dict], *,
                    province: str = "未知", engine: str = "static",
                    extra: dict | None = None) -> dict:
     """按 URL 合并进该站 items.jsonl，刷新快照，返回 {items_total, items_new}。"""
-    sdir = OUTDIR / str(province) / str(site).replace("/", "_")
+    safe = str(site).replace("/", "_")
+    if not province or province == "未知":
+        # 已有同名目录就沿用它，避免同一站写出两份（实测：人社部被写成
+        # `中央/` 与 `未知/` 两份，一份有正文、一份没有）
+        for cand in OUTDIR.rglob(safe):
+            if cand.is_dir():
+                province = cand.parent.name
+                break
+    sdir = OUTDIR / str(province or "未知") / safe
     sdir.mkdir(parents=True, exist_ok=True)
     f = sdir / "items.jsonl"
     prev: list[dict] = []

@@ -24178,10 +24178,20 @@
    "url": "https://www.js.gov.cn/",
    "home": "https://www.js.gov.cn/",
    "level": "province",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.js.gov.cn/col/col84241/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "行政规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 223,
+    "page_dates": 20,
+    "detail_ratio": 0.152,
+    "title_ratio": 0.345,
+    "med_len": 6
+   },
+   "discovered_by": "hunt/via_hub"
   },
   {
    "site": "江西省",

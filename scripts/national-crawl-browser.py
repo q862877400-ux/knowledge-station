@@ -334,6 +334,57 @@ def crawl_site_cdp(site: str, rec: dict, port: int, pages: int) -> dict:
         page.close()
 
 
+
+def fill_text_cdp(site: str, port: int, limit: int = 200,
+                  min_chars: int = 40) -> dict:
+    """给某站**缺正文**的条目补正文（用 CDP 渲染详情页）。
+
+    为什么需要：有些站的详情页是脚本渲染的，静态抓只回 ~1KB 空壳
+    （实测人社部详情页 988 字节），所以 `--text-only` 补不上。
+    """
+    import hashlib
+    rows = []
+    for f in OUTDIR.rglob("items.jsonl"):
+        if f.parent.name != site:
+            continue
+        for ln in f.read_text(encoding="utf-8").splitlines():
+            if ln.strip():
+                rows.append(json.loads(ln))
+        target_dir = f.parent
+        break
+    else:
+        return {"site": site, "filled": 0, "reason": "no_items"}
+
+    todo = [x for x in rows if not x.get("text_file") and x.get("url")][:limit]
+    if not todo:
+        return {"site": site, "filled": 0, "reason": "nothing_missing"}
+    tdir = target_dir / "text"
+    tdir.mkdir(parents=True, exist_ok=True)
+    page = CDPPage(port)
+    filled = 0
+    try:
+        for it in todo:
+            page.open(it["url"])
+            html = page.wait_items(lambda h: len(h) > 3000,
+                                   timeout_s=15.0)
+            txt = ncf.clean_body(ncf.main_text(html), it.get("title") or "")
+            if len(txt) < min_chars:
+                continue
+            key = hashlib.sha256(it["url"].encode()).hexdigest()[:16]
+            tf = tdir / (key + ".txt")
+            tf.write_text(txt, encoding="utf-8")
+            it["text_file"] = str(tf.relative_to(ROOT))
+            it["text_chars"] = len(txt)
+            filled += 1
+    finally:
+        page.close()
+    if filled:
+        (target_dir / "items.jsonl").write_text(
+            "\n".join(json.dumps(x, ensure_ascii=False) for x in rows) + "\n",
+            encoding="utf-8")
+    return {"site": site, "filled": filled, "tried": len(todo)}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--sites", nargs="*", default=[])
@@ -348,6 +399,8 @@ def main() -> int:
                     help="攻「政务公开大目录」站：先渲染找规范文件子栏目再抓")
     ap.add_argument("--engine", default="dom", choices=["dom", "cdp"])
     ap.add_argument("--port", type=int, default=9333)
+    ap.add_argument("--fill-text", action="store_true",
+                    help="只做一件事：给缺正文的条目用 CDP 补正文")
     ap.add_argument("--dry", action="store_true")
     args = ap.parse_args()
 
@@ -390,6 +443,19 @@ def main() -> int:
         if not wait_debug_port(args.port):
             print("调试端口没起来")
             return 3
+    if args.fill_text:
+        proc = start_debug_browser(exe, args.port)
+        try:
+            if not wait_debug_port(args.port):
+                print("调试端口没起来")
+                return 3
+            for i, (site, _rec) in enumerate(targets, 1):
+                r = fill_text_cdp(site, args.port)
+                print(f'  {i}/{len(targets)} {site[:12]:14} 补正文 '
+                      f'{r.get("filled")}/{r.get("tried", 0)}')
+        finally:
+            proc.terminate()
+        return 0
     if args.dry:
         return 0
 
