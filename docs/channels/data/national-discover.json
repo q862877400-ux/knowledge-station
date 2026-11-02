@@ -462,9 +462,9 @@
   {
    "site": "东莞市",
    "province": "广东省",
-   "home": "https://www.dongguan.gov.cn/",
+   "home": "http://www.dongguan.gov.cn/",
    "board_url": null,
-   "status": "unreachable",
+   "status": "no_board_found",
    "score": 0,
    "keyword": "",
    "list_likeness": null,
@@ -472,7 +472,9 @@
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL: no alternative certificate subject name matches target hostname '",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.dongguan.gov.cn/",
+   "board_kind": null
   },
   {
    "site": "东营市",
@@ -759,19 +761,12 @@
   {
    "site": "临沧市",
    "province": "云南省",
-   "home": "http://www.lc.gov.cn/",
-   "board_url": "http://www.lc.gov.cn/lcxxgk/xxgkml/jbxxgk/zfwj/",
-   "status": "ok",
+   "home": "https://www.lincang.gov.cn/",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 4,
-   "keyword": "政府文件|政府文件",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 54,
-    "page_dates": 18,
-    "detail_ratio": 0.333,
-    "title_ratio": 0.519,
-    "med_len": 9.0
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [
     {
      "url": "http://www.lc.gov.cn/lcxxgk/xxgkml/jbxxgk/zfwj/",
@@ -807,10 +802,11 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": null,
    "hub_tried": [],
-   "board_kind": "normative",
-   "level": "city"
+   "board_kind": null,
+   "level": "city",
+   "url": "https://www.lincang.gov.cn/"
   },
   {
    "site": "丹东市",
@@ -1554,7 +1550,7 @@
   {
    "site": "伊春市",
    "province": "黑龙江省",
-   "home": "https://www.yichun.gov.cn/",
+   "home": "https://www.yc.gov.cn/",
    "board_url": null,
    "status": "no_board_found",
    "score": 0,
@@ -1636,7 +1632,9 @@
      "error": null
     }
    ],
-   "level": "city"
+   "level": "city",
+   "url": "https://www.yc.gov.cn/",
+   "board_kind": null
   },
   {
    "site": "伊犁哈萨克自治州",
@@ -4917,18 +4915,18 @@
   {
    "site": "大同市",
    "province": "山西省",
-   "home": "https://www.datong.gov.cn/",
-   "board_url": "https://www.datong.gov.cn/zfxxgk/fdzdgknr/zcwj/zcfg/",
+   "home": "https://www.dt.gov.cn/",
+   "board_url": "https://www.dt.gov.cn/dtszf/jczwgk/jczwgkindex.shtml",
    "status": "ok",
    "score": 5,
-   "keyword": "政策法规|政策法规",
+   "keyword": "&#xe887; 基层政务公开 标准化规范化",
    "list_likeness": {
     "ok": true,
-    "n_links": 55,
-    "page_dates": 30,
-    "detail_ratio": 0.273,
-    "title_ratio": 0.491,
-    "med_len": 7
+    "n_links": 286,
+    "page_dates": 13,
+    "detail_ratio": 0.325,
+    "title_ratio": 0.154,
+    "med_len": 4.0
    },
    "candidates": [
     {
@@ -4965,10 +4963,11 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": 2,
    "hub_tried": [],
-   "board_kind": "normative",
-   "level": "city"
+   "board_kind": "hub",
+   "level": "city",
+   "url": "https://www.dt.gov.cn/"
   },
   {
    "site": "大庆市",
@@ -5070,9 +5069,9 @@
     "ok": true,
     "n_links": 164,
     "page_dates": 60,
-    "detail_ratio": 0.457,
+    "detail_ratio": 0.445,
     "title_ratio": 0.573,
-    "med_len": 14.0
+    "med_len": 14.5
    },
    "candidates": [
     {
@@ -5113,7 +5112,8 @@
    "depth": 1,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "https://www.dl.gov.cn/"
   },
   {
    "site": "太原市",
@@ -6399,25 +6399,19 @@
    "site": "岳阳市",
    "province": "湖南省",
    "home": "https://www.yueyang.gov.cn/",
-   "board_url": "https://www.yueyang.gov.cn/zwgk/zcwj/default.htm",
-   "status": "ok",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 0,
-   "keyword": "文件库|文件库",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 55,
-    "page_dates": 29,
-    "detail_ratio": 0.309,
-    "title_ratio": 0.327,
-    "med_len": 4
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
    "level": "city",
-   "board_kind": "normative",
-   "discovered_by": "hunt/direct"
+   "board_kind": null,
+   "discovered_by": "hunt/direct",
+   "url": "https://www.yueyang.gov.cn/"
   },
   {
    "site": "崇左市",
@@ -12954,25 +12948,19 @@
    "site": "湘潭市",
    "province": "湖南省",
    "home": "https://www.xiangtan.gov.cn/",
-   "board_url": "https://www.xiangtan.gov.cn/109/202/26291/index.htm",
-   "status": "ok",
+   "board_url": null,
+   "status": "no_board_found",
    "score": 0,
-   "keyword": "文件库|文件库",
-   "list_likeness": {
-    "ok": true,
-    "n_links": 55,
-    "page_dates": 11,
-    "detail_ratio": 0.218,
-    "title_ratio": 0.473,
-    "med_len": 7
-   },
+   "keyword": "",
+   "list_likeness": null,
    "candidates": [],
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
    "level": "city",
-   "board_kind": "normative",
-   "discovered_by": "hunt/direct"
+   "board_kind": null,
+   "discovered_by": "hunt/direct",
+   "url": "https://www.xiangtan.gov.cn/"
   },
   {
    "site": "湛江市",
@@ -14500,7 +14488,9 @@
    "error": "no_keyword_link",
    "depth": null,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "url": "https://www.yiyang.gov.cn/",
+   "board_kind": null
   },
   {
    "site": "盐城市",
@@ -15407,17 +15397,26 @@
   {
    "site": "聊城市",
    "province": "山东省",
-   "home": "https://www.liaocheng.gov.cn/",
-   "board_url": null,
-   "status": "unreachable",
+   "home": "http://www.liaocheng.gov.cn/",
+   "board_url": "http://www.liaocheng.gov.cn/channel_lc_lcsrmzfchannel201911221748269210296321/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "规范性文件|规范性文件",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 72,
+    "page_dates": 34,
+    "detail_ratio": 0.0,
+    "title_ratio": 0.639,
+    "med_len": 10.0
+   },
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL: no alternative certificate subject name matches target hostname '",
-   "depth": null,
+   "depth": 2,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.liaocheng.gov.cn/",
+   "board_kind": "normative"
   },
   {
    "site": "肇庆市",
@@ -18006,17 +18005,26 @@
   {
    "site": "邢台市",
    "province": "河北省",
-   "home": "https://www.xingtai.gov.cn/",
-   "board_url": null,
-   "status": "unreachable",
+   "home": "http://www.xingtai.gov.cn/",
+   "board_url": "http://www.xingtai.gov.cn/zwgk/",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政务公开",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 217,
+    "page_dates": 58,
+    "detail_ratio": 0.235,
+    "title_ratio": 0.332,
+    "med_len": 4
+   },
    "candidates": [],
    "error": "SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; ",
-   "depth": null,
+   "depth": 2,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.xingtai.gov.cn/",
+   "board_kind": "hub"
   },
   {
    "site": "那曲市",
@@ -19255,18 +19263,18 @@
   {
    "site": "阜阳市",
    "province": "安徽省",
-   "home": "https://www.fuyang.gov.cn/",
-   "board_url": "http://www.fuyang.gov.cn/col/col1229051927/index.html",
+   "home": "https://www.fy.gov.cn/",
+   "board_url": "https://www.fy.gov.cn/PolicyContent/?keyword=&branchId=2&policyType=2",
    "status": "ok",
    "score": 5,
-   "keyword": "规范性文件|规范性文件",
+   "keyword": "政策文件库|政策文件",
    "list_likeness": {
     "ok": true,
-    "n_links": 99,
-    "page_dates": 35,
-    "detail_ratio": 0.394,
-    "title_ratio": 0.626,
-    "med_len": 10
+    "n_links": 260,
+    "page_dates": 18,
+    "detail_ratio": 0.265,
+    "title_ratio": 0.381,
+    "med_len": 5.0
    },
    "candidates": [
     {
@@ -19304,10 +19312,11 @@
     }
    ],
    "error": null,
-   "depth": 1,
+   "depth": 2,
    "hub_tried": [],
    "board_kind": "normative",
-   "level": "city"
+   "level": "city",
+   "url": "https://www.fy.gov.cn/"
   },
   {
    "site": "阳江市",
@@ -19576,17 +19585,26 @@
   {
    "site": "阿拉善盟",
    "province": "内蒙古自治区",
-   "home": "https://www.als.gov.cn/",
-   "board_url": null,
-   "status": "unreachable",
+   "home": "http://www.als.gov.cn/",
+   "board_url": "http://www.als.gov.cn/col/col4768/index.html",
+   "status": "ok",
    "score": 0,
-   "keyword": "",
-   "list_likeness": null,
+   "keyword": "政府信息公开制度",
+   "list_likeness": {
+    "ok": true,
+    "n_links": 26,
+    "page_dates": 13,
+    "detail_ratio": 0.5,
+    "title_ratio": 0.808,
+    "med_len": 13.5
+   },
    "candidates": [],
    "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer cert",
-   "depth": null,
+   "depth": 3,
    "hub_tried": [],
-   "level": "city"
+   "level": "city",
+   "url": "http://www.als.gov.cn/",
+   "board_kind": "hub"
   },
   {
    "site": "阿里地区",
