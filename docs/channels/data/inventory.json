@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 259,
+  "sites": 260,
   "with_rule": 12
  },
  "province_portals": {
@@ -968,10 +968,10 @@
    "text_chars": 0,
    "attachments": 0,
    "attachment_files": 0,
-   "items_new_this_run": 45,
+   "items_new_this_run": 0,
    "newest_date": "2026-01",
    "oldest_date": "2025-01",
-   "run_at": "2026-11-03 11:24:55",
+   "run_at": "2026-11-03 11:29:14",
    "engine": "gazette"
   },
   {

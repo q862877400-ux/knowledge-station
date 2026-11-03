@@ -23,7 +23,6 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import re
 import sys
@@ -34,15 +33,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 
-def _load(name: str, rel: str):
-    spec = importlib.util.spec_from_file_location(name, ROOT / rel)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-ncf = _load("ncf", "scripts/national-crawl-fetch.py")
-ncs = _load("ncs", "scripts/national_crawl_common.py")
+sys.path.insert(0, str(ROOT / "scripts"))
+ncs = __import__("national_crawl_common")      # 公用件（加载器/合并存库）
+ncf = ncs.load_script("ncf", "scripts/national-crawl-fetch.py")
 
 #: 文号格式：晋政办发〔2024〕58号 / 黔府发〔2024〕3号 / 闽政〔2018〕86号
 DOCNO_RE = re.compile(r"([\u4e00-\u9fa5]{2,10}〔\d{4}〕\s*\d+\s*号)")
@@ -103,7 +96,8 @@ def parse_issue(html: str, url: str, province: str) -> list[dict]:
         if any(w in title for w in DROP):
             continue
         tail = txt[m.end(): m.end() + 40]
-        no = DOCNO_RE.search(tail) or DOCNO_RE.search(txt[max(0, m.start() - 40):m.start()])
+        near = txt[max(0, m.start() - 40):m.start()]
+        no = DOCNO_RE.search(tail) or DOCNO_RE.search(near)
         docno = no.group(1) if no else ""
         key = docno or title
         if key in seen:

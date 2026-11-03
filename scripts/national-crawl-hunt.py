@@ -33,7 +33,6 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import sys
 import time
@@ -43,16 +42,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 
-def _load(name: str, rel: str):
-    spec = importlib.util.spec_from_file_location(name, ROOT / rel)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-ncb = _load("ncb", "scripts/national-crawl-browser.py")   # render / find_normative_column
-ncd = _load("ncd", "scripts/national-crawl-discover.py")  # find_candidates / list_likeness
-ncf = _load("ncf", "scripts/national-crawl-fetch.py")     # parse_items（硬验证用）
+sys.path.insert(0, str(ROOT / "scripts"))
+ncs = __import__("national_crawl_common")      # 公用件（加载器/合并存库）
+ncb = ncs.load_script("ncb", "scripts/national-crawl-browser.py")   # 渲染
+ncd = ncs.load_script("ncd", "scripts/national-crawl-discover.py")  # 候选/判据
+ncf = ncs.load_script("ncf", "scripts/national-crawl-fetch.py")     # 解析条目
 
 DISCOVER = ROOT / "docs" / "channels" / "data" / "national-discover.json"
 PROGRESS = ROOT / "var" / "tmp" / "hunt-progress.json"

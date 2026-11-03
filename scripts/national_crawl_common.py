@@ -36,6 +36,18 @@ BROWSERS = (
     r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
 )
 
+def load_script(name: str, rel: str):
+    """按路径加载同目录脚本。
+
+    本仓脚本用连字符命名（`national-crawl-fetch.py`），不能直接 `import`。
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(name, ROOT / rel)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
 def find_browser() -> str | None:
     """本机可用的无头浏览器路径（找不到返回 None）。"""
     for p in BROWSERS:
