@@ -23851,10 +23851,11 @@
    "url": "https://www.mps.gov.cn/",
    "home": "https://www.mps.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://app.mps.gov.cn/gdnps/zc/list.jsp",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（规章库）"
   },
   {
    "site": "民政部",
@@ -23862,10 +23863,11 @@
    "url": "https://www.mca.gov.cn/",
    "home": "https://www.mca.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://www.mca.gov.cn/n2623/n2687/n2696/n2745/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（政策文件）"
   },
   {
    "site": "财政部",
@@ -23917,10 +23919,11 @@
    "url": "https://www.mot.gov.cn/",
    "home": "https://www.mot.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "https://xxgk.mot.gov.cn/2020/zhengce/740/834/iframe_list_7232_1.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（规章/政策栏目）"
   },
   {
    "site": "水利部",
@@ -23928,10 +23931,11 @@
    "url": "https://www.mwr.gov.cn/",
    "home": "https://www.mwr.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.mwr.gov.cn/zwgk/gzk/bmgz/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（规章/政策栏目）"
   },
   {
    "site": "文化和旅游部",
