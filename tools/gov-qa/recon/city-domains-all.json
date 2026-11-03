@@ -848,7 +848,8 @@
   "province": "山东省",
   "status": 200,
   "url": "http://www.rizhao.gov.cn/",
-  "via": "pinyin"
+  "via": "pinyin",
+  "exclude_crawl": "栏目内容全部指向中国政府网（转载镜像），非本市文件"
  },
  "昆明市": {
   "host": "km",
@@ -1050,7 +1051,8 @@
   "province": "河北省",
   "status": 200,
   "url": "https://www.cangzhou.gov.cn/",
-  "via": "known"
+  "via": "known",
+  "exclude_crawl": "栏目内容全部指向中国政府网（转载镜像），非本市文件"
  },
  "河池市": {
   "host": "hechi",
@@ -1113,7 +1115,8 @@
   "province": "山东省",
   "status": 200,
   "url": "https://www.jining.gov.cn/",
-  "via": "pinyin"
+  "via": "pinyin",
+  "exclude_crawl": "栏目内容全部指向中国政府网（转载镜像），非本市文件"
  },
  "济源市": {
   "host": "jiyuan",
@@ -1485,7 +1488,8 @@
   "province": "山东省",
   "status": 200,
   "url": "http://www.heze.gov.cn/",
-  "via": "pinyin"
+  "via": "pinyin",
+  "exclude_crawl": "栏目内容全部指向中国政府网（转载镜像），非本市文件"
  },
  "萍乡市": {
   "host": "pingxiang",

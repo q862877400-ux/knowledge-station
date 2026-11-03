@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 261,
-  "items": 24403,
-  "texts": 24063,
-  "text_chars": 85097505,
+  "sites_crawled": 259,
+  "items": 24426,
+  "texts": 24081,
+  "text_chars": 85193364,
   "attachment_refs": 693,
-  "attachment_files": 687,
-  "sites_with_items": 238,
-  "sites_multi_page": 107,
-  "attachment_bytes": 582300873,
-  "attachment_mb": 555.3
+  "attachment_files": 683,
+  "sites_with_items": 241,
+  "sites_multi_page": 109,
+  "attachment_bytes": 577670323,
+  "attachment_mb": 550.9
  },
  "by_level": {
   "city": {
@@ -32,7 +32,7 @@
   }
  },
  "site_rules": {
-  "sites": 259,
+  "sites": 261,
   "with_rule": 12
  },
  "province_portals": {
@@ -2726,6 +2726,24 @@
    "engine": "cdp"
   },
   {
+   "site": "最高人民法院",
+   "dir": "var\\data\\national\\中央\\最高人民法院",
+   "status": "ok",
+   "board": "https://www.court.gov.cn/fabu/gengduo/18.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 14,
+   "texts": 14,
+   "text_chars": 82145,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 14,
+   "newest_date": "2026-10-21",
+   "oldest_date": "2025-09-28",
+   "run_at": "2026-11-03 11:14:14",
+   "engine": "cdp"
+  },
+  {
    "site": "衢州市",
    "dir": "var\\data\\national\\浙江省\\衢州市",
    "status": "ok",
@@ -4090,6 +4108,24 @@
    "engine": "static"
   },
   {
+   "site": "审计署",
+   "dir": "var\\data\\national\\中央\\审计署",
+   "status": "ok",
+   "board": "https://www.audit.gov.cn/gdnps/html/zhengce/list.jsp",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 5,
+   "texts": 0,
+   "text_chars": 0,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 5,
+   "newest_date": "2021-11-19",
+   "oldest_date": "2010-09-01",
+   "run_at": "2026-11-03 11:15:44",
+   "engine": "cdp"
+  },
+  {
    "site": "常德市",
    "dir": "var\\data\\national\\湖南省\\常德市",
    "status": "ok",
@@ -4219,6 +4255,24 @@
    "newest_date": "2026-10-28",
    "oldest_date": "2026-06-25",
    "run_at": "2026-11-03 08:55:08",
+   "engine": "cdp"
+  },
+  {
+   "site": "国家疾病预防控制局",
+   "dir": "var\\data\\national\\中央\\国家疾病预防控制局",
+   "status": "ok",
+   "board": "https://www.ndcpa.gov.cn/jbkzzx/c100081/common/list.html",
+   "pagination": null,
+   "pages_this_run": 3,
+   "items": 4,
+   "texts": 4,
+   "text_chars": 13714,
+   "attachments": 0,
+   "attachment_files": 0,
+   "items_new_this_run": 4,
+   "newest_date": "2023-20",
+   "oldest_date": "2023-04",
+   "run_at": "2026-11-03 11:14:46",
    "engine": "cdp"
   },
   {
@@ -4720,30 +4774,6 @@
    "engine": "static"
   },
   {
-   "site": "国家疾病预防控制局",
-   "dir": "var\\data\\national\\中央\\国家疾病预防控制局",
-   "status": "js_unparsable",
-   "board": "https://www.ndcpa.gov.cn/jbkzzx/c100081/common/list.html",
-   "pagination": {
-    "rule": null,
-    "page2_url": null,
-    "overlap": null,
-    "new": 0,
-    "ok": false
-   },
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 0,
-   "newest_date": null,
-   "oldest_date": null,
-   "run_at": "2026-11-02 12:05:31",
-   "engine": "static"
-  },
-  {
    "site": "外交部",
    "dir": "var\\data\\national\\中央\\外交部",
    "status": "js_unparsable",
@@ -4864,24 +4894,6 @@
    "engine": "static"
   },
   {
-   "site": "日照市",
-   "dir": "var\\data\\national\\山东省\\日照市",
-   "status": "ok",
-   "board": "http://www.rizhao.gov.cn/col/col208172/index.html?vc_xxgkarea=371100000000&jh=261",
-   "pagination": null,
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 9,
-   "newest_date": "2022-01-04",
-   "oldest_date": "2017-10-24",
-   "run_at": "2026-11-03 08:35:16",
-   "engine": "cdp"
-  },
-  {
    "site": "晋中市",
    "dir": "var\\data\\national\\山西省\\晋中市",
    "status": "js_unparsable",
@@ -4904,42 +4916,6 @@
    "oldest_date": null,
    "run_at": "2026-11-02 12:04:12",
    "engine": "static"
-  },
-  {
-   "site": "沧州市",
-   "dir": "var\\data\\national\\河北省\\沧州市",
-   "status": "ok",
-   "board": "https://www.cangzhou.gov.cn/",
-   "pagination": null,
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 5,
-   "newest_date": "2026-10-26",
-   "oldest_date": "2026-10-08",
-   "run_at": "2026-11-03 08:40:30",
-   "engine": "cdp"
-  },
-  {
-   "site": "济宁市",
-   "dir": "var\\data\\national\\山东省\\济宁市",
-   "status": "ok",
-   "board": "https://www.jining.gov.cn/col/col33381/index.html?vc_xxgkarea=11370800004312466C-ZF&number=B0303&jh=263",
-   "pagination": null,
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 4,
-   "items_new_this_run": 8,
-   "newest_date": "2021-09-29",
-   "oldest_date": "2017-10-24",
-   "run_at": "2026-11-03 08:40:33",
-   "engine": "cdp"
   },
   {
    "site": "淮南市",
@@ -4988,24 +4964,6 @@
    "oldest_date": null,
    "run_at": "2026-11-02 20:46:20",
    "engine": "static"
-  },
-  {
-   "site": "菏泽市",
-   "dir": "var\\data\\national\\山东省\\菏泽市",
-   "status": "ok",
-   "board": "http://www.heze.gov.cn/fdnew/gkzd.html",
-   "pagination": null,
-   "pages_this_run": 1,
-   "items": 0,
-   "texts": 0,
-   "text_chars": 0,
-   "attachments": 0,
-   "attachment_files": 0,
-   "items_new_this_run": 9,
-   "newest_date": "2021-11-01",
-   "oldest_date": "2017-10-24",
-   "run_at": "2026-11-03 08:48:05",
-   "engine": "cdp"
   },
   {
    "site": "衡阳市",
