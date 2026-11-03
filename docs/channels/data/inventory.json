@@ -1,16 +1,16 @@
 {
  "generated_by": "scripts/channels-delivery-report.py",
  "totals": {
-  "sites_crawled": 259,
-  "items": 24265,
-  "texts": 23926,
-  "text_chars": 84630713,
-  "attachment_refs": 689,
-  "attachment_files": 683,
-  "sites_with_items": 236,
-  "sites_multi_page": 106,
-  "attachment_bytes": 581750723,
-  "attachment_mb": 554.8
+  "sites_crawled": 261,
+  "items": 24403,
+  "texts": 24063,
+  "text_chars": 85097505,
+  "attachment_refs": 693,
+  "attachment_files": 687,
+  "sites_with_items": 238,
+  "sites_multi_page": 107,
+  "attachment_bytes": 582300873,
+  "attachment_mb": 555.3
  },
  "by_level": {
   "city": {
@@ -27,13 +27,13 @@
   },
   "ministry": {
    "discovered": 61,
-   "ok": 39,
-   "no_board_found": 22
+   "ok": 42,
+   "no_board_found": 19
   }
  },
  "site_rules": {
-  "sites": 255,
-  "with_rule": 11
+  "sites": 259,
+  "with_rule": 12
  },
  "province_portals": {
   "total": 26,
@@ -669,6 +669,24 @@
    "newest_date": "2026-11-30",
    "oldest_date": "2023-01-19",
    "run_at": "2026-11-02 21:08:10",
+   "engine": "cdp"
+  },
+  {
+   "site": "国家中医药管理局",
+   "dir": "var\\data\\national\\中央\\国家中医药管理局",
+   "status": "ok",
+   "board": "http://www.natcm.gov.cn/fajiansi/zhengcewenjian/",
+   "pagination": null,
+   "pages_this_run": 4,
+   "items": 114,
+   "texts": 113,
+   "text_chars": 398877,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 0,
+   "newest_date": "2025-12-02",
+   "oldest_date": "2003-01-01",
+   "run_at": "2026-11-03 10:44:29",
    "engine": "cdp"
   },
   {
@@ -1779,6 +1797,24 @@
    "newest_date": "2026-04-30",
    "oldest_date": "2022-08-26",
    "run_at": "2026-11-02 21:51:57",
+   "engine": "cdp"
+  },
+  {
+   "site": "国家文物局",
+   "dir": "var\\data\\national\\中央\\国家文物局",
+   "status": "ok",
+   "board": "http://www.ncha.gov.cn/col/col2407/index.html",
+   "pagination": null,
+   "pages_this_run": 1,
+   "items": 24,
+   "texts": 24,
+   "text_chars": 67915,
+   "attachments": 2,
+   "attachment_files": 2,
+   "items_new_this_run": 24,
+   "newest_date": "2023-03-24",
+   "oldest_date": "2018-06-20",
+   "run_at": "2026-11-03 10:42:49",
    "engine": "cdp"
   },
   {

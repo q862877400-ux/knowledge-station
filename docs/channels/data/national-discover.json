@@ -24077,10 +24077,11 @@
    "url": "https://www.caac.gov.cn/",
    "home": "https://www.caac.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.caac.gov.cn/XXGK/XXGK/MHGZ/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（待验证）"
   },
   {
    "site": "国家文物局",
@@ -24088,10 +24089,11 @@
    "url": "https://www.ncha.gov.cn/",
    "home": "https://www.ncha.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.ncha.gov.cn/col/col2407/index.html",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位（待验证）"
   },
   {
    "site": "国家中医药管理局",
@@ -24099,10 +24101,11 @@
    "url": "https://www.natcm.gov.cn/",
    "home": "https://www.natcm.gov.cn/",
    "level": "ministry",
-   "status": "no_board_found",
-   "board_url": null,
-   "board_kind": null,
-   "note": "待摸入口"
+   "status": "ok",
+   "board_url": "http://www.natcm.gov.cn/fajiansi/zhengcewenjian/",
+   "board_kind": "normative",
+   "note": "待摸入口",
+   "keyword": "搜索定位"
   },
   {
    "site": "国家公园管理局",
